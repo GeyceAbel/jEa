@@ -1,4 +1,4 @@
-sqllog.file=c:\\jea\\sqllog.html
+sqllog.file=.\\sqllog.html
 carpetatxt=c:\\geyce\\contaasp\\txt\\
 carpetaexcel=c:\\geyce\\contaasp\\excel\\
 AEAT.DIRTMP=c:\\geyce\\aeat\\tmp\\
