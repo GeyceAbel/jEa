@@ -1,0 +1,47 @@
+sqllog.file=c:\\jea\\sqllog.html
+carpetatxt=c:\\geyce\\contaasp\\txt\\
+carpetaexcel=c:\\geyce\\contaasp\\excel\\
+AEAT.DIRTMP=c:\\geyce\\aeat\\tmp\\
+AEAT.DIR=c:\\geyce\\aeat\\
+CODIGOGEYCE=999999999999
+PUERTO=6000
+CONTROLCONVERSION=contaasp.cnv
+CONTAB.HOME=c:\\geyce\\contaasp\\
+HOME=c:\\geyce\\contaasp\\
+SERVIDOR=localhost
+BDAFINITY=NO
+
+
+Sede=1
+;fondo=jedifc.jpg
+Sede.nombre=GEYCE,S.A.
+Central.codigo=1
+Central.nombre=Central
+Aplicacion.subtitulo=Gestión Administrativa AGPI
+LookAndFeel=javax.swing.plaf.metal.MetalLookAndFeel
+
+DataBase.sqlserver.init=SET LOCK_TIMEOUT 10000
+DataBase.sqlserver.concurrencyType=1009
+DataBase.sqlserver.lockedErrorNumber=1222
+
+DataBase.sqlserver.date.literal=''dd/MM/yyyy''
+DataBase.sqlserver.datetime.literal=''dd/MM/yyyy HH:mm:ss''
+
+DataBase.sqlserver.driver=com.jnetdirect.jsql.JSQLDriver
+DataBase.sqlserver.url=jdbc:JSQLConnect://<server>/database=<nombre>
+DataBase.sqlserver.user=sa
+DataBase.sqlserver.password=sa
+
+DataBase.access.date.literal=#MM-dd-yyyy#
+DataBase.access.datetime.literal=#MM-dd-yyyy HH:mm:ss#
+
+DataBase.access.driver=sun.jdbc.odbc.JdbcOdbcDriver
+DataBase.access.url=jdbc:odbc:driver={Microsoft Access Driver (*.mdb)};dbq=<server><nombre>.mdb
+
+
+DataBase.sqlserver.bdadmon.url=jdbc:JSQLConnect://<server>/database=easp
+DataBase.sqlserver.bdeasp.url=jdbc:JSQLConnect://<server>/database=easp
+
+DataBase.access.bdadmon.url=jdbc:odbc:driver={Microsoft Access Driver (*.mdb)};dbq=<server>easp.mdb
+DataBase.access.bdeasp.url=jdbc:odbc:driver={Microsoft Access Driver (*.mdb)};dbq=<server>easp.mdb
+

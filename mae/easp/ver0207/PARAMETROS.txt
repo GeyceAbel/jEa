@@ -1,0 +1,3 @@
+'999999999999','ADMINGEYCE','GENERAL','PATHEXPLORER','Ubicacion del  navegador de internet',,'JEA','C:\Archivos de Programa\Internet Explorer\IEXPLORE.EXE','S'
+'999999999999','ADMINGEYCE','URL AEAT','LOTES','Url de la presentación por Lotes',,'JMODELOS','https://aeat.es:8006/pymes1/porlotef.html','S'
+'999999999999','ADMINGEYCE','URL AEAT','PAGONRCAEAT','Url del pago de autoliquidaciones en la AEAT',,'JMODELOS','https://aeat.es:8008/pymes1/cargonrf.html','S'
