@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080314
-// Hora:             12:56:08
+// Fecha:            20080507
+// Hora:             18:27:53
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -805,6 +805,7 @@ public class ProgInsprconver extends Program
           "  PRIMARY KEY (AVIEJERCICIO,AVINIF,AVIMODELO,AVIPERIODO,AVINIVEL),"+
           "  FOREIGN KEY (AVIEJERCICIO,AVINIF) REFERENCES PERFILTRIBUT(PFTEJERCICIO,PFTNIF));"
       };
+      String sentencias5_9[]={" DELETE FROM AMORTIZACION;"};  
     
       int i=0;
       try {
@@ -1184,6 +1185,24 @@ public class ProgInsprconver extends Program
             Easp.setVersionBD("bdeasp","5.8");
             Easp.connEA.commit();
             vvveractual.setValue("5.8");
+          }
+          if (versio < 5.9) {
+            try {          
+              for (i=0;i<sentencias5_9.length;++i) {
+                Easp.chivato("5.9 Exec : ["+sentencias5_9[i]+"]",1);
+                Easp.connEA.executeUpdate(sentencias5_9[i]);
+              }
+              String tablas[]= {"AMORTIZACION"};
+              Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0509","easp.jar");
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias5_9[i];
+              Easp.chivato("5.9 *** Error : ["+sentencias5_9[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+            Easp.setVersionBD("bdeasp","5.9");
+            Easp.connEA.commit();
+            vvveractual.setValue("5.9");
           }
         }
       catch(Exception e) {
