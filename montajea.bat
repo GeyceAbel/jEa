@@ -26,14 +26,17 @@ pkzip25 -add -path zip/easp%versio%.zip   maefc0110.dll
 pkzip25 -add -path zip/easp%versio%.zip   mae\easp\scripts\*.vbs
 pkzip25 -add -path zip/easp%versio%.zip   mae\easp\vbs\query.vbs
 pkzip25 -add -direct zip/easp%versio%.zip   mae\*.class
-pkzip25 -add -path zip/easp%versio%.zip   mae\easp\html\*.*
-pkzip25 -add -path zip/easp%versio%.zip   mae\easp\images\*.*
-pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0207\*.*
-pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0403\*.*
-pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0501\*.*
-pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0502\*.*
-pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0504\*.*
-pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0509\*.*
+pkzip25 -add -path zip/easp%versio%.zip   mae\easp\html\*.html
+pkzip25 -add -path zip/easp%versio%.zip   mae\easp\html\*.gif
+pkzip25 -add -path zip/easp%versio%.zip   mae\easp\html\*.jpg
+pkzip25 -add -path zip/easp%versio%.zip   mae\easp\html\*.png
+pkzip25 -add -path zip/easp%versio%.zip   mae\easp\images\*.gif
+pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0207\*.txt
+pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0403\*.txt
+pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0501\*.txt
+pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0502\*.txt
+pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0504\*.txt
+pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0509\*.txt
 
 
 
