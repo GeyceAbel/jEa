@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080128
-// Hora:             14:47:02
+// Fecha:            20080609
+// Hora:             13:57:00
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -25,6 +25,7 @@ public class ProgQuerylis extends Program
   public AppEasp easp;
   public ProgQuerylis querylis;
   // Inicio declaraciones globales
+  public java.util.Hashtable<String,java.util.Hashtable<String,String>> htTaules = null;
   public String aplicacion=Aplication.getAplication().getName();
   public Quonexio[] quonexions;
   //public DBConnection conexionAplicacion = Aplication.getAplication().getDataBase() ;
@@ -336,6 +337,7 @@ public class ProgQuerylis extends Program
             f="seleccion,"+f;
          }
       }
+      else if (aplicacion.equals("JMODELOS") && "D".equals(frase.ect) ) f = "seleccion,"+f;
       else if ("E".equals(frase.ect) || "C".equals(frase.ect) || "T".equals(frase.ect)) {
               f="seleccion,"+f;
       }
@@ -581,6 +583,17 @@ public class ProgQuerylis extends Program
                  where=selwhere+" and ("+where+")";
           }
       }
+      if (aplicacion.equals("JMODELOS")) {
+        if ("D".equals(frase.ect)) {
+          String selwhere="SELUSUARIO='"+Aplication.getAplication().getUser()+"' and SELPROGRAMA='QUERY'";
+          if (htTaules != null && htTaules.get("modelos") != null) {
+            selwhere+=" and (SELNIF IS NULL or SELNIF="+htTaules.get("modelos").get(squery.qefmaster.getString().toUpperCase())+")";
+          }
+          //selwhere+=" and (SELNIF IS NULL or SELNIF=MESNIF)";
+          if (where==null) where=selwhere;
+          else where=selwhere+" and ("+where+")";        
+        }
+      }
       else if ("E".equals(frase.ect) || "C".equals(frase.ect) || "T".equals(frase.ect)) {
               String selwhere="SELUSUARIO='"+Aplication.getAplication().getUser()+"' and SELPROGRAMA='QUERY'";
   
@@ -688,9 +701,13 @@ public class ProgQuerylis extends Program
     }
   
     void next(boolean first) {
+  
       quorelacioPrincipal.eof=!quorelacioPrincipal.selector.next();
+  
       for(int i=0;i<secundaris.size();i++) {
+  
         Quorelacio quor=(Quorelacio)secundaris.elementAt(i);
+  
         if (quor.quorelacioDesti.eof) {
           quor.eof=true;
         }
@@ -949,7 +966,7 @@ public class ProgQuerylis extends Program
       prog.esAlta=true;
       prog.aplicacion=aplicacion;
       prog.quonexions=quonexions;
-    
+      prog.htTaules = htTaules;
       LocationWindow locw=new LocationWindow();
       locw.setTitle("Nuevo listado");
       locw.setWidth(800);
@@ -976,7 +993,7 @@ public class ProgQuerylis extends Program
       prog.quonexions=quonexions;
       prog.frase=squery.qeffrase.getString();
       prog.master=squery.qefmaster.getString();
-    
+      prog.htTaules = htTaules;
       LocationWindow locw=new LocationWindow();
       locw.setTitle("Editar listado");
       locw.setWidth(800);
@@ -1256,9 +1273,9 @@ public class ProgQuerylis extends Program
     
     public void printDetalleXML() {
         String nomListado="listadojNOMINA";
-        if (aplicacion.equals("JEO"))
-           nomListado="listadojEO";
-    
+        if (aplicacion.equals("JEO")) nomListado="listadojEO";
+        else if (aplicacion.equals("JMODELOS")) nomListado="listadojMODELOS";
+        
         salida.println("<"+nomListado+">");
         salida.println("<quefrase>");
           sprueba.setWhere("qefaplicacion = '" + aplicacion + "' and qeffrase = '" + vseleccion.qeffrase.getString() + "'");
@@ -1459,8 +1476,8 @@ public class ProgQuerylis extends Program
         //if(columnas.getLength()==0) {
     // TOCAT PER JEO
         String nomListado="listadojNOMINA";
-        if (aplicacion.equals("JEO"))
-           nomListado="listadojEO";
+        if (aplicacion.equals("JEO")) nomListado="listadojEO";
+        if (aplicacion.equals("JMODELOS")) nomListado="listadojMODELOS";
     
         if(!doc.getDocumentElement().getNodeName().equals(nomListado)) {
           Maefc.message("Error: el archivo " + fileImpXML.getName() +" no contiene ningun listado a importar","Validación de Datos",Maefc.ERROR_MESSAGE);
@@ -2345,6 +2362,8 @@ public class ProgQuerylis extends Program
     
     mae.jeo.datselec.ProgDatselec prconJeo=null;
     
+    mae.modasp.datselec.ProgDatselec prconJmodelos=null;
+    
     
     // Fin declaraciones globales
     // Controles
@@ -2421,6 +2440,7 @@ public class ProgQuerylis extends Program
       
         prcon=null;
         prconJeo=null;
+        prconJmodelos = null;
         int assigno=0;
       // TOCAT PER JEO
         if (aplicacion.equals("JEO")) {
@@ -2448,6 +2468,25 @@ public class ProgQuerylis extends Program
               prconJeo.desactivaLimpiar=true;
               prconJeo.setLocation(LocationBorder.locationBorderCenter);
            }
+        }
+        else if (aplicacion.equals("JMODELOS")) {
+          assigno=1;
+          loc.setHeight(75+200);
+          ControlPanel panel2=new ControlPanel(this);
+          panel2.setLayout(new LayoutBorder());
+          panel2.setParent(this);
+      
+          setLayout(new LayoutSplit(LayoutSplit.VERTICAL));
+          prconJmodelos=new mae.modasp.datselec.ProgDatselec();
+          panel.setLocation(new LocationSplit(LocationSplit.LEFT));
+          prconJmodelos.setConnection(getDataBase());
+          panel2.setLocation(new LocationSplit(LocationSplit.RIGHT));
+          prconJmodelos.setParent(panel2);
+      
+          prconJmodelos.borrarSeleccionado = true;
+          prconJmodelos.gprograma="QUERY";
+          prconJmodelos.desactivaLimpiar=true;
+          prconJmodelos.setLocation(LocationBorder.locationBorderCenter);    
         }
         else {
           if ("E".equals(frase.ect) || "C".equals(frase.ect) || "T".equals(frase.ect)) {
@@ -2479,6 +2518,7 @@ public class ProgQuerylis extends Program
       
         if (prcon!=null) prcon.run();
         if (prconJeo!=null) prconJeo.run();
+        if (prconJmodelos!=null) prconJmodelos.run();
       
       }
     }
@@ -2804,10 +2844,9 @@ public class ProgQuerylis extends Program
     }
   public void onInit()
     {
-    if (aplicacion.equals("JEO"))
-       nomDirec="jEo";
-    else 
-       nomDirec="jNomina";
+    if (aplicacion.equals("JEO")) nomDirec="jEo";
+    else if (aplicacion.equals("JMODELOS")) nomDirec="jModelos";
+    else nomDirec="jNomina";
     
     squery.setDb(Aplication.getAplication().getDataBase());
     sprueba.setDb(Aplication.getAplication().getDataBase());

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080214
-// Hora:             13:36:37
+// Fecha:            20080609
+// Hora:             13:57:07
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -30,7 +30,8 @@ public class ProgQuerytrat extends Program
   public String aplicacion;
   public String master;
   public Quonexio[] quonexions;
-    
+  public java.util.Hashtable<String,java.util.Hashtable<String,String>> htTaules = null;
+  
   class TablaCatalogo {
       TableDef table;
       Catalog catalogo;
@@ -57,14 +58,31 @@ public class ProgQuerytrat extends Program
               return field.getName()+"/"+desc;
           }
   }
-  
-  void recoreTaules(TableDef tables[]) {
+  /*
+  void recoreTaules(TableDef tables[], String nomCataleg) {
       for(int i=0;i<tables.length;i++) {
         String nom=tables[i].getName();
         String descripcio=tables[i].getDescription();
         if (descripcio==null) descripcio="";
         vfrase.qefmaster.addItem(nom,descripcio);
       }
+  }
+  */
+  void recoreTaules(TableDef tables[], String nomCataleg) {	  
+    for(int i=0;i<tables.length;i++) {
+      String nom=tables[i].getName();
+      boolean grabaTaula = true;
+      if (htTaules!=null) {
+        if (htTaules.get(nomCataleg.toLowerCase())!=null) {
+          grabaTaula = (htTaules.get(nomCataleg.toLowerCase()).get(nom.toUpperCase())!=null);
+        }
+      }
+      if (grabaTaula) {
+        String descripcio=tables[i].getDescription();
+        if (descripcio==null) descripcio="";
+        vfrase.qefmaster.addItem(nom,descripcio);
+      }
+    }
   }
   
   TablaCatalogo buscaTabla(String bbdd, String tabla) {
@@ -250,12 +268,15 @@ public class ProgQuerytrat extends Program
             if (tc!=null)
                nomCataleg =tc.catalogo.getName();
         }
-        if (nomCataleg.equals("") || nomCataleg.equals(cataleg1) || nomCataleg.equals(cataleg2) || nomCataleg.equals(cataleg3)) 
+        if (nomCataleg.equals("") || nomCataleg.equals(cataleg1) || nomCataleg.equals(cataleg2) || nomCataleg.equals(cataleg3)) {
            qefect.setEnabled(true);  
+           if (aplicacion.equals("JMODELOS")) qefect.setValue("D");  
+        }
         else {
            qefect.setValue("N");
            qefect.setEnabled(false);  
         }
+        
         }
       public boolean obligate()
         {
@@ -2139,15 +2160,15 @@ public class ProgQuerytrat extends Program
   public void onInit()
     {
     for(int j=0;j<quonexions.length;j++) {
-        Catalog catalogo=quonexions[j].catalog;
-        recoreTaules(catalogo.getTables());
+        Catalog catalogo=quonexions[j].catalog;    
+        recoreTaules(catalogo.getTables(),quonexions[j].name);
         if (quonexions[j].catalog2!=null) {
            catalogo=quonexions[j].catalog2;
-           recoreTaules(catalogo.getTables());
+           recoreTaules(catalogo.getTables(),quonexions[j].name);
         }
         if (quonexions[j].catalog3!=null) {
            catalogo=quonexions[j].catalog3;
-           recoreTaules(catalogo.getTables());
+           recoreTaules(catalogo.getTables(),quonexions[j].name);
         }
     }
         
@@ -2188,6 +2209,13 @@ public class ProgQuerytrat extends Program
        vfrase.qefect.addItem("A/Actividad");
        vfrase.qefect.addItem("N/Sin selección");
        vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejeo.html"));
+    }
+    else if (aplicacion.equals("JMODELOS")) {
+      vfrase.qefect.removeAllItems();
+      vfrase.qefect.setTitle("Seleccion NIF");
+      vfrase.qefect.addItem("D/Nifes");  
+      vfrase.qefect.addItem("N/Sin seleccion");  
+      vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejmodelos.html"));
     }
     else 
        vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejnomina.html"));
