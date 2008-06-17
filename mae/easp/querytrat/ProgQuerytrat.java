@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080609
-// Hora:             13:57:07
+// Fecha:            20080617
+// Hora:             11:10:49
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -77,6 +77,9 @@ public class ProgQuerytrat extends Program
           grabaTaula = (htTaules.get(nomCataleg.toLowerCase()).get(nom.toUpperCase())!=null);
         }
       }
+      if (nom.equals("gycauto") || nom.equals("bds") || nom.startsWith("que")) grabaTaula=false;
+      if (aplicacion.equals("JEO") && (nom.startsWith("seleccion") || nom.equals("paramlis") || nom.equals("lisresumen") || nom.equals("prefijos") || nom.equals("listadotmp") || nom.startsWith("cnvtest") || nom.startsWith("doc"))) 
+         grabaTaula=false;
       if (grabaTaula) {
         String descripcio=tables[i].getDescription();
         if (descripcio==null) descripcio="";
