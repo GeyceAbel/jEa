@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20071203
-// Hora:             18:17:05
+// Fecha:            20080626
+// Hora:             16:59:27
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -210,6 +210,7 @@ public class ProgPrtratamnifes extends Program
     public CtrlCdpobserv cdpobserv;
     public CtrlDatnacional datnacional;
     // Acciones
+    public LinkAaltaafinity aaltaafinity;
     class Location extends LocationGridBag
       {
       public Location( )
@@ -990,6 +991,24 @@ public class ProgPrtratamnifes extends Program
         }
       }
       
+    public class LinkAaltaafinity extends Action
+      {
+      public LinkAaltaafinity(Form form)
+        {
+        super(form);
+        setName("aaltaafinity");
+        setTitle("&Alta en Afinity Web");
+        setOptions(SEARCH | SHOW | UPDATE | INSERT);
+        }
+      public void onAction()
+        {
+        String cdpcdpcdp =Easp.buscaCDP(danifcif.getString());
+        if ( cdpcdpcdp==null ) Easp.grabarDatosAfinity(danifcif.getString(),true);
+        else Maefc.message("Este cliente ya existe en Afinity Web con el código: "+cdpcdpcdp,"Atención",Maefc.INFORMATION_MESSAGE);
+        
+        }
+      }
+      
     public FormVnifes(ProgPrtratamnifes prtratamnifes)
       {
       super(prtratamnifes);
@@ -1034,6 +1053,7 @@ public class ProgPrtratamnifes extends Program
       addControl(datcontacto=new CtrlDatcontacto(this));
       addControl(cdpobserv=new CtrlCdpobserv(this));
       addControl(datnacional=new CtrlDatnacional(this));
+      addAction(aaltaafinity=new LinkAaltaafinity(this));
       setSelect(snifes);
       }
     public void onInit()
