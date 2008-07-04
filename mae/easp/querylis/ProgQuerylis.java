@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080609
-// Hora:             13:57:00
+// Fecha:            20080704
+// Hora:             14:09:32
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -583,7 +583,7 @@ public class ProgQuerylis extends Program
                  where=selwhere+" and ("+where+")";
           }
       }
-      if (aplicacion.equals("JMODELOS")) {
+      else if (aplicacion.equals("JMODELOS")) {
         if ("D".equals(frase.ect)) {
           String selwhere="SELUSUARIO='"+Aplication.getAplication().getUser()+"' and SELPROGRAMA='QUERY'";
           if (htTaules != null && htTaules.get("modelos") != null) {
