@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080507
-// Hora:             18:27:53
+// Fecha:            20080729
+// Hora:             12:00:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1204,7 +1204,15 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("5.9");
           }
-        }
+          if (versio < 6.0) {
+             String tablas[]= {"AYUDATXT"};
+             if ( !Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0600","easp.jar"))
+                return false;
+             Easp.setVersionBD("bdeasp","6.0");
+             Easp.connEA.commit();
+             vvveractual.setValue("6.0");
+          }
+      }
       catch(Exception e) {
         // sqlOperation=sentencias7[i];
         // errorMessage=e.getMessage();

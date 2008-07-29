@@ -1,7 +1,7 @@
 @echo off
 REM  **********  Aqui se especifica la version , y los paquetes de jtoken que se van a crear ***********
-set versio=050040
-set version=05.00.40
+set versio=050041
+set version=05.00.41
 
 GOTO JEA
 :FIJEA
@@ -37,6 +37,7 @@ pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0501\*.txt
 pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0502\*.txt
 pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0504\*.txt
 pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0509\*.txt
+pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver0600\*.txt
 
 
 
