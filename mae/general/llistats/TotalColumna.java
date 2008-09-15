@@ -12,8 +12,9 @@ public class TotalColumna {
 	private Value valor;
 	private ReportData valorListado;
 	private int orden;
-	
-	
+  private boolean esContador;
+
+
 	private int var_listado;
     public void setVarListado (int i) {
     	var_listado =i;
@@ -21,18 +22,26 @@ public class TotalColumna {
 	public int getVarListado () {
 		return var_listado;
 	}
-    
+
 	public void setOrden(int i) {
 		orden = i;
 	}
 	public int getOrden() {
 		return orden;
 	}
-	  
-	public TotalColumna(){		
-		underline = "=";		
+
+	public TotalColumna(){
+		underline = "=";
 	}
-	
+
+  public void setEsContador(boolean contador) {
+    esContador = contador;
+	}
+
+  public boolean getEsContador() {
+    return esContador;
+	}
+
 	public ReportData initValor(Report r) {
 		valor = new Value();
 		valor.setNull();
@@ -68,20 +77,23 @@ public class TotalColumna {
 		valor.setNull();
 		valorListado.setNull();
 	}
-	
+
 	public double getValor() {
 		return valor.getDouble();
 	}
 	public void setValor(double d) {
 		valor.setValue(d);
 		valorListado.setValue(getFormatoValor());
-	}	
+	}
 
-	
+
 	public void acumulaColumna() {
 		if (getColumna()!=null) {
 			double d = getValor();
-			d += getColumna().getValor().getDouble();
+      if (esContador)
+         d ++;
+      else
+         d += getColumna().getValor().getDouble();
 			setValor(d);
 		}
 	}
@@ -91,14 +103,14 @@ public class TotalColumna {
 	}
     public String getUnderline () {
     	return underline;
-	}			
+	}
     public String getFormatoUnderline() {
 	    String tmp = getUnderline();
 	    if (getColumna()!=null) {
 	    	tmp = Util.rpt(getUnderline(), getColumna().getLongitud());
 	    }
 	    return tmp;
-	  }    
+	  }
 	public String getFormatoValor() {
 	    String tmp = "";
 	    if (getColumna()!=null) {
@@ -107,11 +119,11 @@ public class TotalColumna {
 		    }
 		    else if (getColumna().getTipoColumna() == Columna.TIPO_STRING) {
 		    	tmp = valor.getString();
-		    }            
-		    else if (getColumna().getTipoColumna() == Columna.TIPO_ENTERO) {    	
+		    }
+		    else if (getColumna().getTipoColumna() == Columna.TIPO_ENTERO) {
 		      tmp = Numero.formatConCero(valor.getInteger(),getColumna().getMascara(),getColumna().getMascara0());
-		    }    
-		    
+		    }
+
 		    if (getColumna().getAlineado() == Columna.ALIG_RIGHT) {
 		      tmp = Util.lpad(tmp,getColumna().getLongitud());
 		    }
@@ -120,6 +132,6 @@ public class TotalColumna {
 		    }
 	    }
 		    return tmp;
-	 }	
-	
+	 }
+
 }

@@ -21,7 +21,7 @@ import org.apache.poi.hssf.util.*;
 
 
 public abstract class Cabecera {
-	
+
 	/**
 	 * @uml.property  name="columnas"
 	 * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" aggregation="composite" inverse="cabecera:mae.general.llistats.Columna"
@@ -31,15 +31,15 @@ public abstract class Cabecera {
 	 * @uml.property  name="roturas"
 	 * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" aggregation="composite" inverse="cabecera:mae.general.llistats.Rotura"
 	 */
-	private List <Rotura> roturas;	
+	private List <Rotura> roturas;
 	/**
 	 * @uml.property  name="encabezados"
 	 * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" aggregation="composite" inverse="cabecera:mae.general.llistats.Rotura"
 	 */
-	private List <Encabezado> encabezados;	
+	private List <Encabezado> encabezados;
 	private int idVarListado;
 	private Report reportListado;
-    
+
 	public Cabecera () {
     	columnas = new ArrayList <Columna>();
     	roturas = new ArrayList <Rotura>();
@@ -50,7 +50,7 @@ public abstract class Cabecera {
     	idListado = "listado";
     	excel = false;
     }
-	
+
     /*public Cabecera (Report r) {
     	columnas = new ArrayList <Columna>();
     	roturas = new ArrayList <Rotura>();
@@ -58,14 +58,14 @@ public abstract class Cabecera {
     	idVarListado = 0;
     	reportListado = r;
     }*/
-	
+
     public void setReport (Report r) {
-    	reportListado = r;    	
+    	reportListado = r;
     }
     public Report getReport () {
-    	return reportListado;    	
+    	return reportListado;
     }
-    
+
 	/**
 	 * Getter of the property <tt>columnas</tt>
 	 * @return  Returns the columnas.
@@ -85,7 +85,7 @@ public abstract class Cabecera {
 	public Columna getColumna(int i) {
 		return (Columna) columnas.get(i);
 	}
-	
+
 	public Columna getColumna(String id) {
 		boolean trobat = false;
 		Columna col = null;
@@ -94,7 +94,7 @@ public abstract class Cabecera {
 			trobat = id.toUpperCase().equals(col.getId().toUpperCase());
 		}
 		return col;
-	}	
+	}
 
 	/**
 	 * Returns <tt>true</tt> if this list contains no elements.
@@ -156,8 +156,8 @@ public abstract class Cabecera {
 	 * @uml.property  name="columnas"
 	 */
 	public void addColumna(int index, Columna columna) {
-		columna.setVarListado(nextIdVarListado());		
-		columnas.add(index, columna);				
+		columna.setVarListado(nextIdVarListado());
+		columnas.add(index, columna);
 	}
 
 	/**
@@ -167,9 +167,9 @@ public abstract class Cabecera {
 	 * @see java.util.List#add(Object)
 	 * @uml.property  name="columnas"
 	 */
-	public boolean addColumna(Columna columna) {	
+	public boolean addColumna(Columna columna) {
 		columna.setVarListado(nextIdVarListado());
-		return columnas.add(columna);		
+		return columnas.add(columna);
 	}
 
 	/**
@@ -213,7 +213,7 @@ public abstract class Cabecera {
 	}
 	public void setColumna(int index, Columna col) {
 		this.columnas.set(index, col);
-	}	
+	}
 
 	/**
 	 * Getter of the property <tt>encabezados</tt>
@@ -295,8 +295,8 @@ public abstract class Cabecera {
 	 * @uml.property  name="encabezados"
 	 */
 	public void addEncabezado(int index, Encabezado enc) {
-		enc.setVarListado(nextIdVarListado());		
-		encabezados.add(index, enc);				
+		enc.setVarListado(nextIdVarListado());
+		encabezados.add(index, enc);
 	}
 
 	/**
@@ -306,9 +306,9 @@ public abstract class Cabecera {
 	 * @see java.util.List#add(Object)
 	 * @uml.property  name="encabezados"
 	 */
-	public boolean addEncabezado(Encabezado enc) {	
+	public boolean addEncabezado(Encabezado enc) {
 		enc.setVarListado(nextIdVarListado());
-		return encabezados.add(enc);		
+		return encabezados.add(enc);
 	}
 
 	/**
@@ -352,7 +352,7 @@ public abstract class Cabecera {
 	}
 	public void setEncabezado(int index, Encabezado enc) {
 		this.encabezados.set(index, enc);
-	}	
+	}
 
 
 	/**
@@ -490,7 +490,7 @@ public abstract class Cabecera {
 	public void setRotura(List <Rotura> roturas) {
 		this.roturas = roturas;
 	}
-	
+
 	private String titulo1;
 	private String titulo_corto;
 	private Date fecha;
@@ -504,16 +504,16 @@ public abstract class Cabecera {
 	private boolean repiteTitulo;
 	private int numRoturaRep;
 	private boolean excel;
-	
+
 
 	public void setRepiteTitulo (boolean b) {
-		repiteTitulo = b;	
+		repiteTitulo = b;
 	}
 
 	public boolean getRepiteTitulo () {
-		return repiteTitulo;	
-	}	
-	
+		return repiteTitulo;
+	}
+
 	public String getIdListado () {
 		return idListado;
 	}
@@ -534,63 +534,65 @@ public abstract class Cabecera {
 	public int getNumRoturaRep () {
 		return numRoturaRep;
 	}
-	
+
 	public void setHorizontal (boolean b) {
-		horizontal = b;	
+		horizontal = b;
 	}
 
 	public boolean getHorizontal () {
-		return horizontal;	
-	}	
-	
+		return horizontal;
+	}
+
 	public void setSelect (Select sel) {
 		selectListado = sel;
 	}
 	public Select getSelect () {
 		return selectListado;
-	}	
+	}
 	public void setSaltPagina (boolean b) {
-		saltPagina = b;	
+		saltPagina = b;
 	}
 
 	public boolean getSaltPagina () {
-		return saltPagina;	
-	}	
-	
+		return saltPagina;
+	}
+
 	public Rotura newRotura(String titol, int [] cols, String under) {
 		Rotura rot = new Rotura();
         rot.setTitulo(titol);
         rot.setPintaUnderline(true);
         rot.setSaltPagina(false);
         rot.setPosInicial(10);
+        
         int numRotura = roturasSize();
-        reportListado.addReportData(rot.initDesc(reportListado));        
+        reportListado.addReportData(rot.initDesc(reportListado));
         addRotura(numRotura,rot);
         if (cols!=null) {
           for (int i=0;i<cols.length;i++) {
         	newTotal (numRotura,cols[i],under);
           }
-        }        
-		return (getRotura(roturasSize()-1));        
+        }
+		return (getRotura(roturasSize()-1));
 	}
 	public void newTotal (int numRotura, int numColumna,String under) {
 		TotalColumna total = new TotalColumna();
 		total.setUnderline(under);
 		total.setColumna(getColumna(numColumna));
 		total.setOrden(numColumna);
+    total.setEsContador(false);
 		reportListado.addReportData(total.initValor(reportListado));
-		getRotura(numRotura).addTotal(getRotura(numRotura).totalesSize(),total,nextIdVarListado());	
+		getRotura(numRotura).addTotal(getRotura(numRotura).totalesSize(),total,nextIdVarListado());
 	}
 
 	public Encabezado newEncabezado (String lit, int posInicial, boolean literalBold) {
-        Encabezado enc = new Encabezado();           
+        Encabezado enc = new Encabezado();
         enc.setPosInicial(posInicial);
         enc.setLiteral(lit);
         enc.setLiteralBold(literalBold);
         reportListado.addReportData(enc.initValor(reportListado));
         addEncabezado(encabezadosSize(), enc);
         return (getEncabezado(encabezadosSize()-1));
-	}	
+	}
 	/*
 	public Columna newColumna (Field field, String id) {
 		return newColumna(field,id,1);
@@ -623,7 +625,7 @@ public abstract class Cabecera {
         		cl.setUnderTitulo("-");
         		cl.setPosIni(getLongitudLinea()+offset);
         		cl.setMascara ("##,###,##0.00");
-        		cl.setMascara0("-");        		
+        		cl.setMascara0("-");
         		break;
         	case geyce.maefc.Value.INTEGER:
         		cl.setTipoEntero();
@@ -632,17 +634,17 @@ public abstract class Cabecera {
         		cl.setUnderTitulo("-");
         		cl.setPosIni(getLongitudLinea()+offset);
         		cl.setMascara ("####");
-        		cl.setMascara0(" ");        		
-        		break;     
+        		cl.setMascara0(" ");
+        		break;
         	default:
         		cl.setTipoString();
         		cl.setTipoExcelString();
         		cl.setAliLeft();
         		cl.setUnderTitulo("-");
         		cl.setPosIni(getLongitudLinea()+offset);
-        		break;        		
+        		break;
         }
-        addColumna(columnasSize(),cl);    
+        addColumna(columnasSize(),cl);
         return getColumna(columnasSize()-1);
 	}
 
@@ -677,7 +679,7 @@ public abstract class Cabecera {
         		cl.setUnderTitulo("-");
         		cl.setPosIni(getLongitudLinea()+offset);
         		cl.setMascara ("##,###,##0.00");
-        		cl.setMascara0("-");        		
+        		cl.setMascara0("-");
         		break;
         	case geyce.maefc.Value.INTEGER:
         		cl.setTipoEntero();
@@ -686,17 +688,17 @@ public abstract class Cabecera {
         		cl.setUnderTitulo("-");
         		cl.setPosIni(getLongitudLinea()+offset);
         		cl.setMascara ("####");
-        		cl.setMascara0(" ");        		
-        		break;     
+        		cl.setMascara0(" ");
+        		break;
         	default:
         		cl.setTipoString();
         		cl.setTipoExcelString();
         		cl.setAliLeft();
         		cl.setUnderTitulo("-");
         		cl.setPosIni(getLongitudLinea()+offset);
-        		break;        		
+        		break;
         }
-        addColumna(columnasSize(),cl);    
+        addColumna(columnasSize(),cl);
         return getColumna(columnasSize()-1);
 	}
 	*/
@@ -725,7 +727,7 @@ public abstract class Cabecera {
         		cl.setUnderTitulo("-");
         		cl.setPosIni(getLongitudLinea()+offset);
         		cl.setMascara ("##,###,##0.00");
-        		cl.setMascara0("-");        		
+        		cl.setMascara0("-");
         		break;
         	case Columna.TIPO_PORCEN:
         		cl.setTipoDecimal();
@@ -734,8 +736,8 @@ public abstract class Cabecera {
         		cl.setUnderTitulo("-");
         		cl.setPosIni(getLongitudLinea()+offset);
         		cl.setMascara ("##.00");
-        		cl.setMascara0(" ");        		
-        		break;        		
+        		cl.setMascara0(" ");
+        		break;
         	case Columna.TIPO_ENTERO:
         		cl.setTipoEntero();
         		cl.setTipoExcelInt();
@@ -743,21 +745,21 @@ public abstract class Cabecera {
         		cl.setUnderTitulo("-");
         		cl.setPosIni(getLongitudLinea()+offset);
         		cl.setMascara ("####");
-        		cl.setMascara0(" ");        		
-        		break;     
+        		cl.setMascara0(" ");
+        		break;
         	default:
         		cl.setTipoString();
         		cl.setTipoExcelString();
         		cl.setAliLeft();
         		cl.setUnderTitulo("-");
         		cl.setPosIni(getLongitudLinea()+offset);
-        		break;        		
+        		break;
         }
-        addColumna(columnasSize(),cl);    
+        addColumna(columnasSize(),cl);
         return getColumna(columnasSize()-1);
 	}
-	
-		
+
+
 	public void setTitulo1(String titulo1) {
 		this.titulo1 = titulo1;
 	}
@@ -765,18 +767,18 @@ public abstract class Cabecera {
 		this.titulo_corto = titulo1;
 	}
 
-	
+
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	
+
 	public void setPaginaInicial(int pagina) {
 		if (pagina<=0) pagina = 1;
 		paginaInicial = pagina;
 	}
 	public String getTituloCorto() {
 		  return titulo_corto;
-	}	
+	}
 	public String getTitulo1() {
 	  return titulo1;
 	}
@@ -786,11 +788,11 @@ public abstract class Cabecera {
 		return v.getString();
 		}
 	public Date getFecha() {
-	  return fecha;	  
-	}	
+	  return fecha;
+	}
 	public int getPaginaInicial() {
-	  return paginaInicial;	  
-	}		
+	  return paginaInicial;
+	}
 
 	public void setIdVarListado (int i) {
 		idVarListado = i;
@@ -801,8 +803,8 @@ public abstract class Cabecera {
 	public int nextIdVarListado () {
 		setIdVarListado(getIdVarListado()+1);
 		return getIdVarListado();
-	}	
-	
+	}
+
 
 	public void initRoturas() {
 		for (int i=0;i<roturasSize();i++) {
@@ -810,26 +812,26 @@ public abstract class Cabecera {
 			getRotura(i).initTotales();
 		}
 	}
-	
+
 	public void activarRoturas() {
 		for (int i=0;i<roturasSize();i++) {
 			getRotura(i).setActivada(true);
 		}
 	}
-	
+
 	public void resetColumnas() {
 		for (int j=0;j<columnasSize();j++) {
 			getColumna(j).resetColumna();
 		}
 	}
-	
-	
+
+
 	public void obtenirSeguent() {};
-	
+
 	public void llenarColumnas() {};
-	
+
 	public void comparadoresRoturas() {};
-	
+
 	public boolean checkRoturas() {
 		boolean rotura = false;
 		for (int i=roturas.size()-1; i>=0; i--) {
@@ -845,13 +847,13 @@ public abstract class Cabecera {
 		for (int i=0;i<roturasSize();i++) {
 			getRotura(i).acumulaTotales();
 		}
-	}	
+	}
 	public int getLongitudLinea() {
 		int longitud = 0;
 		int ultimaCol = columnasSize()-1;
 		if (ultimaCol>=0) {
 			longitud = getColumna(ultimaCol).getPosIni() + getColumna(ultimaCol).getLongitud();
-		}		
+		}
 		return longitud;
 	}
 	public boolean hayTituloSuperior() {
@@ -862,14 +864,14 @@ public abstract class Cabecera {
 		return hayTituloSuperior;
 	}
 	private void generaBloqueRepeticion (Element cond) {
-	    xml.addBr(cond);		
+	    xml.addBr(cond);
 		for (int i=0;i<encabezadosSize();i++) {
 			if (getEncabezado(i).getRepetido()) {
 		      	xml.addTab(cond, getEncabezado(i).getPosInicial());
 		       	if (getEncabezado(i).getLiteralBold()) xml.bold(cond, xml.Text(getEncabezado(i).getLiteral()));
 		       	else xml.addText(cond, getEncabezado(i).getLiteral());
 		       	xml.addVar(cond, getEncabezado(i).getVarListado(), false);
-		       	xml.addBr(cond);					
+		       	xml.addBr(cond);
 			}
 		}
 	    xml.addBr(cond);
@@ -880,35 +882,35 @@ public abstract class Cabecera {
         		xml.addTab(cond,getColumna(i).getPosIni());
         		xml.bold(cond,xml.addText(cond, getColumna(i).getFormatoTituloSuperior()));
             }
-   	        xml.addBr(cond);    		
-        }        
+   	        xml.addBr(cond);
+        }
         for (int i=0;i<columnasSize();i++) {
-    		xml.addTab(cond,getColumna(i).getPosIni());    		
-    		xml.bold(cond,xml.addText(cond, getColumna(i).getFormatoTitulo()));        	       
-          }        
+    		xml.addTab(cond,getColumna(i).getPosIni());
+    		xml.bold(cond,xml.addText(cond, getColumna(i).getFormatoTitulo()));
+          }
         xml.addBr(cond);
         for (int i=0;i<columnasSize();i++) {
         	xml.addTab(cond,getColumna(i).getPosIni());
-        	xml.bold(cond,xml.addText(cond, getColumna(i).getFormatoUnderlineTitulo()));        	       
+        	xml.bold(cond,xml.addText(cond, getColumna(i).getFormatoUnderlineTitulo()));
         }
 	    xml.addBr(cond);
 	    xml.addBr(cond);
-	}		
+	}
 	private void generaBloqueDetalle (Element detail) {
 		Element block2;
 		Element detail2;
-		block2 = xml.addBlock(detail, 2);			
+		block2 = xml.addBlock(detail, 2);
 		detail2 = xml.addDetail(block2);
 		if (getRepiteTitulo()) {
 			Element condrepeat = xml.addCond(detail2, 21);
-			generaBloqueRepeticion(condrepeat);						
-		}			
-        for (int i=0;i<columnasSize();i++) { 
+			generaBloqueRepeticion(condrepeat);
+		}
+        for (int i=0;i<columnasSize();i++) {
         	xml.addTab(detail2, getColumna(i).getPosIni());
         	xml.addVar(detail2, getColumna(i).getVarListado(), getColumna(i).getLongitud(), false);
         }
         xml.addBr(detail2);
-	}	
+	}
 	private void generaPageHeader(Element blockheader) {
     	int posPagina = getLongitudLinea() - 7;
 		int posTitul = (getLongitudLinea() - getTitulo1().length())/2;
@@ -950,7 +952,7 @@ public abstract class Cabecera {
 	       	  xml.addBr(blockheader);
 	    	}
 	    }
-	    
+
 	    xml.addBr(blockheader);
         boolean hayTituloSuperior = hayTituloSuperior();
         if (hayTituloSuperior) {
@@ -958,16 +960,16 @@ public abstract class Cabecera {
         		xml.addTab(blockheader,getColumna(i).getPosIni());
         		xml.bold(blockheader,xml.addText(blockheader, getColumna(i).getFormatoTituloSuperior()));
             }
-   	        xml.addBr(blockheader);    		
-       }        
+   	        xml.addBr(blockheader);
+       }
       for (int i=0;i<columnasSize();i++) {
-    	xml.addTab(blockheader,getColumna(i).getPosIni());    		
-    	xml.bold(blockheader,xml.addText(blockheader, getColumna(i).getFormatoTitulo()));        	       
-      }        
+    	xml.addTab(blockheader,getColumna(i).getPosIni());
+    	xml.bold(blockheader,xml.addText(blockheader, getColumna(i).getFormatoTitulo()));
+      }
       xml.addBr(blockheader);
       for (int i=0;i<columnasSize();i++) {
        	xml.addTab(blockheader,getColumna(i).getPosIni());
-       	xml.bold(blockheader,xml.addText(blockheader, getColumna(i).getFormatoUnderlineTitulo()));        	       
+       	xml.bold(blockheader,xml.addText(blockheader, getColumna(i).getFormatoUnderlineTitulo()));
          }
       xml.addBr(blockheader);
       xml.addBr(blockheader);
@@ -976,18 +978,18 @@ public abstract class Cabecera {
 		int id = 4;
         Element cond;
         for (int i=0;i<roturasSize();i++) {
-        	cond = xml.addCond(detail, id);        	
+        	cond = xml.addCond(detail, id);
         	if (getRotura(i).getPintaUnderline()) {
         		//xml.addText(cond, ".");
         		for (int j=0;j<getRotura(i).totalesSize();j++) {
             		if (getRotura(i).getTotal(j).getColumna()!=null) {
             			xml.addTab(cond, getRotura(i).getTotal(j).getColumna().getPosIni());
-            			xml.addText(cond, getRotura(i).getTotal(j).getFormatoUnderline());            			
+            			xml.addText(cond, getRotura(i).getTotal(j).getFormatoUnderline());
             		}
         		}
-        		xml.addBr(cond);        		
+        		xml.addBr(cond);
         	}
-        	
+
         	//xml.addText(cond, ".");
         	//xml.addTab(cond, getRotura(i).getPosInicial());
         	//xml.addText(cond, getRotura(i).getTitulo());
@@ -998,30 +1000,30 @@ public abstract class Cabecera {
            			if (!roturaPintada && (getRotura(i).getPosInicial() < getRotura(i).getTotal(j).getColumna().getPosIni())) {
            	        	xml.addTab(cond, getRotura(i).getPosInicial());
            	        	xml.addText(cond, getRotura(i).getTitulo());
-           	        	xml.addVar(cond, getRotura(i).getVarListado(),false);      
+           	        	xml.addVar(cond, getRotura(i).getVarListado(),false);
            	        	roturaPintada = true;
            			}
            			xml.addTab(cond, getRotura(i).getTotal(j).getColumna().getPosIni());
            			xml.addVar(cond, getRotura(i).getTotal(j).getVarListado(), getRotura(i).getTotal(j).getColumna().getLongitud(), false);
            		}
-       		}      		
+       		}
    			if (!roturaPintada) {
    	        	xml.addTab(cond, getRotura(i).getPosInicial());
    	        	xml.addText(cond, getRotura(i).getTitulo());
    	        	xml.addVar(cond, getRotura(i).getVarListado(),false);
    	        	roturaPintada = true;
    			}
-      		xml.addBr(cond);      		   			
+      		xml.addBr(cond);
        		if (getRotura(i).getDejarLineaBlanca()) xml.addBr(cond);
         	id++;
-        }	
-	}	
+        }
+	}
 	public String getTipoExcel (int idTipo) {
 		String tipo="STRING";
 		switch (idTipo) {
 		  case Columna.TIPO_EXCEL_DATE:
 			tipo = "DATE";
-	      break;		    
+	      break;
 		  case Columna.TIPO_EXCEL_DOUBLE:
 			tipo = "DOUBLE";
 		  break;
@@ -1033,11 +1035,11 @@ public abstract class Cabecera {
 		  break;
 		  case Columna.TIPO_EXCEL_PORC:
 			  tipo = "PORCEN";
-		  break;		  
+		  break;
 		  case Columna.TIPO_EXCEL_STRING:
 			  tipo = "STRING";
-		  break;		  
-		  
+		  break;
+
 		}
 		return tipo;
 	}
@@ -1047,13 +1049,13 @@ public abstract class Cabecera {
 	    Element              block;
 	    Element              blockheader;
 	    Element              blockfooter;
-	    Element              detail;	   	    
+	    Element              detail;
 	    Element condXLS = xml.addCond(excel, 100);
 	    block = xml.addBlock(excel, 1);
 	    blockheader = xml.addPageHeader(block);
 	    blockfooter = xml.addBlockFooter(block);
 	    //detail = xml.addDetail(block);
-	    xml.addText(blockheader, xml.Text("<"+getIdListado()+">"));	    
+	    xml.addText(blockheader, xml.Text("<"+getIdListado()+">"));
         xml.addText(blockheader, xml.Text("<titulo>" + getTitulo1().toUpperCase() + "</titulo>"));
         xml.addText(blockheader, xml.Text("<tituloexcel>" + getTituloCorto() + "</tituloexcel>"));
         xml.addText(blockheader, xml.Text("<fechaimpresion>" + getFechaTexto() + "</fechaimpresion>"));
@@ -1071,21 +1073,21 @@ public abstract class Cabecera {
         		xml.addVar(blockheader, getEncabezado(i).getVarListado(), true);
         		xml.addText(blockheader, xml.Text("\"/>"));
         	}
-	    }                
+	    }
 	    xml.addText(blockheader, xml.Text("</encabezados>"));
-	    
+
 	    if (hayTituloSuperior()) {
 		    xml.addText(blockheader, xml.Text("<columnassup>"));
 	        for (int i=0;i<columnasSize();i++) {
 	        	xml.addText(blockheader, "<columnasup>"+getColumna(i).getTituloSuperior()+"</columnasup>");
-	        }	    
+	        }
 	        xml.addText(blockheader, xml.Text("</columnassup>"));
 	    }
 	    xml.addText(blockheader, xml.Text("<columnas>"));
         for (int i=0;i<columnasSize();i++) {
         	String tipo = getTipoExcel(getColumna(i).getTipoExcel());
 	    	xml.addText(blockheader, xml.Text("<columna tipo=\""+tipo+"\" valor=\""+getColumna(i).getTitulo()+"\"/>"));
-        }	    
+        }
         xml.addText(blockheader, xml.Text("</columnas>"));
 	    detail = xml.addDetail(block);
 	    Element block2 = xml.addBlock(detail, 2);
@@ -1106,30 +1108,30 @@ public abstract class Cabecera {
 			    xml.addText(condrepeat, xml.Text("<columnassup>"));
 		        for (int i=0;i<columnasSize();i++) {
 		        	xml.addText(condrepeat, "<columnasup>"+getColumna(i).getTituloSuperior()+"</columnasup>");
-		        }	    
+		        }
 		        xml.addText(condrepeat, xml.Text("</columnassup>"));
 		    }
 		    xml.addText(condrepeat, xml.Text("<columnas>"));
 	        for (int i=0;i<columnasSize();i++) {
 	        	String tipo = getTipoExcel(getColumna(i).getTipoExcel());
 		    	xml.addText(condrepeat, xml.Text("<columna tipo=\""+tipo+"\" valor=\""+getColumna(i).getTitulo()+"\"/>"));
-	        }	    
+	        }
 	        xml.addText(condrepeat, xml.Text("</columnas>"));
 	        xml.addBr(condrepeat);
-		}	    	    
+		}
 	    xml.addText(blockheader, xml.Text("<detalle>"));
 	    xml.addText(detail2, xml.Text("<fila>"));
         for (int i=0;i<columnasSize();i++) {
     		xml.addText(detail2, "<valor>");
     		xml.addVar(detail2, getColumna(i).getVarListado(), true);
     		xml.addText(detail2, "</valor>");
-        }		    
+        }
         xml.addText(detail2, xml.Text("</fila>"));
         xml.addBr(detail2);
         int numbloc = 4;
         for (int i=0;i<roturasSize();i++) {
         	Element cond = xml.addCond(detail, numbloc);
-        	xml.addText(cond,"<rotura inicol=\""+getRotura(i).getIniColDescExcel()+"\" fincol=\""+getRotura(i).getFinColDescExcel()+"\"");        	
+        	xml.addText(cond,"<rotura inicol=\""+getRotura(i).getIniColDescExcel()+"\" fincol=\""+getRotura(i).getFinColDescExcel()+"\"");
         	xml.addText(cond," desc=\""+getRotura(i).getTitulo());
         	xml.addVar(cond, getRotura(i).getVarListado(), true);
         	xml.addText(cond,"\">");
@@ -1146,7 +1148,7 @@ public abstract class Cabecera {
         Element cond = xml.addCond(detail, 3);
         xml.addText(cond,"</detalle>");
 	    xml.addText(cond,"</"+getIdListado()+">");
-	    xml.addText(cond, xml.Text("<"+getIdListado()+">"));	    
+	    xml.addText(cond, xml.Text("<"+getIdListado()+">"));
         xml.addText(cond, xml.Text("<titulo>" + getTitulo1().toUpperCase() + "</titulo>"));
         xml.addText(cond, xml.Text("<tituloexcel>" + getTituloCorto() + "</tituloexcel>"));
         xml.addText(cond, xml.Text("<fechaimpresion>" + getFechaTexto() + "</fechaimpresion>"));
@@ -1154,33 +1156,33 @@ public abstract class Cabecera {
         for (int i=0;i<encabezadosSize();i++) {
 	    	xml.addText(cond, xml.Text("<encabezado literal=\""+getEncabezado(i).getLiteral()+"\" valor=\""));
 	    	xml.addVar(cond, getEncabezado(i).getVarListado(), true);
-	       	xml.addText(cond, xml.Text("\"/>"));	       	
+	       	xml.addText(cond, xml.Text("\"/>"));
 	    }
 	    xml.addText(cond, xml.Text("</encabezados>"));
-	    
+
 	    if (hayTituloSuperior()) {
 		    xml.addText(cond, xml.Text("<columnassup>"));
 	        for (int i=0;i<columnasSize();i++) {
 	        	xml.addText(cond, "<columnasup>"+getColumna(i).getTituloSuperior()+"</columnasup>");
-	        }	    
+	        }
 	        xml.addText(cond, xml.Text("</columnassup>"));
 	    }
 	    xml.addText(cond, xml.Text("<columnas>"));
         for (int i=0;i<columnasSize();i++) {
         	String tipo = getTipoExcel(getColumna(i).getTipoExcel());
 	    	xml.addText(cond, xml.Text("<columna tipo=\""+tipo+"\" valor=\""+getColumna(i).getTitulo()+"\"/>"));
-        }	    
+        }
         xml.addText(cond, xml.Text("</columnas>"));
         xml.addText(cond,"<detalle>");
         // *****************************************
         xml.addText(blockfooter,"</detalle>");
 	    xml.addText(blockfooter,"</"+getIdListado()+">");
-	}	
+	}
 	private XmlDocument createXmlDocumentJeo() {
 	    Element              block;
 	    Element              blockheader;
 	    Element              detail;
-	    if (getHorizontal()) xml.landscape();	    
+	    if (getHorizontal()) xml.landscape();
 	    //xml.normal();
 	    xml.fontSize(getTamanyoLetra());
 	    block = xml.addBlock(1);
@@ -1193,17 +1195,17 @@ public abstract class Cabecera {
 	    xml.addPage(cond3);
 	    montaExcel();
 	    return xml.getXmlDocument();
-	}	
+	}
 	public void generarXMLMemoria () {
 		xml  = new XmlDocumentConstruct();
 		XmlDocument xmlDocument = createXmlDocumentJeo();
 		getReport().setXmlDocument(xmlDocument);
-		
+
 		/* try {
 		xmlDocument.write(System.out);
 		}
 		catch (Exception e) {}*/
-		
+
 	}
 
 	public boolean finalListado () {
@@ -1216,17 +1218,17 @@ public abstract class Cabecera {
 		return true;
 	}
 	public boolean pinta = false;
-	public boolean onRecord (int bloc) {		  
+	public boolean onRecord (int bloc) {
 	      boolean retorn=false;
 	      switch (bloc) {
 	      	case 100:
 	      		excel = true;
 	      		break;
-	        case 1:      
+	        case 1:
 	          if (finalListado()) {
 	            retorn=false;
 	            }
-	          else {	 
+	          else {
 	            retorn=true;
 	            omplirDadesCabecera();     //Implementar en la clase llistat
 	            }
@@ -1236,24 +1238,24 @@ public abstract class Cabecera {
 	        	  retorn = pinta;
 	        	  pinta = false;
 	        	}
-	        	break;	          
-	        case 2:       
-	          if (finalListado()) { 
+	        	break;
+	        case 2:
+	          if (finalListado()) {
 	            retorn=false;
-	            activarRoturas();	            
+	            activarRoturas();
 	          }
 	          else {
 	        	boolean rotura = checkRoturas();
 	        	if (!rotura) {
-	              asignaValorsSelect();       //Implementar en la clase llistat                                
+	              asignaValorsSelect();       //Implementar en la clase llistat
 	              acumularTotales();  //Es Opcional d'implementar, depen del tipo de rotures.
 	              siguienteRegistro(); //Es Opcional d'implementar, depen del tipo de llistats.
 	              asignaRoturas();    //Implementar en la clase llistat
 	              if (printLineaDetalle()) retorn = true;
 	              else {
 	                retorn=false;
-	                if (finalListado()) activarRoturas();	                
-	              }	              
+	                if (finalListado()) activarRoturas();
+	              }
 	        	}
 	            else retorn = false;
 	          }
@@ -1266,14 +1268,14 @@ public abstract class Cabecera {
 	        			omplirDadesCabecera();
 	        			retorn = true;
 	        		}
-	        	}        	
+	        	}
 	        	break;
 	        default: // Total Agrupacio 1
 	        	int protura = bloc-4;
-	            if (!getRotura(protura).isActivada()) {                   
-	              retorn=false;											
-	            }              
-	            else {  
+	            if (!getRotura(protura).isActivada()) {
+	              retorn=false;
+	            }
+	            else {
 	            	if (getRepiteTitulo()) {
 	            		if (protura==getNumRoturaRep()) pinta = true;
 	            	}
@@ -1281,18 +1283,18 @@ public abstract class Cabecera {
 	            		if (getRotura(protura).isResetNumPage())
 	            			getReport().setPageNumber(getPaginaInicial()-1);
 	            		if (!getSaltPagina()) setSaltPagina(getRotura(protura).getSaltPagina());
-	            		getRotura(protura).clearRotura();              
+	            		getRotura(protura).clearRotura();
 	            		retorn=true;
 	            	}
 	            	else {
 	            		getRotura(protura).clearRotura();
-	            		retorn = false;            	
+	            		retorn = false;
 	            	}
-	            }            
-	            break;          
+	            }
+	            break;
 	        }
 	      System.out.println ("case ["+bloc+"] ["+retorn+"]");
-	      return retorn;		
+	      return retorn;
 	}
 	public void valorColumna (String id, String valor) {
 		boolean trobat = false;
@@ -1302,7 +1304,7 @@ public abstract class Cabecera {
 				col.setValor(valor);
 				trobat = true;
 			}
-		}		
+		}
 	}
 	public void valorColumna (String id, int valor) {
 		boolean trobat = false;
@@ -1312,7 +1314,7 @@ public abstract class Cabecera {
 				col.setValor(valor);
 				trobat = true;
 			}
-		}		
+		}
 	}
 	public void valorColumna (String id, double valor) {
 		boolean trobat = false;
@@ -1322,8 +1324,8 @@ public abstract class Cabecera {
 				col.setValor(valor);
 				trobat = true;
 			}
-		}		
-	}	
+		}
+	}
 	/*public void generaFicheroXLS () {
 		try {
 			HSSFWorkbook wb = new HSSFWorkbook();
@@ -1334,7 +1336,7 @@ public abstract class Cabecera {
 		}
     	catch (Exception e) {
 	    		System.out.println("Error ["+e+"]");
-	    	}			
+	    	}
 	}
 	public void generaFicheroXLS (HSSFWorkbook wb)  {
     	try {
@@ -1346,7 +1348,7 @@ public abstract class Cabecera {
   			HSSFCell cell = titol.createCell((short)0);
   			HSSFRichTextString valor = new HSSFRichTextString(getTitulo1());
   			cell.setCellValue(valor);
-    		
+
     	}
     	catch (Exception e) {
     		System.out.println("Error ["+e+"]");
@@ -1358,7 +1360,7 @@ public abstract class Cabecera {
 	public void initListado(boolean resetNumPage) {
 		if (resetNumPage) asignaNumInicialPagina();
 		asignaRoturasInicial();
-	}	
+	}
 
 	public void asignaNumInicialPagina() {
 		reportListado.setPageNumber(getPaginaInicial());
@@ -1374,6 +1376,6 @@ public abstract class Cabecera {
 
 	public void setExcel(boolean excel) {
 		this.excel = excel;
-	}	
-	
+	}
+
 }

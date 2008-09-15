@@ -10,7 +10,7 @@ public class Rotura {
 	/**
 	 * @uml.property  name="totales"
 	 * @uml.associationEnd  multiplicity="(0 -1)" aggregation="composite" inverse="rotura:mae.general.llistats.TotalColumna"
-	 */	
+	 */
 	private List <TotalColumna> totales;
 	public Rotura () {
 		totales = new ArrayList<TotalColumna>();
@@ -18,10 +18,10 @@ public class Rotura {
 		posInicial = 0;
 		clearRotura = false;
 		saltPagina = false;
-		automatica = true;			
+		automatica = true;
 		dejarLineaBlanca = true;
 		resetNumPage = false;
-	}	
+	}
 	/**
 	 * Getter of the property <tt>totales</tt>
 	 * @return  Returns the totales.
@@ -32,7 +32,7 @@ public class Rotura {
 	}
 	public TotalColumna getTotal(int index) {
 		return (TotalColumna) totales.get(index);
-	}	
+	}
 
 	/**
 	 * Returns <tt>true</tt> if this collection contains no elements.
@@ -45,7 +45,7 @@ public class Rotura {
 	}
 
 	/**
-	 * Returns <tt>true</tt> if this collection contains the specified element. 
+	 * Returns <tt>true</tt> if this collection contains the specified element.
 	 * @param element  whose presence in this collection is to be tested.
 	 * @see java.util.Collection#contains(Object)
 	 * @uml.property  name="totales"
@@ -86,7 +86,7 @@ public class Rotura {
 	}
 
 	/**
-	 * Ensures that this collection contains the specified element (optional operation). 
+	 * Ensures that this collection contains the specified element (optional operation).
 	 * @param element  whose presence in this collection is to be ensured.
 	 * @see java.util.Collection#add(Object)
 	 * @uml.property  name="totales"
@@ -98,7 +98,7 @@ public class Rotura {
 	public void addTotal(int index, TotalColumna totalColumna, int id) {
 		totalColumna.setVarListado(id);
 		totales.add(index, totalColumna);
-	}	
+	}
 
 	/**
 	 * Setter of the property <tt>totales</tt>
@@ -118,10 +118,10 @@ public class Rotura {
 	public TotalColumna removeTotales(int index) {
 		return totales.remove(index);
 	}
-	
+
 	public void setTotal(int index, TotalColumna totalColumna) {
 		this.totales.set(index, totalColumna);
-	}	    
+	}
 	/**
 	 * Removes all of the elements from this collection (optional operation).
 	 * @see java.util.Collection#clear()
@@ -154,7 +154,7 @@ public class Rotura {
 	public int getVarListado () {
 		return var_listado;
 	}
-	
+
 	public boolean isResetNumPage() {
 		return resetNumPage;
 	}
@@ -184,7 +184,7 @@ public class Rotura {
 	}
 	public void setDescRotura(java.util.Date d) {
 		descRotura.setValue(d);
-	}			
+	}
 	public ReportData getDescRotura() {
 		return descRotura;
 	}
@@ -194,54 +194,54 @@ public class Rotura {
 		return descRotura;
 	}
 	public void setDejarLineaBlanca (boolean b) {
-		dejarLineaBlanca = b;	
+		dejarLineaBlanca = b;
 	}
 
 	public boolean getDejarLineaBlanca () {
-		return dejarLineaBlanca;	
-	}	
+		return dejarLineaBlanca;
+	}
 	public void setAutomatica (boolean b) {
-		automatica = b;	
+		automatica = b;
 	}
 
 	public boolean getAutomatica () {
-		return automatica;	
-	}		
+		return automatica;
+	}
 	public void setSiempreVisible (boolean b) {
-		siempreVisible = b;	
+		siempreVisible = b;
 	}
 
 	public boolean getSiempreVisible () {
-		return siempreVisible;	
-	}		
-	
+		return siempreVisible;
+	}
+
 	public void setSaltPagina (boolean b) {
-		saltPagina = b;	
+		saltPagina = b;
 	}
 
 	public boolean getSaltPagina () {
-		return saltPagina;	
-	}	
+		return saltPagina;
+	}
 	public void setPosInicial (int i) {
 		posInicial =i;
 	}
 	public int getPosInicial () {
 		return posInicial;
-	}	
-	
+	}
+
 	public boolean getPintaUnderline () {
 		return pintaUnderline;
 	}
 	public void setPintaUnderline (boolean b) {
-		pintaUnderline = b;	
+		pintaUnderline = b;
 	}
 
 	public void setClearRotura (boolean b) {
-		clearRotura = b;	
+		clearRotura = b;
 	}
 	public boolean getClearRotura () {
 		return clearRotura;
-	}	
+	}
 	public void clearRotura() {
 		setClearRotura(true);
         setActivada(false);
@@ -250,25 +250,25 @@ public class Rotura {
 	public String getTitulo() {
 		return titulo;
 	}
-	
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	
+
 	public String getAgrupacionAnterior() {
 		return agrupacionAnterior;
 	}
-	
+
 	public void setAgrupacionAnterior(String agrupacion) {
 		this.agrupacionAnterior = agrupacion;
 	}
 	public String getAgrupacionActual() {
 		return agrupacionActual;
-	}	
+	}
 	public void setAgrupacionActual(String agrupacion) {
 		this.agrupacionActual = agrupacion;
 	}
-		
+
 	public boolean checkRotura() {
 		if (agrupacionActual != null && !agrupacionActual.equals(agrupacionAnterior)) {
 			setActivada(true);
@@ -277,15 +277,15 @@ public class Rotura {
 		}
 		return isActivada();
 	}
-	
+
 	public boolean isActivada() {
 		return activada;
 	}
-	
+
 	public void setActivada(boolean activada) {
 		this.activada = activada;
 	}
-	
+
 	public void initTotales() {
 		for (int i=0;i<totalesSize();i++) {
 			getTotal(i).init();
@@ -298,15 +298,17 @@ public class Rotura {
 			if (buida) buida = (getTotal(i).getValor()==0);
 		}
 		return buida;
-	}	
-	
+	}
+
 	public void acumulaTotales() {
 		for (int i=0;i<totalesSize();i++) {
 			if (getClearRotura()) {
-				getTotal(i).init();			
+				getTotal(i).init();
 			}
-			getTotal(i).acumulaColumna();			
+			getTotal(i).acumulaColumna();
 		}
 		if (getClearRotura()) setClearRotura(false);
 	}
+
+
 }
