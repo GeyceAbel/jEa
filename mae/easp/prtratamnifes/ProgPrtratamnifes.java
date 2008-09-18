@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080626
-// Hora:             16:59:27
+// Fecha:            20080918
+// Hora:             09:35:38
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -284,11 +284,12 @@ public class ProgPrtratamnifes extends Program
             }
           else {
             String car=getString().substring(0,1);
-            if (Util.isNumero(car) || car.equals("X")) 
+            if (Util.isNumero(car) ||  ( car.equals("X") || car.equals("Y") || car.equals("Z")  ) ) 
               datfisicajuri.setValue("F");
             else
               datfisicajuri.setValue("J");
-            if (car.equals("X"))
+        
+            if (car.equals("X") || car.equals("Y") || car.equals("Z") )
               datipf.setValue("6");
             else if (Util.isNumero(car) && getString().length()==9)
               datipf.setValue("1");

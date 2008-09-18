@@ -864,7 +864,7 @@ public static Date esFecha (String s){
     // si la longitud del CIF es diferente de 9 debe ser de tipo P, S o X o será incorrecto
     if (CIF.length()!=9){
       // Se controla si el CIF es tipo X
-      if (CIF.length()==8 && CIF.substring(0,1).equals("X")){
+      if (CIF.length()==8 &&  ( CIF.substring(0,1).equals("X") || CIF.substring(0,1).equals("Y") || CIF.substring(0,1).equals("Z")  ) ){
         //se controla que el 9 caracter sea numérico
         if (Util.isNumero(CIF.substring(7,8))) {
 //          if (Maefc.message("El CIF es de tipo X (extranjero)."+

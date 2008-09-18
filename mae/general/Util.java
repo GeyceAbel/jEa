@@ -553,6 +553,32 @@ System.out.println("Error: "+e);
        }
     }
 
+   
+   public boolean esCIFdePersonaFisica(String cif) {
+	 if ( cif== null || cif.length() < 3 ) {
+		return false ;  
+	   }
+
+	 String car=cif.substring(0,1);
+	 if (Util.isNumero(car) ||  ( car.equals("X") || car.equals("Y") || car.equals("Z")  ) ) 
+	   return true ;
+	 else
+	   return false ;   
+      }
+   
+   public boolean esNIE(String cif ) {
+	 if ( cif== null || cif.length() < 3 ) {
+	   return false ;  
+	   }
+
+	 String car=cif.substring(0,1);
+	 if ( ( car.equals("X") || car.equals("Y") || car.equals("Z")  ) ) 
+	   return true ;
+   
+	 
+     return false ;   	   
+     }
+   
 	/** Función que elimina los caracteres especiales que haya de por medio del
 	 * cif o nif
    * @param cif cadena que contiene el CIF o NIF que se va a limpiar
@@ -620,7 +646,7 @@ System.out.println("Error: "+e);
 		 		//Se toma la primera letra como si fuera 0 y se valida como NIF
 				// SE TRATA DEL CASO EN QUE EL PRIMER CARACTER ES UNA LETRA
 				// DIFERENTE X y acaba en letra (y el resto es numérico)
-		 		if (!isNumero(firstChar) && !firstChar.equals("X") && !isNumero(CIF.substring(CIF.length()-1))){
+		 		if (!isNumero(firstChar) && !firstChar.equals("X") && !firstChar.equals("Y") && !firstChar.equals("Z") && !isNumero(CIF.substring(CIF.length()-1))){
 		 			if (!isNumero(CIF.substring(1,CIF.length()-1)))
 		 				 Maefc.message("Un CIF nunca puede contener letras que no se encuentren al principio o al final","CIF incorrecto",Maefc.INFORMATION_MESSAGE);
 					System.out.println("Este cif es correcto y es de tipo especial");
@@ -637,14 +663,20 @@ System.out.println("Error: "+e);
 		 		  }
 
 			// si es tracta d'un NIE tipus X de longitud no superior a 9
-     	 if (firstChar.equals("X") && CIF.length() <= 9){
+     	 if ( ( firstChar.equals("X") || firstChar.equals("Y") || firstChar.equals("Z") ) && CIF.length() <= 9){
      	     //se controla que el 8 caracter sea numérico
      	     if (isNumero(CIF.substring(CIF.length()-1))) {
      	       if (Maefc.message("A este NIE le falta la letra."+
      	         "\n¿Desea añadirla?","Añadir letra al NIE",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION)==Maefc.YES_OPTION) {
      	         //String  dcif="0"+CIF.substring(1,8);
      	         //return dcif+letraDNI(dcif);
-		 						return CIF+letraDNI(CIF.substring(1));
+     	        	
+     	        	// APPAU: 17-09-2008 Nueva validación de los NIEs con letras Y o Z  
+     	        	String NIE_XYZ = "" ; 
+     	        	if ( firstChar.equals("Y") ) NIE_XYZ = "1" ;
+     	        	if ( firstChar.equals("Z") ) NIE_XYZ = "2" ; 
+     	        	 
+		 						return CIF+letraDNI(NIE_XYZ+CIF.substring(1));
      	         }
      	       }
 					 else {
@@ -669,7 +701,7 @@ System.out.println("Error: "+e);
 		 			return CIF;
      	   }
      	 else  {
-				 if (firstChar.equals("X")) {
+				 if (firstChar.equals("X") || firstChar.equals("Y") || firstChar.equals("Z") ) {
 				   if (esNIF(CIF.substring(1))!=0)
 				     Maefc.message("La estructura del NIE es errónea. ",
      	                     "NIE incorrecto",Maefc.INFORMATION_MESSAGE);
