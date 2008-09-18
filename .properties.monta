@@ -17,6 +17,8 @@ Sede.nombre=GEYCE,S.A.
 Central.codigo=1
 Central.nombre=Central
 Aplicacion.subtitulo=Gestión Administrativa AGPI
+LookAndFeel=javax.swing.plaf.metal.MetalLookAndFeel
+
 
 DataBase.sqlserver.init=SET LOCK_TIMEOUT 10000
 DataBase.sqlserver.concurrencyType=1009
@@ -50,9 +52,3 @@ DataBase.oracle.date.literal=''dd-MM-yyyy''
 DataBase.oracle.datetime.literal=''dd-MM-yyyy hh:mm:ss''
 DataBase.oracle.resetErrorNumber=17002
 
-DataBase.bdagpi.type=oracle
-DataBase.bdagpi.oracle=yes
-DataBase.bdagpi.driver=oracle.jdbc.driver.OracleDriver
-DataBase.bdagpi.url=jdbc:oracle:thin:@afinity.geyce.es:1521:geyce
-DataBase.bdagpi.user=agpi
-DataBase.bdagpi.password=McCartney
