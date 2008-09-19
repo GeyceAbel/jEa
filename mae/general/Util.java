@@ -681,11 +681,17 @@ System.out.println("Error: "+e);
      	       }
 					 else {
 						 //validarlletra en cas que sigui NIE
-						 String letracontrol=letraDNI(CIF.substring(1,CIF.length()-1));
+						 
+		     	        // APPAU: 17-09-2008 Nueva validación de los NIEs con letras Y o Z  
+		     	        String NIE_XYZ = "" ; 
+		     	        if ( firstChar.equals("Y") ) NIE_XYZ = "1" ;
+		     	        if ( firstChar.equals("Z") ) NIE_XYZ = "2" ; 
+						 
+						 String letracontrol=letraDNI(NIE_XYZ+CIF.substring(1,CIF.length()-1));
 						 if (!CIF.substring(CIF.length()-1).equals(letracontrol) )
-     	       		if (Maefc.message("La letra de control de este NIE es incorrecta."+
-     	       		  "\n¿Desea cambiarla?","Cambiar letra del NIE",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION)==Maefc.YES_OPTION) {
-		 				 				return CIF.substring(0,CIF.length()-1)+letracontrol;
+     	       		       if (Maefc.message("La letra de control de este NIE es incorrecta."+
+     	       		        "\n¿Desea cambiarla?","Cambiar letra del NIE",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION)==Maefc.YES_OPTION) {
+		 				 	 return CIF.substring(0,CIF.length()-1)+letracontrol;
      	       		  }
 					   }
      	   return CIF;
