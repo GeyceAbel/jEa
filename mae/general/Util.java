@@ -554,7 +554,7 @@ System.out.println("Error: "+e);
     }
 
    
-   public boolean esCIFdePersonaFisica(String cif) {
+   public static boolean esCIFdePersonaFisica(String cif) {
 	 if ( cif== null || cif.length() < 3 ) {
 		return false ;  
 	   }
@@ -566,7 +566,7 @@ System.out.println("Error: "+e);
 	   return false ;   
       }
    
-   public boolean esNIE(String cif ) {
+   public static boolean esNIE(String cif ) {
 	 if ( cif== null || cif.length() < 3 ) {
 	   return false ;  
 	   }
