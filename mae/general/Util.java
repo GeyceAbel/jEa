@@ -553,32 +553,32 @@ System.out.println("Error: "+e);
        }
     }
 
-   
+
    public static boolean esCIFdePersonaFisica(String cif) {
 	 if ( cif== null || cif.length() < 3 ) {
-		return false ;  
+		return false ;
 	   }
 
 	 String car=cif.substring(0,1);
-	 if (Util.isNumero(car) ||  ( car.equals("X") || car.equals("Y") || car.equals("Z")  ) ) 
+	 if (Util.isNumero(car) ||  ( car.equals("X") || car.equals("Y") || car.equals("Z")  ) )
 	   return true ;
 	 else
-	   return false ;   
+	   return false ;
       }
-   
+
    public static boolean esNIE(String cif ) {
 	 if ( cif== null || cif.length() < 3 ) {
-	   return false ;  
+	   return false ;
 	   }
 
 	 String car=cif.substring(0,1);
-	 if ( ( car.equals("X") || car.equals("Y") || car.equals("Z")  ) ) 
+	 if ( ( car.equals("X") || car.equals("Y") || car.equals("Z")  ) )
 	   return true ;
-   
-	 
-     return false ;   	   
+
+
+     return false ;
      }
-   
+
 	/** Función que elimina los caracteres especiales que haya de por medio del
 	 * cif o nif
    * @param cif cadena que contiene el CIF o NIF que se va a limpiar
@@ -670,23 +670,23 @@ System.out.println("Error: "+e);
      	         "\n¿Desea añadirla?","Añadir letra al NIE",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION)==Maefc.YES_OPTION) {
      	         //String  dcif="0"+CIF.substring(1,8);
      	         //return dcif+letraDNI(dcif);
-     	        	
-     	        	// APPAU: 17-09-2008 Nueva validación de los NIEs con letras Y o Z  
-     	        	String NIE_XYZ = "" ; 
+
+     	        	// APPAU: 17-09-2008 Nueva validación de los NIEs con letras Y o Z
+     	        	String NIE_XYZ = "" ;
      	        	if ( firstChar.equals("Y") ) NIE_XYZ = "1" ;
-     	        	if ( firstChar.equals("Z") ) NIE_XYZ = "2" ; 
-     	        	 
+     	        	if ( firstChar.equals("Z") ) NIE_XYZ = "2" ;
+
 		 						return CIF+letraDNI(NIE_XYZ+CIF.substring(1));
      	         }
      	       }
 					 else {
 						 //validarlletra en cas que sigui NIE
-						 
-		     	        // APPAU: 17-09-2008 Nueva validación de los NIEs con letras Y o Z  
-		     	        String NIE_XYZ = "" ; 
+
+		     	        // APPAU: 17-09-2008 Nueva validación de los NIEs con letras Y o Z
+		     	        String NIE_XYZ = "" ;
 		     	        if ( firstChar.equals("Y") ) NIE_XYZ = "1" ;
-		     	        if ( firstChar.equals("Z") ) NIE_XYZ = "2" ; 
-						 
+		     	        if ( firstChar.equals("Z") ) NIE_XYZ = "2" ;
+
 						 String letracontrol=letraDNI(NIE_XYZ+CIF.substring(1,CIF.length()-1));
 						 if (!CIF.substring(CIF.length()-1).equals(letracontrol) )
      	       		       if (Maefc.message("La letra de control de este NIE es incorrecta."+
@@ -749,11 +749,11 @@ System.out.println("Error: "+e);
       }
     //el primer caracter debe ser un alfanumérico de los de esta lista
     String pchar=CIF.substring(0,1);
-    String lcif="ABCDEFGHQKLM";
+    String lcif="ABCDEFGHJPQRSUVNW";
     if(lcif.indexOf(pchar) < 0){
       Maefc.message("La letra del CIF no es correcta, "+
            "\nla letra debe ser una de éstas:"+
-           "\nABCDEFGHKLMQ","CIF incorrecto",Maefc.INFORMATION_MESSAGE);
+           "\nABCDEFGHJPQRSUVNW","CIF incorrecto",Maefc.INFORMATION_MESSAGE);
       return CIF;
       }
     else {

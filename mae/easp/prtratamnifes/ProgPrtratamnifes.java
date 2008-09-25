@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080918
-// Hora:             09:35:38
+// Fecha:            20080925
+// Hora:             11:33:19
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -179,14 +179,16 @@ public class ProgPrtratamnifes extends Program
     // Fin declaraciones globales
     // Controles
     public CtrlDanifcif danifcif;
-    public CtrlDatipf datipf;
     public CtrlDatfisicajuri datfisicajuri;
     public CtrlChcbienes chcbienes;
+    public CtrlDatipf datipf;
     public CtrlDatapell1 datapell1;
     public CtrlDatapell2 datapell2;
     public CtrlDatnombre datnombre;
     public CtrlDatletraseti datletraseti;
+    public CtrlDatnacional datnacional;
     public CtrlDatemail datemail;
+    public CtrlDatcontacto datcontacto;
     public CtrlDattel dattel;
     public CtrlDatfax datfax;
     public CtrlDatsiglas datsiglas;
@@ -203,12 +205,10 @@ public class ProgPrtratamnifes extends Program
     public CtrlCdpaeatdele cdpaeatdele;
     public CtrlCdpaeatadm cdpaeatadm;
     public CtrlVcdpcodi vcdpcodi;
+    public CtrlCdpbdcomuconta cdpbdcomuconta;
     public CtrlCdpref cdpref;
     public CtrlCdpcdprel cdpcdprel;
-    public CtrlCdpbdcomuconta cdpbdcomuconta;
-    public CtrlDatcontacto datcontacto;
     public CtrlCdpobserv cdpobserv;
-    public CtrlDatnacional datnacional;
     // Acciones
     public LinkAaltaafinity aaltaafinity;
     class Location extends LocationGridBag
@@ -281,13 +281,17 @@ public class ProgPrtratamnifes extends Program
           if (isNull()) {
             datipf.setNull();
             datfisicajuri.setNull();
-            }
+          }
           else {
             String car=getString().substring(0,1);
             if (Util.isNumero(car) ||  ( car.equals("X") || car.equals("Y") || car.equals("Z")  ) ) 
               datfisicajuri.setValue("F");
             else
               datfisicajuri.setValue("J");
+            if (car.equals("E") || car.equals("G") || car.equals("H") || car.equals("J")) 
+               chcbienes.setValue(true);
+            else 
+               chcbienes.setValue(false);
         
             if (car.equals("X") || car.equals("Y") || car.equals("Z") )
               datipf.setValue("6");
@@ -299,28 +303,6 @@ public class ProgPrtratamnifes extends Program
       public boolean obligate()
         {
         return true;
-        }
-      }
-      
-    public class CtrlDatipf extends ControlComboBox
-      {
-      public CtrlDatipf(Form form)
-        {
-        super(form);
-        setName("datipf");
-        setMessageHelp("Tipo de código identificador");
-        setTitle("IPF");
-        setType(STRING);
-        setMaskInput("U");
-        setLength(1);
-        setPrintable(false);
-        addItem("1/DNI");
-        addItem("2/Pasaporte");
-        addItem("3/Tarjeta Residente Comunitario");
-        addItem("4/Permiso Residencia y Trabajo");
-        addItem("6/NIE-Número Identif. Extranjero");
-        addItem("9/CIF");
-        setField(snifes.datipf);
         }
       }
       
@@ -373,6 +355,28 @@ public class ProgPrtratamnifes extends Program
         setName("chcbienes");
         setMessageHelp("Tiene comunidad de bienes");
         setTitle("C. Bienes");
+        }
+      }
+      
+    public class CtrlDatipf extends ControlComboBox
+      {
+      public CtrlDatipf(Form form)
+        {
+        super(form);
+        setName("datipf");
+        setMessageHelp("Tipo de código identificador");
+        setTitle("IPF");
+        setType(STRING);
+        setMaskInput("U");
+        setLength(1);
+        setPrintable(false);
+        addItem("1/DNI");
+        addItem("2/Pasaporte");
+        addItem("3/Tarjeta Residente Comunitario");
+        addItem("4/Permiso Residencia y Trabajo");
+        addItem("6/NIE-Número Identif. Extranjero");
+        addItem("9/CIF");
+        setField(snifes.datipf);
         }
       }
       
@@ -477,6 +481,27 @@ public class ProgPrtratamnifes extends Program
         }
       }
       
+    public class CtrlDatnacional extends ControlComboBox
+      {
+      public mae.easp.general.pkpaises.PickPkpaises pickup;
+      public CtrlDatnacional(Form form)
+        {
+        super(form);
+        setName("datnacional");
+        setMessageHelp("Nacionalidad");
+        setTitle("Nacionalidad");
+        setType(INTEGER);
+        setPickUp(pickup=new mae.easp.general.pkpaises.PickPkpaises(this));
+        setLength(3);
+        setPrintable(false);
+        setField(snifes.datnacional);
+        }
+      public Object getDefault()
+        {
+        return new Integer(108);
+        }
+      }
+      
     public class CtrlDatemail extends ControlEdit
       {
       public CtrlDatemail(Form form)
@@ -488,6 +513,21 @@ public class ProgPrtratamnifes extends Program
         setLength(30);
         setPrintable(false);
         setField(snifes.datemail);
+        }
+      }
+      
+    public class CtrlDatcontacto extends ControlEdit
+      {
+      public CtrlDatcontacto(Form form)
+        {
+        super(form);
+        setName("datcontacto");
+        setTitle("Contacto");
+        setType(STRING);
+        setMaskInput("U");
+        setLength(30);
+        setPrintable(false);
+        setField(snifes.datcontacto);
         }
       }
       
@@ -859,6 +899,30 @@ public class ProgPrtratamnifes extends Program
         }
       }
       
+    public class CtrlCdpbdcomuconta extends ControlComboBox
+      {
+      public CtrlCdpbdcomuconta(Form form)
+        {
+        super(form);
+        setName("cdpbdcomuconta");
+        setTitle("BD Común");
+        setType(STRING);
+        setMaskInput("U");
+        setLength(1);
+        setPrintable(false);
+        addItem("S/Si (aconsejable para entornos SQL Server)");
+        addItem("N/No (aconsejable para entornos ACCESS)");
+        setField(snifes.cdpbdcomuconta);
+        }
+      public Object getDefault()
+        {
+        if (Aplication.getAplication().getDataBase().getDB().getType().equals("access"))
+          return "N";
+        else
+          return "S";
+        }
+      }
+      
     public class CtrlCdpref extends ControlEdit
       {
       class Look extends LookComponent
@@ -906,45 +970,6 @@ public class ProgPrtratamnifes extends Program
         }
       }
       
-    public class CtrlCdpbdcomuconta extends ControlComboBox
-      {
-      public CtrlCdpbdcomuconta(Form form)
-        {
-        super(form);
-        setName("cdpbdcomuconta");
-        setTitle("BD Común");
-        setType(STRING);
-        setMaskInput("U");
-        setLength(1);
-        setPrintable(false);
-        addItem("S/Si (aconsejable para entornos SQL Server)");
-        addItem("N/No (aconsejable para entornos ACCESS)");
-        setField(snifes.cdpbdcomuconta);
-        }
-      public Object getDefault()
-        {
-        if (Aplication.getAplication().getDataBase().getDB().getType().equals("access"))
-          return "N";
-        else
-          return "S";
-        }
-      }
-      
-    public class CtrlDatcontacto extends ControlEdit
-      {
-      public CtrlDatcontacto(Form form)
-        {
-        super(form);
-        setName("datcontacto");
-        setTitle("Contacto");
-        setType(STRING);
-        setMaskInput("U");
-        setLength(30);
-        setPrintable(false);
-        setField(snifes.datcontacto);
-        }
-      }
-      
     public class CtrlCdpobserv extends ControlEditPane
       {
       class Look extends LookComponent
@@ -968,27 +993,6 @@ public class ProgPrtratamnifes extends Program
         setLength(255);
         setPrintable(false);
         setField(snifes.cdpobserv);
-        }
-      }
-      
-    public class CtrlDatnacional extends ControlComboBox
-      {
-      public mae.easp.general.pkpaises.PickPkpaises pickup;
-      public CtrlDatnacional(Form form)
-        {
-        super(form);
-        setName("datnacional");
-        setMessageHelp("Nacionalidad");
-        setTitle("Nacionalidad");
-        setType(INTEGER);
-        setPickUp(pickup=new mae.easp.general.pkpaises.PickPkpaises(this));
-        setLength(3);
-        setPrintable(false);
-        setField(snifes.datnacional);
-        }
-      public Object getDefault()
-        {
-        return new Integer(108);
         }
       }
       
@@ -1024,14 +1028,16 @@ public class ProgPrtratamnifes extends Program
       addSelect(snumcheck=new Snumcheck());
       addSelect(scdprep=new Scdprep());
       addControl(danifcif=new CtrlDanifcif(this));
-      addControl(datipf=new CtrlDatipf(this));
       addControl(datfisicajuri=new CtrlDatfisicajuri(this));
       addControl(chcbienes=new CtrlChcbienes(this));
+      addControl(datipf=new CtrlDatipf(this));
       addControl(datapell1=new CtrlDatapell1(this));
       addControl(datapell2=new CtrlDatapell2(this));
       addControl(datnombre=new CtrlDatnombre(this));
       addControl(datletraseti=new CtrlDatletraseti(this));
+      addControl(datnacional=new CtrlDatnacional(this));
       addControl(datemail=new CtrlDatemail(this));
+      addControl(datcontacto=new CtrlDatcontacto(this));
       addControl(dattel=new CtrlDattel(this));
       addControl(datfax=new CtrlDatfax(this));
       addControl(datsiglas=new CtrlDatsiglas(this));
@@ -1048,12 +1054,10 @@ public class ProgPrtratamnifes extends Program
       addControl(cdpaeatdele=new CtrlCdpaeatdele(this));
       addControl(cdpaeatadm=new CtrlCdpaeatadm(this));
       addControl(vcdpcodi=new CtrlVcdpcodi(this));
+      addControl(cdpbdcomuconta=new CtrlCdpbdcomuconta(this));
       addControl(cdpref=new CtrlCdpref(this));
       addControl(cdpcdprel=new CtrlCdpcdprel(this));
-      addControl(cdpbdcomuconta=new CtrlCdpbdcomuconta(this));
-      addControl(datcontacto=new CtrlDatcontacto(this));
       addControl(cdpobserv=new CtrlCdpobserv(this));
-      addControl(datnacional=new CtrlDatnacional(this));
       addAction(aaltaafinity=new LinkAaltaafinity(this));
       setSelect(snifes);
       }
