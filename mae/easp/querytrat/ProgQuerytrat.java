@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080704
-// Hora:             14:10:12
+// Fecha:            20080930
+// Hora:             00:37:15
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -196,6 +196,7 @@ public class ProgQuerytrat extends Program
     public CtrlQefect qefect;
     public CtrlVapaisado vapaisado;
     public CtrlVpaginado vpaginado;
+    public CtrlVrepetir vrepetir;
     // Acciones
     public LinkIrvariables irvariables;
     class Location extends LocationBorder
@@ -340,6 +341,21 @@ public class ProgQuerytrat extends Program
         }
       }
       
+    public class CtrlVrepetir extends ControlCheck
+      {
+      public CtrlVrepetir(Form form)
+        {
+        super(form);
+        setName("vrepetir");
+        setMessageHelp("Indicar si deben repetirse las líneas con la misma información");
+        setTitle("Repetir");
+        }
+      public Object getDefault()
+        {
+        return false;
+        }
+      }
+      
     public class LinkIrvariables extends Action
       {
       public LinkIrvariables(Form form)
@@ -391,6 +407,7 @@ public class ProgQuerytrat extends Program
       addControl(qefect=new CtrlQefect(this));
       addControl(vapaisado=new CtrlVapaisado(this));
       addControl(vpaginado=new CtrlVpaginado(this));
+      addControl(vrepetir=new CtrlVrepetir(this));
       addAction(irvariables=new LinkIrvariables(this));
       setSelect(sfrase);
       }
@@ -400,6 +417,7 @@ public class ProgQuerytrat extends Program
       
       sfrase.qefapaisado.setValue(vapaisado.getString());
       sfrase.qefpaginado.setValue(vpaginado.getString());
+      sfrase.qefrepetir.setValue(vrepetir.getString());
       
       frase=qeffrase.getString();
       master=qefmaster.getString();
@@ -491,6 +509,7 @@ public class ProgQuerytrat extends Program
       {
       sfrase.qefapaisado.setValue(vapaisado.getString());
       sfrase.qefpaginado.setValue(vpaginado.getString());
+      sfrase.qefrepetir.setValue(vrepetir.getString());
       
       return super.onOkUpdate();
       }
@@ -499,6 +518,7 @@ public class ProgQuerytrat extends Program
       super.onBeginRecord();
       vapaisado.setValue(sfrase.qefapaisado.getBoolean());
       vpaginado.setValue(sfrase.qefpaginado.getBoolean());
+      vrepetir.setValue(sfrase.qefrepetir.getBoolean());
       }
     }
     
@@ -517,6 +537,7 @@ public class ProgQuerytrat extends Program
     public Field qefletra;
     public Field qefmaster;
     public Field qefpaginado;
+    public Field qefrepetir;
     public Field qeftitulo;
     public Field qefwhere;
     class Quefrase extends Table
@@ -542,6 +563,7 @@ public class ProgQuerytrat extends Program
       addField(qefletra=new Field(this,quefrase,"qefletra"));
       addField(qefmaster=new Field(this,quefrase,"qefmaster"));
       addField(qefpaginado=new Field(this,quefrase,"qefpaginado"));
+      addField(qefrepetir=new Field(this,quefrase,"qefrepetir"));
       addField(qeftitulo=new Field(this,quefrase,"qeftitulo"));
       addField(qefwhere=new Field(this,quefrase,"qefwhere"));
       }
@@ -2179,13 +2201,13 @@ public class ProgQuerytrat extends Program
     panel.setLayout(new LayoutPercent(LayoutPercent.VERTICAL));
     panel.setLocation(LocationBorder.locationBorderCenter);
         
-    vfrase.setLocation(new LocationPercent(0.5D));
+    vfrase.setLocation(new LocationPercent(0.55D));
     vfrase.setModal(false);
     vfrase.setParent(panel);
         
     ControlPanel panel1 = new ControlPanel(panel);
     panel1.setLayout(new LayoutPercent(LayoutPercent.HORIZONTAL));
-    panel1.setLocation(new LocationPercent(0.5D));
+    panel1.setLocation(new LocationPercent(0.45D));
     panel1.setParent(panel);
         
     vtablas.setLocation(new LocationPercent(0.3D)); 

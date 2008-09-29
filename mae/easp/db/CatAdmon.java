@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20071203
-// Hora:             18:16:50
+// Fecha:            20080929
+// Hora:             23:56:21
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1204,7 +1204,7 @@ public class CatAdmon extends Catalog
       erincide = new FieldDef("erincide",FieldDef.CHAR,1,FieldDef.NOTNULL);
       eropcion = new FieldDef("eropcion",FieldDef.INTEGER,0);
       ersoluci = new FieldDef("ersoluci",FieldDef.CHAR,1024);
-      erdescri = new FieldDef("erdescri",FieldDef.CHAR,1024);
+      erdescri = new FieldDef("erdescri",FieldDef.CHAR,10246);
       FieldDef array[] = {
         ercodigo,
         erambito,
@@ -2071,6 +2071,7 @@ public class CatAdmon extends Catalog
     public FieldDef qeffrom;
     public FieldDef qefwhere;
     public FieldDef qefect;
+    public FieldDef qefrepetir;
     public TabQuefrase(String name)
       {
       super(name);
@@ -2085,6 +2086,7 @@ public class CatAdmon extends Catalog
       qeffrom = new FieldDef("qeffrom",FieldDef.CHAR,255);
       qefwhere = new FieldDef("qefwhere",FieldDef.CHAR,255);
       qefect = new FieldDef("qefect",FieldDef.CHAR,1);
+      qefrepetir = new FieldDef("qefrepetir",FieldDef.CHAR,1);
       FieldDef array[] = {
         qefaplicacion,
         qeffrase,
@@ -2096,7 +2098,8 @@ public class CatAdmon extends Catalog
         qefpaginado,
         qeffrom,
         qefwhere,
-        qefect        
+        qefect,
+        qefrepetir        
         };
       setColumns(array);
       FieldDef arrayf[] = {qefaplicacion,qeffrase };

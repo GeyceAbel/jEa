@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080704
-// Hora:             14:09:32
+// Fecha:            20080930
+// Hora:             00:11:46
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -57,6 +57,7 @@ public class ProgQuerylis extends Program
         frase.where       =sfrase.getString("qefwhere");
         frase.ect         =sfrase.getString("qefect");
         frase.nomConexio  =buscaNomConexio(sfrase.getString("qefmaster"));
+        frase.repetirLinea=sfrase.getString("qefrepetir");
   
         llegeixColumnes(frase);
         llegeixTaules(frase);
@@ -258,6 +259,7 @@ public class ProgQuerylis extends Program
     String where;
     String ect;
     String nomConexio;
+    String repetirLinea;
   
     int varnum;
   
@@ -559,7 +561,7 @@ public class ProgQuerylis extends Program
        
       StringBuffer sentencia=new StringBuffer();
       quorelacioPrincipal.selector=new Selector(quonexio.connection);
-      
+  
       String select1 = frase.getColumnes(quonexio,quorelacioPrincipal);
       String select2 = frase.getFromPrincipal(quonexio,quorelacioPrincipal);
   
@@ -615,6 +617,8 @@ public class ProgQuerylis extends Program
       String ordre=frase.getOrder();
       if (select1!=null && !select1.trim().equals("") && select2!=null && !select2.trim().equals("")) {
          sentencia.append("select ");
+         if ("N".equals(frase.repetirLinea))
+             sentencia.append("distinct ");
          sentencia.append(select1);
   
          sentencia.append(" from ");  
@@ -1294,6 +1298,7 @@ public class ProgQuerylis extends Program
           insertEtiq("qeffrom",sprueba.qeffrom.getString().trim());
           insertEtiq("qefwhere",sprueba.qefwhere.getString().trim());
           insertEtiq("qefect",sprueba.qefect.getString().trim());
+          insertEtiq("qefrepetir",sprueba.qefrepetir.getString().trim());
         salida.println("</quefrase>"); 
         salida.println("<quecolumn>");
           squecolumn.execute();
@@ -1503,6 +1508,7 @@ public class ProgQuerylis extends Program
           sprueba.qeffrom.setValue(getTag("qeffrom"));
           sprueba.qefwhere.setValue(getTag("qefwhere"));
           sprueba.qefect.setValue(getTag("qefect"));
+              sprueba.qefrepetir.setValue(getTag("qefrepetir"));
               sprueba.insert();
               sprueba.commit();
             }
@@ -2072,6 +2078,7 @@ public class ProgQuerylis extends Program
     public Field qefletra;
     public Field qefmaster;
     public Field qefpaginado;
+    public Field qefrepetir;
     public Field qeftitulo;
     class Quefrase extends Table
       {
@@ -2094,6 +2101,7 @@ public class ProgQuerylis extends Program
       addField(qefletra=new Field(this,quefrase,"qefletra"));
       addField(qefmaster=new Field(this,quefrase,"qefmaster"));
       addField(qefpaginado=new Field(this,quefrase,"qefpaginado"));
+      addField(qefrepetir=new Field(this,quefrase,"qefrepetir"));
       addField(qeftitulo=new Field(this,quefrase,"qeftitulo"));
       }
     public String getWhere()
@@ -2125,6 +2133,7 @@ public class ProgQuerylis extends Program
     public Field qefletra;
     public Field qefmaster;
     public Field qefpaginado;
+    public Field qefrepetir;
     public Field qeftitulo;
     public Field qefwhere;
     class Quefrase extends Table
@@ -2150,6 +2159,7 @@ public class ProgQuerylis extends Program
       addField(qefletra=new Field(this,quefrase,"qefletra"));
       addField(qefmaster=new Field(this,quefrase,"qefmaster"));
       addField(qefpaginado=new Field(this,quefrase,"qefpaginado"));
+      addField(qefrepetir=new Field(this,quefrase,"qefrepetir"));
       addField(qeftitulo=new Field(this,quefrase,"qeftitulo"));
       addField(qefwhere=new Field(this,quefrase,"qefwhere"));
       }
@@ -2539,9 +2549,9 @@ public class ProgQuerylis extends Program
       int orden=0;
       Aplication.getAplication().getDataBase().executeUpdate(
             "insert into quefrase" + 
-            "( qefaplicacion,qeffrase,qefdescripcion,qefmaster,qeftitulo,qefapaisado,qefletra,qefpaginado,qeffrom,qefwhere,qefect )"+ 
+            "( qefaplicacion,qeffrase,qefdescripcion,qefmaster,qeftitulo,qefapaisado,qefletra,qefpaginado,qeffrom,qefwhere,qefect,qefrepetir )"+ 
             "select qefaplicacion,'" + codigo + "' as expr1 ,'" + descripcion + "' as expr2,"+
-            "qefmaster,qeftitulo,qefapaisado,qefletra,qefpaginado,qeffrom,qefwhere,qefect from quefrase where  "+
+            "qefmaster,qeftitulo,qefapaisado,qefletra,qefpaginado,qeffrom,qefwhere,qefect,qefrepetir from quefrase where  "+
             "qeffrase = '"+ vvqeffrase.getString() + "' and qefdescripcion = '" + vvqefdescripcio.getString() + "'");
     
       Selector sqcolumn = new Selector(Aplication.getAplication().getDataBase());
