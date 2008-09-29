@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080729
-// Hora:             12:00:25
+// Fecha:            20080929
+// Hora:             10:26:23
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -807,6 +807,7 @@ public class ProgInsprconver extends Program
       };
       String sentencias5_9[]={" DELETE FROM AMORTIZACION;"};  
     
+      String sentencias6_0[]={" DELETE FROM AYUDATXT WHERE ayprocedure like 'JEO%';"};  
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -1205,12 +1206,23 @@ public class ProgInsprconver extends Program
             vvveractual.setValue("5.9");
           }
           if (versio < 6.0) {
+             try {          
+              for (i=0;i<sentencias6_0.length;++i) {
+                Easp.chivato("6.0 Exec : ["+sentencias6_0[i]+"]",1);
+                Easp.connEA.executeUpdate(sentencias6_0[i]);
+              }
              String tablas[]= {"AYUDATXT"};
-             if ( !Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0600","easp.jar"))
-                return false;
-             Easp.setVersionBD("bdeasp","6.0");
-             Easp.connEA.commit();
-             vvveractual.setValue("6.0");
+             Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0600","easp.jar");
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias6_0[i];
+              Easp.chivato("6.0 *** Error : ["+sentencias6_0[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+             
+            Easp.setVersionBD("bdeasp","6.0");
+            Easp.connEA.commit();
+            vvveractual.setValue("6.0");
           }
       }
       catch(Exception e) {
