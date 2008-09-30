@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080929
-// Hora:             23:56:21
+// Fecha:            20080930
+// Hora:             09:20:40
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2211,6 +2211,8 @@ public class CatAdmon extends Catalog
     public FieldDef qecinipag;
     public FieldDef qecformato;
     public FieldDef qecbbdd;
+    public FieldDef qecsum;
+    public FieldDef qecgrupby;
     public TabQuecolumn(String name)
       {
       super(name);
@@ -2230,6 +2232,8 @@ public class CatAdmon extends Catalog
       qecinipag = new FieldDef("qecinipag",FieldDef.CHAR,1);
       qecformato = new FieldDef("qecformato",FieldDef.CHAR,80);
       qecbbdd = new FieldDef("qecbbdd",FieldDef.CHAR,15);
+      qecsum = new FieldDef("qecsum",FieldDef.CHAR,1);
+      qecgrupby = new FieldDef("qecgrupby",FieldDef.CHAR,1);
       FieldDef array[] = {
         qecaplicacion,
         qecfrase,
@@ -2246,7 +2250,9 @@ public class CatAdmon extends Catalog
         qecsaltapag,
         qecinipag,
         qecformato,
-        qecbbdd        
+        qecbbdd,
+        qecsum,
+        qecgrupby        
         };
       setColumns(array);
       FieldDef arrayf[] = {qecaplicacion,qecfrase,qecorden };

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20080930
-// Hora:             00:11:46
+// Hora:             09:48:24
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -58,6 +58,7 @@ public class ProgQuerylis extends Program
         frase.ect         =sfrase.getString("qefect");
         frase.nomConexio  =buscaNomConexio(sfrase.getString("qefmaster"));
         frase.repetirLinea=sfrase.getString("qefrepetir");
+        frase.count       =sfrase.getString("qefcount");
   
         llegeixColumnes(frase);
         llegeixTaules(frase);
@@ -99,6 +100,8 @@ public class ProgQuerylis extends Program
         col.orderby=scolumnes.getString("qecorderby");
         col.saltapag="S".equals(scolumnes.getString("qecsaltapag"));
         col.inipag="S".equals(scolumnes.getString("qecinipag"));
+        col.sumatorio="S".equals(scolumnes.getString("qecsum"));
+        col.agrupar="S".equals(scolumnes.getString("qecgrupby"));
   
         String camp  = scolumnes.getString("qeccampo");
         String taula = scolumnes.getString("qectabla");
@@ -260,6 +263,7 @@ public class ProgQuerylis extends Program
     String ect;
     String nomConexio;
     String repetirLinea;
+    String count;
   
     int varnum;
   
@@ -496,6 +500,8 @@ public class ProgQuerylis extends Program
     String format;
     boolean saltapag;
     boolean inipag;
+    boolean sumatorio;
+    boolean agrupar;
     boolean canviat;
     Quorelacio quorelacio;
     }
@@ -1299,6 +1305,7 @@ public class ProgQuerylis extends Program
           insertEtiq("qefwhere",sprueba.qefwhere.getString().trim());
           insertEtiq("qefect",sprueba.qefect.getString().trim());
           insertEtiq("qefrepetir",sprueba.qefrepetir.getString().trim());
+          insertEtiq("qefcount",sprueba.qefcount.getString().trim());
         salida.println("</quefrase>"); 
         salida.println("<quecolumn>");
           squecolumn.execute();
@@ -1326,6 +1333,8 @@ public class ProgQuerylis extends Program
             insertEtiq("qecinipag",squecolumn.qecinipag.getString().trim());
             insertEtiq("qecformato",squecolumn.qecformato.getString().trim());
             insertEtiq("qecbbdd",squecolumn.qecbbdd.getString().trim());
+            insertEtiq("qecsum",squecolumn.qecsum.getString().trim());
+            insertEtiq("qecgrupby",squecolumn.qecgrupby.getString().trim());
           salida.println("</registro>");
           squecolumn.next();
           }
@@ -1509,6 +1518,7 @@ public class ProgQuerylis extends Program
           sprueba.qefwhere.setValue(getTag("qefwhere"));
           sprueba.qefect.setValue(getTag("qefect"));
               sprueba.qefrepetir.setValue(getTag("qefrepetir"));
+              sprueba.qefcount.setValue(getTag("qefcount"));
               sprueba.insert();
               sprueba.commit();
             }
@@ -1545,6 +1555,8 @@ public class ProgQuerylis extends Program
                 squecolumn.qecinipag.setValue(getTag("qecinipag"));     
                 squecolumn.qecformato.setValue(getTag("qecformato"));
                 squecolumn.qecbbdd.setValue(getTag("qecbbdd"));
+                squecolumn.qecsum.setValue(getTag("qecsum"));
+                squecolumn.qecgrupby.setValue(getTag("qecgrupby"));
                 squecolumn.insert();
                 squecolumn.commit();
               }
@@ -2071,6 +2083,7 @@ public class ProgQuerylis extends Program
     // Tablas
     public Quefrase quefrase;
     // Campos
+    public Field qefcount;
     public Field qefapaisado;
     public Field qefaplicacion;
     public Field qefdescripcion;
@@ -2094,6 +2107,7 @@ public class ProgQuerylis extends Program
       {
       setName("squery");
       addTable(quefrase=new Quefrase(this));
+      addField(qefcount=new Field(this,quefrase,"qefcount"));
       addField(qefapaisado=new Field(this,quefrase,"qefapaisado"));
       addField(qefaplicacion=new Field(this,quefrase,"qefaplicacion"));
       addField(qefdescripcion=new Field(this,quefrase,"qefdescripcion"));
@@ -2124,6 +2138,7 @@ public class ProgQuerylis extends Program
     // Tablas
     public Quefrase quefrase;
     // Campos
+    public Field qefcount;
     public Field qefapaisado;
     public Field qefaplicacion;
     public Field qefdescripcion;
@@ -2150,6 +2165,7 @@ public class ProgQuerylis extends Program
       {
       setName("sprueba");
       addTable(quefrase=new Quefrase(this));
+      addField(qefcount=new Field(this,quefrase,"qefcount"));
       addField(qefapaisado=new Field(this,quefrase,"qefapaisado"));
       addField(qefaplicacion=new Field(this,quefrase,"qefaplicacion"));
       addField(qefdescripcion=new Field(this,quefrase,"qefdescripcion"));
@@ -2175,6 +2191,8 @@ public class ProgQuerylis extends Program
     // Tablas
     public Quecolumn quecolumn;
     // Campos
+    public Field qecsum;
+    public Field qecgrupby;
     public Field qecacumula;
     public Field qecaplicacion;
     public Field qecbbdd;
@@ -2205,6 +2223,8 @@ public class ProgQuerylis extends Program
       {
       setName("squecolumn");
       addTable(quecolumn=new Quecolumn(this));
+      addField(qecsum=new Field(this,quecolumn,"qecsum"));
+      addField(qecgrupby=new Field(this,quecolumn,"qecgrupby"));
       addField(qecacumula=new Field(this,quecolumn,"qecacumula"));
       addField(qecaplicacion=new Field(this,quecolumn,"qecaplicacion"));
       addField(qecbbdd=new Field(this,quecolumn,"qecbbdd"));
@@ -2549,9 +2569,9 @@ public class ProgQuerylis extends Program
       int orden=0;
       Aplication.getAplication().getDataBase().executeUpdate(
             "insert into quefrase" + 
-            "( qefaplicacion,qeffrase,qefdescripcion,qefmaster,qeftitulo,qefapaisado,qefletra,qefpaginado,qeffrom,qefwhere,qefect,qefrepetir )"+ 
+            "( qefaplicacion,qeffrase,qefdescripcion,qefmaster,qeftitulo,qefapaisado,qefletra,qefpaginado,qeffrom,qefwhere,qefect,qefrepetir,qefcount )"+ 
             "select qefaplicacion,'" + codigo + "' as expr1 ,'" + descripcion + "' as expr2,"+
-            "qefmaster,qeftitulo,qefapaisado,qefletra,qefpaginado,qeffrom,qefwhere,qefect,qefrepetir from quefrase where  "+
+            "qefmaster,qeftitulo,qefapaisado,qefletra,qefpaginado,qeffrom,qefwhere,qefect,qefrepetir,qefcount from quefrase where  "+
             "qeffrase = '"+ vvqeffrase.getString() + "' and qefdescripcion = '" + vvqefdescripcio.getString() + "'");
     
       Selector sqcolumn = new Selector(Aplication.getAplication().getDataBase());
@@ -2560,9 +2580,9 @@ public class ProgQuerylis extends Program
         orden = sqcolumn.getint("QECORDEN");
         Aplication.getAplication().getDataBase().executeUpdate(
             "insert into quecolumn" + 
-            "( qecaplicacion,qecfrase,qecorden,qeccampo,qectitulo,qeclongitud,qectipo,qectabla,qecvisible,qecrestriccion,qecorderby,qecacumula,qecsaltapag,qecinipag,qecformato,qecbbdd)"+ 
+            "( qecaplicacion,qecfrase,qecorden,qeccampo,qectitulo,qeclongitud,qectipo,qectabla,qecvisible,qecrestriccion,qecorderby,qecacumula,qecsaltapag,qecinipag,qecformato,qecbbdd,qecsum,qecgrupby)"+ 
             "select qecaplicacion,'" + codigo + "' as expr1 , qecorden,"+
-            "qeccampo,qectitulo,qeclongitud,qectipo,qectabla,qecvisible,qecrestriccion,qecorderby ,qecacumula ,qecsaltapag,qecinipag,qecformato,qecbbdd from quecolumn where  "+
+            "qeccampo,qectitulo,qeclongitud,qectipo,qectabla,qecvisible,qecrestriccion,qecorderby ,qecacumula ,qecsaltapag,qecinipag,qecformato,qecbbdd,qecsum,qecgrupby from quecolumn where  "+
             "qecfrase = '"+ vvqeffrase.getString() + "' and qecorden = " + orden );
      }
      sqcolumn.close();
