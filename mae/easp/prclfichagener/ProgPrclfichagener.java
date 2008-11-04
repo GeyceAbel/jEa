@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20071203
-// Hora:             18:17:03
+// Fecha:            20081104
+// Hora:             18:22:45
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -4403,19 +4403,19 @@ snifrep.datapell2.setValue(vvdatapell2);
     public CtrlDatemail datemail;
     public CtrlDatfisicajuri datfisicajuri;
     public CtrlDattel dattel;
-    public CtrlDatcontacto datcontacto;
-    public CtrlDatcpos datcpos;
     public CtrlDatfax datfax;
-    public CtrlDatesc datesc;
-    public CtrlDatletra datletra;
-    public CtrlDatmuni datmuni;
-    public CtrlDatnum datnum;
-    public CtrlDatpais datpais;
-    public CtrlDatpiso datpiso;
-    public CtrlDatpobla datpobla;
-    public CtrlDatprov datprov;
+    public CtrlDatcontacto datcontacto;
     public CtrlDatsiglas datsiglas;
     public CtrlDatvia datvia;
+    public CtrlDatnum datnum;
+    public CtrlDatesc datesc;
+    public CtrlDatpiso datpiso;
+    public CtrlDatletra datletra;
+    public CtrlDatprov datprov;
+    public CtrlDatmuni datmuni;
+    public CtrlDatpobla datpobla;
+    public CtrlDatcpos datcpos;
+    public CtrlDatpais datpais;
     // Acciones
     class Location extends LocationWindow
       {
@@ -4532,34 +4532,6 @@ snifrep.datapell2.setValue(vvdatapell2);
         }
       }
       
-    public class CtrlDatcontacto extends ControlEdit
-      {
-      public CtrlDatcontacto(Form form)
-        {
-        super(form);
-        setName("datcontacto");
-        setTitle("contacto");
-        setType(STRING);
-        setLength(30);
-        setPrintable(false);
-        setField(snifrepresentan.datcontacto);
-        }
-      }
-      
-    public class CtrlDatcpos extends ControlEdit
-      {
-      public CtrlDatcpos(Form form)
-        {
-        super(form);
-        setName("datcpos");
-        setTitle("cp");
-        setType(STRING);
-        setLength(5);
-        setPrintable(false);
-        setField(snifrepresentan.datcpos);
-        }
-      }
-      
     public class CtrlDatfax extends ControlEdit
       {
       public CtrlDatfax(Form form)
@@ -4574,136 +4546,17 @@ snifrep.datapell2.setValue(vvdatapell2);
         }
       }
       
-    public class CtrlDatesc extends ControlEdit
+    public class CtrlDatcontacto extends ControlEdit
       {
-      public CtrlDatesc(Form form)
+      public CtrlDatcontacto(Form form)
         {
         super(form);
-        setName("datesc");
-        setTitle("esc");
-        setType(STRING);
-        setMaskInput("U");
-        setLength(2);
-        setPrintable(false);
-        setField(snifrepresentan.datesc);
-        }
-      }
-      
-    public class CtrlDatletra extends ControlEdit
-      {
-      public CtrlDatletra(Form form)
-        {
-        super(form);
-        setName("datletra");
-        setTitle("letra");
-        setType(STRING);
-        setMaskInput("U");
-        setLength(2);
-        setPrintable(false);
-        setField(snifrepresentan.datletra);
-        }
-      }
-      
-    public class CtrlDatmuni extends ControlComboBox
-      {
-      public mae.easp.general.pkmunicipios.PickPkmunicipios pickup;
-      public CtrlDatmuni(Form form)
-        {
-        super(form);
-        setName("datmuni");
-        setTitle("mun");
-        setType(INTEGER);
-        setPickUp(pickup=new mae.easp.general.pkmunicipios.PickPkmunicipios(this));
-        setLength(5);
-        setPrintable(false);
-        setField(snifrepresentan.datmuni);
-        }
-      public void onChange()
-        {
-        super.onChange();
-        if (!isNull())
-        datpobla.setValue(datmuni.pickup.smunicipios.mudesc.getString());
-        }
-      }
-      
-    public class CtrlDatnum extends ControlEdit
-      {
-      public CtrlDatnum(Form form)
-        {
-        super(form);
-        setName("datnum");
-        setTitle("num");
-        setType(STRING);
-        setLength(6);
-        setPrintable(false);
-        setField(snifrepresentan.datnum);
-        }
-      }
-      
-    public class CtrlDatpais extends ControlComboBox
-      {
-      public mae.easp.general.pkpaises.PickPkpaises pickup;
-      public CtrlDatpais(Form form)
-        {
-        super(form);
-        setName("datpais");
-        setTitle("pais");
-        setType(INTEGER);
-        setPickUp(pickup=new mae.easp.general.pkpaises.PickPkpaises(this));
-        setLength(3);
-        setPrintable(false);
-        setField(snifrepresentan.datpais);
-        }
-      }
-      
-    public class CtrlDatpiso extends ControlEdit
-      {
-      public CtrlDatpiso(Form form)
-        {
-        super(form);
-        setName("datpiso");
-        setTitle("piso");
-        setType(STRING);
-        setLength(2);
-        setPrintable(false);
-        setField(snifrepresentan.datpiso);
-        }
-      }
-      
-    public class CtrlDatpobla extends ControlEdit
-      {
-      public CtrlDatpobla(Form form)
-        {
-        super(form);
-        setName("datpobla");
-        setTitle("pobl");
+        setName("datcontacto");
+        setTitle("contacto");
         setType(STRING);
         setLength(30);
         setPrintable(false);
-        setField(snifrepresentan.datpobla);
-        }
-      }
-      
-    public class CtrlDatprov extends ControlComboBox
-      {
-      public mae.easp.general.pkprovincias.PickPkprovincias pickup;
-      public CtrlDatprov(Form form)
-        {
-        super(form);
-        setName("datprov");
-        setTitle("prov");
-        setType(INTEGER);
-        setPickUp(pickup=new mae.easp.general.pkprovincias.PickPkprovincias(this));
-        setLength(2);
-        setPrintable(false);
-        setField(snifrepresentan.datprov);
-        }
-      public void onChange()
-        {
-        super.onChange();
-        datmuni.pickup.smunicipios.setWhere(null);
-        datmuni.pickup.provincia=getInteger();
-        datmuni.pickup.smunicipios.execute();
+        setField(snifrepresentan.datcontacto);
         }
       }
       
@@ -4739,6 +4592,158 @@ snifrep.datapell2.setValue(vvdatapell2);
         }
       }
       
+    public class CtrlDatnum extends ControlEdit
+      {
+      public CtrlDatnum(Form form)
+        {
+        super(form);
+        setName("datnum");
+        setTitle("num");
+        setType(STRING);
+        setLength(6);
+        setPrintable(false);
+        setField(snifrepresentan.datnum);
+        }
+      }
+      
+    public class CtrlDatesc extends ControlEdit
+      {
+      public CtrlDatesc(Form form)
+        {
+        super(form);
+        setName("datesc");
+        setTitle("esc");
+        setType(STRING);
+        setMaskInput("U");
+        setLength(2);
+        setPrintable(false);
+        setField(snifrepresentan.datesc);
+        }
+      }
+      
+    public class CtrlDatpiso extends ControlEdit
+      {
+      public CtrlDatpiso(Form form)
+        {
+        super(form);
+        setName("datpiso");
+        setTitle("piso");
+        setType(STRING);
+        setLength(2);
+        setPrintable(false);
+        setField(snifrepresentan.datpiso);
+        }
+      }
+      
+    public class CtrlDatletra extends ControlEdit
+      {
+      public CtrlDatletra(Form form)
+        {
+        super(form);
+        setName("datletra");
+        setTitle("letra");
+        setType(STRING);
+        setMaskInput("U");
+        setLength(2);
+        setPrintable(false);
+        setField(snifrepresentan.datletra);
+        }
+      }
+      
+    public class CtrlDatprov extends ControlComboBox
+      {
+      public mae.easp.general.pkprovincias.PickPkprovincias pickup;
+      public CtrlDatprov(Form form)
+        {
+        super(form);
+        setName("datprov");
+        setTitle("prov");
+        setType(INTEGER);
+        setPickUp(pickup=new mae.easp.general.pkprovincias.PickPkprovincias(this));
+        setLength(2);
+        setPrintable(false);
+        setField(snifrepresentan.datprov);
+        }
+      public void onChange()
+        {
+        super.onChange();
+          datmuni.setNull();
+          datmuni.pickup.smunicipios.setWhere(null);
+          datmuni.pickup.provincia=getInteger();
+          datmuni.refresh();
+        
+          if (!isReading())
+            if (!isNull()) datcpos.setValue(Util.formateoNumero("00",getInteger()));
+        
+        }
+      }
+      
+    public class CtrlDatmuni extends ControlComboBox
+      {
+      public mae.easp.general.pkmunicipios.PickPkmunicipios pickup;
+      public CtrlDatmuni(Form form)
+        {
+        super(form);
+        setName("datmuni");
+        setTitle("mun");
+        setType(INTEGER);
+        setPickUp(pickup=new mae.easp.general.pkmunicipios.PickPkmunicipios(this));
+        setLength(5);
+        setPrintable(false);
+        setField(snifrepresentan.datmuni);
+        }
+      public void onChange()
+        {
+        super.onChange();
+        if (!isNull())
+        datpobla.setValue(datmuni.pickup.smunicipios.mudesc.getString());
+        }
+      }
+      
+    public class CtrlDatpobla extends ControlEdit
+      {
+      public CtrlDatpobla(Form form)
+        {
+        super(form);
+        setName("datpobla");
+        setTitle("pobl");
+        setType(STRING);
+        setLength(30);
+        setPrintable(false);
+        setField(snifrepresentan.datpobla);
+        }
+      }
+      
+    public class CtrlDatcpos extends ControlEdit
+      {
+      public CtrlDatcpos(Form form)
+        {
+        super(form);
+        setName("datcpos");
+        setTitle("cp");
+        setType(STRING);
+        setLength(5);
+        setPrintable(false);
+        setField(snifrepresentan.datcpos);
+        }
+      }
+      
+    public class CtrlDatpais extends ControlComboBox
+      {
+      public mae.easp.general.pkpaises.PickPkpaises pickup;
+      public CtrlDatpais(Form form)
+        {
+        super(form);
+        setName("datpais");
+        setTitle("pais");
+        setType(INTEGER);
+        setPickUp(pickup=new mae.easp.general.pkpaises.PickPkpaises(this));
+        setLength(3);
+        setPrintable(false);
+        setField(snifrepresentan.datpais);
+        }
+      }
+      
     public FormVnifrepresentan(ProgPrclfichagener prclfichagener)
       {
       super(prclfichagener);
@@ -4756,19 +4761,19 @@ snifrep.datapell2.setValue(vvdatapell2);
       addControl(datemail=new CtrlDatemail(this));
       addControl(datfisicajuri=new CtrlDatfisicajuri(this));
       addControl(dattel=new CtrlDattel(this));
-      addControl(datcontacto=new CtrlDatcontacto(this));
-      addControl(datcpos=new CtrlDatcpos(this));
       addControl(datfax=new CtrlDatfax(this));
-      addControl(datesc=new CtrlDatesc(this));
-      addControl(datletra=new CtrlDatletra(this));
-      addControl(datmuni=new CtrlDatmuni(this));
-      addControl(datnum=new CtrlDatnum(this));
-      addControl(datpais=new CtrlDatpais(this));
-      addControl(datpiso=new CtrlDatpiso(this));
-      addControl(datpobla=new CtrlDatpobla(this));
-      addControl(datprov=new CtrlDatprov(this));
+      addControl(datcontacto=new CtrlDatcontacto(this));
       addControl(datsiglas=new CtrlDatsiglas(this));
       addControl(datvia=new CtrlDatvia(this));
+      addControl(datnum=new CtrlDatnum(this));
+      addControl(datesc=new CtrlDatesc(this));
+      addControl(datpiso=new CtrlDatpiso(this));
+      addControl(datletra=new CtrlDatletra(this));
+      addControl(datprov=new CtrlDatprov(this));
+      addControl(datmuni=new CtrlDatmuni(this));
+      addControl(datpobla=new CtrlDatpobla(this));
+      addControl(datcpos=new CtrlDatcpos(this));
+      addControl(datpais=new CtrlDatpais(this));
       setSelect(snifrepresentan);
       }
     public void onInit()
