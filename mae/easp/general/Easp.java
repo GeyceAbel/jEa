@@ -1402,7 +1402,39 @@ public static Date esFecha (String s){
     String dns=URL_AFINITY+"/pls/agpi/agpi2dp.";
     String url = dns+"gettipobd?pcod="+sDominio;
     return URLExec.getContenido(url);
+  }
+
+  public static java.util.Hashtable <String,String> parametresAplic(String sDominio, String sServei) {
+
+	java.util.Hashtable <String,String> htParametres = new java.util.Hashtable <String,String> ();
+    String url = URL_AFINITY+"/pls/agpi/agpi2dp.getURLConnect?pcod="+sDominio+"&pservicio="+sServei;
+    String contingut = URLExec.getContenido(url);
+    java.util.StringTokenizer sToken = new java.util.StringTokenizer(contingut,"#@");
+    if (contingut!=null && !contingut.trim().equals("")) {
+    	int i=0;
+    	while (sToken.hasMoreTokens()) {
+    		++i;
+        switch(i) {
+           case 3:
+             htParametres.put("SERVER",sToken.nextToken());
+             break;
+           case 4:
+             htParametres.put("TIPO",sToken.nextToken());
+             break;
+           case 11:
+             htParametres.put("USER",sToken.nextToken());
+             break;
+           case 12:
+             htParametres.put("PASSWORD",sToken.nextToken());
+             break;
+           default:
+             sToken.nextToken();
+             break;
+    		}
+        }
     }
+    return htParametres;
+  }
 
 
 /** Convierte según qué caracteres a un código que se pueda utilizar
