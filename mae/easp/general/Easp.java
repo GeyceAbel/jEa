@@ -1409,27 +1409,34 @@ public static Date esFecha (String s){
 	java.util.Hashtable <String,String> htParametres = new java.util.Hashtable <String,String> ();
     String url = URL_AFINITY+"/pls/agpi/agpi2dp.getURLConnect?pcod="+sDominio+"&pservicio="+sServei;
     String contingut = URLExec.getContenido(url);
-    java.util.StringTokenizer sToken = new java.util.StringTokenizer(contingut,"#@");
+    int pini=1;
+    int pfin=1;
     if (contingut!=null && !contingut.trim().equals("")) {
     	int i=0;
-    	while (sToken.hasMoreTokens()) {
-    		++i;
-        switch(i) {
-           case 3:
-             htParametres.put("SERVER",sToken.nextToken());
-             break;
-           case 4:
-             htParametres.put("TIPO",sToken.nextToken());
-             break;
-           case 11:
-             htParametres.put("USER",sToken.nextToken());
-             break;
-           case 12:
-             htParametres.put("PASSWORD",sToken.nextToken());
-             break;
-           default:
-             sToken.nextToken();
-             break;
+    	boolean noHeAcabat=true;   	
+    	while (noHeAcabat) {
+    		pfin = contingut.indexOf("@#",pini);
+    		if (pfin<0)
+    			noHeAcabat=false;
+    		else {
+    			++i;
+  	    		String tmpSubstring = contingut.substring(pini,pfin); 	    		
+        		pini=pfin+2;
+		        switch(i) {
+		           case 3:
+		             htParametres.put("SERVER",tmpSubstring);
+		             break;
+		           case 4:
+		             htParametres.put("TIPO",tmpSubstring);
+		             break;
+		           case 11:
+		             htParametres.put("USER",tmpSubstring);
+		             break;
+		           case 12:
+		             htParametres.put("PASSWORD",tmpSubstring);
+		             break;
+		        }
+//		        ++i;
     		}
         }
     }
