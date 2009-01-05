@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080930
-// Hora:             09:20:40
+// Fecha:            20081203
+// Hora:             18:02:40
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -79,6 +79,8 @@ public class CatAdmon extends Catalog
   public TabPerfiltribut tabperfiltribut;
   public TabEmpmodelos tabempmodelos;
   public TabAvisado tabavisado;
+  public TabTipovias tabtipovias;
+  public TabMuni347 tabmuni347;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -2072,6 +2074,7 @@ public class CatAdmon extends Catalog
     public FieldDef qefwhere;
     public FieldDef qefect;
     public FieldDef qefrepetir;
+    public FieldDef qefcount;
     public TabQuefrase(String name)
       {
       super(name);
@@ -2087,6 +2090,7 @@ public class CatAdmon extends Catalog
       qefwhere = new FieldDef("qefwhere",FieldDef.CHAR,255);
       qefect = new FieldDef("qefect",FieldDef.CHAR,1);
       qefrepetir = new FieldDef("qefrepetir",FieldDef.CHAR,1);
+      qefcount = new FieldDef("qefcount",FieldDef.CHAR,1);
       FieldDef array[] = {
         qefaplicacion,
         qeffrase,
@@ -2099,7 +2103,8 @@ public class CatAdmon extends Catalog
         qeffrom,
         qefwhere,
         qefect,
-        qefrepetir        
+        qefrepetir,
+        qefcount        
         };
       setColumns(array);
       FieldDef arrayf[] = {qefaplicacion,qeffrase };
@@ -2500,6 +2505,52 @@ public class CatAdmon extends Catalog
       }
     }
     
+  public class TabTipovias extends TableDef
+    {
+    // Campos
+    public FieldDef tvscodigo;
+    public FieldDef tvsdesc;
+    public FieldDef tvscodant;
+    public TabTipovias(String name)
+      {
+      super(name);
+      tvscodigo = new FieldDef("tvscodigo",FieldDef.CHAR,5,FieldDef.NOTNULL);
+      tvsdesc = new FieldDef("tvsdesc",FieldDef.CHAR,30);
+      tvscodant = new FieldDef("tvscodant",FieldDef.CHAR,2);
+      FieldDef array[] = {
+        tvscodigo,
+        tvsdesc,
+        tvscodant        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {tvscodigo };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabMuni347 extends TableDef
+    {
+    // Campos
+    public FieldDef mu7codprov;
+    public FieldDef mu7codmuni;
+    public FieldDef mu7sdesc;
+    public TabMuni347(String name)
+      {
+      super(name);
+      mu7codprov = new FieldDef("mu7codprov",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      mu7codmuni = new FieldDef("mu7codmuni",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      mu7sdesc = new FieldDef("mu7sdesc",FieldDef.CHAR,50);
+      FieldDef array[] = {
+        mu7codprov,
+        mu7codmuni,
+        mu7sdesc        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {mu7codprov,mu7codmuni };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public CatAdmon()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -2565,6 +2616,8 @@ public class CatAdmon extends Catalog
     tabperfiltribut = new TabPerfiltribut("perfiltribut");
     tabempmodelos = new TabEmpmodelos("empmodelos");
     tabavisado = new TabAvisado("avisado");
+    tabtipovias = new TabTipovias("tipovias");
+    tabmuni347 = new TabMuni347("muni347");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -2628,7 +2681,9 @@ public class CatAdmon extends Catalog
       tabnotas,
       tabperfiltribut,
       tabempmodelos,
-      tabavisado      
+      tabavisado,
+      tabtipovias,
+      tabmuni347      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };

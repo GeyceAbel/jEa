@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20081202
-// Hora:             16:26:33
+// Fecha:            20081203
+// Hora:             18:39:42
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -810,11 +810,20 @@ public class ProgInsprconver extends Program
       String sentencias6_0[]={" DELETE FROM AYUDATXT WHERE ayprocedure like 'JEO%';"};  
       String sentencias6_1[]={
         "CREATE TABLE TIPOVIAS"+
-        "  (tvscodigo  varchar(5),"+
-       	"   tvsdesc    varchar(30),"+
-       	"   tvscodant  varchar(2),"+
+        "  (tvscodigo  VARCHAR(5) NOT NULL,"+
+       	"   tvsdesc    VARCHAR(30),"+
+       	"   tvscodant  VARCHAR(2),"+
        	"   PRIMARY KEY (tvscodigo));",
-        "DELETE FROM TIPOVIAS"};
+        "DELETE FROM TIPOVIAS",
+        "CREATE TABLE MUNI347"+
+        "  (mu7codprov  INTEGER NOT NULL,"+
+       	"   mu7codmuni  INTEGER NOT NULL,"+
+       	"   mu7desc     VARCHAR(50),"+
+       	"   mu7muniant  INTEGER,"+
+       	"   PRIMARY KEY (mu7codprov,mu7codmuni));",
+        "DELETE FROM MUNI347",
+    
+    };
     
       int i=0;
       try {
@@ -1235,12 +1244,8 @@ public class ProgInsprconver extends Program
           if (versio < 6.1) {
             for (i=0;i<sentencias6_1.length;++i) {
               try {
-                for (i=0;i<sentencias6_1.length;++i) {
-                  Easp.chivato("6.1 Exec : ["+sentencias6_1[i]+"]",1);
-                  Easp.connEA.executeUpdate(sentencias6_1[i]);
-                }
-                String tablas[]= {"TIPOVIAS"};
-                Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0601","easp.jar");
+                Easp.chivato("6.1 Exec : ["+sentencias6_1[i]+"]",1);
+                Easp.connEA.executeUpdate(sentencias6_1[i]);
               }
               catch(Exception e) {
                 sqlOperation=sentencias6_1[i];
@@ -1248,6 +1253,9 @@ public class ProgInsprconver extends Program
                 errorMessage=e.getMessage();
               }
             }
+            String tablas[]= {"TIPOVIAS","MUNI347"};
+            Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0601","easp.jar");
+      
             Easp.setVersionBD("bdeasp","6.1");
             Easp.connEA.commit();
             vvveractual.setValue("6.1");

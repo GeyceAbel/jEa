@@ -1,1 +1,1 @@
-050053 --> APJORDI: (insprconver) Conversió 6.1 --> Taula TIPOSVIA
+050053 --> APJORDI: (insprconver) Conversió 6.1 --> Taula TIPOSVIA y MUNI347
