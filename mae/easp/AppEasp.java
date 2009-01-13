@@ -44,9 +44,9 @@ public class AppEasp extends Aplication
     Easp.dominio=Aplication.getAplication().getParameter("Dominio");
     Login.showLogIn(Aplication.getAplication());
     setAcl(mae.admon.general.Acceso.getAcl("EASP"));
-    // setErrorManager(mae.admon.general.Admon.getErrorManager());
+    setErrorManager(mae.admon.general.Admon.getErrorManager());
     
-    Aplication.getAplication().setErrorManager(new mae.easp.general.ErrorManagerDefaultJ());
+    //Aplication.getAplication().setErrorManager(new mae.easp.general.ErrorManagerDefaultJ());
     
     super.onInit();
     if (!checkPermission() || !Easp.init())

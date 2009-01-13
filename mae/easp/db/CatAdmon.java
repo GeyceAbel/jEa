@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20081203
-// Hora:             18:02:40
+// Fecha:            20090108
+// Hora:             18:54:53
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2533,17 +2533,20 @@ public class CatAdmon extends Catalog
     // Campos
     public FieldDef mu7codprov;
     public FieldDef mu7codmuni;
-    public FieldDef mu7sdesc;
+    public FieldDef mu7desc;
+    public FieldDef mu7muniant;
     public TabMuni347(String name)
       {
       super(name);
       mu7codprov = new FieldDef("mu7codprov",FieldDef.INTEGER,0,FieldDef.NOTNULL);
       mu7codmuni = new FieldDef("mu7codmuni",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      mu7sdesc = new FieldDef("mu7sdesc",FieldDef.CHAR,50);
+      mu7desc = new FieldDef("mu7desc",FieldDef.CHAR,50);
+      mu7muniant = new FieldDef("mu7muniant",FieldDef.INTEGER,0,FieldDef.NOTNULL);
       FieldDef array[] = {
         mu7codprov,
         mu7codmuni,
-        mu7sdesc        
+        mu7desc,
+        mu7muniant        
         };
       setColumns(array);
       FieldDef arrayf[] = {mu7codprov,mu7codmuni };

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20071203
-// Hora:             18:16:59
+// Fecha:            20090113
+// Hora:             17:31:23
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -29,6 +29,7 @@ public class ProgAdminciden extends Program
   public String ambito=null;
   public String modulo=null;
   public String refer=null;
+  public int incCodi = 0;
   
   
   // Fin declaraciones globales
@@ -80,6 +81,7 @@ public class ProgAdminciden extends Program
     public LinkBuscardef buscardef;
     public LinkFiltrar filtrar;
     public LinkQuitar quitar;
+    public LinkAeliminar aeliminar;
     class Location extends LocationGridBag
       {
       public Location( )
@@ -263,6 +265,39 @@ public class ProgAdminciden extends Program
         }
       }
       
+    public class LinkAeliminar extends Action
+      {
+      public LinkAeliminar(Form form)
+        {
+        super(form);
+        setName("aeliminar");
+        setTitle("&Eliminar TODAS las incidencias");
+        setOptions(SHOW);
+        }
+      public void onAction()
+        {
+        boolean bOk = true;
+        try {
+          getDataBase().executeUpdate("Delete from inincide");
+        }
+        catch (Exception e) {
+          bOk = false;
+          e.printStackTrace();
+        }
+        if (bOk) {
+          getDataBase().commit();
+          doShow();
+          Maefc.message("Se han eliminado todas las incidencias.","¡Atención!",Maefc.INFORMATION_MESSAGE);
+        }
+        else {
+          getDataBase().rollback();
+          Maefc.message("Error al eliminar incidencias.","¡Error!",Maefc.ERROR_MESSAGE);
+        }
+        
+        
+        }
+      }
+      
     public FormVincidencias(ProgAdminciden adminciden)
       {
       super(adminciden);
@@ -283,6 +318,7 @@ public class ProgAdminciden extends Program
       addAction(buscardef=new LinkBuscardef(this));
       addAction(filtrar=new LinkFiltrar(this));
       addAction(quitar=new LinkQuitar(this));
+      addAction(aeliminar=new LinkAeliminar(this));
       setSelect(sinciden);
       }
     public void onInit()
@@ -344,6 +380,11 @@ public class ProgAdminciden extends Program
       addField(inrefer=new Field(this,inincide,"inrefer"));
       addField(insede=new Field(this,inincide,"insede"));
       addField(inusuari=new Field(this,inincide,"inusuari"));
+      }
+    public String getWhere()
+      {
+      if (incCodi>0) return "incodigo>="+incCodi;
+      else return null;
       }
     public String getOrder()
       {

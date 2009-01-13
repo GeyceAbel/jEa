@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20071203
-// Hora:             18:17:04
+// Fecha:            20090112
+// Hora:             16:47:03
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -188,6 +188,7 @@ public class ProgPrselcdp extends Program
     // Acciones
     public LinkBtseleccion btseleccion;
     public LinkAcaltaagpi acaltaagpi;
+    public LinkBtchgnif btchgnif;
     class Location extends LocationSplit
       {
       public Location( )
@@ -288,6 +289,37 @@ public class ProgPrselcdp extends Program
         }
       }
       
+    public class LinkBtchgnif extends Action
+      {
+      public LinkBtchgnif(Form form)
+        {
+        super(form);
+        setName("btchgnif");
+        setTitle("&Modificar NIF/CIF");
+        setOptions(SHOW);
+        }
+      public void onAction()
+        {
+        super.onAction();
+        
+        if(cdpcodi.isNull())
+        {
+        Maefc.message("Seleccione un código de cliente","Atención",Maefc.INFORMATION_MESSAGE);
+        }
+        else
+        {
+        mae.easp.prchgnif.ProgPrchgnif pr= new mae.easp.prchgnif.ProgPrchgnif();
+        pr.gcdp=cdpcodi.getString();
+        pr.run();
+        int i = getCurrentRow();
+        doShow();
+        setCurrentRow(i);
+        }
+        
+        
+        }
+      }
+      
     public FormVlistaempresas(ProgPrselcdp prselcdp)
       {
       super(prselcdp);
@@ -301,6 +333,7 @@ public class ProgPrselcdp extends Program
       addControl(vvnombre=new CtrlVvnombre(this));
       addAction(btseleccion=new LinkBtseleccion(this));
       addAction(acaltaagpi=new LinkAcaltaagpi(this));
+      addAction(btchgnif=new LinkBtchgnif(this));
       setSelect(sempresa);
       }
     public boolean onOkDelete()
