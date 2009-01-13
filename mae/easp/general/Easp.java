@@ -1,6 +1,7 @@
 package mae.easp.general;
 
 import mae.general.*;
+import mae.jeo.general.Jeo;
 import geyce.maefc.*;
 import mae.easp.*;
 import mae.easp.db.*;
@@ -230,7 +231,34 @@ public class Easp {
       return true;
     }
 
-
+	public static void grabaIncidencia(DBConnection dbc, String programa,String operacion, String mensaje){
+		Select sinincide=new Select(dbc);
+		Table inincide=new Table(sinincide,"inincide");
+		Field incodigo=new Field(sinincide,inincide,"incodigo");
+		Field insede=new Field(sinincide,inincide,"insede");
+		Field inusuari=new Field(sinincide,inincide,"inusuari");
+		Field inpuesto=new Field(sinincide,inincide,"inpuesto");
+		Field ininstan=new Field(sinincide,inincide,"ininstan");
+		Field inambito=new Field(sinincide,inincide,"inambito");
+		Field inmodulo=new Field(sinincide,inincide,"inmodulo");
+		Field inprog=new Field(sinincide,inincide,"inprog");
+		Field inrefer=new Field(sinincide,inincide,"inrefer");
+		Field innumer=new Field(sinincide,inincide,"innumer");
+		Field inopera=new Field(sinincide,inincide,"inopera");
+		Field inmensa=new Field(sinincide,inincide,"inmensa");
+		insede.setValue(1);
+		inusuari.setValue(Aplication.getAplication().getUser());
+		inpuesto.setValue(Aplication.getAplication().getAdmon().getHostAddress());
+		ininstan.getDef().setDateTime(true);
+		ininstan.setValue(new java.sql.Timestamp(new java.util.Date().getTime()));
+		inambito.setValue("APLICATIVO");
+		inmodulo.setValue("jea");
+		inprog.setValue(programa);
+		inopera.setValue(operacion);
+		inmensa.setValue(mensaje);
+		sinincide.insert();
+	}
+	
 public static boolean copyFile(String fitOri , String fitDest ) {
   java.io.File wfile;
   java.io.File wfile2;
