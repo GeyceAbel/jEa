@@ -24,7 +24,7 @@ public class ActualizaNIFs
 	private String oldNIF="";
 	private String newNIF="";
 	private Vector<DBConnection> v1 = null;
-	
+	private Vector<String> vcheck = null;
 	private DBConnection connEA=null;
 	private DBConnection connJNomina=null;
 	private DBConnection connJEo=null;
@@ -43,6 +43,8 @@ public class ActualizaNIFs
 	
     public boolean updateNIF() 
     {
+    	this.connJModelos = getConnexio("modelos", connEA);
+    	if (!checkNifJModelos())  return false;
     	boolean execute = true;
     	String jnomina = "";
     	String jeo = "";
@@ -94,8 +96,7 @@ public class ActualizaNIFs
 		}
 		
 		if(execute)
-		{
-			this.connJModelos = getConnexio("modelos", connEA);
+		{			
 	    	execute = CambiarNIFJModelos(this.connJModelos);
 	    	if (!execute) aplicError = "jModelos";
 		}
@@ -572,12 +573,12 @@ public class ActualizaNIFs
 				i.valor("m300resultliq", oldNIFSelector.getdouble("m300resultliq"));
 				i.valor("m300codelec", oldNIFSelector.getString("m300codelec"));
 				i.valor("m300numjustif", oldNIFSelector.getString("m300numjustif"));
-				i.valor("m300dedopinivb", oldNIFSelector.getdouble("m300dedopinivb"));
-				i.valor("m300dedopinivc", oldNIFSelector.getdouble("m300dedopinivc"));
-				i.valor("m300dedimpivb", oldNIFSelector.getdouble("m300dedimpivb"));
-				i.valor("m300dedimpivc", oldNIFSelector.getdouble("m300dedimpivc"));
-				i.valor("m300dedadqivb", oldNIFSelector.getdouble("m300dedadqivb"));
-				i.valor("m300dedadqivc", oldNIFSelector.getdouble("m300dedadqivc"));
+				//i.valor("m300dedopinivb", oldNIFSelector.getdouble("m300dedopinivb"));
+				//i.valor("m300dedopinivc", oldNIFSelector.getdouble("m300dedopinivc"));
+				//i.valor("m300dedimpivb", oldNIFSelector.getdouble("m300dedimpivb"));
+				//i.valor("m300dedimpivc", oldNIFSelector.getdouble("m300dedimpivc"));
+				//i.valor("m300dedadqivb", oldNIFSelector.getdouble("m300dedadqivb"));
+				//i.valor("m300dedadqivc", oldNIFSelector.getdouble("m300dedadqivc"));
 				execute = i.execute();
 			}
 			newNIFSelector.close();
@@ -759,7 +760,7 @@ public class ActualizaNIFs
 			{
 				Delete d = new Delete(connJModelos, "MOD190d");
 				d.execute("m190ddominio = '"+oldNIFSelector.getString("m190cdominio")+"' and m190dnif = '"+oldNIF+"' and m190dejercicio = "+oldNIFSelector.getint("m190cejercicio")+" and m190dperiodo = '"+oldNIFSelector.getString("m190cperiodo")+"'");
-				grabarIncidencia("jModelos", "Se ha eliminado el modelo 190-"+oldNIFSelector.getint("m190dejercicio")+"-"+oldNIF+" ya que existía un 190 con el nuevo NIF "+newNIF);
+				grabarIncidencia("jModelos", "Se ha eliminado el modelo 190-"+oldNIFSelector.getint("m190cejercicio")+"-"+oldNIF+" ya que existía un 190 con el nuevo NIF "+newNIF);
 			}
 			else
 			{
@@ -1584,5 +1585,99 @@ public class ActualizaNIFs
 		newNIFSelector.close();
 		
 		return execute ;
+	}
+	
+	private boolean checkNifJModelos () {
+		boolean continuar = true;
+		vcheck = new Vector<String>();
+		checkNif(connJModelos, "MOD300", "m300nif");
+		checkNif(connJModelos, "MOD300DES", "m300dnif");
+		checkNif(connJModelos, "MOD300PRO", "mpronif");
+		checkNif(connJModelos, "MOD370", "m370nif");
+		checkNif(connJModelos, "MOD110", "m110nif");
+		checkNif(connJModelos, "MOD115", "m115nif");
+		checkNif(connJModelos, "MOD130", "m130nif");
+		checkNif(connJModelos, "MOD131", "m131nif");
+		checkNif(connJModelos, "MOD310", "m310nif");
+		checkNif(connJModelos, "MOD311", "m311nif");
+		checkNif(connJModelos, "MOD3901", "m901nif");
+		checkNif(connJModelos, "MOD3902", "m902nif");
+		checkNif(connJModelos, "MOD390ACT", "m90anif");
+		checkNif(connJModelos, "MOD3903", "m903nif");
+		checkNif(connJModelos, "MOD3904", "m904nif");
+		checkNif(connJModelos, "MOD3925", "m925nif");
+		checkNif(connJModelos, "MOD180e", "m180enif");
+		checkNif(connJModelos, "MOD180r", "m180rnif");
+		checkNif(connJModelos, "MOD190C", "m190cnif");
+		checkNif(connJModelos, "MOD190D", "m190dnif");
+		checkNif(connJModelos, "CERTIFGRAL","cerpercepnif");
+		checkNif(connJModelos, "CERTIPROF","ceppercepnif");
+		checkNif(connJModelos, "MOD347C", "m347cnif");
+		checkNif(connJModelos, "MOD347D", "m347dnif");
+		checkNif(connJModelos, "MOD347A", "m347anif");
+		checkNif(connJModelos, "MOD202", "m202nif");
+		checkNif(connJModelos, "MOD193C", "m193cnif");
+		checkNif(connJModelos, "MOD193D", "m193dnif");
+		checkNif(connJModelos, "MOD123", "m123nif");
+		checkNif(connJModelos, "MOD349C", "m349cnif");
+		checkNif(connJModelos, "MOD349D", "m349dnif");
+		checkNif(connJModelos, "MOD349R", "m349rnif");
+		checkNif(connJModelos, "MODINTC", "mintcnif");
+		checkNif(connJModelos, "MODINTD", "mintdnif");
+		checkNif(connJModelos, "MOD110D", "m110dnif");
+		checkNif(connJModelos, "MOD110D", "m110dnif");
+		checkNif(connJModelos, "MOD115D", "m115dnif");
+		checkNif(connJModelos, "MOD115D", "m115dnif");
+		checkNif(connJModelos, "MOD300PRODES", "m300pnif");
+		checkNif(connJModelos, "MOD390DES", "m390dnif");
+		checkNif(connJModelos, "MOD110ACUM", "m110anif");
+		checkNif(connJModelos, "MOD349ACUM", "m349anif");
+		checkNif(connJModelos, "MOD349ACUM", "m349anif");
+		checkNif(connJModelos, "MOD184D", "m184dnif");
+		checkNif(connJModelos, "MOD184E", "m184enif");
+		checkNif(connJModelos, "MOD184N", "m184nnif");
+		checkNif(connJModelos, "MOD0361", "m0361nif");
+		checkNif(connJModelos, "MOD0362", "m0362nif");
+		checkNif(connJModelos, "MOD0363", "m0363nif");
+		checkNif(connJModelos, "MOD0364", "m0364nif");
+		checkNif(connJModelos, "MOD0365", "m0365nif");
+		checkNif(connJModelos, "MOD0366", "m0366nif");
+		checkNif(connJModelos, "MOD0367", "m0367nif");
+		checkNif(connJModelos, "MOD0368", "m0368nif");
+		checkNif(connJModelos, "MOD0369", "m0369nif");
+		checkNif(connJModelos, "MOD03610", "m03610nif");
+		checkNif(connJModelos, "MOD03611", "m03611nif");
+		checkNif(connJModelos, "MOD576", "m576nif");
+		checkNif(connJModelos, "MOD130DES", "M130DNIF");				
+		checkNif(connJModelos, "MODESTADO", "mesnif");
+		checkNif(connJModelos, "MODNIFCDP", "mncnif");
+		checkNif(connJModelos, "PRESENTADOR", "prenif");
+		checkNif(connJModelos, "MODACTEO", "MAENIF");
+		checkNif(connJModelos, "MODIRPF", "MAINIF");
+		checkNif(connJModelos, "MODIVA", "MAVNIF");
+		checkNif(connJModelos, "MODUNI", "MAUNIF");
+		checkNif(connJModelos, "MODAGRIVA", "MAANIF");
+		checkNif(connJModelos, "MODRDTOAGR", "MRANIF");
+		checkNif(connJModelos, "MODINGAGR", "MNANIF");
+		checkNif(connJModelos, "CODELECMAT", "cemnif");
+		checkNif(connJModelos, "IMPORTCFG", "imcnif");
+		checkNif(connJModelos, "IMPORTHIS", "imhnif");		
+		if (vcheck.size()>0) {
+			String tablas ="";
+			for (int i=0;i<vcheck.size();i++) {
+				if (tablas.trim().length()==0) tablas = vcheck.elementAt(i);
+				else tablas += "\n"+vcheck.elementAt(i);
+			}
+			int resp = Maefc.message("Se han encontrado registros/modelos con el nuevo NIF ["+newNIF+"].\nSi existiera el mismo dato para el NIF antiguo, se eliminará esta información del NIF antiguo\ndebido a que sólo puede existir 1 sólo dato:\n"+tablas+"\n\n¿Desea continuar?","¡Atención!",Maefc.WARNING_MESSAGE,Maefc.YES_NO_OPTION);
+			continuar = (resp==Maefc.YES_OPTION);
+		}
+		return continuar;
+	}
+
+	private void checkNif(DBConnection conn, String taula, String campNif) {
+		Selector scheck = new Selector (conn);
+		scheck.execute ("Select "+campNif+" from "+taula+" where "+campNif+"='"+newNIF+"'");
+		if (scheck.next()) vcheck.addElement("Tabla ["+taula+"]");
+		scheck.close();
 	}
 }
