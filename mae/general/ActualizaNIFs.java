@@ -350,6 +350,7 @@ public class ActualizaNIFs
 			newNIFSelector.execute("Select * from PERFILTRIBUT where pftnif = '"+newNIF+"' and pftejercicio = "+oldNIFSelector.getint("pftejercicio"));
 			if(newNIFSelector.next())
 			{
+				grabarIncidencia("jModelos", "Se ha eliminado el PERFIL TRIBUTARIO del pftnif = '"+oldNIF+"' and pftejercicio = "+oldNIFSelector.getint("pftejercicio"));
 			}
 			else
 			{
@@ -1418,7 +1419,7 @@ public class ActualizaNIFs
 				}
 				else //String
 				{
-					if(nomCampNIF.equals(primaryKey.getName()))
+					if(nomCampNIF.trim().toLowerCase().equals(primaryKey.getName().trim().toLowerCase()))
 					{
 						condicion = condicion.concat(" ='"+newNIF+"'");
 					}
@@ -1451,7 +1452,7 @@ public class ActualizaNIFs
 				}
 				else //String
 				{
-					if(nomCampNIF.equals(primaryKey.getName()))
+					if(nomCampNIF.trim().toLowerCase().equals(primaryKey.getName().trim().toLowerCase()))
 					{
 						condicion = condicion.concat(" ='"+oldNIF+"'");
 					}
@@ -1500,7 +1501,7 @@ public class ActualizaNIFs
 		Update up = new Update(conn, nomTaula);
 		up.valor(nomCampNIF, newNIF);
 		
-		if(nomTaula.equals("CDP"))
+		if(nomTaula.trim().toUpperCase().equals("CDP"))
 		{
 			/*Se tiene que filtrar por oldNIF y por cdp*/
 			execute = up.execute(nomCampNIF+"='"+oldNIF+"' and cdpcodi='"+cdp+"'");
@@ -1560,7 +1561,7 @@ public class ActualizaNIFs
 		Selector newNIFSelector = new Selector(conn);
 		
 		newNIFSelector.execute("Select * from "+nomTaula+" where "+nomCampNIF+" = '"+newNIF+"'");
-		if(nomTaula.equals("MOD110D"))
+		if(nomTaula.trim().toUpperCase().equals("MOD110D"))
 		{
 			while(newNIFSelector.next())
 			{
@@ -1571,7 +1572,7 @@ public class ActualizaNIFs
 			}
 		}
 		
-		if(nomTaula.equals("MOD115D"))
+		if(nomTaula.trim().toUpperCase().equals("MOD115D"))
 		{
 			while(newNIFSelector.next())
 			{
@@ -1582,7 +1583,7 @@ public class ActualizaNIFs
 			}
 		}
 		
-		if(nomTaula.equals("MOD349ACUM"))
+		if(nomTaula.trim().toUpperCase().equals("MOD349ACUM"))
 		{
 			while(newNIFSelector.next())
 			{
