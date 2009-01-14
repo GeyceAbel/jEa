@@ -961,7 +961,7 @@ public class ActualizaNIFs
 				d.execute("m349ddominio = '"+oldNIFSelector.getString("m349cdominio")+"' and m349dnif = '"+oldNIF+"' and m349dejercicio = "+oldNIFSelector.getint("m349cejercicio")+" and m349dperiodo = '"+oldNIFSelector.getString("m349cperiodo")+"'");
 				d = new Delete(connJModelos, "MOD349r");
 				d.execute("m349rdominio = '"+oldNIFSelector.getString("m349cdominio")+"' and m349rnif = '"+oldNIF+"' and m349rejercicio = "+oldNIFSelector.getint("m349cejercicio")+" and m349rperiodo = '"+oldNIFSelector.getString("m349cperiodo")+"'");
-				grabarIncidencia("jModelos", "Se ha eliminado el modelo 349-"+oldNIFSelector.getint("m349rejercicio")+"-"+oldNIFSelector.getString("m349cperiodo")+"-"+oldNIF+" ya que existía un 349 con el nuevo NIF "+newNIF);
+				grabarIncidencia("jModelos", "Se ha eliminado el modelo 349-"+oldNIFSelector.getint("m349cejercicio")+"-"+oldNIFSelector.getString("m349cperiodo")+"-"+oldNIF+" ya que existía un 349 con el nuevo NIF "+newNIF);
 
 			}
 			else
