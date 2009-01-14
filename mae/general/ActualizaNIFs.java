@@ -473,7 +473,9 @@ public class ActualizaNIFs
 			/*modelos1*/
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
 			newNIFSelector.execute("Select * from MOD300 where m300dominio = '"+oldNIFSelector.getString("m300dominio")+"' and m300nif = '"+newNIF+"' and m300ejercicio = "+oldNIFSelector.getint("m300ejercicio")+" and m300periodo = '"+oldNIFSelector.getString("m300periodo")+"'");
-			if(newNIFSelector.next());
+			if(newNIFSelector.next()) {
+				grabarIncidencia("jModelos", "Se ha eliminado el modelo 300 m300dominio = '"+oldNIFSelector.getString("m300dominio")+"' and m300nif = '"+oldNIF+"' and m300ejercicio = "+oldNIFSelector.getint("m300ejercicio")+" and m300periodo = '"+oldNIFSelector.getString("m300periodo")+"' ya que existía un 300 con el nuevo NIF "+newNIF);
+			}
 			else
 			{
 				/*No existe el registro con el nuevo NIF --> lo creamos*/
@@ -592,7 +594,9 @@ public class ActualizaNIFs
 		{
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
 			newNIFSelector.execute("Select * from MOD3901 where m901dominio = '"+oldNIFSelector.getString("m901dominio")+"' and m901nif = '"+newNIF+"' and m901ejercicio = "+oldNIFSelector.getint("m901ejercicio")+" and m901periodo = '"+oldNIFSelector.getString("m901periodo")+"'");
-			if(newNIFSelector.next());
+			if(newNIFSelector.next()) {
+				grabarIncidencia("jModelos", "Se ha eliminado el modelo 390 m901dominio = '"+oldNIFSelector.getString("m901dominio")+"' and m901nif = '"+oldNIF+"' and m901ejercicio = "+oldNIFSelector.getint("m901ejercicio")+" and m901periodo = '"+oldNIFSelector.getString("m901periodo")+"' ya que existía un 390 con el nuevo NIF "+newNIF);				
+			}
 			else
 			{
 				/*No existe el registro con el nuevo NIF --> lo creamos*/
@@ -1068,7 +1072,9 @@ public class ActualizaNIFs
 		{
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
 			newNIFSelector.execute("Select * from MOD184D where m184ddominio = '"+oldNIFSelector.getString("m184ddominio")+"' and m184dnif = '"+newNIF+"' and m184dejercicio = "+oldNIFSelector.getint("m184dejercicio")+" and m184dperiodo = '"+oldNIFSelector.getString("m184dperiodo")+"'");
-			if(newNIFSelector.next());
+			if(newNIFSelector.next()) {
+				grabarIncidencia("jModelos", "Se ha eliminado el modelo 184 m184ddominio = '"+oldNIFSelector.getString("m184ddominio")+"' and m184dnif = '"+oldNIF+"' and m184dejercicio = "+oldNIFSelector.getint("m184dejercicio")+" and m184dperiodo = '"+oldNIFSelector.getString("m184dperiodo")+"' ya que existía un 184 con el nuevo NIF "+newNIF);
+			}
 			else
 			{
 				/*No existe el registro con el nuevo NIF --> lo creamos*/
@@ -1163,7 +1169,10 @@ public class ActualizaNIFs
 		{
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
 			newNIFSelector.execute("Select * from MODESTADO where mesdominio = '"+oldNIFSelector.getString("mesdominio")+"' and mesmodelo = '"+oldNIFSelector.getString("mesmodelo")+"' and mesnif = '"+newNIF+"' and mesejercicio = "+oldNIFSelector.getint("mesejercicio")+" and mesperiodo = '"+oldNIFSelector.getString("mesperiodo")+"'");			
-			if(newNIFSelector.next());
+			if(newNIFSelector.next()) {
+				grabarIncidencia("jModelos", "Se ha eliminado el estado del Modelo mesdominio = '"+oldNIFSelector.getString("mesdominio")+"' and mesmodelo = '"+oldNIFSelector.getString("mesmodelo")+"' and mesnif = '"+oldNIF+"' and mesejercicio = "+oldNIFSelector.getint("mesejercicio")+" and mesperiodo = '"+oldNIFSelector.getString("mesperiodo")+"' ya que existía un Modestado con el nuevo NIF "+newNIF);
+				
+			}
 			else
 			{
 				/*No existe el registro con el nuevo NIF --> lo creamos*/
@@ -1238,7 +1247,9 @@ public class ActualizaNIFs
 			
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
 			newNIFSelector.execute("Select * from MODACTEO where MAEDOMINIO = '"+oldNIFSelector.getString("MAEDOMINIO")+"' and MAENIF = '"+newNIF+"' and MAECODIGO = "+oldNIFSelector.getint("MAECODIGO"));			
-			if(newNIFSelector.next());
+			if(newNIFSelector.next()) {
+				grabarIncidencia("jModelos", "Se ha eliminado ACTEO MAEDOMINIO = '"+oldNIFSelector.getString("MAEDOMINIO")+"' and MAENIF = '"+newNIF+"' and MAECODIGO = "+oldNIFSelector.getint("MAECODIGO")+"' ya que existía una ACTEO con el nuevo NIF "+newNIF);				
+			}
 			else
 			{
 				/*No existe el registro con el nuevo NIF --> lo creamos*/
@@ -1555,7 +1566,7 @@ public class ActualizaNIFs
 			{
 				Delete d = new Delete(conn, nomTaula);
 				if(execute) execute = d.execute("m110ddominio  = '"+newNIFSelector.getString("m110ddominio")+"' and m110dnif = '"+oldNIF+"' and m110dejercicio  = "+newNIFSelector.getint("m110dejercicio"));
-				grabarIncidencia("jModelos", "Se ha eliminado el desglose del 110-"+newNIFSelector.getint("m110dejercicio")+"-"+oldNIF+" ya que existía un desglose del 110 con el nuevo NIF "+newNIF);
+				grabarIncidencia("jModelos", "Se ha eliminado el desglose del 110-"+newNIFSelector.getint("m110dejercicio")+"-"+oldNIF+" ya que existía un desglose del 110 con el nuevo NIF "+newNIF+" (Perceptor: "+newNIFSelector.getString("m110dnifper")+")");
 
 			}
 		}
@@ -1566,7 +1577,7 @@ public class ActualizaNIFs
 			{
 				Delete d = new Delete(conn, nomTaula);
 				if(execute) execute = d.execute("m115ddominio  = '"+newNIFSelector.getString("m115ddominio")+"' and m115dnif = '"+oldNIF+"' and m115dejercicio  = "+newNIFSelector.getint("m115dejercicio"));
-				grabarIncidencia("jModelos", "Se ha eliminado el desglose del 115-"+newNIFSelector.getint("m115dejercicio")+"-"+oldNIF+" ya que existía un desglose del 115 con el nuevo NIF "+newNIF);
+				grabarIncidencia("jModelos", "Se ha eliminado el desglose del 115-"+newNIFSelector.getint("m115dejercicio")+"-"+oldNIF+" ya que existía un desglose del 115 con el nuevo NIF "+newNIF+" (Perceptor: "+newNIFSelector.getString("m115dnifper")+")");
 
 			}
 		}
@@ -1577,7 +1588,7 @@ public class ActualizaNIFs
 			{
 				Delete d = new Delete(conn, nomTaula);
 				if(execute) execute = d.execute("m349adominio  = '"+newNIFSelector.getString("m349adominio")+"' and m349anif = '"+oldNIF+"' and m349aejercicio  = "+newNIFSelector.getint("m349aejercicio"));
-				grabarIncidencia("jModelos", "Se ha eliminado el desglose del 349-"+newNIFSelector.getint("m349aejercicio")+"-"+oldNIF+" ya que existía un desglose del 349 con el nuevo NIF "+newNIF);
+				grabarIncidencia("jModelos", "Se ha eliminado el desglose del 349-"+newNIFSelector.getint("m349aejercicio")+"-"+oldNIF+" ya que existía un desglose del 349 con el nuevo NIF "+newNIF+" (Perceptor: "+newNIFSelector.getString("m349anifcomun")+")");
 
 			}
 		}
@@ -1665,8 +1676,8 @@ public class ActualizaNIFs
 		if (vcheck.size()>0) {
 			String tablas ="";
 			for (int i=0;i<vcheck.size();i++) {
-				if (tablas.trim().length()==0) tablas = vcheck.elementAt(i);
-				else tablas += "\n"+vcheck.elementAt(i);
+				tablas += vcheck.elementAt(i)+" ";
+				if ((i % 6)==0) tablas+="\n";
 			}
 			int resp = Maefc.message("Se han encontrado registros/modelos con el nuevo NIF ["+newNIF+"].\nSi existiera el mismo dato para el NIF antiguo, se eliminará esta información del NIF antiguo\ndebido a que sólo puede existir 1 sólo dato:\n"+tablas+"\n\n¿Desea continuar?","¡Atención!",Maefc.WARNING_MESSAGE,Maefc.YES_NO_OPTION);
 			continuar = (resp==Maefc.YES_OPTION);
@@ -1677,7 +1688,7 @@ public class ActualizaNIFs
 	private void checkNif(DBConnection conn, String taula, String campNif) {
 		Selector scheck = new Selector (conn);
 		scheck.execute ("Select "+campNif+" from "+taula+" where "+campNif+"='"+newNIF+"'");
-		if (scheck.next()) vcheck.addElement("Tabla ["+taula+"]");
+		if (scheck.next()) vcheck.addElement("["+taula+"]");
 		scheck.close();
 	}
 }

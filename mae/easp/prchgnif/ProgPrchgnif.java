@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090112
-// Hora:             18:06:54
+// Fecha:            20090114
+// Hora:             18:17:26
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -82,8 +82,8 @@ public class ProgPrchgnif extends Program
         setName("vcliente");
         setMessageHelp("Código cliente");
         setTitle("Cliente");
-        setType(DOUBLE);
-        setLength(15);
+        setType(STRING);
+        setLength(12);
         setEnabled(false);
         setPrintable(false);
         }
