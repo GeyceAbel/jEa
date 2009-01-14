@@ -6,9 +6,6 @@ import java.util.Vector;
 
 import mae.easp.db.*;
 import mae.easp.general.Easp;
-import mae.jeo.db.CatJeo;
-import mae.laboral.db.CatLaboral;
-
 
 import geyce.maefc.Catalog;
 import geyce.maefc.DBConnection;
@@ -407,22 +404,25 @@ public class ActualizaNIFs
             CatModelos2 catmodelos2 = new CatModelos2();
             Catalog array[] = {catmodelos1,catmodelos2,catmodgen};
             db.setCatalogs(array);
-        }
-	    
-	    if (bdnom.equals("laboral")) 
+        }	    
+	    else if (bdnom.equals("laboral")) 
 	    {
             CatLaboral catlaboral = new CatLaboral();
             Catalog array[] = {catlaboral};
             db.setCatalogs(array);
-        }
-	    
-	    if (bdnom.equals("jeo")) 
+        }	    
+	    else if (bdnom.equals("jeo")) 
 	    {
             CatJeo catjeo = new CatJeo();
             Catalog array[] = {catjeo};
             db.setCatalogs(array);
         }
-	    
+	    else if (bdnom.startsWith("cta")) 
+	    {
+            CatCtasp catctasp = new CatCtasp();
+            Catalog array[] = {catctasp};
+            db.setCatalogs(array);
+        }	    
 	    conn=new DBConnection(db);
 	    if (conn.connect()) return conn;
 	    else return null;

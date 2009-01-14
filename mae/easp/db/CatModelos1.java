@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090108
-// Hora:             18:54:51
+// Fecha:            20090114
+// Hora:             10:50:40
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -154,6 +154,12 @@ public class CatModelos1 extends Catalog
     public FieldDef m300resultliq;
     public FieldDef m300codelec;
     public FieldDef m300numjustif;
+    public FieldDef m300dedopinivb;
+    public FieldDef m300dedopinivc;
+    public FieldDef m300dedimpivb;
+    public FieldDef m300dedimpivc;
+    public FieldDef m300dedadqivb;
+    public FieldDef m300dedadqivc;
     public TabMod300(String name)
       {
       super(name);
@@ -252,6 +258,12 @@ public class CatModelos1 extends Catalog
       m300resultliq = new FieldDef("m300resultliq",FieldDef.FLOAT,6,0);
       m300codelec = new FieldDef("m300codelec",FieldDef.CHAR,16);
       m300numjustif = new FieldDef("m300numjustif",FieldDef.CHAR,13);
+      m300dedopinivb = new FieldDef("m300dedopinivb",FieldDef.FLOAT,6,0);
+      m300dedopinivc = new FieldDef("m300dedopinivc",FieldDef.FLOAT,6,0);
+      m300dedimpivb = new FieldDef("m300dedimpivb",FieldDef.FLOAT,6,0);
+      m300dedimpivc = new FieldDef("m300dedimpivc",FieldDef.FLOAT,6,0);
+      m300dedadqivb = new FieldDef("m300dedadqivb",FieldDef.FLOAT,6,0);
+      m300dedadqivc = new FieldDef("m300dedadqivc",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m300dominio,
         m300nif,
@@ -347,7 +359,13 @@ public class CatModelos1 extends Catalog
         m300adeducir,
         m300resultliq,
         m300codelec,
-        m300numjustif        
+        m300numjustif,
+        m300dedopinivb,
+        m300dedopinivc,
+        m300dedimpivb,
+        m300dedimpivc,
+        m300dedadqivb,
+        m300dedadqivc        
         };
       setColumns(array);
       FieldDef arrayf[] = {m300dominio,m300nif,m300ejercicio,m300periodo };
@@ -520,6 +538,12 @@ public class CatModelos1 extends Catalog
     public FieldDef m300ddediibic3;
     public FieldDef m300ddediibib;
     public FieldDef m300ddediibic;
+    public FieldDef m300ddedoieqbib;
+    public FieldDef m300ddedoieqbiq;
+    public FieldDef m300ddedimeqbib;
+    public FieldDef m300ddedimeqbiq;
+    public FieldDef m300ddedaieqbib;
+    public FieldDef m300ddedaieqbiq;
     public TabMod300des(String name)
       {
       super(name);
@@ -685,6 +709,12 @@ public class CatModelos1 extends Catalog
       m300ddediibic3 = new FieldDef("m300ddediibic3",FieldDef.FLOAT,6,0);
       m300ddediibib = new FieldDef("m300ddediibib",FieldDef.FLOAT,6,0);
       m300ddediibic = new FieldDef("m300ddediibic",FieldDef.FLOAT,6,0);
+      m300ddedoieqbib = new FieldDef("m300ddedoieqbib",FieldDef.FLOAT,6,0);
+      m300ddedoieqbiq = new FieldDef("m300ddedoieqbiq",FieldDef.FLOAT,6,0);
+      m300ddedimeqbib = new FieldDef("m300ddedimeqbib",FieldDef.FLOAT,6,0);
+      m300ddedimeqbiq = new FieldDef("m300ddedimeqbiq",FieldDef.FLOAT,6,0);
+      m300ddedaieqbib = new FieldDef("m300ddedaieqbib",FieldDef.FLOAT,6,0);
+      m300ddedaieqbiq = new FieldDef("m300ddedaieqbiq",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m300ddominio,
         m300dnif,
@@ -847,7 +877,13 @@ public class CatModelos1 extends Catalog
         m300ddediibib3,
         m300ddediibic3,
         m300ddediibib,
-        m300ddediibic        
+        m300ddediibic,
+        m300ddedoieqbib,
+        m300ddedoieqbiq,
+        m300ddedimeqbib,
+        m300ddedimeqbiq,
+        m300ddedaieqbib,
+        m300ddedaieqbiq        
         };
       setColumns(array);
       FieldDef arrayf[] = {m300ddominio,m300dnif,m300dejercicio,m300dperiodo,m300dgrupo,m300dactividad };
@@ -6924,6 +6960,12 @@ public class CatModelos1 extends Catalog
     public FieldDef m300pdediibic3;
     public FieldDef m300pdediibib;
     public FieldDef m300pdediibic;
+    public FieldDef m300pdedoieqbib;
+    public FieldDef m300pdedoieqbiq;
+    public FieldDef m300pdedimeqbib;
+    public FieldDef m300pdedimeqbiq;
+    public FieldDef m300pdedaieqbib;
+    public FieldDef m300pdedaieqbiq;
     public TabMod300prodes(String name)
       {
       super(name);
@@ -7008,6 +7050,12 @@ public class CatModelos1 extends Catalog
       m300pdediibic3 = new FieldDef("m300pdediibic3",FieldDef.FLOAT,6,0);
       m300pdediibib = new FieldDef("m300pdediibib",FieldDef.FLOAT,6,0);
       m300pdediibic = new FieldDef("m300pdediibic",FieldDef.FLOAT,6,0);
+      m300pdedoieqbib = new FieldDef("m300pdedoieqbib",FieldDef.FLOAT,6,0);
+      m300pdedoieqbiq = new FieldDef("m300pdedoieqbiq",FieldDef.FLOAT,6,0);
+      m300pdedimeqbib = new FieldDef("m300pdedimeqbib",FieldDef.FLOAT,6,0);
+      m300pdedimeqbiq = new FieldDef("m300pdedimeqbiq",FieldDef.FLOAT,6,0);
+      m300pdedaieqbib = new FieldDef("m300pdedaieqbib",FieldDef.FLOAT,6,0);
+      m300pdedaieqbiq = new FieldDef("m300pdedaieqbiq",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m300pdominio,
         m300pnif,
@@ -7089,7 +7137,13 @@ public class CatModelos1 extends Catalog
         m300pdediibic2,
         m300pdediibic3,
         m300pdediibib,
-        m300pdediibic        
+        m300pdediibic,
+        m300pdedoieqbib,
+        m300pdedoieqbiq,
+        m300pdedimeqbib,
+        m300pdedimeqbiq,
+        m300pdedaieqbib,
+        m300pdedaieqbiq        
         };
       setColumns(array);
       FieldDef arrayf[] = {m300pdominio,m300pnif,m300pejercicio,m300pperiodo,m300pgrupo,m300pactividad };
