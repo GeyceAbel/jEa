@@ -828,8 +828,8 @@ public class ActualizaNIFs
 			{
 				Delete d = new Delete(connJModelos, "MOD347a");
 				d.execute("m347adominio = '"+oldNIFSelector.getString("m347cdominio")+"' and m347anif = '"+oldNIF+"' and m347aejercicio = "+oldNIFSelector.getint("m347cejercicio")+" and m347aperiodo = '"+oldNIFSelector.getString("m347cperiodo")+"'");
-				d = new Delete(connJModelos, "MOD347b");
-				d.execute("m347bdominio = '"+oldNIFSelector.getString("m347cdominio")+"' and m347bnif = '"+oldNIF+"' and m347bejercicio = "+oldNIFSelector.getint("m347cejercicio")+" and m347bperiodo = '"+oldNIFSelector.getString("m347cperiodo")+"'");
+				d = new Delete(connJModelos, "MOD347d");
+				d.execute("m347ddominio = '"+oldNIFSelector.getString("m347cdominio")+"' and m347dnif = '"+oldNIF+"' and m347dejercicio = "+oldNIFSelector.getint("m347cejercicio")+" and m347dperiodo = '"+oldNIFSelector.getString("m347cperiodo")+"'");
 				grabarIncidencia("jModelos", "Se ha eliminado el modelo 347-"+oldNIFSelector.getint("m347cejercicio")+"-"+oldNIF+" ya que existía un 347 con el nuevo NIF "+newNIF);
 			}
 			else
