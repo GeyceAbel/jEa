@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090114
-// Hora:             18:17:26
+// Fecha:            20090115
+// Hora:             09:50:37
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -26,6 +26,7 @@ public class ProgPrchgnif extends Program
   public ProgPrchgnif prchgnif;
   // Inicio declaraciones globales
   public String gcdp=null;
+  public boolean esVirtualFisc = false;
   private boolean esjNomina;
   private boolean esjConta;
   private boolean esjEO;
@@ -304,7 +305,8 @@ public class ProgPrchgnif extends Program
     loc.setHeight(370);
     loc.setLocation(loc.CENTER);
     setLocation(loc);
-    vcambianif.setLayout(new LayoutHtml("mae/easp/html/cambiarNIF.html"));
+    if(esVirtualFisc) vcambianif.setLayout(new LayoutHtml("mae/easp/html/cambiarNIFVFisc.html"));
+    else vcambianif.setLayout(new LayoutHtml("mae/easp/html/cambiarNIF.html"));
     
     
     Selector cdpSelector = new Selector(getDataBase());
