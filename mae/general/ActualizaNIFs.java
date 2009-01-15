@@ -1,6 +1,7 @@
 package mae.general;
 
 import java.sql.SQLException;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -1297,14 +1298,38 @@ public class ActualizaNIFs
 		oldNIFSelector.close();
 		
 		/*Hacemos el update de las tablas que no tienen problemas de restricciones*/
-		UpdateNIFs(connJModelos);
+		if (execute) execute = UpdateNIFs(connJModelos);
 		
 		/*Borramos los campos con los NIF antiguos que previamente habiamos duplicado*/
-		DeleteNIFs(connJModelos);
+		if (execute) execute = DeleteNIFs(connJModelos);
 		
-		return true;
+		if (execute) execute = evaluarIncidenciasJModelos ();
+		return execute;
 	}
 	
+	private boolean evaluarIncidenciasJModelos() {
+		Hashtable<String,String> ht = new Hashtable<String, String>();
+		Selector s = new Selector (connJModelos);
+		s.execute("Select * from MODACTEO where MAENIF='"+newNIF+"'");
+		while (s.next()) {
+			String enlace = s.getString("MAEENLACEJEO");
+			if (enlace == null) enlace = "";
+			int act = s.getint("MAEACTIVIDAD");
+			int ejer = s.getint("MAEEJERCICIO");
+			String clave = Util.rpad(String.valueOf(act), 6);
+			clave += Util.rpad(enlace.trim(), 12);
+			clave += Util.rpad(String.valueOf(ejer), 4);
+			String msgemp = "";
+			if (enlace.length()==12) msgemp = ", empresa "+enlace.substring(0,6);
+			if (ht.containsKey(clave)) {
+				grabarIncidencia("jModelos", "Para el nif ["+newNIF+"] ya existen acumulados de módulos no agricolas del ejercicio "+ejer+msgemp+" y actividad "+act);
+			}
+			else ht.put(clave,"X");
+		}
+		s.close();
+		return true;
+	}
+
 	private boolean UpdateNIFs(DBConnection connJModelos) 
 	{
 		boolean execute = true;
@@ -1385,8 +1410,7 @@ public class ActualizaNIFs
 		if(execute) execute = UpdateNIF(connJModelos, "MODINGAGR", "MNANIF",(connJModelos.getDB().getCatalogs())[2]);
 		if(execute) execute = UpdateNIF(connJModelos, "CODELECMAT", "cemnif");
 		if(execute) execute = UpdateNIF(connJModelos, "IMPORTCFG", "imcnif",(connJModelos.getDB().getCatalogs())[2]);
-		if(execute) execute = UpdateNIF(connJModelos, "IMPORTHIS", "imhnif");
-		
+		if(execute) execute = UpdateNIF(connJModelos, "IMPORTHIS", "imhnif");		
 		return execute;
 	}
 	
@@ -1637,13 +1661,10 @@ public class ActualizaNIFs
 		checkNif(connJModelos, "MODINTC", "mintcnif");
 		checkNif(connJModelos, "MODINTD", "mintdnif");
 		checkNif(connJModelos, "MOD110D", "m110dnif");
-		checkNif(connJModelos, "MOD110D", "m110dnif");
-		checkNif(connJModelos, "MOD115D", "m115dnif");
 		checkNif(connJModelos, "MOD115D", "m115dnif");
 		checkNif(connJModelos, "MOD300PRODES", "m300pnif");
 		checkNif(connJModelos, "MOD390DES", "m390dnif");
 		checkNif(connJModelos, "MOD110ACUM", "m110anif");
-		checkNif(connJModelos, "MOD349ACUM", "m349anif");
 		checkNif(connJModelos, "MOD349ACUM", "m349anif");
 		checkNif(connJModelos, "MOD184D", "m184dnif");
 		checkNif(connJModelos, "MOD184E", "m184enif");
@@ -1678,7 +1699,7 @@ public class ActualizaNIFs
 			String tablas ="";
 			for (int i=0;i<vcheck.size();i++) {
 				tablas += vcheck.elementAt(i)+" ";
-				if ((i % 6)==0) tablas+="\n";
+				if (((i+1) % 6)==0) tablas+="\n";
 			}
 			int resp = Maefc.message("Se han encontrado registros/modelos con el nuevo NIF ["+newNIF+"].\nSi existiera el mismo dato para el NIF antiguo, se eliminará esta información del NIF antiguo\ndebido a que sólo puede existir 1 sólo dato:\n"+tablas+"\n\n¿Desea continuar?","¡Atención!",Maefc.WARNING_MESSAGE,Maefc.YES_NO_OPTION);
 			continuar = (resp==Maefc.YES_OPTION);
