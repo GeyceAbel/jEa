@@ -33,13 +33,15 @@ public class ActualizaNIFs
 	private DBConnection connJModelos=null;
 	private boolean hayIncidencia = false;
 	private int numInc = 0;
+	private boolean esVFISC = false;
 	
-	public ActualizaNIFs(String cdp, String oldNIF, String newNIF, DBConnection connEA) 
+	public ActualizaNIFs(String cdp, String oldNIF, String newNIF, DBConnection connEA, boolean esVFISC) 
 	{
 		this.cdp=cdp;
 		this.oldNIF=oldNIF;
 		this.newNIF=newNIF;
 		this.connEA=connEA;
+		this.esVFISC = esVFISC;
 	}
 	
     public boolean updateNIF() 
@@ -160,7 +162,7 @@ public class ActualizaNIFs
 		
 		if(execute) 
 		{
-			if(hayIncidencia) 
+			if(hayIncidencia && !esVFISC) 
 			{
 				int resp = Maefc.message("Se han modificado los NIF/CIF correctamente, pero se han producido incidencias durante el proceso. \n\n¿Desea ver las incidencias?","Atención",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION);
 				if(resp == Maefc.YES_OPTION) abrirIncidencias();

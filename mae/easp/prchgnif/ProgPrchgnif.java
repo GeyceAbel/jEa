@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20090115
-// Hora:             09:50:37
+// Hora:             13:17:57
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -246,7 +246,7 @@ public class ProgPrchgnif extends Program
           if(Maefc.YES_OPTION == cancelar)
           {
             /*llamar a la funcion update de ActualizaNIFs*/
-            ActualizaNIFs an = new ActualizaNIFs(vcliente.getString(),vnif.getString(),vnounif.getString(), getDataBase());
+            ActualizaNIFs an = new ActualizaNIFs(vcliente.getString(),vnif.getString(),vnounif.getString(), Easp.connEA,esVirtualFisc);
             an.updateNIF();
           }
                   
