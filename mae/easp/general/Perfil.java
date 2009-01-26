@@ -83,7 +83,7 @@ public class Perfil {
   	return bOk;
   }
 
-  public boolean newPerfil(String granemp) {
+  public boolean newPerfil(String granemp, String regdevol) {
   	boolean bOk = true;
   	if (!hasPerfil()) {
   		sperfil.addNew();
@@ -95,7 +95,7 @@ public class Perfil {
   		fdintracom.setValue("0");
   		fdintrastat.setNull();
       fdfechafin.setNull();
-      fdregdevmen.setValue("N");
+      fdregdevmen.setValue(regdevol);
   		bOk = sperfil.insert();
   	}
   	if (bOk && isAutoCommit()) connPerfil.commit();
