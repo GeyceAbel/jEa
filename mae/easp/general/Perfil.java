@@ -5,8 +5,8 @@ import mae.general.*;
 import java.util.*;
 import java.io.*;
 
- 
-public class Perfil { 
+
+public class Perfil {
 	private final int NO_AUTO_COMMIT = 0;
 	private final int AUTO_COMMIT = 1;
 	private String nif;
@@ -26,7 +26,8 @@ public class Perfil {
   Field fdintracom   ;
   Field fdintrastat  ;
   Field fdfechafin   ;
-  
+  Field fdregdevmen  ;
+
   public Perfil (DBConnection db,String nif, int ejer) {
     connPerfil  = db;
     this.nif = nif;
@@ -42,10 +43,11 @@ public class Perfil {
     fdalquileres  =new Field(sperfil,tperfil,"pftalquileres");
     fdintracom    =new Field(sperfil,tperfil,"pftintracom");
     fdintrastat   =new Field(sperfil,tperfil,"pftintrastat");
-    fdfechafin    =new Field (sperfil,tperfil,"pftfechafin");   
+    fdfechafin    =new Field (sperfil,tperfil,"pftfechafin");
+    fdregdevmen   =new Field (sperfil,tperfil,"pftregdevmen");
     autoCommit = AUTO_COMMIT;
   }
-  
+
   public void setAutoCommit() {
     autoCommit = AUTO_COMMIT;
   }
@@ -57,55 +59,56 @@ public class Perfil {
   }
   public void actualizarPerfil () {
     connPerfil.commit();
-  }  
-  public void desactualizaPerfil () {
-    connPerfil.rollback(); 
   }
-    
+  public void desactualizaPerfil () {
+    connPerfil.rollback();
+  }
+
   public boolean hasPerfil() {
     sperfil.setWhere("pftejercicio="+ejer+" and pftnif='"+nif+"'");
     sperfil.execute();
     return !sperfil.isEof();
   }
-  
+
   public boolean newPerfil() {
   	boolean bOk = true;
   	if (!hasPerfil()) {
   		sperfil.addNew();
   		fdejercicio.setValue(ejer);
-  		fdnif.setValue(nif);  
-  		bOk = sperfil.insert();		  		
+  		fdnif.setValue(nif);
+  		bOk = sperfil.insert();
   	}
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
   	return bOk;
   }
-  
+
   public boolean newPerfil(String granemp) {
   	boolean bOk = true;
   	if (!hasPerfil()) {
   		sperfil.addNew();
   		fdejercicio.setValue(ejer);
-  		fdnif.setValue(nif);  
+  		fdnif.setValue(nif);
   		fdgranemp.setValue(granemp);
   		fdtipoavisos.setValue("1");
   		fdalquileres.setValue("N");
   		fdintracom.setValue("0");
   		fdintrastat.setNull();
-      fdfechafin.setNull();  		
-  		bOk = sperfil.insert();		  		
+      fdfechafin.setNull();
+      fdregdevmen.setValue("N");
+  		bOk = sperfil.insert();
   	}
   	if (bOk && isAutoCommit()) connPerfil.commit();
-  	else if (isAutoCommit())  connPerfil.rollback();  	
+  	else if (isAutoCommit())  connPerfil.rollback();
   	return bOk;
-  }    
-  	
-  public boolean newPerfil(String granemp, String tipoavisos, String email, String movil, String alquiler, String intracom, String intrastat, java.util.Date fechafin) {
+  }
+
+  public boolean newPerfil(String granemp, String tipoavisos, String email, String movil, String alquiler, String intracom, String intrastat, java.util.Date fechafin, String regDev) {
   	boolean bOk = true;
   	if (!hasPerfil()) {
   		sperfil.addNew();
   		fdejercicio.setValue(ejer);
-  		fdnif.setValue(nif);  
+  		fdnif.setValue(nif);
 			if (granemp!=null && (granemp.trim().length()>0)) fdgranemp.setValue(granemp);
 			else fdgranemp.setNull();
 			if (tipoavisos!=null && (tipoavisos.trim().length()>0)) fdtipoavisos.setValue(tipoavisos);
@@ -121,14 +124,16 @@ public class Perfil {
 			if (intrastat!=null && (intrastat.trim().length()>0)) fdintrastat.setValue(intrastat);
 			else fdintrastat.setNull();
 			if (fechafin!=null ) fdfechafin.setValue(fechafin);
-			else fdfechafin.setNull();	
-  		bOk = sperfil.insert();		
+			else fdfechafin.setNull();
+      if (regDev!=null && (regDev.trim().length()>0)) fdregdevmen.setValue(regDev);
+      else fdregdevmen.setNull();
+  		bOk = sperfil.insert();
   	}
   	if (bOk && isAutoCommit()) connPerfil.commit();
-  	else if (isAutoCommit())  connPerfil.rollback();  	
+  	else if (isAutoCommit())  connPerfil.rollback();
   	return bOk;
-  }  	  
-  public boolean setPerfil(String granemp, String tipoavisos, String email, String movil, String alquiler, String intracom, String intrastat, String fechafin) {
+  }
+  public boolean setPerfil(String granemp, String tipoavisos, String email, String movil, String alquiler, String intracom, String intrastat, String fechafin, String regDev) {
   	boolean bOk = true;
   	if (hasPerfil()) {
   		sperfil.edit();
@@ -147,21 +152,23 @@ public class Perfil {
 			if (intrastat!=null && (intrastat.trim().length()>0)) fdintrastat.setValue(intrastat);
 			else fdintrastat.setNull();
 			if (fechafin!=null && (fechafin.trim().length()>0)) fdfechafin.setValue(fechafin);
-			else fdfechafin.setNull();	
-  		bOk = sperfil.update();		
+			else fdfechafin.setNull();
+      if (regDev!=null && (regDev.trim().length()>0)) fdregdevmen.setValue(regDev);
+      else fdregdevmen.setNull();
+  		bOk = sperfil.update();
   	}
   	if (bOk && isAutoCommit()) connPerfil.commit();
-  	else if (isAutoCommit())  connPerfil.rollback();  	
+  	else if (isAutoCommit())  connPerfil.rollback();
   	return bOk;
-  }  	   
-  
+  }
+
   public PerfilTributario getPerfilTributario () {
   	if (hasPerfil()) {
-      return new PerfilTributario (fdgranemp.getString(),fdalquileres.getString(),fdintracom.getString(),fdintrastat.getString(),fdfechafin.getDate());
+      return new PerfilTributario (fdgranemp.getString(),fdalquileres.getString(),fdintracom.getString(),fdintrastat.getString(),fdfechafin.getDate(),fdregdevmen.getString());
     }
-    else return null;    
+    else return null;
   }
-  public boolean setPerfilTributario (String granemp, String alquil, String com, String stat, java.util.Date fecha) {
+  public boolean setPerfilTributario (String granemp, String alquil, String com, String stat, java.util.Date fecha, String regDev) {
   	boolean bOk = true;
   	if (hasPerfil()) {
   		sperfil.edit();
@@ -170,13 +177,14 @@ public class Perfil {
   		fdintracom.setValue(com);
   		fdintrastat.setValue(stat);
   		fdfechafin.setValue(fecha);
+      fdregdevmen.setValue(regDev);
       bOk = sperfil.update();
     }
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
-    
-    return bOk;  		
-  }  
+
+    return bOk;
+  }
   public boolean setFechaPerfilTributario (java.util.Date fecha) {
   	boolean bOk = true;
   	if (hasPerfil()) {
@@ -186,9 +194,9 @@ public class Perfil {
     }
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
-    
-    return bOk;  		
-  }  
+
+    return bOk;
+  }
   public boolean setMailPerfilTributario (String m) {
   	boolean bOk = true;
   	if (hasPerfil()) {
@@ -198,27 +206,27 @@ public class Perfil {
     }
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
-    
-    return bOk;  		
-  }  
+
+    return bOk;
+  }
 
   public boolean remPerfil() {
   	boolean bOk = true;
   	if (hasPerfil()) {
   		try {
         connPerfil.executeUpdate("DELETE FROM EMPMODELOS WHERE emodejercicio="+ejer+" AND emodnif='"+nif+"'");
-        connPerfil.executeUpdate("DELETE FROM PERFILTRIBUT WHERE pftejercicio="+ejer+" AND pftnif='"+nif+"'");        
+        connPerfil.executeUpdate("DELETE FROM PERFILTRIBUT WHERE pftejercicio="+ejer+" AND pftnif='"+nif+"'");
       }
       catch (Exception e) {
       	bOk = false;
       }
   	}
   	if (bOk && isAutoCommit()) connPerfil.commit();
-  	else if (isAutoCommit())  connPerfil.rollback();  	
+  	else if (isAutoCommit())  connPerfil.rollback();
   	return bOk;
-  }    
- 
-  public boolean hasModelo(int modelo,String tipo) {	
+  }
+
+  public boolean hasModelo(int modelo,String tipo) {
     Select svfdecmod=new Select(connPerfil);
     Table tbdecmod=new Table(svfdecmod,"EMPMODELOS");
     Field fdmodelo      =new Field(svfdecmod,tbdecmod,"emodmodelo");
@@ -230,7 +238,7 @@ public class Perfil {
                        " and emodactivo='S'");
     svfdecmod.execute();
     return !svfdecmod.isEof();
-  }  
+  }
 
 
   public Vector getModelos() {
@@ -249,14 +257,14 @@ public class Perfil {
       svfdecmod.next();
       }
     return vc;
-    }  
-    
+    }
+
   public boolean setModelo(String modelo, String tipoper) {
   	boolean bOk = true;
     Select sempmodelos=new Select(connPerfil);
     Table tempmodelos=new Table(sempmodelos,"EMPMODELOS");
     Field fdemodejer     =new Field(sempmodelos,tempmodelos,"emodejercicio");
-    Field fdemodnif      =new Field(sempmodelos,tempmodelos,"emodnif");        
+    Field fdemodnif      =new Field(sempmodelos,tempmodelos,"emodnif");
     Field fdemodmodelo   =new Field(sempmodelos,tempmodelos,"emodmodelo");
     Field fdemodtipoper     =new Field(sempmodelos,tempmodelos,"emodtipoper");
     Field fdemodactivo      =new Field(sempmodelos,tempmodelos,"emodactivo");
@@ -271,26 +279,26 @@ public class Perfil {
       fdemodmodelo.setValue(modelo);
       fdemodtipoper.setValue(tipoper);
       fdemodactivo.setValue("S");
-      bOk = sempmodelos.insert();      
+      bOk = sempmodelos.insert();
     }
 		else {
 	    sempmodelos.edit();
       fdemodtipoper.setValue(tipoper);
-      fdemodactivo.setValue("S");	    
+      fdemodactivo.setValue("S");
       bOk = sempmodelos.update();
 		}
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
-		
-		return bOk;    
-  }      
+
+		return bOk;
+  }
 
   public boolean remModelo(String modelo, String tipoper) {
   	boolean bOk = true;
     Select sempmodelos=new Select(connPerfil);
     Table tempmodelos=new Table(sempmodelos,"EMPMODELOS");
     Field fdemodejer     =new Field(sempmodelos,tempmodelos,"emodejercicio");
-    Field fdemodnif      =new Field(sempmodelos,tempmodelos,"emodnif");        
+    Field fdemodnif      =new Field(sempmodelos,tempmodelos,"emodnif");
     Field fdemodmodelo   =new Field(sempmodelos,tempmodelos,"emodmodelo");
     Field fdemodtipoper     =new Field(sempmodelos,tempmodelos,"emodtipoper");
     Field fdemodactivo      =new Field(sempmodelos,tempmodelos,"emodactivo");
@@ -301,21 +309,21 @@ public class Perfil {
     sempmodelos.execute();
     if (!sempmodelos.isEof()) {
 	    sempmodelos.edit();
-      fdemodactivo.setValue("N");	    
+      fdemodactivo.setValue("N");
       bOk = sempmodelos.update();
 		}
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
-		
-		return bOk;    
+
+		return bOk;
   }
-  
+
   public boolean remModelo(String modelo) {
   	boolean bOk = true;
     Select sempmodelos=new Select(connPerfil);
     Table tempmodelos=new Table(sempmodelos,"EMPMODELOS");
     Field fdemodejer     =new Field(sempmodelos,tempmodelos,"emodejercicio");
-    Field fdemodnif      =new Field(sempmodelos,tempmodelos,"emodnif");        
+    Field fdemodnif      =new Field(sempmodelos,tempmodelos,"emodnif");
     Field fdemodmodelo   =new Field(sempmodelos,tempmodelos,"emodmodelo");
     Field fdemodtipoper     =new Field(sempmodelos,tempmodelos,"emodtipoper");
     Field fdemodactivo      =new Field(sempmodelos,tempmodelos,"emodactivo");
@@ -325,23 +333,23 @@ public class Perfil {
     sempmodelos.execute();
     while (!sempmodelos.isEof() && bOk) {
 	    sempmodelos.edit();
-      fdemodactivo.setValue("N");	    
+      fdemodactivo.setValue("N");
       bOk = sempmodelos.update();
       sempmodelos.next();
 		}
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
-		
-		return bOk;    
-  }          
-  
+
+		return bOk;
+  }
+
   public PerfilAvisos getPerfilAvisos() {
   	if (hasPerfil()) {
       return new PerfilAvisos(fdtipoavisos.getInteger(),fdemail.getString(),fdmovil.getString());
     }
     else return null;
   }
-    
+
   public boolean setPerfilAvisos(int tipo,String mail,String movil) {
   	boolean bOk = true;
   	if (hasPerfil()) {
@@ -353,10 +361,10 @@ public class Perfil {
     }
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
-    
+
     return bOk;
   }
-  
+
   public boolean setPerfilAvisos(PerfilAvisos pa) {
   	boolean bOk = true;
   	if (hasPerfil()) {
@@ -368,186 +376,7 @@ public class Perfil {
     }
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
-    
+
     return bOk;
-  }  
-/*
-  public boolean initDeclaran(int ejercicio,String nif,int modalidad,String alquileres,String intracom,String intrastat,int tipoAvisos,String mail,String mobil,String presentador) throws java.rmi.RemoteException {
-      svfdeclaran.setWhere("pftejercicio="+ejercicio+" and pftnif='"+nif+"'");
-      svfdeclaran.execute();
-      if (svfdeclaran.isEof()) {
-        svfdeclaran.addNew();
-        fdejercicio.setValue(ejercicio);
-        fdnif.setValue(nif);
-        }
-      //else
-        //fdbaja.setNull();
-      }
-    else {
-      svfdeclaran.edit();
-      //fdbaja.setNull();
-      }
-    fdtipo.setValue(modalidad);
-    fdtipoavisos.setValue(tipoAvisos);
-    fdemail.setValue(mail);
-    fdmovil.setValue(mobil);
-    //fdexporta.setValue(exporta);
-    fdalquileres.setValue(alquileres);
-    fdintracom.setValue(intracom);
-    fdintrastat.setValue(intrastat);
-    //fdmodulosyed.setValue(modulosyed);
-    //fdpresentador.setValue(presentador);
-    if (!svfdeclaran.save()) {
-      svfdeclaran.rollback();
-      setError(ejercicio,ERR_NEWDEC,ejercicio+"."+nif);
-      return false;
-      }
-    else {
-      svfdeclaran.setWhere("pftejercicio="+ejercicio+
-                          " and pftnif='"+nif+"'");
-      svfdeclaran.execute();
-      }
-    return setModelos(ejercicio,nif,modalidad,alquileres,intracom,intrastat);
-    }
-
-  public PerfilTributario getModalidad(int ejercicio,String nif) throws java.rmi.RemoteException {
-    if (!fdnif.getString().equals(nif)) {
-      svfdeclaran.setWhere("pftejercicio="+ejercicio+
-                          " and pftnif='"+nif+"'");
-                          //" and decbaja is null");
-      svfdeclaran.execute();
-      svfdeclaran.commit();
-      }
-    return new PerfilTributario (fdtipo.getInteger(),fdalquileres.getString(),fdintracom.getString(),fdintrastat.getString(),null);
-    }
-
-  public PerfilAvisos getPerfilAvisos(int ejercicio,String nif) throws java.rmi.RemoteException {
-    if (!fdnif.getString().equals(nif)) {
-      svfdeclaran.setWhere("pftejercicio="+ejercicio+
-                          " and pftnif='"+nif+"'");
-      svfdeclaran.execute();
-      svfdeclaran.commit();
-      }
-    return new PerfilAvisos(fdtipoavisos.getInteger(),fdemail.getString(),fdmovil.getString());
-    }
-    
-  public boolean setPerfilAvisos(int ejercicio,String nif,int tipo,String mail,String movil) throws java.rmi.RemoteException {
-    if (!fdnif.getString().equals(nif)) {
-      svfdeclaran.setWhere("pftejercicio="+ejercicio+
-                          " and pftnif='"+nif+"'");
-      svfdeclaran.execute();
-      if (svfdeclaran.isEof()) {
-        svfdeclaran.rollback();
-        setError(ejercicio,ERR_SETAVISOS,"No encontrado "+ejercicio+"."+nif);
-        return false;
-        }
-      }
-    svfdeclaran.edit();
-    fdtipoavisos.setValue(tipo);
-    fdemail.setValue(mail);
-    fdmovil.setValue(movil);
-    if (!svfdeclaran.save()) {
-      svfdeclaran.rollback();
-      setError(ejercicio,ERR_SETAVISOS,ejercicio+"."+nif);
-      return false;
-      }
-    svfdeclaran.commit();
-    return true;
-    }
-
-  public boolean setModelos(int ejercicio,String nif,int tipo,String alquileres,String intracom,String intrastat) throws java.rmi.RemoteException {
-    try {
-      connAvisos.executeUpdate("DELETE FROM EMPMODELOS "+
-                                  "WHERE emodejercicio='"+ejercicio+"' AND emodnif='"+nif+"'");
-      connAvisos.executeUpdate("INSERT INTO EMPMODELOS (emodejercicio,emodnif,emodmodelo,emodtipoper,emodactivo) "+
-                               "SELECT '"+ejercicio+"','"+nif+"',tipmodelo,tiptipoperi,'S' FROM TIPOMODELOS "+
-                               "WHERE tiptipo='"+tipo+"'"+
-                                      " AND (tipalquileres IS NULL OR tipalquileres='"+alquileres+"')"+
-                                      " AND (tipintracom IS NULL OR tipintracom='"+intracom+"')"+
-                                      " AND (tipintrastat IS NULL OR tipintrastat='"+intrastat+"' OR '"+intrastat+"'='T')");                                     
-      connAvisos.commit();
-      return true;
-    }
-    catch(Exception e) {
-      connAvisos.rollback();
-      setError(ejercicio,ERR_SETMODELOS,ejercicio+"."+nif+"."+tipo+"\n"+e.getMessage());
-      return false;
-      }
-    }
-
-  public Vector getModelos(int ejercicio,String nif) throws java.rmi.RemoteException {
-    Select svfdecmod=new Select(connAvisos);
-    Table tbdecmod=new Table(svfdecmod,"EMPMODELOS");
-    Field fdmodelo      =new Field(svfdecmod,tbdecmod,"emodmodelo");
-    Field fdtipoper     =new Field(svfdecmod,tbdecmod,"emodtipoper");
-    svfdecmod.setWhere("emodejercicio='"+ejercicio+"'"+
-                       " and emodnif='"+nif+"'"+
-                       " and emodactivo='S'");
-    svfdecmod.execute();
-    svfdecmod.commit();
-    Vector vc=new Vector();
-    while (!svfdecmod.isEof()) {
-      vc.addElement(fdmodelo.getString());
-      vc.addElement(fdtipoper.getString());
-      svfdecmod.next();
-      }
-    return vc;
-    }
-
-
-  public boolean setModelo(int ejercicio,String nif,String modelo,String tipoPeriodo,boolean activo) throws java.rmi.RemoteException {
-    if (!fdnif.getString().equals(nif)) {
-      svfdeclaran.setWhere("pftejercicio="+ejercicio+
-                          " and pftnif='"+nif+"'");
-      svfdeclaran.execute();
-      svfdeclaran.commit();
-      if (svfdeclaran.isEof()) {
-        setError(ejercicio,ERR_SETMODELO,"No existe "+ejercicio+"."+nif);
-        return false;
-        }
-      }
-
-    Select svfdecmod=new Select(connAvisos);
-    Table tbdecmod=new Table(svfdecmod,"EMPMODELOS");
-    Field fd2ejercicio   =new Field(svfdecmod,tbdecmod,"emodejercicio");
-    Field fd2nif       =new Field(svfdecmod,tbdecmod,"emodnif");
-    Field fd2modelo    =new Field(svfdecmod,tbdecmod,"emodmodelo");
-    Field fd2tipoper   =new Field(svfdecmod,tbdecmod,"emodtipoper");
-    Field fd2activo    =new Field(svfdecmod,tbdecmod,"emodactivo");
-    svfdecmod.setWhere("emodejercicio='"+ejercicio+"'"+
-                         " and emodnif='"+nif+"'"+
-                         " and emodmodelo='"+modelo+"'");
-    svfdecmod.execute();
-    if (svfdecmod.isEof()) {
-      svfdecmod.addNew();
-      fd2ejercicio.setValue(ejercicio);
-      fd2nif.setValue(nif);
-      fd2modelo.setValue(modelo);
-      }
-    else
-      svfdecmod.edit();
-    fd2tipoper.setValue(tipoPeriodo);
-    if (activo)
-      fd2activo.setValue("S");
-    else
-      fd2activo.setValue("N");
-    if (!svfdecmod.save()) {
-      svfdecmod.rollback();
-      setError(ejercicio,ERR_SETTINGMODELO,ejercicio+"."+nif+"."+modelo);
-      return false;
-      }
-    svfdecmod.commit();
-    return true;
-    }
-
-
-  public void setError(int ejercicio, int code, String message) throws java.rmi.RemoteException {
-    lastErrorCode=code;
-    if (message==null)
-      lastErrorMessage=ERROR_MESSAGE[code];
-    else
-      lastErrorMessage=ERROR_MESSAGE[code]+": "+message;
-    System.out.println("Error: "+code+" - "+lastErrorMessage);
-    }
-    */
+  }
   }

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090114
-// Hora:             10:50:40
+// Fecha:            20090126
+// Hora:             10:33:54
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2389,6 +2389,7 @@ public class CatEasp extends Catalog
     public FieldDef pftintracom;
     public FieldDef pftintrastat;
     public FieldDef pftfechafin;
+    public FieldDef pftregdevmen;
     public TabPerfiltribut(String name)
       {
       super(name);
@@ -2402,6 +2403,7 @@ public class CatEasp extends Catalog
       pftintracom = new FieldDef("pftintracom",FieldDef.CHAR,1);
       pftintrastat = new FieldDef("pftintrastat",FieldDef.CHAR,1);
       pftfechafin = new FieldDef("pftfechafin",FieldDef.DATE);
+      pftregdevmen = new FieldDef("pftregdevmen",FieldDef.CHAR,1);
       FieldDef array[] = {
         pftejercicio,
         pftnif,
@@ -2412,7 +2414,8 @@ public class CatEasp extends Catalog
         pftalquileres,
         pftintracom,
         pftintrastat,
-        pftfechafin        
+        pftfechafin,
+        pftregdevmen        
         };
       setColumns(array);
       FieldDef arrayf[] = {pftejercicio,pftnif };
@@ -2428,6 +2431,7 @@ public class CatEasp extends Catalog
       pftintracom.setDescription("Realiza operaciones intracomunitarias (0-No realiza, 1-Inferiores a 35000, 2-Superiores)");
       pftintrastat.setDescription("Intrastat (I=Introducción, E=Expedición, A=Ambas)");
       pftfechafin.setDescription("Fecha fin ejercicio");
+      pftregdevmen.setDescription("Esta inscrito Regimen Devolucion mensual");
       }
     }
     

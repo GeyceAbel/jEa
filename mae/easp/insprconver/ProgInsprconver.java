@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20081203
-// Hora:             18:39:42
+// Fecha:            20090126
+// Hora:             10:39:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -821,10 +821,9 @@ public class ProgInsprconver extends Program
        	"   mu7desc     VARCHAR(50),"+
        	"   mu7muniant  INTEGER,"+
        	"   PRIMARY KEY (mu7codprov,mu7codmuni));",
-        "DELETE FROM MUNI347",
+        "DELETE FROM MUNI347",};
     
-    };
-    
+      String sentencias6_2[]={"ALTER TABLE PERFILTRIBUT ADD pftregdevmen CHAR(1);",};
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -1259,6 +1258,23 @@ public class ProgInsprconver extends Program
             Easp.setVersionBD("bdeasp","6.1");
             Easp.connEA.commit();
             vvveractual.setValue("6.1");
+          }
+        if (versio < 6.2) {
+            for (i=0;i<sentencias6_2.length;++i) {
+              try {
+                Easp.chivato("6.2 Exec : ["+sentencias6_2[i]+"]",1);
+                Easp.connEA.executeUpdate(sentencias6_2[i]);
+              }
+              catch(Exception e) {
+                sqlOperation=sentencias6_2[i];
+                Easp.chivato("6.2 *** Error : ["+sentencias6_2[i]+"]  Error: ["+e+"]",1);
+                errorMessage=e.getMessage();
+              }
+            }
+            
+            Easp.setVersionBD("bdeasp","6.2");
+            Easp.connEA.commit();
+            vvveractual.setValue("6.2");
           }
     
       }
