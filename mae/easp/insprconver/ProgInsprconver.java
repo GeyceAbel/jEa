@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20090127
-// Hora:             10:01:58
+// Hora:             15:56:30
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1302,16 +1302,16 @@ public class ProgInsprconver extends Program
           actualizaTransaccion ("EEN","Entrega Intracomunitaria","E","EN","EN","EIE","NO");
           actualizaTransaccion ("EEX","Exportación","E","IN","EX","EX","NO");
           actualizaTransaccion ("END","Op. no sujetas dcho. deduc","E","IN","OND","EX","NDM");
-          actualizaTransaccion ("EIB","Oper. Interiores de Bienes","E","IN","IN","RG","NO");
+          actualizaTransaccion ("EIB","Oper. Interiores de Bienes","E","IN","IN","NO","NO");
           actualizaTransaccion ("EIM","Importación","E","IN",null,null,null);
-          actualizaTransaccion ("EIN","Operaciones Interiores","E","IN","IN","RG","NO");
+          actualizaTransaccion ("EIN","Operaciones Interiores","E","IN","IN","NO","NO");
           actualizaTransaccion ("EMB","Modificación B. y Q.","E","IN","MB","NO","NO");
           actualizaTransaccion ("EMQ","Modificación B. y Q. Quiebra","E","IN","MBQ","NO","NO");
           actualizaTransaccion ("EOE","Otras Operaciones Exentas","E","IN","OE","ESD","NO");
           actualizaTransaccion ("ERA","Reg. Esp. Agricultura y Pesca","E","IN","C","AG","NO");
           actualizaTransaccion ("ERD","Rectificación Deducciones","E","IN",null,null,null);
           actualizaTransaccion ("ERI","Regulación Inversión","E","IN",null,null,null);
-          actualizaTransaccion ("EGI","Operaciones Intragrupo","E","IN","IG","RG","NO");
+          actualizaTransaccion ("EGI","Operaciones Intragrupo","E","IN","IG","NO","NO");
     
           actualizaTransaccion ("RGB","Op. Intragrupo Bienes invers.","R","IN","IGB","NO","NO");
           actualizaTransaccion ("RGI","Operaciones Intragrupo","R","IN","IG","NO","NO");
