@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090114
-// Hora:             10:50:40
+// Fecha:            20090127
+// Hora:             09:45:43
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -38,6 +38,11 @@ public class CatModelos2 extends Catalog
   public TabMod130des tabmod130des;
   public TabMod036p1 tabmod036p1;
   public TabMod036p2 tabmod036p2;
+  public TabMod340c tabmod340c;
+  public TabMod340e tabmod340e;
+  public TabMod340r tabmod340r;
+  public TabMod340b tabmod340b;
+  public TabMod340i tabmod340i;
   public class TabMod184d extends TableDef
     {
     // Campos
@@ -4403,6 +4408,482 @@ public class CatModelos2 extends Catalog
       }
     }
     
+  public class TabMod340c extends TableDef
+    {
+    // Campos
+    public FieldDef m340cdominio;
+    public FieldDef m340cnif;
+    public FieldDef m340cejercicio;
+    public FieldDef m340cperiodo;
+    public FieldDef m340crazon;
+    public FieldDef m340ctelefono;
+    public FieldDef m340capellidos;
+    public FieldDef m340cnumjustif;
+    public FieldDef m340ccomplem;
+    public FieldDef m340csustitu;
+    public FieldDef m340cnumdecant;
+    public FieldDef m340cnumreg;
+    public FieldDef m340ctotbase;
+    public FieldDef m340ctotcuota;
+    public FieldDef m340ctotfactura;
+    public FieldDef m340cnifrepres;
+    public FieldDef m340cfecha;
+    public FieldDef m340cfirma;
+    public FieldDef m340ccargofirm;
+    public TabMod340c(String name)
+      {
+      super(name);
+      m340cdominio = new FieldDef("m340cdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m340cnif = new FieldDef("m340cnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m340cejercicio = new FieldDef("m340cejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m340cperiodo = new FieldDef("m340cperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m340crazon = new FieldDef("m340crazon",FieldDef.CHAR,40);
+      m340ctelefono = new FieldDef("m340ctelefono",FieldDef.CHAR,9);
+      m340capellidos = new FieldDef("m340capellidos",FieldDef.CHAR,40);
+      m340cnumjustif = new FieldDef("m340cnumjustif",FieldDef.CHAR,13);
+      m340ccomplem = new FieldDef("m340ccomplem",FieldDef.CHAR,1);
+      m340csustitu = new FieldDef("m340csustitu",FieldDef.CHAR,1);
+      m340cnumdecant = new FieldDef("m340cnumdecant",FieldDef.CHAR,13);
+      m340cnumreg = new FieldDef("m340cnumreg",FieldDef.INTEGER,0);
+      m340ctotbase = new FieldDef("m340ctotbase",FieldDef.FLOAT,6,0);
+      m340ctotcuota = new FieldDef("m340ctotcuota",FieldDef.FLOAT,6,0);
+      m340ctotfactura = new FieldDef("m340ctotfactura",FieldDef.FLOAT,6,0);
+      m340cnifrepres = new FieldDef("m340cnifrepres",FieldDef.CHAR,9);
+      m340cfecha = new FieldDef("m340cfecha",FieldDef.DATE);
+      m340cfirma = new FieldDef("m340cfirma",FieldDef.CHAR,30);
+      m340ccargofirm = new FieldDef("m340ccargofirm",FieldDef.CHAR,25);
+      FieldDef array[] = {
+        m340cdominio,
+        m340cnif,
+        m340cejercicio,
+        m340cperiodo,
+        m340crazon,
+        m340ctelefono,
+        m340capellidos,
+        m340cnumjustif,
+        m340ccomplem,
+        m340csustitu,
+        m340cnumdecant,
+        m340cnumreg,
+        m340ctotbase,
+        m340ctotcuota,
+        m340ctotfactura,
+        m340cnifrepres,
+        m340cfecha,
+        m340cfirma,
+        m340ccargofirm        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m340cdominio,m340cnif,m340cejercicio,m340cperiodo };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabMod340e extends TableDef
+    {
+    // Campos
+    public FieldDef m340eident;
+    public FieldDef m340edominio;
+    public FieldDef m340enif;
+    public FieldDef m340eejercicio;
+    public FieldDef m340eperiodo;
+    public FieldDef m340enifdecla;
+    public FieldDef m340enifrepres;
+    public FieldDef m340erazondecla;
+    public FieldDef m340epais;
+    public FieldDef m340etipopais;
+    public FieldDef m340enifcomuni;
+    public FieldDef m340etipolibro;
+    public FieldDef m340eoperacion;
+    public FieldDef m340efechaexp;
+    public FieldDef m340efechaope;
+    public FieldDef m340eporcen;
+    public FieldDef m340ebase;
+    public FieldDef m340ecuota;
+    public FieldDef m340etotal;
+    public FieldDef m340ebasecoste;
+    public FieldDef m340eidentifac;
+    public FieldDef m340enumfac;
+    public FieldDef m340enroreg;
+    public FieldDef m340enrodesglos;
+    public FieldDef m340enroacumul1;
+    public FieldDef m340enroacumul2;
+    public FieldDef m340enrorectifi;
+    public FieldDef m340eporcenre;
+    public FieldDef m340ecuotare;
+    public TabMod340e(String name)
+      {
+      super(name);
+      m340eident = new FieldDef("m340eident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m340edominio = new FieldDef("m340edominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m340enif = new FieldDef("m340enif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m340eejercicio = new FieldDef("m340eejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m340eperiodo = new FieldDef("m340eperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m340enifdecla = new FieldDef("m340enifdecla",FieldDef.CHAR,9);
+      m340enifrepres = new FieldDef("m340enifrepres",FieldDef.CHAR,9);
+      m340erazondecla = new FieldDef("m340erazondecla",FieldDef.CHAR,40);
+      m340epais = new FieldDef("m340epais",FieldDef.CHAR,2);
+      m340etipopais = new FieldDef("m340etipopais",FieldDef.INTEGER,0);
+      m340enifcomuni = new FieldDef("m340enifcomuni",FieldDef.CHAR,15);
+      m340etipolibro = new FieldDef("m340etipolibro",FieldDef.CHAR,1);
+      m340eoperacion = new FieldDef("m340eoperacion",FieldDef.CHAR,1);
+      m340efechaexp = new FieldDef("m340efechaexp",FieldDef.DATE);
+      m340efechaope = new FieldDef("m340efechaope",FieldDef.DATE);
+      m340eporcen = new FieldDef("m340eporcen",FieldDef.FLOAT,6,0);
+      m340ebase = new FieldDef("m340ebase",FieldDef.FLOAT,6,0);
+      m340ecuota = new FieldDef("m340ecuota",FieldDef.FLOAT,6,0);
+      m340etotal = new FieldDef("m340etotal",FieldDef.FLOAT,6,0);
+      m340ebasecoste = new FieldDef("m340ebasecoste",FieldDef.FLOAT,6,0);
+      m340eidentifac = new FieldDef("m340eidentifac",FieldDef.CHAR,40);
+      m340enumfac = new FieldDef("m340enumfac",FieldDef.CHAR,18);
+      m340enroreg = new FieldDef("m340enroreg",FieldDef.INTEGER,0);
+      m340enrodesglos = new FieldDef("m340enrodesglos",FieldDef.INTEGER,0);
+      m340enroacumul1 = new FieldDef("m340enroacumul1",FieldDef.CHAR,40);
+      m340enroacumul2 = new FieldDef("m340enroacumul2",FieldDef.CHAR,40);
+      m340enrorectifi = new FieldDef("m340enrorectifi",FieldDef.CHAR,40);
+      m340eporcenre = new FieldDef("m340eporcenre",FieldDef.FLOAT,6,0);
+      m340ecuotare = new FieldDef("m340ecuotare",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        m340eident,
+        m340edominio,
+        m340enif,
+        m340eejercicio,
+        m340eperiodo,
+        m340enifdecla,
+        m340enifrepres,
+        m340erazondecla,
+        m340epais,
+        m340etipopais,
+        m340enifcomuni,
+        m340etipolibro,
+        m340eoperacion,
+        m340efechaexp,
+        m340efechaope,
+        m340eporcen,
+        m340ebase,
+        m340ecuota,
+        m340etotal,
+        m340ebasecoste,
+        m340eidentifac,
+        m340enumfac,
+        m340enroreg,
+        m340enrodesglos,
+        m340enroacumul1,
+        m340enroacumul2,
+        m340enrorectifi,
+        m340eporcenre,
+        m340ecuotare        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m340eident };
+      setPrimaryKeys(arrayf);
+      m340eident.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabMod340r extends TableDef
+    {
+    // Campos
+    public FieldDef m340rident;
+    public FieldDef m340rdominio;
+    public FieldDef m340rnif;
+    public FieldDef m340rejercicio;
+    public FieldDef m340rperiodo;
+    public FieldDef m340rnifdecla;
+    public FieldDef m340rnifrepres;
+    public FieldDef m340rrazondecla;
+    public FieldDef m340rpais;
+    public FieldDef m340rtipopais;
+    public FieldDef m340rnifcomuni;
+    public FieldDef m340rtipolibro;
+    public FieldDef m340roperacion;
+    public FieldDef m340rfechaexp;
+    public FieldDef m340rfechaope;
+    public FieldDef m340rporcen;
+    public FieldDef m340rbase;
+    public FieldDef m340rcuota;
+    public FieldDef m340rtotal;
+    public FieldDef m340rbasecoste;
+    public FieldDef m340ridentifac;
+    public FieldDef m340rnumfac;
+    public FieldDef m340rnroreg;
+    public FieldDef m340rnrodesglos;
+    public FieldDef m340rnroacumul1;
+    public FieldDef m340rnroacumul2;
+    public FieldDef m340rcuotadeduc;
+    public TabMod340r(String name)
+      {
+      super(name);
+      m340rident = new FieldDef("m340rident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m340rdominio = new FieldDef("m340rdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m340rnif = new FieldDef("m340rnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m340rejercicio = new FieldDef("m340rejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m340rperiodo = new FieldDef("m340rperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m340rnifdecla = new FieldDef("m340rnifdecla",FieldDef.CHAR,9);
+      m340rnifrepres = new FieldDef("m340rnifrepres",FieldDef.CHAR,9);
+      m340rrazondecla = new FieldDef("m340rrazondecla",FieldDef.CHAR,40);
+      m340rpais = new FieldDef("m340rpais",FieldDef.CHAR,2);
+      m340rtipopais = new FieldDef("m340rtipopais",FieldDef.INTEGER,0);
+      m340rnifcomuni = new FieldDef("m340rnifcomuni",FieldDef.CHAR,15);
+      m340rtipolibro = new FieldDef("m340rtipolibro",FieldDef.CHAR,1);
+      m340roperacion = new FieldDef("m340roperacion",FieldDef.CHAR,1);
+      m340rfechaexp = new FieldDef("m340rfechaexp",FieldDef.DATE);
+      m340rfechaope = new FieldDef("m340rfechaope",FieldDef.DATE);
+      m340rporcen = new FieldDef("m340rporcen",FieldDef.FLOAT,6,0);
+      m340rbase = new FieldDef("m340rbase",FieldDef.FLOAT,6,0);
+      m340rcuota = new FieldDef("m340rcuota",FieldDef.FLOAT,6,0);
+      m340rtotal = new FieldDef("m340rtotal",FieldDef.FLOAT,6,0);
+      m340rbasecoste = new FieldDef("m340rbasecoste",FieldDef.FLOAT,6,0);
+      m340ridentifac = new FieldDef("m340ridentifac",FieldDef.CHAR,40);
+      m340rnumfac = new FieldDef("m340rnumfac",FieldDef.CHAR,18);
+      m340rnroreg = new FieldDef("m340rnroreg",FieldDef.INTEGER,0);
+      m340rnrodesglos = new FieldDef("m340rnrodesglos",FieldDef.INTEGER,0);
+      m340rnroacumul1 = new FieldDef("m340rnroacumul1",FieldDef.CHAR,40);
+      m340rnroacumul2 = new FieldDef("m340rnroacumul2",FieldDef.CHAR,40);
+      m340rcuotadeduc = new FieldDef("m340rcuotadeduc",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        m340rident,
+        m340rdominio,
+        m340rnif,
+        m340rejercicio,
+        m340rperiodo,
+        m340rnifdecla,
+        m340rnifrepres,
+        m340rrazondecla,
+        m340rpais,
+        m340rtipopais,
+        m340rnifcomuni,
+        m340rtipolibro,
+        m340roperacion,
+        m340rfechaexp,
+        m340rfechaope,
+        m340rporcen,
+        m340rbase,
+        m340rcuota,
+        m340rtotal,
+        m340rbasecoste,
+        m340ridentifac,
+        m340rnumfac,
+        m340rnroreg,
+        m340rnrodesglos,
+        m340rnroacumul1,
+        m340rnroacumul2,
+        m340rcuotadeduc        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m340rident };
+      setPrimaryKeys(arrayf);
+      m340rident.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabMod340b extends TableDef
+    {
+    // Campos
+    public FieldDef m340bident;
+    public FieldDef m340bdominio;
+    public FieldDef m340bnif;
+    public FieldDef m340bejercicio;
+    public FieldDef m340bperiodo;
+    public FieldDef m340bnifdecla;
+    public FieldDef m340bnifrepres;
+    public FieldDef m340brazondecla;
+    public FieldDef m340bpais;
+    public FieldDef m340btipopais;
+    public FieldDef m340bnifcomuni;
+    public FieldDef m340btipolibro;
+    public FieldDef m340boperacion;
+    public FieldDef m340bfechaexp;
+    public FieldDef m340bfechaope;
+    public FieldDef m340bporcen;
+    public FieldDef m340bbase;
+    public FieldDef m340bcuota;
+    public FieldDef m340btotal;
+    public FieldDef m340bbasecoste;
+    public FieldDef m340bidentifac;
+    public FieldDef m340bnumfac;
+    public FieldDef m340bporprorrat;
+    public FieldDef m340bregularded;
+    public FieldDef m340bidentiexp;
+    public FieldDef m340bregulartra;
+    public FieldDef m340bfechautil;
+    public FieldDef m340bidentibien;
+    public TabMod340b(String name)
+      {
+      super(name);
+      m340bident = new FieldDef("m340bident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m340bdominio = new FieldDef("m340bdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m340bnif = new FieldDef("m340bnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m340bejercicio = new FieldDef("m340bejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m340bperiodo = new FieldDef("m340bperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m340bnifdecla = new FieldDef("m340bnifdecla",FieldDef.CHAR,9);
+      m340bnifrepres = new FieldDef("m340bnifrepres",FieldDef.CHAR,9);
+      m340brazondecla = new FieldDef("m340brazondecla",FieldDef.CHAR,40);
+      m340bpais = new FieldDef("m340bpais",FieldDef.CHAR,2);
+      m340btipopais = new FieldDef("m340btipopais",FieldDef.INTEGER,0);
+      m340bnifcomuni = new FieldDef("m340bnifcomuni",FieldDef.CHAR,15);
+      m340btipolibro = new FieldDef("m340btipolibro",FieldDef.CHAR,1);
+      m340boperacion = new FieldDef("m340boperacion",FieldDef.CHAR,1);
+      m340bfechaexp = new FieldDef("m340bfechaexp",FieldDef.DATE);
+      m340bfechaope = new FieldDef("m340bfechaope",FieldDef.DATE);
+      m340bporcen = new FieldDef("m340bporcen",FieldDef.FLOAT,6,0);
+      m340bbase = new FieldDef("m340bbase",FieldDef.FLOAT,6,0);
+      m340bcuota = new FieldDef("m340bcuota",FieldDef.FLOAT,6,0);
+      m340btotal = new FieldDef("m340btotal",FieldDef.FLOAT,6,0);
+      m340bbasecoste = new FieldDef("m340bbasecoste",FieldDef.FLOAT,6,0);
+      m340bidentifac = new FieldDef("m340bidentifac",FieldDef.CHAR,40);
+      m340bnumfac = new FieldDef("m340bnumfac",FieldDef.CHAR,18);
+      m340bporprorrat = new FieldDef("m340bporprorrat",FieldDef.INTEGER,0);
+      m340bregularded = new FieldDef("m340bregularded",FieldDef.FLOAT,6,0);
+      m340bidentiexp = new FieldDef("m340bidentiexp",FieldDef.CHAR,40);
+      m340bregulartra = new FieldDef("m340bregulartra",FieldDef.FLOAT,6,0);
+      m340bfechautil = new FieldDef("m340bfechautil",FieldDef.DATE);
+      m340bidentibien = new FieldDef("m340bidentibien",FieldDef.CHAR,17);
+      FieldDef array[] = {
+        m340bident,
+        m340bdominio,
+        m340bnif,
+        m340bejercicio,
+        m340bperiodo,
+        m340bnifdecla,
+        m340bnifrepres,
+        m340brazondecla,
+        m340bpais,
+        m340btipopais,
+        m340bnifcomuni,
+        m340btipolibro,
+        m340boperacion,
+        m340bfechaexp,
+        m340bfechaope,
+        m340bporcen,
+        m340bbase,
+        m340bcuota,
+        m340btotal,
+        m340bbasecoste,
+        m340bidentifac,
+        m340bnumfac,
+        m340bporprorrat,
+        m340bregularded,
+        m340bidentiexp,
+        m340bregulartra,
+        m340bfechautil,
+        m340bidentibien        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m340bident };
+      setPrimaryKeys(arrayf);
+      m340bident.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabMod340i extends TableDef
+    {
+    // Campos
+    public FieldDef m340iident;
+    public FieldDef m340idominio;
+    public FieldDef m340inif;
+    public FieldDef m340iejercicio;
+    public FieldDef m340iperiodo;
+    public FieldDef m340inifdecla;
+    public FieldDef m340inifrepres;
+    public FieldDef m340irazondecla;
+    public FieldDef m340ipais;
+    public FieldDef m340itipopais;
+    public FieldDef m340inifcomuni;
+    public FieldDef m340itipolibro;
+    public FieldDef m340ioperacion;
+    public FieldDef m340ifechaexp;
+    public FieldDef m340ifechaope;
+    public FieldDef m340iporcen;
+    public FieldDef m340ibase;
+    public FieldDef m340icuota;
+    public FieldDef m340itotal;
+    public FieldDef m340ibasecoste;
+    public FieldDef m340iidentifac;
+    public FieldDef m340inumfac;
+    public FieldDef m340ioperintra;
+    public FieldDef m340iclavedecla;
+    public FieldDef m340ipaisue;
+    public FieldDef m340idias;
+    public FieldDef m340idescrip;
+    public FieldDef m340idomicili;
+    public FieldDef m340ipoblacio;
+    public FieldDef m340ipostal;
+    public FieldDef m340iotrasfac;
+    public TabMod340i(String name)
+      {
+      super(name);
+      m340iident = new FieldDef("m340iident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m340idominio = new FieldDef("m340idominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m340inif = new FieldDef("m340inif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m340iejercicio = new FieldDef("m340iejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m340iperiodo = new FieldDef("m340iperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m340inifdecla = new FieldDef("m340inifdecla",FieldDef.CHAR,9);
+      m340inifrepres = new FieldDef("m340inifrepres",FieldDef.CHAR,9);
+      m340irazondecla = new FieldDef("m340irazondecla",FieldDef.CHAR,40);
+      m340ipais = new FieldDef("m340ipais",FieldDef.CHAR,2);
+      m340itipopais = new FieldDef("m340itipopais",FieldDef.INTEGER,0);
+      m340inifcomuni = new FieldDef("m340inifcomuni",FieldDef.CHAR,15);
+      m340itipolibro = new FieldDef("m340itipolibro",FieldDef.CHAR,1);
+      m340ioperacion = new FieldDef("m340ioperacion",FieldDef.CHAR,1);
+      m340ifechaexp = new FieldDef("m340ifechaexp",FieldDef.DATE);
+      m340ifechaope = new FieldDef("m340ifechaope",FieldDef.DATE);
+      m340iporcen = new FieldDef("m340iporcen",FieldDef.FLOAT,6,0);
+      m340ibase = new FieldDef("m340ibase",FieldDef.FLOAT,6,0);
+      m340icuota = new FieldDef("m340icuota",FieldDef.FLOAT,6,0);
+      m340itotal = new FieldDef("m340itotal",FieldDef.FLOAT,6,0);
+      m340ibasecoste = new FieldDef("m340ibasecoste",FieldDef.FLOAT,6,0);
+      m340iidentifac = new FieldDef("m340iidentifac",FieldDef.CHAR,40);
+      m340inumfac = new FieldDef("m340inumfac",FieldDef.CHAR,18);
+      m340ioperintra = new FieldDef("m340ioperintra",FieldDef.CHAR,1);
+      m340iclavedecla = new FieldDef("m340iclavedecla",FieldDef.CHAR,1);
+      m340ipaisue = new FieldDef("m340ipaisue",FieldDef.CHAR,2);
+      m340idias = new FieldDef("m340idias",FieldDef.INTEGER,0);
+      m340idescrip = new FieldDef("m340idescrip",FieldDef.CHAR,35);
+      m340idomicili = new FieldDef("m340idomicili",FieldDef.CHAR,40);
+      m340ipoblacio = new FieldDef("m340ipoblacio",FieldDef.CHAR,22);
+      m340ipostal = new FieldDef("m340ipostal",FieldDef.CHAR,10);
+      m340iotrasfac = new FieldDef("m340iotrasfac",FieldDef.CHAR,135);
+      FieldDef array[] = {
+        m340iident,
+        m340idominio,
+        m340inif,
+        m340iejercicio,
+        m340iperiodo,
+        m340inifdecla,
+        m340inifrepres,
+        m340irazondecla,
+        m340ipais,
+        m340itipopais,
+        m340inifcomuni,
+        m340itipolibro,
+        m340ioperacion,
+        m340ifechaexp,
+        m340ifechaope,
+        m340iporcen,
+        m340ibase,
+        m340icuota,
+        m340itotal,
+        m340ibasecoste,
+        m340iidentifac,
+        m340inumfac,
+        m340ioperintra,
+        m340iclavedecla,
+        m340ipaisue,
+        m340idias,
+        m340idescrip,
+        m340idomicili,
+        m340ipoblacio,
+        m340ipostal,
+        m340iotrasfac        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m340iident };
+      setPrimaryKeys(arrayf);
+      m340iident.setAutoIncrementable(true);
+      }
+    }
+    
   public CatModelos2()
     {
     tabmod184d = new TabMod184d("mod184d");
@@ -4427,6 +4908,11 @@ public class CatModelos2 extends Catalog
     tabmod130des = new TabMod130des("mod130des");
     tabmod036p1 = new TabMod036p1("mod036p1");
     tabmod036p2 = new TabMod036p2("mod036p2");
+    tabmod340c = new TabMod340c("mod340c");
+    tabmod340e = new TabMod340e("mod340e");
+    tabmod340r = new TabMod340r("mod340r");
+    tabmod340b = new TabMod340b("mod340b");
+    tabmod340i = new TabMod340i("mod340i");
     TableDef array[] = {
       tabmod184d,
       tabmod184e,
@@ -4449,7 +4935,12 @@ public class CatModelos2 extends Catalog
       tabmod576,
       tabmod130des,
       tabmod036p1,
-      tabmod036p2      
+      tabmod036p2,
+      tabmod340c,
+      tabmod340e,
+      tabmod340r,
+      tabmod340b,
+      tabmod340i      
       };
     setTables(array);
     FieldDef tabmod184eArrayf1[] = { tabmod184e.m184edominio,tabmod184e.m184enif,tabmod184e.m184eejercicio,tabmod184e.m184eperiodo };
@@ -4472,6 +4963,26 @@ public class CatModelos2 extends Catalog
       new ForeignKey(tabmod600c,tabmod600dArrayf1)      
       };
     tabmod600d.setForeignKeys(tabmod600dArrayfk);
+    FieldDef tabmod340eArrayf1[] = { tabmod340e.m340edominio,tabmod340e.m340enif,tabmod340e.m340eejercicio,tabmod340e.m340eperiodo };
+    ForeignKey tabmod340eArrayfk[] = { 
+      new ForeignKey(tabmod340c,tabmod340eArrayf1)      
+      };
+    tabmod340e.setForeignKeys(tabmod340eArrayfk);
+    FieldDef tabmod340rArrayf1[] = { tabmod340r.m340rdominio,tabmod340r.m340rnif,tabmod340r.m340rejercicio,tabmod340r.m340rperiodo };
+    ForeignKey tabmod340rArrayfk[] = { 
+      new ForeignKey(tabmod340c,tabmod340rArrayf1)      
+      };
+    tabmod340r.setForeignKeys(tabmod340rArrayfk);
+    FieldDef tabmod340bArrayf1[] = { tabmod340b.m340bdominio,tabmod340b.m340bnif,tabmod340b.m340bejercicio,tabmod340b.m340bperiodo };
+    ForeignKey tabmod340bArrayfk[] = { 
+      new ForeignKey(tabmod340c,tabmod340bArrayf1)      
+      };
+    tabmod340b.setForeignKeys(tabmod340bArrayfk);
+    FieldDef tabmod340iArrayf1[] = { tabmod340i.m340idominio,tabmod340i.m340inif,tabmod340i.m340iejercicio,tabmod340i.m340iperiodo };
+    ForeignKey tabmod340iArrayfk[] = { 
+      new ForeignKey(tabmod340c,tabmod340iArrayf1)      
+      };
+    tabmod340i.setForeignKeys(tabmod340iArrayfk);
     }
   }
   

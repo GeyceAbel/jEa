@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090114
-// Hora:             10:50:40
+// Fecha:            20090127
+// Hora:             09:45:43
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -642,6 +642,8 @@ public class CatCtasp extends Catalog
     public FieldDef empcnvnpg;
     public FieldDef emptipoeq;
     public FieldDef empgesfradup;
+    public FieldDef empivamensual;
+    public FieldDef empformapago;
     public TabEmpresa(String name)
       {
       super(name);
@@ -669,6 +671,8 @@ public class CatCtasp extends Catalog
       empcnvnpg = new FieldDef("empcnvnpg",FieldDef.CHAR,1);
       emptipoeq = new FieldDef("emptipoeq",FieldDef.CHAR,1);
       empgesfradup = new FieldDef("empgesfradup",FieldDef.CHAR,1);
+      empivamensual = new FieldDef("empivamensual",FieldDef.CHAR,1);
+      empformapago = new FieldDef("empformapago",FieldDef.CHAR,2);
       FieldDef array[] = {
         empcodigo,
         empgranemp,
@@ -693,7 +697,9 @@ public class CatCtasp extends Catalog
         emptipif,
         empcnvnpg,
         emptipoeq,
-        empgesfradup        
+        empgesfradup,
+        empivamensual,
+        empformapago        
         };
       setColumns(array);
       FieldDef arrayind1[] = { empnif };

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090126
-// Hora:             10:39:25
+// Fecha:            20090127
+// Hora:             10:01:58
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -822,8 +822,15 @@ public class ProgInsprconver extends Program
        	"   mu7muniant  INTEGER,"+
        	"   PRIMARY KEY (mu7codprov,mu7codmuni));",
         "DELETE FROM MUNI347",};
+      String sentencias6_2[]={"ALTER TABLE PERFILTRIBUT ADD pftregdevmen CHAR(1);"};
     
-      String sentencias6_2[]={"ALTER TABLE PERFILTRIBUT ADD pftregdevmen CHAR(1);",};
+      String sentencias6_3[]={
+        "ALTER TABLE TRANSACCIONES ADD tratipoiva CHAR(3)",
+        "ALTER TABLE TRANSACCIONES ADD travoloper CHAR(3)",
+        "ALTER TABLE TRANSACCIONES ADD traoperespec CHAR(3)"
+      };
+    
+    
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -1276,17 +1283,92 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("6.2");
           }
+        if (versio < 6.3) {
+          for (i=0;i<sentencias6_3.length;++i) {
+            try {
+              Easp.chivato("6.3 Exec : ["+sentencias6_3[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias6_3[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias6_3[i];
+              Easp.chivato("6.3 *** Error : ["+sentencias6_3[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          actualizaTransaccion ("EAB","Adq. Intra. Bienes Inversión","E","AD","AD","NO","AIE");
+          actualizaTransaccion ("EAD","Adquisición Intracomunitaria","E","AD","AD","NO","AIE");
+          actualizaTransaccion ("EBM","Importación Bienes Inversión","E","AD",null,null,null);
+          actualizaTransaccion ("EDI","Devengos por Inversion","E","IN","DI","NO","NO");
+          actualizaTransaccion ("EEN","Entrega Intracomunitaria","E","EN","EN","EIE","NO");
+          actualizaTransaccion ("EEX","Exportación","E","IN","EX","EX","NO");
+          actualizaTransaccion ("END","Op. no sujetas dcho. deduc","E","IN","OND","EX","NDM");
+          actualizaTransaccion ("EIB","Oper. Interiores de Bienes","E","IN","IN","RG","NO");
+          actualizaTransaccion ("EIM","Importación","E","IN",null,null,null);
+          actualizaTransaccion ("EIN","Operaciones Interiores","E","IN","IN","RG","NO");
+          actualizaTransaccion ("EMB","Modificación B. y Q.","E","IN","MB","NO","NO");
+          actualizaTransaccion ("EMQ","Modificación B. y Q. Quiebra","E","IN","MBQ","NO","NO");
+          actualizaTransaccion ("EOE","Otras Operaciones Exentas","E","IN","OE","ESD","NO");
+          actualizaTransaccion ("ERA","Reg. Esp. Agricultura y Pesca","E","IN","C","AG","NO");
+          actualizaTransaccion ("ERD","Rectificación Deducciones","E","IN",null,null,null);
+          actualizaTransaccion ("ERI","Regulación Inversión","E","IN",null,null,null);
+          actualizaTransaccion ("EGI","Operaciones Intragrupo","E","IN","IG","RG","NO");
     
+          actualizaTransaccion ("RGB","Op. Intragrupo Bienes invers.","R","IN","IGB","NO","NO");
+          actualizaTransaccion ("RGI","Operaciones Intragrupo","R","IN","IG","NO","NO");
+          actualizaTransaccion ("RRI","Regularizacion inversiones","R","IN","RI","NO","NO");
+          actualizaTransaccion ("RRD","Rectificacion Deducciones","R","IN","RD","NO","NO");
+          actualizaTransaccion ("RRA","Reg. Especial Agricultura","R","IN",null,null,null);
+          actualizaTransaccion ("RR1","Deduc. regular. inversiones","R","IN","RI","NO","NO");
+          actualizaTransaccion ("ROE","Otras operaciones Exentas","R","IN",null,null,null);
+          actualizaTransaccion ("RMQ","Modificación B. y Q. Quiebra","R","IN",null,null,null);
+          actualizaTransaccion ("RIN","Operaciones Interiores","R","IN","IN","NO","NO");
+          actualizaTransaccion ("RIM","Deducible importaciones","R","IN","IM","NO","NO");
+          actualizaTransaccion ("RIB","Oper. Interior de Bienes","R","IN","INB","NO","NO");
+          actualizaTransaccion ("REX","Exportación","R","IN",null,null,null);
+          actualizaTransaccion ("REN","Entrega Intracomunitaria","R","EN",null,null,null);
+          actualizaTransaccion ("RDI","Devengos por Inversión","R","EN",null,null,null);
+          actualizaTransaccion ("RBM","Importacion Bienes Inversion","R","IN","IMB","NO","NO");
+          actualizaTransaccion ("RAG","Deducible RAGP","R","IN","RA","NO","NO");
+          actualizaTransaccion ("RAD","Adquisición Intracomunitaria","R","AD","AD","NO","AIE");
+          actualizaTransaccion ("RAB","Adq. Intra. Bienes Inversión","R","AD","ADB","NO","AIE");
+    
+          Easp.setVersionBD("bdeasp","6.3");
+          Easp.connEA.commit();
+          vvveractual.setValue("6.3");
+        }
       }
       catch(Exception e) {
-        // sqlOperation=sentencias7[i];
-        // errorMessage=e.getMessage();
         System.out.println("Error en conversión: ["+e+"]");
         return false;
         }
       return true;
       }
     
+    public void actualizaTransaccion (String cod, String desc,String emirep,String regimen,String tipo,String voloper,String operespec) {
+      Selector s = new Selector (Easp.connEA);
+      s.execute ("Select * from TRANSACCIONES where tratipo='"+cod+"'");
+      boolean existe = s.next();
+      s.close();
+      if (existe) {
+        Update u = new Update(Easp.connEA,"TRANSACCIONES");
+        u.valor("tratipoiva",tipo);
+        u.valor("travoloper",voloper);
+        u.valor("traoperespec",operespec);
+        u.execute("tratipo='"+cod+"'");
+      }
+      else {
+        Insert i = new Insert(Easp.connEA,"TRANSACCIONES");
+        i.valor("tratipo",cod);
+        i.valor("tradesc",desc);
+        i.valor("traemre",emirep);
+        i.valor("traregimen",regimen);
+        i.valor("tratipoiva",tipo);
+        i.valor("travoloper",voloper);
+        i.valor("traoperespec",operespec);
+        i.execute();  
+      }
+    
+    }
     boolean grabaBDSCargadas (DBConnection db) {
       boolean result = true;
       Select scdp      = new Select(db);

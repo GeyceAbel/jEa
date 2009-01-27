@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090126
-// Hora:             10:33:54
+// Fecha:            20090127
+// Hora:             09:45:43
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -175,6 +175,9 @@ public class CatEasp extends Catalog
     public FieldDef tradesc;
     public FieldDef traemre;
     public FieldDef traregimen;
+    public FieldDef tratipoiva;
+    public FieldDef travoloper;
+    public FieldDef traoperespec;
     public TabTransacciones(String name)
       {
       super(name);
@@ -182,11 +185,17 @@ public class CatEasp extends Catalog
       tradesc = new FieldDef("tradesc",FieldDef.CHAR,30,FieldDef.NOTNULL);
       traemre = new FieldDef("traemre",FieldDef.CHAR,1,FieldDef.NOTNULL);
       traregimen = new FieldDef("traregimen",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      tratipoiva = new FieldDef("tratipoiva",FieldDef.CHAR,3);
+      travoloper = new FieldDef("travoloper",FieldDef.CHAR,3);
+      traoperespec = new FieldDef("traoperespec",FieldDef.CHAR,3);
       FieldDef array[] = {
         tratipo,
         tradesc,
         traemre,
-        traregimen        
+        traregimen,
+        tratipoiva,
+        travoloper,
+        traoperespec        
         };
       setColumns(array);
       FieldDef arrayf[] = {tratipo };
@@ -1206,7 +1215,7 @@ public class CatEasp extends Catalog
       erincide = new FieldDef("erincide",FieldDef.CHAR,1,FieldDef.NOTNULL);
       eropcion = new FieldDef("eropcion",FieldDef.INTEGER,0);
       ersoluci = new FieldDef("ersoluci",FieldDef.CHAR,1024);
-      erdescri = new FieldDef("erdescri",FieldDef.CHAR,10246);
+      erdescri = new FieldDef("erdescri",FieldDef.CHAR,1024);
       FieldDef array[] = {
         ercodigo,
         erambito,

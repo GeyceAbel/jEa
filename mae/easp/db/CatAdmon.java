@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090114
-// Hora:             10:50:40
+// Fecha:            20090127
+// Hora:             10:01:10
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -175,6 +175,9 @@ public class CatAdmon extends Catalog
     public FieldDef tradesc;
     public FieldDef traemre;
     public FieldDef traregimen;
+    public FieldDef tratipoiva;
+    public FieldDef travoloper;
+    public FieldDef traoperespec;
     public TabTransacciones(String name)
       {
       super(name);
@@ -182,11 +185,17 @@ public class CatAdmon extends Catalog
       tradesc = new FieldDef("tradesc",FieldDef.CHAR,30,FieldDef.NOTNULL);
       traemre = new FieldDef("traemre",FieldDef.CHAR,1,FieldDef.NOTNULL);
       traregimen = new FieldDef("traregimen",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      tratipoiva = new FieldDef("tratipoiva",FieldDef.CHAR,3);
+      travoloper = new FieldDef("travoloper",FieldDef.CHAR,3);
+      traoperespec = new FieldDef("traoperespec",FieldDef.CHAR,3);
       FieldDef array[] = {
         tratipo,
         tradesc,
         traemre,
-        traregimen        
+        traregimen,
+        tratipoiva,
+        travoloper,
+        traoperespec        
         };
       setColumns(array);
       FieldDef arrayf[] = {tratipo };
@@ -1206,7 +1215,7 @@ public class CatAdmon extends Catalog
       erincide = new FieldDef("erincide",FieldDef.CHAR,1,FieldDef.NOTNULL);
       eropcion = new FieldDef("eropcion",FieldDef.INTEGER,0);
       ersoluci = new FieldDef("ersoluci",FieldDef.CHAR,1024);
-      erdescri = new FieldDef("erdescri",FieldDef.CHAR,10246);
+      erdescri = new FieldDef("erdescri",FieldDef.CHAR,1024);
       FieldDef array[] = {
         ercodigo,
         erambito,
@@ -2389,6 +2398,7 @@ public class CatAdmon extends Catalog
     public FieldDef pftintracom;
     public FieldDef pftintrastat;
     public FieldDef pftfechafin;
+    public FieldDef pftregdevmen;
     public TabPerfiltribut(String name)
       {
       super(name);
@@ -2402,6 +2412,7 @@ public class CatAdmon extends Catalog
       pftintracom = new FieldDef("pftintracom",FieldDef.CHAR,1);
       pftintrastat = new FieldDef("pftintrastat",FieldDef.CHAR,1);
       pftfechafin = new FieldDef("pftfechafin",FieldDef.DATE);
+      pftregdevmen = new FieldDef("pftregdevmen",FieldDef.CHAR,1);
       FieldDef array[] = {
         pftejercicio,
         pftnif,
@@ -2412,7 +2423,8 @@ public class CatAdmon extends Catalog
         pftalquileres,
         pftintracom,
         pftintrastat,
-        pftfechafin        
+        pftfechafin,
+        pftregdevmen        
         };
       setColumns(array);
       FieldDef arrayf[] = {pftejercicio,pftnif };
@@ -2428,6 +2440,7 @@ public class CatAdmon extends Catalog
       pftintracom.setDescription("Realiza operaciones intracomunitarias (0-No realiza, 1-Inferiores a 35000, 2-Superiores)");
       pftintrastat.setDescription("Intrastat (I=Introducción, E=Expedición, A=Ambas)");
       pftfechafin.setDescription("Fecha fin ejercicio");
+      pftregdevmen.setDescription("Esta inscrito Regimen Devolucion mensual");
       }
     }
     

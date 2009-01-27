@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090114
-// Hora:             10:50:40
+// Fecha:            20090127
+// Hora:             09:45:43
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -160,6 +160,9 @@ public class CatModelos1 extends Catalog
     public FieldDef m300dedimpivc;
     public FieldDef m300dedadqivb;
     public FieldDef m300dedadqivc;
+    public FieldDef m300devmensual;
+    public FieldDef m300mesmodelo;
+    public FieldDef m300cruzcomp;
     public TabMod300(String name)
       {
       super(name);
@@ -264,6 +267,9 @@ public class CatModelos1 extends Catalog
       m300dedimpivc = new FieldDef("m300dedimpivc",FieldDef.FLOAT,6,0);
       m300dedadqivb = new FieldDef("m300dedadqivb",FieldDef.FLOAT,6,0);
       m300dedadqivc = new FieldDef("m300dedadqivc",FieldDef.FLOAT,6,0);
+      m300devmensual = new FieldDef("m300devmensual",FieldDef.CHAR,1);
+      m300mesmodelo = new FieldDef("m300mesmodelo",FieldDef.INTEGER,0);
+      m300cruzcomp = new FieldDef("m300cruzcomp",FieldDef.CHAR,1);
       FieldDef array[] = {
         m300dominio,
         m300nif,
@@ -365,7 +371,10 @@ public class CatModelos1 extends Catalog
         m300dedimpivb,
         m300dedimpivc,
         m300dedadqivb,
-        m300dedadqivc        
+        m300dedadqivc,
+        m300devmensual,
+        m300mesmodelo,
+        m300cruzcomp        
         };
       setColumns(array);
       FieldDef arrayf[] = {m300dominio,m300nif,m300ejercicio,m300periodo };
