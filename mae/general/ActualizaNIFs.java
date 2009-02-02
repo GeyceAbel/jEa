@@ -35,7 +35,8 @@ public class ActualizaNIFs
 	private int numInc = 0;
 	private boolean esVFISC = false;
 	
-	public ActualizaNIFs(String cdp, String oldNIF, String newNIF, DBConnection connEA, boolean esVFISC) 
+
+	public ActualizaNIFs(String cdp, String oldNIF, String newNIF, DBConnection connEA, boolean esVFISC)
 	{
 		this.cdp=cdp;
 		this.oldNIF=oldNIF;
