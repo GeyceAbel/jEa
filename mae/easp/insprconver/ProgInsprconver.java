@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090127
-// Hora:             15:56:30
+// Fecha:            20090204
+// Hora:             10:17:10
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -822,7 +822,8 @@ public class ProgInsprconver extends Program
        	"   mu7muniant  INTEGER,"+
        	"   PRIMARY KEY (mu7codprov,mu7codmuni));",
         "DELETE FROM MUNI347",};
-      String sentencias6_2[]={"ALTER TABLE PERFILTRIBUT ADD pftregdevmen CHAR(1);"};
+      String sentencias6_2[]={"ALTER TABLE PERFILTRIBUT ADD pftregdevmen CHAR(1);",
+      "UPDATE PERFILTRIBUT SET pftregdevmen='N' where pftregdevmen is null;"};
     
       String sentencias6_3[]={
         "ALTER TABLE TRANSACCIONES ADD tratipoiva CHAR(3)",
