@@ -125,8 +125,9 @@ public class Perfil {
 			else fdintrastat.setNull();
 			if (fechafin!=null ) fdfechafin.setValue(fechafin);
 			else fdfechafin.setNull();
-      if (regDev!=null && (regDev.trim().length()>0)) fdregdevmen.setValue(regDev);
-      else fdregdevmen.setNull();
+      if (regDev!=null && (regDev.trim().length()>0))
+         fdregdevmen.setValue(regDev);
+      else fdregdevmen.setValue("N");
   		bOk = sperfil.insert();
   	}
   	if (bOk && isAutoCommit()) connPerfil.commit();
@@ -154,7 +155,7 @@ public class Perfil {
 			if (fechafin!=null && (fechafin.trim().length()>0)) fdfechafin.setValue(fechafin);
 			else fdfechafin.setNull();
       if (regDev!=null && (regDev.trim().length()>0)) fdregdevmen.setValue(regDev);
-      else fdregdevmen.setNull();
+      else fdregdevmen.setValue("N");
   		bOk = sperfil.update();
   	}
   	if (bOk && isAutoCommit()) connPerfil.commit();
