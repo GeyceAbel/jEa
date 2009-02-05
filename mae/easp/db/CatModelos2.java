@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090127
-// Hora:             09:45:43
+// Fecha:            20090205
+// Hora:             10:55:48
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -43,6 +43,7 @@ public class CatModelos2 extends Catalog
   public TabMod340r tabmod340r;
   public TabMod340b tabmod340b;
   public TabMod340i tabmod340i;
+  public TabMod310des tabmod310des;
   public class TabMod184d extends TableDef
     {
     // Campos
@@ -4416,8 +4417,6 @@ public class CatModelos2 extends Catalog
     public FieldDef m340cejercicio;
     public FieldDef m340cperiodo;
     public FieldDef m340crazon;
-    public FieldDef m340ctelefono;
-    public FieldDef m340capellidos;
     public FieldDef m340cnumjustif;
     public FieldDef m340ccomplem;
     public FieldDef m340csustitu;
@@ -4430,6 +4429,10 @@ public class CatModelos2 extends Catalog
     public FieldDef m340cfecha;
     public FieldDef m340cfirma;
     public FieldDef m340ccargofirm;
+    public FieldDef m340ctelcont;
+    public FieldDef m340cpercont;
+    public FieldDef m340cobserva;
+    public FieldDef m340ccodeleciva;
     public TabMod340c(String name)
       {
       super(name);
@@ -4438,8 +4441,6 @@ public class CatModelos2 extends Catalog
       m340cejercicio = new FieldDef("m340cejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
       m340cperiodo = new FieldDef("m340cperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
       m340crazon = new FieldDef("m340crazon",FieldDef.CHAR,40);
-      m340ctelefono = new FieldDef("m340ctelefono",FieldDef.CHAR,9);
-      m340capellidos = new FieldDef("m340capellidos",FieldDef.CHAR,40);
       m340cnumjustif = new FieldDef("m340cnumjustif",FieldDef.CHAR,13);
       m340ccomplem = new FieldDef("m340ccomplem",FieldDef.CHAR,1);
       m340csustitu = new FieldDef("m340csustitu",FieldDef.CHAR,1);
@@ -4452,14 +4453,16 @@ public class CatModelos2 extends Catalog
       m340cfecha = new FieldDef("m340cfecha",FieldDef.DATE);
       m340cfirma = new FieldDef("m340cfirma",FieldDef.CHAR,30);
       m340ccargofirm = new FieldDef("m340ccargofirm",FieldDef.CHAR,25);
+      m340ctelcont = new FieldDef("m340ctelcont",FieldDef.CHAR,9);
+      m340cpercont = new FieldDef("m340cpercont",FieldDef.CHAR,100);
+      m340cobserva = new FieldDef("m340cobserva",FieldDef.CHAR,350);
+      m340ccodeleciva = new FieldDef("m340ccodeleciva",FieldDef.CHAR,16);
       FieldDef array[] = {
         m340cdominio,
         m340cnif,
         m340cejercicio,
         m340cperiodo,
         m340crazon,
-        m340ctelefono,
-        m340capellidos,
         m340cnumjustif,
         m340ccomplem,
         m340csustitu,
@@ -4471,7 +4474,11 @@ public class CatModelos2 extends Catalog
         m340cnifrepres,
         m340cfecha,
         m340cfirma,
-        m340ccargofirm        
+        m340ccargofirm,
+        m340ctelcont,
+        m340cpercont,
+        m340cobserva,
+        m340ccodeleciva        
         };
       setColumns(array);
       FieldDef arrayf[] = {m340cdominio,m340cnif,m340cejercicio,m340cperiodo };
@@ -4884,6 +4891,167 @@ public class CatModelos2 extends Catalog
       }
     }
     
+  public class TabMod310des extends TableDef
+    {
+    // Campos
+    public FieldDef m310ddominio;
+    public FieldDef m310dnif;
+    public FieldDef m310dejercicio;
+    public FieldDef m310dactividad;
+    public FieldDef m310ddevbadqin1;
+    public FieldDef m310ddevcadqin1;
+    public FieldDef m310ddevbadqin2;
+    public FieldDef m310ddevcadqin2;
+    public FieldDef m310ddevbadqin3;
+    public FieldDef m310ddevcadqin3;
+    public FieldDef m310ddevbadqin4;
+    public FieldDef m310ddevcadqin4;
+    public FieldDef m310ddevbentre1;
+    public FieldDef m310ddevcentre1;
+    public FieldDef m310ddevbentre2;
+    public FieldDef m310ddevcentre2;
+    public FieldDef m310ddevbentre3;
+    public FieldDef m310ddevcentre3;
+    public FieldDef m310ddevbentre4;
+    public FieldDef m310ddevcentre4;
+    public FieldDef m310ddevbinvsu1;
+    public FieldDef m310ddevcinvsu1;
+    public FieldDef m310ddevbinvsu2;
+    public FieldDef m310ddevcinvsu2;
+    public FieldDef m310ddevbinvsu3;
+    public FieldDef m310ddevcinvsu3;
+    public FieldDef m310ddevbinvsu4;
+    public FieldDef m310ddevcinvsu4;
+    public FieldDef m310ddedbadqac1;
+    public FieldDef m310ddedcadqac1;
+    public FieldDef m310ddedbadqac2;
+    public FieldDef m310ddedcadqac2;
+    public FieldDef m310ddedbadqac3;
+    public FieldDef m310ddedcadqac3;
+    public FieldDef m310ddedbadqac4;
+    public FieldDef m310ddedcadqac4;
+    public FieldDef m310ddedbimpac1;
+    public FieldDef m310ddedcimpac1;
+    public FieldDef m310ddedbimpac2;
+    public FieldDef m310ddedcimpac2;
+    public FieldDef m310ddedbimpac3;
+    public FieldDef m310ddedcimpac3;
+    public FieldDef m310ddedbimpac4;
+    public FieldDef m310ddedcimpac4;
+    public FieldDef m310ddedcregbi1;
+    public FieldDef m310ddedcregbi2;
+    public FieldDef m310ddedcregbi3;
+    public FieldDef m310ddedcregbi4;
+    public FieldDef m310dliqiva;
+    public TabMod310des(String name)
+      {
+      super(name);
+      m310ddominio = new FieldDef("m310ddominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m310dnif = new FieldDef("m310dnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m310dejercicio = new FieldDef("m310dejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m310dactividad = new FieldDef("m310dactividad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m310ddevbadqin1 = new FieldDef("m310ddevbadqin1",FieldDef.FLOAT,6,0);
+      m310ddevcadqin1 = new FieldDef("m310ddevcadqin1",FieldDef.FLOAT,6,0);
+      m310ddevbadqin2 = new FieldDef("m310ddevbadqin2",FieldDef.FLOAT,6,0);
+      m310ddevcadqin2 = new FieldDef("m310ddevcadqin2",FieldDef.FLOAT,6,0);
+      m310ddevbadqin3 = new FieldDef("m310ddevbadqin3",FieldDef.FLOAT,6,0);
+      m310ddevcadqin3 = new FieldDef("m310ddevcadqin3",FieldDef.FLOAT,6,0);
+      m310ddevbadqin4 = new FieldDef("m310ddevbadqin4",FieldDef.FLOAT,6,0);
+      m310ddevcadqin4 = new FieldDef("m310ddevcadqin4",FieldDef.FLOAT,6,0);
+      m310ddevbentre1 = new FieldDef("m310ddevbentre1",FieldDef.FLOAT,6,0);
+      m310ddevcentre1 = new FieldDef("m310ddevcentre1",FieldDef.FLOAT,6,0);
+      m310ddevbentre2 = new FieldDef("m310ddevbentre2",FieldDef.FLOAT,6,0);
+      m310ddevcentre2 = new FieldDef("m310ddevcentre2",FieldDef.FLOAT,6,0);
+      m310ddevbentre3 = new FieldDef("m310ddevbentre3",FieldDef.FLOAT,6,0);
+      m310ddevcentre3 = new FieldDef("m310ddevcentre3",FieldDef.FLOAT,6,0);
+      m310ddevbentre4 = new FieldDef("m310ddevbentre4",FieldDef.FLOAT,6,0);
+      m310ddevcentre4 = new FieldDef("m310ddevcentre4",FieldDef.FLOAT,6,0);
+      m310ddevbinvsu1 = new FieldDef("m310ddevbinvsu1",FieldDef.FLOAT,6,0);
+      m310ddevcinvsu1 = new FieldDef("m310ddevcinvsu1",FieldDef.FLOAT,6,0);
+      m310ddevbinvsu2 = new FieldDef("m310ddevbinvsu2",FieldDef.FLOAT,6,0);
+      m310ddevcinvsu2 = new FieldDef("m310ddevcinvsu2",FieldDef.FLOAT,6,0);
+      m310ddevbinvsu3 = new FieldDef("m310ddevbinvsu3",FieldDef.FLOAT,6,0);
+      m310ddevcinvsu3 = new FieldDef("m310ddevcinvsu3",FieldDef.FLOAT,6,0);
+      m310ddevbinvsu4 = new FieldDef("m310ddevbinvsu4",FieldDef.FLOAT,6,0);
+      m310ddevcinvsu4 = new FieldDef("m310ddevcinvsu4",FieldDef.FLOAT,6,0);
+      m310ddedbadqac1 = new FieldDef("m310ddedbadqac1",FieldDef.FLOAT,6,0);
+      m310ddedcadqac1 = new FieldDef("m310ddedcadqac1",FieldDef.FLOAT,6,0);
+      m310ddedbadqac2 = new FieldDef("m310ddedbadqac2",FieldDef.FLOAT,6,0);
+      m310ddedcadqac2 = new FieldDef("m310ddedcadqac2",FieldDef.FLOAT,6,0);
+      m310ddedbadqac3 = new FieldDef("m310ddedbadqac3",FieldDef.FLOAT,6,0);
+      m310ddedcadqac3 = new FieldDef("m310ddedcadqac3",FieldDef.FLOAT,6,0);
+      m310ddedbadqac4 = new FieldDef("m310ddedbadqac4",FieldDef.FLOAT,6,0);
+      m310ddedcadqac4 = new FieldDef("m310ddedcadqac4",FieldDef.FLOAT,6,0);
+      m310ddedbimpac1 = new FieldDef("m310ddedbimpac1",FieldDef.FLOAT,6,0);
+      m310ddedcimpac1 = new FieldDef("m310ddedcimpac1",FieldDef.FLOAT,6,0);
+      m310ddedbimpac2 = new FieldDef("m310ddedbimpac2",FieldDef.FLOAT,6,0);
+      m310ddedcimpac2 = new FieldDef("m310ddedcimpac2",FieldDef.FLOAT,6,0);
+      m310ddedbimpac3 = new FieldDef("m310ddedbimpac3",FieldDef.FLOAT,6,0);
+      m310ddedcimpac3 = new FieldDef("m310ddedcimpac3",FieldDef.FLOAT,6,0);
+      m310ddedbimpac4 = new FieldDef("m310ddedbimpac4",FieldDef.FLOAT,6,0);
+      m310ddedcimpac4 = new FieldDef("m310ddedcimpac4",FieldDef.FLOAT,6,0);
+      m310ddedcregbi1 = new FieldDef("m310ddedcregbi1",FieldDef.FLOAT,6,0);
+      m310ddedcregbi2 = new FieldDef("m310ddedcregbi2",FieldDef.FLOAT,6,0);
+      m310ddedcregbi3 = new FieldDef("m310ddedcregbi3",FieldDef.FLOAT,6,0);
+      m310ddedcregbi4 = new FieldDef("m310ddedcregbi4",FieldDef.FLOAT,6,0);
+      m310dliqiva = new FieldDef("m310dliqiva",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        m310ddominio,
+        m310dnif,
+        m310dejercicio,
+        m310dactividad,
+        m310ddevbadqin1,
+        m310ddevcadqin1,
+        m310ddevbadqin2,
+        m310ddevcadqin2,
+        m310ddevbadqin3,
+        m310ddevcadqin3,
+        m310ddevbadqin4,
+        m310ddevcadqin4,
+        m310ddevbentre1,
+        m310ddevcentre1,
+        m310ddevbentre2,
+        m310ddevcentre2,
+        m310ddevbentre3,
+        m310ddevcentre3,
+        m310ddevbentre4,
+        m310ddevcentre4,
+        m310ddevbinvsu1,
+        m310ddevcinvsu1,
+        m310ddevbinvsu2,
+        m310ddevcinvsu2,
+        m310ddevbinvsu3,
+        m310ddevcinvsu3,
+        m310ddevbinvsu4,
+        m310ddevcinvsu4,
+        m310ddedbadqac1,
+        m310ddedcadqac1,
+        m310ddedbadqac2,
+        m310ddedcadqac2,
+        m310ddedbadqac3,
+        m310ddedcadqac3,
+        m310ddedbadqac4,
+        m310ddedcadqac4,
+        m310ddedbimpac1,
+        m310ddedcimpac1,
+        m310ddedbimpac2,
+        m310ddedcimpac2,
+        m310ddedbimpac3,
+        m310ddedcimpac3,
+        m310ddedbimpac4,
+        m310ddedcimpac4,
+        m310ddedcregbi1,
+        m310ddedcregbi2,
+        m310ddedcregbi3,
+        m310ddedcregbi4,
+        m310dliqiva        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m310ddominio,m310dnif,m310dejercicio,m310dactividad };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public CatModelos2()
     {
     tabmod184d = new TabMod184d("mod184d");
@@ -4913,6 +5081,7 @@ public class CatModelos2 extends Catalog
     tabmod340r = new TabMod340r("mod340r");
     tabmod340b = new TabMod340b("mod340b");
     tabmod340i = new TabMod340i("mod340i");
+    tabmod310des = new TabMod310des("mod310des");
     TableDef array[] = {
       tabmod184d,
       tabmod184e,
@@ -4940,7 +5109,8 @@ public class CatModelos2 extends Catalog
       tabmod340e,
       tabmod340r,
       tabmod340b,
-      tabmod340i      
+      tabmod340i,
+      tabmod310des      
       };
     setTables(array);
     FieldDef tabmod184eArrayf1[] = { tabmod184e.m184edominio,tabmod184e.m184enif,tabmod184e.m184eejercicio,tabmod184e.m184eperiodo };

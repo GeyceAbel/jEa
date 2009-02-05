@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090127
-// Hora:             09:45:43
+// Fecha:            20090205
+// Hora:             10:55:48
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2238,6 +2238,7 @@ public class CatCtasp extends Catalog
     public FieldDef civporirpf;
     public FieldDef civbaseirpf;
     public FieldDef civimpiva;
+    public FieldDef civfechaop;
     public TabIvacabecera(String name)
       {
       super(name);
@@ -2258,6 +2259,7 @@ public class CatCtasp extends Catalog
       civporirpf = new FieldDef("civporirpf",FieldDef.FLOAT,6,0);
       civbaseirpf = new FieldDef("civbaseirpf",FieldDef.FLOAT,6,0);
       civimpiva = new FieldDef("civimpiva",FieldDef.FLOAT,6,0);
+      civfechaop = new FieldDef("civfechaop",FieldDef.DATE);
       FieldDef array[] = {
         civcodi,
         civempresa,
@@ -2275,7 +2277,8 @@ public class CatCtasp extends Catalog
         civasicodi,
         civporirpf,
         civbaseirpf,
-        civimpiva        
+        civimpiva,
+        civfechaop        
         };
       setColumns(array);
       FieldDef arrayind1[] = { civempresa,civejercicio,civemirep,civserie,civregistro };

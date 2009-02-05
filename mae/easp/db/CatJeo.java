@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090127
-// Hora:             10:01:11
+// Fecha:            20090205
+// Hora:             10:55:48
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -38,7 +38,6 @@ public class CatJeo extends Catalog
   public TabDefcabapuntes tabdefcabapuntes;
   public TabDefapuntes tabdefapuntes;
   public TabValoresaplic tabvaloresaplic;
-  public TabBieninversion tabbieninversion;
   public TabCamortizirpf tabcamortizirpf;
   public TabCamortiziva tabcamortiziva;
   public TabBds tabbds;
@@ -75,6 +74,7 @@ public class CatJeo extends Catalog
   public TabSeries tabseries;
   public TabImportaapuntes tabimportaapuntes;
   public TabApuntes tabapuntes;
+  public TabBieninversion tabbieninversion;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -1425,213 +1425,6 @@ public class CatJeo extends Catalog
       vacodigo.setDescription("Código");
       vadesc.setDescription("Descripción");
       vaequivalencia.setDescription("Equivalente a otra tabla");
-      }
-    }
-    
-  public class TabBieninversion extends TableDef
-    {
-    // Campos
-    public FieldDef bieelemento;
-    public FieldDef bieempresa;
-    public FieldDef bieactividad;
-    public FieldDef bienumero;
-    public FieldDef biefechafactura;
-    public FieldDef biefechautiliz;
-    public FieldDef biecuenta;
-    public FieldDef biesubcuenta;
-    public FieldDef biedocumento;
-    public FieldDef bienif;
-    public FieldDef bienombre;
-    public FieldDef biectaamortizac;
-    public FieldDef biesbctaamortiz;
-    public FieldDef biedescripcion;
-    public FieldDef bietotalfactura;
-    public FieldDef biebaseiva;
-    public FieldDef bieporciva;
-    public FieldDef biecuotaiva;
-    public FieldDef bievaladquis;
-    public FieldDef bievalresidual;
-    public FieldDef bieamortacumul;
-    public FieldDef bietipobien;
-    public FieldDef bieelemnuevo;
-    public FieldDef bieelemusado;
-    public FieldDef bietipoamortiz;
-    public FieldDef biemasunturno;
-    public FieldDef bienumerohoras;
-    public FieldDef bielibamorempl;
-    public FieldDef bieincrplantil;
-    public FieldDef bielimiteinver;
-    public FieldDef bielibamoresc;
-    public FieldDef bieamortacel;
-    public FieldDef biecoefincre;
-    public FieldDef bienrounidad;
-    public FieldDef biefechabaja;
-    public FieldDef biecausabaja;
-    public FieldDef biecultivoirpf;
-    public FieldDef biecultivoiva;
-    public FieldDef biecodigotabla;
-    public FieldDef bieperiodirpf;
-    public FieldDef bieporcenirpf;
-    public FieldDef bieperioregul;
-    public FieldDef biedivisor;
-    public FieldDef biepprorrata;
-    public FieldDef biecodasiento;
-    public FieldDef bieporcentabla;
-    public FieldDef bieperiodotabla;
-    public FieldDef biecodtablamort;
-    public TabBieninversion(String name)
-      {
-      super(name);
-      bieelemento = new FieldDef("bieelemento",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      bieempresa = new FieldDef("bieempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      bieactividad = new FieldDef("bieactividad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      bienumero = new FieldDef("bienumero",FieldDef.INTEGER,0);
-      biefechafactura = new FieldDef("biefechafactura",FieldDef.DATE);
-      biefechautiliz = new FieldDef("biefechautiliz",FieldDef.DATE);
-      biecuenta = new FieldDef("biecuenta",FieldDef.CHAR,4);
-      biesubcuenta = new FieldDef("biesubcuenta",FieldDef.CHAR,15);
-      biedocumento = new FieldDef("biedocumento",FieldDef.CHAR,12);
-      bienif = new FieldDef("bienif",FieldDef.CHAR,15);
-      bienombre = new FieldDef("bienombre",FieldDef.CHAR,40);
-      biectaamortizac = new FieldDef("biectaamortizac",FieldDef.CHAR,4);
-      biesbctaamortiz = new FieldDef("biesbctaamortiz",FieldDef.CHAR,15);
-      biedescripcion = new FieldDef("biedescripcion",FieldDef.CHAR,40);
-      bietotalfactura = new FieldDef("bietotalfactura",FieldDef.FLOAT,6,0);
-      biebaseiva = new FieldDef("biebaseiva",FieldDef.FLOAT,6,0);
-      bieporciva = new FieldDef("bieporciva",FieldDef.FLOAT,6,0);
-      biecuotaiva = new FieldDef("biecuotaiva",FieldDef.FLOAT,6,0);
-      bievaladquis = new FieldDef("bievaladquis",FieldDef.FLOAT,6,0);
-      bievalresidual = new FieldDef("bievalresidual",FieldDef.FLOAT,6,0);
-      bieamortacumul = new FieldDef("bieamortacumul",FieldDef.FLOAT,6,0);
-      bietipobien = new FieldDef("bietipobien",FieldDef.CHAR,1);
-      bieelemnuevo = new FieldDef("bieelemnuevo",FieldDef.CHAR,1);
-      bieelemusado = new FieldDef("bieelemusado",FieldDef.CHAR,1);
-      bietipoamortiz = new FieldDef("bietipoamortiz",FieldDef.CHAR,3);
-      biemasunturno = new FieldDef("biemasunturno",FieldDef.CHAR,1);
-      bienumerohoras = new FieldDef("bienumerohoras",FieldDef.INTEGER,0);
-      bielibamorempl = new FieldDef("bielibamorempl",FieldDef.CHAR,1);
-      bieincrplantil = new FieldDef("bieincrplantil",FieldDef.FLOAT,6,0);
-      bielimiteinver = new FieldDef("bielimiteinver",FieldDef.FLOAT,6,0);
-      bielibamoresc = new FieldDef("bielibamoresc",FieldDef.CHAR,1);
-      bieamortacel = new FieldDef("bieamortacel",FieldDef.CHAR,1);
-      biecoefincre = new FieldDef("biecoefincre",FieldDef.FLOAT,6,0);
-      bienrounidad = new FieldDef("bienrounidad",FieldDef.INTEGER,0);
-      biefechabaja = new FieldDef("biefechabaja",FieldDef.DATE);
-      biecausabaja = new FieldDef("biecausabaja",FieldDef.CHAR,100);
-      biecultivoirpf = new FieldDef("biecultivoirpf",FieldDef.INTEGER,0);
-      biecultivoiva = new FieldDef("biecultivoiva",FieldDef.INTEGER,0);
-      biecodigotabla = new FieldDef("biecodigotabla",FieldDef.INTEGER,0);
-      bieperiodirpf = new FieldDef("bieperiodirpf",FieldDef.INTEGER,0);
-      bieporcenirpf = new FieldDef("bieporcenirpf",FieldDef.FLOAT,6,0);
-      bieperioregul = new FieldDef("bieperioregul",FieldDef.INTEGER,0);
-      biedivisor = new FieldDef("biedivisor",FieldDef.INTEGER,0);
-      biepprorrata = new FieldDef("biepprorrata",FieldDef.FLOAT,6,0);
-      biecodasiento = new FieldDef("biecodasiento",FieldDef.INTEGER,0);
-      bieporcentabla = new FieldDef("bieporcentabla",FieldDef.FLOAT,6,0);
-      bieperiodotabla = new FieldDef("bieperiodotabla",FieldDef.FLOAT,6,0);
-      biecodtablamort = new FieldDef("biecodtablamort",FieldDef.CHAR,8);
-      FieldDef array[] = {
-        bieelemento,
-        bieempresa,
-        bieactividad,
-        bienumero,
-        biefechafactura,
-        biefechautiliz,
-        biecuenta,
-        biesubcuenta,
-        biedocumento,
-        bienif,
-        bienombre,
-        biectaamortizac,
-        biesbctaamortiz,
-        biedescripcion,
-        bietotalfactura,
-        biebaseiva,
-        bieporciva,
-        biecuotaiva,
-        bievaladquis,
-        bievalresidual,
-        bieamortacumul,
-        bietipobien,
-        bieelemnuevo,
-        bieelemusado,
-        bietipoamortiz,
-        biemasunturno,
-        bienumerohoras,
-        bielibamorempl,
-        bieincrplantil,
-        bielimiteinver,
-        bielibamoresc,
-        bieamortacel,
-        biecoefincre,
-        bienrounidad,
-        biefechabaja,
-        biecausabaja,
-        biecultivoirpf,
-        biecultivoiva,
-        biecodigotabla,
-        bieperiodirpf,
-        bieporcenirpf,
-        bieperioregul,
-        biedivisor,
-        biepprorrata,
-        biecodasiento,
-        bieporcentabla,
-        bieperiodotabla,
-        biecodtablamort        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {bieelemento };
-      setDescription("Bienes de inversión");
-      setPrimaryKeys(arrayf);
-      bieelemento.setAutoIncrementable(true);
-      bieempresa.setDescription("Empresa");
-      bieactividad.setDescription("Actividad");
-      bienumero.setDescription("Número de factura");
-      biefechafactura.setDescription("Fecha de factura");
-      biefechautiliz.setDescription("Fecha de puesta en servicio");
-      biecuenta.setDescription("Cuenta de mayor");
-      biesubcuenta.setDescription("Subcuenta");
-      biedocumento.setDescription("Número de documento");
-      bienif.setDescription("NIF cliente o proveedor");
-      bienombre.setDescription("Nombre del cliente");
-      biectaamortizac.setDescription("Cuenta de mayor para amortizar");
-      biesbctaamortiz.setDescription("Subcuenta para amortizar");
-      biedescripcion.setDescription("Descripción del inmovilizado");
-      bietotalfactura.setDescription("Total factura");
-      biebaseiva.setDescription("Base iva");
-      bieporciva.setDescription("% de iva");
-      biecuotaiva.setDescription("Cuota de iva");
-      bievaladquis.setDescription("Valor amortizable");
-      bievalresidual.setDescription("Valor residual");
-      bieamortacumul.setDescription("Amortización acumulada");
-      bietipobien.setDescription("Naturaleza del bien (Material, Inmaterial)");
-      bieelemnuevo.setDescription("Activo nuevo");
-      bieelemusado.setDescription("Elemento usado");
-      bietipoamortiz.setDescription("Tipo de amortización (Lineal, Números dígitos, Coeficiente constante)");
-      biemasunturno.setDescription("Elemento usado en más de un turno");
-      bienumerohoras.setDescription("Número de horas de utilización");
-      bielibamorempl.setDescription("Libertad amortización inversiones generadoras de empleo");
-      bieincrplantil.setDescription("Incremento de plantilla");
-      bielimiteinver.setDescription("Límite inversión");
-      bielibamoresc.setDescription("Libertad de amortización para inversiones de escaso valor");
-      bieamortacel.setDescription("Amortización acelerada");
-      biecoefincre.setDescription("Porcentaje multiplicador del coeficiente lineal");
-      bienrounidad.setDescription("Número de unidades");
-      biefechabaja.setDescription("Fecha de baja");
-      biecausabaja.setDescription("Causa de la baja");
-      biecultivoirpf.setDescription("Código de cultivo de IRPF");
-      biecultivoiva.setDescription("Código de cultivo de IVA");
-      biecodigotabla.setDescription("Código en tabla amortización");
-      bieperiodirpf.setDescription("Número de años amortización IRPF");
-      bieporcenirpf.setDescription("% de amortización IRPF");
-      bieperioregul.setDescription("Años de regularización del bien a efectos de IVA");
-      biedivisor.setDescription("Divisor");
-      biepprorrata.setDescription("% de prorrata definitiva año adquisición");
-      biecodasiento.setDescription("Código de asiento");
-      bieporcentabla.setDescription("% máximo assignado en tabla");
-      bieperiodotabla.setDescription("% máximo assignado en tabla");
-      biecodtablamort.setDescription("Código de elemento en la tabla amortizaciones");
       }
     }
     
@@ -3589,6 +3382,7 @@ public class CatJeo extends Catalog
     public FieldDef imprectnumero;
     public FieldDef imprecfecha;
     public FieldDef imptipoprovis;
+    public FieldDef impfechaoperac;
     public TabImportaapuntes(String name)
       {
       super(name);
@@ -3653,6 +3447,7 @@ public class CatJeo extends Catalog
       imprectnumero = new FieldDef("imprectnumero",FieldDef.INTEGER,0);
       imprecfecha = new FieldDef("imprecfecha",FieldDef.DATE);
       imptipoprovis = new FieldDef("imptipoprovis",FieldDef.CHAR,1);
+      impfechaoperac = new FieldDef("impfechaoperac",FieldDef.DATE);
       FieldDef array[] = {
         impiden,
         impejercicio,
@@ -3714,7 +3509,8 @@ public class CatJeo extends Catalog
         imprectserie,
         imprectnumero,
         imprecfecha,
-        imptipoprovis        
+        imptipoprovis,
+        impfechaoperac        
         };
       setColumns(array);
       FieldDef arrayf[] = {impiden };
@@ -3781,6 +3577,7 @@ public class CatJeo extends Catalog
       imprectnumero.setDescription("Factura rectificativa: número de factura");
       imprecfecha.setDescription("Factura rectificativa: fecha de factura");
       imptipoprovis.setDescription("Provision o suplido");
+      impfechaoperac.setDescription("Fecha de operación");
       }
     }
     
@@ -3850,6 +3647,7 @@ public class CatJeo extends Catalog
     public FieldDef aputipoprovis;
     public FieldDef apuefectivo;
     public FieldDef apuimpefectivo;
+    public FieldDef apufechaoperac;
     public TabApuntes(String name)
       {
       super(name);
@@ -3916,6 +3714,7 @@ public class CatJeo extends Catalog
       aputipoprovis = new FieldDef("aputipoprovis",FieldDef.CHAR,1);
       apuefectivo = new FieldDef("apuefectivo",FieldDef.CHAR,1);
       apuimpefectivo = new FieldDef("apuimpefectivo",FieldDef.FLOAT,6,0);
+      apufechaoperac = new FieldDef("apufechaoperac",FieldDef.DATE);
       FieldDef array[] = {
         apuiden,
         apuejercicio,
@@ -3979,7 +3778,8 @@ public class CatJeo extends Catalog
         apurecfecha,
         aputipoprovis,
         apuefectivo,
-        apuimpefectivo        
+        apuimpefectivo,
+        apufechaoperac        
         };
       setColumns(array);
       FieldDef arrayf[] = {apuiden };
@@ -4048,6 +3848,218 @@ public class CatJeo extends Catalog
       aputipoprovis.setDescription("Provision o suplido");
       apuefectivo.setDescription("Se ha pagado/cobrado en efectivo");
       apuimpefectivo.setDescription("Importe que se ha cobrado en efectivo");
+      apufechaoperac.setDescription("Fecha de operación");
+      }
+    }
+    
+  public class TabBieninversion extends TableDef
+    {
+    // Campos
+    public FieldDef bieelemento;
+    public FieldDef bieempresa;
+    public FieldDef bieactividad;
+    public FieldDef bienumero;
+    public FieldDef biefechafactura;
+    public FieldDef biefechautiliz;
+    public FieldDef biecuenta;
+    public FieldDef biesubcuenta;
+    public FieldDef biedocumento;
+    public FieldDef bienif;
+    public FieldDef bienombre;
+    public FieldDef biectaamortizac;
+    public FieldDef biesbctaamortiz;
+    public FieldDef biedescripcion;
+    public FieldDef bietotalfactura;
+    public FieldDef biebaseiva;
+    public FieldDef bieporciva;
+    public FieldDef biecuotaiva;
+    public FieldDef bievaladquis;
+    public FieldDef bievalresidual;
+    public FieldDef bieamortacumul;
+    public FieldDef bietipobien;
+    public FieldDef bieelemnuevo;
+    public FieldDef bieelemusado;
+    public FieldDef bietipoamortiz;
+    public FieldDef biemasunturno;
+    public FieldDef bienumerohoras;
+    public FieldDef bielibamorempl;
+    public FieldDef bieincrplantil;
+    public FieldDef bielimiteinver;
+    public FieldDef bielibamoresc;
+    public FieldDef bieamortacel;
+    public FieldDef biecoefincre;
+    public FieldDef bienrounidad;
+    public FieldDef biefechabaja;
+    public FieldDef biecausabaja;
+    public FieldDef biecultivoirpf;
+    public FieldDef biecultivoiva;
+    public FieldDef biecodigotabla;
+    public FieldDef bieperiodirpf;
+    public FieldDef bieporcenirpf;
+    public FieldDef bieperioregul;
+    public FieldDef biedivisor;
+    public FieldDef biepprorrata;
+    public FieldDef biecodasiento;
+    public FieldDef bieporcentabla;
+    public FieldDef bieperiodotabla;
+    public FieldDef biecodtablamort;
+    public FieldDef biefechaoperac;
+    public TabBieninversion(String name)
+      {
+      super(name);
+      bieelemento = new FieldDef("bieelemento",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      bieempresa = new FieldDef("bieempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      bieactividad = new FieldDef("bieactividad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      bienumero = new FieldDef("bienumero",FieldDef.INTEGER,0);
+      biefechafactura = new FieldDef("biefechafactura",FieldDef.DATE);
+      biefechautiliz = new FieldDef("biefechautiliz",FieldDef.DATE);
+      biecuenta = new FieldDef("biecuenta",FieldDef.CHAR,4);
+      biesubcuenta = new FieldDef("biesubcuenta",FieldDef.CHAR,15);
+      biedocumento = new FieldDef("biedocumento",FieldDef.CHAR,12);
+      bienif = new FieldDef("bienif",FieldDef.CHAR,15);
+      bienombre = new FieldDef("bienombre",FieldDef.CHAR,40);
+      biectaamortizac = new FieldDef("biectaamortizac",FieldDef.CHAR,4);
+      biesbctaamortiz = new FieldDef("biesbctaamortiz",FieldDef.CHAR,15);
+      biedescripcion = new FieldDef("biedescripcion",FieldDef.CHAR,40);
+      bietotalfactura = new FieldDef("bietotalfactura",FieldDef.FLOAT,6,0);
+      biebaseiva = new FieldDef("biebaseiva",FieldDef.FLOAT,6,0);
+      bieporciva = new FieldDef("bieporciva",FieldDef.FLOAT,6,0);
+      biecuotaiva = new FieldDef("biecuotaiva",FieldDef.FLOAT,6,0);
+      bievaladquis = new FieldDef("bievaladquis",FieldDef.FLOAT,6,0);
+      bievalresidual = new FieldDef("bievalresidual",FieldDef.FLOAT,6,0);
+      bieamortacumul = new FieldDef("bieamortacumul",FieldDef.FLOAT,6,0);
+      bietipobien = new FieldDef("bietipobien",FieldDef.CHAR,1);
+      bieelemnuevo = new FieldDef("bieelemnuevo",FieldDef.CHAR,1);
+      bieelemusado = new FieldDef("bieelemusado",FieldDef.CHAR,1);
+      bietipoamortiz = new FieldDef("bietipoamortiz",FieldDef.CHAR,3);
+      biemasunturno = new FieldDef("biemasunturno",FieldDef.CHAR,1);
+      bienumerohoras = new FieldDef("bienumerohoras",FieldDef.INTEGER,0);
+      bielibamorempl = new FieldDef("bielibamorempl",FieldDef.CHAR,1);
+      bieincrplantil = new FieldDef("bieincrplantil",FieldDef.FLOAT,6,0);
+      bielimiteinver = new FieldDef("bielimiteinver",FieldDef.FLOAT,6,0);
+      bielibamoresc = new FieldDef("bielibamoresc",FieldDef.CHAR,1);
+      bieamortacel = new FieldDef("bieamortacel",FieldDef.CHAR,1);
+      biecoefincre = new FieldDef("biecoefincre",FieldDef.FLOAT,6,0);
+      bienrounidad = new FieldDef("bienrounidad",FieldDef.INTEGER,0);
+      biefechabaja = new FieldDef("biefechabaja",FieldDef.DATE);
+      biecausabaja = new FieldDef("biecausabaja",FieldDef.CHAR,100);
+      biecultivoirpf = new FieldDef("biecultivoirpf",FieldDef.INTEGER,0);
+      biecultivoiva = new FieldDef("biecultivoiva",FieldDef.INTEGER,0);
+      biecodigotabla = new FieldDef("biecodigotabla",FieldDef.INTEGER,0);
+      bieperiodirpf = new FieldDef("bieperiodirpf",FieldDef.INTEGER,0);
+      bieporcenirpf = new FieldDef("bieporcenirpf",FieldDef.FLOAT,6,0);
+      bieperioregul = new FieldDef("bieperioregul",FieldDef.INTEGER,0);
+      biedivisor = new FieldDef("biedivisor",FieldDef.INTEGER,0);
+      biepprorrata = new FieldDef("biepprorrata",FieldDef.FLOAT,6,0);
+      biecodasiento = new FieldDef("biecodasiento",FieldDef.INTEGER,0);
+      bieporcentabla = new FieldDef("bieporcentabla",FieldDef.FLOAT,6,0);
+      bieperiodotabla = new FieldDef("bieperiodotabla",FieldDef.FLOAT,6,0);
+      biecodtablamort = new FieldDef("biecodtablamort",FieldDef.CHAR,8);
+      biefechaoperac = new FieldDef("biefechaoperac",FieldDef.DATE);
+      FieldDef array[] = {
+        bieelemento,
+        bieempresa,
+        bieactividad,
+        bienumero,
+        biefechafactura,
+        biefechautiliz,
+        biecuenta,
+        biesubcuenta,
+        biedocumento,
+        bienif,
+        bienombre,
+        biectaamortizac,
+        biesbctaamortiz,
+        biedescripcion,
+        bietotalfactura,
+        biebaseiva,
+        bieporciva,
+        biecuotaiva,
+        bievaladquis,
+        bievalresidual,
+        bieamortacumul,
+        bietipobien,
+        bieelemnuevo,
+        bieelemusado,
+        bietipoamortiz,
+        biemasunturno,
+        bienumerohoras,
+        bielibamorempl,
+        bieincrplantil,
+        bielimiteinver,
+        bielibamoresc,
+        bieamortacel,
+        biecoefincre,
+        bienrounidad,
+        biefechabaja,
+        biecausabaja,
+        biecultivoirpf,
+        biecultivoiva,
+        biecodigotabla,
+        bieperiodirpf,
+        bieporcenirpf,
+        bieperioregul,
+        biedivisor,
+        biepprorrata,
+        biecodasiento,
+        bieporcentabla,
+        bieperiodotabla,
+        biecodtablamort,
+        biefechaoperac        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {bieelemento };
+      setDescription("Bienes de inversión");
+      setPrimaryKeys(arrayf);
+      bieelemento.setAutoIncrementable(true);
+      bieempresa.setDescription("Empresa");
+      bieactividad.setDescription("Actividad");
+      bienumero.setDescription("Número de factura");
+      biefechafactura.setDescription("Fecha de factura");
+      biefechautiliz.setDescription("Fecha de puesta en servicio");
+      biecuenta.setDescription("Cuenta de mayor");
+      biesubcuenta.setDescription("Subcuenta");
+      biedocumento.setDescription("Número de documento");
+      bienif.setDescription("NIF cliente o proveedor");
+      bienombre.setDescription("Nombre del cliente");
+      biectaamortizac.setDescription("Cuenta de mayor para amortizar");
+      biesbctaamortiz.setDescription("Subcuenta para amortizar");
+      biedescripcion.setDescription("Descripción del inmovilizado");
+      bietotalfactura.setDescription("Total factura");
+      biebaseiva.setDescription("Base iva");
+      bieporciva.setDescription("% de iva");
+      biecuotaiva.setDescription("Cuota de iva");
+      bievaladquis.setDescription("Valor amortizable");
+      bievalresidual.setDescription("Valor residual");
+      bieamortacumul.setDescription("Amortización acumulada");
+      bietipobien.setDescription("Naturaleza del bien (Material, Inmaterial)");
+      bieelemnuevo.setDescription("Activo nuevo");
+      bieelemusado.setDescription("Elemento usado");
+      bietipoamortiz.setDescription("Tipo de amortización (Lineal, Números dígitos, Coeficiente constante)");
+      biemasunturno.setDescription("Elemento usado en más de un turno");
+      bienumerohoras.setDescription("Número de horas de utilización");
+      bielibamorempl.setDescription("Libertad amortización inversiones generadoras de empleo");
+      bieincrplantil.setDescription("Incremento de plantilla");
+      bielimiteinver.setDescription("Límite inversión");
+      bielibamoresc.setDescription("Libertad de amortización para inversiones de escaso valor");
+      bieamortacel.setDescription("Amortización acelerada");
+      biecoefincre.setDescription("Porcentaje multiplicador del coeficiente lineal");
+      bienrounidad.setDescription("Número de unidades");
+      biefechabaja.setDescription("Fecha de baja");
+      biecausabaja.setDescription("Causa de la baja");
+      biecultivoirpf.setDescription("Código de cultivo de IRPF");
+      biecultivoiva.setDescription("Código de cultivo de IVA");
+      biecodigotabla.setDescription("Código en tabla amortización");
+      bieperiodirpf.setDescription("Número de años amortización IRPF");
+      bieporcenirpf.setDescription("% de amortización IRPF");
+      bieperioregul.setDescription("Años de regularización del bien a efectos de IVA");
+      biedivisor.setDescription("Divisor");
+      biepprorrata.setDescription("% de prorrata definitiva año adquisición");
+      biecodasiento.setDescription("Código de asiento");
+      bieporcentabla.setDescription("% máximo assignado en tabla");
+      bieperiodotabla.setDescription("% máximo assignado en tabla");
+      biecodtablamort.setDescription("Código de elemento en la tabla amortizaciones");
+      biefechaoperac.setDescription("Fecha de operación");
       }
     }
     
@@ -4075,7 +4087,6 @@ public class CatJeo extends Catalog
     tabdefcabapuntes = new TabDefcabapuntes("defcabapuntes");
     tabdefapuntes = new TabDefapuntes("defapuntes");
     tabvaloresaplic = new TabValoresaplic("valoresaplic");
-    tabbieninversion = new TabBieninversion("bieninversion");
     tabcamortizirpf = new TabCamortizirpf("camortizirpf");
     tabcamortiziva = new TabCamortiziva("camortiziva");
     tabbds = new TabBds("bds");
@@ -4112,6 +4123,7 @@ public class CatJeo extends Catalog
     tabseries = new TabSeries("series");
     tabimportaapuntes = new TabImportaapuntes("importaapuntes");
     tabapuntes = new TabApuntes("apuntes");
+    tabbieninversion = new TabBieninversion("bieninversion");
     TableDef array[] = {
       tabgycauto,
       tabconceptos,
@@ -4135,7 +4147,6 @@ public class CatJeo extends Catalog
       tabdefcabapuntes,
       tabdefapuntes,
       tabvaloresaplic,
-      tabbieninversion,
       tabcamortizirpf,
       tabcamortiziva,
       tabbds,
@@ -4171,7 +4182,8 @@ public class CatJeo extends Catalog
       tabdocrtfcampos,
       tabseries,
       tabimportaapuntes,
-      tabapuntes      
+      tabapuntes,
+      tabbieninversion      
       };
     setTables(array);
     FieldDef tabcalendariodetArrayf1[] = { tabcalendariodet.caldcodigo };
@@ -4232,11 +4244,6 @@ public class CatJeo extends Catalog
       new ForeignKey(tabempresa,tabdefapuntesArrayf2)      
       };
     tabdefapuntes.setForeignKeys(tabdefapuntesArrayfk);
-    FieldDef tabbieninversionArrayf1[] = { tabbieninversion.bieempresa };
-    ForeignKey tabbieninversionArrayfk[] = { 
-      new ForeignKey(tabempresa,tabbieninversionArrayf1)      
-      };
-    tabbieninversion.setForeignKeys(tabbieninversionArrayfk);
     FieldDef tabcamortizirpfArrayf1[] = { tabcamortizirpf.cirelemento };
     ForeignKey tabcamortizirpfArrayfk[] = { 
       new ForeignKey(tabbieninversion,tabcamortizirpfArrayf1)      
@@ -4334,6 +4341,11 @@ public class CatJeo extends Catalog
       new ForeignKey(tabseries,tabapuntesArrayf3)      
       };
     tabapuntes.setForeignKeys(tabapuntesArrayfk);
+    FieldDef tabbieninversionArrayf1[] = { tabbieninversion.bieempresa };
+    ForeignKey tabbieninversionArrayfk[] = { 
+      new ForeignKey(tabempresa,tabbieninversionArrayf1)      
+      };
+    tabbieninversion.setForeignKeys(tabbieninversionArrayfk);
     }
   }
   

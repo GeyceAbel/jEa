@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090127
-// Hora:             09:45:43
+// Fecha:            20090205
+// Hora:             10:55:48
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2548,18 +2548,21 @@ public class CatEasp extends Catalog
     public FieldDef mu7codmuni;
     public FieldDef mu7desc;
     public FieldDef mu7muniant;
+    public FieldDef mu7provmuni;
     public TabMuni347(String name)
       {
       super(name);
       mu7codprov = new FieldDef("mu7codprov",FieldDef.INTEGER,0,FieldDef.NOTNULL);
       mu7codmuni = new FieldDef("mu7codmuni",FieldDef.INTEGER,0,FieldDef.NOTNULL);
       mu7desc = new FieldDef("mu7desc",FieldDef.CHAR,50);
-      mu7muniant = new FieldDef("mu7muniant",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      mu7muniant = new FieldDef("mu7muniant",FieldDef.INTEGER,0);
+      mu7provmuni = new FieldDef("mu7provmuni",FieldDef.CHAR,5);
       FieldDef array[] = {
         mu7codprov,
         mu7codmuni,
         mu7desc,
-        mu7muniant        
+        mu7muniant,
+        mu7provmuni        
         };
       setColumns(array);
       FieldDef arrayf[] = {mu7codprov,mu7codmuni };

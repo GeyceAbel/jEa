@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090204
-// Hora:             10:17:10
+// Fecha:            20090205
+// Hora:             10:55:55
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -830,7 +830,16 @@ public class ProgInsprconver extends Program
         "ALTER TABLE TRANSACCIONES ADD travoloper CHAR(3)",
         "ALTER TABLE TRANSACCIONES ADD traoperespec CHAR(3)"
       };
-    
+      String sentencias6_4[]={
+        "DROP TABLE MUNI347",
+        "CREATE TABLE MUNI347"+
+        "  (mu7codprov  INTEGER NOT NULL,"+
+       	"   mu7codmuni  INTEGER NOT NULL,"+
+       	"   mu7desc     VARCHAR(50),"+
+       	"   mu7muniant  INTEGER,"+
+       	"   mu7provmuni VARCHAR(5),"+
+       	"   PRIMARY KEY (mu7codprov,mu7codmuni));"
+      };
     
       int i=0;
       try {
@@ -1337,6 +1346,26 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("6.3");
         }
+        if (versio < 6.4) {
+          for (i=0;i<sentencias6_4.length;++i) {
+            try {
+              Easp.chivato("6.4 Exec : ["+sentencias6_4[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias6_4[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias6_4[i];
+              Easp.chivato("6.4 *** Error : ["+sentencias6_4[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          String tablas[]= {"MUNI347"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0601","easp.jar");
+          Easp.setVersionBD("bdeasp","6.4");
+          Easp.connEA.commit();
+          vvveractual.setValue("6.4");
+        }
+    
+    
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
