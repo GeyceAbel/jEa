@@ -551,7 +551,7 @@ public class ActualizaNIFs
 				i.valor("m300ctadevol", oldNIFSelector.getString("m300ctadevol"));
 				i.valor("m300cruzefec", oldNIFSelector.getString("m300cruzefec"));
 				i.valor("m300cruzadeu", oldNIFSelector.getString("m300cruzadeu"));
-				i.valor("m300impingreso", oldNIFSelector.getint("m300impingreso"));
+				i.valor("m300impingreso", oldNIFSelector.getdouble("m300impingreso"));
 				i.valor("m300entingreso", oldNIFSelector.getString("m300entingreso"));
 				i.valor("m300ofiingreso", oldNIFSelector.getString("m300ofiingreso"));
 				i.valor("m300digiingreso", oldNIFSelector.getString("m300digiingreso"));
