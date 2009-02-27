@@ -90,7 +90,7 @@ public class Perfil {
   		fdejercicio.setValue(ejer);
   		fdnif.setValue(nif);
   		fdgranemp.setValue(granemp);
-  		fdtipoavisos.setValue("1");
+      fdtipoavisos.setValue("0");
   		fdalquileres.setValue("N");
   		fdintracom.setValue("0");
   		fdintrastat.setNull();
