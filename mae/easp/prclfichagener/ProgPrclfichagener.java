@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090107
-// Hora:             16:03:56
+// Fecha:            20090327
+// Hora:             10:03:15
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1163,23 +1163,22 @@ public class ProgPrclfichagener extends Program
       super.onSelection();
       int campSeleccionat=getControlTable().getSelectedColumn();
       switch (campSeleccionat) {
-        case 6:
+        case 4:
           btiva.doAction();
           break;
-        case 7:
+        case 5:
           btirpf.doAction();
           break;
-        case 8:
+        case 6:
           btpagossc.doAction();
           break;
-        case 9:
+        case 7:
           btsegsoc.doAction();
           break;
-        case 10:
+        case 8:
           btliqanual.doAction();
           break;
         default:
-          doEdit();
           break;
         }
       }
