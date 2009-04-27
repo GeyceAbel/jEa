@@ -903,13 +903,14 @@ public abstract class Cabecera {
 		detail2 = xml.addDetail(block2);
 		if (getRepiteTitulo()) {
 			Element condrepeat = xml.addCond(detail2, 21);
+			condrepeat.setAttribute("multiline","true");
 			generaBloqueRepeticion(condrepeat);
 		}
         for (int i=0;i<columnasSize();i++) {
         	xml.addTab(detail2, getColumna(i).getPosIni());
         	xml.addVar(detail2, getColumna(i).getVarListado(), getColumna(i).getLongitud(), false);
         }
-        xml.addBr(detail2);
+        xml.addBr(detail2);       
 	}
 	private void generaPageHeader(Element blockheader) {
     	int posPagina = getLongitudLinea() - 7;
@@ -949,7 +950,7 @@ public abstract class Cabecera {
 	       	  if (getEncabezado(i).getLiteralBold()) xml.bold(blockheader, xml.Text(getEncabezado(i).getLiteral()));
 	       	  else xml.addText(blockheader, getEncabezado(i).getLiteral());
 	       	  xml.addVar(blockheader, getEncabezado(i).getVarListado(), false);
-	       	  xml.addBr(blockheader);
+	       	  xml.addBr(blockheader);	       	  
 	    	}
 	    }
 
@@ -1201,10 +1202,10 @@ public abstract class Cabecera {
 		XmlDocument xmlDocument = createXmlDocumentJeo();
 		getReport().setXmlDocument(xmlDocument);
 
-		/* try {
+		try {
 		xmlDocument.write(System.out);
 		}
-		catch (Exception e) {}*/
+		catch (Exception e) {}
 
 	}
 
@@ -1237,7 +1238,7 @@ public abstract class Cabecera {
 	        	if (!finalListado() && getRepiteTitulo()) {
 	        	  retorn = pinta;
 	        	  pinta = false;
-	        	}
+	        	}	        	
 	        	break;
 	        case 2:
 	          if (finalListado()) {
@@ -1251,7 +1252,9 @@ public abstract class Cabecera {
 	              acumularTotales();  //Es Opcional d'implementar, depen del tipo de rotures.
 	              siguienteRegistro(); //Es Opcional d'implementar, depen del tipo de llistats.
 	              asignaRoturas();    //Implementar en la clase llistat
-	              if (printLineaDetalle()) retorn = true;
+	              if (printLineaDetalle()) {
+	            	  retorn = true;
+	              }
 	              else {
 	                retorn=false;
 	                if (finalListado()) activarRoturas();
@@ -1267,6 +1270,7 @@ public abstract class Cabecera {
 	        		if (!finalListado()) {
 	        			omplirDadesCabecera();
 	        			retorn = true;
+	        			pinta = false;
 	        		}
 	        	}
 	        	break;
@@ -1293,7 +1297,7 @@ public abstract class Cabecera {
 	            }
 	            break;
 	        }
-	      System.out.println ("case ["+bloc+"] ["+retorn+"]");
+	      //System.out.println ("case ["+bloc+"] ["+retorn+"]");
 	      return retorn;
 	}
 	public void valorColumna (String id, String valor) {
