@@ -903,7 +903,6 @@ public abstract class Cabecera {
 		detail2 = xml.addDetail(block2);
 		if (getRepiteTitulo()) {
 			Element condrepeat = xml.addCond(detail2, 21);
-			condrepeat.setAttribute("multiline","true");
 			generaBloqueRepeticion(condrepeat);
 		}
         for (int i=0;i<columnasSize();i++) {
