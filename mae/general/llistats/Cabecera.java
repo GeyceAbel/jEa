@@ -1200,11 +1200,12 @@ public abstract class Cabecera {
 		xml  = new XmlDocumentConstruct();
 		XmlDocument xmlDocument = createXmlDocumentJeo();
 		getReport().setXmlDocument(xmlDocument);
-
+		/*
 		try {
 		xmlDocument.write(System.out);
 		}
 		catch (Exception e) {}
+		*/
 
 	}
 
@@ -1234,7 +1235,7 @@ public abstract class Cabecera {
 	            }
 	          break;
 	        case 21:
-	        	if (!finalListado() && getRepiteTitulo()) {
+	        	if (getRepiteTitulo()) {
 	        	  retorn = pinta;
 	        	  pinta = false;
 	        	}	        	
