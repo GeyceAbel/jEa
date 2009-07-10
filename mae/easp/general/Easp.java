@@ -23,9 +23,9 @@ public class Easp {
   public static String nifCDP=null;
 
   //variables de versiones
-  public static String versionAplicacion="6.4";
-  public static String versionFecha="Febrero/2009";
-  public static String versionBDEA="6.4";
+  public static String versionAplicacion="6.6";
+  public static String versionFecha="Julio/2009";
+  public static String versionBDEA="6.6";
 
   //Constantes
   public final static int IVA=16;
@@ -259,6 +259,16 @@ public class Easp {
 		sinincide.insert();
 	}
 	
+	public static String getTipoLicencia (String aplic, String tarifa)  {
+		String lic = "No definida";
+		if (tarifa!=null && tarifa.length()==10) {
+			if (tarifa.endsWith("320") || tarifa.endsWith("007") || tarifa.endsWith("327")) lic = "Monousuario";
+			else if (tarifa.endsWith("000") || tarifa.endsWith("330")) lic = "Multiusuario";
+			else if (tarifa.endsWith("001") || tarifa.endsWith("331")) lic = "4 usuarios";
+			else if (tarifa.endsWith("002") || tarifa.endsWith("332")) lic = "8 usuarios";
+		}
+		return lic;
+	}
 public static boolean copyFile(String fitOri , String fitDest ) {
   java.io.File wfile;
   java.io.File wfile2;

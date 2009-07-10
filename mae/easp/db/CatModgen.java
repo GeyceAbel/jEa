@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090205
-// Hora:             10:55:48
+// Fecha:            20090710
+// Hora:             09:31:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -350,6 +350,7 @@ public class CatModgen extends Catalog
     public FieldDef meserrork;
     public FieldDef mesuserk;
     public FieldDef mesplatk;
+    public FieldDef mesaplazada;
     public TabModestado(String name)
       {
       super(name);
@@ -409,6 +410,7 @@ public class CatModgen extends Catalog
       meserrork = new FieldDef("meserrork",FieldDef.CHAR,255);
       mesuserk = new FieldDef("mesuserk",FieldDef.CHAR,25);
       mesplatk = new FieldDef("mesplatk",FieldDef.CHAR,15);
+      mesaplazada = new FieldDef("mesaplazada",FieldDef.CHAR,1);
       FieldDef array[] = {
         mesdominio,
         mesmodelo,
@@ -465,7 +467,8 @@ public class CatModgen extends Catalog
         mesfechak,
         meserrork,
         mesuserk,
-        mesplatk        
+        mesplatk,
+        mesaplazada        
         };
       setColumns(array);
       FieldDef arrayind1[] = { mesnif };

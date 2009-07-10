@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090205
-// Hora:             10:55:48
+// Fecha:            20090710
+// Hora:             09:31:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -33,7 +33,6 @@ public class CatJeo extends Catalog
   public TabPsocios tabpsocios;
   public TabPcmayor tabpcmayor;
   public TabPcuentas tabpcuentas;
-  public TabPclocales tabpclocales;
   public TabPcadicionales tabpcadicionales;
   public TabDefcabapuntes tabdefcabapuntes;
   public TabDefapuntes tabdefapuntes;
@@ -48,7 +47,6 @@ public class CatJeo extends Catalog
   public TabSeleccionbie tabseleccionbie;
   public TabDeflibros tabdeflibros;
   public TabParamlis tabparamlis;
-  public TabLisresumen tablisresumen;
   public TabPrefijos tabprefijos;
   public TabEjercicio tabejercicio;
   public TabConversion tabconversion;
@@ -69,12 +67,14 @@ public class CatJeo extends Catalog
   public TabDoccampos tabdoccampos;
   public TabDocrtffiltro tabdocrtffiltro;
   public TabDocrtfs tabdocrtfs;
-  public TabListado347 tablistado347;
   public TabDocrtfcampos tabdocrtfcampos;
   public TabSeries tabseries;
   public TabImportaapuntes tabimportaapuntes;
   public TabApuntes tabapuntes;
   public TabBieninversion tabbieninversion;
+  public TabListado347 tablistado347;
+  public TabPclocales tabpclocales;
+  public TabLisresumen tablisresumen;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -533,6 +533,9 @@ public class CatJeo extends Catalog
     public FieldDef empcalcliquida;
     public FieldDef empetiquetas;
     public FieldDef empcirculares;
+    public FieldDef empcodeoant;
+    public FieldDef emppagahipoteca;
+    public FieldDef empart80bis;
     public TabEmpresa(String name)
       {
       super(name);
@@ -563,6 +566,9 @@ public class CatJeo extends Catalog
       empcalcliquida = new FieldDef("empcalcliquida",FieldDef.CHAR,1);
       empetiquetas = new FieldDef("empetiquetas",FieldDef.CHAR,1);
       empcirculares = new FieldDef("empcirculares",FieldDef.CHAR,1);
+      empcodeoant = new FieldDef("empcodeoant",FieldDef.INTEGER,0);
+      emppagahipoteca = new FieldDef("emppagahipoteca",FieldDef.CHAR,1);
+      empart80bis = new FieldDef("empart80bis",FieldDef.CHAR,1);
       FieldDef array[] = {
         empcodigo,
         empnif,
@@ -590,7 +596,10 @@ public class CatJeo extends Catalog
         empcodastgast,
         empcalcliquida,
         empetiquetas,
-        empcirculares        
+        empcirculares,
+        empcodeoant,
+        emppagahipoteca,
+        empart80bis        
         };
       setColumns(array);
       FieldDef arrayf[] = {empcodigo };
@@ -623,6 +632,9 @@ public class CatJeo extends Catalog
       empcalcliquida.setDescription("Cálculo liquidaciones");
       empetiquetas.setDescription("Emitir etiquetas");
       empcirculares.setDescription("Emitir circulares");
+      empcodeoant.setDescription("Código empresa eo antigual. De utilidad para enlace");
+      emppagahipoteca.setDescription("Paga hipoteca");
+      empart80bis.setDescription("Aplicar artículo 80 bis							");
       }
     }
     
@@ -821,6 +833,8 @@ public class CatJeo extends Catalog
     public FieldDef socfechaalta;
     public FieldDef socfechabaja;
     public FieldDef soccodigocdp;
+    public FieldDef socpagahipoteca;
+    public FieldDef socart80bis;
     public TabSocios(String name)
       {
       super(name);
@@ -829,12 +843,16 @@ public class CatJeo extends Catalog
       socfechaalta = new FieldDef("socfechaalta",FieldDef.DATE);
       socfechabaja = new FieldDef("socfechabaja",FieldDef.DATE);
       soccodigocdp = new FieldDef("soccodigocdp",FieldDef.CHAR,12);
+      socpagahipoteca = new FieldDef("socpagahipoteca",FieldDef.CHAR,1);
+      socart80bis = new FieldDef("socart80bis",FieldDef.CHAR,1);
       FieldDef array[] = {
         socempresa,
         socnif,
         socfechaalta,
         socfechabaja,
-        soccodigocdp        
+        soccodigocdp,
+        socpagahipoteca,
+        socart80bis        
         };
       setColumns(array);
       FieldDef arrayf[] = {socempresa,socnif };
@@ -845,6 +863,8 @@ public class CatJeo extends Catalog
       socfechaalta.setDescription("Fecha de alta");
       socfechabaja.setDescription("Fecha de baja");
       soccodigocdp.setDescription("Código de CDP");
+      socpagahipoteca.setDescription("Paga hipoteca");
+      socart80bis.setDescription("Aplicar artículo 80 bis");
       }
     }
     
@@ -1066,81 +1086,6 @@ public class CatJeo extends Catalog
       pcudias4.setDescription("Días que transcurrirá hasta el cuarto plazo de cobro/pago");
       pcudias5.setDescription("Días que transcurrirá hasta el quinto plazo de cobro/pago");
       pcudias6.setDescription("Días que transcurrirá hasta el sexto plazo de cobro/pago");
-      }
-    }
-    
-  public class TabPclocales extends TableDef
-    {
-    // Campos
-    public FieldDef pclejercicio;
-    public FieldDef pclempresa;
-    public FieldDef pclcuenta;
-    public FieldDef pclsubcuenta;
-    public FieldDef pclreferencia;
-    public FieldDef pclsiglas;
-    public FieldDef pclcalle;
-    public FieldDef pclnumero;
-    public FieldDef pclescalera;
-    public FieldDef pclpiso;
-    public FieldDef pclpuerta;
-    public FieldDef pclmunicipio;
-    public FieldDef pclprovincia;
-    public FieldDef pclpais;
-    public FieldDef pclnifrepres;
-    public TabPclocales(String name)
-      {
-      super(name);
-      pclejercicio = new FieldDef("pclejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      pclempresa = new FieldDef("pclempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      pclcuenta = new FieldDef("pclcuenta",FieldDef.CHAR,4,FieldDef.NOTNULL);
-      pclsubcuenta = new FieldDef("pclsubcuenta",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      pclreferencia = new FieldDef("pclreferencia",FieldDef.CHAR,25);
-      pclsiglas = new FieldDef("pclsiglas",FieldDef.CHAR,2);
-      pclcalle = new FieldDef("pclcalle",FieldDef.CHAR,30);
-      pclnumero = new FieldDef("pclnumero",FieldDef.CHAR,5);
-      pclescalera = new FieldDef("pclescalera",FieldDef.CHAR,2);
-      pclpiso = new FieldDef("pclpiso",FieldDef.CHAR,2);
-      pclpuerta = new FieldDef("pclpuerta",FieldDef.CHAR,2);
-      pclmunicipio = new FieldDef("pclmunicipio",FieldDef.CHAR,25);
-      pclprovincia = new FieldDef("pclprovincia",FieldDef.INTEGER,0);
-      pclpais = new FieldDef("pclpais",FieldDef.INTEGER,0);
-      pclnifrepres = new FieldDef("pclnifrepres",FieldDef.CHAR,15);
-      FieldDef array[] = {
-        pclejercicio,
-        pclempresa,
-        pclcuenta,
-        pclsubcuenta,
-        pclreferencia,
-        pclsiglas,
-        pclcalle,
-        pclnumero,
-        pclescalera,
-        pclpiso,
-        pclpuerta,
-        pclmunicipio,
-        pclprovincia,
-        pclpais,
-        pclnifrepres        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {pclejercicio,pclempresa,pclcuenta,pclsubcuenta };
-      setDescription("Relación de locales para 347 y 180");
-      setPrimaryKeys(arrayf);
-      pclejercicio.setDescription("Ejericicio");
-      pclempresa.setDescription("Empresa");
-      pclcuenta.setDescription("Cuenta de mayor");
-      pclsubcuenta.setDescription("Subcuenta");
-      pclreferencia.setDescription("Referencia catastral");
-      pclsiglas.setDescription("Siglas");
-      pclcalle.setDescription("Nombre de la vía");
-      pclnumero.setDescription("Número");
-      pclescalera.setDescription("Escalera");
-      pclpiso.setDescription("Piso");
-      pclpuerta.setDescription("Puerta");
-      pclmunicipio.setDescription("Municipio");
-      pclprovincia.setDescription("Código de provincia");
-      pclpais.setDescription("Código de país");
-      pclnifrepres.setDescription("NIF del representante si se trata de un menor de edad");
       }
     }
     
@@ -2042,105 +1987,6 @@ public class CatJeo extends Catalog
       }
     }
     
-  public class TabLisresumen extends TableDef
-    {
-    // Campos
-    public FieldDef lrscodigo;
-    public FieldDef lrsempresa;
-    public FieldDef lrsusuario;
-    public FieldDef lrsprograma;
-    public FieldDef lrsactividad;
-    public FieldDef lrsconcepto;
-    public FieldDef lrstrans;
-    public FieldDef lrstipo;
-    public FieldDef lrsbased;
-    public FieldDef lrscuotad;
-    public FieldDef lrsbasend;
-    public FieldDef lrscuotand;
-    public FieldDef lrsbasepr;
-    public FieldDef lrscuotapr;
-    public FieldDef lrsemitrecib;
-    public FieldDef lrsenero;
-    public FieldDef lrsfebrero;
-    public FieldDef lrsmarzo;
-    public FieldDef lrsabril;
-    public FieldDef lrsmayo;
-    public FieldDef lrsjunio;
-    public FieldDef lrsjulio;
-    public FieldDef lrsagosto;
-    public FieldDef lrsseptiembre;
-    public FieldDef lrsoctubre;
-    public FieldDef lrsnoviembre;
-    public FieldDef lrsdiciembre;
-    public FieldDef lrsacumul;
-    public TabLisresumen(String name)
-      {
-      super(name);
-      lrscodigo = new FieldDef("lrscodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      lrsempresa = new FieldDef("lrsempresa",FieldDef.INTEGER,0);
-      lrsusuario = new FieldDef("lrsusuario",FieldDef.CHAR,12);
-      lrsprograma = new FieldDef("lrsprograma",FieldDef.CHAR,12);
-      lrsactividad = new FieldDef("lrsactividad",FieldDef.INTEGER,0);
-      lrsconcepto = new FieldDef("lrsconcepto",FieldDef.CHAR,1);
-      lrstrans = new FieldDef("lrstrans",FieldDef.CHAR,5);
-      lrstipo = new FieldDef("lrstipo",FieldDef.FLOAT,6,0);
-      lrsbased = new FieldDef("lrsbased",FieldDef.FLOAT,6,0);
-      lrscuotad = new FieldDef("lrscuotad",FieldDef.FLOAT,6,0);
-      lrsbasend = new FieldDef("lrsbasend",FieldDef.FLOAT,6,0);
-      lrscuotand = new FieldDef("lrscuotand",FieldDef.FLOAT,6,0);
-      lrsbasepr = new FieldDef("lrsbasepr",FieldDef.FLOAT,6,0);
-      lrscuotapr = new FieldDef("lrscuotapr",FieldDef.FLOAT,6,0);
-      lrsemitrecib = new FieldDef("lrsemitrecib",FieldDef.CHAR,1);
-      lrsenero = new FieldDef("lrsenero",FieldDef.FLOAT,6,0);
-      lrsfebrero = new FieldDef("lrsfebrero",FieldDef.FLOAT,6,0);
-      lrsmarzo = new FieldDef("lrsmarzo",FieldDef.FLOAT,6,0);
-      lrsabril = new FieldDef("lrsabril",FieldDef.FLOAT,6,0);
-      lrsmayo = new FieldDef("lrsmayo",FieldDef.FLOAT,6,0);
-      lrsjunio = new FieldDef("lrsjunio",FieldDef.FLOAT,6,0);
-      lrsjulio = new FieldDef("lrsjulio",FieldDef.FLOAT,6,0);
-      lrsagosto = new FieldDef("lrsagosto",FieldDef.FLOAT,6,0);
-      lrsseptiembre = new FieldDef("lrsseptiembre",FieldDef.FLOAT,6,0);
-      lrsoctubre = new FieldDef("lrsoctubre",FieldDef.FLOAT,6,0);
-      lrsnoviembre = new FieldDef("lrsnoviembre",FieldDef.FLOAT,6,0);
-      lrsdiciembre = new FieldDef("lrsdiciembre",FieldDef.FLOAT,6,0);
-      lrsacumul = new FieldDef("lrsacumul",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        lrscodigo,
-        lrsempresa,
-        lrsusuario,
-        lrsprograma,
-        lrsactividad,
-        lrsconcepto,
-        lrstrans,
-        lrstipo,
-        lrsbased,
-        lrscuotad,
-        lrsbasend,
-        lrscuotand,
-        lrsbasepr,
-        lrscuotapr,
-        lrsemitrecib,
-        lrsenero,
-        lrsfebrero,
-        lrsmarzo,
-        lrsabril,
-        lrsmayo,
-        lrsjunio,
-        lrsjulio,
-        lrsagosto,
-        lrsseptiembre,
-        lrsoctubre,
-        lrsnoviembre,
-        lrsdiciembre,
-        lrsacumul        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {lrscodigo };
-      setPrimaryKeys(arrayf);
-      lrscodigo.setAutoIncrementable(true);
-      }
-    }
-    
   public class TabPrefijos extends TableDef
     {
     // Campos
@@ -2251,6 +2097,7 @@ public class CatJeo extends Catalog
     public FieldDef cnvcuenta;
     public FieldDef cnvsubcuenta;
     public FieldDef cnvart80b;
+    public FieldDef cnvfichagral;
     public TabConversion(String name)
       {
       super(name);
@@ -2272,6 +2119,7 @@ public class CatJeo extends Catalog
       cnvcuenta = new FieldDef("cnvcuenta",FieldDef.CHAR,4);
       cnvsubcuenta = new FieldDef("cnvsubcuenta",FieldDef.CHAR,15);
       cnvart80b = new FieldDef("cnvart80b",FieldDef.CHAR,1);
+      cnvfichagral = new FieldDef("cnvfichagral",FieldDef.CHAR,1);
       FieldDef array[] = {
         cnvruta,
         cnvdirec,
@@ -2290,7 +2138,8 @@ public class CatJeo extends Catalog
         cnvtipodatos,
         cnvcuenta,
         cnvsubcuenta,
-        cnvart80b        
+        cnvart80b,
+        cnvfichagral        
         };
       setColumns(array);
       FieldDef arrayf[] = {cnvruta,cnvdirec,cnvempresagyc };
@@ -2314,6 +2163,7 @@ public class CatJeo extends Catalog
       cnvcuenta.setDescription("Cuenta de amortización");
       cnvsubcuenta.setDescription("Subcuenta de amortización");
       cnvart80b.setDescription("Se minoro en 130/131 la reducción art.80 bis");
+      cnvfichagral.setDescription("Reemplazar los datos de la ficha general");
       }
     }
     
@@ -3138,97 +2988,6 @@ public class CatJeo extends Catalog
       drttabla.setDescription("Nombre de la tabla");
       drtcatalog.setDescription("Nombre del catalogo jMODELOS");
       drtejercicio.setDescription("Ejercicio actual/anterior...");
-      }
-    }
-    
-  public class TabListado347 extends TableDef
-    {
-    // Campos
-    public FieldDef l347iden;
-    public FieldDef l347usuario;
-    public FieldDef l347ejercicio;
-    public FieldDef l347empresa;
-    public FieldDef l347clave;
-    public FieldDef l347cuenta;
-    public FieldDef l347subcuenta;
-    public FieldDef l347nif;
-    public FieldDef l347nombre;
-    public FieldDef l347importe;
-    public FieldDef l347ira347;
-    public FieldDef l347provincia;
-    public FieldDef l347pais;
-    public FieldDef l347telefono;
-    public FieldDef l347direccion;
-    public FieldDef l347cpostal;
-    public FieldDef l347municipio;
-    public FieldDef l347excede;
-    public FieldDef l347efectivo;
-    public TabListado347(String name)
-      {
-      super(name);
-      l347iden = new FieldDef("l347iden",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      l347usuario = new FieldDef("l347usuario",FieldDef.CHAR,12);
-      l347ejercicio = new FieldDef("l347ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      l347empresa = new FieldDef("l347empresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      l347clave = new FieldDef("l347clave",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      l347cuenta = new FieldDef("l347cuenta",FieldDef.CHAR,4,FieldDef.NOTNULL);
-      l347subcuenta = new FieldDef("l347subcuenta",FieldDef.CHAR,15);
-      l347nif = new FieldDef("l347nif",FieldDef.CHAR,15);
-      l347nombre = new FieldDef("l347nombre",FieldDef.CHAR,40);
-      l347importe = new FieldDef("l347importe",FieldDef.FLOAT,6,0);
-      l347ira347 = new FieldDef("l347ira347",FieldDef.CHAR,1);
-      l347provincia = new FieldDef("l347provincia",FieldDef.INTEGER,0);
-      l347pais = new FieldDef("l347pais",FieldDef.CHAR,2);
-      l347telefono = new FieldDef("l347telefono",FieldDef.CHAR,15);
-      l347direccion = new FieldDef("l347direccion",FieldDef.CHAR,50);
-      l347cpostal = new FieldDef("l347cpostal",FieldDef.INTEGER,0);
-      l347municipio = new FieldDef("l347municipio",FieldDef.CHAR,40);
-      l347excede = new FieldDef("l347excede",FieldDef.CHAR,1);
-      l347efectivo = new FieldDef("l347efectivo",FieldDef.CHAR,1);
-      FieldDef array[] = {
-        l347iden,
-        l347usuario,
-        l347ejercicio,
-        l347empresa,
-        l347clave,
-        l347cuenta,
-        l347subcuenta,
-        l347nif,
-        l347nombre,
-        l347importe,
-        l347ira347,
-        l347provincia,
-        l347pais,
-        l347telefono,
-        l347direccion,
-        l347cpostal,
-        l347municipio,
-        l347excede,
-        l347efectivo        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {l347iden };
-      setDescription("Clientes / Proveedores a 347");
-      setPrimaryKeys(arrayf);
-      l347iden.setAutoIncrementable(true);
-      l347usuario.setDescription("Usuario");
-      l347ejercicio.setDescription("Ejericicio");
-      l347empresa.setDescription("Empresa");
-      l347clave.setDescription("Clave 347 (Cliente, Proveedor o Pago Mediacion");
-      l347cuenta.setDescription("Cuenta de mayor");
-      l347subcuenta.setDescription("Subcuenta");
-      l347nif.setDescription("NIF cliente o proveedor");
-      l347nombre.setDescription("Nombre del cliente");
-      l347importe.setDescription("Importe");
-      l347ira347.setDescription("Va a 347 en plan de cuentas o actividad");
-      l347provincia.setDescription("Codigo provincia");
-      l347pais.setDescription("Codigo pais");
-      l347telefono.setDescription("Telefono");
-      l347direccion.setDescription("Direccion");
-      l347cpostal.setDescription("Codigo postal");
-      l347municipio.setDescription("Municipio");
-      l347excede.setDescription("Indica si el NIF aparecera en 347");
-      l347efectivo.setDescription("Se ha cobrado en efectivo");
       }
     }
     
@@ -4063,6 +3822,318 @@ public class CatJeo extends Catalog
       }
     }
     
+  public class TabListado347 extends TableDef
+    {
+    // Campos
+    public FieldDef l347iden;
+    public FieldDef l347usuario;
+    public FieldDef l347ejercicio;
+    public FieldDef l347empresa;
+    public FieldDef l347clave;
+    public FieldDef l347cuenta;
+    public FieldDef l347subcuenta;
+    public FieldDef l347nif;
+    public FieldDef l347nombre;
+    public FieldDef l347importe;
+    public FieldDef l347ira347;
+    public FieldDef l347provincia;
+    public FieldDef l347pais;
+    public FieldDef l347telefono;
+    public FieldDef l347direccion;
+    public FieldDef l347cpostal;
+    public FieldDef l347municipio;
+    public FieldDef l347excede;
+    public FieldDef l347efectivo;
+    public FieldDef l347impefectivo;
+    public TabListado347(String name)
+      {
+      super(name);
+      l347iden = new FieldDef("l347iden",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      l347usuario = new FieldDef("l347usuario",FieldDef.CHAR,12);
+      l347ejercicio = new FieldDef("l347ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      l347empresa = new FieldDef("l347empresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      l347clave = new FieldDef("l347clave",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      l347cuenta = new FieldDef("l347cuenta",FieldDef.CHAR,4,FieldDef.NOTNULL);
+      l347subcuenta = new FieldDef("l347subcuenta",FieldDef.CHAR,15);
+      l347nif = new FieldDef("l347nif",FieldDef.CHAR,15);
+      l347nombre = new FieldDef("l347nombre",FieldDef.CHAR,40);
+      l347importe = new FieldDef("l347importe",FieldDef.FLOAT,6,0);
+      l347ira347 = new FieldDef("l347ira347",FieldDef.CHAR,1);
+      l347provincia = new FieldDef("l347provincia",FieldDef.INTEGER,0);
+      l347pais = new FieldDef("l347pais",FieldDef.CHAR,2);
+      l347telefono = new FieldDef("l347telefono",FieldDef.CHAR,15);
+      l347direccion = new FieldDef("l347direccion",FieldDef.CHAR,50);
+      l347cpostal = new FieldDef("l347cpostal",FieldDef.INTEGER,0);
+      l347municipio = new FieldDef("l347municipio",FieldDef.CHAR,40);
+      l347excede = new FieldDef("l347excede",FieldDef.CHAR,1);
+      l347efectivo = new FieldDef("l347efectivo",FieldDef.CHAR,1);
+      l347impefectivo = new FieldDef("l347impefectivo",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        l347iden,
+        l347usuario,
+        l347ejercicio,
+        l347empresa,
+        l347clave,
+        l347cuenta,
+        l347subcuenta,
+        l347nif,
+        l347nombre,
+        l347importe,
+        l347ira347,
+        l347provincia,
+        l347pais,
+        l347telefono,
+        l347direccion,
+        l347cpostal,
+        l347municipio,
+        l347excede,
+        l347efectivo,
+        l347impefectivo        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {l347iden };
+      setDescription("Clientes / Proveedores a 347");
+      setPrimaryKeys(arrayf);
+      l347iden.setAutoIncrementable(true);
+      l347usuario.setDescription("Usuario");
+      l347ejercicio.setDescription("Ejericicio");
+      l347empresa.setDescription("Empresa");
+      l347clave.setDescription("Clave 347 (Cliente, Proveedor o Pago Mediacion");
+      l347cuenta.setDescription("Cuenta de mayor");
+      l347subcuenta.setDescription("Subcuenta");
+      l347nif.setDescription("NIF cliente o proveedor");
+      l347nombre.setDescription("Nombre del cliente");
+      l347importe.setDescription("Importe");
+      l347ira347.setDescription("Va a 347 en plan de cuentas o actividad");
+      l347provincia.setDescription("Codigo provincia");
+      l347pais.setDescription("Codigo pais");
+      l347telefono.setDescription("Telefono");
+      l347direccion.setDescription("Direccion");
+      l347cpostal.setDescription("Codigo postal");
+      l347municipio.setDescription("Municipio");
+      l347excede.setDescription("Indica si el NIF aparecera en 347");
+      l347efectivo.setDescription("Se ha cobrado en efectivo");
+      l347impefectivo.setDescription("Importe efectivo");
+      }
+    }
+    
+  public class TabPclocales extends TableDef
+    {
+    // Campos
+    public FieldDef pclejercicio;
+    public FieldDef pclempresa;
+    public FieldDef pclcuenta;
+    public FieldDef pclsubcuenta;
+    public FieldDef pclreferencia;
+    public FieldDef pclsiglas;
+    public FieldDef pclcalle;
+    public FieldDef pclnumero;
+    public FieldDef pclescalera;
+    public FieldDef pclpiso;
+    public FieldDef pclpuerta;
+    public FieldDef pclmunicipio;
+    public FieldDef pclprovincia;
+    public FieldDef pclpais;
+    public FieldDef pclnifrepres;
+    public FieldDef pclsituacion;
+    public FieldDef pcltipovia;
+    public FieldDef pcltiponum;
+    public FieldDef pclcalifnum;
+    public FieldDef pclbloque;
+    public FieldDef pclportal;
+    public FieldDef pclcomplem;
+    public FieldDef pcllocal;
+    public FieldDef pclcodmuni;
+    public FieldDef pclcodpostal;
+    public TabPclocales(String name)
+      {
+      super(name);
+      pclejercicio = new FieldDef("pclejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pclempresa = new FieldDef("pclempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pclcuenta = new FieldDef("pclcuenta",FieldDef.CHAR,4,FieldDef.NOTNULL);
+      pclsubcuenta = new FieldDef("pclsubcuenta",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      pclreferencia = new FieldDef("pclreferencia",FieldDef.CHAR,25);
+      pclsiglas = new FieldDef("pclsiglas",FieldDef.CHAR,2);
+      pclcalle = new FieldDef("pclcalle",FieldDef.CHAR,30);
+      pclnumero = new FieldDef("pclnumero",FieldDef.CHAR,5);
+      pclescalera = new FieldDef("pclescalera",FieldDef.CHAR,2);
+      pclpiso = new FieldDef("pclpiso",FieldDef.CHAR,2);
+      pclpuerta = new FieldDef("pclpuerta",FieldDef.CHAR,2);
+      pclmunicipio = new FieldDef("pclmunicipio",FieldDef.CHAR,25);
+      pclprovincia = new FieldDef("pclprovincia",FieldDef.INTEGER,0);
+      pclpais = new FieldDef("pclpais",FieldDef.INTEGER,0);
+      pclnifrepres = new FieldDef("pclnifrepres",FieldDef.CHAR,15);
+      pclsituacion = new FieldDef("pclsituacion",FieldDef.INTEGER,0);
+      pcltipovia = new FieldDef("pcltipovia",FieldDef.CHAR,5);
+      pcltiponum = new FieldDef("pcltiponum",FieldDef.CHAR,3);
+      pclcalifnum = new FieldDef("pclcalifnum",FieldDef.CHAR,3);
+      pclbloque = new FieldDef("pclbloque",FieldDef.CHAR,3);
+      pclportal = new FieldDef("pclportal",FieldDef.CHAR,3);
+      pclcomplem = new FieldDef("pclcomplem",FieldDef.CHAR,40);
+      pcllocal = new FieldDef("pcllocal",FieldDef.CHAR,30);
+      pclcodmuni = new FieldDef("pclcodmuni",FieldDef.CHAR,5);
+      pclcodpostal = new FieldDef("pclcodpostal",FieldDef.CHAR,5);
+      FieldDef array[] = {
+        pclejercicio,
+        pclempresa,
+        pclcuenta,
+        pclsubcuenta,
+        pclreferencia,
+        pclsiglas,
+        pclcalle,
+        pclnumero,
+        pclescalera,
+        pclpiso,
+        pclpuerta,
+        pclmunicipio,
+        pclprovincia,
+        pclpais,
+        pclnifrepres,
+        pclsituacion,
+        pcltipovia,
+        pcltiponum,
+        pclcalifnum,
+        pclbloque,
+        pclportal,
+        pclcomplem,
+        pcllocal,
+        pclcodmuni,
+        pclcodpostal        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {pclejercicio,pclempresa,pclcuenta,pclsubcuenta };
+      setDescription("Relación de locales para 347 y 180");
+      setPrimaryKeys(arrayf);
+      pclejercicio.setDescription("Ejericicio");
+      pclempresa.setDescription("Empresa");
+      pclcuenta.setDescription("Cuenta de mayor");
+      pclsubcuenta.setDescription("Subcuenta");
+      pclreferencia.setDescription("Referencia catastral");
+      pclsiglas.setDescription("Siglas");
+      pclcalle.setDescription("Nombre de la vía");
+      pclnumero.setDescription("Número");
+      pclescalera.setDescription("Escalera");
+      pclpiso.setDescription("Piso");
+      pclpuerta.setDescription("Puerta");
+      pclmunicipio.setDescription("Municipio");
+      pclprovincia.setDescription("Código de provincia");
+      pclpais.setDescription("Código de país");
+      pclnifrepres.setDescription("NIF del representante si se trata de un menor de edad");
+      pclsituacion.setDescription("Situación");
+      pcltipovia.setDescription("Tipo de vía");
+      pcltiponum.setDescription("Tipo de número");
+      pclcalifnum.setDescription("Calificación de número");
+      pclbloque.setDescription("Bloque");
+      pclportal.setDescription("Puerta");
+      pclcomplem.setDescription("Datos complementarios domicilio");
+      pcllocal.setDescription("Localidad o población");
+      pclcodmuni.setDescription("Código municipio");
+      pclcodpostal.setDescription("Código postal");
+      }
+    }
+    
+  public class TabLisresumen extends TableDef
+    {
+    // Campos
+    public FieldDef lrscodigo;
+    public FieldDef lrsempresa;
+    public FieldDef lrsusuario;
+    public FieldDef lrsprograma;
+    public FieldDef lrsactividad;
+    public FieldDef lrsconcepto;
+    public FieldDef lrstrans;
+    public FieldDef lrstipo;
+    public FieldDef lrsbased;
+    public FieldDef lrscuotad;
+    public FieldDef lrsbasend;
+    public FieldDef lrscuotand;
+    public FieldDef lrsbasepr;
+    public FieldDef lrscuotapr;
+    public FieldDef lrsemitrecib;
+    public FieldDef lrsenero;
+    public FieldDef lrsfebrero;
+    public FieldDef lrsmarzo;
+    public FieldDef lrsabril;
+    public FieldDef lrsmayo;
+    public FieldDef lrsjunio;
+    public FieldDef lrsjulio;
+    public FieldDef lrsagosto;
+    public FieldDef lrsseptiembre;
+    public FieldDef lrsoctubre;
+    public FieldDef lrsnoviembre;
+    public FieldDef lrsdiciembre;
+    public FieldDef lrsacumul;
+    public FieldDef lrsivarecargo;
+    public TabLisresumen(String name)
+      {
+      super(name);
+      lrscodigo = new FieldDef("lrscodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      lrsempresa = new FieldDef("lrsempresa",FieldDef.INTEGER,0);
+      lrsusuario = new FieldDef("lrsusuario",FieldDef.CHAR,12);
+      lrsprograma = new FieldDef("lrsprograma",FieldDef.CHAR,12);
+      lrsactividad = new FieldDef("lrsactividad",FieldDef.INTEGER,0);
+      lrsconcepto = new FieldDef("lrsconcepto",FieldDef.CHAR,1);
+      lrstrans = new FieldDef("lrstrans",FieldDef.CHAR,5);
+      lrstipo = new FieldDef("lrstipo",FieldDef.FLOAT,6,0);
+      lrsbased = new FieldDef("lrsbased",FieldDef.FLOAT,6,0);
+      lrscuotad = new FieldDef("lrscuotad",FieldDef.FLOAT,6,0);
+      lrsbasend = new FieldDef("lrsbasend",FieldDef.FLOAT,6,0);
+      lrscuotand = new FieldDef("lrscuotand",FieldDef.FLOAT,6,0);
+      lrsbasepr = new FieldDef("lrsbasepr",FieldDef.FLOAT,6,0);
+      lrscuotapr = new FieldDef("lrscuotapr",FieldDef.FLOAT,6,0);
+      lrsemitrecib = new FieldDef("lrsemitrecib",FieldDef.CHAR,1);
+      lrsenero = new FieldDef("lrsenero",FieldDef.FLOAT,6,0);
+      lrsfebrero = new FieldDef("lrsfebrero",FieldDef.FLOAT,6,0);
+      lrsmarzo = new FieldDef("lrsmarzo",FieldDef.FLOAT,6,0);
+      lrsabril = new FieldDef("lrsabril",FieldDef.FLOAT,6,0);
+      lrsmayo = new FieldDef("lrsmayo",FieldDef.FLOAT,6,0);
+      lrsjunio = new FieldDef("lrsjunio",FieldDef.FLOAT,6,0);
+      lrsjulio = new FieldDef("lrsjulio",FieldDef.FLOAT,6,0);
+      lrsagosto = new FieldDef("lrsagosto",FieldDef.FLOAT,6,0);
+      lrsseptiembre = new FieldDef("lrsseptiembre",FieldDef.FLOAT,6,0);
+      lrsoctubre = new FieldDef("lrsoctubre",FieldDef.FLOAT,6,0);
+      lrsnoviembre = new FieldDef("lrsnoviembre",FieldDef.FLOAT,6,0);
+      lrsdiciembre = new FieldDef("lrsdiciembre",FieldDef.FLOAT,6,0);
+      lrsacumul = new FieldDef("lrsacumul",FieldDef.FLOAT,6,0);
+      lrsivarecargo = new FieldDef("lrsivarecargo",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        lrscodigo,
+        lrsempresa,
+        lrsusuario,
+        lrsprograma,
+        lrsactividad,
+        lrsconcepto,
+        lrstrans,
+        lrstipo,
+        lrsbased,
+        lrscuotad,
+        lrsbasend,
+        lrscuotand,
+        lrsbasepr,
+        lrscuotapr,
+        lrsemitrecib,
+        lrsenero,
+        lrsfebrero,
+        lrsmarzo,
+        lrsabril,
+        lrsmayo,
+        lrsjunio,
+        lrsjulio,
+        lrsagosto,
+        lrsseptiembre,
+        lrsoctubre,
+        lrsnoviembre,
+        lrsdiciembre,
+        lrsacumul,
+        lrsivarecargo        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {lrscodigo };
+      setPrimaryKeys(arrayf);
+      lrscodigo.setAutoIncrementable(true);
+      }
+    }
+    
   public CatJeo()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -4082,7 +4153,6 @@ public class CatJeo extends Catalog
     tabpsocios = new TabPsocios("psocios");
     tabpcmayor = new TabPcmayor("pcmayor");
     tabpcuentas = new TabPcuentas("pcuentas");
-    tabpclocales = new TabPclocales("pclocales");
     tabpcadicionales = new TabPcadicionales("pcadicionales");
     tabdefcabapuntes = new TabDefcabapuntes("defcabapuntes");
     tabdefapuntes = new TabDefapuntes("defapuntes");
@@ -4097,7 +4167,6 @@ public class CatJeo extends Catalog
     tabseleccionbie = new TabSeleccionbie("seleccionbie");
     tabdeflibros = new TabDeflibros("deflibros");
     tabparamlis = new TabParamlis("paramlis");
-    tablisresumen = new TabLisresumen("lisresumen");
     tabprefijos = new TabPrefijos("prefijos");
     tabejercicio = new TabEjercicio("ejercicio");
     tabconversion = new TabConversion("conversion");
@@ -4118,12 +4187,14 @@ public class CatJeo extends Catalog
     tabdoccampos = new TabDoccampos("doccampos");
     tabdocrtffiltro = new TabDocrtffiltro("docrtffiltro");
     tabdocrtfs = new TabDocrtfs("docrtfs");
-    tablistado347 = new TabListado347("listado347");
     tabdocrtfcampos = new TabDocrtfcampos("docrtfcampos");
     tabseries = new TabSeries("series");
     tabimportaapuntes = new TabImportaapuntes("importaapuntes");
     tabapuntes = new TabApuntes("apuntes");
     tabbieninversion = new TabBieninversion("bieninversion");
+    tablistado347 = new TabListado347("listado347");
+    tabpclocales = new TabPclocales("pclocales");
+    tablisresumen = new TabLisresumen("lisresumen");
     TableDef array[] = {
       tabgycauto,
       tabconceptos,
@@ -4142,7 +4213,6 @@ public class CatJeo extends Catalog
       tabpsocios,
       tabpcmayor,
       tabpcuentas,
-      tabpclocales,
       tabpcadicionales,
       tabdefcabapuntes,
       tabdefapuntes,
@@ -4157,7 +4227,6 @@ public class CatJeo extends Catalog
       tabseleccionbie,
       tabdeflibros,
       tabparamlis,
-      tablisresumen,
       tabprefijos,
       tabejercicio,
       tabconversion,
@@ -4178,12 +4247,14 @@ public class CatJeo extends Catalog
       tabdoccampos,
       tabdocrtffiltro,
       tabdocrtfs,
-      tablistado347,
       tabdocrtfcampos,
       tabseries,
       tabimportaapuntes,
       tabapuntes,
-      tabbieninversion      
+      tabbieninversion,
+      tablistado347,
+      tabpclocales,
+      tablisresumen      
       };
     setTables(array);
     FieldDef tabcalendariodetArrayf1[] = { tabcalendariodet.caldcodigo };
@@ -4222,11 +4293,6 @@ public class CatJeo extends Catalog
       new ForeignKey(tabempresa,tabpcuentasArrayf2)      
       };
     tabpcuentas.setForeignKeys(tabpcuentasArrayfk);
-    FieldDef tabpclocalesArrayf1[] = { tabpclocales.pclempresa };
-    ForeignKey tabpclocalesArrayfk[] = { 
-      new ForeignKey(tabempresa,tabpclocalesArrayf1)      
-      };
-    tabpclocales.setForeignKeys(tabpclocalesArrayfk);
     FieldDef tabpcadicionalesArrayf1[] = { tabpcadicionales.pcaempresa };
     ForeignKey tabpcadicionalesArrayfk[] = { 
       new ForeignKey(tabempresa,tabpcadicionalesArrayf1)      
@@ -4308,11 +4374,6 @@ public class CatJeo extends Catalog
       new ForeignKey(tabdocumentos,tabdocrtfsArrayf1)      
       };
     tabdocrtfs.setForeignKeys(tabdocrtfsArrayfk);
-    FieldDef tablistado347Arrayf1[] = { tablistado347.l347empresa };
-    ForeignKey tablistado347Arrayfk[] = { 
-      new ForeignKey(tabempresa,tablistado347Arrayf1)      
-      };
-    tablistado347.setForeignKeys(tablistado347Arrayfk);
     FieldDef tabdocrtfcamposArrayf1[] = { tabdocrtfcampos.drcreferencia };
     ForeignKey tabdocrtfcamposArrayfk[] = { 
       new ForeignKey(tabdocumentos,tabdocrtfcamposArrayf1)      
@@ -4346,6 +4407,16 @@ public class CatJeo extends Catalog
       new ForeignKey(tabempresa,tabbieninversionArrayf1)      
       };
     tabbieninversion.setForeignKeys(tabbieninversionArrayfk);
+    FieldDef tablistado347Arrayf1[] = { tablistado347.l347empresa };
+    ForeignKey tablistado347Arrayfk[] = { 
+      new ForeignKey(tabempresa,tablistado347Arrayf1)      
+      };
+    tablistado347.setForeignKeys(tablistado347Arrayfk);
+    FieldDef tabpclocalesArrayf1[] = { tabpclocales.pclempresa };
+    ForeignKey tabpclocalesArrayfk[] = { 
+      new ForeignKey(tabempresa,tabpclocalesArrayf1)      
+      };
+    tabpclocales.setForeignKeys(tabpclocalesArrayfk);
     }
   }
   

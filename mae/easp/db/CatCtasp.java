@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090205
-// Hora:             10:55:48
+// Fecha:            20090710
+// Hora:             09:31:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -85,6 +85,7 @@ public class CatCtasp extends Catalog
   public TabEstcampat tabestcampat;
   public TabCalendario tabcalendario;
   public TabCalendariodet tabcalendariodet;
+  public TabAcum347 tabacum347;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -409,16 +410,19 @@ public class CatCtasp extends Catalog
     public FieldDef parejer;
     public FieldDef parlim1;
     public FieldDef parlim2;
+    public FieldDef parlim3;
     public TabParametros(String name)
       {
       super(name);
       parejer = new FieldDef("parejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
       parlim1 = new FieldDef("parlim1",FieldDef.FLOAT,6,0);
       parlim2 = new FieldDef("parlim2",FieldDef.FLOAT,6,0);
+      parlim3 = new FieldDef("parlim3",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         parejer,
         parlim1,
-        parlim2        
+        parlim2,
+        parlim3        
         };
       setColumns(array);
       FieldDef arrayf[] = {parejer };
@@ -644,6 +648,8 @@ public class CatCtasp extends Catalog
     public FieldDef empgesfradup;
     public FieldDef empivamensual;
     public FieldDef empformapago;
+    public FieldDef empprorrata;
+    public FieldDef empcnae;
     public TabEmpresa(String name)
       {
       super(name);
@@ -673,6 +679,8 @@ public class CatCtasp extends Catalog
       empgesfradup = new FieldDef("empgesfradup",FieldDef.CHAR,1);
       empivamensual = new FieldDef("empivamensual",FieldDef.CHAR,1);
       empformapago = new FieldDef("empformapago",FieldDef.CHAR,2);
+      empprorrata = new FieldDef("empprorrata",FieldDef.CHAR,1);
+      empcnae = new FieldDef("empcnae",FieldDef.CHAR,6);
       FieldDef array[] = {
         empcodigo,
         empgranemp,
@@ -699,7 +707,9 @@ public class CatCtasp extends Catalog
         emptipoeq,
         empgesfradup,
         empivamensual,
-        empformapago        
+        empformapago,
+        empprorrata,
+        empcnae        
         };
       setColumns(array);
       FieldDef arrayind1[] = { empnif };
@@ -1421,6 +1431,15 @@ public class CatCtasp extends Catalog
     public FieldDef pclmunicipio;
     public FieldDef pclprovincia;
     public FieldDef pclpais;
+    public FieldDef pclsituacion;
+    public FieldDef pcltipovia;
+    public FieldDef pcltiponum;
+    public FieldDef pclcalifnum;
+    public FieldDef pclbloque;
+    public FieldDef pclcomplem;
+    public FieldDef pcllocal;
+    public FieldDef pclcodpostal;
+    public FieldDef pclportal2;
     public TabPclocales(String name)
       {
       super(name);
@@ -1439,6 +1458,15 @@ public class CatCtasp extends Catalog
       pclmunicipio = new FieldDef("pclmunicipio",FieldDef.CHAR,25);
       pclprovincia = new FieldDef("pclprovincia",FieldDef.INTEGER,0);
       pclpais = new FieldDef("pclpais",FieldDef.INTEGER,0);
+      pclsituacion = new FieldDef("pclsituacion",FieldDef.INTEGER,0);
+      pcltipovia = new FieldDef("pcltipovia",FieldDef.CHAR,5);
+      pcltiponum = new FieldDef("pcltiponum",FieldDef.CHAR,3);
+      pclcalifnum = new FieldDef("pclcalifnum",FieldDef.CHAR,3);
+      pclbloque = new FieldDef("pclbloque",FieldDef.CHAR,3);
+      pclcomplem = new FieldDef("pclcomplem",FieldDef.CHAR,40);
+      pcllocal = new FieldDef("pcllocal",FieldDef.CHAR,30);
+      pclcodpostal = new FieldDef("pclcodpostal",FieldDef.CHAR,5);
+      pclportal2 = new FieldDef("pclportal2",FieldDef.CHAR,3);
       FieldDef array[] = {
         pclempresa,
         pclejercicio,
@@ -1454,7 +1482,16 @@ public class CatCtasp extends Catalog
         pclcodimuni,
         pclmunicipio,
         pclprovincia,
-        pclpais        
+        pclpais,
+        pclsituacion,
+        pcltipovia,
+        pcltiponum,
+        pclcalifnum,
+        pclbloque,
+        pclcomplem,
+        pcllocal,
+        pclcodpostal,
+        pclportal2        
         };
       setColumns(array);
       FieldDef arrayf[] = {pclempresa,pclejercicio,pclcuenta,pclsubcuenta };
@@ -1606,6 +1643,8 @@ public class CatCtasp extends Catalog
     public FieldDef ticflujo;
     public FieldDef tictitopefec;
     public FieldDef ticopefec;
+    public FieldDef tictitprorrata;
+    public FieldDef ticprorrata;
     public TabTipcabecera(String name)
       {
       super(name);
@@ -1683,6 +1722,8 @@ public class CatCtasp extends Catalog
       ticflujo = new FieldDef("ticflujo",FieldDef.CHAR,1);
       tictitopefec = new FieldDef("tictitopefec",FieldDef.CHAR,40);
       ticopefec = new FieldDef("ticopefec",FieldDef.CHAR,1);
+      tictitprorrata = new FieldDef("tictitprorrata",FieldDef.CHAR,40);
+      ticprorrata = new FieldDef("ticprorrata",FieldDef.CHAR,1);
       FieldDef array[] = {
         ticcodigo,
         ticdesc,
@@ -1757,7 +1798,9 @@ public class CatCtasp extends Catalog
         tictitflujo,
         ticflujo,
         tictitopefec,
-        ticopefec        
+        ticopefec,
+        tictitprorrata,
+        ticprorrata        
         };
       setColumns(array);
       FieldDef arrayf[] = {ticcodigo };
@@ -1957,6 +2000,8 @@ public class CatCtasp extends Catalog
     public FieldDef tibvaltransac;
     public FieldDef tiboperopefec;
     public FieldDef tibvalopefec;
+    public FieldDef tiboperprorrata;
+    public FieldDef tibvalprorrata;
     public TabTipbases(String name)
       {
       super(name);
@@ -1991,6 +2036,8 @@ public class CatCtasp extends Catalog
       tibvaltransac = new FieldDef("tibvaltransac",FieldDef.CHAR,40);
       tiboperopefec = new FieldDef("tiboperopefec",FieldDef.CHAR,2);
       tibvalopefec = new FieldDef("tibvalopefec",FieldDef.CHAR,1);
+      tiboperprorrata = new FieldDef("tiboperprorrata",FieldDef.CHAR,2);
+      tibvalprorrata = new FieldDef("tibvalprorrata",FieldDef.CHAR,1);
       FieldDef array[] = {
         tibcodigo,
         tibnumero,
@@ -2022,7 +2069,9 @@ public class CatCtasp extends Catalog
         tiboptransac,
         tibvaltransac,
         tiboperopefec,
-        tibvalopefec        
+        tibvalopefec,
+        tiboperprorrata,
+        tibvalprorrata        
         };
       setColumns(array);
       FieldDef arrayf[] = {tibcodigo,tibnumero,tibbasenum };
@@ -2167,6 +2216,7 @@ public class CatCtasp extends Catalog
     public FieldDef cobimporte;
     public FieldDef cobestado;
     public FieldDef cobdocumento;
+    public FieldDef cobtrasp;
     public TabCobropago(String name)
       {
       super(name);
@@ -2184,6 +2234,7 @@ public class CatCtasp extends Catalog
       cobimporte = new FieldDef("cobimporte",FieldDef.FLOAT,6,0);
       cobestado = new FieldDef("cobestado",FieldDef.CHAR,1,FieldDef.NOTNULL);
       cobdocumento = new FieldDef("cobdocumento",FieldDef.CHAR,10);
+      cobtrasp = new FieldDef("cobtrasp",FieldDef.CHAR,1);
       FieldDef array[] = {
         cobcodi,
         cobempresa,
@@ -2198,7 +2249,8 @@ public class CatCtasp extends Catalog
         cobconcepto,
         cobimporte,
         cobestado,
-        cobdocumento        
+        cobdocumento,
+        cobtrasp        
         };
       setColumns(array);
       FieldDef arrayind1[] = { cobempresa,cobejercicio,cobcuenta,cobsubcuenta };
@@ -2319,6 +2371,7 @@ public class CatCtasp extends Catalog
     public FieldDef livdeducible;
     public FieldDef livtransaccion;
     public FieldDef livopefec;
+    public FieldDef livprorrata;
     public TabIvalineas(String name)
       {
       super(name);
@@ -2340,6 +2393,7 @@ public class CatCtasp extends Catalog
       livdeducible = new FieldDef("livdeducible",FieldDef.CHAR,1,FieldDef.NOTNULL);
       livtransaccion = new FieldDef("livtransaccion",FieldDef.CHAR,5,FieldDef.NOTNULL);
       livopefec = new FieldDef("livopefec",FieldDef.CHAR,1);
+      livprorrata = new FieldDef("livprorrata",FieldDef.CHAR,1);
       FieldDef array[] = {
         livcodi,
         livcodilin,
@@ -2358,7 +2412,8 @@ public class CatCtasp extends Catalog
         livmediacion,
         livdeducible,
         livtransaccion,
-        livopefec        
+        livopefec,
+        livprorrata        
         };
       setColumns(array);
       FieldDef arrayf[] = {livcodi,livcodilin };
@@ -4057,6 +4112,54 @@ public class CatCtasp extends Catalog
     public FieldDef ecpsalfin10;
     public FieldDef ecpsalfin11;
     public FieldDef ecpsalfin12;
+    public FieldDef ecpfp1c1;
+    public FieldDef ecpfp1c2;
+    public FieldDef ecpfp1c3;
+    public FieldDef ecpfp1c4;
+    public FieldDef ecpfp1c5;
+    public FieldDef ecpfp1c6;
+    public FieldDef ecpfp1c7;
+    public FieldDef ecpfp1c8;
+    public FieldDef ecpfp1c9;
+    public FieldDef ecpfp1c10;
+    public FieldDef ecpfp1c11;
+    public FieldDef ecpfp1c12;
+    public FieldDef ecpfp2c1;
+    public FieldDef ecpfp2c2;
+    public FieldDef ecpfp2c3;
+    public FieldDef ecpfp2c4;
+    public FieldDef ecpfp2c5;
+    public FieldDef ecpfp2c6;
+    public FieldDef ecpfp2c7;
+    public FieldDef ecpfp2c8;
+    public FieldDef ecpfp2c9;
+    public FieldDef ecpfp2c10;
+    public FieldDef ecpfp2c11;
+    public FieldDef ecpfp2c12;
+    public FieldDef ecpfp3c1;
+    public FieldDef ecpfp3c2;
+    public FieldDef ecpfp3c3;
+    public FieldDef ecpfp3c4;
+    public FieldDef ecpfp3c5;
+    public FieldDef ecpfp3c6;
+    public FieldDef ecpfp3c7;
+    public FieldDef ecpfp3c8;
+    public FieldDef ecpfp3c9;
+    public FieldDef ecpfp3c10;
+    public FieldDef ecpfp3c11;
+    public FieldDef ecpfp3c12;
+    public FieldDef ecpfp4c1;
+    public FieldDef ecpfp4c2;
+    public FieldDef ecpfp4c3;
+    public FieldDef ecpfp4c4;
+    public FieldDef ecpfp4c5;
+    public FieldDef ecpfp4c6;
+    public FieldDef ecpfp4c7;
+    public FieldDef ecpfp4c8;
+    public FieldDef ecpfp4c9;
+    public FieldDef ecpfp4c10;
+    public FieldDef ecpfp4c11;
+    public FieldDef ecpfp4c12;
     public TabEstcampat(String name)
       {
       super(name);
@@ -4219,6 +4322,54 @@ public class CatCtasp extends Catalog
       ecpsalfin10 = new FieldDef("ecpsalfin10",FieldDef.FLOAT,6,0);
       ecpsalfin11 = new FieldDef("ecpsalfin11",FieldDef.FLOAT,6,0);
       ecpsalfin12 = new FieldDef("ecpsalfin12",FieldDef.FLOAT,6,0);
+      ecpfp1c1 = new FieldDef("ecpfp1c1",FieldDef.FLOAT,6,0);
+      ecpfp1c2 = new FieldDef("ecpfp1c2",FieldDef.FLOAT,6,0);
+      ecpfp1c3 = new FieldDef("ecpfp1c3",FieldDef.FLOAT,6,0);
+      ecpfp1c4 = new FieldDef("ecpfp1c4",FieldDef.FLOAT,6,0);
+      ecpfp1c5 = new FieldDef("ecpfp1c5",FieldDef.FLOAT,6,0);
+      ecpfp1c6 = new FieldDef("ecpfp1c6",FieldDef.FLOAT,6,0);
+      ecpfp1c7 = new FieldDef("ecpfp1c7",FieldDef.FLOAT,6,0);
+      ecpfp1c8 = new FieldDef("ecpfp1c8",FieldDef.FLOAT,6,0);
+      ecpfp1c9 = new FieldDef("ecpfp1c9",FieldDef.FLOAT,6,0);
+      ecpfp1c10 = new FieldDef("ecpfp1c10",FieldDef.FLOAT,6,0);
+      ecpfp1c11 = new FieldDef("ecpfp1c11",FieldDef.FLOAT,6,0);
+      ecpfp1c12 = new FieldDef("ecpfp1c12",FieldDef.FLOAT,6,0);
+      ecpfp2c1 = new FieldDef("ecpfp2c1",FieldDef.FLOAT,6,0);
+      ecpfp2c2 = new FieldDef("ecpfp2c2",FieldDef.FLOAT,6,0);
+      ecpfp2c3 = new FieldDef("ecpfp2c3",FieldDef.FLOAT,6,0);
+      ecpfp2c4 = new FieldDef("ecpfp2c4",FieldDef.FLOAT,6,0);
+      ecpfp2c5 = new FieldDef("ecpfp2c5",FieldDef.FLOAT,6,0);
+      ecpfp2c6 = new FieldDef("ecpfp2c6",FieldDef.FLOAT,6,0);
+      ecpfp2c7 = new FieldDef("ecpfp2c7",FieldDef.FLOAT,6,0);
+      ecpfp2c8 = new FieldDef("ecpfp2c8",FieldDef.FLOAT,6,0);
+      ecpfp2c9 = new FieldDef("ecpfp2c9",FieldDef.FLOAT,6,0);
+      ecpfp2c10 = new FieldDef("ecpfp2c10",FieldDef.FLOAT,6,0);
+      ecpfp2c11 = new FieldDef("ecpfp2c11",FieldDef.FLOAT,6,0);
+      ecpfp2c12 = new FieldDef("ecpfp2c12",FieldDef.FLOAT,6,0);
+      ecpfp3c1 = new FieldDef("ecpfp3c1",FieldDef.FLOAT,6,0);
+      ecpfp3c2 = new FieldDef("ecpfp3c2",FieldDef.FLOAT,6,0);
+      ecpfp3c3 = new FieldDef("ecpfp3c3",FieldDef.FLOAT,6,0);
+      ecpfp3c4 = new FieldDef("ecpfp3c4",FieldDef.FLOAT,6,0);
+      ecpfp3c5 = new FieldDef("ecpfp3c5",FieldDef.FLOAT,6,0);
+      ecpfp3c6 = new FieldDef("ecpfp3c6",FieldDef.FLOAT,6,0);
+      ecpfp3c7 = new FieldDef("ecpfp3c7",FieldDef.FLOAT,6,0);
+      ecpfp3c8 = new FieldDef("ecpfp3c8",FieldDef.FLOAT,6,0);
+      ecpfp3c9 = new FieldDef("ecpfp3c9",FieldDef.FLOAT,6,0);
+      ecpfp3c10 = new FieldDef("ecpfp3c10",FieldDef.FLOAT,6,0);
+      ecpfp3c11 = new FieldDef("ecpfp3c11",FieldDef.FLOAT,6,0);
+      ecpfp3c12 = new FieldDef("ecpfp3c12",FieldDef.FLOAT,6,0);
+      ecpfp4c1 = new FieldDef("ecpfp4c1",FieldDef.FLOAT,6,0);
+      ecpfp4c2 = new FieldDef("ecpfp4c2",FieldDef.FLOAT,6,0);
+      ecpfp4c3 = new FieldDef("ecpfp4c3",FieldDef.FLOAT,6,0);
+      ecpfp4c4 = new FieldDef("ecpfp4c4",FieldDef.FLOAT,6,0);
+      ecpfp4c5 = new FieldDef("ecpfp4c5",FieldDef.FLOAT,6,0);
+      ecpfp4c6 = new FieldDef("ecpfp4c6",FieldDef.FLOAT,6,0);
+      ecpfp4c7 = new FieldDef("ecpfp4c7",FieldDef.FLOAT,6,0);
+      ecpfp4c8 = new FieldDef("ecpfp4c8",FieldDef.FLOAT,6,0);
+      ecpfp4c9 = new FieldDef("ecpfp4c9",FieldDef.FLOAT,6,0);
+      ecpfp4c10 = new FieldDef("ecpfp4c10",FieldDef.FLOAT,6,0);
+      ecpfp4c11 = new FieldDef("ecpfp4c11",FieldDef.FLOAT,6,0);
+      ecpfp4c12 = new FieldDef("ecpfp4c12",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         ecpempresa,
         ecpejercicio,
@@ -4378,7 +4529,55 @@ public class CatCtasp extends Catalog
         ecpsalfin9,
         ecpsalfin10,
         ecpsalfin11,
-        ecpsalfin12        
+        ecpsalfin12,
+        ecpfp1c1,
+        ecpfp1c2,
+        ecpfp1c3,
+        ecpfp1c4,
+        ecpfp1c5,
+        ecpfp1c6,
+        ecpfp1c7,
+        ecpfp1c8,
+        ecpfp1c9,
+        ecpfp1c10,
+        ecpfp1c11,
+        ecpfp1c12,
+        ecpfp2c1,
+        ecpfp2c2,
+        ecpfp2c3,
+        ecpfp2c4,
+        ecpfp2c5,
+        ecpfp2c6,
+        ecpfp2c7,
+        ecpfp2c8,
+        ecpfp2c9,
+        ecpfp2c10,
+        ecpfp2c11,
+        ecpfp2c12,
+        ecpfp3c1,
+        ecpfp3c2,
+        ecpfp3c3,
+        ecpfp3c4,
+        ecpfp3c5,
+        ecpfp3c6,
+        ecpfp3c7,
+        ecpfp3c8,
+        ecpfp3c9,
+        ecpfp3c10,
+        ecpfp3c11,
+        ecpfp3c12,
+        ecpfp4c1,
+        ecpfp4c2,
+        ecpfp4c3,
+        ecpfp4c4,
+        ecpfp4c5,
+        ecpfp4c6,
+        ecpfp4c7,
+        ecpfp4c8,
+        ecpfp4c9,
+        ecpfp4c10,
+        ecpfp4c11,
+        ecpfp4c12        
         };
       setColumns(array);
       FieldDef arrayf[] = {ecpempresa,ecpejercicio,ecpperiodo };
@@ -4455,6 +4654,66 @@ public class CatCtasp extends Catalog
       }
     }
     
+  public class TabAcum347 extends TableDef
+    {
+    // Campos
+    public FieldDef a347codigo;
+    public FieldDef a347empresa;
+    public FieldDef a347ejercicio;
+    public FieldDef a347clave;
+    public FieldDef a347nif;
+    public FieldDef a347nombre;
+    public FieldDef a347provincia;
+    public FieldDef a347pais;
+    public FieldDef a347importe;
+    public FieldDef a347importeef;
+    public FieldDef a347importelc;
+    public FieldDef a347cuenta;
+    public FieldDef a347subcuenta;
+    public FieldDef a347local;
+    public FieldDef a347tipogen;
+    public TabAcum347(String name)
+      {
+      super(name);
+      a347codigo = new FieldDef("a347codigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      a347empresa = new FieldDef("a347empresa",FieldDef.INTEGER,0);
+      a347ejercicio = new FieldDef("a347ejercicio",FieldDef.INTEGER,0);
+      a347clave = new FieldDef("a347clave",FieldDef.CHAR,1);
+      a347nif = new FieldDef("a347nif",FieldDef.CHAR,15);
+      a347nombre = new FieldDef("a347nombre",FieldDef.CHAR,40);
+      a347provincia = new FieldDef("a347provincia",FieldDef.INTEGER,0);
+      a347pais = new FieldDef("a347pais",FieldDef.CHAR,2);
+      a347importe = new FieldDef("a347importe",FieldDef.FLOAT,6,0);
+      a347importeef = new FieldDef("a347importeef",FieldDef.FLOAT,6,0);
+      a347importelc = new FieldDef("a347importelc",FieldDef.FLOAT,6,0);
+      a347cuenta = new FieldDef("a347cuenta",FieldDef.CHAR,4);
+      a347subcuenta = new FieldDef("a347subcuenta",FieldDef.CHAR,12);
+      a347local = new FieldDef("a347local",FieldDef.CHAR,1);
+      a347tipogen = new FieldDef("a347tipogen",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        a347codigo,
+        a347empresa,
+        a347ejercicio,
+        a347clave,
+        a347nif,
+        a347nombre,
+        a347provincia,
+        a347pais,
+        a347importe,
+        a347importeef,
+        a347importelc,
+        a347cuenta,
+        a347subcuenta,
+        a347local,
+        a347tipogen        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {a347codigo };
+      setPrimaryKeys(arrayf);
+      a347codigo.setAutoIncrementable(true);
+      }
+    }
+    
   public CatCtasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -4526,6 +4785,7 @@ public class CatCtasp extends Catalog
     tabestcampat = new TabEstcampat("estcampat");
     tabcalendario = new TabCalendario("calendario");
     tabcalendariodet = new TabCalendariodet("calendariodet");
+    tabacum347 = new TabAcum347("acum347");
     TableDef array[] = {
       tabgycauto,
       tabparamlis,
@@ -4595,7 +4855,8 @@ public class CatCtasp extends Catalog
       tabcambiospat,
       tabestcampat,
       tabcalendario,
-      tabcalendariodet      
+      tabcalendariodet,
+      tabacum347      
       };
     setTables(array);
     FieldDef tabempresaArrayf1[] = { tabempresa.empirpfgral };

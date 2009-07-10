@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090205
-// Hora:             10:55:48
+// Fecha:            20090710
+// Hora:             09:31:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -44,6 +44,7 @@ public class CatModelos2 extends Catalog
   public TabMod340b tabmod340b;
   public TabMod340i tabmod340i;
   public TabMod310des tabmod310des;
+  public TabMod110g tabmod110g;
   public class TabMod184d extends TableDef
     {
     // Campos
@@ -4942,7 +4943,12 @@ public class CatModelos2 extends Catalog
     public FieldDef m310ddedcregbi2;
     public FieldDef m310ddedcregbi3;
     public FieldDef m310ddedcregbi4;
+    public FieldDef m310ddeveintra1;
+    public FieldDef m310ddeveintra2;
+    public FieldDef m310ddeveintra3;
+    public FieldDef m310ddeveintra4;
     public FieldDef m310dliqiva;
+    public FieldDef m310ddeccadatri;
     public TabMod310des(String name)
       {
       super(name);
@@ -4994,7 +5000,12 @@ public class CatModelos2 extends Catalog
       m310ddedcregbi2 = new FieldDef("m310ddedcregbi2",FieldDef.FLOAT,6,0);
       m310ddedcregbi3 = new FieldDef("m310ddedcregbi3",FieldDef.FLOAT,6,0);
       m310ddedcregbi4 = new FieldDef("m310ddedcregbi4",FieldDef.FLOAT,6,0);
+      m310ddeveintra1 = new FieldDef("m310ddeveintra1",FieldDef.FLOAT,6,0);
+      m310ddeveintra2 = new FieldDef("m310ddeveintra2",FieldDef.FLOAT,6,0);
+      m310ddeveintra3 = new FieldDef("m310ddeveintra3",FieldDef.FLOAT,6,0);
+      m310ddeveintra4 = new FieldDef("m310ddeveintra4",FieldDef.FLOAT,6,0);
       m310dliqiva = new FieldDef("m310dliqiva",FieldDef.CHAR,1);
+      m310ddeccadatri = new FieldDef("m310ddeccadatri",FieldDef.CHAR,1);
       FieldDef array[] = {
         m310ddominio,
         m310dnif,
@@ -5044,10 +5055,176 @@ public class CatModelos2 extends Catalog
         m310ddedcregbi2,
         m310ddedcregbi3,
         m310ddedcregbi4,
-        m310dliqiva        
+        m310ddeveintra1,
+        m310ddeveintra2,
+        m310ddeveintra3,
+        m310ddeveintra4,
+        m310dliqiva,
+        m310ddeccadatri        
         };
       setColumns(array);
       FieldDef arrayf[] = {m310ddominio,m310dnif,m310dejercicio,m310dactividad };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabMod110g extends TableDef
+    {
+    // Campos
+    public FieldDef m110gident;
+    public FieldDef m110greduc1;
+    public FieldDef m110ggastos1;
+    public FieldDef m110gpension1;
+    public FieldDef m110ganualid1;
+    public FieldDef m110greduc2;
+    public FieldDef m110ggastos2;
+    public FieldDef m110gpension2;
+    public FieldDef m110ganualid2;
+    public FieldDef m110greduc3;
+    public FieldDef m110ggastos3;
+    public FieldDef m110gpension3;
+    public FieldDef m110ganualid3;
+    public FieldDef m110greduc4;
+    public FieldDef m110ggastos4;
+    public FieldDef m110gpension4;
+    public FieldDef m110ganualid4;
+    public FieldDef m110greduc5;
+    public FieldDef m110ggastos5;
+    public FieldDef m110gpension5;
+    public FieldDef m110ganualid5;
+    public FieldDef m110greduc6;
+    public FieldDef m110ggastos6;
+    public FieldDef m110gpension6;
+    public FieldDef m110ganualid6;
+    public FieldDef m110greduc7;
+    public FieldDef m110ggastos7;
+    public FieldDef m110gpension7;
+    public FieldDef m110ganualid7;
+    public FieldDef m110greduc8;
+    public FieldDef m110ggastos8;
+    public FieldDef m110gpension8;
+    public FieldDef m110ganualid8;
+    public FieldDef m110greduc9;
+    public FieldDef m110ggastos9;
+    public FieldDef m110gpension9;
+    public FieldDef m110ganualid9;
+    public FieldDef m110greduc10;
+    public FieldDef m110ggastos10;
+    public FieldDef m110gpension10;
+    public FieldDef m110ganualid10;
+    public FieldDef m110greduc11;
+    public FieldDef m110ggastos11;
+    public FieldDef m110gpension11;
+    public FieldDef m110ganualid11;
+    public FieldDef m110greduc12;
+    public FieldDef m110ggastos12;
+    public FieldDef m110gpension12;
+    public FieldDef m110ganualid12;
+    public TabMod110g(String name)
+      {
+      super(name);
+      m110gident = new FieldDef("m110gident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m110greduc1 = new FieldDef("m110greduc1",FieldDef.FLOAT,6,0);
+      m110ggastos1 = new FieldDef("m110ggastos1",FieldDef.FLOAT,6,0);
+      m110gpension1 = new FieldDef("m110gpension1",FieldDef.FLOAT,6,0);
+      m110ganualid1 = new FieldDef("m110ganualid1",FieldDef.FLOAT,6,0);
+      m110greduc2 = new FieldDef("m110greduc2",FieldDef.FLOAT,6,0);
+      m110ggastos2 = new FieldDef("m110ggastos2",FieldDef.FLOAT,6,0);
+      m110gpension2 = new FieldDef("m110gpension2",FieldDef.FLOAT,6,0);
+      m110ganualid2 = new FieldDef("m110ganualid2",FieldDef.FLOAT,6,0);
+      m110greduc3 = new FieldDef("m110greduc3",FieldDef.FLOAT,6,0);
+      m110ggastos3 = new FieldDef("m110ggastos3",FieldDef.FLOAT,6,0);
+      m110gpension3 = new FieldDef("m110gpension3",FieldDef.FLOAT,6,0);
+      m110ganualid3 = new FieldDef("m110ganualid3",FieldDef.FLOAT,6,0);
+      m110greduc4 = new FieldDef("m110greduc4",FieldDef.FLOAT,6,0);
+      m110ggastos4 = new FieldDef("m110ggastos4",FieldDef.FLOAT,6,0);
+      m110gpension4 = new FieldDef("m110gpension4",FieldDef.FLOAT,6,0);
+      m110ganualid4 = new FieldDef("m110ganualid4",FieldDef.FLOAT,6,0);
+      m110greduc5 = new FieldDef("m110greduc5",FieldDef.FLOAT,6,0);
+      m110ggastos5 = new FieldDef("m110ggastos5",FieldDef.FLOAT,6,0);
+      m110gpension5 = new FieldDef("m110gpension5",FieldDef.FLOAT,6,0);
+      m110ganualid5 = new FieldDef("m110ganualid5",FieldDef.FLOAT,6,0);
+      m110greduc6 = new FieldDef("m110greduc6",FieldDef.FLOAT,6,0);
+      m110ggastos6 = new FieldDef("m110ggastos6",FieldDef.FLOAT,6,0);
+      m110gpension6 = new FieldDef("m110gpension6",FieldDef.FLOAT,6,0);
+      m110ganualid6 = new FieldDef("m110ganualid6",FieldDef.FLOAT,6,0);
+      m110greduc7 = new FieldDef("m110greduc7",FieldDef.FLOAT,6,0);
+      m110ggastos7 = new FieldDef("m110ggastos7",FieldDef.FLOAT,6,0);
+      m110gpension7 = new FieldDef("m110gpension7",FieldDef.FLOAT,6,0);
+      m110ganualid7 = new FieldDef("m110ganualid7",FieldDef.FLOAT,6,0);
+      m110greduc8 = new FieldDef("m110greduc8",FieldDef.FLOAT,6,0);
+      m110ggastos8 = new FieldDef("m110ggastos8",FieldDef.FLOAT,6,0);
+      m110gpension8 = new FieldDef("m110gpension8",FieldDef.FLOAT,6,0);
+      m110ganualid8 = new FieldDef("m110ganualid8",FieldDef.FLOAT,6,0);
+      m110greduc9 = new FieldDef("m110greduc9",FieldDef.FLOAT,6,0);
+      m110ggastos9 = new FieldDef("m110ggastos9",FieldDef.FLOAT,6,0);
+      m110gpension9 = new FieldDef("m110gpension9",FieldDef.FLOAT,6,0);
+      m110ganualid9 = new FieldDef("m110ganualid9",FieldDef.FLOAT,6,0);
+      m110greduc10 = new FieldDef("m110greduc10",FieldDef.FLOAT,6,0);
+      m110ggastos10 = new FieldDef("m110ggastos10",FieldDef.FLOAT,6,0);
+      m110gpension10 = new FieldDef("m110gpension10",FieldDef.FLOAT,6,0);
+      m110ganualid10 = new FieldDef("m110ganualid10",FieldDef.FLOAT,6,0);
+      m110greduc11 = new FieldDef("m110greduc11",FieldDef.FLOAT,6,0);
+      m110ggastos11 = new FieldDef("m110ggastos11",FieldDef.FLOAT,6,0);
+      m110gpension11 = new FieldDef("m110gpension11",FieldDef.FLOAT,6,0);
+      m110ganualid11 = new FieldDef("m110ganualid11",FieldDef.FLOAT,6,0);
+      m110greduc12 = new FieldDef("m110greduc12",FieldDef.FLOAT,6,0);
+      m110ggastos12 = new FieldDef("m110ggastos12",FieldDef.FLOAT,6,0);
+      m110gpension12 = new FieldDef("m110gpension12",FieldDef.FLOAT,6,0);
+      m110ganualid12 = new FieldDef("m110ganualid12",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        m110gident,
+        m110greduc1,
+        m110ggastos1,
+        m110gpension1,
+        m110ganualid1,
+        m110greduc2,
+        m110ggastos2,
+        m110gpension2,
+        m110ganualid2,
+        m110greduc3,
+        m110ggastos3,
+        m110gpension3,
+        m110ganualid3,
+        m110greduc4,
+        m110ggastos4,
+        m110gpension4,
+        m110ganualid4,
+        m110greduc5,
+        m110ggastos5,
+        m110gpension5,
+        m110ganualid5,
+        m110greduc6,
+        m110ggastos6,
+        m110gpension6,
+        m110ganualid6,
+        m110greduc7,
+        m110ggastos7,
+        m110gpension7,
+        m110ganualid7,
+        m110greduc8,
+        m110ggastos8,
+        m110gpension8,
+        m110ganualid8,
+        m110greduc9,
+        m110ggastos9,
+        m110gpension9,
+        m110ganualid9,
+        m110greduc10,
+        m110ggastos10,
+        m110gpension10,
+        m110ganualid10,
+        m110greduc11,
+        m110ggastos11,
+        m110gpension11,
+        m110ganualid11,
+        m110greduc12,
+        m110ggastos12,
+        m110gpension12,
+        m110ganualid12        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m110gident };
       setPrimaryKeys(arrayf);
       }
     }
@@ -5082,6 +5259,7 @@ public class CatModelos2 extends Catalog
     tabmod340b = new TabMod340b("mod340b");
     tabmod340i = new TabMod340i("mod340i");
     tabmod310des = new TabMod310des("mod310des");
+    tabmod110g = new TabMod110g("mod110g");
     TableDef array[] = {
       tabmod184d,
       tabmod184e,
@@ -5110,7 +5288,8 @@ public class CatModelos2 extends Catalog
       tabmod340r,
       tabmod340b,
       tabmod340i,
-      tabmod310des      
+      tabmod310des,
+      tabmod110g      
       };
     setTables(array);
     FieldDef tabmod184eArrayf1[] = { tabmod184e.m184edominio,tabmod184e.m184enif,tabmod184e.m184eejercicio,tabmod184e.m184eperiodo };

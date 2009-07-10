@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090205
-// Hora:             10:55:48
+// Fecha:            20090710
+// Hora:             09:31:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -165,6 +165,7 @@ public class CatLaboral extends Catalog
   public TabDefctadet tabdefctadet;
   public TabDefctacon tabdefctacon;
   public TabTareasemp tabtareasemp;
+  public TabParamlis tabparamlis;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -2650,6 +2651,8 @@ public class CatLaboral extends Catalog
     public FieldDef pagpordesc02;
     public FieldDef pagpordesc03;
     public FieldDef pagpordesc04;
+    public FieldDef pagprorrateada;
+    public FieldDef pagtipodesglo;
     public TabPagas(String name)
       {
       super(name);
@@ -2686,6 +2689,8 @@ public class CatLaboral extends Catalog
       pagpordesc02 = new FieldDef("pagpordesc02",FieldDef.FLOAT,6,0);
       pagpordesc03 = new FieldDef("pagpordesc03",FieldDef.FLOAT,6,0);
       pagpordesc04 = new FieldDef("pagpordesc04",FieldDef.FLOAT,6,0);
+      pagprorrateada = new FieldDef("pagprorrateada",FieldDef.CHAR,1);
+      pagtipodesglo = new FieldDef("pagtipodesglo",FieldDef.CHAR,1);
       FieldDef array[] = {
         pagconvemp,
         pagcodigo,
@@ -2719,7 +2724,9 @@ public class CatLaboral extends Catalog
         pagpordesc01,
         pagpordesc02,
         pagpordesc03,
-        pagpordesc04        
+        pagpordesc04,
+        pagprorrateada,
+        pagtipodesglo        
         };
       setColumns(array);
       FieldDef arrayf[] = {pagconvemp,pagcodigo };
@@ -5116,6 +5123,8 @@ public class CatLaboral extends Catalog
     public FieldDef trbimpdia;
     public FieldDef trbcoleboni;
     public FieldDef trbindreduc;
+    public FieldDef trbimpormax;
+    public FieldDef trbimpoacum;
     public TabTrabonif(String name)
       {
       super(name);
@@ -5131,6 +5140,8 @@ public class CatLaboral extends Catalog
       trbimpdia = new FieldDef("trbimpdia",FieldDef.FLOAT,6,0);
       trbcoleboni = new FieldDef("trbcoleboni",FieldDef.INTEGER,0);
       trbindreduc = new FieldDef("trbindreduc",FieldDef.INTEGER,0);
+      trbimpormax = new FieldDef("trbimpormax",FieldDef.FLOAT,6,0);
+      trbimpoacum = new FieldDef("trbimpoacum",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         trbcodiemp,
         trbcodigo,
@@ -5143,7 +5154,9 @@ public class CatLaboral extends Catalog
         trbimpbonif,
         trbimpdia,
         trbcoleboni,
-        trbindreduc        
+        trbindreduc,
+        trbimpormax,
+        trbimpoacum        
         };
       setColumns(array);
       FieldDef arrayf[] = {trbcodiemp,trbcodigo,trbrelacion,trbbonif,trbtramo };
@@ -6065,6 +6078,7 @@ public class CatLaboral extends Catalog
     public FieldDef hispimpreso;
     public FieldDef hisptipocotagra;
     public FieldDef hisptipobonagra;
+    public FieldDef hispnoresidente;
     public TabHisperso(String name)
       {
       super(name);
@@ -6170,6 +6184,7 @@ public class CatLaboral extends Catalog
       hispimpreso = new FieldDef("hispimpreso",FieldDef.CHAR,1);
       hisptipocotagra = new FieldDef("hisptipocotagra",FieldDef.CHAR,1);
       hisptipobonagra = new FieldDef("hisptipobonagra",FieldDef.INTEGER,0);
+      hispnoresidente = new FieldDef("hispnoresidente",FieldDef.CHAR,1);
       FieldDef array[] = {
         hispcodigo,
         hispejercicio,
@@ -6272,7 +6287,8 @@ public class CatLaboral extends Catalog
         hisphoracalc,
         hispimpreso,
         hisptipocotagra,
-        hisptipobonagra        
+        hisptipobonagra,
+        hispnoresidente        
         };
       setColumns(array);
       FieldDef arrayf[] = {hispcodigo };
@@ -9632,6 +9648,13 @@ public class CatLaboral extends Catalog
     public FieldDef cnamatexced;
     public FieldDef cnafijdescper;
     public FieldDef cnatempminbon;
+    public FieldDef cnadatoscampana;
+    public FieldDef cnaindcaroferta;
+    public FieldDef cnaanocontin;
+    public FieldDef cnaindempinsert;
+    public FieldDef cnainddurainf;
+    public FieldDef cnaindrd632006;
+    public FieldDef cnadomcentrotra;
     public TabTracontrata(String name)
       {
       super(name);
@@ -9663,7 +9686,7 @@ public class CatLaboral extends Catalog
       cnaminutosform = new FieldDef("cnaminutosform",FieldDef.INTEGER,0);
       cnaformacteor = new FieldDef("cnaformacteor",FieldDef.CHAR,1);
       cnacolectivedad = new FieldDef("cnacolectivedad",FieldDef.CHAR,2);
-      cnaporcjubparc = new FieldDef("cnaporcjubparc",FieldDef.INTEGER,0);
+      cnaporcjubparc = new FieldDef("cnaporcjubparc",FieldDef.FLOAT,6,0);
       cnaactsinfecha = new FieldDef("cnaactsinfecha",FieldDef.CHAR,1);
       cnacausinterid = new FieldDef("cnacausinterid",FieldDef.CHAR,1);
       cnacolectbonif = new FieldDef("cnacolectbonif",FieldDef.CHAR,2);
@@ -9706,6 +9729,13 @@ public class CatLaboral extends Catalog
       cnamatexced = new FieldDef("cnamatexced",FieldDef.CHAR,1);
       cnafijdescper = new FieldDef("cnafijdescper",FieldDef.CHAR,1);
       cnatempminbon = new FieldDef("cnatempminbon",FieldDef.CHAR,1);
+      cnadatoscampana = new FieldDef("cnadatoscampana",FieldDef.CHAR,9);
+      cnaindcaroferta = new FieldDef("cnaindcaroferta",FieldDef.CHAR,1);
+      cnaanocontin = new FieldDef("cnaanocontin",FieldDef.CHAR,4);
+      cnaindempinsert = new FieldDef("cnaindempinsert",FieldDef.CHAR,1);
+      cnainddurainf = new FieldDef("cnainddurainf",FieldDef.CHAR,1);
+      cnaindrd632006 = new FieldDef("cnaindrd632006",FieldDef.CHAR,1);
+      cnadomcentrotra = new FieldDef("cnadomcentrotra",FieldDef.CHAR,150);
       FieldDef array[] = {
         cnacodiemp,
         cnacodigo,
@@ -9777,7 +9807,14 @@ public class CatLaboral extends Catalog
         cnainddiscon,
         cnamatexced,
         cnafijdescper,
-        cnatempminbon        
+        cnatempminbon,
+        cnadatoscampana,
+        cnaindcaroferta,
+        cnaanocontin,
+        cnaindempinsert,
+        cnainddurainf,
+        cnaindrd632006,
+        cnadomcentrotra        
         };
       setColumns(array);
       FieldDef arrayf[] = {cnacodiemp,cnacodigo,cnarelacion,cnacodigocto };
@@ -11957,6 +11994,212 @@ public class CatLaboral extends Catalog
       }
     }
     
+  public class TabParamlis extends TableDef
+    {
+    // Campos
+    public FieldDef pliusuario;
+    public FieldDef pliprograma;
+    public FieldDef pliopcion;
+    public FieldDef plicampoa1;
+    public FieldDef plicampoa2;
+    public FieldDef plicampoa3;
+    public FieldDef plicampoa4;
+    public FieldDef plicampoa5;
+    public FieldDef plicampoa6;
+    public FieldDef plicampoa7;
+    public FieldDef plicampoa8;
+    public FieldDef plicampoa9;
+    public FieldDef plicampoa10;
+    public FieldDef plicampoa11;
+    public FieldDef plicampoa12;
+    public FieldDef plicampoa13;
+    public FieldDef plicampoa14;
+    public FieldDef plicampoa15;
+    public FieldDef plicampoa16;
+    public FieldDef plicampoa17;
+    public FieldDef plicampoa18;
+    public FieldDef plicampoa19;
+    public FieldDef plicampoa20;
+    public FieldDef plicampoi21;
+    public FieldDef plicampoi22;
+    public FieldDef plicampoi23;
+    public FieldDef plicampoi24;
+    public FieldDef plicampoi25;
+    public FieldDef plicampoi26;
+    public FieldDef plicampoi27;
+    public FieldDef plicampoi28;
+    public FieldDef plicampoi29;
+    public FieldDef plicampoi30;
+    public FieldDef plicampoi31;
+    public FieldDef plicampoi32;
+    public FieldDef plicampoi33;
+    public FieldDef plicampoi34;
+    public FieldDef plicampoi35;
+    public FieldDef plicampoi36;
+    public FieldDef plicampoi37;
+    public FieldDef plicampoi38;
+    public FieldDef plicampoi39;
+    public FieldDef plicampoi40;
+    public FieldDef plicampon41;
+    public FieldDef plicampon42;
+    public FieldDef plicampon43;
+    public FieldDef plicampon44;
+    public FieldDef plicampon45;
+    public FieldDef plicampon46;
+    public FieldDef plicampon47;
+    public FieldDef plicampon48;
+    public FieldDef plicampon49;
+    public FieldDef plicampon50;
+    public FieldDef plicampod51;
+    public FieldDef plicampod52;
+    public FieldDef plicampod53;
+    public FieldDef plicampod54;
+    public FieldDef plicampod55;
+    public FieldDef plicampod56;
+    public FieldDef plicampod57;
+    public FieldDef plicampod58;
+    public FieldDef plicampod59;
+    public FieldDef plicampod60;
+    public FieldDef plicampoa61;
+    public TabParamlis(String name)
+      {
+      super(name);
+      pliusuario = new FieldDef("pliusuario",FieldDef.CHAR,25,FieldDef.NOTNULL);
+      pliprograma = new FieldDef("pliprograma",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      pliopcion = new FieldDef("pliopcion",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      plicampoa1 = new FieldDef("plicampoa1",FieldDef.CHAR,30);
+      plicampoa2 = new FieldDef("plicampoa2",FieldDef.CHAR,30);
+      plicampoa3 = new FieldDef("plicampoa3",FieldDef.CHAR,30);
+      plicampoa4 = new FieldDef("plicampoa4",FieldDef.CHAR,30);
+      plicampoa5 = new FieldDef("plicampoa5",FieldDef.CHAR,30);
+      plicampoa6 = new FieldDef("plicampoa6",FieldDef.CHAR,30);
+      plicampoa7 = new FieldDef("plicampoa7",FieldDef.CHAR,30);
+      plicampoa8 = new FieldDef("plicampoa8",FieldDef.CHAR,30);
+      plicampoa9 = new FieldDef("plicampoa9",FieldDef.CHAR,30);
+      plicampoa10 = new FieldDef("plicampoa10",FieldDef.CHAR,30);
+      plicampoa11 = new FieldDef("plicampoa11",FieldDef.CHAR,30);
+      plicampoa12 = new FieldDef("plicampoa12",FieldDef.CHAR,30);
+      plicampoa13 = new FieldDef("plicampoa13",FieldDef.CHAR,30);
+      plicampoa14 = new FieldDef("plicampoa14",FieldDef.CHAR,30);
+      plicampoa15 = new FieldDef("plicampoa15",FieldDef.CHAR,30);
+      plicampoa16 = new FieldDef("plicampoa16",FieldDef.CHAR,30);
+      plicampoa17 = new FieldDef("plicampoa17",FieldDef.CHAR,30);
+      plicampoa18 = new FieldDef("plicampoa18",FieldDef.CHAR,30);
+      plicampoa19 = new FieldDef("plicampoa19",FieldDef.CHAR,30);
+      plicampoa20 = new FieldDef("plicampoa20",FieldDef.CHAR,30);
+      plicampoi21 = new FieldDef("plicampoi21",FieldDef.INTEGER,0);
+      plicampoi22 = new FieldDef("plicampoi22",FieldDef.INTEGER,0);
+      plicampoi23 = new FieldDef("plicampoi23",FieldDef.INTEGER,0);
+      plicampoi24 = new FieldDef("plicampoi24",FieldDef.INTEGER,0);
+      plicampoi25 = new FieldDef("plicampoi25",FieldDef.INTEGER,0);
+      plicampoi26 = new FieldDef("plicampoi26",FieldDef.INTEGER,0);
+      plicampoi27 = new FieldDef("plicampoi27",FieldDef.INTEGER,0);
+      plicampoi28 = new FieldDef("plicampoi28",FieldDef.INTEGER,0);
+      plicampoi29 = new FieldDef("plicampoi29",FieldDef.INTEGER,0);
+      plicampoi30 = new FieldDef("plicampoi30",FieldDef.INTEGER,0);
+      plicampoi31 = new FieldDef("plicampoi31",FieldDef.INTEGER,0);
+      plicampoi32 = new FieldDef("plicampoi32",FieldDef.INTEGER,0);
+      plicampoi33 = new FieldDef("plicampoi33",FieldDef.INTEGER,0);
+      plicampoi34 = new FieldDef("plicampoi34",FieldDef.INTEGER,0);
+      plicampoi35 = new FieldDef("plicampoi35",FieldDef.INTEGER,0);
+      plicampoi36 = new FieldDef("plicampoi36",FieldDef.INTEGER,0);
+      plicampoi37 = new FieldDef("plicampoi37",FieldDef.INTEGER,0);
+      plicampoi38 = new FieldDef("plicampoi38",FieldDef.INTEGER,0);
+      plicampoi39 = new FieldDef("plicampoi39",FieldDef.INTEGER,0);
+      plicampoi40 = new FieldDef("plicampoi40",FieldDef.INTEGER,0);
+      plicampon41 = new FieldDef("plicampon41",FieldDef.FLOAT,6,0);
+      plicampon42 = new FieldDef("plicampon42",FieldDef.FLOAT,6,0);
+      plicampon43 = new FieldDef("plicampon43",FieldDef.FLOAT,6,0);
+      plicampon44 = new FieldDef("plicampon44",FieldDef.FLOAT,6,0);
+      plicampon45 = new FieldDef("plicampon45",FieldDef.FLOAT,6,0);
+      plicampon46 = new FieldDef("plicampon46",FieldDef.FLOAT,6,0);
+      plicampon47 = new FieldDef("plicampon47",FieldDef.FLOAT,6,0);
+      plicampon48 = new FieldDef("plicampon48",FieldDef.FLOAT,6,0);
+      plicampon49 = new FieldDef("plicampon49",FieldDef.FLOAT,6,0);
+      plicampon50 = new FieldDef("plicampon50",FieldDef.FLOAT,6,0);
+      plicampod51 = new FieldDef("plicampod51",FieldDef.DATE);
+      plicampod52 = new FieldDef("plicampod52",FieldDef.DATE);
+      plicampod53 = new FieldDef("plicampod53",FieldDef.DATE);
+      plicampod54 = new FieldDef("plicampod54",FieldDef.DATE);
+      plicampod55 = new FieldDef("plicampod55",FieldDef.DATE);
+      plicampod56 = new FieldDef("plicampod56",FieldDef.DATE);
+      plicampod57 = new FieldDef("plicampod57",FieldDef.DATE);
+      plicampod58 = new FieldDef("plicampod58",FieldDef.DATE);
+      plicampod59 = new FieldDef("plicampod59",FieldDef.DATE);
+      plicampod60 = new FieldDef("plicampod60",FieldDef.DATE);
+      plicampoa61 = new FieldDef("plicampoa61",FieldDef.CHAR,100);
+      FieldDef array[] = {
+        pliusuario,
+        pliprograma,
+        pliopcion,
+        plicampoa1,
+        plicampoa2,
+        plicampoa3,
+        plicampoa4,
+        plicampoa5,
+        plicampoa6,
+        plicampoa7,
+        plicampoa8,
+        plicampoa9,
+        plicampoa10,
+        plicampoa11,
+        plicampoa12,
+        plicampoa13,
+        plicampoa14,
+        plicampoa15,
+        plicampoa16,
+        plicampoa17,
+        plicampoa18,
+        plicampoa19,
+        plicampoa20,
+        plicampoi21,
+        plicampoi22,
+        plicampoi23,
+        plicampoi24,
+        plicampoi25,
+        plicampoi26,
+        plicampoi27,
+        plicampoi28,
+        plicampoi29,
+        plicampoi30,
+        plicampoi31,
+        plicampoi32,
+        plicampoi33,
+        plicampoi34,
+        plicampoi35,
+        plicampoi36,
+        plicampoi37,
+        plicampoi38,
+        plicampoi39,
+        plicampoi40,
+        plicampon41,
+        plicampon42,
+        plicampon43,
+        plicampon44,
+        plicampon45,
+        plicampon46,
+        plicampon47,
+        plicampon48,
+        plicampon49,
+        plicampon50,
+        plicampod51,
+        plicampod52,
+        plicampod53,
+        plicampod54,
+        plicampod55,
+        plicampod56,
+        plicampod57,
+        plicampod58,
+        plicampod59,
+        plicampod60,
+        plicampoa61        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {pliusuario,pliprograma,pliopcion };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public CatLaboral()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -12108,6 +12351,7 @@ public class CatLaboral extends Catalog
     tabdefctadet = new TabDefctadet("defctadet");
     tabdefctacon = new TabDefctacon("defctacon");
     tabtareasemp = new TabTareasemp("tareasemp");
+    tabparamlis = new TabParamlis("paramlis");
     TableDef array[] = {
       tabgycauto,
       tabvaloresnom,
@@ -12257,7 +12501,8 @@ public class CatLaboral extends Catalog
       tabdefctacab,
       tabdefctadet,
       tabdefctacon,
-      tabtareasemp      
+      tabtareasemp,
+      tabparamlis      
       };
     setTables(array);
     FieldDef tabdefredsegArrayf1[] = { tabdefredseg.drstipomsg,tabdefredseg.drsregimen,tabdefredseg.drssegmento };

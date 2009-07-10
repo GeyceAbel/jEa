@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090205
-// Hora:             10:55:55
+// Fecha:            20090710
+// Hora:             09:41:13
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -841,6 +841,28 @@ public class ProgInsprconver extends Program
        	"   PRIMARY KEY (mu7codprov,mu7codmuni));"
       };
     
+      String sentencias6_5[]={
+        " INSERT INTO BANCO (bncodigo,bndesc) VALUES (2106,'MONTE PIEDAD CAJA AHORROS SAN FERNANDO HUELVA');",
+        " INSERT INTO MUNICIPIO (muprov,mucodigo,mudesc) VALUES (28,903,'TRES CANTOS');"
+      };
+      
+      String sentencias6_6[]={
+        " DROP TABLE CNAE2009;",
+        " DROP TABLE CNAEEQUIV;",
+        "CREATE TABLE CNAE2009 " + 
+        " (cn9codigo VARCHAR(6) NOT NULL," +
+        "  cn9desc   VARCHAR(120)," +
+        "  PRIMARY KEY (cn9codigo));",
+        "CREATE TABLE CNAEEQUIV "+
+        " (cnecod93   VARCHAR(6) NOT NULL,"+
+        "  cnecod09   VARCHAR(6) NOT NULL,"+
+        "  cnedesc93  VARCHAR(120),"+
+        "  cnedesc09  VARCHAR(120),"+
+        "  PRIMARY KEY (cnecod93,cnecod09));",
+        " DELETE FROM CNAE2009;",
+        " DELETE FROM CNAEEQUIV;"
+      };
+    
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -1364,6 +1386,44 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("6.4");
         }
+    
+        if (versio < 6.5) {
+          for (i=0;i<sentencias6_5.length;++i) {
+            try {
+              Easp.chivato("6.5 Exec : ["+sentencias6_5[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias6_5[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias6_5[i];
+              Easp.chivato("6.5 *** Error : ["+sentencias6_5[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+        
+          Easp.setVersionBD("bdeasp","6.5");
+          Easp.connEA.commit();
+          vvveractual.setValue("6.5");
+        }
+    
+        if (versio < 6.6) {
+          try {          
+            for (i=0;i<sentencias6_6.length;++i) {
+              Easp.chivato("6.6 Exec : ["+sentencias6_6[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias6_6[i]);
+            }
+            String tablas[]= {"CNAE2009","CNAEEQUIV"};
+            Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0606","easp.jar");
+          }
+          catch(Exception e) {
+            sqlOperation=sentencias6_6[i];
+            Easp.chivato("6.6 *** Error : ["+sentencias6_6[i]+"]  Error: ["+e+"]",1);
+            errorMessage=e.getMessage();
+          }
+          Easp.setVersionBD("bdeasp","6.6");
+          Easp.connEA.commit();
+          vvveractual.setValue("6.6");
+        }
+    
     
     
       }

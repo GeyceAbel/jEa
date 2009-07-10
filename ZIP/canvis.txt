@@ -1,2 +1,3 @@
 050053 --> APJORDI: (insprconver) Conversió 6.1 --> Taula TIPOSVIA y MUNI347
 050069 --> APJORDI: Canvis en la generacio de llistats (getRepetido -- Encabezado)
+050070 --> APJORDI: Easp.getTipoLicencia i Conversio 6.6 de CNAE i EQUIV
