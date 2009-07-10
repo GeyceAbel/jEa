@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20090710
-// Hora:             09:41:13
+// Hora:             11:06:19
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -847,8 +847,6 @@ public class ProgInsprconver extends Program
       };
       
       String sentencias6_6[]={
-        " DROP TABLE CNAE2009;",
-        " DROP TABLE CNAEEQUIV;",
         "CREATE TABLE CNAE2009 " + 
         " (cn9codigo VARCHAR(6) NOT NULL," +
         "  cn9desc   VARCHAR(120)," +
@@ -1406,7 +1404,7 @@ public class ProgInsprconver extends Program
         }
     
         if (versio < 6.6) {
-          try {          
+          try {
             for (i=0;i<sentencias6_6.length;++i) {
               Easp.chivato("6.6 Exec : ["+sentencias6_6[i]+"]",1);
               Easp.connEA.executeUpdate(sentencias6_6[i]);

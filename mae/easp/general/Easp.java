@@ -264,6 +264,7 @@ public class Easp {
 		if (tarifa!=null && tarifa.length()==10) {
 			if (tarifa.endsWith("320") || tarifa.endsWith("007") || tarifa.endsWith("327")) lic = "Monousuario";
 			else if (tarifa.endsWith("000") || tarifa.endsWith("330")) lic = "Multiusuario";
+			else if (tarifa.endsWith("328")) lic = "2 usuarios";
 			else if (tarifa.endsWith("001") || tarifa.endsWith("331")) lic = "4 usuarios";
 			else if (tarifa.endsWith("002") || tarifa.endsWith("332")) lic = "8 usuarios";
 		}
