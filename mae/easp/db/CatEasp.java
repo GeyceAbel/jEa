@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090710
-// Hora:             09:31:25
+// Fecha:            20090729
+// Hora:             13:57:32
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -879,16 +879,19 @@ public class CatEasp extends Catalog
     public FieldDef epitipoact;
     public FieldDef epiepigrafe;
     public FieldDef epidescripcion;
+    public FieldDef epiepisinpunto;
     public TabEpigrafes(String name)
       {
       super(name);
       epitipoact = new FieldDef("epitipoact",FieldDef.CHAR,1,FieldDef.NOTNULL);
       epiepigrafe = new FieldDef("epiepigrafe",FieldDef.CHAR,7,FieldDef.NOTNULL);
       epidescripcion = new FieldDef("epidescripcion",FieldDef.CHAR,50);
+      epiepisinpunto = new FieldDef("epiepisinpunto",FieldDef.CHAR,4);
       FieldDef array[] = {
         epitipoact,
         epiepigrafe,
-        epidescripcion        
+        epidescripcion,
+        epiepisinpunto        
         };
       setColumns(array);
       FieldDef arrayf[] = {epitipoact,epiepigrafe };

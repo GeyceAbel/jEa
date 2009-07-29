@@ -1,8 +1,8 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20071106
-// Hora:             18:40:03
+// Fecha:            20090729
+// Hora:             13:53:20
 // Driver BD:        ODBC
-// Base de Datos:    bdeaspprog2
+// Base de Datos:    bdeaspprog
 // 
 // Aplicación: easp - Entorno de aplicaciones para AGP
 // Versión:    4.1
@@ -44,9 +44,9 @@ public class AppEasp extends Aplication
     Easp.dominio=Aplication.getAplication().getParameter("Dominio");
     Login.showLogIn(Aplication.getAplication());
     setAcl(mae.admon.general.Acceso.getAcl("EASP"));
-    setErrorManager(mae.admon.general.Admon.getErrorManager());
+    // setErrorManager(mae.admon.general.Admon.getErrorManager());
     
-    //Aplication.getAplication().setErrorManager(new mae.easp.general.ErrorManagerDefaultJ());
+    Aplication.getAplication().setErrorManager(new mae.easp.general.ErrorManagerDefaultJ());
     
     super.onInit();
     if (!checkPermission() || !Easp.init())
@@ -520,7 +520,13 @@ class Bdeasp extends DataBase
   public AppEasp easp;
   // Catalogos
   public CatAdmon catadmon;
+  public CatCtasp catctasp;
   public CatEasp cateasp;
+  public CatJeo catjeo;
+  public CatLaboral catlaboral;
+  public CatModelos1 catmodelos1;
+  public CatModelos2 catmodelos2;
+  public CatModgen catmodgen;
   public Bdeasp(AppEasp easp)
     {
     super(easp);
@@ -528,10 +534,22 @@ class Bdeasp extends DataBase
     setServer("jdbc:odbc:");
     setName("bdeasp");
     catadmon = new CatAdmon();
+    catctasp = new CatCtasp();
     cateasp = new CatEasp();
+    catjeo = new CatJeo();
+    catlaboral = new CatLaboral();
+    catmodelos1 = new CatModelos1();
+    catmodelos2 = new CatModelos2();
+    catmodgen = new CatModgen();
     Catalog array[] = {
       catadmon,
-      cateasp      
+      catctasp,
+      cateasp,
+      catjeo,
+      catlaboral,
+      catmodelos1,
+      catmodelos2,
+      catmodgen      
       };
     setCatalogs(array);
     }

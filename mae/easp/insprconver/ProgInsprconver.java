@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090710
-// Hora:             11:06:19
+// Fecha:            20090729
+// Hora:             13:57:16
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -860,6 +860,10 @@ public class ProgInsprconver extends Program
         " DELETE FROM CNAE2009;",
         " DELETE FROM CNAEEQUIV;"
       };
+      String sentencias6_7[]={
+        "ALTER TABLE EPIGRAFES ADD epiepisinpunto VARCHAR(4);",
+        "DELETE FROM EPIGRAFES;",
+      };
     
       int i=0;
       try {
@@ -1421,6 +1425,25 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("6.6");
         }
+        if (versio < 6.7) {
+          try {
+            for (i=0;i<sentencias6_7.length;++i) {
+              Easp.chivato("6.7 Exec : ["+sentencias6_7[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias6_7[i]);
+            }
+            String tablas[]= {"EPIGRAFES"};
+            Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0607","easp.jar");
+          }
+          catch(Exception e) {
+            sqlOperation=sentencias6_7[i];
+            Easp.chivato("6.7 *** Error : ["+sentencias6_7[i]+"]  Error: ["+e+"]",1);
+            errorMessage=e.getMessage();
+          }
+          Easp.setVersionBD("bdeasp","6.7");
+          Easp.connEA.commit();
+          vvveractual.setValue("6.7");
+        }
+    
     
     
     

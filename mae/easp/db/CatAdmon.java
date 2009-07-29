@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090710
-// Hora:             09:31:24
+// Fecha:            20090729
+// Hora:             13:57:30
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -81,6 +81,8 @@ public class CatAdmon extends Catalog
   public TabAvisado tabavisado;
   public TabTipovias tabtipovias;
   public TabMuni347 tabmuni347;
+  public TabCnae2009 tabcnae2009;
+  public TabCnaeequiv tabcnaeequiv;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -877,16 +879,19 @@ public class CatAdmon extends Catalog
     public FieldDef epitipoact;
     public FieldDef epiepigrafe;
     public FieldDef epidescripcion;
+    public FieldDef epiepisinpunto;
     public TabEpigrafes(String name)
       {
       super(name);
       epitipoact = new FieldDef("epitipoact",FieldDef.CHAR,1,FieldDef.NOTNULL);
       epiepigrafe = new FieldDef("epiepigrafe",FieldDef.CHAR,7,FieldDef.NOTNULL);
       epidescripcion = new FieldDef("epidescripcion",FieldDef.CHAR,50);
+      epiepisinpunto = new FieldDef("epiepisinpunto",FieldDef.CHAR,4);
       FieldDef array[] = {
         epitipoact,
         epiepigrafe,
-        epidescripcion        
+        epidescripcion,
+        epiepisinpunto        
         };
       setColumns(array);
       FieldDef arrayf[] = {epitipoact,epiepigrafe };
@@ -2570,6 +2575,52 @@ public class CatAdmon extends Catalog
       }
     }
     
+  public class TabCnae2009 extends TableDef
+    {
+    // Campos
+    public FieldDef cn9codigo;
+    public FieldDef cn9desc;
+    public TabCnae2009(String name)
+      {
+      super(name);
+      cn9codigo = new FieldDef("cn9codigo",FieldDef.CHAR,6,FieldDef.NOTNULL);
+      cn9desc = new FieldDef("cn9desc",FieldDef.CHAR,120);
+      FieldDef array[] = {
+        cn9codigo,
+        cn9desc        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {cn9codigo };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabCnaeequiv extends TableDef
+    {
+    // Campos
+    public FieldDef cnecod93;
+    public FieldDef cnecod09;
+    public FieldDef cnedesc93;
+    public FieldDef cnedesc09;
+    public TabCnaeequiv(String name)
+      {
+      super(name);
+      cnecod93 = new FieldDef("cnecod93",FieldDef.CHAR,6,FieldDef.NOTNULL);
+      cnecod09 = new FieldDef("cnecod09",FieldDef.CHAR,6,FieldDef.NOTNULL);
+      cnedesc93 = new FieldDef("cnedesc93",FieldDef.CHAR,120);
+      cnedesc09 = new FieldDef("cnedesc09",FieldDef.CHAR,120);
+      FieldDef array[] = {
+        cnecod93,
+        cnecod09,
+        cnedesc93,
+        cnedesc09        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {cnecod93,cnecod09 };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public CatAdmon()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -2637,6 +2688,8 @@ public class CatAdmon extends Catalog
     tabavisado = new TabAvisado("avisado");
     tabtipovias = new TabTipovias("tipovias");
     tabmuni347 = new TabMuni347("muni347");
+    tabcnae2009 = new TabCnae2009("cnae2009");
+    tabcnaeequiv = new TabCnaeequiv("cnaeequiv");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -2702,7 +2755,9 @@ public class CatAdmon extends Catalog
       tabempmodelos,
       tabavisado,
       tabtipovias,
-      tabmuni347      
+      tabmuni347,
+      tabcnae2009,
+      tabcnaeequiv      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
