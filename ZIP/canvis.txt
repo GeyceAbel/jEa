@@ -2,3 +2,4 @@
 050069 --> APJORDI: Canvis en la generacio de llistats (getRepetido -- Encabezado)
 050070 --> APJORDI: Easp.getTipoLicencia i Conversio 6.6 de CNAE i EQUIV
 050071 --> APJORDI: Nova columna epiepisinpunto a la taula EPIGRAFES.
+050080 --> APJORDI: Domicilis fiscal, social i de notificacions
