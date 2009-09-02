@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090729
-// Hora:             13:57:30
+// Fecha:            20090901
+// Hora:             12:58:21
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -425,6 +425,73 @@ public class CatAdmon extends Catalog
     public FieldDef datcbienes;
     public FieldDef datdominio;
     public FieldDef datnacional;
+    public FieldDef datfftvia;
+    public FieldDef datfvia;
+    public FieldDef datftnum;
+    public FieldDef datfnum;
+    public FieldDef datfcalnum;
+    public FieldDef datfbloque;
+    public FieldDef datfportal;
+    public FieldDef datfescal;
+    public FieldDef datfplanta;
+    public FieldDef datfpuerta;
+    public FieldDef datfcomp;
+    public FieldDef datflocal;
+    public FieldDef datfemail;
+    public FieldDef datfprov;
+    public FieldDef datfcodmun;
+    public FieldDef datfnommun;
+    public FieldDef datfcpost;
+    public FieldDef datftel;
+    public FieldDef datfmovil;
+    public FieldDef datffax;
+    public FieldDef datnftvia;
+    public FieldDef datnvia;
+    public FieldDef datntnum;
+    public FieldDef datnnum;
+    public FieldDef datncalnum;
+    public FieldDef datnbloque;
+    public FieldDef datnportal;
+    public FieldDef datnescal;
+    public FieldDef datnplanta;
+    public FieldDef datnpuerta;
+    public FieldDef datncomp;
+    public FieldDef datnlocal;
+    public FieldDef datnemail;
+    public FieldDef datnprov;
+    public FieldDef datncodmun;
+    public FieldDef datnnommun;
+    public FieldDef datncpost;
+    public FieldDef datntel;
+    public FieldDef datnmovil;
+    public FieldDef datnfax;
+    public FieldDef datnapcor;
+    public FieldDef datnpobla;
+    public FieldDef datnprov2;
+    public FieldDef datncpost2;
+    public FieldDef datntel2;
+    public FieldDef datnmovil2;
+    public FieldDef datnfax2;
+    public FieldDef datsftvia;
+    public FieldDef datsvia;
+    public FieldDef datstnum;
+    public FieldDef datsnum;
+    public FieldDef datscalnum;
+    public FieldDef datsbloque;
+    public FieldDef datsportal;
+    public FieldDef datsescal;
+    public FieldDef datsplanta;
+    public FieldDef datspuerta;
+    public FieldDef datscomp;
+    public FieldDef datslocal;
+    public FieldDef datsemail;
+    public FieldDef datsprov;
+    public FieldDef datscodmun;
+    public FieldDef datsnommun;
+    public FieldDef datscpost;
+    public FieldDef datstel;
+    public FieldDef datsmovil;
+    public FieldDef datsfax;
     public TabNifes(String name)
       {
       super(name);
@@ -467,6 +534,73 @@ public class CatAdmon extends Catalog
       datcbienes = new FieldDef("datcbienes",FieldDef.CHAR,1);
       datdominio = new FieldDef("datdominio",FieldDef.CHAR,12);
       datnacional = new FieldDef("datnacional",FieldDef.INTEGER,0);
+      datfftvia = new FieldDef("datfftvia",FieldDef.CHAR,5);
+      datfvia = new FieldDef("datfvia",FieldDef.CHAR,50);
+      datftnum = new FieldDef("datftnum",FieldDef.CHAR,3);
+      datfnum = new FieldDef("datfnum",FieldDef.INTEGER,0);
+      datfcalnum = new FieldDef("datfcalnum",FieldDef.CHAR,3);
+      datfbloque = new FieldDef("datfbloque",FieldDef.CHAR,3);
+      datfportal = new FieldDef("datfportal",FieldDef.CHAR,3);
+      datfescal = new FieldDef("datfescal",FieldDef.CHAR,3);
+      datfplanta = new FieldDef("datfplanta",FieldDef.CHAR,3);
+      datfpuerta = new FieldDef("datfpuerta",FieldDef.CHAR,3);
+      datfcomp = new FieldDef("datfcomp",FieldDef.CHAR,40);
+      datflocal = new FieldDef("datflocal",FieldDef.CHAR,30);
+      datfemail = new FieldDef("datfemail",FieldDef.CHAR,100);
+      datfprov = new FieldDef("datfprov",FieldDef.INTEGER,0);
+      datfcodmun = new FieldDef("datfcodmun",FieldDef.CHAR,5);
+      datfnommun = new FieldDef("datfnommun",FieldDef.CHAR,30);
+      datfcpost = new FieldDef("datfcpost",FieldDef.CHAR,5);
+      datftel = new FieldDef("datftel",FieldDef.INTEGER,0);
+      datfmovil = new FieldDef("datfmovil",FieldDef.INTEGER,0);
+      datffax = new FieldDef("datffax",FieldDef.INTEGER,0);
+      datnftvia = new FieldDef("datnftvia",FieldDef.CHAR,5);
+      datnvia = new FieldDef("datnvia",FieldDef.CHAR,50);
+      datntnum = new FieldDef("datntnum",FieldDef.CHAR,3);
+      datnnum = new FieldDef("datnnum",FieldDef.INTEGER,0);
+      datncalnum = new FieldDef("datncalnum",FieldDef.CHAR,3);
+      datnbloque = new FieldDef("datnbloque",FieldDef.CHAR,3);
+      datnportal = new FieldDef("datnportal",FieldDef.CHAR,3);
+      datnescal = new FieldDef("datnescal",FieldDef.CHAR,3);
+      datnplanta = new FieldDef("datnplanta",FieldDef.CHAR,3);
+      datnpuerta = new FieldDef("datnpuerta",FieldDef.CHAR,3);
+      datncomp = new FieldDef("datncomp",FieldDef.CHAR,40);
+      datnlocal = new FieldDef("datnlocal",FieldDef.CHAR,30);
+      datnemail = new FieldDef("datnemail",FieldDef.CHAR,100);
+      datnprov = new FieldDef("datnprov",FieldDef.INTEGER,0);
+      datncodmun = new FieldDef("datncodmun",FieldDef.CHAR,5);
+      datnnommun = new FieldDef("datnnommun",FieldDef.CHAR,30);
+      datncpost = new FieldDef("datncpost",FieldDef.CHAR,5);
+      datntel = new FieldDef("datntel",FieldDef.INTEGER,0);
+      datnmovil = new FieldDef("datnmovil",FieldDef.INTEGER,0);
+      datnfax = new FieldDef("datnfax",FieldDef.INTEGER,0);
+      datnapcor = new FieldDef("datnapcor",FieldDef.CHAR,10);
+      datnpobla = new FieldDef("datnpobla",FieldDef.CHAR,30);
+      datnprov2 = new FieldDef("datnprov2",FieldDef.INTEGER,0);
+      datncpost2 = new FieldDef("datncpost2",FieldDef.CHAR,5);
+      datntel2 = new FieldDef("datntel2",FieldDef.INTEGER,0);
+      datnmovil2 = new FieldDef("datnmovil2",FieldDef.INTEGER,0);
+      datnfax2 = new FieldDef("datnfax2",FieldDef.INTEGER,0);
+      datsftvia = new FieldDef("datsftvia",FieldDef.CHAR,5);
+      datsvia = new FieldDef("datsvia",FieldDef.CHAR,50);
+      datstnum = new FieldDef("datstnum",FieldDef.CHAR,3);
+      datsnum = new FieldDef("datsnum",FieldDef.INTEGER,0);
+      datscalnum = new FieldDef("datscalnum",FieldDef.CHAR,3);
+      datsbloque = new FieldDef("datsbloque",FieldDef.CHAR,3);
+      datsportal = new FieldDef("datsportal",FieldDef.CHAR,3);
+      datsescal = new FieldDef("datsescal",FieldDef.CHAR,3);
+      datsplanta = new FieldDef("datsplanta",FieldDef.CHAR,3);
+      datspuerta = new FieldDef("datspuerta",FieldDef.CHAR,3);
+      datscomp = new FieldDef("datscomp",FieldDef.CHAR,40);
+      datslocal = new FieldDef("datslocal",FieldDef.CHAR,30);
+      datsemail = new FieldDef("datsemail",FieldDef.CHAR,100);
+      datsprov = new FieldDef("datsprov",FieldDef.INTEGER,0);
+      datscodmun = new FieldDef("datscodmun",FieldDef.CHAR,5);
+      datsnommun = new FieldDef("datsnommun",FieldDef.CHAR,30);
+      datscpost = new FieldDef("datscpost",FieldDef.CHAR,5);
+      datstel = new FieldDef("datstel",FieldDef.INTEGER,0);
+      datsmovil = new FieldDef("datsmovil",FieldDef.INTEGER,0);
+      datsfax = new FieldDef("datsfax",FieldDef.INTEGER,0);
       FieldDef array[] = {
         danifcif,
         datipo,
@@ -506,7 +640,74 @@ public class CatAdmon extends Catalog
         datipf,
         datcbienes,
         datdominio,
-        datnacional        
+        datnacional,
+        datfftvia,
+        datfvia,
+        datftnum,
+        datfnum,
+        datfcalnum,
+        datfbloque,
+        datfportal,
+        datfescal,
+        datfplanta,
+        datfpuerta,
+        datfcomp,
+        datflocal,
+        datfemail,
+        datfprov,
+        datfcodmun,
+        datfnommun,
+        datfcpost,
+        datftel,
+        datfmovil,
+        datffax,
+        datnftvia,
+        datnvia,
+        datntnum,
+        datnnum,
+        datncalnum,
+        datnbloque,
+        datnportal,
+        datnescal,
+        datnplanta,
+        datnpuerta,
+        datncomp,
+        datnlocal,
+        datnemail,
+        datnprov,
+        datncodmun,
+        datnnommun,
+        datncpost,
+        datntel,
+        datnmovil,
+        datnfax,
+        datnapcor,
+        datnpobla,
+        datnprov2,
+        datncpost2,
+        datntel2,
+        datnmovil2,
+        datnfax2,
+        datsftvia,
+        datsvia,
+        datstnum,
+        datsnum,
+        datscalnum,
+        datsbloque,
+        datsportal,
+        datsescal,
+        datsplanta,
+        datspuerta,
+        datscomp,
+        datslocal,
+        datsemail,
+        datsprov,
+        datscodmun,
+        datsnommun,
+        datscpost,
+        datstel,
+        datsmovil,
+        datsfax        
         };
       setColumns(array);
       FieldDef arrayind1[] = { datapell1 };

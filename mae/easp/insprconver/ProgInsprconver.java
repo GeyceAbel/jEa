@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090729
-// Hora:             13:57:16
+// Fecha:            20090901
+// Hora:             13:08:47
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -864,6 +864,76 @@ public class ProgInsprconver extends Program
         "ALTER TABLE EPIGRAFES ADD epiepisinpunto VARCHAR(4);",
         "DELETE FROM EPIGRAFES;",
       };
+      String sentencias6_8[]={
+        "DELETE FROM VALORES;",
+        "ALTER TABLE NIFES ADD datfftvia  VARCHAR(5);",
+        "ALTER TABLE NIFES ADD datfvia    VARCHAR(50);",
+        "ALTER TABLE NIFES ADD datftnum   VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datfnum    INTEGER;",
+        "ALTER TABLE NIFES ADD datfcalnum VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datfbloque VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datfportal VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datfescal  VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datfplanta VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datfpuerta VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datfcomp   VARCHAR(40);",
+        "ALTER TABLE NIFES ADD datflocal  VARCHAR(30);",
+        "ALTER TABLE NIFES ADD datfemail  VARCHAR(100);",
+        "ALTER TABLE NIFES ADD datfprov   INTEGER;",
+        "ALTER TABLE NIFES ADD datfcodmun VARCHAR(5);",
+        "ALTER TABLE NIFES ADD datfnommun VARCHAR(30);",
+        "ALTER TABLE NIFES ADD datfcpost  VARCHAR(5);",
+        "ALTER TABLE NIFES ADD datftel    INTEGER;",
+        "ALTER TABLE NIFES ADD datfmovil  INTEGER;",
+        "ALTER TABLE NIFES ADD datffax    INTEGER;",
+        "ALTER TABLE NIFES ADD datnftvia  VARCHAR(5);",
+        "ALTER TABLE NIFES ADD datnvia    VARCHAR(50);",
+        "ALTER TABLE NIFES ADD datntnum   VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datnnum    INTEGER;",
+        "ALTER TABLE NIFES ADD datncalnum VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datnbloque VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datnportal VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datnescal  VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datnplanta VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datnpuerta VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datncomp   VARCHAR(40);",
+        "ALTER TABLE NIFES ADD datnlocal  VARCHAR(30);",
+        "ALTER TABLE NIFES ADD datnemail  VARCHAR(100);",
+        "ALTER TABLE NIFES ADD datnprov   INTEGER;",
+        "ALTER TABLE NIFES ADD datncodmun VARCHAR(5);",
+        "ALTER TABLE NIFES ADD datnnommun VARCHAR(30);",
+        "ALTER TABLE NIFES ADD datncpost  VARCHAR(5);",
+        "ALTER TABLE NIFES ADD datntel    INTEGER;",
+        "ALTER TABLE NIFES ADD datnmovil  INTEGER;",
+        "ALTER TABLE NIFES ADD datnfax    INTEGER;",
+        "ALTER TABLE NIFES ADD datnapcor VARCHAR(10);",
+        "ALTER TABLE NIFES ADD datnpobla VARCHAR(30);",
+        "ALTER TABLE NIFES ADD datnprov2 INTEGER;",
+        "ALTER TABLE NIFES ADD datncpost2 VARCHAR(5);",
+        "ALTER TABLE NIFES ADD datntel2 INTEGER;",
+        "ALTER TABLE NIFES ADD datnmovil2 INTEGER;",
+        "ALTER TABLE NIFES ADD datnfax2 INTEGER;",
+        "ALTER TABLE NIFES ADD datsftvia  VARCHAR(5);",
+        "ALTER TABLE NIFES ADD datsvia    VARCHAR(50);",
+        "ALTER TABLE NIFES ADD datstnum   VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datsnum    INTEGER;",
+        "ALTER TABLE NIFES ADD datscalnum VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datsbloque VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datsportal VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datsescal  VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datsplanta VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datspuerta VARCHAR(3);",
+        "ALTER TABLE NIFES ADD datscomp   VARCHAR(40);",
+        "ALTER TABLE NIFES ADD datslocal  VARCHAR(30);",
+        "ALTER TABLE NIFES ADD datsemail  VARCHAR(100);",
+        "ALTER TABLE NIFES ADD datsprov   INTEGER;",
+        "ALTER TABLE NIFES ADD datscodmun VARCHAR(5);",
+        "ALTER TABLE NIFES ADD datsnommun VARCHAR(30);",
+        "ALTER TABLE NIFES ADD datscpost  VARCHAR(5);",
+        "ALTER TABLE NIFES ADD datstel    INTEGER;",
+        "ALTER TABLE NIFES ADD datsmovil  INTEGER;",
+        "ALTER TABLE NIFES ADD datsfax    INTEGER;"
+      };
     
       int i=0;
       try {
@@ -1442,6 +1512,24 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","6.7");
           Easp.connEA.commit();
           vvveractual.setValue("6.7");
+        }
+        if (versio < 6.8) {
+          try {
+            for (i=0;i<sentencias6_8.length;++i) {
+              Easp.chivato("6.8 Exec : ["+sentencias6_8[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias6_8[i]);
+            }
+            String tablas[]= {"VALORES"};
+            Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0608","easp.jar");
+          }
+          catch(Exception e) {
+            sqlOperation=sentencias6_8[i];
+            Easp.chivato("6.8 *** Error : ["+sentencias6_8[i]+"]  Error: ["+e+"]",1);
+            errorMessage=e.getMessage();
+          }
+          Easp.setVersionBD("bdeasp","6.8");
+          Easp.connEA.commit();
+          vvveractual.setValue("6.8");
         }
     
     

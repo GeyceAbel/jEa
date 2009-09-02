@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080925
-// Hora:             11:33:19
+// Fecha:            20090902
+// Hora:             08:44:30
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -211,6 +211,7 @@ public class ProgPrtratamnifes extends Program
     public CtrlCdpobserv cdpobserv;
     // Acciones
     public LinkAaltaafinity aaltaafinity;
+    public LinkAdomicilios adomicilios;
     class Location extends LocationGridBag
       {
       public Location( )
@@ -1003,7 +1004,7 @@ public class ProgPrtratamnifes extends Program
         super(form);
         setName("aaltaafinity");
         setTitle("&Alta en Afinity Web");
-        setOptions(SEARCH | SHOW | UPDATE | INSERT);
+        setOptions(SHOW | UPDATE);
         }
       public void onAction()
         {
@@ -1011,6 +1012,23 @@ public class ProgPrtratamnifes extends Program
         if ( cdpcdpcdp==null ) Easp.grabarDatosAfinity(danifcif.getString(),true);
         else Maefc.message("Este cliente ya existe en Afinity Web con el código: "+cdpcdpcdp,"Atención",Maefc.INFORMATION_MESSAGE);
         
+        }
+      }
+      
+    public class LinkAdomicilios extends Action
+      {
+      public LinkAdomicilios(Form form)
+        {
+        super(form);
+        setName("adomicilios");
+        setTitle("&Gestión de domicilios (Fiscal, notificaciones y social)");
+        setOptions(SHOW | UPDATE);
+        }
+      public void onAction()
+        {
+        mae.easp.prdomicilios.ProgPrdomicilios pr = new mae.easp.prdomicilios.ProgPrdomicilios();
+        pr.gNif = danifcif.getString();
+        pr.run();
         }
       }
       
@@ -1059,6 +1077,7 @@ public class ProgPrtratamnifes extends Program
       addControl(cdpcdprel=new CtrlCdpcdprel(this));
       addControl(cdpobserv=new CtrlCdpobserv(this));
       addAction(aaltaafinity=new LinkAaltaafinity(this));
+      addAction(adomicilios=new LinkAdomicilios(this));
       setSelect(snifes);
       }
     public void onInit()

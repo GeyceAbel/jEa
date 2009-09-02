@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090327
-// Hora:             10:03:15
+// Fecha:            20090902
+// Hora:             09:01:47
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -622,6 +622,7 @@ public class ProgPrclfichagener extends Program
     public CtrlDatepais datepais;
     public CtrlBtcopiardatos btcopiardatos;
     // Acciones
+    public LinkAdomicilios adomicilios;
     class Location extends LocationWindow
       {
       public Location( )
@@ -1073,6 +1074,23 @@ public class ProgPrclfichagener extends Program
         }
       }
       
+    public class LinkAdomicilios extends Action
+      {
+      public LinkAdomicilios(Form form)
+        {
+        super(form);
+        setName("adomicilios");
+        setTitle("&1. Gestión de domicilios (Fiscal, notificaciones y social)");
+        setOptions(SHOW);
+        }
+      public void onAction()
+        {
+        mae.easp.prdomicilios.ProgPrdomicilios pr = new mae.easp.prdomicilios.ProgPrdomicilios();
+        pr.gNif = sgeneral.danifcif.getString();
+        pr.run();
+        }
+      }
+      
     public FormVdomicilioenv(ProgPrclfichagener prclfichagener)
       {
       super(prclfichagener);
@@ -1107,6 +1125,7 @@ public class ProgPrclfichagener extends Program
       addControl(datecpos=new CtrlDatecpos(this));
       addControl(datepais=new CtrlDatepais(this));
       addControl(btcopiardatos=new CtrlBtcopiardatos(this));
+      addAction(adomicilios=new LinkAdomicilios(this));
       setSelect(sgeneral);
       }
     public void onInit()
@@ -5052,7 +5071,7 @@ snifrep.datapell2.setValue(vvdatapell2);
     
     //paginas web asociadas
     vdatosafiliacio.setLayout(new LayoutHtml("mae/easp/html/datosafiliacion.html"));
-    vdomicilioenv.setLayout(new LayoutHtml("mae/easp/html/domicilioenv.html"));
+    vdomicilioenv.setLayout(new LayoutHtml("mae/easp/html/domicilioenv2.html"));
     vnifrepresentan.setLayout(new LayoutHtml("mae/easp/html/datosrepre.html"));
     //vnifes.setLayout(new LayoutHtml("mae/easp/html/datosafiliacionpro.html"));
     
