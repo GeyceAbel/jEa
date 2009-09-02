@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090710
-// Hora:             09:31:25
+// Fecha:            20090902
+// Hora:             09:52:08
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2984,6 +2984,24 @@ public class CatLaboral extends Catalog
     public FieldDef empcbanccta;
     public FieldDef empsbanccta;
     public FieldDef empconvofic;
+    public FieldDef emplogopapdir;
+    public FieldDef emplogopaplenx;
+    public FieldDef emplogopapleny;
+    public FieldDef emplogomir;
+    public FieldDef emplogomirlenx;
+    public FieldDef emplogomirleny;
+    public FieldDef emplogoepo;
+    public FieldDef emplogoepolenx;
+    public FieldDef emplogoepoleny;
+    public FieldDef empfirmapap;
+    public FieldDef empfirmapaplenx;
+    public FieldDef empfirmapapleny;
+    public FieldDef empfirmamir;
+    public FieldDef empfirmamirlenx;
+    public FieldDef empfirmamirleny;
+    public FieldDef empfirmaepo;
+    public FieldDef empfirmaepolenx;
+    public FieldDef empfirmaepoleny;
     public TabEmpresa(String name)
       {
       super(name);
@@ -3047,6 +3065,24 @@ public class CatLaboral extends Catalog
       empcbanccta = new FieldDef("empcbanccta",FieldDef.CHAR,4);
       empsbanccta = new FieldDef("empsbanccta",FieldDef.CHAR,12);
       empconvofic = new FieldDef("empconvofic",FieldDef.INTEGER,0);
+      emplogopapdir = new FieldDef("emplogopapdir",FieldDef.CHAR,250);
+      emplogopaplenx = new FieldDef("emplogopaplenx",FieldDef.FLOAT,6,0);
+      emplogopapleny = new FieldDef("emplogopapleny",FieldDef.FLOAT,6,0);
+      emplogomir = new FieldDef("emplogomir",FieldDef.CHAR,250);
+      emplogomirlenx = new FieldDef("emplogomirlenx",FieldDef.FLOAT,6,0);
+      emplogomirleny = new FieldDef("emplogomirleny",FieldDef.FLOAT,6,0);
+      emplogoepo = new FieldDef("emplogoepo",FieldDef.CHAR,250);
+      emplogoepolenx = new FieldDef("emplogoepolenx",FieldDef.FLOAT,6,0);
+      emplogoepoleny = new FieldDef("emplogoepoleny",FieldDef.FLOAT,6,0);
+      empfirmapap = new FieldDef("empfirmapap",FieldDef.CHAR,250);
+      empfirmapaplenx = new FieldDef("empfirmapaplenx",FieldDef.FLOAT,6,0);
+      empfirmapapleny = new FieldDef("empfirmapapleny",FieldDef.FLOAT,6,0);
+      empfirmamir = new FieldDef("empfirmamir",FieldDef.CHAR,250);
+      empfirmamirlenx = new FieldDef("empfirmamirlenx",FieldDef.FLOAT,6,0);
+      empfirmamirleny = new FieldDef("empfirmamirleny",FieldDef.FLOAT,6,0);
+      empfirmaepo = new FieldDef("empfirmaepo",FieldDef.CHAR,250);
+      empfirmaepolenx = new FieldDef("empfirmaepolenx",FieldDef.FLOAT,6,0);
+      empfirmaepoleny = new FieldDef("empfirmaepoleny",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         empcodigo,
         empnombre,
@@ -3107,7 +3143,25 @@ public class CatLaboral extends Catalog
         empempcta,
         empcbanccta,
         empsbanccta,
-        empconvofic        
+        empconvofic,
+        emplogopapdir,
+        emplogopaplenx,
+        emplogopapleny,
+        emplogomir,
+        emplogomirlenx,
+        emplogomirleny,
+        emplogoepo,
+        emplogoepolenx,
+        emplogoepoleny,
+        empfirmapap,
+        empfirmapaplenx,
+        empfirmapapleny,
+        empfirmamir,
+        empfirmamirlenx,
+        empfirmamirleny,
+        empfirmaepo,
+        empfirmaepolenx,
+        empfirmaepoleny        
         };
       setColumns(array);
       FieldDef arrayf[] = {empcodigo };
@@ -3161,6 +3215,24 @@ public class CatLaboral extends Catalog
       empgrupo.setDescription("Grupo asignado a empresa");
       empidioma.setDescription("Idioma documentos empresa");
       empcodiaux.setDescription("Código Empresa Auxiliar");
+      emplogopapdir.setDescription("IMAGEN LOGOTIPO PARA RECIBO EN PAPEL UBICACION FICHERO");
+      emplogopaplenx.setDescription("IMAGEN LOGOTIPO PARA RECIBO EN PAPEL LONGITUD X");
+      emplogopapleny.setDescription("IMAGEN LOGOTIPO PARA RECIBO EN PAPEL LONGITUD Y");
+      emplogomir.setDescription("IMAGEN LOGOTIPO PARA RECIBO EN MIR UBICACION FICHERO");
+      emplogomirlenx.setDescription("IMAGEN LOGOTIPO PARA RECIBO EN MIR LONGITUD X");
+      emplogomirleny.setDescription("IMAGEN LOGOTIPO PARA RECIBO EN MIR LONGITUD Y");
+      emplogoepo.setDescription("IMAGEN LOGOTIPO PARA RECIBO EN EPORTEM UBICACION FICHERO");
+      emplogoepolenx.setDescription("IMAGEN LOGOTIPO PARA RECIBO EN EPORTEM LONGITUD X");
+      emplogoepoleny.setDescription("IMAGEN LOGOTIPO PARA RECIBO EN EPORTEM LONGITUD Y");
+      empfirmapap.setDescription("IMAGEN FIRMA PARA RECIBO EN PAPEL UBICACION FICHERO");
+      empfirmapaplenx.setDescription("IMAGEN FIRMA PARA RECIBO EN PAPEL LONGITUD X");
+      empfirmapapleny.setDescription("IMAGEN FIRMA PARA RECIBO EN PAPEL LONGITUD Y");
+      empfirmamir.setDescription("IMAGEN FIRMA PARA RECIBO EN MIR UBICACION FICHERO");
+      empfirmamirlenx.setDescription("IMAGEN FIRMA PARA RECIBO EN MIR LONGITUD X");
+      empfirmamirleny.setDescription("IMAGEN FIRMA PARA RECIBO EN MIR LONGITUD Y");
+      empfirmaepo.setDescription("IMAGEN FIRMA PARA RECIBO EN EPORTEM UBICACION FICHERO");
+      empfirmaepolenx.setDescription("IMAGEN FIRMA PARA RECIBO EN EPORTEM LONGITUD X");
+      empfirmaepoleny.setDescription("IMAGEN FIRMA PARA RECIBO EN EPORTEM LONGITUD Y");
       }
     }
     
@@ -3306,6 +3378,9 @@ public class CatLaboral extends Catalog
     public FieldDef censbanccta;
     public FieldDef cenconvofic;
     public FieldDef censscnae09;
+    public FieldDef cennumere;
+    public FieldDef cenfinsuspen;
+    public FieldDef cenreducere;
     public TabCentros(String name)
       {
       super(name);
@@ -3387,6 +3462,9 @@ public class CatLaboral extends Catalog
       censbanccta = new FieldDef("censbanccta",FieldDef.CHAR,12);
       cenconvofic = new FieldDef("cenconvofic",FieldDef.INTEGER,0);
       censscnae09 = new FieldDef("censscnae09",FieldDef.CHAR,4);
+      cennumere = new FieldDef("cennumere",FieldDef.CHAR,15);
+      cenfinsuspen = new FieldDef("cenfinsuspen",FieldDef.DATE);
+      cenreducere = new FieldDef("cenreducere",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         cencodiemp,
         cencodigo,
@@ -3465,7 +3543,10 @@ public class CatLaboral extends Catalog
         cencbanccta,
         censbanccta,
         cenconvofic,
-        censscnae09        
+        censscnae09,
+        cennumere,
+        cenfinsuspen,
+        cenreducere        
         };
       setColumns(array);
       FieldDef arrayf[] = {cencodiemp,cencodigo };
@@ -3956,6 +4037,9 @@ public class CatLaboral extends Catalog
     public FieldDef trasubcta;
     public FieldDef trabanccen;
     public FieldDef tractainactiv;
+    public FieldDef tranumere;
+    public FieldDef trafinsuspen;
+    public FieldDef trareducere;
     public TabTrabajador(String name)
       {
       super(name);
@@ -4032,6 +4116,9 @@ public class CatLaboral extends Catalog
       trasubcta = new FieldDef("trasubcta",FieldDef.CHAR,12);
       trabanccen = new FieldDef("trabanccen",FieldDef.CHAR,5);
       tractainactiv = new FieldDef("tractainactiv",FieldDef.CHAR,1);
+      tranumere = new FieldDef("tranumere",FieldDef.CHAR,15);
+      trafinsuspen = new FieldDef("trafinsuspen",FieldDef.DATE);
+      trareducere = new FieldDef("trareducere",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         tracodiemp,
         tracodigo,
@@ -4105,7 +4192,10 @@ public class CatLaboral extends Catalog
         traexcluportem,
         trasubcta,
         trabanccen,
-        tractainactiv        
+        tractainactiv,
+        tranumere,
+        trafinsuspen,
+        trareducere        
         };
       setColumns(array);
       FieldDef arrayf[] = {tracodiemp,tracodigo };

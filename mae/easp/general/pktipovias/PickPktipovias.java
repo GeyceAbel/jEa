@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090901
-// Hora:             11:57:59
+// Fecha:            20090902
+// Hora:             09:52:04
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -27,9 +27,9 @@ public class PickPktipovias extends PickUp
     // Tablas
     public Tipovias tipovias;
     // Campos
+    public Field tvscodant;
     public Field tvscodigo;
     public Field tvsdesc;
-    public Field tvscodant;
     class Tipovias extends Table
       {
       public Tipovias(Select select)
@@ -44,9 +44,9 @@ public class PickPktipovias extends PickUp
       {
       setName("stipovias");
       addTable(tipovias=new Tipovias(this));
+      addField(tvscodant=new Field(this,tipovias,"tvscodant"));
       addField(tvscodigo=new Field(this,tipovias,"tvscodigo"));
       addField(tvsdesc=new Field(this,tipovias,"tvsdesc"));
-      addField(tvscodant=new Field(this,tipovias,"tvscodant"));
       }
     public String getOrder()
       {
