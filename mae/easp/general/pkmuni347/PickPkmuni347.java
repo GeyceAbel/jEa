@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090902
-// Hora:             09:52:03
+// Fecha:            20090903
+// Hora:             14:02:45
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -19,6 +19,10 @@ public class PickPkmuni347 extends PickUp
   // Inicio declaraciones globales
   public int provincia=0;
   
+  public void setSelect(Select select) {
+    super.setSelect(select);
+    select.setDb(Easp.connEA);
+    }
   
   // Fin declaraciones globales
   // Select

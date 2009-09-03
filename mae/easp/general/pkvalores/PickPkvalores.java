@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090902
-// Hora:             09:52:04
+// Fecha:            20090903
+// Hora:             14:02:46
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -18,6 +18,11 @@ public class PickPkvalores extends PickUp
   {
   // Inicio declaraciones globales
   public String filtro=null;
+  public void setSelect(Select select) {
+    super.setSelect(select);
+    select.setDb(Easp.connEA);
+    }
+  
   // Fin declaraciones globales
   // Select
   public Svalores svalores;

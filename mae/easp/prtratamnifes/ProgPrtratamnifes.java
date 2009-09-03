@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20090903
-// Hora:             09:38:45
+// Hora:             13:38:00
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1050,6 +1050,7 @@ public class ProgPrtratamnifes extends Program
         mae.easp.prdomicilios.ProgPrdomicilios pr = new mae.easp.prdomicilios.ProgPrdomicilios();
         pr.gNif = danifcif.getString();
         pr.run();
+        doShow();
         }
       }
       

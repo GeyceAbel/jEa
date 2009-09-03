@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20090903
-// Hora:             12:03:05
+// Hora:             13:41:00
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1929,6 +1929,7 @@ public class ProgPrdomicilios extends Program
     }
   public void onInit()
     {
+    setConnection(Easp.connEA);
     if (gNif == null || gNif.trim().length()==0) Maefc.message("Error al iniciar la Gestión de Domicilios.","¡Atención!",Maefc.ERROR_MESSAGE);
     else {
       setModal(true);
