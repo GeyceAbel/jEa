@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090902
-// Hora:             08:48:17
+// Fecha:            20090903
+// Hora:             10:56:49
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -26,11 +26,26 @@ public class ProgPrdomicilios extends Program
   public ProgPrdomicilios prdomicilios;
   // Inicio declaraciones globales
   public String gNif = null;
+  
+  private String getNomMuni(String cod) {
+    String desc = null;
+    Selector s = new Selector (Easp.connEA);
+    s.execute ("Select * from MUNI347 where mu7provmuni='"+cod+"'");
+    if (s.next()) desc = s.getString("mu7desc");
+    s.close();
+    return desc;
+  }
   // Fin declaraciones globales
   // Ventana
   public FormVdomicilios vdomicilios;
   // Selects
   public Snif snif;
+  // Ventana
+  public FormVnotificaciones vnotificaciones;
+  // Selects
+  // Ventana
+  public FormVsocial vsocial;
+  // Selects
   class Location extends LocationTabbed
     {
     public Location( )
@@ -43,22 +58,14 @@ public class ProgPrdomicilios extends Program
   public class FormVdomicilios extends MonoDataForm
     {
     // Inicio declaraciones globales
-    private String getNomMuni(String cod) {
-      String desc = null;
-      Selector s = new Selector (Easp.connEA);
-      s.execute ("Select * from MUNI347 where mu7provmuni='"+cod+"'");
-      if (s.next()) desc = s.getString("mu7desc");
-      s.close();
-      return desc;
-    }
-    
     public void onEdit() {
       super.onEdit();
-      btfiscal.setEnabled(true);
-      btnotif1.setEnabled(true);
-      btnotif2.setEnabled(true);
-      btsocial.setEnabled(true);
+      vdomicilios.btfiscal.setEnabled(true);
+      vnotificaciones.btnotif1.setEnabled(true);
+      vnotificaciones.btnotif2.setEnabled(true);
+      vsocial.btsocial.setEnabled(true);
     }
+    
     // Fin declaraciones globales
     // Controles
     public CtrlBtfiscal btfiscal;
@@ -82,56 +89,6 @@ public class ProgPrdomicilios extends Program
     public CtrlDatftel datftel;
     public CtrlDatfmovil datfmovil;
     public CtrlDatffax datffax;
-    public CtrlBtnotif1 btnotif1;
-    public CtrlDatnftvia datnftvia;
-    public CtrlDatnvia datnvia;
-    public CtrlDatntnum datntnum;
-    public CtrlDatnnum datnnum;
-    public CtrlDatncalnum datncalnum;
-    public CtrlDatnbloque datnbloque;
-    public CtrlDatnportal datnportal;
-    public CtrlDatnescal datnescal;
-    public CtrlDatnplanta datnplanta;
-    public CtrlDatnpuerta datnpuerta;
-    public CtrlDatncomp datncomp;
-    public CtrlDatnlocal datnlocal;
-    public CtrlDatnemail datnemail;
-    public CtrlDatnprov datnprov;
-    public CtrlDatncodmun datncodmun;
-    public CtrlDatnnommun datnnommun;
-    public CtrlDatncpost datncpost;
-    public CtrlDatntel datntel;
-    public CtrlDatnmovil datnmovil;
-    public CtrlDatnfax datnfax;
-    public CtrlBtnotif2 btnotif2;
-    public CtrlDatnapcor datnapcor;
-    public CtrlDatnpobla datnpobla;
-    public CtrlDatnprov2 datnprov2;
-    public CtrlDatncpost2 datncpost2;
-    public CtrlDatntel2 datntel2;
-    public CtrlDatnmovil2 datnmovil2;
-    public CtrlDatnfax2 datnfax2;
-    public CtrlBtsocial btsocial;
-    public CtrlDatsftvia datsftvia;
-    public CtrlDatsvia datsvia;
-    public CtrlDatstnum datstnum;
-    public CtrlDatsnum datsnum;
-    public CtrlDatscalnum datscalnum;
-    public CtrlDatsbloque datsbloque;
-    public CtrlDatsportal datsportal;
-    public CtrlDatsescal datsescal;
-    public CtrlDatsplanta datsplanta;
-    public CtrlDatspuerta datspuerta;
-    public CtrlDatscomp datscomp;
-    public CtrlDatslocal datslocal;
-    public CtrlDatsemail datsemail;
-    public CtrlDatsprov datsprov;
-    public CtrlDatscodmun datscodmun;
-    public CtrlDatsnommun datsnommun;
-    public CtrlDatscpost datscpost;
-    public CtrlDatstel datstel;
-    public CtrlDatsmovil datsmovil;
-    public CtrlDatsfax datsfax;
     // Acciones
     class Location extends LocationGridBag
       {
@@ -183,7 +140,7 @@ public class ProgPrdomicilios extends Program
         datflocal.setValue(snif.datpobla);
         datfcpost.setValue(snif.datcpos);
         datftel.setNull();
-        datfmovil.setNull();
+        datfmovil.setValue(snif.datmovil);
         datffax.setNull();
         try {
           datftel.setValue(Integer.parseInt(snif.dattel.getString()));
@@ -560,6 +517,372 @@ public class ProgPrdomicilios extends Program
         }
       }
       
+    public FormVdomicilios(ProgPrdomicilios prdomicilios)
+      {
+      super(prdomicilios);
+      setName("vdomicilios");
+      setTitle("Domicilio fiscal");
+      setLocation(new Location());
+      setStates(SHOW | UPDATE);
+      setUnique(true);
+      addSelect(snif=new Snif());
+      addControl(btfiscal=new CtrlBtfiscal(this));
+      addControl(datfftvia=new CtrlDatfftvia(this));
+      addControl(datfvia=new CtrlDatfvia(this));
+      addControl(datftnum=new CtrlDatftnum(this));
+      addControl(datfnum=new CtrlDatfnum(this));
+      addControl(datfcalnum=new CtrlDatfcalnum(this));
+      addControl(datfbloque=new CtrlDatfbloque(this));
+      addControl(datfportal=new CtrlDatfportal(this));
+      addControl(datfescal=new CtrlDatfescal(this));
+      addControl(datfplanta=new CtrlDatfplanta(this));
+      addControl(datfpuerta=new CtrlDatfpuerta(this));
+      addControl(datfcomp=new CtrlDatfcomp(this));
+      addControl(datflocal=new CtrlDatflocal(this));
+      addControl(datfemail=new CtrlDatfemail(this));
+      addControl(datfprov=new CtrlDatfprov(this));
+      addControl(datfcodmun=new CtrlDatfcodmun(this));
+      addControl(datfnommun=new CtrlDatfnommun(this));
+      addControl(datfcpost=new CtrlDatfcpost(this));
+      addControl(datftel=new CtrlDatftel(this));
+      addControl(datfmovil=new CtrlDatfmovil(this));
+      addControl(datffax=new CtrlDatffax(this));
+      setSelect(snif);
+      }
+    public boolean onOkUpdate()
+      {
+      if (super.onOkUpdate()){
+        int resp = Maefc.message("¿Desea actualizar los datos de afiliación con los datos del domicilio fiscal?","¡Atención!",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION);
+        if (resp == Maefc.YES_OPTION) {
+          Easp.actualizarDomicilioAfiliacion(gNif);
+          Easp.connEA.commit();
+        }
+        return true;
+      }
+      else return false;
+      }
+    public void onBeginRecord()
+      {
+      super.onBeginRecord();
+      vdomicilios.datftnum.pickup.filtro="TIPONUM";
+      vdomicilios.datftnum.refresh();
+      vdomicilios.datfcalnum.pickup.filtro="CALIFNUM";
+      vdomicilios.datfcalnum.refresh();
+      vnotificaciones.datntnum.pickup.filtro="TIPONUM";
+      vnotificaciones.datntnum.refresh();
+      vnotificaciones.datncalnum.pickup.filtro="CALIFNUM";
+      vnotificaciones.datncalnum.refresh();
+      vsocial.datstnum.pickup.filtro="TIPONUM";
+      vsocial.datstnum.refresh();
+      vsocial.datscalnum.pickup.filtro="CALIFNUM";
+      vsocial.datscalnum.refresh();
+      vdomicilios.datfcodmun.pickup.provincia=snif.datfprov.getInteger();
+      vdomicilios.datfcodmun.refresh();
+      vnotificaciones.datncodmun.pickup.provincia=snif.datnprov.getInteger();
+      vnotificaciones.datncodmun.refresh();
+      vsocial.datscodmun.pickup.provincia=snif.datsprov.getInteger();
+      vsocial.datscodmun.refresh();
+      vdomicilios.btfiscal.setEnabled(false);
+      vnotificaciones.btnotif1.setEnabled(false);
+      vnotificaciones.btnotif2.setEnabled(false);
+      vsocial.btsocial.setEnabled(false);
+      
+      }
+    }
+    
+  // 
+  public class Snif extends Select
+    {
+    // Tablas
+    public Nifes nifes;
+    // Campos
+    public Field danifcif;
+    public Field dataltaen;
+    public Field datapell1;
+    public Field datapell2;
+    public Field datcbienes;
+    public Field datcontacto;
+    public Field datcpos;
+    public Field datdominio;
+    public Field dateatt;
+    public Field datecpos;
+    public Field dateesc;
+    public Field dateletra;
+    public Field datemail;
+    public Field datemuni;
+    public Field datenum;
+    public Field datepais;
+    public Field datepiso;
+    public Field datepobla;
+    public Field dateprov;
+    public Field datesc;
+    public Field datesiglas;
+    public Field datevia;
+    public Field datfax;
+    public Field datfbloque;
+    public Field datfcalnum;
+    public Field datfcodmun;
+    public Field datfcomp;
+    public Field datfcpost;
+    public Field datfemail;
+    public Field datfescal;
+    public Field datffax;
+    public Field datfftvia;
+    public Field datfisicajuri;
+    public Field datflocal;
+    public Field datfmovil;
+    public Field datfnommun;
+    public Field datfnum;
+    public Field datfplanta;
+    public Field datfportal;
+    public Field datfprov;
+    public Field datfpuerta;
+    public Field datftel;
+    public Field datftnum;
+    public Field datfvia;
+    public Field datipf;
+    public Field datipo;
+    public Field datletra;
+    public Field datletraseti;
+    public Field datmovil;
+    public Field datmuni;
+    public Field datnacional;
+    public Field datnapcor;
+    public Field datnbloque;
+    public Field datncalnum;
+    public Field datncodmun;
+    public Field datncomp;
+    public Field datncpost;
+    public Field datncpost2;
+    public Field datnemail;
+    public Field datnescal;
+    public Field datnfax;
+    public Field datnfax2;
+    public Field datnftvia;
+    public Field datnlocal;
+    public Field datnmovil;
+    public Field datnmovil2;
+    public Field datnnommun;
+    public Field datnnum;
+    public Field datnombre;
+    public Field datnplanta;
+    public Field datnpobla;
+    public Field datnportal;
+    public Field datnprov;
+    public Field datnprov2;
+    public Field datnpuerta;
+    public Field datntel;
+    public Field datntel2;
+    public Field datntnum;
+    public Field datnum;
+    public Field datnvia;
+    public Field datpais;
+    public Field datpiso;
+    public Field datpobla;
+    public Field datprov;
+    public Field datsbloque;
+    public Field datscalnum;
+    public Field datscodmun;
+    public Field datscomp;
+    public Field datscpost;
+    public Field datsemail;
+    public Field datsescal;
+    public Field datsfax;
+    public Field datsftvia;
+    public Field datsiglas;
+    public Field datslocal;
+    public Field datsmovil;
+    public Field datsnommun;
+    public Field datsnum;
+    public Field datsplanta;
+    public Field datsportal;
+    public Field datsprov;
+    public Field datspuerta;
+    public Field datstel;
+    public Field datstnum;
+    public Field datsvia;
+    public Field dattel;
+    public Field datvia;
+    class Nifes extends Table
+      {
+      public Nifes(Select select)
+        {
+        super(select);
+        setName("nifes");
+        setOptions(READ | INSERT | DELETE | UPDATE);
+        }
+      }
+      
+    public Snif()
+      {
+      setName("snif");
+      addTable(nifes=new Nifes(this));
+      addField(danifcif=new Field(this,nifes,"danifcif"));
+      addField(dataltaen=new Field(this,nifes,"dataltaen"));
+      addField(datapell1=new Field(this,nifes,"datapell1"));
+      addField(datapell2=new Field(this,nifes,"datapell2"));
+      addField(datcbienes=new Field(this,nifes,"datcbienes"));
+      addField(datcontacto=new Field(this,nifes,"datcontacto"));
+      addField(datcpos=new Field(this,nifes,"datcpos"));
+      addField(datdominio=new Field(this,nifes,"datdominio"));
+      addField(dateatt=new Field(this,nifes,"dateatt"));
+      addField(datecpos=new Field(this,nifes,"datecpos"));
+      addField(dateesc=new Field(this,nifes,"dateesc"));
+      addField(dateletra=new Field(this,nifes,"dateletra"));
+      addField(datemail=new Field(this,nifes,"datemail"));
+      addField(datemuni=new Field(this,nifes,"datemuni"));
+      addField(datenum=new Field(this,nifes,"datenum"));
+      addField(datepais=new Field(this,nifes,"datepais"));
+      addField(datepiso=new Field(this,nifes,"datepiso"));
+      addField(datepobla=new Field(this,nifes,"datepobla"));
+      addField(dateprov=new Field(this,nifes,"dateprov"));
+      addField(datesc=new Field(this,nifes,"datesc"));
+      addField(datesiglas=new Field(this,nifes,"datesiglas"));
+      addField(datevia=new Field(this,nifes,"datevia"));
+      addField(datfax=new Field(this,nifes,"datfax"));
+      addField(datfbloque=new Field(this,nifes,"datfbloque"));
+      addField(datfcalnum=new Field(this,nifes,"datfcalnum"));
+      addField(datfcodmun=new Field(this,nifes,"datfcodmun"));
+      addField(datfcomp=new Field(this,nifes,"datfcomp"));
+      addField(datfcpost=new Field(this,nifes,"datfcpost"));
+      addField(datfemail=new Field(this,nifes,"datfemail"));
+      addField(datfescal=new Field(this,nifes,"datfescal"));
+      addField(datffax=new Field(this,nifes,"datffax"));
+      addField(datfftvia=new Field(this,nifes,"datfftvia"));
+      addField(datfisicajuri=new Field(this,nifes,"datfisicajuri"));
+      addField(datflocal=new Field(this,nifes,"datflocal"));
+      addField(datfmovil=new Field(this,nifes,"datfmovil"));
+      addField(datfnommun=new Field(this,nifes,"datfnommun"));
+      addField(datfnum=new Field(this,nifes,"datfnum"));
+      addField(datfplanta=new Field(this,nifes,"datfplanta"));
+      addField(datfportal=new Field(this,nifes,"datfportal"));
+      addField(datfprov=new Field(this,nifes,"datfprov"));
+      addField(datfpuerta=new Field(this,nifes,"datfpuerta"));
+      addField(datftel=new Field(this,nifes,"datftel"));
+      addField(datftnum=new Field(this,nifes,"datftnum"));
+      addField(datfvia=new Field(this,nifes,"datfvia"));
+      addField(datipf=new Field(this,nifes,"datipf"));
+      addField(datipo=new Field(this,nifes,"datipo"));
+      addField(datletra=new Field(this,nifes,"datletra"));
+      addField(datletraseti=new Field(this,nifes,"datletraseti"));
+      addField(datmovil=new Field(this,nifes,"datmovil"));
+      addField(datmuni=new Field(this,nifes,"datmuni"));
+      addField(datnacional=new Field(this,nifes,"datnacional"));
+      addField(datnapcor=new Field(this,nifes,"datnapcor"));
+      addField(datnbloque=new Field(this,nifes,"datnbloque"));
+      addField(datncalnum=new Field(this,nifes,"datncalnum"));
+      addField(datncodmun=new Field(this,nifes,"datncodmun"));
+      addField(datncomp=new Field(this,nifes,"datncomp"));
+      addField(datncpost=new Field(this,nifes,"datncpost"));
+      addField(datncpost2=new Field(this,nifes,"datncpost2"));
+      addField(datnemail=new Field(this,nifes,"datnemail"));
+      addField(datnescal=new Field(this,nifes,"datnescal"));
+      addField(datnfax=new Field(this,nifes,"datnfax"));
+      addField(datnfax2=new Field(this,nifes,"datnfax2"));
+      addField(datnftvia=new Field(this,nifes,"datnftvia"));
+      addField(datnlocal=new Field(this,nifes,"datnlocal"));
+      addField(datnmovil=new Field(this,nifes,"datnmovil"));
+      addField(datnmovil2=new Field(this,nifes,"datnmovil2"));
+      addField(datnnommun=new Field(this,nifes,"datnnommun"));
+      addField(datnnum=new Field(this,nifes,"datnnum"));
+      addField(datnombre=new Field(this,nifes,"datnombre"));
+      addField(datnplanta=new Field(this,nifes,"datnplanta"));
+      addField(datnpobla=new Field(this,nifes,"datnpobla"));
+      addField(datnportal=new Field(this,nifes,"datnportal"));
+      addField(datnprov=new Field(this,nifes,"datnprov"));
+      addField(datnprov2=new Field(this,nifes,"datnprov2"));
+      addField(datnpuerta=new Field(this,nifes,"datnpuerta"));
+      addField(datntel=new Field(this,nifes,"datntel"));
+      addField(datntel2=new Field(this,nifes,"datntel2"));
+      addField(datntnum=new Field(this,nifes,"datntnum"));
+      addField(datnum=new Field(this,nifes,"datnum"));
+      addField(datnvia=new Field(this,nifes,"datnvia"));
+      addField(datpais=new Field(this,nifes,"datpais"));
+      addField(datpiso=new Field(this,nifes,"datpiso"));
+      addField(datpobla=new Field(this,nifes,"datpobla"));
+      addField(datprov=new Field(this,nifes,"datprov"));
+      addField(datsbloque=new Field(this,nifes,"datsbloque"));
+      addField(datscalnum=new Field(this,nifes,"datscalnum"));
+      addField(datscodmun=new Field(this,nifes,"datscodmun"));
+      addField(datscomp=new Field(this,nifes,"datscomp"));
+      addField(datscpost=new Field(this,nifes,"datscpost"));
+      addField(datsemail=new Field(this,nifes,"datsemail"));
+      addField(datsescal=new Field(this,nifes,"datsescal"));
+      addField(datsfax=new Field(this,nifes,"datsfax"));
+      addField(datsftvia=new Field(this,nifes,"datsftvia"));
+      addField(datsiglas=new Field(this,nifes,"datsiglas"));
+      addField(datslocal=new Field(this,nifes,"datslocal"));
+      addField(datsmovil=new Field(this,nifes,"datsmovil"));
+      addField(datsnommun=new Field(this,nifes,"datsnommun"));
+      addField(datsnum=new Field(this,nifes,"datsnum"));
+      addField(datsplanta=new Field(this,nifes,"datsplanta"));
+      addField(datsportal=new Field(this,nifes,"datsportal"));
+      addField(datsprov=new Field(this,nifes,"datsprov"));
+      addField(datspuerta=new Field(this,nifes,"datspuerta"));
+      addField(datstel=new Field(this,nifes,"datstel"));
+      addField(datstnum=new Field(this,nifes,"datstnum"));
+      addField(datsvia=new Field(this,nifes,"datsvia"));
+      addField(dattel=new Field(this,nifes,"dattel"));
+      addField(datvia=new Field(this,nifes,"datvia"));
+      }
+    public String getWhere()
+      {
+      return "danifcif='"+gNif+"'";
+      }
+    }
+    
+  public class FormVnotificaciones extends MonoDataForm
+    {
+    // Inicio declaraciones globales
+    public void onEdit() {
+      super.onEdit();
+      vdomicilios.btfiscal.setEnabled(true);
+      vnotificaciones.btnotif1.setEnabled(true);
+      vnotificaciones.btnotif2.setEnabled(true);
+      vsocial.btsocial.setEnabled(true);
+    }
+    
+    
+    // Fin declaraciones globales
+    // Controles
+    public CtrlBtnotif1 btnotif1;
+    public CtrlDatnftvia datnftvia;
+    public CtrlDatnvia datnvia;
+    public CtrlDatntnum datntnum;
+    public CtrlDatnnum datnnum;
+    public CtrlDatncalnum datncalnum;
+    public CtrlDatnbloque datnbloque;
+    public CtrlDatnportal datnportal;
+    public CtrlDatnescal datnescal;
+    public CtrlDatnplanta datnplanta;
+    public CtrlDatnpuerta datnpuerta;
+    public CtrlDatncomp datncomp;
+    public CtrlDatnlocal datnlocal;
+    public CtrlDatnemail datnemail;
+    public CtrlDatnprov datnprov;
+    public CtrlDatncodmun datncodmun;
+    public CtrlDatnnommun datnnommun;
+    public CtrlDatncpost datncpost;
+    public CtrlDatntel datntel;
+    public CtrlDatnmovil datnmovil;
+    public CtrlDatnfax datnfax;
+    public CtrlBtnotif2 btnotif2;
+    public CtrlDatnapcor datnapcor;
+    public CtrlDatnpobla datnpobla;
+    public CtrlDatnprov2 datnprov2;
+    public CtrlDatncpost2 datncpost2;
+    public CtrlDatntel2 datntel2;
+    public CtrlDatnmovil2 datnmovil2;
+    public CtrlDatnfax2 datnfax2;
+    // Acciones
+    class Location extends LocationGridBag
+      {
+      public Location( )
+        {
+        super();
+        }
+      }
+      
     public class CtrlBtnotif1 extends ControlButton
       {
       public CtrlBtnotif1(Form form)
@@ -572,26 +895,26 @@ public class ProgPrdomicilios extends Program
       public void onClick()
         {
         super.onClick();
-        datnftvia    .setValue(datfftvia   );
-        datnvia    .setValue(datfvia   );
-        datntnum   .setValue(datftnum  );
-        datnnum    .setValue(datfnum   );
-        datncalnum .setValue(datfcalnum);
-        datnbloque .setValue(datfbloque);
-        datnportal .setValue(datfportal);
-        datnescal  .setValue(datfescal );
-        datnplanta .setValue(datfplanta);
-        datnpuerta .setValue(datfpuerta);
-        datncomp   .setValue(datfcomp  );
-        datnlocal  .setValue(datflocal );
-        datnemail  .setValue(datfemail );
-        datnprov   .setValue(datfprov  );
-        datncodmun .setValue(datfcodmun);
-        datnnommun .setValue(datfnommun);
-        datncpost  .setValue(datfcpost );
-        datntel    .setValue(datftel   );
-        datnmovil  .setValue(datfmovil );
-        datnfax    .setValue(datffax   );
+        datnftvia    .setValue(vdomicilios.datfftvia   );
+        datnvia    .setValue(vdomicilios.datfvia   );
+        datntnum   .setValue(vdomicilios.datftnum  );
+        datnnum    .setValue(vdomicilios.datfnum   );
+        datncalnum .setValue(vdomicilios.datfcalnum);
+        datnbloque .setValue(vdomicilios.datfbloque);
+        datnportal .setValue(vdomicilios.datfportal);
+        datnescal  .setValue(vdomicilios.datfescal );
+        datnplanta .setValue(vdomicilios.datfplanta);
+        datnpuerta .setValue(vdomicilios.datfpuerta);
+        datncomp   .setValue(vdomicilios.datfcomp  );
+        datnlocal  .setValue(vdomicilios.datflocal );
+        datnemail  .setValue(vdomicilios.datfemail );
+        datnprov   .setValue(vdomicilios.datfprov  );
+        datncodmun .setValue(vdomicilios.datfcodmun);
+        datnnommun .setValue(vdomicilios.datfnommun);
+        datncpost  .setValue(vdomicilios.datfcpost );
+        datntel    .setValue(vdomicilios.datftel   );
+        datnmovil  .setValue(vdomicilios.datfmovil );
+        datnfax    .setValue(vdomicilios.datffax   );
         datncodmun.pickup.provincia=datnprov.getInteger();
         datncodmun.refresh();
         
@@ -961,11 +1284,11 @@ public class ProgPrdomicilios extends Program
       public void onClick()
         {
         super.onClick();
-        datnprov2   .setValue(datfprov  );
-        datncpost2  .setValue(datfcpost );
-        datntel2    .setValue(datftel   );
-        datnmovil2  .setValue(datfmovil );
-        datnfax2    .setValue(datffax   );
+        datnprov2   .setValue(vdomicilios.datfprov  );
+        datncpost2  .setValue(vdomicilios.datfcpost );
+        datntel2    .setValue(vdomicilios.datftel   );
+        datnmovil2  .setValue(vdomicilios.datfmovil );
+        datnfax2    .setValue(vdomicilios.datffax   );
         
         }
       }
@@ -1083,6 +1406,90 @@ public class ProgPrdomicilios extends Program
         }
       }
       
+    public FormVnotificaciones(ProgPrdomicilios prdomicilios)
+      {
+      super(prdomicilios);
+      setName("vnotificaciones");
+      setTitle("Domicilio notificaciones");
+      setLocation(new Location());
+      setStates(SHOW | UPDATE);
+      setUnique(true);
+      addControl(btnotif1=new CtrlBtnotif1(this));
+      addControl(datnftvia=new CtrlDatnftvia(this));
+      addControl(datnvia=new CtrlDatnvia(this));
+      addControl(datntnum=new CtrlDatntnum(this));
+      addControl(datnnum=new CtrlDatnnum(this));
+      addControl(datncalnum=new CtrlDatncalnum(this));
+      addControl(datnbloque=new CtrlDatnbloque(this));
+      addControl(datnportal=new CtrlDatnportal(this));
+      addControl(datnescal=new CtrlDatnescal(this));
+      addControl(datnplanta=new CtrlDatnplanta(this));
+      addControl(datnpuerta=new CtrlDatnpuerta(this));
+      addControl(datncomp=new CtrlDatncomp(this));
+      addControl(datnlocal=new CtrlDatnlocal(this));
+      addControl(datnemail=new CtrlDatnemail(this));
+      addControl(datnprov=new CtrlDatnprov(this));
+      addControl(datncodmun=new CtrlDatncodmun(this));
+      addControl(datnnommun=new CtrlDatnnommun(this));
+      addControl(datncpost=new CtrlDatncpost(this));
+      addControl(datntel=new CtrlDatntel(this));
+      addControl(datnmovil=new CtrlDatnmovil(this));
+      addControl(datnfax=new CtrlDatnfax(this));
+      addControl(btnotif2=new CtrlBtnotif2(this));
+      addControl(datnapcor=new CtrlDatnapcor(this));
+      addControl(datnpobla=new CtrlDatnpobla(this));
+      addControl(datnprov2=new CtrlDatnprov2(this));
+      addControl(datncpost2=new CtrlDatncpost2(this));
+      addControl(datntel2=new CtrlDatntel2(this));
+      addControl(datnmovil2=new CtrlDatnmovil2(this));
+      addControl(datnfax2=new CtrlDatnfax2(this));
+      setSelect(snif);
+      }
+    }
+    
+  public class FormVsocial extends MonoDataForm
+    {
+    // Inicio declaraciones globales
+    public void onEdit() {
+      super.onEdit();
+      vdomicilios.btfiscal.setEnabled(true);
+      vnotificaciones.btnotif1.setEnabled(true);
+      vnotificaciones.btnotif2.setEnabled(true);
+      vsocial.btsocial.setEnabled(true);
+    }
+    
+    // Fin declaraciones globales
+    // Controles
+    public CtrlBtsocial btsocial;
+    public CtrlDatsftvia datsftvia;
+    public CtrlDatsvia datsvia;
+    public CtrlDatstnum datstnum;
+    public CtrlDatsnum datsnum;
+    public CtrlDatscalnum datscalnum;
+    public CtrlDatsbloque datsbloque;
+    public CtrlDatsportal datsportal;
+    public CtrlDatsescal datsescal;
+    public CtrlDatsplanta datsplanta;
+    public CtrlDatspuerta datspuerta;
+    public CtrlDatscomp datscomp;
+    public CtrlDatslocal datslocal;
+    public CtrlDatsemail datsemail;
+    public CtrlDatsprov datsprov;
+    public CtrlDatscodmun datscodmun;
+    public CtrlDatsnommun datsnommun;
+    public CtrlDatscpost datscpost;
+    public CtrlDatstel datstel;
+    public CtrlDatsmovil datsmovil;
+    public CtrlDatsfax datsfax;
+    // Acciones
+    class Location extends LocationGridBag
+      {
+      public Location( )
+        {
+        super();
+        }
+      }
+      
     public class CtrlBtsocial extends ControlButton
       {
       public CtrlBtsocial(Form form)
@@ -1095,26 +1502,26 @@ public class ProgPrdomicilios extends Program
       public void onClick()
         {
         super.onClick();
-        datsftvia  .setValue(datfftvia   );
-        datsvia    .setValue(datfvia   );
-        datstnum   .setValue(datftnum  );
-        datsnum    .setValue(datfnum   );
-        datscalnum .setValue(datfcalnum);
-        datsbloque .setValue(datfbloque);
-        datsportal .setValue(datfportal);
-        datsescal  .setValue(datfescal );
-        datsplanta .setValue(datfplanta);
-        datspuerta .setValue(datfpuerta);
-        datscomp   .setValue(datfcomp  );
-        datslocal  .setValue(datflocal );
-        datsemail  .setValue(datfemail );
-        datsprov   .setValue(datfprov  );
-        datscodmun .setValue(datfcodmun);
-        datsnommun .setValue(datfnommun);
-        datscpost  .setValue(datfcpost );
-        datstel    .setValue(datftel   );
-        datsmovil  .setValue(datfmovil );
-        datsfax    .setValue(datffax   );
+        datsftvia  .setValue(vdomicilios.datfftvia   );
+        datsvia    .setValue(vdomicilios.datfvia   );
+        datstnum   .setValue(vdomicilios.datftnum  );
+        datsnum    .setValue(vdomicilios.datfnum   );
+        datscalnum .setValue(vdomicilios.datfcalnum);
+        datsbloque .setValue(vdomicilios.datfbloque);
+        datsportal .setValue(vdomicilios.datfportal);
+        datsescal  .setValue(vdomicilios.datfescal );
+        datsplanta .setValue(vdomicilios.datfplanta);
+        datspuerta .setValue(vdomicilios.datfpuerta);
+        datscomp   .setValue(vdomicilios.datfcomp  );
+        datslocal  .setValue(vdomicilios.datflocal );
+        datsemail  .setValue(vdomicilios.datfemail );
+        datsprov   .setValue(vdomicilios.datfprov  );
+        datscodmun .setValue(vdomicilios.datfcodmun);
+        datsnommun .setValue(vdomicilios.datfnommun);
+        datscpost  .setValue(vdomicilios.datfcpost );
+        datstel    .setValue(vdomicilios.datftel   );
+        datsmovil  .setValue(vdomicilios.datfmovil );
+        datsfax    .setValue(vdomicilios.datffax   );
         datscodmun.pickup.provincia=datsprov.getInteger();
         datscodmun.refresh();
         
@@ -1472,65 +1879,14 @@ public class ProgPrdomicilios extends Program
         }
       }
       
-    public FormVdomicilios(ProgPrdomicilios prdomicilios)
+    public FormVsocial(ProgPrdomicilios prdomicilios)
       {
       super(prdomicilios);
-      setName("vdomicilios");
-      setTitle("Domicilio fiscal, notificaciones y social");
+      setName("vsocial");
+      setTitle("Domicilio social");
       setLocation(new Location());
       setStates(SHOW | UPDATE);
       setUnique(true);
-      addSelect(snif=new Snif());
-      addControl(btfiscal=new CtrlBtfiscal(this));
-      addControl(datfftvia=new CtrlDatfftvia(this));
-      addControl(datfvia=new CtrlDatfvia(this));
-      addControl(datftnum=new CtrlDatftnum(this));
-      addControl(datfnum=new CtrlDatfnum(this));
-      addControl(datfcalnum=new CtrlDatfcalnum(this));
-      addControl(datfbloque=new CtrlDatfbloque(this));
-      addControl(datfportal=new CtrlDatfportal(this));
-      addControl(datfescal=new CtrlDatfescal(this));
-      addControl(datfplanta=new CtrlDatfplanta(this));
-      addControl(datfpuerta=new CtrlDatfpuerta(this));
-      addControl(datfcomp=new CtrlDatfcomp(this));
-      addControl(datflocal=new CtrlDatflocal(this));
-      addControl(datfemail=new CtrlDatfemail(this));
-      addControl(datfprov=new CtrlDatfprov(this));
-      addControl(datfcodmun=new CtrlDatfcodmun(this));
-      addControl(datfnommun=new CtrlDatfnommun(this));
-      addControl(datfcpost=new CtrlDatfcpost(this));
-      addControl(datftel=new CtrlDatftel(this));
-      addControl(datfmovil=new CtrlDatfmovil(this));
-      addControl(datffax=new CtrlDatffax(this));
-      addControl(btnotif1=new CtrlBtnotif1(this));
-      addControl(datnftvia=new CtrlDatnftvia(this));
-      addControl(datnvia=new CtrlDatnvia(this));
-      addControl(datntnum=new CtrlDatntnum(this));
-      addControl(datnnum=new CtrlDatnnum(this));
-      addControl(datncalnum=new CtrlDatncalnum(this));
-      addControl(datnbloque=new CtrlDatnbloque(this));
-      addControl(datnportal=new CtrlDatnportal(this));
-      addControl(datnescal=new CtrlDatnescal(this));
-      addControl(datnplanta=new CtrlDatnplanta(this));
-      addControl(datnpuerta=new CtrlDatnpuerta(this));
-      addControl(datncomp=new CtrlDatncomp(this));
-      addControl(datnlocal=new CtrlDatnlocal(this));
-      addControl(datnemail=new CtrlDatnemail(this));
-      addControl(datnprov=new CtrlDatnprov(this));
-      addControl(datncodmun=new CtrlDatncodmun(this));
-      addControl(datnnommun=new CtrlDatnnommun(this));
-      addControl(datncpost=new CtrlDatncpost(this));
-      addControl(datntel=new CtrlDatntel(this));
-      addControl(datnmovil=new CtrlDatnmovil(this));
-      addControl(datnfax=new CtrlDatnfax(this));
-      addControl(btnotif2=new CtrlBtnotif2(this));
-      addControl(datnapcor=new CtrlDatnapcor(this));
-      addControl(datnpobla=new CtrlDatnpobla(this));
-      addControl(datnprov2=new CtrlDatnprov2(this));
-      addControl(datncpost2=new CtrlDatncpost2(this));
-      addControl(datntel2=new CtrlDatntel2(this));
-      addControl(datnmovil2=new CtrlDatnmovil2(this));
-      addControl(datnfax2=new CtrlDatnfax2(this));
       addControl(btsocial=new CtrlBtsocial(this));
       addControl(datsftvia=new CtrlDatsftvia(this));
       addControl(datsvia=new CtrlDatsvia(this));
@@ -1554,272 +1910,6 @@ public class ProgPrdomicilios extends Program
       addControl(datsfax=new CtrlDatsfax(this));
       setSelect(snif);
       }
-    public void onBeginRecord()
-      {
-      super.onBeginRecord();
-      datftnum.pickup.filtro="TIPONUM";
-      datftnum.refresh();
-      datfcalnum.pickup.filtro="CALIFNUM";
-      datfcalnum.refresh();
-      datntnum.pickup.filtro="TIPONUM";
-      datntnum.refresh();
-      datncalnum.pickup.filtro="CALIFNUM";
-      datncalnum.refresh();
-      datstnum.pickup.filtro="TIPONUM";
-      datstnum.refresh();
-      datscalnum.pickup.filtro="CALIFNUM";
-      datscalnum.refresh();
-      datfcodmun.pickup.provincia=snif.datfprov.getInteger();
-      datfcodmun.refresh();
-      datncodmun.pickup.provincia=snif.datnprov.getInteger();
-      datncodmun.refresh();
-      datscodmun.pickup.provincia=snif.datsprov.getInteger();
-      datscodmun.refresh();
-      btfiscal.setEnabled(false);
-      btnotif1.setEnabled(false);
-      btnotif2.setEnabled(false);
-      btsocial.setEnabled(false);
-      
-      }
-    }
-    
-  // 
-  public class Snif extends Select
-    {
-    // Tablas
-    public Nifes nifes;
-    // Campos
-    public Field danifcif;
-    public Field dataltaen;
-    public Field datapell1;
-    public Field datapell2;
-    public Field datcbienes;
-    public Field datcontacto;
-    public Field datcpos;
-    public Field datdominio;
-    public Field dateatt;
-    public Field datecpos;
-    public Field dateesc;
-    public Field dateletra;
-    public Field datemail;
-    public Field datemuni;
-    public Field datenum;
-    public Field datepais;
-    public Field datepiso;
-    public Field datepobla;
-    public Field dateprov;
-    public Field datesc;
-    public Field datesiglas;
-    public Field datevia;
-    public Field datfax;
-    public Field datfbloque;
-    public Field datfcalnum;
-    public Field datfcodmun;
-    public Field datfcomp;
-    public Field datfcpost;
-    public Field datfemail;
-    public Field datfescal;
-    public Field datffax;
-    public Field datfftvia;
-    public Field datfisicajuri;
-    public Field datflocal;
-    public Field datfmovil;
-    public Field datfnommun;
-    public Field datfnum;
-    public Field datfplanta;
-    public Field datfportal;
-    public Field datfprov;
-    public Field datfpuerta;
-    public Field datftel;
-    public Field datftnum;
-    public Field datfvia;
-    public Field datipf;
-    public Field datipo;
-    public Field datletra;
-    public Field datletraseti;
-    public Field datmuni;
-    public Field datnacional;
-    public Field datnapcor;
-    public Field datnbloque;
-    public Field datncalnum;
-    public Field datncodmun;
-    public Field datncomp;
-    public Field datncpost;
-    public Field datncpost2;
-    public Field datnemail;
-    public Field datnescal;
-    public Field datnfax;
-    public Field datnfax2;
-    public Field datnftvia;
-    public Field datnlocal;
-    public Field datnmovil;
-    public Field datnmovil2;
-    public Field datnnommun;
-    public Field datnnum;
-    public Field datnombre;
-    public Field datnplanta;
-    public Field datnpobla;
-    public Field datnportal;
-    public Field datnprov;
-    public Field datnprov2;
-    public Field datnpuerta;
-    public Field datntel;
-    public Field datntel2;
-    public Field datntnum;
-    public Field datnum;
-    public Field datnvia;
-    public Field datpais;
-    public Field datpiso;
-    public Field datpobla;
-    public Field datprov;
-    public Field datsbloque;
-    public Field datscalnum;
-    public Field datscodmun;
-    public Field datscomp;
-    public Field datscpost;
-    public Field datsemail;
-    public Field datsescal;
-    public Field datsfax;
-    public Field datsftvia;
-    public Field datsiglas;
-    public Field datslocal;
-    public Field datsmovil;
-    public Field datsnommun;
-    public Field datsnum;
-    public Field datsplanta;
-    public Field datsportal;
-    public Field datsprov;
-    public Field datspuerta;
-    public Field datstel;
-    public Field datstnum;
-    public Field datsvia;
-    public Field dattel;
-    public Field datvia;
-    class Nifes extends Table
-      {
-      public Nifes(Select select)
-        {
-        super(select);
-        setName("nifes");
-        setOptions(READ | INSERT | DELETE | UPDATE);
-        }
-      }
-      
-    public Snif()
-      {
-      setName("snif");
-      addTable(nifes=new Nifes(this));
-      addField(danifcif=new Field(this,nifes,"danifcif"));
-      addField(dataltaen=new Field(this,nifes,"dataltaen"));
-      addField(datapell1=new Field(this,nifes,"datapell1"));
-      addField(datapell2=new Field(this,nifes,"datapell2"));
-      addField(datcbienes=new Field(this,nifes,"datcbienes"));
-      addField(datcontacto=new Field(this,nifes,"datcontacto"));
-      addField(datcpos=new Field(this,nifes,"datcpos"));
-      addField(datdominio=new Field(this,nifes,"datdominio"));
-      addField(dateatt=new Field(this,nifes,"dateatt"));
-      addField(datecpos=new Field(this,nifes,"datecpos"));
-      addField(dateesc=new Field(this,nifes,"dateesc"));
-      addField(dateletra=new Field(this,nifes,"dateletra"));
-      addField(datemail=new Field(this,nifes,"datemail"));
-      addField(datemuni=new Field(this,nifes,"datemuni"));
-      addField(datenum=new Field(this,nifes,"datenum"));
-      addField(datepais=new Field(this,nifes,"datepais"));
-      addField(datepiso=new Field(this,nifes,"datepiso"));
-      addField(datepobla=new Field(this,nifes,"datepobla"));
-      addField(dateprov=new Field(this,nifes,"dateprov"));
-      addField(datesc=new Field(this,nifes,"datesc"));
-      addField(datesiglas=new Field(this,nifes,"datesiglas"));
-      addField(datevia=new Field(this,nifes,"datevia"));
-      addField(datfax=new Field(this,nifes,"datfax"));
-      addField(datfbloque=new Field(this,nifes,"datfbloque"));
-      addField(datfcalnum=new Field(this,nifes,"datfcalnum"));
-      addField(datfcodmun=new Field(this,nifes,"datfcodmun"));
-      addField(datfcomp=new Field(this,nifes,"datfcomp"));
-      addField(datfcpost=new Field(this,nifes,"datfcpost"));
-      addField(datfemail=new Field(this,nifes,"datfemail"));
-      addField(datfescal=new Field(this,nifes,"datfescal"));
-      addField(datffax=new Field(this,nifes,"datffax"));
-      addField(datfftvia=new Field(this,nifes,"datfftvia"));
-      addField(datfisicajuri=new Field(this,nifes,"datfisicajuri"));
-      addField(datflocal=new Field(this,nifes,"datflocal"));
-      addField(datfmovil=new Field(this,nifes,"datfmovil"));
-      addField(datfnommun=new Field(this,nifes,"datfnommun"));
-      addField(datfnum=new Field(this,nifes,"datfnum"));
-      addField(datfplanta=new Field(this,nifes,"datfplanta"));
-      addField(datfportal=new Field(this,nifes,"datfportal"));
-      addField(datfprov=new Field(this,nifes,"datfprov"));
-      addField(datfpuerta=new Field(this,nifes,"datfpuerta"));
-      addField(datftel=new Field(this,nifes,"datftel"));
-      addField(datftnum=new Field(this,nifes,"datftnum"));
-      addField(datfvia=new Field(this,nifes,"datfvia"));
-      addField(datipf=new Field(this,nifes,"datipf"));
-      addField(datipo=new Field(this,nifes,"datipo"));
-      addField(datletra=new Field(this,nifes,"datletra"));
-      addField(datletraseti=new Field(this,nifes,"datletraseti"));
-      addField(datmuni=new Field(this,nifes,"datmuni"));
-      addField(datnacional=new Field(this,nifes,"datnacional"));
-      addField(datnapcor=new Field(this,nifes,"datnapcor"));
-      addField(datnbloque=new Field(this,nifes,"datnbloque"));
-      addField(datncalnum=new Field(this,nifes,"datncalnum"));
-      addField(datncodmun=new Field(this,nifes,"datncodmun"));
-      addField(datncomp=new Field(this,nifes,"datncomp"));
-      addField(datncpost=new Field(this,nifes,"datncpost"));
-      addField(datncpost2=new Field(this,nifes,"datncpost2"));
-      addField(datnemail=new Field(this,nifes,"datnemail"));
-      addField(datnescal=new Field(this,nifes,"datnescal"));
-      addField(datnfax=new Field(this,nifes,"datnfax"));
-      addField(datnfax2=new Field(this,nifes,"datnfax2"));
-      addField(datnftvia=new Field(this,nifes,"datnftvia"));
-      addField(datnlocal=new Field(this,nifes,"datnlocal"));
-      addField(datnmovil=new Field(this,nifes,"datnmovil"));
-      addField(datnmovil2=new Field(this,nifes,"datnmovil2"));
-      addField(datnnommun=new Field(this,nifes,"datnnommun"));
-      addField(datnnum=new Field(this,nifes,"datnnum"));
-      addField(datnombre=new Field(this,nifes,"datnombre"));
-      addField(datnplanta=new Field(this,nifes,"datnplanta"));
-      addField(datnpobla=new Field(this,nifes,"datnpobla"));
-      addField(datnportal=new Field(this,nifes,"datnportal"));
-      addField(datnprov=new Field(this,nifes,"datnprov"));
-      addField(datnprov2=new Field(this,nifes,"datnprov2"));
-      addField(datnpuerta=new Field(this,nifes,"datnpuerta"));
-      addField(datntel=new Field(this,nifes,"datntel"));
-      addField(datntel2=new Field(this,nifes,"datntel2"));
-      addField(datntnum=new Field(this,nifes,"datntnum"));
-      addField(datnum=new Field(this,nifes,"datnum"));
-      addField(datnvia=new Field(this,nifes,"datnvia"));
-      addField(datpais=new Field(this,nifes,"datpais"));
-      addField(datpiso=new Field(this,nifes,"datpiso"));
-      addField(datpobla=new Field(this,nifes,"datpobla"));
-      addField(datprov=new Field(this,nifes,"datprov"));
-      addField(datsbloque=new Field(this,nifes,"datsbloque"));
-      addField(datscalnum=new Field(this,nifes,"datscalnum"));
-      addField(datscodmun=new Field(this,nifes,"datscodmun"));
-      addField(datscomp=new Field(this,nifes,"datscomp"));
-      addField(datscpost=new Field(this,nifes,"datscpost"));
-      addField(datsemail=new Field(this,nifes,"datsemail"));
-      addField(datsescal=new Field(this,nifes,"datsescal"));
-      addField(datsfax=new Field(this,nifes,"datsfax"));
-      addField(datsftvia=new Field(this,nifes,"datsftvia"));
-      addField(datsiglas=new Field(this,nifes,"datsiglas"));
-      addField(datslocal=new Field(this,nifes,"datslocal"));
-      addField(datsmovil=new Field(this,nifes,"datsmovil"));
-      addField(datsnommun=new Field(this,nifes,"datsnommun"));
-      addField(datsnum=new Field(this,nifes,"datsnum"));
-      addField(datsplanta=new Field(this,nifes,"datsplanta"));
-      addField(datsportal=new Field(this,nifes,"datsportal"));
-      addField(datsprov=new Field(this,nifes,"datsprov"));
-      addField(datspuerta=new Field(this,nifes,"datspuerta"));
-      addField(datstel=new Field(this,nifes,"datstel"));
-      addField(datstnum=new Field(this,nifes,"datstnum"));
-      addField(datsvia=new Field(this,nifes,"datsvia"));
-      addField(dattel=new Field(this,nifes,"dattel"));
-      addField(datvia=new Field(this,nifes,"datvia"));
-      }
-    public String getWhere()
-      {
-      return "danifcif='"+gNif+"'";
-      }
     }
     
   public ProgPrdomicilios()
@@ -1830,6 +1920,8 @@ public class ProgPrdomicilios extends Program
     setLayout(new LayoutGridBag());
     setLocation(new Location());
     addForm(vdomicilios=new FormVdomicilios(this));
+    addForm(vnotificaciones=new FormVnotificaciones(this));
+    addForm(vsocial=new FormVsocial(this));
     }
   public ProgPrdomicilios(AppEasp easp)
     {
@@ -1841,12 +1933,33 @@ public class ProgPrdomicilios extends Program
     if (gNif == null || gNif.trim().length()==0) Maefc.message("Error al iniciar la Gestión de Domicilios.","¡Atención!",Maefc.ERROR_MESSAGE);
     else {
       setModal(true);
-      LocationWindow loc=new LocationWindow();
-      loc.setWidth(790);
-      loc.setHeight(570);
-      loc.setLocation(loc.CENTER);
-      setLocation(loc);
+      LocationWindow lw=new LocationWindow();
+      lw.setWidth(790);
+      lw.setHeight(570);
+      lw.setLocation(lw.CENTER);
+      setLocation(lw);
+    
+      setLayout(new LayoutTabbed());
+    
+      LocationTabbed loc = new LocationTabbed();
+      loc.setExitIcon(false);
+      loc.setTitle ("Domicilio Fiscal");
+      vdomicilios.setLocation(loc);
       vdomicilios.setLayout(new LayoutHtml("mae/easp/html/domicilios.html"));
+        
+      loc=new LocationTabbed();
+      loc.setExitIcon(false);
+      loc.setTitle ("Domicilio Notificaciones");
+      vnotificaciones.setLocation(loc);
+      vnotificaciones.setLayout(new LayoutHtml("mae/easp/html/notificaciones.html"));
+    
+      loc=new LocationTabbed();
+      loc.setExitIcon(false);
+      loc.setTitle ("Domicilio Social");
+      vsocial.setLocation(loc);
+      vsocial.setLayout(new LayoutHtml("mae/easp/html/social.html"));
+    
+    
       super.onInit();
     }
     

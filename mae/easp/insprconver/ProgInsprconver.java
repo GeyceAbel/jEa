@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090901
-// Hora:             13:08:47
+// Fecha:            20090903
+// Hora:             10:54:56
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -932,7 +932,8 @@ public class ProgInsprconver extends Program
         "ALTER TABLE NIFES ADD datscpost  VARCHAR(5);",
         "ALTER TABLE NIFES ADD datstel    INTEGER;",
         "ALTER TABLE NIFES ADD datsmovil  INTEGER;",
-        "ALTER TABLE NIFES ADD datsfax    INTEGER;"
+        "ALTER TABLE NIFES ADD datsfax    INTEGER;",
+        "ALTER TABLE NIFES ADD datmovil   INTEGER;"
       };
     
       int i=0;
@@ -1514,10 +1515,15 @@ public class ProgInsprconver extends Program
           vvveractual.setValue("6.7");
         }
         if (versio < 6.8) {
-          try {
+          try {      
             for (i=0;i<sentencias6_8.length;++i) {
               Easp.chivato("6.8 Exec : ["+sentencias6_8[i]+"]",1);
-              Easp.connEA.executeUpdate(sentencias6_8[i]);
+              try { 
+                Easp.connEA.executeUpdate(sentencias6_8[i]);
+              }
+              catch (Exception e) {
+                Easp.chivato("6.8 *** Error : ["+sentencias6_8[i]+"]  seguimos.",1);
+              }
             }
             String tablas[]= {"VALORES"};
             Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0608","easp.jar");
@@ -1531,10 +1537,24 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("6.8");
         }
-    
-    
-    
-    
+        if (versio < 6.9) {
+          try {      
+            Selector snifcdp = new Selector (Easp.connEA);
+            snifcdp.execute("Select distinct cdpnifcif from CDP");
+            while (snifcdp.next()) {
+              String niftmp = snifcdp.getString("cdpnifcif");
+              Easp.actualizarDomicilioFiscal(niftmp);
+            }
+            snifcdp.close();
+          }
+          catch(Exception e) {
+            Easp.chivato("6.9 *** Error: ["+e+"]",1);
+            errorMessage=e.getMessage();
+          }
+          Easp.setVersionBD("bdeasp","6.9");
+          Easp.connEA.commit();
+          vvveractual.setValue("6.9");
+        }
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");

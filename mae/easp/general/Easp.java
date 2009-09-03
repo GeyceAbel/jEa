@@ -23,9 +23,9 @@ public class Easp {
   public static String nifCDP=null;
 
   //variables de versiones
-  public static String versionAplicacion="6.8";
+  public static String versionAplicacion="6.9";
   public static String versionFecha="Setiembre/2009";
-  public static String versionBDEA="6.8";
+  public static String versionBDEA="6.9";
 
   //Constantes
   public final static int IVA=16;
@@ -788,7 +788,107 @@ public static Date esFecha (String s){
       }
       return true;
     }
+  
+  public static boolean actualizarDomicilioFiscal (String nif) {
+	  boolean bOk = true;
+	  Selector snif = new Selector (connEA);
+	  snif.execute("Select * from NIFES where danifcif='"+nif+"'");
+	  if (snif.next()) {
+		  Update u = new Update (connEA,"NIFES");
+		  u.setNull("datfftvia");
+		  Selector s = new Selector (connEA);
+		  s.execute("Select * from TIPOVIAS where tvscodant='"+snif.getString("datsiglas")+"'");
+		  if (s.next()) u.valor("datfftvia",s.getString("tvscodigo"));
+		  s.close();
+		  u.valor("datfvia",snif.getString("datvia"));
+		  //u.setNull("datftnum");
+		  //u.setNull("datfnum");
+		  //u.setNull("datfcalnum");
+		  //u.setNull("datfbloque");
+		  u.setNull("datfportal");		  
+	      try {
+	    	  u.valor("datfportal",Integer.parseInt(snif.getString("datnum")));	    	  
+	      }
+	      catch(Exception e) { }
+		  u.valor("datfescal",snif.getString("datesc"));
+		  u.valor("datfpuerta",snif.getString("datletra"));
+		  u.setNull("datfplanta");
+		  String piso = snif.getString("datpiso");
+	      if (piso!=null && piso.length()>3) u.valor("datfplanta",piso.substring(0,3));
+	      else u.valor("datfplanta",piso);
+	      //u.setNull("datfcomp");
+		  u.valor("datflocal",snif.getString("datpobla"));
+		  u.valor("datfcpost",snif.getString("datcpos"));
+	      u.setNull("datftel");
+	      u.setNull("datffax");
+		  u.valor("datfmovil",snif.getString("datmovil"));
+	      try {u.valor("datftel",Integer.parseInt(snif.getString("dattel")));}
+	      catch(Exception e) {}
+	      try {u.valor("datffax",Integer.parseInt(snif.getString("datfax")));}
+	      catch(Exception e) {}
+	      u.valor("datfemail",snif.getString("datemail"));
+	      String sprov = snif.getString("datprov");
+	      String smuni = snif.getString("datmuni");
+		  u.valor("datfprov",sprov);
+	      u.setNull("datfcodmun");
+	      u.setNull("datfnommun");
+	      Selector s2 = new Selector (Easp.connEA);
+	      s2.execute("Select * from MUNI347 where mu7codprov="+sprov+" and mu7muniant="+smuni);
+	      if (s2.next()) {
+			  u.valor("datfcodmun",s2.getString("mu7provmuni"));
+			  u.valor("datfnommun",s2.getString("mu7desc"));
+	      }
+	      s2.close();
+	      bOk = u.execute("danifcif='"+nif+"'");
+	  }	
+	  return bOk;
+  }
 
+  public static boolean actualizarDomicilioAfiliacion (String nif) {
+	  boolean bOk = true;
+	  Selector snif = new Selector (connEA);
+	  snif.execute("Select * from NIFES where danifcif='"+nif+"'");
+	  if (snif.next()) {
+		  Update u = new Update (connEA,"NIFES");
+		  u.setNull("datsiglas");
+		  Selector s = new Selector (connEA);
+		  s.execute("Select * from TIPOVIAS where tvscodigo='"+snif.getString("datfftvia")+"'");
+		  if (s.next()) u.valor("datsiglas",s.getString("tvscodant"));
+		  s.close();
+		  String via = snif.getString("datfvia");
+		  if (via!=null && via.length()>45) u.valor("datvia",via.substring(0,45));
+		  else u.valor("datvia",via);
+		  u.valor("datnum",snif.getString("datfportal"));
+		  String esc = snif.getString("datfescal");
+		  if (esc!=null && esc.length()>2) u.valor("datesc",esc.substring(0,2));
+		  else u.valor("datesc",esc);
+		  String por = snif.getString("datfpuerta");
+		  if (por!=null && por.length()>2) u.valor("datletra",por.substring(0,2));
+		  else u.valor("datletra",por);
+		  u.valor("datpiso",snif.getString("datfplanta"));
+		  u.valor("datpobla",snif.getString("datflocal"));
+		  u.valor("datcpos",snif.getString("datfcpost"));
+		  u.valor("dattel",snif.getString("datftel"));
+		  u.valor("datfax",snif.getString("datffax"));
+		  u.valor("datmovil",snif.getString("datfmovil"));
+		  String mail = snif.getString("datfemail");
+	      if (mail!=null && mail.length()>30) u.valor("datemail",mail.substring(0,30));
+	      else u.valor("datemail",mail);
+	      int iprov = 0;
+	      try {iprov=Integer.parseInt(snif.getString("datfprov"));}
+	      catch (Exception e) { }
+	      String muni = snif.getString("datfcodmun");
+		  u.valor("datprov",iprov);
+	      Selector s2 = new Selector (Easp.connEA);
+	      s2.execute("Select * from MUNI347 where mu7codprov="+iprov+" and mu7provmuni='"+muni+"'");
+	      if (s2.next()) u.valor("datmuni",s2.getString("mu7muniant"));
+	      s2.close();
+	      bOk = u.execute("danifcif='"+nif+"'");
+	  }	
+	  return bOk;
+  }
+
+  
   public static String firstUpper(String buffer) {
     StringBuffer result=new StringBuffer();
     boolean primera=true;

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090902
-// Hora:             08:44:30
+// Fecha:            20090903
+// Hora:             09:38:45
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -191,6 +191,7 @@ public class ProgPrtratamnifes extends Program
     public CtrlDatcontacto datcontacto;
     public CtrlDattel dattel;
     public CtrlDatfax datfax;
+    public CtrlDatmovil datmovil;
     public CtrlDatsiglas datsiglas;
     public CtrlDatvia datvia;
     public CtrlDatnum datnum;
@@ -575,6 +576,20 @@ public class ProgPrtratamnifes extends Program
           }
         else
           return super.valid();
+        }
+      }
+      
+    public class CtrlDatmovil extends ControlEdit
+      {
+      public CtrlDatmovil(Form form)
+        {
+        super(form);
+        setName("datmovil");
+        setTitle("Movil");
+        setType(INTEGER);
+        setLength(9);
+        setPrintable(false);
+        setField(snifes.datmovil);
         }
       }
       
@@ -1008,6 +1023,9 @@ public class ProgPrtratamnifes extends Program
         }
       public void onAction()
         {
+        if ( vnifes.getNumState()==DataForm.INSERT || vnifes.getNumState()==DataForm.UPDATE  ) {
+          if ( !vnifes.onOk()  )  return ;
+        }
         String cdpcdpcdp =Easp.buscaCDP(danifcif.getString());
         if ( cdpcdpcdp==null ) Easp.grabarDatosAfinity(danifcif.getString(),true);
         else Maefc.message("Este cliente ya existe en Afinity Web con el código: "+cdpcdpcdp,"Atención",Maefc.INFORMATION_MESSAGE);
@@ -1026,6 +1044,9 @@ public class ProgPrtratamnifes extends Program
         }
       public void onAction()
         {
+        if ( vnifes.getNumState()==DataForm.INSERT || vnifes.getNumState()==DataForm.UPDATE  ) {
+          if ( !vnifes.onOk()  )  return ;
+        }
         mae.easp.prdomicilios.ProgPrdomicilios pr = new mae.easp.prdomicilios.ProgPrdomicilios();
         pr.gNif = danifcif.getString();
         pr.run();
@@ -1058,6 +1079,7 @@ public class ProgPrtratamnifes extends Program
       addControl(datcontacto=new CtrlDatcontacto(this));
       addControl(dattel=new CtrlDattel(this));
       addControl(datfax=new CtrlDatfax(this));
+      addControl(datmovil=new CtrlDatmovil(this));
       addControl(datsiglas=new CtrlDatsiglas(this));
       addControl(datvia=new CtrlDatvia(this));
       addControl(datnum=new CtrlDatnum(this));
@@ -1102,6 +1124,8 @@ public class ProgPrtratamnifes extends Program
         Maefc.message("Alta realizada.\nNuevo código generado: "+vcdpcodi.getInteger(),"Información",Maefc.INFORMATION_MESSAGE);
         noCargues=false;
         gAltaEfectuada = true ;
+        Easp.actualizarDomicilioFiscal(vnifcif);
+        Easp.connEA.commit();
         return true;
         }
       else {
@@ -1109,6 +1133,19 @@ public class ProgPrtratamnifes extends Program
         noCargues=false;
         return false;
         }
+      }
+    public boolean onOkUpdate()
+      {
+      if (super.onOkUpdate()){
+        int resp = Maefc.message("¿Desea actualizar los datos del domicilio fiscal con estos datos de afiliación?","¡Atención!",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION);
+        if (resp == Maefc.YES_OPTION) {
+          Easp.actualizarDomicilioFiscal(danifcif.getString());
+          Easp.connEA.commit();
+        }
+        return true;
+      }
+      else return false;
+      
       }
     public void onBeginRecord()
       {
@@ -1172,6 +1209,7 @@ public class ProgPrtratamnifes extends Program
     public Field datipo;
     public Field datletra;
     public Field datletraseti;
+    public Field datmovil;
     public Field datmuni;
     public Field datnacional;
     public Field datnombre;
@@ -1331,6 +1369,7 @@ public class ProgPrtratamnifes extends Program
       addField(datipo=new Field(this,nifes,"datipo"));
       addField(datletra=new Field(this,nifes,"datletra"));
       addField(datletraseti=new Field(this,nifes,"datletraseti"));
+      addField(datmovil=new Field(this,nifes,"datmovil"));
       addField(datmuni=new Field(this,nifes,"datmuni"));
       addField(datnacional=new Field(this,nifes,"datnacional"));
       addField(datnombre=new Field(this,nifes,"datnombre"));

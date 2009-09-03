@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090902
-// Hora:             09:01:47
+// Fecha:            20090903
+// Hora:             11:09:16
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -174,9 +174,9 @@ public class ProgPrclfichagener extends Program
     public CtrlDatemail datemail;
     public CtrlDattel dattel;
     public CtrlDatfax datfax;
+    public CtrlDatmovil datmovil;
     public CtrlVadministracio vadministracio;
     public CtrlCdpcodi cdpcodi;
-    public CtrlCdpref cdpref;
     public CtrlCdpcdprel cdpcdprel;
     // Acciones
     class Location extends LocationSplit
@@ -284,6 +284,20 @@ public class ProgPrclfichagener extends Program
         }
       }
       
+    public class CtrlDatmovil extends ControlEdit
+      {
+      public CtrlDatmovil(Form form)
+        {
+        super(form);
+        setName("datmovil");
+        setTitle("Movil");
+        setType(INTEGER);
+        setLength(9);
+        setPrintable(false);
+        setField(sgeneral.datmovil);
+        }
+      }
+      
     public class CtrlVadministracio extends ControlEdit
       {
       public CtrlVadministracio(Form form)
@@ -311,31 +325,6 @@ public class ProgPrclfichagener extends Program
         setEnabled(false);
         setPrintable(false);
         setField(sgeneral.cdpcodi);
-        }
-      }
-      
-    public class CtrlCdpref extends ControlEdit
-      {
-      class Look extends LookComponent
-        {
-        public Look( )
-          {
-          super();
-          setLength(30);
-          }
-        }
-        
-      public CtrlCdpref(Form form)
-        {
-        super(form);
-        setLook(new Look());
-        setName("cdpref");
-        setMessageHelp("Referencia servicios");
-        setTitle("Referencia");
-        setType(STRING);
-        setLength(45);
-        setPrintable(false);
-        setField(sgeneral.cdpref);
         }
       }
       
@@ -372,9 +361,9 @@ public class ProgPrclfichagener extends Program
       addControl(datemail=new CtrlDatemail(this));
       addControl(dattel=new CtrlDattel(this));
       addControl(datfax=new CtrlDatfax(this));
+      addControl(datmovil=new CtrlDatmovil(this));
       addControl(vadministracio=new CtrlVadministracio(this));
       addControl(cdpcodi=new CtrlCdpcodi(this));
-      addControl(cdpref=new CtrlCdpref(this));
       addControl(cdpcdprel=new CtrlCdpcdprel(this));
       setSelect(sgeneral);
       }
@@ -447,6 +436,7 @@ public class ProgPrclfichagener extends Program
     public Field datfisicajuri;
     public Field datipo;
     public Field datletra;
+    public Field datmovil;
     public Field datmuni;
     public Field datnacional;
     public Field datnombre;
@@ -526,6 +516,7 @@ public class ProgPrclfichagener extends Program
       addField(datfisicajuri=new Field(this,nifes,"datfisicajuri"));
       addField(datipo=new Field(this,nifes,"datipo"));
       addField(datletra=new Field(this,nifes,"datletra"));
+      addField(datmovil=new Field(this,nifes,"datmovil"));
       addField(datmuni=new Field(this,nifes,"datmuni"));
       addField(datnacional=new Field(this,nifes,"datnacional"));
       addField(datnombre=new Field(this,nifes,"datnombre"));
@@ -1088,6 +1079,7 @@ public class ProgPrclfichagener extends Program
         mae.easp.prdomicilios.ProgPrdomicilios pr = new mae.easp.prdomicilios.ProgPrdomicilios();
         pr.gNif = sgeneral.danifcif.getString();
         pr.run();
+        vdomicilioenv.doShow();
         }
       }
       
@@ -1097,7 +1089,7 @@ public class ProgPrclfichagener extends Program
       setName("vdomicilioenv");
       setTitle("Datos de la afiliación");
       setLocation(new Location());
-      setStates(SHOW | UPDATE);
+      setStates(SHOW);
       setModal(true);
       setUnique(true);
       addControl(datcontacto=new CtrlDatcontacto(this));
@@ -4956,7 +4948,7 @@ snifrep.datapell2.setValue(vvdatapell2);
     this.prclfichagener=this;
     setName("prclfichagener");
     setTitle("Ficha general");
-    setLayout(new LayoutSplit(LayoutSplit.VERTICAL,0.30));
+    setLayout(new LayoutSplit(LayoutSplit.VERTICAL,0.32));
     setLocation(new Location());
     addForm(vdatosafiliacio=new FormVdatosafiliacio(this));
     addForm(vdomicilioenv=new FormVdomicilioenv(this));
