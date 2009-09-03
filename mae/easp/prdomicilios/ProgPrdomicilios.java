@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20090903
-// Hora:             10:56:49
+// Hora:             12:03:05
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -121,16 +121,15 @@ public class ProgPrdomicilios extends Program
         if (s.next()) datfftvia.setValue(s.getString("tvscodigo"));
         s.close();
         datfvia.setValue(snif.datvia);
-        datftnum.setNull();
+        datftnum.setValue("NUM");
         datfnum.setNull();
+        try {
+          datfnum.setValue(Integer.parseInt(snif.datnum.getString()));
+        }
+        catch(Exception e) {}
         datfcalnum.setNull();
         datfbloque.setNull();
         datfportal.setNull();
-        try {
-          datfportal.setValue(Integer.parseInt(snif.datnum.getString()));
-        }
-        catch(Exception e) {
-        }
         datfescal.setValue(snif.datesc);
         datfplanta.setNull();
         datfpuerta.setValue(snif.datletra);
@@ -1935,7 +1934,7 @@ public class ProgPrdomicilios extends Program
       setModal(true);
       LocationWindow lw=new LocationWindow();
       lw.setWidth(790);
-      lw.setHeight(570);
+      lw.setHeight(480);
       lw.setLocation(lw.CENTER);
       setLocation(lw);
     

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20090903
-// Hora:             10:54:56
+// Hora:             11:46:06
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1544,6 +1544,7 @@ public class ProgInsprconver extends Program
             while (snifcdp.next()) {
               String niftmp = snifcdp.getString("cdpnifcif");
               Easp.actualizarDomicilioFiscal(niftmp);
+              Easp.actualizarDomicilioEnvio(niftmp);
             }
             snifcdp.close();
           }

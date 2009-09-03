@@ -788,7 +788,62 @@ public static Date esFecha (String s){
       }
       return true;
     }
-  
+
+  public static boolean actualizarDomicilioEnvio (String nif) {
+	  boolean bOk = true;
+	  Selector snif = new Selector (connEA);
+	  snif.execute("Select * from NIFES where danifcif='"+nif+"'");
+	  if (snif.next()) {
+		  String via = snif.getString("datevia");
+		  if (via!=null && via.trim().length()>0) {
+			  Update u = new Update (connEA,"NIFES");
+			  u.setNull("datnftvia");
+			  Selector s = new Selector (connEA);
+			  s.execute("Select * from TIPOVIAS where tvscodant='"+snif.getString("datesiglas")+"'");
+			  if (s.next()) u.valor("datnftvia",s.getString("tvscodigo"));
+			  s.close();
+			  u.valor("datnvia",via);
+			  if (snif.getString("datntnum")==null) u.valor("datntnum","NUM");
+			  u.setNull("datnnum");
+			  u.setNull("datnportal");		  
+		      try {
+		    	  u.valor("datnnum",Integer.parseInt(snif.getString("datenum")));	    	  
+		      }
+		      catch(Exception e) { }
+			  u.valor("datnescal",snif.getString("dateesc"));
+			  u.valor("datnpuerta",snif.getString("dateletra"));
+			  u.setNull("datnplanta");
+			  String piso = snif.getString("datepiso");
+		      if (piso!=null && piso.length()>3) u.valor("datnplanta",piso.substring(0,3));
+		      else u.valor("datnplanta",piso);
+			  u.valor("datnlocal",snif.getString("datepobla"));
+			  u.valor("datncpost",snif.getString("datecpos"));
+		      //u.setNull("datntel");
+		      //u.setNull("datnfax");
+			  //u.valor("datnmovil",snif.getString("datmovil"));
+		      //try {u.valor("datntel",Integer.parseInt(snif.getString("dattel")));}
+		      //catch(Exception e) {}
+		      //try {u.valor("datnfax",Integer.parseInt(snif.getString("datfax")));}
+		      //catch(Exception e) {}
+		      //u.valor("datnemail",snif.getString("datemail"));
+		      String sprov = snif.getString("dateprov");
+		      String smuni = snif.getString("datemuni");
+			  u.valor("datnprov",sprov);
+		      u.setNull("datncodmun");
+		      u.setNull("datnnommun");
+		      Selector s2 = new Selector (Easp.connEA);
+		      s2.execute("Select * from MUNI347 where mu7codprov="+sprov+" and mu7muniant="+smuni);
+		      if (s2.next()) {
+				  u.valor("datncodmun",s2.getString("mu7provmuni"));
+				  u.valor("datnnommun",s2.getString("mu7desc"));
+		      }
+		      s2.close();
+		      bOk = u.execute("danifcif='"+nif+"'");
+		  }
+	  }	
+	  return bOk;
+  }
+
   public static boolean actualizarDomicilioFiscal (String nif) {
 	  boolean bOk = true;
 	  Selector snif = new Selector (connEA);
@@ -801,13 +856,11 @@ public static Date esFecha (String s){
 		  if (s.next()) u.valor("datfftvia",s.getString("tvscodigo"));
 		  s.close();
 		  u.valor("datfvia",snif.getString("datvia"));
-		  //u.setNull("datftnum");
-		  //u.setNull("datfnum");
-		  //u.setNull("datfcalnum");
-		  //u.setNull("datfbloque");
+		  if (snif.getString("datftnum")==null) u.valor("datftnum","NUM");
+		  u.setNull("datfnum");
 		  u.setNull("datfportal");		  
 	      try {
-	    	  u.valor("datfportal",Integer.parseInt(snif.getString("datnum")));	    	  
+	    	  u.valor("datfnum",Integer.parseInt(snif.getString("datnum")));	    	  
 	      }
 	      catch(Exception e) { }
 		  u.valor("datfescal",snif.getString("datesc"));
@@ -816,7 +869,6 @@ public static Date esFecha (String s){
 		  String piso = snif.getString("datpiso");
 	      if (piso!=null && piso.length()>3) u.valor("datfplanta",piso.substring(0,3));
 	      else u.valor("datfplanta",piso);
-	      //u.setNull("datfcomp");
 		  u.valor("datflocal",snif.getString("datpobla"));
 		  u.valor("datfcpost",snif.getString("datcpos"));
 	      u.setNull("datftel");
@@ -858,7 +910,7 @@ public static Date esFecha (String s){
 		  String via = snif.getString("datfvia");
 		  if (via!=null && via.length()>45) u.valor("datvia",via.substring(0,45));
 		  else u.valor("datvia",via);
-		  u.valor("datnum",snif.getString("datfportal"));
+		  u.valor("datnum",snif.getString("datfnum"));
 		  String esc = snif.getString("datfescal");
 		  if (esc!=null && esc.length()>2) u.valor("datesc",esc.substring(0,2));
 		  else u.valor("datesc",esc);
