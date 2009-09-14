@@ -169,6 +169,20 @@ public class Perfil {
     }
     else return null;
   }
+  public boolean setGranEmpresaPerfilTributario (String granemp, String regDev) {
+  	boolean bOk = true;
+  	if (hasPerfil()) {
+  		sperfil.edit();
+  		fdgranemp.setValue(granemp);
+      fdregdevmen.setValue(regDev);
+      bOk = sperfil.update();
+    }
+  	if (bOk && isAutoCommit()) connPerfil.commit();
+  	else if (isAutoCommit())  connPerfil.rollback();
+
+    return bOk;
+  }
+
   public boolean setPerfilTributario (String granemp, String alquil, String com, String stat, java.util.Date fecha, String regDev) {
   	boolean bOk = true;
   	if (hasPerfil()) {
