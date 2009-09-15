@@ -3,3 +3,4 @@
 050070 --> APJORDI: Easp.getTipoLicencia i Conversio 6.6 de CNAE i EQUIV
 050071 --> APJORDI: Nova columna epiepisinpunto a la taula EPIGRAFES.
 050080 --> APJORDI: Domicilis fiscal, social i de notificacions
+050081 --> APESTER: He afegit a Perfil.java la funcio setGranEmpresaPerfilTributario
