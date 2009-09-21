@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090901
-// Hora:             15:03:17
+// Fecha:            20090921
+// Hora:             12:05:33
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -381,6 +381,7 @@ class Barramenu extends MenuBar
     public M1incidef m1incidef;
     public M1inciden m1inciden;
     public M1gestionerror m1gestionerror;
+    public M1gestmir m1gestmir;
     class M1notas extends MenuItemProgram
       {
       public M1notas()
@@ -421,14 +422,25 @@ class Barramenu extends MenuBar
         }
       }
       
+    class M1gestmir extends MenuItemProgram
+      {
+      public M1gestmir()
+        {
+        super("Gestión documentos e-Mir");
+        setName("m1gestmir");
+        setProgram("mae.easp.prgestdocsmir.ProgPrgestdocsmir");
+        }
+      }
+      
     public Mtablascomunes()
       {
-      super("I&ncidencias y Notas");
+      super("U&tilidades");
       setName("mtablascomunes");
       add(m1notas=new M1notas());
       add(m1incidef=new M1incidef());
       add(m1inciden=new M1inciden());
       add(m1gestionerror=new M1gestionerror());
+      add(m1gestmir=new M1gestmir());
       }
     }
     

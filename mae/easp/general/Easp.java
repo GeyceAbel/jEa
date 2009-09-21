@@ -1762,6 +1762,28 @@ public static Date esFecha (String s){
 	   }
    }
 
+  public static void abrirFichero (String destino) {
+	  try {
+		  int ret = Windows.ShellExecute("open", destino, null, null, Windows.SW_SHOWNORMAL);
+		  if (ret <= 32) {
+			  switch (ret) {
+	      		case Windows.ERROR_FILE_NOT_FOUND:
+	      			ErrorManagerDefault.generalEx(null, "Archivo " + destino + " no se encuentra");
+	      			break;
+	      		case Windows.ERROR_PATH_NOT_FOUND:
+	      			ErrorManagerDefault.generalEx(null, "Carpeta " + destino + " no se encuentra");
+	      			break;
+	      		default:
+	      			ErrorManagerDefault.generalEx(null, "Error al abrir el archivo");
+	      			break;
+			  }
+		  }
+	  }
+	  catch (Exception ex) {
+	      ErrorManagerDefault.generalEx(ex, "No ha sido posible abrir el borrador del modelo");
+	  }
+  }
+  
 /* ++++++++++++++++++++  Gestió d'errors  +++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
   private static String stackTrace = null;

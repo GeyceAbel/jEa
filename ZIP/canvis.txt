@@ -4,3 +4,4 @@
 050071 --> APJORDI: Nova columna epiepisinpunto a la taula EPIGRAFES.
 050080 --> APJORDI: Domicilis fiscal, social i de notificacions
 050081 --> APESTER: He afegit a Perfil.java la funcio setGranEmpresaPerfilTributario
+050082 --> APJORDI: Gestio de documents e-Mir
