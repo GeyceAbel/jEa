@@ -58,10 +58,10 @@ public class Mir {
 	  return errorEnvio;
   }
   
-  public boolean registraMir(boolean enviado ) {
-    boolean bOk = false ;
+  public int registraMir(boolean enviado ) {
+    int codi = 0;
     String codigoCDP = getCDPMIR();
-    if ( codigoCDP == null ) return false ;
+    if ( codigoCDP == null ) return codi ;
     if ( smir == null ) cargaSelectMir();
     smir.addNew();
     fdmirmcodemp         .setValue(empresa);  // mirmcodemp      INTEGER,
@@ -82,14 +82,15 @@ public class Mir {
     fdmirubicacion.setValue(fichero);  // mirubicacion VARCHAR(200),
     if (fichero!=null && fichero.length()>3) fdmirtipfile.setValue(fichero.substring(fichero.length()-3,fichero.length()));  // mirtipfile   VARCHAR(3),
     if ( smir.insert() ) {
-      bOk = true;
-      smir.commit();
+    	codi = fdmircodi.getInteger();
+    	smir.commit();
     }
     else {
-        bOk = false;
-        smir.rollback();    	
+    	errorEnvio = "No se ha podido grabar el envio eMir a la tabla de gestion.";
+    	smir.rollback();
     }
-    return bOk ;
+    
+    return codi;
   }
 
   public void cargaSelectMir() {

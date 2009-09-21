@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20090921
-// Hora:             12:21:25
+// Hora:             16:48:36
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -28,6 +28,7 @@ public class ProgPrgestdocsmir extends Program
   public int contOk = 0 ;
   public int contKo = 0 ;
   public String aplic = "JEA";
+  public int registro = 0;
   // Fin declaraciones globales
   // Ventana
   public FormVdocsmir vdocsmir;
@@ -510,6 +511,7 @@ public class ProgPrgestdocsmir extends Program
       {
       String where = " miraplic <> 'LABORAL' " ;
       if (aplic != null && !aplic.equals("JEA")) where += " and miraplic = '"+aplic+"' " ;
+      if (registro>0) where += " and mircodi="+registro;
       return where;
       }
     public String getOrder()
