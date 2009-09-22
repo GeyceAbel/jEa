@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090902
-// Hora:             14:01:56
+// Fecha:            20090922
+// Hora:             12:02:52
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -515,7 +515,7 @@ public class CatAdmon extends Catalog
       dattel = new FieldDef("dattel",FieldDef.CHAR,15);
       datfax = new FieldDef("datfax",FieldDef.CHAR,15);
       datfisicajuri = new FieldDef("datfisicajuri",FieldDef.CHAR,1);
-      datemail = new FieldDef("datemail",FieldDef.CHAR,30);
+      datemail = new FieldDef("datemail",FieldDef.CHAR,100);
       datcontacto = new FieldDef("datcontacto",FieldDef.CHAR,30);
       datesiglas = new FieldDef("datesiglas",FieldDef.CHAR,2);
       datevia = new FieldDef("datevia",FieldDef.CHAR,45);

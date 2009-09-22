@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20071203
-// Hora:             18:17:04
+// Fecha:            20090922
+// Hora:             12:06:45
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -633,13 +633,23 @@ public class ProgPrfichadp extends Program
       
     public class CtrlDatemail extends ControlEdit
       {
+      class Look extends LookComponent
+        {
+        public Look( )
+          {
+          super();
+          setLength(30);
+          }
+        }
+        
       public CtrlDatemail(Form form)
         {
         super(form);
+        setLook(new Look());
         setName("datemail");
         setTitle("e-mail");
         setType(STRING);
-        setLength(30);
+        setLength(100);
         setPrintable(false);
         setField(snif.datemail);
         }

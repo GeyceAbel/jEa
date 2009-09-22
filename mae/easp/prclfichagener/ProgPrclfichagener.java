@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090903
-// Hora:             11:09:16
+// Fecha:            20090922
+// Hora:             12:06:55
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -238,14 +238,24 @@ public class ProgPrclfichagener extends Program
       
     public class CtrlDatemail extends ControlEdit
       {
+      class Look extends LookComponent
+        {
+        public Look( )
+          {
+          super();
+          setLength(30);
+          }
+        }
+        
       public CtrlDatemail(Form form)
         {
         super(form);
+        setLook(new Look());
         setName("datemail");
         setMessageHelp("E-mail");
         setTitle("");
         setType(STRING);
-        setLength(30);
+        setLength(100);
         setEnabled(false);
         setPrintable(false);
         setField(sgeneral.datemail);
@@ -3079,13 +3089,23 @@ snifrep.datapell2.setValue(vvdatapell2);
       
     public class CtrlDatemail extends ControlEdit
       {
+      class Look extends LookComponent
+        {
+        public Look( )
+          {
+          super();
+          setLength(30);
+          }
+        }
+        
       public CtrlDatemail(Form form)
         {
         super(form);
+        setLook(new Look());
         setName("datemail");
         setTitle("email");
         setType(STRING);
-        setLength(30);
+        setLength(100);
         setPrintable(false);
         setField(snifes.datemail);
         }
@@ -4499,13 +4519,23 @@ snifrep.datapell2.setValue(vvdatapell2);
       
     public class CtrlDatemail extends ControlEdit
       {
+      class Look extends LookComponent
+        {
+        public Look( )
+          {
+          super();
+          setLength(30);
+          }
+        }
+        
       public CtrlDatemail(Form form)
         {
         super(form);
+        setLook(new Look());
         setName("datemail");
         setTitle("email");
         setType(STRING);
-        setLength(30);
+        setLength(100);
         setPrintable(false);
         setField(snifrepresentan.datemail);
         }

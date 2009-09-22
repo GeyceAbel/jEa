@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090903
-// Hora:             11:46:06
+// Fecha:            20090922
+// Hora:             12:01:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -935,7 +935,9 @@ public class ProgInsprconver extends Program
         "ALTER TABLE NIFES ADD datsfax    INTEGER;",
         "ALTER TABLE NIFES ADD datmovil   INTEGER;"
       };
-    
+      String sentencias7_0[]={
+        "ALTER TABLE NIFES ALTER COLUMN datemail VARCHAR(100);"
+      };
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -1555,6 +1557,22 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","6.9");
           Easp.connEA.commit();
           vvveractual.setValue("6.9");
+        }
+        if (versio < 7.0) {
+          for (i=0;i<sentencias7_0.length;++i) {
+            try {
+              Easp.chivato("7.0 Exec : ["+sentencias7_0[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias7_0[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias7_0[i];
+              Easp.chivato("7.0 *** Error : ["+sentencias7_0[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","7.0");
+          Easp.connEA.commit();
+          vvveractual.setValue("7.0");
         }
       }
       catch(Exception e) {

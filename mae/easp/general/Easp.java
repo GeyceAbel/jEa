@@ -23,9 +23,9 @@ public class Easp {
   public static String nifCDP=null;
 
   //variables de versiones
-  public static String versionAplicacion="6.9";
-  public static String versionFecha="Setiembre/2009";
-  public static String versionBDEA="6.9";
+  public static String versionAplicacion="7.0";
+  public static String versionFecha="Octubre/2009";
+  public static String versionBDEA="7.0";
 
   //Constantes
   public final static int IVA=16;
@@ -923,9 +923,7 @@ public static Date esFecha (String s){
 		  u.valor("dattel",snif.getString("datftel"));
 		  u.valor("datfax",snif.getString("datffax"));
 		  u.valor("datmovil",snif.getString("datfmovil"));
-		  String mail = snif.getString("datfemail");
-	      if (mail!=null && mail.length()>30) u.valor("datemail",mail.substring(0,30));
-	      else u.valor("datemail",mail);
+	      u.valor("datemail",snif.getString("datfemail"));
 	      int iprov = 0;
 	      try {iprov=Integer.parseInt(snif.getString("datfprov"));}
 	      catch (Exception e) { }
