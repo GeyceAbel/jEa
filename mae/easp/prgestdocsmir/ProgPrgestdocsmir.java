@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20090922
-// Hora:             09:53:53
+// Hora:             17:36:24
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -17,7 +17,7 @@ import mae.general.*;
 import mae.easp.*;
 // 
 // Programa: prgestdocsmir
-// Nombre:   Gestión de Documentos MIR
+// Nombre:   Gestión de Documentos e-MIR
 // Versión:  1.0
 // 
 public class ProgPrgestdocsmir extends Program
@@ -25,10 +25,11 @@ public class ProgPrgestdocsmir extends Program
   public AppEasp easp;
   public ProgPrgestdocsmir prgestdocsmir;
   // Inicio declaraciones globales
-  public int contOk = 0 ;
-  public int contKo = 0 ;
+  private int contOk = 0 ;
+  private int contKo = 0 ;
   public String aplic = "JEA";
   public int registro = 0;
+  public boolean abrirModal = true;
   // Fin declaraciones globales
   // Ventana
   public FormVdocsmir vdocsmir;
@@ -43,7 +44,7 @@ public class ProgPrgestdocsmir extends Program
     public Location( )
       {
       super();
-      setTitle("Gestión de Documentos MIR");
+      setTitle("Gestión de Documentos e-MIR");
       }
     }
     
@@ -921,7 +922,7 @@ public class ProgPrgestdocsmir extends Program
     {
     this.prgestdocsmir=this;
     setName("prgestdocsmir");
-    setTitle("Gestión de Documentos MIR");
+    setTitle("Gestión de Documentos e-MIR");
     setLayout(new LayoutGridBag());
     setLocation(new Location());
     addForm(vdocsmir=new FormVdocsmir(this));
@@ -937,13 +938,15 @@ public class ProgPrgestdocsmir extends Program
     setConnection(Easp.connEA);
     vdocsmiredit.setExitOnSave(true);
     vdocsmiredit.mirmcodemp.pickup.aplic = aplic;
-    setModal(true);
-    LocationWindow lw=new LocationWindow();
-    lw.setWidth(690);
-    lw.setHeight(380);
-    lw.setLocation(lw.CENTER);
-    setLocation(lw);
     vdocsmir.setInitState(DataForm.SHOW);
+    if (abrirModal) {
+      setModal(true);
+      LocationWindow lw=new LocationWindow();
+      lw.setWidth(690);
+      lw.setHeight(380);
+      lw.setLocation(lw.CENTER);
+      setLocation(lw);
+    }
     super.onInit();
     
     }

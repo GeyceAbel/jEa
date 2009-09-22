@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090918
-// Hora:             12:55:03
+// Fecha:            20090922
+// Hora:             17:35:09
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -106,7 +106,7 @@ public class PickPkcdpconta extends PickUp
       where = "left(cdpcodi,6)='"+Easp.dominio.substring(0,6)+"'";
       if (aplic!=null) {
         if (aplic.equals("JCONTA")) where += " and cdpckconta='S' ";
-        if (aplic.equals("JEO")) where += " and cdpckeo='S' ";
+        if (aplic.equals("EOS")) where += " and cdpckeo='S' ";
       }
       return where;
       
