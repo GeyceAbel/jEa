@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090921
-// Hora:             16:48:36
+// Fecha:            20090922
+// Hora:             09:53:53
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -126,10 +126,20 @@ public class ProgPrgestdocsmir extends Program
       }
     }
     
+    public void onDelete() {
+      if (mirestado.getString().equals("E")) {
+        Maefc.message("No se puede eliminar un documento enviado","¡Atención!",Maefc.WARNING_MESSAGE);
+      }
+      else {
+        super.onDelete();
+      }
+    }
+    
     // Fin declaraciones globales
     // Controles
     public CtrlChactivado chactivado;
     public CtrlMirmcodemp mirmcodemp;
+    public CtrlMircif mircif;
     public CtrlMirestado mirestado;
     public CtrlMirtipdoc mirtipdoc;
     public CtrlMirfechacrea mirfechacrea;
@@ -175,8 +185,21 @@ public class ProgPrgestdocsmir extends Program
         setType(INTEGER);
         setLength(6);
         setSearchable(true);
-        setPrintable(false);
         setField(smir.mirmcodemp);
+        }
+      }
+      
+    public class CtrlMircif extends ColumnEdit
+      {
+      public CtrlMircif(Form form)
+        {
+        super(form);
+        setName("mircif");
+        setTitle("NIF / CIF");
+        setType(STRING);
+        setLength(15);
+        setSearchable(true);
+        setField(smir.mircif);
         }
       }
       
@@ -190,7 +213,6 @@ public class ProgPrgestdocsmir extends Program
         setType(STRING);
         setLength(1);
         setSearchable(true);
-        setPrintable(false);
         addItem("P/Pendiente");
         addItem("E/Enviado");
         addItem("R/Error al Enviar");
@@ -208,7 +230,6 @@ public class ProgPrgestdocsmir extends Program
         setType(STRING);
         setLength(20);
         setSearchable(true);
-        setPrintable(false);
         setRestricted(false);
         setDescriptionShow(false);
         addItem("CONTRATO/Contratos");
@@ -231,7 +252,6 @@ public class ProgPrgestdocsmir extends Program
         setType(DATE);
         setLength(10);
         setSearchable(true);
-        setPrintable(false);
         setField(smir.mirfechacrea);
         }
       }
@@ -247,7 +267,6 @@ public class ProgPrgestdocsmir extends Program
         setType(DATE);
         setLength(10);
         setSearchable(true);
-        setPrintable(false);
         setField(smir.mirfechaenvio);
         }
       }
@@ -271,7 +290,6 @@ public class ProgPrgestdocsmir extends Program
         setTitle("Descripción");
         setType(STRING);
         setLength(100);
-        setPrintable(false);
         setField(smir.mirdesc);
         }
       }
@@ -295,7 +313,6 @@ public class ProgPrgestdocsmir extends Program
         setTitle("Fichero");
         setType(STRING);
         setLength(200);
-        setPrintable(false);
         setField(smir.mirubicacion);
         }
       }
@@ -346,11 +363,11 @@ public class ProgPrgestdocsmir extends Program
               setPercent(100*(smirutil.getCurrentRow()+1)/(smirutil.getNumRows()+1));
               if ( smirutil.miractivado.getString().equals("S") ) {
                 smirutil.edit(); 
-                Mir emir = new Mir (smirutil.mirmcodemp.getInteger(),smirutil.mirdesc.getString(),smirutil.mirtipdoc.getString(),smirutil.mirubicacion.getString(),aplic);
+                Mir emir = new Mir (smirutil.mirmcodemp.getInteger(),smirutil.mircif.getString(),smirutil.mirdesc.getString(),smirutil.mirtipdoc.getString(),smirutil.mirubicacion.getString(),aplic);
                 if ( emir.tieneMir() ) {
                   boolean  proceso = emir.send(Easp.usuario,smirutil.mirfechacrea.getString());
                   if (  proceso ) {
-                    contOk++ ;
+                    contOk++;
                     smirutil.miractivado.setNull();
                     smirutil.mirestado.setValue("E");
                     smirutil.mirfechaenvio.setValue(Maefc.getDate());
@@ -432,6 +449,7 @@ public class ProgPrgestdocsmir extends Program
       addSelect(smirutil=new Smirutil());
       addControl(chactivado=new CtrlChactivado(this));
       addControl(mirmcodemp=new CtrlMirmcodemp(this));
+      addControl(mircif=new CtrlMircif(this));
       addControl(mirestado=new CtrlMirestado(this));
       addControl(mirtipdoc=new CtrlMirtipdoc(this));
       addControl(mirfechacrea=new CtrlMirfechacrea(this));
@@ -656,6 +674,11 @@ public class ProgPrgestdocsmir extends Program
         setEnabled(false);
         setPrintable(false);
         setField(smir.mircif);
+        }
+      public void onChange()
+        {
+        super.onChange();
+        vdocsmir.mircif.setValue(getValue());
         }
       }
       
@@ -914,6 +937,13 @@ public class ProgPrgestdocsmir extends Program
     setConnection(Easp.connEA);
     vdocsmiredit.setExitOnSave(true);
     vdocsmiredit.mirmcodemp.pickup.aplic = aplic;
+    setModal(true);
+    LocationWindow lw=new LocationWindow();
+    lw.setWidth(690);
+    lw.setHeight(380);
+    lw.setLocation(lw.CENTER);
+    setLocation(lw);
+    vdocsmir.setInitState(DataForm.SHOW);
     super.onInit();
     
     }

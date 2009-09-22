@@ -18,6 +18,7 @@ import java.util.Date;
 
 public class Mir {
   private int empresa;
+  private String nif;
   private String desc;
   private String tipoDoc;
   private String fichero;
@@ -42,8 +43,9 @@ public class Mir {
   private Field fdmirnomcodtra  ; // mirnomcodtra    INTEGER,
   private Field fdmirubicacion  ; // mirubicacion VARCHAR(200),
 
-  public Mir(int empresa, String desc, String tipoDoc, String fichero, String aplic) {
+  public Mir(int empresa, String nif, String desc, String tipoDoc, String fichero, String aplic) {
 	  this.empresa = empresa;
+	  this.nif = nif;
 	  if (desc!=null && desc.length()>30) this.desc = desc.substring(0,30);
 	  else this.desc = desc;
 	  if (tipoDoc!=null && tipoDoc.length()>15) this.tipoDoc = tipoDoc.substring(0,15);
@@ -65,6 +67,7 @@ public class Mir {
     if ( smir == null ) cargaSelectMir();
     smir.addNew();
     fdmirmcodemp         .setValue(empresa);  // mirmcodemp      INTEGER,
+    fdmircif         .setValue(nif);  // mirmcodemp      INTEGER,
     fdmircdp.setValue(Easp.dominio.substring(0,6)+Numero.format(empresa,"000000"));  // mircdp       VARCHAR(12),
     if ( !enviado ) {
       fdmiractivado.setValue("S");  // miractivado  CHAR(1),
