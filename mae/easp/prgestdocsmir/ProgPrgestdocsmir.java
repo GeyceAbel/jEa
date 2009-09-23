@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090922
-// Hora:             17:36:24
+// Fecha:            20090923
+// Hora:             17:15:06
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -752,11 +752,8 @@ public class ProgPrgestdocsmir extends Program
         }
       public Object getDefault()
         {
-        if(vdocsmiredit.estado.equals("I")) {
-          return Fecha.hoy();
-          }
-        else
-          return this.getDefault();
+        return Maefc.getDate();
+        
         }
       public void onChange()
         {
