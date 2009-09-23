@@ -5,3 +5,4 @@
 050080 --> APJORDI: Domicilis fiscal, social i de notificacions
 050081 --> APESTER: He afegit a Perfil.java la funcio setGranEmpresaPerfilTributario
 050082 --> APJORDI: Gestio de documents e-Mir
+050083 --> APESTER: He afegit una consulta a les dades del domicili del nif de l'empresa i dades bancaries, es com una resum de la fitxa general. Nomes per JEO
