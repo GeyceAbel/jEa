@@ -258,7 +258,7 @@ public class Easp {
 		inmensa.setValue(mensaje);
 		sinincide.insert();
 	}
-	
+
 	public static String getTipoLicencia (String aplic, String tarifa)  {
 		String lic = "No definida";
 		if (tarifa!=null && tarifa.length()==10) {
@@ -805,9 +805,9 @@ public static Date esFecha (String s){
 			  u.valor("datnvia",via);
 			  if (snif.getString("datntnum")==null) u.valor("datntnum","NUM");
 			  u.setNull("datnnum");
-			  u.setNull("datnportal");		  
+			  u.setNull("datnportal");
 		      try {
-		    	  u.valor("datnnum",Integer.parseInt(snif.getString("datenum")));	    	  
+		    	  u.valor("datnnum",Integer.parseInt(snif.getString("datenum")));
 		      }
 		      catch(Exception e) { }
 			  u.valor("datnescal",snif.getString("dateesc"));
@@ -840,7 +840,7 @@ public static Date esFecha (String s){
 		      s2.close();
 		      bOk = u.execute("danifcif='"+nif+"'");
 		  }
-	  }	
+	  }
 	  return bOk;
   }
 
@@ -858,9 +858,9 @@ public static Date esFecha (String s){
 		  u.valor("datfvia",snif.getString("datvia"));
 		  if (snif.getString("datftnum")==null) u.valor("datftnum","NUM");
 		  u.setNull("datfnum");
-		  u.setNull("datfportal");		  
+		  u.setNull("datfportal");
 	      try {
-	    	  u.valor("datfnum",Integer.parseInt(snif.getString("datnum")));	    	  
+	    	  u.valor("datfnum",Integer.parseInt(snif.getString("datnum")));
 	      }
 	      catch(Exception e) { }
 		  u.valor("datfescal",snif.getString("datesc"));
@@ -892,7 +892,7 @@ public static Date esFecha (String s){
 	      }
 	      s2.close();
 	      bOk = u.execute("danifcif='"+nif+"'");
-	  }	
+	  }
 	  return bOk;
   }
 
@@ -918,7 +918,11 @@ public static Date esFecha (String s){
 		  if (por!=null && por.length()>2) u.valor("datletra",por.substring(0,2));
 		  else u.valor("datletra",por);
 		  u.valor("datpiso",snif.getString("datfplanta"));
-		  u.valor("datpobla",snif.getString("datflocal"));
+      if (snif.getString("datflocal")==null || snif.getString("datflocal").trim().equals(""))
+    	  u.valor("datpobla",snif.getString("datfnommun"));
+      else
+    	  u.valor("datpobla",snif.getString("datflocal"));
+          
 		  u.valor("datcpos",snif.getString("datfcpost"));
 		  u.valor("dattel",snif.getString("datftel"));
 		  u.valor("datfax",snif.getString("datffax"));
@@ -934,11 +938,11 @@ public static Date esFecha (String s){
 	      if (s2.next()) u.valor("datmuni",s2.getString("mu7muniant"));
 	      s2.close();
 	      bOk = u.execute("danifcif='"+nif+"'");
-	  }	
+	  }
 	  return bOk;
   }
 
-  
+
   public static String firstUpper(String buffer) {
     StringBuffer result=new StringBuffer();
     boolean primera=true;
@@ -1602,14 +1606,14 @@ public static Date esFecha (String s){
     int pfin=1;
     if (contingut!=null && !contingut.trim().equals("")) {
     	int i=0;
-    	boolean noHeAcabat=true;   	
+    	boolean noHeAcabat=true;
     	while (noHeAcabat) {
     		pfin = contingut.indexOf("@#",pini);
     		if (pfin<0)
     			noHeAcabat=false;
     		else {
     			++i;
-  	    		String tmpSubstring = contingut.substring(pini,pfin); 	    		
+  	    		String tmpSubstring = contingut.substring(pini,pfin);
         		pini=pfin+2;
 		        switch(i) {
 		           case 3:
@@ -1781,7 +1785,7 @@ public static Date esFecha (String s){
 	      ErrorManagerDefault.generalEx(ex, "No ha sido posible abrir el borrador del modelo");
 	  }
   }
-  
+
 /* ++++++++++++++++++++  Gestió d'errors  +++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
   private static String stackTrace = null;
