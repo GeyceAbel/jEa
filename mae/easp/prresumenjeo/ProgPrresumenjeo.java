@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090923
-// Hora:             11:20:50
+// Fecha:            20091006
+// Hora:             09:48:49
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -530,6 +530,14 @@ public class ProgPrresumenjeo extends Program
         setLength(2);
         setPrintable(false);
         setField(snifes.acdpaeatdele);
+        }
+      public void onChange()
+        {
+        super.onChange();
+          cdpaeatadm.pickup.sadministracion.setWhere(null);
+          cdpaeatadm.pickup.delegacion=getInteger();
+          cdpaeatadm.refresh();
+        
         }
       }
       
