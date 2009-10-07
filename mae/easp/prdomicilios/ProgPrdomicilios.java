@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090922
-// Hora:             12:06:52
+// Fecha:            20091007
+// Hora:             12:32:50
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -873,6 +873,7 @@ public class ProgPrdomicilios extends Program
     public CtrlDatntel2 datntel2;
     public CtrlDatnmovil2 datnmovil2;
     public CtrlDatnfax2 datnfax2;
+    public CtrlDateatt dateatt;
     // Acciones
     class Location extends LocationGridBag
       {
@@ -1405,6 +1406,20 @@ public class ProgPrdomicilios extends Program
         }
       }
       
+    public class CtrlDateatt extends ControlEdit
+      {
+      public CtrlDateatt(Form form)
+        {
+        super(form);
+        setName("dateatt");
+        setTitle("Atención de");
+        setType(STRING);
+        setLength(35);
+        setPrintable(false);
+        setField(snif.dateatt);
+        }
+      }
+      
     public FormVnotificaciones(ProgPrdomicilios prdomicilios)
       {
       super(prdomicilios);
@@ -1442,6 +1457,7 @@ public class ProgPrdomicilios extends Program
       addControl(datntel2=new CtrlDatntel2(this));
       addControl(datnmovil2=new CtrlDatnmovil2(this));
       addControl(datnfax2=new CtrlDatnfax2(this));
+      addControl(dateatt=new CtrlDateatt(this));
       setSelect(snif);
       }
     }
