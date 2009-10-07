@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090921
-// Hora:             12:05:33
+// Fecha:            20091007
+// Hora:             13:50:08
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -22,9 +22,10 @@ public class AppEasp extends Aplication
     if (!Easp.initUser()) {
       Maefc.message("Imposible iniciar la aplicación","Aviso",Maefc.WARNING_MESSAGE);
       exit();
-      }
     }
-      
+    mae.easp.zzzprmenuprogs.ProgZzzprmenuprogs progMenu=new mae.easp.zzzprmenuprogs.ProgZzzprmenuprogs(this);
+    progMenu.run();  
+  }
   
   // Fin declaraciones globales
   public Barramenu barramenu;
@@ -39,8 +40,8 @@ public class AppEasp extends Aplication
     }
   public void onInit()
     {
-    Aplication.getAplication().setWaitIcon(new Imagen("mae/easp/html/EASP.gif"));
-    Aplication.getAplication().setIcon(new Imagen("mae/easp/html/EASP.gif"));
+    Aplication.getAplication().setWaitIcon(new Imagen("mae/easp/html/EASP.png"));
+    Aplication.getAplication().setIcon(new Imagen("mae/easp/html/EASP.png"));
     Easp.dominio=Aplication.getAplication().getParameter("Dominio");
     Login.showLogIn(Aplication.getAplication());
     setAcl(mae.admon.general.Acceso.getAcl("EASP"));
