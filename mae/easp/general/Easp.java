@@ -29,7 +29,9 @@ public class Easp {
 
   //Constantes
   public final static int IVA=16;
-
+  
+  public static boolean errorCheckBds = false;
+  
   public static boolean isLocalDB(){
     return !(Aplication.getAplication().getConfig("BDAFINITY").equals("SI"));
 	  }

@@ -2,7 +2,6 @@ package mae.easp.general;
 
 import geyce.maefc.*;
 import mae.general.*;
-import mae.modasp.general.AGPIConnect;
 
 import com.fooware.net.*;  //per fer el ftp de aeat
 import java.io.*;
