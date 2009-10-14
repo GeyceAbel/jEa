@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20091014
-// Hora:             10:52:50
+// Hora:             17:14:31
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2882,21 +2882,29 @@ public class CatEasp extends Catalog
     {
     // Campos
     public FieldDef indejercicio;
+    public FieldDef inddesdefecha;
+    public FieldDef indhastafecha;
     public FieldDef indtipo_vigente;
     public TabIndemora(String name)
       {
       super(name);
       indejercicio = new FieldDef("indejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      inddesdefecha = new FieldDef("inddesdefecha",FieldDef.DATE);
+      indhastafecha = new FieldDef("indhastafecha",FieldDef.DATE);
       indtipo_vigente = new FieldDef("indtipo_vigente",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         indejercicio,
+        inddesdefecha,
+        indhastafecha,
         indtipo_vigente        
         };
       setColumns(array);
-      FieldDef arrayf[] = {indejercicio };
+      FieldDef arrayf[] = {indejercicio,inddesdefecha,indhastafecha };
       setDescription("Interes de demora");
       setPrimaryKeys(arrayf);
       indejercicio.setDescription("Ejercicio");
+      inddesdefecha.setDescription("Desde fecha");
+      indhastafecha.setDescription("Hasta fecha");
       indtipo_vigente.setDescription("Tipo vigente interes de demora");
       }
     }

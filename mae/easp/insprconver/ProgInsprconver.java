@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20091014
-// Hora:             10:11:24
+// Hora:             17:17:27
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -951,8 +951,10 @@ public class ProgInsprconver extends Program
         "    PRIMARY KEY (COEEJERFISCAL,COEEJERCICIO));",
         "CREATE TABLE INDEMORA                  "+
         "   (indejercicio    INTEGER NOT NULL,  "+
+        "    inddesdefecha   "+formatData()+
+        "    indhastafecha   "+formatData()+
         "    indtipo_vigente FLOAT,             "+
-        "    PRIMARY KEY (INDEJERCICIO));       "
+        "    PRIMARY KEY (INDEJERCICIO,INDDESDEFECHA,INDHASTAFECHA));       "
       };
       int i=0;
       try {
@@ -1602,6 +1604,28 @@ public class ProgInsprconver extends Program
               errorMessage=e.getMessage();
             }
           }
+          String tablas[]= {"CODIGOREGISTRO","COEFICCORREC"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0701","easp.jar");
+          grabarINDEMORA (1991,Fecha.getDate(1991,1,1),Fecha.getDate(1991,12,31),12);
+          grabarINDEMORA (1992,Fecha.getDate(1992,1,1),Fecha.getDate(1992,12,31),12);
+          grabarINDEMORA (1993,Fecha.getDate(1993,1,1),Fecha.getDate(1993,12,31),12);
+          grabarINDEMORA (1994,Fecha.getDate(1994,1,1),Fecha.getDate(1994,12,31),11);
+          grabarINDEMORA (1995,Fecha.getDate(1995,1,1),Fecha.getDate(1995,12,31),11);
+          grabarINDEMORA (1996,Fecha.getDate(1996,1,1),Fecha.getDate(1996,12,31),11);
+          grabarINDEMORA (1997,Fecha.getDate(1997,1,1),Fecha.getDate(1997,12,31),9.5);
+          grabarINDEMORA (1998,Fecha.getDate(1998,1,1),Fecha.getDate(1998,12,31),7.5);
+          grabarINDEMORA (1999,Fecha.getDate(1999,1,1),Fecha.getDate(1999,12,31),5.5);
+          grabarINDEMORA (2000,Fecha.getDate(2000,1,1),Fecha.getDate(2000,12,31),5.5);
+          grabarINDEMORA (2001,Fecha.getDate(2001,1,1),Fecha.getDate(2001,12,31),6.5);
+          grabarINDEMORA (2002,Fecha.getDate(2002,1,1),Fecha.getDate(2002,12,31),5.5);
+          grabarINDEMORA (2003,Fecha.getDate(2003,1,1),Fecha.getDate(2003,12,31),5.5);
+          grabarINDEMORA (2004,Fecha.getDate(2004,1,1),Fecha.getDate(2004,12,31),4.75);
+          grabarINDEMORA (2005,Fecha.getDate(2005,1,1),Fecha.getDate(2005,12,31),5);
+          grabarINDEMORA (2006,Fecha.getDate(2006,1,1),Fecha.getDate(2006,12,31),5);
+          grabarINDEMORA (2007,Fecha.getDate(2007,1,1),Fecha.getDate(2007,12,31),6.25);
+          grabarINDEMORA (2008,Fecha.getDate(2008,1,1),Fecha.getDate(2008,12,31),7);
+          grabarINDEMORA (2009,Fecha.getDate(2009,1,1),Fecha.getDate(2009,03,31),7);
+          grabarINDEMORA (2009,Fecha.getDate(2009,4,1),Fecha.getDate(2009,12,31),5);
           Easp.setVersionBD("bdeasp","7.1");
           Easp.connEA.commit();
           vvveractual.setValue("7.1");
@@ -1613,7 +1637,14 @@ public class ProgInsprconver extends Program
         }
       return true;
       }
-    
+    public void grabarINDEMORA (int ejer, java.util.Date fechaini, java.util.Date fechafin, double tipo) {
+          Insert iindemora = new Insert(Easp.connEA,"INDEMORA");
+          iindemora.valor("indejercicio",ejer);
+          iindemora.valor("inddesdefecha",fechaini);
+          iindemora.valor("indhastafecha",fechafin);
+          iindemora.valor("indtipo_vigente",tipo);
+          iindemora.execute();
+    }
     public void actualizaTransaccion (String cod, String desc,String emirep,String regimen,String tipo,String voloper,String operespec) {
       Selector s = new Selector (Easp.connEA);
       s.execute ("Select * from TRANSACCIONES where tratipo='"+cod+"'");
