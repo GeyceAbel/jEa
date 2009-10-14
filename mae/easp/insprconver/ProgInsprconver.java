@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090922
-// Hora:             12:01:25
+// Fecha:            20091014
+// Hora:             10:11:24
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -938,6 +938,22 @@ public class ProgInsprconver extends Program
       String sentencias7_0[]={
         "ALTER TABLE NIFES ALTER COLUMN datemail VARCHAR(100);"
       };
+      String sentencias7_1[]={
+        "ALTER TABLE NIFES ALTER COLUMN datapell1 VARCHAR(100);",
+        "CREATE TABLE CODIGOREGISTRO           "+
+        "   (crenombre     CHAR(30) NOT NULL,  "+
+        "    crecodigo     VARCHAR(5),         "+
+        "    PRIMARY KEY (CRENOMBRE));         ",
+        "CREATE TABLE COEFICCORREC                     "+
+        "   (coeejerfiscal   INTEGER NOT NULL,         "+
+        "    coeejercicio    INTEGER NOT NULL,         "+
+        "    coecoeficiente  FLOAT,                    "+
+        "    PRIMARY KEY (COEEJERFISCAL,COEEJERCICIO));",
+        "CREATE TABLE INDEMORA                  "+
+        "   (indejercicio    INTEGER NOT NULL,  "+
+        "    indtipo_vigente FLOAT,             "+
+        "    PRIMARY KEY (INDEJERCICIO));       "
+      };
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -1573,6 +1589,22 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","7.0");
           Easp.connEA.commit();
           vvveractual.setValue("7.0");
+        }
+        if (versio < 7.1) {
+          for (i=0;i<sentencias7_1.length;++i) {
+            try {
+              Easp.chivato("7.1 Exec : ["+sentencias7_1[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias7_1[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias7_1[i];
+              Easp.chivato("7.1 *** Error : ["+sentencias7_1[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","7.1");
+          Easp.connEA.commit();
+          vvveractual.setValue("7.1");
         }
       }
       catch(Exception e) {

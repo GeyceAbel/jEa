@@ -23,9 +23,9 @@ public class Easp {
   public static String nifCDP=null;
 
   //variables de versiones
-  public static String versionAplicacion="7.0";
+  public static String versionAplicacion="7.1";
   public static String versionFecha="Octubre/2009";
-  public static String versionBDEA="7.0";
+  public static String versionBDEA="7.1";
 
   //Constantes
   public final static int IVA=16;
