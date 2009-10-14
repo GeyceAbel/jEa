@@ -375,24 +375,24 @@ public class ActualizaNIFs
 			}
 			newNIFSelector.close();
 		}
-		oldNIFSelector.close();
-		
-		if(execute) execute = UpdateNIF(connJEa, "NIFESMUF", "mufnif",(connJEa.getDB().getCatalogs())[1]);
-		
+		oldNIFSelector.close();		
+
+		//if(execute) execute = UpdateNIF(connJEa, "NIFESMUF", "mufnif",(connJEa.getDB().getCatalogs())[1]);
+		if(execute) execute = UpdateNIF(connJEa, "NIFESMUF", "mufnif",new mae.easp.db.CatEasp ());
 		if(execute) execute = UpdateNIF(connJEa, "CDP", "cdpnifcif");
-		
-		if(execute) execute = UpdateNIF(connJEa, "REPRESENTANTES", "repnifcif",(connJEa.getDB().getCatalogs())[1]);
-		
+		//if(execute) execute = UpdateNIF(connJEa, "REPRESENTANTES", "repnifcif",(connJEa.getDB().getCatalogs())[1]);
+		if(execute) execute = UpdateNIF(connJEa, "REPRESENTANTES", "repnifcif",new mae.easp.db.CatEasp ());
 		if(execute) execute = UpdateNIF(connJEa, "DP", "dpnifcif");
-		
 		if(execute) execute = UpdateNIF(connJEa, "MIR", "mircif");
-			
-		if(execute) execute = UpdateNIF(connJEa, "EMPMODELOS", "emodnif",(connJEa.getDB().getCatalogs())[1]);
+		//if(execute) execute = UpdateNIF(connJEa, "EMPMODELOS", "emodnif",(connJEa.getDB().getCatalogs())[1]);
+		if(execute) execute = UpdateNIF(connJEa, "EMPMODELOS", "emodnif",new mae.easp.db.CatEasp ());
+		
 		
 		d = new Delete(connJEa, "PERFILTRIBUT");
 		if(execute) d.execute("pftnif='"+oldNIF+"'");
 		
-		if(execute) execute = UpdateNIF(connJEa, "AVISADO", "avinif",(connJEa.getDB().getCatalogs())[1]);
+		//if(execute) execute = UpdateNIF(connJEa, "AVISADO", "avinif",(connJEa.getDB().getCatalogs())[1]);
+		if(execute) execute = UpdateNIF(connJEa, "AVISADO", "avinif",new mae.easp.db.CatEasp ());
 		
 		return execute;
 	}

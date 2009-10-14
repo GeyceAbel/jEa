@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090922
-// Hora:             12:02:52
+// Fecha:            20091014
+// Hora:             10:45:53
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -83,6 +83,9 @@ public class CatAdmon extends Catalog
   public TabMuni347 tabmuni347;
   public TabCnae2009 tabcnae2009;
   public TabCnaeequiv tabcnaeequiv;
+  public TabCodigoregistro tabcodigoregistro;
+  public TabCoeficcorrec tabcoeficcorrec;
+  public TabIndemora tabindemora;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -499,7 +502,7 @@ public class CatAdmon extends Catalog
       danifcif = new FieldDef("danifcif",FieldDef.CHAR,15,FieldDef.NOTNULL);
       datipo = new FieldDef("datipo",FieldDef.CHAR,1,FieldDef.NOTNULL);
       datnombre = new FieldDef("datnombre",FieldDef.CHAR,20);
-      datapell1 = new FieldDef("datapell1",FieldDef.CHAR,40,FieldDef.NOTNULL);
+      datapell1 = new FieldDef("datapell1",FieldDef.CHAR,100,FieldDef.NOTNULL);
       datapell2 = new FieldDef("datapell2",FieldDef.CHAR,25);
       datsiglas = new FieldDef("datsiglas",FieldDef.CHAR,2);
       datvia = new FieldDef("datvia",FieldDef.CHAR,45);
@@ -2825,6 +2828,79 @@ public class CatAdmon extends Catalog
       }
     }
     
+  public class TabCodigoregistro extends TableDef
+    {
+    // Campos
+    public FieldDef crenombre;
+    public FieldDef crecodigo;
+    public TabCodigoregistro(String name)
+      {
+      super(name);
+      crenombre = new FieldDef("crenombre",FieldDef.CHAR,30,FieldDef.NOTNULL);
+      crecodigo = new FieldDef("crecodigo",FieldDef.CHAR,5);
+      FieldDef array[] = {
+        crenombre,
+        crecodigo        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {crenombre };
+      setDescription("Codigos Registro Mercantil");
+      setPrimaryKeys(arrayf);
+      crenombre.setDescription("Nombre Registro Mercantil");
+      crecodigo.setDescription("Codigo Registro Mercantil");
+      }
+    }
+    
+  public class TabCoeficcorrec extends TableDef
+    {
+    // Campos
+    public FieldDef coeejerfiscal;
+    public FieldDef coeejercicio;
+    public FieldDef coecoeficiente;
+    public TabCoeficcorrec(String name)
+      {
+      super(name);
+      coeejerfiscal = new FieldDef("coeejerfiscal",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      coeejercicio = new FieldDef("coeejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      coecoeficiente = new FieldDef("coecoeficiente",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        coeejerfiscal,
+        coeejercicio,
+        coecoeficiente        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {coeejerfiscal,coeejercicio };
+      setDescription("Coeficientes correccion monetaria");
+      setPrimaryKeys(arrayf);
+      coeejerfiscal.setDescription("Ejercicio fiscal");
+      coeejercicio.setDescription("Ejercicio");
+      coecoeficiente.setDescription("Coeficiente correccion");
+      }
+    }
+    
+  public class TabIndemora extends TableDef
+    {
+    // Campos
+    public FieldDef indejercicio;
+    public FieldDef indtipo_vigente;
+    public TabIndemora(String name)
+      {
+      super(name);
+      indejercicio = new FieldDef("indejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      indtipo_vigente = new FieldDef("indtipo_vigente",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        indejercicio,
+        indtipo_vigente        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {indejercicio };
+      setDescription("Interes de demora");
+      setPrimaryKeys(arrayf);
+      indejercicio.setDescription("Ejercicio");
+      indtipo_vigente.setDescription("Tipo vigente interes de demora");
+      }
+    }
+    
   public CatAdmon()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -2894,6 +2970,9 @@ public class CatAdmon extends Catalog
     tabmuni347 = new TabMuni347("muni347");
     tabcnae2009 = new TabCnae2009("cnae2009");
     tabcnaeequiv = new TabCnaeequiv("cnaeequiv");
+    tabcodigoregistro = new TabCodigoregistro("codigoregistro");
+    tabcoeficcorrec = new TabCoeficcorrec("coeficcorrec");
+    tabindemora = new TabIndemora("indemora");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -2961,7 +3040,10 @@ public class CatAdmon extends Catalog
       tabtipovias,
       tabmuni347,
       tabcnae2009,
-      tabcnaeequiv      
+      tabcnaeequiv,
+      tabcodigoregistro,
+      tabcoeficcorrec,
+      tabindemora      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
