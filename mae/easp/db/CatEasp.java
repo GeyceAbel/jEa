@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20091014
-// Hora:             10:45:50
+// Hora:             10:52:50
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -502,7 +502,7 @@ public class CatEasp extends Catalog
       danifcif = new FieldDef("danifcif",FieldDef.CHAR,15,FieldDef.NOTNULL);
       datipo = new FieldDef("datipo",FieldDef.CHAR,1,FieldDef.NOTNULL);
       datnombre = new FieldDef("datnombre",FieldDef.CHAR,20);
-      datapell1 = new FieldDef("datapell1",FieldDef.CHAR,100,FieldDef.NOTNULL);
+      datapell1 = new FieldDef("datapell1",FieldDef.CHAR,40,FieldDef.NOTNULL);
       datapell2 = new FieldDef("datapell2",FieldDef.CHAR,25);
       datsiglas = new FieldDef("datsiglas",FieldDef.CHAR,2);
       datvia = new FieldDef("datvia",FieldDef.CHAR,45);
