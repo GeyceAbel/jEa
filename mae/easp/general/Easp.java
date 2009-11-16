@@ -23,15 +23,15 @@ public class Easp {
   public static String nifCDP=null;
 
   //variables de versiones
-  public static String versionAplicacion="7.1";
+  public static String versionAplicacion="7.2";
   public static String versionFecha="Octubre/2009";
-  public static String versionBDEA="7.1";
+  public static String versionBDEA="7.2";
 
   //Constantes
   public final static int IVA=16;
-  
+
   public static boolean errorCheckBds = false;
-  
+
   public static boolean isLocalDB(){
     return !(Aplication.getAplication().getConfig("BDAFINITY").equals("SI"));
 	  }

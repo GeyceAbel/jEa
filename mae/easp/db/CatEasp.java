@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20091014
-// Hora:             17:14:31
+// Fecha:            20091116
+// Hora:             15:13:23
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -86,6 +86,7 @@ public class CatEasp extends Catalog
   public TabCodigoregistro tabcodigoregistro;
   public TabCoeficcorrec tabcoeficcorrec;
   public TabIndemora tabindemora;
+  public TabPerfilusuario tabperfilusuario;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -2909,6 +2910,44 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabPerfilusuario extends TableDef
+    {
+    // Campos
+    public FieldDef pfcodigo;
+    public FieldDef pfnombrepc;
+    public FieldDef pfresponsable;
+    public FieldDef pfpantalla;
+    public FieldDef pfusergelix;
+    public FieldDef pfgrupogelix;
+    public FieldDef pfurlgeyce;
+    public FieldDef pfasesor;
+    public TabPerfilusuario(String name)
+      {
+      super(name);
+      pfcodigo = new FieldDef("pfcodigo",FieldDef.CHAR,25,FieldDef.NOTNULL);
+      pfnombrepc = new FieldDef("pfnombrepc",FieldDef.CHAR,25,FieldDef.NOTNULL);
+      pfresponsable = new FieldDef("pfresponsable",FieldDef.CHAR,25);
+      pfpantalla = new FieldDef("pfpantalla",FieldDef.INTEGER,0);
+      pfusergelix = new FieldDef("pfusergelix",FieldDef.CHAR,10);
+      pfgrupogelix = new FieldDef("pfgrupogelix",FieldDef.CHAR,5);
+      pfurlgeyce = new FieldDef("pfurlgeyce",FieldDef.CHAR,600);
+      pfasesor = new FieldDef("pfasesor",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        pfcodigo,
+        pfnombrepc,
+        pfresponsable,
+        pfpantalla,
+        pfusergelix,
+        pfgrupogelix,
+        pfurlgeyce,
+        pfasesor        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {pfcodigo,pfnombrepc };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -2981,6 +3020,7 @@ public class CatEasp extends Catalog
     tabcodigoregistro = new TabCodigoregistro("codigoregistro");
     tabcoeficcorrec = new TabCoeficcorrec("coeficcorrec");
     tabindemora = new TabIndemora("indemora");
+    tabperfilusuario = new TabPerfilusuario("perfilusuario");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -3051,7 +3091,8 @@ public class CatEasp extends Catalog
       tabcnaeequiv,
       tabcodigoregistro,
       tabcoeficcorrec,
-      tabindemora      
+      tabindemora,
+      tabperfilusuario      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
