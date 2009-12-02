@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080930
-// Hora:             09:48:24
+// Fecha:            20091202
+// Hora:             12:45:21
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -344,6 +344,7 @@ public class ProgQuerylis extends Program
          }
       }
       else if (aplicacion.equals("JMODELOS") && "D".equals(frase.ect) ) f = "seleccion,"+f;
+      else if (aplicacion.equals("JISS") && "S".equals(frase.ect) ) f = "seleccion,"+f;
       else if ("E".equals(frase.ect) || "C".equals(frase.ect) || "T".equals(frase.ect)) {
               f="seleccion,"+f;
       }
@@ -585,6 +586,19 @@ public class ProgQuerylis extends Program
                  selwhere+=" and (SELEMPRESA IS NULL or SELEMPRESA=EMPCODIGO)";
               }
   
+              if (where==null)
+                 where=selwhere;
+              else
+                 where=selwhere+" and ("+where+")";
+          }
+      }
+      else if (aplicacion.equals("JISS")) {
+         if ("S".equals(frase.ect)) {
+              String selwhere="SELUSUARIO='"+Aplication.getAplication().getUser()+"' and SELPROGRAMA='QUERY'";
+  
+             if (hiHaTaula("sociedades")) {
+                 selwhere+=" and (SELEMPRESA IS NULL or SELEMPRESA=SOCCODIGO)";
+              }
               if (where==null)
                  where=selwhere;
               else
@@ -1285,6 +1299,7 @@ public class ProgQuerylis extends Program
         String nomListado="listadojNOMINA";
         if (aplicacion.equals("JEO")) nomListado="listadojEO";
         else if (aplicacion.equals("JMODELOS")) nomListado="listadojMODELOS";
+        else if (aplicacion.equals("JISS")) nomListado="listadojISS";
         
         salida.println("<"+nomListado+">");
         salida.println("<quefrase>");
@@ -1491,7 +1506,8 @@ public class ProgQuerylis extends Program
     // TOCAT PER JEO
         String nomListado="listadojNOMINA";
         if (aplicacion.equals("JEO")) nomListado="listadojEO";
-        if (aplicacion.equals("JMODELOS")) nomListado="listadojMODELOS";
+        else if (aplicacion.equals("JMODELOS")) nomListado="listadojMODELOS";
+        else if (aplicacion.equals("JISS")) nomListado="listadojISS";
     
         if(!doc.getDocumentElement().getNodeName().equals(nomListado)) {
           Maefc.message("Error: el archivo " + fileImpXML.getName() +" no contiene ningun listado a importar","Validación de Datos",Maefc.ERROR_MESSAGE);
@@ -2083,9 +2099,9 @@ public class ProgQuerylis extends Program
     // Tablas
     public Quefrase quefrase;
     // Campos
-    public Field qefcount;
     public Field qefapaisado;
     public Field qefaplicacion;
+    public Field qefcount;
     public Field qefdescripcion;
     public Field qeffrase;
     public Field qefletra;
@@ -2107,9 +2123,9 @@ public class ProgQuerylis extends Program
       {
       setName("squery");
       addTable(quefrase=new Quefrase(this));
-      addField(qefcount=new Field(this,quefrase,"qefcount"));
       addField(qefapaisado=new Field(this,quefrase,"qefapaisado"));
       addField(qefaplicacion=new Field(this,quefrase,"qefaplicacion"));
+      addField(qefcount=new Field(this,quefrase,"qefcount"));
       addField(qefdescripcion=new Field(this,quefrase,"qefdescripcion"));
       addField(qeffrase=new Field(this,quefrase,"qeffrase"));
       addField(qefletra=new Field(this,quefrase,"qefletra"));
@@ -2138,9 +2154,9 @@ public class ProgQuerylis extends Program
     // Tablas
     public Quefrase quefrase;
     // Campos
-    public Field qefcount;
     public Field qefapaisado;
     public Field qefaplicacion;
+    public Field qefcount;
     public Field qefdescripcion;
     public Field qefect;
     public Field qeffrase;
@@ -2165,9 +2181,9 @@ public class ProgQuerylis extends Program
       {
       setName("sprueba");
       addTable(quefrase=new Quefrase(this));
-      addField(qefcount=new Field(this,quefrase,"qefcount"));
       addField(qefapaisado=new Field(this,quefrase,"qefapaisado"));
       addField(qefaplicacion=new Field(this,quefrase,"qefaplicacion"));
+      addField(qefcount=new Field(this,quefrase,"qefcount"));
       addField(qefdescripcion=new Field(this,quefrase,"qefdescripcion"));
       addField(qefect=new Field(this,quefrase,"qefect"));
       addField(qeffrase=new Field(this,quefrase,"qeffrase"));
@@ -2191,20 +2207,20 @@ public class ProgQuerylis extends Program
     // Tablas
     public Quecolumn quecolumn;
     // Campos
-    public Field qecsum;
-    public Field qecgrupby;
     public Field qecacumula;
     public Field qecaplicacion;
     public Field qecbbdd;
     public Field qeccampo;
     public Field qecformato;
     public Field qecfrase;
+    public Field qecgrupby;
     public Field qecinipag;
     public Field qeclongitud;
     public Field qecorden;
     public Field qecorderby;
     public Field qecrestriccion;
     public Field qecsaltapag;
+    public Field qecsum;
     public Field qectabla;
     public Field qectipo;
     public Field qectitulo;
@@ -2223,20 +2239,20 @@ public class ProgQuerylis extends Program
       {
       setName("squecolumn");
       addTable(quecolumn=new Quecolumn(this));
-      addField(qecsum=new Field(this,quecolumn,"qecsum"));
-      addField(qecgrupby=new Field(this,quecolumn,"qecgrupby"));
       addField(qecacumula=new Field(this,quecolumn,"qecacumula"));
       addField(qecaplicacion=new Field(this,quecolumn,"qecaplicacion"));
       addField(qecbbdd=new Field(this,quecolumn,"qecbbdd"));
       addField(qeccampo=new Field(this,quecolumn,"qeccampo"));
       addField(qecformato=new Field(this,quecolumn,"qecformato"));
       addField(qecfrase=new Field(this,quecolumn,"qecfrase"));
+      addField(qecgrupby=new Field(this,quecolumn,"qecgrupby"));
       addField(qecinipag=new Field(this,quecolumn,"qecinipag"));
       addField(qeclongitud=new Field(this,quecolumn,"qeclongitud"));
       addField(qecorden=new Field(this,quecolumn,"qecorden"));
       addField(qecorderby=new Field(this,quecolumn,"qecorderby"));
       addField(qecrestriccion=new Field(this,quecolumn,"qecrestriccion"));
       addField(qecsaltapag=new Field(this,quecolumn,"qecsaltapag"));
+      addField(qecsum=new Field(this,quecolumn,"qecsum"));
       addField(qectabla=new Field(this,quecolumn,"qectabla"));
       addField(qectipo=new Field(this,quecolumn,"qectipo"));
       addField(qectitulo=new Field(this,quecolumn,"qectitulo"));
@@ -2394,6 +2410,7 @@ public class ProgQuerylis extends Program
     
     mae.modasp.datselec.ProgDatselec prconJmodelos=null;
     
+    mae.jiss.datselec.ProgDatselec prconJiss=null;
     
     // Fin declaraciones globales
     // Controles
@@ -2471,6 +2488,7 @@ public class ProgQuerylis extends Program
         prcon=null;
         prconJeo=null;
         prconJmodelos = null;
+        prconJiss=null;
         int assigno=0;
       // TOCAT PER JEO
         if (aplicacion.equals("JEO")) {
@@ -2518,6 +2536,29 @@ public class ProgQuerylis extends Program
           prconJmodelos.desactivaLimpiar=true;
           prconJmodelos.setLocation(LocationBorder.locationBorderCenter);    
         }
+        else if (aplicacion.equals("JISS")) {
+           if ("S".equals(frase.ect)) {
+              assigno=1;
+              loc.setHeight(75+200);
+              ControlPanel panel2=new ControlPanel(this);
+              panel2.setLayout(new LayoutBorder());
+              panel2.setParent(this);
+      
+              setLayout(new LayoutSplit(LayoutSplit.VERTICAL));
+              prconJiss=new mae.jiss.datselec.ProgDatselec();
+              panel.setLocation(new LocationSplit(LocationSplit.LEFT));
+              prconJiss.setConnection(getDataBase());
+              panel2.setLocation(new LocationSplit(LocationSplit.RIGHT));
+              prconJiss.setParent(panel2);
+              prconJiss.porEA='E';
+      
+              prconJiss.borrarSeleccionado = true;
+              prconJiss.gejer=mae.jiss.general.Jiss.gEjercicio;
+              prconJiss.gprograma="QUERY";
+              prconJiss.desactivaLimpiar=true;
+              prconJiss.setLocation(LocationBorder.locationBorderCenter);
+           }
+        }
         else {
           if ("E".equals(frase.ect) || "C".equals(frase.ect) || "T".equals(frase.ect)) {
               assigno=1;
@@ -2549,6 +2590,7 @@ public class ProgQuerylis extends Program
         if (prcon!=null) prcon.run();
         if (prconJeo!=null) prconJeo.run();
         if (prconJmodelos!=null) prconJmodelos.run();
+        if (prconJiss!=null) prconJiss.run();
       
       }
     }
@@ -2876,6 +2918,7 @@ public class ProgQuerylis extends Program
     {
     if (aplicacion.equals("JEO")) nomDirec="jEo";
     else if (aplicacion.equals("JMODELOS")) nomDirec="jModelos";
+    else if (aplicacion.equals("JISS")) nomDirec="jIss";
     else nomDirec="jNomina";
     
     squery.setDb(Aplication.getAplication().getDataBase());

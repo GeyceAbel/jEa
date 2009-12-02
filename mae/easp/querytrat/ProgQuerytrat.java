@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20080930
-// Hora:             00:37:15
+// Fecha:            20091202
+// Hora:             13:00:02
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -80,9 +80,13 @@ public class ProgQuerytrat extends Program
       if (nom.equals("gycauto") || nom.equals("bds") || nom.startsWith("que")) grabaTaula=false;
       if (aplicacion.equals("JEO") && (nom.startsWith("seleccion") || nom.equals("paramlis") || nom.equals("lisresumen") || nom.equals("prefijos") || nom.equals("listadotmp") || nom.startsWith("cnvtest") || nom.startsWith("doc"))) 
          grabaTaula=false;
+      else if (aplicacion.equals("JISS") && (nom.startsWith("seleccion") || nom.equals("paramlis") || nom.startsWith("doc"))) 
+           grabaTaula=false;
       if (grabaTaula) {
         String descripcio=tables[i].getDescription();
-        if (descripcio==null) descripcio="";
+        if (descripcio==null) 
+           descripcio="";
+        else if (descripcio.length()>40) descripcio = descripcio.substring(0,40);
         vfrase.qefmaster.addItem(nom,descripcio);
       }
     }
@@ -411,6 +415,12 @@ public class ProgQuerytrat extends Program
       addAction(irvariables=new LinkIrvariables(this));
       setSelect(sfrase);
       }
+    public void onInit()
+      {
+      qefmaster.setDescriptionLength(40);
+      super.onInit();
+      
+      }
     public boolean onOkInsert()
       {
       sfrase.qefaplicacion.setValue(aplicacion);
@@ -454,6 +464,82 @@ public class ProgQuerytrat extends Program
                   tc=buscaTabla("empresa");
                   in.valor("qetorden",orden);
                   in.valor("qettabla","empresa");
+                  in.valor("qetbbdd",tc.catalogo.getName());
+                  in.execute();
+               }
+             }
+             if (!qefmaster.getString().equals("nifes")) {
+                orden+=10;
+                tc=buscaTabla("nifes");
+                in.valor("qetorden",orden);
+                in.valor("qettabla","nifes");
+                in.valor("qetbbdd",tc.catalogo.getName());
+                in.execute();
+             }
+          }
+          if (aplicacion.equals("JEO")) {
+             if ("A".equals(qefect.getString()) && !qefmaster.getString().equals("actividades")) {
+               orden+=10;
+               tc=buscaTabla("actividades");
+               in.valor("qetorden",orden);
+               in.valor("qettabla","actividades");
+               in.valor("qetbbdd",tc.catalogo.getName());
+               in.execute();
+             }
+             if ("E".equals(qefect.getString()) || "A".equals(qefect.getString())) {
+               if (!qefmaster.getString().equals("empresa")) {
+                  orden+=10;
+                  tc=buscaTabla("empresa");
+                  in.valor("qetorden",orden);
+                  in.valor("qettabla","empresa");
+                  in.valor("qetbbdd",tc.catalogo.getName());
+                  in.execute();
+               }
+             }
+             if (!qefmaster.getString().equals("nifes")) {
+                orden+=10;
+                tc=buscaTabla("nifes");
+                in.valor("qetorden",orden);
+                in.valor("qettabla","nifes");
+                in.valor("qetbbdd",tc.catalogo.getName());
+                in.execute();
+             }
+          }
+          if (aplicacion.equals("JEO")) {
+             if ("A".equals(qefect.getString()) && !qefmaster.getString().equals("actividades")) {
+               orden+=10;
+               tc=buscaTabla("actividades");
+               in.valor("qetorden",orden);
+               in.valor("qettabla","actividades");
+               in.valor("qetbbdd",tc.catalogo.getName());
+               in.execute();
+             }
+             if ("E".equals(qefect.getString()) || "A".equals(qefect.getString())) {
+               if (!qefmaster.getString().equals("empresa")) {
+                  orden+=10;
+                  tc=buscaTabla("empresa");
+                  in.valor("qetorden",orden);
+                  in.valor("qettabla","empresa");
+                  in.valor("qetbbdd",tc.catalogo.getName());
+                  in.execute();
+               }
+             }
+             if (!qefmaster.getString().equals("nifes")) {
+                orden+=10;
+                tc=buscaTabla("nifes");
+                in.valor("qetorden",orden);
+                in.valor("qettabla","nifes");
+                in.valor("qetbbdd",tc.catalogo.getName());
+                in.execute();
+             }
+          }
+          else if (aplicacion.equals("JISS")) {
+             if ("S".equals(qefect.getString())) {
+               if (!qefmaster.getString().equals("sociedades")) {
+                  orden+=10;
+                  tc=buscaTabla("");
+                  in.valor("qetorden",orden);
+                  in.valor("qettabla","sociedades");
                   in.valor("qetbbdd",tc.catalogo.getName());
                   in.execute();
                }
@@ -2234,6 +2320,13 @@ public class ProgQuerytrat extends Program
        vfrase.qefect.addItem("A/Actividad");
        vfrase.qefect.addItem("N/Sin selección");
        vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejeo.html"));
+    }
+    else if (aplicacion.equals("JISS")) {
+       vfrase.qefect.setTitle("Sociedad");
+       vfrase.qefect.removeAllItems();
+       vfrase.qefect.addItem("S/Sociedad");
+       vfrase.qefect.addItem("N/Sin selección");
+       vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejiss.html"));
     }
     else if (aplicacion.equals("JMODELOS")) {
       vfrase.qefect.removeAllItems();
