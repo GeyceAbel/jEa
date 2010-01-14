@@ -9,3 +9,4 @@
 050086 --> APJORDI: Gestio de domicilis. Domicili notificacions, afegir el camp dateatt (A la atención de:).
 050086 --> APJORDI: Posar pagina inici perque no quedi tant soso.
 050091 --> APESTER: He afegit la creació de la taula PERFILUSUARIO
+050092 --> APESTER: He modificat el pick pkcdpconta per que contempli l'aplicació JISS
