@@ -11,3 +11,4 @@
 050091 --> APESTER: He afegit la creació de la taula PERFILUSUARIO
 050092 --> APESTER: He modificat el pick pkcdpconta per que contempli l'aplicació JISS
 050093 --> APESTER: Afegit pas conversio per interes demora 2010 i coeficorrec 2010
+050094 --> APJORDI: Afegit pas conversio per DATOSREGISTRALES

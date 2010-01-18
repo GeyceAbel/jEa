@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100114
-// Hora:             13:46:48
+// Fecha:            20100118
+// Hora:             17:00:06
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -969,6 +969,19 @@ public class ProgInsprconver extends Program
         " PFASESOR   INTEGER ,                 "+
         " PRIMARY KEY (PFCODIGO,PFNOMBREPC));  "};
     
+      String sentencias7_4[]={
+        "CREATE TABLE DATOSREGISTRAL    "+
+        "(drenifcif CHAR(15) NOT NULL,  "+
+        "  dreregistro      INTEGER,    "+
+        "  dretomo          VARCHAR(6), "+
+        "  drelibro         VARCHAR(6), "+
+        "  dreseccion       VARCHAR(3), "+
+        "  drefolio         VARCHAR(5), "+
+        "  drehoja          VARCHAR(9), "+
+        "  dreinscripcion   VARCHAR(4), "+
+        "  drefechainscrip  "+formatData()+
+        "  PRIMARY KEY (DRENIFCIF));     "};
+    
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -1667,7 +1680,22 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("7.3");
         }
-    
+        if (versio < 7.4) {
+          for (i=0;i<sentencias7_4.length;++i) {
+            try {
+              Easp.chivato("7.4 Exec : ["+sentencias7_4[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias7_4[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias7_4[i];
+              Easp.chivato("7.4 *** Error : ["+sentencias7_4[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","7.4");
+          Easp.connEA.commit();
+          vvveractual.setValue("7.4");
+        }
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");

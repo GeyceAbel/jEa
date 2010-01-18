@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20091116
-// Hora:             15:13:23
+// Fecha:            20100118
+// Hora:             16:59:57
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -87,6 +87,7 @@ public class CatEasp extends Catalog
   public TabCoeficcorrec tabcoeficcorrec;
   public TabIndemora tabindemora;
   public TabPerfilusuario tabperfilusuario;
+  public TabDatosregistral tabdatosregistral;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -2948,6 +2949,55 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabDatosregistral extends TableDef
+    {
+    // Campos
+    public FieldDef drenifcif;
+    public FieldDef dreregistro;
+    public FieldDef dretomo;
+    public FieldDef drelibro;
+    public FieldDef dreseccion;
+    public FieldDef drefolio;
+    public FieldDef drehoja;
+    public FieldDef dreinscripcion;
+    public FieldDef drefechainscrip;
+    public TabDatosregistral(String name)
+      {
+      super(name);
+      drenifcif = new FieldDef("drenifcif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      dreregistro = new FieldDef("dreregistro",FieldDef.INTEGER,0);
+      dretomo = new FieldDef("dretomo",FieldDef.CHAR,6);
+      drelibro = new FieldDef("drelibro",FieldDef.CHAR,6);
+      dreseccion = new FieldDef("dreseccion",FieldDef.CHAR,3);
+      drefolio = new FieldDef("drefolio",FieldDef.CHAR,5);
+      drehoja = new FieldDef("drehoja",FieldDef.CHAR,9);
+      dreinscripcion = new FieldDef("dreinscripcion",FieldDef.CHAR,4);
+      drefechainscrip = new FieldDef("drefechainscrip",FieldDef.DATE);
+      FieldDef array[] = {
+        drenifcif,
+        dreregistro,
+        dretomo,
+        drelibro,
+        dreseccion,
+        drefolio,
+        drehoja,
+        dreinscripcion,
+        drefechainscrip        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {drenifcif };
+      setPrimaryKeys(arrayf);
+      dreregistro.setDescription("Código de Registro Mercantil");
+      dretomo.setDescription("Tomo");
+      drelibro.setDescription("Libro");
+      dreseccion.setDescription("Seccion");
+      drefolio.setDescription("Folio");
+      drehoja.setDescription("Hoja");
+      dreinscripcion.setDescription("Inscripcion");
+      drefechainscrip.setDescription("Fecha Inscripcion");
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -3021,6 +3071,7 @@ public class CatEasp extends Catalog
     tabcoeficcorrec = new TabCoeficcorrec("coeficcorrec");
     tabindemora = new TabIndemora("indemora");
     tabperfilusuario = new TabPerfilusuario("perfilusuario");
+    tabdatosregistral = new TabDatosregistral("datosregistral");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -3092,7 +3143,8 @@ public class CatEasp extends Catalog
       tabcodigoregistro,
       tabcoeficcorrec,
       tabindemora,
-      tabperfilusuario      
+      tabperfilusuario,
+      tabdatosregistral      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };

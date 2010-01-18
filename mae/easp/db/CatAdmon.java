@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20091014
-// Hora:             17:14:33
+// Fecha:            20100118
+// Hora:             16:59:49
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -86,6 +86,8 @@ public class CatAdmon extends Catalog
   public TabCodigoregistro tabcodigoregistro;
   public TabCoeficcorrec tabcoeficcorrec;
   public TabIndemora tabindemora;
+  public TabPerfilusuario tabperfilusuario;
+  public TabDatosregistral tabdatosregistral;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -2909,6 +2911,93 @@ public class CatAdmon extends Catalog
       }
     }
     
+  public class TabPerfilusuario extends TableDef
+    {
+    // Campos
+    public FieldDef pfcodigo;
+    public FieldDef pfnombrepc;
+    public FieldDef pfresponsable;
+    public FieldDef pfpantalla;
+    public FieldDef pfusergelix;
+    public FieldDef pfgrupogelix;
+    public FieldDef pfurlgeyce;
+    public FieldDef pfasesor;
+    public TabPerfilusuario(String name)
+      {
+      super(name);
+      pfcodigo = new FieldDef("pfcodigo",FieldDef.CHAR,25,FieldDef.NOTNULL);
+      pfnombrepc = new FieldDef("pfnombrepc",FieldDef.CHAR,25,FieldDef.NOTNULL);
+      pfresponsable = new FieldDef("pfresponsable",FieldDef.CHAR,25);
+      pfpantalla = new FieldDef("pfpantalla",FieldDef.INTEGER,0);
+      pfusergelix = new FieldDef("pfusergelix",FieldDef.CHAR,10);
+      pfgrupogelix = new FieldDef("pfgrupogelix",FieldDef.CHAR,5);
+      pfurlgeyce = new FieldDef("pfurlgeyce",FieldDef.CHAR,600);
+      pfasesor = new FieldDef("pfasesor",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        pfcodigo,
+        pfnombrepc,
+        pfresponsable,
+        pfpantalla,
+        pfusergelix,
+        pfgrupogelix,
+        pfurlgeyce,
+        pfasesor        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {pfcodigo,pfnombrepc };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabDatosregistral extends TableDef
+    {
+    // Campos
+    public FieldDef drenifcif;
+    public FieldDef dreregistro;
+    public FieldDef dretomo;
+    public FieldDef drelibro;
+    public FieldDef dreseccion;
+    public FieldDef drefolio;
+    public FieldDef drehoja;
+    public FieldDef dreinscripcion;
+    public FieldDef drefechainscrip;
+    public TabDatosregistral(String name)
+      {
+      super(name);
+      drenifcif = new FieldDef("drenifcif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      dreregistro = new FieldDef("dreregistro",FieldDef.INTEGER,0);
+      dretomo = new FieldDef("dretomo",FieldDef.CHAR,6);
+      drelibro = new FieldDef("drelibro",FieldDef.CHAR,6);
+      dreseccion = new FieldDef("dreseccion",FieldDef.CHAR,3);
+      drefolio = new FieldDef("drefolio",FieldDef.CHAR,5);
+      drehoja = new FieldDef("drehoja",FieldDef.CHAR,9);
+      dreinscripcion = new FieldDef("dreinscripcion",FieldDef.CHAR,4);
+      drefechainscrip = new FieldDef("drefechainscrip",FieldDef.DATE);
+      FieldDef array[] = {
+        drenifcif,
+        dreregistro,
+        dretomo,
+        drelibro,
+        dreseccion,
+        drefolio,
+        drehoja,
+        dreinscripcion,
+        drefechainscrip        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {drenifcif };
+      setPrimaryKeys(arrayf);
+      dreregistro.setDescription("Código de Registro Mercantil");
+      dretomo.setDescription("Tomo");
+      drelibro.setDescription("Libro");
+      dreseccion.setDescription("Seccion");
+      drefolio.setDescription("Folio");
+      drehoja.setDescription("Hoja");
+      dreinscripcion.setDescription("Inscripcion");
+      drefechainscrip.setDescription("Fecha Inscripcion");
+      }
+    }
+    
   public CatAdmon()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -2981,6 +3070,8 @@ public class CatAdmon extends Catalog
     tabcodigoregistro = new TabCodigoregistro("codigoregistro");
     tabcoeficcorrec = new TabCoeficcorrec("coeficcorrec");
     tabindemora = new TabIndemora("indemora");
+    tabperfilusuario = new TabPerfilusuario("perfilusuario");
+    tabdatosregistral = new TabDatosregistral("datosregistral");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -3051,7 +3142,9 @@ public class CatAdmon extends Catalog
       tabcnaeequiv,
       tabcodigoregistro,
       tabcoeficcorrec,
-      tabindemora      
+      tabindemora,
+      tabperfilusuario,
+      tabdatosregistral      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
