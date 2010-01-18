@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20100118
-// Hora:             17:00:06
+// Hora:             18:55:54
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -972,7 +972,7 @@ public class ProgInsprconver extends Program
       String sentencias7_4[]={
         "CREATE TABLE DATOSREGISTRAL    "+
         "(drenifcif CHAR(15) NOT NULL,  "+
-        "  dreregistro      INTEGER,    "+
+        "  dreregistro      VARCHAR(5), "+
         "  dretomo          VARCHAR(6), "+
         "  drelibro         VARCHAR(6), "+
         "  dreseccion       VARCHAR(3), "+
