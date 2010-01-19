@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100118
-// Hora:             16:59:49
+// Fecha:            20100119
+// Hora:             09:14:06
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2965,7 +2965,7 @@ public class CatAdmon extends Catalog
       {
       super(name);
       drenifcif = new FieldDef("drenifcif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      dreregistro = new FieldDef("dreregistro",FieldDef.INTEGER,0);
+      dreregistro = new FieldDef("dreregistro",FieldDef.CHAR,5);
       dretomo = new FieldDef("dretomo",FieldDef.CHAR,6);
       drelibro = new FieldDef("drelibro",FieldDef.CHAR,6);
       dreseccion = new FieldDef("dreseccion",FieldDef.CHAR,3);
