@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090112
-// Hora:             16:47:03
+// Fecha:            20100128
+// Hora:             10:27:58
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -262,7 +262,7 @@ public class ProgPrselcdp extends Program
         */
         pr.codiCDP=sempresa.cdpcodi.getString();
         pr.run();
-        prselcdp.exit();
+        // prselcdp.exit();
         }
       }
       

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20071203
-// Hora:             18:17:07
+// Fecha:            20100128
+// Hora:             10:22:48
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -294,6 +294,7 @@ public class ProgUspusers extends Program
     public Field ustelef;
     public Field ustelefp;
     public Field ustelmp;
+    public Field usremoto;
     class Usuario extends Table
       {
       public Usuario(Select select)
@@ -329,6 +330,7 @@ public class ProgUspusers extends Program
       addField(ustelef=new Field(this,usuario,"ustelef"));
       addField(ustelefp=new Field(this,usuario,"ustelefp"));
       addField(ustelmp=new Field(this,usuario,"ustelmp"));
+      addField(usremoto=new Field(this,usuario,"usremoto"));
       }
     public String getOrder()
       {
@@ -605,6 +607,7 @@ public class ProgUspusers extends Program
     public CtrlUstelef ustelef;
     public CtrlUsemail usemail;
     public CtrlUsfirma usfirma;
+    public CtrlUsremoto usremoto;
     // Acciones
     public LinkIrpermlo irpermlo;
     class Location extends LocationWindow
@@ -785,6 +788,24 @@ public class ProgUspusers extends Program
         }
       }
       
+    public class CtrlUsremoto extends ControlComboBox
+      {
+      public CtrlUsremoto(Form form)
+        {
+        super(form);
+        setName("usremoto");
+        setMessageHelp("Usuario Remoto");
+        setTitle("Remoto");
+        setType(STRING);
+        setMaskInput("U");
+        setLength(1);
+        setPrintable(false);
+        addItem("S/SI");
+        addItem("N/NO");
+        setField(susuarios.usremoto);
+        }
+      }
+      
     public class LinkIrpermlo extends Action
       {
       public LinkIrpermlo(Form form)
@@ -827,6 +848,7 @@ public class ProgUspusers extends Program
       addControl(ustelef=new CtrlUstelef(this));
       addControl(usemail=new CtrlUsemail(this));
       addControl(usfirma=new CtrlUsfirma(this));
+      addControl(usremoto=new CtrlUsremoto(this));
       addAction(irpermlo=new LinkIrpermlo(this));
       setSelect(susuarios);
       }

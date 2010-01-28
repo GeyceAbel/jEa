@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100119
-// Hora:             09:14:06
+// Fecha:            20100128
+// Hora:             10:26:31
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1927,6 +1927,7 @@ public class CatAdmon extends Catalog
     public FieldDef usemail;
     public FieldDef usfirma;
     public FieldDef usfoto;
+    public FieldDef usremoto;
     public TabUsuario(String name)
       {
       super(name);
@@ -1946,6 +1947,7 @@ public class CatAdmon extends Catalog
       usemail = new FieldDef("usemail",FieldDef.CHAR,50);
       usfirma = new FieldDef("usfirma",FieldDef.CHAR,25);
       usfoto = new FieldDef("usfoto",FieldDef.CHAR,25);
+      usremoto = new FieldDef("usremoto",FieldDef.CHAR,1);
       FieldDef array[] = {
         uscodcon,
         uslogin,
@@ -1962,7 +1964,8 @@ public class CatAdmon extends Catalog
         ustelef,
         usemail,
         usfirma,
-        usfoto        
+        usfoto,
+        usremoto        
         };
       setColumns(array);
       FieldDef arrayf[] = {uscodcon,uslogin };
