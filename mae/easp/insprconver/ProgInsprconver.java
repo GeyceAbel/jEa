@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100118
-// Hora:             18:55:54
+// Fecha:            20100128
+// Hora:             10:00:57
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -982,6 +982,10 @@ public class ProgInsprconver extends Program
         "  drefechainscrip  "+formatData()+
         "  PRIMARY KEY (DRENIFCIF));     "};
     
+      String sentencias7_5[]={
+        "ALTER TABLE USUARIO ADD USREMOTO varchar(1)  "};
+    
+    
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -1695,6 +1699,22 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","7.4");
           Easp.connEA.commit();
           vvveractual.setValue("7.4");
+        }
+        if (versio < 7.5) {
+          for (i=0;i<sentencias7_5.length;++i) {
+            try {
+              Easp.chivato("7.5 Exec : ["+sentencias7_5[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias7_5[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias7_5[i];
+              Easp.chivato("7.5 *** Error : ["+sentencias7_5[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","7.5");
+          Easp.connEA.commit();
+          vvveractual.setValue("7.5");
         }
       }
       catch(Exception e) {
