@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100205
-// Hora:             10:53:48
+// Fecha:            20100209
+// Hora:             16:18:12
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -504,7 +504,7 @@ public class CatEasp extends Catalog
       danifcif = new FieldDef("danifcif",FieldDef.CHAR,15,FieldDef.NOTNULL);
       datipo = new FieldDef("datipo",FieldDef.CHAR,1,FieldDef.NOTNULL);
       datnombre = new FieldDef("datnombre",FieldDef.CHAR,20);
-      datapell1 = new FieldDef("datapell1",FieldDef.CHAR,100,FieldDef.NOTNULL);
+      datapell1 = new FieldDef("datapell1",FieldDef.CHAR,40,FieldDef.NOTNULL);
       datapell2 = new FieldDef("datapell2",FieldDef.CHAR,25);
       datsiglas = new FieldDef("datsiglas",FieldDef.CHAR,2);
       datvia = new FieldDef("datvia",FieldDef.CHAR,45);
@@ -1927,6 +1927,7 @@ public class CatEasp extends Catalog
     public FieldDef usemail;
     public FieldDef usfirma;
     public FieldDef usfoto;
+    public FieldDef usremoto;
     public TabUsuario(String name)
       {
       super(name);
@@ -1946,6 +1947,7 @@ public class CatEasp extends Catalog
       usemail = new FieldDef("usemail",FieldDef.CHAR,50);
       usfirma = new FieldDef("usfirma",FieldDef.CHAR,25);
       usfoto = new FieldDef("usfoto",FieldDef.CHAR,25);
+      usremoto = new FieldDef("usremoto",FieldDef.CHAR,1);
       FieldDef array[] = {
         uscodcon,
         uslogin,
@@ -1962,7 +1964,8 @@ public class CatEasp extends Catalog
         ustelef,
         usemail,
         usfirma,
-        usfoto        
+        usfoto,
+        usremoto        
         };
       setColumns(array);
       FieldDef arrayf[] = {uscodcon,uslogin };
