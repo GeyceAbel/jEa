@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090922
-// Hora:             12:06:55
+// Fecha:            20100205
+// Hora:             11:02:46
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -3016,7 +3016,7 @@ snifrep.datapell2.setValue(vvdatapell2);
         setName("datapell1");
         setTitle("ape1");
         setType(STRING);
-        setLength(40);
+        setLength(100);
         setPrintable(false);
         setField(snifes.datapell1);
         }
@@ -4483,7 +4483,7 @@ snifrep.datapell2.setValue(vvdatapell2);
         setName("datapell1");
         setTitle("ape1");
         setType(STRING);
-        setLength(40);
+        setLength(100);
         setPrintable(false);
         setField(snifrepresentan.datapell1);
         }

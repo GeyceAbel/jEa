@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090922
-// Hora:             12:07:56
+// Fecha:            20100205
+// Hora:             11:16:06
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -384,14 +384,24 @@ public class ProgPrtratamnifes extends Program
       
     public class CtrlDatapell1 extends ControlEdit
       {
+      class Look extends LookComponent
+        {
+        public Look( )
+          {
+          super();
+          setLength(72);
+          }
+        }
+        
       public CtrlDatapell1(Form form)
         {
         super(form);
+        setLook(new Look());
         setName("datapell1");
         setTitle("ape1");
         setType(STRING);
         setMaskInput("U");
-        setLength(40);
+        setLength(100);
         setPrintable(false);
         setField(snifes.datapell1);
         }
