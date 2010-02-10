@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100209
-// Hora:             16:18:12
+// Fecha:            20100210
+// Hora:             09:26:42
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -88,6 +88,8 @@ public class CatEasp extends Catalog
   public TabIndemora tabindemora;
   public TabPerfilusuario tabperfilusuario;
   public TabDatosregistral tabdatosregistral;
+  public TabSesiones tabsesiones;
+  public TabImpuser tabimpuser;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -3001,6 +3003,75 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabSesiones extends TableDef
+    {
+    // Campos
+    public FieldDef sescodigo;
+    public FieldDef sesmachine;
+    public FieldDef sesusuario;
+    public FieldDef sesfecha;
+    public FieldDef seshora;
+    public FieldDef sesaplicacion;
+    public FieldDef sespermitido;
+    public TabSesiones(String name)
+      {
+      super(name);
+      sescodigo = new FieldDef("sescodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      sesmachine = new FieldDef("sesmachine",FieldDef.CHAR,50);
+      sesusuario = new FieldDef("sesusuario",FieldDef.CHAR,25);
+      sesfecha = new FieldDef("sesfecha",FieldDef.DATE);
+      seshora = new FieldDef("seshora",FieldDef.CHAR,8);
+      sesaplicacion = new FieldDef("sesaplicacion",FieldDef.CHAR,15);
+      sespermitido = new FieldDef("sespermitido",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        sescodigo,
+        sesmachine,
+        sesusuario,
+        sesfecha,
+        seshora,
+        sesaplicacion,
+        sespermitido        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {sescodigo };
+      setPrimaryKeys(arrayf);
+      sescodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabImpuser extends TableDef
+    {
+    // Campos
+    public FieldDef imucodigo;
+    public FieldDef imumachine;
+    public FieldDef imuusuario;
+    public FieldDef imufecha;
+    public FieldDef imuhora;
+    public FieldDef imuaplicacion;
+    public TabImpuser(String name)
+      {
+      super(name);
+      imucodigo = new FieldDef("imucodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      imumachine = new FieldDef("imumachine",FieldDef.CHAR,50);
+      imuusuario = new FieldDef("imuusuario",FieldDef.CHAR,25);
+      imufecha = new FieldDef("imufecha",FieldDef.DATE);
+      imuhora = new FieldDef("imuhora",FieldDef.CHAR,8);
+      imuaplicacion = new FieldDef("imuaplicacion",FieldDef.CHAR,15);
+      FieldDef array[] = {
+        imucodigo,
+        imumachine,
+        imuusuario,
+        imufecha,
+        imuhora,
+        imuaplicacion        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {imucodigo };
+      setPrimaryKeys(arrayf);
+      imucodigo.setAutoIncrementable(true);
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -3075,6 +3146,8 @@ public class CatEasp extends Catalog
     tabindemora = new TabIndemora("indemora");
     tabperfilusuario = new TabPerfilusuario("perfilusuario");
     tabdatosregistral = new TabDatosregistral("datosregistral");
+    tabsesiones = new TabSesiones("sesiones");
+    tabimpuser = new TabImpuser("impuser");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -3147,7 +3220,9 @@ public class CatEasp extends Catalog
       tabcoeficcorrec,
       tabindemora,
       tabperfilusuario,
-      tabdatosregistral      
+      tabdatosregistral,
+      tabsesiones,
+      tabimpuser      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };

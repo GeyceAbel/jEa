@@ -23,9 +23,9 @@ public class Easp {
   public static String nifCDP=null;
 
   //variables de versiones
-  public static String versionAplicacion="7.5";
-  public static String versionFecha="Enero/2010";
-  public static String versionBDEA="7.5";
+  public static String versionAplicacion="7.6";
+  public static String versionFecha="Febrero/2010";
+  public static String versionBDEA="7.6";
 
   //Constantes
   public final static int IVA=16;
@@ -53,13 +53,8 @@ public class Easp {
       setFileFromjar(destino,"maefc0108.dll",destino+"maefc0108.dll");
       }
 
-
-
     // String carpetaini=Aplication.getAplication().getConfig("carpetaexcel");
     // setFileFromjar(carpetaini,"exportexcel.vbs",carpetaini+"exportexcel.vbs");
-
-
-
 
     return true;
     }
@@ -143,6 +138,138 @@ public class Easp {
       return null;
     }
 
+  
+  
+  public static boolean crearSesion(String tarifa,String usuario, String aplicacion , boolean verMensaje,boolean soloAvisar ) {
+
+	try {
+	    	
+	  String version =  getVersionBD("bdeasp") ;
+      if ( Double.valueOf(version).doubleValue() < 7.6 ) return true ;
+    
+	
+      Select ssesiones         = new Select(connEA);
+      Table tbsesiones         = new Table(ssesiones,"sesiones");
+      Field fdsescodigo        = new Field(ssesiones,tbsesiones,"sescodigo");
+      Field fdsesmachine       = new Field(ssesiones,tbsesiones,"sesmachine");
+      Field fdsesusuario       = new Field(ssesiones,tbsesiones,"sesusuario");
+      Field fdsesfecha         = new Field(ssesiones,tbsesiones,"sesfecha");
+      Field fdseshora          = new Field(ssesiones,tbsesiones,"seshora");    
+      Field fdsesaplicacion    = new Field(ssesiones,tbsesiones,"sesaplicacion");
+      Field fdsespermitido     = new Field(ssesiones,tbsesiones,"sespermitido");
+
+      Select simpuser          = new Select(connEA);
+      Table tbimpuser          = new Table(simpuser,"impuser");
+      Field fdimucodigo        = new Field(simpuser,tbimpuser,"imucodigo");
+      Field fdimumachine       = new Field(simpuser,tbimpuser,"imumachine");
+      Field fdimuusuario       = new Field(simpuser,tbimpuser,"imuusuario");
+      Field fdimufecha         = new Field(simpuser,tbimpuser,"imufecha");
+      Field fdimuhora          = new Field(simpuser,tbimpuser,"imuhora");
+      Field fdimuaplicacion    = new Field(simpuser,tbimpuser,"imuaplicacion");
+
+      String nomPC = usuario ;     
+      nomPC = java.net.InetAddress.getLocalHost().getHostName() ;
+    
+      int sesiones = 0 ;
+      simpuser.setWhere("imuaplicacion = '"+aplicacion+"' and imumachine <> '"+nomPC+"'");
+      simpuser.execute();    
+      sesiones = simpuser.getNumRows();
+      String detalleSesiones = "" ;
+      int i = 1 ;
+      while ( !simpuser.isEof()  ) {
+    	detalleSesiones+= "     "+i+" - "+fdimumachine.getString()+"  \n";
+    	i++;
+    	simpuser.next();  
+        }
+    
+      int licencias = -1 ;
+      if      ( tarifa != null && tarifa.length() == 10 && tarifa.endsWith("0") ) licencias = 100 ;
+      else if ( tarifa != null && tarifa.length() == 10 && tarifa.endsWith("1") ) licencias = 4 ;
+      else if ( tarifa != null && tarifa.length() == 10 && tarifa.endsWith("2") ) licencias = 8 ;
+      else if ( tarifa != null && tarifa.length() == 10 && tarifa.endsWith("7") ) licencias = 1 ;
+      else if ( tarifa != null && tarifa.length() == 10 && tarifa.endsWith("8") ) licencias = 2 ;
+    
+      boolean superaLicencias = false ;    
+      if ( licencias > 0 &&  sesiones >= licencias ) superaLicencias = true  ; 
+    
+      ssesiones.addNew();
+      fdsesmachine    .setValue(nomPC);
+      fdsesusuario    .setValue(usuario);
+      fdsesfecha      .setValue(Maefc.getDate());
+      fdseshora       .setValue(Fecha.getHora(Maefc.getDateTime(),"HH:mm:ss") );
+      if ( !superaLicencias ) fdsespermitido  .setValue("S");
+      else                    fdsespermitido  .setValue("N");
+      fdsesaplicacion .setValue(aplicacion);
+      ssesiones.insert();
+      
+      if ( superaLicencias ) {
+    	if ( verMensaje ) {
+    	  String desSesion = "sesiones abiertas";
+    	  if ( sesiones == 1 ) desSesion = "sesión abierta";
+    	  
+    	  String desLicencia = licencias+" licencias contratadas ";
+    	  if ( licencias == 1 ) desLicencia = " licencia monousuario contratada ";
+    	  
+    	  String msg = "Se ha detectado "+sesiones+" "+desSesion+" de la aplicación de "+aplicacion+"\n"+
+    		           "y usted tiene la aplicación de "+aplicacion+" con "+desLicencia+" \n \n"+
+    		           "Detalle de ordenadores con sesión abierta: \n"+
+    		           detalleSesiones; 
+    	  Maefc.message(msg,"Control de Licencias de Uso ",Maefc.WARNING_MESSAGE);  
+    	  }
+      	if ( !soloAvisar) {
+      	  ssesiones.insert() ;
+      	  return false ;  
+      	  }
+        }
+
+      simpuser.addNew();
+      fdimumachine    .setValue(nomPC);
+      fdimuusuario    .setValue(usuario);
+      fdimufecha      .setValue(Maefc.getDate());
+      fdimuhora       .setValue(Fecha.getHora(Maefc.getDateTime(),"HH:mm:ss") );
+      fdimuaplicacion .setValue(aplicacion);
+      simpuser.insert() ;      
+      simpuser.commit();
+    
+      return true ;
+	  }
+    catch(Exception e ) {
+      return true ;
+      }
+    
+    }
+  
+  public static boolean cerrarSesion(String aplicacion,String usuario ) {
+	try {
+      Select simpuser          = new Select(connEA);
+      Table tbimpuser          = new Table(simpuser,"impuser");
+      Field fdimucodigo        = new Field(simpuser,tbimpuser,"imucodigo");
+      Field fdimumachine       = new Field(simpuser,tbimpuser,"imumachine");
+      Field fdimuusuario       = new Field(simpuser,tbimpuser,"imuusuario");
+      Field fdimufecha         = new Field(simpuser,tbimpuser,"imufecha");
+      Field fdimuhora          = new Field(simpuser,tbimpuser,"imuhora");
+      Field fdimuaplicacion    = new Field(simpuser,tbimpuser,"imuaplicacion");
+      
+     
+      String nomPC = usuario ;      
+      nomPC = java.net.InetAddress.getLocalHost().getHostName() ;
+      
+      simpuser.setWhere("imuaplicacion = '"+aplicacion+"' and imumachine = '"+nomPC+"'");
+      simpuser.execute();
+      if ( !simpuser.isEof() ) {
+    	while ( !simpuser.isEof() ) {
+    	  simpuser.delete();
+    	  simpuser.next();
+          } 
+    	simpuser.commit(); 
+        }
+	  }
+	catch (Exception e ) {};
+
+	return true;  
+    }
+
+  
   /**
    * Devuelve la versión xx o yy o zz de un formato de versión xx.yy.zz según el parámetro
    * @param   versio  Versión a desglosar

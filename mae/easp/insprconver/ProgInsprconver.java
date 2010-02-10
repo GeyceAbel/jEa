@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100128
-// Hora:             10:00:57
+// Fecha:            20100210
+// Hora:             09:26:33
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -985,6 +985,28 @@ public class ProgInsprconver extends Program
       String sentencias7_5[]={
         "ALTER TABLE USUARIO ADD USREMOTO varchar(1)  "};
     
+      String sentencias7_6[]={
+        " CREATE TABLE SESIONES                      "+
+        "  (sescodigo       INTEGER NOT NULL,        "+
+        "   sesmachine      VARCHAR(50),             "+
+        "   sesusuario      CHAR(25),                "+ 
+        "   sesfecha        "+formatData()+          
+        "   seshora         CHAR(8),                 "+
+        "   sesaplicacion   VARCHAR(15),             "+
+        "   sespermitido    CHAR(1),                 "+ 
+        "   PRIMARY KEY (sescodigo));                ",
+    
+        " CREATE TABLE IMPUSER                      "+
+        "  (imucodigo       INTEGER NOT NULL,        "+
+        "   imumachine      VARCHAR(50),             "+
+        "   imuusuario      CHAR(25),                "+ 
+        "   imufecha        "+formatData()+          
+        "   imuhora         CHAR(8),                 "+
+        "   imuaplicacion   VARCHAR(15),             "+
+        "   PRIMARY KEY (imucodigo));                "
+    
+        };
+    
     
       int i=0;
       try {
@@ -1716,6 +1738,24 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("7.5");
         }
+        if (versio < 7.6) {
+          for (i=0;i<sentencias7_6.length;++i) {
+            try {
+              Easp.chivato("7.6 Exec : ["+sentencias7_6[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias7_6[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias7_6[i];
+              Easp.chivato("7.6 *** Error : ["+sentencias7_6[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","7.6");
+          Easp.connEA.commit();
+          vvveractual.setValue("7.6");
+        }
+    
+    
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");

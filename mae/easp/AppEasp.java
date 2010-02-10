@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20091013
-// Hora:             09:43:51
+// Fecha:            20100210
+// Hora:             13:03:42
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -223,6 +223,7 @@ class Barramenu extends MenuBar
     public Mpermisoslo mpermisoslo;
     public M1fechas m1fechas;
     public Mimpousers mimpousers;
+    public Mdesbloquearses mdesbloquearses;
     class Musers extends MenuItemProgram
       {
       public Musers()
@@ -293,6 +294,16 @@ class Barramenu extends MenuBar
         }
       }
       
+    class Mdesbloquearses extends MenuItemProgram
+      {
+      public Mdesbloquearses()
+        {
+        super("Desbloquear Sesiones");
+        setName("mdesbloquearses");
+        setProgram("mae.easp.usdesbloquearse.ProgUsdesbloquearse");
+        }
+      }
+      
     public Musuarios()
       {
       super("&Usuarios y permisos");
@@ -304,6 +315,7 @@ class Barramenu extends MenuBar
       add(mpermisoslo=new Mpermisoslo());
       add(m1fechas=new M1fechas());
       add(mimpousers=new Mimpousers());
+      add(mdesbloquearses=new Mdesbloquearses());
       }
     }
     
