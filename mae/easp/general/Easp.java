@@ -207,13 +207,18 @@ public class Easp {
     	  String desSesion = "sesiones abiertas";
     	  if ( sesiones == 1 ) desSesion = "sesión abierta";
     	  
-    	  String desLicencia = licencias+" licencias contratadas ";
-    	  if ( licencias == 1 ) desLicencia = " licencia monousuario contratada ";
+    	  String desLicencia = " de "+licencias+" Puestos de trabajo. ";
+    	  if ( licencias == 1 )desLicencia = " de 1 Puesto de trabajo.";
     	  
-    	  String msg = "Se ha detectado "+sesiones+" "+desSesion+" de la aplicación de "+aplicacion+"\n"+
-    		           "y usted tiene la aplicación de "+aplicacion+" con "+desLicencia+" \n \n"+
+    	  String msg = "Excedido el número máximo de usuarios establecido en su Licencia de Uso. \n \n"+
+    		           "Se han detectado "+sesiones+" "+desSesion+" de la aplicación de "+aplicacion+". \n"+
+    		           "En la actualidad su Licencia de Uso es  "+desLicencia+" \n \n"+
     		           "Detalle de ordenadores con sesión abierta: \n"+
-    		           detalleSesiones; 
+    		           detalleSesiones+"\n"+
+    		           "Temporalmente puede seguir trabajando con la aplicación. Si en el futuro prevé\n"+
+    		           "utilizar más puestos de trabajo de los que tiene contratados contacte con el  \n"+
+    		           "departamento comercial de GEYCE AGP S.L. para ampliar su Licencia de Uso. \n"+
+    		           "Teléfono: 902 365 741    email: comercial@geyce.es ";
     	  Maefc.message(msg,"Control de Licencias de Uso ",Maefc.WARNING_MESSAGE);  
     	  }
       	if ( !soloAvisar) {
