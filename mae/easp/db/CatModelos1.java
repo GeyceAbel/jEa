@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090902
-// Hora:             09:52:09
+// Fecha:            20100224
+// Hora:             11:54:23
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -928,7 +928,7 @@ public class CatModelos1 extends Catalog
       mproperiodo = new FieldDef("mproperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
       mproactividad = new FieldDef("mproactividad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
       mproactdescrip = new FieldDef("mproactdescrip",FieldDef.CHAR,40);
-      mprocnae = new FieldDef("mprocnae",FieldDef.CHAR,3);
+      mprocnae = new FieldDef("mprocnae",FieldDef.CHAR,6);
       mprovoloper = new FieldDef("mprovoloper",FieldDef.FLOAT,6,0);
       mprovoloperdd = new FieldDef("mprovoloperdd",FieldDef.FLOAT,6,0);
       mprotipo = new FieldDef("mprotipo",FieldDef.CHAR,1);
@@ -2851,6 +2851,8 @@ public class CatModelos1 extends Catalog
     public FieldDef m901espsi;
     public FieldDef m901espno;
     public FieldDef m901entdom;
+    public FieldDef m901ultregents;
+    public FieldDef m901ultregentn;
     public TabMod3901(String name)
       {
       super(name);
@@ -2943,6 +2945,8 @@ public class CatModelos1 extends Catalog
       m901espsi = new FieldDef("m901espsi",FieldDef.CHAR,1);
       m901espno = new FieldDef("m901espno",FieldDef.CHAR,1);
       m901entdom = new FieldDef("m901entdom",FieldDef.CHAR,9);
+      m901ultregents = new FieldDef("m901ultregents",FieldDef.CHAR,1);
+      m901ultregentn = new FieldDef("m901ultregentn",FieldDef.CHAR,1);
       FieldDef array[] = {
         m901dominio,
         m901nif,
@@ -3032,7 +3036,9 @@ public class CatModelos1 extends Catalog
         m901dep,
         m901espsi,
         m901espno,
-        m901entdom        
+        m901entdom,
+        m901ultregents,
+        m901ultregentn        
         };
       setColumns(array);
       FieldDef arrayf[] = {m901dominio,m901nif,m901ejercicio,m901periodo };
@@ -3742,6 +3748,9 @@ public class CatModelos1 extends Catalog
     public FieldDef m903opespentbie;
     public FieldDef m903opespentint;
     public FieldDef m903opespsujpas;
+    public FieldDef m903resliqadqel;
+    public FieldDef m903resliq322p;
+    public FieldDef m903resliq322n;
     public TabMod3903(String name)
       {
       super(name);
@@ -3828,6 +3837,9 @@ public class CatModelos1 extends Catalog
       m903opespentbie = new FieldDef("m903opespentbie",FieldDef.FLOAT,6,0);
       m903opespentint = new FieldDef("m903opespentint",FieldDef.FLOAT,6,0);
       m903opespsujpas = new FieldDef("m903opespsujpas",FieldDef.FLOAT,6,0);
+      m903resliqadqel = new FieldDef("m903resliqadqel",FieldDef.FLOAT,6,0);
+      m903resliq322p = new FieldDef("m903resliq322p",FieldDef.FLOAT,6,0);
+      m903resliq322n = new FieldDef("m903resliq322n",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m903dominio,
         m903nif,
@@ -3911,7 +3923,10 @@ public class CatModelos1 extends Catalog
         m903opespsujeta,
         m903opespentbie,
         m903opespentint,
-        m903opespsujpas        
+        m903opespsujpas,
+        m903resliqadqel,
+        m903resliq322p,
+        m903resliq322n        
         };
       setColumns(array);
       FieldDef arrayf[] = {m903dominio,m903nif,m903ejercicio,m903periodo };
@@ -4675,6 +4690,10 @@ public class CatModelos1 extends Catalog
     public FieldDef m190dmufrevi;
     public FieldDef m190dcentrotrab;
     public FieldDef m190dcodtrab;
+    public FieldDef m190dcompuhijo1;
+    public FieldDef m190dcompuhijo2;
+    public FieldDef m190dcompuhijo3;
+    public FieldDef m190dvivfinan;
     public TabMod190d(String name)
       {
       super(name);
@@ -4742,6 +4761,10 @@ public class CatModelos1 extends Catalog
       m190dmufrevi = new FieldDef("m190dmufrevi",FieldDef.CHAR,1);
       m190dcentrotrab = new FieldDef("m190dcentrotrab",FieldDef.CHAR,12);
       m190dcodtrab = new FieldDef("m190dcodtrab",FieldDef.CHAR,12);
+      m190dcompuhijo1 = new FieldDef("m190dcompuhijo1",FieldDef.INTEGER,0);
+      m190dcompuhijo2 = new FieldDef("m190dcompuhijo2",FieldDef.INTEGER,0);
+      m190dcompuhijo3 = new FieldDef("m190dcompuhijo3",FieldDef.INTEGER,0);
+      m190dvivfinan = new FieldDef("m190dvivfinan",FieldDef.INTEGER,0);
       FieldDef array[] = {
         m190dident,
         m190ddominio,
@@ -4806,7 +4829,11 @@ public class CatModelos1 extends Catalog
         m190dasmas65ent,
         m190dmufrevi,
         m190dcentrotrab,
-        m190dcodtrab        
+        m190dcodtrab,
+        m190dcompuhijo1,
+        m190dcompuhijo2,
+        m190dcompuhijo3,
+        m190dvivfinan        
         };
       setColumns(array);
       FieldDef arrayf[] = {m190dident };
@@ -6145,6 +6172,8 @@ public class CatModelos1 extends Catalog
     public FieldDef m349cobserva;
     public FieldDef m349ccodprov;
     public FieldDef m349ccoddeleg;
+    public FieldDef m349ccambioper;
+    public FieldDef m349cnifrepleg;
     public TabMod349c(String name)
       {
       super(name);
@@ -6191,6 +6220,8 @@ public class CatModelos1 extends Catalog
       m349cobserva = new FieldDef("m349cobserva",FieldDef.CHAR,350);
       m349ccodprov = new FieldDef("m349ccodprov",FieldDef.INTEGER,0);
       m349ccoddeleg = new FieldDef("m349ccoddeleg",FieldDef.INTEGER,0);
+      m349ccambioper = new FieldDef("m349ccambioper",FieldDef.CHAR,1);
+      m349cnifrepleg = new FieldDef("m349cnifrepleg",FieldDef.CHAR,9);
       FieldDef array[] = {
         m349cdominio,
         m349cnif,
@@ -6234,7 +6265,9 @@ public class CatModelos1 extends Catalog
         m349ctelcont,
         m349cobserva,
         m349ccodprov,
-        m349ccoddeleg        
+        m349ccoddeleg,
+        m349ccambioper,
+        m349cnifrepleg        
         };
       setColumns(array);
       FieldDef arrayf[] = {m349cdominio,m349cnif,m349cejercicio,m349cperiodo };
@@ -7401,6 +7434,66 @@ public class CatModelos1 extends Catalog
     public FieldDef m349aperirec4t;
     public FieldDef m349abaserec4t;
     public FieldDef m349abasearec4t;
+    public FieldDef m349abase1;
+    public FieldDef m349aanyrec1;
+    public FieldDef m349aperirec1;
+    public FieldDef m349abaserec1;
+    public FieldDef m349abasearec1;
+    public FieldDef m349abase2;
+    public FieldDef m349aanyrec2;
+    public FieldDef m349aperirec2;
+    public FieldDef m349abaserec2;
+    public FieldDef m349abasearec2;
+    public FieldDef m349abase3;
+    public FieldDef m349aanyrec3;
+    public FieldDef m349aperirec3;
+    public FieldDef m349abaserec3;
+    public FieldDef m349abasearec3;
+    public FieldDef m349abase4;
+    public FieldDef m349aanyrec4;
+    public FieldDef m349aperirec4;
+    public FieldDef m349abaserec4;
+    public FieldDef m349abasearec4;
+    public FieldDef m349abase5;
+    public FieldDef m349aanyrec5;
+    public FieldDef m349aperirec5;
+    public FieldDef m349abaserec5;
+    public FieldDef m349abasearec5;
+    public FieldDef m349abase6;
+    public FieldDef m349aanyrec6;
+    public FieldDef m349aperirec6;
+    public FieldDef m349abaserec6;
+    public FieldDef m349abasearec6;
+    public FieldDef m349abase7;
+    public FieldDef m349aanyrec7;
+    public FieldDef m349aperirec7;
+    public FieldDef m349abaserec7;
+    public FieldDef m349abasearec7;
+    public FieldDef m349abase8;
+    public FieldDef m349aanyrec8;
+    public FieldDef m349aperirec8;
+    public FieldDef m349abaserec8;
+    public FieldDef m349abasearec8;
+    public FieldDef m349abase9;
+    public FieldDef m349aanyrec9;
+    public FieldDef m349aperirec9;
+    public FieldDef m349abaserec9;
+    public FieldDef m349abasearec9;
+    public FieldDef m349abase10;
+    public FieldDef m349aanyrec10;
+    public FieldDef m349aperirec10;
+    public FieldDef m349abaserec10;
+    public FieldDef m349abasearec10;
+    public FieldDef m349abase11;
+    public FieldDef m349aanyrec11;
+    public FieldDef m349aperirec11;
+    public FieldDef m349abaserec11;
+    public FieldDef m349abasearec11;
+    public FieldDef m349abase12;
+    public FieldDef m349aanyrec12;
+    public FieldDef m349aperirec12;
+    public FieldDef m349abaserec12;
+    public FieldDef m349abasearec12;
     public TabMod349acum(String name)
       {
       super(name);
@@ -7433,6 +7526,66 @@ public class CatModelos1 extends Catalog
       m349aperirec4t = new FieldDef("m349aperirec4t",FieldDef.CHAR,2);
       m349abaserec4t = new FieldDef("m349abaserec4t",FieldDef.FLOAT,6,0);
       m349abasearec4t = new FieldDef("m349abasearec4t",FieldDef.FLOAT,6,0);
+      m349abase1 = new FieldDef("m349abase1",FieldDef.FLOAT,6,0);
+      m349aanyrec1 = new FieldDef("m349aanyrec1",FieldDef.INTEGER,0);
+      m349aperirec1 = new FieldDef("m349aperirec1",FieldDef.CHAR,2);
+      m349abaserec1 = new FieldDef("m349abaserec1",FieldDef.FLOAT,6,0);
+      m349abasearec1 = new FieldDef("m349abasearec1",FieldDef.FLOAT,6,0);
+      m349abase2 = new FieldDef("m349abase2",FieldDef.FLOAT,6,0);
+      m349aanyrec2 = new FieldDef("m349aanyrec2",FieldDef.INTEGER,0);
+      m349aperirec2 = new FieldDef("m349aperirec2",FieldDef.CHAR,2);
+      m349abaserec2 = new FieldDef("m349abaserec2",FieldDef.FLOAT,6,0);
+      m349abasearec2 = new FieldDef("m349abasearec2",FieldDef.FLOAT,6,0);
+      m349abase3 = new FieldDef("m349abase3",FieldDef.FLOAT,6,0);
+      m349aanyrec3 = new FieldDef("m349aanyrec3",FieldDef.INTEGER,0);
+      m349aperirec3 = new FieldDef("m349aperirec3",FieldDef.CHAR,2);
+      m349abaserec3 = new FieldDef("m349abaserec3",FieldDef.FLOAT,6,0);
+      m349abasearec3 = new FieldDef("m349abasearec3",FieldDef.FLOAT,6,0);
+      m349abase4 = new FieldDef("m349abase4",FieldDef.FLOAT,6,0);
+      m349aanyrec4 = new FieldDef("m349aanyrec4",FieldDef.INTEGER,0);
+      m349aperirec4 = new FieldDef("m349aperirec4",FieldDef.CHAR,2);
+      m349abaserec4 = new FieldDef("m349abaserec4",FieldDef.FLOAT,6,0);
+      m349abasearec4 = new FieldDef("m349abasearec4",FieldDef.FLOAT,6,0);
+      m349abase5 = new FieldDef("m349abase5",FieldDef.FLOAT,6,0);
+      m349aanyrec5 = new FieldDef("m349aanyrec5",FieldDef.INTEGER,0);
+      m349aperirec5 = new FieldDef("m349aperirec5",FieldDef.CHAR,2);
+      m349abaserec5 = new FieldDef("m349abaserec5",FieldDef.FLOAT,6,0);
+      m349abasearec5 = new FieldDef("m349abasearec5",FieldDef.FLOAT,6,0);
+      m349abase6 = new FieldDef("m349abase6",FieldDef.FLOAT,6,0);
+      m349aanyrec6 = new FieldDef("m349aanyrec6",FieldDef.INTEGER,0);
+      m349aperirec6 = new FieldDef("m349aperirec6",FieldDef.CHAR,2);
+      m349abaserec6 = new FieldDef("m349abaserec6",FieldDef.FLOAT,6,0);
+      m349abasearec6 = new FieldDef("m349abasearec6",FieldDef.FLOAT,6,0);
+      m349abase7 = new FieldDef("m349abase7",FieldDef.FLOAT,6,0);
+      m349aanyrec7 = new FieldDef("m349aanyrec7",FieldDef.INTEGER,0);
+      m349aperirec7 = new FieldDef("m349aperirec7",FieldDef.CHAR,2);
+      m349abaserec7 = new FieldDef("m349abaserec7",FieldDef.FLOAT,6,0);
+      m349abasearec7 = new FieldDef("m349abasearec7",FieldDef.FLOAT,6,0);
+      m349abase8 = new FieldDef("m349abase8",FieldDef.FLOAT,6,0);
+      m349aanyrec8 = new FieldDef("m349aanyrec8",FieldDef.INTEGER,0);
+      m349aperirec8 = new FieldDef("m349aperirec8",FieldDef.CHAR,2);
+      m349abaserec8 = new FieldDef("m349abaserec8",FieldDef.FLOAT,6,0);
+      m349abasearec8 = new FieldDef("m349abasearec8",FieldDef.FLOAT,6,0);
+      m349abase9 = new FieldDef("m349abase9",FieldDef.FLOAT,6,0);
+      m349aanyrec9 = new FieldDef("m349aanyrec9",FieldDef.INTEGER,0);
+      m349aperirec9 = new FieldDef("m349aperirec9",FieldDef.CHAR,2);
+      m349abaserec9 = new FieldDef("m349abaserec9",FieldDef.FLOAT,6,0);
+      m349abasearec9 = new FieldDef("m349abasearec9",FieldDef.FLOAT,6,0);
+      m349abase10 = new FieldDef("m349abase10",FieldDef.FLOAT,6,0);
+      m349aanyrec10 = new FieldDef("m349aanyrec10",FieldDef.INTEGER,0);
+      m349aperirec10 = new FieldDef("m349aperirec10",FieldDef.CHAR,2);
+      m349abaserec10 = new FieldDef("m349abaserec10",FieldDef.FLOAT,6,0);
+      m349abasearec10 = new FieldDef("m349abasearec10",FieldDef.FLOAT,6,0);
+      m349abase11 = new FieldDef("m349abase11",FieldDef.FLOAT,6,0);
+      m349aanyrec11 = new FieldDef("m349aanyrec11",FieldDef.INTEGER,0);
+      m349aperirec11 = new FieldDef("m349aperirec11",FieldDef.CHAR,2);
+      m349abaserec11 = new FieldDef("m349abaserec11",FieldDef.FLOAT,6,0);
+      m349abasearec11 = new FieldDef("m349abasearec11",FieldDef.FLOAT,6,0);
+      m349abase12 = new FieldDef("m349abase12",FieldDef.FLOAT,6,0);
+      m349aanyrec12 = new FieldDef("m349aanyrec12",FieldDef.INTEGER,0);
+      m349aperirec12 = new FieldDef("m349aperirec12",FieldDef.CHAR,2);
+      m349abaserec12 = new FieldDef("m349abaserec12",FieldDef.FLOAT,6,0);
+      m349abasearec12 = new FieldDef("m349abasearec12",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m349aident,
         m349adominio,
@@ -7462,7 +7615,67 @@ public class CatModelos1 extends Catalog
         m349aanyrec4t,
         m349aperirec4t,
         m349abaserec4t,
-        m349abasearec4t        
+        m349abasearec4t,
+        m349abase1,
+        m349aanyrec1,
+        m349aperirec1,
+        m349abaserec1,
+        m349abasearec1,
+        m349abase2,
+        m349aanyrec2,
+        m349aperirec2,
+        m349abaserec2,
+        m349abasearec2,
+        m349abase3,
+        m349aanyrec3,
+        m349aperirec3,
+        m349abaserec3,
+        m349abasearec3,
+        m349abase4,
+        m349aanyrec4,
+        m349aperirec4,
+        m349abaserec4,
+        m349abasearec4,
+        m349abase5,
+        m349aanyrec5,
+        m349aperirec5,
+        m349abaserec5,
+        m349abasearec5,
+        m349abase6,
+        m349aanyrec6,
+        m349aperirec6,
+        m349abaserec6,
+        m349abasearec6,
+        m349abase7,
+        m349aanyrec7,
+        m349aperirec7,
+        m349abaserec7,
+        m349abasearec7,
+        m349abase8,
+        m349aanyrec8,
+        m349aperirec8,
+        m349abaserec8,
+        m349abasearec8,
+        m349abase9,
+        m349aanyrec9,
+        m349aperirec9,
+        m349abaserec9,
+        m349abasearec9,
+        m349abase10,
+        m349aanyrec10,
+        m349aperirec10,
+        m349abaserec10,
+        m349abasearec10,
+        m349abase11,
+        m349aanyrec11,
+        m349aperirec11,
+        m349abaserec11,
+        m349abasearec11,
+        m349abase12,
+        m349aanyrec12,
+        m349aperirec12,
+        m349abaserec12,
+        m349abasearec12        
         };
       setColumns(array);
       FieldDef arrayf[] = {m349aident };

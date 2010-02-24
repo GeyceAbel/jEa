@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090902
-// Hora:             09:52:10
+// Fecha:            20100224
+// Hora:             11:54:23
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -981,6 +981,7 @@ public class CatModgen extends Catalog
     public FieldDef magdescripcion;
     public FieldDef magporcuota;
     public FieldDef magpordeven;
+    public FieldDef magpordeven2;
     public TabModivaagr(String name)
       {
       super(name);
@@ -989,12 +990,14 @@ public class CatModgen extends Catalog
       magdescripcion = new FieldDef("magdescripcion",FieldDef.CHAR,255);
       magporcuota = new FieldDef("magporcuota",FieldDef.FLOAT,6,0);
       magpordeven = new FieldDef("magpordeven",FieldDef.FLOAT,6,0);
+      magpordeven2 = new FieldDef("magpordeven2",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         magejercicio,
         magmodulo,
         magdescripcion,
         magporcuota,
-        magpordeven        
+        magpordeven,
+        magpordeven2        
         };
       setColumns(array);
       FieldDef arrayf[] = {magejercicio,magmodulo };
@@ -1035,6 +1038,7 @@ public class CatModgen extends Catalog
     public FieldDef maeenlacejeo;
     public FieldDef maenumtracto;
     public FieldDef maenumsemi;
+    public FieldDef maedisc;
     public TabModacteo(String name)
       {
       super(name);
@@ -1068,6 +1072,7 @@ public class CatModgen extends Catalog
       maeenlacejeo = new FieldDef("maeenlacejeo",FieldDef.CHAR,12);
       maenumtracto = new FieldDef("maenumtracto",FieldDef.INTEGER,0);
       maenumsemi = new FieldDef("maenumsemi",FieldDef.INTEGER,0);
+      maedisc = new FieldDef("maedisc",FieldDef.CHAR,1);
       FieldDef array[] = {
         maedominio,
         maenif,
@@ -1098,7 +1103,8 @@ public class CatModgen extends Catalog
         maefecfin,
         maeenlacejeo,
         maenumtracto,
-        maenumsemi        
+        maenumsemi,
+        maedisc        
         };
       setColumns(array);
       FieldDef arrayf[] = {maedominio,maenif,maecodigo };
@@ -1164,6 +1170,7 @@ public class CatModgen extends Catalog
     public FieldDef maiporatrit3;
     public FieldDef maiporatrit4;
     public FieldDef mailiqirpf;
+    public FieldDef mairedda2;
     public TabModirpf(String name)
       {
       super(name);
@@ -1221,6 +1228,7 @@ public class CatModgen extends Catalog
       maiporatrit3 = new FieldDef("maiporatrit3",FieldDef.FLOAT,6,0);
       maiporatrit4 = new FieldDef("maiporatrit4",FieldDef.FLOAT,6,0);
       mailiqirpf = new FieldDef("mailiqirpf",FieldDef.CHAR,1);
+      mairedda2 = new FieldDef("mairedda2",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         maidominio,
         mainif,
@@ -1275,7 +1283,8 @@ public class CatModgen extends Catalog
         maiporatrit2,
         maiporatrit3,
         maiporatrit4,
-        mailiqirpf        
+        mailiqirpf,
+        mairedda2        
         };
       setColumns(array);
       FieldDef arrayf[] = {maidominio,mainif,maicodigo,mai4t };
@@ -1321,6 +1330,8 @@ public class CatModgen extends Catalog
     public FieldDef mavactividad;
     public FieldDef mavejercicio;
     public FieldDef mavliqiva;
+    public FieldDef mavunidad8;
+    public FieldDef mavtipo8;
     public TabModiva(String name)
       {
       super(name);
@@ -1359,6 +1370,8 @@ public class CatModgen extends Catalog
       mavactividad = new FieldDef("mavactividad",FieldDef.INTEGER,0);
       mavejercicio = new FieldDef("mavejercicio",FieldDef.INTEGER,0);
       mavliqiva = new FieldDef("mavliqiva",FieldDef.CHAR,1);
+      mavunidad8 = new FieldDef("mavunidad8",FieldDef.FLOAT,6,0);
+      mavtipo8 = new FieldDef("mavtipo8",FieldDef.CHAR,3);
       FieldDef array[] = {
         mavdominio,
         mavnif,
@@ -1394,7 +1407,9 @@ public class CatModgen extends Catalog
         mavmodper,
         mavactividad,
         mavejercicio,
-        mavliqiva        
+        mavliqiva,
+        mavunidad8,
+        mavtipo8        
         };
       setColumns(array);
       FieldDef arrayf[] = {mavdominio,mavnif,mavcodigo,mav4t };
@@ -2175,6 +2190,7 @@ public class CatModgen extends Catalog
     public FieldDef immposfin;
     public FieldDef immtipo;
     public FieldDef immvalor;
+    public FieldDef immcolumna;
     public TabImportmod(String name)
       {
       super(name);
@@ -2185,6 +2201,7 @@ public class CatModgen extends Catalog
       immposfin = new FieldDef("immposfin",FieldDef.INTEGER,0);
       immtipo = new FieldDef("immtipo",FieldDef.CHAR,2);
       immvalor = new FieldDef("immvalor",FieldDef.CHAR,50);
+      immcolumna = new FieldDef("immcolumna",FieldDef.INTEGER,0);
       FieldDef array[] = {
         immdominio,
         immmodelo,
@@ -2192,7 +2209,8 @@ public class CatModgen extends Catalog
         immposini,
         immposfin,
         immtipo,
-        immvalor        
+        immvalor,
+        immcolumna        
         };
       setColumns(array);
       FieldDef arrayf[] = {immdominio,immmodelo,immcampo };
