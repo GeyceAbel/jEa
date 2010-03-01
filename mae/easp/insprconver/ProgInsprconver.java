@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100224
-// Hora:             11:54:51
+// Fecha:            20100301
+// Hora:             10:53:14
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1007,6 +1007,7 @@ public class ProgInsprconver extends Program
     
         };
       String sentencias7_7[]={"DELETE FROM CODIGOREGISTRO"};
+      String sentencias7_8[]={"ALTER TABLE TRANSACCIONES ADD traoper349 CHAR(3)"};
     
       int i=0;
       try {
@@ -1772,8 +1773,22 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("7.7");
         }
-    
-    
+        if (versio < 7.8) {
+          for (i=0;i<sentencias7_8.length;++i) {
+            try {
+              Easp.chivato("7.8 Exec : ["+sentencias7_8[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias7_8[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias7_8[i];
+              Easp.chivato("7.8 *** Error : ["+sentencias7_8[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","7.8");
+          Easp.connEA.commit();
+          vvveractual.setValue("7.8");
+        }
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");

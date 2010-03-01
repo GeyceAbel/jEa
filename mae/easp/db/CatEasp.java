@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100224
-// Hora:             11:54:23
+// Fecha:            20100301
+// Hora:             10:59:33
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -187,6 +187,7 @@ public class CatEasp extends Catalog
     public FieldDef tratipoiva;
     public FieldDef travoloper;
     public FieldDef traoperespec;
+    public FieldDef traoper349;
     public TabTransacciones(String name)
       {
       super(name);
@@ -197,6 +198,7 @@ public class CatEasp extends Catalog
       tratipoiva = new FieldDef("tratipoiva",FieldDef.CHAR,3);
       travoloper = new FieldDef("travoloper",FieldDef.CHAR,3);
       traoperespec = new FieldDef("traoperespec",FieldDef.CHAR,3);
+      traoper349 = new FieldDef("traoper349",FieldDef.CHAR,3);
       FieldDef array[] = {
         tratipo,
         tradesc,
@@ -204,7 +206,8 @@ public class CatEasp extends Catalog
         traregimen,
         tratipoiva,
         travoloper,
-        traoperespec        
+        traoperespec,
+        traoper349        
         };
       setColumns(array);
       FieldDef arrayf[] = {tratipo };
