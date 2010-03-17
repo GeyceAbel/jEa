@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100205
-// Hora:             11:02:46
+// Fecha:            20100317
+// Hora:             16:47:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -4120,7 +4120,7 @@ snifrep.datapell2.setValue(vvdatapell2);
       setName("vservicios");
       setTitle("Servicios");
       setLocation(new Location());
-      setStates(SHOW);
+      setStates(SHOW | UPDATE);
       setModal(true);
       setUnique(true);
       addSelect(sservicioscdp=new Sservicioscdp());
