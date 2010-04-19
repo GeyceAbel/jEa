@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import mae.easp.db.*;
 import mae.easp.general.Easp;
+import mae.jiss.db.CatJiss;
 
 import geyce.maefc.Catalog;
 import geyce.maefc.DBConnection;
@@ -29,6 +30,7 @@ public class ActualizaNIFs
 	private DBConnection connEA=null;
 	private DBConnection connJNomina=null;
 	private DBConnection connJEo=null;
+	private DBConnection connJIss=null;
 	private DBConnection connJConta=null;
 	private DBConnection connJModelos=null;
 	private boolean hayIncidencia = false;
@@ -52,6 +54,7 @@ public class ActualizaNIFs
     	boolean execute = true;
     	String jnomina = "";
     	String jeo = "";
+    	String jiss = "";
     	String jconta = "";
     	String aplicError = "";
     	hayIncidencia = false;
@@ -85,6 +88,17 @@ public class ActualizaNIFs
 					this.connJEo = getConnexio("jeo", connEA);
 					execute = CambiarNIFJEo(this.connJEo);
 					if (!execute) aplicError = "jEo";
+				}
+			}
+			
+			jiss = selecConnection.getString("cdpckiss");
+			if(execute)
+			{
+				if(jiss!=null && jiss.equals("S"))
+				{
+					this.connJIss = getConnexio("jiss", connEA);
+					execute = CambiarNIFJIss(this.connJIss);
+					if (!execute) aplicError = "jIss";
 				}
 			}
 			
@@ -130,6 +144,11 @@ public class ActualizaNIFs
 		{
 			connJEo.commit();
 			connJEo.disconnect();
+		}
+		if(execute && jiss!=null && jiss.equals("S"))
+		{
+			connJIss.commit();
+			connJIss.disconnect();
 		}
 		if(!execute &&  jeo!=null && jeo.equals("S"))
 		{
@@ -230,6 +249,24 @@ public class ActualizaNIFs
 		      }
 		    catch  ( Exception e ) {
 		      System.out.println("Error actualizando nif jEo , Error: ["+e+"]");
+		      }
+		     return false ;
+	}
+	
+	private boolean CambiarNIFJIss(DBConnection connJIss) 
+	{
+		try {
+		      if ( cdp == null || newNIF == null || newNIF.equals("") || cdp.length() < 12 ) return false;
+		      Update up = new Update(connJIss,"SOCIEDADES");
+		      up.valor("soccif",newNIF);
+		      int codiEmp = Integer.parseInt(cdp.substring(6,12)) ;
+		      boolean ok = up.execute("soccodigo = "+codiEmp);
+		      if   ( ok )  return true ;
+		      System.out.println("Error al  actualizar nif en jIss tabla SOCIEDADES");
+		      }
+		    catch  ( Exception e ) {
+		      System.out.println("Error actualizando nif jIss , Error: ["+e+"]");
+		      e.printStackTrace();
 		      }
 		     return false ;
 	}
@@ -430,6 +467,12 @@ public class ActualizaNIFs
 	    {
             CatCtasp catctasp = new CatCtasp();
             Catalog array[] = {catctasp};
+            db.setCatalogs(array);
+        }	    
+	    else if (bdnom.startsWith("jiss")) 
+	    {
+	    	CatJiss catjiss = new CatJiss ();
+            Catalog array[] = {catjiss};
             db.setCatalogs(array);
         }	    
 	    conn=new DBConnection(db);
