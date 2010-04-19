@@ -15,3 +15,4 @@
 050099 --> APJORDI: Conversió SQL JISS
 050104 --> APJORDI: Camp transaccio 349
 050105 --> APPAU:   Poder modificar los servicios.
+050107 --> APJORDI: Canvi NIF/CIF que contempli la aplicació de JISS
