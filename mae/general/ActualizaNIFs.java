@@ -7,7 +7,7 @@ import java.util.Vector;
 
 import mae.easp.db.*;
 import mae.easp.general.Easp;
-import mae.jiss.db.CatJiss;
+//import mae.jiss.db.CatJiss;
 
 import geyce.maefc.Catalog;
 import geyce.maefc.DBConnection;
