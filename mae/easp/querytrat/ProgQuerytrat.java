@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20091202
-// Hora:             13:00:02
+// Fecha:            20100510
+// Hora:             13:18:01
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -323,6 +323,13 @@ public class ProgQuerytrat extends Program
         addItem("T/Selección por trabajador");
         setField(sfrase.qefect);
         }
+      public Object getDefault()
+        {
+        if (aplicacion.equals("JGESTION")) {
+          return "N";
+          }
+        else return null;
+        }
       }
       
     public class CtrlVapaisado extends ControlCheck
@@ -449,62 +456,6 @@ public class ProgQuerytrat extends Program
           in.valor("qetbbdd",tc.catalogo.getName());
           in.execute();
       // TOCAT PER JEO
-          if (aplicacion.equals("JEO")) {
-             if ("A".equals(qefect.getString()) && !qefmaster.getString().equals("actividades")) {
-               orden+=10;
-               tc=buscaTabla("actividades");
-               in.valor("qetorden",orden);
-               in.valor("qettabla","actividades");
-               in.valor("qetbbdd",tc.catalogo.getName());
-               in.execute();
-             }
-             if ("E".equals(qefect.getString()) || "A".equals(qefect.getString())) {
-               if (!qefmaster.getString().equals("empresa")) {
-                  orden+=10;
-                  tc=buscaTabla("empresa");
-                  in.valor("qetorden",orden);
-                  in.valor("qettabla","empresa");
-                  in.valor("qetbbdd",tc.catalogo.getName());
-                  in.execute();
-               }
-             }
-             if (!qefmaster.getString().equals("nifes")) {
-                orden+=10;
-                tc=buscaTabla("nifes");
-                in.valor("qetorden",orden);
-                in.valor("qettabla","nifes");
-                in.valor("qetbbdd",tc.catalogo.getName());
-                in.execute();
-             }
-          }
-          if (aplicacion.equals("JEO")) {
-             if ("A".equals(qefect.getString()) && !qefmaster.getString().equals("actividades")) {
-               orden+=10;
-               tc=buscaTabla("actividades");
-               in.valor("qetorden",orden);
-               in.valor("qettabla","actividades");
-               in.valor("qetbbdd",tc.catalogo.getName());
-               in.execute();
-             }
-             if ("E".equals(qefect.getString()) || "A".equals(qefect.getString())) {
-               if (!qefmaster.getString().equals("empresa")) {
-                  orden+=10;
-                  tc=buscaTabla("empresa");
-                  in.valor("qetorden",orden);
-                  in.valor("qettabla","empresa");
-                  in.valor("qetbbdd",tc.catalogo.getName());
-                  in.execute();
-               }
-             }
-             if (!qefmaster.getString().equals("nifes")) {
-                orden+=10;
-                tc=buscaTabla("nifes");
-                in.valor("qetorden",orden);
-                in.valor("qettabla","nifes");
-                in.valor("qetbbdd",tc.catalogo.getName());
-                in.execute();
-             }
-          }
           if (aplicacion.equals("JEO")) {
              if ("A".equals(qefect.getString()) && !qefmaster.getString().equals("actividades")) {
                orden+=10;
@@ -2334,6 +2285,14 @@ public class ProgQuerytrat extends Program
       vfrase.qefect.addItem("D/Nifes");  
       vfrase.qefect.addItem("N/Sin seleccion");  
       vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejmodelos.html"));
+    }
+    else if (aplicacion.equals("JGESTION")) {
+      vfrase.qefect.removeAllItems();
+      vfrase.qefect.setTitle("Seleccion ");
+      vfrase.qefect.addItem("C/Clientes");  
+      vfrase.qefect.addItem("E/Expedientes");  
+      vfrase.qefect.addItem("N/Sin seleeccion");  
+      vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejgestion.html"));
     }
     else 
        vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejnomina.html"));
