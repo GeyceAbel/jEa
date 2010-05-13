@@ -2,6 +2,7 @@ package mae.easp.general;
 
 import mae.general.*;
 import mae.jeo.general.Jeo;
+import mae.jiss.general.Jiss;
 import geyce.maefc.*;
 import mae.easp.*;
 import mae.easp.db.*;
@@ -169,15 +170,18 @@ public class Easp {
 
       String nomPC = usuario ;     
       nomPC = java.net.InetAddress.getLocalHost().getHostName() ;
-    
+      Date fechaGrabacio = Maefc.getDate();
       int sesiones = 0 ;
       simpuser.setWhere("imuaplicacion = '"+aplicacion+"' and imumachine <> '"+nomPC+"'");
       simpuser.execute();    
       sesiones = simpuser.getNumRows();
       String detalleSesiones = "" ;
+      String detallePL = null;
       int i = 1 ;
       while ( !simpuser.isEof()  ) {
     	detalleSesiones+= "     "+i+" - "+fdimumachine.getString()+"  \n";
+    	if (detallePL==null) detallePL =  fdimumachine.getString();
+    	else detallePL += ","+fdimumachine.getString();
     	i++;
     	simpuser.next();  
         }
@@ -195,8 +199,9 @@ public class Easp {
       ssesiones.addNew();
       fdsesmachine    .setValue(nomPC);
       fdsesusuario    .setValue(usuario);
-      fdsesfecha      .setValue(Maefc.getDate());
-      fdseshora       .setValue(Fecha.getHora(Maefc.getDateTime(),"HH:mm:ss") );
+      fdsesfecha      .setValue(fechaGrabacio);
+      Date horaGrab = Maefc.getDateTime();
+      fdseshora       .setValue(Fecha.getHora(horaGrab,"HH:mm:ss") );
       if ( !superaLicencias ) fdsespermitido  .setValue("S");
       else                    fdsespermitido  .setValue("N");
       fdsesaplicacion .setValue(aplicacion);
@@ -209,7 +214,7 @@ public class Easp {
     	  
     	  String desLicencia = " de "+licencias+" Puestos de trabajo. ";
     	  if ( licencias == 1 )desLicencia = " de 1 Puesto de trabajo.";
-    	  
+    	  String referencia = Fecha.fechaGregoriana(fechaGrabacio)+Fecha.getHora(horaGrab,"HHmmss")+ Numero.format( ((int)(Math.random()*1000)),"000") ;
     	  String msg = "Excedido el número máximo de usuarios establecido en su Licencia de Uso. \n \n"+
     		           "Se han detectado "+sesiones+" "+desSesion+" de la aplicación de "+aplicacion+". \n"+
     		           "En la actualidad su Licencia de Uso es  "+desLicencia+" \n \n"+
@@ -219,8 +224,27 @@ public class Easp {
     		           "utilizar más puestos de trabajo de los que tiene contratados contacte con el  \n"+
     		           "departamento comercial de GEYCE AGP S.L. para ampliar su Licencia de Uso. \n"+
     		           "Teléfono: 902 365 741    email: comercial@geyce.es ";
-    	  Maefc.message(msg,"Control de Licencias de Uso ",Maefc.WARNING_MESSAGE);  
+    	  try {
+    		  String url=URL_AFINITY+"/pls/agpi/CONTROLLIC.grabaraviso?";
+    		  url += "pcliente="+codiDP;
+    		  url += "&preferencia="+referencia;
+    		  url += "&pmachine="+parserURL(nomPC);
+    		  url += "&pusuario="+parserURL(usuario);
+    		  url += "&paplicacion="+aplicacion;
+    		  if (soloAvisar) url += "&ppermitido=S";
+    		  else url += "&ppermitido=N";
+    		  if (tarifa!=null) url += "&ptarifa="+tarifa;
+    		  else url += "&ptarifa=NoDefinida";
+    		  url += "&ppuestosper="+licencias;
+    		  url += "&ppuestosocu="+sesiones;
+    		  url += "&pnomspcocu="+parserURL(detallePL);
+    		  URLExec.procesarURL(url);
     	  }
+    	  catch (Exception e) {
+    		  e.printStackTrace();
+    	  }
+    	  Maefc.message(msg,"Control de Licencias de Uso ",Maefc.WARNING_MESSAGE);  
+    	}
       	if ( !soloAvisar) {
       	  ssesiones.insert() ;
       	  return false ;  
@@ -239,6 +263,7 @@ public class Easp {
       return true ;
 	  }
     catch(Exception e ) {
+    	e.printStackTrace();
       return true ;
       }
     
