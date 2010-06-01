@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100513
-// Hora:             12:53:34
+// Fecha:            20100426
+// Hora:             19:06:21
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -219,13 +219,12 @@ public class CatJiss extends Catalog
   public TabCnvcodigos tabcnvcodigos;
   public TabCnvtablas tabcnvtablas;
   public TabVersionzips tabversionzips;
+  public TabFechasacceso tabfechasacceso;
   public TabCtaarrendotrinf tabctaarrendotrinf;
   public TabPagosacuenta tabpagosacuenta;
   public TabListadotmp tablistadotmp;
   public TabCtaemisiongases tabctaemisiongases;
   public TabCtaemisionderec tabctaemisionderec;
-  public TabFechasacceso tabfechasacceso;
-  public TabEstadosociedad tabestadosociedad;
   public class TabBds extends TableDef
     {
     // Campos
@@ -1537,8 +1536,6 @@ public class CatJiss extends Catalog
     public FieldDef padeu_car_es_cp;
     public FieldDef papas_corrient;
     public FieldDef patotal_pasivo;
-    public FieldDef pareslegal;
-    public FieldDef paresestaturia;
     public TabPasivo(String name)
       {
       super(name);
@@ -1608,8 +1605,6 @@ public class CatJiss extends Catalog
       padeu_car_es_cp = new FieldDef("padeu_car_es_cp",FieldDef.FLOAT,6,0);
       papas_corrient = new FieldDef("papas_corrient",FieldDef.FLOAT,6,0);
       patotal_pasivo = new FieldDef("patotal_pasivo",FieldDef.FLOAT,6,0);
-      pareslegal = new FieldDef("pareslegal",FieldDef.FLOAT,6,0);
-      paresestaturia = new FieldDef("paresestaturia",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         paejeraplic,
         pasociedad,
@@ -1676,9 +1671,7 @@ public class CatJiss extends Catalog
         paperio_cort_pl,
         padeu_car_es_cp,
         papas_corrient,
-        patotal_pasivo,
-        pareslegal,
-        paresestaturia        
+        patotal_pasivo        
         };
       setColumns(array);
       FieldDef arrayf[] = {paejeraplic,pasociedad };
@@ -1750,8 +1743,6 @@ public class CatJiss extends Catalog
       padeu_car_es_cp.setDescription("Deuda caract.especial corto pl");
       papas_corrient.setDescription("PASIVO CORRIENTE");
       patotal_pasivo.setDescription("TOTAL PATRIMONIO NETO Y PASIVO");
-      pareslegal.setDescription("Reserva legal");
-      paresestaturia.setDescription("Reserva estatutaria");
       }
     }
     
@@ -20012,6 +20003,385 @@ public class CatJiss extends Catalog
       }
     }
     
+  public class TabFechasacceso extends TableDef
+    {
+    // Campos
+    public FieldDef fecejeraplic;
+    public FieldDef fecsociedad;
+    public FieldDef fecidentifica;
+    public FieldDef fecpersonasal;
+    public FieldDef feccargos;
+    public FieldDef fecsocios;
+    public FieldDef fecrepres;
+    public FieldDef fecparticip;
+    public FieldDef fecdatejersig;
+    public FieldDef fecbalancexctas;
+    public FieldDef fecbalconceptos;
+    public FieldDef feccorrecciones;
+    public FieldDef fecbasecoopera;
+    public FieldDef fecdeduccion;
+    public FieldDef fecbasesnegati;
+    public FieldDef feccuotanegati;
+    public FieldDef fecbonifica;
+    public FieldDef fecdobleimpos;
+    public FieldDef fecdimposcoop;
+    public FieldDef fecdimposinte;
+    public FieldDef fecdimpinternac;
+    public FieldDef fecdedinversion;
+    public FieldDef fecdedinverejer;
+    public FieldDef fecdedresuminv;
+    public FieldDef fecdonaciones;
+    public FieldDef fecdedreinvers;
+    public FieldDef fecdedcanarias;
+    public FieldDef fecretenciones;
+    public FieldDef fecperdbfos;
+    public FieldDef fecutes;
+    public FieldDef fecliquidacion;
+    public FieldDef fecpaisvasco;
+    public FieldDef fecdistribuc;
+    public FieldDef fecinfadicion;
+    public FieldDef fecopervincul;
+    public FieldDef fecparaisfisc;
+    public FieldDef fecimporteneto;
+    public FieldDef fecregfusiones;
+    public FieldDef fecfinal;
+    public FieldDef fecdatejanter;
+    public FieldDef fecbalctasanter;
+    public FieldDef fecbalconcanter;
+    public FieldDef fecliquidaanter;
+    public FieldDef fecvalteorico;
+    public FieldDef fecctasanuales;
+    public FieldDef fecjuntagral;
+    public FieldDef fecmempyme;
+    public FieldDef fecmemabreviado;
+    public FieldDef fecmemnormal;
+    public FieldDef feccambcriterio;
+    public FieldDef fecnormaregistr;
+    public FieldDef fecnormasvalor;
+    public FieldDef fecnormainmmat;
+    public FieldDef fecprovconting;
+    public FieldDef fecsituacctasp;
+    public FieldDef fecinmovintanp;
+    public FieldDef fecinstrfinacp;
+    public FieldDef fecfondospropp;
+    public FieldDef fecperdygananp;
+    public FieldDef fecsubvencionp;
+    public FieldDef fecmedambientp;
+    public FieldDef fecopvincupyme;
+    public FieldDef fecinfadicional;
+    public FieldDef fecpraccionprop;
+    public FieldDef fecflujoefectiv;
+    public FieldDef fecnotasmemoria;
+    public FieldDef fecperdyganana;
+    public FieldDef fecsubvenciona;
+    public FieldDef fecinstrfinaca;
+    public FieldDef feccombnego;
+    public FieldDef fecsitinmovnor;
+    public FieldDef fecsitimpnetono;
+    public FieldDef fecpostcierreno;
+    public FieldDef fecinterrumpida;
+    public FieldDef fecnegconjuntos;
+    public FieldDef fecsubvencionor;
+    public FieldDef fecpaginstrpatr;
+    public FieldDef fecretribpersno;
+    public FieldDef fecinvfinannorm;
+    public FieldDef fecprovcontinor;
+    public FieldDef fecperdygananno;
+    public FieldDef fecinstrfinacno;
+    public FieldDef fecinsfinactivo;
+    public FieldDef fecctaexistenno;
+    public FieldDef fecinstrotrdatn;
+    public FieldDef fecinstrcorrecn;
+    public FieldDef fecinstrlibrosn;
+    public FieldDef fecinstrcoberno;
+    public FieldDef fecinsfinpasivo;
+    public FieldDef fecinsfincpygno;
+    public FieldDef fecemisiongases;
+    public TabFechasacceso(String name)
+      {
+      super(name);
+      fecejeraplic = new FieldDef("fecejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      fecsociedad = new FieldDef("fecsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      fecidentifica = new FieldDef("fecidentifica",FieldDef.DATE);
+      fecpersonasal = new FieldDef("fecpersonasal",FieldDef.DATE);
+      feccargos = new FieldDef("feccargos",FieldDef.DATE);
+      fecsocios = new FieldDef("fecsocios",FieldDef.DATE);
+      fecrepres = new FieldDef("fecrepres",FieldDef.DATE);
+      fecparticip = new FieldDef("fecparticip",FieldDef.DATE);
+      fecdatejersig = new FieldDef("fecdatejersig",FieldDef.DATE);
+      fecbalancexctas = new FieldDef("fecbalancexctas",FieldDef.DATE);
+      fecbalconceptos = new FieldDef("fecbalconceptos",FieldDef.DATE);
+      feccorrecciones = new FieldDef("feccorrecciones",FieldDef.DATE);
+      fecbasecoopera = new FieldDef("fecbasecoopera",FieldDef.DATE);
+      fecdeduccion = new FieldDef("fecdeduccion",FieldDef.DATE);
+      fecbasesnegati = new FieldDef("fecbasesnegati",FieldDef.DATE);
+      feccuotanegati = new FieldDef("feccuotanegati",FieldDef.DATE);
+      fecbonifica = new FieldDef("fecbonifica",FieldDef.DATE);
+      fecdobleimpos = new FieldDef("fecdobleimpos",FieldDef.DATE);
+      fecdimposcoop = new FieldDef("fecdimposcoop",FieldDef.DATE);
+      fecdimposinte = new FieldDef("fecdimposinte",FieldDef.DATE);
+      fecdimpinternac = new FieldDef("fecdimpinternac",FieldDef.DATE);
+      fecdedinversion = new FieldDef("fecdedinversion",FieldDef.DATE);
+      fecdedinverejer = new FieldDef("fecdedinverejer",FieldDef.DATE);
+      fecdedresuminv = new FieldDef("fecdedresuminv",FieldDef.DATE);
+      fecdonaciones = new FieldDef("fecdonaciones",FieldDef.DATE);
+      fecdedreinvers = new FieldDef("fecdedreinvers",FieldDef.DATE);
+      fecdedcanarias = new FieldDef("fecdedcanarias",FieldDef.DATE);
+      fecretenciones = new FieldDef("fecretenciones",FieldDef.DATE);
+      fecperdbfos = new FieldDef("fecperdbfos",FieldDef.DATE);
+      fecutes = new FieldDef("fecutes",FieldDef.DATE);
+      fecliquidacion = new FieldDef("fecliquidacion",FieldDef.DATE);
+      fecpaisvasco = new FieldDef("fecpaisvasco",FieldDef.DATE);
+      fecdistribuc = new FieldDef("fecdistribuc",FieldDef.DATE);
+      fecinfadicion = new FieldDef("fecinfadicion",FieldDef.DATE);
+      fecopervincul = new FieldDef("fecopervincul",FieldDef.DATE);
+      fecparaisfisc = new FieldDef("fecparaisfisc",FieldDef.DATE);
+      fecimporteneto = new FieldDef("fecimporteneto",FieldDef.DATE);
+      fecregfusiones = new FieldDef("fecregfusiones",FieldDef.DATE);
+      fecfinal = new FieldDef("fecfinal",FieldDef.DATE);
+      fecdatejanter = new FieldDef("fecdatejanter",FieldDef.DATE);
+      fecbalctasanter = new FieldDef("fecbalctasanter",FieldDef.DATE);
+      fecbalconcanter = new FieldDef("fecbalconcanter",FieldDef.DATE);
+      fecliquidaanter = new FieldDef("fecliquidaanter",FieldDef.DATE);
+      fecvalteorico = new FieldDef("fecvalteorico",FieldDef.DATE);
+      fecctasanuales = new FieldDef("fecctasanuales",FieldDef.DATE);
+      fecjuntagral = new FieldDef("fecjuntagral",FieldDef.DATE);
+      fecmempyme = new FieldDef("fecmempyme",FieldDef.DATE);
+      fecmemabreviado = new FieldDef("fecmemabreviado",FieldDef.DATE);
+      fecmemnormal = new FieldDef("fecmemnormal",FieldDef.DATE);
+      feccambcriterio = new FieldDef("feccambcriterio",FieldDef.DATE);
+      fecnormaregistr = new FieldDef("fecnormaregistr",FieldDef.DATE);
+      fecnormasvalor = new FieldDef("fecnormasvalor",FieldDef.DATE);
+      fecnormainmmat = new FieldDef("fecnormainmmat",FieldDef.DATE);
+      fecprovconting = new FieldDef("fecprovconting",FieldDef.DATE);
+      fecsituacctasp = new FieldDef("fecsituacctasp",FieldDef.DATE);
+      fecinmovintanp = new FieldDef("fecinmovintanp",FieldDef.DATE);
+      fecinstrfinacp = new FieldDef("fecinstrfinacp",FieldDef.DATE);
+      fecfondospropp = new FieldDef("fecfondospropp",FieldDef.DATE);
+      fecperdygananp = new FieldDef("fecperdygananp",FieldDef.DATE);
+      fecsubvencionp = new FieldDef("fecsubvencionp",FieldDef.DATE);
+      fecmedambientp = new FieldDef("fecmedambientp",FieldDef.DATE);
+      fecopvincupyme = new FieldDef("fecopvincupyme",FieldDef.DATE);
+      fecinfadicional = new FieldDef("fecinfadicional",FieldDef.DATE);
+      fecpraccionprop = new FieldDef("fecpraccionprop",FieldDef.DATE);
+      fecflujoefectiv = new FieldDef("fecflujoefectiv",FieldDef.DATE);
+      fecnotasmemoria = new FieldDef("fecnotasmemoria",FieldDef.DATE);
+      fecperdyganana = new FieldDef("fecperdyganana",FieldDef.DATE);
+      fecsubvenciona = new FieldDef("fecsubvenciona",FieldDef.DATE);
+      fecinstrfinaca = new FieldDef("fecinstrfinaca",FieldDef.DATE);
+      feccombnego = new FieldDef("feccombnego",FieldDef.DATE);
+      fecsitinmovnor = new FieldDef("fecsitinmovnor",FieldDef.DATE);
+      fecsitimpnetono = new FieldDef("fecsitimpnetono",FieldDef.DATE);
+      fecpostcierreno = new FieldDef("fecpostcierreno",FieldDef.DATE);
+      fecinterrumpida = new FieldDef("fecinterrumpida",FieldDef.DATE);
+      fecnegconjuntos = new FieldDef("fecnegconjuntos",FieldDef.DATE);
+      fecsubvencionor = new FieldDef("fecsubvencionor",FieldDef.DATE);
+      fecpaginstrpatr = new FieldDef("fecpaginstrpatr",FieldDef.DATE);
+      fecretribpersno = new FieldDef("fecretribpersno",FieldDef.DATE);
+      fecinvfinannorm = new FieldDef("fecinvfinannorm",FieldDef.DATE);
+      fecprovcontinor = new FieldDef("fecprovcontinor",FieldDef.DATE);
+      fecperdygananno = new FieldDef("fecperdygananno",FieldDef.DATE);
+      fecinstrfinacno = new FieldDef("fecinstrfinacno",FieldDef.DATE);
+      fecinsfinactivo = new FieldDef("fecinsfinactivo",FieldDef.DATE);
+      fecctaexistenno = new FieldDef("fecctaexistenno",FieldDef.DATE);
+      fecinstrotrdatn = new FieldDef("fecinstrotrdatn",FieldDef.DATE);
+      fecinstrcorrecn = new FieldDef("fecinstrcorrecn",FieldDef.DATE);
+      fecinstrlibrosn = new FieldDef("fecinstrlibrosn",FieldDef.DATE);
+      fecinstrcoberno = new FieldDef("fecinstrcoberno",FieldDef.DATE);
+      fecinsfinpasivo = new FieldDef("fecinsfinpasivo",FieldDef.DATE);
+      fecinsfincpygno = new FieldDef("fecinsfincpygno",FieldDef.DATE);
+      fecemisiongases = new FieldDef("fecemisiongases",FieldDef.DATE);
+      FieldDef array[] = {
+        fecejeraplic,
+        fecsociedad,
+        fecidentifica,
+        fecpersonasal,
+        feccargos,
+        fecsocios,
+        fecrepres,
+        fecparticip,
+        fecdatejersig,
+        fecbalancexctas,
+        fecbalconceptos,
+        feccorrecciones,
+        fecbasecoopera,
+        fecdeduccion,
+        fecbasesnegati,
+        feccuotanegati,
+        fecbonifica,
+        fecdobleimpos,
+        fecdimposcoop,
+        fecdimposinte,
+        fecdimpinternac,
+        fecdedinversion,
+        fecdedinverejer,
+        fecdedresuminv,
+        fecdonaciones,
+        fecdedreinvers,
+        fecdedcanarias,
+        fecretenciones,
+        fecperdbfos,
+        fecutes,
+        fecliquidacion,
+        fecpaisvasco,
+        fecdistribuc,
+        fecinfadicion,
+        fecopervincul,
+        fecparaisfisc,
+        fecimporteneto,
+        fecregfusiones,
+        fecfinal,
+        fecdatejanter,
+        fecbalctasanter,
+        fecbalconcanter,
+        fecliquidaanter,
+        fecvalteorico,
+        fecctasanuales,
+        fecjuntagral,
+        fecmempyme,
+        fecmemabreviado,
+        fecmemnormal,
+        feccambcriterio,
+        fecnormaregistr,
+        fecnormasvalor,
+        fecnormainmmat,
+        fecprovconting,
+        fecsituacctasp,
+        fecinmovintanp,
+        fecinstrfinacp,
+        fecfondospropp,
+        fecperdygananp,
+        fecsubvencionp,
+        fecmedambientp,
+        fecopvincupyme,
+        fecinfadicional,
+        fecpraccionprop,
+        fecflujoefectiv,
+        fecnotasmemoria,
+        fecperdyganana,
+        fecsubvenciona,
+        fecinstrfinaca,
+        feccombnego,
+        fecsitinmovnor,
+        fecsitimpnetono,
+        fecpostcierreno,
+        fecinterrumpida,
+        fecnegconjuntos,
+        fecsubvencionor,
+        fecpaginstrpatr,
+        fecretribpersno,
+        fecinvfinannorm,
+        fecprovcontinor,
+        fecperdygananno,
+        fecinstrfinacno,
+        fecinsfinactivo,
+        fecctaexistenno,
+        fecinstrotrdatn,
+        fecinstrcorrecn,
+        fecinstrlibrosn,
+        fecinstrcoberno,
+        fecinsfinpasivo,
+        fecinsfincpygno,
+        fecemisiongases        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {fecejeraplic,fecsociedad };
+      setDescription("Control fechas en la que se ha entrado datos");
+      setPrimaryKeys(arrayf);
+      fecejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      fecsociedad.setDescription("SOCIEDAD");
+      fecidentifica.setDescription("Identificacion");
+      fecpersonasal.setDescription("Personal asalariado");
+      feccargos.setDescription("Cargos de la sociedad");
+      fecsocios.setDescription("Socios");
+      fecrepres.setDescription("Administradores y representantes");
+      fecparticip.setDescription("Participaciones directas de la sociedad");
+      fecdatejersig.setDescription("Variacion datos ejercicio siguiente");
+      fecbalancexctas.setDescription("Balance por cuentas");
+      fecbalconceptos.setDescription("Balance por conceptos");
+      feccorrecciones.setDescription("Correcciones a la cuenta de perdidas y ganancias");
+      fecbasecoopera.setDescription("Base imponible cooperativas");
+      fecdeduccion.setDescription("Bases negativas, deducciones y bonificaciones");
+      fecbasesnegati.setDescription("Bases imponibles negativas ejer.anteriores");
+      feccuotanegati.setDescription("Cuotas negativas cooperativas ejer.anteriores");
+      fecbonifica.setDescription("Bonificaciones");
+      fecdobleimpos.setDescription("Deducciones doble imposicion");
+      fecdimposcoop.setDescription("Deducciones doble imposicion interna cooperativas");
+      fecdimposinte.setDescription("Deducciones doble imposicion interna");
+      fecdimpinternac.setDescription("Deducciones doble imposicion internacional");
+      fecdedinversion.setDescription("Deducciones por inversiones");
+      fecdedinverejer.setDescription("Deducciones inversiones del ejercicio");
+      fecdedresuminv.setDescription("Deducciones: resumen inversiones actividades");
+      fecdonaciones.setDescription("Deduccion por donaciones");
+      fecdedreinvers.setDescription("Deduccion reinversion beneficios extraordinarios");
+      fecdedcanarias.setDescription("Deduccion Canarias");
+      fecretenciones.setDescription("Retenciones");
+      fecperdbfos.setDescription("Perdida beneficios fiscales");
+      fecutes.setDescription("Datos UTE/Agrupacion interes economico");
+      fecliquidacion.setDescription("Liquidacion");
+      fecpaisvasco.setDescription("Pais Vasco");
+      fecdistribuc.setDescription("Distribucion de resultados");
+      fecinfadicion.setDescription("Informacion adicional impuesto");
+      fecopervincul.setDescription("Operaciones vinculadas impuesto");
+      fecparaisfisc.setDescription("Operaciones con paraisos fiscales");
+      fecimporteneto.setDescription("Comunicacion del importe neto de la cifra de negocios");
+      fecregfusiones.setDescription("Regimen fusiones y escisiones");
+      fecfinal.setDescription("Finalizacion impuesto");
+      fecdatejanter.setDescription("Datos ejercicio anterior");
+      fecbalctasanter.setDescription("Balance por cuentas ejercicio anterior");
+      fecbalconcanter.setDescription("Balance por conceptos ejercicio anterior");
+      fecliquidaanter.setDescription("Liquidacion ejercicio anterior");
+      fecvalteorico.setDescription("Valor teorico acciones");
+      fecctasanuales.setDescription("Cuentas anuales");
+      fecjuntagral.setDescription("Junta general y instancia Registro");
+      fecmempyme.setDescription("Memoria PYME");
+      fecmemabreviado.setDescription("Mermoria Abreviada");
+      fecmemnormal.setDescription("Mermoria Normal");
+      feccambcriterio.setDescription("Cambio criterio contable");
+      fecnormaregistr.setDescription("Normas de registro y valoracion");
+      fecnormasvalor.setDescription("Normas de valoracion");
+      fecnormainmmat.setDescription("Normas de valoracion: inmovilizado material");
+      fecprovconting.setDescription("Normas de valoracion: provisiones y contingencias");
+      fecsituacctasp.setDescription("Situacion cuentas PYMES");
+      fecinmovintanp.setDescription("Situacion cuentas inmov.material, intangible PYME");
+      fecinstrfinacp.setDescription("Situacion cuentas instrum.financieros PYME");
+      fecfondospropp.setDescription("Situacion cuentas Fondos propios PYME");
+      fecperdygananp.setDescription("Situacion cuentas Perdidas y gananc. PYME");
+      fecsubvencionp.setDescription("Situacion subvenciones y legados PYME");
+      fecmedambientp.setDescription("Medio ambiente");
+      fecopvincupyme.setDescription("Operaciones vinculadas PYME");
+      fecinfadicional.setDescription("Informacion adicional memoria PYME");
+      fecpraccionprop.setDescription("Acciones propias PYME");
+      fecflujoefectiv.setDescription("Estado de flujos de efectivo");
+      fecnotasmemoria.setDescription("Notas en la memoria");
+      fecperdyganana.setDescription("Situacion cuentas Perdidas y gananc. abreviada");
+      fecsubvenciona.setDescription("Situacion subvenciones y legados abreviada");
+      fecinstrfinaca.setDescription("Situacion cuentas instrum.financieros abreviada");
+      feccombnego.setDescription("Combinacion de negocios, normal");
+      fecsitinmovnor.setDescription("Situacion cuentas inmovilizado memoria NORMAL");
+      fecsitimpnetono.setDescription("Situacion cuentas memoria NORMAL, importe neto");
+      fecpostcierreno.setDescription("Hechos posteriores al cierre, memoria NORMAL");
+      fecinterrumpida.setDescription("Operaciones interrumpidas, memoria NORMAL");
+      fecnegconjuntos.setDescription("Negocios conjuntos, memoria NORMAL");
+      fecsubvencionor.setDescription("Situacion subvenciones y legados NORMAL");
+      fecpaginstrpatr.setDescription("Transacciones basadas instrum.patrimonio, NORMAL");
+      fecretribpersno.setDescription("Retribucion personal largo plazo, NORMAL");
+      fecinvfinannorm.setDescription("Inversiones financieras, NORMAL");
+      fecprovcontinor.setDescription("Provisiones y contingencias, NORMAL");
+      fecperdygananno.setDescription("Situacion cuentas Perdidas y gananc. NORMAL");
+      fecinstrfinacno.setDescription("Situacion cuentas instrum.financieros NORMAL");
+      fecinsfinactivo.setDescription("Situacion cuentas instrum.financieros NORMAL, activos");
+      fecctaexistenno.setDescription("Situacion cuentas existencias NORMAL");
+      fecinstrotrdatn.setDescription("Situacion cuenta instr.financ.otros datos NORMAL");
+      fecinstrcorrecn.setDescription("Situacion cuenta instr.financ.correcciones NORMAL");
+      fecinstrlibrosn.setDescription("Situacion cuenta instr.financ.valor libros NORMAL");
+      fecinstrcoberno.setDescription("Situacion cuenta instr.financ.instrum.cobertura NORMAL");
+      fecinsfinpasivo.setDescription("Situacion cuentas instrum.financieros NORMAL, pasivos");
+      fecinsfincpygno.setDescription("Situacion cuentas instrum.financieros NORMAL, cambios perd.y ganan.");
+      fecemisiongases.setDescription("Emisión de gases");
+      }
+    }
+    
   public class TabCtaarrendotrinf extends TableDef
     {
     // Campos
@@ -20386,512 +20756,6 @@ public class CatJiss extends Catalog
       }
     }
     
-  public class TabFechasacceso extends TableDef
-    {
-    // Campos
-    public FieldDef fecejeraplic;
-    public FieldDef fecsociedad;
-    public FieldDef fecidentifica;
-    public FieldDef fecpersonasal;
-    public FieldDef feccargos;
-    public FieldDef fecsocios;
-    public FieldDef fecrepres;
-    public FieldDef fecparticip;
-    public FieldDef fecdatejersig;
-    public FieldDef fecbalancexctas;
-    public FieldDef fecbalconceptos;
-    public FieldDef feccorrecciones;
-    public FieldDef fecbasecoopera;
-    public FieldDef fecdeduccion;
-    public FieldDef fecbasesnegati;
-    public FieldDef feccuotanegati;
-    public FieldDef fecbonifica;
-    public FieldDef fecdobleimpos;
-    public FieldDef fecdimposcoop;
-    public FieldDef fecdimposinte;
-    public FieldDef fecdimpinternac;
-    public FieldDef fecdedinversion;
-    public FieldDef fecdedinverejer;
-    public FieldDef fecdedresuminv;
-    public FieldDef fecdonaciones;
-    public FieldDef fecdedreinvers;
-    public FieldDef fecdedcanarias;
-    public FieldDef fecretenciones;
-    public FieldDef fecperdbfos;
-    public FieldDef fecutes;
-    public FieldDef fecliquidacion;
-    public FieldDef fecpaisvasco;
-    public FieldDef fecdistribuc;
-    public FieldDef fecinfadicion;
-    public FieldDef fecopervincul;
-    public FieldDef fecparaisfisc;
-    public FieldDef fecimporteneto;
-    public FieldDef fecregfusiones;
-    public FieldDef fecfinal;
-    public FieldDef fecdatejanter;
-    public FieldDef fecbalctasanter;
-    public FieldDef fecbalconcanter;
-    public FieldDef fecliquidaanter;
-    public FieldDef fecvalteorico;
-    public FieldDef fecctasanuales;
-    public FieldDef fecjuntagral;
-    public FieldDef fecmempyme;
-    public FieldDef fecmemabreviado;
-    public FieldDef fecmemnormal;
-    public FieldDef feccambcriterio;
-    public FieldDef fecnormaregistr;
-    public FieldDef fecnormasvalor;
-    public FieldDef fecnormainmmat;
-    public FieldDef fecprovconting;
-    public FieldDef fecsituacctasp;
-    public FieldDef fecinmovintanp;
-    public FieldDef fecinstrfinacp;
-    public FieldDef fecfondospropp;
-    public FieldDef fecperdygananp;
-    public FieldDef fecsubvencionp;
-    public FieldDef fecmedambientp;
-    public FieldDef fecopvincupyme;
-    public FieldDef fecinfadicional;
-    public FieldDef fecpraccionprop;
-    public FieldDef fecflujoefectiv;
-    public FieldDef fecnotasmemoria;
-    public FieldDef fecperdyganana;
-    public FieldDef fecsubvenciona;
-    public FieldDef fecinstrfinaca;
-    public FieldDef feccombnego;
-    public FieldDef fecsitinmovnor;
-    public FieldDef fecsitimpnetono;
-    public FieldDef fecpostcierreno;
-    public FieldDef fecinterrumpida;
-    public FieldDef fecnegconjuntos;
-    public FieldDef fecsubvencionor;
-    public FieldDef fecpaginstrpatr;
-    public FieldDef fecretribpersno;
-    public FieldDef fecinvfinannorm;
-    public FieldDef fecprovcontinor;
-    public FieldDef fecperdygananno;
-    public FieldDef fecinstrfinacno;
-    public FieldDef fecinsfinactivo;
-    public FieldDef fecctaexistenno;
-    public FieldDef fecinstrotrdatn;
-    public FieldDef fecinstrcorrecn;
-    public FieldDef fecinstrlibrosn;
-    public FieldDef fecinstrcoberno;
-    public FieldDef fecinsfinpasivo;
-    public FieldDef fecinsfincpygno;
-    public FieldDef fecemisiongases;
-    public FieldDef fecdistribucant;
-    public FieldDef fecinmovanter;
-    public FieldDef fecinstrfinante;
-    public FieldDef fecperdante;
-    public FieldDef fecsubvenant;
-    public FieldDef fecopvincant;
-    public FieldDef fecinfadicant;
-    public FieldDef fecambienteant;
-    public FieldDef fecflujoefecant;
-    public FieldDef fecarrendant;
-    public FieldDef fecctaanter;
-    public FieldDef fecinterrumant;
-    public FieldDef fecretribperant;
-    public FieldDef fecprovisionant;
-    public FieldDef fecexistenant;
-    public FieldDef fecifactivoant;
-    public FieldDef fecifpasivoant;
-    public FieldDef fecifpygant;
-    public FieldDef fecifcobant;
-    public FieldDef fecifvalibroant;
-    public FieldDef fecifcorrecant;
-    public FieldDef fecifotroant;
-    public TabFechasacceso(String name)
-      {
-      super(name);
-      fecejeraplic = new FieldDef("fecejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      fecsociedad = new FieldDef("fecsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      fecidentifica = new FieldDef("fecidentifica",FieldDef.DATE);
-      fecpersonasal = new FieldDef("fecpersonasal",FieldDef.DATE);
-      feccargos = new FieldDef("feccargos",FieldDef.DATE);
-      fecsocios = new FieldDef("fecsocios",FieldDef.DATE);
-      fecrepres = new FieldDef("fecrepres",FieldDef.DATE);
-      fecparticip = new FieldDef("fecparticip",FieldDef.DATE);
-      fecdatejersig = new FieldDef("fecdatejersig",FieldDef.DATE);
-      fecbalancexctas = new FieldDef("fecbalancexctas",FieldDef.DATE);
-      fecbalconceptos = new FieldDef("fecbalconceptos",FieldDef.DATE);
-      feccorrecciones = new FieldDef("feccorrecciones",FieldDef.DATE);
-      fecbasecoopera = new FieldDef("fecbasecoopera",FieldDef.DATE);
-      fecdeduccion = new FieldDef("fecdeduccion",FieldDef.DATE);
-      fecbasesnegati = new FieldDef("fecbasesnegati",FieldDef.DATE);
-      feccuotanegati = new FieldDef("feccuotanegati",FieldDef.DATE);
-      fecbonifica = new FieldDef("fecbonifica",FieldDef.DATE);
-      fecdobleimpos = new FieldDef("fecdobleimpos",FieldDef.DATE);
-      fecdimposcoop = new FieldDef("fecdimposcoop",FieldDef.DATE);
-      fecdimposinte = new FieldDef("fecdimposinte",FieldDef.DATE);
-      fecdimpinternac = new FieldDef("fecdimpinternac",FieldDef.DATE);
-      fecdedinversion = new FieldDef("fecdedinversion",FieldDef.DATE);
-      fecdedinverejer = new FieldDef("fecdedinverejer",FieldDef.DATE);
-      fecdedresuminv = new FieldDef("fecdedresuminv",FieldDef.DATE);
-      fecdonaciones = new FieldDef("fecdonaciones",FieldDef.DATE);
-      fecdedreinvers = new FieldDef("fecdedreinvers",FieldDef.DATE);
-      fecdedcanarias = new FieldDef("fecdedcanarias",FieldDef.DATE);
-      fecretenciones = new FieldDef("fecretenciones",FieldDef.DATE);
-      fecperdbfos = new FieldDef("fecperdbfos",FieldDef.DATE);
-      fecutes = new FieldDef("fecutes",FieldDef.DATE);
-      fecliquidacion = new FieldDef("fecliquidacion",FieldDef.DATE);
-      fecpaisvasco = new FieldDef("fecpaisvasco",FieldDef.DATE);
-      fecdistribuc = new FieldDef("fecdistribuc",FieldDef.DATE);
-      fecinfadicion = new FieldDef("fecinfadicion",FieldDef.DATE);
-      fecopervincul = new FieldDef("fecopervincul",FieldDef.DATE);
-      fecparaisfisc = new FieldDef("fecparaisfisc",FieldDef.DATE);
-      fecimporteneto = new FieldDef("fecimporteneto",FieldDef.DATE);
-      fecregfusiones = new FieldDef("fecregfusiones",FieldDef.DATE);
-      fecfinal = new FieldDef("fecfinal",FieldDef.DATE);
-      fecdatejanter = new FieldDef("fecdatejanter",FieldDef.DATE);
-      fecbalctasanter = new FieldDef("fecbalctasanter",FieldDef.DATE);
-      fecbalconcanter = new FieldDef("fecbalconcanter",FieldDef.DATE);
-      fecliquidaanter = new FieldDef("fecliquidaanter",FieldDef.DATE);
-      fecvalteorico = new FieldDef("fecvalteorico",FieldDef.DATE);
-      fecctasanuales = new FieldDef("fecctasanuales",FieldDef.DATE);
-      fecjuntagral = new FieldDef("fecjuntagral",FieldDef.DATE);
-      fecmempyme = new FieldDef("fecmempyme",FieldDef.DATE);
-      fecmemabreviado = new FieldDef("fecmemabreviado",FieldDef.DATE);
-      fecmemnormal = new FieldDef("fecmemnormal",FieldDef.DATE);
-      feccambcriterio = new FieldDef("feccambcriterio",FieldDef.DATE);
-      fecnormaregistr = new FieldDef("fecnormaregistr",FieldDef.DATE);
-      fecnormasvalor = new FieldDef("fecnormasvalor",FieldDef.DATE);
-      fecnormainmmat = new FieldDef("fecnormainmmat",FieldDef.DATE);
-      fecprovconting = new FieldDef("fecprovconting",FieldDef.DATE);
-      fecsituacctasp = new FieldDef("fecsituacctasp",FieldDef.DATE);
-      fecinmovintanp = new FieldDef("fecinmovintanp",FieldDef.DATE);
-      fecinstrfinacp = new FieldDef("fecinstrfinacp",FieldDef.DATE);
-      fecfondospropp = new FieldDef("fecfondospropp",FieldDef.DATE);
-      fecperdygananp = new FieldDef("fecperdygananp",FieldDef.DATE);
-      fecsubvencionp = new FieldDef("fecsubvencionp",FieldDef.DATE);
-      fecmedambientp = new FieldDef("fecmedambientp",FieldDef.DATE);
-      fecopvincupyme = new FieldDef("fecopvincupyme",FieldDef.DATE);
-      fecinfadicional = new FieldDef("fecinfadicional",FieldDef.DATE);
-      fecpraccionprop = new FieldDef("fecpraccionprop",FieldDef.DATE);
-      fecflujoefectiv = new FieldDef("fecflujoefectiv",FieldDef.DATE);
-      fecnotasmemoria = new FieldDef("fecnotasmemoria",FieldDef.DATE);
-      fecperdyganana = new FieldDef("fecperdyganana",FieldDef.DATE);
-      fecsubvenciona = new FieldDef("fecsubvenciona",FieldDef.DATE);
-      fecinstrfinaca = new FieldDef("fecinstrfinaca",FieldDef.DATE);
-      feccombnego = new FieldDef("feccombnego",FieldDef.DATE);
-      fecsitinmovnor = new FieldDef("fecsitinmovnor",FieldDef.DATE);
-      fecsitimpnetono = new FieldDef("fecsitimpnetono",FieldDef.DATE);
-      fecpostcierreno = new FieldDef("fecpostcierreno",FieldDef.DATE);
-      fecinterrumpida = new FieldDef("fecinterrumpida",FieldDef.DATE);
-      fecnegconjuntos = new FieldDef("fecnegconjuntos",FieldDef.DATE);
-      fecsubvencionor = new FieldDef("fecsubvencionor",FieldDef.DATE);
-      fecpaginstrpatr = new FieldDef("fecpaginstrpatr",FieldDef.DATE);
-      fecretribpersno = new FieldDef("fecretribpersno",FieldDef.DATE);
-      fecinvfinannorm = new FieldDef("fecinvfinannorm",FieldDef.DATE);
-      fecprovcontinor = new FieldDef("fecprovcontinor",FieldDef.DATE);
-      fecperdygananno = new FieldDef("fecperdygananno",FieldDef.DATE);
-      fecinstrfinacno = new FieldDef("fecinstrfinacno",FieldDef.DATE);
-      fecinsfinactivo = new FieldDef("fecinsfinactivo",FieldDef.DATE);
-      fecctaexistenno = new FieldDef("fecctaexistenno",FieldDef.DATE);
-      fecinstrotrdatn = new FieldDef("fecinstrotrdatn",FieldDef.DATE);
-      fecinstrcorrecn = new FieldDef("fecinstrcorrecn",FieldDef.DATE);
-      fecinstrlibrosn = new FieldDef("fecinstrlibrosn",FieldDef.DATE);
-      fecinstrcoberno = new FieldDef("fecinstrcoberno",FieldDef.DATE);
-      fecinsfinpasivo = new FieldDef("fecinsfinpasivo",FieldDef.DATE);
-      fecinsfincpygno = new FieldDef("fecinsfincpygno",FieldDef.DATE);
-      fecemisiongases = new FieldDef("fecemisiongases",FieldDef.DATE);
-      fecdistribucant = new FieldDef("fecdistribucant",FieldDef.DATE);
-      fecinmovanter = new FieldDef("fecinmovanter",FieldDef.DATE);
-      fecinstrfinante = new FieldDef("fecinstrfinante",FieldDef.DATE);
-      fecperdante = new FieldDef("fecperdante",FieldDef.DATE);
-      fecsubvenant = new FieldDef("fecsubvenant",FieldDef.DATE);
-      fecopvincant = new FieldDef("fecopvincant",FieldDef.DATE);
-      fecinfadicant = new FieldDef("fecinfadicant",FieldDef.DATE);
-      fecambienteant = new FieldDef("fecambienteant",FieldDef.DATE);
-      fecflujoefecant = new FieldDef("fecflujoefecant",FieldDef.DATE);
-      fecarrendant = new FieldDef("fecarrendant",FieldDef.DATE);
-      fecctaanter = new FieldDef("fecctaanter",FieldDef.DATE);
-      fecinterrumant = new FieldDef("fecinterrumant",FieldDef.DATE);
-      fecretribperant = new FieldDef("fecretribperant",FieldDef.DATE);
-      fecprovisionant = new FieldDef("fecprovisionant",FieldDef.DATE);
-      fecexistenant = new FieldDef("fecexistenant",FieldDef.DATE);
-      fecifactivoant = new FieldDef("fecifactivoant",FieldDef.DATE);
-      fecifpasivoant = new FieldDef("fecifpasivoant",FieldDef.DATE);
-      fecifpygant = new FieldDef("fecifpygant",FieldDef.DATE);
-      fecifcobant = new FieldDef("fecifcobant",FieldDef.DATE);
-      fecifvalibroant = new FieldDef("fecifvalibroant",FieldDef.DATE);
-      fecifcorrecant = new FieldDef("fecifcorrecant",FieldDef.DATE);
-      fecifotroant = new FieldDef("fecifotroant",FieldDef.DATE);
-      FieldDef array[] = {
-        fecejeraplic,
-        fecsociedad,
-        fecidentifica,
-        fecpersonasal,
-        feccargos,
-        fecsocios,
-        fecrepres,
-        fecparticip,
-        fecdatejersig,
-        fecbalancexctas,
-        fecbalconceptos,
-        feccorrecciones,
-        fecbasecoopera,
-        fecdeduccion,
-        fecbasesnegati,
-        feccuotanegati,
-        fecbonifica,
-        fecdobleimpos,
-        fecdimposcoop,
-        fecdimposinte,
-        fecdimpinternac,
-        fecdedinversion,
-        fecdedinverejer,
-        fecdedresuminv,
-        fecdonaciones,
-        fecdedreinvers,
-        fecdedcanarias,
-        fecretenciones,
-        fecperdbfos,
-        fecutes,
-        fecliquidacion,
-        fecpaisvasco,
-        fecdistribuc,
-        fecinfadicion,
-        fecopervincul,
-        fecparaisfisc,
-        fecimporteneto,
-        fecregfusiones,
-        fecfinal,
-        fecdatejanter,
-        fecbalctasanter,
-        fecbalconcanter,
-        fecliquidaanter,
-        fecvalteorico,
-        fecctasanuales,
-        fecjuntagral,
-        fecmempyme,
-        fecmemabreviado,
-        fecmemnormal,
-        feccambcriterio,
-        fecnormaregistr,
-        fecnormasvalor,
-        fecnormainmmat,
-        fecprovconting,
-        fecsituacctasp,
-        fecinmovintanp,
-        fecinstrfinacp,
-        fecfondospropp,
-        fecperdygananp,
-        fecsubvencionp,
-        fecmedambientp,
-        fecopvincupyme,
-        fecinfadicional,
-        fecpraccionprop,
-        fecflujoefectiv,
-        fecnotasmemoria,
-        fecperdyganana,
-        fecsubvenciona,
-        fecinstrfinaca,
-        feccombnego,
-        fecsitinmovnor,
-        fecsitimpnetono,
-        fecpostcierreno,
-        fecinterrumpida,
-        fecnegconjuntos,
-        fecsubvencionor,
-        fecpaginstrpatr,
-        fecretribpersno,
-        fecinvfinannorm,
-        fecprovcontinor,
-        fecperdygananno,
-        fecinstrfinacno,
-        fecinsfinactivo,
-        fecctaexistenno,
-        fecinstrotrdatn,
-        fecinstrcorrecn,
-        fecinstrlibrosn,
-        fecinstrcoberno,
-        fecinsfinpasivo,
-        fecinsfincpygno,
-        fecemisiongases,
-        fecdistribucant,
-        fecinmovanter,
-        fecinstrfinante,
-        fecperdante,
-        fecsubvenant,
-        fecopvincant,
-        fecinfadicant,
-        fecambienteant,
-        fecflujoefecant,
-        fecarrendant,
-        fecctaanter,
-        fecinterrumant,
-        fecretribperant,
-        fecprovisionant,
-        fecexistenant,
-        fecifactivoant,
-        fecifpasivoant,
-        fecifpygant,
-        fecifcobant,
-        fecifvalibroant,
-        fecifcorrecant,
-        fecifotroant        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {fecejeraplic,fecsociedad };
-      setDescription("Control fechas en la que se ha entrado datos");
-      setPrimaryKeys(arrayf);
-      fecejeraplic.setDescription("Ejercicio fiscal aplicacion");
-      fecsociedad.setDescription("SOCIEDAD");
-      fecidentifica.setDescription("Identificacion");
-      fecpersonasal.setDescription("Personal asalariado");
-      feccargos.setDescription("Cargos de la sociedad");
-      fecsocios.setDescription("Socios");
-      fecrepres.setDescription("Administradores y representantes");
-      fecparticip.setDescription("Participaciones directas de la sociedad");
-      fecdatejersig.setDescription("Variacion datos ejercicio siguiente");
-      fecbalancexctas.setDescription("Balance por cuentas");
-      fecbalconceptos.setDescription("Balance por conceptos");
-      feccorrecciones.setDescription("Correcciones a la cuenta de perdidas y ganancias");
-      fecbasecoopera.setDescription("Base imponible cooperativas");
-      fecdeduccion.setDescription("Bases negativas, deducciones y bonificaciones");
-      fecbasesnegati.setDescription("Bases imponibles negativas ejer.anteriores");
-      feccuotanegati.setDescription("Cuotas negativas cooperativas ejer.anteriores");
-      fecbonifica.setDescription("Bonificaciones");
-      fecdobleimpos.setDescription("Deducciones doble imposicion");
-      fecdimposcoop.setDescription("Deducciones doble imposicion interna cooperativas");
-      fecdimposinte.setDescription("Deducciones doble imposicion interna");
-      fecdimpinternac.setDescription("Deducciones doble imposicion internacional");
-      fecdedinversion.setDescription("Deducciones por inversiones");
-      fecdedinverejer.setDescription("Deducciones inversiones del ejercicio");
-      fecdedresuminv.setDescription("Deducciones: resumen inversiones actividades");
-      fecdonaciones.setDescription("Deduccion por donaciones");
-      fecdedreinvers.setDescription("Deduccion reinversion beneficios extraordinarios");
-      fecdedcanarias.setDescription("Deduccion Canarias");
-      fecretenciones.setDescription("Retenciones");
-      fecperdbfos.setDescription("Perdida beneficios fiscales");
-      fecutes.setDescription("Datos UTE/Agrupacion interes economico");
-      fecliquidacion.setDescription("Liquidacion");
-      fecpaisvasco.setDescription("Pais Vasco");
-      fecdistribuc.setDescription("Distribucion de resultados");
-      fecinfadicion.setDescription("Informacion adicional impuesto");
-      fecopervincul.setDescription("Operaciones vinculadas impuesto");
-      fecparaisfisc.setDescription("Operaciones con paraisos fiscales");
-      fecimporteneto.setDescription("Comunicacion del importe neto de la cifra de negocios");
-      fecregfusiones.setDescription("Regimen fusiones y escisiones");
-      fecfinal.setDescription("Finalizacion impuesto");
-      fecdatejanter.setDescription("Datos ejercicio anterior");
-      fecbalctasanter.setDescription("Balance por cuentas ejercicio anterior");
-      fecbalconcanter.setDescription("Balance por conceptos ejercicio anterior");
-      fecliquidaanter.setDescription("Liquidacion ejercicio anterior");
-      fecvalteorico.setDescription("Valor teorico acciones");
-      fecctasanuales.setDescription("Cuentas anuales");
-      fecjuntagral.setDescription("Junta general y instancia Registro");
-      fecmempyme.setDescription("Memoria PYME");
-      fecmemabreviado.setDescription("Mermoria Abreviada");
-      fecmemnormal.setDescription("Mermoria Normal");
-      feccambcriterio.setDescription("Cambio criterio contable");
-      fecnormaregistr.setDescription("Normas de registro y valoracion");
-      fecnormasvalor.setDescription("Normas de valoracion");
-      fecnormainmmat.setDescription("Normas de valoracion: inmovilizado material");
-      fecprovconting.setDescription("Normas de valoracion: provisiones y contingencias");
-      fecsituacctasp.setDescription("Situacion cuentas PYMES");
-      fecinmovintanp.setDescription("Situacion cuentas inmov.material, intangible PYME");
-      fecinstrfinacp.setDescription("Situacion cuentas instrum.financieros PYME");
-      fecfondospropp.setDescription("Situacion cuentas Fondos propios PYME");
-      fecperdygananp.setDescription("Situacion cuentas Perdidas y gananc. PYME");
-      fecsubvencionp.setDescription("Situacion subvenciones y legados PYME");
-      fecmedambientp.setDescription("Medio ambiente");
-      fecopvincupyme.setDescription("Operaciones vinculadas PYME");
-      fecinfadicional.setDescription("Informacion adicional memoria PYME");
-      fecpraccionprop.setDescription("Acciones propias PYME");
-      fecflujoefectiv.setDescription("Estado de flujos de efectivo");
-      fecnotasmemoria.setDescription("Notas en la memoria");
-      fecperdyganana.setDescription("Situacion cuentas Perdidas y gananc. abreviada");
-      fecsubvenciona.setDescription("Situacion subvenciones y legados abreviada");
-      fecinstrfinaca.setDescription("Situacion cuentas instrum.financieros abreviada");
-      feccombnego.setDescription("Combinacion de negocios, normal");
-      fecsitinmovnor.setDescription("Situacion cuentas inmovilizado memoria NORMAL");
-      fecsitimpnetono.setDescription("Situacion cuentas memoria NORMAL, importe neto");
-      fecpostcierreno.setDescription("Hechos posteriores al cierre, memoria NORMAL");
-      fecinterrumpida.setDescription("Operaciones interrumpidas, memoria NORMAL");
-      fecnegconjuntos.setDescription("Negocios conjuntos, memoria NORMAL");
-      fecsubvencionor.setDescription("Situacion subvenciones y legados NORMAL");
-      fecpaginstrpatr.setDescription("Transacciones basadas instrum.patrimonio, NORMAL");
-      fecretribpersno.setDescription("Retribucion personal largo plazo, NORMAL");
-      fecinvfinannorm.setDescription("Inversiones financieras, NORMAL");
-      fecprovcontinor.setDescription("Provisiones y contingencias, NORMAL");
-      fecperdygananno.setDescription("Situacion cuentas Perdidas y gananc. NORMAL");
-      fecinstrfinacno.setDescription("Situacion cuentas instrum.financieros NORMAL");
-      fecinsfinactivo.setDescription("Situacion cuentas instrum.financieros NORMAL, activos");
-      fecctaexistenno.setDescription("Situacion cuentas existencias NORMAL");
-      fecinstrotrdatn.setDescription("Situacion cuenta instr.financ.otros datos NORMAL");
-      fecinstrcorrecn.setDescription("Situacion cuenta instr.financ.correcciones NORMAL");
-      fecinstrlibrosn.setDescription("Situacion cuenta instr.financ.valor libros NORMAL");
-      fecinstrcoberno.setDescription("Situacion cuenta instr.financ.instrum.cobertura NORMAL");
-      fecinsfinpasivo.setDescription("Situacion cuentas instrum.financieros NORMAL, pasivos");
-      fecinsfincpygno.setDescription("Situacion cuentas instrum.financieros NORMAL, cambios perd.y ganan.");
-      fecemisiongases.setDescription("Emisión de gases");
-      fecdistribucant.setDescription("Distribucion de resultados ejer.anterior");
-      fecinmovanter.setDescription("Inmovilizado ejer.anterior");
-      fecinstrfinante.setDescription("Instrumentos financieros ej.ant.");
-      fecperdante.setDescription("Perd. y ganancias ej.ant.");
-      fecsubvenant.setDescription("Subvenciones ej.ant");
-      fecopvincant.setDescription("Operaciones vinculadas ejer.ant.");
-      fecinfadicant.setDescription("Informacion adicional memoria ejer.ant");
-      fecambienteant.setDescription("Informacion medio ambiente ejer.ant");
-      fecflujoefecant.setDescription("Estado de flujo de efectivo ejer.ant.");
-      fecarrendant.setDescription("Arrendamientos financieros ejer.ant");
-      fecctaanter.setDescription("Cuentas anuales ejercicio anterior");
-      fecinterrumant.setDescription("Activos no corrientes y op.interr.ejer.ant.");
-      fecretribperant.setDescription("Retribucion largo plazo personal ejer.ant.");
-      fecprovisionant.setDescription("Provisiones y contingencias ejer.ant.");
-      fecexistenant.setDescription("Existencias ejer.ant.");
-      fecifactivoant.setDescription("Instr. financ.activo normal ejer.ant");
-      fecifpasivoant.setDescription("Instr. financ.pasivo normal ejer.ant");
-      fecifpygant.setDescription("Instr. financ.perd.y gananc. normal ejer.ant");
-      fecifcobant.setDescription("Instr. financ.instr.cober. normal ejer.ant");
-      fecifvalibroant.setDescription("Instr. financ.valor razonable normal ejer.ant");
-      fecifcorrecant.setDescription("Instr. financ.correcc. normal ejer.ant");
-      fecifotroant.setDescription("Instr. financ.otros datos normal ejer.ant");
-      }
-    }
-    
-  public class TabEstadosociedad extends TableDef
-    {
-    // Campos
-    public FieldDef esoiden;
-    public FieldDef esoproceso;
-    public FieldDef esosociedad;
-    public FieldDef esouser;
-    public FieldDef esofecha;
-    public FieldDef esoarchivo;
-    public TabEstadosociedad(String name)
-      {
-      super(name);
-      esoiden = new FieldDef("esoiden",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      esoproceso = new FieldDef("esoproceso",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      esosociedad = new FieldDef("esosociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      esouser = new FieldDef("esouser",FieldDef.CHAR,25);
-      esofecha = new FieldDef("esofecha",FieldDef.DATE);
-      esoarchivo = new FieldDef("esoarchivo",FieldDef.CHAR,40);
-      FieldDef array[] = {
-        esoiden,
-        esoproceso,
-        esosociedad,
-        esouser,
-        esofecha,
-        esoarchivo        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {esoiden };
-      setDescription("Estado de las sociedades");
-      setPrimaryKeys(arrayf);
-      esoiden.setAutoIncrementable(true);
-      esoproceso.setDescription("Tipo de proceso");
-      esosociedad.setDescription("SOCIEDAD");
-      esouser.setDescription("Usuario asignado a la sociedad");
-      esofecha.setDescription("Fecha proceso");
-      esoarchivo.setDescription("Nombre archivo fisico");
-      }
-    }
-    
   public CatJiss()
     {
     tabbds = new TabBds("bds");
@@ -21097,13 +20961,12 @@ public class CatJiss extends Catalog
     tabcnvcodigos = new TabCnvcodigos("cnvcodigos");
     tabcnvtablas = new TabCnvtablas("cnvtablas");
     tabversionzips = new TabVersionzips("versionzips");
+    tabfechasacceso = new TabFechasacceso("fechasacceso");
     tabctaarrendotrinf = new TabCtaarrendotrinf("ctaarrendotrinf");
     tabpagosacuenta = new TabPagosacuenta("pagosacuenta");
     tablistadotmp = new TabListadotmp("listadotmp");
     tabctaemisiongases = new TabCtaemisiongases("ctaemisiongases");
     tabctaemisionderec = new TabCtaemisionderec("ctaemisionderec");
-    tabfechasacceso = new TabFechasacceso("fechasacceso");
-    tabestadosociedad = new TabEstadosociedad("estadosociedad");
     TableDef array[] = {
       tabbds,
       tabgycauto,
@@ -21308,13 +21171,12 @@ public class CatJiss extends Catalog
       tabcnvcodigos,
       tabcnvtablas,
       tabversionzips,
+      tabfechasacceso,
       tabctaarrendotrinf,
       tabpagosacuenta,
       tablistadotmp,
       tabctaemisiongases,
-      tabctaemisionderec,
-      tabfechasacceso,
-      tabestadosociedad      
+      tabctaemisionderec      
       };
     setTables(array);
     FieldDef tabcuentasArrayf1[] = { tabcuentas.ctaejeraplic,tabcuentas.ctasector };
