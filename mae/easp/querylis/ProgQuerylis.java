@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20091202
-// Hora:             12:45:21
+// Fecha:            20100602
+// Hora:             12:45:10
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -33,6 +33,9 @@ public class ProgQuerylis extends Program
   public String datSelec;
   public String nomDirec="";
   public int ordenacion=0;
+  
+  public int gasesor = 1 ;
+  
   
   Seleccio seleccio;
   Frase frase;
@@ -115,7 +118,8 @@ public class ProgQuerylis extends Program
           col.llarg=Math.max(col.llarg,col.format.length());
   
         Columna existent=(Columna)frase.nomsColumnes.get(bbdd+"."+taula+"."+camp);
-        if (existent!=null)
+  
+        if (existent!=null) 
           col.valor=existent.valor;
         else {
           col.valor=new Value(col.tipus);
@@ -349,7 +353,7 @@ public class ProgQuerylis extends Program
               f="seleccion,"+f;
       }
   
-      if (f.length()>0)
+      if (f.length()>0) 
           return f;
       else
           return null;
@@ -357,7 +361,6 @@ public class ProgQuerylis extends Program
   
     String getFromSecundari(Quonexio conn,Quorelacio quor) {
       if (from!=null) return from;
-  
       String f="";
   
       int quantitat=0;
@@ -386,7 +389,7 @@ public class ProgQuerylis extends Program
         t.resolta=true;
         }
   
-      if (f.length()>0)
+      if (f.length()>0) 
           return f;
       else
           return null;
@@ -441,7 +444,7 @@ public class ProgQuerylis extends Program
         else
           w.append(" ("+where.toString()+")");
   
-      if (w.length()>0)
+      if (w.length()>0) 
           return w.toString();
       else
           return null;
@@ -459,7 +462,7 @@ public class ProgQuerylis extends Program
           }
         }
   
-      if (ordre.length()>0)
+      if (ordre.length()>0) 
           return ordre.toString();
       else
           return null;
@@ -653,7 +656,6 @@ public class ProgQuerylis extends Program
           sentencia.append(" order by ");
           sentencia.append(ordre);
           }
-  
          quorelacioPrincipal.selector.execute(sentencia.toString());
       }
     }
@@ -680,7 +682,6 @@ public class ProgQuerylis extends Program
          quor.sentencia=sentencia.toString();
   
          quor.quonexioOrigen=quonexio;
-  
          secundaris.addElement(quor);
          }
       }
@@ -727,7 +728,6 @@ public class ProgQuerylis extends Program
     void next(boolean first) {
   
       quorelacioPrincipal.eof=!quorelacioPrincipal.selector.next();
-  
       for(int i=0;i<secundaris.size();i++) {
   
         Quorelacio quor=(Quorelacio)secundaris.elementAt(i);
@@ -766,32 +766,32 @@ public class ProgQuerylis extends Program
               col.valor.setNull();
             else
               switch(col.tipus) {
-                  case Value.DATE:
+                  case Value.DATE:                    
                       java.util.Date dia=col.quorelacio.selector.getDate(col.camp.field.getName());
                       if (col.quorelacio.selector.wasNull())
                           col.valor.setNull();
-                      else
+                      else 
                           col.valor.setValue(dia);
                       break;
-                  case Value.DOUBLE:
+                  case Value.DOUBLE:                    
                       double vald=col.quorelacio.selector.getdouble(col.camp.field.getName());
                       if (col.quorelacio.selector.wasNull())
                           col.valor.setNull();
                       else
                           col.valor.setValue(vald);
                       break;
-                  case Value.INTEGER:
+                  case Value.INTEGER:                    
                       int vali=col.quorelacio.selector.getint(col.camp.field.getName());
                       if (col.quorelacio.selector.wasNull())
                           col.valor.setNull();
-                      else
+                      else 
                           col.valor.setValue(vali);
                       break;
-                  case Value.STRING:
+                  case Value.STRING:                    
                       String vals=col.quorelacio.selector.getString(col.camp.field.getName());
                       if (col.quorelacio.selector.wasNull())
                           col.valor.setNull();
-                      else
+                      else 
                           col.valor.setValue(vals);
                       break;
                   }

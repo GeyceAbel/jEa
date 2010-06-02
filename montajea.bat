@@ -1,7 +1,7 @@
 @echo off
 REM  **********  Aqui se especifica la version , y los paquetes de jtoken que se van a crear ***********
-set versio=050111
-set version=05.01.11
+set versio=050112
+set version=05.01.12
 
 GOTO JEA
 :FIJEA
