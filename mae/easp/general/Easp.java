@@ -159,31 +159,30 @@ public class Easp {
       Field fdsesaplicacion    = new Field(ssesiones,tbsesiones,"sesaplicacion");
       Field fdsespermitido     = new Field(ssesiones,tbsesiones,"sespermitido");
 
-      Select simpuser          = new Select(connEA);
-      Table tbimpuser          = new Table(simpuser,"impuser");
-      Field fdimucodigo        = new Field(simpuser,tbimpuser,"imucodigo");
-      Field fdimumachine       = new Field(simpuser,tbimpuser,"imumachine");
-      Field fdimuusuario       = new Field(simpuser,tbimpuser,"imuusuario");
-      Field fdimufecha         = new Field(simpuser,tbimpuser,"imufecha");
-      Field fdimuhora          = new Field(simpuser,tbimpuser,"imuhora");
-      Field fdimuaplicacion    = new Field(simpuser,tbimpuser,"imuaplicacion");
+      
+      Select simpuserctrl          = new Select(connEA);
+      Table tbimpuserctrl          = new Table(simpuserctrl,"impuser");
+      Field fdimumachinectrl       = new Field(simpuserctrl,tbimpuserctrl,"imumachine");
+      Field fdimuaplicacionctrl    = new Field(simpuserctrl,tbimpuserctrl,"imuaplicacion");
 
       String nomPC = usuario ;     
       nomPC = java.net.InetAddress.getLocalHost().getHostName() ;
       Date fechaGrabacio = Maefc.getDate();
       int sesiones = 0 ;
-      simpuser.setWhere("imuaplicacion = '"+aplicacion+"' and imumachine <> '"+nomPC+"'");
-      simpuser.execute();    
-      sesiones = simpuser.getNumRows();
+      
+      simpuserctrl.setDistinct(true);
+      simpuserctrl.setWhere("imuaplicacion = '"+aplicacion+"' and imumachine <> '"+nomPC+"'");
+      simpuserctrl.execute();    
+      sesiones = simpuserctrl.getNumRows();
       String detalleSesiones = "" ;
       String detallePL = null;
       int i = 1 ;
-      while ( !simpuser.isEof()  ) {
-    	detalleSesiones+= "     "+i+" - "+fdimumachine.getString()+"  \n";
-    	if (detallePL==null) detallePL =  fdimumachine.getString();
-    	else detallePL += ","+fdimumachine.getString();
+      while ( !simpuserctrl.isEof()  ) {
+    	detalleSesiones+= "     "+i+" - "+fdimumachinectrl.getString()+"  \n";
+    	if (detallePL==null) detallePL =  fdimumachinectrl.getString();
+    	else detallePL += ","+fdimumachinectrl.getString();
     	i++;
-    	simpuser.next();  
+    	simpuserctrl.next();  
         }
     
       int licencias = -1 ;
@@ -193,6 +192,14 @@ public class Easp {
       else if ( tarifa != null && tarifa.length() == 10 && tarifa.endsWith("7") ) licencias = 1 ;
       else if ( tarifa != null && tarifa.length() == 10 && tarifa.endsWith("8") ) licencias = 2 ;
     
+      int numMax=0;
+      String nmaxusers=Aplication.getAplication().getConfig("NMAXUSERS");
+      if (nmaxusers!=null && nmaxusers.length()>0) {
+        numMax=Integer.parseInt(nmaxusers);
+        }
+
+      if ( numMax > 0 && licencias > 0 && numMax > licencias ) licencias = numMax ;
+      
       boolean superaLicencias = false ;    
       if ( licencias > 0 &&  sesiones >= licencias ) superaLicencias = true  ; 
     
@@ -251,6 +258,17 @@ public class Easp {
       	  }
         }
 
+      
+      Select simpuser          = new Select(connEA);
+      Table tbimpuser          = new Table(simpuser,"impuser");
+      Field fdimucodigo        = new Field(simpuser,tbimpuser,"imucodigo");
+      Field fdimumachine       = new Field(simpuser,tbimpuser,"imumachine");
+      Field fdimuusuario       = new Field(simpuser,tbimpuser,"imuusuario");
+      Field fdimufecha         = new Field(simpuser,tbimpuser,"imufecha");
+      Field fdimuhora          = new Field(simpuser,tbimpuser,"imuhora");
+      Field fdimuaplicacion    = new Field(simpuser,tbimpuser,"imuaplicacion");
+
+      
       simpuser.addNew();
       fdimumachine    .setValue(nomPC);
       fdimuusuario    .setValue(usuario);
