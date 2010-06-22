@@ -16,3 +16,4 @@
 050104 --> APJORDI: Camp transaccio 349
 050105 --> APPAU:   Poder modificar los servicios.
 050107 --> APJORDI: Canvi NIF/CIF que contempli la aplicació de JISS
+050114 --> APESTER: S'ha afegit la taula CNAE1993 pel model 200 plana 1

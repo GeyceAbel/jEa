@@ -24,9 +24,9 @@ public class Easp {
   public static String nifCDP=null;
 
   //variables de versiones
-  public static String versionAplicacion="7.8";
-  public static String versionFecha="Marzo/2010";
-  public static String versionBDEA="7.8";
+  public static String versionAplicacion="7.9";
+  public static String versionFecha="Junio/2010";
+  public static String versionBDEA="7.9";
 
   //Constantes
   public final static int IVA=16;
@@ -139,40 +139,40 @@ public class Easp {
       return null;
     }
 
-  
-  
+
+
   public static boolean crearSesion(String tarifa,String usuario, String aplicacion , boolean verMensaje,boolean soloAvisar ) {
 
 	try {
-	    	
+
 	  String version =  getVersionBD("bdeasp") ;
       if ( Double.valueOf(version).doubleValue() < 7.6 ) return true ;
-    
-	
+
+
       Select ssesiones         = new Select(connEA);
       Table tbsesiones         = new Table(ssesiones,"sesiones");
       Field fdsescodigo        = new Field(ssesiones,tbsesiones,"sescodigo");
       Field fdsesmachine       = new Field(ssesiones,tbsesiones,"sesmachine");
       Field fdsesusuario       = new Field(ssesiones,tbsesiones,"sesusuario");
       Field fdsesfecha         = new Field(ssesiones,tbsesiones,"sesfecha");
-      Field fdseshora          = new Field(ssesiones,tbsesiones,"seshora");    
+      Field fdseshora          = new Field(ssesiones,tbsesiones,"seshora");
       Field fdsesaplicacion    = new Field(ssesiones,tbsesiones,"sesaplicacion");
       Field fdsespermitido     = new Field(ssesiones,tbsesiones,"sespermitido");
 
-      
+
       Select simpuserctrl          = new Select(connEA);
       Table tbimpuserctrl          = new Table(simpuserctrl,"impuser");
       Field fdimumachinectrl       = new Field(simpuserctrl,tbimpuserctrl,"imumachine");
       Field fdimuaplicacionctrl    = new Field(simpuserctrl,tbimpuserctrl,"imuaplicacion");
 
-      String nomPC = usuario ;     
+      String nomPC = usuario ;
       nomPC = java.net.InetAddress.getLocalHost().getHostName() ;
       Date fechaGrabacio = Maefc.getDate();
       int sesiones = 0 ;
-      
+
       simpuserctrl.setDistinct(true);
       simpuserctrl.setWhere("imuaplicacion = '"+aplicacion+"' and imumachine <> '"+nomPC+"'");
-      simpuserctrl.execute();    
+      simpuserctrl.execute();
       sesiones = simpuserctrl.getNumRows();
       String detalleSesiones = "" ;
       String detallePL = null;
@@ -182,16 +182,16 @@ public class Easp {
     	if (detallePL==null) detallePL =  fdimumachinectrl.getString();
     	else detallePL += ","+fdimumachinectrl.getString();
     	i++;
-    	simpuserctrl.next();  
+    	simpuserctrl.next();
         }
-    
+
       int licencias = -1 ;
       if      ( tarifa != null && tarifa.length() == 10 && tarifa.endsWith("0") ) licencias = 100 ;
       else if ( tarifa != null && tarifa.length() == 10 && tarifa.endsWith("1") ) licencias = 4 ;
       else if ( tarifa != null && tarifa.length() == 10 && tarifa.endsWith("2") ) licencias = 8 ;
       else if ( tarifa != null && tarifa.length() == 10 && tarifa.endsWith("7") ) licencias = 1 ;
       else if ( tarifa != null && tarifa.length() == 10 && tarifa.endsWith("8") ) licencias = 2 ;
-    
+
       int numMax=0;
       String nmaxusers=Aplication.getAplication().getConfig("NMAXUSERS");
       if (nmaxusers!=null && nmaxusers.length()>0) {

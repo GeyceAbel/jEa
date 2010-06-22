@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100301
-// Hora:             10:53:14
+// Fecha:            20100622
+// Hora:             13:29:07
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1009,6 +1009,13 @@ public class ProgInsprconver extends Program
       String sentencias7_7[]={"DELETE FROM CODIGOREGISTRO"};
       String sentencias7_8[]={"ALTER TABLE TRANSACCIONES ADD traoper349 CHAR(3)"};
     
+      String sentencias7_9[]={
+      " CREATE TABLE CNAE1993                       "+
+      "   (cn93codigo VARCHAR(4) NOT NULL,          "+
+      "    cn93desc   VARCHAR(160),                 "+
+      "    PRIMARY KEY (cn93codigo));               "
+      };
+    
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -1789,6 +1796,25 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("7.8");
         }
+        if (versio < 7.9) {
+          for (i=0;i<sentencias7_9.length;++i) {
+            try {
+              Easp.chivato("7.9 Exec : ["+sentencias7_9[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias7_9[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias7_9[i];
+              Easp.chivato("7.9 *** Error : ["+sentencias7_9[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          String tablas[]= {"CNAE1993"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0709","easp.jar");
+          Easp.setVersionBD("bdeasp","7.9");
+          Easp.connEA.commit();
+          vvveractual.setValue("7.9");
+        }
+        
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
