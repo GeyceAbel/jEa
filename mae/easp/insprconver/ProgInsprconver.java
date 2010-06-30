@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20100630
-// Hora:             16:31:14
+// Hora:             17:19:41
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1017,7 +1017,6 @@ public class ProgInsprconver extends Program
       };
     
       String sentencias8_0[]={
-        "ALTER TABLE USUARIO ADD USREMOTO varchar(1)  ",
         " CREATE TABLE SESIONES                      "+
         "  (sescodigo       INTEGER NOT NULL,        "+
         "   sesmachine      VARCHAR(50),             "+
@@ -1034,12 +1033,7 @@ public class ProgInsprconver extends Program
         "   imufecha        "+formatData()+          
         "   imuhora         CHAR(8),                 "+
         "   imuaplicacion   VARCHAR(15),             "+
-        "   PRIMARY KEY (imucodigo));                ",
-        "ALTER TABLE TRANSACCIONES ADD traoper349 CHAR(3)",
-        " CREATE TABLE CNAE1993                       "+
-        "   (cn93codigo VARCHAR(4) NOT NULL,          "+
-        "    cn93desc   VARCHAR(160),                 "+
-        "    PRIMARY KEY (cn93codigo));               "};
+        "   PRIMARY KEY (imucodigo));                "};
     
       int i=0;
       try {
