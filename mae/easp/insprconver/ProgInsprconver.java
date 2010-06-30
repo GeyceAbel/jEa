@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100622
-// Hora:             13:29:07
+// Fecha:            20100630
+// Hora:             16:31:14
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1016,6 +1016,31 @@ public class ProgInsprconver extends Program
       "    PRIMARY KEY (cn93codigo));               "
       };
     
+      String sentencias8_0[]={
+        "ALTER TABLE USUARIO ADD USREMOTO varchar(1)  ",
+        " CREATE TABLE SESIONES                      "+
+        "  (sescodigo       INTEGER NOT NULL,        "+
+        "   sesmachine      VARCHAR(50),             "+
+        "   sesusuario      CHAR(25),                "+ 
+        "   sesfecha        "+formatData()+          
+        "   seshora         CHAR(8),                 "+
+        "   sesaplicacion   VARCHAR(15),             "+
+        "   sespermitido    CHAR(1),                 "+ 
+        "   PRIMARY KEY (sescodigo));                ",
+        " CREATE TABLE IMPUSER                      "+
+        "  (imucodigo       INTEGER NOT NULL,        "+
+        "   imumachine      VARCHAR(50),             "+
+        "   imuusuario      CHAR(25),                "+ 
+        "   imufecha        "+formatData()+          
+        "   imuhora         CHAR(8),                 "+
+        "   imuaplicacion   VARCHAR(15),             "+
+        "   PRIMARY KEY (imucodigo));                ",
+        "ALTER TABLE TRANSACCIONES ADD traoper349 CHAR(3)",
+        " CREATE TABLE CNAE1993                       "+
+        "   (cn93codigo VARCHAR(4) NOT NULL,          "+
+        "    cn93desc   VARCHAR(160),                 "+
+        "    PRIMARY KEY (cn93codigo));               "};
+    
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -1813,6 +1838,22 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","7.9");
           Easp.connEA.commit();
           vvveractual.setValue("7.9");
+        }
+        if (versio < 8.0) {
+          for (i=0;i<sentencias8_0.length;++i) {
+            try {
+              Easp.chivato("8.0 Exec : ["+sentencias8_0[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias8_0[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias8_0[i];
+              Easp.chivato("8.0 *** Error : ["+sentencias8_0[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","8.0");
+          Easp.connEA.commit();
+          vvveractual.setValue("8.0");
         }
         
       }
