@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100630
-// Hora:             17:19:41
+// Fecha:            20100702
+// Hora:             14:37:28
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1035,6 +1035,7 @@ public class ProgInsprconver extends Program
         "   imuaplicacion   VARCHAR(15),             "+
         "   PRIMARY KEY (imucodigo));                "};
     
+      String sentencias8_1[]={"DELETE FROM CNAE1993"};
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -1848,6 +1849,24 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","8.0");
           Easp.connEA.commit();
           vvveractual.setValue("8.0");
+        }
+        if (versio < 8.1) {
+          for (i=0;i<sentencias8_1.length;++i) {
+            try {
+              Easp.chivato("8.1 Exec : ["+sentencias8_1[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias8_1[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias7_9[i];
+              Easp.chivato("8.1 *** Error : ["+sentencias8_1[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          String tablas[]= {"CNAE1993"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0801","easp.jar");
+          Easp.setVersionBD("bdeasp","8.1");
+          Easp.connEA.commit();
+          vvveractual.setValue("8.1");
         }
         
       }
