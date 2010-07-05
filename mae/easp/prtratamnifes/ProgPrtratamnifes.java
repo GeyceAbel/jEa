@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100407
-// Hora:             16:28:37
+// Fecha:            20100705
+// Hora:             14:21:26
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1623,9 +1623,9 @@ public class ProgPrtratamnifes extends Program
       }
     public String getOrder()
       {
-      if (aplicacion=="ISS") return "cdpckiss DESC,cdpckconta DESC,cdpckeo DESC,cdpcodi ASC";
-      else if (aplicacion.equals("EOS")) return "cdpckeo DESC,cdpcodi ASC";
-      else if (aplicacion.equals("CON")) return "cdpckconta DESC,cdpckiss DESC,cdpcodi ASC";
+      if ("ISS".equals(aplicacion)) return "cdpckiss DESC,cdpckconta DESC,cdpckeo DESC,cdpcodi ASC";
+      else if ("EOS".equals(aplicacion)) return "cdpckeo DESC,cdpcodi ASC";
+      else if ("CON".equals(aplicacion)) return "cdpckconta DESC,cdpckiss DESC,cdpcodi ASC";
       else return "cdpcodi ASC";
       }
     }
