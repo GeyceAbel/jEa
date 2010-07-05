@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20100705
-// Hora:             12:05:16
+// Hora:             14:37:16
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1870,23 +1870,23 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("8.1");
         }
-        if (versio < 8.2) {
+        if (versio < 8.3) {
           for (i=0;i<sentencias8_2.length;++i) {
             try {
-              Easp.chivato("8.2 Exec : ["+sentencias8_2[i]+"]",1);
+              Easp.chivato("8.3 Exec : ["+sentencias8_2[i]+"]",1);
               Easp.connEA.executeUpdate(sentencias8_2[i]);
             }
             catch(Exception e) {
               sqlOperation=sentencias8_2[i];
-              Easp.chivato("8.2 *** Error : ["+sentencias8_2[i]+"]  Error: ["+e+"]",1);
+              Easp.chivato("8.3 *** Error : ["+sentencias8_2[i]+"]  Error: ["+e+"]",1);
               errorMessage=e.getMessage();
             }
           }
           String tablas[]= {"CNAE1993"};
           Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0802","easp.jar");
-          Easp.setVersionBD("bdeasp","8.2");
+          Easp.setVersionBD("bdeasp","8.3");
           Easp.connEA.commit();
-          vvveractual.setValue("8.2");
+          vvveractual.setValue("8.3");
         }
       }
       catch(Exception e) {
