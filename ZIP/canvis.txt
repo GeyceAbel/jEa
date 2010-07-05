@@ -17,4 +17,4 @@
 050105 --> APPAU:   Poder modificar los servicios.
 050107 --> APJORDI: Canvi NIF/CIF que contempli la aplicació de JISS
 050114 --> APESTER: S'ha afegit la taula CNAE1993 pel model 200 plana 1
-050118 --> APESTER: No es passaven tots els codis de CNAE de 1993, en l'original va quedar tallat
+050119 --> APESTER: No es passaven tots els codis de CNAE de 1993, en l'original va quedar tallat
