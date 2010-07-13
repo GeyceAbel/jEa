@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100210
-// Hora:             13:03:42
+// Fecha:            20100713
+// Hora:             13:29:40
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -393,7 +393,6 @@ class Barramenu extends MenuBar
     public M1notas m1notas;
     public M1incidef m1incidef;
     public M1inciden m1inciden;
-    public M1gestionerror m1gestionerror;
     public M1gestmir m1gestmir;
     class M1notas extends MenuItemProgram
       {
@@ -425,16 +424,6 @@ class Barramenu extends MenuBar
         }
       }
       
-    class M1gestionerror extends MenuItemProgram
-      {
-      public M1gestionerror()
-        {
-        super("Gestión de errores");
-        setName("m1gestionerror");
-        setProgram("mae.easp.prerrgestio.ProgPrerrgestio");
-        }
-      }
-      
     class M1gestmir extends MenuItemProgram
       {
       public M1gestmir()
@@ -452,7 +441,6 @@ class Barramenu extends MenuBar
       add(m1notas=new M1notas());
       add(m1incidef=new M1incidef());
       add(m1inciden=new M1inciden());
-      add(m1gestionerror=new M1gestionerror());
       add(m1gestmir=new M1gestmir());
       }
     }
@@ -548,6 +536,7 @@ class Bdeasp extends DataBase
   public CatCtasp catctasp;
   public CatEasp cateasp;
   public CatJeo catjeo;
+  public CatJiss catjiss;
   public CatLaboral catlaboral;
   public CatModelos1 catmodelos1;
   public CatModelos2 catmodelos2;
@@ -562,6 +551,7 @@ class Bdeasp extends DataBase
     catctasp = new CatCtasp();
     cateasp = new CatEasp();
     catjeo = new CatJeo();
+    catjiss = new CatJiss();
     catlaboral = new CatLaboral();
     catmodelos1 = new CatModelos1();
     catmodelos2 = new CatModelos2();
@@ -571,6 +561,7 @@ class Bdeasp extends DataBase
       catctasp,
       cateasp,
       catjeo,
+      catjiss,
       catlaboral,
       catmodelos1,
       catmodelos2,

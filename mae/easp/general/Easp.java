@@ -1963,6 +1963,28 @@ public static Date esFecha (String s){
 	  }
   }
 
+  public static void abrirFicheroConMsg (String destino) {
+	  try {
+		  int ret = Windows.ShellExecute("open", destino, null, null, Windows.SW_SHOWNORMAL);
+		  if (ret <= 32) {
+			  switch (ret) {
+	      		case Windows.ERROR_FILE_NOT_FOUND:
+	      			Maefc.message("Archivo " + destino + " no se encuentra","¡Atención!");
+	      			break;
+	      		case Windows.ERROR_PATH_NOT_FOUND:
+	      			Maefc.message("Carpeta " + destino + " no se encuentra","¡Atención!");
+	      			break;
+	      		default:
+	      			Maefc.message("Error al abrir el archivo","¡Atención!");
+	      			break;
+			  }
+		  }
+	  }
+	  catch (Exception ex) {
+		  Maefc.message("No ha sido posible abrir el fichero del modelo","¡Atención!");
+	  }
+  }
+  
 /* ++++++++++++++++++++  Gestió d'errors  +++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
   private static String stackTrace = null;

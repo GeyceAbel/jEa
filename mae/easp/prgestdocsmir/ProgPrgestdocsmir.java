@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090923
-// Hora:             17:15:06
+// Fecha:            20100713
+// Hora:             14:47:58
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -30,6 +30,7 @@ public class ProgPrgestdocsmir extends Program
   public String aplic = "JEA";
   public int registro = 0;
   public boolean abrirModal = true;
+  public boolean verEnviadas = false;
   // Fin declaraciones globales
   // Ventana
   public FormVdocsmir vdocsmir;
@@ -148,10 +149,12 @@ public class ProgPrgestdocsmir extends Program
     public CtrlMirdesc mirdesc;
     public CtrlMirubicacion mirubicacion;
     // Acciones
+    public LinkAcswitch acswitch;
     public LinkAcver acver;
     public LinkAcenviar acenviar;
     public LinkAcactivar acactivar;
     public LinkAcdesact acdesact;
+    public LinkAcreenviar acreenviar;
     class Location extends LocationGridBag
       {
       public Location( )
@@ -318,19 +321,36 @@ public class ProgPrgestdocsmir extends Program
         }
       }
       
+    public class LinkAcswitch extends Action
+      {
+      public LinkAcswitch(Form form)
+        {
+        super(form);
+        setName("acswitch");
+        setTitle("&1. Ver Enviadas");
+        setOptions(SHOW | EOF);
+        }
+      public void onAction()
+        {
+        super.onAction();
+        verEnviadas = !verEnviadas;
+        doShow();
+        }
+      }
+      
     public class LinkAcver extends Action
       {
       public LinkAcver(Form form)
         {
         super(form);
         setName("acver");
-        setTitle("&1. Ver");
+        setTitle("&2. Ver Fichero");
         setOptions(SHOW);
         }
       public void onAction()
         {
         super.onAction();
-        Easp.abrirFichero(smir.mirubicacion.getString());
+        Easp.abrirFicheroConMsg(smir.mirubicacion.getString());
         
         }
       }
@@ -341,7 +361,7 @@ public class ProgPrgestdocsmir extends Program
         {
         super(form);
         setName("acenviar");
-        setTitle("&2. Enviar");
+        setTitle("&3. Enviar");
         setOptions(SHOW);
         }
       public void onAction()
@@ -411,7 +431,7 @@ public class ProgPrgestdocsmir extends Program
         {
         super(form);
         setName("acactivar");
-        setTitle("&3. Activar todos");
+        setTitle("&4. Activar todos");
         setOptions(SHOW);
         }
       public void onAction()
@@ -428,13 +448,66 @@ public class ProgPrgestdocsmir extends Program
         {
         super(form);
         setName("acdesact");
-        setTitle("&4. Desactivar Todos");
+        setTitle("&5. Desactivar Todos");
         setOptions(SHOW);
         }
       public void onAction()
         {
         super.onAction();
         activar(false);
+        
+        }
+      }
+      
+    public class LinkAcreenviar extends Action
+      {
+      public LinkAcreenviar(Form form)
+        {
+        super(form);
+        setName("acreenviar");
+        setTitle("&3. Reenviar fichero");
+        setOptions(SHOW);
+        }
+      public void onAction()
+        {
+        String mircdp  = smir.mircdp.getString();
+        String mircif  = smir.mircif.getString();
+        String miractivado  = smir.miractivado.getString();
+        String mirestado  = smir.mirestado.getString();
+        java.util.Date mirfechacrea  = smir.mirfechacrea.getDate();
+        java.util.Date mirfechaenvio  = smir.mirfechaenvio.getDate();
+        String mirdesc  = smir.mirdesc.getString();
+        String miraplic  = smir.miraplic.getString();
+        String mirtipdoc  = smir.mirtipdoc.getString();
+        String mirtipfile  = smir.mirtipfile.getString();
+        int mirmcodemp  = smir.mirmcodemp.getInteger();
+        int mirnomcodcen  = smir.mirnomcodcen.getInteger();
+        int mirnomcodtra  = smir.mirnomcodtra.getInteger();
+        String mirubicacion  = smir.mirubicacion.getString();
+        smir.addNew();
+        smir.mircdp.setValue(mircdp);
+        smir.mircif.setValue(mircif);
+        smir.miractivado.setValue("S");
+        smir.mirestado.setValue("P");
+        smir.mirfechacrea.setValue(Maefc.getDate());
+        smir.mirdesc.setValue(mirdesc);
+        smir.miraplic.setValue(miraplic);
+        smir.mirtipdoc.setValue(mirtipdoc);
+        smir.mirtipfile.setValue(mirtipfile);
+        smir.mirmcodemp.setValue(mirmcodemp);
+        smir.mirnomcodcen.setValue(mirnomcodcen);
+        smir.mirnomcodtra.setValue(mirnomcodtra);
+        smir.mirubicacion.setValue(mirubicacion);
+        if (smir.insert()) {
+          smir.commit();
+          verEnviadas = false;
+          doShow();
+          Maefc.message("Se ha generado una nueva entrada en la lista de envios pendientes.","Reenviar fichero",Maefc.INFORMATION_MESSAGE);
+        }
+        else {
+          smir.rollback();
+          Maefc.message("Error al generar el reenvio.","Reenviar fichero",Maefc.ERROR_MESSAGE);
+        }
         
         }
       }
@@ -457,21 +530,34 @@ public class ProgPrgestdocsmir extends Program
       addControl(mirfechaenvio=new CtrlMirfechaenvio(this));
       addControl(mirdesc=new CtrlMirdesc(this));
       addControl(mirubicacion=new CtrlMirubicacion(this));
+      addAction(acswitch=new LinkAcswitch(this));
       addAction(acver=new LinkAcver(this));
       addAction(acenviar=new LinkAcenviar(this));
       addAction(acactivar=new LinkAcactivar(this));
       addAction(acdesact=new LinkAcdesact(this));
+      addAction(acreenviar=new LinkAcreenviar(this));
       setSelect(smir);
       }
     public boolean onOkInsert()
       {
       return super.onOkInsert();
       }
+    public void onEOF()
+      {
+      super.onEOF();
+      if (verEnviadas) acswitch.setTitle("&1. Ver Pendientes");
+      else acswitch.setTitle("&1. Ver Enviadas");
+      }
     public void onBeginRecord()
       {
       super.onBeginRecord();
       chactivado.setValue(smir.miractivado.getString().equals("S"));
-      
+      acenviar.setVisible(!verEnviadas);
+      acactivar.setVisible(!verEnviadas);
+      acdesact.setVisible(!verEnviadas);
+      if (verEnviadas) acswitch.setTitle("&1. Ver Pendientes");
+      else acswitch.setTitle("&1. Ver Enviadas");
+      acreenviar.setVisible(verEnviadas);
       }
     }
     
@@ -531,6 +617,8 @@ public class ProgPrgestdocsmir extends Program
       String where = " miraplic <> 'LABORAL' " ;
       if (aplic != null && !aplic.equals("JEA")) where += " and miraplic = '"+aplic+"' " ;
       if (registro>0) where += " and mircodi="+registro;
+      if (verEnviadas) where += " and mirestado='E'";
+      else where += " and mirestado<>'E'";
       return where;
       }
     public String getOrder()
