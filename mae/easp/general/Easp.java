@@ -24,9 +24,9 @@ public class Easp {
   public static String nifCDP=null;
 
   //variables de versiones
-  public static String versionAplicacion="8.3";
-  public static String versionFecha="Julio/2010";
-  public static String versionBDEA="8.3";
+  public static String versionAplicacion="8.4";
+  public static String versionFecha="Agosto/2010";
+  public static String versionBDEA="8.4";
 
   //Constantes
   public final static int IVA=16;
@@ -115,8 +115,6 @@ public class Easp {
     if (!filePlantillas.exists()) {
       setFileFromjar(destinoPlantillas,"query.xls",destinoPlantillas+"query.xls");
       }
-
-
 
     return true;
     }
@@ -1072,7 +1070,41 @@ public static Date esFecha (String s){
 	  }
 	  return bOk;
   }
-
+  /*
+   APJORDI: ACtualitza la taula muni347 el codi anterior de municipi
+  public static void actualizarMunicipio () {
+	  boolean bOk = true;
+	  Selector s = new Selector (connEA);
+	  s.execute("Select * from municipio order by muprov,mucodigo");
+	  while (s.next() && bOk) {
+		  int muprov = s.getint("muprov");
+		  int mucodigo = s.getint("mucodigo");
+		  String mudesc = s.getString("mudesc");
+		  if (mudesc!=null && mudesc.trim().length()>0) {
+			  mudesc = mudesc.trim().toUpperCase();
+			  Selector s2 = new Selector (connEA);
+			  s2.execute("Select * from MUNI347 where mu7codprov="+muprov+" and LEFT(UCase([mu7desc]),20)="+connEA.getDB().getSQLFormat(mudesc));
+			  if (s2.next()) {
+				  int mu7codprov = s2.getint("mu7codprov");
+				  int mu7codmuni = s2.getint("mu7codmuni");
+				  Update u = new Update(connEA,"MUNI347");
+				  u.valor("mu7muniant", mucodigo);
+				  bOk = u.execute("mu7codprov="+mu7codprov+" and mu7codmuni="+mu7codmuni);
+			  }
+			  s2.close();
+		  }
+	  }
+	  s.close();
+	  if (bOk) {
+		  connEA.commit();
+		  Maefc.message("OK");
+	  }
+	  else {
+		  connEA.rollback();
+		  Maefc.message("NO OK");
+	  }
+  }
+  */
   public static boolean actualizarDomicilioAfiliacion (String nif) {
 	  boolean bOk = true;
 	  Selector snif = new Selector (connEA);
@@ -1112,7 +1144,10 @@ public static Date esFecha (String s){
 		  u.valor("datprov",iprov);
 	      Selector s2 = new Selector (Easp.connEA);
 	      s2.execute("Select * from MUNI347 where mu7codprov="+iprov+" and mu7provmuni='"+muni+"'");
-	      if (s2.next()) u.valor("datmuni",s2.getString("mu7muniant"));
+	      if (s2.next()) {
+	    	  String mant = s2.getString("mu7muniant");
+	    	  if (mant!=null && mant.trim().length()>0) u.valor("datmuni",mant.trim());
+	      }
 	      s2.close();
 	      bOk = u.execute("danifcif='"+nif+"'");
 	  }

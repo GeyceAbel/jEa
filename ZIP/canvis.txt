@@ -20,3 +20,4 @@
 050119 --> APESTER: No es passaven tots els codis de CNAE de 1993, en l'original va quedar tallat
 050122 --> APJORDI: Donava error al modificar la ficha general desde el jEA directament.
 050123 --> APJORDI: Afegeixo noves opcions a la opcio de Envio documents eMir.
+050124 --> APJORDI: Conversió Taula MUNI347 la columna muniant no tenia valors correctes en alguns casos. Queden equivalencies en blanc ja que no sha trobat equivalencies.
