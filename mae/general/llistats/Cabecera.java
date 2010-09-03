@@ -563,7 +563,7 @@ public abstract class Cabecera {
         rot.setPintaUnderline(true);
         rot.setSaltPagina(false);
         rot.setPosInicial(10);
-        
+
         int numRotura = roturasSize();
         reportListado.addReportData(rot.initDesc(reportListado));
         addRotura(numRotura,rot);
@@ -909,7 +909,7 @@ public abstract class Cabecera {
         	xml.addTab(detail2, getColumna(i).getPosIni());
         	xml.addVar(detail2, getColumna(i).getVarListado(), getColumna(i).getLongitud(), false);
         }
-        xml.addBr(detail2);       
+        xml.addBr(detail2);
 	}
 	private void generaPageHeader(Element blockheader) {
     	int posPagina = getLongitudLinea() - 7;
@@ -949,7 +949,7 @@ public abstract class Cabecera {
 	       	  if (getEncabezado(i).getLiteralBold()) xml.bold(blockheader, xml.Text(getEncabezado(i).getLiteral()));
 	       	  else xml.addText(blockheader, getEncabezado(i).getLiteral());
 	       	  xml.addVar(blockheader, getEncabezado(i).getVarListado(), false);
-	       	  xml.addBr(blockheader);	       	  
+	       	  xml.addBr(blockheader);
 	    	}
 	    }
 
@@ -1154,10 +1154,12 @@ public abstract class Cabecera {
         xml.addText(cond, xml.Text("<fechaimpresion>" + getFechaTexto() + "</fechaimpresion>"));
         xml.addText(cond, xml.Text("<encabezados>"));
         for (int i=0;i<encabezadosSize();i++) {
-	    	xml.addText(cond, xml.Text("<encabezado literal=\""+getEncabezado(i).getLiteral()+"\" valor=\""));
-	    	xml.addVar(cond, getEncabezado(i).getVarListado(), true);
-	       	xml.addText(cond, xml.Text("\"/>"));
-	    }
+          if (!getEncabezado(i).isNoVisualizarEnExcel()) {
+            xml.addText(cond, xml.Text("<encabezado literal=\""+getEncabezado(i).getLiteral()+"\" valor=\""));
+            xml.addVar(cond, getEncabezado(i).getVarListado(), true);
+            xml.addText(cond, xml.Text("\"/>"));
+          }
+        }
 	    xml.addText(cond, xml.Text("</encabezados>"));
 
 	    if (hayTituloSuperior()) {
@@ -1238,7 +1240,7 @@ public abstract class Cabecera {
 	        	if (getRepiteTitulo()) {
 	        	  retorn = pinta;
 	        	  pinta = false;
-	        	}	        	
+	        	}
 	        	break;
 	        case 2:
 	          if (finalListado()) {
