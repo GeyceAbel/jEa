@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100728
-// Hora:             11:54:38
+// Fecha:            20100909
+// Hora:             10:51:50
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1039,6 +1039,7 @@ public class ProgInsprconver extends Program
     
       String sentencias8_2[]={"DELETE FROM CNAE1993"};
       String sentencias8_4[]={"DELETE FROM MUNI347"};
+      String sentencias8_5[]={"DELETE FROM PAIS"};
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -1906,6 +1907,24 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","8.4");
           Easp.connEA.commit();
           vvveractual.setValue("8.4");
+        }
+        if (versio < 8.5) {
+          for (i=0;i<sentencias8_5.length;++i) {
+            try {
+              Easp.chivato("8.5 Exec : ["+sentencias8_5[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias8_5[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias8_5[i];
+              Easp.chivato("8.5 *** Error : ["+sentencias8_5[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          String tablas[]= {"PAIS"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0805","easp.jar");
+          Easp.setVersionBD("bdeasp","8.5");
+          Easp.connEA.commit();
+          vvveractual.setValue("8.5");
         }
       }
       catch(Exception e) {

@@ -25,8 +25,8 @@ public class Easp {
 
   //variables de versiones
   public static String versionAplicacion="8.4";
-  public static String versionFecha="Agosto/2010";
-  public static String versionBDEA="8.4";
+  public static String versionFecha="Septiembre/2010";
+  public static String versionBDEA="8.5";
 
   //Constantes
   public final static int IVA=16;
@@ -197,7 +197,7 @@ public class Easp {
         }
 
       if ( numMax > 0 && licencias > 0 && numMax > licencias ) licencias = numMax ;
-      
+
       boolean superaLicencias = false ;    
       if ( licencias > 0 &&  sesiones >= licencias ) superaLicencias = true  ; 
     

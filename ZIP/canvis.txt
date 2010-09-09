@@ -23,3 +23,4 @@
 050124 --> APJORDI: Conversió Taula MUNI347 la columna muniant no tenia valors correctes en alguns casos. Queden equivalencies en blanc ja que no sha trobat equivalencies.
 050125 --> APESTER: Modificat el programa CABECERA, la funcio MONTAEXCEL ja que tot i que li definies que part de la cabecera no s'imprimis en excel al fer la segona activitat
                     no ho tenia en compte
+050126 --> APESTER: Es posen nous registres a la taula PAISES perquè per JRENTA en falten
