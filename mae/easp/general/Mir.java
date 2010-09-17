@@ -21,6 +21,7 @@ public class Mir {
   private String desc;
   private String tipoDoc;
   private String fichero;
+  private String fichero_afinity;
   private String aplic;
   private String errorEnvio;
 
@@ -122,10 +123,11 @@ public class Mir {
 	  try {
 		  String codCDPAfinity = getCDPMIR();
 		  if (codCDPAfinity!=null && codCDPAfinity.length()>0) {
+			  File f = new File(fichero);        	  
+			  this.fichero_afinity = codCDPAfinity+"_"+f.getName();
 			  if (enviaFitMIRHTTP(codCDPAfinity)) {
-				  File f = new File(fichero);        	  
-				  String fitDesti = f.getName();    			
-				  bOk = creaRegWebMIR(codCDPAfinity,fitDesti,aplic,tipoDoc,tipoDoc,desc,usuario, fechaCrea);
+				  //bOk = creaRegWebMIR(codCDPAfinity,fitDesti,aplic,tipoDoc,tipoDoc,desc,usuario, fechaCrea);
+				  bOk = creaRegWebMIR(codCDPAfinity,fichero_afinity,aplic,tipoDoc,tipoDoc,desc,usuario, fechaCrea);
 			  }			  
 		  }
 		  else {
@@ -221,12 +223,12 @@ public class Mir {
 	  String fitDesti;
       try {
    		  File f = new File(fichero);        	  
-   		  fitDesti = f.getName();
+   		  //fitDesti = f.getName();
    		  AGPIConnect agpicon = new AGPIConnect();
-   		  if (agpicon.findRemoteFile(codCDPAfinity+"/PDF", fitDesti)) {
-   			  agpicon.deleteRemoteFile(codCDPAfinity+"/PDF", fitDesti);
+   		  if (agpicon.findRemoteFile(codCDPAfinity+"/PDF", fichero_afinity)) {
+   			  agpicon.deleteRemoteFile(codCDPAfinity+"/PDF", fichero_afinity);
    		  }
-   		  bOk = agpicon.uploadFile (null , codCDPAfinity,"PDF", fitDesti, fichero);
+   		  bOk = agpicon.uploadFile (null , codCDPAfinity,"PDF", fichero_afinity, fichero);
    		  if (!bOk) {
    	    	  String sCodiCDP = Easp.dominio.substring(0,6)+Util.formateoNumero("000000",empresa);
    	    	  errorEnvio = sCodiCDP+" error al enviar el fichero.";

@@ -24,3 +24,4 @@
 050125 --> APESTER: Modificat el programa CABECERA, la funcio MONTAEXCEL ja que tot i que li definies que part de la cabecera no s'imprimis en excel al fer la segona activitat
                     no ho tenia en compte
 050126 --> APESTER: Es posen nous registres a la taula PAISES perquè per JRENTA en falten
+050127 --> APJORDI: Envio documents emir. Quan s'enviava el mateix document a 2 clientes diferents es matxacava l'envio.
