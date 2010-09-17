@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100713
-// Hora:             14:47:58
+// Fecha:            20100917
+// Hora:             12:30:37
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -992,6 +992,8 @@ public class ProgPrgestdocsmir extends Program
       {
       smir.miraplic.setValue(aplic);
       smir.miractivado.setValue("S");
+      smir.mirfechacrea.setValue(Maefc.getDate());
+      smir.mirestado.setValue("P");
       smir.mircdp.setValue(Easp.dominio.substring(0,6) + Numero.format(mirmcodemp.getInteger(),"000000"));
       return super.onOkInsert();
       }
