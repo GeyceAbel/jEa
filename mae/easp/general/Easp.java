@@ -1568,6 +1568,51 @@ public static Date esFecha (String s){
 			return false;
 		  }
     }
+  
+  /**
+   * inserta o actualiza el valor de un parámetro
+   * @param   dominio dominio con el que se ha entrado en la aplicación
+   * @return  true       Si consigue efectuar la actualización
+   */
+  public static boolean setParam(String usuario, String ambito, String variable, String valor, String desc, String agrup, String especific) {
+		Select sparam=new Select(connEA);
+    Table  tbparam = new Table(sparam,"parametros");
+    Field  fdvalor = new Field(sparam,tbparam,"parvalor");
+		Field  fddominio = new Field(sparam,tbparam,"pardominio");
+		Field  fdusuario = new Field(sparam,tbparam,"parusuario");
+		Field  fdambito = new Field(sparam,tbparam,"parambito");
+		Field  fdvariable = new Field(sparam,tbparam,"parvariable");
+		Field  fddesc = new Field(sparam,tbparam,"pardesc");
+		Field  fdagrup = new Field(sparam,tbparam,"paragrup");
+		Field  fdespecific = new Field(sparam,tbparam,"parespecific");
+    chivato("dominio = "+dominio+"; parusuario = "+usuario+"; parvariable = "+variable+"; parambito="+ambito,0);
+		String strWhere = " pardominio = '"+dominio+"' And parusuario = '"+usuario+"' And parvariable = '"+variable+"' And parambito='"+ambito+"'";
+    sparam.setWhere(strWhere);
+    sparam.execute();
+    if (!sparam.isEof()) {
+			sparam.edit();
+			fdvalor.setValue(valor);
+		  }
+		else {
+			sparam.addNew();
+			fddominio.setValue(dominio);
+			fdusuario.setValue(usuario);
+			fdambito.setValue(ambito);
+			fdvariable.setValue(variable);
+			fdvalor.setValue(valor);
+			fddesc.setValue(desc);
+			fdagrup.setValue(agrup);
+			fdespecific.setValue(especific);
+		  }
+		if (sparam.save()){
+			sparam.commit();
+			return true;
+		  }
+		else {
+			sparam.rollback();
+			return false;
+		  }
+    }
 
   public static String getParam(String variable,String ambito) {
 		try {
