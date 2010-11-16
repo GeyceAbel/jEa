@@ -26,3 +26,4 @@
 050126 --> APESTER: Es posen nous registres a la taula PAISES perquè per JRENTA en falten
 050127 --> APJORDI: Envio documents emir. Quan s'enviava el mateix document a 2 clientes diferents es matxacava l'envio.
 050128 --> APJORDI: Envio documents emir. el tractament feia algun comportament raro kuan s'afegien varies lineas.
+050129 --> APESTER: Es modifica el query ja que quan a jiss es seleccionava query per societat donava error

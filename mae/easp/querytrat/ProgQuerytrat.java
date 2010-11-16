@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100602
-// Hora:             12:45:13
+// Fecha:            20101115
+// Hora:             18:09:10
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -488,7 +488,7 @@ public class ProgQuerytrat extends Program
              if ("S".equals(qefect.getString())) {
                if (!qefmaster.getString().equals("sociedades")) {
                   orden+=10;
-                  tc=buscaTabla("");
+                  tc=buscaTabla("sociedades");
                   in.valor("qetorden",orden);
                   in.valor("qettabla","sociedades");
                   in.valor("qetbbdd",tc.catalogo.getName());
