@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100909
-// Hora:             10:51:50
+// Fecha:            20101213
+// Hora:             11:56:43
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1040,6 +1040,11 @@ public class ProgInsprconver extends Program
       String sentencias8_2[]={"DELETE FROM CNAE1993"};
       String sentencias8_4[]={"DELETE FROM MUNI347"};
       String sentencias8_5[]={"DELETE FROM PAIS"};
+    
+      String sentencias8_6[]={
+      " DELETE FROM BANCO WHERE bncodigo=2107;",
+      " INSERT INTO BANCO (bncodigo,bndesc) VALUES (2107,'UNNIM');"};
+    
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -1926,7 +1931,24 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("8.5");
         }
+      if (versio < 8.6) {
+          for (i=0;i<sentencias8_6.length;++i) {
+            try {
+              Easp.chivato("8.6 Exec : ["+sentencias8_6[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias8_6[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias8_6[i];
+              Easp.chivato("8.6 *** Error : ["+sentencias8_6[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","8.6");
+          Easp.connEA.commit();
+          vvveractual.setValue("8.6");
       }
+      }
+    
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
         return false;
