@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090903
-// Hora:             14:02:45
+// Fecha:            20101213
+// Hora:             12:17:24
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -20,6 +20,16 @@ public class PickPkbancos extends PickUp
   public void setSelect(Select select) {
     super.setSelect(select);
     select.setDb(Easp.connEA);
+    }
+  public int columna = 1;
+  
+  public void onColumnSelectionChanged(int col) {
+    if (columna!=col) {
+      columna=col;
+      refresh();
+      read();
+      fireTableDataChanged();
+      }
     }
   
   // Fin declaraciones globales
@@ -55,7 +65,10 @@ public class PickPkbancos extends PickUp
       }
     public String getOrder()
       {
-      return "bndesc";
+      switch(columna) {
+            case 0: return "bncodigo";
+            }
+          return "bndesc";
       }
     }
     
