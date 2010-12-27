@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100917
-// Hora:             12:30:37
+// Fecha:            20101227
+// Hora:             09:37:44
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -690,6 +690,12 @@ public class ProgPrgestdocsmir extends Program
       //this.setLayout(new LayoutHtml("mae/laboral/html/vdocsmiredit.html"));
       if (estado.equals("I") )  doInsert();  
       else if (estado.equals("E") ) doEdit();
+    }
+    
+    public void doInsert() { 
+     super.onInsert();
+     duplicatePreviousRecord();
+     mirubicacion.setNull();
     }
     
     // Fin declaraciones globales

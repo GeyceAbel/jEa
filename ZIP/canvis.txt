@@ -29,3 +29,5 @@
 050129 --> APESTER: Es modifica el query ja que quan a jiss es seleccionava query per societat donava error
 050130 --> APESTER: S'afegeix l'entitat financera 2107 UNNIM i en la fitxa general, en domiciliacions el pick d'entitats financeres es permet
                     endreçar per nom o codi
+050131 --> APESTER: En el programa prgestdocmir en ESTAT ALTA es crida la funció duplicatePreviousRecord() en el OnInser perque dupliqui els valors
+                    de l'anterior registre excepte el fitxer a enviar
