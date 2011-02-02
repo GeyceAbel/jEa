@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20101213
-// Hora:             11:56:43
+// Fecha:            20110124
+// Hora:             09:51:55
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1045,6 +1045,12 @@ public class ProgInsprconver extends Program
       " DELETE FROM BANCO WHERE bncodigo=2107;",
       " INSERT INTO BANCO (bncodigo,bndesc) VALUES (2107,'UNNIM');"};
     
+      String sentencias8_7[]={
+      " ALTER TABLE MIR ADD mircliente   CHAR(15)",
+      " ALTER TABLE MIR ADD mirexpediente VARCHAR(15)"
+      };
+    
+    
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -1946,7 +1952,26 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","8.6");
           Easp.connEA.commit();
           vvveractual.setValue("8.6");
-      }
+        }
+    
+      if (versio < 8.7) {
+          for (i=0;i<sentencias8_7.length;++i) {
+            try {
+              Easp.chivato("8.7 Exec : ["+sentencias8_7[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias8_7[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias8_7[i];
+              Easp.chivato("8.7 *** Error : ["+sentencias8_7[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","8.7");
+          Easp.connEA.commit();
+          vvveractual.setValue("8.7");
+        }
+    
+    
       }
     
       catch(Exception e) {

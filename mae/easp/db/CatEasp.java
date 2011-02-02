@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100622
-// Hora:             13:22:18
+// Fecha:            20110124
+// Hora:             09:52:05
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2515,6 +2515,8 @@ public class CatEasp extends Catalog
     public FieldDef mirnomcodcen;
     public FieldDef mirnomcodtra;
     public FieldDef mirubicacion;
+    public FieldDef mircliente;
+    public FieldDef mirexpediente;
     public TabMir(String name)
       {
       super(name);
@@ -2533,6 +2535,8 @@ public class CatEasp extends Catalog
       mirnomcodcen = new FieldDef("mirnomcodcen",FieldDef.INTEGER,0);
       mirnomcodtra = new FieldDef("mirnomcodtra",FieldDef.INTEGER,0);
       mirubicacion = new FieldDef("mirubicacion",FieldDef.CHAR,200);
+      mircliente = new FieldDef("mircliente",FieldDef.CHAR,15);
+      mirexpediente = new FieldDef("mirexpediente",FieldDef.CHAR,15);
       FieldDef array[] = {
         mircodi,
         mircdp,
@@ -2548,7 +2552,9 @@ public class CatEasp extends Catalog
         mirmcodemp,
         mirnomcodcen,
         mirnomcodtra,
-        mirubicacion        
+        mirubicacion,
+        mircliente,
+        mirexpediente        
         };
       setColumns(array);
       FieldDef arrayf[] = {mircodi };

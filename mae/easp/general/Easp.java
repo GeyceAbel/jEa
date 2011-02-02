@@ -24,9 +24,9 @@ public class Easp {
   public static String nifCDP=null;
 
   //variables de versiones
-  public static String versionAplicacion="8.4";
-  public static String versionFecha="Diciembre/2010";
-  public static String versionBDEA="8.6";
+  public static String versionAplicacion="8.7";
+  public static String versionFecha="Enero/2011";
+  public static String versionBDEA="8.7";
 
   //Constantes
   public final static int IVA=16;
@@ -2441,6 +2441,7 @@ public static Date esFecha (String s){
   public boolean insertarLinia(DBConnection bd, String linia, String tabla) {
     try {
       if (cancelarConversion) return false;
+      System.out.println("INSERT INTO "+tabla+" VALUES ("+parserLiniaSQL(linia)+")");
       bd.executeUpdate("INSERT INTO "+tabla+" VALUES ("+parserLiniaSQL(linia)+")");
       return true;
       }

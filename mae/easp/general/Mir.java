@@ -198,6 +198,9 @@ public class Mir {
 	  String codigoCDP = null ;
 	  String sNif=null;
 	  String sCodiCDP = Easp.dominio.substring(0,6)+Util.formateoNumero("000000",empresa);
+	  
+	  System.out.println("sCodiCDP: ["+sCodiCDP+"]");
+	  
 	  sNif = getNif (sCodiCDP,Easp.connEA);
 	  if (sNif != null) {
 		  String sDns="http://afinity.geyce.es/pls/agpi/agpi2dp.";
