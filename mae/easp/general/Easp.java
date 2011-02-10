@@ -198,6 +198,8 @@ public class Easp {
 
       if ( numMax > 0 && licencias > 0 && numMax > licencias ) licencias = numMax ;
 
+      
+      
       boolean superaLicencias = false ;    
       if ( licencias > 0 &&  sesiones >= licencias ) superaLicencias = true  ; 
     
@@ -211,50 +213,64 @@ public class Easp {
       else                    fdsespermitido  .setValue("N");
       fdsesaplicacion .setValue(aplicacion);
       ssesiones.insert();
-      
-      if ( superaLicencias ) {
-    	if ( verMensaje ) {
-    	  String desSesion = "sesiones abiertas";
-    	  if ( sesiones == 1 ) desSesion = "sesión abierta";
+
+      // Nuevo , si tiene licencia de 4 se le permitira 5 licencias 6 ya no 
+      // if ( superaLicencias  ) {
+      if ( superaLicencias  && !( !soloAvisar && licencias == 4 && sesiones == 4) ) {
+    	  if ( verMensaje ) {
+    	    String desSesion = "sesiones abiertas";
+    	    if ( sesiones == 1 ) desSesion = "sesión abierta";
     	  
-    	  String desLicencia = " de "+licencias+" Puestos de trabajo. ";
-    	  if ( licencias == 1 )desLicencia = " de 1 Puesto de trabajo.";
-    	  String referencia = Fecha.fechaGregoriana(fechaGrabacio)+Fecha.getHora(horaGrab,"HHmmss")+ Numero.format( ((int)(Math.random()*1000)),"000") ;
-    	  String msg = "Excedido el número máximo de usuarios establecido en su Licencia de Uso. \n \n"+
+    	    String desLicencia = " de "+licencias+" Puestos de trabajo. ";
+    	    if ( licencias == 1 )desLicencia = " de 1 Puesto de trabajo.";
+    	    String referencia = Fecha.fechaGregoriana(fechaGrabacio)+Fecha.getHora(horaGrab,"HHmmss")+ Numero.format( ((int)(Math.random()*1000)),"000") ;
+    	    String msg = "Excedido el número máximo de usuarios establecido en su Licencia de Uso. \n \n"+
     		           "Se han detectado "+sesiones+" "+desSesion+" de la aplicación de "+aplicacion+". \n"+
     		           "En la actualidad su Licencia de Uso es  "+desLicencia+" \n \n"+
     		           "Detalle de ordenadores con sesión abierta: \n"+
-    		           detalleSesiones+"\n"+
-    		           "Temporalmente puede seguir trabajando con la aplicación. Si en el futuro prevé\n"+
-    		           "utilizar más puestos de trabajo de los que tiene contratados contacte con el  \n"+
+    		           detalleSesiones+"\n";
+    	  
+    	    // Nuevo , si tiene 8 licencias contratadas ,se avisara , pero siempre se dejará acceder a la aplicación
+    	  
+      	  if ( soloAvisar || licencias == 8 ) {
+      		  msg+= "Temporalmente puede seguir trabajando con la aplicación. Si en el futuro prevé\n"+
+      		         "utilizar más puestos de trabajo de los que tiene contratados contacte con el  \n"+
     		           "departamento comercial de GEYCE AGP S.L. para ampliar su Licencia de Uso. \n"+
     		           "Teléfono: 902 365 741    email: comercial@geyce.es ";
-    	  try {
-    		  String url=URL_AFINITY+"/pls/agpi/CONTROLLIC.grabaraviso?";
-    		  url += "pcliente="+codiDP;
-    		  url += "&preferencia="+referencia;
-    		  url += "&pmachine="+parserURL(nomPC);
-    		  url += "&pusuario="+parserURL(usuario);
-    		  url += "&paplicacion="+aplicacion;
-    		  if (soloAvisar) url += "&ppermitido=S";
-    		  else url += "&ppermitido=N";
-    		  if (tarifa!=null) url += "&ptarifa="+tarifa;
-    		  else url += "&ptarifa=NoDefinida";
-    		  url += "&ppuestosper="+licencias;
-    		  url += "&ppuestosocu="+sesiones;
-    		  url += "&pnomspcocu="+parserURL(detallePL);
-    		  URLExec.procesarURL(url);
-    	  }
-    	  catch (Exception e) {
-    		  e.printStackTrace();
-    	  }
+    	      }
+    	    else {
+            msg+= "Si desea utilizar más puestos de trabajo de los que tiene contratados contacte con el  \n"+
+                  "departamento comercial de GEYCE AGP S.L. para ampliar su Licencia de Uso. \n"+
+                  "Teléfono: 902 365 741    email: comercial@geyce.es ";    	    
+    	      }
+
+      	  try {
+    		    String url=URL_AFINITY+"/pls/agpi/CONTROLLIC.grabaraviso?";
+    		    url += "pcliente="+codiDP;
+    		    url += "&preferencia="+referencia;
+    		    url += "&pmachine="+parserURL(nomPC);
+    		    url += "&pusuario="+parserURL(usuario);
+    		    url += "&paplicacion="+aplicacion;
+    		    if (soloAvisar) url += "&ppermitido=S";
+    		    else url += "&ppermitido=N";
+    		    if (tarifa!=null) url += "&ptarifa="+tarifa;
+    		    else url += "&ptarifa=NoDefinida";
+    		    url += "&ppuestosper="+licencias;
+    		    url += "&ppuestosocu="+sesiones;
+    		    url += "&pnomspcocu="+parserURL(detallePL);
+    		    URLExec.procesarURL(url);
+    	      }
+    	    catch (Exception e) {
+    		    e.printStackTrace();
+    	    }
     	  Maefc.message(msg,"Control de Licencias de Uso ",Maefc.WARNING_MESSAGE);  
-    	}
-      	if ( !soloAvisar) {
-      	  ssesiones.insert() ;
-      	  return false ;  
-      	  }
-        }
+    	  }
+      // Si tiene licencia de 8 , siempre se permitirá acceder y solo se avisará
+    	if ( !soloAvisar && licencias < 8) {
+        ssesiones.insert() ;
+        return false ;  
+      	}
+       }
 
       
       Select simpuser          = new Select(connEA);
