@@ -31,3 +31,4 @@
                     endreçar per nom o codi
 050131 --> APESTER: En el programa prgestdocmir en ESTAT ALTA es crida la funció duplicatePreviousRecord() en el OnInser perque dupliqui els valors
                     de l'anterior registre excepte el fitxer a enviar
+110301 --> APJORDI: Actualitzacio taula MUNI347 replace / per -

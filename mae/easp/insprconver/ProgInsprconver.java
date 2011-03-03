@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20110124
-// Hora:             09:51:55
+// Fecha:            20110303
+// Hora:             18:03:37
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1049,7 +1049,7 @@ public class ProgInsprconver extends Program
       " ALTER TABLE MIR ADD mircliente   CHAR(15)",
       " ALTER TABLE MIR ADD mirexpediente VARCHAR(15)"
       };
-    
+    String sentencias8_8[]={"DELETE FROM MUNI347"};
     
       int i=0;
       try {
@@ -1969,6 +1969,24 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","8.7");
           Easp.connEA.commit();
           vvveractual.setValue("8.7");
+        }
+        if (versio < 8.8) {
+          for (i=0;i<sentencias8_8.length;++i) {
+            try {
+              Easp.chivato("8.8 Exec : ["+sentencias8_8[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias8_8[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias8_8[i];
+              Easp.chivato("8.8 *** Error : ["+sentencias8_8[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          String tablas[]= {"MUNI347"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0808","easp.jar");
+          Easp.setVersionBD("bdeasp","8.8");
+          Easp.connEA.commit();
+          vvveractual.setValue("8.8");
         }
     
     
