@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20110408
-// Hora:             11:31:41
+// Fecha:            20110413
+// Hora:             13:26:43
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2008,6 +2008,12 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("8.9");
         }    
+        if (versio < 9.0) {
+          grabarINDEMORA (2011,Fecha.getDate(2011,1,1),Fecha.getDate(2011,12,31),5);
+          Easp.setVersionBD("bdeasp","9.0");
+          Easp.connEA.commit();
+          vvveractual.setValue("9.0");
+        }
       }
     
       catch(Exception e) {
