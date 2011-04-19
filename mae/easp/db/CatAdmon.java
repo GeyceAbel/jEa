@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100301
-// Hora:             10:59:31
+// Fecha:            20110419
+// Hora:             18:30:57
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -90,6 +90,7 @@ public class CatAdmon extends Catalog
   public TabDatosregistral tabdatosregistral;
   public TabSesiones tabsesiones;
   public TabImpuser tabimpuser;
+  public TabCnae1993 tabcnae1993;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -2514,6 +2515,8 @@ public class CatAdmon extends Catalog
     public FieldDef mirnomcodcen;
     public FieldDef mirnomcodtra;
     public FieldDef mirubicacion;
+    public FieldDef mircliente;
+    public FieldDef mirexpediente;
     public TabMir(String name)
       {
       super(name);
@@ -2532,6 +2535,8 @@ public class CatAdmon extends Catalog
       mirnomcodcen = new FieldDef("mirnomcodcen",FieldDef.INTEGER,0);
       mirnomcodtra = new FieldDef("mirnomcodtra",FieldDef.INTEGER,0);
       mirubicacion = new FieldDef("mirubicacion",FieldDef.CHAR,200);
+      mircliente = new FieldDef("mircliente",FieldDef.CHAR,15);
+      mirexpediente = new FieldDef("mirexpediente",FieldDef.CHAR,15);
       FieldDef array[] = {
         mircodi,
         mircdp,
@@ -2547,7 +2552,9 @@ public class CatAdmon extends Catalog
         mirmcodemp,
         mirnomcodcen,
         mirnomcodtra,
-        mirubicacion        
+        mirubicacion,
+        mircliente,
+        mirexpediente        
         };
       setColumns(array);
       FieldDef arrayf[] = {mircodi };
@@ -3075,6 +3082,26 @@ public class CatAdmon extends Catalog
       }
     }
     
+  public class TabCnae1993 extends TableDef
+    {
+    // Campos
+    public FieldDef cn93codigo;
+    public FieldDef cn93desc;
+    public TabCnae1993(String name)
+      {
+      super(name);
+      cn93codigo = new FieldDef("cn93codigo",FieldDef.CHAR,4,FieldDef.NOTNULL);
+      cn93desc = new FieldDef("cn93desc",FieldDef.CHAR,160);
+      FieldDef array[] = {
+        cn93codigo,
+        cn93desc        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {cn93codigo };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public CatAdmon()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -3151,6 +3178,7 @@ public class CatAdmon extends Catalog
     tabdatosregistral = new TabDatosregistral("datosregistral");
     tabsesiones = new TabSesiones("sesiones");
     tabimpuser = new TabImpuser("impuser");
+    tabcnae1993 = new TabCnae1993("cnae1993");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -3225,7 +3253,8 @@ public class CatAdmon extends Catalog
       tabperfilusuario,
       tabdatosregistral,
       tabsesiones,
-      tabimpuser      
+      tabimpuser,
+      tabcnae1993      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
