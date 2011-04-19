@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100224
-// Hora:             11:54:23
+// Fecha:            20110419
+// Hora:             17:40:05
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -685,6 +685,9 @@ public class CatModgen extends Catalog
     public FieldDef presufijo;
     public FieldDef predeleg;
     public FieldDef precodadmon;
+    public FieldDef prefax;
+    public FieldDef premobil;
+    public FieldDef premail;
     public TabPresentador(String name)
       {
       super(name);
@@ -713,6 +716,9 @@ public class CatModgen extends Catalog
       presufijo = new FieldDef("presufijo",FieldDef.INTEGER,0);
       predeleg = new FieldDef("predeleg",FieldDef.INTEGER,0);
       precodadmon = new FieldDef("precodadmon",FieldDef.INTEGER,0);
+      prefax = new FieldDef("prefax",FieldDef.CHAR,9);
+      premobil = new FieldDef("premobil",FieldDef.CHAR,9);
+      premail = new FieldDef("premail",FieldDef.CHAR,100);
       FieldDef array[] = {
         predominio,
         precodigo,
@@ -738,7 +744,10 @@ public class CatModgen extends Catalog
         predigitos,
         presufijo,
         predeleg,
-        precodadmon        
+        precodadmon,
+        prefax,
+        premobil,
+        premail        
         };
       setColumns(array);
       FieldDef arrayf[] = {predominio,precodigo };
@@ -1654,6 +1663,7 @@ public class CatModgen extends Catalog
     public FieldDef migindrdto1;
     public FieldDef migindrdto2;
     public FieldDef migvolingmax;
+    public FieldDef miglinimprrenta;
     public TabModirpfagr(String name)
       {
       super(name);
@@ -1663,13 +1673,15 @@ public class CatModgen extends Catalog
       migindrdto1 = new FieldDef("migindrdto1",FieldDef.FLOAT,6,0);
       migindrdto2 = new FieldDef("migindrdto2",FieldDef.FLOAT,6,0);
       migvolingmax = new FieldDef("migvolingmax",FieldDef.FLOAT,6,0);
+      miglinimprrenta = new FieldDef("miglinimprrenta",FieldDef.INTEGER,0);
       FieldDef array[] = {
         migejercicio,
         migmodulo,
         migdescripcion,
         migindrdto1,
         migindrdto2,
-        migvolingmax        
+        migvolingmax,
+        miglinimprrenta        
         };
       setColumns(array);
       FieldDef arrayf[] = {migejercicio,migmodulo };

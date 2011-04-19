@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100224
-// Hora:             11:54:23
+// Fecha:            20110419
+// Hora:             17:40:04
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -53,6 +53,7 @@ public class CatModelos2 extends Catalog
   public TabMod340i tabmod340i;
   public TabMod310des tabmod310des;
   public TabMod110g tabmod110g;
+  public TabMod308 tabmod308;
   public TabMod309 tabmod309;
   public class TabMod184d extends TableDef
     {
@@ -7342,6 +7343,179 @@ public class CatModelos2 extends Catalog
       }
     }
     
+  public class TabMod308 extends TableDef
+    {
+    // Campos
+    public FieldDef m308dominio;
+    public FieldDef m308nif;
+    public FieldDef m308ejercicio;
+    public FieldDef m308periodo;
+    public FieldDef m308perpresen;
+    public FieldDef m308razon;
+    public FieldDef m308primerape;
+    public FieldDef m308tipodec;
+    public FieldDef m308adqnif;
+    public FieldDef m308adqpais;
+    public FieldDef m308adqrazon;
+    public FieldDef m308vehmarca;
+    public FieldDef m308vehtipo;
+    public FieldDef m308vehmodelo;
+    public FieldDef m308vehident;
+    public FieldDef m308vehclasif;
+    public FieldDef m308embfabric;
+    public FieldDef m308embtipo;
+    public FieldDef m308embident;
+    public FieldDef m308embeslora;
+    public FieldDef m308aerfabric;
+    public FieldDef m308aermarca;
+    public FieldDef m308aerserie;
+    public FieldDef m308aeranyof;
+    public FieldDef m308aerpeso;
+    public FieldDef m308mliqpadq;
+    public FieldDef m308mliqtip1;
+    public FieldDef m308mliqivaso;
+    public FieldDef m308mliqpvent;
+    public FieldDef m308mliqtip2;
+    public FieldDef m308mliqmaxde;
+    public FieldDef m308mliqivade;
+    public FieldDef m308rliqbase1;
+    public FieldDef m308rliqtipo1;
+    public FieldDef m308rliqcuot1;
+    public FieldDef m308rliqbase2;
+    public FieldDef m308rliqtipo2;
+    public FieldDef m308rliqcuot2;
+    public FieldDef m308rliqbase3;
+    public FieldDef m308rliqtipo3;
+    public FieldDef m308rliqcuot3;
+    public FieldDef m308rliqivadint;
+    public FieldDef m308mliqivadtra;
+    public FieldDef m308entingreso;
+    public FieldDef m308ofiingreso;
+    public FieldDef m308digiingreso;
+    public FieldDef m308ctaingreso;
+    public FieldDef m308impingreso;
+    public FieldDef m308perscont;
+    public FieldDef m308telefono;
+    public FieldDef m308observa;
+    public FieldDef m308munifirma;
+    public FieldDef m308fecha;
+    public TabMod308(String name)
+      {
+      super(name);
+      m308dominio = new FieldDef("m308dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m308nif = new FieldDef("m308nif",FieldDef.CHAR,9,FieldDef.NOTNULL);
+      m308ejercicio = new FieldDef("m308ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m308periodo = new FieldDef("m308periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m308perpresen = new FieldDef("m308perpresen",FieldDef.CHAR,2);
+      m308razon = new FieldDef("m308razon",FieldDef.CHAR,40);
+      m308primerape = new FieldDef("m308primerape",FieldDef.CHAR,4);
+      m308tipodec = new FieldDef("m308tipodec",FieldDef.CHAR,1);
+      m308adqnif = new FieldDef("m308adqnif",FieldDef.CHAR,9);
+      m308adqpais = new FieldDef("m308adqpais",FieldDef.CHAR,14);
+      m308adqrazon = new FieldDef("m308adqrazon",FieldDef.CHAR,40);
+      m308vehmarca = new FieldDef("m308vehmarca",FieldDef.CHAR,40);
+      m308vehtipo = new FieldDef("m308vehtipo",FieldDef.CHAR,40);
+      m308vehmodelo = new FieldDef("m308vehmodelo",FieldDef.CHAR,40);
+      m308vehident = new FieldDef("m308vehident",FieldDef.CHAR,40);
+      m308vehclasif = new FieldDef("m308vehclasif",FieldDef.CHAR,40);
+      m308embfabric = new FieldDef("m308embfabric",FieldDef.CHAR,40);
+      m308embtipo = new FieldDef("m308embtipo",FieldDef.CHAR,40);
+      m308embident = new FieldDef("m308embident",FieldDef.CHAR,40);
+      m308embeslora = new FieldDef("m308embeslora",FieldDef.FLOAT,6,0);
+      m308aerfabric = new FieldDef("m308aerfabric",FieldDef.CHAR,40);
+      m308aermarca = new FieldDef("m308aermarca",FieldDef.CHAR,40);
+      m308aerserie = new FieldDef("m308aerserie",FieldDef.CHAR,40);
+      m308aeranyof = new FieldDef("m308aeranyof",FieldDef.INTEGER,0);
+      m308aerpeso = new FieldDef("m308aerpeso",FieldDef.INTEGER,0);
+      m308mliqpadq = new FieldDef("m308mliqpadq",FieldDef.FLOAT,6,0);
+      m308mliqtip1 = new FieldDef("m308mliqtip1",FieldDef.FLOAT,6,0);
+      m308mliqivaso = new FieldDef("m308mliqivaso",FieldDef.FLOAT,6,0);
+      m308mliqpvent = new FieldDef("m308mliqpvent",FieldDef.FLOAT,6,0);
+      m308mliqtip2 = new FieldDef("m308mliqtip2",FieldDef.FLOAT,6,0);
+      m308mliqmaxde = new FieldDef("m308mliqmaxde",FieldDef.FLOAT,6,0);
+      m308mliqivade = new FieldDef("m308mliqivade",FieldDef.FLOAT,6,0);
+      m308rliqbase1 = new FieldDef("m308rliqbase1",FieldDef.FLOAT,6,0);
+      m308rliqtipo1 = new FieldDef("m308rliqtipo1",FieldDef.FLOAT,6,0);
+      m308rliqcuot1 = new FieldDef("m308rliqcuot1",FieldDef.FLOAT,6,0);
+      m308rliqbase2 = new FieldDef("m308rliqbase2",FieldDef.FLOAT,6,0);
+      m308rliqtipo2 = new FieldDef("m308rliqtipo2",FieldDef.FLOAT,6,0);
+      m308rliqcuot2 = new FieldDef("m308rliqcuot2",FieldDef.FLOAT,6,0);
+      m308rliqbase3 = new FieldDef("m308rliqbase3",FieldDef.FLOAT,6,0);
+      m308rliqtipo3 = new FieldDef("m308rliqtipo3",FieldDef.FLOAT,6,0);
+      m308rliqcuot3 = new FieldDef("m308rliqcuot3",FieldDef.FLOAT,6,0);
+      m308rliqivadint = new FieldDef("m308rliqivadint",FieldDef.FLOAT,6,0);
+      m308mliqivadtra = new FieldDef("m308mliqivadtra",FieldDef.FLOAT,6,0);
+      m308entingreso = new FieldDef("m308entingreso",FieldDef.CHAR,4);
+      m308ofiingreso = new FieldDef("m308ofiingreso",FieldDef.CHAR,4);
+      m308digiingreso = new FieldDef("m308digiingreso",FieldDef.CHAR,2);
+      m308ctaingreso = new FieldDef("m308ctaingreso",FieldDef.CHAR,10);
+      m308impingreso = new FieldDef("m308impingreso",FieldDef.FLOAT,6,0);
+      m308perscont = new FieldDef("m308perscont",FieldDef.CHAR,100);
+      m308telefono = new FieldDef("m308telefono",FieldDef.CHAR,20);
+      m308observa = new FieldDef("m308observa",FieldDef.CHAR,250);
+      m308munifirma = new FieldDef("m308munifirma",FieldDef.CHAR,30);
+      m308fecha = new FieldDef("m308fecha",FieldDef.DATE);
+      FieldDef array[] = {
+        m308dominio,
+        m308nif,
+        m308ejercicio,
+        m308periodo,
+        m308perpresen,
+        m308razon,
+        m308primerape,
+        m308tipodec,
+        m308adqnif,
+        m308adqpais,
+        m308adqrazon,
+        m308vehmarca,
+        m308vehtipo,
+        m308vehmodelo,
+        m308vehident,
+        m308vehclasif,
+        m308embfabric,
+        m308embtipo,
+        m308embident,
+        m308embeslora,
+        m308aerfabric,
+        m308aermarca,
+        m308aerserie,
+        m308aeranyof,
+        m308aerpeso,
+        m308mliqpadq,
+        m308mliqtip1,
+        m308mliqivaso,
+        m308mliqpvent,
+        m308mliqtip2,
+        m308mliqmaxde,
+        m308mliqivade,
+        m308rliqbase1,
+        m308rliqtipo1,
+        m308rliqcuot1,
+        m308rliqbase2,
+        m308rliqtipo2,
+        m308rliqcuot2,
+        m308rliqbase3,
+        m308rliqtipo3,
+        m308rliqcuot3,
+        m308rliqivadint,
+        m308mliqivadtra,
+        m308entingreso,
+        m308ofiingreso,
+        m308digiingreso,
+        m308ctaingreso,
+        m308impingreso,
+        m308perscont,
+        m308telefono,
+        m308observa,
+        m308munifirma,
+        m308fecha        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m308dominio,m308nif,m308ejercicio,m308periodo };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public class TabMod309 extends TableDef
     {
     // Campos
@@ -7629,6 +7803,7 @@ public class CatModelos2 extends Catalog
     tabmod340i = new TabMod340i("mod340i");
     tabmod310des = new TabMod310des("mod310des");
     tabmod110g = new TabMod110g("mod110g");
+    tabmod308 = new TabMod308("mod308");
     tabmod309 = new TabMod309("mod309");
     TableDef array[] = {
       tabmod184d,
@@ -7668,6 +7843,7 @@ public class CatModelos2 extends Catalog
       tabmod340i,
       tabmod310des,
       tabmod110g,
+      tabmod308,
       tabmod309      
       };
     setTables(array);
