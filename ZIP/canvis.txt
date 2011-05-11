@@ -34,3 +34,4 @@
 110301 --> APJORDI: Actualitzacio taula MUNI347 replace / per -
 110401 --> APESTER: Repetit pas conversio taula COEFICCORREC ja que molts clients no tenen els registres de 2010
 110402 --> APESTER: Afegit INTERES DE DEMORA de 2011
+110404 --> APJORDI: Afegit 2 camps a la taula nifes per el control d'access de jmodelos

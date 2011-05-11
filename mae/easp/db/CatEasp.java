@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20110419
-// Hora:             18:30:57
+// Fecha:            20110510
+// Hora:             19:25:11
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -504,6 +504,8 @@ public class CatEasp extends Catalog
     public FieldDef datsmovil;
     public FieldDef datsfax;
     public FieldDef datmovil;
+    public FieldDef datuser;
+    public FieldDef datgrupo;
     public TabNifes(String name)
       {
       super(name);
@@ -614,6 +616,8 @@ public class CatEasp extends Catalog
       datsmovil = new FieldDef("datsmovil",FieldDef.INTEGER,0);
       datsfax = new FieldDef("datsfax",FieldDef.INTEGER,0);
       datmovil = new FieldDef("datmovil",FieldDef.INTEGER,0);
+      datuser = new FieldDef("datuser",FieldDef.CHAR,25);
+      datgrupo = new FieldDef("datgrupo",FieldDef.CHAR,15);
       FieldDef array[] = {
         danifcif,
         datipo,
@@ -721,7 +725,9 @@ public class CatEasp extends Catalog
         datstel,
         datsmovil,
         datsfax,
-        datmovil        
+        datmovil,
+        datuser,
+        datgrupo        
         };
       setColumns(array);
       FieldDef arrayind1[] = { datapell1 };

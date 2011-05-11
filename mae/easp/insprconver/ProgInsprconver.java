@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20110413
-// Hora:             13:26:43
+// Fecha:            20110510
+// Hora:             19:10:11
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1053,6 +1053,11 @@ public class ProgInsprconver extends Program
     
     String sentencias8_9[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2010"};
     
+      String sentencias9_1[]={
+      " ALTER TABLE NIFES ADD datuser    VARCHAR(25)",
+      " ALTER TABLE NIFES ADD datgrupo   VARCHAR(15)"
+      };
+    
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -2014,6 +2019,24 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("9.0");
         }
+    
+        if (versio < 9.1) {
+          for (i=0;i<sentencias9_1.length;++i) {
+            try {
+              Easp.chivato("9.1 Exec : ["+sentencias9_1[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias9_1[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias9_1[i];
+              Easp.chivato("9.1*** Error : ["+sentencias9_1[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","9.1");
+          Easp.connEA.commit();
+          vvveractual.setValue("9.1");
+        }
+    
       }
     
       catch(Exception e) {
