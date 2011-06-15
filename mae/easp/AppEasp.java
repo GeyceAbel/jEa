@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20110511
-// Hora:             09:29:53
+// Fecha:            20110615
+// Hora:             18:55:22
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -394,6 +394,7 @@ class Barramenu extends MenuBar
     public M1incidef m1incidef;
     public M1inciden m1inciden;
     public M1gestmir m1gestmir;
+    public M1gestionnif m1gestionnif;
     class M1notas extends MenuItemProgram
       {
       public M1notas()
@@ -434,6 +435,16 @@ class Barramenu extends MenuBar
         }
       }
       
+    class M1gestionnif extends MenuItemProgram
+      {
+      public M1gestionnif()
+        {
+        super("Gestión nifes");
+        setName("m1gestionnif");
+        setProgram("mae.easp.prselecnif.ProgPrselecnif");
+        }
+      }
+      
     public Mtablascomunes()
       {
       super("U&tilidades");
@@ -442,6 +453,7 @@ class Barramenu extends MenuBar
       add(m1incidef=new M1incidef());
       add(m1inciden=new M1inciden());
       add(m1gestmir=new M1gestmir());
+      add(m1gestionnif=new M1gestionnif());
       }
     }
     
