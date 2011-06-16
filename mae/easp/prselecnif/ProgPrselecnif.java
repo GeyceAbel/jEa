@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20110615
-// Hora:             18:56:50
+// Fecha:            20110616
+// Hora:             10:19:23
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -276,6 +276,11 @@ public class ProgPrselecnif extends Program
     {
     this();
     this.easp=easp;
+    }
+  public void onInit()
+    {
+    setConnection(Easp.connEA);
+    super.onInit();
     }
   }
   
