@@ -258,16 +258,12 @@ public class Mir {
     selCDP.execute(sSql);
     if (selCDP.next()) {
       sCDPtmp = selCDP.getString("cdpcdprel");
-      if (sCDPtmp == null) {
-        sNif = selCDP.getString("cdpnifcif");
-      }
+      if (sCDPtmp == null) sNif = selCDP.getString("cdpnifcif");
       else {
         selCDP.close();
         sSql = "select cdpnifcif,cdpcdprel from cdp where cdpcodi='" + sCDPtmp + "'";
         selCDP.execute(sSql);
-        if (selCDP.next()) {
-          sNif = selCDP.getString("cdpnifcif");
-        }
+        if (selCDP.next()) sNif = selCDP.getString("cdpnifcif");
       }
     }
     selCDP.close();
