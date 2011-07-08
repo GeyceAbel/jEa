@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20110615
-// Hora:             18:55:22
+// Fecha:            20110707
+// Hora:             12:16:12
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -84,6 +84,7 @@ class Barramenu extends MenuBar
     public M1insconver m1insconver;
     public M1apl m1apl;
     public M1exportbd m1exportbd;
+    public M1creaindices m1creaindices;
     class M1insconver extends MenuItemProgram
       {
       public M1insconver()
@@ -114,6 +115,16 @@ class Barramenu extends MenuBar
         }
       }
       
+    class M1creaindices extends MenuItemProgram
+      {
+      public M1creaindices()
+        {
+        super("Gestión Indices BD");
+        setName("m1creaindices");
+        setProgram("mae.easp.insindices.ProgInsindices");
+        }
+      }
+      
     public Minstalacion()
       {
       super("&Instalación");
@@ -121,6 +132,7 @@ class Barramenu extends MenuBar
       add(m1insconver=new M1insconver());
       add(m1apl=new M1apl());
       add(m1exportbd=new M1exportbd());
+      add(m1creaindices=new M1creaindices());
       }
     }
     

@@ -138,6 +138,59 @@ public class Easp {
     }
 
 
+  public static DBConnection getConnexio(String nombd, DBConnection connEA) 
+  {
+    return(conectaBD(nombd, connEA.getDB().getServer(), connEA.getDB().getUser(), connEA.getDB().getPassword(), connEA.getDB().getType())); 
+    }
+  
+  
+  public static DBConnection conectaBD(String bdnom, String bdserver, String bduser, String bdpassword, String bdtype) {
+    DataBase db=new DataBase();
+    db.setName(bdnom);
+    db.setMyServer(bdserver);
+    db.setUser(bduser);
+    db.setMyPassword(bdpassword);
+    db.setType(bdtype);
+    DBConnection conn=new DBConnection(db);
+    
+    if (bdnom.equals("modelos")) 
+    {
+          CatModgen catmodgen = new CatModgen();
+          CatModelos1 catmodelos1 = new CatModelos1();
+          CatModelos2 catmodelos2 = new CatModelos2();
+          Catalog array[] = {catmodelos1,catmodelos2,catmodgen};
+          db.setCatalogs(array);
+      }     
+    else if (bdnom.equals("laboral")) 
+    {
+          CatLaboral catlaboral = new CatLaboral();
+          Catalog array[] = {catlaboral};
+          db.setCatalogs(array);
+      }     
+    else if (bdnom.equals("jeo")) 
+    {
+          CatJeo catjeo = new CatJeo();
+          Catalog array[] = {catjeo};
+          db.setCatalogs(array);
+      }
+    else if (bdnom.startsWith("cta")) 
+    {
+          CatCtasp catctasp = new CatCtasp();
+          Catalog array[] = {catctasp};
+          db.setCatalogs(array);
+      }     
+    else if (bdnom.startsWith("jiss")) 
+    {
+      CatJiss catjiss = new CatJiss ();
+          Catalog array[] = {catjiss};
+          db.setCatalogs(array);
+      }     
+    conn=new DBConnection(db);
+    if (conn.connect()) return conn;
+    else return null;
+  }
+
+  
 
   public static boolean crearSesion(String tarifa,String usuario, String aplicacion , boolean verMensaje,boolean soloAvisar ) {
 

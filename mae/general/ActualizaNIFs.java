@@ -214,7 +214,8 @@ public class ActualizaNIFs
 	
 	private DBConnection getConnexio(String nombd, DBConnection connEA) 
 	{
-		return(conectaBD(nombd, connEA.getDB().getServer(), connEA.getDB().getUser(), connEA.getDB().getPassword(), connEA.getDB().getType()));	
+		// return(conectaBD(nombd, connEA.getDB().getServer(), connEA.getDB().getUser(), connEA.getDB().getPassword(), connEA.getDB().getType()));	
+	  return Easp.getConnexio(nombd,connEA) ;
     }
 	
 	private boolean CambiarNIFJNomina(DBConnection connJNomina) 
@@ -435,6 +436,7 @@ public class ActualizaNIFs
 	}
 	
 	private DBConnection conectaBD(String bdnom, String bdserver, String bduser, String bdpassword, String bdtype) {
+	   /*
 	    DataBase db=new DataBase();
 	    db.setName(bdnom);
 	    db.setMyServer(bdserver);
@@ -478,6 +480,8 @@ public class ActualizaNIFs
 	    conn=new DBConnection(db);
 	    if (conn.connect()) return conn;
 	    else return null;
+	    */
+	   return Easp.conectaBD(bdnom,bdserver,bduser,bdpassword,bdtype);
 	  }
 
 	private boolean cambiarNifJConta() 
