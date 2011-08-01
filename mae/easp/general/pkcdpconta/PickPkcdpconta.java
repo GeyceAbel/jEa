@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100114
-// Hora:             10:23:19
+// Fecha:            20110801
+// Hora:             14:35:31
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -108,6 +108,7 @@ public class PickPkcdpconta extends PickUp
         if (aplic.equals("JCONTA")) where += " and cdpckconta='S' ";
         if (aplic.equals("EOS")) where += " and cdpckeo='S' ";
         if (aplic.equals("JISS")) where += " and cdpckiss='S' ";
+        if (aplic.equals("JRENTA")) where += " and cdpckrenta='S' ";
       }
       return where;
       
