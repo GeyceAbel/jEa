@@ -38,3 +38,4 @@
 110601 --> APJORDI: Afegir opcio per veure tots els nifes que hem afegit a les aplicacions J Utilidades -- > Gestion nifes.
 110602 --> APJORDI: Taula MUNI347 canviar ADENA per ODENA
 110801 --> APESTER: Pickup PKCDPCONTA s'ha afegit aplicatiu JRENTA
+110802 --> APJORDI: Revisat cambiCIF jModelos
