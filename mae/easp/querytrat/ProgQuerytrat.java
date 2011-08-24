@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20101115
-// Hora:             18:09:10
+// Fecha:            20110824
+// Hora:             11:48:42
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1173,16 +1173,19 @@ public class ProgQuerytrat extends Program
         {
         super.onAction();
         
+        /*
         votros.setModal(true);
-        
         LocationWindow locw=new LocationWindow();
         locw.setTitle("Otros Datos");
         locw.setWidth(400);
         locw.setHeight(200);
         locw.setLocation(LocationWindow.CENTER);
         votros.setLocation(locw);
-        
         votros.run();
+        */
+        
+        votros.open();
+        
         }
       }
       
@@ -1309,6 +1312,7 @@ public class ProgQuerytrat extends Program
     // Fin declaraciones globales
     // Controles
     public CtrlQecformato qecformato;
+    public CtrlQeclongitud qeclongitud;
     public CtrlVacumula vacumula;
     public CtrlVsalta vsalta;
     public CtrlVinicia vinicia;
@@ -1318,8 +1322,11 @@ public class ProgQuerytrat extends Program
       public Location( )
         {
         super();
+        setWidth(400);
+        setHeight(200);
         setTitle("Otros datos");
         setModal(true);
+        setLocation(CENTER);
         }
       }
       
@@ -1334,6 +1341,21 @@ public class ProgQuerytrat extends Program
         setLength(20);
         setPrintable(false);
         setField(scolumnas.qecformato);
+        }
+      }
+      
+    public class CtrlQeclongitud extends ControlEdit
+      {
+      public CtrlQeclongitud(Form form)
+        {
+        super(form);
+        setName("qeclongitud");
+        setTitle("Longitud");
+        setType(INTEGER);
+        setMaskInput("####");
+        setLength(4);
+        setPrintable(false);
+        setField(scolumnas.qeclongitud);
         }
       }
       
@@ -1414,9 +1436,11 @@ public class ProgQuerytrat extends Program
       setLayout(new LayoutAligned());
       setLocation(new Location());
       setStates(SHOW | UPDATE | INSERT);
+      setPrintable(false);
       setModal(true);
       setUnique(true);
       addControl(qecformato=new CtrlQecformato(this));
+      addControl(qeclongitud=new CtrlQeclongitud(this));
       addControl(vacumula=new CtrlVacumula(this));
       addControl(vsalta=new CtrlVsalta(this));
       addControl(vinicia=new CtrlVinicia(this));
