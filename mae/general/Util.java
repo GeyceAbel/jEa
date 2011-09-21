@@ -44,6 +44,7 @@ public class Util {
    * @return true si es numerico
    */
   public static boolean isNumero(String cadena) {
+    if (cadena==null || cadena.trim().length()==0) return false;
     for (int i=0;i<cadena.length();i++)
       if (cadena.charAt(i)<'0' || cadena.charAt(i)>'9')
         return false;
