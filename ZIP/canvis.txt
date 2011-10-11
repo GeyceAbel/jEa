@@ -40,3 +40,4 @@
 110801 --> APESTER: Pickup PKCDPCONTA s'ha afegit aplicatiu JRENTA
 110802 --> APJORDI: Revisat cambiCIF jModelos
 110901 --> APESTER: Modificada la funcio isNumero de UTIL.JAVA ja que quan el string era null donava error
+111001 --> APESTER: Modificat querylis i querytrat per JRENTA

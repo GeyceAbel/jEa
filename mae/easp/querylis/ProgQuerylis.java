@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100602
-// Hora:             12:45:10
+// Fecha:            20111011
+// Hora:             17:01:34
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -349,6 +349,7 @@ public class ProgQuerylis extends Program
       }
       else if (aplicacion.equals("JMODELOS") && "D".equals(frase.ect) ) f = "seleccion,"+f;
       else if (aplicacion.equals("JISS") && "S".equals(frase.ect) ) f = "seleccion,"+f;
+      else if (aplicacion.equals("JRENTA") && "D".equals(frase.ect) ) f = "seleccion,"+f;
       else if ("E".equals(frase.ect) || "C".equals(frase.ect) || "T".equals(frase.ect)) {
               f="seleccion,"+f;
       }
@@ -601,6 +602,19 @@ public class ProgQuerylis extends Program
   
              if (hiHaTaula("sociedades")) {
                  selwhere+=" and (SELEMPRESA IS NULL or SELEMPRESA=SOCCODIGO)";
+              }
+              if (where==null)
+                 where=selwhere;
+              else
+                 where=selwhere+" and ("+where+")";
+          }
+      }
+      else if (aplicacion.equals("JRENTA")) {
+         if ("D".equals(frase.ect)) {
+              String selwhere="SELUSUARIO='"+Aplication.getAplication().getUser()+"' and SELPROGRAMA='QUERY'";
+  
+             if (hiHaTaula("declarante")) {
+                 selwhere+=" and (SELEMPRESA IS NULL or SELEMPRESA=DECCODIGO)";
               }
               if (where==null)
                  where=selwhere;
@@ -1300,6 +1314,7 @@ public class ProgQuerylis extends Program
         if (aplicacion.equals("JEO")) nomListado="listadojEO";
         else if (aplicacion.equals("JMODELOS")) nomListado="listadojMODELOS";
         else if (aplicacion.equals("JISS")) nomListado="listadojISS";
+        else if (aplicacion.equals("JRENTA")) nomListado="listadojRENTA";
         
         salida.println("<"+nomListado+">");
         salida.println("<quefrase>");
@@ -1508,6 +1523,7 @@ public class ProgQuerylis extends Program
         if (aplicacion.equals("JEO")) nomListado="listadojEO";
         else if (aplicacion.equals("JMODELOS")) nomListado="listadojMODELOS";
         else if (aplicacion.equals("JISS")) nomListado="listadojISS";
+        else if (aplicacion.equals("JRENTA")) nomListado="listadojRENTA";
     
         if(!doc.getDocumentElement().getNodeName().equals(nomListado)) {
           Maefc.message("Error: el archivo " + fileImpXML.getName() +" no contiene ningun listado a importar","Validación de Datos",Maefc.ERROR_MESSAGE);
@@ -2412,6 +2428,8 @@ public class ProgQuerylis extends Program
     
     mae.jiss.datselec.ProgDatselec prconJiss=null;
     
+    mae.jrenta.datselec.ProgDatselec prconJrenta = null;
+    
     // Fin declaraciones globales
     // Controles
     // Acciones
@@ -2559,6 +2577,28 @@ public class ProgQuerylis extends Program
               prconJiss.setLocation(LocationBorder.locationBorderCenter);
            }
         }
+        else if (aplicacion.equals("JRENTA")) {
+           if ("D".equals(frase.ect)) {
+              assigno=1;
+              loc.setHeight(75+200);
+              ControlPanel panel2=new ControlPanel(this);
+              panel2.setLayout(new LayoutBorder());
+              panel2.setParent(this);
+      
+              setLayout(new LayoutSplit(LayoutSplit.VERTICAL));
+              prconJrenta=new mae.jrenta.datselec.ProgDatselec();
+              panel.setLocation(new LocationSplit(LocationSplit.LEFT));
+              prconJrenta.setConnection(getDataBase());
+              panel2.setLocation(new LocationSplit(LocationSplit.RIGHT));
+              prconJrenta.setParent(panel2);
+      
+              prconJrenta.borrarSeleccionado = true;
+              prconJrenta.gejer=mae.jrenta.general.Jrenta.gEjercicio;
+              prconJrenta.gprograma="QUERY";
+              prconJrenta.desactivaLimpiar=true;
+              prconJrenta.setLocation(LocationBorder.locationBorderCenter);
+           }
+        }
         else {
           if ("E".equals(frase.ect) || "C".equals(frase.ect) || "T".equals(frase.ect)) {
               assigno=1;
@@ -2591,6 +2631,7 @@ public class ProgQuerylis extends Program
         if (prconJeo!=null) prconJeo.run();
         if (prconJmodelos!=null) prconJmodelos.run();
         if (prconJiss!=null) prconJiss.run();
+        if (prconJrenta!=null) prconJrenta.run();
       
       }
     }
@@ -2919,6 +2960,7 @@ public class ProgQuerylis extends Program
     if (aplicacion.equals("JEO")) nomDirec="jEo";
     else if (aplicacion.equals("JMODELOS")) nomDirec="jModelos";
     else if (aplicacion.equals("JISS")) nomDirec="jIss";
+    else if (aplicacion.equals("JRENTA")) nomDirec="jRenta";
     else nomDirec="jNomina";
     
     squery.setDb(Aplication.getAplication().getDataBase());

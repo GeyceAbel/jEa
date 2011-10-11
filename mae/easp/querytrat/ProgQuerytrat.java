@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20110824
-// Hora:             11:48:42
+// Fecha:            20111011
+// Hora:             17:01:30
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -82,6 +82,9 @@ public class ProgQuerytrat extends Program
          grabaTaula=false;
       else if (aplicacion.equals("JISS") && (nom.startsWith("seleccion") || nom.equals("paramlis") || nom.startsWith("doc"))) 
            grabaTaula=false;
+      else if (aplicacion.equals("JRENTA") && (nom.startsWith("seleccion") || nom.equals("paramlis") || nom.startsWith("doc"))) 
+           grabaTaula=false;
+      
       if (grabaTaula) {
         String descripcio=tables[i].getDescription();
         if (descripcio==null) 
@@ -491,6 +494,26 @@ public class ProgQuerytrat extends Program
                   tc=buscaTabla("sociedades");
                   in.valor("qetorden",orden);
                   in.valor("qettabla","sociedades");
+                  in.valor("qetbbdd",tc.catalogo.getName());
+                  in.execute();
+               }
+             }
+             if (!qefmaster.getString().equals("nifes")) {
+                orden+=10;
+                tc=buscaTabla("nifes");
+                in.valor("qetorden",orden);
+                in.valor("qettabla","nifes");
+                in.valor("qetbbdd",tc.catalogo.getName());
+                in.execute();
+             }
+          }
+          else if (aplicacion.equals("JRENTA")) {
+             if ("S".equals(qefect.getString())) {
+               if (!qefmaster.getString().equals("declarante")) {
+                  orden+=10;
+                  tc=buscaTabla("declarante");
+                  in.valor("qetorden",orden);
+                  in.valor("qettabla","declarante");
                   in.valor("qetbbdd",tc.catalogo.getName());
                   in.execute();
                }
@@ -2303,6 +2326,14 @@ public class ProgQuerytrat extends Program
        vfrase.qefect.addItem("N/Sin selección");
        vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejiss.html"));
     }
+    else if (aplicacion.equals("JRENTA")) {
+       vfrase.qefect.setTitle("Declarante");
+       vfrase.qefect.removeAllItems();
+       vfrase.qefect.addItem("D/Declarante");
+       vfrase.qefect.addItem("N/Sin selección");
+       vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejrenta.html"));
+    }
+    
     else if (aplicacion.equals("JMODELOS")) {
       vfrase.qefect.removeAllItems();
       vfrase.qefect.setTitle("Seleccion NIF");
