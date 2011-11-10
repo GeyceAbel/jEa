@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111011
-// Hora:             17:01:30
+// Fecha:            20111028
+// Hora:             10:04:37
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -508,7 +508,7 @@ public class ProgQuerytrat extends Program
              }
           }
           else if (aplicacion.equals("JRENTA")) {
-             if ("S".equals(qefect.getString())) {
+      //       if ("S".equals(qefect.getString())) {
                if (!qefmaster.getString().equals("declarante")) {
                   orden+=10;
                   tc=buscaTabla("declarante");
@@ -517,8 +517,8 @@ public class ProgQuerytrat extends Program
                   in.valor("qetbbdd",tc.catalogo.getName());
                   in.execute();
                }
-             }
-             if (!qefmaster.getString().equals("nifes")) {
+      //       }
+             if (!qefmaster.getString().equals("nifes") && qefmaster.getString().equals("declarante")) {
                 orden+=10;
                 tc=buscaTabla("nifes");
                 in.valor("qetorden",orden);
