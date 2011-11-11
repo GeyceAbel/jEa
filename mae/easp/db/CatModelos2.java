@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20110419
-// Hora:             18:30:57
+// Fecha:            20111110
+// Hora:             18:26:06
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -55,6 +55,8 @@ public class CatModelos2 extends Catalog
   public TabMod110g tabmod110g;
   public TabMod308 tabmod308;
   public TabMod309 tabmod309;
+  public TabMod210 tabmod210;
+  public TabMod210cp tabmod210cp;
   public class TabMod184d extends TableDef
     {
     // Campos
@@ -7764,6 +7766,526 @@ public class CatModelos2 extends Catalog
       }
     }
     
+  public class TabMod210 extends TableDef
+    {
+    // Campos
+    public FieldDef m210dominio;
+    public FieldDef m210nif;
+    public FieldDef m210ejercicio;
+    public FieldDef m210periodo;
+    public FieldDef m210tipodec;
+    public FieldDef m210nombre;
+    public FieldDef m210condis;
+    public FieldDef m210condir;
+    public FieldDef m210condip;
+    public FieldDef m210condid;
+    public FieldDef m210condig;
+    public FieldDef m210condit;
+    public FieldDef m210agrupa;
+    public FieldDef m210fechadev;
+    public FieldDef m210tiporen;
+    public FieldDef m210divisa;
+    public FieldDef m210nifc;
+    public FieldDef m210fisjurc;
+    public FieldDef m210nombrec;
+    public FieldDef m210nifresc;
+    public FieldDef m210fechac;
+    public FieldDef m210ciudadc;
+    public FieldDef m210paisc;
+    public FieldDef m210paisfisc;
+    public FieldDef m210domic;
+    public FieldDef m210dcomplec;
+    public FieldDef m210poblacioc;
+    public FieldDef m210emailc;
+    public FieldDef m210postalc;
+    public FieldDef m210regionc;
+    public FieldDef m210paisdomic;
+    public FieldDef m210telfc;
+    public FieldDef m210movilc;
+    public FieldDef m210faxc;
+    public FieldDef m210nifr;
+    public FieldDef m210fisjurr;
+    public FieldDef m210nombrer;
+    public FieldDef m210tiporepr;
+    public FieldDef m210tipoviar;
+    public FieldDef m210viar;
+    public FieldDef m210tiponumr;
+    public FieldDef m210numcasar;
+    public FieldDef m210califr;
+    public FieldDef m210bloquer;
+    public FieldDef m210portalr;
+    public FieldDef m210escalr;
+    public FieldDef m210plantar;
+    public FieldDef m210puertar;
+    public FieldDef m210dcompler;
+    public FieldDef m210poblacior;
+    public FieldDef m210postalr;
+    public FieldDef m210nommunir;
+    public FieldDef m210codmunir;
+    public FieldDef m210codprovr;
+    public FieldDef m210telfr;
+    public FieldDef m210movilr;
+    public FieldDef m210faxr;
+    public FieldDef m210nifp;
+    public FieldDef m210fisjurp;
+    public FieldDef m210nombrep;
+    public FieldDef m210tipoviainm;
+    public FieldDef m210viainm;
+    public FieldDef m210tiponuminm;
+    public FieldDef m210numcasainm;
+    public FieldDef m210califinm;
+    public FieldDef m210bloqueinm;
+    public FieldDef m210portalinm;
+    public FieldDef m210escalinm;
+    public FieldDef m210plantainm;
+    public FieldDef m210puertainm;
+    public FieldDef m210dcompleinm;
+    public FieldDef m210lpoblacioin;
+    public FieldDef m210postalinm;
+    public FieldDef m210nommuniinm;
+    public FieldDef m210codmuniinm;
+    public FieldDef m210provinm;
+    public FieldDef m210referinm;
+    public FieldDef m210basei;
+    public FieldDef m210rdtor;
+    public FieldDef m210exenr;
+    public FieldDef m210gastor;
+    public FieldDef m210baser;
+    public FieldDef m210ambosh;
+    public FieldDef m210porcendech;
+    public FieldDef m210porcenconh;
+    public FieldDef m210nifconh;
+    public FieldDef m210nomconh;
+    public FieldDef m210vventah;
+    public FieldDef m210vcomprah;
+    public FieldDef m210diferh;
+    public FieldDef m210guanyh;
+    public FieldDef m210vventa2h;
+    public FieldDef m210vcompra2h;
+    public FieldDef m210difer2h;
+    public FieldDef m210guany2h;
+    public FieldDef m210baseh;
+    public FieldDef m210fecadqh;
+    public FieldDef m210fecadq2h;
+    public FieldDef m210nro211h;
+    public FieldDef m210baseg;
+    public FieldDef m210exencion;
+    public FieldDef m210convenio;
+    public FieldDef m210tipoimpos;
+    public FieldDef m210cuotaint;
+    public FieldDef m210deddonac;
+    public FieldDef m210cuotaley;
+    public FieldDef m210pornconveni;
+    public FieldDef m210lteconveni;
+    public FieldDef m210redcconveni;
+    public FieldDef m210cuotaintred;
+    public FieldDef m210reten;
+    public FieldDef m210resultant;
+    public FieldDef m210resultado;
+    public FieldDef m210complem;
+    public FieldDef m210nrocompant;
+    public FieldDef m210contacto;
+    public FieldDef m210telf1firma;
+    public FieldDef m210telf2firma;
+    public FieldDef m210emailfirma;
+    public TabMod210(String name)
+      {
+      super(name);
+      m210dominio = new FieldDef("m210dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m210nif = new FieldDef("m210nif",FieldDef.CHAR,9,FieldDef.NOTNULL);
+      m210ejercicio = new FieldDef("m210ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m210periodo = new FieldDef("m210periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m210tipodec = new FieldDef("m210tipodec",FieldDef.CHAR,1);
+      m210nombre = new FieldDef("m210nombre",FieldDef.CHAR,125);
+      m210condis = new FieldDef("m210condis",FieldDef.CHAR,1);
+      m210condir = new FieldDef("m210condir",FieldDef.CHAR,1);
+      m210condip = new FieldDef("m210condip",FieldDef.CHAR,1);
+      m210condid = new FieldDef("m210condid",FieldDef.CHAR,1);
+      m210condig = new FieldDef("m210condig",FieldDef.CHAR,1);
+      m210condit = new FieldDef("m210condit",FieldDef.CHAR,1);
+      m210agrupa = new FieldDef("m210agrupa",FieldDef.CHAR,1);
+      m210fechadev = new FieldDef("m210fechadev",FieldDef.DATE);
+      m210tiporen = new FieldDef("m210tiporen",FieldDef.CHAR,2);
+      m210divisa = new FieldDef("m210divisa",FieldDef.CHAR,3);
+      m210nifc = new FieldDef("m210nifc",FieldDef.CHAR,9);
+      m210fisjurc = new FieldDef("m210fisjurc",FieldDef.CHAR,1);
+      m210nombrec = new FieldDef("m210nombrec",FieldDef.CHAR,125);
+      m210nifresc = new FieldDef("m210nifresc",FieldDef.CHAR,15);
+      m210fechac = new FieldDef("m210fechac",FieldDef.DATE);
+      m210ciudadc = new FieldDef("m210ciudadc",FieldDef.CHAR,30);
+      m210paisc = new FieldDef("m210paisc",FieldDef.CHAR,2);
+      m210paisfisc = new FieldDef("m210paisfisc",FieldDef.CHAR,2);
+      m210domic = new FieldDef("m210domic",FieldDef.CHAR,50);
+      m210dcomplec = new FieldDef("m210dcomplec",FieldDef.CHAR,40);
+      m210poblacioc = new FieldDef("m210poblacioc",FieldDef.CHAR,30);
+      m210emailc = new FieldDef("m210emailc",FieldDef.CHAR,100);
+      m210postalc = new FieldDef("m210postalc",FieldDef.CHAR,10);
+      m210regionc = new FieldDef("m210regionc",FieldDef.CHAR,30);
+      m210paisdomic = new FieldDef("m210paisdomic",FieldDef.CHAR,2);
+      m210telfc = new FieldDef("m210telfc",FieldDef.CHAR,15);
+      m210movilc = new FieldDef("m210movilc",FieldDef.CHAR,15);
+      m210faxc = new FieldDef("m210faxc",FieldDef.CHAR,15);
+      m210nifr = new FieldDef("m210nifr",FieldDef.CHAR,9);
+      m210fisjurr = new FieldDef("m210fisjurr",FieldDef.CHAR,1);
+      m210nombrer = new FieldDef("m210nombrer",FieldDef.CHAR,125);
+      m210tiporepr = new FieldDef("m210tiporepr",FieldDef.CHAR,1);
+      m210tipoviar = new FieldDef("m210tipoviar",FieldDef.CHAR,5);
+      m210viar = new FieldDef("m210viar",FieldDef.CHAR,50);
+      m210tiponumr = new FieldDef("m210tiponumr",FieldDef.CHAR,3);
+      m210numcasar = new FieldDef("m210numcasar",FieldDef.INTEGER,0);
+      m210califr = new FieldDef("m210califr",FieldDef.CHAR,3);
+      m210bloquer = new FieldDef("m210bloquer",FieldDef.CHAR,3);
+      m210portalr = new FieldDef("m210portalr",FieldDef.CHAR,3);
+      m210escalr = new FieldDef("m210escalr",FieldDef.CHAR,3);
+      m210plantar = new FieldDef("m210plantar",FieldDef.CHAR,3);
+      m210puertar = new FieldDef("m210puertar",FieldDef.CHAR,3);
+      m210dcompler = new FieldDef("m210dcompler",FieldDef.CHAR,40);
+      m210poblacior = new FieldDef("m210poblacior",FieldDef.CHAR,30);
+      m210postalr = new FieldDef("m210postalr",FieldDef.INTEGER,0);
+      m210nommunir = new FieldDef("m210nommunir",FieldDef.CHAR,30);
+      m210codmunir = new FieldDef("m210codmunir",FieldDef.INTEGER,0);
+      m210codprovr = new FieldDef("m210codprovr",FieldDef.INTEGER,0);
+      m210telfr = new FieldDef("m210telfr",FieldDef.CHAR,9);
+      m210movilr = new FieldDef("m210movilr",FieldDef.CHAR,9);
+      m210faxr = new FieldDef("m210faxr",FieldDef.CHAR,9);
+      m210nifp = new FieldDef("m210nifp",FieldDef.CHAR,9);
+      m210fisjurp = new FieldDef("m210fisjurp",FieldDef.CHAR,1);
+      m210nombrep = new FieldDef("m210nombrep",FieldDef.CHAR,125);
+      m210tipoviainm = new FieldDef("m210tipoviainm",FieldDef.CHAR,5);
+      m210viainm = new FieldDef("m210viainm",FieldDef.CHAR,50);
+      m210tiponuminm = new FieldDef("m210tiponuminm",FieldDef.CHAR,3);
+      m210numcasainm = new FieldDef("m210numcasainm",FieldDef.INTEGER,0);
+      m210califinm = new FieldDef("m210califinm",FieldDef.CHAR,3);
+      m210bloqueinm = new FieldDef("m210bloqueinm",FieldDef.CHAR,3);
+      m210portalinm = new FieldDef("m210portalinm",FieldDef.CHAR,3);
+      m210escalinm = new FieldDef("m210escalinm",FieldDef.CHAR,3);
+      m210plantainm = new FieldDef("m210plantainm",FieldDef.CHAR,3);
+      m210puertainm = new FieldDef("m210puertainm",FieldDef.CHAR,3);
+      m210dcompleinm = new FieldDef("m210dcompleinm",FieldDef.CHAR,40);
+      m210lpoblacioin = new FieldDef("m210lpoblacioin",FieldDef.CHAR,30);
+      m210postalinm = new FieldDef("m210postalinm",FieldDef.INTEGER,0);
+      m210nommuniinm = new FieldDef("m210nommuniinm",FieldDef.CHAR,30);
+      m210codmuniinm = new FieldDef("m210codmuniinm",FieldDef.INTEGER,0);
+      m210provinm = new FieldDef("m210provinm",FieldDef.INTEGER,0);
+      m210referinm = new FieldDef("m210referinm",FieldDef.CHAR,20);
+      m210basei = new FieldDef("m210basei",FieldDef.FLOAT,6,0);
+      m210rdtor = new FieldDef("m210rdtor",FieldDef.FLOAT,6,0);
+      m210exenr = new FieldDef("m210exenr",FieldDef.FLOAT,6,0);
+      m210gastor = new FieldDef("m210gastor",FieldDef.FLOAT,6,0);
+      m210baser = new FieldDef("m210baser",FieldDef.FLOAT,6,0);
+      m210ambosh = new FieldDef("m210ambosh",FieldDef.CHAR,1);
+      m210porcendech = new FieldDef("m210porcendech",FieldDef.INTEGER,0);
+      m210porcenconh = new FieldDef("m210porcenconh",FieldDef.INTEGER,0);
+      m210nifconh = new FieldDef("m210nifconh",FieldDef.CHAR,9);
+      m210nomconh = new FieldDef("m210nomconh",FieldDef.CHAR,40);
+      m210vventah = new FieldDef("m210vventah",FieldDef.FLOAT,6,0);
+      m210vcomprah = new FieldDef("m210vcomprah",FieldDef.FLOAT,6,0);
+      m210diferh = new FieldDef("m210diferh",FieldDef.FLOAT,6,0);
+      m210guanyh = new FieldDef("m210guanyh",FieldDef.FLOAT,6,0);
+      m210vventa2h = new FieldDef("m210vventa2h",FieldDef.FLOAT,6,0);
+      m210vcompra2h = new FieldDef("m210vcompra2h",FieldDef.FLOAT,6,0);
+      m210difer2h = new FieldDef("m210difer2h",FieldDef.FLOAT,6,0);
+      m210guany2h = new FieldDef("m210guany2h",FieldDef.FLOAT,6,0);
+      m210baseh = new FieldDef("m210baseh",FieldDef.FLOAT,6,0);
+      m210fecadqh = new FieldDef("m210fecadqh",FieldDef.DATE);
+      m210fecadq2h = new FieldDef("m210fecadq2h",FieldDef.DATE);
+      m210nro211h = new FieldDef("m210nro211h",FieldDef.CHAR,13);
+      m210baseg = new FieldDef("m210baseg",FieldDef.FLOAT,6,0);
+      m210exencion = new FieldDef("m210exencion",FieldDef.CHAR,1);
+      m210convenio = new FieldDef("m210convenio",FieldDef.CHAR,1);
+      m210tipoimpos = new FieldDef("m210tipoimpos",FieldDef.INTEGER,0);
+      m210cuotaint = new FieldDef("m210cuotaint",FieldDef.FLOAT,6,0);
+      m210deddonac = new FieldDef("m210deddonac",FieldDef.FLOAT,6,0);
+      m210cuotaley = new FieldDef("m210cuotaley",FieldDef.FLOAT,6,0);
+      m210pornconveni = new FieldDef("m210pornconveni",FieldDef.FLOAT,6,0);
+      m210lteconveni = new FieldDef("m210lteconveni",FieldDef.FLOAT,6,0);
+      m210redcconveni = new FieldDef("m210redcconveni",FieldDef.FLOAT,6,0);
+      m210cuotaintred = new FieldDef("m210cuotaintred",FieldDef.FLOAT,6,0);
+      m210reten = new FieldDef("m210reten",FieldDef.FLOAT,6,0);
+      m210resultant = new FieldDef("m210resultant",FieldDef.FLOAT,6,0);
+      m210resultado = new FieldDef("m210resultado",FieldDef.FLOAT,6,0);
+      m210complem = new FieldDef("m210complem",FieldDef.CHAR,1);
+      m210nrocompant = new FieldDef("m210nrocompant",FieldDef.CHAR,13);
+      m210contacto = new FieldDef("m210contacto",FieldDef.CHAR,100);
+      m210telf1firma = new FieldDef("m210telf1firma",FieldDef.CHAR,15);
+      m210telf2firma = new FieldDef("m210telf2firma",FieldDef.CHAR,15);
+      m210emailfirma = new FieldDef("m210emailfirma",FieldDef.CHAR,100);
+      FieldDef array[] = {
+        m210dominio,
+        m210nif,
+        m210ejercicio,
+        m210periodo,
+        m210tipodec,
+        m210nombre,
+        m210condis,
+        m210condir,
+        m210condip,
+        m210condid,
+        m210condig,
+        m210condit,
+        m210agrupa,
+        m210fechadev,
+        m210tiporen,
+        m210divisa,
+        m210nifc,
+        m210fisjurc,
+        m210nombrec,
+        m210nifresc,
+        m210fechac,
+        m210ciudadc,
+        m210paisc,
+        m210paisfisc,
+        m210domic,
+        m210dcomplec,
+        m210poblacioc,
+        m210emailc,
+        m210postalc,
+        m210regionc,
+        m210paisdomic,
+        m210telfc,
+        m210movilc,
+        m210faxc,
+        m210nifr,
+        m210fisjurr,
+        m210nombrer,
+        m210tiporepr,
+        m210tipoviar,
+        m210viar,
+        m210tiponumr,
+        m210numcasar,
+        m210califr,
+        m210bloquer,
+        m210portalr,
+        m210escalr,
+        m210plantar,
+        m210puertar,
+        m210dcompler,
+        m210poblacior,
+        m210postalr,
+        m210nommunir,
+        m210codmunir,
+        m210codprovr,
+        m210telfr,
+        m210movilr,
+        m210faxr,
+        m210nifp,
+        m210fisjurp,
+        m210nombrep,
+        m210tipoviainm,
+        m210viainm,
+        m210tiponuminm,
+        m210numcasainm,
+        m210califinm,
+        m210bloqueinm,
+        m210portalinm,
+        m210escalinm,
+        m210plantainm,
+        m210puertainm,
+        m210dcompleinm,
+        m210lpoblacioin,
+        m210postalinm,
+        m210nommuniinm,
+        m210codmuniinm,
+        m210provinm,
+        m210referinm,
+        m210basei,
+        m210rdtor,
+        m210exenr,
+        m210gastor,
+        m210baser,
+        m210ambosh,
+        m210porcendech,
+        m210porcenconh,
+        m210nifconh,
+        m210nomconh,
+        m210vventah,
+        m210vcomprah,
+        m210diferh,
+        m210guanyh,
+        m210vventa2h,
+        m210vcompra2h,
+        m210difer2h,
+        m210guany2h,
+        m210baseh,
+        m210fecadqh,
+        m210fecadq2h,
+        m210nro211h,
+        m210baseg,
+        m210exencion,
+        m210convenio,
+        m210tipoimpos,
+        m210cuotaint,
+        m210deddonac,
+        m210cuotaley,
+        m210pornconveni,
+        m210lteconveni,
+        m210redcconveni,
+        m210cuotaintred,
+        m210reten,
+        m210resultant,
+        m210resultado,
+        m210complem,
+        m210nrocompant,
+        m210contacto,
+        m210telf1firma,
+        m210telf2firma,
+        m210emailfirma        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m210dominio,m210nif,m210ejercicio,m210periodo };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabMod210cp extends TableDef
+    {
+    // Campos
+    public FieldDef m210cpdominio;
+    public FieldDef m210cpnif;
+    public FieldDef m210cpejercicio;
+    public FieldDef m210cpperiodo;
+    public FieldDef m210cpformapago;
+    public FieldDef m210cpingpref;
+    public FieldDef m210cpingiban;
+    public FieldDef m210cpingbanc;
+    public FieldDef m210cpingofic;
+    public FieldDef m210cpingdc;
+    public FieldDef m210cpingcta;
+    public FieldDef m210cpiextnifue;
+    public FieldDef m210cpiextnomue;
+    public FieldDef m210cpiextctaue;
+    public FieldDef m210cpiextcodiu;
+    public FieldDef m210cpiextcodir;
+    public FieldDef m210cpiextctare;
+    public FieldDef m210cpiextnomre;
+    public FieldDef m210cpiextdirre;
+    public FieldDef m210cpiextpobre;
+    public FieldDef m210cpiextpaisr;
+    public FieldDef m210cpiextnpare;
+    public FieldDef m210cprenuncia;
+    public FieldDef m210cptransfnif;
+    public FieldDef m210cptransfnom;
+    public FieldDef m210cpdevpref;
+    public FieldDef m210cpdeviban;
+    public FieldDef m210cpdevbanc;
+    public FieldDef m210cpdevofic;
+    public FieldDef m210cpdevdc;
+    public FieldDef m210cpdevcta;
+    public FieldDef m210cpdextnifue;
+    public FieldDef m210cpdextnomue;
+    public FieldDef m210cpdextctaue;
+    public FieldDef m210cpdextcdiue;
+    public FieldDef m210cpdextcdire;
+    public FieldDef m210cpdextctare;
+    public FieldDef m210cpdextnomre;
+    public FieldDef m210cpdextdirre;
+    public FieldDef m210cpdextpobre;
+    public FieldDef m210cpdextpares;
+    public FieldDef m210cpdextnpare;
+    public FieldDef m210cpcuotacero;
+    public FieldDef m210cpbaespiban;
+    public FieldDef m210cpbaespbic;
+    public TabMod210cp(String name)
+      {
+      super(name);
+      m210cpdominio = new FieldDef("m210cpdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m210cpnif = new FieldDef("m210cpnif",FieldDef.CHAR,9,FieldDef.NOTNULL);
+      m210cpejercicio = new FieldDef("m210cpejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m210cpperiodo = new FieldDef("m210cpperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m210cpformapago = new FieldDef("m210cpformapago",FieldDef.CHAR,1);
+      m210cpingpref = new FieldDef("m210cpingpref",FieldDef.CHAR,2);
+      m210cpingiban = new FieldDef("m210cpingiban",FieldDef.CHAR,2);
+      m210cpingbanc = new FieldDef("m210cpingbanc",FieldDef.CHAR,4);
+      m210cpingofic = new FieldDef("m210cpingofic",FieldDef.CHAR,4);
+      m210cpingdc = new FieldDef("m210cpingdc",FieldDef.CHAR,2);
+      m210cpingcta = new FieldDef("m210cpingcta",FieldDef.CHAR,10);
+      m210cpiextnifue = new FieldDef("m210cpiextnifue",FieldDef.CHAR,15);
+      m210cpiextnomue = new FieldDef("m210cpiextnomue",FieldDef.CHAR,125);
+      m210cpiextctaue = new FieldDef("m210cpiextctaue",FieldDef.CHAR,34);
+      m210cpiextcodiu = new FieldDef("m210cpiextcodiu",FieldDef.CHAR,11);
+      m210cpiextcodir = new FieldDef("m210cpiextcodir",FieldDef.CHAR,11);
+      m210cpiextctare = new FieldDef("m210cpiextctare",FieldDef.CHAR,50);
+      m210cpiextnomre = new FieldDef("m210cpiextnomre",FieldDef.CHAR,125);
+      m210cpiextdirre = new FieldDef("m210cpiextdirre",FieldDef.CHAR,100);
+      m210cpiextpobre = new FieldDef("m210cpiextpobre",FieldDef.CHAR,30);
+      m210cpiextpaisr = new FieldDef("m210cpiextpaisr",FieldDef.CHAR,30);
+      m210cpiextnpare = new FieldDef("m210cpiextnpare",FieldDef.CHAR,2);
+      m210cprenuncia = new FieldDef("m210cprenuncia",FieldDef.CHAR,1);
+      m210cptransfnif = new FieldDef("m210cptransfnif",FieldDef.CHAR,9);
+      m210cptransfnom = new FieldDef("m210cptransfnom",FieldDef.CHAR,125);
+      m210cpdevpref = new FieldDef("m210cpdevpref",FieldDef.CHAR,2);
+      m210cpdeviban = new FieldDef("m210cpdeviban",FieldDef.CHAR,2);
+      m210cpdevbanc = new FieldDef("m210cpdevbanc",FieldDef.CHAR,4);
+      m210cpdevofic = new FieldDef("m210cpdevofic",FieldDef.CHAR,4);
+      m210cpdevdc = new FieldDef("m210cpdevdc",FieldDef.CHAR,2);
+      m210cpdevcta = new FieldDef("m210cpdevcta",FieldDef.CHAR,10);
+      m210cpdextnifue = new FieldDef("m210cpdextnifue",FieldDef.CHAR,15);
+      m210cpdextnomue = new FieldDef("m210cpdextnomue",FieldDef.CHAR,125);
+      m210cpdextctaue = new FieldDef("m210cpdextctaue",FieldDef.CHAR,34);
+      m210cpdextcdiue = new FieldDef("m210cpdextcdiue",FieldDef.CHAR,11);
+      m210cpdextcdire = new FieldDef("m210cpdextcdire",FieldDef.CHAR,11);
+      m210cpdextctare = new FieldDef("m210cpdextctare",FieldDef.CHAR,50);
+      m210cpdextnomre = new FieldDef("m210cpdextnomre",FieldDef.CHAR,125);
+      m210cpdextdirre = new FieldDef("m210cpdextdirre",FieldDef.CHAR,100);
+      m210cpdextpobre = new FieldDef("m210cpdextpobre",FieldDef.CHAR,30);
+      m210cpdextpares = new FieldDef("m210cpdextpares",FieldDef.CHAR,30);
+      m210cpdextnpare = new FieldDef("m210cpdextnpare",FieldDef.CHAR,2);
+      m210cpcuotacero = new FieldDef("m210cpcuotacero",FieldDef.CHAR,1);
+      m210cpbaespiban = new FieldDef("m210cpbaespiban",FieldDef.CHAR,24);
+      m210cpbaespbic = new FieldDef("m210cpbaespbic",FieldDef.CHAR,11);
+      FieldDef array[] = {
+        m210cpdominio,
+        m210cpnif,
+        m210cpejercicio,
+        m210cpperiodo,
+        m210cpformapago,
+        m210cpingpref,
+        m210cpingiban,
+        m210cpingbanc,
+        m210cpingofic,
+        m210cpingdc,
+        m210cpingcta,
+        m210cpiextnifue,
+        m210cpiextnomue,
+        m210cpiextctaue,
+        m210cpiextcodiu,
+        m210cpiextcodir,
+        m210cpiextctare,
+        m210cpiextnomre,
+        m210cpiextdirre,
+        m210cpiextpobre,
+        m210cpiextpaisr,
+        m210cpiextnpare,
+        m210cprenuncia,
+        m210cptransfnif,
+        m210cptransfnom,
+        m210cpdevpref,
+        m210cpdeviban,
+        m210cpdevbanc,
+        m210cpdevofic,
+        m210cpdevdc,
+        m210cpdevcta,
+        m210cpdextnifue,
+        m210cpdextnomue,
+        m210cpdextctaue,
+        m210cpdextcdiue,
+        m210cpdextcdire,
+        m210cpdextctare,
+        m210cpdextnomre,
+        m210cpdextdirre,
+        m210cpdextpobre,
+        m210cpdextpares,
+        m210cpdextnpare,
+        m210cpcuotacero,
+        m210cpbaespiban,
+        m210cpbaespbic        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m210cpdominio,m210cpnif,m210cpejercicio,m210cpperiodo };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public CatModelos2()
     {
     tabmod184d = new TabMod184d("mod184d");
@@ -7805,6 +8327,8 @@ public class CatModelos2 extends Catalog
     tabmod110g = new TabMod110g("mod110g");
     tabmod308 = new TabMod308("mod308");
     tabmod309 = new TabMod309("mod309");
+    tabmod210 = new TabMod210("mod210");
+    tabmod210cp = new TabMod210cp("mod210cp");
     TableDef array[] = {
       tabmod184d,
       tabmod184e,
@@ -7844,7 +8368,9 @@ public class CatModelos2 extends Catalog
       tabmod310des,
       tabmod110g,
       tabmod308,
-      tabmod309      
+      tabmod309,
+      tabmod210,
+      tabmod210cp      
       };
     setTables(array);
     FieldDef tabmod184eArrayf1[] = { tabmod184e.m184edominio,tabmod184e.m184enif,tabmod184e.m184eejercicio,tabmod184e.m184eperiodo };

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100416
-// Hora:             14:05:12
+// Fecha:            20111110
+// Hora:             17:33:28
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -31,6 +31,7 @@ public class ProgPrchgnif extends Program
   private boolean esjConta;
   private boolean esjEO;
   private boolean esjISS;
+  private boolean esjRENTA;
   
    
   
@@ -61,6 +62,7 @@ public class ProgPrchgnif extends Program
     public CtrlJnomina jnomina;
     public CtrlJeo jeo;
     public CtrlJiss jiss;
+    public CtrlJrenta jrenta;
     // Acciones
     public LinkBtchgnif btchgnif;
     class Location extends LocationGridBag
@@ -231,6 +233,21 @@ public class ProgPrchgnif extends Program
         }
       }
       
+    public class CtrlJrenta extends ControlCheck
+      {
+      public CtrlJrenta(Form form)
+        {
+        super(form);
+        setName("jrenta");
+        setTitle("jRenta");
+        }
+      public Object getDefault()
+        {
+        jrenta.setEnabled(false);
+        return esjRENTA;
+        }
+      }
+      
     public class LinkBtchgnif extends Action
       {
       public LinkBtchgnif(Form form)
@@ -291,6 +308,7 @@ public class ProgPrchgnif extends Program
       addControl(jnomina=new CtrlJnomina(this));
       addControl(jeo=new CtrlJeo(this));
       addControl(jiss=new CtrlJiss(this));
+      addControl(jrenta=new CtrlJrenta(this));
       addAction(btchgnif=new LinkBtchgnif(this));
       }
     public void onInit()
@@ -329,7 +347,7 @@ public class ProgPrchgnif extends Program
     
     Selector cdpSelector = new Selector(getDataBase());
     	 
-    	  cdpSelector.execute("Select cdp.cdpnifcif, nifes.datnombre, nifes.datapell1, nifes.datapell2, cdp.cdpcknomina, cdp.cdpckconta, cdp.cdpckeo, cdp.cdpckiss from cdp INNER JOIN nifes ON cdp.cdpnifcif=nifes.danifcif where cdpcodi = '"+gcdp+"'");
+    	  cdpSelector.execute("Select cdp.cdpnifcif, nifes.datnombre, nifes.datapell1, nifes.datapell2, cdp.cdpcknomina, cdp.cdpckconta, cdp.cdpckeo, cdp.cdpckiss,cdp.cdpckrenta from cdp INNER JOIN nifes ON cdp.cdpnifcif=nifes.danifcif where cdpcodi = '"+gcdp+"'");
     	  if(cdpSelector.next())
     	  {
     		  super.onInit();
@@ -339,6 +357,7 @@ public class ProgPrchgnif extends Program
               esjConta = "S".equals(cdpSelector.getString("cdpckconta"));
               esjEO = "S".equals(cdpSelector.getString("cdpckeo"));
               esjISS = "S".equals(cdpSelector.getString("cdpckiss"));
+              esjRENTA = "S".equals(cdpSelector.getString("cdpckrenta"));
     	  }
     	  else
     	  {

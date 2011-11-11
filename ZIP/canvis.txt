@@ -42,3 +42,4 @@
 110901 --> APESTER: Modificada la funcio isNumero de UTIL.JAVA ja que quan el string era null donava error
 111001 --> APESTER: Modificat querylis i querytrat per JRENTA
 111002 --> APESTER: Modificat querytrat per JRENTA
+111101 --> APJORDI: SQL JRENTA I canvi de NIF jrenta i modelos de jrenta i jiss

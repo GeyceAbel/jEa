@@ -158,7 +158,10 @@ public class Easp {
           CatModgen catmodgen = new CatModgen();
           CatModelos1 catmodelos1 = new CatModelos1();
           CatModelos2 catmodelos2 = new CatModelos2();
-          Catalog array[] = {catmodelos1,catmodelos2,catmodgen};
+          CatModelo100 catmodelo100 = new CatModelo100();
+          CatModelo200 catmodelo200 = new CatModelo200();
+          CatModelo714 catmodelo714 = new CatModelo714();
+          Catalog array[] = {catmodelos1,catmodelos2,catmodgen,catmodelo100,catmodelo200,catmodelo714};
           db.setCatalogs(array);
       }     
     else if (bdnom.equals("laboral")) 
@@ -185,6 +188,12 @@ public class Easp {
           Catalog array[] = {catjiss};
           db.setCatalogs(array);
       }     
+    else if (bdnom.startsWith("jrenta")) 
+    {
+      CatJrenta catjrenta = new CatJrenta ();
+          Catalog array[] = {catjrenta};
+          db.setCatalogs(array);
+      }      
     conn=new DBConnection(db);
     if (conn.connect()) return conn;
     else return null;

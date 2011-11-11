@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20110419
-// Hora:             18:30:57
+// Fecha:            20111110
+// Hora:             18:26:06
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -62,6 +62,7 @@ public class CatModelos1 extends Catalog
   public TabMod296r tabmod296r;
   public TabMod296d tabmod296d;
   public TabMod322 tabmod322;
+  public TabMod102 tabmod102;
   public class TabMod300 extends TableDef
     {
     // Campos
@@ -5812,6 +5813,10 @@ public class CatModelos1 extends Catalog
     public FieldDef m202emailcon;
     public FieldDef m202espyme;
     public FieldDef m202escreaemp;
+    public FieldDef m202tipo21b2;
+    public FieldDef m202tipo25b2;
+    public FieldDef m202chcom;
+    public FieldDef m202nrs;
     public TabMod202(String name)
       {
       super(name);
@@ -5893,7 +5898,7 @@ public class CatModelos1 extends Catalog
       m202correcrtdo = new FieldDef("m202correcrtdo",FieldDef.FLOAT,6,0);
       m202combiantneg = new FieldDef("m202combiantneg",FieldDef.FLOAT,6,0);
       m202opecomunfor = new FieldDef("m202opecomunfor",FieldDef.FLOAT,6,0);
-      m202numerogrupo = new FieldDef("m202numerogrupo",FieldDef.CHAR,5);
+      m202numerogrupo = new FieldDef("m202numerogrupo",FieldDef.CHAR,10);
       m202cruzccc = new FieldDef("m202cruzccc",FieldDef.CHAR,1);
       m202codelec = new FieldDef("m202codelec",FieldDef.CHAR,16);
       m202pymep1 = new FieldDef("m202pymep1",FieldDef.FLOAT,6,0);
@@ -5907,6 +5912,10 @@ public class CatModelos1 extends Catalog
       m202emailcon = new FieldDef("m202emailcon",FieldDef.CHAR,50);
       m202espyme = new FieldDef("m202espyme",FieldDef.CHAR,1);
       m202escreaemp = new FieldDef("m202escreaemp",FieldDef.CHAR,1);
+      m202tipo21b2 = new FieldDef("m202tipo21b2",FieldDef.FLOAT,6,0);
+      m202tipo25b2 = new FieldDef("m202tipo25b2",FieldDef.FLOAT,6,0);
+      m202chcom = new FieldDef("m202chcom",FieldDef.CHAR,1);
+      m202nrs = new FieldDef("m202nrs",FieldDef.CHAR,22);
       FieldDef array[] = {
         m202dominio,
         m202nif,
@@ -5999,7 +6008,11 @@ public class CatModelos1 extends Catalog
         m202movcon,
         m202emailcon,
         m202espyme,
-        m202escreaemp        
+        m202escreaemp,
+        m202tipo21b2,
+        m202tipo25b2,
+        m202chcom,
+        m202nrs        
         };
       setColumns(array);
       FieldDef arrayf[] = {m202dominio,m202nif,m202ejercicio,m202periodo };
@@ -9072,6 +9085,98 @@ public class CatModelos1 extends Catalog
       }
     }
     
+  public class TabMod102 extends TableDef
+    {
+    // Campos
+    public FieldDef m102dominio;
+    public FieldDef m102nif;
+    public FieldDef m102ejercicio;
+    public FieldDef m102periodo;
+    public FieldDef m102apellido1;
+    public FieldDef m102apellido2;
+    public FieldDef m102nombre;
+    public FieldDef m102nifc;
+    public FieldDef m102apellido1c;
+    public FieldDef m102apellido2c;
+    public FieldDef m102nombrec;
+    public FieldDef m102resultado;
+    public FieldDef m102imp1plazo;
+    public FieldDef m102imp2plazo;
+    public FieldDef m102efectivo;
+    public FieldDef m102adeudo;
+    public FieldDef m102importe;
+    public FieldDef m102entingreso;
+    public FieldDef m102ofiingreso;
+    public FieldDef m102digiingreso;
+    public FieldDef m102ctaingreso;
+    public FieldDef m102lugar;
+    public FieldDef m102dia;
+    public FieldDef m102mes;
+    public FieldDef m102anyo;
+    public FieldDef m102fecha;
+    public TabMod102(String name)
+      {
+      super(name);
+      m102dominio = new FieldDef("m102dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m102nif = new FieldDef("m102nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m102ejercicio = new FieldDef("m102ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m102periodo = new FieldDef("m102periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m102apellido1 = new FieldDef("m102apellido1",FieldDef.CHAR,40);
+      m102apellido2 = new FieldDef("m102apellido2",FieldDef.CHAR,40);
+      m102nombre = new FieldDef("m102nombre",FieldDef.CHAR,30);
+      m102nifc = new FieldDef("m102nifc",FieldDef.CHAR,15);
+      m102apellido1c = new FieldDef("m102apellido1c",FieldDef.CHAR,40);
+      m102apellido2c = new FieldDef("m102apellido2c",FieldDef.CHAR,40);
+      m102nombrec = new FieldDef("m102nombrec",FieldDef.CHAR,30);
+      m102resultado = new FieldDef("m102resultado",FieldDef.FLOAT,6,0);
+      m102imp1plazo = new FieldDef("m102imp1plazo",FieldDef.FLOAT,6,0);
+      m102imp2plazo = new FieldDef("m102imp2plazo",FieldDef.FLOAT,6,0);
+      m102efectivo = new FieldDef("m102efectivo",FieldDef.CHAR,1);
+      m102adeudo = new FieldDef("m102adeudo",FieldDef.CHAR,1);
+      m102importe = new FieldDef("m102importe",FieldDef.FLOAT,6,0);
+      m102entingreso = new FieldDef("m102entingreso",FieldDef.CHAR,4);
+      m102ofiingreso = new FieldDef("m102ofiingreso",FieldDef.CHAR,4);
+      m102digiingreso = new FieldDef("m102digiingreso",FieldDef.CHAR,2);
+      m102ctaingreso = new FieldDef("m102ctaingreso",FieldDef.CHAR,10);
+      m102lugar = new FieldDef("m102lugar",FieldDef.CHAR,30);
+      m102dia = new FieldDef("m102dia",FieldDef.CHAR,2);
+      m102mes = new FieldDef("m102mes",FieldDef.CHAR,10);
+      m102anyo = new FieldDef("m102anyo",FieldDef.CHAR,4);
+      m102fecha = new FieldDef("m102fecha",FieldDef.DATE);
+      FieldDef array[] = {
+        m102dominio,
+        m102nif,
+        m102ejercicio,
+        m102periodo,
+        m102apellido1,
+        m102apellido2,
+        m102nombre,
+        m102nifc,
+        m102apellido1c,
+        m102apellido2c,
+        m102nombrec,
+        m102resultado,
+        m102imp1plazo,
+        m102imp2plazo,
+        m102efectivo,
+        m102adeudo,
+        m102importe,
+        m102entingreso,
+        m102ofiingreso,
+        m102digiingreso,
+        m102ctaingreso,
+        m102lugar,
+        m102dia,
+        m102mes,
+        m102anyo,
+        m102fecha        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m102dominio,m102nif,m102ejercicio,m102periodo };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public CatModelos1()
     {
     tabmod300 = new TabMod300("mod300");
@@ -9120,6 +9225,7 @@ public class CatModelos1 extends Catalog
     tabmod296r = new TabMod296r("mod296r");
     tabmod296d = new TabMod296d("mod296d");
     tabmod322 = new TabMod322("mod322");
+    tabmod102 = new TabMod102("mod102");
     TableDef array[] = {
       tabmod300,
       tabmod300des,
@@ -9166,7 +9272,8 @@ public class CatModelos1 extends Catalog
       tabmod216d,
       tabmod296r,
       tabmod296d,
-      tabmod322      
+      tabmod322,
+      tabmod102      
       };
     setTables(array);
     FieldDef tabmod300desArrayf1[] = { tabmod300des.m300ddominio,tabmod300des.m300dnif,tabmod300des.m300dejercicio,tabmod300des.m300dperiodo };

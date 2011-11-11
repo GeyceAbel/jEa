@@ -31,6 +31,7 @@ public class ActualizaNIFs
 	private DBConnection connJNomina=null;
 	private DBConnection connJEo=null;
 	private DBConnection connJIss=null;
+	private DBConnection connJRenta=null;
 	private DBConnection connJConta=null;
 	private DBConnection connJModelos=null;
 	private boolean hayIncidencia = false;
@@ -55,6 +56,7 @@ public class ActualizaNIFs
     	String jnomina = "";
     	String jeo = "";
     	String jiss = "";
+    	String jrenta = "";
     	String jconta = "";
     	String aplicError = "";
     	hayIncidencia = false;
@@ -99,6 +101,16 @@ public class ActualizaNIFs
 					this.connJIss = getConnexio("jiss", connEA);
 					execute = CambiarNIFJIss(this.connJIss);
 					if (!execute) aplicError = "jIss";
+				}
+			}
+			jrenta = selecConnection.getString("cdpckrenta");
+			if(execute)
+			{
+				if(jrenta!=null && jrenta.equals("S"))
+				{
+					this.connJRenta = getConnexio("jrenta", connEA);
+					execute = CambiarNIFJRenta(this.connJRenta);
+					if (!execute) aplicError = "jRenta";
 				}
 			}
 			
@@ -149,6 +161,11 @@ public class ActualizaNIFs
 		{
 			connJIss.commit();
 			connJIss.disconnect();
+		}
+		if(execute && jrenta!=null && jrenta.equals("S"))
+		{
+			connJRenta.commit();
+			connJRenta.disconnect();
 		}
 		if(!execute &&  jeo!=null && jeo.equals("S"))
 		{
@@ -267,6 +284,27 @@ public class ActualizaNIFs
 		      }
 		    catch  ( Exception e ) {
 		      System.out.println("Error actualizando nif jIss , Error: ["+e+"]");
+		      e.printStackTrace();
+		      }
+		     return false ;
+	}
+	private boolean CambiarNIFJRenta(DBConnection connJRenta) 
+	{
+		try {
+		      if ( cdp == null || newNIF == null || newNIF.equals("") || cdp.length() < 12 ) return false;
+		      Update up = new Update(connJRenta,"DECLARANTE");
+		      up.valor("decnifdec",newNIF);
+		      boolean ok = up.execute("deccodigocdpdec = '"+cdp+"'");
+		      if   ( ok )  {
+			      up = new Update(connJRenta,"DECLARANTE");
+			      up.valor("decnifcon",newNIF);
+			      ok = up.execute("deccodigocdpcon = '"+cdp+"'");		    	  		    	  
+		    	  if (ok) return true ;
+		      }
+		      System.out.println("Error al  actualizar nif en jRenta tabla DECLARANTE");
+		      }
+		    catch  ( Exception e ) {
+		      System.out.println("Error actualizando nif jRenta , Error: ["+e+"]");
 		      e.printStackTrace();
 		      }
 		     return false ;
@@ -1579,8 +1617,68 @@ public class ActualizaNIFs
 		if(execute) execute = UpdateNIF(connJModelos, "MOD340B", "m340bnif");
 		if(execute) execute = UpdateNIF(connJModelos, "MOD340I", "m340inif");
 		if(execute) execute = UpdateNIF(connJModelos, "MOD308", "m308nif",(connJModelos.getDB().getCatalogs())[1]);
-		
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H1", "m11nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H2", "m12nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H3", "m13nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H4", "m14nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H5", "m15nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H6", "m16nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H7", "m17nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H8", "m18nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H9", "m19nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H10", "m110nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H11", "m111nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H12", "m112nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H13", "m113nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H14", "m114nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H15", "m115nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H16", "m116nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H17", "m117nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H18", "m118nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H19", "m119nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H20", "m120nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H21", "m121nif",(connJModelos.getDB().getCatalogs())[3]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD100H22", "m122nif",(connJModelos.getDB().getCatalogs())[3]);
 
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H1", "m2001nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H2", "m2002nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H3", "m2003nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H4", "m2004nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H5", "m2005nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H6", "m2006nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H7", "m2007nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H8", "m2008nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H9", "m2009nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H10", "m2010nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H11", "m2011nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H12", "m2012nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H13", "m2013nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H14", "m2014nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H15", "m2015nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H16", "m2016nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H17", "m2017nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H18", "m2018nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H19", "m2019nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H20", "m2020nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H21", "m2021nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H22", "m2022nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H23", "m2023nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200H24", "m2024nif",(connJModelos.getDB().getCatalogs())[4]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD200HCP", "m20cpnif",(connJModelos.getDB().getCatalogs())[4]);
+		
+		if(execute) execute = UpdateNIF(connJModelos, "MOD714H1", "m71nif",(connJModelos.getDB().getCatalogs())[5]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD714H2", "m72nif",(connJModelos.getDB().getCatalogs())[5]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD714H3", "m73nif",(connJModelos.getDB().getCatalogs())[5]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD714H4", "m74nif",(connJModelos.getDB().getCatalogs())[5]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD714H5", "m75nif",(connJModelos.getDB().getCatalogs())[5]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD714H6", "m76nif",(connJModelos.getDB().getCatalogs())[5]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD714H7", "m77nif",(connJModelos.getDB().getCatalogs())[5]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD714H8", "m78nif",(connJModelos.getDB().getCatalogs())[5]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD714H9", "m79nif",(connJModelos.getDB().getCatalogs())[5]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD714H10", "m710nif",(connJModelos.getDB().getCatalogs())[5]);
+		if(execute) execute = UpdateNIF(connJModelos, "MOD714H11", "m711nif",(connJModelos.getDB().getCatalogs())[5]);
+
+		if(execute) execute = UpdateNIF(connJModelos, "MOD102", "m102nif",(connJModelos.getDB().getCatalogs())[0]);
 		
 		/*MODGEN*/
 		if(execute) execute = UpdateNIF(connJModelos, "MODNIFCDP", "mncnif",(connJModelos.getDB().getCatalogs())[2]);
