@@ -26,7 +26,7 @@ public class Easp {
   //variables de versiones
   public static String versionAplicacion="8.9";
   public static String versionFecha="Junio/2011";
-  public static String versionBDEA="9.2";
+  public static String versionBDEA="9.3";
 
   //Constantes
   public final static int IVA=16;
@@ -138,12 +138,12 @@ public class Easp {
     }
 
 
-  public static DBConnection getConnexio(String nombd, DBConnection connEA) 
+  public static DBConnection getConnexio(String nombd, DBConnection connEA)
   {
-    return(conectaBD(nombd, connEA.getDB().getServer(), connEA.getDB().getUser(), connEA.getDB().getPassword(), connEA.getDB().getType())); 
+    return(conectaBD(nombd, connEA.getDB().getServer(), connEA.getDB().getUser(), connEA.getDB().getPassword(), connEA.getDB().getType()));
     }
-  
-  
+
+
   public static DBConnection conectaBD(String bdnom, String bdserver, String bduser, String bdpassword, String bdtype) {
     DataBase db=new DataBase();
     db.setName(bdnom);
@@ -152,8 +152,8 @@ public class Easp {
     db.setMyPassword(bdpassword);
     db.setType(bdtype);
     DBConnection conn=new DBConnection(db);
-    
-    if (bdnom.equals("modelos")) 
+
+    if (bdnom.equals("modelos"))
     {
           CatModgen catmodgen = new CatModgen();
           CatModelos1 catmodelos1 = new CatModelos1();
@@ -163,37 +163,37 @@ public class Easp {
           CatModelo714 catmodelo714 = new CatModelo714();
           Catalog array[] = {catmodelos1,catmodelos2,catmodgen,catmodelo100,catmodelo200,catmodelo714};
           db.setCatalogs(array);
-      }     
-    else if (bdnom.equals("laboral")) 
+      }
+    else if (bdnom.equals("laboral"))
     {
           CatLaboral catlaboral = new CatLaboral();
           Catalog array[] = {catlaboral};
           db.setCatalogs(array);
-      }     
-    else if (bdnom.equals("jeo")) 
+      }
+    else if (bdnom.equals("jeo"))
     {
           CatJeo catjeo = new CatJeo();
           Catalog array[] = {catjeo};
           db.setCatalogs(array);
       }
-    else if (bdnom.startsWith("cta")) 
+    else if (bdnom.startsWith("cta"))
     {
           CatCtasp catctasp = new CatCtasp();
           Catalog array[] = {catctasp};
           db.setCatalogs(array);
-      }     
-    else if (bdnom.startsWith("jiss")) 
+      }
+    else if (bdnom.startsWith("jiss"))
     {
       CatJiss catjiss = new CatJiss ();
           Catalog array[] = {catjiss};
           db.setCatalogs(array);
-      }     
-    else if (bdnom.startsWith("jrenta")) 
+      }
+    else if (bdnom.startsWith("jrenta"))
     {
       CatJrenta catjrenta = new CatJrenta ();
           Catalog array[] = {catjrenta};
           db.setCatalogs(array);
-      }      
+      }
     conn=new DBConnection(db);
     if (conn.connect()) return conn;
     else return null;

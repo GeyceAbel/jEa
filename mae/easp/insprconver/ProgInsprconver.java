@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20110616
-// Hora:             10:03:56
+// Fecha:            20111114
+// Hora:             13:19:34
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1060,6 +1060,9 @@ public class ProgInsprconver extends Program
       String sentencias9_2[]={
       " UPDATE MUNI347 SET mu7desc='ODENA' where mu7codprov=8 and mu7codmuni=1430"
       };
+    
+      String sentencias9_3[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2011"}; 
+    
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -2054,6 +2057,24 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","9.2");
           Easp.connEA.commit();
           vvveractual.setValue("9.2");
+        }
+        if (versio < 9.3) {
+          for (i=0;i<sentencias9_3.length;++i) {
+            try {
+              Easp.chivato("9.3 Exec : ["+sentencias9_3[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias9_3[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias9_3[i];
+              Easp.chivato("9.3 *** Error : ["+sentencias9_3[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          String tablas[]= {"COEFICCORREC"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0903","easp.jar");
+          Easp.setVersionBD("bdeasp","9.3");
+          Easp.connEA.commit();
+          vvveractual.setValue("9.3");
         }
     
       }
