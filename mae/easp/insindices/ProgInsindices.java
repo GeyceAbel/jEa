@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20110708
-// Hora:             10:38:53
+// Fecha:            20111115
+// Hora:             12:42:41
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -28,34 +28,50 @@ public class ProgInsindices extends Program
   
   
   public void reconstruye() {
+    String user = Aplication.getAplication().getUser() ;
     if ( vindices.vvaplicacion.getString().equals("JNOMINA") ) {
-       String user = Aplication.getAplication().getUser() ;
        Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()) , user , "M" , "INSINDICES" , "Reconstruccion de Indices BD JNOMINA Ver1.0" , Easp.dominio , ""  );
       DBConnection connJNomina = Easp.getConnexio("laboral", Easp.connEA);
       if ( connJNomina != null ) {
         if ( execSentencias(connJNomina,indicesReconstruirSQL_jNomina) ) {
-          Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);        
+          Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
           }
         else Maefc.message("El proceso ha finalizado \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
         connJNomina.disconnect();
         }
       }
+    else if ( vindices.vvaplicacion.getString().equals("JGESTION") ) {
+       Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()) , user , "M" , "INSINDICES" , "Reconstruccion de Indices BD JGESTION Ver1.0" , Easp.dominio , ""  );
+      if ( Easp.connEA != null ) {
+        if ( execSentencias(Easp.connEA,indicesReconstruirSQL_jGestion) ) {
+          Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
+          }
+        else Maefc.message("El proceso ha finalizado \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
+        }
+      }
     }
   
   
-  
-  
   public void crear () {
+    String user = Aplication.getAplication().getUser() ;
     if ( vindices.vvaplicacion.getString().equals("JNOMINA") ) {
-       String user = Aplication.getAplication().getUser() ;
        Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()) , user , "A" , "INSINDICES" , "Creación de Indices  BD JNOMINA Ver1.0 " , Easp.dominio , ""  );
       DBConnection connJNomina = Easp.getConnexio("laboral", Easp.connEA);
       if ( connJNomina != null ) {
         if ( execSentencias(connJNomina,indicesSQL_jNomina) ) {
-          Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);        
+          Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
           }
         else Maefc.message("El proceso ha finalizado \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
         connJNomina.disconnect();
+        }
+      }
+   else  if ( vindices.vvaplicacion.getString().equals("JGESTION") ) {
+       Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()) , user , "A" , "INSINDICES" , "Creación de Indices  BD JGESTION Ver1.0 " , Easp.dominio , ""  );
+      if ( Easp.connEA != null ) {
+        if ( execSentencias(Easp.connEA,indicesSQL_jGestion) ) {
+          Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
+          }
+        else Maefc.message("El proceso ha finalizado \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
         }
       }
     }
@@ -69,18 +85,40 @@ public class ProgInsindices extends Program
         connexion.executeUpdate(vsentencias[i]);
         connexion.commit();
         }
-      catch(Exception e) {      
+      catch(Exception e) {
         retorn = false ;
         System.out.println("Error ["+e.getMessage()+"]");
         connexion.rollback();
         }
-      }  
+      }
     // if ( retorn )  connexion.commit();
     // else           connexion.rollback();
     return retorn ;
     }
   
   
+  
+  
+  
+  /* Creacion de Indices para optimización de las Bases de Datos . */
+  String indicesSQL_jGestion[] = {
+      "CREATE INDEX ID_MOVTOPROMOVTOS  ON MOVTOS    (MOVCLIENTE,MOVASESOR,MOVSEFAC)",
+      "CREATE INDEX ID_MOVTOPROFACTURA ON MOVTOS    (MOVFACTURA,MOVSERIE,MOVASESOR)",
+      "CREATE INDEX ID_EXPECLIENTS     ON EXPE      (EXCLIENTE,EXASESOR)",
+      "CREATE INDEX ID_MOVTOTEXT       ON MOVTOTEXT (MOVTCODMOVTOS)",
+      "CREATE INDEX ID_FACTURAFRA      ON FACTURA   (FRFACTURA,FRSERIE,FRASESOR)",
+      "CREATE INDEX ID_MOVTOSACUMULA   ON MOVTOS    (MOVASESOR,MOVENTIDAD,MOVCLIENTE,MOVEXPEDIENTE,MOVFACTURA,MOVOPERACION)",
+    };
+  
+    /* Reconstruccion de Indices para optimización de las Bases de Datos . */
+    String indicesReconstruirSQL_jGestion[] = {
+      "ALTER INDEX  ID_MOVTOPROMOVTOS  ON  MOVTOS      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  ID_MOVTOPROFACTURA ON  MOVTOS      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  ID_EXPECLIENTS     ON  EXPE        REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  ID_MOVTOTEXT       ON  MOVTOTEXT   REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  ID_FACTURAFRA      ON  FACTURA     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  ID_MOVTOSACUMULA   ON  MOVTOS      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    };
   
   
   
@@ -329,6 +367,7 @@ public class ProgInsindices extends Program
         setPrintable(false);
         setDescriptionShow(false);
         addItem("JNOMINA");
+        addItem("JGESTION");
         }
       public boolean obligate()
         {
