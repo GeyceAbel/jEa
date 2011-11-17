@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111110
-// Hora:             19:04:03
+// Fecha:            20111117
+// Hora:             18:51:18
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -74,6 +74,17 @@ public class ProgInsprexportbd extends Program
     if ( result ) {
       if ( bdeasp )    {
         conver.setRegistre (Easp.dominio,"EAB"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",sServidor);    
+  
+        Selector sbds = new Selector(Easp.connEA);
+        sbds.execute("Select bdnombre,bdversio from bds where bdnombre = 'bdexpe' ");
+        if ( sbds.next() ) {
+           double version = sbds.getdouble("bdversio");
+           if ( version >= 13  ) {
+             conver.setRegistre (Easp.dominio,"JGESTION"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",sServidor);    
+             }
+          }  
+        sbds.close();
+  
         // vip REVISAR ESTO APPAU - APJORDI  15/09/05 
         String url = "http://afinity.geyce.es/pls/agpi/starterdp.getContratado?domini="+Easp.dominio+"&apli=JCONTA";
         String aplicJconta =URLExec.getContenido(url);
