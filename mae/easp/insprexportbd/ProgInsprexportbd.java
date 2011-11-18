@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111117
-// Hora:             18:51:18
+// Fecha:            20111118
+// Hora:             11:24:15
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -80,7 +80,7 @@ public class ProgInsprexportbd extends Program
         if ( sbds.next() ) {
            double version = sbds.getdouble("bdversio");
            if ( version >= 13  ) {
-             conver.setRegistre (Easp.dominio,"JGESTION"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",sServidor);    
+             conver.setRegistre (Easp.dominio,"JGES"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",sServidor);    
              }
           }  
         sbds.close();
