@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111011
-// Hora:             17:01:34
+// Fecha:            20111129
+// Hora:             13:29:09
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -74,9 +74,9 @@ public class ProgQuerylis extends Program
       }
   
       String buscaNomConexio(String nomMaster) {
-      	String nomConnect="";
-      	TablaCatalogo tc=buscaTabla(null,nomMaster);
-      	if (tc!=null) {
+        String nomConnect="";
+        TablaCatalogo tc=buscaTabla(null,nomMaster);
+        if (tc!=null) {
              for (int i=0;i<quonexions.length;i++) {
                 if (hiHaCataleg(quonexions[i],tc.catalogo)){
                    nomConnect = quonexions[i].name;
@@ -84,8 +84,8 @@ public class ProgQuerylis extends Program
                 }
              }
           }
-      	   
-        	return nomConnect;
+  
+          return nomConnect;
     }
   
     void llegeixColumnes(Frase frase) {
@@ -119,7 +119,7 @@ public class ProgQuerylis extends Program
   
         Columna existent=(Columna)frase.nomsColumnes.get(bbdd+"."+taula+"."+camp);
   
-        if (existent!=null) 
+        if (existent!=null)
           col.valor=existent.valor;
         else {
           col.valor=new Value(col.tipus);
@@ -139,7 +139,14 @@ public class ProgQuerylis extends Program
   
       while (staules.next()) {
         Taula t=new Taula();
-        t.tc = buscaTabla(staules.getString("qetbbdd"), staules.getString("qettabla"));
+        String taula = staules.getString("qettabla") ;
+        t.tc = buscaTabla(staules.getString("qetbbdd"), taula );
+  
+        String tipoRel = staules.getString("qetrelacion") ;
+        t.tipoRelLeftOuter  = (  tipoRel != null && tipoRel.equals("L") );
+        t.tipoRelRightOuter = ( tipoRel != null && tipoRel.equals("R") );
+        // System.out.println("Taula: ["+taula+"] tipoRel: ["+tipoRel+"] t.tipoRelLeftOuter: ["+t.tipoRelLeftOuter+"]  t.tipoRelRightOuter ["+t.tipoRelRightOuter+"]") ;
+  
   
         frase.taules.addElement(t);
         }
@@ -211,11 +218,11 @@ public class ProgQuerylis extends Program
             String cataleg3="";
             if (quonexions[i].catalog3!=null)
                cataleg3=quonexions[i].catalog3.getName();
-    
-            if (bbdd!=null && !cataleg1.equals(bbdd) && !cataleg2.equals(bbdd) && !cataleg3.equals(bbdd) 
+  
+            if (bbdd!=null && !cataleg1.equals(bbdd) && !cataleg2.equals(bbdd) && !cataleg3.equals(bbdd)
                && ((i!=0) || bbdd!=null)) continue;  // Si bbdd==null, vol dir la conexió principal
             TableDef td=quonexions[i].catalog.getTable(tabla);
-            
+  
             if (td!=null) {
                 TablaCatalogo tc=new TablaCatalogo();
                 tc.table=td;
@@ -223,24 +230,24 @@ public class ProgQuerylis extends Program
                 return tc;
             }
             else if (quonexions[i].catalog2!=null) {
-          	   td=quonexions[i].catalog2.getTable(tabla);
-          	   if (td!=null) {
+               td=quonexions[i].catalog2.getTable(tabla);
+               if (td!=null) {
                      TablaCatalogo tc=new TablaCatalogo();
                      tc.table=td;
                      tc.catalogo=quonexions[i].catalog2;
                      return tc;
                  }
-          	   else if (quonexions[i].catalog3!=null) {
-          	        td=quonexions[i].catalog3.getTable(tabla);
-              	    if (td!=null) {
+               else if (quonexions[i].catalog3!=null) {
+                    td=quonexions[i].catalog3.getTable(tabla);
+                    if (td!=null) {
                          TablaCatalogo tc=new TablaCatalogo();
                          tc.table=td;
                          tc.catalogo=quonexions[i].catalog3;
                          return tc;
-              	   }    
-          	   }
+                   }
+               }
             }
-       }     
+       }
        return null;
     }
   
@@ -327,8 +334,17 @@ public class ProgQuerylis extends Program
   
        if (t.resolta || !hiHaCataleg(conn,t.tc.catalogo)) continue;
   
-       if      (quantitat == 1 ) f="" +f+ " inner join ";
-       else if (quantitat >  1 ) f="("+f+") inner join ";
+       if      (quantitat == 1 ) {
+         if      ( t.tipoRelLeftOuter )  f="" +f+ " left  outer join ";
+         else if ( t.tipoRelRightOuter ) f="" +f+ " right outer join  ";
+         else                            f="" +f+ " inner join  ";
+         }
+       else if (quantitat >  1 ) {
+         if      ( t.tipoRelLeftOuter )  f="("+f+") left outer join ";
+         else if ( t.tipoRelRightOuter ) f="("+f+") right outer join ";
+         else                            f="("+f+") inner join ";
+         }
+       // System.out.println("quantitat: ["+quantitat+"] f: ["+f+"] taula: ["+t.tc+"]");
   
         if (quantitat>0) {
           String on=getOn(conn, t.tc.table,i);
@@ -354,7 +370,7 @@ public class ProgQuerylis extends Program
               f="seleccion,"+f;
       }
   
-      if (f.length()>0) 
+      if (f.length()>0)
           return f;
       else
           return null;
@@ -371,8 +387,17 @@ public class ProgQuerylis extends Program
   
         if (t.resolta || !hiHaCataleg(conn,t.tc.catalogo)) continue;
   
-       if      (quantitat == 1 ) f="" +f+ " inner join ";
-       else if (quantitat >  1 ) f="("+f+") inner join ";
+        if      (quantitat == 1 ) {
+          if      ( t.tipoRelLeftOuter )  f="" +f+ " left  outer join ";
+          else if ( t.tipoRelRightOuter ) f="" +f+ " right outer join  ";
+          else                            f="" +f+ " inner join  ";
+          }
+        else if (quantitat >  1 ) {
+          if      ( t.tipoRelLeftOuter )  f="("+f+") left outer join ";
+          else if ( t.tipoRelRightOuter ) f="("+f+") right outer join ";
+          else                            f="("+f+") inner join ";
+          }
+        // System.out.println("quantitat: ["+quantitat+"] f: ["+f+"] taula: ["+t.tc+"]");
   
         if (quantitat>0) {
           String on=getOn(conn, t.tc.table,i);
@@ -390,7 +415,7 @@ public class ProgQuerylis extends Program
         t.resolta=true;
         }
   
-      if (f.length()>0) 
+      if (f.length()>0)
           return f;
       else
           return null;
@@ -400,7 +425,7 @@ public class ProgQuerylis extends Program
       StringBuffer w=new StringBuffer();
   
       for(int i=0;i<variables.size();i++) {
-        Variable v=(Variable)variables.elementAt(i);      
+        Variable v=(Variable)variables.elementAt(i);
   
   //        if (buscaCampo(conn.name, v.nom)==null) continue;
         //if (w.length()>0) w.append(" and ");
@@ -417,7 +442,7 @@ public class ProgQuerylis extends Program
               w.append(" and ");
               }
             }
-          }  
+          }
         if (v.valor.isNull()) {
           if ("=".equals(v.comparacio)) {
               w.append(v.nom);
@@ -445,7 +470,7 @@ public class ProgQuerylis extends Program
         else
           w.append(" ("+where.toString()+")");
   
-      if (w.length()>0) 
+      if (w.length()>0)
           return w.toString();
       else
           return null;
@@ -463,7 +488,7 @@ public class ProgQuerylis extends Program
           }
         }
   
-      if (ordre.length()>0) 
+      if (ordre.length()>0)
           return ordre.toString();
       else
           return null;
@@ -487,6 +512,8 @@ public class ProgQuerylis extends Program
     TablaCatalogo tc;
     boolean resolta;
     Quorelacio quorelacio;
+    boolean tipoRelLeftOuter ;
+    boolean tipoRelRightOuter ;
     }
   
   class Columna {
@@ -541,12 +568,12 @@ public class ProgQuerylis extends Program
       int nConexio=0;
   
       if (!frase.nomConexio.equals(quonexions[0].name)) {
-      	 for(int i=1;i<quonexions.length;i++) {
-      		if (frase.nomConexio.equals(quonexions[i].name)) {
-      		   posIni=0;
-      		   nConexio=i;
-      		}
-      	 }
+         for(int i=1;i<quonexions.length;i++) {
+          if (frase.nomConexio.equals(quonexions[i].name)) {
+             posIni=0;
+             nConexio=i;
+          }
+         }
       }
   
       for(int i=1;i<quonexions.length;i++) {
@@ -562,14 +589,14 @@ public class ProgQuerylis extends Program
   
     void generaSelectorPrincipal() {
       Quonexio quonexio=quonexions[0];
-      
+  
       if (!frase.nomConexio.equals(quonexions[0].name)) {
          for(int i=1;i<quonexions.length;i++) {
             if (frase.nomConexio.equals(quonexions[i].name))
                quonexio=quonexions[i];
          }
       }
-       
+  
       StringBuffer sentencia=new StringBuffer();
       quorelacioPrincipal.selector=new Selector(quonexio.connection);
   
@@ -630,7 +657,7 @@ public class ProgQuerylis extends Program
           }
           //selwhere+=" and (SELNIF IS NULL or SELNIF=MESNIF)";
           if (where==null) where=selwhere;
-          else where=selwhere+" and ("+where+")";        
+          else where=selwhere+" and ("+where+")";
         }
       }
       else if ("E".equals(frase.ect) || "C".equals(frase.ect) || "T".equals(frase.ect)) {
@@ -658,7 +685,7 @@ public class ProgQuerylis extends Program
              sentencia.append("distinct ");
          sentencia.append(select1);
   
-         sentencia.append(" from ");  
+         sentencia.append(" from ");
          sentencia.append(select2);
   
          if (where!=null) {
@@ -683,7 +710,7 @@ public class ProgQuerylis extends Program
       String select1 = frase.getColumnes(quonexio,quor);
       String select2 = frase.getFromSecundari(quonexio,quor);
   
-      if (select1!=null && !select1.trim().equals("") && select2!=null && !select2.trim().equals("")) { 
+      if (select1!=null && !select1.trim().equals("") && select2!=null && !select2.trim().equals("")) {
          sentencia.append("select ");
          sentencia.append(select1);
   
@@ -703,7 +730,7 @@ public class ProgQuerylis extends Program
     // Crear altres selectors provinents de conexions diferents
     // a les de la bbdd principal
     ForeignKey buscaVeryForeigKey(Quonexio conn,Quorelacio quor) {
-      
+  
       for(int quo=0;quo<quonexions.length;quo++) {
         if (quonexions[quo]==conn) continue;
   
@@ -780,32 +807,32 @@ public class ProgQuerylis extends Program
               col.valor.setNull();
             else
               switch(col.tipus) {
-                  case Value.DATE:                    
+                  case Value.DATE:
                       java.util.Date dia=col.quorelacio.selector.getDate(col.camp.field.getName());
                       if (col.quorelacio.selector.wasNull())
                           col.valor.setNull();
-                      else 
+                      else
                           col.valor.setValue(dia);
                       break;
-                  case Value.DOUBLE:                    
+                  case Value.DOUBLE:
                       double vald=col.quorelacio.selector.getdouble(col.camp.field.getName());
                       if (col.quorelacio.selector.wasNull())
                           col.valor.setNull();
                       else
                           col.valor.setValue(vald);
                       break;
-                  case Value.INTEGER:                    
+                  case Value.INTEGER:
                       int vali=col.quorelacio.selector.getint(col.camp.field.getName());
                       if (col.quorelacio.selector.wasNull())
                           col.valor.setNull();
-                      else 
+                      else
                           col.valor.setValue(vali);
                       break;
-                  case Value.STRING:                    
+                  case Value.STRING:
                       String vals=col.quorelacio.selector.getString(col.camp.field.getName());
                       if (col.quorelacio.selector.wasNull())
                           col.valor.setNull();
-                      else 
+                      else
                           col.valor.setValue(vals);
                       break;
                   }
@@ -910,11 +937,12 @@ public class ProgQuerylis extends Program
     if (conn.catalog3!=null)
        catalog3=conn.catalog3;
   
-    if (catalog==cat || catalog2==cat || catalog3==cat) 
+    if (catalog==cat || catalog2==cat || catalog3==cat)
        return true;
-    else 
+    else
        return false;
   }
+  
   
   // Fin declaraciones globales
   // Ventana

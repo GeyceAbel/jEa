@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111028
-// Hora:             10:04:37
+// Fecha:            20111129
+// Hora:             12:48:37
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -801,6 +801,7 @@ public class ProgQuerytrat extends Program
     public CtrlQetorden qetorden;
     public CtrlQettabla qettabla;
     public CtrlQetbbdd qetbbdd;
+    public CtrlQetrelacion qetrelacion;
     // Acciones
     class Location extends LocationBorder
       {
@@ -880,6 +881,27 @@ public class ProgQuerytrat extends Program
         }
       }
       
+    public class CtrlQetrelacion extends ColumnComboBox
+      {
+      public CtrlQetrelacion(Form form)
+        {
+        super(form);
+        setName("qetrelacion");
+        setMessageHelp("Tipo de Relación");
+        setTitle("T.Rel");
+        setType(STRING);
+        setMaskInput("U");
+        setLength(1);
+        setPrintable(false);
+        setRestricted(false);
+        setDescriptionShow(false);
+        addItem("I/Inner Join");
+        addItem("L/Left outer Join");
+        addItem("R/Right outer join");
+        setField(stablas.qetrelacion);
+        }
+      }
+      
     public FormVtablas(ProgQuerytrat querytrat)
       {
       super(querytrat);
@@ -892,6 +914,7 @@ public class ProgQuerytrat extends Program
       addControl(qetorden=new CtrlQetorden(this));
       addControl(qettabla=new CtrlQettabla(this));
       addControl(qetbbdd=new CtrlQetbbdd(this));
+      addControl(qetrelacion=new CtrlQetrelacion(this));
       setSelect(stablas);
       }
     public boolean onOkInsert()
@@ -914,6 +937,7 @@ public class ProgQuerytrat extends Program
     public Field qetfrase;
     public Field qetorden;
     public Field qettabla;
+    public Field qetrelacion;
     class Quetabla extends Table
       {
       public Quetabla(Select select)
@@ -934,6 +958,7 @@ public class ProgQuerytrat extends Program
       addField(qetfrase=new Field(this,quetabla,"qetfrase"));
       addField(qetorden=new Field(this,quetabla,"qetorden"));
       addField(qettabla=new Field(this,quetabla,"qettabla"));
+      addField(qetrelacion=new Field(this,quetabla,"qetrelacion"));
       }
     public String getWhere()
       {
