@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100705
-// Hora:             14:21:26
+// Fecha:            20111222
+// Hora:             16:42:11
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -521,7 +521,7 @@ public class ProgPrtratamnifes extends Program
         public Look( )
           {
           super();
-          setLength(30);
+          setLength(40);
           }
         }
         

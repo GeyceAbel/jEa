@@ -45,3 +45,4 @@
 111101 --> APJORDI: SQL JRENTA I canvi de NIF jrenta i modelos de jrenta i jiss
 111102 --> APESTER: afegit registres del 2011 a la taula coeficcorrec
 111103 --> APPAU  : CREACIÓN AUTOMÁTICA DE INDICES PARA JGESTION
+111201 --> APESTER: prclfichagener s'ha ampliat la visualitzacio del camp mail de 30 a 40
