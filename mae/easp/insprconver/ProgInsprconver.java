@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111114
-// Hora:             13:19:34
+// Fecha:            20111223
+// Hora:             13:46:41
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1063,6 +1063,10 @@ public class ProgInsprconver extends Program
     
       String sentencias9_3[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2011"}; 
     
+      String sentencias9_4[]={
+      " DELETE FROM BANCO WHERE bncodigo=3188;",
+      " INSERT INTO BANCO (bncodigo,bndesc) VALUES (3188,'CREDIT VALENCIA C.R.C.C.V.');"};
+    
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -2076,7 +2080,22 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("9.3");
         }
-    
+        if (versio < 9.4) {
+          for (i=0;i<sentencias9_4.length;++i) {
+            try {
+              Easp.chivato("9.4 Exec : ["+sentencias9_4[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias9_4[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias9_4[i];
+              Easp.chivato("9.4 *** Error : ["+sentencias9_4[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","9.4");
+          Easp.connEA.commit();
+          vvveractual.setValue("9.4");
+        }
       }
     
       catch(Exception e) {
