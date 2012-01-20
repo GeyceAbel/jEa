@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111110
-// Hora:             18:26:06
+// Fecha:            20111207
+// Hora:             18:03:04
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -91,6 +91,7 @@ public class CatEasp extends Catalog
   public TabSesiones tabsesiones;
   public TabImpuser tabimpuser;
   public TabCnae1993 tabcnae1993;
+  public TabPlantillas tabplantillas;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -2313,6 +2314,7 @@ public class CatEasp extends Catalog
     public FieldDef qefect;
     public FieldDef qefrepetir;
     public FieldDef qefcount;
+    public FieldDef qefplantilla;
     public TabQuefrase(String name)
       {
       super(name);
@@ -2329,6 +2331,7 @@ public class CatEasp extends Catalog
       qefect = new FieldDef("qefect",FieldDef.CHAR,1);
       qefrepetir = new FieldDef("qefrepetir",FieldDef.CHAR,1);
       qefcount = new FieldDef("qefcount",FieldDef.CHAR,1);
+      qefplantilla = new FieldDef("qefplantilla",FieldDef.CHAR,15);
       FieldDef array[] = {
         qefaplicacion,
         qeffrase,
@@ -2342,7 +2345,8 @@ public class CatEasp extends Catalog
         qefwhere,
         qefect,
         qefrepetir,
-        qefcount        
+        qefcount,
+        qefplantilla        
         };
       setColumns(array);
       FieldDef arrayf[] = {qefaplicacion,qeffrase };
@@ -3108,6 +3112,64 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabPlantillas extends TableDef
+    {
+    // Campos
+    public FieldDef plaplicacion;
+    public FieldDef plcodigo;
+    public FieldDef plventana;
+    public FieldDef pldescripcion;
+    public FieldDef plusuario;
+    public FieldDef plcatalogo;
+    public FieldDef plcodiquery;
+    public FieldDef plurlplantilla;
+    public FieldDef plorigendades;
+    public FieldDef plcampscombi;
+    public FieldDef pltipoorig;
+    public TabPlantillas(String name)
+      {
+      super(name);
+      plaplicacion = new FieldDef("plaplicacion",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      plcodigo = new FieldDef("plcodigo",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      plventana = new FieldDef("plventana",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      pldescripcion = new FieldDef("pldescripcion",FieldDef.CHAR,50);
+      plusuario = new FieldDef("plusuario",FieldDef.CHAR,25);
+      plcatalogo = new FieldDef("plcatalogo",FieldDef.CHAR,15);
+      plcodiquery = new FieldDef("plcodiquery",FieldDef.CHAR,15);
+      plurlplantilla = new FieldDef("plurlplantilla",FieldDef.CHAR,250);
+      plorigendades = new FieldDef("plorigendades",FieldDef.CHAR,250);
+      plcampscombi = new FieldDef("plcampscombi",FieldDef.INTEGER,0);
+      pltipoorig = new FieldDef("pltipoorig",FieldDef.CHAR,2);
+      FieldDef array[] = {
+        plaplicacion,
+        plcodigo,
+        plventana,
+        pldescripcion,
+        plusuario,
+        plcatalogo,
+        plcodiquery,
+        plurlplantilla,
+        plorigendades,
+        plcampscombi,
+        pltipoorig        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {plaplicacion,plcodigo,plventana };
+      setPrimaryKeys(arrayf);
+      plaplicacion.setDescription("Aplicació Geyce utilitza la plantilla.");
+      plcodigo.setDescription("Clau Primaria codi de plantilla");
+      plventana.setDescription("Indicador si arriva el query per impresio de finestra");
+      pldescripcion.setDescription("Descripció de la plantilla");
+      plusuario.setDescription("Usuari creador de la plantilla");
+      plcatalogo.setDescription("Cataleg Geyce que utilitza la plantilla.");
+      plcodiquery.setDescription("Query associat a la plantilla");
+      plurlplantilla.setDescription("Ubicació al disc de la plantilla");
+      plorigendades.setDescription("Ubicació al disc del fitxer origen de dades");
+      plcampscombi.setDescription("Numero de camps de combinació.");
+      pltipoorig.setDescription("Tipus origen de dades (per query o per llistat predifinit)");
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -3185,6 +3247,7 @@ public class CatEasp extends Catalog
     tabsesiones = new TabSesiones("sesiones");
     tabimpuser = new TabImpuser("impuser");
     tabcnae1993 = new TabCnae1993("cnae1993");
+    tabplantillas = new TabPlantillas("plantillas");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -3260,7 +3323,8 @@ public class CatEasp extends Catalog
       tabdatosregistral,
       tabsesiones,
       tabimpuser,
-      tabcnae1993      
+      tabcnae1993,
+      tabplantillas      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };

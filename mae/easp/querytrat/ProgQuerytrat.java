@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111129
-// Hora:             12:48:37
+// Fecha:            20120120
+// Hora:             11:09:37
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -31,6 +31,8 @@ public class ProgQuerytrat extends Program
   public String master;
   public Quonexio[] quonexions;
   public java.util.Hashtable<String,java.util.Hashtable<String,String>> htTaules = null;
+  public mae.general.Plantilla plantilla;
+  
   
   class TablaCatalogo {
       TableDef table;
@@ -158,6 +160,7 @@ public class ProgQuerytrat extends Program
   // Ventana
   public FormVfrase vfrase;
   // Selects
+  public Splantillas splantillas;
   public Sfrase sfrase;
   public Sconscolumnas sconscolumnas;
   // Ventana
@@ -175,6 +178,10 @@ public class ProgQuerytrat extends Program
   public FormVvariables vvariables;
   // Selects
   public Svariables svariables;
+  // Ventana
+  public FormVplantillas vplantillas;
+  // Selects
+  public Splantillas2 splantillas2;
   class Location extends LocationTabbed
     {
     public Location( )
@@ -206,6 +213,7 @@ public class ProgQuerytrat extends Program
     public CtrlVrepetir vrepetir;
     // Acciones
     public LinkIrvariables irvariables;
+    public LinkIrplantillas irplantillas;
     class Location extends LocationBorder
       {
       public Location( )
@@ -403,6 +411,23 @@ public class ProgQuerytrat extends Program
         }
       }
       
+    public class LinkIrplantillas extends Action
+      {
+      public LinkIrplantillas(Form form)
+        {
+        super(form);
+        setName("irplantillas");
+        setTitle("&2 - Combinar Correspondencia");
+        setOptions(SHOW | UPDATE);
+        }
+      public void onAction()
+        {
+        splantillas.setWhere("plaplicacion = '" + aplicacion + "' and plventana = '" + qeffrase.getString() + "'");
+        splantillas.execute();
+        vplantillas.open();
+        }
+      }
+      
     public FormVfrase(ProgQuerytrat querytrat)
       {
       super(querytrat);
@@ -412,6 +437,7 @@ public class ProgQuerytrat extends Program
       setLocation(new Location());
       setStates(SHOW | UPDATE | INSERT);
       setUnique(true);
+      addSelect(splantillas=new Splantillas());
       addSelect(sfrase=new Sfrase());
       addSelect(sconscolumnas=new Sconscolumnas());
       addControl(qeffrase=new CtrlQeffrase(this));
@@ -423,6 +449,7 @@ public class ProgQuerytrat extends Program
       addControl(vpaginado=new CtrlVpaginado(this));
       addControl(vrepetir=new CtrlVrepetir(this));
       addAction(irvariables=new LinkIrvariables(this));
+      addAction(irplantillas=new LinkIrplantillas(this));
       setSelect(sfrase);
       }
     public void onInit()
@@ -582,6 +609,53 @@ public class ProgQuerytrat extends Program
       }
     }
     
+  // Plantillas de combinar correspondencia
+  public class Splantillas extends Select
+    {
+    // Tablas
+    public Plantillas plantillas;
+    // Campos
+    public Field plaplicacion;
+    public Field plcampscombi;
+    public Field plcodigo;
+    public Field plcodiquery;
+    public Field pldescripcion;
+    public Field plorigendades;
+    public Field pltipoorig;
+    public Field plurlplantilla;
+    public Field plusuario;
+    public Field plventana;
+    class Plantillas extends Table
+      {
+      public Plantillas(Select select)
+        {
+        super(select);
+        setName("plantillas");
+        setOptions(READ | INSERT | UPDATE);
+        }
+      }
+      
+    public Splantillas()
+      {
+      setName("splantillas");
+      addTable(plantillas=new Plantillas(this));
+      addField(plaplicacion=new Field(this,plantillas,"plaplicacion"));
+      addField(plcampscombi=new Field(this,plantillas,"plcampscombi"));
+      addField(plcodigo=new Field(this,plantillas,"plcodigo"));
+      addField(plcodiquery=new Field(this,plantillas,"plcodiquery"));
+      addField(pldescripcion=new Field(this,plantillas,"pldescripcion"));
+      addField(plorigendades=new Field(this,plantillas,"plorigendades"));
+      addField(pltipoorig=new Field(this,plantillas,"pltipoorig"));
+      addField(plurlplantilla=new Field(this,plantillas,"plurlplantilla"));
+      addField(plusuario=new Field(this,plantillas,"plusuario"));
+      addField(plventana=new Field(this,plantillas,"plventana"));
+      }
+    public String getWhere()
+      {
+      return "plaplicacion = '" + aplicacion +"'";
+      }
+    }
+    
   // 
   public class Sfrase extends Select
     {
@@ -597,6 +671,7 @@ public class ProgQuerytrat extends Program
     public Field qefletra;
     public Field qefmaster;
     public Field qefpaginado;
+    public Field qefplantilla;
     public Field qefrepetir;
     public Field qeftitulo;
     public Field qefwhere;
@@ -623,6 +698,7 @@ public class ProgQuerytrat extends Program
       addField(qefletra=new Field(this,quefrase,"qefletra"));
       addField(qefmaster=new Field(this,quefrase,"qefmaster"));
       addField(qefpaginado=new Field(this,quefrase,"qefpaginado"));
+      addField(qefplantilla=new Field(this,quefrase,"qefplantilla"));
       addField(qefrepetir=new Field(this,quefrase,"qefrepetir"));
       addField(qeftitulo=new Field(this,quefrase,"qeftitulo"));
       addField(qefwhere=new Field(this,quefrase,"qefwhere"));
@@ -936,8 +1012,8 @@ public class ProgQuerytrat extends Program
     public Field qetbbdd;
     public Field qetfrase;
     public Field qetorden;
-    public Field qettabla;
     public Field qetrelacion;
+    public Field qettabla;
     class Quetabla extends Table
       {
       public Quetabla(Select select)
@@ -957,8 +1033,8 @@ public class ProgQuerytrat extends Program
       addField(qetbbdd=new Field(this,quetabla,"qetbbdd"));
       addField(qetfrase=new Field(this,quetabla,"qetfrase"));
       addField(qetorden=new Field(this,quetabla,"qetorden"));
-      addField(qettabla=new Field(this,quetabla,"qettabla"));
       addField(qetrelacion=new Field(this,quetabla,"qetrelacion"));
+      addField(qettabla=new Field(this,quetabla,"qettabla"));
       }
     public String getWhere()
       {
@@ -2273,6 +2349,399 @@ public class ProgQuerytrat extends Program
       }
     }
     
+  public class FormVplantillas extends MonoDataForm
+    {
+    // Inicio declaraciones globales
+    //private boolean isInsert= false;
+    
+    public void onInsert() {  
+      //isInsert = true;
+      //pldescripcion.setEnabled(true);
+      btexaminarfich.setEnabled(true);
+      plcodigo.setEnabled(true);
+      super.onInsert();
+      }
+    
+    public void onEdit() {  
+      //isInsert = false;
+      //pldescripcion.setEnabled(false);
+      btexaminarfich.setEnabled(true);
+      plcodigo.setEnabled(false);
+      super.onEdit();
+      }
+    
+    public void editaPlantilla() throws Exception {
+        Maefc.waitCursor();
+        plantilla.fileAsociation();
+        //plantilla.setDataSource(System.getProperty("user.dir")+ "\\DataSources\\"+ vfrase.qeffrase.getString() +"_" + Easp.usuario + ".csv");
+        java.io.File fcsv = java.io.File.createTempFile("QUER", ".csv");
+        plantilla.setDataSource(fcsv.getAbsolutePath()); 
+        scolumnas.execute();
+        ompleOrigenDades(plantilla.getDataSource().getFileSource());        
+        //plantilla.mountDataSourceSelect(System.getProperty("user.dir")+ "\\DataSources\\"+ vfrase.qeffrase.getString() +"_" + Fecha.fechaGregoriana(Maefc.getDate())+Fecha.getHora(Maefc.getDateTime(),"HHmmss") + ".csv", "QUERY",scolumnas,14,15);
+        plantilla.openTemplate();
+        Maefc.restoreCursor();
+        fcsv.deleteOnExit();
+    }
+    
+    public void onDelete() {
+      try {   
+        if(Maefc.message("¿Desea eliminar la plantilla \"" + plcodigo.getString() + "\"?","Atención",Maefc.INFORMATION_MESSAGE, Maefc.YES_NO_OPTION)== Maefc.YES_OPTION) {
+          splantillas.getDataBase().executeUpdate("delete from plantillas where plaplicacion = '" + aplicacion + "' and plcodigo = '" + plcodigo.getString() + "' and plventana = '" + vfrase.qeffrase.getString()+"'");
+          sfrase.edit();
+          sfrase.qefplantilla.setNull();     
+          sfrase.update();
+          sfrase.commit();  
+          if(Maefc.message("¿Desea eliminar el fichero \"" + plurlplantilla.getString() + "\" asociado a la plantilla?","Atención",Maefc.INFORMATION_MESSAGE, Maefc.YES_NO_OPTION)== Maefc.YES_OPTION) 
+            deleteFitxerPlantilla();
+          vplantillas.doShow();
+        }
+      }
+      catch(Exception ex) {
+        Maefc.message("Error al eliminar la plantilla:\n"+ex.getMessage());
+        splantillas.getDataBase().rollback();
+      }
+    }
+    
+    public boolean onCancel()
+    {
+      btexaminarfich.setEnabled(false);
+      return super.onCancel();
+    }
+    
+    public void ompleOrigenDades (java.io.File fitxer) throws Exception {
+      int columnasVisibles=0;
+      String cadena ="";
+      java.io.PrintWriter fileout = null;
+      fileout= new java.io.PrintWriter(new java.io.BufferedWriter(new java.io.FileWriter(fitxer)));
+      //capçaleres
+      for(int i=0;i<scolumnas.getNumRows();i++) {
+        scolumnas.setCurrentRow(i);	
+        if (scolumnas.qecvisible.getString().equals("S")) {
+          columnasVisibles++;
+          cadena +=(scolumnas.getCurrentRow()==0?"":";") + "\""+scolumnas.qectitulo.getString()+"\""; 
+        }
+      }
+      fileout.println(cadena);
+      //espais en blanc
+      cadena="";	
+      for(int z=0;z<columnasVisibles;z++) {		      
+        cadena +="\""+"\"" + (z+1==columnasVisibles?"":";");    
+      }	
+      fileout.println(cadena);       
+      fileout.flush();
+      fileout.close();
+    }
+    
+    public void deleteFitxerPlantilla() throws Exception{
+        String fileName = plurlplantilla.getString();
+        java.io.File f = new java.io.File(fileName);
+    
+        if (!f.exists())
+          throw new IllegalArgumentException("No se encuentra el archivo " + fileName);
+    
+        if (!f.canWrite())
+          throw new IllegalArgumentException("El archivo " + fileName + " se encuentra protegido contra escritura.");
+    
+    
+        if (f.isDirectory()) {
+          String[] files = f.list();
+          if (files.length > 0)
+            throw new IllegalArgumentException("El directorio " + fileName + " no está vacío.");
+        }
+    
+        boolean success = f.delete();
+    
+        if (!success) 
+          throw new IllegalArgumentException("Delete: deletion failed");
+              
+    }
+    
+    
+    
+    // Fin declaraciones globales
+    // Controles
+    public CtrlPlcodigo plcodigo;
+    public CtrlPldescripcion pldescripcion;
+    public CtrlPlurlplantilla plurlplantilla;
+    public CtrlBtexaminarfich btexaminarfich;
+    // Acciones
+    public LinkAcaceptar acaceptar;
+    public LinkAceditarplan aceditarplan;
+    class Location extends LocationWindow
+      {
+      public Location( )
+        {
+        super();
+        setWidth(650);
+        setHeight(190);
+        setTitle("Gestión de Plantillas");
+        setModal(true);
+        setLocation(CENTER);
+        }
+      }
+      
+    public class CtrlPlcodigo extends ControlEdit
+      {
+      public CtrlPlcodigo(Form form)
+        {
+        super(form);
+        setName("plcodigo");
+        setMessageHelp("Código plantilla");
+        setTitle("Código plantilla");
+        setType(STRING);
+        setProtect(true);
+        setLength(15);
+        setPrintable(false);
+        setField(splantillas.plcodigo);
+        }
+      public void onChange()
+        {
+        super.onChange();
+        if(plurlplantilla.isNull()) {
+          plurlplantilla.setValue(System.getProperty("user.dir")+ "\\plantillas\\"+ this.getString() +".dot");
+        }
+        
+        }
+      public boolean obligate()
+        {
+        return true;
+        }
+      }
+      
+    public class CtrlPldescripcion extends ControlEdit
+      {
+      public CtrlPldescripcion(Form form)
+        {
+        super(form);
+        setName("pldescripcion");
+        setMessageHelp("Descripción");
+        setTitle("Descripción");
+        setType(STRING);
+        setLength(50);
+        setPrintable(false);
+        setField(splantillas.pldescripcion);
+        }
+      public boolean obligate()
+        {
+        return true;
+        }
+      }
+      
+    public class CtrlPlurlplantilla extends ControlEdit
+      {
+      public CtrlPlurlplantilla(Form form)
+        {
+        super(form);
+        setName("plurlplantilla");
+        setMessageHelp("Ubicación del fichero dot de la plantilla");
+        setTitle("Ubicación fichero");
+        setType(STRING);
+        setLength(250);
+        setPrintable(false);
+        setField(splantillas.plurlplantilla);
+        }
+      public boolean obligate()
+        {
+        return true;
+        }
+      }
+      
+    public class CtrlBtexaminarfich extends ControlButton
+      {
+      public CtrlBtexaminarfich(Form form)
+        {
+        super(form);
+        setName("btexaminarfich");
+        setTitle("Examinar...");
+        setTitle("Examinar...");
+        }
+      public void onClick()
+        {
+        //JExpe.creaDirect(JExpe.ggcarpetaExp);
+        java.awt.FileDialog  dlg=new java.awt.FileDialog(geyce.maefc.swing.WSystemView.getFrame(),"Seleccionar fichero",java.awt.FileDialog.LOAD);
+        dlg.setDirectory(System.getProperty("user.dir"));
+        dlg.setVisible(true);
+        //int numFila = splantillas.getCurrentRow();
+        if (dlg.getFile()!=null) {  
+          String directorio = dlg.getDirectory() ; 
+          String file = dlg.getFile() ;
+          plurlplantilla.setValue(directorio+file);
+          //this.setEnabled(false);
+          //splantillas.edit();
+          //splantillas.plurlplantilla.setValue(directorio+file);
+          //splantillas.update();
+          //vplantillas.setCurrentRow(numFila);
+          //vplantillas.doShow();
+          //vplantillas.setCurrentRow(numFila);
+          // if ( !directorio.startsWith(JExpe.ggrutaDocs) ) {
+          /*if ( !directorio.toUpperCase().contains(JExpe.ggrutaExpe.toUpperCase()) ) {
+             if ( Maefc.message("El archivo seleccionado esta fuera de la carpeta de documentos de la aplicación. \n ¿Desea Copiar el fichero dentro de esta carpeta ?","Atención",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION) == Maefc.YES_OPTION ) {
+                String newDirectorio = JExpe.ggrutaDocs ;
+                if ( !doccodcli.getString().equals("") ) newDirectorio+=doccodcli.getString()+"\\";
+                if ( !docexpediente.getString().equals("") ) newDirectorio+=docexpediente.getString()+"\\";
+                // JExpe.creaDirect(newDirectorio);
+                JExpe.copyFile(directorio+file , newDirectorio+file );
+                plurlplantilla.setValue(newDirectorio+file);
+                } 
+             }
+          */
+          //docfile.setValue(file);
+          /*if ( file != null && file.length() > 4 && file.substring(file.length()-4,file.length()-3).equals(".") ) {
+            doctipofile.setValue(file.substring(file.length()-3,file.length()).toUpperCase() );
+            }*/
+          }
+        }
+      }
+      
+    public class LinkAcaceptar extends Action
+      {
+      public LinkAcaceptar(Form form)
+        {
+        super(form);
+        setName("acaceptar");
+        setTitle("&1 - Seleccionar");
+        setOptions(SHOW);
+        }
+      public void onAction()
+        {
+        sfrase.edit();
+        sfrase.qefplantilla.setValue(plcodigo.getString());
+        sfrase.update();
+        vplantillas.exit();
+        vfrase.onOkUpdate();
+        vfrase.doShow();
+        }
+      }
+      
+    public class LinkAceditarplan extends Action
+      {
+      public LinkAceditarplan(Form form)
+        {
+        super(form);
+        setName("aceditarplan");
+        setTitle("&2 - Editar plantilla");
+        setOptions(SHOW);
+        }
+      public void onAction()
+        {
+        try {
+          super.onAction();  
+            if(!plurlplantilla.isNull() && !plurlplantilla.getString().trim().equals("")) {
+              plantilla = new mae.general.Plantilla (plurlplantilla.getString().trim());
+              if(plantilla.existePlantilla()) {
+                editaPlantilla();	
+              }
+              else {
+                if(Maefc.message("No existe el documento asociado para editar.\n¿Desea que el programa cree uno en la ubicación señalizada?","Atención",Maefc.WARNING_MESSAGE, Maefc.YES_NO_OPTION)== Maefc.YES_OPTION) 
+                  editaPlantilla();
+              }   
+            }
+            else {
+              Maefc.message("Error: Debe notificar una plantilla válida.","¡Error!",Maefc.ERROR_MESSAGE);
+            }
+          
+        }
+        catch (Exception ex) {
+          Maefc.restoreCursor();
+          Maefc.message("Error al combinar: Compruebe que la ruta del fichero es correcta","¡Error!",Maefc.ERROR_MESSAGE);
+          System.out.println("Error al combinar:" + ex.getMessage());
+          ex.printStackTrace();
+        }
+        }
+      }
+      
+    public FormVplantillas(ProgQuerytrat querytrat)
+      {
+      super(querytrat);
+      setName("vplantillas");
+      setTitle("Gestión de Plantillas");
+      setLayout(new LayoutAligned());
+      setLocation(new Location());
+      setStates(SHOW | DELETE | UPDATE | INSERT);
+      setPrintable(false);
+      setModal(true);
+      addSelect(splantillas2=new Splantillas2());
+      addControl(plcodigo=new CtrlPlcodigo(this));
+      addControl(pldescripcion=new CtrlPldescripcion(this));
+      addControl(plurlplantilla=new CtrlPlurlplantilla(this));
+      addControl(btexaminarfich=new CtrlBtexaminarfich(this));
+      addAction(acaceptar=new LinkAcaceptar(this));
+      addAction(aceditarplan=new LinkAceditarplan(this));
+      setSelect(splantillas);
+      }
+    public void onInit()
+      {
+      btexaminarfich.setEnabled(false);
+      super.onInit();
+      }
+    public boolean onOkInsert()
+      {
+      splantillas2.setWhere("plaplicacion = '" + aplicacion + "' and plventana = '" + vfrase.qeffrase.getString() + "' and plcodigo = '" + plcodigo.getString() + "'");
+      splantillas2.execute();
+      if(!splantillas2.isEof()) {
+        Maefc.message("Error: La plantilla que intenta crear ya existe para este listado.","¡Error!",Maefc.ERROR_MESSAGE);
+        return false;
+      }
+      else {
+        splantillas.plaplicacion.setValue(aplicacion);
+        splantillas.plventana.setValue(vfrase.qeffrase.getString());
+        splantillas.plcodigo.setValue(plcodigo.getString());
+        splantillas.pldescripcion.setValue(pldescripcion.getString());
+        splantillas.plurlplantilla.setValue(plurlplantilla.getString());
+        btexaminarfich.setEnabled(false);
+        return super.onOkInsert();
+      }
+      }
+    public boolean onOkUpdate()
+      {
+      splantillas.plaplicacion.setValue(aplicacion);
+      splantillas.plventana.setValue(vfrase.qeffrase.getString());
+      splantillas.plcodigo.setValue(plcodigo.getString());
+      splantillas.pldescripcion.setValue(pldescripcion.getString());
+      splantillas.plurlplantilla.setValue(plurlplantilla.getString());
+      btexaminarfich.setEnabled(false);
+      return super.onOkUpdate();
+      }
+    }
+    
+  // 
+  public class Splantillas2 extends Select
+    {
+    // Tablas
+    public Plantillas plantillas;
+    // Campos
+    public Field plaplicacion;
+    public Field plcodigo;
+    public Field plcodiquery;
+    public Field pldescripcion;
+    public Field plurlplantilla;
+    public Field plusuario;
+    public Field plventana;
+    class Plantillas extends Table
+      {
+      public Plantillas(Select select)
+        {
+        super(select);
+        setName("plantillas");
+        setOptions(READ | INSERT | DELETE | UPDATE);
+        }
+      }
+      
+    public Splantillas2()
+      {
+      setName("splantillas2");
+      addTable(plantillas=new Plantillas(this));
+      addField(plaplicacion=new Field(this,plantillas,"plaplicacion"));
+      addField(plcodigo=new Field(this,plantillas,"plcodigo"));
+      addField(plcodiquery=new Field(this,plantillas,"plcodiquery"));
+      addField(pldescripcion=new Field(this,plantillas,"pldescripcion"));
+      addField(plurlplantilla=new Field(this,plantillas,"plurlplantilla"));
+      addField(plusuario=new Field(this,plantillas,"plusuario"));
+      addField(plventana=new Field(this,plantillas,"plventana"));
+      }
+    }
+    
   public ProgQuerytrat()
     {
     this.querytrat=this;
@@ -2285,6 +2754,7 @@ public class ProgQuerytrat extends Program
     addForm(vcolumnas=new FormVcolumnas(this));
     addForm(votros=new FormVotros(this));
     addForm(vvariables=new FormVvariables(this));
+    addForm(vplantillas=new FormVplantillas(this));
     }
   public ProgQuerytrat(AppEasp easp)
     {
@@ -2336,6 +2806,9 @@ public class ProgQuerytrat extends Program
     svariables.quevariables.setCheckDuplicates(true);
     sfrase.quefrase.setCheckDuplicates(true);
     
+    vplantillas.setLayout(new LayoutHtml("mae/easp/html/querytrat_vplantillas.html"));
+    vplantillas.plurlplantilla.setViewLength(50);
+    
     if (aplicacion.equals("JEO")) {
        vfrase.qefect.setTitle("Empresa/Actividad");
        vfrase.qefect.removeAllItems();
@@ -2376,6 +2849,9 @@ public class ProgQuerytrat extends Program
     }
     else 
        vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejnomina.html"));
+    
+    splantillas.setDb(Easp.connEA);
+    splantillas2.setDb(Easp.connEA);
     super.onInit();
     
     }

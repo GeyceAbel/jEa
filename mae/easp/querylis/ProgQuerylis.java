@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111129
-// Hora:             13:29:09
+// Fecha:            20120120
+// Hora:             11:12:10
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -28,6 +28,7 @@ public class ProgQuerylis extends Program
   public java.util.Hashtable<String,java.util.Hashtable<String,String>> htTaules = null;
   public String aplicacion=Aplication.getAplication().getName();
   public Quonexio[] quonexions;
+  public mae.general.Plantilla plantilla;
   //public DBConnection conexionAplicacion = Aplication.getAplication().getDataBase() ;
   
   public String datSelec;
@@ -697,6 +698,9 @@ public class ProgQuerylis extends Program
           sentencia.append(" order by ");
           sentencia.append(ordre);
           }
+         //APXAVI 2011-12-22 tocat per funcionament de combinacio de plantilles
+         quorelacioPrincipal.sentencia = sentencia.toString();
+  
          quorelacioPrincipal.selector.execute(sentencia.toString());
       }
     }
@@ -870,13 +874,17 @@ public class ProgQuerylis extends Program
       }
     return false;
   }
-  
-  boolean demanarParametres() {
+  /* 02-12-2001 APXAVI nou parametre per cambiar el nom del botó segons es cridi desde listar o combinar*/
+  boolean demanarParametres(boolean callCombinarButton) {
     if ((frase.variables.size()==0 || !algunaVariableVisible()) &&
         (frase.ect==null || frase.ect.length()==0 || frase.ect.equals("N")) )
        return true;
   
     FormVparam form=new FormVparam(querylis);
+    if(callCombinarButton)  {
+      form.acimprimir.setTitle("&1 - Combinar");
+    }
+    
   /*
     form.panel=new ControlPanel(form);
     form.panel.setLayout(new LayoutAligned());
@@ -953,6 +961,7 @@ public class ProgQuerylis extends Program
   public Squecolumn squecolumn;
   public Squetabla squetabla;
   public Squevariables squevariables;
+  public Splantillas splantillas;
   public Inflistado inflistado;
   // Ventana
   public FormVparam vparam;
@@ -979,6 +988,7 @@ public class ProgQuerylis extends Program
     public java.io.FileOutputStream write=null;
     public java.io.PrintWriter salida=null;
     public java.awt.Cursor cursorAnt=null;
+    public Selector selectCombinacio;
     
     String destino;
     java.io.File fileImpXML;
@@ -1857,7 +1867,28 @@ public class ProgQuerylis extends Program
         }
       }
     
-    
+    public void combinaPlantilla(String origenDades) {
+      try {
+        Maefc.waitCursor();
+        String documentoGuarda = System.getProperty("user.dir")+"\\Documentos Combinados\\" + qeffrase.getString()+ "_" + Easp.usuario + ".doc";
+        plantilla.createDocumentSave(documentoGuarda);
+        plantilla.fileAsociation();
+        //plantilla.newDataSource(File fileDataSource);
+        //Selector scolumnas=new Selector(getDataBase());  
+        //scolumnas.execute("select * from quecolumn where qecaplicacion='"+aplicacion+"' and qecfrase='"+qeffrase.getString()+"' order by qecorden");  
+        //squecolumn.execute();
+        //selectCombinacio.execute();
+        //plantilla.mountDataSourceSelect(System.getProperty("user.dir")+ "\\DataSources\\"+ qeffrase.getString() +"_" + Fecha.fechaGregoriana(Maefc.getDate())+Fecha.getHora(Maefc.getDateTime(),"HHmmss") + ".csv", "QUERY",squecolumn,16,selectCombinacio,17);
+        plantilla.setDataSource(origenDades);
+        plantilla.executeMerge();
+        Maefc.restoreCursor();
+      }
+      catch(Exception ex) {
+        Maefc.restoreCursor();
+        Maefc.message("Error:" + ex.getMessage(),"¡Error!",Maefc.ERROR_MESSAGE);
+        ex.printStackTrace();    
+      }
+    }
     
     
     
@@ -1865,11 +1896,13 @@ public class ProgQuerylis extends Program
     // Controles
     public CtrlQeffrase qeffrase;
     public CtrlQefdescripcion qefdescripcion;
+    public CtrlQefplantilla qefplantilla;
     // Acciones
     public LinkAclistar aclistar;
     public LinkAcdup acdup;
     public LinkAcimportar acimportar;
     public LinkAcexportar acexportar;
+    public LinkAccombinar accombinar;
     class Location extends LocationBorder
       {
       public Location( )
@@ -1910,6 +1943,21 @@ public class ProgQuerylis extends Program
         }
       }
       
+    public class CtrlQefplantilla extends ColumnEdit
+      {
+      public CtrlQefplantilla(Form form)
+        {
+        super(form);
+        setName("qefplantilla");
+        setMessageHelp("Plantilla asociada al fichero de combinación de correspondencia");
+        setTitle("Plantilla");
+        setType(STRING);
+        setLength(15);
+        setPrintable(false);
+        setField(squery.qefplantilla);
+        }
+      }
+      
     public class LinkAclistar extends Action
       {
       public LinkAclistar(Form form)
@@ -1930,7 +1978,7 @@ public class ProgQuerylis extends Program
         
         frase=llegeixFrase(qeffrase.getString());
         
-        if (!demanarParametres()) 
+        if (!demanarParametres(false)) 
           return;
         
         seleccio=new Seleccio();
@@ -1974,37 +2022,36 @@ public class ProgQuerylis extends Program
             }
         
         try {
-            java.io.StringBufferInputStream in=new java.io.StringBufferInputStream(xml);
-            listado.setXmlDocument(com.sun.xml.tree.XmlDocument.createXmlDocument(in,false));
+          java.io.StringBufferInputStream in=new java.io.StringBufferInputStream(xml);
+          listado.setXmlDocument(com.sun.xml.tree.XmlDocument.createXmlDocument(in,false));
         
-            PrintWork work=new PrintWork(true) {
-              public void init(PrintOutput out) {
-                super.init(out);
-                if (out instanceof PrintExcel) {
-                  PrintExcel excel=(PrintExcel)out;
-                   try {
-                     StringBuffer buffer=new StringBuffer();
-                     java.io.BufferedReader in=new java.io.BufferedReader(new java.io.InputStreamReader(ClassLoader.getSystemResourceAsStream("mae/easp/vbs/query.vbs")));
-                     String line;
-                     while((line=in.readLine())!=null) {
-                       buffer.append(line);
-                       buffer.append('\n');
-                     }
-                     excel.script=buffer.toString();
-                     excel.destino=System.getProperty("user.dir")+"\\resultado.xls";
-                     excel.plantilla=System.getProperty("user.dir")+"\\plantillas\\query.xls";
-                     }
-                   catch(Exception ex) {
-                     ErrorManagerDefault.generalEx(ex,"No ha sido posible obtener el script de generación archivo Excel");
-                     return;
-                     }
+          PrintWork work=new PrintWork(true) {
+            public void init(PrintOutput out) {
+              super.init(out);
+              if (out instanceof PrintExcel) {
+                PrintExcel excel=(PrintExcel)out;
+                try {
+                  StringBuffer buffer=new StringBuffer();
+                  java.io.BufferedReader in=new java.io.BufferedReader(new java.io.InputStreamReader(ClassLoader.getSystemResourceAsStream("mae/easp/vbs/query.vbs")));
+                  String line;
+                  while((line=in.readLine())!=null) {
+                    buffer.append(line);
+                    buffer.append('\n');
                   }
+                  excel.script=buffer.toString();
+                  excel.destino=System.getProperty("user.dir")+"\\resultado.xls";
+                  excel.plantilla=System.getProperty("user.dir")+"\\plantillas\\query.xls";
                 }
-            };
-        
-            work.add(listado);
-            work.dialog(querylis);
+                catch(Exception ex) {
+                  ErrorManagerDefault.generalEx(ex,"No ha sido posible obtener el script de generación archivo Excel");
+                  return;
+                }
+              }
             }
+          };
+          work.add(listado);
+          work.dialog(querylis);
+        }
         catch(org.xml.sax.SAXException ex) {
             Maefc.message("No ha sido posible ejecutar este listado: "+ex.getMessage());
             ex.printStackTrace();
@@ -2110,6 +2157,113 @@ public class ProgQuerylis extends Program
         }
       }
       
+    public class LinkAccombinar extends Action
+      {
+      public LinkAccombinar(Form form)
+        {
+        super(form);
+        setName("accombinar");
+        setTitle("&5 - Combinar");
+        setOptions(SEARCH | SHOW | UPDATE | INSERT);
+        }
+      public void onAction()
+        {
+        
+        try {
+          if (parserSQL() == false) {
+          Maefc.message("Se han encontrado errores en el procesamiento \nde las variables, por favor revíselas","Procesamiento de variables",Maefc.ERROR_MESSAGE, Maefc.OK_OPTION);
+          //this.doShow();
+          }
+          else {
+            super.onAction();
+            splantillas.setWhere("plaplicacion = '" + aplicacion + "' and plcodigo = '" + qefplantilla.getString() + "' and plventana = '" + qeffrase.getString() + "'");
+            splantillas.execute();
+            //if(!qefplantilla.isNull() && !qefplantilla.getString().trim().equals("")) {
+            if(!splantillas.isEof()) {  
+              plantilla = new mae.general.Plantilla (splantillas.plurlplantilla.getString().trim());
+              if(plantilla.existePlantilla()) {
+                frase=llegeixFrase(qeffrase.getString());
+            
+                if (!demanarParametres(true)) 
+                return;
+            
+                seleccio=new Seleccio();
+            
+                seleccio.inicia();
+                if (seleccio.quorelacioPrincipal.eof) {
+                  Maefc.message("No se ha encontrado información que cumple con la selección efectuada");
+                  return;
+                }
+                String sentencia = seleccio.quorelacioPrincipal.sentencia;
+                Inflistado listado=new Inflistado(querylis);
+                listado.setNewPrintingSystem(true);
+                String xml=creaXML();
+                
+                for(int i=0;i<frase.columnes.size();i++) {
+                    Columna col=(Columna)frase.columnes.elementAt(i);
+                    if (col.visible) {
+                      col.reportData=new ReportData(listado);
+                      col.reportData.setType(col.tipus);
+                      /* Aixo cal fer-ho a la plantilla ya que per excel es diferent
+                      if (col.format!=null) 
+                        col.reportData.setFormat(col.format);
+                      */        
+                      col.reportData.setLength(col.llarg);
+                      listado.addReportData(col.reportData);
+                      }
+                    }
+        
+                for(int i=0;i<frase.columnes.size();i++) {
+                    Columna col=(Columna)frase.columnes.elementAt(i);
+                    if (col.visible && col.acumula) {
+                      col.reportDataTotal=new ReportData(listado);
+                      col.reportDataTotal.setType(col.tipus);
+                      /* Aixo cal fer-ho a la plantilla ya que per excel es diferent
+                      if (col.format!=null) 
+                        col.reportDataTotal.setFormat(col.format);
+                      */ 
+                      col.reportDataTotal.setLength(col.llarg);
+                      listado.addReportData(col.reportDataTotal);
+                      }
+                    }
+        
+                java.io.StringBufferInputStream in=new java.io.StringBufferInputStream(xml);
+                listado.setXmlDocument(com.sun.xml.tree.XmlDocument.createXmlDocument(in,false));
+                //String origenDades = System.getProperty("user.dir")+ "\\DataSources\\"+ qeffrase.getString() +"_" + Fecha.fechaGregoriana(Maefc.getDate())+Fecha.getHora(Maefc.getDateTime(),"HHmmss") + ".csv";
+                //String origenDades = System.getProperty("user.dir")+ "\\DataSources\\"+ qeffrase.getString() +"_" + Easp.usuario + ".csv";
+                java.io.File fcsv = java.io.File.createTempFile("QUER", ".csv");
+                String origenDades = fcsv.getAbsolutePath(); 
+                PrintWork work = new PrintWork();
+                work.add(listado);    
+                work.setShowFinalMessage(false);
+                PrintExcel excel =  new PrintExcel();
+                excel.work = work;
+                excel.destino = origenDades;
+                excel.archivoCSV = true;
+                excel.abrir = false;
+                excel.printjob();
+        
+                combinaPlantilla(origenDades);	
+                if(!fcsv.delete()) fcsv.deleteOnExit();
+              }
+              else {
+                Maefc.message("Error: \"" + splantillas.plurlplantilla.getString() + "\"\nNo se encuentra el fichero asociado a la plantilla.\nPor favor asegurese de que existe y su ubicación es correcta.","¡Error!",Maefc.ERROR_MESSAGE);
+              }
+            }
+            else {
+              Maefc.message("Error: Debe notificar una plantilla válida para poder combinar datos.","¡Error!",Maefc.ERROR_MESSAGE);
+            }
+          }
+        }
+        catch (Exception ex) {
+          Maefc.restoreCursor();
+          Maefc.message("Error al combinar: Compruebe que la ruta del fichero es correcta","¡Error!",Maefc.ERROR_MESSAGE);
+          System.out.println("Error al combinar:" + ex.getMessage());
+          ex.printStackTrace();
+        }
+        }
+      }
+      
     public FormVseleccion(ProgQuerylis querylis)
       {
       super(querylis);
@@ -2122,18 +2276,29 @@ public class ProgQuerylis extends Program
       addSelect(squecolumn=new Squecolumn());
       addSelect(squetabla=new Squetabla());
       addSelect(squevariables=new Squevariables());
+      addSelect(splantillas=new Splantillas());
       addControl(qeffrase=new CtrlQeffrase(this));
       addControl(qefdescripcion=new CtrlQefdescripcion(this));
+      addControl(qefplantilla=new CtrlQefplantilla(this));
       addAction(aclistar=new LinkAclistar(this));
       addAction(acdup=new LinkAcdup(this));
       addAction(acimportar=new LinkAcimportar(this));
       addAction(acexportar=new LinkAcexportar(this));
+      addAction(accombinar=new LinkAccombinar(this));
       setSelect(squery);
       }
     public void onInit()
       {
       setInitState(SHOW);
       super.onInit();
+      }
+    public void onBeginRecord()
+      {
+      if(!qefplantilla.isNull())
+        accombinar.setEnabled(true);
+      else
+        accombinar.setEnabled(false);
+      super.onBeginRecord();
       }
     }
     
@@ -2151,6 +2316,7 @@ public class ProgQuerylis extends Program
     public Field qefletra;
     public Field qefmaster;
     public Field qefpaginado;
+    public Field qefplantilla;
     public Field qefrepetir;
     public Field qeftitulo;
     class Quefrase extends Table
@@ -2175,6 +2341,7 @@ public class ProgQuerylis extends Program
       addField(qefletra=new Field(this,quefrase,"qefletra"));
       addField(qefmaster=new Field(this,quefrase,"qefmaster"));
       addField(qefpaginado=new Field(this,quefrase,"qefpaginado"));
+      addField(qefplantilla=new Field(this,quefrase,"qefplantilla"));
       addField(qefrepetir=new Field(this,quefrase,"qefrepetir"));
       addField(qeftitulo=new Field(this,quefrase,"qeftitulo"));
       }
@@ -2208,6 +2375,7 @@ public class ProgQuerylis extends Program
     public Field qefletra;
     public Field qefmaster;
     public Field qefpaginado;
+    public Field qefplantilla;
     public Field qefrepetir;
     public Field qeftitulo;
     public Field qefwhere;
@@ -2235,6 +2403,7 @@ public class ProgQuerylis extends Program
       addField(qefletra=new Field(this,quefrase,"qefletra"));
       addField(qefmaster=new Field(this,quefrase,"qefmaster"));
       addField(qefpaginado=new Field(this,quefrase,"qefpaginado"));
+      addField(qefplantilla=new Field(this,quefrase,"qefplantilla"));
       addField(qefrepetir=new Field(this,quefrase,"qefrepetir"));
       addField(qeftitulo=new Field(this,quefrase,"qeftitulo"));
       addField(qefwhere=new Field(this,quefrase,"qefwhere"));
@@ -2397,6 +2566,43 @@ public class ProgQuerylis extends Program
     public String getWhere()
       {
       return "qevaplicacion = '" + aplicacion + "' and qevfrase = '" + vseleccion.qeffrase.getString() + "'";
+      }
+    }
+    
+  // 
+  public class Splantillas extends Select
+    {
+    // Tablas
+    public Plantillas plantillas;
+    // Campos
+    public Field plaplicacion;
+    public Field plcodigo;
+    public Field plcodiquery;
+    public Field plorigendades;
+    public Field plurlplantilla;
+    public Field plusuario;
+    public Field plventana;
+    class Plantillas extends Table
+      {
+      public Plantillas(Select select)
+        {
+        super(select);
+        setName("plantillas");
+        setOptions(READ);
+        }
+      }
+      
+    public Splantillas()
+      {
+      setName("splantillas");
+      addTable(plantillas=new Plantillas(this));
+      addField(plaplicacion=new Field(this,plantillas,"plaplicacion"));
+      addField(plcodigo=new Field(this,plantillas,"plcodigo"));
+      addField(plcodiquery=new Field(this,plantillas,"plcodiquery"));
+      addField(plorigendades=new Field(this,plantillas,"plorigendades"));
+      addField(plurlplantilla=new Field(this,plantillas,"plurlplantilla"));
+      addField(plusuario=new Field(this,plantillas,"plusuario"));
+      addField(plventana=new Field(this,plantillas,"plventana"));
       }
     }
     
@@ -2993,6 +3199,8 @@ public class ProgQuerylis extends Program
     
     squery.setDb(Aplication.getAplication().getDataBase());
     sprueba.setDb(Aplication.getAplication().getDataBase());
+    splantillas.setDb(Easp.connEA);
+    
     super.onInit();
     
     }
