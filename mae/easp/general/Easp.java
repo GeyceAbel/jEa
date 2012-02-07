@@ -1146,6 +1146,7 @@ public static Date esFecha (String s){
 	      s2.close();
 	      bOk = u.execute("danifcif='"+nif+"'");
 	  }
+	  snif.close();
 	  return bOk;
   }
   /*
