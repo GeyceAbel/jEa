@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20120120
-// Hora:             12:56:27
+// Fecha:            20120214
+// Hora:             11:27:09
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2415,11 +2415,14 @@ public class ProgQuerytrat extends Program
       java.io.PrintWriter fileout = null;
       fileout= new java.io.PrintWriter(new java.io.BufferedWriter(new java.io.FileWriter(fitxer)));
       //capçaleres
+      String puntocoma = "" ;
       for(int i=0;i<scolumnas.getNumRows();i++) {
         scolumnas.setCurrentRow(i);	
         if (scolumnas.qecvisible.getString().equals("S")) {
           columnasVisibles++;
-          cadena +=(scolumnas.getCurrentRow()==0?"":";") + "\""+scolumnas.qectitulo.getString()+"\""; 
+          //cadena +=(scolumnas.getCurrentRow()==0?"":";") + "\""+scolumnas.qectitulo.getString()+"\""; 
+          cadena += puntocoma + "\""+scolumnas.qectitulo.getString()+"\""; 
+          puntocoma = ";";      
         }
       }
       fileout.println(cadena);

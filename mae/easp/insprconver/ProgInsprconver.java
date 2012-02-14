@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111223
-// Hora:             13:46:41
+// Fecha:            20120214
+// Hora:             09:58:22
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1067,6 +1067,11 @@ public class ProgInsprconver extends Program
       " DELETE FROM BANCO WHERE bncodigo=3188;",
       " INSERT INTO BANCO (bncodigo,bndesc) VALUES (3188,'CREDIT VALENCIA C.R.C.C.V.');"};
     
+      String sentencias9_5[]={
+       "ALTER TABLE QUEFRASE ADD qefplantilla varchar(15) ",
+      };
+    
+    
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -2096,6 +2101,29 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("9.4");
         }
+    
+    
+        if (versio < 9.5) {
+          for (i=0;i<sentencias9_5.length;++i) {
+            try {
+              Easp.chivato("9.5 Exec : ["+sentencias9_5[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias9_5[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias9_5[i];
+              Easp.chivato("9.5 *** Error : ["+sentencias9_5[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","9.5");
+          Easp.connEA.commit();
+          vvveractual.setValue("9.5");
+        }
+    
+    
+    
+    
+    
       }
     
       catch(Exception e) {

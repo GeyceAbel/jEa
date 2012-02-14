@@ -75,7 +75,7 @@ public class Fecha {
    *
    * @return TRUE si las dos fechas son iguales o FALSE en caso contrario.
    */
-  public static boolean igualDiaMesAnio(Date d1, Date d2) {
+    public static boolean igualDiaMesAnio(Date d1, Date d2) {
     Calendar cal1=Calendar.getInstance();
     cal1.setTime(d1);
     Calendar cal2=Calendar.getInstance();
