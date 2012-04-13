@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20120214
-// Hora:             09:58:22
+// Fecha:            20120413
+// Hora:             10:39:11
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1071,6 +1071,22 @@ public class ProgInsprconver extends Program
        "ALTER TABLE QUEFRASE ADD qefplantilla varchar(15) ",
       };
     
+      String sentencias9_6[]={
+       " CREATE TABLE PLANTILLAS                            "+
+        "  (PLAPLICACION       VARCHAR(15) NOT NULL,         "+
+        "   PLCODIGO           VARCHAR(15) NOT NULL,         "+
+        "   PLVENTANA          VARCHAR(15) NOT NULL,         "+
+        "   PLDESCRIPCION      VARCHAR(50),                  "+
+        "   PLUSUARIO          VARCHAR(25),                  "+
+        "   PLCATALOGO         VARCHAR(15),                  "+
+        "   PLCODIQUERY        VARCHAR(15),                  "+
+        "   PLURLPLANTILLA     VARCHAR(250),                 "+
+        "   PLORIGENDADES      VARCHAR(250),                 "+
+        "   PLCAMPSCOMBI       INTEGER,                      "+
+        "   PLTIPOORIG         CHAR(2),                      "+
+        "   PRIMARY KEY (PLAPLICACION,PLCODIGO,PLVENTANA));  ",
+      };
+    
     
       int i=0;
       try {
@@ -2120,7 +2136,22 @@ public class ProgInsprconver extends Program
           vvveractual.setValue("9.5");
         }
     
-    
+        if (versio < 9.6) {
+          for (i=0;i<sentencias9_6.length;++i) {
+            try {
+              Easp.chivato("9.6 Exec : ["+sentencias9_6[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias9_6[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias9_6[i];
+              Easp.chivato("9.6 *** Error : ["+sentencias9_6[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","9.6");
+          Easp.connEA.commit();
+          vvveractual.setValue("9.6");
+        }
     
     
     
