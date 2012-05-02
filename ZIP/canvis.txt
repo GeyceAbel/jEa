@@ -47,3 +47,4 @@
 111103 --> APPAU  : CREACIÓN AUTOMÁTICA DE INDICES PARA JGESTION
 111201 --> APESTER: prclfichagener s'ha ampliat la visualitzacio del camp mail de 30 a 40
 111202 --> APESTER: afegit el banc 3188
+120501 --> APJORDI: Modificat actualizanifs.java ja que al canviar de NIF declarats de jrenta es perdia el domicili fiscal
