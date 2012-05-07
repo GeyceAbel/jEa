@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20120214
-// Hora:             11:27:09
+// Fecha:            20120507
+// Hora:             15:30:44
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -39,7 +39,8 @@ public class ProgQuerytrat extends Program
       Catalog catalogo;
     
       public String toString() {
-          String desc=table.getDescription();
+          // String desc=table.getDescription();
+         String desc=Easp.cutrpad(table.getDescription(),75).trim();
           if (desc==null) 
               return table.getName();
           else
@@ -53,7 +54,8 @@ public class ProgQuerytrat extends Program
       Catalog catalogo;
     
       public String toString() {
-          String desc=field.getDescription();
+          // String desc=field.getDescription();
+          String desc=Easp.cutrpad(field.getDescription(),35).trim();
           if (desc==null)
               return field.getName();
           else
@@ -2392,7 +2394,7 @@ public class ProgQuerytrat extends Program
           sfrase.qefplantilla.setNull();     
           sfrase.update();
           sfrase.commit();  
-          if(Maefc.message("¿Desea eliminar el fichero \"" + plurlplantilla.getString() + "\" asociado a la plantilla?","Atención",Maefc.INFORMATION_MESSAGE, Maefc.YES_NO_OPTION)== Maefc.YES_OPTION) 
+          if(Maefc.message("¿Desea eliminar el fichero \"" + plurlplantilla.getString() + "\" asociado a la plantilla?","Atención",Maefc.WARNING_MESSAGE, Maefc.YES_NO_OPTION)== Maefc.YES_OPTION) 
             deleteFitxerPlantilla();
           vplantillas.doShow();
         }
@@ -2502,7 +2504,7 @@ public class ProgQuerytrat extends Program
         {
         super.onChange();
         if(plurlplantilla.isNull()) {
-          plurlplantilla.setValue(System.getProperty("user.dir")+ "\\plantillas\\"+ this.getString() +".dot");
+          plurlplantilla.setValue(System.getProperty("user.dir")+ "\\plantillas\\"+ this.getString() +".doc");
         }
         
         }
