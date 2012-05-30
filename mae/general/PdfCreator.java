@@ -20,14 +20,17 @@ public class PdfCreator {
   private String sDirectoryPdf;
   public boolean openBeforePrint=false;
   
+  public PdfCreator() {
+    
+    }
   
-  
-  public PdfCreator(String directoryDoc,String fileDoc, String directoryPdf,String filePdf) {
+  public boolean  creaPDF(String directoryDoc,String fileDoc, String directoryPdf,String filePdf) {
     docFile= fileDoc;
     savePdf=filePdf;
     sDirectory=directoryDoc;
     sDirectoryPdf=directoryPdf;
     createPdf();
+    return true ;
 	//printPDF();
   }
   /**
