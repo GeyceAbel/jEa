@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20120507
-// Hora:             15:30:44
+// Fecha:            20120521
+// Hora:             10:34:07
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -627,6 +627,7 @@ public class ProgQuerytrat extends Program
     public Field plurlplantilla;
     public Field plusuario;
     public Field plventana;
+    public Field pltipoplan;
     class Plantillas extends Table
       {
       public Plantillas(Select select)
@@ -651,6 +652,7 @@ public class ProgQuerytrat extends Program
       addField(plurlplantilla=new Field(this,plantillas,"plurlplantilla"));
       addField(plusuario=new Field(this,plantillas,"plusuario"));
       addField(plventana=new Field(this,plantillas,"plventana"));
+      addField(pltipoplan=new Field(this,plantillas,"pltipoplan"));
       }
     public String getWhere()
       {
@@ -2374,7 +2376,7 @@ public class ProgQuerytrat extends Program
     
     public void editaPlantilla() throws Exception {
         Maefc.waitCursor();
-        plantilla.fileAsociation();
+        //apxavi 18-05-2012 plantilla.fileAsociation();
         //plantilla.setDataSource(System.getProperty("user.dir")+ "\\DataSources\\"+ vfrase.qeffrase.getString() +"_" + Easp.usuario + ".csv");
         java.io.File fcsv = java.io.File.createTempFile("QUER", ".csv");
         plantilla.setDataSource(fcsv.getAbsolutePath()); 
@@ -2470,6 +2472,7 @@ public class ProgQuerytrat extends Program
     public CtrlPldescripcion pldescripcion;
     public CtrlPlurlplantilla plurlplantilla;
     public CtrlBtexaminarfich btexaminarfich;
+    public CtrlPltipoplan pltipoplan;
     // Acciones
     public LinkAcaceptar acaceptar;
     public LinkAceditarplan aceditarplan;
@@ -2479,7 +2482,7 @@ public class ProgQuerytrat extends Program
         {
         super();
         setWidth(650);
-        setHeight(190);
+        setHeight(220);
         setTitle("Gestión de Plantillas");
         setModal(true);
         setLocation(CENTER);
@@ -2504,7 +2507,7 @@ public class ProgQuerytrat extends Program
         {
         super.onChange();
         if(plurlplantilla.isNull()) {
-          plurlplantilla.setValue(System.getProperty("user.dir")+ "\\plantillas\\"+ this.getString() +".doc");
+          plurlplantilla.setValue(System.getProperty("user.dir")+ "\\plantillas\\"+ this.getString() +".dot");
         }
         
         }
@@ -2599,6 +2602,29 @@ public class ProgQuerytrat extends Program
         }
       }
       
+    public class CtrlPltipoplan extends ControlComboBox
+      {
+      public CtrlPltipoplan(Form form)
+        {
+        super(form);
+        setName("pltipoplan");
+        setMessageHelp("Tipo de plantilla para combinar correspondencia");
+        setTitle("Tipo plantilla");
+        setType(INTEGER);
+        setLength(1);
+        setPrintable(false);
+        setComboEditable(false);
+        addItem("0/Cartas");
+        addItem("1/Etiquetas");
+        addItem("2/Sobres");
+        setField(splantillas.pltipoplan);
+        }
+      public Object getDefault()
+        {
+        return new Integer(0);
+        }
+      }
+      
     public class LinkAcaceptar extends Action
       {
       public LinkAcaceptar(Form form)
@@ -2633,14 +2659,18 @@ public class ProgQuerytrat extends Program
         try {
           super.onAction();  
             if(!plurlplantilla.isNull() && !plurlplantilla.getString().trim().equals("")) {
-              plantilla = new mae.general.Plantilla (plurlplantilla.getString().trim());
-              if(plantilla.existePlantilla()) {
+              //plantilla = new mae.general.Plantilla (plurlplantilla.getString().trim());
+              int tipoPlan;
+              if(pltipoplan.isNull()) tipoPlan = 1;
+              else tipoPlan = pltipoplan.getInteger();
+              plantilla = new mae.general.Plantilla (plurlplantilla.getString().trim(),tipoPlan);
+              //if(plantilla.existePlantilla()) {
                 editaPlantilla();	
-              }
-              else {
-                if(Maefc.message("No existe el documento asociado para editar.\n¿Desea que el programa cree uno en la ubicación señalizada?","Atención",Maefc.WARNING_MESSAGE, Maefc.YES_NO_OPTION)== Maefc.YES_OPTION) 
-                  editaPlantilla();
-              }   
+              //}
+              //else {
+                //if(Maefc.message("No existe el documento asociado para editar.\n¿Desea que el programa cree uno en la ubicación señalizada?","Atención",Maefc.WARNING_MESSAGE, Maefc.YES_NO_OPTION)== Maefc.YES_OPTION) 
+                  //editaPlantilla();
+              //}   
             }
             else {
               Maefc.message("Error: Debe notificar una plantilla válida.","¡Error!",Maefc.ERROR_MESSAGE);
@@ -2671,6 +2701,7 @@ public class ProgQuerytrat extends Program
       addControl(pldescripcion=new CtrlPldescripcion(this));
       addControl(plurlplantilla=new CtrlPlurlplantilla(this));
       addControl(btexaminarfich=new CtrlBtexaminarfich(this));
+      addControl(pltipoplan=new CtrlPltipoplan(this));
       addAction(acaceptar=new LinkAcaceptar(this));
       addAction(aceditarplan=new LinkAceditarplan(this));
       setSelect(splantillas);

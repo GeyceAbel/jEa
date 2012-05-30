@@ -9,8 +9,7 @@ import org.jawin.DispatchPtr;
 import org.jawin.Variant;
 import org.jawin.win32.Ole32;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Vector;
+
 
 public class Plantilla {
 
@@ -19,6 +18,8 @@ public class Plantilla {
 	private DataSource dataSource;
 	private String urlTemplate;
 	private File fileDocumentSave;
+	private int typeDocument;  //0=letters  1=labels  2=sobres
+	private boolean pfdOut = true;
 	
 	/**
 	 * Constructor plantilla sense origen de dades associat
@@ -29,6 +30,10 @@ public class Plantilla {
 	public Plantilla (String urlTemplate) {
 	  this.urlTemplate=urlTemplate;
 	}
+	public Plantilla (String urlTemplate, int documentType) {
+		  this.urlTemplate=urlTemplate;
+		  this.typeDocument = documentType;
+		}
 	
 	
 	public Plantilla(String fileDataSource, String typeTemplate) throws Exception {
@@ -88,10 +93,31 @@ public class Plantilla {
 	    DispatchPtr app = new DispatchPtr("Word.Application");
 	    app.put("Visible", true);
 		DispatchPtr documents = (DispatchPtr)app.get("Documents");
-		DispatchPtr word = (DispatchPtr) documents.invoke("Open", urlTemplate);
+		DispatchPtr word;
+		if(existePlantilla())
+		   word = (DispatchPtr) documents.invoke("Open", urlTemplate);
+		/*si no existeix el template, el creem*/
+		else {
+		   word = (DispatchPtr) documents.invoke("Add");	
+		   word.invoke("SaveAs", new File(urlTemplate).getAbsolutePath());
+		}
 		if(dataSource != null) {
-		  DispatchPtr mailmerge = (DispatchPtr) word.get("MailMerge");		
-		  DispatchPtr source = (DispatchPtr) mailmerge.invoke("OpenDataSource",dataSource.getUrlSource());	
+		  DispatchPtr dp = (DispatchPtr) app.get("ActiveDocument");		  
+		  DispatchPtr mailmerge = (DispatchPtr) dp.get("MailMerge");	
+		//If necessary, specify the target document's type
+		    //mailmerge.setMainDocumentType(0); 
+		              // wdFormLetters=0,  wdNotAMergeDocument = -1,
+		              // wdMailingLabels = 1, wdEnvelopes = 2, wdCatalog = 3
+		  
+
+		  mailmerge.put("MainDocumentType",typeDocument);
+		  Object[] obj = {dataSource.getUrlSource(),0,false, false,true,false,"","",false,"","","","",""};		  
+		  DispatchPtr source = (DispatchPtr) mailmerge.invokeN("OpenDataSource",obj);	
+		  //DispatchPtr source = (DispatchPtr) mailmerge.invoke("OpenDataSource",dataSource.getUrlSource(),0);
+		  if(typeDocument ==1) {
+		    Object[] wizard = {2,false,true, false,false,false,false};
+		    DispatchPtr wizard1= (DispatchPtr) mailmerge.invokeN("ShowWizard",wizard);
+		  }
 		}
 		Ole32.CoUninitialize();
 	  }
@@ -106,24 +132,38 @@ public class Plantilla {
 	
 	public void executeMerge() throws Exception{
 	  try {	
+		
 		Maefc.waitCursor();  
 		Ole32.CoInitialize();
 	    DispatchPtr app = new DispatchPtr("Word.Application");
+	    //app.put("Visible", false);
 	    app.put("Visible", false);
 		DispatchPtr documents = (DispatchPtr)app.get("Documents");
-		DispatchPtr word = (DispatchPtr) documents.invoke("Open", urlTemplate);		
-		DispatchPtr mailmerge = (DispatchPtr) word.get("MailMerge");
-	    DispatchPtr source = (DispatchPtr) mailmerge.invoke("OpenDataSource",dataSource.getUrlSource());	
+		DispatchPtr word = (DispatchPtr) documents.invoke("Open", urlTemplate);	
+		
+		DispatchPtr dp = (DispatchPtr) app.get("ActiveDocument");
+		//DispatchPtr mailmerge = (DispatchPtr) word.get("MailMerge");
+		DispatchPtr mailmerge = (DispatchPtr) dp.get("MailMerge");
+		
+		
+		
+		Object[] obj = {dataSource.getUrlSource(),4,false, true,false,false,"","",false,"","","","",""};
+		DispatchPtr source = (DispatchPtr) mailmerge.invokeN("OpenDataSource",obj);
+		
+	    //2012 DispatchPtr source = (DispatchPtr) mailmerge.invoke("OpenDataSource",dataSource.getUrlSource());	
 	    //source.invoke("ConfirmConversions","false");
 	    //mailmerge.invoke("Destination",new Integer(0));
-		DispatchPtr combine = (DispatchPtr) mailmerge.invoke("Execute");
-		DispatchPtr dp = (DispatchPtr) app.get("ActiveDocument");
-			
+		DispatchPtr combine = (DispatchPtr) mailmerge.invoke("Execute",true);		
+		DispatchPtr dp2 = (DispatchPtr) word.invoke("Activate");
+		DispatchPtr dp3 = (DispatchPtr) word.invoke("Close",0);		
+		app.put("Visible", true);
+		/*	
 		dp.invoke("SaveAs", fileDocumentSave.getAbsolutePath());
-		app.invoke("Quit",new Integer(0));		
+		app.invoke("Quit",new Integer(0));	
+		*/	
 		Ole32.CoUninitialize();
 		Maefc.restoreCursor();
-		abrirFichero(fileDocumentSave.getAbsolutePath());	  
+		//abrirFichero(fileDocumentSave.getAbsolutePath());	  
 	  }
 	  catch (Exception ex){
 		Ole32.CoUninitialize();
@@ -260,6 +300,10 @@ public class Plantilla {
 	     return false;
 	     }
 	   }
+	 
+	 public void setPdf(boolean cond) {
+		 pfdOut = cond;
+	 }
 	 
 	 public boolean existePlantilla() throws Exception {
 	   File file=new File(urlTemplate);

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111207
-// Hora:             18:03:04
+// Fecha:            20120521
+// Hora:             09:10:00
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -3126,6 +3126,7 @@ public class CatEasp extends Catalog
     public FieldDef plorigendades;
     public FieldDef plcampscombi;
     public FieldDef pltipoorig;
+    public FieldDef pltipoplan;
     public TabPlantillas(String name)
       {
       super(name);
@@ -3140,6 +3141,7 @@ public class CatEasp extends Catalog
       plorigendades = new FieldDef("plorigendades",FieldDef.CHAR,250);
       plcampscombi = new FieldDef("plcampscombi",FieldDef.INTEGER,0);
       pltipoorig = new FieldDef("pltipoorig",FieldDef.CHAR,2);
+      pltipoplan = new FieldDef("pltipoplan",FieldDef.INTEGER,0);
       FieldDef array[] = {
         plaplicacion,
         plcodigo,
@@ -3151,7 +3153,8 @@ public class CatEasp extends Catalog
         plurlplantilla,
         plorigendades,
         plcampscombi,
-        pltipoorig        
+        pltipoorig,
+        pltipoplan        
         };
       setColumns(array);
       FieldDef arrayf[] = {plaplicacion,plcodigo,plventana };
@@ -3166,7 +3169,8 @@ public class CatEasp extends Catalog
       plurlplantilla.setDescription("Ubicació al disc de la plantilla");
       plorigendades.setDescription("Ubicació al disc del fitxer origen de dades");
       plcampscombi.setDescription("Numero de camps de combinació.");
-      pltipoorig.setDescription("Tipus origen de dades (per query o per llistat predifinit)");
+      pltipoorig.setDescription("Tipus origen de dades (per query o per llistat predifinit)	  ");
+      pltipoplan.setDescription("Tipus de plantilla (0=carta, 1=etiqueta, -1=mergeDocument)");
       }
     }
     
