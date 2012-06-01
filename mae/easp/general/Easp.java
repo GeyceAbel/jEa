@@ -1854,21 +1854,33 @@ public static Date esFecha (String s){
           }
       else {
         if ( infoMsg ) {
+          	String cdpcdpcdp =buscaCDP(null,danifcif.getString(),null,null);
+			if ( cdpcdpcdp==null ) cdpcdpcdp=cdpcodi.getString();        	
           Maefc.message("Se ha generado un nuevo cliente de Afinity con los siguientes parámetros:\n"+
-                  "\nCódigo de cliente: "+cdpcodi.getString()+
+                  "\nCódigo de cliente: "+cdpcdpcdp+
                   "\nUsuario:           ADMINISTRADOR"+
                   "\nContraseña:        "+passw+
                   "\n\nComunique al cliente que para acceder a la información desde Afinity debe conectarse a:\n"+
                   "\nhttp://afinity.geyce.es\n"+
                   "\n\nAl entrar en el área de sólo clientes, deberá introducir un Nombre de Usuario\n"+
                   "y una Contraseña. Estos dos parámetros serán:\n"+
-                  "\nNombre de Usuario: "+cdpcodi.getString()+
+                  "\nNombre de Usuario: "+cdpcdpcdp+
                   "\nContraseña:        "+passw,"Información",Maefc.INFORMATION_MESSAGE);
           }
         }
     return true;
     }
 
+  public static String buscaCDP(String modelo , String nif , String ejercicio , String periodo) {
+      String codCDP=null;
+      String dns=URL_AFINITY+"/pls/agpi/agpi2dp.";
+      String url = dns+"getCDPfromNif?codiDP="+dominio+"&nifcif="+nif;
+      codCDP = URLExec.getContenido(url);
+      if ( codCDP== null || codCDP.trim().length() != 12 ) {
+        codCDP = null ;
+        }
+      return codCDP;
+      }
 
 	/**Funció per gravar les taules de datgen, clientedp, usuario, contratado i Uso a Afinity
 	 * amb les dades del cdp. Crida a una procedure que s'encarrega de gravar
@@ -1903,9 +1915,9 @@ public static Date esFecha (String s){
 																					 String tel, String fax, String contacto, String email, String altafromprg){
 		//String dns="http://afinity.geyce.es/pls/agpi/agpi2dp.";
 		String dns=URL_AFINITY+"/pls/agpi/agpi2dp.";
-
-		String url=dns+"AgpiAltaCDP?pdp="+codiDP+"&pdatcodigo="+cdp+"&pdatipo=C&pdatnombre="+parserURL(nombre)+
-		           "&pdatapell1="+parserURL(ape1)+"&pdatapell2="+parserURL(ape2)+"&pdatnifcif="+nif+
+        String nombreAfinity = parserURL((nombre+" "+ape1+" "+ape2).trim());
+		String url=dns+"AgpiAltaCDP?pdp="+codiDP+"&pdatcodigo="+cdp+"&pdatipo=C&pdatnombre="+
+		           "&pdatapell1="+nombreAfinity+"&pdatapell2="+"&pdatnifcif="+nif+
 		           "&pdatsiglas="+siglas+"&pdatvia="+parserURL(via)+"&pdatnum="+parserURL(num)+
 							 "&pdatesc="+parserURL(esc)+"&pdatpiso="+parserURL(piso)+"&pdatletra="+parserURL(letra)+
 							 "&pdatpobla="+parserURL(pobla)+"&pdatmuni="+muni+"&pdatprov="+prov+"&pdatcpos="+cp+
