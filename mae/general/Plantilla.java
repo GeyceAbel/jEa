@@ -94,7 +94,8 @@ public class Plantilla {
 	    app.put("Visible", true);
 		DispatchPtr documents = (DispatchPtr)app.get("Documents");
 		DispatchPtr word;
-		if(existePlantilla())
+		boolean existTemplate = existePlantilla();
+		if(existTemplate)
 		   word = (DispatchPtr) documents.invoke("Open", urlTemplate);
 		/*si no existeix el template, el creem*/
 		else {
@@ -114,7 +115,7 @@ public class Plantilla {
 		  Object[] obj = {dataSource.getUrlSource(),0,false, false,true,false,"","",false,"","","","",""};		  
 		  DispatchPtr source = (DispatchPtr) mailmerge.invokeN("OpenDataSource",obj);	
 		  //DispatchPtr source = (DispatchPtr) mailmerge.invoke("OpenDataSource",dataSource.getUrlSource(),0);
-		  if(typeDocument ==1) {
+		  if(!existTemplate && typeDocument ==1) {
 		    Object[] wizard = {2,false,true, false,false,false,false};
 		    DispatchPtr wizard1= (DispatchPtr) mailmerge.invokeN("ShowWizard",wizard);
 		  }
