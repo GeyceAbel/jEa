@@ -20,9 +20,9 @@ pkzip25 -add -direct  c:\Backup\jEa\copia_jEa_%versio%.zip C:\Projectes\jEa\*.cr
 pkzip25 -add -direct  c:\Backup\jEa\copia_jEa_%versio%.zip C:\Projectes\jEa\*.alter
 pkzip25 -add -direct  c:\Backup\jEa\copia_jEa_%versio%.zip C:\Projectes\jEa\*.java
 
-copy \\sam\imesd\Projectes\Easp\Ver-4.9\Desenvolupament\jedicase.mdb c:\Backup\jEa
-copy \\sam\imesd\Projectes\Easp\Ver-4.9\Desenvolupament\*.sql c:\Backup\jEa
-copy \\sam\imesd\Projectes\Easp\Ver-4.9\Desenvolupament\*.bat c:\Backup\jEa
+copy \\geyce-srv01\amesp\Projectes\Easp\Ver-4.9\Desenvolupament\jedicase.mdb c:\Backup\jEa
+copy \\geyce-srv01\amesp\Projectes\Easp\Ver-4.9\Desenvolupament\*.sql c:\Backup\jEa
+copy \\geyce-srv01\amesp\Projectes\Easp\Ver-4.9\Desenvolupament\*.bat c:\Backup\jEa
 
 pkzip25 -add   c:\Backup\jEa\copia_jEa_%versio%.zip c:\backup\jEa\jedicase.mdb
 pkzip25 -add   c:\Backup\jEa\copia_jEa_%versio%.zip c:\backup\jEa\*.sql
@@ -31,7 +31,7 @@ pkzip25 -add   c:\Backup\jEa\copia_jEa_%versio%.zip c:\backup\jEa\*.bat
 del c:\backup\jEa\jedicase.mdb
 del c:\backup\jEa\*.sql
 del c:\backup\jEa\*.bat
-copy c:\Backup\jEa\copia_jEa_%versio%.zip \\sam\amesp\copies_jordi\jEa\copia_jEa_%versio%.zip
+copy c:\Backup\jEa\copia_jEa_%versio%.zip \\geyce-srv01\amesp\copies\jordi\jEa\copia_jEa_%versio%.zip
 
 goto final
 :misatge
