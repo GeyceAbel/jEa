@@ -25,8 +25,8 @@ public class Easp {
 
   //variables de versiones
   public static String versionAplicacion="9.6";
-  public static String versionFecha="Mayo/2012";
-  public static String versionBDEA="9.7";
+  public static String versionFecha="Septiembre/2012";
+  public static String versionBDEA="9.9";
 
   //Constantes
   public final static int IVA=16;
@@ -199,7 +199,7 @@ public class Easp {
     else return null;
   }
 
-  
+
 
   public static boolean crearSesion(String tarifa,String usuario, String aplicacion , boolean verMensaje,boolean soloAvisar ) {
 
@@ -260,11 +260,11 @@ public class Easp {
 
       if ( numMax > 0 && licencias > 0 && numMax > licencias ) licencias = numMax ;
 
-      
-      
-      boolean superaLicencias = false ;    
-      if ( licencias > 0 &&  sesiones >= licencias ) superaLicencias = true  ; 
-    
+
+
+      boolean superaLicencias = false ;
+      if ( licencias > 0 &&  sesiones >= licencias ) superaLicencias = true  ;
+
       ssesiones.addNew();
       fdsesmachine    .setValue(nomPC);
       fdsesusuario    .setValue(usuario);
@@ -276,13 +276,13 @@ public class Easp {
       fdsesaplicacion .setValue(aplicacion);
       ssesiones.insert();
 
-      // Nuevo , si tiene licencia de 4 se le permitira 5 licencias 6 ya no 
+      // Nuevo , si tiene licencia de 4 se le permitira 5 licencias 6 ya no
       // if ( superaLicencias  ) {
       if ( superaLicencias  && !( !soloAvisar && licencias == 4 && sesiones == 4) ) {
     	  if ( verMensaje ) {
     	    String desSesion = "sesiones abiertas";
     	    if ( sesiones == 1 ) desSesion = "sesión abierta";
-    	  
+
     	    String desLicencia = " de "+licencias+" Puestos de trabajo. ";
     	    if ( licencias == 1 )desLicencia = " de 1 Puesto de trabajo.";
     	    String referencia = Fecha.fechaGregoriana(fechaGrabacio)+Fecha.getHora(horaGrab,"HHmmss")+ Numero.format( ((int)(Math.random()*1000)),"000") ;
@@ -291,9 +291,9 @@ public class Easp {
     		           "En la actualidad su Licencia de Uso es  "+desLicencia+" \n \n"+
     		           "Detalle de ordenadores con sesión abierta: \n"+
     		           detalleSesiones+"\n";
-    	  
+
     	    // Nuevo , si tiene 8 licencias contratadas ,se avisara , pero siempre se dejará acceder a la aplicación
-    	  
+
       	  if ( soloAvisar || licencias == 8 ) {
       		  msg+= "Temporalmente puede seguir trabajando con la aplicación. Si en el futuro prevé\n"+
       		         "utilizar más puestos de trabajo de los que tiene contratados contacte con el  \n"+
@@ -303,7 +303,7 @@ public class Easp {
     	    else {
             msg+= "Si desea utilizar más puestos de trabajo de los que tiene contratados contacte con el  \n"+
                   "departamento comercial de GEYCE AGP S.L. para ampliar su Licencia de Uso. \n"+
-                  "Teléfono: 902 365 741    email: comercial@geyce.es ";    	    
+                  "Teléfono: 902 365 741    email: comercial@geyce.es ";
     	      }
 
       	  try {
@@ -325,16 +325,16 @@ public class Easp {
     	    catch (Exception e) {
     		    e.printStackTrace();
     	    }
-    	  Maefc.message(msg,"Control de Licencias de Uso ",Maefc.WARNING_MESSAGE);  
+    	  Maefc.message(msg,"Control de Licencias de Uso ",Maefc.WARNING_MESSAGE);
     	  }
       // Si tiene licencia de 8 , siempre se permitirá acceder y solo se avisará
     	if ( !soloAvisar && licencias < 8) {
         ssesiones.insert() ;
-        return false ;  
+        return false ;
       	}
        }
 
-      
+
       Select simpuser          = new Select(connEA);
       Table tbimpuser          = new Table(simpuser,"impuser");
       Field fdimucodigo        = new Field(simpuser,tbimpuser,"imucodigo");
@@ -344,25 +344,25 @@ public class Easp {
       Field fdimuhora          = new Field(simpuser,tbimpuser,"imuhora");
       Field fdimuaplicacion    = new Field(simpuser,tbimpuser,"imuaplicacion");
 
-      
+
       simpuser.addNew();
       fdimumachine    .setValue(nomPC);
       fdimuusuario    .setValue(usuario);
       fdimufecha      .setValue(Maefc.getDate());
       fdimuhora       .setValue(Fecha.getHora(Maefc.getDateTime(),"HH:mm:ss") );
       fdimuaplicacion .setValue(aplicacion);
-      simpuser.insert() ;      
+      simpuser.insert() ;
       simpuser.commit();
-    
+
       return true ;
 	  }
     catch(Exception e ) {
     	e.printStackTrace();
       return true ;
       }
-    
+
     }
-  
+
   public static boolean cerrarSesion(String aplicacion,String usuario ) {
 	try {
       Select simpuser          = new Select(connEA);
@@ -373,27 +373,27 @@ public class Easp {
       Field fdimufecha         = new Field(simpuser,tbimpuser,"imufecha");
       Field fdimuhora          = new Field(simpuser,tbimpuser,"imuhora");
       Field fdimuaplicacion    = new Field(simpuser,tbimpuser,"imuaplicacion");
-      
-     
-      String nomPC = usuario ;      
+
+
+      String nomPC = usuario ;
       nomPC = java.net.InetAddress.getLocalHost().getHostName() ;
-      
+
       simpuser.setWhere("imuaplicacion = '"+aplicacion+"' and imumachine = '"+nomPC+"'");
       simpuser.execute();
       if ( !simpuser.isEof() ) {
     	while ( !simpuser.isEof() ) {
     	  simpuser.delete();
     	  simpuser.next();
-          } 
-    	simpuser.commit(); 
+          }
+    	simpuser.commit();
         }
 	  }
 	catch (Exception e ) {};
 
-	return true;  
+	return true;
     }
 
-  
+
   /**
    * Devuelve la versión xx o yy o zz de un formato de versión xx.yy.zz según el parámetro
    * @param   versio  Versión a desglosar
@@ -1210,7 +1210,7 @@ public static Date esFecha (String s){
     	  u.valor("datpobla",snif.getString("datfnommun"));
       else
     	  u.valor("datpobla",snif.getString("datflocal"));
-          
+
 		  u.valor("datcpos",snif.getString("datfcpost"));
 		  u.valor("dattel",snif.getString("datftel"));
 		  u.valor("datfax",snif.getString("datffax"));
@@ -1647,7 +1647,7 @@ public static Date esFecha (String s){
 			return false;
 		  }
     }
-  
+
   /**
    * inserta o actualiza el valor de un parámetro
    * @param   dominio dominio con el que se ha entrado en la aplicación
@@ -1855,7 +1855,7 @@ public static Date esFecha (String s){
       else {
         if ( infoMsg ) {
           	String cdpcdpcdp =buscaCDP(null,danifcif.getString(),null,null);
-			if ( cdpcdpcdp==null ) cdpcdpcdp=cdpcodi.getString();        	
+			if ( cdpcdpcdp==null ) cdpcdpcdp=cdpcodi.getString();
           Maefc.message("Se ha generado un nuevo cliente de Afinity con los siguientes parámetros:\n"+
                   "\nCódigo de cliente: "+cdpcdpcdp+
                   "\nUsuario:           ADMINISTRADOR"+
@@ -2155,7 +2155,7 @@ public static Date esFecha (String s){
 		  Maefc.message("No ha sido posible abrir el fichero del modelo","¡Atención!");
 	  }
   }
-  
+
 /* ++++++++++++++++++++  Gestió d'errors  +++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
   private static String stackTrace = null;
