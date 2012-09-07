@@ -49,3 +49,4 @@
 111202 --> APESTER: afegit el banc 3188
 120501 --> APJORDI: Modificat actualizanifs.java ja que al canviar de NIF declarats de jrenta es perdia el domicili fiscal
 120503 --> APJORDI: Indice de demora 2012
+120504 --> APPERE:  Taula COEFICCORREC afegir registres 2012
