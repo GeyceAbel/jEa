@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20120517
-// Hora:             15:56:15
+// Fecha:            20120907
+// Hora:             12:26:08
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1088,6 +1088,12 @@ public class ProgInsprconver extends Program
       };
     
     
+      String sentencias9_8[]={
+       "ALTER TABLE PLANTILLAS ADD PLTIPOPLAN INTEGER",
+      };
+    
+      String sentencias9_9[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2012"}; 
+    
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -2159,6 +2165,40 @@ public class ProgInsprconver extends Program
           vvveractual.setValue("9.7");
         }
     
+        if (versio < 9.8) {
+          for (i=0;i<sentencias9_8.length;++i) {
+            try {
+              Easp.chivato("9.8 Exec : ["+sentencias9_8[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias9_8[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias9_8[i];
+              Easp.chivato("9.8 *** Error : ["+sentencias9_8[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","9.8");
+          Easp.connEA.commit();
+          vvveractual.setValue("9.8");
+        }
+        if (versio < 9.9) {
+          for (i=0;i<sentencias9_9.length;++i) {
+            try {
+              Easp.chivato("9.9 Exec : ["+sentencias9_9[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias9_9[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias9_9[i];
+              Easp.chivato("9.9 *** Error : ["+sentencias9_9[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          String tablas[]= {"COEFICCORREC"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0909","easp.jar");
+          Easp.setVersionBD("bdeasp","9.9");
+          Easp.connEA.commit();
+          vvveractual.setValue("9.9");
+        }
     
     
       }
