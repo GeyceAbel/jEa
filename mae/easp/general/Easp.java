@@ -1230,7 +1230,7 @@ public static Date esFecha (String s){
 	    	  if (mant!=null && mant.trim().length()>0) u.valor("datmuni",mant.trim());
 	      }
 	      s2.close();
-
+          //
 	      String [] opcions = {"No","Si"};
           opcions[0] = "No";
           opcions[1] = "Si";
@@ -1245,10 +1245,9 @@ public static Date esFecha (String s){
              String texte="Ya existe información grabada en el"+"\n"+" 'Domicilio afilación' (Resto datos)"+"\n";
              if ("S".equals(apliLaboral)) texte=texte+"Recuerde que jNómina utiliza el de afiliación"+"\n"+"¿Desea que se actualice? ";
              else texte=texte+"¿Desea que se actualice? "; 
-            
+             // retorn==1 No retorn==2 Si
              int retorn = Easp.messageConNuevosBotones(texte,"Datos afiliación",Maefc.INFORMATION_MESSAGE,opcions);            
-             if (retorn==1) bOk2=false;
-             Maefc.message("retorn["+retorn+" "+bOk2);
+             if (retorn==1) bOk2=false;             
           }
           if(bOk2)  bOk = u.execute("danifcif='"+nif+"'");          
 	  }
