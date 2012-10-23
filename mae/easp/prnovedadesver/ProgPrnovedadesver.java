@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20121023
-// Hora:             12:33:54
+// Hora:             16:53:35
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -31,6 +31,11 @@ public class ProgPrnovedadesver extends Program
   public String versiones[][] ;
   
   public String versionesIncluye[][] ;
+  
+  public java.awt.Color color1 = new java.awt.Color(0x8d,0xc1,0xcb);  // #8DC1CB   
+  public java.awt.Color color2 = new java.awt.Color(0xbc,0xdb,0xe0);  // #BCDBE0
+  public java.awt.Color color3 = new java.awt.Color(0xe2,0xdf,0xe2);  // #E2DFE2 
+    
   
   public void cargarVersionesNew() {
     
@@ -162,10 +167,21 @@ public class ProgPrnovedadesver extends Program
     
   public class FormVdetalle extends MultiDataForm
     {
+    // Inicio declaraciones globales
+    
+    
+    public java.awt.Color getCellColorBackground(boolean isSelected, boolean hasFocus, int row, int column) {
+      if ( isSelected ) return null ; 
+      else if ( column == 0  ) return color1 ;
+      else if ( column == 1  ) return color2 ;
+      else if ( column == 2  ) return color3 ;
+      else                     return color3 ;
+      }
+    
+    // Fin declaraciones globales
     // Controles
     public CtrlParvariable parvariable;
     public CtrlPardesc pardesc;
-    public CtrlParusuario parusuario;
     public CtrlParvalor parvalor;
     // Acciones
     public LinkAcverdoc acverdoc;
@@ -186,7 +202,7 @@ public class ProgPrnovedadesver extends Program
         setName("parvariable");
         setTitle("Versión");
         setType(STRING);
-        setLength(10);
+        setLength(8);
         setSearchable(true);
         setField(sparametros.parvariable);
         }
@@ -200,23 +216,9 @@ public class ProgPrnovedadesver extends Program
         setName("pardesc");
         setTitle("Periodo");
         setType(STRING);
-        setLength(9);
+        setLength(7);
         setSearchable(true);
         setField(sparametros.pardesc);
-        }
-      }
-      
-    public class CtrlParusuario extends ColumnEdit
-      {
-      public CtrlParusuario(Form form)
-        {
-        super(form);
-        setName("parusuario");
-        setTitle("Num.");
-        setType(STRING);
-        setLength(3);
-        setSearchable(true);
-        setField(sparametros.parusuario);
         }
       }
       
@@ -277,7 +279,6 @@ public class ProgPrnovedadesver extends Program
       addSelect(sparamutil=new Sparamutil());
       addControl(parvariable=new CtrlParvariable(this));
       addControl(pardesc=new CtrlPardesc(this));
-      addControl(parusuario=new CtrlParusuario(this));
       addControl(parvalor=new CtrlParvalor(this));
       addAction(acverdoc=new LinkAcverdoc(this));
       setSelect(sparametros);
@@ -290,15 +291,15 @@ public class ProgPrnovedadesver extends Program
     // Tablas
     public Parametros parametros;
     // Campos
-    public Field pardominio;
-    public Field parusuario;
-    public Field parambito;
-    public Field parvariable;
-    public Field pardesc;
-    public Field partipo;
     public Field paragrup;
-    public Field parvalor;
+    public Field parambito;
+    public Field pardesc;
+    public Field pardominio;
     public Field parespecific;
+    public Field partipo;
+    public Field parusuario;
+    public Field parvalor;
+    public Field parvariable;
     class Parametros extends Table
       {
       public Parametros(Select select)
@@ -313,15 +314,15 @@ public class ProgPrnovedadesver extends Program
       {
       setName("sparametros");
       addTable(parametros=new Parametros(this));
-      addField(pardominio=new Field(this,parametros,"pardominio"));
-      addField(parusuario=new Field(this,parametros,"parusuario"));
-      addField(parambito=new Field(this,parametros,"parambito"));
-      addField(parvariable=new Field(this,parametros,"parvariable"));
-      addField(pardesc=new Field(this,parametros,"pardesc"));
-      addField(partipo=new Field(this,parametros,"partipo"));
       addField(paragrup=new Field(this,parametros,"paragrup"));
-      addField(parvalor=new Field(this,parametros,"parvalor"));
+      addField(parambito=new Field(this,parametros,"parambito"));
+      addField(pardesc=new Field(this,parametros,"pardesc"));
+      addField(pardominio=new Field(this,parametros,"pardominio"));
       addField(parespecific=new Field(this,parametros,"parespecific"));
+      addField(partipo=new Field(this,parametros,"partipo"));
+      addField(parusuario=new Field(this,parametros,"parusuario"));
+      addField(parvalor=new Field(this,parametros,"parvalor"));
+      addField(parvariable=new Field(this,parametros,"parvariable"));
       }
     public String getWhere()
       {
@@ -340,15 +341,15 @@ public class ProgPrnovedadesver extends Program
     // Tablas
     public Parametros parametros;
     // Campos
-    public Field pardominio;
-    public Field parusuario;
-    public Field parambito;
-    public Field parvariable;
-    public Field pardesc;
-    public Field partipo;
     public Field paragrup;
-    public Field parvalor;
+    public Field parambito;
+    public Field pardesc;
+    public Field pardominio;
     public Field parespecific;
+    public Field partipo;
+    public Field parusuario;
+    public Field parvalor;
+    public Field parvariable;
     class Parametros extends Table
       {
       public Parametros(Select select)
@@ -363,15 +364,15 @@ public class ProgPrnovedadesver extends Program
       {
       setName("sparamutil");
       addTable(parametros=new Parametros(this));
-      addField(pardominio=new Field(this,parametros,"pardominio"));
-      addField(parusuario=new Field(this,parametros,"parusuario"));
-      addField(parambito=new Field(this,parametros,"parambito"));
-      addField(parvariable=new Field(this,parametros,"parvariable"));
-      addField(pardesc=new Field(this,parametros,"pardesc"));
-      addField(partipo=new Field(this,parametros,"partipo"));
       addField(paragrup=new Field(this,parametros,"paragrup"));
-      addField(parvalor=new Field(this,parametros,"parvalor"));
+      addField(parambito=new Field(this,parametros,"parambito"));
+      addField(pardesc=new Field(this,parametros,"pardesc"));
+      addField(pardominio=new Field(this,parametros,"pardominio"));
       addField(parespecific=new Field(this,parametros,"parespecific"));
+      addField(partipo=new Field(this,parametros,"partipo"));
+      addField(parusuario=new Field(this,parametros,"parusuario"));
+      addField(parvalor=new Field(this,parametros,"parvalor"));
+      addField(parvariable=new Field(this,parametros,"parvariable"));
       }
     }
     
