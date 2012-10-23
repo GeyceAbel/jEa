@@ -2112,6 +2112,20 @@ public static Date esFecha (String s){
   public static void abrirExplorer(String url,boolean modal ) {
 	  try {
 		  String pathExplorer = "c:\\Archivos de Programa\\Internet Explorer\\IEXPLORE.EXE";
+		  
+		  if (!existeFichero(pathExplorer)) pathExplorer= "c:\\Program Files\\Internet Explorer\\IEXPLORE.EXE";
+		  
+		  try {
+        String param = Easp.getParam("PATHEXPLORER","GENERAL");
+        if ( param != null &&  existeFichero(param) ) {
+          pathExplorer = param ;
+          }
+        }
+      catch (  Exception eeee ) {
+        System.out.println("Error abrirExplorer PathExplorer : ["+eeee+"]");
+        }
+
+		  
 		  if (!existeFichero(pathExplorer)) {
 			  Maefc.message("No tiene instalado Microsoft Internet Explorer en su ubicación por defecto.\nPóngase en contacto con Geyce para poder utilizar esta opción.\n\nGracias.");
 		  }
