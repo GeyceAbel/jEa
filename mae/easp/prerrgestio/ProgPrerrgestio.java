@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20071203
-// Hora:             18:17:03
+// Fecha:            20121024
+// Hora:             12:34:05
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -836,6 +836,7 @@ public class ProgPrerrgestio extends Program
     }
   public void onInit()
     {
+    setConnection(Easp.connEA);
     vdatos.setLayout(new LayoutHtml("mae/easp/html/prerrorgestio_vdatos.html"));
     vstacktrace.setLayout(new LayoutHtml("mae/easp/html/prerrorgestio_vstacktrace.html"));
     String solucion = getRespuesta(contexto);
