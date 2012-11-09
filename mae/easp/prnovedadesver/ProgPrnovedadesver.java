@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20121023
-// Hora:             16:53:35
+// Fecha:            20121109
+// Hora:             09:09:34
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -40,7 +40,7 @@ public class ProgPrnovedadesver extends Program
   public void cargarVersionesNew() {
     
    try {
-    sparamutil.getDataBase().executeUpdate("DELETE FROM PARAMETROS WHERE parambito = 'NOVEDADESVERSION' and paragrup = '"+aplicacion+"'" );
+    sparamutil.getDataBase().executeUpdate("DELETE FROM PARAMETROS WHERE (parambito = 'NOVEDADESVERSION' or parambito = 'NOVEDADES"+aplicacion+"') and paragrup = '"+aplicacion+"'" );
     }
    catch(Exception e ) {
     }
@@ -52,13 +52,13 @@ public class ProgPrnovedadesver extends Program
       String desc          = versionesIncluye[i][2] ;  
       String periodo       = versionesIncluye[i][3] ;
   
-      sparamutil.setWhere(" parambito = 'NOVEDADESVERSION' and paragrup = '"+aplicacion+"'  and  parvariable = '"+version+"' and  parusuario = '"+num+"'");
+      sparamutil.setWhere(" parambito = 'NOVEDADES"+aplicacion+"' and paragrup = '"+aplicacion+"'  and  parvariable = '"+version+"' and  parusuario = '"+num+"'");
       sparamutil.execute();
       if ( sparamutil.isEof() ) {
         sparamutil.addNew();
         sparamutil.pardominio     .setValue("999999999999");
         sparamutil.parusuario     .setValue(num);
-        sparamutil.parambito      .setValue("NOVEDADESVERSION");
+        sparamutil.parambito      .setValue("NOVEDADES"+aplicacion);
         sparamutil.parvariable    .setValue(version);
         sparamutil.pardesc        .setValue(periodo);
         sparamutil.paragrup       .setValue(aplicacion);
@@ -326,7 +326,7 @@ public class ProgPrnovedadesver extends Program
       }
     public String getWhere()
       {
-      return " parambito = 'NOVEDADESVERSION' and paragrup = '"+aplicacion+"' " ;
+      return " parambito = 'NOVEDADES"+aplicacion+"' and paragrup = '"+aplicacion+"' " ;
       
       }
     public String getOrder()
