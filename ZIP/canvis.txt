@@ -52,3 +52,4 @@
 120901 --> APPERE:  Taula COEFICCORREC afegir registres 2012
 121001 --> APPAU:   Programa para poder Mostrar un historico con las  novedades de cada versión , servirá para poderlo utilizar desde todas las aplicaciones .
 121112 --> APJORDI: Revisio Programa para poder Mostrar un historic. Substiruir NOVEDADESVERSION per NOVEDADES+aplic.
+121113 --> APPAU:   Nuevo indice del confactor para jNomina
