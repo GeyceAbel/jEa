@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20121210
-// Hora:             16:15:32
+// Hora:             17:42:57
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1597,20 +1597,13 @@ public class ProgPrbancocli extends Program
         }
       public void onAction()
         {
-        /*
-        
-        String msg = "Este proceso modificará de todos los clientes y de todas las aplicaciones el código de banco: "+vvbancorig.getString()+"  por el código: "+vvbancodest.getString()+" \n \n y asignará un nuevo dígito de control. \n \n ¿ Esta totalmente seguro de ejecutar este proceso ? ";
-        if ( Maefc.message(msg,"Atención",Maefc.WARNING_MESSAGE,Maefc.YES_NO_OPTION)!=Maefc.YES_OPTION ) {
-          return ;
-          }
-        */
-        
         
         sbancocliutil.setWhere("bcccodigo = '"+sbancocli.bcccodigo.getString()+"' and bccbanco = "+vvbancorig.getString()+" and bccsucursal = "+vvoficinaorig.getInteger()+" and bccnumero = '"+vvcuentaorig.getString()+"' and bccdigitos = "+vvdcorigen.getInteger());
         sbancocliutil.execute();
         if ( !sbancocliutil.isEof() ) {
           System.out.println("Cliente: ["+sbancocliutil.bcccodigo.getString()+"]");
           sbancocliutil2.addNew();
+          
           sbancocliutil2.  bcccodigo   .setValue(sbancocliutil.bcccodigo);
           sbancocliutil2.bccbanco.setValue(vvbancodest);
           sbancocliutil2.  bccsucursal .setValue(vvoficinadest);
@@ -1621,20 +1614,33 @@ public class ProgPrbancocli extends Program
           sasignautil.setWhere("abacodigo = '"+sbancocliutil.bcccodigo.getString()+"' and ababanco = "+vvbancorig.getString()+"	and absucursal = "+vvoficinaorig.getInteger()+"  and abnumero = '"+vvcuentaorig.getString()+"'	and abadigito = "+vvdcorigen.getInteger());
           sasignautil.execute();
           while ( !sasignautil.isEof() ) {
-            
+          
+            String tipo = sasignautil.abatipo.getString();
+            sasignautil.delete();
+          
             sasignautil2.    addNew();
-            sasignautil2.    abacodigo   .setValue(sasignautil.abacodigo);
-            sasignautil2.    abatipo     .setValue(sasignautil.abatipo);
+            sasignautil2.    abacodigo   .setValue(sbancocliutil.bcccodigo);
+            sasignautil2.    abatipo     .setValue(tipo);
             sasignautil2.    ababanco    .setValue(vvbancodest);
             sasignautil2.    absucursal  .setValue(vvoficinadest);
             sasignautil2.    abnumero    .setValue(vvcuentadest);
             sasignautil2.    abadigito   .setValue(vvdcdest);
             sasignautil2.    insert();
         
-            sasignautil.delete();
-        
+          
             sasignautil.next();
             }
+        
+        
+          if ( connJNomina != null ) {
+            scendbancos.setWhere("cebbanco = '"+vvbancorig.getString()+"'  and   cebsucursal = '"+vvoficinaorig.getInteger()+"'  and   cebnumero  = '"+vvcuentaorig.getString()+"' and  cebdigito = '"+vvdcorigen.getInteger()+"'");
+            scendbancos.execute();
+            while ( !scendbancos.isEof() ) {
+              scendbancos.next();
+              }
+            }
+        
+        
         
         
           sbancocliutil.delete();

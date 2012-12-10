@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20110707
-// Hora:             12:16:12
+// Fecha:            20121210
+// Hora:             09:48:30
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -139,6 +139,7 @@ class Barramenu extends MenuBar
   class Mclientes extends Menu
     {
     public M1ficha m1ficha;
+    public M1bancoscli m1bancoscli;
     public M1importnifes m1importnifes;
     class M1ficha extends MenuItemProgram
       {
@@ -147,6 +148,16 @@ class Barramenu extends MenuBar
         super("&Ficha general");
         setName("m1ficha");
         setProgram("mae.easp.prselcdp.ProgPrselcdp");
+        }
+      }
+      
+    class M1bancoscli extends MenuItemProgram
+      {
+      public M1bancoscli()
+        {
+        super("Bancos Clientes");
+        setName("m1bancoscli");
+        setProgram("mae.easp.prbancocli.ProgPrbancocli");
         }
       }
       
@@ -165,6 +176,7 @@ class Barramenu extends MenuBar
       super("&Clientes");
       setName("mclientes");
       add(m1ficha=new M1ficha());
+      add(m1bancoscli=new M1bancoscli());
       add(m1importnifes=new M1importnifes());
       }
     }
@@ -560,8 +572,13 @@ class Bdeasp extends DataBase
   public CatCtasp catctasp;
   public CatEasp cateasp;
   public CatJeo catjeo;
+  public CatJexpe catjexpe;
   public CatJiss catjiss;
+  public CatJrenta catjrenta;
   public CatLaboral catlaboral;
+  public CatModelo100 catmodelo100;
+  public CatModelo200 catmodelo200;
+  public CatModelo714 catmodelo714;
   public CatModelos1 catmodelos1;
   public CatModelos2 catmodelos2;
   public CatModgen catmodgen;
@@ -575,8 +592,13 @@ class Bdeasp extends DataBase
     catctasp = new CatCtasp();
     cateasp = new CatEasp();
     catjeo = new CatJeo();
+    catjexpe = new CatJexpe();
     catjiss = new CatJiss();
+    catjrenta = new CatJrenta();
     catlaboral = new CatLaboral();
+    catmodelo100 = new CatModelo100();
+    catmodelo200 = new CatModelo200();
+    catmodelo714 = new CatModelo714();
     catmodelos1 = new CatModelos1();
     catmodelos2 = new CatModelos2();
     catmodgen = new CatModgen();
@@ -585,8 +607,13 @@ class Bdeasp extends DataBase
       catctasp,
       cateasp,
       catjeo,
+      catjexpe,
       catjiss,
+      catjrenta,
       catlaboral,
+      catmodelo100,
+      catmodelo200,
+      catmodelo714,
       catmodelos1,
       catmodelos2,
       catmodgen      
