@@ -53,3 +53,7 @@
 121001 --> APPAU:   Programa para poder Mostrar un historico con las  novedades de cada versión , servirá para poderlo utilizar desde todas las aplicaciones .
 121112 --> APJORDI: Revisio Programa para poder Mostrar un historic. Substiruir NOVEDADESVERSION per NOVEDADES+aplic.
 121113 --> APPAU:   Nuevo indice del confactor para jNomina
+121201 --> APPAU:   Nuevo Tratamiento Bancos Clientes
+121201 --> APPAU:   Nuevo Tratamiento Representantes
+121201 --> APPAU:   Nuevo Tratamiento Miembros de la Unidad Familiar
+121201 --> APPAU:   Programa PRCLIFICHAGENER se añaden automatismos para "sincronizar" las cuentas de bancocli con las de jGestion y jNomina

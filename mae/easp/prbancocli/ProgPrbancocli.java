@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20121211
-// Hora:             10:50:50
+// Hora:             11:42:53
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -177,7 +177,6 @@ public class ProgPrbancocli extends Program
     public CtrlChiva chiva;
     public CtrlChirpf chirpf;
     public CtrlChpagosc chpagosc;
-    public CtrlChsegsoc chsegsoc;
     public CtrlChliqanual chliqanual;
     // Acciones
     public LinkBtcambiobanco btcambiobanco;
@@ -186,7 +185,6 @@ public class ProgPrbancocli extends Program
     public LinkBtiva btiva;
     public LinkBtirpf btirpf;
     public LinkBtpagossc btpagossc;
-    public LinkBtsegsoc btsegsoc;
     public LinkBtliqanual btliqanual;
     public LinkBtrestodatos btrestodatos;
     class Location extends LocationGridBag
@@ -355,17 +353,6 @@ public class ProgPrbancocli extends Program
         }
       }
       
-    public class CtrlChsegsoc extends ColumnCheck
-      {
-      public CtrlChsegsoc(Form form)
-        {
-        super(form);
-        setName("chsegsoc");
-        setMessageHelp("Seguridad Social");
-        setTitle("S.S.");
-        }
-      }
-      
     public class CtrlChliqanual extends ColumnCheck
       {
       public CtrlChliqanual(Form form)
@@ -503,36 +490,6 @@ public class ProgPrbancocli extends Program
         }
       }
       
-    public class LinkBtsegsoc extends Action
-      {
-      public LinkBtsegsoc(Form form)
-        {
-        super(form);
-        setName("btsegsoc");
-        setTitle("&4. Seguridad Social");
-        setOptions(SHOW);
-        }
-      public void onAction()
-        {
-        super.onAction();
-        accionTipo(chsegsoc, "TCS");
-        /*
-        boolean result=true;
-        if (chsegsoc.getBoolean())
-          result=deleteAsignacion("TCS");
-        else
-          result=nuevaAsignacion("TCS");
-        
-        if (result) {
-          sasignaciones.commit();
-          refrescaVentana();
-          }
-        else
-          sasignaciones.rollback();
-        */
-        }
-      }
-      
     public class LinkBtliqanual extends Action
       {
       public LinkBtliqanual(Form form)
@@ -589,7 +546,6 @@ public class ProgPrbancocli extends Program
       addControl(chiva=new CtrlChiva(this));
       addControl(chirpf=new CtrlChirpf(this));
       addControl(chpagosc=new CtrlChpagosc(this));
-      addControl(chsegsoc=new CtrlChsegsoc(this));
       addControl(chliqanual=new CtrlChliqanual(this));
       addAction(btcambiobanco=new LinkBtcambiobanco(this));
       addAction(acbancosjnomina=new LinkAcbancosjnomina(this));
@@ -597,7 +553,6 @@ public class ProgPrbancocli extends Program
       addAction(btiva=new LinkBtiva(this));
       addAction(btirpf=new LinkBtirpf(this));
       addAction(btpagossc=new LinkBtpagossc(this));
-      addAction(btsegsoc=new LinkBtsegsoc(this));
       addAction(btliqanual=new LinkBtliqanual(this));
       addAction(btrestodatos=new LinkBtrestodatos(this));
       setSelect(sbancocli);
@@ -629,7 +584,7 @@ public class ProgPrbancocli extends Program
       chiva.setValue(false);
       chirpf.setValue(false);
       chpagosc.setValue(false);
-      chsegsoc.setValue(false);
+      // chsegsoc.setValue(false);
       chliqanual.setValue(false);
       
       sasignaciones.execute();
@@ -641,8 +596,8 @@ public class ProgPrbancocli extends Program
           chirpf.setValue(true);
         else if (tipus.equals("130"))
           chpagosc.setValue(true);
-        else if (tipus.equals("TCS"))
-          chsegsoc.setValue(true);
+        // else if (tipus.equals("TCS"))
+        //  chsegsoc.setValue(true);
         else if (tipus.equals("100"))
           chliqanual.setValue(true);
         sasignaciones.next();
@@ -1609,6 +1564,9 @@ public class ProgPrbancocli extends Program
         
         sbancocliutil.setWhere("bcccodigo = '"+sbancocli.bcccodigo.getString()+"' and bccbanco = "+vvbancorig.getString()+" and bccsucursal = "+vvoficinaorig.getInteger()+" and bccnumero = '"+vvcuentaorig.getString()+"' and bccdigitos = "+vvdcorigen.getInteger());
         sbancocliutil.execute();
+        
+        boolean commitjNomina = false ;
+        boolean commitjGestion = false ;
         if ( !sbancocliutil.isEof() ) {
           System.out.println("Cliente: ["+sbancocliutil.bcccodigo.getString()+"]");
           sbancocliutil2.addNew();
@@ -1653,21 +1611,53 @@ public class ProgPrbancocli extends Program
                 scendbancos.cebdigito     .setValue(Numero.format(vvdcdest.getInteger()      ,"00") );
                 scendbancos.cebnumero     .setValue(vvcuentadest);
                 scendbancos.update();
+                commitjNomina = false ;
                 }
               scendbancos.next();
               }
-            scendbancos.commit();
+            
             }
         
         
+          if ( tieneJGestion ) {
+            sdomi.setWhere("dobanco = '"+Numero.format(vvbancorig.getInteger(),"0000")+"'  and   dooficina = '"+Numero.format(vvoficinaorig.getInteger(),"0000")+"'  and   docuenta  = '"+vvcuentaorig.getString()+"' and  dodigcon = '"+Numero.format(vvdcorigen.getInteger(),"00")+"'");
+            sdomi.execute();
+            while ( !sdomi.isEof() ) {
+              String msg = "Se ha detectado que la cuenta que esta modificando existe en la aplicación de jGestion en: \n  Despacho:    "+sdomi.doasesor.getString()+" \n Cliente:     "+sdomi.docliente.getString()+"  \n \n ¿ Desea que el programa la modifique por la nueva cuenta bancaria ? " ;
+              if ( Maefc.message(msg,"Atención",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION)==Maefc.YES_OPTION ) {
+                sdomi.edit();
+                sdomi.dobanco      .setValue(Numero.format(vvbancodest.getInteger()   ,"0000") );
+                sdomi.dooficina   .setValue(Numero.format(vvoficinadest.getInteger() ,"0000") );
+                sdomi.dodigcon     .setValue(Numero.format(vvdcdest.getInteger()      ,"00") );
+                sdomi.docuenta     .setValue(vvcuentadest);
+                sdomi.update();
+                commitjGestion = true ;
+                }
+              sdomi.next();
+              }
         
+            }
         
           sbancocliutil.delete();
+        
+          if ( connJNomina != null && commitjNomina ) {
+            scendbancos.commit();
+            scendbancos.setWhere(null);
+            scendbancos.execute();
+            }
+        
+          if ( tieneJGestion && commitjGestion ) {
+            sdomi.commit();
+            sdomi.setWhere("docolectivo = 1 ");
+            sdomi.execute();
+            }
+        
+          sbancocliutil.commit();
           }
         
         
-        sbancocliutil.commit();
-        Easp.connEA.commit();
+        
+        
         
         vdatosbancarios.doShow();
         Maefc.message("Proceso Finalizado","Atención");
@@ -2017,6 +2007,30 @@ public class ProgPrbancocli extends Program
         setSearchable(true);
         setField(sdomi.dobanco);
         }
+      public boolean  valid()
+        {
+        if (!Util.isNumero(getString())) {
+          setMessageWarning("El código de entidad bancaria debería ser numérico.");
+          return false;
+          }
+        if (getString().length()!=4) {
+          setMessageWarning("El código de entidad bancaria debería ser de 4 digitos.");
+          return false;
+          }
+        return super.valid();
+        
+        }
+      public void onChange()
+        {
+        super.onChange();
+        if (!isReading() && getString().length()>0  && Util.isNumero(getString()) )
+          setValue(Numero.format(Integer.parseInt(getString()),"0000"));
+        
+        }
+      public boolean obligate()
+        {
+        return true ;
+        }
       }
       
     public class CtrlDooficina extends ColumnEdit
@@ -2030,6 +2044,29 @@ public class ProgPrbancocli extends Program
         setLength(4);
         setSearchable(true);
         setField(sdomi.dooficina);
+        }
+      public boolean  valid()
+        {
+        if (!Util.isNumero(getString())) {
+          setMessageWarning("El valor de este campo debe ser numérico.");
+          return false;
+          }
+        if (getString().length()!=4) {
+          setMessageWarning("El número de la oficina debería ser de 4 digitos.");
+          return false;
+          }
+        return super.valid();
+        
+        }
+      public void onChange()
+        {
+        super.onChange();
+        if (!isReading() && getString().length()>0  && Util.isNumero(getString()) )
+          setValue(Numero.format(Integer.parseInt(getString()),"0000"));
+        }
+      public boolean obligate()
+        {
+        return true ;
         }
       }
       
@@ -2045,6 +2082,37 @@ public class ProgPrbancocli extends Program
         setSearchable(true);
         setField(sdomi.dodigcon);
         }
+      public boolean  valid()
+        {
+        if ( dobanco.isNull() || dooficina.isNull() || docuenta.isNull() ) return true;
+        
+        if (!Util.isNumero(getString())) {
+          setMessageWarning("El valor de este campo debe ser numérico.");
+          return false;
+          }
+        
+        if (mae.easp.general.Easp.digitoIncorrecto(dobanco.getString()
+                                             ,dooficina.getString()
+                                             ,docuenta.getString()
+                                            ,dodigcon.getString(),"corriente")) {
+          return false;
+          }
+        else {
+          return super.valid(); 
+          }
+        
+        }
+      public void onChange()
+        {
+        super.onChange();
+        if (!isReading() && getString().length()>0  && Util.isNumero(getString()) )
+          setValue(Numero.format(Integer.parseInt(getString()),"00"));
+        }
+      public boolean obligate()
+        {
+        return true ;
+        
+        }
       }
       
     public class CtrlDocuenta extends ColumnEdit
@@ -2058,6 +2126,28 @@ public class ProgPrbancocli extends Program
         setLength(10);
         setSearchable(true);
         setField(sdomi.docuenta);
+        }
+      public boolean  valid()
+        {
+        
+        if (!Util.isNumero(getString())) {
+          setMessageWarning("El valor de este campo debe ser numérico.");
+          return false;
+          }
+        return super.valid();
+        
+        
+        }
+      public void onChange()
+        {
+        super.onChange();
+        if (!isReading() && getString().length() > 0 && Util.isNumero(getString()) ) {
+          setValue(Numero.format(Double.valueOf(getString()).doubleValue(),"0000000000"));
+          }
+        }
+      public boolean obligate()
+        {
+        return true;
         }
       }
       
@@ -2162,7 +2252,7 @@ public class ProgPrbancocli extends Program
     vdatosbancarios.btiva.setVisible(false);
     vdatosbancarios.btirpf.setVisible(false);
     vdatosbancarios.btpagossc.setVisible(false);
-    vdatosbancarios.btsegsoc.setVisible(false);
+    // vdatosbancarios.btsegsoc.setVisible(false);
     vdatosbancarios.btliqanual.setVisible(false);
     vdatosbancarios.btrestodatos.setVisible(false);
     

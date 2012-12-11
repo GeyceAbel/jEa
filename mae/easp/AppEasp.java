@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20121210
-// Hora:             09:48:30
+// Fecha:            20121211
+// Hora:             13:51:51
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -140,7 +140,9 @@ class Barramenu extends MenuBar
     {
     public M1ficha m1ficha;
     public M1bancoscli m1bancoscli;
+    public M1repres m1repres;
     public M1importnifes m1importnifes;
+    public M1nifesmuf m1nifesmuf;
     class M1ficha extends MenuItemProgram
       {
       public M1ficha()
@@ -161,6 +163,16 @@ class Barramenu extends MenuBar
         }
       }
       
+    class M1repres extends MenuItemProgram
+      {
+      public M1repres()
+        {
+        super("&Representantes");
+        setName("m1repres");
+        setProgram("mae.easp.prrepresentante.ProgPrrepresentante");
+        }
+      }
+      
     class M1importnifes extends MenuItemProgram
       {
       public M1importnifes()
@@ -171,13 +183,25 @@ class Barramenu extends MenuBar
         }
       }
       
+    class M1nifesmuf extends MenuItemProgram
+      {
+      public M1nifesmuf()
+        {
+        super("Miembros Unidad Familiar");
+        setName("m1nifesmuf");
+        setProgram("mae.easp.prnifesmuf.ProgPrnifesmuf");
+        }
+      }
+      
     public Mclientes()
       {
       super("&Clientes");
       setName("mclientes");
       add(m1ficha=new M1ficha());
       add(m1bancoscli=new M1bancoscli());
+      add(m1repres=new M1repres());
       add(m1importnifes=new M1importnifes());
+      add(m1nifesmuf=new M1nifesmuf());
       }
     }
     
