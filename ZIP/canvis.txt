@@ -57,3 +57,4 @@
 121201 --> APPAU:   Nuevo Tratamiento Representantes
 121201 --> APPAU:   Nuevo Tratamiento Miembros de la Unidad Familiar
 121201 --> APPAU:   Programa PRCLIFICHAGENER se añaden automatismos para "sincronizar" las cuentas de bancocli con las de jGestion y jNomina
+121202 --> APJORDI: Actualitzar llista de bancs
