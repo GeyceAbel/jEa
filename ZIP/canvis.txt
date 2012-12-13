@@ -58,3 +58,4 @@
 121201 --> APPAU:   Nuevo Tratamiento Miembros de la Unidad Familiar
 121201 --> APPAU:   Programa PRCLIFICHAGENER se añaden automatismos para "sincronizar" las cuentas de bancocli con las de jGestion y jNomina
 121202 --> APJORDI: Actualitzar llista de bancs
+121203 --> APJORDI: Conversio BD fer mes grans els camps apell2 i nombre. Afegir un camp a la taula transacciones.
