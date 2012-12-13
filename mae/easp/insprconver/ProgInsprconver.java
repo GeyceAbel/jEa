@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20121211
-// Hora:             15:32:18
+// Fecha:            20121213
+// Hora:             13:17:48
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1093,6 +1093,13 @@ public class ProgInsprconver extends Program
       };
     
       String sentencias9_9[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2012"}; 
+    
+      String sentencias10_1[]={
+         "ALTER TABLE NIFES ALTER COLUMN datnombre CHAR(50);",
+         "ALTER TABLE NIFES ALTER COLUMN datapell2 CHAR(50);",
+         "ALTER TABLE TRANSACCIONES ADD traregemp VARCHAR(1)",
+         "UPDATE TRANSACCIONES SET travoloper = 'NO' WHERE tratipo='END' and travoloper='EX' and traoperespec='NDM'"
+      };
     
       int i=0;
       try {
@@ -2501,7 +2508,22 @@ public class ProgInsprconver extends Program
         }
     
     
-    
+        if (versio < 10.1) {
+          for (i=0;i<sentencias10_1.length;++i) {
+            try {
+              Easp.chivato("10.1 Exec : ["+sentencias10_1[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias10_1[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias10_1[i];
+              Easp.chivato("10.1 *** Error : ["+sentencias10_1[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","10.1");
+          Easp.connEA.commit();
+          vvveractual.setValue("10.1");
+        }
       }
     
       catch(Exception e) {

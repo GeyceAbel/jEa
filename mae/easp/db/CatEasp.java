@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20120521
-// Hora:             09:10:00
+// Fecha:            20121213
+// Hora:             13:13:19
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -190,6 +190,7 @@ public class CatEasp extends Catalog
     public FieldDef travoloper;
     public FieldDef traoperespec;
     public FieldDef traoper349;
+    public FieldDef traregemp;
     public TabTransacciones(String name)
       {
       super(name);
@@ -201,6 +202,7 @@ public class CatEasp extends Catalog
       travoloper = new FieldDef("travoloper",FieldDef.CHAR,3);
       traoperespec = new FieldDef("traoperespec",FieldDef.CHAR,3);
       traoper349 = new FieldDef("traoper349",FieldDef.CHAR,3);
+      traregemp = new FieldDef("traregemp",FieldDef.CHAR,1);
       FieldDef array[] = {
         tratipo,
         tradesc,
@@ -209,7 +211,8 @@ public class CatEasp extends Catalog
         tratipoiva,
         travoloper,
         traoperespec,
-        traoper349        
+        traoper349,
+        traregemp        
         };
       setColumns(array);
       FieldDef arrayf[] = {tratipo };
@@ -512,9 +515,9 @@ public class CatEasp extends Catalog
       super(name);
       danifcif = new FieldDef("danifcif",FieldDef.CHAR,15,FieldDef.NOTNULL);
       datipo = new FieldDef("datipo",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      datnombre = new FieldDef("datnombre",FieldDef.CHAR,20);
+      datnombre = new FieldDef("datnombre",FieldDef.CHAR,50);
       datapell1 = new FieldDef("datapell1",FieldDef.CHAR,100,FieldDef.NOTNULL);
-      datapell2 = new FieldDef("datapell2",FieldDef.CHAR,25);
+      datapell2 = new FieldDef("datapell2",FieldDef.CHAR,50);
       datsiglas = new FieldDef("datsiglas",FieldDef.CHAR,2);
       datvia = new FieldDef("datvia",FieldDef.CHAR,45);
       datnum = new FieldDef("datnum",FieldDef.CHAR,6);
