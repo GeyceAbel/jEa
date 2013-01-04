@@ -126,8 +126,10 @@ public class Easp {
     cateasp = new CatEasp();
     CatAdmon catadmon;
     catadmon = new CatAdmon();
+    CatJexpe catExpe ;
+    catExpe = new CatJexpe();
 	Catalog array[] = {
-      cateasp,catadmon
+      cateasp,catadmon,catExpe
       };
     db.setCatalogs(array);
     connEA = new DBConnection(db);
