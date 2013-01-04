@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20121213
-// Hora:             13:17:48
+// Fecha:            20130104
+// Hora:             12:36:46
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1097,8 +1097,8 @@ public class ProgInsprconver extends Program
       String sentencias10_1[]={
          "ALTER TABLE NIFES ALTER COLUMN datnombre CHAR(50);",
          "ALTER TABLE NIFES ALTER COLUMN datapell2 CHAR(50);",
-         "ALTER TABLE TRANSACCIONES ADD traregemp VARCHAR(1)",
-         "UPDATE TRANSACCIONES SET travoloper = 'NO' WHERE tratipo='END' and travoloper='EX' and traoperespec='NDM'"
+         "ALTER TABLE TRANSACCIONES ADD traregemp VARCHAR(1);",
+         "UPDATE TRANSACCIONES SET travoloper = 'NO' WHERE tratipo='END' and travoloper='EX' and traoperespec='NDM';"
       };
     
       int i=0;
