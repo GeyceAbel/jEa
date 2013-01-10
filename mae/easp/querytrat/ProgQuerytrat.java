@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20120521
-// Hora:             10:34:07
+// Fecha:            20130110
+// Hora:             14:03:44
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -624,10 +624,10 @@ public class ProgQuerytrat extends Program
     public Field pldescripcion;
     public Field plorigendades;
     public Field pltipoorig;
+    public Field pltipoplan;
     public Field plurlplantilla;
     public Field plusuario;
     public Field plventana;
-    public Field pltipoplan;
     class Plantillas extends Table
       {
       public Plantillas(Select select)
@@ -649,10 +649,10 @@ public class ProgQuerytrat extends Program
       addField(pldescripcion=new Field(this,plantillas,"pldescripcion"));
       addField(plorigendades=new Field(this,plantillas,"plorigendades"));
       addField(pltipoorig=new Field(this,plantillas,"pltipoorig"));
+      addField(pltipoplan=new Field(this,plantillas,"pltipoplan"));
       addField(plurlplantilla=new Field(this,plantillas,"plurlplantilla"));
       addField(plusuario=new Field(this,plantillas,"plusuario"));
       addField(plventana=new Field(this,plantillas,"plventana"));
-      addField(pltipoplan=new Field(this,plantillas,"pltipoplan"));
       }
     public String getWhere()
       {
@@ -779,7 +779,7 @@ public class ProgQuerytrat extends Program
     int seguentNumeroRegistre=10;
     
     int getSeguentNumeroRegistre() {
-      Selector sel=new Selector(Aplication.getAplication().getDataBase());
+      Selector sel=new Selector(getDataBase());
       sel.execute("select max(qetorden) from quetabla where qetfrase='"+frase+"' and qetaplicacion='"+aplicacion+"'");
     
       int ret=10;
@@ -1056,7 +1056,7 @@ public class ProgQuerytrat extends Program
     int seguentNumeroRegistre=10;
     
     int getSeguentNumeroRegistre() {
-      Selector sel=new Selector(Aplication.getAplication().getDataBase());
+      Selector sel=new Selector(getDataBase());
       sel.execute("select max(qecorden) from quecolumn where qecfrase='"+frase+"' and qecaplicacion='"+aplicacion+"'");
     
       int ret=10;
@@ -1592,7 +1592,7 @@ public class ProgQuerytrat extends Program
     public String tipoError = "";
     
     int getSeguentNumeroRegistre() {
-      Selector sel=new Selector(Aplication.getAplication().getDataBase());
+      Selector sel=new Selector(getDataBase());
       sel.execute("select max(qevorden) from quevariables where qevfrase='"+frase+"' and qevaplicacion='"+aplicacion+"'");
     
       int ret=10;
@@ -2617,6 +2617,7 @@ public class ProgQuerytrat extends Program
         addItem("0/Cartas");
         addItem("1/Etiquetas");
         addItem("2/Sobres");
+        addItem("3/Directorio");
         setField(splantillas.pltipoplan);
         }
       public Object getDefault()
@@ -2882,6 +2883,13 @@ public class ProgQuerytrat extends Program
       vfrase.qefect.addItem("E/Expedientes");  
       vfrase.qefect.addItem("N/Sin seleeccion");  
       vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejgestion.html"));
+    }
+    else if (aplicacion.equals("JGESTION")) {
+      vfrase.qefect.removeAllItems();
+      vfrase.qefect.setTitle("Seleccion ");
+      vfrase.qefect.addItem("N/Sin seleeccion");  
+      vfrase.qefect.setEnabled(false);
+      vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejconta.html"));
     }
     else 
        vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejnomina.html"));

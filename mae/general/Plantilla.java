@@ -145,7 +145,7 @@ public class Plantilla {
 		DispatchPtr dp = (DispatchPtr) app.get("ActiveDocument");
 		//DispatchPtr mailmerge = (DispatchPtr) word.get("MailMerge");
 		DispatchPtr mailmerge = (DispatchPtr) dp.get("MailMerge");
-		
+		mailmerge.put("MainDocumentType",typeDocument);
 		
 		
 		Object[] obj = {dataSource.getUrlSource(),4,false, true,false,false,"","",false,"","","","",""};
