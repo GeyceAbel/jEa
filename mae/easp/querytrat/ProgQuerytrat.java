@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130110
-// Hora:             14:03:44
+// Fecha:            20130115
+// Hora:             17:39:49
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -779,7 +779,10 @@ public class ProgQuerytrat extends Program
     int seguentNumeroRegistre=10;
     
     int getSeguentNumeroRegistre() {
-      Selector sel=new Selector(getDataBase());
+      Selector sel = null;
+      if (aplicacion.equals("JCONTA")) sel=new Selector(getDataBase());
+      else sel=new Selector(Aplication.getAplication().getDataBase());
+    
       sel.execute("select max(qetorden) from quetabla where qetfrase='"+frase+"' and qetaplicacion='"+aplicacion+"'");
     
       int ret=10;
@@ -1056,7 +1059,9 @@ public class ProgQuerytrat extends Program
     int seguentNumeroRegistre=10;
     
     int getSeguentNumeroRegistre() {
-      Selector sel=new Selector(getDataBase());
+      Selector sel = null;
+      if (aplicacion.equals("JCONTA")) sel=new Selector(getDataBase());
+      else sel=new Selector(Aplication.getAplication().getDataBase());
       sel.execute("select max(qecorden) from quecolumn where qecfrase='"+frase+"' and qecaplicacion='"+aplicacion+"'");
     
       int ret=10;
@@ -1592,7 +1597,9 @@ public class ProgQuerytrat extends Program
     public String tipoError = "";
     
     int getSeguentNumeroRegistre() {
-      Selector sel=new Selector(getDataBase());
+      Selector sel = null;
+      if (aplicacion.equals("JCONTA")) sel=new Selector(getDataBase());
+      else sel=new Selector(Aplication.getAplication().getDataBase());
       sel.execute("select max(qevorden) from quevariables where qevfrase='"+frase+"' and qevaplicacion='"+aplicacion+"'");
     
       int ret=10;
@@ -2884,7 +2891,7 @@ public class ProgQuerytrat extends Program
       vfrase.qefect.addItem("N/Sin seleeccion");  
       vfrase.setLayout(new LayoutHtml("mae/easp/html/querytrat_vfrasejgestion.html"));
     }
-    else if (aplicacion.equals("JGESTION")) {
+    else if (aplicacion.equals("JCONTA")) {
       vfrase.qefect.removeAllItems();
       vfrase.qefect.setTitle("Seleccion ");
       vfrase.qefect.addItem("N/Sin seleeccion");  

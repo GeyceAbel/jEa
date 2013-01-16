@@ -28,11 +28,20 @@ public class Plantilla {
 	}
 	
 	public Plantilla (String urlTemplate) {
-	  this.urlTemplate=urlTemplate;
+		this.urlTemplate=urlTemplate;
+		if (urlTemplate!=null) {
+			File file=new File(urlTemplate);
+			if (file.exists()) this.urlTemplate = file.getAbsolutePath();
+		}
+	  
 	}
 	public Plantilla (String urlTemplate, int documentType) {
 		  this.urlTemplate=urlTemplate;
 		  this.typeDocument = documentType;
+			if (urlTemplate!=null) {
+				File file=new File(urlTemplate);
+				if (file.exists()) this.urlTemplate = file.getAbsolutePath();
+			}
 		}
 	
 	

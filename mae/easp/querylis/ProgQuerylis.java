@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20120120
-// Hora:             12:56:24
+// Fecha:            20130116
+// Hora:             10:27:00
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -34,7 +34,7 @@ public class ProgQuerylis extends Program
   public String datSelec;
   public String nomDirec="";
   public int ordenacion=0;
-  
+  public int empresaJCONTA;
   public int gasesor = 1 ;
   
   
@@ -661,6 +661,22 @@ public class ProgQuerylis extends Program
           else where=selwhere+" and ("+where+")";
         }
       }
+      else if (aplicacion.equals("JCONTA")) {
+     	  String nomCampEmpresa = null;
+        CatCtasp catjco = new CatCtasp();
+        TableDef td = catjco.getTable(squery.qefmaster.getString().toLowerCase());
+        if (td!=null) {
+        	FieldDef[] fd = td.getColumns();
+        	for (int i=0;i<fd.length && nomCampEmpresa==null;i++) {
+        		String nom = fd[i].getName().toLowerCase();
+        		if (nom.endsWith("empresa")) nomCampEmpresa = nom;
+        	}
+        }
+        if (nomCampEmpresa!=null) {
+         	if (where==null) where = nomCampEmpresa+"="+empresaJCONTA;
+        	else where += " and ("+nomCampEmpresa+"="+empresaJCONTA+")";
+        }
+      }
       else if ("E".equals(frase.ect) || "C".equals(frase.ect) || "T".equals(frase.ect)) {
               String selwhere="SELUSUARIO='"+Aplication.getAplication().getUser()+"' and SELPROGRAMA='QUERY'";
   
@@ -833,7 +849,7 @@ public class ProgQuerylis extends Program
                           col.valor.setValue(vali);
                       break;
                   case Value.STRING:
-                      String vals=col.quorelacio.selector.getString(col.camp.field.getName());
+                      String vals=(String)col.quorelacio.selector.getObject(col.camp.field.getName());
                       if (col.quorelacio.selector.wasNull())
                           col.valor.setNull();
                       else
@@ -1013,25 +1029,28 @@ public class ProgQuerylis extends Program
         int saved=getCurrentRow();
     
         String frase=qeffrase.getString();
+        DBConnection dbdelete = null;
+        if (aplicacion.equals("JCONTA")) dbdelete = getDataBase();
+        else dbdelete =  Aplication.getAplication().getDataBase();
     
         //Delete delev=new Delete(getDataBase(),"quevariables");
-        Delete delev=new Delete(Aplication.getAplication().getDataBase(),"quevariables");
+        Delete delev=new Delete(dbdelete,"quevariables");
         delev.execute("qevaplicacion='"+aplicacion+"' and qevfrase='"+frase+"'");
     
         //Delete delec=new Delete(getDataBase(),"quecolumn");
-        Delete delec=new Delete(Aplication.getAplication().getDataBase(),"quecolumn");
+        Delete delec=new Delete(dbdelete,"quecolumn");
         delec.execute("qecaplicacion='"+aplicacion+"' and qecfrase='"+frase+"'");
     
         //Delete delet=new Delete(getDataBase(),"quetabla");
-        Delete delet=new Delete(Aplication.getAplication().getDataBase(),"quetabla");
+        Delete delet=new Delete(dbdelete,"quetabla");
         delet.execute("qetaplicacion='"+aplicacion+"' and qetfrase='"+frase+"'");
     
         //Delete delef=new Delete(getDataBase(),"quefrase");
-        Delete delef=new Delete(Aplication.getAplication().getDataBase(),"quefrase");
+        Delete delef=new Delete(dbdelete,"quefrase");
         delef.execute("qefaplicacion='"+aplicacion+"' and qeffrase='"+frase+"'");
     
         //getDataBase().commit();
-        Aplication.getAplication().getDataBase().commit();
+        dbdelete.commit();
         doShow();
         setCurrentRow(Math.max(0,saved-1));
         }
@@ -2104,7 +2123,7 @@ public class ProgQuerylis extends Program
         super(form);
         setName("acimportar");
         setTitle("&3 - Importar");
-        setOptions(SHOW);
+        setOptions(SHOW | EOF);
         }
       public void onAction()
         {
@@ -2884,18 +2903,21 @@ public class ProgQuerylis extends Program
     
     public void duplicados(String codigo, String descripcion) throws Exception {
       int orden=0;
-      Aplication.getAplication().getDataBase().executeUpdate(
+      DBConnection dbduplic = null;
+      if (aplicacion.equals("JCONTA")) dbduplic = getDataBase();
+      else dbduplic = Aplication.getAplication().getDataBase();
+      dbduplic.executeUpdate(
             "insert into quefrase" + 
             "( qefaplicacion,qeffrase,qefdescripcion,qefmaster,qeftitulo,qefapaisado,qefletra,qefpaginado,qeffrom,qefwhere,qefect,qefrepetir,qefcount )"+ 
             "select qefaplicacion,'" + codigo + "' as expr1 ,'" + descripcion + "' as expr2,"+
             "qefmaster,qeftitulo,qefapaisado,qefletra,qefpaginado,qeffrom,qefwhere,qefect,qefrepetir,qefcount from quefrase where  "+
             "qeffrase = '"+ vvqeffrase.getString() + "' and qefdescripcion = '" + vvqefdescripcio.getString() + "'");
     
-      Selector sqcolumn = new Selector(Aplication.getAplication().getDataBase());
+      Selector sqcolumn = new Selector(dbduplic);
       sqcolumn.execute("SELECT * FROM quecolumn WHERE qecaplicacion = '" + aplicacion + "' and qecfrase = '" + vvqeffrase.getString() + "'");
       while(sqcolumn.next()) {
         orden = sqcolumn.getint("QECORDEN");
-        Aplication.getAplication().getDataBase().executeUpdate(
+        dbduplic.executeUpdate(
             "insert into quecolumn" + 
             "( qecaplicacion,qecfrase,qecorden,qeccampo,qectitulo,qeclongitud,qectipo,qectabla,qecvisible,qecrestriccion,qecorderby,qecacumula,qecsaltapag,qecinipag,qecformato,qecbbdd,qecsum,qecgrupby)"+ 
             "select qecaplicacion,'" + codigo + "' as expr1 , qecorden,"+
@@ -2904,11 +2926,11 @@ public class ProgQuerylis extends Program
      }
      sqcolumn.close();
     
-      Selector sqtabla = new Selector(Aplication.getAplication().getDataBase());
+      Selector sqtabla = new Selector(dbduplic);
       sqtabla.execute("SELECT * FROM quetabla WHERE qetaplicacion = '" + aplicacion + "' and qetfrase = '" + vvqeffrase.getString() + "'");
       while(sqtabla.next()) {
         orden = sqtabla.getint("QETORDEN");
-        Aplication.getAplication().getDataBase().executeUpdate(
+        dbduplic.executeUpdate(
             "insert into quetabla" + 
             "( qetaplicacion,qetfrase,qetorden,qettabla,qetbbdd,qetrelacion)"+ 
             "select qetaplicacion,'" + codigo + "' as expr1 , qetorden,"+
@@ -2917,11 +2939,11 @@ public class ProgQuerylis extends Program
      }
      sqtabla.close();
     
-      Selector sqvariable = new Selector(Aplication.getAplication().getDataBase());
+      Selector sqvariable = new Selector(dbduplic);
       sqvariable.execute("SELECT * FROM quevariables WHERE qevaplicacion = '" + aplicacion + "' and qevfrase = '" + vvqeffrase.getString() + "'");
       while(sqvariable.next()) {
         orden = sqvariable.getint("QEVORDEN");
-        Aplication.getAplication().getDataBase().executeUpdate(
+        dbduplic.executeUpdate(
             "insert into quevariables" + 
             "( qevaplicacion,qevfrase,qevorden,qevvariable,qevtipo,qevlongitud,qevtitulo,qevobligatorio,qevpredef,qevvalor,qevvisible,qevcomparacion,qevformato)"+ 
             "select qevaplicacion,'" + codigo + "' as expr1 , qevorden,"+
@@ -2931,7 +2953,7 @@ public class ProgQuerylis extends Program
      sqvariable.close();
     
      
-     Aplication.getAplication().getDataBase().commit();
+     dbduplic.commit();
     
     }
     
@@ -3191,15 +3213,25 @@ public class ProgQuerylis extends Program
     }
   public void onInit()
     {
+    squery.setDb(Aplication.getAplication().getDataBase());
+    sprueba.setDb(Aplication.getAplication().getDataBase());
+    splantillas.setDb(Easp.connEA);
+    
     if (aplicacion.equals("JEO")) nomDirec="jEo";
     else if (aplicacion.equals("JMODELOS")) nomDirec="jModelos";
     else if (aplicacion.equals("JISS")) nomDirec="jIss";
     else if (aplicacion.equals("JRENTA")) nomDirec="jRenta";
+    else if (aplicacion.equals("JCONTA")) {
+      LocationWindow loc=new LocationWindow();
+      loc.setWidth(795);
+      loc.setHeight(490);
+      setLocation(loc);
+      setModal(true);
+      squery.setDb(getDataBase());
+      sprueba.setDb(getDataBase());
+      nomDirec="jConta";
+    }
     else nomDirec="jNomina";
-    
-    squery.setDb(Aplication.getAplication().getDataBase());
-    sprueba.setDb(Aplication.getAplication().getDataBase());
-    splantillas.setDb(Easp.connEA);
     
     super.onInit();
     

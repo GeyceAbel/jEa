@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130104
-// Hora:             12:36:46
+// Fecha:            20130116
+// Hora:             11:17:29
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1095,11 +1095,21 @@ public class ProgInsprconver extends Program
       String sentencias9_9[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2012"}; 
     
       String sentencias10_1[]={
-         "ALTER TABLE NIFES ALTER COLUMN datnombre CHAR(50);",
-         "ALTER TABLE NIFES ALTER COLUMN datapell2 CHAR(50);",
-         "ALTER TABLE TRANSACCIONES ADD traregemp VARCHAR(1);",
-         "UPDATE TRANSACCIONES SET travoloper = 'NO' WHERE tratipo='END' and travoloper='EX' and traoperespec='NDM';"
+        "ALTER TABLE NIFES ALTER COLUMN datnombre CHAR(50);",
+        "ALTER TABLE NIFES ALTER COLUMN datapell2 CHAR(50);",
+        "ALTER TABLE TRANSACCIONES ADD traregemp VARCHAR(1);",
+        "UPDATE TRANSACCIONES SET travoloper = 'NO' WHERE tratipo='END' and travoloper='EX' and traoperespec='NDM';"
       };
+    
+      String sentencias10_2[]={
+        "DELETE FROM QUEFRASE WHERE qeffrase = 'GYC-CARTA347';",
+        "DELETE FROM QUETABLA WHERE qetfrase = 'GYC-CARTA347';",
+        "DELETE FROM QUECOLUMN WHERE qecfrase = 'GYC-CARTA347';",
+        "DELETE FROM QUEVARIABLES WHERE qevfrase = 'GYC-CARTA347';",
+        "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JCONTA' and PLCODIGO='GYCPLAC347' and PLVENTANA='GYC-CARTA347';",
+        "INSERT INTO PLANTILLAS (PLAPLICACION	, PLCODIGO			,	PLVENTANA			, PLDESCRIPCION	,	PLURLPLANTILLA, PLTIPOPLAN		) VALUES ('JCONTA','GYCPLAC347','GYC-CARTA347','Plantilla carta informativa modelo 347','.\\plantillas\\GYCPLAC347.dot',0);"
+      };
+    
     
       int i=0;
       try {
@@ -2524,14 +2534,32 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("10.1");
         }
-      }
     
+        if (versio < 10.2) {
+          for (i=0;i<sentencias10_2.length;++i) {
+            try {
+              Easp.chivato("10.2 Exec : ["+sentencias10_2[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias10_2[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias10_2[i];
+              Easp.chivato("10.2 *** Error : ["+sentencias10_2[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          String tablas[] = {"quefrase","quetabla","quecolumn","quevariables"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1002","easp.jar");
+          Easp.setVersionBD("bdeasp","10.2");
+          Easp.connEA.commit();
+          vvveractual.setValue("10.2");
+        }
+      }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
         return false;
-        }
-      return true;
       }
+      return true;
+    }
     public void grabarINDEMORA (int ejer, java.util.Date fechaini, java.util.Date fechafin, double tipo) {
           Insert iindemora = new Insert(Easp.connEA,"INDEMORA");
           iindemora.valor("indejercicio",ejer);
