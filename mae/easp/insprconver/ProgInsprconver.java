@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130116
-// Hora:             11:17:29
+// Fecha:            20130131
+// Hora:             17:09:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1101,11 +1101,21 @@ public class ProgInsprconver extends Program
         "UPDATE TRANSACCIONES SET travoloper = 'NO' WHERE tratipo='END' and travoloper='EX' and traoperespec='NDM';"
       };
     
-      String sentencias10_2[]={
-        "DELETE FROM QUEFRASE WHERE qeffrase = 'GYC-CARTA347';",
-        "DELETE FROM QUETABLA WHERE qetfrase = 'GYC-CARTA347';",
-        "DELETE FROM QUECOLUMN WHERE qecfrase = 'GYC-CARTA347';",
-        "DELETE FROM QUEVARIABLES WHERE qevfrase = 'GYC-CARTA347';",
+      String sentencias10_3[]={
+        "alter table quefrase  add  qefrepetir char(1);",      
+        "alter table quefrase  add  qefcount char(1);",   
+        "alter table quetabla add   qetbbdd varchar(15);",   
+        "alter table quetabla add   qetrelacion varchar(15);",   
+        "alter table quecolumn add  qecbbdd varchar(15);",
+        "alter table quecolumn add  qecsum char(1);",
+        "alter table quecolumn add  qecgrupby char(1);" 
+      };
+    
+      String sentencias10_4[]={
+        "DELETE FROM QUEFRASE WHERE qeffrase = 'GYC-CARTA347' and qefaplicacion='JCONTA';",
+        "DELETE FROM QUETABLA WHERE qetfrase = 'GYC-CARTA347' and qetaplicacion='JCONTA';",
+        "DELETE FROM QUECOLUMN WHERE qecfrase = 'GYC-CARTA347' and qecaplicacion='JCONTA';",
+        "DELETE FROM QUEVARIABLES WHERE qevfrase = 'GYC-CARTA347' and qevaplicacion='JCONTA';",
         "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JCONTA' and PLCODIGO='GYCPLAC347' and PLVENTANA='GYC-CARTA347';",
         "INSERT INTO PLANTILLAS (PLAPLICACION	, PLCODIGO			,	PLVENTANA			, PLDESCRIPCION	,	PLURLPLANTILLA, PLTIPOPLAN		) VALUES ('JCONTA','GYCPLAC347','GYC-CARTA347','Plantilla carta informativa modelo 347','.\\plantillas\\GYCPLAC347.dot',0);"
       };
@@ -2535,23 +2545,40 @@ public class ProgInsprconver extends Program
           vvveractual.setValue("10.1");
         }
     
-        if (versio < 10.2) {
-          for (i=0;i<sentencias10_2.length;++i) {
+        if (versio < 10.3) {
+          for (i=0;i<sentencias10_3.length;++i) {
             try {
-              Easp.chivato("10.2 Exec : ["+sentencias10_2[i]+"]",1);
-              Easp.connEA.executeUpdate(sentencias10_2[i]);
+              Easp.chivato("10.3 Exec : ["+sentencias10_3[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias10_3[i]);
             }
             catch(Exception e) {
-              sqlOperation=sentencias10_2[i];
-              Easp.chivato("10.2 *** Error : ["+sentencias10_2[i]+"]  Error: ["+e+"]",1);
+              sqlOperation=sentencias10_3[i];
+              Easp.chivato("10.3 *** Error : ["+sentencias10_3[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","10.3");
+          Easp.connEA.commit();
+          vvveractual.setValue("10.3");
+        }
+    
+        if (versio < 10.4) {
+          for (i=0;i<sentencias10_4.length;++i) {
+            try {
+              Easp.chivato("10.4 Exec : ["+sentencias10_4[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias10_4[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias10_4[i];
+              Easp.chivato("10.4 *** Error : ["+sentencias10_4[i]+"]  Error: ["+e+"]",1);
               errorMessage=e.getMessage();
             }
           }
           String tablas[] = {"quefrase","quetabla","quecolumn","quevariables"};
-          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1002","easp.jar");
-          Easp.setVersionBD("bdeasp","10.2");
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1004","easp.jar");
+          Easp.setVersionBD("bdeasp","10.4");
           Easp.connEA.commit();
-          vvveractual.setValue("10.2");
+          vvveractual.setValue("10.4");
         }
       }
       catch(Exception e) {

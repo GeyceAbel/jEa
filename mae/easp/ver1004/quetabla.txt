@@ -1,0 +1,3 @@
+'JCONTA','GYC-CARTA347',10,'acum347','jconta',
+'JCONTA','GYC-CARTA347',20,'empresa','jconta',
+'JCONTA','GYC-CARTA347',30,'nifes','easp',
