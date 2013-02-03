@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130131
-// Hora:             17:09:25
+// Fecha:            20130203
+// Hora:             21:08:26
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1119,6 +1119,12 @@ public class ProgInsprconver extends Program
         "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JCONTA' and PLCODIGO='GYCPLAC347' and PLVENTANA='GYC-CARTA347';",
         "INSERT INTO PLANTILLAS (PLAPLICACION	, PLCODIGO			,	PLVENTANA			, PLDESCRIPCION	,	PLURLPLANTILLA, PLTIPOPLAN		) VALUES ('JCONTA','GYCPLAC347','GYC-CARTA347','Plantilla carta informativa modelo 347','.\\plantillas\\GYCPLAC347.dot',0);"
       };
+    
+    String sentencias10_5[]={
+        "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JEO' and PLCODIGO='gyc-carta347' and PLVENTANA='GYC-CARTA347';",
+        "INSERT INTO PLANTILLAS (PLAPLICACION       , PLCODIGO                      ,       PLVENTANA                       , PLDESCRIPCION ,       PLURLPLANTILLA, PLTIPOPLAN              ) VALUES ('JEO','gyc-carta347','GYC-CARTA347','Plantilla carta informativa modelo 347','.\\plantillas\\gyccarta347.doc',0);"
+      };
+    
     
     
       int i=0;
@@ -2580,6 +2586,23 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("10.4");
         }
+      if (versio < 10.5) {
+          for (i=0;i<sentencias10_5.length;++i) {
+            try {
+              Easp.chivato("10.5 Exec : ["+sentencias10_5[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias10_5[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias10_5[i];
+              Easp.chivato("10.5 *** Error : ["+sentencias10_5[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","10.5");
+          Easp.connEA.commit();
+          vvveractual.setValue("10.5");
+        }
+    
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
