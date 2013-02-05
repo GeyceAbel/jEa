@@ -61,3 +61,4 @@
 121203 --> APJORDI: Conversio BD fer mes grans els camps apell2 i nombre. Afegir un camp a la taula transacciones.
 130106 --> APJORDI: Modificacio del query per JCONTA (les taules que s'utilitzen son les del easp).
 130201 --> APESTER: Afegt pas de conversión per carta avis 347 JEO
+130202 --> APJORDI: PAs de conversió per grabar query de jConta.

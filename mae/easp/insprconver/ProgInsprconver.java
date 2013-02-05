@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130203
-// Hora:             21:08:26
+// Fecha:            20130205
+// Hora:             09:50:15
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1111,18 +1111,20 @@ public class ProgInsprconver extends Program
         "alter table quecolumn add  qecgrupby char(1);" 
       };
     
-      String sentencias10_4[]={
+    
+      String sentencias10_5[]={
+        "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JEO' and PLCODIGO='gyc-carta347' and PLVENTANA='GYC-CARTA347';",
+        "INSERT INTO PLANTILLAS (PLAPLICACION       , PLCODIGO                      ,       PLVENTANA                       , PLDESCRIPCION ,       PLURLPLANTILLA, PLTIPOPLAN              ) VALUES ('JEO','gyc-carta347','GYC-CARTA347','Plantilla carta informativa modelo 347','.\\plantillas\\gyccarta347.doc',0);"
+      };
+    
+      String sentencias10_6[]={
         "DELETE FROM QUEFRASE WHERE qeffrase = 'GYC-CARTA347' and qefaplicacion='JCONTA';",
         "DELETE FROM QUETABLA WHERE qetfrase = 'GYC-CARTA347' and qetaplicacion='JCONTA';",
         "DELETE FROM QUECOLUMN WHERE qecfrase = 'GYC-CARTA347' and qecaplicacion='JCONTA';",
         "DELETE FROM QUEVARIABLES WHERE qevfrase = 'GYC-CARTA347' and qevaplicacion='JCONTA';",
         "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JCONTA' and PLCODIGO='GYCPLAC347' and PLVENTANA='GYC-CARTA347';",
-        "INSERT INTO PLANTILLAS (PLAPLICACION	, PLCODIGO			,	PLVENTANA			, PLDESCRIPCION	,	PLURLPLANTILLA, PLTIPOPLAN		) VALUES ('JCONTA','GYCPLAC347','GYC-CARTA347','Plantilla carta informativa modelo 347','.\\plantillas\\GYCPLAC347.dot',0);"
-      };
-    
-    String sentencias10_5[]={
-        "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JEO' and PLCODIGO='gyc-carta347' and PLVENTANA='GYC-CARTA347';",
-        "INSERT INTO PLANTILLAS (PLAPLICACION       , PLCODIGO                      ,       PLVENTANA                       , PLDESCRIPCION ,       PLURLPLANTILLA, PLTIPOPLAN              ) VALUES ('JEO','gyc-carta347','GYC-CARTA347','Plantilla carta informativa modelo 347','.\\plantillas\\gyccarta347.doc',0);"
+        "INSERT INTO PLANTILLAS (PLAPLICACION	, PLCODIGO			,	PLVENTANA			, PLDESCRIPCION	,	PLURLPLANTILLA, PLTIPOPLAN		) VALUES ('JCONTA','GYCPLAC347','GYC-CARTA347','Plantilla carta informativa modelo 347','.\\plantillas\\GYCPLAC347.dot',0);",
+        "INSERT INTO quefrase (qefaplicacion	, qeffrase			,	qefdescripcion			, qefmaster	,	qeftitulo, qefapaisado, qefpaginado,qefrepetir,qefplantilla		)  VALUES ('JCONTA','GYC-CARTA347','Cartas informativas modelo 347','acum347','Acumulados modelo 347','S','N','N','GYCPLAC347');"
       };
     
     
@@ -2568,24 +2570,6 @@ public class ProgInsprconver extends Program
           vvveractual.setValue("10.3");
         }
     
-        if (versio < 10.4) {
-          for (i=0;i<sentencias10_4.length;++i) {
-            try {
-              Easp.chivato("10.4 Exec : ["+sentencias10_4[i]+"]",1);
-              Easp.connEA.executeUpdate(sentencias10_4[i]);
-            }
-            catch(Exception e) {
-              sqlOperation=sentencias10_4[i];
-              Easp.chivato("10.4 *** Error : ["+sentencias10_4[i]+"]  Error: ["+e+"]",1);
-              errorMessage=e.getMessage();
-            }
-          }
-          String tablas[] = {"quefrase","quetabla","quecolumn","quevariables"};
-          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1004","easp.jar");
-          Easp.setVersionBD("bdeasp","10.4");
-          Easp.connEA.commit();
-          vvveractual.setValue("10.4");
-        }
       if (versio < 10.5) {
           for (i=0;i<sentencias10_5.length;++i) {
             try {
@@ -2601,6 +2585,24 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","10.5");
           Easp.connEA.commit();
           vvveractual.setValue("10.5");
+        }
+        if (versio < 10.6) {
+          for (i=0;i<sentencias10_6.length;++i) {
+            try {
+              Easp.chivato("10.6 Exec : ["+sentencias10_6[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias10_6[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias10_6[i];
+              Easp.chivato("10.6 *** Error : ["+sentencias10_6[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          String tablas[] = {"quetabla","quecolumn","quevariables"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1006","easp.jar");
+          Easp.setVersionBD("bdeasp","10.6");
+          Easp.connEA.commit();
+          vvveractual.setValue("10.6");
         }
     
       }
