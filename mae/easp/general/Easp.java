@@ -3,6 +3,7 @@ package mae.easp.general;
 import mae.general.*;
 import mae.jeo.general.Jeo;
 import mae.jiss.general.Jiss;
+import mae.modasp.general.Modasp;
 import geyce.maefc.*;
 import mae.easp.*;
 import mae.easp.db.*;
@@ -2455,6 +2456,17 @@ public static int messageConNuevosBotones(String message, String titol, int icon
 
  }
  //------------------
+
+
+public static String getNomPC() {    
+    String nomPC = "PC-DESCONOCIDO";
+    try {
+       nomPC = java.net.InetAddress.getLocalHost().getHostName();
+      }
+    catch(Exception e ) {
+      }
+    return Modasp.cutrpad(nomPC,25).trim();
+}
 
  } //fin classe EASP
 
