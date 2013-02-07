@@ -8,6 +8,7 @@ import geyce.maefc.Windows;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,7 +59,19 @@ public class VistaPrevia {
 		parametros.put(clau, valor);
 	}
 	
-    public void compile() {
+	public void addParameter (String clau, int valor) {
+		parametros.put(clau, new Integer(valor));
+	}
+
+	public void addParameter (String clau, double valor) {
+		parametros.put(clau, new Double(valor));
+	}
+	
+	public void addParameter (String clau, Date valor) {
+		parametros.put(clau, valor);
+	}
+
+	public void compile() {
         try {
             JasperReport report = JasperCompileManager.compileReport(fichero);
             report.paginaActual = 0;
