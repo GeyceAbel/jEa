@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130116
-// Hora:             10:27:00
+// Fecha:            20130208
+// Hora:             13:37:03
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -849,7 +849,8 @@ public class ProgQuerylis extends Program
                           col.valor.setValue(vali);
                       break;
                   case Value.STRING:
-                      String vals=(String)col.quorelacio.selector.getObject(col.camp.field.getName());
+                      // String vals=(String)col.quorelacio.selector.getObject(col.camp.field.getName());
+                      String vals=col.quorelacio.selector.getString(col.camp.field.getName());
                       if (col.quorelacio.selector.wasNull())
                           col.valor.setNull();
                       else
