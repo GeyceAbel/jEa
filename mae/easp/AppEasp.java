@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20121211
-// Hora:             13:51:51
+// Fecha:            20130215
+// Hora:             10:41:23
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -82,7 +82,7 @@ class Barramenu extends MenuBar
   class Minstalacion extends Menu
     {
     public M1insconver m1insconver;
-    public M1apl m1apl;
+    public M1otrasaplic m1otrasaplic;
     public M1exportbd m1exportbd;
     public M1creaindices m1creaindices;
     class M1insconver extends MenuItemProgram
@@ -95,13 +95,24 @@ class Barramenu extends MenuBar
         }
       }
       
-    class M1apl extends MenuItemProgram
+    class M1otrasaplic extends Menu
       {
-      public M1apl()
+      public M1logicclass m1logicclass;
+      class M1logicclass extends MenuItemProgram
         {
-        super("Aplicaciones");
-        setName("m1apl");
-        setProgram("mae.easp.admaplic.ProgAdmaplic");
+        public M1logicclass()
+          {
+          super("NIFES Logic CLASS - Lógic Control");
+          setName("m1logicclass");
+          setProgram("mae.easp.auxlogicclass.ProgAuxlogicclass");
+          }
+        }
+        
+      public M1otrasaplic()
+        {
+        super("&Importación datos Otras Aplicaciones");
+        setName("m1otrasaplic");
+        add(m1logicclass=new M1logicclass());
         }
       }
       
@@ -127,10 +138,10 @@ class Barramenu extends MenuBar
       
     public Minstalacion()
       {
-      super("&Instalación");
+      super("&Configuración");
       setName("minstalacion");
       add(m1insconver=new M1insconver());
-      add(m1apl=new M1apl());
+      add(m1otrasaplic=new M1otrasaplic());
       add(m1exportbd=new M1exportbd());
       add(m1creaindices=new M1creaindices());
       }

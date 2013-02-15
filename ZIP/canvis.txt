@@ -62,3 +62,4 @@
 130106 --> APJORDI: Modificacio del query per JCONTA (les taules que s'utilitzen son les del easp).
 130201 --> APESTER: Afegt pas de conversión per carta avis 347 JEO
 130202 --> APJORDI: PAs de conversió per grabar query de jConta.
+130203 --> APESTER: Posat al menú configuración, l'opció per importar NIFES de Logic Class
