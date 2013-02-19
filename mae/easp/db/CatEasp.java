@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20121213
-// Hora:             13:13:19
+// Fecha:            20130219
+// Hora:             10:07:08
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -92,6 +92,7 @@ public class CatEasp extends Catalog
   public TabImpuser tabimpuser;
   public TabCnae1993 tabcnae1993;
   public TabPlantillas tabplantillas;
+  public TabFormacobpag tabformacobpag;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -3177,6 +3178,26 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabFormacobpag extends TableDef
+    {
+    // Campos
+    public FieldDef fcpforma;
+    public FieldDef fcpdesc;
+    public TabFormacobpag(String name)
+      {
+      super(name);
+      fcpforma = new FieldDef("fcpforma",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      fcpdesc = new FieldDef("fcpdesc",FieldDef.CHAR,40);
+      FieldDef array[] = {
+        fcpforma,
+        fcpdesc        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {fcpforma };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -3255,6 +3276,7 @@ public class CatEasp extends Catalog
     tabimpuser = new TabImpuser("impuser");
     tabcnae1993 = new TabCnae1993("cnae1993");
     tabplantillas = new TabPlantillas("plantillas");
+    tabformacobpag = new TabFormacobpag("formacobpag");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -3331,7 +3353,8 @@ public class CatEasp extends Catalog
       tabsesiones,
       tabimpuser,
       tabcnae1993,
-      tabplantillas      
+      tabplantillas,
+      tabformacobpag      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };

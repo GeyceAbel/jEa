@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130205
-// Hora:             09:50:15
+// Fecha:            20130219
+// Hora:             10:16:41
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1127,6 +1127,16 @@ public class ProgInsprconver extends Program
         "INSERT INTO quefrase (qefaplicacion	, qeffrase			,	qefdescripcion			, qefmaster	,	qeftitulo, qefapaisado, qefpaginado,qefrepetir,qefplantilla		)  VALUES ('JCONTA','GYC-CARTA347','Cartas informativas modelo 347','acum347','Acumulados modelo 347','S','N','N','GYCPLAC347');"
       };
     
+      String sentencias10_7[]={
+       " CREATE TABLE FORMACOBPAG                 "+
+        "  (fcpforma     VARCHAR(3) NOT NULL,     "+
+        "   fcpdesc      VARCHAR(40),             "+
+        "   PRIMARY KEY (fcpforma));  ",
+        "INSERT INTO FORMACOBPAG (fcpforma,fcpdesc) VALUES ('CON','Contado');",
+        "INSERT INTO FORMACOBPAG (fcpforma,fcpdesc) VALUES ('TRA','Transferencia bancaria');",
+        "INSERT INTO FORMACOBPAG (fcpforma,fcpdesc) VALUES ('PAG','Pagaré');",
+        "INSERT INTO FORMACOBPAG (fcpforma,fcpdesc) VALUES ('DOM','Domiciliación');"
+      };
     
     
       int i=0;
@@ -2603,6 +2613,22 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","10.6");
           Easp.connEA.commit();
           vvveractual.setValue("10.6");
+        }
+        if (versio < 10.7) {
+          for (i=0;i<sentencias10_7.length;++i) {
+            try {
+              Easp.chivato("10.7 Exec : ["+sentencias10_7[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias10_7[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias10_7[i];
+              Easp.chivato("10.7 *** Error : ["+sentencias10_7[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","10.7");
+          Easp.connEA.commit();
+          vvveractual.setValue("10.7");
         }
     
       }
