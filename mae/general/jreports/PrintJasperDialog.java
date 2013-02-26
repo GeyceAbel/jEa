@@ -23,7 +23,8 @@ public class PrintJasperDialog extends Form
 		super(prog);
 		this.job = job;
 		setName("vprint");
-		setTitle("Salida...");
+		//setTitle("Salida...");
+		setTitle(job.titulo);
 		setLayout(new LayoutTabbed());
 		setModal(true);
 		setPrintable(false);
@@ -32,12 +33,12 @@ public class PrintJasperDialog extends Form
 		lw.setLocation(LocationWindow.CENTER);
 		lw.setWidth(600);
 		lw.setHeight(500);
-		setLocation(lw);
-		pPDF = true;
-		pEXCEL = true;
-		pVISOR = true;
-		pImpresora = true;
-		pDOCX = true;
+		setLocation(lw);		
+		//pPDF = true;
+		//pEXCEL = true;
+		//pVISOR = true;
+		//pImpresora = true;
+		//pDOCX = true;
 	}
 
 	public void setpPDF(boolean pPDF) {
@@ -71,6 +72,7 @@ public class PrintJasperDialog extends Form
 			PrintJasperPanel panel = new  PrintJasperPanelVisor(job);
 			panel.setParent(this);
 			addTab(panel);
+			job.isVistaPrevia = true;
 		}
 		if (pPDF) {
 			PrintJasperPanel panel = new  PrintJasperPanelPDF(job);

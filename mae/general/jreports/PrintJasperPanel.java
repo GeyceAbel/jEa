@@ -1,5 +1,8 @@
 package mae.general.jreports;
 
+import java.util.Vector;
+
+import net.sf.jasperreports.view.JasperViewer;
 import geyce.maefc.ControlButton;
 import geyce.maefc.ControlPanel;
 import geyce.maefc.ErrorManagerDefault;
@@ -62,6 +65,5 @@ public abstract class PrintJasperPanel extends ControlPanel
 	      ErrorManagerDefault.generalEx(ex, "No ha sido posible abrir archivo PDF");
 	    }
 	  }
-  
-
+	
 }

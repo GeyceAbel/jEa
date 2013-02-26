@@ -1,20 +1,25 @@
 package mae.general.jreports;
 
+import java.awt.Image;
 import java.util.Vector;
+
+import net.sf.jasperreports.view.JasperViewer;
 
 import mae.easp.general.Easp;
 import mae.modasp.general.Modasp;
+import geyce.maefc.Aplication;
 import geyce.maefc.DBConnection;
 import geyce.maefc.Program;
 
 public class PrintJasperWork {
 	public PrintJasperDialog        dialog;
 	public DBConnection conn;
-	private boolean pestanaPDF;
-	private boolean pestanaEXCEL;
-	private boolean pestanaVISOR;
-	private boolean pestanaImpresora;
-	private boolean pestanaDOCX;
+	protected Vector <JasperViewer> vjv = new Vector<JasperViewer>();
+	private boolean pestanaPDF=true;
+	private boolean pestanaEXCEL=true;
+	private boolean pestanaVISOR=true;
+	private boolean pestanaImpresora=true;
+	private boolean pestanaDOCX=true;
 	protected Vector <JListado> vTarea;
 	protected String destino;
 	protected boolean abrir;
@@ -26,8 +31,20 @@ public class PrintJasperWork {
 	protected int tamañoLetra;
 	protected boolean modifValores;
 	protected String titulo;
-
+	protected String tituloVistaPrevia;
+	protected String iconoVistaPrevia;	
+	private boolean showDialeg =true; 
+	protected boolean isVistaPrevia=false;
+	protected boolean EXCEL_WHITE_BACKGROUND = true;
+	protected boolean EXCEL_EMPTY_SPACE_ROWS = false;
+	protected boolean EXCEL_EMPTY_SPACE_COL = false;
 	
+
+	private void showPanels(){
+     	 for (int j=0;j<vjv.size();j++) {
+         	   vjv.elementAt(j).setVisible(true);
+         	 }
+	}
 
 	public void setPestanaPDF(boolean pestanaPDF) {
 		this.pestanaPDF = pestanaPDF;
@@ -53,16 +70,42 @@ public class PrintJasperWork {
 		vTarea = new Vector<JListado>();
 		this.titulo = titulo;
 		this.conn = conn;		
+		this.tituloVistaPrevia = "Vista Previa";
 	}
 
 	public void dialog (Program program) {
 		setDefaults();
 		dialog = this.createDialog(program);
 		dialog.showDialog();
+		if(isVistaPrevia)
+		  showPanels();
+	}
+	
+	public boolean isShowDialeg(){
+		return showDialeg;
+	}
+	
+	public void setExcelWhiteBackground(boolean whiteBackground) {
+		this.EXCEL_WHITE_BACKGROUND = whiteBackground;
+	}
+	
+	public void setExcelEmptySpaceRows(boolean emptySpaceRows) {
+		this.EXCEL_EMPTY_SPACE_ROWS = emptySpaceRows;
+	}
+	
+	public void setExcelEmptySpaceCol(boolean emptySpaceCol) {
+		this.EXCEL_EMPTY_SPACE_COL = emptySpaceCol;
+	}
+	
+	public void vistaPrevia() {
+		showDialeg =false;
+		PrintJasperPanelVisor panel = new  PrintJasperPanelVisor(this);
+		panel.onImprimir();
+		showPanels();		
 	}
 
 	private void setDefaults() {
-		destino=System.getProperty("user.dir")+"listado_"+Easp.getNomPC();
+		destino=System.getProperty("user.dir")+"\\listado_"+Easp.getNomPC();
 		abrir = true;
 		horizontal = false;
 		margenSuperior = 2;
@@ -71,11 +114,16 @@ public class PrintJasperWork {
 		margenDerecho = 1;
 		tamañoLetra = 8;
 		modifValores = true;
-		pestanaPDF = true;
-		pestanaEXCEL = true;
-		pestanaVISOR = true;
-		pestanaImpresora = true;
-		pestanaDOCX = true;
+		iconoVistaPrevia = "/"+Aplication.getAplication().getIcon().getFileName();		
+		//pestanaPDF = true;
+		//pestanaEXCEL = true;
+		//pestanaVISOR = true;
+		//pestanaImpresora = true;
+		//pestanaDOCX = true;
+	}
+
+	public void setVistapreviaTitulo(String title) {
+		this.tituloVistaPrevia = title;
 	}
 
 	public PrintJasperDialog createDialog(Program prog) {

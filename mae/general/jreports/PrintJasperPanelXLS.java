@@ -143,6 +143,10 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
     	  exporter.setParameter(JRXlsExporterParameter.JASPER_PRINT_LIST, jprintlist);
     	  FileOutputStream output = new FileOutputStream(new File(destino.getString()));
     	  exporter.setParameter(JRXlsExporterParameter.OUTPUT_STREAM, output);
+    	  exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, job.EXCEL_WHITE_BACKGROUND);
+    	  exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, job.EXCEL_EMPTY_SPACE_ROWS);  
+    	  exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_COLUMNS, job.EXCEL_EMPTY_SPACE_COL);
+    	  
     	  exporter.exportReport();
     	  output.close();
      	  if (abrir.getBoolean()) abrir(destino.getString(),"Microsoft Excel");

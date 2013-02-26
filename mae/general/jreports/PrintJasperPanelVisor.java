@@ -1,5 +1,6 @@
 package mae.general.jreports;
 
+import geyce.maefc.Aplication;
 import geyce.maefc.CheckGroup;
 import geyce.maefc.ControlButton;
 import geyce.maefc.ControlCheck;
@@ -171,7 +172,9 @@ public class PrintJasperPanelVisor extends PrintJasperPanel
     {
       public void onClick()
       {
-    	  if (PrintJasperPanelVisor.this.isValid()) onImprimir();
+    	  if (PrintJasperPanelVisor.this.isValid()){
+    		  onImprimir();
+    	  }
       }
     };
     crear.setName("btimprimir");
@@ -194,10 +197,23 @@ public class PrintJasperPanelVisor extends PrintJasperPanel
     		  vp.setParameter(jl.getParameters());
     		  vp.compile();    	
     		  v.addElement(vp.getJprint());
-    	      		  
+   		  
     	  }
-     	  job.dialog.exit();
-     	  for (int i=0;i<v.size();i++) JasperViewer.viewReport(v.elementAt(i), false);
+     	  if(job.isShowDialeg())job.dialog.exit();
+     	  Vector <JasperViewer> vjv = new Vector<JasperViewer>();
+     	  for (int i=0;i<v.size();i++) {
+     		  //JasperViewer.viewReport(v.elementAt(i), false,null,job.iconoVistaPrevia,job.tituloVistaPrevia);
+     			JasperViewer jasperViewer =	new JasperViewer(
+     								v.elementAt(i),
+     								false,
+     								null,
+     								job.iconoVistaPrevia,
+     								job.tituloVistaPrevia
+     					);
+     			vjv.addElement(jasperViewer);
+     			//jasperViewer.setVisible(true);
+     	 }
+     	  job.vjv = vjv;
       }
 	  catch (Exception e) {
 		  e.printStackTrace();
