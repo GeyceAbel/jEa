@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20121122
-// Hora:             09:18:29
+// Fecha:            20130228
+// Hora:             10:27:09
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -49,6 +49,18 @@ public class ProgInsindices extends Program
         else Maefc.message("El proceso ha finalizado \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
         }
       }
+    else if ( vindices.vvaplicacion.getString().equals("JMODELOS") ) {
+       Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()) , user , "M" , "INSINDICES" , "Reconstruccion de Indices BD JMODELOS Ver1.0" , Easp.dominio , ""  );
+      DBConnection connJModelos = Easp.getConnexio("modelos", Easp.connEA);
+      if ( connJModelos != null ) {
+        if ( execSentencias(connJModelos,indicesReconstruirSQL_jModelos) ) {
+          Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
+          }
+        else Maefc.message("El proceso ha finalizado \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
+        connJModelos.disconnect();
+        }
+      }
+  
     }
   
   
@@ -65,7 +77,7 @@ public class ProgInsindices extends Program
         connJNomina.disconnect();
         }
       }
-   else  if ( vindices.vvaplicacion.getString().equals("JGESTION") ) {
+    else  if ( vindices.vvaplicacion.getString().equals("JGESTION") ) {
        Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()) , user , "A" , "INSINDICES" , "Creación de Indices  BD JGESTION Ver1.0 " , Easp.dominio , ""  );
       if ( Easp.connEA != null ) {
         if ( execSentencias(Easp.connEA,indicesSQL_jGestion) ) {
@@ -74,7 +86,18 @@ public class ProgInsindices extends Program
         else Maefc.message("El proceso ha finalizado \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
         }
       }
+    else if ( vindices.vvaplicacion.getString().equals("JMODELOS") ) {
+       Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()) , user , "A" , "INSINDICES" , "Creación de Indices  BD JMODELOS Ver1.0 " , Easp.dominio , ""  );
+      DBConnection connJModelos = Easp.getConnexio("modelos", Easp.connEA);
+      if ( connJModelos != null ) {
+        if ( execSentencias(connJModelos,indicesSQL_jModelos) ) {
+          Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
+        }
+        else Maefc.message("El proceso ha finalizado \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
+        connJModelos.disconnect();
+      }
     }
+  }
   
   
   public boolean execSentencias(DBConnection connexion , String vsentencias[]) {
@@ -84,17 +107,15 @@ public class ProgInsindices extends Program
         System.out.println("version: ["+vsentencias[i]+"]");
         connexion.executeUpdate(vsentencias[i]);
         connexion.commit();
-        }
+      }
       catch(Exception e) {
-        retorn = false ;
+        //retorn = false ; per continuar i executar totes
         System.out.println("Error ["+e.getMessage()+"]");
         connexion.rollback();
-        }
       }
-    // if ( retorn )  connexion.commit();
-    // else           connexion.rollback();
-    return retorn ;
     }
+    return retorn ;
+  }
   
   
   
@@ -129,6 +150,30 @@ public class ProgInsindices extends Program
       "ALTER INDEX  ID_MOVTOSASESOR    ON  MOVTOS      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
     };
   
+  String indicesSQL_jModelos [] = {
+    "CREATE NONCLUSTERED INDEX [MOD347C_GYC] ON [dbo].[MOD347C] ([m347cnif] ASC ); ",
+    "CREATE NONCLUSTERED INDEX [MOD180E_GYC] ON [dbo].[MOD180E] ([m180enif] ASC ); ",
+    "CREATE NONCLUSTERED INDEX [MOD190C_GYC] ON [dbo].[MOD190C] ([m190cnif] ASC ); ",
+    "CREATE NONCLUSTERED INDEX [MOD3901_GYC] ON [dbo].[MOD3901] ([m901nif] ASC ); ",
+    "CREATE NONCLUSTERED INDEX [MOD3902_GYC] ON [dbo].[MOD3902] ([m902nif] ASC ); ",
+    "CREATE NONCLUSTERED INDEX [MOD3903_GYC] ON [dbo].[MOD3903] ([m903nif] ASC ); ",
+    "CREATE NONCLUSTERED INDEX [MOD3904_GYC] ON [dbo].[MOD3904] ([m904nif] ASC ); ",
+    "CREATE NONCLUSTERED INDEX [MOD3902B_GYC] ON [dbo].[MOD3902B] ([m9b2nif] ASC ); ",
+    "CREATE NONCLUSTERED INDEX [MOD300DES_GYC] ON [dbo].[MOD300DES] ([m300dnif] ASC ); ",
+    "CREATE NONCLUSTERED INDEX [MOD300DESB_GYC] ON [dbo].[MOD300DESB] ([m300bnif] ASC ); "
+    };
+  String indicesReconstruirSQL_jModelos[] = {
+      "ALTER INDEX  MOD347C_GYC     ON  MOD347C     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  MOD180E_GYC     ON  MOD180E     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  MOD190C_GYC     ON  MOD190C     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  MOD3901_GYC     ON  MOD3901     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  MOD3902_GYC     ON  MOD3902     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  MOD3903_GYC     ON  MOD3903     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  MOD3904_GYC     ON  MOD3904     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  MOD3902B_GYC    ON  MOD3902B    REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  MOD300DES_GYC   ON  MOD300DES   REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  MOD300DESB_GYC  ON  MOD300DESB  REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )"
+    };
   
   
   /* Creacion de Indices para optimización de las Bases de Datos . */
@@ -379,6 +424,7 @@ public class ProgInsindices extends Program
         setDescriptionShow(false);
         addItem("JNOMINA");
         addItem("JGESTION");
+        addItem("JMODELOS");
         }
       public boolean obligate()
         {
