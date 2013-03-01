@@ -1247,12 +1247,12 @@ public static Date esFecha (String s){
 
              String texte="Ya existe información grabada en el"+"\n"+" 'Domicilio afilación' (Resto datos)"+"\n";
              if ("S".equals(apliLaboral)) texte=texte+"Recuerde que jNómina utiliza el de afiliación"+"\n"+"¿Desea que se actualice? ";
-             else texte=texte+"¿Desea que se actualice? "; 
+             else texte=texte+"¿Desea que se actualice? ";
              // retorn==1 No retorn==2 Si
-             int retorn = Easp.messageConNuevosBotones(texte,"Datos afiliación",Maefc.INFORMATION_MESSAGE,opcions);            
-             if (retorn==1) bOk2=false;             
+             int retorn = Easp.messageConNuevosBotones(texte,"Datos afiliación",Maefc.INFORMATION_MESSAGE,opcions);
+             if (retorn==1) bOk2=false;
           }
-          if(bOk2)  bOk = u.execute("danifcif='"+nif+"'");          
+          if(bOk2)  bOk = u.execute("danifcif='"+nif+"'");
 	  }
 	  return bOk;
   }
@@ -1799,6 +1799,9 @@ public static Date esFecha (String s){
     public static boolean leerSecuencial(DBConnection bd, String txts[],String carpeta, String nomjar) {
       return leerSecuencial(bd,txts,carpeta,nomjar,null);
       }
+    public static boolean leerSecuencial(DBConnection bd, String txts[],String carpeta, String nomjar, ProgressBarForm pbf) {
+      return leerSecuencial(bd,txts,carpeta,nomjar,pbf, null);
+      }
 
   /** Función que lee de un secuencial que hay dentro de un jar
    * @param bd conexión a la bd
@@ -1808,7 +1811,7 @@ public static Date esFecha (String s){
    * @param pbf que es el progressbarform de la finestra principal
    * @return true si no ha dado error de lectura, ni al abrir el jar
    **/
-    public static boolean leerSecuencial(DBConnection bd, String txts[],String carpeta, String nomjar, ProgressBarForm pbf) {
+    public static boolean leerSecuencial(DBConnection bd, String txts[],String carpeta, String nomjar, ProgressBarForm pbf, int ultimReg []) {
       InsertadorDeRegistres iReg= new InsertadorDeRegistres();
 			iReg.setjar(nomjar);
       boolean result=false;
@@ -1816,7 +1819,8 @@ public static Date esFecha (String s){
         if ( pbf!=null )  {
           pbf.setPercent(0);
           }
-        result=iReg.leerFicheroSecuencial(bd,carpeta,txts[i],pbf);
+        if (ultimReg!=null) result=iReg.leerFicheroSecuencial(bd,carpeta,txts[i],pbf,ultimReg[i]);
+        else result=iReg.leerFicheroSecuencial(bd,carpeta,txts[i],pbf,0);
         if(!result) break;
         }
       System.out.println("Estado de cancelar conversion:"+iReg.cancelarConversion);
@@ -2115,9 +2119,9 @@ public static Date esFecha (String s){
   public static void abrirExplorer(String url,boolean modal ) {
 	  try {
 		  String pathExplorer = "c:\\Archivos de Programa\\Internet Explorer\\IEXPLORE.EXE";
-		  
+
 		  if (!existeFichero(pathExplorer)) pathExplorer= "c:\\Program Files\\Internet Explorer\\IEXPLORE.EXE";
-		  
+
 		  try {
         String param = Easp.getParam("PATHEXPLORER","GENERAL");
         if ( param != null &&  existeFichero(param) ) {
@@ -2128,7 +2132,7 @@ public static Date esFecha (String s){
         System.out.println("Error abrirExplorer PathExplorer : ["+eeee+"]");
         }
 
-		  
+
 		  if (!existeFichero(pathExplorer)) {
 			  Maefc.message("No tiene instalado Microsoft Internet Explorer en su ubicación por defecto.\nPóngase en contacto con Geyce para poder utilizar esta opción.\n\nGracias.");
 		  }
@@ -2458,7 +2462,7 @@ public static int messageConNuevosBotones(String message, String titol, int icon
  //------------------
 
 
-public static String getNomPC() {    
+public static String getNomPC() {
     String nomPC = "PC-DESCONOCIDO";
     try {
        nomPC = java.net.InetAddress.getLocalHost().getHostName();
@@ -2660,11 +2664,16 @@ public static String getNomPC() {
    * @return true si procede la inserción. si se cancela la
    * conversión o se produce un error durante la inserción, false
    **/
-  public boolean insertarLinia(DBConnection bd, String linia, String tabla) {
+  public boolean insertarLinia(DBConnection bd, String linia, String tabla, int nReg) {
     try {
       if (cancelarConversion) return false;
-      System.out.println("INSERT INTO "+tabla+" VALUES ("+parserLiniaSQL(linia)+")");
-      bd.executeUpdate("INSERT INTO "+tabla+" VALUES ("+parserLiniaSQL(linia)+")");
+      String valorLinea = parserLiniaSQL(linia);
+      if (nReg>0) {
+          int pos = Util.sch(valorLinea,',');
+          if (pos!=-1 ) valorLinea = String.valueOf(nReg)+","+valorLinea.substring(pos+1);
+      }
+      System.out.println("INSERT INTO "+tabla+" VALUES ("+valorLinea+")");
+      bd.executeUpdate("INSERT INTO "+tabla+" VALUES ("+valorLinea+")");
       return true;
       }
     catch(Exception e) {
@@ -2715,6 +2724,10 @@ abstract class ZipFileReader {
       }
     }
 
+  public boolean leerFicheroSecuencial(DBConnection bd,String carpeta,String tabla,ProgressBarForm pbf) {
+      return leerFicheroSecuencial(bd,carpeta,tabla, pbf,0);
+  }
+
   /** Función que lee de un fichero secuencial con nombre de tabla
    * @param bd base de datos a la que se conecta
    * @param carpeta nombre de la carpeta dentro del zip donde está
@@ -2723,8 +2736,10 @@ abstract class ZipFileReader {
    * @return true si se ha podido leer correctamente y se ha podido
    * insertar la línea o si no existe el fichero
    **/
-  public boolean leerFicheroSecuencial(DBConnection bd,String carpeta,String tabla,ProgressBarForm pbf) {
+  public boolean leerFicheroSecuencial(DBConnection bd,String carpeta,String tabla,ProgressBarForm pbf, int ultimReg) {
 System.out.println("leerFicheroSecuencial : fichero ["+tabla+"]");
+    boolean reAssigna = false;
+    if (ultimReg>0) reAssigna = true;
     try {
       if (pbf!=null)
         pbf.setState("Actualizando "+tabla+"...");
@@ -2758,8 +2773,13 @@ System.out.println("leerFicheroSecuencial : fichero ["+tabla+"]");
             // int result=(int)(100*(contpbf)/(ar.length()));
              int result=(int)(100*(contpbf)/(lenfit));
             pbf.setPercent(result);
-            }
-          if (!insertarLinia(bd,str,tabla)) return false;
+           }
+           int nouNro = 0;
+           if (reAssigna) {
+              ++ultimReg;
+              nouNro = ultimReg;
+           }
+          if (!insertarLinia(bd,str,tabla,nouNro)) return false;
           }
         in.close();
         read.close();
@@ -2828,9 +2848,7 @@ System.out.println("leerFicheroSecuencial : fichero ["+tabla+"]");
 
 
   abstract public String getLinia(String linia);
-  abstract public boolean insertarLinia(DBConnection bd,String linia, String tabla);
-
-
+  abstract public boolean insertarLinia(DBConnection bd,String linia, String tabla, int nReg);
 
 
   }
