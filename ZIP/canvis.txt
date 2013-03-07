@@ -65,3 +65,4 @@
 130203 --> APESTER: Posat al menú configuración, l'opció per importar NIFES de Logic Class
 130205 --> APJORDI: Taula FORMACOBPAG per guardar les formes de pagament dels cobros y pagos
 130301 --> APESTER: Es modifica EASP.java perque a la funcio leerFicheroSecuencial se li pugui passar el numero que cal que assigni en els casos de taules amb autonumerics
+130303 --> APESTER: Canviada l'opció per importar NIFES de Logic Class perque en persones jurídiques no grabava bé el nom i ara també regraba

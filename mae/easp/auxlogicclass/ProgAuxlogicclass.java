@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130215
-// Hora:             11:14:31
+// Fecha:            20130307
+// Hora:             10:43:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -133,7 +133,12 @@ public class ProgAuxlogicclass extends Program
             Insert iNIF = new Insert(Easp.connEA,"NIFES");
             iNIF.valor("danifcif",nif);
             iNIF.valor("datipo","R");
-            if (apellido1==null || apellido1.trim().length()==0) {
+            if ("J".equals(fisica) && nombreCompleto!=null && nombreCompleto.trim().length()!=0) {
+               apellido1 = nombreCompleto;
+               apellido2 = "";
+               nombre = "";
+            }
+            else if (apellido1==null || apellido1.trim().length()==0) {
                if (Util.esCIFdePersonaFisica(nif)) {
                   String [] resultat = separaNom(nombreCompleto);
                   nombre = resultat[2];
@@ -143,6 +148,14 @@ public class ProgAuxlogicclass extends Program
                else apellido1 = nombreCompleto;
             }
             if (apellido1!=null && !"".equals(apellido1.trim())) {
+                boolean esCB = false;
+                if ("E".equals(nif.substring(0,1)) || "G".equals(nif.substring(0,1)) || "H".equals(nif.substring(0,1))) 
+                   esCB = true;
+                            
+                if (esCB) iNIF.valor("datcbienes","S");
+                else iNIF.valor("datcbienes","N");
+                if ("F".equals(fisica)) iNIF.valor("datipf","1");
+                else iNIF.valor("datipf","9");     
                 iNIF.valor("datnombre",nombre);
                 iNIF.valor("datapell1",apellido1);
                 iNIF.valor("datapell2",apellido2);
@@ -239,6 +252,130 @@ public class ProgAuxlogicclass extends Program
           }
           return bOk;
     }
+    private boolean regrabaNIFPersonas (String nif, String nombre, String apellido1, String apellido2, String nombreCompleto, String fisica) {
+            mae.easp.auxlogicclass.SelectorLogic snif = new mae.easp.auxlogicclass.SelectorLogic(connLogic);        
+            snif.execute("SELECT * FROM  PersonasDomicilios where  Dni='"+nif+"'");
+            Update iNIF = new Update(Easp.connEA,"NIFES");
+            if ("J".equals(fisica) && nombreCompleto!=null && nombreCompleto.trim().length()!=0) {
+               apellido1 = nombreCompleto;
+               apellido2 = "";
+               nombre = "";
+            }
+            else if (apellido1==null || apellido1.trim().length()==0) {
+               if (Util.esCIFdePersonaFisica(nif)) {
+                  String [] resultat = separaNom(nombreCompleto);
+                  nombre = resultat[2];
+                  apellido1 = resultat[0];
+                  apellido2 = resultat[1];
+               }
+               else apellido1 = nombreCompleto;
+            }
+            if (apellido1!=null && !"".equals(apellido1.trim())) {
+                boolean esCB = false;
+                if ("E".equals(nif.substring(0,1)) || "G".equals(nif.substring(0,1)) || "H".equals(nif.substring(0,1))) 
+                   esCB = true;
+                            
+                if (esCB) iNIF.valor("datcbienes","S");
+                else iNIF.valor("datcbienes","N");
+                if ("F".equals(fisica)) iNIF.valor("datipf","1");
+                else iNIF.valor("datipf","9");     
+    
+                iNIF.valor("datnombre",nombre);
+                iNIF.valor("datapell1",apellido1);
+                iNIF.valor("datapell2",apellido2);
+                iNIF.valor("datdominio",Easp.dominio);
+                iNIF.valor("datfisicajuri",fisica);
+                while (snif.next()) {
+                    String CodDirPer = snif.getString("CodigoDireccionPersona");
+                    if ("FIS".equals(CodDirPer)) {
+                        iNIF.valor("datsiglas",getSelString(snif, "CodigoSigla"));
+                        iNIF.valor("datvia",getSelString(snif, "ViaPublica"));
+                        iNIF.valor("datnum",getSelString(snif, "Numero1"));
+                        iNIF.valor("datesc",getSelString(snif, "Escalera"));
+                        iNIF.valor("datpiso",getSelString(snif, "Piso"));
+                        iNIF.valor("datletra",getSelString(snif, "Letra"));
+                        iNIF.valor("datcpos",getSelString(snif, "CodigoPostal"));
+                        String CodigoProvincia = getSelString(snif, "CodigoProvincia");
+                        if (CodigoProvincia!=null && Util.isNumero(CodigoProvincia.trim())) iNIF.valor("datprov",CodigoProvincia.trim());
+                        String CodigoMunicipio = getSelString(snif, "CodigoMunicipio");
+                        if (CodigoMunicipio!=null && Util.isNumero(CodigoMunicipio.trim()) && CodigoMunicipio.trim().length()==5) {
+                          Selector smun = new Selector (Easp.connEA);
+                          smun.execute("Select * from MUNI347 where mu7provmuni='"+CodigoMunicipio+"'");
+                          if (smun.next()) {
+                            int mu7muniant = smun.getint("mu7muniant");
+                            if (mu7muniant!=0) iNIF.valor("datmuni",mu7muniant);
+                            else iNIF.valor("datmuni",CodigoMunicipio.substring(2));
+                          }
+                          smun.close();
+                        }
+                        iNIF.valor("datpobla",getSelString(snif, "Municipio"));
+                        iNIF.valor("datmovil",checkNumeroTelefono(getSelString(snif, "TelefonoMovil")));
+                        iNIF.valor("dattel",checkNumeroTelefono(getSelString(snif, "Telefono")));
+                        iNIF.valor("datfax",checkNumeroTelefono(getSelString(snif, "Fax")));
+            
+                        Selector stv = new Selector (Easp.connEA);
+                        stv.execute("Select * from TIPOVIAS where tvscodant='"+getSelString(snif, "CodigoSigla")+"'");
+                        if (stv.next())  iNIF.valor("datfftvia",stv.getString("tvscodigo"));
+                        stv.close();
+            
+                        iNIF.valor("datfvia",getSelString(snif, "ViaPublica"));
+                        iNIF.valor("datftnum","NUM");
+                        if (Util.isNumero(getSelString(snif, "Numero1"))) iNIF.valor("datfnum",getSelString(snif, "Numero1"));
+                        iNIF.valor("datfescal",getSelString(snif, "Escalera"));
+                        iNIF.valor("datfplanta",getSelString(snif, "Piso"));
+                        iNIF.valor("datfpuerta",getSelString(snif, "Letra"));
+                        iNIF.valor("datfcpost",getSelString(snif, "CodigoPostal"));
+                        CodigoProvincia = getSelString(snif, "CodigoProvincia");
+                        if (CodigoProvincia!=null && Util.isNumero(CodigoProvincia.trim())) iNIF.valor("datfprov",CodigoProvincia.trim());
+                        CodigoMunicipio = getSelString(snif, "CodigoMunicipio");
+                        if (CodigoMunicipio!=null && Util.isNumero(CodigoMunicipio.trim()) && CodigoMunicipio.trim().length()==5) iNIF.valor("datfcodmun",CodigoMunicipio);
+                        iNIF.valor("datfnommun",getSelString(snif, "Municipio"));
+                        iNIF.valor("datflocal",getSelString(snif, "Municipio"));
+                        iNIF.valor("datfmovil",checkNumeroTelefono(getSelString(snif, "TelefonoMovil")));
+                        iNIF.valor("datftel",checkNumeroTelefono(getSelString(snif, "Telefono")));
+                        iNIF.valor("datffax",checkNumeroTelefono(getSelString(snif, "Fax")));
+                    }
+                    else if ("SOC".equals(CodDirPer)) {
+                        iNIF.valor("datsvia",getSelString(snif, "ViaPublica"));
+                        iNIF.valor("datstnum","NUM");
+                        if (Util.isNumero(getSelString(snif, "Numero1"))) iNIF.valor("datsnum",getSelString(snif, "Numero1"));
+                        iNIF.valor("datsescal",getSelString(snif, "Escalera"));
+                        iNIF.valor("datsplanta",getSelString(snif, "Piso"));
+                        iNIF.valor("datspuerta",getSelString(snif, "Letra"));
+                        iNIF.valor("datscpost",getSelString(snif, "CodigoPostal"));
+                        String CodigoProvincia = getSelString(snif, "CodigoProvincia");
+                        if (CodigoProvincia!=null && Util.isNumero(CodigoProvincia.trim())) iNIF.valor("datsprov",CodigoProvincia.trim());
+                        String CodigoMunicipio = getSelString(snif, "CodigoMunicipio");
+                        if (CodigoMunicipio!=null && Util.isNumero(CodigoMunicipio.trim()) && CodigoMunicipio.trim().length()==5) iNIF.valor("datscodmun",CodigoMunicipio);
+                        iNIF.valor("datsnommun",getSelString(snif, "Municipio"));
+                        iNIF.valor("datslocal",getSelString(snif, "Municipio"));
+                        iNIF.valor("datsmovil",checkNumeroTelefono(getSelString(snif, "TelefonoMovil",9)));
+                        iNIF.valor("datstel",checkNumeroTelefono(getSelString(snif, "Telefono",9)));
+                        iNIF.valor("datsfax",checkNumeroTelefono(getSelString(snif, "Fax",9)));
+                    }
+                    else if ("ENV".equals(CodDirPer)) {
+                        iNIF.valor("datnvia",getSelString(snif, "ViaPublica"));
+                        iNIF.valor("datntnum","NUM");
+                        if (Util.isNumero(getSelString(snif, "Numero1"))) iNIF.valor("datnnum",getSelString(snif, "Numero1"));
+                        iNIF.valor("datnescal",getSelString(snif, "Escalera"));
+                        iNIF.valor("datnplanta",getSelString(snif, "Piso"));
+                        iNIF.valor("datnpuerta",getSelString(snif, "Letra"));
+                        iNIF.valor("datncpost",getSelString(snif, "CodigoPostal"));
+                        String CodigoProvincia = getSelString(snif, "CodigoProvincia");
+                        if (CodigoProvincia!=null && Util.isNumero(CodigoProvincia.trim())) iNIF.valor("datnprov",CodigoProvincia.trim());
+                        String CodigoMunicipio = getSelString(snif, "CodigoMunicipio");
+                        if (CodigoMunicipio!=null && Util.isNumero(CodigoMunicipio.trim()) && CodigoMunicipio.trim().length()==5) iNIF.valor("datncodmun",CodigoMunicipio);
+                        iNIF.valor("datnnommun",getSelString(snif, "Municipio"));
+                        iNIF.valor("datnlocal",getSelString(snif, "Municipio"));
+                        iNIF.valor("datnmovil",checkNumeroTelefono(getSelString(snif, "TelefonoMovil",9)));
+                        iNIF.valor("datntel",checkNumeroTelefono(getSelString(snif, "Telefono",9)));
+                        iNIF.valor("datnfax",checkNumeroTelefono(getSelString(snif, "Fax",9)));
+                    }
+                }
+                bOk = iNIF.execute("danifcif='"+nif+"'");
+          }
+          return bOk;
+    }
     
     private boolean altaNIFClass () {
       ProgressBarForm pbf=new ProgressBarForm(auxlogicclass,"Traspasando NIFES ...",true,false,true) {
@@ -264,6 +401,7 @@ public class ProgAuxlogicclass extends Program
             Selector sNifes = new Selector (Easp.connEA);
             sNifes.execute("Select * from NIFES where danifcif='"+nif+"'");
             if (!sNifes.next()) bOk = altaNIFPersonas(nif,nomCargo,apellido1,apellido2,razon,fisica);            
+            else bOk = regrabaNIFPersonas(nif,nomCargo,apellido1,apellido2,razon,fisica);            
             sNifes.close();        
           }
           s.close();
