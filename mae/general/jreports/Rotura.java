@@ -14,16 +14,22 @@ public class Rotura {
 	private String colorFont;
 	private boolean asignarColorFondo;
 	
+	private String groupHeaderName;
 	private String titul;
-	private int posIniciTitul;
+	private int posIniciTitul=0;
 	private int widthTitul;
 	private String printWhen;
-	private boolean esVar;
-	private boolean esCampo;
-	private boolean esExpr;
-	int [] columnes;
-	
-	public Rotura (JListado jl, int [] columnes, String nombre, String agruparPor) {
+	//private boolean esVar;
+	//private boolean esCampo;
+	//private boolean esExpr;
+	private boolean printGroupHeader =false;
+	//java.util.List<Integer> columnes;
+	java.util.List<Totalizar> totales;
+	//private String expression;
+	private String backGroundHeaderColor = "#F0F8FF";
+	private int headerHeight;
+	/*
+	public Rotura (JListado jl, java.util.List<Integer> columnes, String nombre, String agruparPor,String titol) {
 		anchura = 15;
 		negreta = true;
 		this.nombre = nombre;
@@ -37,7 +43,28 @@ public class Rotura {
 		printWhen = this.jl.getPrintWhenDetalle();
 		asignarColorFondo = false;
 		colorFont = "#000000";
-		setEsCampo();
+		this.titul = titol;
+		headerHeight = 15;
+		//setEsCampo();
+	}
+*/	
+	public Rotura (JListado jl, java.util.List<Totalizar> totales, String nombre, String agruparPor,String titol) {
+		anchura = 15;
+		negreta = true;
+		this.nombre = nombre;
+		this.agruparPor = agruparPor;
+		this.totales = totales;
+		this.jl = jl;
+		sizeFont = jl.sizeDetalle+1;
+		aligDerecha = true;
+		sum = "Sum";
+		saltoPagina = false;
+		printWhen = this.jl.getPrintWhenDetalle();
+		asignarColorFondo = false;
+		colorFont = "#000000";
+		this.titul = titol;
+		headerHeight = 15;
+		//setEsCampo();
 	}
 
 	public String getPrintWhen() {
@@ -54,6 +81,19 @@ public class Rotura {
 		this.widthTitul = widthTitul;
 	}
 	
+	public void setGroupHeaderName(String groupHeaderName){
+	  printGroupHeader = true;
+	  this.groupHeaderName = groupHeaderName;
+	}
+	
+	public String getGroupHeaderName() {
+		return groupHeaderName;
+	}
+	
+	public boolean isPrintGroupHeader() {
+		return printGroupHeader;
+	}
+		
 	public boolean isSaltoPagina() {
 		return saltoPagina;
 	}
@@ -109,13 +149,21 @@ public class Rotura {
 	public void setAligDerecha(boolean aligDerecha) {
 		this.aligDerecha = aligDerecha;
 	}
-
-	public int[] getColumnes() {
+/*
+	public java.util.List<Integer> getColumnes() {
 		return columnes;
 	}
 
-	public void setColumnes(int[] columnes) {
+	public void setColumnes(java.util.List<Integer> columnes) {
 		this.columnes = columnes;
+	}
+	*/
+	public java.util.List<Totalizar> getTotales() {
+		return totales;
+	}
+
+	public void setTotalizar(java.util.List<Totalizar> totales) {
+		this.totales = totales;
 	}
 
 	public String getSum() {
@@ -156,7 +204,24 @@ public class Rotura {
 	public void setAsignarColorFondo(boolean asignarColorFondo) {
 		this.asignarColorFondo = asignarColorFondo;
 	}
-
+	
+	public void setBackGroundHeaderColor(String color) {
+		this.backGroundHeaderColor = color;
+	}
+	
+	public String getBackGroundHeaderColor() {
+		return backGroundHeaderColor;
+	}
+	
+	public void setHeaderHeight(int height) {
+	  this.headerHeight = height;	
+	}
+	
+	public int getHeaderHeight()  {
+		return headerHeight;
+	}
+	
+/*
 	public boolean isEsVar() {
 		return esVar;
 	}
@@ -186,5 +251,7 @@ public class Rotura {
 		esVar = false;
 		esCampo = false;
 	}
+	
+	*/
 
 }

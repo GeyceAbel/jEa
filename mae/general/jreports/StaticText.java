@@ -16,12 +16,18 @@ public class StaticText {
 	private boolean aligCenter;
 	private int sizeFont;
 	private String verticalAlig;
+	private int leftIndent =0;
+	private int rightIndent=0;
 
-	public StaticText (JListado jlis) {
+	public StaticText (JListado jlis, int x, int y, int width, int height) {
 		this.jl = jlis;
 		posInicial = 0;
 		negreta = true;
 		literal = "";
+		this.posInicial=x;
+		this.y=y;
+		this.width= width;
+		this.amplada =height;
 		asignarColorFondo = false;
 		colorFont = "#000000";
 		verticalAlig = "Top";
@@ -135,6 +141,19 @@ public class StaticText {
 	public void setVerticalAlig(String verticalAlig) {
 		this.verticalAlig = verticalAlig;
 	}	
+	
+	public int getLeftIndent() {
+		return leftIndent;
+	}
+	public int getRightIndent() {
+		return rightIndent;		
+	}
+	public void setLeftIndent(int leftIndent) {
+	  this.leftIndent = leftIndent;
+	}
+	public void setRightIndent(int rightIndent) {
+	  this.rightIndent = rightIndent;
+	}
 	
 	
 }

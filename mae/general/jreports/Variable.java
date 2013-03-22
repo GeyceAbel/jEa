@@ -8,6 +8,10 @@ public class Variable {
 	public Variable(String nom) {
 		this.nom = nom;
 	}
+	public Variable(String nom,String expression) {
+		this.nom = nom;
+			this.Expression = "![CDATA["+expression+"]]";
+	}
 
 	public String getNom() {
 		return nom;
@@ -27,7 +31,7 @@ public class Variable {
 	}
 
 	public void setExpression(String expression) {
-		Expression = expression;
+		Expression = "![CDATA["+expression+"]]";
 	}
 	
 }

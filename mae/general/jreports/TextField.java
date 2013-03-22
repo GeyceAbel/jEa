@@ -1,5 +1,6 @@
 package mae.general.jreports;
 
+
 public class TextField {
 	private boolean negreta;
 	private String colorFons;
@@ -9,16 +10,40 @@ public class TextField {
 	private String pattern;
 	private boolean aligDerecha;
 	private int sizeFont;
-	private String campoSelect;
+	//private String campoSelect;
 	private Variable variable;
 	private JListado jl;
 	private int y;
 	private int amplada;
 	private int width;
 	private String printWhen;
+	private int leftIndent = 0;
+	private int rightIndent = 0;
+	private String expression;
+	private String verticalAlig;
 
 	
-	public TextField (JListado jlis) {
+	public TextField (JListado jlis,int x, int y, int width, int height)  {
+		this.jl = jlis;
+		negreta = false;
+		asignarColorFondo = false;
+		colorFont = "#000000";
+		//posIni = 0;
+		pattern = null;
+		aligDerecha = false;
+		sizeFont = 8;
+		//campoSelect = null;
+		variable = null;
+		this.posIni =x;
+		this.amplada=height;
+		this.y=y;
+		this.width=width;
+		verticalAlig = "Top";
+		//y = 0;
+		//amplada = 13;
+	}
+	/*
+	public TextField (JListado jlis)  {
 		this.jl = jlis;
 		negreta = false;
 		asignarColorFondo = false;
@@ -32,6 +57,7 @@ public class TextField {
 		y = 0;
 		amplada = 13;
 	}
+	*/
 	
 	public String getPrintWhen() {
 		return printWhen;
@@ -45,8 +71,14 @@ public class TextField {
 	public boolean esVariable () {
 		return variable != null;
 	}
+	/*
 	public boolean esCampoSelect () {
 		return campoSelect != null;
+	}
+	*/
+	
+	public boolean isExpression() {
+		return expression !=null;
 	}
 	public int getWidth() {
 		return width;
@@ -107,23 +139,25 @@ public class TextField {
 	public void setAligDerecha(boolean aligDerecha) {
 		this.aligDerecha = aligDerecha;
 	}
+	/*
 	public String getCampoSelect() {
 		return campoSelect;
 	}
+	
 	public void setCampoSelect(String campoSelect) {
 		this.campoSelect = campoSelect;
 		variable = null;
 	}
-	
+	*/
 	public void setVariable(Variable v) {
-		campoSelect = null;
+		expression = null;
 		this.variable = v;
 	}
 	
 	public Variable getVariable() {
 		return variable;
 	}
-
+	 
 	public int getY() {
 		return y;
 	}
@@ -137,7 +171,33 @@ public class TextField {
 		this.amplada = amplada;
 	}
 
+	public int getLeftIndent() {
+		return leftIndent;
+	}
+	public int getRightIndent() {
+		return rightIndent;		
+	}
+	public void setLeftIndent(int leftIndent) {
+	  this.leftIndent = leftIndent;
+	}
+	public void setRightIndent(int rightIndent) {
+	  this.rightIndent = rightIndent;
+	}
 	
+	public void setExpression(String expression) {
+		this.expression = expression;
+	}
 	
+	public String getExpression() {
+		return expression;
+	}
+	
+	public String getVerticalAlig() {
+		return verticalAlig;
+	}
+
+	public void setVerticalAlig(String verticalAlig) {
+		this.verticalAlig = verticalAlig;
+	}
 	
 }

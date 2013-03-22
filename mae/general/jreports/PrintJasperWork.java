@@ -35,9 +35,9 @@ public class PrintJasperWork {
 	protected String iconoVistaPrevia;	
 	private boolean showDialeg =true; 
 	protected boolean isVistaPrevia=false;
-	protected boolean EXCEL_WHITE_BACKGROUND = true;
-	protected boolean EXCEL_EMPTY_SPACE_ROWS = false;
-	protected boolean EXCEL_EMPTY_SPACE_COL = false;
+	protected boolean EXCEL_WHITE_BACKGROUND;
+	protected boolean EXCEL_EMPTY_SPACE_ROWS;
+	protected boolean EXCEL_EMPTY_SPACE_COL;
 	
 
 	private void showPanels(){
