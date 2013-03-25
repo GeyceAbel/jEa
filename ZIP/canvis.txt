@@ -67,3 +67,4 @@
 130301 --> APESTER: Es modifica EASP.java perque a la funcio leerFicheroSecuencial se li pugui passar el numero que cal que assigni en els casos de taules amb autonumerics
 130303 --> APESTER: Canviada l'opció per importar NIFES de Logic Class perque en persones jurídiques no grabava bé el nom i ara també regraba
 130305 --> APXAVI:  Afegides clases per generar un jasperreport dinamic (crea un jrxml a partir d'aquestes clases). Els zips de jasper 'han canviat també.
+130206 --> APJORDI: Modificacio dialeg jasper per treure el tema dels marges i horitzontal
