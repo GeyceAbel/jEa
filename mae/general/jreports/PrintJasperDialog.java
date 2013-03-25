@@ -31,8 +31,8 @@ public class PrintJasperDialog extends Form
 		LocationWindow lw = new LocationWindow();
 		lw.setModal(true);
 		lw.setLocation(LocationWindow.CENTER);
-		lw.setWidth(600);
-		lw.setHeight(500);
+		lw.setWidth(500);
+		lw.setHeight(380);
 		setLocation(lw);		
 		//pPDF = true;
 		//pEXCEL = true;
