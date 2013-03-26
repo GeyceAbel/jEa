@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111110
-// Hora:             18:26:06
+// Fecha:            20130326
+// Hora:             11:44:34
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -91,6 +91,8 @@ public class CatAdmon extends Catalog
   public TabSesiones tabsesiones;
   public TabImpuser tabimpuser;
   public TabCnae1993 tabcnae1993;
+  public TabPlantillas tabplantillas;
+  public TabFormacobpag tabformacobpag;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -189,6 +191,7 @@ public class CatAdmon extends Catalog
     public FieldDef travoloper;
     public FieldDef traoperespec;
     public FieldDef traoper349;
+    public FieldDef traregemp;
     public TabTransacciones(String name)
       {
       super(name);
@@ -200,6 +203,7 @@ public class CatAdmon extends Catalog
       travoloper = new FieldDef("travoloper",FieldDef.CHAR,3);
       traoperespec = new FieldDef("traoperespec",FieldDef.CHAR,3);
       traoper349 = new FieldDef("traoper349",FieldDef.CHAR,3);
+      traregemp = new FieldDef("traregemp",FieldDef.CHAR,1);
       FieldDef array[] = {
         tratipo,
         tradesc,
@@ -208,7 +212,8 @@ public class CatAdmon extends Catalog
         tratipoiva,
         travoloper,
         traoperespec,
-        traoper349        
+        traoper349,
+        traregemp        
         };
       setColumns(array);
       FieldDef arrayf[] = {tratipo };
@@ -511,9 +516,9 @@ public class CatAdmon extends Catalog
       super(name);
       danifcif = new FieldDef("danifcif",FieldDef.CHAR,15,FieldDef.NOTNULL);
       datipo = new FieldDef("datipo",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      datnombre = new FieldDef("datnombre",FieldDef.CHAR,20);
+      datnombre = new FieldDef("datnombre",FieldDef.CHAR,50);
       datapell1 = new FieldDef("datapell1",FieldDef.CHAR,100,FieldDef.NOTNULL);
-      datapell2 = new FieldDef("datapell2",FieldDef.CHAR,25);
+      datapell2 = new FieldDef("datapell2",FieldDef.CHAR,50);
       datsiglas = new FieldDef("datsiglas",FieldDef.CHAR,2);
       datvia = new FieldDef("datvia",FieldDef.CHAR,45);
       datnum = new FieldDef("datnum",FieldDef.CHAR,6);
@@ -2313,6 +2318,7 @@ public class CatAdmon extends Catalog
     public FieldDef qefect;
     public FieldDef qefrepetir;
     public FieldDef qefcount;
+    public FieldDef qefplantilla;
     public TabQuefrase(String name)
       {
       super(name);
@@ -2329,6 +2335,7 @@ public class CatAdmon extends Catalog
       qefect = new FieldDef("qefect",FieldDef.CHAR,1);
       qefrepetir = new FieldDef("qefrepetir",FieldDef.CHAR,1);
       qefcount = new FieldDef("qefcount",FieldDef.CHAR,1);
+      qefplantilla = new FieldDef("qefplantilla",FieldDef.CHAR,15);
       FieldDef array[] = {
         qefaplicacion,
         qeffrase,
@@ -2342,7 +2349,8 @@ public class CatAdmon extends Catalog
         qefwhere,
         qefect,
         qefrepetir,
-        qefcount        
+        qefcount,
+        qefplantilla        
         };
       setColumns(array);
       FieldDef arrayf[] = {qefaplicacion,qeffrase };
@@ -2687,6 +2695,8 @@ public class CatAdmon extends Catalog
     public FieldDef emodmodelo;
     public FieldDef emodtipoper;
     public FieldDef emodactivo;
+    public FieldDef emodfechaini;
+    public FieldDef emodfechafin;
     public TabEmpmodelos(String name)
       {
       super(name);
@@ -2695,12 +2705,16 @@ public class CatAdmon extends Catalog
       emodmodelo = new FieldDef("emodmodelo",FieldDef.CHAR,5,FieldDef.NOTNULL);
       emodtipoper = new FieldDef("emodtipoper",FieldDef.CHAR,2);
       emodactivo = new FieldDef("emodactivo",FieldDef.CHAR,1);
+      emodfechaini = new FieldDef("emodfechaini",FieldDef.DATE);
+      emodfechafin = new FieldDef("emodfechafin",FieldDef.DATE);
       FieldDef array[] = {
         emodejercicio,
         emodnif,
         emodmodelo,
         emodtipoper,
-        emodactivo        
+        emodactivo,
+        emodfechaini,
+        emodfechafin        
         };
       setColumns(array);
       FieldDef arrayf[] = {emodejercicio,emodnif,emodmodelo };
@@ -2711,6 +2725,8 @@ public class CatAdmon extends Catalog
       emodmodelo.setDescription("Código de modelo");
       emodtipoper.setDescription("Tipo de periodo");
       emodactivo.setDescription("Activo");
+      emodfechaini.setDescription("Fecha inicio obligacion");
+      emodfechafin.setDescription("Fecha inicio obligacion");
       }
     }
     
@@ -3108,6 +3124,88 @@ public class CatAdmon extends Catalog
       }
     }
     
+  public class TabPlantillas extends TableDef
+    {
+    // Campos
+    public FieldDef plaplicacion;
+    public FieldDef plcodigo;
+    public FieldDef plventana;
+    public FieldDef pldescripcion;
+    public FieldDef plusuario;
+    public FieldDef plcatalogo;
+    public FieldDef plcodiquery;
+    public FieldDef plurlplantilla;
+    public FieldDef plorigendades;
+    public FieldDef plcampscombi;
+    public FieldDef pltipoorig;
+    public FieldDef pltipoplan;
+    public TabPlantillas(String name)
+      {
+      super(name);
+      plaplicacion = new FieldDef("plaplicacion",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      plcodigo = new FieldDef("plcodigo",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      plventana = new FieldDef("plventana",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      pldescripcion = new FieldDef("pldescripcion",FieldDef.CHAR,50);
+      plusuario = new FieldDef("plusuario",FieldDef.CHAR,25);
+      plcatalogo = new FieldDef("plcatalogo",FieldDef.CHAR,15);
+      plcodiquery = new FieldDef("plcodiquery",FieldDef.CHAR,15);
+      plurlplantilla = new FieldDef("plurlplantilla",FieldDef.CHAR,250);
+      plorigendades = new FieldDef("plorigendades",FieldDef.CHAR,250);
+      plcampscombi = new FieldDef("plcampscombi",FieldDef.INTEGER,0);
+      pltipoorig = new FieldDef("pltipoorig",FieldDef.CHAR,2);
+      pltipoplan = new FieldDef("pltipoplan",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        plaplicacion,
+        plcodigo,
+        plventana,
+        pldescripcion,
+        plusuario,
+        plcatalogo,
+        plcodiquery,
+        plurlplantilla,
+        plorigendades,
+        plcampscombi,
+        pltipoorig,
+        pltipoplan        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {plaplicacion,plcodigo,plventana };
+      setPrimaryKeys(arrayf);
+      plaplicacion.setDescription("Aplicació Geyce utilitza la plantilla.");
+      plcodigo.setDescription("Clau Primaria codi de plantilla");
+      plventana.setDescription("Indicador si arriva el query per impresio de finestra");
+      pldescripcion.setDescription("Descripció de la plantilla");
+      plusuario.setDescription("Usuari creador de la plantilla");
+      plcatalogo.setDescription("Cataleg Geyce que utilitza la plantilla.");
+      plcodiquery.setDescription("Query associat a la plantilla");
+      plurlplantilla.setDescription("Ubicació al disc de la plantilla");
+      plorigendades.setDescription("Ubicació al disc del fitxer origen de dades");
+      plcampscombi.setDescription("Numero de camps de combinació.");
+      pltipoorig.setDescription("Tipus origen de dades (per query o per llistat predifinit)");
+      pltipoplan.setDescription("Tipus de plantilla (0=carta, 1=etiqueta, -1=mergeDocument)");
+      }
+    }
+    
+  public class TabFormacobpag extends TableDef
+    {
+    // Campos
+    public FieldDef fcpforma;
+    public FieldDef fcpdesc;
+    public TabFormacobpag(String name)
+      {
+      super(name);
+      fcpforma = new FieldDef("fcpforma",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      fcpdesc = new FieldDef("fcpdesc",FieldDef.CHAR,40);
+      FieldDef array[] = {
+        fcpforma,
+        fcpdesc        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {fcpforma };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public CatAdmon()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -3185,6 +3283,8 @@ public class CatAdmon extends Catalog
     tabsesiones = new TabSesiones("sesiones");
     tabimpuser = new TabImpuser("impuser");
     tabcnae1993 = new TabCnae1993("cnae1993");
+    tabplantillas = new TabPlantillas("plantillas");
+    tabformacobpag = new TabFormacobpag("formacobpag");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -3260,7 +3360,9 @@ public class CatAdmon extends Catalog
       tabdatosregistral,
       tabsesiones,
       tabimpuser,
-      tabcnae1993      
+      tabcnae1993,
+      tabplantillas,
+      tabformacobpag      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130219
-// Hora:             10:07:08
+// Fecha:            20130326
+// Hora:             11:44:35
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2695,6 +2695,8 @@ public class CatEasp extends Catalog
     public FieldDef emodmodelo;
     public FieldDef emodtipoper;
     public FieldDef emodactivo;
+    public FieldDef emodfechaini;
+    public FieldDef emodfechafin;
     public TabEmpmodelos(String name)
       {
       super(name);
@@ -2703,12 +2705,16 @@ public class CatEasp extends Catalog
       emodmodelo = new FieldDef("emodmodelo",FieldDef.CHAR,5,FieldDef.NOTNULL);
       emodtipoper = new FieldDef("emodtipoper",FieldDef.CHAR,2);
       emodactivo = new FieldDef("emodactivo",FieldDef.CHAR,1);
+      emodfechaini = new FieldDef("emodfechaini",FieldDef.DATE);
+      emodfechafin = new FieldDef("emodfechafin",FieldDef.DATE);
       FieldDef array[] = {
         emodejercicio,
         emodnif,
         emodmodelo,
         emodtipoper,
-        emodactivo        
+        emodactivo,
+        emodfechaini,
+        emodfechafin        
         };
       setColumns(array);
       FieldDef arrayf[] = {emodejercicio,emodnif,emodmodelo };
@@ -2719,6 +2725,8 @@ public class CatEasp extends Catalog
       emodmodelo.setDescription("Código de modelo");
       emodtipoper.setDescription("Tipo de periodo");
       emodactivo.setDescription("Activo");
+      emodfechaini.setDescription("Fecha inicio obligacion");
+      emodfechafin.setDescription("Fecha fin obligacion");
       }
     }
     
@@ -3173,7 +3181,7 @@ public class CatEasp extends Catalog
       plurlplantilla.setDescription("Ubicació al disc de la plantilla");
       plorigendades.setDescription("Ubicació al disc del fitxer origen de dades");
       plcampscombi.setDescription("Numero de camps de combinació.");
-      pltipoorig.setDescription("Tipus origen de dades (per query o per llistat predifinit)	  ");
+      pltipoorig.setDescription("Tipus origen de dades (per query o per llistat predifinit)");
       pltipoplan.setDescription("Tipus de plantilla (0=carta, 1=etiqueta, -1=mergeDocument)");
       }
     }

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130219
-// Hora:             10:16:41
+// Fecha:            20130326
+// Hora:             10:27:52
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -38,6 +38,11 @@ public class ProgInsprconver extends Program
     else
       return " VARCHAR("+tamany+"),";
     }
+  public String formatoData() {
+      if (tipoDB.toUpperCase().equals("ACCESS")) return " DATE";
+      else
+        return " DATETIME";
+      }
   
   public String formatData() {
     if (tipoDB.toUpperCase().equals("ACCESS"))
@@ -1138,7 +1143,9 @@ public class ProgInsprconver extends Program
         "INSERT INTO FORMACOBPAG (fcpforma,fcpdesc) VALUES ('DOM','Domiciliación');"
       };
     
-    
+      String sentencias10_8[]={
+      "ALTER TABLE EMPMODELOS add emodfechaini "+formatoData(),
+      "ALTER TABLE EMPMODELOS add emodfechafin "+formatoData()};
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -2630,7 +2637,22 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("10.7");
         }
-    
+        if (versio < 10.8) {
+          for (i=0;i<sentencias10_8.length;++i) {
+            try {
+              Easp.chivato("10.8 Exec : ["+sentencias10_8[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias10_8[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias10_8[i];
+              Easp.chivato("10.8 *** Error : ["+sentencias10_8[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","10.8");
+          Easp.connEA.commit();
+          vvveractual.setValue("10.8");
+        }
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
