@@ -69,3 +69,4 @@
 130305 --> APXAVI:  Afegides clases per generar un jasperreport dinamic (crea un jrxml a partir d'aquestes clases). Els zips de jasper 'han canviat també.
 130206 --> APJORDI: Modificacio dialeg jasper per treure el tema dels marges i horitzontal
 130307 --> APESTER: S'afegeix els camps emodfechaini i emodfechafin i el tractament prempmodfechas per tractar aquests camps
+130308 --> APXAVI:  Modificacions a les clases totalizar.java i jlistado.java per al tractament de colors als informes jasperreport
