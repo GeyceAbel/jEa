@@ -3,22 +3,17 @@ package mae.general.jreports;
 import geyce.maefc.Field;
 import geyce.maefc.FieldDef;
 import geyce.maefc.Select;
-import groovy.swing.factory.VGlueFactory;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Vector;
 
 import mae.general.jreports.Totalizar.Calculation;
-import mae.modasp.general.Modasp.Amortizacion;
-
 
 public class JListado {
 	
