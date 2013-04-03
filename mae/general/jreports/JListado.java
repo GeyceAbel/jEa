@@ -932,7 +932,7 @@ public class JListado {
 	    	String pattern = "";
 			if (t.getTipo() == Columna.DOUBLE) pattern = " pattern=\""+"#,##0.00;-#,##0.00"+"\" ";			
 			pw.write("<textField isBlankWhenNull=\"true\""+pattern+">");
-	    	pw.write("<reportElement x=\"" + col.getPosIni() + "\" y=\"" + (espacioDetalle*2) + "\" width=\"" + col.getSt().getWidth() + "\" height=\"" + espacioDetalle + "\"/>");
+	    	pw.write("<reportElement x=\"" + col.getPosIni() + "\" y=\"" + (espacioDetalle*2) + "\" width=\"" + col.getSt().getWidth() + "\" height=\"" + espacioDetalle + "\" forecolor=\""+ t.getColorFont() + "\"/>");
 		    String indent ="";
 			if (col.getTf().isAligDerecha())  {
 				pw.write("<textElement textAlignment=\"Right\">");

@@ -10,6 +10,7 @@ public class Totalizar {
   private Variable variable;
   private Columna col;
   private String backGroundColor = "#9999FF";
+  private String colorFont = "#000000";
   /*
   public Totalizar (String titulo,String nombreVariable,String expresionVariable,Calculation tipoCalculo) {
 	this.titol=titulo;
@@ -22,7 +23,8 @@ public class Totalizar {
   public Totalizar (String title,Columna col,Calculation tipoCalculo) {
 	this.col = col;
 	this.titol = title;
-    setTipoTotal(tipoCalculo);	  
+    setTipoTotal(tipoCalculo);	
+    setColorFont(col.getTf().getColorFont());
   }
   
   private void setTipoTotal(Calculation tipoCalculo) {
@@ -30,11 +32,13 @@ public class Totalizar {
 	  tipo = Columna.DOUBLE;
 	  if(tipoTotalizar == Calculation.COUNT) tipo = Columna.INTEGER;
 	  else if(tipoTotalizar == Calculation.DISTINCT_COUNT) tipo = Columna.INTEGER;
+	  else if(tipoTotalizar == Calculation.AVERAGE) tipo =Columna.DOUBLE;
+	  else if(tipoTotalizar == Calculation.SUM) tipo = col.getTipo();
   }
   
   public String getTipoTotal() {
     if(tipoTotalizar == Calculation.SUM) return "Sum";
-    else if(tipoTotalizar == Calculation.COUNT) return "Sount";
+    else if(tipoTotalizar == Calculation.COUNT) return "Count";
     else if(tipoTotalizar == Calculation.DISTINCT_COUNT) return "DistinctCount";
     else if(tipoTotalizar == Calculation.AVERAGE) return "Average";
     else if(tipoTotalizar == Calculation.LOWEST) return "Lowest";
@@ -75,6 +79,14 @@ public class Totalizar {
   
   public String getBackGroundColor() {
 	  return backGroundColor;
+  }
+  
+  public void setColorFont(String color) {
+	this.colorFont = color;
+  }
+  
+  public String getColorFont() {
+	return colorFont;
   }
 	
 }
