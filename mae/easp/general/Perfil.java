@@ -104,6 +104,7 @@ public class Perfil {
   }
 
   public boolean newPerfil(String granemp, String tipoavisos, String email, String movil, String alquiler, String intracom, String intrastat, java.util.Date fechafin, String regDev) {
+System.out.println("new perfil = ["+fechafin+"]");
   	boolean bOk = true;
   	if (!hasPerfil()) {
   		sperfil.addNew();
@@ -136,6 +137,7 @@ public class Perfil {
   }
   public boolean setPerfil(String granemp, String tipoavisos, String email, String movil, String alquiler, String intracom, String intrastat, String fechafin, String regDev) {
   	boolean bOk = true;
+System.out.println("set perfil = ["+fechafin+"]");
   	if (hasPerfil()) {
   		sperfil.edit();
 			if (granemp!=null && (granemp.trim().length()>0)) fdgranemp.setValue(granemp);
@@ -185,6 +187,7 @@ public class Perfil {
 
   public boolean setPerfilTributario (String granemp, String alquil, String com, String stat, java.util.Date fecha, String regDev) {
   	boolean bOk = true;
+System.out.println("set perfil tributario = ["+fecha+"]");
   	if (hasPerfil()) {
   		sperfil.edit();
   		fdgranemp.setValue(granemp);
@@ -201,6 +204,7 @@ public class Perfil {
     return bOk;
   }
   public boolean setFechaPerfilTributario (java.util.Date fecha) {
+System.out.println("set fecha perfil tributario = ["+fecha+"]");
   	boolean bOk = true;
   	if (hasPerfil()) {
   		sperfil.edit();
@@ -275,6 +279,9 @@ public class Perfil {
     }
 
   public boolean setModelo(String modelo, String tipoper) {
+       return setModelo(modelo,tipoper,null,null);
+  }
+  public boolean setModelo(String modelo, String tipoper, java.util.Date fechaAlta, java.util.Date fechaBaja ) {
   	boolean bOk = true;
     Select sempmodelos=new Select(connPerfil);
     Table tempmodelos=new Table(sempmodelos,"EMPMODELOS");
@@ -283,6 +290,8 @@ public class Perfil {
     Field fdemodmodelo   =new Field(sempmodelos,tempmodelos,"emodmodelo");
     Field fdemodtipoper     =new Field(sempmodelos,tempmodelos,"emodtipoper");
     Field fdemodactivo      =new Field(sempmodelos,tempmodelos,"emodactivo");
+    Field fdemodfechaini      =new Field(sempmodelos,tempmodelos,"emodfechaini");
+    Field fdemodfechafin      =new Field(sempmodelos,tempmodelos,"emodfechafin");
     sempmodelos.setWhere("emodejercicio="+ejer+
                        " and emodnif='"+nif+"'"+
                        " and emodmodelo='"+modelo+"'");
@@ -294,12 +303,18 @@ public class Perfil {
       fdemodmodelo.setValue(modelo);
       fdemodtipoper.setValue(tipoper);
       fdemodactivo.setValue("S");
+      if (fechaAlta!=null) fdemodfechaini.setValue(fechaAlta);
+      if (fechaBaja!=null) fdemodfechafin.setValue(fechaBaja);
       bOk = sempmodelos.insert();
     }
 		else {
 	    sempmodelos.edit();
       fdemodtipoper.setValue(tipoper);
       fdemodactivo.setValue("S");
+      if (fechaAlta!=null) fdemodfechaini.setValue(fechaAlta);
+      else fdemodfechaini.setNull();
+      if (fechaBaja!=null) fdemodfechafin.setValue(fechaBaja);
+      else fdemodfechafin.setNull();
       bOk = sempmodelos.update();
 		}
   	if (bOk && isAutoCommit()) connPerfil.commit();
@@ -307,7 +322,6 @@ public class Perfil {
 
 		return bOk;
   }
-
   public boolean remModelo(String modelo, String tipoper) {
   	boolean bOk = true;
     Select sempmodelos=new Select(connPerfil);
