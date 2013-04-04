@@ -70,3 +70,4 @@
 130206 --> APJORDI: Modificacio dialeg jasper per treure el tema dels marges i horitzontal
 130307 --> APESTER: S'afegeix els camps emodfechaini i emodfechafin i el tractament prempmodfechas per tractar aquests camps
 130308 --> APXAVI:  Modificacions a les clases totalizar.java i jlistado.java per al tractament de colors als informes jasperreport
+130401 --> APESTER: Es canvia la funcio general\perfil.java perquè les funcions setModelo rebi per parametre la data inici i fi
