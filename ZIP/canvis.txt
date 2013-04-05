@@ -71,3 +71,4 @@
 130307 --> APESTER: S'afegeix els camps emodfechaini i emodfechafin i el tractament prempmodfechas per tractar aquests camps
 130308 --> APXAVI:  Modificacions a les clases totalizar.java i jlistado.java per al tractament de colors als informes jasperreport
 130401 --> APESTER: Es canvia la funcio general\perfil.java perquè les funcions setModelo rebi per parametre la data inici i fi
+130402 --> APPAU:   Nou tractament Clientes AfinityWeb , possibilitat de consultar contraseña i de fer un proces de alta masiu de clients. ( s'ha de afegir nou zip classes13.zip al classpath )

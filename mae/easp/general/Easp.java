@@ -120,6 +120,25 @@ public class Easp {
     return true;
     }
 
+  
+  public static DBConnection connAGPI=null;
+
+  public static DBConnection getConnAGPI() {
+    CatXagpi catxagpi;
+    DataBase db=new DataBase();
+    db.setName("bdxagpi");
+    db.setUser("agpi");
+    db.setPassword("McCartney");        
+    catxagpi = new CatXagpi();
+    Catalog array[] = {catxagpi};
+    db.setCatalogs(array);
+    db.setType("oracle");   
+    connAGPI=new DBConnection(db);
+    if (connAGPI.connect()) return connAGPI;
+    else  return null;
+    }  
+
+  
   public static DBConnection getConnEA() {
     CatEasp cateasp;
     DataBase db=new DataBase();
