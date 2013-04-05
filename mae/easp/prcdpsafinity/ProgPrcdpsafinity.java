@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20130405
-// Hora:             10:07:58
+// Hora:             10:39:03
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -30,7 +30,7 @@ public class ProgPrcdpsafinity extends Program
   public Scdp scdp;
   public Scdpea scdpea;
   // Ventana
-  public FormVcontraseña vcontraseña;
+  public FormVcontrasena vcontrasena;
   // Selects
   class Location extends LocationTabbed
     {
@@ -50,7 +50,7 @@ public class ProgPrcdpsafinity extends Program
     public CtrlDatapell2 datapell2;
     public CtrlDatnombre datnombre;
     // Acciones
-    public LinkAccontraseña accontraseña;
+    public LinkAccontrasena accontrasena;
     public LinkAccrearclientes accrearclientes;
     class Location extends LocationGridBag
       {
@@ -139,13 +139,13 @@ public class ProgPrcdpsafinity extends Program
         }
       }
       
-    public class LinkAccontraseña extends Action
+    public class LinkAccontrasena extends Action
       {
-      public LinkAccontraseña(Form form)
+      public LinkAccontrasena(Form form)
         {
         super(form);
-        setName("accontraseña");
-        setTitle("&1. Ver contraseña");
+        setName("accontrasena");
+        setTitle("&1. Contraseña");
         setOptions(SHOW);
         }
       public void onAction()
@@ -155,12 +155,12 @@ public class ProgPrcdpsafinity extends Program
         
         Selector susuario = new Selector(scdp.getDataBase());
         susuario.execute("Select  uscodigo,usalias,uspwd from usuario where uscodigo = '"+scdp.datcodigo.getString()+"'");
-        if ( susuario.next() ) vcontraseña.vvcontraseña.setValue(susuario.getString("uspwd"));
-        else                   vcontraseña.vvcontraseña.setNull();
+        if ( susuario.next() ) vcontrasena.vvcontrasena.setValue(susuario.getString("uspwd"));
+        else                   vcontrasena.vvcontrasena.setNull();
         susuario.close();
         
         
-        vcontraseña.open();
+        vcontrasena.open();
         }
       }
       
@@ -213,7 +213,7 @@ public class ProgPrcdpsafinity extends Program
       addControl(datapell1=new CtrlDatapell1(this));
       addControl(datapell2=new CtrlDatapell2(this));
       addControl(datnombre=new CtrlDatnombre(this));
-      addAction(accontraseña=new LinkAccontraseña(this));
+      addAction(accontrasena=new LinkAccontrasena(this));
       addAction(accrearclientes=new LinkAccrearclientes(this));
       setSelect(scdp);
       }
@@ -313,10 +313,10 @@ public class ProgPrcdpsafinity extends Program
       }
     }
     
-  public class FormVcontraseña extends ProcessForm
+  public class FormVcontrasena extends ProcessForm
     {
     // Controles
-    public CtrlVvcontraseña vvcontraseña;
+    public CtrlVvcontrasena vvcontrasena;
     // Acciones
     class Location extends LocationWindow
       {
@@ -331,29 +331,29 @@ public class ProgPrcdpsafinity extends Program
         }
       }
       
-    public class CtrlVvcontraseña extends ControlEdit
+    public class CtrlVvcontrasena extends ControlEdit
       {
-      public CtrlVvcontraseña(Form form)
+      public CtrlVvcontrasena(Form form)
         {
         super(form);
-        setName("vvcontraseña");
+        setName("vvcontrasena");
         setTitle("Contraseña");
         setType(STRING);
-        setLength(15);
+        setLength(20);
         setEnabled(false);
         setPrintable(false);
         }
       }
       
-    public FormVcontraseña(ProgPrcdpsafinity prcdpsafinity)
+    public FormVcontrasena(ProgPrcdpsafinity prcdpsafinity)
       {
       super(prcdpsafinity);
-      setName("vcontraseña");
+      setName("vcontrasena");
       setTitle("Contraseña");
       setLocation(new Location());
       setPrintable(false);
       setModal(true);
-      addControl(vvcontraseña=new CtrlVvcontraseña(this));
+      addControl(vvcontrasena=new CtrlVvcontrasena(this));
       }
     }
     
@@ -367,7 +367,7 @@ public class ProgPrcdpsafinity extends Program
     setLayout(new LayoutGridBag());
     setLocation(new Location());
     addForm(vcdps=new FormVcdps(this));
-    addForm(vcontraseña=new FormVcontraseña(this));
+    addForm(vcontrasena=new FormVcontrasena(this));
     }
   public ProgPrcdpsafinity()
     {
