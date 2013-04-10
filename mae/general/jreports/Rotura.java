@@ -28,6 +28,9 @@ public class Rotura {
 	//private String expression;
 	private String backGroundHeaderColor = "#F0F8FF";
 	private int headerHeight;
+	private boolean igualIndent;
+	private boolean textoRoturaEsExpresion;
+
 	/*
 	public Rotura (JListado jl, java.util.List<Integer> columnes, String nombre, String agruparPor,String titol) {
 		anchura = 15;
@@ -64,7 +67,25 @@ public class Rotura {
 		colorFont = "#000000";
 		this.titul = titol;
 		headerHeight = 15;
+		igualIndent = false;
+		textoRoturaEsExpresion = false;
 		//setEsCampo();
+	}
+	
+	public boolean isTextoRoturaEsExpresion() {
+		return textoRoturaEsExpresion;
+	}
+
+	public void setTextoRoturaEsExpresion(boolean textoRoturaEsExpresion) {
+		this.textoRoturaEsExpresion = textoRoturaEsExpresion;
+	}
+
+	public boolean isIgualIndent() {
+		return igualIndent;
+	}
+
+	public void setIgualIndent(boolean igualIndent) {
+		this.igualIndent = igualIndent;
 	}
 
 	public String getPrintWhen() {
@@ -220,6 +241,8 @@ public class Rotura {
 	public int getHeaderHeight()  {
 		return headerHeight;
 	}
+
+	
 	
 /*
 	public boolean isEsVar() {

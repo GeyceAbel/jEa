@@ -174,14 +174,20 @@ public class PrintJasperPanelPrinter extends PrintJasperPanel
   {
 	  
       try {
+    	  int startPage = 0;
     	  for (int i=0;i<job.vTarea.size();i++) {
     		  JListado jl = job.vTarea.elementAt(i);
     		  VistaPrevia vp = null;
     		  if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);
     		  else vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
+    		  if (job.parametroPaginaInicial != null) {
+    			  jl.getParameters().put(job.parametroPaginaInicial, new Integer(startPage));
+    		  }    		  
     		  vp.setParameter(jl.getParameters());
-    		  vp.compile();    	    		  
-    		  Thread th = new Thread(new Print(vp.getJprint()));
+    		  vp.compile();    	    	
+    		  JasperPrint jp = vp.getJprint();    		  
+    		  startPage += jp.getPages().size();    		  
+    		  Thread th = new Thread(new Print(jp));
     		  th.start();
     	  }    	  
     	  

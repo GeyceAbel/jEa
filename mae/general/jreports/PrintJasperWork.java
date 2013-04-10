@@ -38,7 +38,7 @@ public class PrintJasperWork {
 	protected boolean EXCEL_WHITE_BACKGROUND;
 	protected boolean EXCEL_EMPTY_SPACE_ROWS;
 	protected boolean EXCEL_EMPTY_SPACE_COL;
-	
+	public String  parametroPaginaInicial;
 
 	private void showPanels(){
      	 for (int j=0;j<vjv.size();j++) {

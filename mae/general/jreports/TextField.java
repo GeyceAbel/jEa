@@ -21,6 +21,8 @@ public class TextField {
 	private int rightIndent = 0;
 	private String expression;
 	private String verticalAlig;
+	private boolean printValoresRepetidos;
+	private boolean esExpresionCompleta;
 
 	
 	public TextField (JListado jlis,int x, int y, int width, int height)  {
@@ -39,6 +41,8 @@ public class TextField {
 		this.y=y;
 		this.width=width;
 		verticalAlig = "Top";
+		printValoresRepetidos = true;
+		esExpresionCompleta = false;
 		//y = 0;
 		//amplada = 13;
 	}
@@ -58,11 +62,27 @@ public class TextField {
 		amplada = 13;
 	}
 	*/
-	
+
 	public String getPrintWhen() {
 		return printWhen;
 	}
 	
+	public boolean isEsExpresionCompleta() {
+		return esExpresionCompleta;
+	}
+
+	public void setEsExpresionCompleta(boolean esExpresionCompleta) {
+		this.esExpresionCompleta = esExpresionCompleta;
+	}
+
+	public boolean isPrintValoresRepetidos() {
+		return printValoresRepetidos;
+	}
+
+	public void setPrintValoresRepetidos(boolean printValoresRepetidos) {
+		this.printValoresRepetidos = printValoresRepetidos;
+	}
+
 	public void setPrintWhen(String printWhen) {
 		this.printWhen = printWhen;
 	}

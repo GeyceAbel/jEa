@@ -188,21 +188,39 @@ public class PrintJasperPanelVisor extends PrintJasperPanel
 
   public void onImprimir() {
       try {
+    	  int startPage = 0;
     	  Vector <JasperPrint> v = new Vector<JasperPrint>();
     	  for (int i=0;i<job.vTarea.size();i++) {
     		  JListado jl = job.vTarea.elementAt(i);
     		  VistaPrevia vp = null;
     		  if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);
     		  else vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
+    		  if (job.parametroPaginaInicial != null) {
+    			  jl.getParameters().put(job.parametroPaginaInicial, new Integer(startPage));
+    		  }    		      		  
     		  vp.setParameter(jl.getParameters());
     		  vp.compile();    	
-    		  v.addElement(vp.getJprint());
+    		  JasperPrint jp = vp.getJprint();    		  
+    		  v.addElement(jp);
+    		  startPage += jp.getPages().size();     		  
    		  
     	  }
+    	  JasperPrint jp = v.elementAt(0);
+    	  if (v.size()>1) {
+    		  for (int i=1;i<v.size();i++) {   
+    			  JasperPrint jptmp = v.elementAt(i);
+    			  for (int j = 0; j < jptmp.getPages().size(); j++) {
+    				  jp.addPage(jptmp.getPages().get(j));
+    				}    			  
+    		  }
+    	  }
+    	  
      	  if(job.isShowDialeg())job.dialog.exit();
      	  Vector <JasperViewer> vjv = new Vector<JasperViewer>();
+     	  JasperViewer jasperViewer =	new JasperViewer(jp,false,null,job.iconoVistaPrevia,job.tituloVistaPrevia);
+     	  vjv.addElement(jasperViewer);     	  
+     	  /*     	  
      	  for (int i=0;i<v.size();i++) {
-     		  //JasperViewer.viewReport(v.elementAt(i), false,null,job.iconoVistaPrevia,job.tituloVistaPrevia);
      			JasperViewer jasperViewer =	new JasperViewer(
      								v.elementAt(i),
      								false,
@@ -211,8 +229,8 @@ public class PrintJasperPanelVisor extends PrintJasperPanel
      								job.tituloVistaPrevia
      					);
      			vjv.addElement(jasperViewer);
-     			//jasperViewer.setVisible(true);
      	 }
+     	 */
      	  job.vjv = vjv;
       }
 	  catch (Exception e) {

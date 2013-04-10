@@ -258,15 +258,21 @@ public class PrintJasperPanelDOC extends PrintJasperPanel
 
   public void onImprimir() {
       try {
+    	  int startPage = 0;
     	  List<JasperPrint> jprintlist = new ArrayList<JasperPrint>();
     	  for (int i=0;i<job.vTarea.size();i++) {
     		  JListado jl = job.vTarea.elementAt(i);
     		  VistaPrevia vp = null;
     		  if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);
     		  else vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
+    		  if (job.parametroPaginaInicial != null) {
+    			  jl.getParameters().put(job.parametroPaginaInicial, new Integer(startPage));
+    		  }    		  
     		  vp.setParameter(jl.getParameters());
     		  vp.compile();    	
-    		  jprintlist.add(vp.getJprint());
+    		  JasperPrint jp = vp.getJprint();    		  
+    		  jprintlist.add(jp);
+    		  startPage += jp.getPages().size();
     	  }
     	  JRExporter exporter = new JRDocxExporter();
     	  exporter.setParameter(JRDocxExporterParameter.JASPER_PRINT_LIST, jprintlist);
