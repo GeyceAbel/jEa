@@ -73,3 +73,4 @@
 130401 --> APESTER: Es canvia la funcio general\perfil.java perquè les funcions setModelo rebi per parametre la data inici i fi
 130402 --> APPAU:   Nou tractament Clientes AfinityWeb , possibilitat de consultar contraseña i de fer un proces de alta masiu de clients. ( s'ha de afegir nou zip classes13.zip al classpath )
 130403 --> APJORDI: Modificació de classes Jasper
+130404 --> APJORDI: Conversio taula VALORES
