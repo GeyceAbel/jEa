@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130208
-// Hora:             13:37:03
+// Fecha:            20130422
+// Hora:             10:46:33
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -28,7 +28,7 @@ public class ProgQuerylis extends Program
   public java.util.Hashtable<String,java.util.Hashtable<String,String>> htTaules = null;
   public String aplicacion=Aplication.getAplication().getName();
   public Quonexio[] quonexions;
-  public mae.general.Plantilla plantilla;
+  public mae.general.PlantillaJacob plantilla;
   //public DBConnection conexionAplicacion = Aplication.getAplication().getDataBase() ;
   
   public String datSelec;
@@ -1890,9 +1890,9 @@ public class ProgQuerylis extends Program
     public void combinaPlantilla(String origenDades) {
       try {
         Maefc.waitCursor();
-        String documentoGuarda = System.getProperty("user.dir")+"\\Documentos Combinados\\" + qeffrase.getString()+ "_" + Easp.usuario + ".doc";
-        plantilla.createDocumentSave(documentoGuarda);
-        plantilla.fileAsociation();
+        //String documentoGuarda = System.getProperty("user.dir")+"\\Documentos Combinados\\" + qeffrase.getString()+ "_" + Easp.usuario + ".doc";
+        //plantilla.createDocumentSave(documentoGuarda);
+        //plantilla.fileAsociation();
         //plantilla.newDataSource(File fileDataSource);
         //Selector scolumnas=new Selector(getDataBase());  
         //scolumnas.execute("select * from quecolumn where qecaplicacion='"+aplicacion+"' and qecfrase='"+qeffrase.getString()+"' order by qecorden");  
@@ -2197,18 +2197,14 @@ public class ProgQuerylis extends Program
           else {
             super.onAction();
             splantillas.setWhere("plaplicacion = '" + aplicacion + "' and plcodigo = '" + qefplantilla.getString() + "' and plventana = '" + qeffrase.getString() + "'");
-            splantillas.execute();
-            //if(!qefplantilla.isNull() && !qefplantilla.getString().trim().equals("")) {
+            splantillas.execute();    
             if(!splantillas.isEof()) {  
-              plantilla = new mae.general.Plantilla (splantillas.plurlplantilla.getString().trim());
+              plantilla = new mae.general.PlantillaJacob (splantillas.plurlplantilla.getString().trim());
               if(plantilla.existePlantilla()) {
-                frase=llegeixFrase(qeffrase.getString());
-            
+                frase=llegeixFrase(qeffrase.getString());    
                 if (!demanarParametres(true)) 
-                return;
-            
-                seleccio=new Seleccio();
-            
+                return;    
+                seleccio=new Seleccio();    
                 seleccio.inicia();
                 if (seleccio.quorelacioPrincipal.eof) {
                   Maefc.message("No se ha encontrado información que cumple con la selección efectuada");

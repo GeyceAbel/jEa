@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130115
-// Hora:             17:39:49
+// Fecha:            20130422
+// Hora:             10:48:11
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -31,7 +31,7 @@ public class ProgQuerytrat extends Program
   public String master;
   public Quonexio[] quonexions;
   public java.util.Hashtable<String,java.util.Hashtable<String,String>> htTaules = null;
-  public mae.general.Plantilla plantilla;
+  public mae.general.PlantillaJacob plantilla;
   
   
   class TablaCatalogo {
@@ -2381,18 +2381,24 @@ public class ProgQuerytrat extends Program
       super.onEdit();
       }
     
-    public void editaPlantilla() throws Exception {
+    public void editaPlantilla() {
+      try{
         Maefc.waitCursor();
-        //apxavi 18-05-2012 plantilla.fileAsociation();
-        //plantilla.setDataSource(System.getProperty("user.dir")+ "\\DataSources\\"+ vfrase.qeffrase.getString() +"_" + Easp.usuario + ".csv");
+        //apxavi 18-05-2012 plantilla.fileAsociation();    
         java.io.File fcsv = java.io.File.createTempFile("QUER", ".csv");
         plantilla.setDataSource(fcsv.getAbsolutePath()); 
         scolumnas.execute();
-        ompleOrigenDades(plantilla.getDataSource().getFileSource());        
-        //plantilla.mountDataSourceSelect(System.getProperty("user.dir")+ "\\DataSources\\"+ vfrase.qeffrase.getString() +"_" + Fecha.fechaGregoriana(Maefc.getDate())+Fecha.getHora(Maefc.getDateTime(),"HHmmss") + ".csv", "QUERY",scolumnas,14,15);
+        ompleOrigenDades(plantilla.getDataSource().getFileSource());            
         plantilla.openTemplate();
         Maefc.restoreCursor();
         fcsv.deleteOnExit();
+      }
+      catch(Exception ex) {
+        Maefc.restoreCursor();
+        Maefc.message("Error al combinar: Póngase en contacto con GEYCE","¡Error!",Maefc.ERROR_MESSAGE);
+        System.out.println("Error al combinar:" + ex.getMessage());
+        ex.printStackTrace();
+      }
     }
     
     public void onDelete() {
@@ -2664,33 +2670,18 @@ public class ProgQuerytrat extends Program
         }
       public void onAction()
         {
-        try {
-          super.onAction();  
-            if(!plurlplantilla.isNull() && !plurlplantilla.getString().trim().equals("")) {
-              //plantilla = new mae.general.Plantilla (plurlplantilla.getString().trim());
-              int tipoPlan;
-              if(pltipoplan.isNull()) tipoPlan = 1;
-              else tipoPlan = pltipoplan.getInteger();
-              plantilla = new mae.general.Plantilla (plurlplantilla.getString().trim(),tipoPlan);
-              //if(plantilla.existePlantilla()) {
-                editaPlantilla();	
-              //}
-              //else {
-                //if(Maefc.message("No existe el documento asociado para editar.\n¿Desea que el programa cree uno en la ubicación señalizada?","Atención",Maefc.WARNING_MESSAGE, Maefc.YES_NO_OPTION)== Maefc.YES_OPTION) 
-                  //editaPlantilla();
-              //}   
-            }
-            else {
-              Maefc.message("Error: Debe notificar una plantilla válida.","¡Error!",Maefc.ERROR_MESSAGE);
-            }
-          
-        }
-        catch (Exception ex) {
-          Maefc.restoreCursor();
-          Maefc.message("Error al combinar: Compruebe que la ruta del fichero es correcta","¡Error!",Maefc.ERROR_MESSAGE);
-          System.out.println("Error al combinar:" + ex.getMessage());
-          ex.printStackTrace();
-        }
+        super.onAction();  
+        if(!plurlplantilla.isNull() && !plurlplantilla.getString().trim().equals("")) {
+          int tipoPlan;
+          if(pltipoplan.isNull()) tipoPlan = 1;
+          else tipoPlan = pltipoplan.getInteger();
+          plantilla = new mae.general.PlantillaJacob (plurlplantilla.getString().trim(),tipoPlan);
+          editaPlantilla();	
+          }
+        else {
+          Maefc.message("Error: Debe notificar una plantilla válida.","¡Error!",Maefc.ERROR_MESSAGE);
+          }
+        
         }
       }
       
