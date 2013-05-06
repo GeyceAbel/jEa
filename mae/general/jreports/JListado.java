@@ -10,8 +10,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.Vector;
 
 import mae.general.jreports.Totalizar.Calculation;
@@ -35,6 +41,7 @@ public class JListado {
 	private List <StaticText> columnasSup;
 	private List <Rotura> roturas;
 	private List <Totalizar> totales;
+	private List <Parametro> xmlParameter;
 
 	public String rutaFicheroJRXML;
 	public int posActualColumnHeader =0;
@@ -60,6 +67,7 @@ public class JListado {
 	private int titleHeight;
 	private String nombreReport;
 	private String nombreVariablePaginaInicial;
+	private Hashtable<String, Integer> fields;
 
 	public JListado (Select slistado, Orientacion or) {
 		rutaFicheroJRXML = null;
@@ -71,6 +79,7 @@ public class JListado {
 		columnasSup = new ArrayList <StaticText> ();
 		roturas = new ArrayList <Rotura>();
 		totales = new ArrayList<Totalizar>();
+		xmlParameter = new ArrayList<Parametro>();
 		sizeDetalle = 8;
 		sizeEncabezado = 10;
 		sizeTitulo = 18;
@@ -85,6 +94,37 @@ public class JListado {
 		titleHeight = 40;
 		nombreReport = "ReportAutomatico";
 		setPapel();
+		for (int i=0;i<slistado.getNumColumns();i++) {
+	      Field f = slistado.getColumn(i);
+		  fields.put(f.getName(), f.getType());			
+		}
+	}
+	
+	public JListado (String sql, Hashtable<String, Integer> fields, Orientacion or) {
+		rutaFicheroJRXML = null;
+		orientacionPapel = or;
+		this.sql = sql;
+		encabezados = new ArrayList <Encabezado>();
+		columnas = new ArrayList <Columna>();
+		columnasSup = new ArrayList <StaticText> ();
+		roturas = new ArrayList <Rotura>();
+		totales = new ArrayList<Totalizar>();
+		xmlParameter = new ArrayList<Parametro>();
+		sizeDetalle = 8;
+		sizeEncabezado = 10;
+		sizeTitulo = 18;
+		espacioEntreColumnas = 4;
+		espacioDetalle = 11;
+		colorLineas = "#000000";
+		colorPeuPagina = "#000000";
+		minHeightToStartNewPage = 40;
+		grupos = new Vector<String>();
+		sinDataSource = false;
+		parametros = new HashMap<String, Object>();
+		titleHeight = 40;
+		nombreReport = "ReportAutomatico";
+		setPapel();
+		this.fields = fields;
 	}
 
 
@@ -144,6 +184,13 @@ public class JListado {
 		encabezados.add(enc);
 		return enc;
 	}
+	
+	public Parametro addParametro(String nom,String expression,String tipus,Object parametro, boolean isImport) {
+		Parametro p = new Parametro(nom, expression, tipus, isImport);
+		xmlParameter.add(p);
+		parametros.put(nom,parametro);
+		return p;
+	}
 
 	public Columna addColumna(String literal,int posInicial, int tamany, int tipo, String expression,String nomVariable) {
 		int posIni;
@@ -188,6 +235,10 @@ public class JListado {
 
 	public Totalizar getTotales (int index) {
 		return totales.get(index);
+	}
+	
+	public Parametro getParameter (int index) {
+		return xmlParameter.get(index);
 	}
 	/*
 	public Rotura addRotura (java.util.List<Integer> columnes, String nombre, String agruparPor,String titol) {
@@ -333,8 +384,14 @@ public class JListado {
 
 			pw = new BufferedWriter(new OutputStreamWriter (new FileOutputStream(fjrxml),"UTF8"));			
 
-			if (bOk) bOk = generarCabecera (pw);			
+			if (bOk) bOk = generarCabecera (pw);
+			if(getNumParameters() > 0) {
+			  if (bOk) bOk = generarImportaciones (pw);			  
+			}
 			if (bOk) bOk = generarSubDataSet (pw);
+			if(getNumParameters() > 0) {
+				if (bOk) bOk = generarParametros (pw);				  
+			}
 			if (bOk) bOk = generarParametroPaginaInicial (pw);
 			if (bOk) bOk = generarQueryString (pw);
 			if (bOk) bOk = generarFields (pw);
@@ -725,8 +782,8 @@ public class JListado {
 		}
 		return bOk;
 	}
-
-	private boolean generarFields(BufferedWriter pw) {
+/*
+	private boolean generarFieldsOld(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			for (int i=0;i<slistado.getNumColumns();i++) {
@@ -740,8 +797,26 @@ public class JListado {
 		}
 		return bOk;
 	}
+	*/
+	private boolean generarFields(BufferedWriter pw) {
+		boolean bOk = true;
+		try {
+		  Set<Entry<String, Integer>> set = fields.entrySet();
+		  Iterator<Entry<String, Integer>> it = set.iterator();
+		  while (it.hasNext()) {
+			Map.Entry<String, Integer> entry = (Entry<String, Integer>) it.next();
+			System.out.println(entry.getKey() + " : " + entry.getValue());
+			pw.write("<field name=\""+entry.getKey()+"\" class=\""+getTipoField(entry.getValue())+"\"/>");
+		  }
+		}
+		catch (Exception e) {
+			sError = ""+e;
+			bOk = false;
+		}
+		return bOk;
+	}
 
-
+/*
 	private boolean generarSubDataSet(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
@@ -761,7 +836,32 @@ public class JListado {
 		}
 		return bOk;
 	}
-
+*/
+	private boolean generarSubDataSet(BufferedWriter pw) {
+		boolean bOk = true;
+		try {
+			if(slistado != null)
+			  pw.write("<subDataset name=\""+slistado.getName()+"\">");
+			else 
+			  pw.write("<subDataset name=\"byQuery\">");
+			pw.write("<queryString language=\"SQL\">");
+			pw.write("<![CDATA["+sql+"]]>");
+			pw.write("</queryString>");		
+			Set<Entry<String, Integer>> set = fields.entrySet();
+			Iterator<Entry<String, Integer>> it = set.iterator();
+			while (it.hasNext()) {
+			  Map.Entry<String, Integer> entry = (Entry<String, Integer>) it.next();
+			  System.out.println(entry.getKey() + " : " + entry.getValue());
+			  pw.write("<field name=\""+entry.getKey()+"\" class=\""+getTipoField(entry.getValue())+"\"/>");
+			}
+			pw.write("</subDataset>");			
+		}
+		catch (Exception e) {
+			sError = ""+e;
+			bOk = false;
+		}
+		return bOk;
+	}
 
 	private String getTipoField(int t) {
 		String tipo = "java.lang.String";
@@ -908,6 +1008,10 @@ public class JListado {
 	private int getNumRoturas() {
 		return roturas.size();
 	}
+	
+	private int getNumParameters() {
+		return xmlParameter.size();
+	}
 
 	private int getNumTotales() {
 		return totales.size();
@@ -968,14 +1072,7 @@ public class JListado {
 				pw.write("</band>");
 				pw.write("</groupFooter>");
 				pw.write("</group>");
-
-
-
-
-
-
-
-			}
+		}
 			catch (Exception e) {
 				sError = ""+e;
 				bOk = false;
@@ -1114,7 +1211,39 @@ public class JListado {
 			pw.write("<property name=\"net.sf.jasperreports.export.xls.detect.cell.type\" value=\"true\"/>");
 			pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
 			//pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"false\"/>");
-
+		}
+		catch (Exception e) {
+			sError = ""+e;
+			bOk = false;
+		}
+		return bOk;
+	}
+	
+	private boolean generarImportaciones(BufferedWriter pw) {
+		boolean bOk = true;
+		try {
+		  for (int i=0;i<getNumParameters();i++) {			
+			Parametro p = getParameter(i);
+			if(p.isImport())
+			  pw.write("<import value=\"" + p.getTipus() + "\"/>");
+		  }
+		}
+		catch (Exception e) {
+			sError = ""+e;
+			bOk = false;
+		}
+		return bOk;
+	}
+	
+	private boolean generarParametros(BufferedWriter pw) {
+		boolean bOk = true;
+		try {
+		  for (int i=0;i<getNumParameters();i++) {			
+			Parametro p = getParameter(i);
+   		    pw.write("<parameter name=\"" + p.getName() + "\" class=\"" + p.getTipus() + "\">");
+   		    pw.write("<defaultValueExpression><" + p.getExpression() + "></defaultValueExpression>");
+   		    pw.write("</parameter>");
+		  }
 		}
 		catch (Exception e) {
 			sError = ""+e;
