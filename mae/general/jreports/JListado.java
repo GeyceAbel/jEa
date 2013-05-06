@@ -94,6 +94,7 @@ public class JListado {
 		titleHeight = 40;
 		nombreReport = "ReportAutomatico";
 		setPapel();
+		fields = new Hashtable<String, Integer> ();
 		for (int i=0;i<slistado.getNumColumns();i++) {
 	      Field f = slistado.getColumn(i);
 		  fields.put(f.getName(), f.getType());			
@@ -805,7 +806,6 @@ public class JListado {
 		  Iterator<Entry<String, Integer>> it = set.iterator();
 		  while (it.hasNext()) {
 			Map.Entry<String, Integer> entry = (Entry<String, Integer>) it.next();
-			System.out.println(entry.getKey() + " : " + entry.getValue());
 			pw.write("<field name=\""+entry.getKey()+"\" class=\""+getTipoField(entry.getValue())+"\"/>");
 		  }
 		}
@@ -851,7 +851,6 @@ public class JListado {
 			Iterator<Entry<String, Integer>> it = set.iterator();
 			while (it.hasNext()) {
 			  Map.Entry<String, Integer> entry = (Entry<String, Integer>) it.next();
-			  System.out.println(entry.getKey() + " : " + entry.getValue());
 			  pw.write("<field name=\""+entry.getKey()+"\" class=\""+getTipoField(entry.getValue())+"\"/>");
 			}
 			pw.write("</subDataset>");			
@@ -1241,7 +1240,7 @@ public class JListado {
 		  for (int i=0;i<getNumParameters();i++) {			
 			Parametro p = getParameter(i);
    		    pw.write("<parameter name=\"" + p.getName() + "\" class=\"" + p.getTipus() + "\">");
-   		    pw.write("<defaultValueExpression><" + p.getExpression() + "></defaultValueExpression>");
+   		    if (p.getExpression()!=null) pw.write("<defaultValueExpression><" + p.getExpression() + "></defaultValueExpression>");
    		    pw.write("</parameter>");
 		  }
 		}
