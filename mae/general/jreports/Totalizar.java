@@ -48,13 +48,13 @@ public class Totalizar {
   }
   
   public String getTipoClass() {
-	  switch(tipo) {
+	switch(tipo) {
 	  case Columna.DOUBLE: return "java.lang.Double";
 	  case Columna.INTEGER : return "java.lang.Integer";
 	  case Columna.STRING : return "java.lang.String";
 	  case Columna.DATE : return "java.util.Date";
 	  default: return "java.lang.Double";
-	  }
+	}
   }
   
   public String getTitol() {

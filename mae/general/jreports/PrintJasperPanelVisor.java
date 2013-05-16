@@ -34,6 +34,7 @@ import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRXmlDataSource;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.export.JRPdfExporterParameter;
 import net.sf.jasperreports.view.JRSaveContributor;
@@ -193,8 +194,9 @@ public class PrintJasperPanelVisor extends PrintJasperPanel
     	  for (int i=0;i<job.vTarea.size();i++) {
     		  JListado jl = job.vTarea.elementAt(i);
     		  VistaPrevia vp = null;
-    		  if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);
-    		  else vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
+    		  if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);    		  
+    		  else if  (!jl.isXmlDataSource()) vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
+    		  else vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getXmlDataSource() , job.titulo);    		     		  
     		  if (job.parametroPaginaInicial != null) {
     			  jl.getParameters().put(job.parametroPaginaInicial, new Integer(startPage));
     		  }    		      		  

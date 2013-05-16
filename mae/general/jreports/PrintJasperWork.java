@@ -1,6 +1,7 @@
 package mae.general.jreports;
 
 import java.awt.Image;
+import java.io.File;
 import java.util.Vector;
 
 import net.sf.jasperreports.view.JasperViewer;
@@ -14,6 +15,8 @@ import geyce.maefc.Program;
 public class PrintJasperWork {
 	public PrintJasperDialog        dialog;
 	public DBConnection conn;
+	public File xmlDataSourceFile;
+	public String xmlNodeLoop;
 	protected Vector <JasperViewer> vjv = new Vector<JasperViewer>();
 	private boolean pestanaPDF=true;
 	private boolean pestanaEXCEL=true;
@@ -70,6 +73,14 @@ public class PrintJasperWork {
 		vTarea = new Vector<JListado>();
 		this.titulo = titulo;
 		this.conn = conn;		
+		this.tituloVistaPrevia = "Vista Previa";
+	}
+	
+	public PrintJasperWork(String titulo,File xmlDataSourceFile,String nodeLoop) {
+		vTarea = new Vector<JListado>();
+		this.titulo = titulo;
+		this.xmlDataSourceFile = xmlDataSourceFile;	
+		this.xmlNodeLoop = nodeLoop;
 		this.tituloVistaPrevia = "Vista Previa";
 	}
 

@@ -1150,7 +1150,14 @@ public class ProgInsprconver extends Program
       String sentencias10_9[]={
         "DELETE FROM VALORES WHERE vaapl = 'EA' and vacampo='DESCMOD';",
       };
-    
+      
+      String sentencias11_0[]={
+        "alter table quecolumn  add  qecmedia char(1);",      
+        "alter table quecolumn  add  qeccontador char(1);",   
+        "alter table quecolumn add   qecrotura char(1);",   
+        "alter table quecolumn add   qectitrotura varchar(20);", 
+      };
+
     
       int i=0;
       try {
@@ -2676,6 +2683,22 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","10.9");
           Easp.connEA.commit();
           vvveractual.setValue("10.9");
+        }
+        if (versio < 11.0) {
+          for (i=0;i<sentencias11_0.length;++i) {
+            try {
+              Easp.chivato("11.0 Exec : ["+sentencias11_0[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias11_0[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias11_0[i];
+              Easp.chivato("11.0 *** Error : ["+sentencias11_0[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","11.0");
+          Easp.connEA.commit();
+          vvveractual.setValue("11.0");
         }
       }
       catch(Exception e) {

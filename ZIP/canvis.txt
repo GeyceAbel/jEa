@@ -75,3 +75,4 @@
 130403 --> APJORDI: Modificació de classes Jasper
 130404 --> APJORDI: Conversio taula VALORES
 130405 --> APXAVI:  Integracio JACOB per al query en sistemes de 64 bits.
+130501 --> APXAVI:  OJO!!. exclusiu per versio demo. Jasperreport integrat al query.

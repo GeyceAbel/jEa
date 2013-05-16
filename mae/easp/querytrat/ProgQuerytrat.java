@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130422
-// Hora:             10:48:11
+// Fecha:            20130515
+// Hora:             18:00:50
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -176,6 +176,7 @@ public class ProgQuerytrat extends Program
   // Ventana
   public FormVotros votros;
   // Selects
+  public Scolumnas2 scolumnas2;
   // Ventana
   public FormVvariables vvariables;
   // Selects
@@ -1182,7 +1183,7 @@ public class ProgQuerytrat extends Program
         }
       public Object getDefault()
         {
-        recargaCampos(master);
+        //recargaCampos(master);
         return master;
         }
       public void onChange()
@@ -1316,7 +1317,6 @@ public class ProgQuerytrat extends Program
         votros.setLocation(locw);
         votros.run();
         */
-        
         votros.open();
         
         }
@@ -1438,9 +1438,31 @@ public class ProgQuerytrat extends Program
     // Inicio declaraciones globales
     public void onOpened() {
       super.onOpened();
-      vacumula.setValue(scolumnas.qecacumula.getBoolean());
-      vsalta.setValue(scolumnas.qecsaltapag.getBoolean());
-      vinicia.setValue(scolumnas.qecinipag.getBoolean());
+      vacumula.setValue(scolumnas2.qecacumula.getBoolean());
+      vsalta.setValue(scolumnas2.qecsaltapag.getBoolean());
+      vinicia.setValue(scolumnas2.qecinipag.getBoolean());
+      vrotura.setValue(scolumnas2.qecrotura.getBoolean());
+      vmedia.setValue(scolumnas2.qecmedia.getBoolean());
+      vcontador.setValue(scolumnas2.qeccontador.getBoolean());
+      if(scolumnas2.qeclongitud.getInteger() == 0)
+        qeclongitud.setNull();
+      if(scolumnas2.qectipo.getInteger() == Value.DOUBLE || scolumnas2.qectipo.getInteger() == Value.INTEGER) {
+        vacumula.setEnabled(true);
+        vmedia.setEnabled(true);
+        qecformato.setEnabled(true);
+      }
+      else {
+        vacumula.setEnabled(false);
+        vmedia.setEnabled(false);
+        qecformato.setEnabled(false);
+      }
+    }
+    
+    public void onEdit() {
+      super.onEdit();
+      qectitrotura.setEnabled(scolumnas2.qecrotura.getBoolean());
+      vsalta.setEnabled(scolumnas2.qecsaltapag.getBoolean());
+      vinicia.setEnabled(scolumnas2.qecinipag.getBoolean());
     }
     // Fin declaraciones globales
     // Controles
@@ -1449,6 +1471,10 @@ public class ProgQuerytrat extends Program
     public CtrlVacumula vacumula;
     public CtrlVsalta vsalta;
     public CtrlVinicia vinicia;
+    public CtrlVmedia vmedia;
+    public CtrlVcontador vcontador;
+    public CtrlVrotura vrotura;
+    public CtrlQectitrotura qectitrotura;
     // Acciones
     class Location extends LocationWindow
       {
@@ -1456,7 +1482,7 @@ public class ProgQuerytrat extends Program
         {
         super();
         setWidth(400);
-        setHeight(200);
+        setHeight(255);
         setTitle("Otros datos");
         setModal(true);
         setLocation(CENTER);
@@ -1471,9 +1497,9 @@ public class ProgQuerytrat extends Program
         setName("qecformato");
         setTitle("Formato");
         setType(STRING);
-        setLength(20);
+        setLength(10);
         setPrintable(false);
-        setField(scolumnas.qecformato);
+        setField(scolumnas2.qecformato);
         }
       }
       
@@ -1485,10 +1511,10 @@ public class ProgQuerytrat extends Program
         setName("qeclongitud");
         setTitle("Longitud");
         setType(INTEGER);
-        setMaskInput("####");
-        setLength(4);
+        setMaskInput("###");
+        setLength(3);
         setPrintable(false);
-        setField(scolumnas.qeclongitud);
+        setField(scolumnas2.qeclongitud);
         }
       }
       
@@ -1506,12 +1532,11 @@ public class ProgQuerytrat extends Program
         }
         
         public void userChange(Value v) {
-          if (v.getBoolean() && vcolumnas.qecorderby.isNull())
-            Maefc.message("El listado no sigue la ordenación por esta columna\nMarque esta opción solamente en columnas que siguen una ordenación","Atención",Maefc.QUESTION_MESSAGE); 
-          
+          if (v.getBoolean()) {
+            vmedia.setValue(false);
+            vcontador.setValue(false); 
+          }
           super.userChange(v);
-            
-        
         }
       }
       
@@ -1531,10 +1556,8 @@ public class ProgQuerytrat extends Program
         public void userChange(Value v) {
           if (v.getBoolean() && vcolumnas.qecorderby.isNull())
             Maefc.message("El listado no sigue la ordenación por esta columna\nMarque esta opción solamente en columnas que siguen una ordenación","Atención",Maefc.QUESTION_MESSAGE); 
-          
-          super.userChange(v);
-            
-        
+          else
+            super.userChange(v);
         }
       }
       
@@ -1554,10 +1577,104 @@ public class ProgQuerytrat extends Program
         public void userChange(Value v) {
           if (v.getBoolean() && vcolumnas.qecorderby.isNull())
             Maefc.message("El listado no sigue la ordenación por esta columna\nMarque esta opción solamente en columnas que siguen una ordenación","Atención",Maefc.QUESTION_MESSAGE); 
-          
-          super.userChange(v);
+          else
+            super.userChange(v);
             
         
+        }
+      }
+      
+    public class CtrlVmedia extends ControlCheck
+      {
+      public CtrlVmedia(Form form)
+        {
+        super(form);
+        setName("vmedia");
+        setTitle("");
+        }
+      public void onGetFocus()
+        {
+        super.onGetFocus();
+        }
+        
+        public void userChange(Value v) {
+          if (v.getBoolean()) {
+            vacumula.setValue(false);
+            vcontador.setValue(false); 
+          }
+          super.userChange(v);
+        }
+      }
+      
+    public class CtrlVcontador extends ControlCheck
+      {
+      public CtrlVcontador(Form form)
+        {
+        super(form);
+        setName("vcontador");
+        setTitle("");
+        }
+      public void onGetFocus()
+        {
+        super.onGetFocus();
+        }
+        
+        public void userChange(Value v) {
+          if (v.getBoolean()) {
+            vmedia.setValue(false);
+            vacumula.setValue(false); 
+          }
+          super.userChange(v);
+        }
+      }
+      
+    public class CtrlVrotura extends ControlCheck
+      {
+      public CtrlVrotura(Form form)
+        {
+        super(form);
+        setName("vrotura");
+        setTitle("");
+        }
+      public void onGetFocus()
+        {
+        super.onGetFocus();
+        }
+        
+        public void userChange(Value v) {
+          if (v.getBoolean() && vcolumnas.qecorderby.isNull()) {
+            Maefc.message("El listado no sigue la ordenación por esta columna\nMarque esta opción solamente en columnas que siguen una ordenación","Atención",Maefc.QUESTION_MESSAGE); 
+            }
+          else {
+            vsalta.setEnabled(v.getBoolean());
+            qectitrotura.setEnabled(v.getBoolean());
+            vinicia.setEnabled(v.getBoolean());
+            super.userChange(v);
+          }
+          
+        }
+      }
+      
+    public class CtrlQectitrotura extends ControlEdit
+      {
+      public CtrlQectitrotura(Form form)
+        {
+        super(form);
+        setName("qectitrotura");
+        setTitle("Titulo Grupo");
+        setType(STRING);
+        setLength(20);
+        setPrintable(false);
+        setField(scolumnas2.qectitrotura);
+        }
+      public void onGetFocus()
+        {
+        super.onGetFocus();
+        }
+        
+        public void userChange(Value v) {
+          if (vcolumnas.qecorderby.isNull())
+            super.userChange(v);
         }
       }
       
@@ -1568,23 +1685,110 @@ public class ProgQuerytrat extends Program
       setTitle("Otros datos");
       setLayout(new LayoutAligned());
       setLocation(new Location());
-      setStates(SHOW | UPDATE | INSERT);
+      setStates(SHOW | UPDATE);
       setPrintable(false);
       setModal(true);
       setUnique(true);
+      addSelect(scolumnas2=new Scolumnas2());
       addControl(qecformato=new CtrlQecformato(this));
       addControl(qeclongitud=new CtrlQeclongitud(this));
       addControl(vacumula=new CtrlVacumula(this));
       addControl(vsalta=new CtrlVsalta(this));
       addControl(vinicia=new CtrlVinicia(this));
-      setSelect(scolumnas);
+      addControl(vmedia=new CtrlVmedia(this));
+      addControl(vcontador=new CtrlVcontador(this));
+      addControl(vrotura=new CtrlVrotura(this));
+      addControl(qectitrotura=new CtrlQectitrotura(this));
+      setSelect(scolumnas2);
+      }
+    public void onInit()
+      {
+      setLayout(new LayoutHtml("mae/easp/html/querytrat_vvarios.html"));
+      super.onInit();
       }
     public boolean onOkUpdate()
       {
-      scolumnas.qecacumula.setValue(vacumula.getString());
-      scolumnas.qecsaltapag.setValue(vsalta.getString());
-      scolumnas.qecinipag.setValue(vinicia.getString());
+      scolumnas2.qecacumula.setValue(vacumula.getString());
+      scolumnas2.qecsaltapag.setValue(vsalta.getString());
+      scolumnas2.qecinipag.setValue(vinicia.getString());
+      scolumnas2.qeccontador.setValue(vcontador.getString());
+      scolumnas2.qecmedia.setValue(vmedia.getString());
+      scolumnas2.qecrotura.setValue(vrotura.getString());
+      if(!qeclongitud.isNull() && qeclongitud.getInteger() !=0)
+        scolumnas2.qeclongitud.setValue(qeclongitud.getInteger());
       return super.onOkUpdate();
+      
+      }
+    }
+    
+  // 
+  public class Scolumnas2 extends Select
+    {
+    // Tablas
+    public Quecolumn quecolumn;
+    // Campos
+    public Field qecaplicacion;
+    public Field qecfrase;
+    public Field qecorden;
+    public Field qeccampo;
+    public Field qectitulo;
+    public Field qeclongitud;
+    public Field qectipo;
+    public Field qectabla;
+    public Field qecvisible;
+    public Field qecrestriccion;
+    public Field qecorderby;
+    public Field qecacumula;
+    public Field qecsaltapag;
+    public Field qecinipag;
+    public Field qecformato;
+    public Field qecbbdd;
+    public Field qecsum;
+    public Field qecgrupby;
+    public Field qecmedia;
+    public Field qeccontador;
+    public Field qecrotura;
+    public Field qectitrotura;
+    class Quecolumn extends Table
+      {
+      public Quecolumn(Select select)
+        {
+        super(select);
+        setName("quecolumn");
+        setOptions(READ | INSERT | DELETE | UPDATE);
+        }
+      }
+      
+    public Scolumnas2()
+      {
+      setName("scolumnas2");
+      addTable(quecolumn=new Quecolumn(this));
+      addField(qecaplicacion=new Field(this,quecolumn,"qecaplicacion"));
+      addField(qecfrase=new Field(this,quecolumn,"qecfrase"));
+      addField(qecorden=new Field(this,quecolumn,"qecorden"));
+      addField(qeccampo=new Field(this,quecolumn,"qeccampo"));
+      addField(qectitulo=new Field(this,quecolumn,"qectitulo"));
+      addField(qeclongitud=new Field(this,quecolumn,"qeclongitud"));
+      addField(qectipo=new Field(this,quecolumn,"qectipo"));
+      addField(qectabla=new Field(this,quecolumn,"qectabla"));
+      addField(qecvisible=new Field(this,quecolumn,"qecvisible"));
+      addField(qecrestriccion=new Field(this,quecolumn,"qecrestriccion"));
+      addField(qecorderby=new Field(this,quecolumn,"qecorderby"));
+      addField(qecacumula=new Field(this,quecolumn,"qecacumula"));
+      addField(qecsaltapag=new Field(this,quecolumn,"qecsaltapag"));
+      addField(qecinipag=new Field(this,quecolumn,"qecinipag"));
+      addField(qecformato=new Field(this,quecolumn,"qecformato"));
+      addField(qecbbdd=new Field(this,quecolumn,"qecbbdd"));
+      addField(qecsum=new Field(this,quecolumn,"qecsum"));
+      addField(qecgrupby=new Field(this,quecolumn,"qecgrupby"));
+      addField(qecmedia=new Field(this,quecolumn,"qecmedia"));
+      addField(qeccontador=new Field(this,quecolumn,"qeccontador"));
+      addField(qecrotura=new Field(this,quecolumn,"qecrotura"));
+      addField(qectitrotura=new Field(this,quecolumn,"qectitrotura"));
+      }
+    public String getWhere()
+      {
+      return "qecaplicacion='"+aplicacion+"' and qecfrase='"+frase+"' and qecorden = " + scolumnas.qecorden.getInteger();
       }
     }
     

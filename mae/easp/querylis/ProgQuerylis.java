@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130422
-// Hora:             10:46:33
+// Fecha:            20130515
+// Hora:             17:24:06
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -106,6 +106,10 @@ public class ProgQuerylis extends Program
         col.inipag="S".equals(scolumnes.getString("qecinipag"));
         col.sumatorio="S".equals(scolumnes.getString("qecsum"));
         col.agrupar="S".equals(scolumnes.getString("qecgrupby"));
+        col.media = "S".equals(scolumnes.getString("qecmedia"));
+        col.contador = "S".equals(scolumnes.getString("qeccontador"));
+        col.rotura = "S".equals(scolumnes.getString("qecrotura"));
+        col.titRotura = scolumnes.getString("qectitrotura");
   
         String camp  = scolumnes.getString("qeccampo");
         String taula = scolumnes.getString("qectabla");
@@ -537,6 +541,10 @@ public class ProgQuerylis extends Program
     boolean agrupar;
     boolean canviat;
     Quorelacio quorelacio;
+    String titRotura;
+    boolean media;
+    boolean contador;
+    boolean rotura;
     }
   
   class Seleccio {
@@ -1918,6 +1926,7 @@ public class ProgQuerylis extends Program
     public CtrlQefdescripcion qefdescripcion;
     public CtrlQefplantilla qefplantilla;
     // Acciones
+    public LinkAclistarjr aclistarjr;
     public LinkAclistar aclistar;
     public LinkAcdup acdup;
     public LinkAcimportar acimportar;
@@ -1975,6 +1984,144 @@ public class ProgQuerylis extends Program
         setLength(15);
         setPrintable(false);
         setField(squery.qefplantilla);
+        }
+      }
+      
+    public class LinkAclistarjr extends Action
+      {
+      public LinkAclistarjr(Form form)
+        {
+        super(form);
+        setName("aclistarjr");
+        setTitle("&1 - Listar");
+        setOptions(SEARCH | SHOW | UPDATE | INSERT);
+        }
+      public void onAction()
+        {
+        if (parserSQL() == false) {
+          Maefc.message("Se han encontrado errores en el procesamiento \nde las variables, por favor revíselas","Procesamiento de variables",Maefc.ERROR_MESSAGE, Maefc.OK_OPTION);
+          //this.doShow();
+          }
+        else {
+        super.onAction();
+        
+        frase=llegeixFrase(qeffrase.getString());
+        
+        if (!demanarParametres(false)) 
+          return;
+        
+        seleccio=new Seleccio();
+        
+        seleccio.inicia();
+        if (seleccio.quorelacioPrincipal.eof) {
+          Maefc.message("No se ha encontrado información que cumple con la selección efectuada");
+          return;
+          }
+        
+        double llargadaTotal=0.0;
+        java.util.Hashtable<String,Integer> fields = new java.util.Hashtable<String, Integer>();
+        for(int i=0;i<frase.columnes.size();i++) {        	  
+            Columna col=(Columna)frase.columnes.elementAt(i);
+            if (col.visible) { 
+                llargadaTotal = llargadaTotal + col.llarg;	
+            }
+        }
+        //es crea xml d'origen de dades
+        java.io.File fjrxml = null;
+        java.io.BufferedWriter pw = null;
+        try {
+          fjrxml = java.io.File.createTempFile("QUERYXML_", ".xml");
+          pw = new java.io.BufferedWriter(new java.io.OutputStreamWriter (new java.io.FileOutputStream(fjrxml),"UTF8"));
+          pw.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+          pw.newLine();
+          pw.write("<queryjasper>");
+          pw.newLine();
+          while(!seleccio.quorelacioPrincipal.eof) {
+            pw.write("<register>");
+            pw.newLine();
+            for(int i=0;i<frase.columnes.size();i++) {        	  
+              Columna col=(Columna)frase.columnes.elementAt(i);
+              if (col.visible) { 
+                fields.put(col.camp.field.getName(), col.camp.field.getType());
+                pw.write("<" + col.camp.field.getName() + ">" + (col.tipus==Value.STRING?Maefc.filtraXML(String.valueOf(col.valor)):col.valor) + "</" + col.camp.field.getName()+ ">");
+                pw.newLine();
+              }
+            }
+            pw.write("</register>");
+            pw.newLine();
+            seleccio.next();            
+          }
+          pw.write("</queryjasper>");
+          pw.close();
+          
+          //Es crea el jrxml del jasperreport
+          
+          String nodeLoop= "/queryjasper/register";
+          mae.general.jreports.JListado listadoJasper = new mae.general.jreports.JListado(nodeLoop,fields,mae.general.jreports.JListado.Orientacion.HORIZONTAL);
+          listadoJasper.setTituloListado(frase.titol); 
+          listadoJasper.setColorPeuPagina ("#0e4b80");
+          listadoJasper.setColorLineas ("#5e584e");
+          listadoJasper.sizeDetalle = 7;
+          listadoJasper.sizeEncabezado = 15;
+          
+          mae.general.jreports.Encabezado e = listadoJasper.addEncabezado();
+          String expresio = "\"Fecha : " + new java.text.SimpleDateFormat("dd-MM-yyyy").format(Fecha.hoy())+"\"";
+          e.addNewTextField(expresio, mae.general.jreports.Columna.STRING,"fechas");
+          
+          //columnes del jasper
+          int posIni =0;
+          for(int x=0;x<frase.columnes.size();x++) {        	
+            Columna cole = (Columna)frase.columnes.elementAt(x);
+            if (cole.visible) {
+              double llargada =  cole.llarg/llargadaTotal;
+              int ampladaCamp = (int)(listadoJasper.getColumnWidth()*llargada);  
+              mae.general.jreports.Columna col = listadoJasper.addColumna(cole.titol,posIni,ampladaCamp,cole.tipus,cole.camp.field.getName(),null);
+              col.getSt().setColorFont("#0e4b80");
+              col.getTf().setColorFont("#3c454d");  
+              if(cole.format != null && !cole.format.equals(""))
+                col.getTf().setPattern(cole.format);  
+              posIni += ampladaCamp;
+              if(cole.acumula  || cole.media || cole.contador) {
+                mae.general.jreports.Totalizar.Calculation tipe;
+                if(cole.acumula) tipe = mae.general.jreports.Totalizar.Calculation.SUM;
+                else if(cole.media) tipe = mae.general.jreports.Totalizar.Calculation.AVERAGE;
+                else tipe = mae.general.jreports.Totalizar.Calculation.COUNT;
+                mae.general.jreports.Totalizar t =listadoJasper.addTotalizar(cole.titol, col, tipe);
+                t.setBackGroundColor("#AFC0C7");
+              } 
+              if(cole.rotura || cole.saltapag) {
+                mae.general.jreports.Rotura rot = listadoJasper.addRotura("n"+cole.camp.field.getName(),"$F{" + cole.camp.field.getName() +  "}","TOTAL " + (cole.titRotura==null?"":cole.titRotura));
+                rot.setSaltoPagina(cole.saltapag);
+                if(cole.titRotura!=null)
+                  rot.setGroupHeaderName("\"" + cole.titRotura + " :\" + $F{" + cole.camp.field.getName() + "}");                
+              }
+              
+            }
+          } 
+          //xml dataSource del jasper en questio
+          net.sf.jasperreports.engine.data.JRXmlDataSource xmlDataSource = new net.sf.jasperreports.engine.data.JRXmlDataSource(fjrxml,nodeLoop);
+          listadoJasper.setXmlDataSource(xmlDataSource);
+          
+          //generacio del report                
+              if (listadoJasper.generalJRXML()) {
+            mae.general.jreports.PrintJasperWork pjw = new mae.general.jreports.PrintJasperWork ("Listado de Diario",null);          
+            pjw.addListado(listadoJasper);
+            pjw.setExcelEmptySpaceCol(true);
+            pjw.setExcelEmptySpaceRows(true);
+            pjw.dialog(querylis);          
+          }
+          
+          
+        }
+        catch(net.sf.jasperreports.engine.JRException ex) {
+            Maefc.message("No ha sido posible ejecutar este listado: "+ex.getMessage());
+            ex.printStackTrace();
+            }
+        catch(java.io.IOException ex) {
+          Maefc.message("No ha sido posible ejecutar este listado");
+          }
+        }
+        
         }
       }
       
@@ -2296,6 +2443,7 @@ public class ProgQuerylis extends Program
       addControl(qeffrase=new CtrlQeffrase(this));
       addControl(qefdescripcion=new CtrlQefdescripcion(this));
       addControl(qefplantilla=new CtrlQefplantilla(this));
+      addAction(aclistarjr=new LinkAclistarjr(this));
       addAction(aclistar=new LinkAclistar(this));
       addAction(acdup=new LinkAcdup(this));
       addAction(acimportar=new LinkAcimportar(this));

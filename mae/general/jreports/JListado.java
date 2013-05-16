@@ -20,13 +20,15 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.Vector;
 
+import net.sf.jasperreports.engine.data.JRXmlDataSource;
+
 import mae.general.jreports.Totalizar.Calculation;
 
 public class JListado {
 
 	public enum Orientacion { VERTICAL, HORIZONTAL} ;
 
-	private String sql;
+	private String queryString;
 	private Select slistado;
 	private int margensup;
 	private int margeninf;
@@ -68,32 +70,15 @@ public class JListado {
 	private String nombreReport;
 	private String nombreVariablePaginaInicial;
 	private Hashtable<String, Integer> fields;
+	private boolean isXmlDataSource = false;
+	private JRXmlDataSource xmlDataSource;
 
 	public JListado (Select slistado, Orientacion or) {
 		rutaFicheroJRXML = null;
 		orientacionPapel = or;
 		this.slistado = slistado;
-		sql = slistado.getSQL();
-		encabezados = new ArrayList <Encabezado>();
-		columnas = new ArrayList <Columna>();
-		columnasSup = new ArrayList <StaticText> ();
-		roturas = new ArrayList <Rotura>();
-		totales = new ArrayList<Totalizar>();
-		xmlParameter = new ArrayList<Parametro>();
-		sizeDetalle = 8;
-		sizeEncabezado = 10;
-		sizeTitulo = 18;
-		espacioEntreColumnas = 4;
-		espacioDetalle = 11;
-		colorLineas = "#000000";
-		colorPeuPagina = "#000000";
-		minHeightToStartNewPage = 40;
-		grupos = new Vector<String>();
-		sinDataSource = false;
-		parametros = new HashMap<String, Object>();
-		titleHeight = 40;
-		nombreReport = "ReportAutomatico";
-		setPapel();
+		queryString = slistado.getSQL();
+		setDefaultParameters();
 		fields = new Hashtable<String, Integer> ();
 		for (int i=0;i<slistado.getNumColumns();i++) {
 	      Field f = slistado.getColumn(i);
@@ -101,10 +86,15 @@ public class JListado {
 		}
 	}
 	
-	public JListado (String sql, Hashtable<String, Integer> fields, Orientacion or) {
+	public JListado (String queryString, Hashtable<String, Integer> fields, Orientacion or) {
 		rutaFicheroJRXML = null;
 		orientacionPapel = or;
-		this.sql = sql;
+		this.queryString = queryString;
+		setDefaultParameters();
+		this.fields = fields;
+	}
+	
+	public void setDefaultParameters() {
 		encabezados = new ArrayList <Encabezado>();
 		columnas = new ArrayList <Columna>();
 		columnasSup = new ArrayList <StaticText> ();
@@ -124,11 +114,20 @@ public class JListado {
 		parametros = new HashMap<String, Object>();
 		titleHeight = 40;
 		nombreReport = "ReportAutomatico";
-		setPapel();
-		this.fields = fields;
+		setPapel();		
 	}
 
-
+	public void setXmlDataSource(JRXmlDataSource dataSourceXml) {
+      this.isXmlDataSource=true;
+      xmlDataSource = dataSourceXml;
+	  xmlDataSource.setDatePattern("dd-MM-yyyy");
+	  xmlDataSource.setNumberPattern("#,##0.##");
+	}
+	
+	public JRXmlDataSource getXmlDataSource() {
+	  return xmlDataSource;
+	}
+	
 	public String getNombreVariablePaginaInicial() {
 		return nombreVariablePaginaInicial;
 	}
@@ -156,6 +155,10 @@ public class JListado {
 		}
 		columnWidth = (pagewidth-margender-margenizq);
 		rightWidthPosicion = pagewidth - margender;
+	}
+	
+	public boolean isXmlDataSource() {
+		return isXmlDataSource;
 	}
 
 	public String getNombreReport() {
@@ -641,8 +644,8 @@ public class JListado {
 	private boolean generarQueryString(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
-			pw.write("<queryString>");
-			pw.write("<![CDATA["+sql+"]]>");
+			pw.write("<queryString language=\"" + (isXmlDataSource?"xPath":"SQL") + "\">");
+			pw.write("<![CDATA["+queryString+"]]>");
 			pw.write("</queryString>");
 		}
 		catch (Exception e) {
@@ -711,7 +714,7 @@ public class JListado {
 						nom = "tot"+i+col.getTf().getVariable().getNom();
 						expr = "$V{"+col.getTf().getVariable().getNom()+"}";
 					}
-					pw.write("<variable name=\""+nom+"\" class=\"java.lang.Double\" resetType=\"Group\" resetGroup=\""+r.getNombre()+"\" calculation=\""+r.getSum()+"\">");
+					pw.write("<variable name=\""+nom+"\" class=\"" + totals.get(c).getTipoClass() + "\" resetType=\"Group\" resetGroup=\""+r.getNombre()+"\" calculation=\""+totals.get(c).getTipoTotal()+"\">");
 					pw.write("<variableExpression><![CDATA["+expr+"]]></variableExpression>");
 					pw.write("</variable>");
 				}
@@ -806,7 +809,13 @@ public class JListado {
 		  Iterator<Entry<String, Integer>> it = set.iterator();
 		  while (it.hasNext()) {
 			Map.Entry<String, Integer> entry = (Entry<String, Integer>) it.next();
-			pw.write("<field name=\""+entry.getKey()+"\" class=\""+getTipoField(entry.getValue())+"\"/>");
+			if(!isXmlDataSource)
+			  pw.write("<field name=\""+entry.getKey()+"\" class=\""+getTipoField(entry.getValue())+"\"/>");
+			else {
+			  pw.write("<field name=\""+entry.getKey()+"\" class=\""+getTipoField(entry.getValue())+"\">");
+			  pw.write("<fieldDescription><![CDATA[" +entry.getKey() + "]]></fieldDescription>");
+			  pw.write("</field>");
+			}
 		  }
 		}
 		catch (Exception e) {
@@ -844,8 +853,8 @@ public class JListado {
 			  pw.write("<subDataset name=\""+slistado.getName()+"\">");
 			else 
 			  pw.write("<subDataset name=\"byQuery\">");
-			pw.write("<queryString language=\"SQL\">");
-			pw.write("<![CDATA["+sql+"]]>");
+			pw.write("<queryString language=\"" + (isXmlDataSource?"xPath":"SQL") + "\">");
+			pw.write("<![CDATA["+queryString+"]]>");
 			pw.write("</queryString>");		
 			Set<Entry<String, Integer>> set = fields.entrySet();
 			Iterator<Entry<String, Integer>> it = set.iterator();

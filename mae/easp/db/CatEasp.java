@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130326
-// Hora:             11:44:35
+// Fecha:            20130515
+// Hora:             15:06:00
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2464,6 +2464,10 @@ public class CatEasp extends Catalog
     public FieldDef qecbbdd;
     public FieldDef qecsum;
     public FieldDef qecgrupby;
+    public FieldDef qecmedia;
+    public FieldDef qeccontador;
+    public FieldDef qecrotura;
+    public FieldDef qectitrotura;
     public TabQuecolumn(String name)
       {
       super(name);
@@ -2485,6 +2489,10 @@ public class CatEasp extends Catalog
       qecbbdd = new FieldDef("qecbbdd",FieldDef.CHAR,15);
       qecsum = new FieldDef("qecsum",FieldDef.CHAR,1);
       qecgrupby = new FieldDef("qecgrupby",FieldDef.CHAR,1);
+      qecmedia = new FieldDef("qecmedia",FieldDef.CHAR,1);
+      qeccontador = new FieldDef("qeccontador",FieldDef.CHAR,1);
+      qecrotura = new FieldDef("qecrotura",FieldDef.CHAR,1);
+      qectitrotura = new FieldDef("qectitrotura",FieldDef.CHAR,20);
       FieldDef array[] = {
         qecaplicacion,
         qecfrase,
@@ -2503,7 +2511,11 @@ public class CatEasp extends Catalog
         qecformato,
         qecbbdd,
         qecsum,
-        qecgrupby        
+        qecgrupby,
+        qecmedia,
+        qeccontador,
+        qecrotura,
+        qectitrotura        
         };
       setColumns(array);
       FieldDef arrayf[] = {qecaplicacion,qecfrase,qecorden };

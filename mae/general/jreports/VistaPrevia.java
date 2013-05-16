@@ -13,12 +13,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRXmlDataSource;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.export.JRPdfExporterParameter;
 import net.sf.jasperreports.engine.fill.AsynchronousFillHandle;
@@ -34,6 +36,7 @@ public class VistaPrevia {
 	private JasperPrint jprint;
 	private HashMap<String, Object> parametros;
 	private JREmptyDataSource jrEmptyDataSource;
+	private JRXmlDataSource jrXmlDataSource;
 
 
 	public VistaPrevia(String fichero, DBConnection con, String titulo) {
@@ -41,11 +44,21 @@ public class VistaPrevia {
 		this.con = con;
 	    this.titulo = titulo;
 	    parametros = new HashMap<String, Object>();
+	    this.jrXmlDataSource = null;
     }
 	
 	public VistaPrevia(String rutaFicheroJRXML, JREmptyDataSource jrEmptyDataSource, String titulo) {
 		this.fichero = rutaFicheroJRXML;
 		this.jrEmptyDataSource = jrEmptyDataSource;
+	    this.titulo = titulo;
+	    parametros = new HashMap<String, Object>();
+	    this.con = null;
+	    this.jrXmlDataSource = null;
+	}
+	
+	public VistaPrevia(String rutaFicheroJRXML, JRXmlDataSource jrXmlDataSource, String titulo) {
+		this.fichero = rutaFicheroJRXML;
+		this.jrXmlDataSource = jrXmlDataSource;
 	    this.titulo = titulo;
 	    parametros = new HashMap<String, Object>();
 	    this.con = null;
@@ -76,8 +89,12 @@ public class VistaPrevia {
             JasperReport report = JasperCompileManager.compileReport(fichero);
             report.paginaActual = 0;
             AsynchronousFillHandle handle = null;
-            if (con == null) handle = AsynchronousFillHandle.createHandle(report,parametros, jrEmptyDataSource);
-            else handle = AsynchronousFillHandle.createHandle(report,parametros, con.getConnection());
+            if (con == null && jrXmlDataSource == null) handle = AsynchronousFillHandle.createHandle(report,parametros, jrEmptyDataSource);
+            //else handle = AsynchronousFillHandle.createHandle(report,parametros, con.getConnection());            
+            else  {
+            	if(jrXmlDataSource == null)handle = AsynchronousFillHandle.createHandle(report,parametros, con.getConnection());
+            	else handle = AsynchronousFillHandle.createHandle(report, parametros, jrXmlDataSource);
+            }
             AsynchronousFilllListener listener = new AsynchronousFilllListener() {
 				public void reportFinished(JasperPrint jp) {
 					setJprint(jp);
