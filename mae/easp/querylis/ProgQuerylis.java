@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130515
-// Hora:             17:24:06
+// Fecha:            20130517
+// Hora:             12:20:39
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -36,6 +36,8 @@ public class ProgQuerylis extends Program
   public int ordenacion=0;
   public int empresaJCONTA;
   public int gasesor = 1 ;
+  public boolean isJasper = false;
+  public boolean isOldButonListar = false;
   
   
   Seleccio seleccio;
@@ -1926,6 +1928,7 @@ public class ProgQuerylis extends Program
     public CtrlQefdescripcion qefdescripcion;
     public CtrlQefplantilla qefplantilla;
     // Acciones
+    public LinkAclistarnew aclistarnew;
     public LinkAclistarjr aclistarjr;
     public LinkAclistar aclistar;
     public LinkAcdup acdup;
@@ -1984,6 +1987,27 @@ public class ProgQuerylis extends Program
         setLength(15);
         setPrintable(false);
         setField(squery.qefplantilla);
+        }
+      }
+      
+    public class LinkAclistarnew extends Action
+      {
+      public LinkAclistarnew(Form form)
+        {
+        super(form);
+        setName("aclistarnew");
+        setTitle("&1 - Listar");
+        setOptions(SEARCH | SHOW | UPDATE | INSERT);
+        }
+      public void onAction()
+        {
+        super.onAction();
+        if(isJasper)
+          aclistarjr.doAction();
+        else 
+          aclistar.doAction();
+        
+        
         }
       }
       
@@ -2131,7 +2155,7 @@ public class ProgQuerylis extends Program
         {
         super(form);
         setName("aclistar");
-        setTitle("&1 - Listar");
+        setTitle("&1 - Listar old");
         setOptions(SHOW);
         }
       public void onAction()
@@ -2443,6 +2467,7 @@ public class ProgQuerylis extends Program
       addControl(qeffrase=new CtrlQeffrase(this));
       addControl(qefdescripcion=new CtrlQefdescripcion(this));
       addControl(qefplantilla=new CtrlQefplantilla(this));
+      addAction(aclistarnew=new LinkAclistarnew(this));
       addAction(aclistarjr=new LinkAclistarjr(this));
       addAction(aclistar=new LinkAclistar(this));
       addAction(acdup=new LinkAcdup(this));
@@ -2454,6 +2479,8 @@ public class ProgQuerylis extends Program
     public void onInit()
       {
       setInitState(SHOW);
+      aclistarjr.setVisible(false);
+      aclistar.setVisible(isOldButonListar);
       super.onInit();
       }
     public void onBeginRecord()
