@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130410
-// Hora:             16:21:51
+// Fecha:            20130521
+// Hora:             09:20:03
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1150,14 +1150,14 @@ public class ProgInsprconver extends Program
       String sentencias10_9[]={
         "DELETE FROM VALORES WHERE vaapl = 'EA' and vacampo='DESCMOD';",
       };
-      
+    
       String sentencias11_0[]={
         "alter table quecolumn  add  qecmedia char(1);",      
         "alter table quecolumn  add  qeccontador char(1);",   
         "alter table quecolumn add   qecrotura char(1);",   
         "alter table quecolumn add   qectitrotura varchar(20);", 
-      };
-
+      }; 
+     
     
       int i=0;
       try {
@@ -2700,6 +2700,14 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("11.0");
         }
+    
+        if (versio < 11.1) {
+            grabarINDEMORA (2013,Fecha.getDate(2013,1,1),Fecha.getDate(2013,12,31),5);
+            Easp.setVersionBD("bdeasp","11.1");
+            Easp.connEA.commit();
+            vvveractual.setValue("11.1");
+        }
+    
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
