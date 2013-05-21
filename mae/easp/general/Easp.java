@@ -26,8 +26,8 @@ public class Easp {
 
   //variables de versiones
   public static String versionAplicacion="9.6";
-  public static String versionFecha="Abril/2013";
-  public static String versionBDEA="11.0";
+  public static String versionFecha="Mayol/2013";
+  public static String versionBDEA="11.1";
 
   //Constantes
   public final static int IVA=16;
@@ -120,7 +120,7 @@ public class Easp {
     return true;
     }
 
-  
+
   public static DBConnection connAGPI=null;
 
   public static DBConnection getConnAGPI() {
@@ -128,17 +128,17 @@ public class Easp {
     DataBase db=new DataBase();
     db.setName("bdxagpi");
     db.setUser("agpi");
-    db.setPassword("McCartney");        
+    db.setPassword("McCartney");
     catxagpi = new CatXagpi();
     Catalog array[] = {catxagpi};
     db.setCatalogs(array);
-    db.setType("oracle");   
+    db.setType("oracle");
     connAGPI=new DBConnection(db);
     if (connAGPI.connect()) return connAGPI;
     else  return null;
-    }  
+    }
 
-  
+
   public static DBConnection getConnEA() {
     CatEasp cateasp;
     DataBase db=new DataBase();
