@@ -77,3 +77,4 @@
 130405 --> APXAVI:  Integracio JACOB per al query en sistemes de 64 bits.
 130501 --> APXAVI:  OJO!!. exclusiu per versio demo. Jasperreport integrat al query.
 130502 --> APXAVI:  Jasperreport integrat al query. S'ha de pasar un parametre boolea per activar-ho.
+130502 --> APPERE:  Insprconver / Easp versio 11.1 gravacio taula Indemora 2013
