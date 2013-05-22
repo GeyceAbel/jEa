@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130521
-// Hora:             09:29:55
+// Fecha:            20130522
+// Hora:             17:03:52
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1157,7 +1157,10 @@ public class ProgInsprconver extends Program
         "alter table quecolumn add   qecrotura char(1);",   
         "alter table quecolumn add   qectitrotura varchar(20);", 
       }; 
-     
+    
+      String sentencias11_2[]={
+       "UPDATE ADMHACIENDA SET AHDESC='VIA AUGUSTA' WHERE AHDELE=8 AND AHCODIGO=605;",
+      }; 
     
       int i=0;
       try {
@@ -2707,6 +2710,24 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("11.1");
         }
+        if (versio < 11.2) {
+              for (i=0;i<sentencias11_2.length;++i) {
+                try {
+                  Easp.chivato("11.2 Exec : ["+sentencias11_2[i]+"]",1);
+                  Easp.connEA.executeUpdate(sentencias11_2[i]);
+                }
+                catch(Exception e) {
+                  sqlOperation=sentencias11_2[i];
+                  Easp.chivato("11.2 *** Error : ["+sentencias11_2[i]+"]  Error: ["+e+"]",1);
+                  errorMessage=e.getMessage();
+                }
+              }
+              Easp.setVersionBD("bdeasp","11.2");
+              Easp.connEA.commit();
+              vvveractual.setValue("11.2");
+        }
+    
+        
     
       }
       catch(Exception e) {
