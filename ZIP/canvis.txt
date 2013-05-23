@@ -78,4 +78,5 @@
 130501 --> APXAVI:  OJO!!. exclusiu per versio demo. Jasperreport integrat al query.
 130502 --> APXAVI:  Jasperreport integrat al query. S'ha de pasar un parametre boolea per activar-ho.
 130503 --> APPERE:  Insprconver / Easp versio 11.1 gravacio taula Indemora 2013  11.2 Admhacienda 605 GRACIA camvi a VIA AUGUSTA
-130502 --> APXAVI:  Important. Arreglat bug a l'hora d'afegir un nou llistat.
+130504 --> APXAVI:  Important. Arreglat bug a l'hora d'afegir un nou llistat.
+130505 --> APXAVI:  Els nous camps del query s'han afegit al tractament d'importacio exportacio de llistat.

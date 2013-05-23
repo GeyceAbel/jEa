@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130517
-// Hora:             12:20:39
+// Fecha:            20130523
+// Hora:             17:28:59
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1433,6 +1433,10 @@ public class ProgQuerylis extends Program
             insertEtiq("qecbbdd",squecolumn.qecbbdd.getString().trim());
             insertEtiq("qecsum",squecolumn.qecsum.getString().trim());
             insertEtiq("qecgrupby",squecolumn.qecgrupby.getString().trim());
+            insertEtiq("qecmedia",squecolumn.qecmedia.getString().trim());        
+            insertEtiq("qeccontador",squecolumn.qeccontador.getString().trim());
+            insertEtiq("qecrotura",squecolumn.qecrotura.getString().trim());
+            insertEtiq("qectitrotura",squecolumn.qectitrotura.getString().trim());
           salida.println("</registro>");
           squecolumn.next();
           }
@@ -1657,6 +1661,10 @@ public class ProgQuerylis extends Program
                 squecolumn.qecbbdd.setValue(getTag("qecbbdd"));
                 squecolumn.qecsum.setValue(getTag("qecsum"));
                 squecolumn.qecgrupby.setValue(getTag("qecgrupby"));
+                squecolumn.qecmedia.setValue(getTag("qecmedia"));
+                squecolumn.qeccontador.setValue(getTag("qeccontador"));
+                squecolumn.qecrotura.setValue(getTag("qecrotura"));
+                squecolumn.qectitrotura.setValue(getTag("qectitrotura"));
                 squecolumn.insert();
                 squecolumn.commit();
               }
@@ -2629,6 +2637,10 @@ public class ProgQuerylis extends Program
     public Field qectipo;
     public Field qectitulo;
     public Field qecvisible;
+    public Field qecmedia;
+    public Field qeccontador;
+    public Field qecrotura;
+    public Field qectitrotura;
     class Quecolumn extends Table
       {
       public Quecolumn(Select select)
@@ -2661,6 +2673,10 @@ public class ProgQuerylis extends Program
       addField(qectipo=new Field(this,quecolumn,"qectipo"));
       addField(qectitulo=new Field(this,quecolumn,"qectitulo"));
       addField(qecvisible=new Field(this,quecolumn,"qecvisible"));
+      addField(qecmedia=new Field(this,quecolumn,"qecmedia"));
+      addField(qeccontador=new Field(this,quecolumn,"qeccontador"));
+      addField(qecrotura=new Field(this,quecolumn,"qecrotura"));
+      addField(qectitrotura=new Field(this,quecolumn,"qectitrotura"));
       }
     public String getWhere()
       {
