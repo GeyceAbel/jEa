@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130515
-// Hora:             18:00:50
+// Fecha:            20130523
+// Hora:             17:03:18
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1183,7 +1183,7 @@ public class ProgQuerytrat extends Program
         }
       public Object getDefault()
         {
-        //recargaCampos(master);
+        recargaCampos(master);
         return master;
         }
       public void onChange()
@@ -1651,7 +1651,7 @@ public class ProgQuerytrat extends Program
             vinicia.setEnabled(v.getBoolean());
             super.userChange(v);
           }
-          
+        
         }
       }
       
@@ -1727,28 +1727,28 @@ public class ProgQuerytrat extends Program
     // Tablas
     public Quecolumn quecolumn;
     // Campos
-    public Field qecaplicacion;
-    public Field qecfrase;
-    public Field qecorden;
-    public Field qeccampo;
-    public Field qectitulo;
-    public Field qeclongitud;
-    public Field qectipo;
-    public Field qectabla;
-    public Field qecvisible;
-    public Field qecrestriccion;
-    public Field qecorderby;
     public Field qecacumula;
-    public Field qecsaltapag;
-    public Field qecinipag;
-    public Field qecformato;
+    public Field qecaplicacion;
     public Field qecbbdd;
-    public Field qecsum;
-    public Field qecgrupby;
-    public Field qecmedia;
+    public Field qeccampo;
     public Field qeccontador;
+    public Field qecformato;
+    public Field qecfrase;
+    public Field qecgrupby;
+    public Field qecinipag;
+    public Field qeclongitud;
+    public Field qecmedia;
+    public Field qecorden;
+    public Field qecorderby;
+    public Field qecrestriccion;
     public Field qecrotura;
+    public Field qecsaltapag;
+    public Field qecsum;
+    public Field qectabla;
+    public Field qectipo;
     public Field qectitrotura;
+    public Field qectitulo;
+    public Field qecvisible;
     class Quecolumn extends Table
       {
       public Quecolumn(Select select)
@@ -1763,28 +1763,28 @@ public class ProgQuerytrat extends Program
       {
       setName("scolumnas2");
       addTable(quecolumn=new Quecolumn(this));
-      addField(qecaplicacion=new Field(this,quecolumn,"qecaplicacion"));
-      addField(qecfrase=new Field(this,quecolumn,"qecfrase"));
-      addField(qecorden=new Field(this,quecolumn,"qecorden"));
-      addField(qeccampo=new Field(this,quecolumn,"qeccampo"));
-      addField(qectitulo=new Field(this,quecolumn,"qectitulo"));
-      addField(qeclongitud=new Field(this,quecolumn,"qeclongitud"));
-      addField(qectipo=new Field(this,quecolumn,"qectipo"));
-      addField(qectabla=new Field(this,quecolumn,"qectabla"));
-      addField(qecvisible=new Field(this,quecolumn,"qecvisible"));
-      addField(qecrestriccion=new Field(this,quecolumn,"qecrestriccion"));
-      addField(qecorderby=new Field(this,quecolumn,"qecorderby"));
       addField(qecacumula=new Field(this,quecolumn,"qecacumula"));
-      addField(qecsaltapag=new Field(this,quecolumn,"qecsaltapag"));
-      addField(qecinipag=new Field(this,quecolumn,"qecinipag"));
-      addField(qecformato=new Field(this,quecolumn,"qecformato"));
+      addField(qecaplicacion=new Field(this,quecolumn,"qecaplicacion"));
       addField(qecbbdd=new Field(this,quecolumn,"qecbbdd"));
-      addField(qecsum=new Field(this,quecolumn,"qecsum"));
-      addField(qecgrupby=new Field(this,quecolumn,"qecgrupby"));
-      addField(qecmedia=new Field(this,quecolumn,"qecmedia"));
+      addField(qeccampo=new Field(this,quecolumn,"qeccampo"));
       addField(qeccontador=new Field(this,quecolumn,"qeccontador"));
+      addField(qecformato=new Field(this,quecolumn,"qecformato"));
+      addField(qecfrase=new Field(this,quecolumn,"qecfrase"));
+      addField(qecgrupby=new Field(this,quecolumn,"qecgrupby"));
+      addField(qecinipag=new Field(this,quecolumn,"qecinipag"));
+      addField(qeclongitud=new Field(this,quecolumn,"qeclongitud"));
+      addField(qecmedia=new Field(this,quecolumn,"qecmedia"));
+      addField(qecorden=new Field(this,quecolumn,"qecorden"));
+      addField(qecorderby=new Field(this,quecolumn,"qecorderby"));
+      addField(qecrestriccion=new Field(this,quecolumn,"qecrestriccion"));
       addField(qecrotura=new Field(this,quecolumn,"qecrotura"));
+      addField(qecsaltapag=new Field(this,quecolumn,"qecsaltapag"));
+      addField(qecsum=new Field(this,quecolumn,"qecsum"));
+      addField(qectabla=new Field(this,quecolumn,"qectabla"));
+      addField(qectipo=new Field(this,quecolumn,"qectipo"));
       addField(qectitrotura=new Field(this,quecolumn,"qectitrotura"));
+      addField(qectitulo=new Field(this,quecolumn,"qectitulo"));
+      addField(qecvisible=new Field(this,quecolumn,"qecvisible"));
       }
     public String getWhere()
       {
