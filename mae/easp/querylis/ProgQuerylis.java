@@ -2075,7 +2075,7 @@ public class ProgQuerylis extends Program
               Columna col=(Columna)frase.columnes.elementAt(i);
               if (col.visible) { 
                 fields.put(col.camp.field.getName(), col.camp.field.getType());
-                pw.write("<" + col.camp.field.getName() + ">" + (col.tipus==Value.STRING?Maefc.filtraXML(String.valueOf(col.valor)):col.valor) + "</" + col.camp.field.getName()+ ">");
+                pw.write("<" + col.camp.field.getName() + ">" + (col.tipus==Value.STRING?Maefc.filtraXML(String.valueOf(col.valor)):(col.valor==null?"":col.valor.getString().replace(".",","))) + "</" + col.camp.field.getName()+ ">");
                 pw.newLine();
               }
             }
