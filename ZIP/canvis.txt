@@ -80,3 +80,4 @@
 130503 --> APPERE:  Insprconver / Easp versio 11.1 gravacio taula Indemora 2013  11.2 Admhacienda 605 GRACIA camvi a VIA AUGUSTA
 130504 --> APXAVI:  Important. Arreglat bug a l'hora d'afegir un nou llistat.
 130505 --> APXAVI:  Els nous camps del query s'han afegit al tractament d'importacio exportacio de llistat.
+130506 --> APXAVI:  Modificacions error query per a numeros double amb decimals.
