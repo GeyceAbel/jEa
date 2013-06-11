@@ -1,5 +1,8 @@
 package mae.general.jreports;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Vector;
 
 import net.sf.jasperreports.view.JasperViewer;
@@ -43,7 +46,7 @@ public abstract class PrintJasperPanel extends ControlPanel
     addControl(predeterminar);
   }
   
-	public void abrir(String destino, String programaAsociado) {
+  protected void abrir(String destino, String programaAsociado) {
 		try {
 			int ret = Windows.ShellExecute("open", destino, null, null, Windows.SW_SHOWNORMAL);
 			if (ret <= 32) {
@@ -65,5 +68,37 @@ public abstract class PrintJasperPanel extends ControlPanel
 	      ErrorManagerDefault.generalEx(ex, "No ha sido posible abrir archivo PDF");
 	    }
 	  }
+  
+	protected boolean noEstaAbiertoElFichero (String destino) {
+		return noEstaAbiertoElFichero (destino,true);
+	}
+	
+	protected boolean noEstaAbiertoElFichero (String destino,boolean mostrarMsg) {
+		boolean bOk = destino != null && destino.trim().length()>0;
+		if (bOk)  {
+			FileOutputStream output = null;
+			try {
+				output = new FileOutputStream(new File(destino));
+			}
+			catch (Exception e) {
+				bOk = false;
+			}
+			finally {
+				if (output != null) {
+					try {
+						output.close();
+					} 
+					catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+		if (!bOk && mostrarMsg) {
+			Maefc.message("No ha sido posible abrir "+destino+"\n\nAsegurese que no esta abierto por otra aplicación\no revise el nombre y directorio del fichero.","Generar Listado",Maefc.ERROR_MESSAGE);
+		}
+		return bOk;
+		
+	}
 	
 }

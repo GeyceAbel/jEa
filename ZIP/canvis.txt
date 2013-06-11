@@ -81,3 +81,4 @@
 130504 --> APXAVI:  Important. Arreglat bug a l'hora d'afegir un nou llistat.
 130505 --> APXAVI:  Els nous camps del query s'han afegit al tractament d'importacio exportacio de llistat.
 130506 --> APXAVI:  Modificacions error query per a numeros double amb decimals.
+130601 --> APJORDI: Modificacio panells de jasper reports. Afegit el destino als panells de PDF i WORD que no hi era. Mostrar missatge si el fitxer desti esta ocupat.
