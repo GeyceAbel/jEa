@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130522
-// Hora:             17:03:52
+// Fecha:            20130717
+// Hora:             11:05:35
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1161,6 +1161,8 @@ public class ProgInsprconver extends Program
       String sentencias11_2[]={
        "UPDATE ADMHACIENDA SET AHDESC='VIA AUGUSTA' WHERE AHDELE=8 AND AHCODIGO=605;",
       }; 
+    
+      String sentencias11_3[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2013"}; 
     
       int i=0;
       try {
@@ -2726,6 +2728,24 @@ public class ProgInsprconver extends Program
               Easp.connEA.commit();
               vvveractual.setValue("11.2");
         }
+        if (versio < 11.3) {
+          for (i=0;i<sentencias11_3.length;++i) {
+            try {
+              Easp.chivato("11.3 Exec : ["+sentencias11_3[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias11_3[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias11_3[i];
+              Easp.chivato("11.3 *** Error : ["+sentencias11_3[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          String tablas[]= {"COEFICCORREC"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1103","easp.jar");
+          Easp.setVersionBD("bdeasp","11.3");
+          Easp.connEA.commit();
+          vvveractual.setValue("11.3");
+        } 
     
         
     
