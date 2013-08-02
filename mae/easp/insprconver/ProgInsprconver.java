@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130717
-// Hora:             11:52:23
+// Fecha:            20130802
+// Hora:             10:22:54
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1163,6 +1163,8 @@ public class ProgInsprconver extends Program
       }; 
     
       String sentencias11_3[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2013"}; 
+    
+      String sentencias11_4[]={"ALTER TABLE CDP add cdpresponsable VARCHAR(25);"};
     
       int i=0;
       try {
@@ -2746,6 +2748,22 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("11.3");
         } 
+        if (versio < 11.4) {
+              for (i=0;i<sentencias11_4.length;++i) {
+                try {
+                  Easp.chivato("11.4 Exec : ["+sentencias11_4[i]+"]",1);
+                  Easp.connEA.executeUpdate(sentencias11_4[i]);
+                }
+                catch(Exception e) {
+                  sqlOperation=sentencias11_4[i];
+                  Easp.chivato("11.4 *** Error : ["+sentencias11_4[i]+"]  Error: ["+e+"]",1);
+                  errorMessage=e.getMessage();
+                }
+              }
+              Easp.setVersionBD("bdeasp","11.4");
+              Easp.connEA.commit();
+              vvveractual.setValue("11.4");
+        }
     
         
     

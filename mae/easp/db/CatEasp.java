@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130515
-// Hora:             15:06:00
+// Fecha:            20130802
+// Hora:             10:20:05
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -835,6 +835,7 @@ public class CatEasp extends Catalog
     public FieldDef cdpbdestarenta;
     public FieldDef cdpobserv;
     public FieldDef cdpdominio;
+    public FieldDef cdpresponsable;
     public TabCdp(String name)
       {
       super(name);
@@ -865,6 +866,7 @@ public class CatEasp extends Catalog
       cdpbdestarenta = new FieldDef("cdpbdestarenta",FieldDef.CHAR,1);
       cdpobserv = new FieldDef("cdpobserv",FieldDef.CHAR,255);
       cdpdominio = new FieldDef("cdpdominio",FieldDef.CHAR,12);
+      cdpresponsable = new FieldDef("cdpresponsable",FieldDef.CHAR,25);
       FieldDef array[] = {
         cdpcodi,
         cdpnifcif,
@@ -892,7 +894,8 @@ public class CatEasp extends Catalog
         cdpbdestaiss,
         cdpbdestarenta,
         cdpobserv,
-        cdpdominio        
+        cdpdominio,
+        cdpresponsable        
         };
       setColumns(array);
       FieldDef arrayind1[] = { cdpdominio,cdpnifcif };
@@ -1446,7 +1449,7 @@ public class CatEasp extends Catalog
       erincide = new FieldDef("erincide",FieldDef.CHAR,1,FieldDef.NOTNULL);
       eropcion = new FieldDef("eropcion",FieldDef.INTEGER,0);
       ersoluci = new FieldDef("ersoluci",FieldDef.CHAR,1024);
-      erdescri = new FieldDef("erdescri",FieldDef.CHAR,1024);
+      erdescri = new FieldDef("erdescri",FieldDef.CHAR,10248);
       FieldDef array[] = {
         ercodigo,
         erambito,

@@ -56,6 +56,8 @@ public class JListado {
 	private int espacioEntreColumnas;
 	private int espacioDetalle;
 	private Vector<String> grupos;
+	private Vector<Band> dummyExtraFirstBands;
+	private Vector<Band> dummyExtraBands;
 	private String fechaListado;
 	private String colorLineas;
 	private String colorPeuPagina;
@@ -65,7 +67,7 @@ public class JListado {
 	private int rightWidthPosicion;
 	private boolean autoFillColumns;
 	private boolean viewTotalesFinales = true;
-	private int minHeightToStartNewPage;
+	public int minHeightToStartNewPage;
 	private int titleHeight;
 	private String nombreReport;
 	private String nombreVariablePaginaInicial;
@@ -81,19 +83,23 @@ public class JListado {
 		setDefaultParameters();
 		fields = new Hashtable<String, Integer> ();
 		for (int i=0;i<slistado.getNumColumns();i++) {
-	      Field f = slistado.getColumn(i);
-		  fields.put(f.getName(), f.getType());			
+			Field f = slistado.getColumn(i);
+			fields.put(f.getName(), f.getType());			
 		}
+		dummyExtraBands = new Vector<Band>();
+		dummyExtraFirstBands = new Vector<Band>();
 	}
-	
+
 	public JListado (String queryString, Hashtable<String, Integer> fields, Orientacion or) {
 		rutaFicheroJRXML = null;
 		orientacionPapel = or;
 		this.queryString = queryString;
 		setDefaultParameters();
 		this.fields = fields;
+		dummyExtraBands = new Vector<Band>();
+		dummyExtraFirstBands = new Vector<Band>();
 	}
-	
+
 	public void setDefaultParameters() {
 		encabezados = new ArrayList <Encabezado>();
 		columnas = new ArrayList <Columna>();
@@ -118,16 +124,16 @@ public class JListado {
 	}
 
 	public void setXmlDataSource(JRXmlDataSource dataSourceXml) {
-      this.isXmlDataSource=true;
-      xmlDataSource = dataSourceXml;
-	  xmlDataSource.setDatePattern("dd-MM-yyyy");
-	  xmlDataSource.setNumberPattern("#,##0.##");
+		this.isXmlDataSource=true;
+		xmlDataSource = dataSourceXml;
+		xmlDataSource.setDatePattern("dd-MM-yyyy");
+		xmlDataSource.setNumberPattern("#,##0.##");
 	}
-	
+
 	public JRXmlDataSource getXmlDataSource() {
-	  return xmlDataSource;
+		return xmlDataSource;
 	}
-	
+
 	public String getNombreVariablePaginaInicial() {
 		return nombreVariablePaginaInicial;
 	}
@@ -156,7 +162,7 @@ public class JListado {
 		columnWidth = (pagewidth-margender-margenizq);
 		rightWidthPosicion = pagewidth - margender;
 	}
-	
+
 	public boolean isXmlDataSource() {
 		return isXmlDataSource;
 	}
@@ -188,7 +194,7 @@ public class JListado {
 		encabezados.add(enc);
 		return enc;
 	}
-	
+
 	public Parametro addParametro(String nom,String expression,String tipus,Object parametro, boolean isImport) {
 		Parametro p = new Parametro(nom, expression, tipus, isImport);
 		xmlParameter.add(p);
@@ -240,7 +246,7 @@ public class JListado {
 	public Totalizar getTotales (int index) {
 		return totales.get(index);
 	}
-	
+
 	public Parametro getParameter (int index) {
 		return xmlParameter.get(index);
 	}
@@ -390,7 +396,7 @@ public class JListado {
 
 			if (bOk) bOk = generarCabecera (pw);
 			if(getNumParameters() > 0) {
-			  if (bOk) bOk = generarImportaciones (pw);			  
+				if (bOk) bOk = generarImportaciones (pw);			  
 			}
 			if (bOk) bOk = generarSubDataSet (pw);
 			if(getNumParameters() > 0) {
@@ -606,6 +612,9 @@ public class JListado {
 		try {
 			pw.write("<group name=\"dummy\" isReprintHeaderOnEachPage=\"true\" minHeightToStartNewPage=\""+minHeightToStartNewPage+"\">");	
 			pw.write("<groupHeader>");
+			for (int i=0;i<dummyExtraFirstBands.size();i++) {
+				generarExtraBand (pw,dummyExtraFirstBands.elementAt(i));
+			}
 			boolean hayColumnaSuperior = columnasSup.size()>0;
 			if (hayColumnaSuperior) pw.write("<band height=\""+ (2*espacioDetalle+1) +"\">");
 			else pw.write("<band height=\""+ (espacioDetalle+1) +"\">");
@@ -624,15 +633,43 @@ public class JListado {
 				else pw.write("<reportElement x=\"0\" y=\""+espacioDetalle+"\" width=\""+columnWidth+"\" height=\"1\"  forecolor=\""+colorLineas+"\" />");
 				pw.write("</line>");
 				pw.write("</band>");
-				pw.write("</groupHeader>");
-				pw.write("</group>");
 			}
+			for (int i=0;i<dummyExtraBands.size();i++) {
+				generarExtraBand (pw,dummyExtraBands.elementAt(i));
+			}
+			pw.write("</groupHeader>");
+			pw.write("</group>");
 		}
 		catch (Exception e) {
 			sError = ""+e;
 			bOk = false;
 		}
 		return bOk;
+	}
+
+	private void generarExtraBand (BufferedWriter pw, Band band) {
+		try {
+			pw.write("<band height=\""+band.getHeight()+"\">");
+			if (band.getPrintWhen()!=null) pw.write("<printWhenExpression><![CDATA["+band.getPrintWhen()+"]]></printWhenExpression>");
+			for (int j=0;j<band.getNumStatics();j++) {
+				StaticText st = band.getStatic(j);
+				generarStaticText(pw, st);
+			}
+			for (int j=0;j<band.getNumFields();j++) {
+				TextField tf = band.getFields(j);
+				generarTextField(pw, tf);
+			}
+			pw.write("</band>");
+		}
+		catch (Exception e) {
+			sError = ""+e;
+		}
+	}
+	public void addDummyExtraBand (Band b) {
+		dummyExtraBands.addElement(b);
+	}
+	public void addDummyExtraFirstBand (Band b) {
+		dummyExtraFirstBands.addElement(b);
 	}
 
 	private int getTamanyColumnas() {
@@ -764,15 +801,29 @@ public class JListado {
 			for (int i=0;i<getNumColumnas();i++) {
 				Columna c = getColumna(i);
 				if (c.getTf().esVariable()) {
-					pw.write("<variable name=\""+c.getTf().getVariable().getNom()+"\" class=\""+getTipoFieldColumna(c.getTipo())+"\" resetType=\"None\">");
+					String resetType = c.getTf().getVariable().getResetType();
+					if (resetType == null || resetType.length()==0) resetType = "None";
+					String resetGroup = c.getTf().getVariable().getResetGroup();
+					if (resetGroup == null || resetGroup.length()==0) resetGroup = "";
+					else resetGroup =  " resetGroup=\""+resetGroup+"\"";
+
+					pw.write("<variable name=\""+c.getTf().getVariable().getNom()+"\" class=\""+getTipoFieldColumna(c.getTipo())+"\" resetType=\""+resetType+"\""+resetGroup+">");
 					pw.write("<variableExpression><"+c.getTf().getVariable().getExpression()+"></variableExpression>");
+					String initialValue = c.getTf().getVariable().getInitialValue();
+					if (initialValue != null && initialValue.length()>0) pw.write("<initialValueExpression><![CDATA["+initialValue+"]]></initialValueExpression>");
 					pw.write("</variable>");					
 				}
 			}
 			for (int z=0;z<encabezados.size();z++) {
 				Encabezado e = encabezados.get(z);
 				if(e.getTf().esVariable()) {
-					pw.write("<variable name=\""+e.getTf().getVariable().getNom()+"\" class=\""+getTipoFieldColumna(e.getTipo())+"\" resetType=\"None\">");
+					String resetType = e.getTf().getVariable().getResetType();
+					if (resetType == null || resetType.length()==0) resetType = "None";
+					String resetGroup = e.getTf().getVariable().getResetGroup();
+					if (resetGroup == null || resetGroup.length()==0) resetGroup = "";
+					else resetGroup =  " resetGroup=\""+resetGroup+"\"";
+
+					pw.write("<variable name=\""+e.getTf().getVariable().getNom()+"\" class=\""+getTipoFieldColumna(e.getTipo())+"\" resetType=\""+resetType+"\""+resetGroup+">");
 					pw.write("<variableExpression><"+e.getTf().getVariable().getExpression()+"></variableExpression>");
 					pw.write("</variable>");	
 				}
@@ -786,7 +837,7 @@ public class JListado {
 		}
 		return bOk;
 	}
-/*
+	/*
 	private boolean generarFieldsOld(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
@@ -801,22 +852,22 @@ public class JListado {
 		}
 		return bOk;
 	}
-	*/
+	 */
 	private boolean generarFields(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
-		  Set<Entry<String, Integer>> set = fields.entrySet();
-		  Iterator<Entry<String, Integer>> it = set.iterator();
-		  while (it.hasNext()) {
-			Map.Entry<String, Integer> entry = (Entry<String, Integer>) it.next();
-			if(!isXmlDataSource)
-			  pw.write("<field name=\""+entry.getKey()+"\" class=\""+getTipoField(entry.getValue())+"\"/>");
-			else {
-			  pw.write("<field name=\""+entry.getKey()+"\" class=\""+getTipoField(entry.getValue())+"\">");
-			  pw.write("<fieldDescription><![CDATA[" +entry.getKey() + "]]></fieldDescription>");
-			  pw.write("</field>");
+			Set<Entry<String, Integer>> set = fields.entrySet();
+			Iterator<Entry<String, Integer>> it = set.iterator();
+			while (it.hasNext()) {
+				Map.Entry<String, Integer> entry = (Entry<String, Integer>) it.next();
+				if(!isXmlDataSource)
+					pw.write("<field name=\""+entry.getKey()+"\" class=\""+getTipoField(entry.getValue())+"\"/>");
+				else {
+					pw.write("<field name=\""+entry.getKey()+"\" class=\""+getTipoField(entry.getValue())+"\">");
+					pw.write("<fieldDescription><![CDATA[" +entry.getKey() + "]]></fieldDescription>");
+					pw.write("</field>");
+				}
 			}
-		  }
 		}
 		catch (Exception e) {
 			sError = ""+e;
@@ -825,7 +876,7 @@ public class JListado {
 		return bOk;
 	}
 
-/*
+	/*
 	private boolean generarSubDataSet(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
@@ -845,22 +896,22 @@ public class JListado {
 		}
 		return bOk;
 	}
-*/
+	 */
 	private boolean generarSubDataSet(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			if(slistado != null)
-			  pw.write("<subDataset name=\""+slistado.getName()+"\">");
+				pw.write("<subDataset name=\""+slistado.getName()+"\">");
 			else 
-			  pw.write("<subDataset name=\"byQuery\">");
+				pw.write("<subDataset name=\"byQuery\">");
 			pw.write("<queryString language=\"" + (isXmlDataSource?"xPath":"SQL") + "\">");
 			pw.write("<![CDATA["+queryString+"]]>");
 			pw.write("</queryString>");		
 			Set<Entry<String, Integer>> set = fields.entrySet();
 			Iterator<Entry<String, Integer>> it = set.iterator();
 			while (it.hasNext()) {
-			  Map.Entry<String, Integer> entry = (Entry<String, Integer>) it.next();
-			  pw.write("<field name=\""+entry.getKey()+"\" class=\""+getTipoField(entry.getValue())+"\"/>");
+				Map.Entry<String, Integer> entry = (Entry<String, Integer>) it.next();
+				pw.write("<field name=\""+entry.getKey()+"\" class=\""+getTipoField(entry.getValue())+"\"/>");
 			}
 			pw.write("</subDataset>");			
 		}
@@ -930,6 +981,7 @@ public class JListado {
 		}
 		catch (Exception e) {
 			sError = ""+e;
+			e.printStackTrace();
 			bOk = false;
 		}
 		return bOk;
@@ -1016,7 +1068,7 @@ public class JListado {
 	private int getNumRoturas() {
 		return roturas.size();
 	}
-	
+
 	private int getNumParameters() {
 		return xmlParameter.size();
 	}
@@ -1080,7 +1132,7 @@ public class JListado {
 				pw.write("</band>");
 				pw.write("</groupFooter>");
 				pw.write("</group>");
-		}
+			}
 			catch (Exception e) {
 				sError = ""+e;
 				bOk = false;
@@ -1226,15 +1278,15 @@ public class JListado {
 		}
 		return bOk;
 	}
-	
+
 	private boolean generarImportaciones(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
-		  for (int i=0;i<getNumParameters();i++) {			
-			Parametro p = getParameter(i);
-			if(p.isImport())
-			  pw.write("<import value=\"" + p.getTipus() + "\"/>");
-		  }
+			for (int i=0;i<getNumParameters();i++) {			
+				Parametro p = getParameter(i);
+				if(p.isImport())
+					pw.write("<import value=\"" + p.getTipus() + "\"/>");
+			}
 		}
 		catch (Exception e) {
 			sError = ""+e;
@@ -1242,16 +1294,16 @@ public class JListado {
 		}
 		return bOk;
 	}
-	
+
 	private boolean generarParametros(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
-		  for (int i=0;i<getNumParameters();i++) {			
-			Parametro p = getParameter(i);
-   		    pw.write("<parameter name=\"" + p.getName() + "\" class=\"" + p.getTipus() + "\">");
-   		    if (p.getExpression()!=null) pw.write("<defaultValueExpression><" + p.getExpression() + "></defaultValueExpression>");
-   		    pw.write("</parameter>");
-		  }
+			for (int i=0;i<getNumParameters();i++) {			
+				Parametro p = getParameter(i);
+				pw.write("<parameter name=\"" + p.getName() + "\" class=\"" + p.getTipus() + "\">");
+				if (p.getExpression()!=null) pw.write("<defaultValueExpression><" + p.getExpression() + "></defaultValueExpression>");
+				pw.write("</parameter>");
+			}
 		}
 		catch (Exception e) {
 			sError = ""+e;
