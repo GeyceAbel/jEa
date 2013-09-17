@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130523
-// Hora:             17:03:18
+// Fecha:            20130917
+// Hora:             16:14:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1461,8 +1461,8 @@ public class ProgQuerytrat extends Program
     public void onEdit() {
       super.onEdit();
       qectitrotura.setEnabled(scolumnas2.qecrotura.getBoolean());
-      vsalta.setEnabled(scolumnas2.qecsaltapag.getBoolean());
-      vinicia.setEnabled(scolumnas2.qecinipag.getBoolean());
+      vsalta.setEnabled(scolumnas2.qecrotura.getBoolean());
+      vinicia.setEnabled(scolumnas2.qecrotura.getBoolean());
     }
     // Fin declaraciones globales
     // Controles
@@ -1661,20 +1661,19 @@ public class ProgQuerytrat extends Program
         {
         super(form);
         setName("qectitrotura");
-        setTitle("Titulo Grupo");
+        setMessageHelp("Titulo de la rotura");
+        setTitle("Titulo");
         setType(STRING);
         setLength(20);
         setPrintable(false);
         setField(scolumnas2.qectitrotura);
         }
-      public void onGetFocus()
+      public void onChange()
         {
-        super.onGetFocus();
+        super.onChange();
         }
-        
         public void userChange(Value v) {
-          if (vcolumnas.qecorderby.isNull())
-            super.userChange(v);
+        super.userChange(v);
         }
       }
       
@@ -1716,6 +1715,8 @@ public class ProgQuerytrat extends Program
       scolumnas2.qecrotura.setValue(vrotura.getString());
       if(!qeclongitud.isNull() && qeclongitud.getInteger() !=0)
         scolumnas2.qeclongitud.setValue(qeclongitud.getInteger());
+      if(!qectitrotura.isNull() && !qectitrotura.getString().trim().equals(""))
+        scolumnas2.qectitrotura.setValue(qectitrotura.getString());
       return super.onOkUpdate();
       
       }

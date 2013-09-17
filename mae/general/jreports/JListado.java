@@ -503,15 +503,18 @@ public class JListado {
 				pw.write("<band height=\""+(r.getAnchura()+espacioDetalle)+"\">");
 				if (r.getPrintWhen()!=null && r.getPrintWhen().length()>0) pw.write("<printWhenExpression>"+r.getPrintWhen()+"</printWhenExpression>");
 
-				pw.write("<rectangle radius=\"2\">"); 
-				pw.write("<reportElement x=\"0\" y=\"0\" width=\"" + posActualColumnHeader +"\" height=\"" + (r.getHeaderHeight()+2) + "\" forecolor=\"" + r.getBackGroundHeaderColor() + "\"/>"); 
-				pw.write("<graphicElement>"); 
-				pw.write("<pen lineWidth=\"2.0\"/>");
-				pw.write("</graphicElement>");
-				pw.write("</rectangle>");
+
 
 
 				java.util.List<Totalizar> totals = r.getTotales();
+				if(totals.size()>0) {
+					pw.write("<rectangle radius=\"2\">"); 
+					pw.write("<reportElement x=\"0\" y=\"0\" width=\"" + posActualColumnHeader +"\" height=\"" + (r.getHeaderHeight()+2) + "\" forecolor=\"" + r.getBackGroundHeaderColor() + "\"/>"); 
+					pw.write("<graphicElement>"); 
+					pw.write("<pen lineWidth=\"2.0\"/>");
+					pw.write("</graphicElement>");
+					pw.write("</rectangle>");	
+				}
 				for (int c=0;c<totals.size();c++) {
 					Columna col = totals.get(c).getColumna();
 					TextField tf = new TextField(this,col.getPosIni(),1,col.getTamany(),r.getAnchura());

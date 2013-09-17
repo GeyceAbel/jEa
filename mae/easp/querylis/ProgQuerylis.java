@@ -2105,14 +2105,18 @@ public class ProgQuerylis extends Program
           for(int x=0;x<frase.columnes.size();x++) {        	
             Columna cole = (Columna)frase.columnes.elementAt(x);
             if (cole.visible) {
-              double llargada =  cole.llarg/llargadaTotal;
-              int ampladaCamp = (int)(listadoJasper.getColumnWidth()*llargada);  
+              
+              double llargada;
+              if(cole.tipus == mae.general.jreports.Columna.DATE) llargada = 8/llargadaTotal;
+              else	  llargada= cole.llarg/llargadaTotal;
+              int ampladaCamp = (int)(listadoJasper.getColumnWidth()*llargada);
               mae.general.jreports.Columna col = listadoJasper.addColumna(cole.titol,posIni,ampladaCamp,cole.tipus,cole.camp.field.getName(),null);
               col.getSt().setColorFont("#0e4b80");
               col.getTf().setColorFont("#3c454d");  
               if(cole.format != null && !cole.format.equals(""))
                 col.getTf().setPattern(cole.format);  
               posIni += ampladaCamp;
+              boolean totales = false;
               if(cole.acumula  || cole.media || cole.contador) {
                 mae.general.jreports.Totalizar.Calculation tipe;
                 if(cole.acumula) tipe = mae.general.jreports.Totalizar.Calculation.SUM;
@@ -2120,9 +2124,10 @@ public class ProgQuerylis extends Program
                 else tipe = mae.general.jreports.Totalizar.Calculation.COUNT;
                 mae.general.jreports.Totalizar t =listadoJasper.addTotalizar(cole.titol, col, tipe);
                 t.setBackGroundColor("#AFC0C7");
+                totales=true;
               } 
               if(cole.rotura || cole.saltapag) {
-                mae.general.jreports.Rotura rot = listadoJasper.addRotura("n"+cole.camp.field.getName(),"$F{" + cole.camp.field.getName() +  "}","TOTAL " + (cole.titRotura==null?"":cole.titRotura));
+                mae.general.jreports.Rotura rot = listadoJasper.addRotura("n"+cole.camp.field.getName(),"$F{" + cole.camp.field.getName() +  "}",!totales?"":"TOTAL " + (cole.titRotura==null?"":cole.titRotura));
                 rot.setSaltoPagina(cole.saltapag);
                 if(cole.titRotura!=null)
                   rot.setGroupHeaderName("\"" + cole.titRotura + " :\" + $F{" + cole.camp.field.getName() + "}");                
