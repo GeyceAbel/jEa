@@ -85,3 +85,4 @@
 130701 --> APPERE:  Actualitzar la taula COEFICCORREC 2013
 130801 --> APJORDI: CDPresponsable i canvis a la classe JLISTADO (JASPER)
 130901 --> APXAVI:  canvis a la classe JLISTADO (JASPER) per solventar bug a l'hora de saltar pagina segons columna query.
+130902 --> APXAVI:	canvis al query perque la finestra de variables no balli.

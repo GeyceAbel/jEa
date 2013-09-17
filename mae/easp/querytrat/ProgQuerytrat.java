@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20130917
-// Hora:             16:14:25
+// Hora:             17:15:53
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -402,8 +402,8 @@ public class ProgQuerytrat extends Program
         
             LocationWindow locw=new LocationWindow();
             locw.setTitle("Otros Datos");
-            locw.setWidth(800);
-            locw.setHeight(400);
+            locw.setWidth(850);
+            locw.setHeight(450);
             locw.setLocation(LocationWindow.CENTER);
             //locw.setLocation(locw.CENTER);
             //setLocation(locw);
