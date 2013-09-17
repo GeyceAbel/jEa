@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20130917
-// Hora:             17:15:53
+// Hora:             17:36:13
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1866,8 +1866,8 @@ public class ProgQuerytrat extends Program
       Form form=super.createEditForm(insert);
       form.setLayout(new LayoutHtml("mae/easp/html/vcomparacion.html"));
       LocationWindow loc=(LocationWindow)form.getLocation();
-      loc.setWidth(505);
-      loc.setHeight(280);
+      loc.setWidth(520);
+      loc.setHeight(300);
       return form;
       }
     
