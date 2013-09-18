@@ -18,7 +18,9 @@ import javax.swing.filechooser.FileFilter;
 
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRExporter;
+import net.sf.jasperreports.engine.JRParameter;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.export.JExcelApiExporterParameter;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.export.JRPdfExporterParameter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
@@ -134,8 +136,9 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 					VistaPrevia vp = null;
 					if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);    		  
 					else if  (!jl.isXmlDataSource()) vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
-					else vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getXmlDataSource() , job.titulo);   
-					vp.setParameter(jl.getParameters());
+					else vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getXmlDataSource() , job.titulo);
+					jl.getParameters().put(JRParameter.IS_IGNORE_PAGINATION,Boolean.TRUE);
+					vp.setParameter(jl.getParameters());				
 					vp.compile();    	
 					jprintlist.add(vp.getJprint());
 				}
@@ -143,13 +146,7 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 				exporter.setParameter(JRXlsExporterParameter.JASPER_PRINT_LIST, jprintlist);
 				FileOutputStream output = new FileOutputStream(new File(destino.getString()));
 				exporter.setParameter(JRXlsExporterParameter.OUTPUT_STREAM, output);
-				if((Boolean)job.EXCEL_WHITE_BACKGROUND !=null)
-					exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, job.EXCEL_WHITE_BACKGROUND);
-				if((Boolean)job.EXCEL_EMPTY_SPACE_ROWS !=null)
-					exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, job.EXCEL_EMPTY_SPACE_ROWS);  
-				if((Boolean)job.EXCEL_EMPTY_SPACE_COL !=null)
-					exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_COLUMNS, job.EXCEL_EMPTY_SPACE_COL);
-
+				exporter.setParameter(JExcelApiExporterParameter.IS_COLLAPSE_ROW_SPAN, Boolean.TRUE);				
 				exporter.exportReport();
 				output.close();
 				if (abrir.getBoolean()) abrir(destino.getString(),"Microsoft Excel");

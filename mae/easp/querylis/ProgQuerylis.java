@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130523
-// Hora:             17:28:59
+// Fecha:            20130918
+// Hora:             13:35:31
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2075,7 +2075,7 @@ public class ProgQuerylis extends Program
               Columna col=(Columna)frase.columnes.elementAt(i);
               if (col.visible) { 
                 fields.put(col.camp.field.getName(), col.camp.field.getType());
-                pw.write("<" + col.camp.field.getName() + ">" + (col.tipus==Value.STRING?Maefc.filtraXML(String.valueOf(col.valor)):(col.valor==null?"":col.valor.getString().replace(".",","))) + "</" + col.camp.field.getName()+ ">");
+                pw.write("<" + col.camp.field.getName() + ">" + (col.tipus==Value.STRING?Maefc.filtraXML(String.valueOf(col.valor)):col.valor) + "</" + col.camp.field.getName()+ ">");
                 pw.newLine();
               }
             }
@@ -2105,18 +2105,14 @@ public class ProgQuerylis extends Program
           for(int x=0;x<frase.columnes.size();x++) {        	
             Columna cole = (Columna)frase.columnes.elementAt(x);
             if (cole.visible) {
-              
-              double llargada;
-              if(cole.tipus == mae.general.jreports.Columna.DATE) llargada = 8/llargadaTotal;
-              else	  llargada= cole.llarg/llargadaTotal;
-              int ampladaCamp = (int)(listadoJasper.getColumnWidth()*llargada);
+              double llargada =  cole.llarg/llargadaTotal;
+              int ampladaCamp = (int)(listadoJasper.getColumnWidth()*llargada);  
               mae.general.jreports.Columna col = listadoJasper.addColumna(cole.titol,posIni,ampladaCamp,cole.tipus,cole.camp.field.getName(),null);
               col.getSt().setColorFont("#0e4b80");
               col.getTf().setColorFont("#3c454d");  
               if(cole.format != null && !cole.format.equals(""))
                 col.getTf().setPattern(cole.format);  
               posIni += ampladaCamp;
-              boolean totales = false;
               if(cole.acumula  || cole.media || cole.contador) {
                 mae.general.jreports.Totalizar.Calculation tipe;
                 if(cole.acumula) tipe = mae.general.jreports.Totalizar.Calculation.SUM;
@@ -2124,10 +2120,9 @@ public class ProgQuerylis extends Program
                 else tipe = mae.general.jreports.Totalizar.Calculation.COUNT;
                 mae.general.jreports.Totalizar t =listadoJasper.addTotalizar(cole.titol, col, tipe);
                 t.setBackGroundColor("#AFC0C7");
-                totales=true;
               } 
               if(cole.rotura || cole.saltapag) {
-                mae.general.jreports.Rotura rot = listadoJasper.addRotura("n"+cole.camp.field.getName(),"$F{" + cole.camp.field.getName() +  "}",!totales?"":"TOTAL " + (cole.titRotura==null?"":cole.titRotura));
+                mae.general.jreports.Rotura rot = listadoJasper.addRotura("n"+cole.camp.field.getName(),"$F{" + cole.camp.field.getName() +  "}","TOTAL " + (cole.titRotura==null?"":cole.titRotura));
                 rot.setSaltoPagina(cole.saltapag);
                 if(cole.titRotura!=null)
                   rot.setGroupHeaderName("\"" + cole.titRotura + " :\" + $F{" + cole.camp.field.getName() + "}");                
@@ -2143,8 +2138,6 @@ public class ProgQuerylis extends Program
               if (listadoJasper.generalJRXML()) {
             mae.general.jreports.PrintJasperWork pjw = new mae.general.jreports.PrintJasperWork ("Listado de Diario",null);          
             pjw.addListado(listadoJasper);
-            pjw.setExcelEmptySpaceCol(true);
-            pjw.setExcelEmptySpaceRows(true);
             pjw.dialog(querylis);          
           }
           
@@ -2628,24 +2621,24 @@ public class ProgQuerylis extends Program
     public Field qecaplicacion;
     public Field qecbbdd;
     public Field qeccampo;
+    public Field qeccontador;
     public Field qecformato;
     public Field qecfrase;
     public Field qecgrupby;
     public Field qecinipag;
     public Field qeclongitud;
+    public Field qecmedia;
     public Field qecorden;
     public Field qecorderby;
     public Field qecrestriccion;
+    public Field qecrotura;
     public Field qecsaltapag;
     public Field qecsum;
     public Field qectabla;
     public Field qectipo;
+    public Field qectitrotura;
     public Field qectitulo;
     public Field qecvisible;
-    public Field qecmedia;
-    public Field qeccontador;
-    public Field qecrotura;
-    public Field qectitrotura;
     class Quecolumn extends Table
       {
       public Quecolumn(Select select)
@@ -2664,24 +2657,24 @@ public class ProgQuerylis extends Program
       addField(qecaplicacion=new Field(this,quecolumn,"qecaplicacion"));
       addField(qecbbdd=new Field(this,quecolumn,"qecbbdd"));
       addField(qeccampo=new Field(this,quecolumn,"qeccampo"));
+      addField(qeccontador=new Field(this,quecolumn,"qeccontador"));
       addField(qecformato=new Field(this,quecolumn,"qecformato"));
       addField(qecfrase=new Field(this,quecolumn,"qecfrase"));
       addField(qecgrupby=new Field(this,quecolumn,"qecgrupby"));
       addField(qecinipag=new Field(this,quecolumn,"qecinipag"));
       addField(qeclongitud=new Field(this,quecolumn,"qeclongitud"));
+      addField(qecmedia=new Field(this,quecolumn,"qecmedia"));
       addField(qecorden=new Field(this,quecolumn,"qecorden"));
       addField(qecorderby=new Field(this,quecolumn,"qecorderby"));
       addField(qecrestriccion=new Field(this,quecolumn,"qecrestriccion"));
+      addField(qecrotura=new Field(this,quecolumn,"qecrotura"));
       addField(qecsaltapag=new Field(this,quecolumn,"qecsaltapag"));
       addField(qecsum=new Field(this,quecolumn,"qecsum"));
       addField(qectabla=new Field(this,quecolumn,"qectabla"));
       addField(qectipo=new Field(this,quecolumn,"qectipo"));
+      addField(qectitrotura=new Field(this,quecolumn,"qectitrotura"));
       addField(qectitulo=new Field(this,quecolumn,"qectitulo"));
       addField(qecvisible=new Field(this,quecolumn,"qecvisible"));
-      addField(qecmedia=new Field(this,quecolumn,"qecmedia"));
-      addField(qeccontador=new Field(this,quecolumn,"qeccontador"));
-      addField(qecrotura=new Field(this,quecolumn,"qecrotura"));
-      addField(qectitrotura=new Field(this,quecolumn,"qectitrotura"));
       }
     public String getWhere()
       {

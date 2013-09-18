@@ -38,9 +38,9 @@ public class PrintJasperWork {
 	protected String iconoVistaPrevia;	
 	private boolean showDialeg =true; 
 	protected boolean isVistaPrevia=false;
-	protected boolean EXCEL_WHITE_BACKGROUND;
-	protected boolean EXCEL_EMPTY_SPACE_ROWS;
-	protected boolean EXCEL_EMPTY_SPACE_COL;
+	//protected boolean EXCEL_WHITE_BACKGROUND;
+	//protected boolean EXCEL_EMPTY_SPACE_ROWS;
+	//protected boolean EXCEL_EMPTY_SPACE_COL;
 	public String  parametroPaginaInicial;
 
 	private void showPanels(){
@@ -95,7 +95,7 @@ public class PrintJasperWork {
 	public boolean isShowDialeg(){
 		return showDialeg;
 	}
-	
+	/*
 	public void setExcelWhiteBackground(boolean whiteBackground) {
 		this.EXCEL_WHITE_BACKGROUND = whiteBackground;
 	}
@@ -108,6 +108,7 @@ public class PrintJasperWork {
 		this.EXCEL_EMPTY_SPACE_COL = emptySpaceCol;
 	}
 	
+	*/
 	public void vistaPrevia() {
 		showDialeg =false;
 		PrintJasperPanelVisor panel = new  PrintJasperPanelVisor(this);
