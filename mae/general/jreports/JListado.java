@@ -74,6 +74,8 @@ public class JListado {
 	private Hashtable<String, Integer> fields;
 	private boolean isXmlDataSource = false;
 	private JRXmlDataSource xmlDataSource;
+	public Vector<String> vPropiedadesExcel;
+	public boolean propiedadesExcelAutomaticas;
 
 	public JListado (Select slistado, Orientacion or) {
 		rutaFicheroJRXML = null;
@@ -88,6 +90,8 @@ public class JListado {
 		}
 		dummyExtraBands = new Vector<Band>();
 		dummyExtraFirstBands = new Vector<Band>();
+		vPropiedadesExcel = new Vector<String> ();
+		propiedadesExcelAutomaticas = true;
 	}
 
 	public JListado (String queryString, Hashtable<String, Integer> fields, Orientacion or) {
@@ -98,6 +102,8 @@ public class JListado {
 		this.fields = fields;
 		dummyExtraBands = new Vector<Band>();
 		dummyExtraFirstBands = new Vector<Band>();
+		vPropiedadesExcel = new Vector<String> ();
+		propiedadesExcelAutomaticas = true;
 	}
 
 	public void setDefaultParameters() {
@@ -1253,27 +1259,26 @@ public class JListado {
 			pw.write("<property name=\"ireport.x\" value=\"0\"/>");
 			pw.write("<property name=\"ireport.y\" value=\"0\"/>");
 
-			//pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.band.1\" value=\"pageHeader\"/>");
+			if (propiedadesExcelAutomaticas) {
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.keep.first.band.1\" value=\"pageHeader\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.keep.first.band.2\" value=\"groupHeader\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.keep.first.group.2\" value=\"dummy\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.band.2\" value=\"pageFooter\"/>");
 
-			pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.keep.first.band.1\" value=\"pageHeader\"/>");
-			pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.keep.first.band.2\" value=\"groupHeader\"/>");
-			pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.keep.first.group.2\" value=\"dummy\"/>");
-			pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.band.2\" value=\"pageFooter\"/>");
-
-			for (int i=0;i<getNumRoturas();i++) {
-				Rotura r = getRotura(i);
-				pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.band." + (i+3) + "\" value=\"groupHeader\"/>");
-				pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.group." + (i+3) + "\" value=\"" + r.getNombre() + "\"/>");
-				//pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.keep.first.band.1\" value=\"columnHeader\"/>");
-				//pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.keep.first.band.2\" value=\"pageHeader\"/>");
-
+				for (int i=0;i<getNumRoturas();i++) {
+					Rotura r = getRotura(i);
+					pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.band." + (i+3) + "\" value=\"groupHeader\"/>");
+					pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.group." + (i+3) + "\" value=\"" + r.getNombre() + "\"/>");
+				}
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.white.page.background\" value=\"false\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.rows\" value=\"false\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.columns\" value=\"false\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.detect.cell.type\" value=\"true\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
 			}
-			pw.write("<property name=\"net.sf.jasperreports.export.xls.white.page.background\" value=\"false\"/>");
-			pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.rows\" value=\"false\"/>");
-			pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.columns\" value=\"false\"/>");
-			pw.write("<property name=\"net.sf.jasperreports.export.xls.detect.cell.type\" value=\"true\"/>");
-			pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
-			//pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"false\"/>");
+			for (int i=0;i<vPropiedadesExcel.size();i++) {
+				pw.write(vPropiedadesExcel.elementAt(i));				
+			}
 		}
 		catch (Exception e) {
 			sError = ""+e;
