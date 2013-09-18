@@ -89,3 +89,4 @@
 130903 --> APXAVI:	canvis query.
 130904 --> APJORDI:	canvis JASPER .. poder afegir propietats extra de excel.
 130905 --> APJORDI:	canvis JASPER EN EL EXCEL QUE NO PAGINI.
+130906 --> APXAVI:	Modificions anteriors no grabades a l'arbre

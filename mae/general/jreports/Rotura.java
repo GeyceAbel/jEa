@@ -26,7 +26,8 @@ public class Rotura {
 	//java.util.List<Integer> columnes;
 	java.util.List<Totalizar> totales;
 	//private String expression;
-	private String backGroundHeaderColor = "#F0F8FF";
+	//private String backGroundHeaderColor = "#F0F8FF";
+	private String backGroundHeaderColor = "#CAC3A2";
 	private int headerHeight;
 	private boolean igualIndent;
 	private boolean textoRoturaEsExpresion;
