@@ -91,3 +91,4 @@
 130905 --> APJORDI:	canvis JASPER EN EL EXCEL QUE NO PAGINI.
 130906 --> APXAVI:	Modificions anteriors no grabades a l'arbre
 130907 --> APJORDI:	canvis JASPER.
+130908 --> APESTER: posat indexos per JEO

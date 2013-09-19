@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130621
-// Hora:             11:26:08
+// Fecha:            20130919
+// Hora:             16:28:20
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -60,7 +60,18 @@ public class ProgInsindices extends Program
         connJModelos.disconnect();
         }
       }
-  
+    else if ( vindices.vvaplicacion.getString().equals("JEO") ) {
+       Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()) , user , "M" , "INSINDICES" , "Reconstruccion de Indices BD JEO Ver1.0" , Easp.dominio , ""  );
+      DBConnection connJEO = Easp.getConnexio("jeo", Easp.connEA);
+      if ( connJEO != null ) {
+        if ( execSentencias(connJEO,indicesReconstruirSQL_jEO) ) {
+          Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
+          }
+        else Maefc.message("El proceso ha finalizado. \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
+        connJEO.disconnect();
+        }
+      }
+    
     }
   
   
@@ -97,6 +108,18 @@ public class ProgInsindices extends Program
         connJModelos.disconnect();
       }
     }
+    else  if ( vindices.vvaplicacion.getString().equals("JEO") ) {
+       Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()) , user , "A" , "INSINDICES" , "Creación de Indices  BD JEO Ver1.0 " , Easp.dominio , ""  );
+      DBConnection connJEO = Easp.getConnexio("jeo", Easp.connEA);
+      if ( connJEO != null ) {
+        if ( execSentencias(connJEO,indicesSQL_jEO) ) {
+          Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
+          }
+        else Maefc.message("El proceso ha finalizado. \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
+        connJEO.disconnect();
+        }
+      }
+  
   }
   
   
@@ -117,10 +140,209 @@ public class ProgInsindices extends Program
     return retorn ;
   }
   
-  
-  
-  
-  
+  String indicesSQL_jEO [] = {
+  "CREATE INDEX ID_ACTIVIDADES_2 ON ACTIVIDADES (ACTEJERCICIO,ACTEMPRESA,ACTCODIGO)",
+  "CREATE INDEX ID_PCUENTAS_2 ON PCUENTAS (PCUEMPRESA,PCUCUENTA,PCUSUBCUENTA)",
+  "CREATE INDEX ID_PCMAYOR_2 ON PCMAYOR (PCMEMPRESA,PCMCUENTA)",
+  "CREATE INDEX ID_CAMORTIZIRPF_2 ON CAMORTIZIRPF (cirelemento,cirejercicio)",
+  "CREATE INDEX ID_PCLOCALES_2 ON PCLOCALES (PCLEJERCICIO,PCLEMPRESA,PCLCUENTA,PCLSUBCUENTA)",
+  "CREATE INDEX ID_LISTADO347_2 ON LISTADO347 (L347IDEN)",
+  "CREATE INDEX ID_SELECCION_2  ON SELECCION    (selusuario,selprograma,selempresa,selactividad )",
+  "CREATE NONCLUSTERED INDEX ID_APUNTES_2 ON APUNTES"+
+  " ( apuejercicio , apuempresa , aputipofactura)"+
+  " INCLUDE ( apuiden,"+
+  " apuactividad,"+
+  " apuserie,"+
+  " apunumero,"+
+  " apufechafactura,"+
+  " apudocumento,"+
+  " aputotalfactura,"+
+  " apubaseiva1,"+
+  " apubaseiva2,"+
+  " apubaseiva3,"+
+  " apubaseexenta) WITH (SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF) ON [PRIMARY]",
+  " CREATE NONCLUSTERED INDEX ID_APUNTES_3 ON APUNTES"+
+  " (      apuempresa , apuejercicio ,  apuactividad , aputipofactura , apufechafactura DESC, apuserie , apunumero DESC )"+
+  " INCLUDE ( apuiden,"+
+  " apufechacobro,"+
+  " apucuenta,"+
+  " apusubcuenta,"+
+  " apudocumento,"+
+  " apunroinggasto,"+
+  " apuconcepto,"+
+  " apunif,"+
+  " apunombre,"+
+  " apudescripcion,"+
+  " aputransaccion,"+
+  " apudeducible,"+
+  " apuinclprorrata,"+
+  " apucultivoirpf,"+
+  " apucultivoiva,"+
+  " aputipotierras,"+
+  " apulibroirpf,"+
+  " apulibroiva,"+
+  " aputotalfactura,"+
+  " apubaseiva1,"+
+  " apuporciva1,"+
+  " apuporcreceq1,"+
+  " apuimporteiva1,"+
+  " apuimporterec1,"+
+  " apu347base1,"+
+  " apu349base1,"+
+  " apubaseiva2,"+
+  " apuporciva2,"+
+  " apuporcreceq2,"+
+  " apuimporteiva2,"+
+  " apuimporterec2,"+
+  " apu347base2,"+
+  " apu349base2,"+
+  " apubaseiva3,"+
+  " apuporciva3,"+
+  " apuporcreceq3,"+
+  " apuimporteiva3,"+
+  " apuimporterec3,"+
+  " apu347base3,"+
+  " apu349base3,"+
+  " apubaseirpf,"+
+  " apuporcirpf,"+
+  " apuimporteirpf,"+
+  " apubaseexenta,"+
+  " apu347basexenta,"+
+  " apu349basexenta,"+
+  " apucodplantilla,"+
+  " apuivaigic,"+
+  " apuregimeniva,"+
+  " apurectifica,"+
+  " apurectserie,"+
+  " apurectnumero,"+
+  " apurecfecha) WITH (SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF) ON [PRIMARY]",
+  " CREATE NONCLUSTERED INDEX ID_APUNTES_4 ON APUNTES"+
+  " (        apuejercicio , apuempresa ,aputipofactura ,apufechafactura ,apulibroiva ,apuactividad ,apuiden ,aputransaccion ,apuserie ,apunumero )"+
+  " INCLUDE ( apufechacobro,"+
+  " apucuenta,"+
+  " apusubcuenta,"+
+  " apudocumento,"+
+  " apunroinggasto,"+
+  " apuconcepto,"+
+  " apunif,"+
+  " apunombre,"+
+  " apudescripcion,"+
+  " apudeducible,"+
+  " apuinclprorrata,"+
+  " apucultivoirpf,"+
+  " apucultivoiva,"+
+  " aputipotierras,"+
+  " apulibroirpf,"+
+  " aputotalfactura,"+
+  " apubaseiva1,"+
+  " apuporciva1,"+
+  " apuporcreceq1,"+
+  " apuimporteiva1,"+
+  " apuimporterec1,"+
+  " apu347base1,"+
+  " apu349base1,"+
+  " apubaseiva2,"+
+  " apuporciva2,"+
+  " apuporcreceq2,"+
+  " apuimporteiva2,"+
+  " apuimporterec2,"+
+  " apu347base2,"+
+  " apu349base2,"+
+  " apubaseiva3,"+
+  " apuporciva3,"+
+  " apuporcreceq3,"+
+  " apuimporteiva3,"+
+  " apuimporterec3,"+
+  " apu347base3,"+
+  " apu349base3,"+
+  " apubaseirpf,"+
+  " apuporcirpf,"+
+  " apuimporteirpf,"+
+  " apubaseexenta,"+
+  " apu347basexenta,"+
+  " apu349basexenta,"+
+  " apucodplantilla,"+
+  " apuivaigic,"+
+  " apuregimeniva,"+
+  " apurectifica,"+
+  " apurectserie,"+
+  " apurectnumero,"+
+  " apurecfecha,"+
+  " aputipoprovis,"+
+  " apufechaoperac) WITH (SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF) ON [PRIMARY]",
+  " CREATE NONCLUSTERED INDEX ID_BIENINVERSION_2 ON BIENINVERSION"+
+  " (       bieempresa ,bieactividad ,biefechautiliz ,bienumero ASC )"+
+  " INCLUDE ( bieelemento,"+
+  " biefechafactura,"+
+  " biecuenta,"+
+  " biesubcuenta,"+
+  " biedocumento,"+
+  " bienif,    "+
+  " bienombre, "+
+  " biectaamortizac,"+
+  " biesbctaamortiz,"+
+  " biedescripcion, "+
+  " bietotalfactura,"+
+  " biebaseiva,     "+
+  " bieporciva,     "+
+  " biecuotaiva,    "+
+  " bievaladquis,   "+
+  " bievalresidual, "+
+  " bieamortacumul, "+
+  " bietipobien,    "+
+  " bieelemnuevo,   "+
+  " bieelemusado,   "+
+  " bietipoamortiz, "+
+  " biemasunturno,  "+
+  " bienumerohoras, "+
+  " bielibamorempl, "+
+  " bieincrplantil, "+
+  " bielimiteinver, "+
+  " bielibamoresc,  "+
+  " bieamortacel,   "+
+  " biecoefincre,   "+
+  " bienrounidad,   "+
+  " biefechabaja,   "+
+  " biecausabaja,   "+
+  " biecultivoirpf, "+
+  " biecultivoiva,  "+
+  " biecodigotabla, "+
+  " bieperiodirpf,  "+
+  " bieporcenirpf,  "+
+  " bieperioregul,  "+
+  " biedivisor,     "+
+  " biepprorrata,   "+
+  " biecodasiento,  "+
+  " bieporcentabla, "+
+  " bieperiodotabla,"+
+  " biecodtablamort) WITH (SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF) ON [PRIMARY]",
+  " CREATE NONCLUSTERED INDEX ID_DEFLIBROS_2 ON DEFLIBROS"+
+  " (       dlitipolibro ,dliejercicio ,dlivisible ,  dliorden)    "+
+  " INCLUDE ( dlicolumna,"+
+  " dlititulo,           "+
+  " dlilongitud,         "+
+  " dlitipo,             "+
+  " dlimascara,          "+
+  " dlimascara0,         "+
+  " dlitotalizar) WITH (SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF) ON [PRIMARY]",
+  " CREATE NONCLUSTERED INDEX ID_EMPRESA_2 ON EMPRESA"+
+  " (    empnif , empmovimientos , empcodigo)     "+
+  " WITH (SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF) ON [PRIMARY]",
+  };
+  String indicesReconstruirSQL_jEO[] = {
+   "ALTER INDEX ID_ACTIVIDADES_2 ON ACTIVIDADES      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+  "ALTER INDEX ID_PCUENTAS_2 ON PCUENTAS      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+  "ALTER INDEX ID_PCMAYOR_2 ON PCMAYOR      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+  "ALTER INDEX ID_CAMORTIZIRPF_2 ON CAMORTIZIRPF      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+  "ALTER INDEX ID_PCLOCALES_2 ON PCLOCALES      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+  "ALTER INDEX ID_LISTADO347_2 ON LISTADO347      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+  "ALTER INDEX ID_SELECCION_2  ON SELECCION      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+  "ALTER INDEX ID_APUNTES_2 ON APUNTES      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+  "ALTER INDEX ID_APUNTES_3 ON APUNTES       REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )"+
+  "ALTER INDEX ID_APUNTES_4 ON APUNTES       REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )"+
+  "ALTER INDEX ID_BIENINVERSION_2 ON BIENINVERSION       REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )"+
+  "ALTER INDEX ID_DEFLIBROS_2 ON DEFLIBROS       REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )"+
+  "ALTER INDEX ID_EMPRESA_2 ON EMPRESA       REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )"};
   /* Creacion de Indices para optimización de las Bases de Datos . */
   String indicesSQL_jGestion[] = {
       "CREATE INDEX ID_MOVTOPROMOVTOS  ON MOVTOS    (MOVCLIENTE,MOVASESOR,MOVSEFAC)",
@@ -424,8 +646,9 @@ public class ProgInsindices extends Program
         setLength(12);
         setPrintable(false);
         setDescriptionShow(false);
-        addItem("JNOMINA");
+        addItem("JEO");
         addItem("JGESTION");
+        addItem("JNOMINA");
         addItem("JMODELOS");
         }
       public boolean obligate()
