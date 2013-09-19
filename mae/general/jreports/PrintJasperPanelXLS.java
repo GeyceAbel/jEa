@@ -137,7 +137,7 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 					if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);    		  
 					else if  (!jl.isXmlDataSource()) vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
 					else vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getXmlDataSource() , job.titulo);
-					jl.getParameters().put(JRParameter.IS_IGNORE_PAGINATION,Boolean.TRUE);
+					if (jl.paginarExcel ) jl.getParameters().put(JRParameter.IS_IGNORE_PAGINATION,Boolean.TRUE);
 					vp.setParameter(jl.getParameters());				
 					vp.compile();    	
 					jprintlist.add(vp.getJprint());
@@ -145,6 +145,7 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 				JRExporter exporter = new JRXlsExporter();
 				exporter.setParameter(JRXlsExporterParameter.JASPER_PRINT_LIST, jprintlist);
 				FileOutputStream output = new FileOutputStream(new File(destino.getString()));
+				if (job.multiPaginaExcel ) exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
 				exporter.setParameter(JRXlsExporterParameter.OUTPUT_STREAM, output);
 				exporter.setParameter(JExcelApiExporterParameter.IS_COLLAPSE_ROW_SPAN, Boolean.TRUE);				
 				exporter.exportReport();

@@ -76,7 +76,9 @@ public class JListado {
 	private JRXmlDataSource xmlDataSource;
 	public Vector<String> vPropiedadesExcel;
 	public boolean propiedadesExcelAutomaticas;
-
+	public Vector <Variable> vExtraVariables;
+	public boolean paginarExcel = true;
+	
 	public JListado (Select slistado, Orientacion or) {
 		rutaFicheroJRXML = null;
 		orientacionPapel = or;
@@ -91,7 +93,9 @@ public class JListado {
 		dummyExtraBands = new Vector<Band>();
 		dummyExtraFirstBands = new Vector<Band>();
 		vPropiedadesExcel = new Vector<String> ();
+		vExtraVariables = new Vector<Variable> ();
 		propiedadesExcelAutomaticas = true;
+		paginarExcel = true; 
 	}
 
 	public JListado (String queryString, Hashtable<String, Integer> fields, Orientacion or) {
@@ -103,7 +107,9 @@ public class JListado {
 		dummyExtraBands = new Vector<Band>();
 		dummyExtraFirstBands = new Vector<Band>();
 		vPropiedadesExcel = new Vector<String> ();
+		vExtraVariables = new Vector<Variable> ();		
 		propiedadesExcelAutomaticas = true;
+		paginarExcel = true; 
 	}
 
 	public void setDefaultParameters() {
@@ -125,7 +131,7 @@ public class JListado {
 		sinDataSource = false;
 		parametros = new HashMap<String, Object>();
 		titleHeight = 40;
-		nombreReport = "ReportAutomatico";
+		nombreReport = "ReportAutomatico";		
 		setPapel();		
 	}
 
@@ -185,6 +191,7 @@ public class JListado {
 		this.rutaFicheroJRXML= rutaJRXML; 
 		parametros = new HashMap<String, Object>();
 		sinDataSource = false;
+		paginarExcel = true; 
 	}
 
 	public void addParameter (String clau, String valor) {
@@ -414,6 +421,7 @@ public class JListado {
 			if (bOk) bOk = generarVariablesColumnas (pw);
 			if (bOk) bOk = generarVariablesRoturas (pw);	
 			if (bOk) bOk = generarVariablesTotales (pw);
+			if (bOk) bOk = generarExtraVariables (pw);
 			//initTamanyoColumnes ();
 			if(viewTotalesFinales)
 				if (bOk) bOk = generarTotalesFooter (pw);
@@ -839,6 +847,31 @@ public class JListado {
 			}
 
 
+		}
+		catch (Exception e) {
+			sError = ""+e;
+			bOk = false;
+		}
+		return bOk;
+	}
+	
+	private boolean generarExtraVariables (BufferedWriter pw) {
+		boolean bOk = true;
+		try {
+			for (int i=0;i<vExtraVariables.size();i++) {
+				Variable v = vExtraVariables.elementAt(i);
+				String resetType = v.getResetType();
+					if (resetType == null || resetType.length()==0) resetType = "None";
+					String resetGroup = v.getResetGroup();
+					if (resetGroup == null || resetGroup.length()==0) resetGroup = "";
+					else resetGroup =  " resetGroup=\""+resetGroup+"\"";
+
+					pw.write("<variable name=\""+v.getNom()+"\" class=\""+getTipoFieldColumna(v.getTipo())+"\" calculation=\"Sum\" resetType=\""+resetType+"\""+resetGroup+">");
+					pw.write("<variableExpression><"+v.getExpression()+"></variableExpression>");
+					String initialValue = v.getInitialValue();
+					if (initialValue != null && initialValue.length()>0) pw.write("<initialValueExpression><![CDATA["+initialValue+"]]></initialValueExpression>");
+					pw.write("</variable>");					
+			}
 		}
 		catch (Exception e) {
 			sError = ""+e;

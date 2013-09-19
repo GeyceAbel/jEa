@@ -42,6 +42,7 @@ public class PrintJasperWork {
 	//protected boolean EXCEL_EMPTY_SPACE_ROWS;
 	//protected boolean EXCEL_EMPTY_SPACE_COL;
 	public String  parametroPaginaInicial;
+	public boolean multiPaginaExcel = false;
 
 	private void showPanels(){
      	 for (int j=0;j<vjv.size();j++) {
@@ -74,6 +75,7 @@ public class PrintJasperWork {
 		this.titulo = titulo;
 		this.conn = conn;		
 		this.tituloVistaPrevia = "Vista Previa";
+		multiPaginaExcel = false;
 	}
 	
 	public PrintJasperWork(String titulo,File xmlDataSourceFile,String nodeLoop) {
@@ -82,6 +84,7 @@ public class PrintJasperWork {
 		this.xmlDataSourceFile = xmlDataSourceFile;	
 		this.xmlNodeLoop = nodeLoop;
 		this.tituloVistaPrevia = "Vista Previa";
+		multiPaginaExcel = false;
 	}
 
 	public void dialog (Program program) {

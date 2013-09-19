@@ -7,13 +7,16 @@ public class Variable {
 	private String resetType;
 	private String resetGroup;
 	private String initialValue;
-	
+	private int tipo;
+
 	public Variable(String nom) {
 		this.nom = nom;
+		tipo = Columna.DOUBLE;
 	}
 	public Variable(String nom,String expression) {
 		this.nom = nom;
-			this.Expression = "![CDATA["+expression+"]]";
+		this.Expression = "![CDATA["+expression+"]]";
+		tipo = Columna.DOUBLE;
 	}
 
 	public String getNom() {
@@ -54,5 +57,11 @@ public class Variable {
 	public void setInitialValue(String initialValue) {
 		this.initialValue = initialValue;
 	}
-	
+	public int getTipo() {
+		return tipo;
+	}
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
+
 }
