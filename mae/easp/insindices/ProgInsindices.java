@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130919
-// Hora:             16:28:20
+// Fecha:            20130920
+// Hora:             13:47:49
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -648,8 +648,8 @@ public class ProgInsindices extends Program
         setDescriptionShow(false);
         addItem("JEO");
         addItem("JGESTION");
-        addItem("JNOMINA");
         addItem("JMODELOS");
+        addItem("JNOMINA");
         }
       public boolean obligate()
         {
