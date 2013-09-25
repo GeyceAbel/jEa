@@ -92,3 +92,4 @@
 130906 --> APXAVI:	Modificions anteriors no grabades a l'arbre
 130907 --> APJORDI:	canvis JASPER.
 130908 --> APESTER: posat indexos per JEO
+130910 --> APESTER: Actualitzar la taula COEFICCORREC 2013
