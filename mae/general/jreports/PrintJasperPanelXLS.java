@@ -6,6 +6,7 @@ import geyce.maefc.ControlEdit;
 import geyce.maefc.LayoutHtml;
 import geyce.maefc.LocationTabbed;
 import geyce.maefc.Maefc;
+import geyce.maefc.Value;
 import geyce.maefc.VisualComponent;
 
 import java.io.File;
@@ -16,11 +17,14 @@ import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 
+import net.sf.jasperreports.engine.JRAbstractExporter;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JRParameter;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.export.JExcelApiExporterParameter;
+import net.sf.jasperreports.engine.export.JRCsvExporter;
+import net.sf.jasperreports.engine.export.JRCsvExporterParameter;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.export.JRPdfExporterParameter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
@@ -36,6 +40,7 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 	//public ControlCheck    archivoCSVcab;
 	public ControlButton   crear;
 	public ControlCheck    abrir;
+	public ControlCheck    csv;
 	private PrintJasperWork job;
 
 	public PrintJasperPanelXLS(PrintJasperWork job) {
@@ -71,7 +76,9 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 			public boolean valid()
 			{
 				int punt = destino.getString().lastIndexOf(".");
-				String extensio="XLS";
+				String extensio="";
+				if(csv.getBoolean())extensio="CSV";
+				else extensio="XLS";				 
 				if (punt < 0 || !destino.getString().substring(punt + 1).toUpperCase().equals(extensio))
 				{
 					setMessageWarning("La extensión del archivo de salida tiene que ser ."+extensio);
@@ -107,6 +114,20 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 		abrir = new ControlCheck(this);
 		abrir.setName("vvabrir");
 		addControl(abrir);
+		
+		// csv
+		csv = new ControlCheck(this) {
+			public void userChange(Value v) {
+				if(v.getBoolean()) destino.setValue(destino.getString().replace(".xls", ".csv"));
+				else destino.setValue(destino.getString().replace(".csv", ".xls"));
+				//super.onUserChage();
+				super.userChange(v);
+				this.show();
+			}
+		};
+		csv.setName("vvformatocsv");
+		addControl(csv);
+		
 
 		// Butó crear
 		crear = new ControlButton(this)
@@ -142,13 +163,30 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 					vp.compile();    	
 					jprintlist.add(vp.getJprint());
 				}
-				JRExporter exporter = new JRXlsExporter();
-				exporter.setParameter(JRXlsExporterParameter.JASPER_PRINT_LIST, jprintlist);
 				FileOutputStream output = new FileOutputStream(new File(destino.getString()));
-				if (job.multiPaginaExcel ) exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
-				exporter.setParameter(JRXlsExporterParameter.OUTPUT_STREAM, output);
-				exporter.setParameter(JExcelApiExporterParameter.IS_COLLAPSE_ROW_SPAN, Boolean.TRUE);				
-				exporter.exportReport();
+				if(!csv.getBoolean()) {
+				  JRExporter exporter = new JRXlsExporter();
+				  exporter.setParameter(JRXlsExporterParameter.JASPER_PRINT_LIST, jprintlist);
+				  
+				  if (job.multiPaginaExcel ) exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
+				  exporter.setParameter(JRXlsExporterParameter.OUTPUT_STREAM, output);
+				  exporter.setParameter(JExcelApiExporterParameter.IS_COLLAPSE_ROW_SPAN, Boolean.TRUE);				
+				  exporter.exportReport();				
+				  
+				}
+				//exportacio csv
+				else {
+					//final JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+				    JRAbstractExporter exporter = new JRCsvExporter();
+				    exporter.setParameter(JRCsvExporterParameter.JASPER_PRINT_LIST, jprintlist);
+				    exporter.setParameter(JRCsvExporterParameter.FIELD_DELIMITER, ";");
+				    //exporter.setParameter(JRCsvExporterParameter.PROGRESS_MONITOR, progressMonitor);
+				    exporter.setParameter(JRCsvExporterParameter.IGNORE_PAGE_MARGINS, true);
+				    //exporter.setParameter(JRCsvExporterParameter.RECORD_DELIMITER, "\"");
+				    exporter.setParameter(JRCsvExporterParameter.OUTPUT_STREAM, output);
+				    //exporter.setParameter(JRCsvExporterParameter., output);
+				    exporter.exportReport();	
+				}
 				output.close();
 				if (abrir.getBoolean()) abrir(destino.getString(),"Microsoft Excel");
 				job.dialog.exit();

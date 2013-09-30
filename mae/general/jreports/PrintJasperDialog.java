@@ -5,8 +5,6 @@ import geyce.maefc.LayoutTabbed;
 import geyce.maefc.LocationWindow;
 import geyce.maefc.Program;
 
-import java.util.*;
-
 public class PrintJasperDialog extends Form
 {
 	private PrintJasperWork     job;
@@ -15,6 +13,7 @@ public class PrintJasperDialog extends Form
 	private boolean pVISOR;
 	private boolean pImpresora;
 	private boolean pDOCX;
+	private boolean pTXT;
 
 	//private Vector panels   = new Vector();
 
@@ -60,6 +59,10 @@ public class PrintJasperDialog extends Form
 	public void setpDOCX(boolean pDOCX) {
 		this.pDOCX = pDOCX;
 	}
+	
+	public void setpTXT(boolean pTXT) {
+		this.pTXT = pTXT;
+	}
 
 	public void showDialog()
 	{
@@ -91,6 +94,11 @@ public class PrintJasperDialog extends Form
 		}
 		if (pDOCX) {
 			PrintJasperPanel panel = new  PrintJasperPanelDOC(job);
+			panel.setParent(this);
+			addTab(panel);
+		}
+		if (pTXT) {
+			PrintJasperPanel panel = new  PrintJasperPanelTXT(job);
 			panel.setParent(this);
 			addTab(panel);
 		}

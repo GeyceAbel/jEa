@@ -2,6 +2,8 @@ package mae.general.jreports;
 
 import java.awt.Image;
 import java.io.File;
+import java.util.Hashtable;
+import java.util.LinkedHashMap;
 import java.util.Vector;
 
 import net.sf.jasperreports.view.JasperViewer;
@@ -23,6 +25,7 @@ public class PrintJasperWork {
 	private boolean pestanaVISOR=true;
 	private boolean pestanaImpresora=true;
 	private boolean pestanaDOCX=true;
+	private boolean pestanaTXT=false;
 	protected Vector <JListado> vTarea;
 	protected String destino;
 	protected boolean abrir;
@@ -43,7 +46,8 @@ public class PrintJasperWork {
 	//protected boolean EXCEL_EMPTY_SPACE_COL;
 	public String  parametroPaginaInicial;
 	public boolean multiPaginaExcel = false;
-
+    public LinkedHashMap<String,String[]> fieldsNameLength;
+	
 	private void showPanels(){
      	 for (int j=0;j<vjv.size();j++) {
          	   vjv.elementAt(j).setVisible(true);
@@ -68,6 +72,12 @@ public class PrintJasperWork {
 
 	public void setPestanaDOCX(boolean pestanaDOCX) {
 		this.pestanaDOCX = pestanaDOCX;
+	}
+	
+	public void setPestanaTXT(boolean pestanaTXT,LinkedHashMap<String,String[]> fieldsNameLength,File xmlFileDataSource) {
+		this.pestanaTXT = pestanaTXT;
+		this.fieldsNameLength = fieldsNameLength;
+		xmlDataSourceFile = xmlFileDataSource;
 	}
 
 	public PrintJasperWork(String titulo,DBConnection conn) {
@@ -148,6 +158,7 @@ public class PrintJasperWork {
 		dialog.setpVISOR(pestanaVISOR);
 		dialog.setpImpresora(pestanaImpresora);
 		dialog.setpDOCX(pestanaDOCX);
+		dialog.setpTXT(pestanaTXT);
 		return dialog;
 	}
 

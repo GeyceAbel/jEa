@@ -93,3 +93,5 @@
 130907 --> APJORDI:	canvis JASPER.
 130908 --> APESTER: posat indexos per JEO
 130910 --> APESTER: Actualitzar la taula COEFICCORREC 2013
+130911 --> APXAVI:  Nova pestaña TXT al query. Posibilitat d'extraure tambe en format csv.
+130912 --> APXAVI:  Nou boto a query que simula el boto dels llistats vells.

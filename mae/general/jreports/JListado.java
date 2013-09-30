@@ -14,6 +14,7 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -71,7 +72,7 @@ public class JListado {
 	private int titleHeight;
 	private String nombreReport;
 	private String nombreVariablePaginaInicial;
-	private Hashtable<String, Integer> fields;
+	private LinkedHashMap<String, Integer> fields;
 	private boolean isXmlDataSource = false;
 	private JRXmlDataSource xmlDataSource;
 	public Vector<String> vPropiedadesExcel;
@@ -85,7 +86,7 @@ public class JListado {
 		this.slistado = slistado;
 		queryString = slistado.getSQL();
 		setDefaultParameters();
-		fields = new Hashtable<String, Integer> ();
+		fields = new LinkedHashMap<String, Integer> ();
 		for (int i=0;i<slistado.getNumColumns();i++) {
 			Field f = slistado.getColumn(i);
 			fields.put(f.getName(), f.getType());			
@@ -98,7 +99,7 @@ public class JListado {
 		paginarExcel = true; 
 	}
 
-	public JListado (String queryString, Hashtable<String, Integer> fields, Orientacion or) {
+	public JListado (String queryString, LinkedHashMap<String, Integer> fields, Orientacion or) {
 		rutaFicheroJRXML = null;
 		orientacionPapel = or;
 		this.queryString = queryString;
@@ -371,6 +372,9 @@ public class JListado {
 		this.margender = margender;
 	}
 
+	public String getTituloListado() {
+		return stTitulo.getLiteral();
+	}
 	public void setTituloListado (String tit) {
 		stTitulo = new StaticText(this,(0-margenizq),0,rightWidthPosicion,titleHeight);
 		stTitulo.setAligRight();
@@ -1293,12 +1297,21 @@ public class JListado {
 			pw.write("<property name=\"ireport.y\" value=\"0\"/>");
 
 			if (propiedadesExcelAutomaticas) {
+				
+				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band.3\" value=\"pageFooter\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band.4\" value=\"pageHeader\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.band.2\" value=\"pageFooter\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.rows\" value=\"true\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.columns\" value=\"true\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.white.page.background\" value=\"false\"/>");				
-				pw.write("<property name=\"net.sf.jasperreports.export.xls.detect.cell.type\" value=\"true\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.detect.cell.type\" value=\"true\"/>");				
 				pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
+				
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.column.width.ratio\" value=\"2.5f\"/>");
+				//pw.write("<property name=\"net.sf.jasperreports.export.xls.collapse.row.span\" value=\"true\"/>");	
+				
+				//pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");	
+				//pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"false\"/>");
 			}
 			for (int i=0;i<vPropiedadesExcel.size();i++) {
 				pw.write(vPropiedadesExcel.elementAt(i));				

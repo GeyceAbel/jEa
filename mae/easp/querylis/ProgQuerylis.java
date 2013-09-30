@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130918
-// Hora:             17:59:56
+// Fecha:            20130930
+// Hora:             17:03:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1938,11 +1938,11 @@ public class ProgQuerylis extends Program
     // Acciones
     public LinkAclistarnew aclistarnew;
     public LinkAclistarjr aclistarjr;
-    public LinkAclistar aclistar;
     public LinkAcdup acdup;
     public LinkAcimportar acimportar;
     public LinkAcexportar acexportar;
     public LinkAccombinar accombinar;
+    public LinkAclistar aclistar;
     class Location extends LocationBorder
       {
       public Location( )
@@ -2051,7 +2051,8 @@ public class ProgQuerylis extends Program
           }
         
         double llargadaTotal=0.0;
-        java.util.Hashtable<String,Integer> fields = new java.util.Hashtable<String, Integer>();
+        java.util.LinkedHashMap<String,Integer> fields = new java.util.LinkedHashMap<String, Integer>();
+        java.util.LinkedHashMap<String,String[]> fieldsLength = new java.util.LinkedHashMap<String, String[]>();
         for(int i=0;i<frase.columnes.size();i++) {        	  
             Columna col=(Columna)frase.columnes.elementAt(i);
             if (col.visible) { 
@@ -2067,21 +2068,32 @@ public class ProgQuerylis extends Program
           pw.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
           pw.newLine();
           pw.write("<queryjasper>");
-          pw.newLine();
+          //pw.newLine();
+          boolean first= true;
+          boolean enter= false;
           while(!seleccio.quorelacioPrincipal.eof) {
             pw.write("<register>");
-            pw.newLine();
+            //pw.newLine();
             for(int i=0;i<frase.columnes.size();i++) {        	  
               Columna col=(Columna)frase.columnes.elementAt(i);
               if (col.visible) { 
-                fields.put(col.camp.field.getName(), col.camp.field.getType());
+                if(first) {
+                  fields.put(col.camp.field.getName(), col.camp.field.getType());
+                  String[] llargadaTipus = new String[3];
+                  llargadaTipus[0] = String.valueOf(col.llarg);
+                  llargadaTipus[1] = String.valueOf(col.tipus);  
+                  llargadaTipus[2] = col.titol;
+                  fieldsLength.put(col.camp.field.getName(), llargadaTipus);
+                  enter=true;
+                }
                 //pw.write("<" + col.camp.field.getName() + ">" + (col.tipus==Value.STRING?Maefc.filtraXML(String.valueOf(col.valor)):col.valor) + "</" + col.camp.field.getName()+ ">");
                 pw.write("<" + col.camp.field.getName() + ">" + (col.tipus==Value.STRING?Maefc.filtraXML(String.valueOf(col.valor)):(col.valor==null?"":col.valor.getString().replace(".",","))) + "</" + col.camp.field.getName()+ ">");
-                pw.newLine();
+                //pw.newLine();
               }
             }
             pw.write("</register>");
-            pw.newLine();
+            if(enter) first =false;
+            //pw.newLine();
             seleccio.next();            
           }
           pw.write("</queryjasper>");
@@ -2090,7 +2102,7 @@ public class ProgQuerylis extends Program
           //Es crea el jrxml del jasperreport
           
           String nodeLoop= "/queryjasper/register";
-          mae.general.jreports.JListado listadoJasper = new mae.general.jreports.JListado(nodeLoop,fields,mae.general.jreports.JListado.Orientacion.HORIZONTAL);
+          mae.general.jreports.JListado listadoJasper = new mae.general.jreports.JListado(nodeLoop,fields,frase.apaisat?mae.general.jreports.JListado.Orientacion.HORIZONTAL:mae.general.jreports.JListado.Orientacion.VERTICAL);
           listadoJasper.setTituloListado(frase.titol); 
           listadoJasper.setColorPeuPagina ("#0e4b80");
           listadoJasper.setColorLineas ("#5e584e");
@@ -2109,7 +2121,9 @@ public class ProgQuerylis extends Program
               double llargada;
               if(cole.tipus == mae.general.jreports.Columna.DATE) llargada = 8/llargadaTotal;
               else	  llargada= cole.llarg/llargadaTotal;
-              int ampladaCamp = (int)(listadoJasper.getColumnWidth()*llargada);
+              //int ampladaCamp = (int)(listadoJasper.getColumnWidth()*llargada);
+              int ampladaCamp = (int)java.lang.Math.ceil((listadoJasper.getColumnWidth()*llargada));
+              if(ampladaCamp<5) ampladaCamp =5;              
               mae.general.jreports.Columna col = listadoJasper.addColumna(cole.titol,posIni,ampladaCamp,cole.tipus,cole.camp.field.getName(),null);
               col.getSt().setColorFont("#0e4b80");
               col.getTf().setColorFont("#3c454d");  
@@ -2143,118 +2157,13 @@ public class ProgQuerylis extends Program
               if (listadoJasper.generalJRXML()) {
             mae.general.jreports.PrintJasperWork pjw = new mae.general.jreports.PrintJasperWork ("Listado de Diario",null);          
             pjw.addListado(listadoJasper);
+            pjw.setPestanaTXT(true, fieldsLength,fjrxml);
             pjw.dialog(querylis);          
           }
           
           
         }
         catch(net.sf.jasperreports.engine.JRException ex) {
-            Maefc.message("No ha sido posible ejecutar este listado: "+ex.getMessage());
-            ex.printStackTrace();
-            }
-        catch(java.io.IOException ex) {
-          Maefc.message("No ha sido posible ejecutar este listado");
-          }
-        }
-        
-        }
-      }
-      
-    public class LinkAclistar extends Action
-      {
-      public LinkAclistar(Form form)
-        {
-        super(form);
-        setName("aclistar");
-        setTitle("&1 - Listar old");
-        setOptions(SHOW);
-        }
-      public void onAction()
-        {
-        if (parserSQL() == false) {
-          Maefc.message("Se han encontrado errores en el procesamiento \nde las variables, por favor revíselas","Procesamiento de variables",Maefc.ERROR_MESSAGE, Maefc.OK_OPTION);
-          //this.doShow();
-          }
-        else {
-        super.onAction();
-        
-        frase=llegeixFrase(qeffrase.getString());
-        
-        if (!demanarParametres(false)) 
-          return;
-        
-        seleccio=new Seleccio();
-        
-        seleccio.inicia();
-        if (seleccio.quorelacioPrincipal.eof) {
-          Maefc.message("No se ha encontrado información que cumple con la selección efectuada");
-          return;
-          }
-        
-        Inflistado listado=new Inflistado(querylis);
-        listado.setNewPrintingSystem(true);
-        String xml=creaXML();
-        
-        for(int i=0;i<frase.columnes.size();i++) {
-            Columna col=(Columna)frase.columnes.elementAt(i);
-            if (col.visible) {
-              col.reportData=new ReportData(listado);
-              col.reportData.setType(col.tipus);
-              /* Aixo cal fer-ho a la plantilla ya que per excel es diferent
-              if (col.format!=null) 
-                col.reportData.setFormat(col.format);
-              */        
-              col.reportData.setLength(col.llarg);
-              listado.addReportData(col.reportData);
-              }
-            }
-        
-        for(int i=0;i<frase.columnes.size();i++) {
-            Columna col=(Columna)frase.columnes.elementAt(i);
-            if (col.visible && col.acumula) {
-              col.reportDataTotal=new ReportData(listado);
-              col.reportDataTotal.setType(col.tipus);
-              /* Aixo cal fer-ho a la plantilla ya que per excel es diferent
-              if (col.format!=null) 
-                col.reportDataTotal.setFormat(col.format);
-              */ 
-              col.reportDataTotal.setLength(col.llarg);
-              listado.addReportData(col.reportDataTotal);
-              }
-            }
-        
-        try {
-          java.io.StringBufferInputStream in=new java.io.StringBufferInputStream(xml);
-          listado.setXmlDocument(com.sun.xml.tree.XmlDocument.createXmlDocument(in,false));
-        
-          PrintWork work=new PrintWork(true) {
-            public void init(PrintOutput out) {
-              super.init(out);
-              if (out instanceof PrintExcel) {
-                PrintExcel excel=(PrintExcel)out;
-                try {
-                  StringBuffer buffer=new StringBuffer();
-                  java.io.BufferedReader in=new java.io.BufferedReader(new java.io.InputStreamReader(ClassLoader.getSystemResourceAsStream("mae/easp/vbs/query.vbs")));
-                  String line;
-                  while((line=in.readLine())!=null) {
-                    buffer.append(line);
-                    buffer.append('\n');
-                  }
-                  excel.script=buffer.toString();
-                  excel.destino=System.getProperty("user.dir")+"\\resultado.xls";
-                  excel.plantilla=System.getProperty("user.dir")+"\\plantillas\\query.xls";
-                }
-                catch(Exception ex) {
-                  ErrorManagerDefault.generalEx(ex,"No ha sido posible obtener el script de generación archivo Excel");
-                  return;
-                }
-              }
-            }
-          };
-          work.add(listado);
-          work.dialog(querylis);
-        }
-        catch(org.xml.sax.SAXException ex) {
             Maefc.message("No ha sido posible ejecutar este listado: "+ex.getMessage());
             ex.printStackTrace();
             }
@@ -2462,6 +2371,112 @@ public class ProgQuerylis extends Program
         }
       }
       
+    public class LinkAclistar extends Action
+      {
+      public LinkAclistar(Form form)
+        {
+        super(form);
+        setName("aclistar");
+        setTitle("&6 - Más Listados");
+        setOptions(SHOW);
+        }
+      public void onAction()
+        {
+        if (parserSQL() == false) {
+          Maefc.message("Se han encontrado errores en el procesamiento \nde las variables, por favor revíselas","Procesamiento de variables",Maefc.ERROR_MESSAGE, Maefc.OK_OPTION);
+          //this.doShow();
+          }
+        else {
+        super.onAction();
+        
+        frase=llegeixFrase(qeffrase.getString());
+        
+        if (!demanarParametres(false)) 
+          return;
+        
+        seleccio=new Seleccio();
+        
+        seleccio.inicia();
+        if (seleccio.quorelacioPrincipal.eof) {
+          Maefc.message("No se ha encontrado información que cumple con la selección efectuada");
+          return;
+          }
+        
+        Inflistado listado=new Inflistado(querylis);
+        listado.setNewPrintingSystem(true);
+        String xml=creaXML();
+        
+        for(int i=0;i<frase.columnes.size();i++) {
+            Columna col=(Columna)frase.columnes.elementAt(i);
+            if (col.visible) {
+              col.reportData=new ReportData(listado);
+              col.reportData.setType(col.tipus);
+              /* Aixo cal fer-ho a la plantilla ya que per excel es diferent
+              if (col.format!=null) 
+                col.reportData.setFormat(col.format);
+              */        
+              col.reportData.setLength(col.llarg);
+              listado.addReportData(col.reportData);
+              }
+            }
+        
+        for(int i=0;i<frase.columnes.size();i++) {
+            Columna col=(Columna)frase.columnes.elementAt(i);
+            if (col.visible && col.acumula) {
+              col.reportDataTotal=new ReportData(listado);
+              col.reportDataTotal.setType(col.tipus);
+              /* Aixo cal fer-ho a la plantilla ya que per excel es diferent
+              if (col.format!=null) 
+                col.reportDataTotal.setFormat(col.format);
+              */ 
+              col.reportDataTotal.setLength(col.llarg);
+              listado.addReportData(col.reportDataTotal);
+              }
+            }
+        
+        try {
+          java.io.StringBufferInputStream in=new java.io.StringBufferInputStream(xml);
+          listado.setXmlDocument(com.sun.xml.tree.XmlDocument.createXmlDocument(in,false));
+        
+          PrintWork work=new PrintWork(true) {
+            public void init(PrintOutput out) {
+              super.init(out);
+              if (out instanceof PrintExcel) {
+                PrintExcel excel=(PrintExcel)out;
+                try {
+                  StringBuffer buffer=new StringBuffer();
+                  java.io.BufferedReader in=new java.io.BufferedReader(new java.io.InputStreamReader(ClassLoader.getSystemResourceAsStream("mae/easp/vbs/query.vbs")));
+                  String line;
+                  while((line=in.readLine())!=null) {
+                    buffer.append(line);
+                    buffer.append('\n');
+                  }
+                  excel.script=buffer.toString();
+                  excel.destino=System.getProperty("user.dir")+"\\resultado.xls";
+                  excel.plantilla=System.getProperty("user.dir")+"\\plantillas\\query.xls";
+                }
+                catch(Exception ex) {
+                  ErrorManagerDefault.generalEx(ex,"No ha sido posible obtener el script de generación archivo Excel");
+                  return;
+                }
+              }
+            }
+          };
+          work.add(listado);
+          work.dialog(querylis);
+        }
+        catch(org.xml.sax.SAXException ex) {
+            Maefc.message("No ha sido posible ejecutar este listado: "+ex.getMessage());
+            ex.printStackTrace();
+            }
+        catch(java.io.IOException ex) {
+          Maefc.message("No ha sido posible ejecutar este listado");
+          }
+        }
+        
+        }
+      }
+      
     public FormVseleccion(ProgQuerylis querylis)
       {
       super(querylis);
@@ -2480,11 +2495,11 @@ public class ProgQuerylis extends Program
       addControl(qefplantilla=new CtrlQefplantilla(this));
       addAction(aclistarnew=new LinkAclistarnew(this));
       addAction(aclistarjr=new LinkAclistarjr(this));
-      addAction(aclistar=new LinkAclistar(this));
       addAction(acdup=new LinkAcdup(this));
       addAction(acimportar=new LinkAcimportar(this));
       addAction(acexportar=new LinkAcexportar(this));
       addAction(accombinar=new LinkAccombinar(this));
+      addAction(aclistar=new LinkAclistar(this));
       setSelect(squery);
       }
     public void onInit()
