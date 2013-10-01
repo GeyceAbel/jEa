@@ -166,8 +166,8 @@ public class JListado {
 		}
 		else {
 			margensup = 30;
-			margeninf = 20;
-			margenizq = 30;
+			margeninf = 30;
+			margenizq = 20;
 			margender = 20;	
 			pagewidth = 595;
 			pageheight = 842;
@@ -1038,8 +1038,12 @@ public class JListado {
 		pw.write("<staticText>");
 		String tran = "";
 		if (st.isAsignarColorFondo()) tran = "mode=\"Opaque\" backcolor=\""+st.getColorFons()+"\" ";
-		pw.write("<reportElement forecolor=\""+st.getColorFont()+"\" x=\""+st.getPosInicial()+"\" y=\""+st.getY()+"\" width=\""+st.getWidth()+"\" height=\""+st.getAmplada()+"\" "+tran+"/>");
-
+		pw.write("<reportElement forecolor=\""+st.getColorFont()+"\" x=\""+st.getPosInicial()+"\" y=\""+st.getY()+"\" width=\""+st.getWidth()+"\" height=\""+st.getAmplada()+"\" "+tran+">");
+		
+		pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"true\"/>");
+		//pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");
+		pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
+		pw.write("</reportElement>");
 		String indent="";
 		if (st.isAligCenter()) {
 			pw.write("<textElement textAlignment=\"Center\"  verticalAlignment=\""+st.getVerticalAlig()+"\" >");
@@ -1078,6 +1082,11 @@ public class JListado {
 		if (tf.getPrintWhen()!=null && tf.getPrintWhen().length()>0) {
 			pw.write("<printWhenExpression>"+tf.getPrintWhen()+"</printWhenExpression>");	
 		}
+		pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"true\"/>");
+		//pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");
+		pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
+		
+		
 		pw.write("</reportElement>");
 		String indent ="";
 		if (tf.isAligDerecha())  {
@@ -1305,12 +1314,12 @@ public class JListado {
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.columns\" value=\"true\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.white.page.background\" value=\"false\"/>");				
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.detect.cell.type\" value=\"true\"/>");				
-				pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
+				//pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
 				
 				//pw.write("<property name=\"net.sf.jasperreports.export.xls.column.width.ratio\" value=\"2.5f\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.character.encoding\" value=\"ISO-8859-1\"/>");	
-				//pw.write("<property name=\"net.sf.jasperreports.export.xls.collapse.row.span\" value=\"true\"/>");
-				//pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");	
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.collapse.row.span\" value=\"true\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");	
 				//pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"true\"/>");
 				
 			}

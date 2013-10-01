@@ -97,3 +97,4 @@
 130912 --> APXAVI:  Nou boto a query que simula el boto dels llistats vells.
 130913 --> APXAVI:  Modificat titol a query.
 130914 --> APXAVI:  Modificacio boto query.
+130915 --> APXAVI:  query jasper. autofit column

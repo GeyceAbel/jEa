@@ -170,7 +170,9 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 				  
 				  if (job.multiPaginaExcel ) exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
 				  exporter.setParameter(JRXlsExporterParameter.OUTPUT_STREAM, output);
-				  exporter.setParameter(JExcelApiExporterParameter.IS_COLLAPSE_ROW_SPAN, Boolean.TRUE);				
+				  exporter.setParameter(JExcelApiExporterParameter.IS_COLLAPSE_ROW_SPAN, Boolean.TRUE);		
+				  exporter.setParameter(JRXlsExporterParameter.IGNORE_PAGE_MARGINS, Boolean.TRUE);	
+				  
 				  exporter.exportReport();				
 				  
 				}

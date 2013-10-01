@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20131001
-// Hora:             12:22:41
+// Hora:             18:18:26
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2123,7 +2123,9 @@ public class ProgQuerylis extends Program
               else	  llargada= cole.llarg/llargadaTotal;
               //int ampladaCamp = (int)(listadoJasper.getColumnWidth()*llargada);
               int ampladaCamp = (int)java.lang.Math.ceil((listadoJasper.getColumnWidth()*llargada));
-              if(ampladaCamp<5) ampladaCamp =5;              
+              if(ampladaCamp<5) ampladaCamp =5;    
+              if(x==frase.columnes.size()-1) 
+                ampladaCamp = (listadoJasper.getRightWidthPosicion()-listadoJasper.getMargender())-posIni;          
               mae.general.jreports.Columna col = listadoJasper.addColumna(cole.titol,posIni,ampladaCamp,cole.tipus,cole.camp.field.getName(),null);
               col.getSt().setColorFont("#0e4b80");
               col.getTf().setColorFont("#3c454d");  
