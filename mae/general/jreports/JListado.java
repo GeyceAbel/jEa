@@ -1307,11 +1307,12 @@ public class JListado {
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.detect.cell.type\" value=\"true\"/>");				
 				pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
 				
-				pw.write("<property name=\"net.sf.jasperreports.export.xls.column.width.ratio\" value=\"2.5f\"/>");
-				//pw.write("<property name=\"net.sf.jasperreports.export.xls.collapse.row.span\" value=\"true\"/>");	
-				
+				//pw.write("<property name=\"net.sf.jasperreports.export.xls.column.width.ratio\" value=\"2.5f\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.character.encoding\" value=\"ISO-8859-1\"/>");	
+				//pw.write("<property name=\"net.sf.jasperreports.export.xls.collapse.row.span\" value=\"true\"/>");
 				//pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");	
-				//pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"false\"/>");
+				//pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"true\"/>");
+				
 			}
 			for (int i=0;i<vPropiedadesExcel.size();i++) {
 				pw.write(vPropiedadesExcel.elementAt(i));				

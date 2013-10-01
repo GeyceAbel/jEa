@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130930
-// Hora:             17:03:25
+// Fecha:            20131001
+// Hora:             12:22:41
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2155,7 +2155,7 @@ public class ProgQuerylis extends Program
           
           //generacio del report                
               if (listadoJasper.generalJRXML()) {
-            mae.general.jreports.PrintJasperWork pjw = new mae.general.jreports.PrintJasperWork ("Listado de Diario",null);          
+            mae.general.jreports.PrintJasperWork pjw = new mae.general.jreports.PrintJasperWork ("Salida...",null);          
             pjw.addListado(listadoJasper);
             pjw.setPestanaTXT(true, fieldsLength,fjrxml);
             pjw.dialog(querylis);          
@@ -2377,7 +2377,7 @@ public class ProgQuerylis extends Program
         {
         super(form);
         setName("aclistar");
-        setTitle("&6 - Más Listados");
+        setTitle("&6 - Otros");
         setOptions(SHOW);
         }
       public void onAction()
