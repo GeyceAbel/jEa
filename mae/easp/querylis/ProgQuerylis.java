@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20131001
-// Hora:             18:18:26
+// Fecha:            20131003
+// Hora:             10:48:53
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -977,8 +977,37 @@ public class ProgQuerylis extends Program
     else
        return false;
   }
+  /*
+  class StringMetrics {
   
+    Font font;
+    FontRenderContext context;
   
+    public StringMetrics(Graphics2D g2) {
+  
+      font = g2.getFont();
+      context = g2.getFontRenderContext();
+    }
+  
+    Rectangle2D getBounds(String message) {
+  
+      return font.getStringBounds(message, context);
+    }
+  
+    double getWidth(String message) {
+  
+      Rectangle2D bounds = getBounds(message);
+      return bounds.getWidth();
+    }
+  
+    double getHeight(String message) {
+  
+      Rectangle2D bounds = getBounds(message);
+      return bounds.getHeight();
+    }
+  
+  }
+  */
   // Fin declaraciones globales
   // Ventana
   public FormVseleccion vseleccion;
@@ -1928,7 +1957,26 @@ public class ProgQuerylis extends Program
       }
     }
     
-    
+    /*
+    public void calculaAmpladaColumnesJasper(Frase frase, double llargadaTotal) {
+        java.awt.image.BufferedImage off_Image =
+                          new java.awt.image.BufferedImage(100, 50,
+                                          java.awt.image.BufferedImage.TYPE_INT_ARGB);
+      Graphics2D g2 = off_Image.createGraphics(); 
+      for(int x=0;x<frase.columnes.size();x++) { 
+        Columna cole = (Columna)frase.columnes.elementAt(x);
+        if (cole.visible) {
+          char[] chars = new char[cole.llarg];
+          java.util.Arrays.fill(chars, 'A');
+          String s = new String(chars);          
+          java.awt.Font        defaultFont = new java.awt.Font("Helvetica", java.awt.Font.PLAIN, 12);
+          java.awt.FontMetrics fontMetrics = g2.getFontMetrics(defaultFont);
+          int width = fontMetrics.stringWidth(s);
+          widthColumns.put(cole.camp.field.getName(), width);d
+        }
+      }           
+    }
+    */
     
     // Fin declaraciones globales
     // Controles
@@ -2030,6 +2078,7 @@ public class ProgQuerylis extends Program
         }
       public void onAction()
         {
+        
         if (parserSQL() == false) {
           Maefc.message("Se han encontrado errores en el procesamiento \nde las variables, por favor revíselas","Procesamiento de variables",Maefc.ERROR_MESSAGE, Maefc.OK_OPTION);
           //this.doShow();
@@ -2113,6 +2162,18 @@ public class ProgQuerylis extends Program
           String expresio = "\"Fecha : " + new java.text.SimpleDateFormat("dd-MM-yyyy").format(Fecha.hoy())+"\"";
           e.addNewTextField(expresio, mae.general.jreports.Columna.STRING,"fechas");
           
+          //mirem si existeixen totales
+          boolean totales = false;
+          for(int y=0;y<frase.columnes.size();y++) {
+                Columna cole = (Columna)frase.columnes.elementAt(y);
+                if(cole.acumula  || cole.media || cole.contador) {
+                  totales=true;
+                  break;
+                }
+          }
+          
+          
+          
           //columnes del jasper
           int posIni =0;
           for(int x=0;x<frase.columnes.size();x++) {        	
@@ -2122,17 +2183,37 @@ public class ProgQuerylis extends Program
               if(cole.tipus == mae.general.jreports.Columna.DATE) llargada = 8/llargadaTotal;
               else	  llargada= cole.llarg/llargadaTotal;
               //int ampladaCamp = (int)(listadoJasper.getColumnWidth()*llargada);
+              
+              
               int ampladaCamp = (int)java.lang.Math.ceil((listadoJasper.getColumnWidth()*llargada));
               if(ampladaCamp<5) ampladaCamp =5;    
               if(x==frase.columnes.size()-1) 
-                ampladaCamp = (listadoJasper.getRightWidthPosicion()-listadoJasper.getMargender())-posIni;          
+                ampladaCamp = (listadoJasper.getRightWidthPosicion()-listadoJasper.getMargender())-posIni;
+              
+              /*
+              java.awt.Font font = new java.awt.Font("Times New Roman", java.awt.Font.PLAIN, 10);
+              java.awt.FontMetrics metrics = g.getFontMetrics(font);
+              int width = metrics.stringWidth("3");
+              
+              FontMetrics metrics = new FontMetrics(font) {  
+              };  
+              Rectangle2D bounds = metrics.getStringBounds("string", null);  
+              int widthInPixels = (int) bounds.getWidth(); 
+              */
+              
+              
+              
+              
+              
               mae.general.jreports.Columna col = listadoJasper.addColumna(cole.titol,posIni,ampladaCamp,cole.tipus,cole.camp.field.getName(),null);
               col.getSt().setColorFont("#0e4b80");
               col.getTf().setColorFont("#3c454d");  
+              if (cole.tipus == mae.general.jreports.Columna.INTEGER || cole.tipus == mae.general.jreports.Columna.DOUBLE
+                        || (cole.tipus == mae.general.jreports.Columna.STRING && cole.llarg <16))
+                col.setStretchWithOverflow(true); 
               if(cole.format != null && !cole.format.equals(""))
                 col.getTf().setPattern(cole.format);  
-              posIni += ampladaCamp;
-              boolean totales = false;
+              posIni += ampladaCamp;              
               if(cole.acumula  || cole.media || cole.contador) {
                 mae.general.jreports.Totalizar.Calculation tipe;
                 if(cole.acumula) tipe = mae.general.jreports.Totalizar.Calculation.SUM;
@@ -2140,13 +2221,15 @@ public class ProgQuerylis extends Program
                 else tipe = mae.general.jreports.Totalizar.Calculation.COUNT;
                 mae.general.jreports.Totalizar t =listadoJasper.addTotalizar(cole.titol, col, tipe);
                 t.setBackGroundColor("#AFC0C7");
-                totales=true;
               } 
               if(cole.rotura || cole.saltapag) {
-                 mae.general.jreports.Rotura rot = listadoJasper.addRotura("n"+cole.camp.field.getName(),"$F{" + cole.camp.field.getName() +  "}",!totales?"":"TOTAL " + (cole.titRotura==null?"":cole.titRotura));
+                mae.general.jreports.Rotura rot = listadoJasper.addRotura("n"+cole.camp.field.getName(),"$F{" + cole.camp.field.getName() +  "}",!totales?"":"TOTAL " + (cole.titRotura==null?"":cole.titRotura));
                 rot.setSaltoPagina(cole.saltapag);
+                //rot.setColorFont("#0e4b80");
+                rot.setColorFons("#D3DFE2");
+                //rot.setBackGroundHeaderColor("#D3DFE2");
                 if(cole.titRotura!=null)
-                  rot.setGroupHeaderName("\"" + cole.titRotura + " :\" + $F{" + cole.camp.field.getName() + "}");                
+                  rot.setGroupHeaderName("\"" + cole.titRotura.toUpperCase() + " :\" + $F{" + cole.camp.field.getName() + "}");                
               }
               
             }
@@ -2173,6 +2256,7 @@ public class ProgQuerylis extends Program
           Maefc.message("No ha sido posible ejecutar este listado");
           }
         }
+        
         
         }
       }
@@ -2379,7 +2463,7 @@ public class ProgQuerylis extends Program
         {
         super(form);
         setName("aclistar");
-        setTitle("&6 - Otros");
+        setTitle("&6 - Listar ver. anterior");
         setOptions(SHOW);
         }
       public void onAction()

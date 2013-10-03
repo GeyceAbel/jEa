@@ -182,12 +182,9 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 				    JRAbstractExporter exporter = new JRCsvExporter();
 				    exporter.setParameter(JRCsvExporterParameter.JASPER_PRINT_LIST, jprintlist);
 				    exporter.setParameter(JRCsvExporterParameter.FIELD_DELIMITER, ";");				    
-				    exporter.setParameter(JRCsvExporterParameter.IGNORE_PAGE_MARGINS,Boolean.TRUE);
-				    //exporter.setParameter(JRCsvExporterParameter.RECORD_DELIMITER, "\"");
 				    exporter.setParameter(JRCsvExporterParameter.OUTPUT_STREAM, output);
-				    exporter.setParameter(JRCsvExporterParameter.CHARACTER_ENCODING,"ISO-8859-1");
-				    //exporter.setParameter(JRXlsExporterParameter.IS_COLLAPSE_ROW_SPAN,Boolean.TRUE);
-				    //exporter.setParameter(JRCsvExporterParameter., output);
+				    //exporter.setParameter(JRCsvExporterParameter.CHARACTER_ENCODING,"ISO-8859-1");
+				    //exporter.setParameter(JRCsvExporterParameter.CHARACTER_ENCODING,"ISO-8859-1");
 				    exporter.exportReport();	
 				}
 				output.close();

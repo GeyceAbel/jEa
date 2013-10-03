@@ -31,6 +31,7 @@ public class Columna {
 	private int tamanyAsignatLlistat;
 	private int posIni;
 	private String idCol;
+	private boolean isStretchWithOverflow =false;
 	
 	public Columna (JListado jlis, String literal,String expression,String nomVariable, int tipo, int tamany,int posIni) {		
 		this.jl = jlis;
@@ -50,6 +51,15 @@ public class Columna {
 	
 	public int getPosIni() {
 		return posIni;
+	}
+	
+	public void setStretchWithOverflow(boolean isStretchWithOverflow) {
+		this.isStretchWithOverflow= isStretchWithOverflow; 
+	    tf.setStretchWithOverflow(isStretchWithOverflow);
+	}
+	
+	public boolean isStretchWithOverflow() {
+		return isStretchWithOverflow; 
 	}
 
 	public void setPosIni(int posIni) {
@@ -127,7 +137,7 @@ public class Columna {
 			tf.setAligDerecha(true);
 			tf.setRightIndent(5);
 			tf.setLeftIndent(0);
-		}
+		}		
 		return tf;
 	}
 	

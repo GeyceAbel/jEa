@@ -26,8 +26,8 @@ public class Rotura {
 	//java.util.List<Integer> columnes;
 	java.util.List<Totalizar> totales;
 	//private String expression;
-	//private String backGroundHeaderColor = "#F0F8FF";
-	private String backGroundHeaderColor = "#CAC3A2";
+	private String backGroundHeaderColor = "#D3DFE2";
+	//private String backGroundHeaderColor = "#CAC3A2";
 	private int headerHeight;
 	private boolean igualIndent;
 	private boolean textoRoturaEsExpresion;
@@ -65,7 +65,8 @@ public class Rotura {
 		saltoPagina = false;
 		printWhen = this.jl.getPrintWhenDetalle();
 		asignarColorFondo = false;
-		colorFont = "#000000";
+		//colorFont = "#000000";
+		colorFont = "#0e4b80";
 		this.titul = titol;
 		headerHeight = 15;
 		igualIndent = false;

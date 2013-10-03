@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130917
-// Hora:             17:36:13
+// Fecha:            20131002
+// Hora:             15:47:32
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1644,9 +1644,13 @@ public class ProgQuerytrat extends Program
         public void userChange(Value v) {
           if (v.getBoolean() && vcolumnas.qecorderby.isNull()) {
             Maefc.message("El listado no sigue la ordenación por esta columna\nMarque esta opción solamente en columnas que siguen una ordenación","Atención",Maefc.QUESTION_MESSAGE); 
+            vrotura.setValue(false);
             }
           else {
             vsalta.setEnabled(v.getBoolean());
+            if(!v.getBoolean()){
+              vsalta.setValue(v.getBolean())
+            }
             qectitrotura.setEnabled(v.getBoolean());
             vinicia.setEnabled(v.getBoolean());
             super.userChange(v);

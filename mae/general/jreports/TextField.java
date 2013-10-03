@@ -23,6 +23,7 @@ public class TextField {
 	private String verticalAlig;
 	private boolean printValoresRepetidos;
 	private boolean esExpresionCompleta;
+	private boolean isStretchWithOverflow=false;
 
 	
 	public TextField (JListado jlis,int x, int y, int width, int height)  {
@@ -218,6 +219,14 @@ public class TextField {
 
 	public void setVerticalAlig(String verticalAlig) {
 		this.verticalAlig = verticalAlig;
+	}
+	
+	public void setStretchWithOverflow(boolean isStretchWithOverflow) {
+		this.isStretchWithOverflow= isStretchWithOverflow; 
+	}
+	
+	public boolean isStretchWithOverflow() {
+		return isStretchWithOverflow; 
 	}
 	
 }

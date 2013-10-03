@@ -492,6 +492,7 @@ public class JListado {
 		try {
 			int leftIndentTitol=10;
 			for (int i=getNumRoturas()-1;i>=0;i--) {
+			//for (int i=0; i<getNumRoturas();i++) {
 				Rotura r = getRotura(i);
 				String saltPage = "";
 				if (r.isSaltoPagina()) saltPage = " isStartNewPage=\"true\" ";
@@ -1075,7 +1076,9 @@ public class JListado {
 		if (!tf.isPrintValoresRepetidos()) repeVal = " isPrintRepeatedValues=\"false\" ";
 		String evaluation = "";
 		if (tf.esVariable() && tf.getVariable().getEvaluationTime()!=null) evaluation = " evaluationTime=\""+tf.getVariable().getEvaluationTime()+"\" ";
-		pw.write("<textField isBlankWhenNull=\"true\""+pattern+evaluation+">");
+		String isStretchWithOverflow="";
+		if (tf.isStretchWithOverflow())isStretchWithOverflow=" isStretchWithOverflow=\"true\" ";		
+		pw.write("<textField isBlankWhenNull=\"true\""+pattern + evaluation + isStretchWithOverflow+">");
 		String tran = "";
 		if (tf.isAsignarColorFondo()) tran = "mode=\"Opaque\" backcolor=\""+tf.getColorFons()+"\" ";				
 		pw.write("<reportElement"+repeVal+"forecolor=\""+tf.getColorFont()+"\" x=\""+tf.getPosIni()+"\" y=\""+tf.getY()+"\" width=\""+tf.getWidth()+"\" height=\""+tf.getAmplada()+"\" "+tran+">");
@@ -1313,14 +1316,14 @@ public class JListado {
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.rows\" value=\"true\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.columns\" value=\"true\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.white.page.background\" value=\"false\"/>");				
-				pw.write("<property name=\"net.sf.jasperreports.export.xls.detect.cell.type\" value=\"true\"/>");				
-				//pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
-				
-				//pw.write("<property name=\"net.sf.jasperreports.export.xls.column.width.ratio\" value=\"2.5f\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.detect.cell.type\" value=\"true\"/>");
+								
 				pw.write("<property name=\"net.sf.jasperreports.export.character.encoding\" value=\"ISO-8859-1\"/>");	
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.collapse.row.span\" value=\"true\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");	
-				//pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"true\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.csv.record.delimiter\" value=\"&#x0D;&#x0A;\"/>");
+				
+				
 				
 			}
 			for (int i=0;i<vPropiedadesExcel.size();i++) {

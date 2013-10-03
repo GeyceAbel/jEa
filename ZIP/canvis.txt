@@ -98,3 +98,4 @@
 130913 --> APXAVI:  Modificat titol a query.
 130914 --> APXAVI:  Modificacio boto query.
 130915 --> APXAVI:  query jasper. autofit column
+130916 --> APXAVI:  query jasper. isstrechtwithoverflow
