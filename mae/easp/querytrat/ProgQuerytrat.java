@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20131002
-// Hora:             15:47:32
+// Fecha:            20131014
+// Hora:             17:37:17
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1649,7 +1649,7 @@ public class ProgQuerytrat extends Program
           else {
             vsalta.setEnabled(v.getBoolean());
             if(!v.getBoolean()){
-              vsalta.setValue(v.getBolean())
+              vsalta.setValue(v.getBoolean());
             }
             qectitrotura.setEnabled(v.getBoolean());
             vinicia.setEnabled(v.getBoolean());

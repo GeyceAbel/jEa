@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20131003
-// Hora:             10:48:53
+// Fecha:            20131015
+// Hora:             10:57:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -298,7 +298,8 @@ public class ProgQuerylis extends Program
   
           if (hiHaCataleg(conn,col.camp.catalogo)) {
             if (w.length()>0) w.append(", ");
-            w.append(col.camp.field.getName());
+            //w.append(col.camp.field.getName());
+            w.append(col.camp.table.getName()+"."+col.camp.field.getName());
             col.quorelacio=quor;
             }
           }

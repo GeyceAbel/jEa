@@ -99,3 +99,4 @@
 130914 --> APXAVI:  Modificacio boto query.
 130915 --> APXAVI:  query jasper. autofit column
 130916 --> APXAVI:  query jasper. isstrechtwithoverflow
+130917 --> APXAVI:  prefixe nom de taula a la hora de muntar els camps del select del query.
