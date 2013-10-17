@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20131015
-// Hora:             10:57:25
+// Hora:             13:24:30
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2133,7 +2133,7 @@ public class ProgQuerylis extends Program
                   llargadaTipus[0] = String.valueOf(col.llarg);
                   llargadaTipus[1] = String.valueOf(col.tipus);  
                   llargadaTipus[2] = col.titol;
-                  fieldsLength.put(col.camp.field.getName(), llargadaTipus);
+                  fieldsLength.put(col.camp.field.getName()+i, llargadaTipus);
                   enter=true;
                 }
                 //pw.write("<" + col.camp.field.getName() + ">" + (col.tipus==Value.STRING?Maefc.filtraXML(String.valueOf(col.valor)):col.valor) + "</" + col.camp.field.getName()+ ">");

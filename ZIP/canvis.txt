@@ -100,3 +100,4 @@
 130915 --> APXAVI:  query jasper. autofit column
 130916 --> APXAVI:  query jasper. isstrechtwithoverflow
 130917 --> APXAVI:  prefixe nom de taula a la hora de muntar els camps del select del query.
+130918 --> APXAVI:  Conexions jasper a nivell jListado. Posibilitat de repetir camp al query i que no peti al fer la sortida txt

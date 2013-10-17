@@ -195,7 +195,10 @@ public class PrintJasperPanelVisor extends PrintJasperPanel
     		  JListado jl = job.vTarea.elementAt(i);
     		  VistaPrevia vp = null;
     		  if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);    		  
-    		  else if  (!jl.isXmlDataSource()) vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
+			  else if  (!jl.isXmlDataSource()) {
+				if(jl.getConnection() != null) vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getConnection() , job.titulo);
+				else vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
+			  }
     		  else vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getXmlDataSource() , job.titulo);    		     		  
     		  if (job.parametroPaginaInicial != null) {
     			  jl.getParameters().put(job.parametroPaginaInicial, new Integer(startPage));

@@ -1,5 +1,6 @@
 package mae.general.jreports;
 
+import geyce.maefc.DBConnection;
 import geyce.maefc.Field;
 import geyce.maefc.FieldDef;
 import geyce.maefc.Select;
@@ -28,6 +29,7 @@ import mae.general.jreports.Totalizar.Calculation;
 public class JListado {
 
 	public enum Orientacion { VERTICAL, HORIZONTAL} ;
+	public enum whenNoData {BLANK_PAGE,NO_PAGES,ALL_SECTIONS_NO_DETAIL,NO_DATA_SECTION};
 
 	private String queryString;
 	private Select slistado;
@@ -46,6 +48,7 @@ public class JListado {
 	private List <Totalizar> totales;
 	private List <Parametro> xmlParameter;
 
+	public DBConnection conn;
 	public String rutaFicheroJRXML;
 	public int posActualColumnHeader =0;
 	private String sError;
@@ -79,6 +82,7 @@ public class JListado {
 	public boolean propiedadesExcelAutomaticas;
 	public Vector <Variable> vExtraVariables;
 	public boolean paginarExcel = true;
+	private whenNoData sinDatos;
 	
 	public JListado (Select slistado, Orientacion or) {
 		rutaFicheroJRXML = null;
@@ -1303,7 +1307,7 @@ public class JListado {
 		boolean bOk = true;
 		try {
 			pw.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-			pw.write("<jasperReport xmlns=\"http://jasperreports.sourceforge.net/jasperreports\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd\" name=\""+nombreReport+"\" language=\"groovy\" pageWidth=\""+pagewidth+"\" pageHeight=\""+pageheight+"\" columnWidth=\""+columnWidth+"\" leftMargin=\""+margenizq+"\" rightMargin=\""+margender+"\" topMargin=\""+margensup+"\" bottomMargin=\""+margeninf+"\">");
+			pw.write("<jasperReport xmlns=\"http://jasperreports.sourceforge.net/jasperreports\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd\" name=\""+nombreReport+"\" language=\"groovy\" pageWidth=\""+pagewidth+"\" pageHeight=\""+pageheight+"\" " + tipoTratamientoSinDatos() + " columnWidth=\""+columnWidth+"\" leftMargin=\""+margenizq+"\" rightMargin=\""+margender+"\" topMargin=\""+margensup+"\" bottomMargin=\""+margeninf+"\">");
 			pw.write("<property name=\"ireport.zoom\" value=\"2.0\"/>");
 			pw.write("<property name=\"ireport.x\" value=\"0\"/>");
 			pw.write("<property name=\"ireport.y\" value=\"0\"/>");
@@ -1435,5 +1439,26 @@ public class JListado {
 	}
 	public void setTitleHeight(int height) {
 		this.titleHeight = height;
+	}
+	public void setWhenNoData(whenNoData noData) {
+		 sinDatos = noData; 
+	}
+	public whenNoData getWhenNoData() {
+		return sinDatos;
+	}
+	private String tipoTratamientoSinDatos() {
+      if(sinDatos == null) return "";
+      else if(sinDatos == whenNoData.NO_PAGES) return"";
+      else if(sinDatos == whenNoData.BLANK_PAGE) return"whenNoDataType=\"BlankPage\"";
+      else if(sinDatos == whenNoData.ALL_SECTIONS_NO_DETAIL) return"whenNoDataType=\"AllSectionsNoDetail\"";
+      else if(sinDatos == whenNoData.NO_DATA_SECTION) return"whenNoDataType=\"NoDataSection\"";      
+      else return "";
+	}
+	
+	public DBConnection getConnection() {
+	  return conn;
+	}
+	public void setConnection(DBConnection conn) {
+		this.conn = conn;
 	}
 }
