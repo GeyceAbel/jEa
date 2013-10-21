@@ -1086,12 +1086,12 @@ public class JListado {
 		String tran = "";
 		if (tf.isAsignarColorFondo()) tran = "mode=\"Opaque\" backcolor=\""+tf.getColorFons()+"\" ";				
 		pw.write("<reportElement"+repeVal+"forecolor=\""+tf.getColorFont()+"\" x=\""+tf.getPosIni()+"\" y=\""+tf.getY()+"\" width=\""+tf.getWidth()+"\" height=\""+tf.getAmplada()+"\" "+tran+">");
-		if (tf.getPrintWhen()!=null && tf.getPrintWhen().length()>0) {
-			pw.write("<printWhenExpression>"+tf.getPrintWhen()+"</printWhenExpression>");	
-		}
 		pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"true\"/>");
 		//pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");
 		pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
+		if (tf.getPrintWhen()!=null && tf.getPrintWhen().length()>0) {
+			pw.write("<printWhenExpression>"+tf.getPrintWhen()+"</printWhenExpression>");	
+		}
 		
 		
 		pw.write("</reportElement>");
