@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130802
-// Hora:             10:22:54
+// Fecha:            20131022
+// Hora:             16:12:41
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1165,6 +1165,104 @@ public class ProgInsprconver extends Program
       String sentencias11_3[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2013"}; 
     
       String sentencias11_4[]={"ALTER TABLE CDP add cdpresponsable VARCHAR(25);"};
+    
+    String sentencias11_5[]={
+       " CREATE TABLE TAREAJASPER                           "+
+        "   (tjscodi INTEGER NOT NULL,                      "+
+        "    tjstitulo  VARCHAR(25),                         "+
+        "    tjsdesc  VARCHAR(45),                           "+
+        "    tjsaplic VARCHAR(10),                           "+
+        "    tjstipo  VARCHAR(2),                            "+
+        "    PRIMARY KEY (tjscodi));                         ",
+       " CREATE TABLE TAREAJASPERDET                                     "+
+        "   (tjdcodi INTEGER NOT NULL,             "+
+        "    tjdtarea INTEGER NOT NULL,                                  "+
+        "    tjdlistado VARCHAR(15) NOT NULL,                            "+
+        "    tjdactivo VARCHAR(1),                                       "+
+        "    tjdorden  INTEGER,                                          "+
+        "    tjdcfgs1  VARCHAR(50),                                      "+
+        "    tjdcfgs2  VARCHAR(50),                                      "+
+        "    tjdcfgs3  VARCHAR(50),                                      "+
+        "    tjdcfgs4  VARCHAR(50),                                      "+
+        "    tjdcfgs5  VARCHAR(50),                                      "+
+        "    tjdcfgs6  VARCHAR(50),                                      "+
+        "    tjdcfgs7  VARCHAR(50),                                      "+
+        "    tjdcfgs8  VARCHAR(50),                                      "+
+        "    tjdcfgs9  VARCHAR(50),                                      "+
+        "    tjdcfgs10 VARCHAR(50),                                      "+
+        "    tjdcfgs11 VARCHAR(50),                                      "+
+        "    tjdcfgs12 VARCHAR(50),                                      "+
+        "    tjdcfgs13 VARCHAR(50),                                      "+
+        "    tjdcfgs14 VARCHAR(50),                                      "+
+        "    tjdcfgs15 VARCHAR(50),                                      "+
+        "    tjdcfgs16 VARCHAR(50),                                      "+
+        "    tjdcfgs17 VARCHAR(50),                                      "+
+        "    tjdcfgs18 VARCHAR(50),                                      "+
+        "    tjdcfgs19 VARCHAR(50),                                      "+
+        "    tjdcfgs20 VARCHAR(50),                                      "+
+        "    tjdcfgi1  INTEGER,                                          "+
+        "    tjdcfgi2  INTEGER,                                          "+
+        "    tjdcfgi3  INTEGER,                                          "+
+        "    tjdcfgi4  INTEGER,                                          "+
+        "    tjdcfgi5  INTEGER,                                          "+
+        "    tjdcfgi6  INTEGER,                                          "+
+        "    tjdcfgi7  INTEGER,                                          "+
+        "    tjdcfgi8  INTEGER,                                          "+
+        "    tjdcfgi9  INTEGER,                                          "+
+        "    tjdcfgi10 INTEGER,                                          "+
+        "    tjdcfgi11 INTEGER,                                          "+
+        "    tjdcfgi12 INTEGER,                                          "+
+        "    tjdcfgi13 INTEGER,                                          "+
+        "    tjdcfgi14 INTEGER,                                          "+
+        "    tjdcfgi15 INTEGER,                                          "+
+        "    tjdcfgi16 INTEGER,                                          "+
+        "    tjdcfgi17 INTEGER,                                          "+
+        "    tjdcfgi18 INTEGER,                                          "+
+        "    tjdcfgi19 INTEGER,                                          "+
+        "    tjdcfgi20 INTEGER,                                          "+
+        "    tjdcfgd1  FLOAT,                                            "+
+        "    tjdcfgd2  FLOAT,                                            "+
+        "    tjdcfgd3  FLOAT,                                            "+
+        "    tjdcfgd4  FLOAT,                                            "+
+        "    tjdcfgd5  FLOAT,                                            "+
+        "    tjdcfgd6  FLOAT,                                            "+
+        "    tjdcfgd7  FLOAT,                                            "+
+        "    tjdcfgd8  FLOAT,                                            "+
+        "    tjdcfgd9  FLOAT,                                            "+
+        "    tjdcfgd10 FLOAT,                                            "+
+        "    tjdcfgd11 FLOAT,                                            "+
+        "    tjdcfgd12 FLOAT,                                            "+
+        "    tjdcfgd13 FLOAT,                                            "+
+        "    tjdcfgd14 FLOAT,                                            "+
+        "    tjdcfgd15 FLOAT,                                            "+
+        "    tjdcfgd16 FLOAT,                                            "+
+        "    tjdcfgd17 FLOAT,                                            "+
+        "    tjdcfgd18 FLOAT,                                            "+
+        "    tjdcfgd19 FLOAT,                                            "+
+        "    tjdcfgd20 FLOAT,                                            "+
+        "    tjdcfgf1  "+formatData()+
+        "    tjdcfgf2  "+formatData()+
+        "    tjdcfgf3  "+formatData()+
+        "    tjdcfgf4  "+formatData()+
+        "    tjdcfgf5  "+formatData()+
+        "    tjdcfgf6  "+formatData()+
+        "    tjdcfgf7  "+formatData()+
+        "    tjdcfgf8  "+formatData()+
+        "    tjdcfgf9  "+formatData()+
+        "    tjdcfgf10 "+formatData()+
+        "    tjdcfgf11 "+formatData()+
+        "    tjdcfgf12 "+formatData()+
+        "    tjdcfgf13 "+formatData()+
+        "    tjdcfgf14 "+formatData()+
+        "    tjdcfgf15 "+formatData()+
+        "    tjdcfgf16 "+formatData()+
+        "    tjdcfgf17 "+formatData()+
+        "    tjdcfgf18 "+formatData()+
+        "    tjdcfgf19 "+formatData()+
+        "    tjdcfgf20 "+formatData()+
+        "    PRIMARY KEY (tjdcodi,tjdtarea),                             "+
+        "    FOREIGN KEY (tjdtarea) REFERENCES TAREAJASPER (tjscodi));   "};
+    
     
       int i=0;
       try {
@@ -2765,6 +2863,22 @@ public class ProgInsprconver extends Program
               vvveractual.setValue("11.4");
         }
     
+        if (versio < 11.5) {
+              for (i=0;i<sentencias11_5.length;++i) {
+                try {
+                  Easp.chivato("11.5 Exec : ["+sentencias11_5[i]+"]",1);
+                  Easp.connEA.executeUpdate(sentencias11_5[i]);
+                }
+                catch(Exception e) {
+                  sqlOperation=sentencias11_5[i];
+                  Easp.chivato("11.5 *** Error : ["+sentencias11_5[i]+"]  Error: ["+e+"]",1);
+                  errorMessage=e.getMessage();
+                }
+              }
+              Easp.setVersionBD("bdeasp","11.5");
+              Easp.connEA.commit();
+              vvveractual.setValue("11.5");
+        }
         
     
       }

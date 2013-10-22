@@ -69,7 +69,7 @@ public abstract class PrintJasperPanel extends ControlPanel
 	    }
 	  }
   
-	protected boolean noEstaAbiertoElFichero (String destino) {
+	protected boolean noEstaAbiertoElFichero (String destino) {		
 		return noEstaAbiertoElFichero (destino,true);
 	}
 	

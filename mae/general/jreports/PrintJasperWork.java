@@ -165,4 +165,18 @@ public class PrintJasperWork {
 	public void addListado (JListado listado) {
 		vTarea.addElement(listado);
 	}
+
+	public boolean runBackgroundExcel(Program pr, String nombre) {
+		PrintJasperPanelXLS panel = new PrintJasperPanelXLS (this);
+		panel.creaControls();
+		panel.destino.setValue(nombre);
+		return panel.onGenerar(true);
+	}
+
+	public boolean runBackgroundPdf (Program pr, String nombre) {
+		PrintJasperPanelPDF panel = new PrintJasperPanelPDF (this);
+		panel.creaControls();
+		panel.destino.setValue(nombre);
+		return panel.onImprimir(true);
+	}
 }

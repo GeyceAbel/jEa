@@ -102,3 +102,4 @@
 130917 --> APXAVI:  prefixe nom de taula a la hora de muntar els camps del select del query.
 130918 --> APXAVI:  Conexions jasper a nivell jListado. Posibilitat de repetir camp al query i que no peti al fer la sortida txt
 131002 --> APJORDI: Modif Jasper. El printwhen del textfield esta abans de les propietats i donava error.
+131003 --> APJORDI: PrintJasperWork. Habilitar la opció de generar el PDF i el EXCEL en mode background. Conversió taula TREAJASPER I TAREAJASPERDET per guardar llistats

@@ -147,9 +147,15 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 		addPredeterminar();
 	}
 
-	public void onGenerar()
+	public boolean onGenerar()
 	{
-		if (noEstaAbiertoElFichero (destino.getString())) {
+		return onGenerar (false);
+	}
+	
+	public boolean onGenerar (boolean background)
+	{
+		boolean bOk = false;
+		if (noEstaAbiertoElFichero (destino.getString(),!background)) {
 			try {
 				List<JasperPrint> jprintlist = new ArrayList<JasperPrint>();
 				for (int i=0;i<job.vTarea.size();i++) {
@@ -191,13 +197,15 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 				    exporter.exportReport();	
 				}
 				output.close();
-				if (abrir.getBoolean()) abrir(destino.getString(),"Microsoft Excel");
-				job.dialog.exit();
+				bOk = true;
+				if (!background && abrir.getBoolean()) abrir(destino.getString(),"Microsoft Excel");
+				if (!background) job.dialog.exit();
 			}
 			catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+		return bOk;
 	}
 
 

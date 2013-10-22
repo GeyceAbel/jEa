@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130802
-// Hora:             10:20:05
+// Fecha:            20131022
+// Hora:             15:56:00
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -93,6 +93,8 @@ public class CatEasp extends Catalog
   public TabCnae1993 tabcnae1993;
   public TabPlantillas tabplantillas;
   public TabFormacobpag tabformacobpag;
+  public TabTareajasper tabtareajasper;
+  public TabTareajasperdet tabtareajasperdet;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -1990,6 +1992,7 @@ public class CatEasp extends Catalog
       setColumns(array);
       FieldDef arrayf[] = {uscodcon,uslogin };
       setPrimaryKeys(arrayf);
+      usfoto.setDescription("Utilitzado en jconta para saber si la aplicacion remota es de Lectura o de Control Total");
       }
     }
     
@@ -3221,6 +3224,306 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabTareajasper extends TableDef
+    {
+    // Campos
+    public FieldDef tjscodi;
+    public FieldDef tjstitulo;
+    public FieldDef tjsdesc;
+    public FieldDef tjsaplic;
+    public FieldDef tjstipo;
+    public TabTareajasper(String name)
+      {
+      super(name);
+      tjscodi = new FieldDef("tjscodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      tjstitulo = new FieldDef("tjstitulo",FieldDef.CHAR,25);
+      tjsdesc = new FieldDef("tjsdesc",FieldDef.CHAR,45);
+      tjsaplic = new FieldDef("tjsaplic",FieldDef.CHAR,10);
+      tjstipo = new FieldDef("tjstipo",FieldDef.CHAR,2);
+      FieldDef array[] = {
+        tjscodi,
+        tjstitulo,
+        tjsdesc,
+        tjsaplic,
+        tjstipo        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {tjscodi };
+      setPrimaryKeys(arrayf);
+      tjscodi.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabTareajasperdet extends TableDef
+    {
+    // Campos
+    public FieldDef tjdcodi;
+    public FieldDef tjdtarea;
+    public FieldDef tjdlistado;
+    public FieldDef tjdactivo;
+    public FieldDef tjdorden;
+    public FieldDef tjdcfgs1;
+    public FieldDef tjdcfgs2;
+    public FieldDef tjdcfgs3;
+    public FieldDef tjdcfgs4;
+    public FieldDef tjdcfgs5;
+    public FieldDef tjdcfgs6;
+    public FieldDef tjdcfgs7;
+    public FieldDef tjdcfgs8;
+    public FieldDef tjdcfgs9;
+    public FieldDef tjdcfgs10;
+    public FieldDef tjdcfgs11;
+    public FieldDef tjdcfgs12;
+    public FieldDef tjdcfgs13;
+    public FieldDef tjdcfgs14;
+    public FieldDef tjdcfgs15;
+    public FieldDef tjdcfgs16;
+    public FieldDef tjdcfgs17;
+    public FieldDef tjdcfgs18;
+    public FieldDef tjdcfgs19;
+    public FieldDef tjdcfgs20;
+    public FieldDef tjdcfgi1;
+    public FieldDef tjdcfgi2;
+    public FieldDef tjdcfgi3;
+    public FieldDef tjdcfgi4;
+    public FieldDef tjdcfgi5;
+    public FieldDef tjdcfgi6;
+    public FieldDef tjdcfgi7;
+    public FieldDef tjdcfgi8;
+    public FieldDef tjdcfgi9;
+    public FieldDef tjdcfgi10;
+    public FieldDef tjdcfgi11;
+    public FieldDef tjdcfgi12;
+    public FieldDef tjdcfgi13;
+    public FieldDef tjdcfgi14;
+    public FieldDef tjdcfgi15;
+    public FieldDef tjdcfgi16;
+    public FieldDef tjdcfgi17;
+    public FieldDef tjdcfgi18;
+    public FieldDef tjdcfgi19;
+    public FieldDef tjdcfgi20;
+    public FieldDef tjdcfgd1;
+    public FieldDef tjdcfgd2;
+    public FieldDef tjdcfgd3;
+    public FieldDef tjdcfgd4;
+    public FieldDef tjdcfgd5;
+    public FieldDef tjdcfgd6;
+    public FieldDef tjdcfgd7;
+    public FieldDef tjdcfgd8;
+    public FieldDef tjdcfgd9;
+    public FieldDef tjdcfgd10;
+    public FieldDef tjdcfgd11;
+    public FieldDef tjdcfgd12;
+    public FieldDef tjdcfgd13;
+    public FieldDef tjdcfgd14;
+    public FieldDef tjdcfgd15;
+    public FieldDef tjdcfgd16;
+    public FieldDef tjdcfgd17;
+    public FieldDef tjdcfgd18;
+    public FieldDef tjdcfgd19;
+    public FieldDef tjdcfgd20;
+    public FieldDef tjdcfgf1;
+    public FieldDef tjdcfgf2;
+    public FieldDef tjdcfgf3;
+    public FieldDef tjdcfgf4;
+    public FieldDef tjdcfgf5;
+    public FieldDef tjdcfgf6;
+    public FieldDef tjdcfgf7;
+    public FieldDef tjdcfgf8;
+    public FieldDef tjdcfgf9;
+    public FieldDef tjdcfgf10;
+    public FieldDef tjdcfgf11;
+    public FieldDef tjdcfgf12;
+    public FieldDef tjdcfgf13;
+    public FieldDef tjdcfgf14;
+    public FieldDef tjdcfgf15;
+    public FieldDef tjdcfgf16;
+    public FieldDef tjdcfgf17;
+    public FieldDef tjdcfgf18;
+    public FieldDef tjdcfgf19;
+    public FieldDef tjdcfgf20;
+    public TabTareajasperdet(String name)
+      {
+      super(name);
+      tjdcodi = new FieldDef("tjdcodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      tjdtarea = new FieldDef("tjdtarea",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      tjdlistado = new FieldDef("tjdlistado",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      tjdactivo = new FieldDef("tjdactivo",FieldDef.CHAR,1);
+      tjdorden = new FieldDef("tjdorden",FieldDef.INTEGER,0);
+      tjdcfgs1 = new FieldDef("tjdcfgs1",FieldDef.CHAR,50);
+      tjdcfgs2 = new FieldDef("tjdcfgs2",FieldDef.CHAR,50);
+      tjdcfgs3 = new FieldDef("tjdcfgs3",FieldDef.CHAR,50);
+      tjdcfgs4 = new FieldDef("tjdcfgs4",FieldDef.CHAR,50);
+      tjdcfgs5 = new FieldDef("tjdcfgs5",FieldDef.CHAR,50);
+      tjdcfgs6 = new FieldDef("tjdcfgs6",FieldDef.CHAR,50);
+      tjdcfgs7 = new FieldDef("tjdcfgs7",FieldDef.CHAR,50);
+      tjdcfgs8 = new FieldDef("tjdcfgs8",FieldDef.CHAR,50);
+      tjdcfgs9 = new FieldDef("tjdcfgs9",FieldDef.CHAR,50);
+      tjdcfgs10 = new FieldDef("tjdcfgs10",FieldDef.CHAR,50);
+      tjdcfgs11 = new FieldDef("tjdcfgs11",FieldDef.CHAR,50);
+      tjdcfgs12 = new FieldDef("tjdcfgs12",FieldDef.CHAR,50);
+      tjdcfgs13 = new FieldDef("tjdcfgs13",FieldDef.CHAR,50);
+      tjdcfgs14 = new FieldDef("tjdcfgs14",FieldDef.CHAR,50);
+      tjdcfgs15 = new FieldDef("tjdcfgs15",FieldDef.CHAR,50);
+      tjdcfgs16 = new FieldDef("tjdcfgs16",FieldDef.CHAR,50);
+      tjdcfgs17 = new FieldDef("tjdcfgs17",FieldDef.CHAR,50);
+      tjdcfgs18 = new FieldDef("tjdcfgs18",FieldDef.CHAR,50);
+      tjdcfgs19 = new FieldDef("tjdcfgs19",FieldDef.CHAR,50);
+      tjdcfgs20 = new FieldDef("tjdcfgs20",FieldDef.CHAR,50);
+      tjdcfgi1 = new FieldDef("tjdcfgi1",FieldDef.INTEGER,0);
+      tjdcfgi2 = new FieldDef("tjdcfgi2",FieldDef.INTEGER,0);
+      tjdcfgi3 = new FieldDef("tjdcfgi3",FieldDef.INTEGER,0);
+      tjdcfgi4 = new FieldDef("tjdcfgi4",FieldDef.INTEGER,0);
+      tjdcfgi5 = new FieldDef("tjdcfgi5",FieldDef.INTEGER,0);
+      tjdcfgi6 = new FieldDef("tjdcfgi6",FieldDef.INTEGER,0);
+      tjdcfgi7 = new FieldDef("tjdcfgi7",FieldDef.INTEGER,0);
+      tjdcfgi8 = new FieldDef("tjdcfgi8",FieldDef.INTEGER,0);
+      tjdcfgi9 = new FieldDef("tjdcfgi9",FieldDef.INTEGER,0);
+      tjdcfgi10 = new FieldDef("tjdcfgi10",FieldDef.INTEGER,0);
+      tjdcfgi11 = new FieldDef("tjdcfgi11",FieldDef.INTEGER,0);
+      tjdcfgi12 = new FieldDef("tjdcfgi12",FieldDef.INTEGER,0);
+      tjdcfgi13 = new FieldDef("tjdcfgi13",FieldDef.INTEGER,0);
+      tjdcfgi14 = new FieldDef("tjdcfgi14",FieldDef.INTEGER,0);
+      tjdcfgi15 = new FieldDef("tjdcfgi15",FieldDef.INTEGER,0);
+      tjdcfgi16 = new FieldDef("tjdcfgi16",FieldDef.INTEGER,0);
+      tjdcfgi17 = new FieldDef("tjdcfgi17",FieldDef.INTEGER,0);
+      tjdcfgi18 = new FieldDef("tjdcfgi18",FieldDef.INTEGER,0);
+      tjdcfgi19 = new FieldDef("tjdcfgi19",FieldDef.INTEGER,0);
+      tjdcfgi20 = new FieldDef("tjdcfgi20",FieldDef.INTEGER,0);
+      tjdcfgd1 = new FieldDef("tjdcfgd1",FieldDef.FLOAT,6,0);
+      tjdcfgd2 = new FieldDef("tjdcfgd2",FieldDef.FLOAT,6,0);
+      tjdcfgd3 = new FieldDef("tjdcfgd3",FieldDef.FLOAT,6,0);
+      tjdcfgd4 = new FieldDef("tjdcfgd4",FieldDef.FLOAT,6,0);
+      tjdcfgd5 = new FieldDef("tjdcfgd5",FieldDef.FLOAT,6,0);
+      tjdcfgd6 = new FieldDef("tjdcfgd6",FieldDef.FLOAT,6,0);
+      tjdcfgd7 = new FieldDef("tjdcfgd7",FieldDef.FLOAT,6,0);
+      tjdcfgd8 = new FieldDef("tjdcfgd8",FieldDef.FLOAT,6,0);
+      tjdcfgd9 = new FieldDef("tjdcfgd9",FieldDef.FLOAT,6,0);
+      tjdcfgd10 = new FieldDef("tjdcfgd10",FieldDef.FLOAT,6,0);
+      tjdcfgd11 = new FieldDef("tjdcfgd11",FieldDef.FLOAT,6,0);
+      tjdcfgd12 = new FieldDef("tjdcfgd12",FieldDef.FLOAT,6,0);
+      tjdcfgd13 = new FieldDef("tjdcfgd13",FieldDef.FLOAT,6,0);
+      tjdcfgd14 = new FieldDef("tjdcfgd14",FieldDef.FLOAT,6,0);
+      tjdcfgd15 = new FieldDef("tjdcfgd15",FieldDef.FLOAT,6,0);
+      tjdcfgd16 = new FieldDef("tjdcfgd16",FieldDef.FLOAT,6,0);
+      tjdcfgd17 = new FieldDef("tjdcfgd17",FieldDef.FLOAT,6,0);
+      tjdcfgd18 = new FieldDef("tjdcfgd18",FieldDef.FLOAT,6,0);
+      tjdcfgd19 = new FieldDef("tjdcfgd19",FieldDef.FLOAT,6,0);
+      tjdcfgd20 = new FieldDef("tjdcfgd20",FieldDef.FLOAT,6,0);
+      tjdcfgf1 = new FieldDef("tjdcfgf1",FieldDef.DATE);
+      tjdcfgf2 = new FieldDef("tjdcfgf2",FieldDef.DATE);
+      tjdcfgf3 = new FieldDef("tjdcfgf3",FieldDef.DATE);
+      tjdcfgf4 = new FieldDef("tjdcfgf4",FieldDef.DATE);
+      tjdcfgf5 = new FieldDef("tjdcfgf5",FieldDef.DATE);
+      tjdcfgf6 = new FieldDef("tjdcfgf6",FieldDef.DATE);
+      tjdcfgf7 = new FieldDef("tjdcfgf7",FieldDef.DATE);
+      tjdcfgf8 = new FieldDef("tjdcfgf8",FieldDef.DATE);
+      tjdcfgf9 = new FieldDef("tjdcfgf9",FieldDef.DATE);
+      tjdcfgf10 = new FieldDef("tjdcfgf10",FieldDef.DATE);
+      tjdcfgf11 = new FieldDef("tjdcfgf11",FieldDef.DATE);
+      tjdcfgf12 = new FieldDef("tjdcfgf12",FieldDef.DATE);
+      tjdcfgf13 = new FieldDef("tjdcfgf13",FieldDef.DATE);
+      tjdcfgf14 = new FieldDef("tjdcfgf14",FieldDef.DATE);
+      tjdcfgf15 = new FieldDef("tjdcfgf15",FieldDef.DATE);
+      tjdcfgf16 = new FieldDef("tjdcfgf16",FieldDef.DATE);
+      tjdcfgf17 = new FieldDef("tjdcfgf17",FieldDef.DATE);
+      tjdcfgf18 = new FieldDef("tjdcfgf18",FieldDef.DATE);
+      tjdcfgf19 = new FieldDef("tjdcfgf19",FieldDef.DATE);
+      tjdcfgf20 = new FieldDef("tjdcfgf20",FieldDef.DATE);
+      FieldDef array[] = {
+        tjdcodi,
+        tjdtarea,
+        tjdlistado,
+        tjdactivo,
+        tjdorden,
+        tjdcfgs1,
+        tjdcfgs2,
+        tjdcfgs3,
+        tjdcfgs4,
+        tjdcfgs5,
+        tjdcfgs6,
+        tjdcfgs7,
+        tjdcfgs8,
+        tjdcfgs9,
+        tjdcfgs10,
+        tjdcfgs11,
+        tjdcfgs12,
+        tjdcfgs13,
+        tjdcfgs14,
+        tjdcfgs15,
+        tjdcfgs16,
+        tjdcfgs17,
+        tjdcfgs18,
+        tjdcfgs19,
+        tjdcfgs20,
+        tjdcfgi1,
+        tjdcfgi2,
+        tjdcfgi3,
+        tjdcfgi4,
+        tjdcfgi5,
+        tjdcfgi6,
+        tjdcfgi7,
+        tjdcfgi8,
+        tjdcfgi9,
+        tjdcfgi10,
+        tjdcfgi11,
+        tjdcfgi12,
+        tjdcfgi13,
+        tjdcfgi14,
+        tjdcfgi15,
+        tjdcfgi16,
+        tjdcfgi17,
+        tjdcfgi18,
+        tjdcfgi19,
+        tjdcfgi20,
+        tjdcfgd1,
+        tjdcfgd2,
+        tjdcfgd3,
+        tjdcfgd4,
+        tjdcfgd5,
+        tjdcfgd6,
+        tjdcfgd7,
+        tjdcfgd8,
+        tjdcfgd9,
+        tjdcfgd10,
+        tjdcfgd11,
+        tjdcfgd12,
+        tjdcfgd13,
+        tjdcfgd14,
+        tjdcfgd15,
+        tjdcfgd16,
+        tjdcfgd17,
+        tjdcfgd18,
+        tjdcfgd19,
+        tjdcfgd20,
+        tjdcfgf1,
+        tjdcfgf2,
+        tjdcfgf3,
+        tjdcfgf4,
+        tjdcfgf5,
+        tjdcfgf6,
+        tjdcfgf7,
+        tjdcfgf8,
+        tjdcfgf9,
+        tjdcfgf10,
+        tjdcfgf11,
+        tjdcfgf12,
+        tjdcfgf13,
+        tjdcfgf14,
+        tjdcfgf15,
+        tjdcfgf16,
+        tjdcfgf17,
+        tjdcfgf18,
+        tjdcfgf19,
+        tjdcfgf20        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {tjdcodi,tjdtarea };
+      setPrimaryKeys(arrayf);
+      tjdcodi.setAutoIncrementable(true);
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -3300,6 +3603,8 @@ public class CatEasp extends Catalog
     tabcnae1993 = new TabCnae1993("cnae1993");
     tabplantillas = new TabPlantillas("plantillas");
     tabformacobpag = new TabFormacobpag("formacobpag");
+    tabtareajasper = new TabTareajasper("tareajasper");
+    tabtareajasperdet = new TabTareajasperdet("tareajasperdet");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -3377,7 +3682,9 @@ public class CatEasp extends Catalog
       tabimpuser,
       tabcnae1993,
       tabplantillas,
-      tabformacobpag      
+      tabformacobpag,
+      tabtareajasper,
+      tabtareajasperdet      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
@@ -3506,6 +3813,11 @@ public class CatEasp extends Catalog
       new ForeignKey(tabperfiltribut,tabavisadoArrayf1)      
       };
     tabavisado.setForeignKeys(tabavisadoArrayfk);
+    FieldDef tabtareajasperdetArrayf1[] = { tabtareajasperdet.tjdtarea };
+    ForeignKey tabtareajasperdetArrayfk[] = { 
+      new ForeignKey(tabtareajasper,tabtareajasperdetArrayf1)      
+      };
+    tabtareajasperdet.setForeignKeys(tabtareajasperdetArrayfk);
     }
   }
   

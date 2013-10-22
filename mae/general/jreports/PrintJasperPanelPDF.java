@@ -254,8 +254,13 @@ public class PrintJasperPanelPDF extends PrintJasperPanel
 		addPredeterminar();
 	}
 
-	public void onImprimir() {	  
-		if (noEstaAbiertoElFichero (destino.getString())) {
+	public boolean onImprimir() {
+		return onImprimir(false);
+	}
+	
+	public boolean onImprimir(boolean background) {
+		boolean bOk = false;
+		if (noEstaAbiertoElFichero (destino.getString(), !background)) {
 			try {    	  
 				int startPage = 0;
 				List<JasperPrint> jprintlist = new ArrayList<JasperPrint>();
@@ -283,12 +288,14 @@ public class PrintJasperPanelPDF extends PrintJasperPanel
 				exporter.setParameter(JRPdfExporterParameter.OUTPUT_STREAM, output);
 				exporter.exportReport();
 				output.close();
-				if (abrir.getBoolean()) abrir(destino.getString(),"Adobe Reader");
-				job.dialog.exit();
+				bOk = true;
+				if (!background && abrir.getBoolean()) abrir(destino.getString(),"Adobe Reader");
+				if (!background) job.dialog.exit();
 			}
 			catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+		return bOk;
 	}
 }
