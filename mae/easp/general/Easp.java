@@ -1,8 +1,6 @@
 package mae.easp.general;
 
 import mae.general.*;
-import mae.jeo.general.Jeo;
-import mae.jiss.general.Jiss;
 import mae.modasp.general.Modasp;
 import geyce.maefc.*;
 import mae.easp.*;
@@ -2489,6 +2487,12 @@ public static String getNomPC() {
     catch(Exception e ) {
       }
     return Modasp.cutrpad(nomPC,25).trim();
+}
+
+
+public static String getPrefixeNow() { 
+	SimpleDateFormat hora=new SimpleDateFormat("HHmmss");
+	return Fecha.fechaGregoriana(Maefc.getDate())+hora.format(new Date());
 }
 
  } //fin classe EASP

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20101227
-// Hora:             09:37:44
+// Fecha:            20131024
+// Hora:             12:39:32
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -386,12 +386,14 @@ public class ProgPrgestdocsmir extends Program
                 smirutil.edit(); 
                 Mir emir = new Mir (smirutil.mirmcodemp.getInteger(),smirutil.mircif.getString(),smirutil.mirdesc.getString(),smirutil.mirtipdoc.getString(),smirutil.mirubicacion.getString(),aplic);
                 if ( emir.tieneMir() ) {
-                  boolean  proceso = emir.send(Easp.usuario,smirutil.mirfechacrea.getString());
+                  //boolean  proceso = emir.send(Easp.usuario,smirutil.mirfechacrea.getString());
+                  boolean  proceso = emir.send(smirutil.mirfechacrea.getString());
                   if (  proceso ) {
                     contOk++;
                     smirutil.miractivado.setNull();
                     smirutil.mirestado.setValue("E");
                     smirutil.mirfechaenvio.setValue(Maefc.getDate());
+            smirutil.mirubicacion.setValue(emir.getFicheroEnviado());
                   }
                   else {
                     Maefc.message(emir.getErrorEnvio(),"Atención",Maefc.ERROR_MESSAGE);
@@ -470,6 +472,7 @@ public class ProgPrgestdocsmir extends Program
         }
       public void onAction()
         {
+        boolean bOk = true;
         String mircdp  = smir.mircdp.getString();
         String mircif  = smir.mircif.getString();
         String miractivado  = smir.miractivado.getString();
@@ -484,21 +487,29 @@ public class ProgPrgestdocsmir extends Program
         int mirnomcodcen  = smir.mirnomcodcen.getInteger();
         int mirnomcodtra  = smir.mirnomcodtra.getInteger();
         String mirubicacion  = smir.mirubicacion.getString();
-        smir.addNew();
-        smir.mircdp.setValue(mircdp);
-        smir.mircif.setValue(mircif);
-        smir.miractivado.setValue("S");
-        smir.mirestado.setValue("P");
-        smir.mirfechacrea.setValue(Maefc.getDate());
-        smir.mirdesc.setValue(mirdesc);
-        smir.miraplic.setValue(miraplic);
-        smir.mirtipdoc.setValue(mirtipdoc);
-        smir.mirtipfile.setValue(mirtipfile);
-        smir.mirmcodemp.setValue(mirmcodemp);
-        smir.mirnomcodcen.setValue(mirnomcodcen);
-        smir.mirnomcodtra.setValue(mirnomcodtra);
-        smir.mirubicacion.setValue(mirubicacion);
-        if (smir.insert()) {
+        
+        String rutaReenvio = System.getProperty("user.dir")+"\\EnviosEMIR\\Reenviar\\";//+Easp.getPrefixeNow ()+"Reenvio."+mirtipfile;
+        String ficheroReenvio = rutaReenvio + "Reenvio_"+Easp.getPrefixeNow ()+"."+mirtipfile;
+        Easp.creaDirect(rutaReenvio);
+        if (bOk) bOk = Easp.copyFile (mirubicacion,ficheroReenvio);
+        if (bOk) {
+          smir.addNew();
+          smir.mircdp.setValue(mircdp);
+          smir.mircif.setValue(mircif);
+          smir.miractivado.setValue("S");
+          smir.mirestado.setValue("P");
+          smir.mirfechacrea.setValue(Maefc.getDate());
+          smir.mirdesc.setValue(mirdesc);
+          smir.miraplic.setValue(miraplic);
+          smir.mirtipdoc.setValue(mirtipdoc);
+          smir.mirtipfile.setValue(mirtipfile);
+          smir.mirmcodemp.setValue(mirmcodemp);
+          smir.mirnomcodcen.setValue(mirnomcodcen);
+          smir.mirnomcodtra.setValue(mirnomcodtra);
+          smir.mirubicacion.setValue(ficheroReenvio);
+          bOk = smir.insert();
+        }
+        if (bOk) {
           smir.commit();
           verEnviadas = false;
           doShow();

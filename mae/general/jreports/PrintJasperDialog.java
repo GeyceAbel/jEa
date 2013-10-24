@@ -14,15 +14,13 @@ public class PrintJasperDialog extends Form
 	private boolean pImpresora;
 	private boolean pDOCX;
 	private boolean pTXT;
-
-	//private Vector panels   = new Vector();
+	private boolean pEMIR;
 
 	public PrintJasperDialog (PrintJasperWork job, Program prog)
 	{
 		super(prog);
 		this.job = job;
 		setName("vprint");
-		//setTitle("Salida...");
 		setTitle(job.titulo);
 		setLayout(new LayoutTabbed());
 		setModal(true);
@@ -30,16 +28,13 @@ public class PrintJasperDialog extends Form
 		LocationWindow lw = new LocationWindow();
 		lw.setModal(true);
 		lw.setLocation(LocationWindow.CENTER);
-		lw.setWidth(500);
+		lw.setWidth(520);
 		lw.setHeight(380);
 		setLocation(lw);		
-		//pPDF = true;
-		//pEXCEL = true;
-		//pVISOR = true;
-		//pImpresora = true;
-		//pDOCX = true;
 	}
-
+	
+	
+	
 	public void setpPDF(boolean pPDF) {
 		this.pPDF = pPDF;
 	}
@@ -64,6 +59,10 @@ public class PrintJasperDialog extends Form
 		this.pTXT = pTXT;
 	}
 
+	public void setpEMIR(boolean pEMIR) {
+		this.pEMIR = pEMIR;
+	}
+	
 	public void showDialog()
 	{
 		creaTabs();
@@ -102,21 +101,15 @@ public class PrintJasperDialog extends Form
 			panel.setParent(this);
 			addTab(panel);
 		}
-		//panels.addElement(panel);
+		if (pEMIR) {
+			PrintJasperPanel panel = new  PrintJasperPanelEMIR(job);
+			panel.setParent(this);
+			addTab(panel);
+		}
 	}
 
 
 	public void addTab(PrintJasperPanel tab) {
 		addControl(tab.getTabComponent());
 	}
-	/*
-  public PrintJasperPanel getPanel(Class clase) {
-    for (int i = 0; i < panels.size(); i++) {
-      Object obj = panels.elementAt(i);
-      if (obj.getClass() == clase)
-        return (PrintJasperPanel) obj;
-    }
-    return null;
-  }
-	 */
 }

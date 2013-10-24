@@ -103,3 +103,4 @@
 130918 --> APXAVI:  Conexions jasper a nivell jListado. Posibilitat de repetir camp al query i que no peti al fer la sortida txt
 131002 --> APJORDI: Modif Jasper. El printwhen del textfield esta abans de les propietats i donava error.
 131003 --> APJORDI: PrintJasperWork. Habilitar la opció de generar el PDF i el EXCEL en mode background. Conversió taula TREAJASPER I TAREAJASPERDET per guardar llistats
+131004 --> APJORDI: Jasper MIR. Canvis en el envio emir (gestdocemir).

@@ -1,15 +1,12 @@
 package mae.general.jreports;
 
-import java.awt.Image;
 import java.io.File;
-import java.util.Hashtable;
 import java.util.LinkedHashMap;
 import java.util.Vector;
 
 import net.sf.jasperreports.view.JasperViewer;
 
 import mae.easp.general.Easp;
-import mae.modasp.general.Modasp;
 import geyce.maefc.Aplication;
 import geyce.maefc.DBConnection;
 import geyce.maefc.Program;
@@ -26,6 +23,7 @@ public class PrintJasperWork {
 	private boolean pestanaImpresora=true;
 	private boolean pestanaDOCX=true;
 	private boolean pestanaTXT=false;
+	private boolean pestanaEMIR=false;
 	protected Vector <JListado> vTarea;
 	protected String destino;
 	protected boolean abrir;
@@ -41,12 +39,12 @@ public class PrintJasperWork {
 	protected String iconoVistaPrevia;	
 	private boolean showDialeg =true; 
 	protected boolean isVistaPrevia=false;
-	//protected boolean EXCEL_WHITE_BACKGROUND;
-	//protected boolean EXCEL_EMPTY_SPACE_ROWS;
-	//protected boolean EXCEL_EMPTY_SPACE_COL;
 	public String  parametroPaginaInicial;
 	public boolean multiPaginaExcel = false;
     public LinkedHashMap<String,String[]> fieldsNameLength;
+	protected int empresa;
+	protected String aplicacio;
+    
 	
 	private void showPanels(){
      	 for (int j=0;j<vjv.size();j++) {
@@ -72,6 +70,12 @@ public class PrintJasperWork {
 
 	public void setPestanaDOCX(boolean pestanaDOCX) {
 		this.pestanaDOCX = pestanaDOCX;
+	}
+	
+	public void setPestanaEMIR (int empresa, String aplicacio) {
+		this.pestanaEMIR = true;
+		this.empresa = empresa;
+		this.aplicacio = aplicacio;
 	}
 	
 	public void setPestanaTXT(boolean pestanaTXT,LinkedHashMap<String,String[]> fieldsNameLength,File xmlFileDataSource) {
@@ -108,20 +112,7 @@ public class PrintJasperWork {
 	public boolean isShowDialeg(){
 		return showDialeg;
 	}
-	/*
-	public void setExcelWhiteBackground(boolean whiteBackground) {
-		this.EXCEL_WHITE_BACKGROUND = whiteBackground;
-	}
-	
-	public void setExcelEmptySpaceRows(boolean emptySpaceRows) {
-		this.EXCEL_EMPTY_SPACE_ROWS = emptySpaceRows;
-	}
-	
-	public void setExcelEmptySpaceCol(boolean emptySpaceCol) {
-		this.EXCEL_EMPTY_SPACE_COL = emptySpaceCol;
-	}
-	
-	*/
+
 	public void vistaPrevia() {
 		showDialeg =false;
 		PrintJasperPanelVisor panel = new  PrintJasperPanelVisor(this);
@@ -140,11 +131,6 @@ public class PrintJasperWork {
 		tamañoLetra = 8;
 		modifValores = true;
 		iconoVistaPrevia = "/"+Aplication.getAplication().getIcon().getFileName();		
-		//pestanaPDF = true;
-		//pestanaEXCEL = true;
-		//pestanaVISOR = true;
-		//pestanaImpresora = true;
-		//pestanaDOCX = true;
 	}
 
 	public void setVistapreviaTitulo(String title) {
@@ -159,6 +145,7 @@ public class PrintJasperWork {
 		dialog.setpImpresora(pestanaImpresora);
 		dialog.setpDOCX(pestanaDOCX);
 		dialog.setpTXT(pestanaTXT);
+		dialog.setpEMIR(pestanaEMIR);
 		return dialog;
 	}
 
