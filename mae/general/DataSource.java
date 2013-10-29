@@ -126,7 +126,8 @@ public class DataSource {
 	public Integer checkTypeDataSource(String absolutePath){
 	  if (absolutePath.contains(".txt")) return DATAFILE;
 	  if (absolutePath.contains(".mdb")) return DATABASE;
-	  if (absolutePath.contains(".xls")) return DATASHEET;	  
+	  if (absolutePath.contains(".xls")) return DATASHEET;	 
+	  if (absolutePath.contains(".csv")) return DATAFILE;
 	  else return null;
 	}
 	
