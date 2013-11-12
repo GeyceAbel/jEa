@@ -2,7 +2,7 @@ package mae.general.jreports;
 
 public class Totalizar { 
   
-  public enum Calculation { SUM, COUNT, DISTINCT_COUNT, AVERAGE, LOWEST,HIGHEST,FIRST} ;
+  public enum Calculation { SUM, COUNT, DISTINCT_COUNT, AVERAGE, LOWEST,HIGHEST,FIRST,NOTHING} ;
 
   private Calculation tipoTotalizar;  //sum,count,etc...
   private int tipo;
@@ -44,6 +44,7 @@ public class Totalizar {
     else if(tipoTotalizar == Calculation.LOWEST) return "Lowest";
     else if(tipoTotalizar == Calculation.HIGHEST) return "Highest";
     else if(tipoTotalizar == Calculation.FIRST) return "First";
+    else if(tipoTotalizar == Calculation.NOTHING) return "Nothing";
     else return "Sum";
   }
   

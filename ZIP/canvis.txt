@@ -105,3 +105,4 @@
 131003 --> APJORDI: PrintJasperWork. Habilitar la opció de generar el PDF i el EXCEL en mode background. Conversió taula TREAJASPER I TAREAJASPERDET per guardar llistats
 131004 --> APJORDI: Jasper MIR. Canvis en el envio emir (gestdocemir).
 131005 --> APXAVI:  Modificacions Jacob per plantilla mandato sepa.
+131101 --> APJORDI: Jasper Totalizar afegir el tipo NOTHING
