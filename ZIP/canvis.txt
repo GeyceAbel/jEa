@@ -106,3 +106,4 @@
 131004 --> APJORDI: Jasper MIR. Canvis en el envio emir (gestdocemir).
 131005 --> APXAVI:  Modificacions Jacob per plantilla mandato sepa.
 131101 --> APJORDI: Jasper Totalizar afegir el tipo NOTHING
+131102 --> APPERE:  ProgInsindices -> indexos jRenta
