@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130920
-// Hora:             13:47:49
+// Fecha:            20131113
+// Hora:             08:04:09
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -25,7 +25,6 @@ public class ProgInsindices extends Program
   public AppEasp easp;
   public ProgInsindices insindices;
   // Inicio declaraciones globales
-  
   
   public void reconstruye() {
     String user = Aplication.getAplication().getUser() ;
@@ -71,8 +70,19 @@ public class ProgInsindices extends Program
         connJEO.disconnect();
         }
       }
-    
-    }
+    else if ( vindices.vvaplicacion.getString().equals("JRENTA") ) {
+            Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()),user,"M","INSINDICES","Reconstruccion de Indices BD JEO Ver1.0", Easp.dominio, "");
+            DBConnection connJRenta = Easp.getConnexio("jrenta", Easp.connEA);
+            if ( connJRenta != null ) {
+               if ( execSentencias(connJRenta,indicesReconstruirSQL_jRenta) ) {
+                  Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
+               }
+               else Maefc.message("El proceso ha finalizado \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
+               connJRenta.disconnect();
+            }
+          }
+   
+  }
   
   
   public void crear () {
@@ -119,9 +129,18 @@ public class ProgInsindices extends Program
         connJEO.disconnect();
         }
       }
-  
+    else  if ( vindices.vvaplicacion.getString().equals("JRENTA") ) {
+      	Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()), user, "A", "INSINDICES", "Creación de Indices  BD JRENTA Ver1.0 ", Easp.dominio, "");
+      	DBConnection connJRenta = Easp.getConnexio("jrenta", Easp.connEA);
+      	if ( connJRenta != null ) {
+      		if ( execSentencias(connJRenta,indicesSQL_jRenta) ) {
+      			Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
+      		}
+      		else Maefc.message("El proceso ha finalizado. \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
+      		connJRenta.disconnect();
+      	}
+      }
   }
-  
   
   public boolean execSentencias(DBConnection connexion , String vsentencias[]) {
     boolean retorn = true ;
@@ -383,7 +402,8 @@ public class ProgInsindices extends Program
     "CREATE NONCLUSTERED INDEX [MOD3902B_GYC] ON [dbo].[MOD3902B] ([m9b2nif] ASC ); ",
     "CREATE NONCLUSTERED INDEX [MOD300DES_GYC] ON [dbo].[MOD300DES] ([m300dnif] ASC ); ",
     "CREATE NONCLUSTERED INDEX [MOD300DESB_GYC] ON [dbo].[MOD300DESB] ([m300bnif] ASC ); ",
-    "CREATE NONCLUSTERED INDEX [MODRDTOAGR_GYC] ON [dbo].[MODRDTOAGR] ([MRANIF] ASC ); "
+    "CREATE NONCLUSTERED INDEX [MODRDTOAGR_GYC] ON [dbo].[MODRDTOAGR] ([MRANIF] ASC ); ",
+    "CREATE NONCLUSTERED INDEX ID_MODESTADO ON MODESTADO (mesmodelo,mesejercicio,mesdecljren,mespresentada,mesaplic);"
     };
   String indicesReconstruirSQL_jModelos[] = {
       "ALTER INDEX  MOD347C_GYC     ON  MOD347C     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
@@ -396,7 +416,8 @@ public class ProgInsindices extends Program
       "ALTER INDEX  MOD3902B_GYC    ON  MOD3902B    REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
       "ALTER INDEX  MOD300DES_GYC   ON  MOD300DES   REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
       "ALTER INDEX  MOD300DESB_GYC  ON  MOD300DESB  REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
-      "ALTER INDEX  MODRDTOAGR_GYC  ON  MODRDTOAGR  REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )"
+      "ALTER INDEX  MODRDTOAGR_GYC  ON  MODRDTOAGR  REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+      "ALTER INDEX  ID_MODESTADO    ON  MODESTADO   REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )"
     };
   
   
@@ -599,6 +620,28 @@ public class ProgInsindices extends Program
       "ALTER INDEX ID_XISPREMP      ON XISPRORRATAS          REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
       "ALTER INDEX ID_CONFACTRA     ON CONFACTOR             REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
       };
+   
+  // Creacion de Indices para optimización de las BD
+  String indicesSQL_jRenta[] = {
+    "CREATE NONCLUSTERED INDEX ID_ACCESODATOS     ON ACCESODATOS (accdeclaran, accejeraplic,acccodregistro);",
+    "CREATE NONCLUSTERED INDEX ID_TRABAJOPERSONAL ON TRABAJOPERSONAL (traejeraplic,tradeclaran,tramuf,tradeclaracion);",
+    "CREATE NONCLUSTERED INDEX ID_MIEMBROSUNIDAD  ON MIEMBROSUNIDAD (mieejeraplic,miedeclaran,mieporcentaje,mievinculacion,mietipo,miemuf);",
+    "CREATE NONCLUSTERED INDEX ID_VALORESAPLIC    ON VALORESAPLIC (vaejeraplic,vaapl,vacampo,vaequivalencia,vacodigo);",
+    "CREATE NONCLUSTERED INDEX ID_ACTIVIDAD  ON ACTIVIDAD (actejeraplic,actdeclaran,actmuf,actdeclaracion,actidentactiv);",
+    "CREATE NONCLUSTERED INDEX ID_ACTIVIDAD2 ON ACTIVIDAD (actidentactiv,actmuf);",
+    "CREATE NONCLUSTERED INDEX ID_ACTIVIDAD3 ON ACTIVIDAD (actejeraplic,actdeclaran,acttipoactiv,actestimacion,actmuf,actclaveimpres);"
+  };
+   
+  // Reconstruccion de Indices para optimización de las BD
+  String indicesReconstruirSQL_jRenta[] = {
+     "ALTER INDEX ID_ACCESODATOS     ON ACCESODATOS     REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",
+     "ALTER INDEX ID_TRABAJOPERSONAL ON TRABAJOPERSONAL REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",
+     "ALTER INDEX ID_MIEMBROSUNIDAD  ON MIEMBROSUNIDAD  REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",
+     "ALTER INDEX ID_VALORESAPLIC    ON VALORESAPLIC    REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",
+     "ALTER INDEX ID_ACTIVIDAD  ON ACTIVIDAD  REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",
+     "ALTER INDEX ID_ACTIVIDAD2 ON ACTIVIDAD  REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",
+     "ALTER INDEX ID_ACTIVIDAD3 ON ACTIVIDAD  REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )"
+  };
   
   // Fin declaraciones globales
   // Ventana
@@ -650,6 +693,7 @@ public class ProgInsindices extends Program
         addItem("JGESTION");
         addItem("JMODELOS");
         addItem("JNOMINA");
+        addItem("JRENTA");
         }
       public boolean obligate()
         {
