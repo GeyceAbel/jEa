@@ -49,6 +49,24 @@ public class Columna {
 		}
 	}
 	
+	private Columna () {
+		
+	}
+	
+	public Columna getCopia () {
+		Columna ctmp = new Columna ();
+		ctmp.st = st.getCopia();
+		ctmp.tf = tf.getCopia();
+		ctmp.jl = jl;
+		ctmp.tipo = tipo;
+		ctmp.tamany = tamany;
+		ctmp.tamanyAsignatLlistat = tamanyAsignatLlistat;
+		ctmp.posIni = posIni;
+		ctmp.idCol = idCol;
+		ctmp.isStretchWithOverflow = isStretchWithOverflow;
+		return ctmp;
+	}
+	
 	public int getPosIni() {
 		return posIni;
 	}

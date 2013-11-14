@@ -26,6 +26,10 @@ public class TextField {
 	private boolean isStretchWithOverflow=false;
 
 	
+	private TextField () {
+		
+	}
+	
 	public TextField (JListado jlis,int x, int y, int width, int height)  {
 		this.jl = jlis;
 		negreta = false;
@@ -228,5 +232,29 @@ public class TextField {
 	public boolean isStretchWithOverflow() {
 		return isStretchWithOverflow; 
 	}
-	
+	public TextField getCopia() {
+		TextField tftmp = new TextField ();
+		tftmp.negreta = negreta;
+		tftmp.colorFons = colorFons;
+		tftmp.colorFont = colorFont;
+		tftmp.asignarColorFondo = asignarColorFondo;
+		tftmp.posIni = posIni;
+		tftmp.pattern = pattern;
+		tftmp.aligDerecha = aligDerecha;
+		tftmp.sizeFont = sizeFont;
+		tftmp.variable = variable;
+		tftmp.jl = jl;
+		tftmp.y = y;
+		tftmp.amplada = amplada;
+		tftmp.width = width;
+		tftmp.printWhen = printWhen;
+		tftmp.leftIndent = leftIndent;
+		tftmp.rightIndent = rightIndent;
+		tftmp.expression = expression;
+		tftmp.verticalAlig = verticalAlig;
+		tftmp.printValoresRepetidos = printValoresRepetidos;
+		tftmp.esExpresionCompleta = esExpresionCompleta;
+		tftmp.isStretchWithOverflow = isStretchWithOverflow;
+		return tftmp;
+	}
 }

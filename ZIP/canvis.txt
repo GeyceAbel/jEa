@@ -107,3 +107,4 @@
 131005 --> APXAVI:  Modificacions Jacob per plantilla mandato sepa.
 131101 --> APJORDI: Jasper Totalizar afegir el tipo NOTHING
 131102 --> APPERE:  ProgInsindices -> indexos jRenta
+131103 --> APJORDI: Poder afegir mes de un detail per poder jugar amb estils de lines diferents

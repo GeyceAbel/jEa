@@ -83,6 +83,7 @@ public class JListado {
 	public Vector <Variable> vExtraVariables;
 	public boolean paginarExcel = true;
 	private whenNoData sinDatos;
+	public Vector <ExtraBand> vDetailExtraBand;
 	
 	public JListado (Select slistado, Orientacion or) {
 		rutaFicheroJRXML = null;
@@ -99,6 +100,7 @@ public class JListado {
 		dummyExtraFirstBands = new Vector<Band>();
 		vPropiedadesExcel = new Vector<String> ();
 		vExtraVariables = new Vector<Variable> ();
+		vDetailExtraBand = new Vector<ExtraBand>();
 		propiedadesExcelAutomaticas = true;
 		paginarExcel = true; 
 	}
@@ -112,7 +114,8 @@ public class JListado {
 		dummyExtraBands = new Vector<Band>();
 		dummyExtraFirstBands = new Vector<Band>();
 		vPropiedadesExcel = new Vector<String> ();
-		vExtraVariables = new Vector<Variable> ();		
+		vExtraVariables = new Vector<Variable> ();	
+		vDetailExtraBand = new Vector<ExtraBand>();
 		propiedadesExcelAutomaticas = true;
 		paginarExcel = true; 
 	}
@@ -196,7 +199,7 @@ public class JListado {
 		this.rutaFicheroJRXML= rutaJRXML; 
 		parametros = new HashMap<String, Object>();
 		sinDataSource = false;
-		paginarExcel = true; 
+		paginarExcel = true; 		
 	}
 
 	public void addParameter (String clau, String valor) {
@@ -609,6 +612,38 @@ public class JListado {
 		}
 		return bOk;
 	}
+	
+	private boolean generarExtraDetail (BufferedWriter pw, ExtraBand eb) {
+		boolean bOk = true;
+		try {
+			pw.write("<band height=\""+(eb.getColumnes().elementAt(0).getTf().getAmplada())+"\" splitType=\"Stretch\">");
+			if (eb.getPrintWhen()!=null && eb.getPrintWhen().length()>0) pw.write("<printWhenExpression>"+eb.getPrintWhen()+"</printWhenExpression>");
+			for (int i=0;i<eb.getColumnes().size();i++) {
+				Columna c = eb.getColumnes().elementAt(i);
+				generarTextField(pw, c.getTf());
+			}
+			pw.write("</band>");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			sError = ""+e;
+			bOk = false;
+		}
+		return bOk;
+	}
+	
+	private boolean generarExtraDetail (BufferedWriter pw) {
+		boolean bOk = true;
+		try {
+			for (int i=0;i<vDetailExtraBand.size();i++) generarExtraDetail (pw, vDetailExtraBand.elementAt(i));
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			sError = ""+e;
+			bOk = false;
+		}
+		return bOk;
+	}
 
 	private boolean generarDetail (BufferedWriter pw) {
 		boolean bOk = true;
@@ -622,6 +657,7 @@ public class JListado {
 					generarTextField(pw, c.getTf());
 				}
 				pw.write("</band>");
+				generarExtraDetail(pw);
 				pw.write("</detail>");			
 			}
 		}
@@ -1123,7 +1159,7 @@ public class JListado {
 		return encabezados.size();
 	}
 
-	private int getNumColumnas() {
+	public int getNumColumnas() {
 		return columnas.size();
 	}
 
