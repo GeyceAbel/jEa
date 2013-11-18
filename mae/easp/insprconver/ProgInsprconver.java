@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20131022
-// Hora:             16:12:41
+// Fecha:            20131118
+// Hora:             09:40:14
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -30,7 +30,8 @@ public class ProgInsprconver extends Program
   public String errorMessage="";
   public String sqlOperation="";
   
-  public String tipoDB=Aplication.getAplication().getDataBase().getDB().getType();
+  //public String tipoDB=Aplication.getAplication().getDataBase().getDB().getType();
+  public String tipoDB=Easp.connEA.getDB().getType();
   
   public String getMemo(int tamany) {
     if (tipoDB.toUpperCase().equals("ACCESS"))

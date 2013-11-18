@@ -108,3 +108,4 @@
 131101 --> APJORDI: Jasper Totalizar afegir el tipo NOTHING
 131102 --> APPERE:  ProgInsindices -> indexos jRenta
 131103 --> APJORDI: Poder afegir mes de un detail per poder jugar amb estils de lines diferents
+131104 --> APJORDI: Insprconver, modificar que el tipoBD enlloc d'agafar la conexio d'aplicacio agafi el Easp.connEA (ja que jConta pot ser access i llavors els tipo data donen error)
