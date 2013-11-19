@@ -8,7 +8,7 @@ import geyce.maefc.*;
 /** Clase que engloba funciones de utilidad asociadas a las fechas
  * @author GEYCE - Joan Vilaseca
  * @version 1.4, 13/2/2002
- * Es rectifica funcio gregorianaFecha perque no funcionava
+ * Es rectifica funcio gregorianaFecha perq5ue no funcionava
  * S'afegeix nova funcio getHora
  * S'afegeixen funcions fechaInicioMes i fechaFinMes
  */

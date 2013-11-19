@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20121211
-// Hora:             13:15:19
+// Fecha:            20131119
+// Hora:             16:42:07
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -34,6 +34,11 @@ public class ProgPrclfichagener extends Program
   public boolean esDP=false;
   
   public int nuevoCodiCDP=0;
+  
+  public boolean tieneJISS=false;
+  public boolean tieneJEO=false;
+  public boolean tieneJRENTA = false;
+  public boolean tieneJCONTA=false;
   
   
   DBConnection connJNomina=null;
@@ -1709,7 +1714,24 @@ public class ProgPrclfichagener extends Program
       }
     public boolean onOkDelete()
       {
-      if (deleteAsignaciones())
+      boolean esPotBorrar = true;
+      if (tieneJISS && (chirpf.getBoolean() || chpagosc.getBoolean() || chliqanual.getBoolean())) {
+         if (Maefc.NO_OPTION==Maefc.message("Es cliente de jSociedades y estos datos bancarios se\nutilizan para obtener los Impuestos de Sociedades.  \n\n¿Está seguro que desea eliminar estos datos.?","Atención",Maefc.WARNING_MESSAGE,Maefc.YES_NO_OPTION))
+              esPotBorrar = false;
+      }
+      if (esPotBorrar && tieneJEO && (chiva.getBoolean() || chirpf.getBoolean() || chpagosc.getBoolean() || chliqanual.getBoolean())) {
+         if (Maefc.NO_OPTION==Maefc.message("Es cliente de jEstimación y estos datos bancarios se\nutilizan para obtener los Impuestos de IVA e IRPF.  \n\n¿Está seguro que desea eliminar estos datos.?","Atención",Maefc.WARNING_MESSAGE,Maefc.YES_NO_OPTION))
+              esPotBorrar = false;
+      }
+      if (esPotBorrar && tieneJCONTA && (chiva.getBoolean() || chirpf.getBoolean() || chpagosc.getBoolean() || chliqanual.getBoolean())) {
+         if (Maefc.NO_OPTION==Maefc.message("Es cliente de jConta y estos datos bancarios se   \nutilizan para obtener los Impuestos de IVA e IRPF.\n\n¿Está seguro que desea eliminar estos datos.?","Atención",Maefc.WARNING_MESSAGE,Maefc.YES_NO_OPTION))
+              esPotBorrar = false;
+      }
+      if (esPotBorrar && tieneJRENTA && chliqanual.getBoolean()) {
+         if (Maefc.NO_OPTION==Maefc.message("Es cliente de jRenta y estos datos bancarios se utilizan\npara obtener los Impuestos de Renta y Patrimonio.       \n\n¿Está seguro que desea eliminar estos datos.?","Atención",Maefc.WARNING_MESSAGE,Maefc.YES_NO_OPTION))
+              esPotBorrar = false;
+      }
+      if (esPotBorrar && deleteAsignaciones())
         return super.onOkDelete();
       else
         return false;
@@ -6038,18 +6060,18 @@ snifrep.datapell2.setValue(vvdatapell2);
     public Domi domi;
     // Campos
     public Field doasesor;
-    public Field docolectivo;
-    public Field docliente;
-    public Field docontador;
     public Field dobanco;
-    public Field donombre;
+    public Field docliente;
+    public Field docolectivo;
+    public Field docontador;
+    public Field docuenta;
+    public Field dodigcon;
     public Field dodomicilio;
+    public Field doentidad;
+    public Field donombre;
+    public Field dooficina;
     public Field dopoblacion;
     public Field doprovincia;
-    public Field doentidad;
-    public Field dooficina;
-    public Field dodigcon;
-    public Field docuenta;
     class Domi extends Table
       {
       public Domi(Select select)
@@ -6065,18 +6087,18 @@ snifrep.datapell2.setValue(vvdatapell2);
       setName("sdomi");
       addTable(domi=new Domi(this));
       addField(doasesor=new Field(this,domi,"doasesor"));
-      addField(docolectivo=new Field(this,domi,"docolectivo"));
-      addField(docliente=new Field(this,domi,"docliente"));
-      addField(docontador=new Field(this,domi,"docontador"));
       addField(dobanco=new Field(this,domi,"dobanco"));
-      addField(donombre=new Field(this,domi,"donombre"));
+      addField(docliente=new Field(this,domi,"docliente"));
+      addField(docolectivo=new Field(this,domi,"docolectivo"));
+      addField(docontador=new Field(this,domi,"docontador"));
+      addField(docuenta=new Field(this,domi,"docuenta"));
+      addField(dodigcon=new Field(this,domi,"dodigcon"));
       addField(dodomicilio=new Field(this,domi,"dodomicilio"));
+      addField(doentidad=new Field(this,domi,"doentidad"));
+      addField(donombre=new Field(this,domi,"donombre"));
+      addField(dooficina=new Field(this,domi,"dooficina"));
       addField(dopoblacion=new Field(this,domi,"dopoblacion"));
       addField(doprovincia=new Field(this,domi,"doprovincia"));
-      addField(doentidad=new Field(this,domi,"doentidad"));
-      addField(dooficina=new Field(this,domi,"dooficina"));
-      addField(dodigcon=new Field(this,domi,"dodigcon"));
-      addField(docuenta=new Field(this,domi,"docuenta"));
       }
     public String getWhere()
       {
@@ -6259,11 +6281,17 @@ snifrep.datapell2.setValue(vvdatapell2);
         vdatosafiliacio.exit();
         prclfichagener.exit();
         return;
-        }
+      }
       vdatosafiliacio.doShow();
       alta=false;
-      }
-    
+    }
+    else {
+        snifes.execute();
+        if ("S".equals(snifes.cdpckconta.getString()) && !"CON".equals(aplicacion)) tieneJCONTA=true;
+        if ("S".equals(snifes.cdpckiss.getString()) && !"ISS".equals(aplicacion)) tieneJISS=true;
+        if ("S".equals(snifes.cdpckeo.getString()) && !"EOS".equals(aplicacion)) tieneJEO=true;
+        if ("S".equals(snifes.cdpckrenta.getString()) && !"REN".equals(aplicacion)) tieneJRENTA = true;
+    }
     
     
     //APPAU 13-12-2012 Nuevo , para controlar los bancos en jNomina & jGestion
@@ -6294,18 +6322,11 @@ snifrep.datapell2.setValue(vvdatapell2);
       tieneJGestion = true ;
       // vdatosbancarios.acbancosjgestio.setVisible(true);
       vdomi.setInitState(DataForm.SHOW);
-      }
+    }
     else {
       // vdatosbancarios.acbancosjgestio.setVisible(false);
       }
     sbds.close();
-    
-    
-    
-    
-    
-    
-    
     
     super.onInit();
     
