@@ -110,3 +110,4 @@
 131103 --> APJORDI: Poder afegir mes de un detail per poder jugar amb estils de lines diferents
 131104 --> APJORDI: Insprconver, modificar que el tipoBD enlloc d'agafar la conexio d'aplicacio agafi el Easp.connEA (ja que jConta pot ser access i llavors els tipo data donen error)
 131105 --> APESTER: prclfichagener, al borrar dades bancaries i si el client es d'altres aplicacions dona avís pero deixa borrar si es afirmatiu
+131106 --> APPERE:  script CREA.vbs canvi varchar(2000) x (4000) es fa sevir conver acces a sql prinspreexportbd
