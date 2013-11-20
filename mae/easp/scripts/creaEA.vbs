@@ -92,7 +92,7 @@ Else
 								Case 130  	'Texto
 										strSQL= strSQL & fldAccess.Name &  " varchar(" & fldAccess.DefinedSize & ") "
 								Case 203  	'Blob
-										strSQL= strSQL & fldAccess.Name &  " varchar(2000) "
+                                                                                strSQL= strSQL & fldAccess.Name &  " varchar(4000) "
 								Case 204  	'Binario
 										strSQL= strSQL & fldAccess.Name &  " binary "
 								Case 7      'Date
