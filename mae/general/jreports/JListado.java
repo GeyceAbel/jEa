@@ -39,7 +39,7 @@ public class JListado {
 	private int margender;
 	private int pagewidth;
 	private int pageheight;
-	private int columnWidth;	
+	private int columnWidth;
 
 	private List <Encabezado> encabezados;
 	private List <Columna> columnas;
@@ -71,6 +71,7 @@ public class JListado {
 	private int rightWidthPosicion;
 	private boolean autoFillColumns;
 	private boolean viewTotalesFinales = true;
+  private boolean titolColumnasEncabezado=false;
 	public int minHeightToStartNewPage;
 	private int titleHeight;
 	private String nombreReport;
@@ -84,7 +85,7 @@ public class JListado {
 	public boolean paginarExcel = true;
 	private whenNoData sinDatos;
 	public Vector <ExtraBand> vDetailExtraBand;
-	
+
 	public JListado (Select slistado, Orientacion or) {
 		rutaFicheroJRXML = null;
 		orientacionPapel = or;
@@ -94,7 +95,7 @@ public class JListado {
 		fields = new LinkedHashMap<String, Integer> ();
 		for (int i=0;i<slistado.getNumColumns();i++) {
 			Field f = slistado.getColumn(i);
-			fields.put(f.getName(), f.getType());			
+			fields.put(f.getName(), f.getType());
 		}
 		dummyExtraBands = new Vector<Band>();
 		dummyExtraFirstBands = new Vector<Band>();
@@ -102,7 +103,7 @@ public class JListado {
 		vExtraVariables = new Vector<Variable> ();
 		vDetailExtraBand = new Vector<ExtraBand>();
 		propiedadesExcelAutomaticas = true;
-		paginarExcel = true; 
+		paginarExcel = true;
 	}
 
 	public JListado (String queryString, LinkedHashMap<String, Integer> fields, Orientacion or) {
@@ -114,10 +115,10 @@ public class JListado {
 		dummyExtraBands = new Vector<Band>();
 		dummyExtraFirstBands = new Vector<Band>();
 		vPropiedadesExcel = new Vector<String> ();
-		vExtraVariables = new Vector<Variable> ();	
+		vExtraVariables = new Vector<Variable> ();
 		vDetailExtraBand = new Vector<ExtraBand>();
 		propiedadesExcelAutomaticas = true;
-		paginarExcel = true; 
+		paginarExcel = true;
 	}
 
 	public void setDefaultParameters() {
@@ -139,8 +140,8 @@ public class JListado {
 		sinDataSource = false;
 		parametros = new HashMap<String, Object>();
 		titleHeight = 40;
-		nombreReport = "ReportAutomatico";		
-		setPapel();		
+		nombreReport = "ReportAutomatico";
+		setPapel();
 	}
 
 	public void setXmlDataSource(JRXmlDataSource dataSourceXml) {
@@ -167,7 +168,7 @@ public class JListado {
 			margensup = 20;
 			margeninf = 20;
 			margenizq = 20;
-			margender = 20;	
+			margender = 20;
 			pagewidth = 842;
 			pageheight = 595;
 		}
@@ -175,7 +176,7 @@ public class JListado {
 			margensup = 30;
 			margeninf = 30;
 			margenizq = 20;
-			margender = 20;	
+			margender = 20;
 			pagewidth = 595;
 			pageheight = 842;
 		}
@@ -196,10 +197,10 @@ public class JListado {
 	}
 
 	public JListado (String rutaJRXML) {
-		this.rutaFicheroJRXML= rutaJRXML; 
+		this.rutaFicheroJRXML= rutaJRXML;
 		parametros = new HashMap<String, Object>();
 		sinDataSource = false;
-		paginarExcel = true; 		
+		paginarExcel = true;
 	}
 
 	public void addParameter (String clau, String valor) {
@@ -230,7 +231,7 @@ public class JListado {
 		Columna col = new Columna(this, literal, expression, nomVariable,tipo, tamany,posIni);
 		columnas.add(col);
 		posActualColumnHeader +=tamany;
-		return col;		
+		return col;
 	}
 
 	public StaticText addColumnaSuperior(String literal,int x, int y, int tamany) {
@@ -281,6 +282,15 @@ public class JListado {
 	public Rotura addRotura (String nombre, String agruparPor,String titol) {
 		Rotura r = new Rotura(this, totales, nombre, agruparPor,titol);
 		roturas.add(r);
+		return r;
+	}
+
+  public Rotura addRotura (String nombre, String agruparPor,String titol,boolean totalizar) {
+    Rotura r = null;
+    if (totalizar) r = new Rotura(this, totales, nombre, agruparPor,titol);
+    else r = new Rotura(this, new ArrayList<Totalizar>(), nombre, agruparPor,titol);
+    roturas.add(r);
+
 		return r;
 	}
 
@@ -416,36 +426,36 @@ public class JListado {
 			fjrxml = File.createTempFile("JRXML_", ".jrxml");
 			//fjrxml = new File("projasper.jrxml");
 
-			pw = new BufferedWriter(new OutputStreamWriter (new FileOutputStream(fjrxml),"UTF8"));			
+			pw = new BufferedWriter(new OutputStreamWriter (new FileOutputStream(fjrxml),"UTF8"));
 
 			if (bOk) bOk = generarCabecera (pw);
 			if(getNumParameters() > 0) {
-				if (bOk) bOk = generarImportaciones (pw);			  
+				if (bOk) bOk = generarImportaciones (pw);
 			}
 			if (bOk) bOk = generarSubDataSet (pw);
 			if(getNumParameters() > 0) {
-				if (bOk) bOk = generarParametros (pw);				  
+				if (bOk) bOk = generarParametros (pw);
 			}
 			if (bOk) bOk = generarParametroPaginaInicial (pw);
 			if (bOk) bOk = generarQueryString (pw);
 			if (bOk) bOk = generarFields (pw);
 			if (bOk) bOk = generarVariablesColumnas (pw);
-			if (bOk) bOk = generarVariablesRoturas (pw);	
+			if (bOk) bOk = generarVariablesRoturas (pw);
 			if (bOk) bOk = generarVariablesTotales (pw);
 			if (bOk) bOk = generarExtraVariables (pw);
 			//initTamanyoColumnes ();
 			if(viewTotalesFinales)
 				if (bOk) bOk = generarTotalesFooter (pw);
 			if (bOk) bOk = generarRoturas (pw);
-			if (bOk) bOk = generarDummyHeader(pw);
+      if (bOk && !getTitolColumnasEncabezado()) bOk = generarDummyHeader(pw);
 			if (bOk) bOk = generarGrupos(pw);
 			//if (bOk) bOk = generarBandBackground (pw);
 			if (bOk) bOk = generarBandTitle (pw);
 			if (bOk) bOk = generarPageHeader (pw);
-			//if (bOk) bOk = generarColumnHeader (pw);			
+			//if (bOk) bOk = generarColumnHeader (pw);
 			if (bOk) bOk = generarDetail (pw);
 			//if (bOk) bOk = generarColumnFooter (pw);
-			if (bOk) bOk = generarPageFooter (pw);	
+			if (bOk) bOk = generarPageFooter (pw);
 			if (bOk) bOk = generarFinal (pw);
 			if (bOk) rutaFicheroJRXML = fjrxml.getAbsolutePath();
 		}
@@ -456,7 +466,7 @@ public class JListado {
 		}
 		finally {
 			try  {
-				if (pw!=null) pw.close();		
+				if (pw!=null) pw.close();
 				fjrxml = null;
 			}
 			catch (Exception e) {
@@ -474,7 +484,7 @@ public class JListado {
 				pw.write("<defaultValueExpression><![CDATA[0]]></defaultValueExpression>");
 				pw.write("</parameter>");
 			}
-		} 
+		}
 		catch (IOException e) {
 			bOk = false;
 			sError = e.getMessage();
@@ -486,7 +496,7 @@ public class JListado {
 		boolean bOk = true;
 		try {
 			for (int i=0;i<grupos.size();i++) pw.write(grupos.elementAt(i));
-		} 
+		}
 		catch (IOException e) {
 			bOk = false;
 			sError = e.getMessage();
@@ -503,7 +513,7 @@ public class JListado {
 				Rotura r = getRotura(i);
 				String saltPage = "";
 				if (r.isSaltoPagina()) saltPage = " isStartNewPage=\"true\" ";
-				pw.write("<group name=\""+r.getNombre()+"\""+saltPage+" isReprintHeaderOnEachPage=\"true\" minHeightToStartNewPage=\""+ minHeightToStartNewPage +"\">");				
+        pw.write("<group name=\""+r.getNombre()+"\""+saltPage+" isReprintHeaderOnEachPage=\"true\" minHeightToStartNewPage=\""+ minHeightToStartNewPage +"\">");
 				pw.write("<groupExpression><![CDATA["+r.getAgruparPor()+"]]></groupExpression>");
 				pw.write("<groupHeader>");
 				if(!r.isPrintGroupHeader()) {
@@ -521,10 +531,10 @@ public class JListado {
 					pw.write("</textElement>");
 					pw.write("<textFieldExpression><![CDATA[" + r.getGroupHeaderName() +"]]></textFieldExpression>");
 					pw.write("</textField>");
-					pw.write("</frame>");					
+					pw.write("</frame>");
 					pw.write("</band>");
 				}
-				pw.write("</groupHeader>");			
+				pw.write("</groupHeader>");
 				pw.write("<groupFooter>");
 				pw.write("<band height=\""+(r.getAnchura()+espacioDetalle)+"\">");
 				if (r.getPrintWhen()!=null && r.getPrintWhen().length()>0) pw.write("<printWhenExpression>"+r.getPrintWhen()+"</printWhenExpression>");
@@ -534,12 +544,12 @@ public class JListado {
 
 				java.util.List<Totalizar> totals = r.getTotales();
 				if(totals.size()>0) {
-					pw.write("<rectangle radius=\"2\">"); 
-					pw.write("<reportElement x=\"0\" y=\"0\" width=\"" + posActualColumnHeader +"\" height=\"" + (r.getHeaderHeight()+2) + "\" forecolor=\"" + r.getBackGroundHeaderColor() + "\"/>"); 
-					pw.write("<graphicElement>"); 
+					pw.write("<rectangle radius=\"2\">");
+					pw.write("<reportElement x=\"0\" y=\"0\" width=\"" + posActualColumnHeader +"\" height=\"" + (r.getHeaderHeight()+2) + "\" forecolor=\"" + r.getBackGroundHeaderColor() + "\"/>");
+					pw.write("<graphicElement>");
 					pw.write("<pen lineWidth=\"2.0\"/>");
 					pw.write("</graphicElement>");
-					pw.write("</rectangle>");	
+					pw.write("</rectangle>");
 				}
 				for (int c=0;c<totals.size();c++) {
 					Columna col = totals.get(c).getColumna();
@@ -598,7 +608,7 @@ public class JListado {
 					generarTextField(pw, tf);
 
 				}
-				pw.write("</band>");				
+				pw.write("</band>");
 				pw.write("</groupFooter>");
 				pw.write("</group>");
 				leftIndentTitol++;
@@ -612,7 +622,7 @@ public class JListado {
 		}
 		return bOk;
 	}
-	
+
 	private boolean generarExtraDetail (BufferedWriter pw, ExtraBand eb) {
 		boolean bOk = true;
 		try {
@@ -631,7 +641,7 @@ public class JListado {
 		}
 		return bOk;
 	}
-	
+
 	private boolean generarExtraDetail (BufferedWriter pw) {
 		boolean bOk = true;
 		try {
@@ -658,7 +668,7 @@ public class JListado {
 				}
 				pw.write("</band>");
 				generarExtraDetail(pw);
-				pw.write("</detail>");			
+				pw.write("</detail>");
 			}
 		}
 		catch (Exception e) {
@@ -670,9 +680,9 @@ public class JListado {
 	}
 
 	private boolean generarDummyHeader (BufferedWriter pw) {
-		boolean bOk = true;		
+		boolean bOk = true;
 		try {
-			pw.write("<group name=\"dummy\" isReprintHeaderOnEachPage=\"true\" minHeightToStartNewPage=\""+minHeightToStartNewPage+"\">");	
+			pw.write("<group name=\"dummy\" isReprintHeaderOnEachPage=\"true\" minHeightToStartNewPage=\""+minHeightToStartNewPage+"\">");
 			pw.write("<groupHeader>");
 			for (int i=0;i<dummyExtraFirstBands.size();i++) {
 				generarExtraBand (pw,dummyExtraFirstBands.elementAt(i));
@@ -683,12 +693,12 @@ public class JListado {
 			if (getNumColumnas()>0) {
 				for (int i=0;i<columnasSup.size();i++) {
 					StaticText st = columnasSup.get(i);
-					generarStaticText(pw, st);			
-				}			
+					generarStaticText(pw, st);
+				}
 				for (int i=0;i<getNumColumnas();i++) {
 					Columna c = getColumna(i);
 					if (hayColumnaSuperior) c.getSt().setY(espacioDetalle);
-					generarStaticText(pw, c.getSt());			
+					generarStaticText(pw, c.getSt());
 				}
 				pw.write("<line>");
 				if (hayColumnaSuperior) pw.write("<reportElement x=\"0\" y=\""+(2*espacioDetalle)+"\" width=\""+columnWidth+"\" height=\"1\"  forecolor=\""+colorLineas+"\" />");
@@ -759,7 +769,7 @@ public class JListado {
 		if (t == Columna.DOUBLE ) tipo = "java.lang.Double";
 		else if (t == Columna.INTEGER ) tipo = "java.lang.Integer";
 		else if (t == Columna.DATE ) tipo = "java.sql.Timestamp";
-		return tipo;		
+		return tipo;
 	}
 	/*
 	private boolean generarVariablesRoturas (BufferedWriter pw) {
@@ -845,7 +855,7 @@ public class JListado {
 				}
 				pw.write("<variable name=\""+nom+"\" class=\""+ t.getTipoClass() + "\" calculation=\""+t.getTipoTotal()+"\">");
 				pw.write("<variableExpression><![CDATA["+expr+"]]></variableExpression>");
-				pw.write("</variable>");			
+				pw.write("</variable>");
 			}
 		}
 		catch (Exception e) {
@@ -873,7 +883,7 @@ public class JListado {
 					pw.write("<variableExpression><"+c.getTf().getVariable().getExpression()+"></variableExpression>");
 					String initialValue = c.getTf().getVariable().getInitialValue();
 					if (initialValue != null && initialValue.length()>0) pw.write("<initialValueExpression><![CDATA["+initialValue+"]]></initialValueExpression>");
-					pw.write("</variable>");					
+					pw.write("</variable>");
 				}
 			}
 			for (int z=0;z<encabezados.size();z++) {
@@ -887,7 +897,7 @@ public class JListado {
 
 					pw.write("<variable name=\""+e.getTf().getVariable().getNom()+"\" class=\""+getTipoFieldColumna(e.getTipo())+"\" resetType=\""+resetType+"\""+resetGroup+">");
 					pw.write("<variableExpression><"+e.getTf().getVariable().getExpression()+"></variableExpression>");
-					pw.write("</variable>");	
+					pw.write("</variable>");
 				}
 			}
 
@@ -899,7 +909,7 @@ public class JListado {
 		}
 		return bOk;
 	}
-	
+
 	private boolean generarExtraVariables (BufferedWriter pw) {
 		boolean bOk = true;
 		try {
@@ -915,7 +925,7 @@ public class JListado {
 					pw.write("<variableExpression><"+v.getExpression()+"></variableExpression>");
 					String initialValue = v.getInitialValue();
 					if (initialValue != null && initialValue.length()>0) pw.write("<initialValueExpression><![CDATA["+initialValue+"]]></initialValueExpression>");
-					pw.write("</variable>");					
+					pw.write("</variable>");
 			}
 		}
 		catch (Exception e) {
@@ -967,10 +977,10 @@ public class JListado {
 	private boolean generarSubDataSet(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
-			pw.write("<subDataset name=\""+slistado.getName()+"\">");		
+			pw.write("<subDataset name=\""+slistado.getName()+"\">");
 			pw.write("<queryString language=\"SQL\">");
 			pw.write("<![CDATA["+sql+"]]>");
-			pw.write("</queryString>");		
+			pw.write("</queryString>");
 			for (int i=0;i<slistado.getNumColumns();i++) {
 				Field f = slistado.getColumn(i);
 				pw.write("<field name=\""+f.getName()+"\" class=\""+getTipoField(f)+"\"/>");
@@ -989,18 +999,18 @@ public class JListado {
 		try {
 			if(slistado != null)
 				pw.write("<subDataset name=\""+slistado.getName()+"\">");
-			else 
+			else
 				pw.write("<subDataset name=\"byQuery\">");
 			pw.write("<queryString language=\"" + (isXmlDataSource?"xPath":"SQL") + "\">");
 			pw.write("<![CDATA["+queryString+"]]>");
-			pw.write("</queryString>");		
+			pw.write("</queryString>");
 			Set<Entry<String, Integer>> set = fields.entrySet();
 			Iterator<Entry<String, Integer>> it = set.iterator();
 			while (it.hasNext()) {
 				Map.Entry<String, Integer> entry = (Entry<String, Integer>) it.next();
 				pw.write("<field name=\""+entry.getKey()+"\" class=\""+getTipoField(entry.getValue())+"\"/>");
 			}
-			pw.write("</subDataset>");			
+			pw.write("</subDataset>");
 		}
 		catch (Exception e) {
 			sError = ""+e;
@@ -1014,7 +1024,7 @@ public class JListado {
 		if (t == FieldDef.INTEGER ) tipo = "java.lang.Integer";
 		else if (t == FieldDef.DOUBLE || t == FieldDef.MONEY || t == FieldDef.FLOAT ) tipo = "java.lang.Double";
 		else if (t == FieldDef.DATE ) tipo = "java.sql.Timestamp";
-		return tipo;		
+		return tipo;
 	}
 
 	private String getTipoField(Field f) {
@@ -1027,21 +1037,30 @@ public class JListado {
 			Encabezado e = getEncabezado(i);
 			total += e.getAmplada();
 		}
-		return total; 		
+		return total;
 	}
 
 	public int getTamanyoPageHeader() {
 		int total = getTamanyoEncabezado ();
-		//return stTitulo.getAmplada() + total + 8 + 2; 
-		return stTitulo.getAmplada() + total; 
+		//return stTitulo.getAmplada() + total + 8 + 2;
+		return stTitulo.getAmplada() + total;
 	}
 
 	private boolean generarPageHeader (BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			pw.write("<pageHeader>");
-			pw.write("<band height=\""+(getTamanyoPageHeader()+espacioDetalle)+"\" splitType=\"Stretch\">");
-
+      int maxCol = 0;
+      if (getTitolColumnasEncabezado()) {
+          if (getNumColumnas()>0) {
+            for (int i=0;i<getNumColumnas();i++) {
+               if (maxCol<getColumna(i).getSt().getAmplada()) maxCol = getColumna(i).getSt().getAmplada();
+            }
+            maxCol += 10;
+          }
+      }
+      pw.write("<band height=\""+(getTamanyoPageHeader()+espacioDetalle+maxCol)+"\" splitType=\"Stretch\">");
+            int posFinEncab = 0;
 			generarStaticText(pw, stTitulo);
 			if (getNumEncabezados()>0) {
 				int y = stTitulo.getAmplada();
@@ -1054,15 +1073,31 @@ public class JListado {
 							TextField tf1 = (TextField)e.getComponentes().get(z);
 							generarTextField(pw, tf1);
 						}
-						else if (e.getComponentes().get(z) instanceof StaticText) { 
+						else if (e.getComponentes().get(z) instanceof StaticText) {
 							StaticText st1 = (StaticText)e.getComponentes().get(z);
-							generarStaticText(pw, st1);	
+							generarStaticText(pw, st1);
 						}
-					}				  
+					}
 					pw.write("</frame>");
 					y += e.getAmplada();
+					posFinEncab = y;
 				}
 			}
+
+      if (getTitolColumnasEncabezado()) {
+          pw.write("<frame>");
+          pw.write("<reportElement mode=\"Opaque\" x=\"0\" y=\""+posFinEncab+"\" width=\""+rightWidthPosicion+"\" height=\"10\" backcolor=\"#FFFFFF\"/>");
+          pw.write("</frame>");
+          if (getNumColumnas()>0) {
+            for (int i=0;i<getNumColumnas();i++) {
+              Columna c = getColumna(i);
+              generarStaticText(pw, c.getSt(),posFinEncab+10);
+            }
+            pw.write("<line>");
+            pw.write("<reportElement x=\"0\" y=\""+(posFinEncab+maxCol)+"\" width=\""+columnWidth+"\" height=\"1\"  forecolor=\""+colorLineas+"\" />");
+            pw.write("</line>");
+          }
+      }
 			pw.write("</band>");
 			pw.write("</pageHeader>");
 		}
@@ -1074,13 +1109,16 @@ public class JListado {
 		return bOk;
 	}
 
+  private void generarStaticText (BufferedWriter pw, StaticText st)throws Exception {
+     generarStaticText (pw, st,0);
+  }
 
-	private void generarStaticText (BufferedWriter pw, StaticText st) throws Exception {
+  private void generarStaticText (BufferedWriter pw, StaticText st, int incrementarY     ) throws Exception {
 		pw.write("<staticText>");
 		String tran = "";
 		if (st.isAsignarColorFondo()) tran = "mode=\"Opaque\" backcolor=\""+st.getColorFons()+"\" ";
-		pw.write("<reportElement forecolor=\""+st.getColorFont()+"\" x=\""+st.getPosInicial()+"\" y=\""+st.getY()+"\" width=\""+st.getWidth()+"\" height=\""+st.getAmplada()+"\" "+tran+">");
-		
+    pw.write("<reportElement forecolor=\""+st.getColorFont()+"\" x=\""+st.getPosInicial()+"\" y=\""+(st.getY()+incrementarY)+"\" width=\""+st.getWidth()+"\" height=\""+st.getAmplada()+"\" "+tran+">");
+
 		pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"true\"/>");
 		//pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");
 		pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
@@ -1104,12 +1142,12 @@ public class JListado {
 		else pw.write("<font isBold=\"false\" size=\""+st.getSizeFont()+"\" />");
 		pw.write(indent);
 		//pw.write("<paragraph rightIndent=\""+espacioEntreColumnas+"\"/>");
-		pw.write("</textElement>");				
+		pw.write("</textElement>");
 		pw.write("<text><![CDATA["+st.getLiteral()+"]]></text>");
-		pw.write("</staticText>");						
+		pw.write("</staticText>");
 	}
 
-	private void generarTextField (BufferedWriter pw, TextField tf) throws Exception {	
+	private void generarTextField (BufferedWriter pw, TextField tf) throws Exception {
 		String pattern = "";
 		if (tf.getPattern()!=null) pattern = " pattern=\""+tf.getPattern()+"\" ";
 		String repeVal = " ";
@@ -1117,19 +1155,19 @@ public class JListado {
 		String evaluation = "";
 		if (tf.esVariable() && tf.getVariable().getEvaluationTime()!=null) evaluation = " evaluationTime=\""+tf.getVariable().getEvaluationTime()+"\" ";
 		String isStretchWithOverflow="";
-		if (tf.isStretchWithOverflow())isStretchWithOverflow=" isStretchWithOverflow=\"true\" ";		
+		if (tf.isStretchWithOverflow())isStretchWithOverflow=" isStretchWithOverflow=\"true\" ";
 		pw.write("<textField isBlankWhenNull=\"true\""+pattern + evaluation + isStretchWithOverflow+">");
 		String tran = "";
-		if (tf.isAsignarColorFondo()) tran = "mode=\"Opaque\" backcolor=\""+tf.getColorFons()+"\" ";				
+		if (tf.isAsignarColorFondo()) tran = "mode=\"Opaque\" backcolor=\""+tf.getColorFons()+"\" ";
 		pw.write("<reportElement"+repeVal+"forecolor=\""+tf.getColorFont()+"\" x=\""+tf.getPosIni()+"\" y=\""+tf.getY()+"\" width=\""+tf.getWidth()+"\" height=\""+tf.getAmplada()+"\" "+tran+">");
 		pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"true\"/>");
 		//pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");
 		pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
 		if (tf.getPrintWhen()!=null && tf.getPrintWhen().length()>0) {
-			pw.write("<printWhenExpression>"+tf.getPrintWhen()+"</printWhenExpression>");	
+			pw.write("<printWhenExpression>"+tf.getPrintWhen()+"</printWhenExpression>");
 		}
-		
-		
+
+
 		pw.write("</reportElement>");
 		String indent ="";
 		if (tf.isAligDerecha())  {
@@ -1150,8 +1188,8 @@ public class JListado {
 		pw.write(indent);
 		pw.write("</textElement>");
 		if (tf.isEsExpresionCompleta()) pw.write("<textFieldExpression><![CDATA["+tf.getExpression()+"]]></textFieldExpression>");
-		else if (tf.isExpression()) pw.write("<textFieldExpression><![CDATA[$F{"+tf.getExpression()+"}]]></textFieldExpression>"); 
-		else if (tf.esVariable()) pw.write("<textFieldExpression><![CDATA[$V{"+tf.getVariable().getNom()+"}]]></textFieldExpression>"); 
+		else if (tf.isExpression()) pw.write("<textFieldExpression><![CDATA[$F{"+tf.getExpression()+"}]]></textFieldExpression>");
+		else if (tf.esVariable()) pw.write("<textFieldExpression><![CDATA[$V{"+tf.getVariable().getNom()+"}]]></textFieldExpression>");
 		pw.write("</textField>");
 	}
 
@@ -1189,9 +1227,9 @@ public class JListado {
 					String nom = "";
 					if (col.getTf().isExpression()) nom = "totFinal"+z+col.getTf().getExpression();
 					else if (col.getTf().esVariable()) nom = "totFinal"+z+col.getTf().getVariable().getNom();
-					pw.write("<rectangle radius=\"2\">"); 
-					pw.write("<reportElement x=\"" + col.getPosIni() + "\" y=\"" + espacioDetalle + "\" width=\"" + col.getSt().getWidth() +"\" height=\"" + (espacioDetalle*2) + "\" forecolor=\"" + t.getBackGroundColor() + "\"/>"); 
-					pw.write("<graphicElement>"); 
+					pw.write("<rectangle radius=\"2\">");
+					pw.write("<reportElement x=\"" + col.getPosIni() + "\" y=\"" + espacioDetalle + "\" width=\"" + col.getSt().getWidth() +"\" height=\"" + (espacioDetalle*2) + "\" forecolor=\"" + t.getBackGroundColor() + "\"/>");
+					pw.write("<graphicElement>");
 					pw.write("<pen lineWidth=\"2.0\"/>");
 					pw.write("</graphicElement>");
 					pw.write("</rectangle>");
@@ -1202,12 +1240,12 @@ public class JListado {
 					pw.write("<textElement textAlignment=\"Center\" verticalAlignment=\"Middle\">");
 					pw.write("<font isBold=\"true\" size=\""+col.getSt().getSizeFont()+"\"/>");
 					pw.write("</textElement>");
-					pw.write("<text><![CDATA[" + t.getTitol() + "]]></text>");	    	
+					pw.write("<text><![CDATA[" + t.getTitol() + "]]></text>");
 					pw.write("</staticText>");
 
 
 					String pattern = "";
-					if (t.getTipo() == Columna.DOUBLE) pattern = " pattern=\""+"#,##0.00;-#,##0.00"+"\" ";			
+					if (t.getTipo() == Columna.DOUBLE) pattern = " pattern=\""+"#,##0.00;-#,##0.00"+"\" ";
 					pw.write("<textField isBlankWhenNull=\"true\""+pattern+">");
 					pw.write("<reportElement x=\"" + col.getPosIni() + "\" y=\"" + (espacioDetalle*2) + "\" width=\"" + col.getSt().getWidth() + "\" height=\"" + espacioDetalle + "\" forecolor=\""+ t.getColorFont() + "\"/>");
 					String indent ="";
@@ -1220,13 +1258,13 @@ public class JListado {
 						pw.write("<textElement textAlignment=\"Left\">");
 						indent="<paragraph rightIndent=\""+col.getTf().getLeftIndent()+"\"/>";
 						//pw.write("<paragraph rightIndent=\""+tf.getLeftIndent()+"\"/>");
-					}			
+					}
 					pw.write("<font isBold=\"true\" size=\""+col.getTf().getSizeFont()+"\"/>");
 					pw.write(indent);
 					pw.write("</textElement>");
-					pw.write("<textFieldExpression><![CDATA[$V{"+nom+"}]]></textFieldExpression>"); 
+					pw.write("<textFieldExpression><![CDATA[$V{"+nom+"}]]></textFieldExpression>");
 					pw.write("</textField>");
-				}	    
+				}
 				pw.write("</band>");
 				pw.write("</groupFooter>");
 				pw.write("</group>");
@@ -1236,7 +1274,7 @@ public class JListado {
 				bOk = false;
 			}
 		}
-		return bOk;	
+		return bOk;
 	}
 
 	private boolean generarFinal(BufferedWriter pw) {
@@ -1262,7 +1300,7 @@ public class JListado {
 			bOk = false;
 		}
 		return bOk;
-	}	
+	}
 
 	private boolean generarColumnFooter(BufferedWriter pw) {
 		boolean bOk = true;
@@ -1324,7 +1362,7 @@ public class JListado {
 			bOk = false;
 		}
 		return bOk;
-	}	
+	}
 	private boolean generarBandTitle(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
@@ -1349,25 +1387,25 @@ public class JListado {
 			pw.write("<property name=\"ireport.y\" value=\"0\"/>");
 
 			if (propiedadesExcelAutomaticas) {
-				
+
 				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band.3\" value=\"pageFooter\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band.4\" value=\"pageHeader\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.band.2\" value=\"pageFooter\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.rows\" value=\"true\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.columns\" value=\"true\"/>");
-				pw.write("<property name=\"net.sf.jasperreports.export.xls.white.page.background\" value=\"false\"/>");				
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.white.page.background\" value=\"false\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.detect.cell.type\" value=\"true\"/>");
-								
-				pw.write("<property name=\"net.sf.jasperreports.export.character.encoding\" value=\"ISO-8859-1\"/>");	
+
+				pw.write("<property name=\"net.sf.jasperreports.export.character.encoding\" value=\"ISO-8859-1\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.collapse.row.span\" value=\"true\"/>");
-				pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");	
+				pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.csv.record.delimiter\" value=\"&#x0D;&#x0A;\"/>");
-				
-				
-				
+
+
+
 			}
 			for (int i=0;i<vPropiedadesExcel.size();i++) {
-				pw.write(vPropiedadesExcel.elementAt(i));				
+				pw.write(vPropiedadesExcel.elementAt(i));
 			}
 		}
 		catch (Exception e) {
@@ -1380,7 +1418,7 @@ public class JListado {
 	private boolean generarImportaciones(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
-			for (int i=0;i<getNumParameters();i++) {			
+			for (int i=0;i<getNumParameters();i++) {
 				Parametro p = getParameter(i);
 				if(p.isImport())
 					pw.write("<import value=\"" + p.getTipus() + "\"/>");
@@ -1396,7 +1434,7 @@ public class JListado {
 	private boolean generarParametros(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
-			for (int i=0;i<getNumParameters();i++) {			
+			for (int i=0;i<getNumParameters();i++) {
 				Parametro p = getParameter(i);
 				pw.write("<parameter name=\"" + p.getName() + "\" class=\"" + p.getTipus() + "\">");
 				if (p.getExpression()!=null) pw.write("<defaultValueExpression><" + p.getExpression() + "></defaultValueExpression>");
@@ -1476,8 +1514,15 @@ public class JListado {
 	public void setTitleHeight(int height) {
 		this.titleHeight = height;
 	}
+  public void setTitolColumnasEncabezado(boolean titolColumnasEncabezado) {
+    this.titolColumnasEncabezado = titolColumnasEncabezado;
+	}
+  public boolean getTitolColumnasEncabezado() {
+    return titolColumnasEncabezado;
+	}
+
 	public void setWhenNoData(whenNoData noData) {
-		 sinDatos = noData; 
+		 sinDatos = noData;
 	}
 	public whenNoData getWhenNoData() {
 		return sinDatos;
@@ -1487,10 +1532,10 @@ public class JListado {
       else if(sinDatos == whenNoData.NO_PAGES) return"";
       else if(sinDatos == whenNoData.BLANK_PAGE) return"whenNoDataType=\"BlankPage\"";
       else if(sinDatos == whenNoData.ALL_SECTIONS_NO_DETAIL) return"whenNoDataType=\"AllSectionsNoDetail\"";
-      else if(sinDatos == whenNoData.NO_DATA_SECTION) return"whenNoDataType=\"NoDataSection\"";      
+      else if(sinDatos == whenNoData.NO_DATA_SECTION) return"whenNoDataType=\"NoDataSection\"";
       else return "";
 	}
-	
+
 	public DBConnection getConnection() {
 	  return conn;
 	}
