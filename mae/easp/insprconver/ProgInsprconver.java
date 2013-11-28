@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20131118
-// Hora:             09:40:14
+// Fecha:            20131128
+// Hora:             16:36:04
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1263,6 +1263,16 @@ public class ProgInsprconver extends Program
         "    tjdcfgf20 "+formatData()+
         "    PRIMARY KEY (tjdcodi,tjdtarea),                             "+
         "    FOREIGN KEY (tjdtarea) REFERENCES TAREAJASPER (tjscodi));   "};
+    
+    
+      String sentencias11_6[]={
+        "alter table FORMACOBPAG  add  fcptipo varchar(2);",
+        "DELETE FROM FORMACOBPAG where fcpforma='CON' or  fcpforma='TRA' or fcpforma='PAG' or fcpforma='DOM';",
+        "INSERT INTO FORMACOBPAG (fcpforma,fcpdesc,fcptipo) VALUES ('CON','Contado','EF');",
+        "INSERT INTO FORMACOBPAG (fcpforma,fcpdesc,fcptipo) VALUES ('TRA','Transferencia bancaria','TB');",
+        "INSERT INTO FORMACOBPAG (fcpforma,fcpdesc) VALUES ('PAG','Pagaré');",
+        "INSERT INTO FORMACOBPAG (fcpforma,fcpdesc,fcptipo) VALUES ('DOM','Domiciliación','TB');"
+      };
     
     
       int i=0;
@@ -2881,7 +2891,22 @@ public class ProgInsprconver extends Program
               vvveractual.setValue("11.5");
         }
         
-    
+        if (versio < 11.6) {
+              for (i=0;i<sentencias11_6.length;++i) {
+                try {
+                  Easp.chivato("11.6 Exec : ["+sentencias11_6[i]+"]",1);
+                  Easp.connEA.executeUpdate(sentencias11_6[i]);
+                }
+                catch(Exception e) {
+                  sqlOperation=sentencias11_6[i];
+                  Easp.chivato("11.6 *** Error : ["+sentencias11_6[i]+"]  Error: ["+e+"]",1);
+                  errorMessage=e.getMessage();
+                }
+              }
+              Easp.setVersionBD("bdeasp","11.6");
+              Easp.connEA.commit();
+              vvveractual.setValue("11.6");
+        }
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20131022
-// Hora:             15:56:00
+// Fecha:            20131128
+// Hora:             16:27:04
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -3209,14 +3209,17 @@ public class CatEasp extends Catalog
     // Campos
     public FieldDef fcpforma;
     public FieldDef fcpdesc;
+    public FieldDef fcptipo;
     public TabFormacobpag(String name)
       {
       super(name);
       fcpforma = new FieldDef("fcpforma",FieldDef.CHAR,3,FieldDef.NOTNULL);
       fcpdesc = new FieldDef("fcpdesc",FieldDef.CHAR,40);
+      fcptipo = new FieldDef("fcptipo",FieldDef.CHAR,2);
       FieldDef array[] = {
         fcpforma,
-        fcpdesc        
+        fcpdesc,
+        fcptipo        
         };
       setColumns(array);
       FieldDef arrayf[] = {fcpforma };
