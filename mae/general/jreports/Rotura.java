@@ -31,6 +31,9 @@ public class Rotura {
 	private int headerHeight;
 	private boolean igualIndent;
 	private boolean textoRoturaEsExpresion;
+	private String expresionVariables;
+	private boolean noImprimirSiTotalesEsCero = false;
+
 
 	/*
 	public Rotura (JListado jl, java.util.List<Integer> columnes, String nombre, String agruparPor,String titol) {
@@ -71,6 +74,8 @@ public class Rotura {
 		headerHeight = 15;
 		igualIndent = false;
 		textoRoturaEsExpresion = false;
+		expresionVariables = null;
+		noImprimirSiTotalesEsCero = false;
 		//setEsCampo();
 	}
 	
@@ -242,6 +247,21 @@ public class Rotura {
 	
 	public int getHeaderHeight()  {
 		return headerHeight;
+	}
+
+	public String getExpresionVariables() {
+		return expresionVariables;
+	}
+
+	public void setExpresionVariables(String expresionVariables) {
+		this.expresionVariables = expresionVariables;
+	}
+	public boolean isNoImprimirSiTotalesEsCero() {
+		return noImprimirSiTotalesEsCero;
+	}
+
+	public void setNoImprimirSiTotalesEsCero(boolean noImprimirSiTotalesEsCero) {
+		this.noImprimirSiTotalesEsCero = noImprimirSiTotalesEsCero;
 	}
 
 	

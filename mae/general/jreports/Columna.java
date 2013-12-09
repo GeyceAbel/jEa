@@ -32,12 +32,14 @@ public class Columna {
 	private int posIni;
 	private String idCol;
 	private boolean isStretchWithOverflow =false;
+	private String formulaTotal;
 	
 	public Columna (JListado jlis, String literal,String expression,String nomVariable, int tipo, int tamany,int posIni) {		
 		this.jl = jlis;
 		this.tipo = tipo;
 		this.tamany = tamany;
 		this.posIni=posIni;
+		formulaTotal = null;
 		addStaticText(literal);
 		if(nomVariable != null){
 		  addTextField(expression, tipo,nomVariable);
@@ -49,6 +51,14 @@ public class Columna {
 		}
 	}
 	
+	public String getFormulaTotal() {
+		return formulaTotal;
+	}
+
+	public void setFormulaTotal(String formulaTotal) {
+		this.formulaTotal = formulaTotal;
+	}
+
 	private Columna () {
 		
 	}

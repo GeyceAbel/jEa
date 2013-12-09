@@ -67,7 +67,7 @@ public class JListado {
 	private String colorPeuPagina;
 	private HashMap<String, Object> parametros;
 	public boolean sinDataSource;
-	private Orientacion orientacionPapel;
+	public Orientacion orientacionPapel;
 	private int rightWidthPosicion;
 	private boolean autoFillColumns;
 	private boolean viewTotalesFinales = true;
@@ -538,6 +538,21 @@ public class JListado {
 				pw.write("<groupFooter>");
 				pw.write("<band height=\""+(r.getAnchura()+espacioDetalle)+"\">");
 				if (r.getPrintWhen()!=null && r.getPrintWhen().length()>0) pw.write("<printWhenExpression>"+r.getPrintWhen()+"</printWhenExpression>");
+				else if (r.isNoImprimirSiTotalesEsCero()) {
+					String printWhen = "";
+					java.util.List<Totalizar> totals = r.getTotales();
+					for (int c=0;c<totals.size();c++) {
+						Columna col = totals.get(c).getColumna();
+						String nom = "";
+						if (col.getTf().isExpression()) nom = "tot"+i+col.getTf().getExpression();
+						else if (col.getTf().esVariable()) nom = "tot"+i+col.getTf().getVariable().getNom();
+						if (printWhen.length()>0) printWhen += " || ";
+						printWhen += "$V{"+nom+"}!=null";
+					}
+					System.out.println(printWhen);
+					pw.write("<printWhenExpression>"+printWhen+"</printWhenExpression>");
+				}
+				
 
 
 
@@ -824,7 +839,15 @@ public class JListado {
 						expr = "$V{"+col.getTf().getVariable().getNom()+"}";
 					}
 					pw.write("<variable name=\""+nom+"\" class=\"" + totals.get(c).getTipoClass() + "\" resetType=\"Group\" resetGroup=\""+r.getNombre()+"\" calculation=\""+totals.get(c).getTipoTotal()+"\">");
-					pw.write("<variableExpression><![CDATA["+expr+"]]></variableExpression>");
+					if (col.getFormulaTotal()!=null && col.getFormulaTotal().length()>0) {
+						pw.write("<variableExpression><![CDATA["+col.getFormulaTotal()+"]]></variableExpression>");						
+					}
+					else if (r.getExpresionVariables()!=null && r.getExpresionVariables().length()>0) {
+						String expvar = r.getExpresionVariables();
+						expvar = expvar.replace("@@columna@@", expr);
+						pw.write("<variableExpression><![CDATA["+expvar+"]]></variableExpression>");
+					}					
+					else pw.write("<variableExpression><![CDATA["+expr+"]]></variableExpression>");
 					pw.write("</variable>");
 				}
 			}
