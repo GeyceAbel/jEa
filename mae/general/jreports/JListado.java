@@ -1603,4 +1603,9 @@ public class JListado {
 	public void setConnection(DBConnection conn) {
 		this.conn = conn;
 	}
+
+	public String formatearLiteral(String valor) {
+		String valortmp = valor.replace("\"","\\\"");
+		return valortmp;
+	}
 }
