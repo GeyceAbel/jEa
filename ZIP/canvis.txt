@@ -114,3 +114,4 @@
 131107 --> APESTER: Jasper: que els titols de les columnes puguin formar part de la capçalera i que les rotures no tinguin perque totalitzar
 131108 --> APJORDI: Afegir camp a la taula FORMACOBROPAGO
 131201 --> APJORDI: Canvis jasper formules a les rotures i totals
+131202 --> APJORDI: Marges i Sense colors

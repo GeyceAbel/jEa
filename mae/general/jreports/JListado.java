@@ -85,6 +85,7 @@ public class JListado {
 	public boolean paginarExcel = true;
 	private whenNoData sinDatos;
 	public Vector <ExtraBand> vDetailExtraBand;
+	public boolean bSinColor = false;
 
 	public JListado (Select slistado, Orientacion or) {
 		rutaFicheroJRXML = null;
@@ -104,6 +105,7 @@ public class JListado {
 		vDetailExtraBand = new Vector<ExtraBand>();
 		propiedadesExcelAutomaticas = true;
 		paginarExcel = true;
+		bSinColor = false;
 	}
 
 	public JListado (String queryString, LinkedHashMap<String, Integer> fields, Orientacion or) {
@@ -119,6 +121,7 @@ public class JListado {
 		vDetailExtraBand = new Vector<ExtraBand>();
 		propiedadesExcelAutomaticas = true;
 		paginarExcel = true;
+		bSinColor = false;
 	}
 
 	public void setDefaultParameters() {
@@ -183,7 +186,22 @@ public class JListado {
 		columnWidth = (pagewidth-margender-margenizq);
 		rightWidthPosicion = pagewidth - margender;
 	}
-
+	
+	public void setPapel(int iz, int de, int su, int inf) {
+		pageheight = 842;
+		pagewidth = 595;
+		if(orientacionPapel == Orientacion.HORIZONTAL) {
+			pagewidth = 842;
+			pageheight = 595;
+		}
+		margensup = su;
+		margeninf = inf;
+		margenizq = iz;
+		margender = de;
+		columnWidth = (pagewidth-margender-margenizq);
+		rightWidthPosicion = pagewidth - margender;
+	}
+	
 	public boolean isXmlDataSource() {
 		return isXmlDataSource;
 	}
@@ -1083,14 +1101,28 @@ public class JListado {
           }
       }
       pw.write("<band height=\""+(getTamanyoPageHeader()+espacioDetalle+maxCol)+"\" splitType=\"Stretch\">");
-            int posFinEncab = 0;
+            int posFinEncab = 0;            
+			String mo = "Opaque";
+			if (bSinColor) {
+				mo = "Transparent";            
+				stTitulo.setColorFont("#000000");
+				stTitulo.setColorFons("#FFFFFF");
+				stTitulo.setVerticalAlig("Middle");
+				stTitulo.setAmplada(stTitulo.getAmplada()-1);
+			}
 			generarStaticText(pw, stTitulo);
+			if (bSinColor) {
+				pw.write("<line>");
+				pw.write("<reportElement x=\"0\" y=\""+stTitulo.getAmplada()+"\" width=\""+columnWidth+"\" height=\"1\"  forecolor=\""+colorLineas+"\" />");
+				pw.write("</line>");
+				stTitulo.setAmplada(stTitulo.getAmplada()+1);
+			}
 			if (getNumEncabezados()>0) {
 				int y = stTitulo.getAmplada();
 				for (int i=0;i<getNumEncabezados();i++) {
 					Encabezado e = getEncabezado(i);
 					pw.write("<frame>");
-					pw.write("<reportElement mode=\"Opaque\" x=\"" + e.getPosIniEnc() + "\" y=\""+ y + "\" width=\"" + rightWidthPosicion + "\" height=\""+e.getAmplada()+"\" backcolor=\"" + e.getBgColor() + "\"/>");
+					pw.write("<reportElement mode=\""+mo+"\" x=\"" + e.getPosIniEnc() + "\" y=\""+ y + "\" width=\"" + rightWidthPosicion + "\" height=\""+e.getAmplada()+"\" backcolor=\"" + e.getBgColor() + "\"/>");
 					for(int z=0;z<e.getComponentes().size();z++) {
 						if(e.getComponentes().get(z) instanceof TextField) {
 							TextField tf1 = (TextField)e.getComponentes().get(z);
@@ -1105,11 +1137,17 @@ public class JListado {
 					y += e.getAmplada();
 					posFinEncab = y;
 				}
+				if (bSinColor) {
+					pw.write("<line>");
+					pw.write("<reportElement x=\"0\" y=\""+posFinEncab+"\" width=\""+columnWidth+"\" height=\"1\"  forecolor=\""+colorLineas+"\" />");
+					pw.write("</line>");			
+					posFinEncab++;
+				}
 			}
 
       if (getTitolColumnasEncabezado()) {
           pw.write("<frame>");
-          pw.write("<reportElement mode=\"Opaque\" x=\"0\" y=\""+posFinEncab+"\" width=\""+rightWidthPosicion+"\" height=\"10\" backcolor=\"#FFFFFF\"/>");
+          pw.write("<reportElement mode=\""+mo+"\" x=\"0\" y=\""+posFinEncab+"\" width=\""+rightWidthPosicion+"\" height=\"10\" backcolor=\"#FFFFFF\"/>");
           pw.write("</frame>");
           if (getNumColumnas()>0) {
             for (int i=0;i<getNumColumnas();i++) {
