@@ -1150,7 +1150,7 @@ public class JListado {
 
       if (getTitolColumnasEncabezado()) {
           pw.write("<frame>");
-          pw.write("<reportElement mode=\""+mo+"\" x=\"0\" y=\""+posFinEncab+"\" width=\""+rightWidthPosicion+"\" height=\"5\" backcolor=\"#FFFFFF\"/>");
+          pw.write("<reportElement mode=\""+mo+"\" x=\"0\" y=\""+(posFinEncab+1)+"\" width=\""+rightWidthPosicion+"\" height=\"5\" backcolor=\"#FFFFFF\"/>");
           pw.write("</frame>");
           if (getNumColumnas()>0) {
              int amplada = 0;
