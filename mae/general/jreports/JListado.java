@@ -186,7 +186,7 @@ public class JListado {
 		columnWidth = (pagewidth-margender-margenizq);
 		rightWidthPosicion = pagewidth - margender;
 	}
-	
+
 	public void setPapel(int iz, int de, int su, int inf) {
 		pageheight = 842;
 		pagewidth = 595;
@@ -201,7 +201,7 @@ public class JListado {
 		columnWidth = (pagewidth-margender-margenizq);
 		rightWidthPosicion = pagewidth - margender;
 	}
-	
+
 	public boolean isXmlDataSource() {
 		return isXmlDataSource;
 	}
@@ -570,7 +570,7 @@ public class JListado {
 					System.out.println(printWhen);
 					pw.write("<printWhenExpression>"+printWhen+"</printWhenExpression>");
 				}
-				
+
 
 
 
@@ -858,13 +858,13 @@ public class JListado {
 					}
 					pw.write("<variable name=\""+nom+"\" class=\"" + totals.get(c).getTipoClass() + "\" resetType=\"Group\" resetGroup=\""+r.getNombre()+"\" calculation=\""+totals.get(c).getTipoTotal()+"\">");
 					if (col.getFormulaTotal()!=null && col.getFormulaTotal().length()>0) {
-						pw.write("<variableExpression><![CDATA["+col.getFormulaTotal()+"]]></variableExpression>");						
+						pw.write("<variableExpression><![CDATA["+col.getFormulaTotal()+"]]></variableExpression>");
 					}
 					else if (r.getExpresionVariables()!=null && r.getExpresionVariables().length()>0) {
 						String expvar = r.getExpresionVariables();
 						expvar = expvar.replace("@@columna@@", expr);
 						pw.write("<variableExpression><![CDATA["+expvar+"]]></variableExpression>");
-					}					
+					}
 					else pw.write("<variableExpression><![CDATA["+expr+"]]></variableExpression>");
 					pw.write("</variable>");
 				}
@@ -1089,6 +1089,7 @@ public class JListado {
 
 	private boolean generarPageHeader (BufferedWriter pw) {
 		boolean bOk = true;
+    boolean hayColumnaSuperior = columnasSup.size()>0;
 		try {
 			pw.write("<pageHeader>");
       int maxCol = 0;
@@ -1100,11 +1101,13 @@ public class JListado {
             maxCol += 10;
           }
       }
-      pw.write("<band height=\""+(getTamanyoPageHeader()+espacioDetalle+maxCol)+"\" splitType=\"Stretch\">");
-            int posFinEncab = 0;            
+      if (hayColumnaSuperior) pw.write("<band height=\""+(getTamanyoPageHeader()+2*espacioDetalle+maxCol)+"\" splitType=\"Stretch\">");
+      else pw.write("<band height=\""+(getTamanyoPageHeader()+espacioDetalle+maxCol)+"\" splitType=\"Stretch\">");
+
+      int posFinEncab = 0;
 			String mo = "Opaque";
 			if (bSinColor) {
-				mo = "Transparent";            
+				mo = "Transparent";
 				stTitulo.setColorFont("#000000");
 				stTitulo.setColorFons("#FFFFFF");
 				stTitulo.setVerticalAlig("Middle");
@@ -1140,22 +1143,29 @@ public class JListado {
 				if (bSinColor) {
 					pw.write("<line>");
 					pw.write("<reportElement x=\"0\" y=\""+posFinEncab+"\" width=\""+columnWidth+"\" height=\"1\"  forecolor=\""+colorLineas+"\" />");
-					pw.write("</line>");			
+					pw.write("</line>");
 					posFinEncab++;
 				}
 			}
 
       if (getTitolColumnasEncabezado()) {
           pw.write("<frame>");
-          pw.write("<reportElement mode=\""+mo+"\" x=\"0\" y=\""+posFinEncab+"\" width=\""+rightWidthPosicion+"\" height=\"10\" backcolor=\"#FFFFFF\"/>");
+          pw.write("<reportElement mode=\""+mo+"\" x=\"0\" y=\""+posFinEncab+"\" width=\""+rightWidthPosicion+"\" height=\"5\" backcolor=\"#FFFFFF\"/>");
           pw.write("</frame>");
           if (getNumColumnas()>0) {
+             int amplada = 0;
+             for (int i=0;i<columnasSup.size();i++) {
+               StaticText st = columnasSup.get(i);
+               if (st.getAmplada()>amplada) amplada = st.getAmplada();
+               generarStaticText(pw, st,posFinEncab+5);
+             }
+
             for (int i=0;i<getNumColumnas();i++) {
               Columna c = getColumna(i);
-              generarStaticText(pw, c.getSt(),posFinEncab+10);
+              generarStaticText(pw, c.getSt(),posFinEncab+5+amplada);
             }
             pw.write("<line>");
-            pw.write("<reportElement x=\"0\" y=\""+(posFinEncab+maxCol)+"\" width=\""+columnWidth+"\" height=\"1\"  forecolor=\""+colorLineas+"\" />");
+            pw.write("<reportElement x=\"0\" y=\""+(posFinEncab+maxCol+amplada)+"\" width=\""+columnWidth+"\" height=\"1\"  forecolor=\""+colorLineas+"\" />");
             pw.write("</line>");
           }
       }
