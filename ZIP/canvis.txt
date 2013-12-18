@@ -116,3 +116,4 @@
 131201 --> APJORDI: Canvis jasper formules a les rotures i totals
 131202 --> APJORDI: Marges i Sense colors
 131203 --> APJORDI: Funcio per fortmatejar literals (treure ")
+131204 --> APESTER: Modificar funcio generarPageHeader per poder llistar doble capçalera
