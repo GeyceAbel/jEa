@@ -5,12 +5,15 @@ import geyce.maefc.Maefc;
 import geyce.maefc.Select;
 
 import java.io.File;
+import java.util.Enumeration;
+import java.util.Hashtable;
 
 import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.Dispatch;
 import com.jacob.com.Variant;
 
 import mae.easp.general.Easp;
+
 
 public class PlantillaJacob extends Thread {
 	private File fileTemplate;
@@ -61,6 +64,17 @@ public class PlantillaJacob extends Thread {
 	public PlantillaJacob (Select select, String fileDataSource, String typeTemplate) throws Exception {
 		dataSource = new DataSource(fileDataSource, select, typeTemplate);
 	}
+	
+	/**
+   * Constructor per crear un objecte plantilla a partir d'una Clase Rows contruint un fitxer
+   * @param select 
+   * @param fileDataSource
+   * @param typeDataSource  //tipus de plantilla (QUERY, EXPEDIENT, CLIENT, TREBALLADOR, EMPRESA, ETC...)
+   */
+  public PlantillaJacob (Rows rows, String fileDataSource, String typeTemplate) throws Exception {
+    dataSource = new DataSource(fileDataSource, rows, typeTemplate);
+    }
+  
 	
 	/**
 	 * Constructor per a crear un objecte plantilla a partir de una base de dades
@@ -233,4 +247,9 @@ public class PlantillaJacob extends Thread {
 	    }	
 	}
 
+	
+  
 }
+
+
+ 

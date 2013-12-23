@@ -23,6 +23,7 @@ public class DataSource {
 	public int dataType;
 	private File fileDataSource;
 	public ArrayList<ControlValue> controls;
+	public Rows rows ;
 	private DataForm panel; //finestra amb els controls i dades que pasem
 	public int typeWindowSelect;//si l'origen de dades s'ha muntat a partir d'una finestra o d'una select.
 	private int numMergeFields = 0; //numero de camps de la finestra o select de combinació.
@@ -30,6 +31,21 @@ public class DataSource {
 	public DataSource() {
 
 	}
+	
+	
+	public DataSource (String absolutePath, Rows asociatedRows, String typeTemplate) {
+    this.urlSource = absolutePath;
+    // this.select = asociatedSelect;
+    this.dataType=checkTypeDataSource(absolutePath);
+    this.rows = asociatedRows ;
+    this.typeObjectTemplate= typeTemplate;
+    this.typeWindowSelect = SELECT;
+    if(dataType == DATAFILE) {
+      checkDataSource();
+    }
+    //faltar implementar per als altres tipus de origens de dades.
+  }
+  
 	
 	public DataSource (String absolutePath, Select asociatedSelect, String typeTemplate) {
 		this.urlSource = absolutePath;
@@ -97,6 +113,9 @@ public class DataSource {
 	    else if(controls != null) {
 	      mountControls(false);
 	    }
+      else if(rows != null) {
+        mountRows(false);
+      }
 	  }
 	  catch(Exception ex) {
     	System.out.println("Error ioexception:"+ex);
@@ -175,6 +194,50 @@ public class DataSource {
 		fileout.close();
 	  }
 	}
+	
+	public void mountRows(boolean append){   
+    //BufferedWriter out = new BufferedWriter(new FileWriter(fileDataSource));
+    int numRows= rows.cantidad() ;
+    PrintWriter fileout=null;
+    try {
+    fileout = new PrintWriter(new BufferedWriter(new FileWriter(fileDataSource,append)));
+    String cadena ="";    
+    numMergeFields =  rows.obtiene(0).cantidad()  ;
+    for(int i=0;i<rows.obtiene(0).cantidad();i++){   
+      // if(rows.obtiene(0).obtiene(i).nombre==null)
+      cadena +="\""+rows.obtiene(0).obtiene(i).nombre+"\"" + (i+1==rows.obtiene(0).cantidad()?"":";");
+      }   
+    fileout.println(cadena);    
+    for(int x=0 ; x<numRows ; x++){
+
+    cadena="";
+      for(int z=0;z<rows.obtiene(x).cantidad() ;z++) {
+        String valor = rows.obtiene(x).obtiene(z).valor ;
+        if(valor==null)
+          cadena +="\""+"\"" + (z+1==rows.obtiene(x).cantidad()?"":";");
+        else
+        cadena +="\""+valor+"\"" + (z+1==rows.obtiene(x).cantidad()?"":";");
+      }
+      fileout.println(cadena);
+    }
+    fileout.flush();
+    fileout.close();
+    }
+      catch (java.io.IOException e) {
+      System.out.println("Error ioexception:"+e);
+      Maefc.message("Error ioexception:"+e,"Error",Maefc.ERROR_MESSAGE);
+      fileout.close();
+    }
+    catch (NullPointerException npe) {
+      System.out.println("El argumento no es valido:"+npe);
+      fileout.close();
+    }
+    catch (Exception ex) {
+    System.out.println("DataSource exception:"+ex);  
+    fileout.close();
+    }
+  }
+	
 	
 	private void mountDataFile(boolean append){		
 		  //BufferedWriter out = new BufferedWriter(new FileWriter(fileDataSource));
