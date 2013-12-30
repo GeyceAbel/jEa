@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20131128
-// Hora:             16:36:04
+// Fecha:            20131230
+// Hora:             12:59:00
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1274,6 +1274,7 @@ public class ProgInsprconver extends Program
         "INSERT INTO FORMACOBPAG (fcpforma,fcpdesc,fcptipo) VALUES ('DOM','Domiciliación','TB');"
       };
     
+      
     
       int i=0;
       try {
@@ -2907,6 +2908,15 @@ public class ProgInsprconver extends Program
               Easp.connEA.commit();
               vvveractual.setValue("11.6");
         }
+        
+        if (versio < 11.7) {
+            grabarINDEMORA (2014,Fecha.getDate(2014,1,1),Fecha.getDate(2014,12,31),5);
+            Easp.setVersionBD("bdeasp","11.7");
+            Easp.connEA.commit();
+            vvveractual.setValue("11.7");
+        }
+     
+     
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
