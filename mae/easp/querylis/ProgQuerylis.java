@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20131015
-// Hora:             13:24:30
+// Fecha:            20140123
+// Hora:             16:20:16
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1259,6 +1259,8 @@ public class ProgQuerylis extends Program
             xml.append(" format=\"dd-MM-yyyy\" "); 
           else if (col.tipus==Value.DOUBLE)
             xml.append(" format=\"############.####\" ");
+          else if (col.format!=null && !"".equals(col.format))  
+             xml.append(" format=\""+col.format+"\" ");
           xml.append("/>");
           xml.append("&lt;/valor&gt;\n<br />");
           }

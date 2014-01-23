@@ -119,3 +119,4 @@
 131204 --> APESTER: Modificar funcio generarPageHeader per poder llistar doble capçalera
 
 131206 --> APPERE:  Insprconver 11_7  gravacio taula Indemora 2014
+140101 --> APESTER: QueryLis: que agafi el camp quevformato si te valor per fer la combinacio
