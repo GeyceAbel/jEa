@@ -33,6 +33,7 @@ public class Rotura {
 	private boolean textoRoturaEsExpresion;
 	private String expresionVariables;
 	private boolean noImprimirSiTotalesEsCero = false;
+	private boolean sinRectangulo;
 
 
 	/*
@@ -76,9 +77,21 @@ public class Rotura {
 		textoRoturaEsExpresion = false;
 		expresionVariables = null;
 		noImprimirSiTotalesEsCero = false;
+		sinRectangulo = false;
 		//setEsCampo();
 	}
 	
+	
+	public boolean isSinRectangulo() {
+		return sinRectangulo;
+	}
+
+
+	public void setSinRectangulo(boolean sinRectangulo) {
+		this.sinRectangulo = sinRectangulo;
+	}
+
+
 	public boolean isTextoRoturaEsExpresion() {
 		return textoRoturaEsExpresion;
 	}

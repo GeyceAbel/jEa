@@ -531,7 +531,7 @@ public class JListado {
 				Rotura r = getRotura(i);
 				String saltPage = "";
 				if (r.isSaltoPagina()) saltPage = " isStartNewPage=\"true\" ";
-        pw.write("<group name=\""+r.getNombre()+"\""+saltPage+" isReprintHeaderOnEachPage=\"true\" minHeightToStartNewPage=\""+ minHeightToStartNewPage +"\">");
+				pw.write("<group name=\""+r.getNombre()+"\""+saltPage+" isReprintHeaderOnEachPage=\"true\" minHeightToStartNewPage=\""+ minHeightToStartNewPage +"\">");
 				pw.write("<groupExpression><![CDATA["+r.getAgruparPor()+"]]></groupExpression>");
 				pw.write("<groupHeader>");
 				if(!r.isPrintGroupHeader()) {
@@ -567,7 +567,6 @@ public class JListado {
 						if (printWhen.length()>0) printWhen += " || ";
 						printWhen += "$V{"+nom+"}!=null";
 					}
-					System.out.println(printWhen);
 					pw.write("<printWhenExpression>"+printWhen+"</printWhenExpression>");
 				}
 
@@ -576,7 +575,7 @@ public class JListado {
 
 
 				java.util.List<Totalizar> totals = r.getTotales();
-				if(totals.size()>0) {
+				if(!r.isSinRectangulo() && totals.size()>0) {
 					pw.write("<rectangle radius=\"2\">");
 					pw.write("<reportElement x=\"0\" y=\"0\" width=\"" + posActualColumnHeader +"\" height=\"" + (r.getHeaderHeight()+2) + "\" forecolor=\"" + r.getBackGroundHeaderColor() + "\"/>");
 					pw.write("<graphicElement>");
@@ -635,6 +634,11 @@ public class JListado {
 					if (r.isAligDerecha()) tf.setAligDerecha(true);
 					tf.setSizeFont(sizeDetalle+1);
 					tf.setRightIndent(15);
+					if (r.isSinRectangulo() ){
+						tf.setRightIndent(0);
+						tf.setAligDerecha(false);
+					}
+					
 					tf.setNegreta(r.isNegreta());
 					tf.setVerticalAlig("Middle");
 					tf.setColorFont(r.getColorFont());
