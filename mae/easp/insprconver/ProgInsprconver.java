@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20131230
-// Hora:             12:59:00
+// Fecha:            20140129
+// Hora:             15:37:58
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2916,6 +2916,12 @@ public class ProgInsprconver extends Program
             vvveractual.setValue("11.7");
         }
      
+         if (versio < 11.8) {
+            grabaPerfilConta ();
+            Easp.setVersionBD("bdeasp","11.8");
+            Easp.connEA.commit();
+            vvveractual.setValue("11.8");
+        }
      
       }
       catch(Exception e) {
@@ -2924,6 +2930,42 @@ public class ProgInsprconver extends Program
       }
       return true;
     }
+    
+    public void grabaPerfilConta () {
+      Selector scdp = new Selector (Easp.connEA);
+      scdp.execute ("Select distinct(cdpnifcif) as nif from CDP where cdpckconta = 'S'");
+      while (scdp.next()) {
+        String nif = scdp.getString ("nif");
+        Selector semod = new Selector (Easp.connEA);
+        semod.execute ("Select * from EMPMODELOS where (emodejercicio=2014 or emodejercicio=2013) and emodnif='"+nif+"'");
+        boolean tieneModelos2014 = false;
+        boolean tieneModelos2013 = false;
+        while (semod.next()) {
+          int emodejercicio = semod.getint("emodejercicio");
+          if (emodejercicio == 2014) tieneModelos2014 = true;
+          else if (emodejercicio == 2013) tieneModelos2013 = true;
+        }
+        semod.close();
+        if (tieneModelos2013 && !tieneModelos2014) {
+          Selector sper = new Selector (Easp.connEA);
+          sper.execute ("Select * from PERFILTRIBUT where pftejercicio=2014 and pftnif='"+nif+"'");
+          boolean tienePerfil2014 = sper.next();
+          sper.close();
+          if (tienePerfil2014) {
+            try {
+              Easp.connEA.executeUpdate("INSERT INTO EMPMODELOS (emodejercicio,emodnif,emodmodelo,emodtipoper,emodactivo,emodfechaini,emodfechafin) SELECT 2014 as emodejercicio,emodnif,emodmodelo,emodtipoper,emodactivo,emodfechaini,emodfechafin from EMPMODELOS where emodejercicio=2013 and emodnif='"+nif+"'");
+              System.out.println ("Grabo models perfil 2013 a 2014 de ["+nif+"]");
+            }
+            catch (Exception e) {
+              e.printStackTrace();
+            }
+          }
+        }
+      } 
+      scdp.close();
+      Easp.connEA.commit();
+    }
+    
     public void grabarINDEMORA (int ejer, java.util.Date fechaini, java.util.Date fechafin, double tipo) {
           Insert iindemora = new Insert(Easp.connEA,"INDEMORA");
           iindemora.valor("indejercicio",ejer);
