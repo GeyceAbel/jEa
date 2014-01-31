@@ -611,7 +611,9 @@ public class JListado {
 					generarTextField(pw, tf);
 				}
 				if (r.getTitul()!=null && r.getTitul().trim().length()>0) {
-					int widthTitol=totals.get(0).getColumna().getTf().getPosIni();
+					int widthTitol= 0;
+					if (r.getWidthTitul()>0) widthTitol =r.getWidthTitul();  
+					else if (totals.size()>0) widthTitol=totals.get(0).getColumna().getTf().getPosIni();
 
 					/*
 					StaticText st = new StaticText(this,r.getPosIniciTitul(),1,widthTitol,r.getAnchura());
