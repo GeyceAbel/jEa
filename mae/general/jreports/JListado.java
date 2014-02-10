@@ -612,7 +612,7 @@ public class JListado {
 				}
 				if (r.getTitul()!=null && r.getTitul().trim().length()>0) {
 					int widthTitol= 0;
-					if (r.getWidthTitul()>0) widthTitol =r.getWidthTitul();  
+					if (r.getWidthTitul()>0) widthTitol =r.getWidthTitul();
 					else if (totals.size()>0) widthTitol=totals.get(0).getColumna().getTf().getPosIni();
 
 					/*
@@ -640,7 +640,7 @@ public class JListado {
 						tf.setRightIndent(0);
 						tf.setAligDerecha(false);
 					}
-					
+
 					tf.setNegreta(r.isNegreta());
 					tf.setVerticalAlig("Middle");
 					tf.setColorFont(r.getColorFont());
