@@ -15,11 +15,12 @@ public class PrintJasperDialog extends Form
 	private boolean pDOCX;
 	private boolean pTXT;
 	private boolean pEMIR;
-
-	public PrintJasperDialog (PrintJasperWork job, Program prog)
+	private boolean isQuery;
+	public PrintJasperDialog (PrintJasperWork job, Program prog,boolean isQuery)
 	{
 		super(prog);
 		this.job = job;
+		this.isQuery=isQuery;
 		setName("vprint");
 		setTitle(job.titulo);
 		setLayout(new LayoutTabbed());
@@ -29,11 +30,19 @@ public class PrintJasperDialog extends Form
 		lw.setModal(true);
 		lw.setLocation(LocationWindow.CENTER);
 		lw.setWidth(520);
-		lw.setHeight(380);
-		setLocation(lw);		
+		if(isQuery)
+		  lw.setHeight(480);
+		else
+		  lw.setHeight(380);
+		setLocation(lw);	
 	}
 	
 	
+	
+	
+	public void setQuery(boolean isQuery) {
+	  this.isQuery = isQuery;	
+	}
 	
 	public void setpPDF(boolean pPDF) {
 		this.pPDF = pPDF;
@@ -71,18 +80,30 @@ public class PrintJasperDialog extends Form
 
 	protected void creaTabs() {
 		if (pVISOR) {
-			PrintJasperPanel panel = new  PrintJasperPanelVisor(job);
+			PrintJasperPanel panel;
+			if(!isQuery) {
+			  panel = new  PrintJasperPanelVisor(job);
+			}
+			else panel = new  PrintJasperPanelVisorQuer(job);
 			panel.setParent(this);
 			addTab(panel);
 			job.isVistaPrevia = true;
 		}
 		if (pPDF) {
-			PrintJasperPanel panel = new  PrintJasperPanelPDF(job);
+			PrintJasperPanel panel;
+			if(!isQuery) {
+			  panel = new  PrintJasperPanelPDF(job);
+			}
+			else panel = new  PrintJasperPanelPDFQuer(job);
 			panel.setParent(this);
 			addTab(panel);
 		}
 		if (pImpresora) {
-			PrintJasperPanel panel = new  PrintJasperPanelPrinter(job);
+			PrintJasperPanel panel;
+			if(!isQuery) {
+			  panel = new  PrintJasperPanelPrinter(job);
+			}
+			else panel = new  PrintJasperPanelPrinterQuer(job);
 			panel.setParent(this);
 			addTab(panel);
 		}
@@ -92,7 +113,11 @@ public class PrintJasperDialog extends Form
 			addTab(panel);
 		}
 		if (pDOCX) {
-			PrintJasperPanel panel = new  PrintJasperPanelDOC(job);
+			PrintJasperPanel panel;
+			if(!isQuery) {
+			  panel = new  PrintJasperPanelDOC(job);
+			}
+			else panel = new  PrintJasperPanelDOCQuer(job);
 			panel.setParent(this);
 			addTab(panel);
 		}
@@ -107,8 +132,23 @@ public class PrintJasperDialog extends Form
 			addTab(panel);
 		}
 	}
+/*	
+	public String getDestinoWord() {
+		return destinoWord;
+	}
+	
+	public String getDestinoPdf() {
+		return destinoPdf;
+	}
 
-
+	public void setDestinoWord(String destinoWord) {
+		this.destinoWord= destinoWord;
+	}
+	
+	public void setDestinoPdf(String destinoPdf) {
+		this.destinoPdf= destinoPdf;
+	}
+*/
 	public void addTab(PrintJasperPanel tab) {
 		addControl(tab.getTabComponent());
 	}

@@ -184,7 +184,7 @@ public class PrintJasperPanelVisor extends PrintJasperPanel
     crear.setImage("mae/general/jreports/vp.png");
     addControl(crear);
 
-    addPredeterminar();
+    //addPredeterminar();
   }
 
   public void onImprimir() {

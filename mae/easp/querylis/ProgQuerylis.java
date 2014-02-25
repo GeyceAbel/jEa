@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140123
-// Hora:             16:20:16
+// Fecha:            20140225
+// Hora:             13:44:52
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -91,6 +91,19 @@ public class ProgQuerylis extends Program
           return nomConnect;
     }
   
+  
+    public int getLLargadaOptimaCamp(String nomCamp) {
+      int llargadaOptima=6;
+      if(nomCamp.equals("tranaf2")) llargadaOptima=9;
+      else if(nomCamp.equals("tranaf1")) llargadaOptima=3;
+      else if(nomCamp.equals("tranaf3")) llargadaOptima=3;
+      else if(nomCamp.contains("cenccc\\w2"))llargadaOptima=8;
+      else if(nomCamp.contains("cenccc\\w1"))llargadaOptima=3;
+      else if(nomCamp.contains("cenccc\\w3"))llargadaOptima=3;    	
+      return llargadaOptima;
+      
+    }
+  
     void llegeixColumnes(Frase frase) {
       Selector scolumnes=new Selector(getDataBase());
   
@@ -113,13 +126,34 @@ public class ProgQuerylis extends Program
         col.rotura = "S".equals(scolumnes.getString("qecrotura"));
         col.titRotura = scolumnes.getString("qectitrotura");
   
+        int llargadaOptima=0;
+        switch(scolumnes.getint("qectipo")) {
+          case 1: llargadaOptima = scolumnes.getint("qeclongitud")+1; break;
+          case 2: llargadaOptima = getLLargadaOptimaCamp(scolumnes.getString("qeccampo"));break;
+          case 3: 
+            if(col.format != null && !col.format.trim().equals(""))
+              llargadaOptima =scolumnes.getString("qecformato").length();
+            else
+              //llargadaOptima = scolumnes.getint("qeclongitud"); 
+          	  llargadaOptima = 8;
+            break;
+          case 4: llargadaOptima = 10;break;
+          default: llargadaOptima=13;break;
+        }
+        col.llargadaOptima=llargadaOptima;
+  
         String camp  = scolumnes.getString("qeccampo");
         String taula = scolumnes.getString("qectabla");
         String bbdd  = scolumnes.getString("qecbbdd");
   
         col.camp = buscaCampo(bbdd, taula, camp);
   
-        col.llarg=Math.max(scolumnes.getint("qeclongitud"),col.titol.length());
+        //col.llarg=Math.max(scolumnes.getint("qeclongitud"),col.titol.length());
+        if(scolumnes.getint("qeclongitud")!=0) 
+          col.llarg=Math.max(scolumnes.getint("qeclongitud"),col.titol.length());
+        else 
+          col.llarg=Math.max(llargadaOptima,col.titol.length());
+          
   
         if (col.format!=null)
           col.llarg=Math.max(col.llarg,col.format.length());
@@ -548,6 +582,7 @@ public class ProgQuerylis extends Program
     boolean media;
     boolean contador;
     boolean rotura;
+    int llargadaOptima;
     }
   
   class Seleccio {
@@ -860,8 +895,8 @@ public class ProgQuerylis extends Program
                           col.valor.setValue(vali);
                       break;
                   case Value.STRING:
-                      // String vals=(String)col.quorelacio.selector.getObject(col.camp.field.getName());
-                      String vals=col.quorelacio.selector.getString(col.camp.field.getName());
+                      String vals=(String)col.quorelacio.selector.getObject(col.camp.field.getName());
+                      //String vals=col.quorelacio.selector.getString(col.camp.field.getName());
                       if (col.quorelacio.selector.wasNull())
                           col.valor.setNull();
                       else
@@ -2139,7 +2174,9 @@ public class ProgQuerylis extends Program
                   enter=true;
                 }
                 //pw.write("<" + col.camp.field.getName() + ">" + (col.tipus==Value.STRING?Maefc.filtraXML(String.valueOf(col.valor)):col.valor) + "</" + col.camp.field.getName()+ ">");
-                pw.write("<" + col.camp.field.getName() + ">" + (col.tipus==Value.STRING?Maefc.filtraXML(String.valueOf(col.valor)):(col.valor==null?"":col.valor.getString().replace(".",","))) + "</" + col.camp.field.getName()+ ">");
+                //pw.write("<" + col.camp.field.getName() + ">" + (col.tipus==Value.STRING?Maefc.filtraXML(String.valueOf(col.valor)):(col.valor==null?"":col.valor.getString().replace(".",","))) + "</" + col.camp.field.getName()+ ">");
+                String acumula = col.acumula? " total = 'acum'":(col.media?" total = 'media'":(col.contador?" total = 'contador'":""));
+                pw.write("<" + col.camp.field.getName() + " tipus = '"+col.tipus+"'" + (col.tipus == Value.DOUBLE && col.format !=null && !col.format.trim().equals("")?(" format='"+col.format+"'"):(""))+ acumula +">" + (col.tipus==Value.STRING?Maefc.filtraXML(String.valueOf(col.valor)):(col.valor==null?"":col.valor.getString().replace(".",","))) + "</" + col.camp.field.getName()+ ">");                
                 //pw.newLine();
               }
             }
@@ -2156,15 +2193,29 @@ public class ProgQuerylis extends Program
           String nodeLoop= "/queryjasper/register";
           mae.general.jreports.JListado listadoJasper = new mae.general.jreports.JListado(nodeLoop,fields,frase.apaisat?mae.general.jreports.JListado.Orientacion.HORIZONTAL:mae.general.jreports.JListado.Orientacion.VERTICAL);
           listadoJasper.setTituloListado(frase.titol); 
+          listadoJasper.setNombreReport(frase.nom);
           listadoJasper.setColorPeuPagina ("#0e4b80");
           listadoJasper.setColorLineas ("#5e584e");
           listadoJasper.sizeDetalle = 7;
           listadoJasper.sizeEncabezado = 15;
           
           mae.general.jreports.Encabezado e = listadoJasper.addEncabezado();
+          e.setBgColor("#CADAEB");
+          e.setColorFont("#000000");
           String expresio = "\"Fecha : " + new java.text.SimpleDateFormat("dd-MM-yyyy").format(Fecha.hoy())+"\"";
           e.addNewTextField(expresio, mae.general.jreports.Columna.STRING,"fechas");
           
+          for(int i=0;i<frase.variables.size();i++) {
+            Variable var=(Variable)frase.variables.elementAt(i);
+            if (var.visible) {
+                mae.general.jreports.Encabezado eAux = listadoJasper.addEncabezado();
+                eAux.setBgColor("#CADAEB");
+                eAux.setColorFont("#000000");
+                String expresionAux= "\""+(var.titol+": "+var.valor.getString())+"\"";
+                eAux.addNewTextField(expresionAux, mae.general.jreports.Columna.STRING,"variable"+i);
+            }
+          }
+        
           //mirem si existeixen totales
           boolean totales = false;
           for(int y=0;y<frase.columnes.size();y++) {
@@ -2183,10 +2234,10 @@ public class ProgQuerylis extends Program
             Columna cole = (Columna)frase.columnes.elementAt(x);
             if (cole.visible) {
               double llargada;
-              if(cole.tipus == mae.general.jreports.Columna.DATE) llargada = 8/llargadaTotal;
-              else	  llargada= cole.llarg/llargadaTotal;
+              //if(cole.tipus == mae.general.jreports.Columna.DATE) llargada = 8/llargadaTotal;
+              //else	  llargada= cole.llarg/llargadaTotal;
               //int ampladaCamp = (int)(listadoJasper.getColumnWidth()*llargada);
-              
+              llargada= cole.llarg/llargadaTotal;
               
               int ampladaCamp = (int)java.lang.Math.ceil((listadoJasper.getColumnWidth()*llargada));
               if(ampladaCamp<5) ampladaCamp =5;    
@@ -2203,20 +2254,33 @@ public class ProgQuerylis extends Program
               Rectangle2D bounds = metrics.getStringBounds("string", null);  
               int widthInPixels = (int) bounds.getWidth(); 
               */
+              /*apxavi new calcul longitud en pixels per jr*/
+              java.awt.Font font = new java.awt.Font("SansSerif", java.awt.Font.PLAIN, 9);  
+              java.awt.FontMetrics metrics = new java.awt.FontMetrics(font) { 
+              };
+              //String str = "a";
+              java.awt.geom.Rectangle2D bounds = metrics.getStringBounds( new String(new char[cole.llarg]).replace('\0', 'A'), null);  
+              int widthInPixels = (int) bounds.getWidth(); 
               
+                
               
-              
-              
-              
-              mae.general.jreports.Columna col = listadoJasper.addColumna(cole.titol,posIni,ampladaCamp,cole.tipus,cole.camp.field.getName(),null);
+              //mae.general.jreports.Columna col = listadoJasper.addColumna(cole.titol,posIni,ampladaCamp,cole.tipus,cole.camp.field.getName(),null);
+              mae.general.jreports.Columna col = listadoJasper.addColumna(cole.titol,posIni,widthInPixels,cole.tipus,cole.camp.field.getName(),null);
               col.getSt().setColorFont("#0e4b80");
-              col.getTf().setColorFont("#3c454d");  
+              col.getTf().setColorFont("#3c454d"); 
+        
+              col.setOriginalSizePixel(widthInPixels);
+              java.awt.geom.Rectangle2D bounds2 = metrics.getStringBounds( new String(new char[cole.llargadaOptima]).replace('\0', 'A'), null);  
+              int widthInPixels2 = (int) bounds2.getWidth(); 
+              col.setAmpladaOptima(widthInPixels2);
+        
               if (cole.tipus == mae.general.jreports.Columna.INTEGER || cole.tipus == mae.general.jreports.Columna.DOUBLE
                         || (cole.tipus == mae.general.jreports.Columna.STRING && cole.llarg <16))
                 col.setStretchWithOverflow(true); 
               if(cole.format != null && !cole.format.equals(""))
                 col.getTf().setPattern(cole.format);  
-              posIni += ampladaCamp;              
+              //posIni += ampladaCamp;              
+              posIni +=widthInPixels;
               if(cole.acumula  || cole.media || cole.contador) {
                 mae.general.jreports.Totalizar.Calculation tipe;
                 if(cole.acumula) tipe = mae.general.jreports.Totalizar.Calculation.SUM;
@@ -2242,12 +2306,14 @@ public class ProgQuerylis extends Program
           listadoJasper.setXmlDataSource(xmlDataSource);
           
           //generacio del report                
-              if (listadoJasper.generalJRXML()) {
+          //if (listadoJasper.generalJRXML()) {
             mae.general.jreports.PrintJasperWork pjw = new mae.general.jreports.PrintJasperWork ("Salida...",null);          
             pjw.addListado(listadoJasper);
             pjw.setPestanaTXT(true, fieldsLength,fjrxml);
-            pjw.dialog(querylis);          
-          }
+            pjw.setQuery(true);
+            if(frase.apaisat) pjw.horizontal = true;   
+            pjw.dialog(querylis);       
+          //}
           
           
         }

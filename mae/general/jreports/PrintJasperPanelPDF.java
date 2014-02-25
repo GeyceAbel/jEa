@@ -251,7 +251,7 @@ public class PrintJasperPanelPDF extends PrintJasperPanel
 		crear.setImage("geyce/maefc/images/pdf.png");
 		addControl(crear);
 
-		addPredeterminar();
+		//addPredeterminar();
 	}
 
 	public boolean onImprimir() {

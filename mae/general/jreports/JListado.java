@@ -202,6 +202,20 @@ public class JListado {
 		rightWidthPosicion = pagewidth - margender;
 	}
 
+	public void setPageSize(int width, int height) {
+		pageheight = height;
+		pagewidth = width;	
+		columnWidth = (pagewidth-margender-margenizq);
+		rightWidthPosicion = pagewidth - margender;
+	}
+	
+	public void setMargin(int left, int right, int up, int down) {
+		margensup = up;
+		margeninf = down;
+		margenizq = left;
+		margender = right;
+	}
+	
 	public boolean isXmlDataSource() {
 		return isXmlDataSource;
 	}
@@ -1270,7 +1284,7 @@ public class JListado {
 		pw.write("</textField>");
 	}
 
-	private int getNumEncabezados() {
+	public int getNumEncabezados() {
 		return encabezados.size();
 	}
 
@@ -1278,7 +1292,7 @@ public class JListado {
 		return columnas.size();
 	}
 
-	private int getNumRoturas() {
+	public int getNumRoturas() {
 		return roturas.size();
 	}
 
@@ -1458,15 +1472,26 @@ public class JListado {
 		boolean bOk = true;
 		try {
 			pw.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-			pw.write("<jasperReport xmlns=\"http://jasperreports.sourceforge.net/jasperreports\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd\" name=\""+nombreReport+"\" language=\"groovy\" pageWidth=\""+pagewidth+"\" pageHeight=\""+pageheight+"\" " + tipoTratamientoSinDatos() + " columnWidth=\""+columnWidth+"\" leftMargin=\""+margenizq+"\" rightMargin=\""+margender+"\" topMargin=\""+margensup+"\" bottomMargin=\""+margeninf+"\">");
+			pw.write("<jasperReport xmlns=\"http://jasperreports.sourceforge.net/jasperreports\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd\" name=\""+nombreReport+"\" language=\"groovy\" pageWidth=\""+pagewidth+"\" pageHeight=\""+pageheight+"\" " + tipoTratamientoSinDatos() + (orientacionPapel == Orientacion.HORIZONTAL?" orientation=\"Landscape\"":"") + " columnWidth=\""+columnWidth+"\" leftMargin=\""+margenizq+"\" rightMargin=\""+margender+"\" topMargin=\""+margensup+"\" bottomMargin=\""+margeninf+"\">");
 			pw.write("<property name=\"ireport.zoom\" value=\"2.0\"/>");
 			pw.write("<property name=\"ireport.x\" value=\"0\"/>");
 			pw.write("<property name=\"ireport.y\" value=\"0\"/>");
 
 			if (propiedadesExcelAutomaticas) {
-
+				for(int i=0; i<roturas.size();i++) {				  
+				  Rotura r = roturas.get(i);
+				  pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band." + ((i*2)+10) +"\" value=\"groupFooter\"/>");
+				  pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.group." + ((i*2)+10) +"\" value=\"" + r.getNombre() +"\"/>");
+				  pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band." + (((i*2)+1)+10) +"\" value=\"groupHeader\"/>");
+				  pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.group." + (((i*2)+1)+10) +"\" value=\"" + r.getNombre() +"\"/>");
+				  
+				}
 				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band.3\" value=\"pageFooter\"/>");
-				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band.4\" value=\"pageHeader\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band.4\" value=\"pageHeader\"/>");				
+				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band.5\" value=\"groupFooter\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.group.5\" value=\"totales\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.keep.first.band.dummy\" value=\"groupHeader\"/>");
+			    pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.keep.first.group.dummy\" value=\"dummy\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.band.2\" value=\"pageFooter\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.rows\" value=\"true\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.columns\" value=\"true\"/>");
@@ -1476,7 +1501,7 @@ public class JListado {
 				pw.write("<property name=\"net.sf.jasperreports.export.character.encoding\" value=\"ISO-8859-1\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.collapse.row.span\" value=\"true\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");
-				pw.write("<property name=\"net.sf.jasperreports.export.csv.record.delimiter\" value=\"&#x0D;&#x0A;\"/>");
+				//pw.write("<property name=\"net.sf.jasperreports.export.csv.record.delimiter\" value=\"&#x0D;&#x0A;\"/>");
 
 
 

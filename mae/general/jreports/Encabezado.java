@@ -192,5 +192,9 @@ public class Encabezado extends JRDesignFrame{
 	public int getPosIniEnc() {
 		return posIni;
 	}
+	
+	public void setPosIni(int posIni) {
+		this.posIni = posIni;
+	}
 
 }

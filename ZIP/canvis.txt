@@ -121,3 +121,4 @@
 131206 --> APPERE:  Insprconver 11_7  gravacio taula Indemora 2014
 140101 --> APESTER: QueryLis: que agafi el camp quevformato si te valor per fer la combinacio
 140101 --> APJORDI: jASPER: funcio a la rotura que permet mostra la rotura sense cuadro i alineat a la esquerra
+140202 --> APXAVI: QuerLys + Jasper: rediseny del quadre de dialeg d'impresio d'un query. Reestructuracio de l'objecte jListado per adequarse a les propietats de la fulla avans d'imprimir. Noves clases exclusives per aixo.

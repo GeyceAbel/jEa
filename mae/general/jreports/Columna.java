@@ -33,6 +33,8 @@ public class Columna {
 	private String idCol;
 	private boolean isStretchWithOverflow =false;
 	private String formulaTotal;
+	private int orginalSizePixel;
+	private int ampladaOptima;
 	
 	public Columna (JListado jlis, String literal,String expression,String nomVariable, int tipo, int tamany,int posIni) {		
 		this.jl = jlis;
@@ -220,5 +222,21 @@ public class Columna {
 	
 	public String getIdColumn() {
 		return idCol;
+	}
+	
+	public void setOriginalSizePixel( int sizePixel) {
+		this.orginalSizePixel = sizePixel;
+	}
+	
+	public int getOriginalSizePixel() {
+		return orginalSizePixel;
+	}
+	
+	public void setAmpladaOptima( int amplada) {
+		this.ampladaOptima = amplada;
+	}
+	
+	public int getAmpladaOptima() {
+		return ampladaOptima;
 	}
 }

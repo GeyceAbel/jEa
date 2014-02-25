@@ -9,13 +9,16 @@ import geyce.maefc.ControlRadioButton;
 import geyce.maefc.LayoutHtml;
 import geyce.maefc.LocationTabbed;
 import geyce.maefc.Maefc;
+import geyce.maefc.Value;
 import geyce.maefc.VisualComponent;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -294,13 +297,27 @@ public class PrintJasperPanelTXT extends PrintJasperPanel
 				*/
 				File file = new File(destino.getString());
 				pw = new BufferedWriter(new OutputStreamWriter (new FileOutputStream(file),"UTF8"));
-				String titulo = job.titulo;
+				String titulo = job.titulo==null?"":job.titulo;
+				String enc ="";
 				for (int i=0;i<job.vTarea.size();i++) {
 					JListado jl = job.vTarea.elementAt(i);
-					titulo= jl.getTituloListado();
+					titulo= jl.getTituloListado();					
+					pw.write(titulo.toUpperCase());
+					pw.newLine();	
+					pw.newLine();
+					for (int z=0;z<jl.getNumEncabezados();z++) {
+						Encabezado e = jl.getEncabezado(z);
+						enc = e.getTf().getVariable().getExpression().replace("![CDATA[","").replace("]]","");
+						enc.replace("\"","");
+						if(enc !=null && !enc.trim().equals("")) {
+						  pw.write(enc.toUpperCase());
+						  pw.newLine();
+						}
+					}
 				}
-		        pw.write(titulo.toUpperCase());
-		        pw.newLine();
+		        //pw.write(titulo.toUpperCase());
+
+		        pw.newLine();		        
 		        pw.newLine();
 		        
 		        
@@ -327,28 +344,82 @@ public class PrintJasperPanelTXT extends PrintJasperPanel
 				}
 				pw.newLine();
 				//read xmlDataSource.
-				//List<JasperPrint> jprintlist = new ArrayList<JasperPrint>();				
+				//List<JasperPrint> jprintlist = new ArrayList<JasperPrint>();
+				HashMap<Integer,Double> sumaCamps = new HashMap<Integer, Double>();
 				DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 				  DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 				  Document doc = dBuilder.parse(job.xmlDataSourceFile);
 				  doc.getDocumentElement().normalize();
-				  
+				  Boolean totals=false;
 				  NodeList nList = doc.getElementsByTagName("register");
+				  int cont=0;
 				  for (int temp = 0; temp < nList.getLength(); temp++) {				  
 					Node nNode = nList.item(temp);
 					if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+					  cont++;
 					  NodeList children = nList.item(temp).getChildNodes();
 					  for(int j=0; j<children.getLength();j++){
-						Node nNodeChild = nList.item(temp);
+						Node nNodeChild = children.item(j);
 						if (nNodeChild.getNodeType() == Node.ELEMENT_NODE) {
+							Node e = nNodeChild.getAttributes().getNamedItem("format");
+							Node tipus = nNodeChild.getAttributes().getNamedItem("tipus");
+							Node total = nNodeChild.getAttributes().getNamedItem("total");
+							String contingut=nNodeChild.getTextContent();
+							if(e!=null && contingut !=null  && !contingut.trim().equals("")) {
+							  int tipus2=Integer.valueOf(tipus.getNodeValue());
+							  String format = e.getNodeValue();
+							  if(tipus2 == Value.DOUBLE) {
+							    DecimalFormat dec = new DecimalFormat("#0.00");
+							    if(format !=null && !format.trim().equals("")) {
+							      dec = new DecimalFormat(format);							      
+							    }
+							    contingut=dec.format(Double.parseDouble(contingut));
+							  }
+							}
+							if(total!=null) {
+							  totals = true;
+							  double suma=0;
+							  String tipoSuma = total.getNodeValue();
+							  if(!tipoSuma.equals("contador"))	 {	
+								if(contingut ==null || contingut.trim().equals("")) suma =0;
+								else suma = Double.parseDouble(contingut.replace(".", "").replace(",", "."));
+								sumaCamps.put(j, sumaCamps.get(j)==null?0+suma:sumaCamps.get(j)+suma);
+							  }							  
+							  if(temp ==nList.getLength()-1) {
+								  if(tipoSuma.equals("media") && cont !=0)   sumaCamps.put(j, sumaCamps.get(j)==null?0:sumaCamps.get(j)/cont);
+								  else if(tipoSuma.equals("contador"))  sumaCamps.put(j, (double)cont);
+							  }
+							}
+							
 							pw.write("   ");
-							pw.write(String.format(formatColumnes.get(j),children.item(j).getTextContent()));
+							pw.write(String.format(formatColumnes.get(j),contingut!=null?contingut.trim():""));
 						}						
 					  }
 					}
 					pw.newLine();
 			      }
-				
+				//TOTALS
+				pw.newLine();
+				if(totals) {
+				  for(int x=0;x<formatColumnes.size();x++) {
+					pw.write("   ");
+					if(sumaCamps.containsKey(x))
+					  pw.write(String.format(formatColumnes.get(x),"").replace(' ','-'));		
+					else pw.write(String.format(formatColumnes.get(x),""));
+					//pw.write(String.format("%-"+(entry.getValue()[0]+4)+"s", StringUtil.justifyCenter("",entry.getValue()[0]+4,' ')));
+				  }
+				  pw.newLine();
+				  for(int x=0;x<formatColumnes.size();x++) {
+					pw.write("   ");
+					if(sumaCamps.containsKey(x)) {
+						DecimalFormat dec = new DecimalFormat("#0.00");
+						String contingut=dec.format(sumaCamps.get(x));
+						pw.write(String.format(formatColumnes.get(x),contingut));
+					}
+					else pw.write(String.format(formatColumnes.get(x),""));
+					//pw.write(String.format("%-"+(entry.getValue()[0]+4)+"s", StringUtil.justifyCenter("",entry.getValue()[0]+4,' ')));
+				  }
+				}
 				
 				
 				/*

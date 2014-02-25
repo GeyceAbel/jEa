@@ -250,7 +250,7 @@ public class PrintJasperPanelDOC extends PrintJasperPanel
 		crear.setImage("mae/general/jreports/word.png");
 		addControl(crear);
 
-		addPredeterminar();
+		//addPredeterminar();
 	}
 
 	public void onImprimir() {

@@ -167,7 +167,7 @@ public class PrintJasperPanelPrinter extends PrintJasperPanel
     crear.setImage("geyce/maefc/images/printer.png");
 
     addControl(crear);
-    addPredeterminar();
+    //addPredeterminar();
   }
 
   public void onImprimir()

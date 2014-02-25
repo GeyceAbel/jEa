@@ -26,8 +26,7 @@ public class PrintJasperWork {
 	private boolean pestanaEMIR=false;
 	protected Vector <JListado> vTarea;
 	protected String destino;
-	protected boolean abrir;
-	protected boolean horizontal;
+	protected boolean abrir;	
 	protected double margenSuperior;
 	protected double margenInferior;
 	protected double margenIzquierdo;
@@ -42,8 +41,10 @@ public class PrintJasperWork {
 	public String  parametroPaginaInicial;
 	public boolean multiPaginaExcel = false;
     public LinkedHashMap<String,String[]> fieldsNameLength;
+    public boolean horizontal=false;
 	protected int empresa;
 	protected String aplicacio;
+	private boolean isQuery=false;
     
 	
 	private void showPanels(){
@@ -52,6 +53,14 @@ public class PrintJasperWork {
          	 }
 	}
 
+	public void setQuery(boolean isQuery) {
+		this.isQuery = isQuery;
+	}
+	
+	public boolean isQuery() {
+		return isQuery;
+	}
+	
 	public void setPestanaPDF(boolean pestanaPDF) {
 		this.pestanaPDF = pestanaPDF;
 	}
@@ -123,10 +132,10 @@ public class PrintJasperWork {
 	private void setDefaults() {
 		destino=System.getProperty("user.dir")+"\\listado_"+Easp.getNomPC();
 		abrir = true;
-		horizontal = false;
-		margenSuperior = 2;
+		//horizontal = false;
+		margenSuperior = 1;
 		margenInferior = 1;
-		margenIzquierdo = 2;
+		margenIzquierdo = 1;
 		margenDerecho = 1;
 		tamañoLetra = 8;
 		modifValores = true;
@@ -138,7 +147,7 @@ public class PrintJasperWork {
 	}
 
 	public PrintJasperDialog createDialog(Program prog) {
-		PrintJasperDialog dialog = new PrintJasperDialog(this, prog);
+		PrintJasperDialog dialog = new PrintJasperDialog(this, prog,isQuery);
 		dialog.setpPDF(pestanaPDF);
 		dialog.setpEXCEL(pestanaEXCEL);
 		dialog.setpVISOR(pestanaVISOR);
@@ -146,6 +155,7 @@ public class PrintJasperWork {
 		dialog.setpDOCX(pestanaDOCX);
 		dialog.setpTXT(pestanaTXT);
 		dialog.setpEMIR(pestanaEMIR);
+		//dialog.setQuery(isQuery);
 		return dialog;
 	}
 

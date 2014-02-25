@@ -144,7 +144,7 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 
 		addControl(crear);
 
-		addPredeterminar();
+		//addPredeterminar();
 	}
 
 	public boolean onGenerar()
@@ -160,6 +160,7 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 				List<JasperPrint> jprintlist = new ArrayList<JasperPrint>();
 				for (int i=0;i<job.vTarea.size();i++) {
 					JListado jl = job.vTarea.elementAt(i);
+					if(job.isQuery()) jl.generalJRXML();
 					VistaPrevia vp = null;
 					if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);    		  
 					else if  (!jl.isXmlDataSource()) {

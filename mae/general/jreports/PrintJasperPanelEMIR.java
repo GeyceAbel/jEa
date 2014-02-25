@@ -178,7 +178,7 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 		crear.setImage("mae/general/jreports/emirtab.gif");
 		addControl(crear);
 
-		addPredeterminar();
+		//addPredeterminar();
 	}
 
 
