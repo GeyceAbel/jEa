@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111110
-// Hora:             18:26:07
+// Fecha:            20140305
+// Hora:             17:18:05
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -17,28 +17,29 @@ public class CatModelo100 extends Catalog
   {
   // Tablas
   public TabDeflis100 tabdeflis100;
-  public TabMod100h1 tabmod100h1;
-  public TabMod100h2 tabmod100h2;
   public TabMod100h3 tabmod100h3;
+  public TabMod100h10 tabmod100h10;
+  public TabMod100h11 tabmod100h11;
+  public TabMod100h12 tabmod100h12;
+  public TabMod100h14 tabmod100h14;
+  public TabMod100h22 tabmod100h22;
+  public TabMod100h1 tabmod100h1;
   public TabMod100h4 tabmod100h4;
+  public TabMod100h15 tabmod100h15;
+  public TabMod100h2 tabmod100h2;
   public TabMod100h5 tabmod100h5;
   public TabMod100h6 tabmod100h6;
   public TabMod100h7 tabmod100h7;
   public TabMod100h8 tabmod100h8;
   public TabMod100h9 tabmod100h9;
-  public TabMod100h10 tabmod100h10;
-  public TabMod100h11 tabmod100h11;
-  public TabMod100h12 tabmod100h12;
-  public TabMod100h13 tabmod100h13;
-  public TabMod100h14 tabmod100h14;
-  public TabMod100h15 tabmod100h15;
-  public TabMod100h16 tabmod100h16;
   public TabMod100h17 tabmod100h17;
+  public TabMod100h13 tabmod100h13;
+  public TabMod100h16 tabmod100h16;
   public TabMod100h18 tabmod100h18;
-  public TabMod100h19 tabmod100h19;
   public TabMod100h20 tabmod100h20;
+  public TabMod100h19 tabmod100h19;
   public TabMod100h21 tabmod100h21;
-  public TabMod100h22 tabmod100h22;
+  public TabMod100h91 tabmod100h91;
   public class TabDeflis100 extends TableDef
     {
     // Campos
@@ -86,1002 +87,6 @@ public class CatModelo100 extends Catalog
       setColumns(array);
       FieldDef arrayf[] = {df1modelo,df1ejercicio,df1hoja,df1numero };
       setPrimaryKeys(arrayf);
-      }
-    }
-    
-  public class TabMod100h1 extends TableDef
-    {
-    // Campos
-    public FieldDef m11dominio;
-    public FieldDef m11nif;
-    public FieldDef m11declarac;
-    public FieldDef m11ejercicio;
-    public FieldDef m11periodo;
-    public FieldDef m11dprimapell;
-    public FieldDef m11dsegapell;
-    public FieldDef m11dnombre;
-    public FieldDef m11dsexo;
-    public FieldDef m11destcivil;
-    public FieldDef m11dfecnacim;
-    public FieldDef m11dminusval;
-    public FieldDef m11dsms;
-    public FieldDef m11dcambdomi;
-    public FieldDef m11dtipovia;
-    public FieldDef m11dvia;
-    public FieldDef m11dtiponum;
-    public FieldDef m11dnumcasa;
-    public FieldDef m11dcalifnum;
-    public FieldDef m11dbloque;
-    public FieldDef m11dportal;
-    public FieldDef m11descalera;
-    public FieldDef m11dplanta;
-    public FieldDef m11dpuerta;
-    public FieldDef m11ddatcomp;
-    public FieldDef m11dpoblacion;
-    public FieldDef m11dcpostal;
-    public FieldDef m11dcodmuni;
-    public FieldDef m11dmunicipio;
-    public FieldDef m11dcodprov;
-    public FieldDef m11dprovincia;
-    public FieldDef m11dtelefijo;
-    public FieldDef m11dmovil;
-    public FieldDef m11dfax;
-    public FieldDef m11dextdomic;
-    public FieldDef m11dextdatcom;
-    public FieldDef m11dextpoblac;
-    public FieldDef m11dextmail;
-    public FieldDef m11dextcpost;
-    public FieldDef m11dextprovin;
-    public FieldDef m11dextpais;
-    public FieldDef m11dextcpais;
-    public FieldDef m11dexttelef;
-    public FieldDef m11dextmovil;
-    public FieldDef m11dextfax;
-    public FieldDef m11vda1titul;
-    public FieldDef m11vda1porcd;
-    public FieldDef m11vda1porcc;
-    public FieldDef m11vda1situa;
-    public FieldDef m11vda1refer;
-    public FieldDef m11vda2titul;
-    public FieldDef m11vda2porcd;
-    public FieldDef m11vda2porcc;
-    public FieldDef m11vda2situa;
-    public FieldDef m11vda2refer;
-    public FieldDef m11vda3titul;
-    public FieldDef m11vda3porcd;
-    public FieldDef m11vda3porcc;
-    public FieldDef m11vda3situa;
-    public FieldDef m11vda3refer;
-    public FieldDef m11vda4titul;
-    public FieldDef m11vda4porcd;
-    public FieldDef m11vda4porcc;
-    public FieldDef m11vda4situa;
-    public FieldDef m11vda4refer;
-    public FieldDef m11cnif;
-    public FieldDef m11cprimapell;
-    public FieldDef m11csegapell;
-    public FieldDef m11cnombre;
-    public FieldDef m11csexo;
-    public FieldDef m11cfecnacim;
-    public FieldDef m11cminusval;
-    public FieldDef m11noirpf;
-    public FieldDef m11csms;
-    public FieldDef m11ccambdomi;
-    public FieldDef m11ctipovia;
-    public FieldDef m11cvia;
-    public FieldDef m11ctiponum;
-    public FieldDef m11cnumcasa;
-    public FieldDef m11ccalifnum;
-    public FieldDef m11cbloque;
-    public FieldDef m11cportal;
-    public FieldDef m11cescalera;
-    public FieldDef m11cplanta;
-    public FieldDef m11cpuerta;
-    public FieldDef m11cdatcomp;
-    public FieldDef m11cpoblacion;
-    public FieldDef m11ccpostal;
-    public FieldDef m11ccodmuni;
-    public FieldDef m11cmunicipio;
-    public FieldDef m11ccodprov;
-    public FieldDef m11cprovincia;
-    public FieldDef m11ctelefijo;
-    public FieldDef m11cmovil;
-    public FieldDef m11cfax;
-    public FieldDef m11cextdomic;
-    public FieldDef m11cextdatcom;
-    public FieldDef m11cextpoblac;
-    public FieldDef m11cextmail;
-    public FieldDef m11cextcpost;
-    public FieldDef m11cextprovin;
-    public FieldDef m11cextpais;
-    public FieldDef m11cextcpais;
-    public FieldDef m11cexttelef;
-    public FieldDef m11cextmovil;
-    public FieldDef m11cextfax;
-    public FieldDef m11repnif;
-    public FieldDef m11reprnombre;
-    public FieldDef m11feclugar;
-    public FieldDef m11fecdia;
-    public FieldDef m11fecmes;
-    public FieldDef m11fecejerc;
-    public FieldDef m11idenclien;
-    public TabMod100h1(String name)
-      {
-      super(name);
-      m11dominio = new FieldDef("m11dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m11nif = new FieldDef("m11nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m11declarac = new FieldDef("m11declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      m11ejercicio = new FieldDef("m11ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m11periodo = new FieldDef("m11periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m11dprimapell = new FieldDef("m11dprimapell",FieldDef.CHAR,15);
-      m11dsegapell = new FieldDef("m11dsegapell",FieldDef.CHAR,15);
-      m11dnombre = new FieldDef("m11dnombre",FieldDef.CHAR,15);
-      m11dsexo = new FieldDef("m11dsexo",FieldDef.CHAR,1);
-      m11destcivil = new FieldDef("m11destcivil",FieldDef.INTEGER,0);
-      m11dfecnacim = new FieldDef("m11dfecnacim",FieldDef.DATE);
-      m11dminusval = new FieldDef("m11dminusval",FieldDef.INTEGER,0);
-      m11dsms = new FieldDef("m11dsms",FieldDef.INTEGER,0);
-      m11dcambdomi = new FieldDef("m11dcambdomi",FieldDef.INTEGER,0);
-      m11dtipovia = new FieldDef("m11dtipovia",FieldDef.CHAR,5);
-      m11dvia = new FieldDef("m11dvia",FieldDef.CHAR,50);
-      m11dtiponum = new FieldDef("m11dtiponum",FieldDef.CHAR,3);
-      m11dnumcasa = new FieldDef("m11dnumcasa",FieldDef.INTEGER,0);
-      m11dcalifnum = new FieldDef("m11dcalifnum",FieldDef.CHAR,3);
-      m11dbloque = new FieldDef("m11dbloque",FieldDef.CHAR,3);
-      m11dportal = new FieldDef("m11dportal",FieldDef.CHAR,3);
-      m11descalera = new FieldDef("m11descalera",FieldDef.CHAR,3);
-      m11dplanta = new FieldDef("m11dplanta",FieldDef.CHAR,3);
-      m11dpuerta = new FieldDef("m11dpuerta",FieldDef.CHAR,3);
-      m11ddatcomp = new FieldDef("m11ddatcomp",FieldDef.CHAR,40);
-      m11dpoblacion = new FieldDef("m11dpoblacion",FieldDef.CHAR,30);
-      m11dcpostal = new FieldDef("m11dcpostal",FieldDef.INTEGER,0);
-      m11dcodmuni = new FieldDef("m11dcodmuni",FieldDef.INTEGER,0);
-      m11dmunicipio = new FieldDef("m11dmunicipio",FieldDef.CHAR,30);
-      m11dcodprov = new FieldDef("m11dcodprov",FieldDef.INTEGER,0);
-      m11dprovincia = new FieldDef("m11dprovincia",FieldDef.CHAR,20);
-      m11dtelefijo = new FieldDef("m11dtelefijo",FieldDef.CHAR,9);
-      m11dmovil = new FieldDef("m11dmovil",FieldDef.CHAR,9);
-      m11dfax = new FieldDef("m11dfax",FieldDef.CHAR,9);
-      m11dextdomic = new FieldDef("m11dextdomic",FieldDef.CHAR,50);
-      m11dextdatcom = new FieldDef("m11dextdatcom",FieldDef.CHAR,40);
-      m11dextpoblac = new FieldDef("m11dextpoblac",FieldDef.CHAR,30);
-      m11dextmail = new FieldDef("m11dextmail",FieldDef.CHAR,100);
-      m11dextcpost = new FieldDef("m11dextcpost",FieldDef.CHAR,10);
-      m11dextprovin = new FieldDef("m11dextprovin",FieldDef.CHAR,30);
-      m11dextpais = new FieldDef("m11dextpais",FieldDef.CHAR,30);
-      m11dextcpais = new FieldDef("m11dextcpais",FieldDef.CHAR,2);
-      m11dexttelef = new FieldDef("m11dexttelef",FieldDef.CHAR,15);
-      m11dextmovil = new FieldDef("m11dextmovil",FieldDef.CHAR,15);
-      m11dextfax = new FieldDef("m11dextfax",FieldDef.CHAR,15);
-      m11vda1titul = new FieldDef("m11vda1titul",FieldDef.INTEGER,0);
-      m11vda1porcd = new FieldDef("m11vda1porcd",FieldDef.FLOAT,6,0);
-      m11vda1porcc = new FieldDef("m11vda1porcc",FieldDef.FLOAT,6,0);
-      m11vda1situa = new FieldDef("m11vda1situa",FieldDef.INTEGER,0);
-      m11vda1refer = new FieldDef("m11vda1refer",FieldDef.CHAR,20);
-      m11vda2titul = new FieldDef("m11vda2titul",FieldDef.INTEGER,0);
-      m11vda2porcd = new FieldDef("m11vda2porcd",FieldDef.FLOAT,6,0);
-      m11vda2porcc = new FieldDef("m11vda2porcc",FieldDef.FLOAT,6,0);
-      m11vda2situa = new FieldDef("m11vda2situa",FieldDef.INTEGER,0);
-      m11vda2refer = new FieldDef("m11vda2refer",FieldDef.CHAR,20);
-      m11vda3titul = new FieldDef("m11vda3titul",FieldDef.INTEGER,0);
-      m11vda3porcd = new FieldDef("m11vda3porcd",FieldDef.FLOAT,6,0);
-      m11vda3porcc = new FieldDef("m11vda3porcc",FieldDef.FLOAT,6,0);
-      m11vda3situa = new FieldDef("m11vda3situa",FieldDef.INTEGER,0);
-      m11vda3refer = new FieldDef("m11vda3refer",FieldDef.CHAR,20);
-      m11vda4titul = new FieldDef("m11vda4titul",FieldDef.INTEGER,0);
-      m11vda4porcd = new FieldDef("m11vda4porcd",FieldDef.FLOAT,6,0);
-      m11vda4porcc = new FieldDef("m11vda4porcc",FieldDef.FLOAT,6,0);
-      m11vda4situa = new FieldDef("m11vda4situa",FieldDef.INTEGER,0);
-      m11vda4refer = new FieldDef("m11vda4refer",FieldDef.CHAR,20);
-      m11cnif = new FieldDef("m11cnif",FieldDef.CHAR,9);
-      m11cprimapell = new FieldDef("m11cprimapell",FieldDef.CHAR,15);
-      m11csegapell = new FieldDef("m11csegapell",FieldDef.CHAR,15);
-      m11cnombre = new FieldDef("m11cnombre",FieldDef.CHAR,15);
-      m11csexo = new FieldDef("m11csexo",FieldDef.CHAR,1);
-      m11cfecnacim = new FieldDef("m11cfecnacim",FieldDef.DATE);
-      m11cminusval = new FieldDef("m11cminusval",FieldDef.INTEGER,0);
-      m11noirpf = new FieldDef("m11noirpf",FieldDef.INTEGER,0);
-      m11csms = new FieldDef("m11csms",FieldDef.INTEGER,0);
-      m11ccambdomi = new FieldDef("m11ccambdomi",FieldDef.INTEGER,0);
-      m11ctipovia = new FieldDef("m11ctipovia",FieldDef.CHAR,5);
-      m11cvia = new FieldDef("m11cvia",FieldDef.CHAR,50);
-      m11ctiponum = new FieldDef("m11ctiponum",FieldDef.CHAR,3);
-      m11cnumcasa = new FieldDef("m11cnumcasa",FieldDef.INTEGER,0);
-      m11ccalifnum = new FieldDef("m11ccalifnum",FieldDef.CHAR,3);
-      m11cbloque = new FieldDef("m11cbloque",FieldDef.CHAR,3);
-      m11cportal = new FieldDef("m11cportal",FieldDef.CHAR,3);
-      m11cescalera = new FieldDef("m11cescalera",FieldDef.CHAR,3);
-      m11cplanta = new FieldDef("m11cplanta",FieldDef.CHAR,3);
-      m11cpuerta = new FieldDef("m11cpuerta",FieldDef.CHAR,3);
-      m11cdatcomp = new FieldDef("m11cdatcomp",FieldDef.CHAR,40);
-      m11cpoblacion = new FieldDef("m11cpoblacion",FieldDef.CHAR,30);
-      m11ccpostal = new FieldDef("m11ccpostal",FieldDef.INTEGER,0);
-      m11ccodmuni = new FieldDef("m11ccodmuni",FieldDef.INTEGER,0);
-      m11cmunicipio = new FieldDef("m11cmunicipio",FieldDef.CHAR,30);
-      m11ccodprov = new FieldDef("m11ccodprov",FieldDef.INTEGER,0);
-      m11cprovincia = new FieldDef("m11cprovincia",FieldDef.CHAR,20);
-      m11ctelefijo = new FieldDef("m11ctelefijo",FieldDef.CHAR,9);
-      m11cmovil = new FieldDef("m11cmovil",FieldDef.CHAR,9);
-      m11cfax = new FieldDef("m11cfax",FieldDef.CHAR,9);
-      m11cextdomic = new FieldDef("m11cextdomic",FieldDef.CHAR,50);
-      m11cextdatcom = new FieldDef("m11cextdatcom",FieldDef.CHAR,40);
-      m11cextpoblac = new FieldDef("m11cextpoblac",FieldDef.CHAR,30);
-      m11cextmail = new FieldDef("m11cextmail",FieldDef.CHAR,100);
-      m11cextcpost = new FieldDef("m11cextcpost",FieldDef.CHAR,10);
-      m11cextprovin = new FieldDef("m11cextprovin",FieldDef.CHAR,30);
-      m11cextpais = new FieldDef("m11cextpais",FieldDef.CHAR,30);
-      m11cextcpais = new FieldDef("m11cextcpais",FieldDef.CHAR,2);
-      m11cexttelef = new FieldDef("m11cexttelef",FieldDef.CHAR,15);
-      m11cextmovil = new FieldDef("m11cextmovil",FieldDef.CHAR,15);
-      m11cextfax = new FieldDef("m11cextfax",FieldDef.CHAR,15);
-      m11repnif = new FieldDef("m11repnif",FieldDef.CHAR,9);
-      m11reprnombre = new FieldDef("m11reprnombre",FieldDef.CHAR,32);
-      m11feclugar = new FieldDef("m11feclugar",FieldDef.CHAR,20);
-      m11fecdia = new FieldDef("m11fecdia",FieldDef.INTEGER,0);
-      m11fecmes = new FieldDef("m11fecmes",FieldDef.INTEGER,0);
-      m11fecejerc = new FieldDef("m11fecejerc",FieldDef.INTEGER,0);
-      m11idenclien = new FieldDef("m11idenclien",FieldDef.CHAR,20);
-      FieldDef array[] = {
-        m11dominio,
-        m11nif,
-        m11declarac,
-        m11ejercicio,
-        m11periodo,
-        m11dprimapell,
-        m11dsegapell,
-        m11dnombre,
-        m11dsexo,
-        m11destcivil,
-        m11dfecnacim,
-        m11dminusval,
-        m11dsms,
-        m11dcambdomi,
-        m11dtipovia,
-        m11dvia,
-        m11dtiponum,
-        m11dnumcasa,
-        m11dcalifnum,
-        m11dbloque,
-        m11dportal,
-        m11descalera,
-        m11dplanta,
-        m11dpuerta,
-        m11ddatcomp,
-        m11dpoblacion,
-        m11dcpostal,
-        m11dcodmuni,
-        m11dmunicipio,
-        m11dcodprov,
-        m11dprovincia,
-        m11dtelefijo,
-        m11dmovil,
-        m11dfax,
-        m11dextdomic,
-        m11dextdatcom,
-        m11dextpoblac,
-        m11dextmail,
-        m11dextcpost,
-        m11dextprovin,
-        m11dextpais,
-        m11dextcpais,
-        m11dexttelef,
-        m11dextmovil,
-        m11dextfax,
-        m11vda1titul,
-        m11vda1porcd,
-        m11vda1porcc,
-        m11vda1situa,
-        m11vda1refer,
-        m11vda2titul,
-        m11vda2porcd,
-        m11vda2porcc,
-        m11vda2situa,
-        m11vda2refer,
-        m11vda3titul,
-        m11vda3porcd,
-        m11vda3porcc,
-        m11vda3situa,
-        m11vda3refer,
-        m11vda4titul,
-        m11vda4porcd,
-        m11vda4porcc,
-        m11vda4situa,
-        m11vda4refer,
-        m11cnif,
-        m11cprimapell,
-        m11csegapell,
-        m11cnombre,
-        m11csexo,
-        m11cfecnacim,
-        m11cminusval,
-        m11noirpf,
-        m11csms,
-        m11ccambdomi,
-        m11ctipovia,
-        m11cvia,
-        m11ctiponum,
-        m11cnumcasa,
-        m11ccalifnum,
-        m11cbloque,
-        m11cportal,
-        m11cescalera,
-        m11cplanta,
-        m11cpuerta,
-        m11cdatcomp,
-        m11cpoblacion,
-        m11ccpostal,
-        m11ccodmuni,
-        m11cmunicipio,
-        m11ccodprov,
-        m11cprovincia,
-        m11ctelefijo,
-        m11cmovil,
-        m11cfax,
-        m11cextdomic,
-        m11cextdatcom,
-        m11cextpoblac,
-        m11cextmail,
-        m11cextcpost,
-        m11cextprovin,
-        m11cextpais,
-        m11cextcpais,
-        m11cexttelef,
-        m11cextmovil,
-        m11cextfax,
-        m11repnif,
-        m11reprnombre,
-        m11feclugar,
-        m11fecdia,
-        m11fecmes,
-        m11fecejerc,
-        m11idenclien        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m11dominio,m11nif,m11declarac,m11ejercicio,m11periodo };
-      setPrimaryKeys(arrayf);
-      m11declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
-      m11dprimapell.setDescription("Primer Declarante Primer apellido (02)");
-      m11dsegapell.setDescription("Primer Declarante Segundo apellido (03)");
-      m11dnombre.setDescription("Primer Declarante Nombre (4)");
-      m11dsexo.setDescription("Primer Declarante Sexo H Hombre M Mujer (05)");
-      m11destcivil.setDescription("Primer Declarante Estado Civil. 1 Soltero/a 2 Casado/a 3 Viudo/a 4 Divorciado/a o Separado/a");
-      m11dfecnacim.setDescription("Primer Declarante Fecha de nacimiento.");
-      m11dminusval.setDescription("Primer Declarante Grado de Minusvalia 0 1 2 o 3 (11)");
-      m11dsms.setDescription("Primer Declarante Suscripcion servicio mensajes SMS 1 o cero (12)");
-      m11dcambdomi.setDescription("Primer Declarante Cambio de domicilio 1 o cero");
-      m11dtipovia.setDescription("Primer Declarante Domicilio habitual Tipo de Via (15)");
-      m11dvia.setDescription("Primer Declarante Domicilio habitual Nombre de la Via Publica (16)");
-      m11dtiponum.setDescription("Primer Declarante Domicilio habitual Tipo de numeracion. Valores NUM KM S/N OTR (17)");
-      m11dnumcasa.setDescription("Primer Declarante Domicilio habitual Numero de Casa (18)");
-      m11dcalifnum.setDescription("Primer Declarante Domicilio habitual Calificador del numero. Valores BIS DUP MOD ANT etc/metros si Tipo NumKM. (19)");
-      m11dbloque.setDescription("Primer Declarante Domicilio habitual Bloque (20)");
-      m11dportal.setDescription("Primer Declarante Domicilio habitual Portal (21)");
-      m11descalera.setDescription("Primer Declarante Domicilio habitual Escalera (22)");
-      m11dplanta.setDescription("Primer Declarante Domicilio habitual Planta (23)");
-      m11dpuerta.setDescription("Primer Declarante Domicilio habitual Puerta (24)");
-      m11ddatcomp.setDescription("Primer Declarante Domicilio habitual Datos complementarios del Domicilio habitual (25)");
-      m11dpoblacion.setDescription("Primer Declarante Domicilio habitual Localidad / Poblacion (26)");
-      m11dcpostal.setDescription("Primer Declarante Domicilio habitual Codigo postal (27)");
-      m11dcodmuni.setDescription("Primer Declarante Domicilio habitual Codigo del Municipiol (28)");
-      m11dmunicipio.setDescription("Primer Declarante Domicilio habitual Nombre del Municipio (28)");
-      m11dcodprov.setDescription("Primer Declarante Domicilio habitual Codigo provincia. De 01 a 52.");
-      m11dprovincia.setDescription("Primer Declarante Domicilio habitual Provincia (29)");
-      m11dtelefijo.setDescription("Primer Declarante Domicilio habitual Telefono fijo (30)");
-      m11dmovil.setDescription("Primer Declarante Domicilio habitual Telefono movil (31)");
-      m11dfax.setDescription("Primer Declarante Domicilio habitual Num. De Fax (32)");
-      m11dextdomic.setDescription("Primer Declarante Domicilio extranjero Domicilio/Address (35)");
-      m11dextdatcom.setDescription("Primer Declarante Domicilio extranjero Datos complementarios del domicilio (36)");
-      m11dextpoblac.setDescription("Primer Declarante Domicilio extranjero Poblacion / Ciudad (37)");
-      m11dextmail.setDescription("Primer Declarante Domicilio extranjero email (38)");
-      m11dextcpost.setDescription("Primer Declarante Domicilio extranjero Codigo Postal (39)");
-      m11dextprovin.setDescription("Primer Declarante Domicilio extranjero Provincia / Region / Estado (40)");
-      m11dextpais.setDescription("Primer Declarante Domicilio extranjero Pais. (41)");
-      m11dextcpais.setDescription("Primer Declarante Domicilio extranjero Codigo Pais. Codigo pais ISO3166 (alfabetico 2 letras). (42)");
-      m11dexttelef.setDescription("Primer Declarante Domicilio extranjero Telefono fijo (43)");
-      m11dextmovil.setDescription("Primer Declarante Domicilio extranjero Telefono movil (44)");
-      m11dextfax.setDescription("Primer Declarante Domicilio extranjero Num. De Fax (45)");
-      m11vda1titul.setDescription("Datos adicionales vivienda Titularidad 1 2 3 o 4 (50)");
-      m11vda1porcd.setDescription("Datos adicionales vivienda Porcentaje participacion Primer declarante (tres enteros dos decimales) (51)");
-      m11vda1porcc.setDescription("Datos adicionales vivienda Porcentaje participacion Conyuge (tres enteros dos decimales) (52)");
-      m11vda1situa.setDescription("Datos adicionales vivienda Situacion (clave) 1 2 3 o 4 (53)");
-      m11vda1refer.setDescription("Datos adicionales vivienda Referencia catastral (54)");
-      m11vda2titul.setDescription("Datos adicionales vivienda Titularidad 0 1 2 3 o 4 (50)");
-      m11vda2porcd.setDescription("Datos adicionales vivienda Porcentaje participacion Primer declarante (tres enteros dos decimales) (51)");
-      m11vda2porcc.setDescription("Datos adicionales vivienda Porcentaje participacion Conyuge (tres enteros dos decimales) (52)");
-      m11vda2situa.setDescription("Datos adicionales vivienda Situacion (clave) 0 1 2 3 o 4 (53)");
-      m11vda2refer.setDescription("Datos adicionales vivienda Referencia catastral (54)");
-      m11vda3titul.setDescription("Datos adicionales vivienda Titularidad 0 1 2 3 o 4 (50)");
-      m11vda3porcd.setDescription("Datos adicionales vivienda Porcentaje participacion Primer declarante (tres enteros dos decimales) (51)");
-      m11vda3porcc.setDescription("Datos adicionales vivienda Porcentaje participacion Conyuge (tres enteros dos decimales) (52)");
-      m11vda3situa.setDescription("Datos adicionales vivienda Situacion (clave) 0 1 2 3 o 4 (53)");
-      m11vda3refer.setDescription("Datos adicionales vivienda Referencia catastral (54)");
-      m11vda4titul.setDescription("Datos adicionales vivienda Titularidad 0 1 2 3 o 4 (50)");
-      m11vda4porcd.setDescription("Datos adicionales vivienda Porcentaje participacion Primer declarante (tres enteros dos decimales) (51)");
-      m11vda4porcc.setDescription("Datos adicionales vivienda Porcentaje participacion Conyuge (tres enteros dos decimales) (52)");
-      m11vda4situa.setDescription("Datos adicionales vivienda Situacion (clave) 0 1 2 3 o 4 (53)");
-      m11vda4refer.setDescription("Datos adicionales vivienda Referencia catastral (54)");
-      m11cnif.setDescription("Conyuge NIF (61)");
-      m11cprimapell.setDescription("Conyuge Primer apellido (62)");
-      m11csegapell.setDescription("Conyuge Segundo apellido (63)");
-      m11cnombre.setDescription("Conyuge Nombre (64)");
-      m11csexo.setDescription("Conyuge Sexo H Hombre M Mujer (65)");
-      m11cfecnacim.setDescription("Conyuge Fecha de nacimiento.");
-      m11cminusval.setDescription("Conyuge Grado de Minusvalia 0 1 2 o 3 (67)");
-      m11noirpf.setDescription("Conyuge No residente que no es contribuyente del I.R.P.F. 1 o cero (68)");
-      m11csms.setDescription("Conyuge Suscripcion servicio mensajes SMS 1 o cero (69)");
-      m11ccambdomi.setDescription("Conyuge Cambio de domicilio 1 o cero");
-      m11ctipovia.setDescription("Conyuge Domicilio habitual Tipo de Via (15)");
-      m11cvia.setDescription("Conyuge Domicilio habitual Nombre de la Via Publica (16)");
-      m11ctiponum.setDescription("Conyuge Domicilio habitual Tipo de numeracion. Valores NUM KM S/N OTR (17)");
-      m11cnumcasa.setDescription("Conyuge Domicilio habitual Numero de Casa (18)");
-      m11ccalifnum.setDescription("Conyuge Domicilio habitual Calificador del numero. Valores BIS DUP MOD ANT etc/metros si Tipo NumKM. (19)");
-      m11cbloque.setDescription("Conyuge Domicilio habitual Bloque (20)");
-      m11cportal.setDescription("Conyuge Domicilio habitual Portal (21)");
-      m11cescalera.setDescription("Conyuge Domicilio habitual Escalera (22)");
-      m11cplanta.setDescription("Conyuge Domicilio habitual Planta (23)");
-      m11cpuerta.setDescription("Conyuge Domicilio habitual Puerta (24)");
-      m11cdatcomp.setDescription("Conyuge Domicilio habitual Datos complementarios del Domicilio habitual (25)");
-      m11cpoblacion.setDescription("Conyuge Domicilio habitual Localidad / Poblacion (26)");
-      m11ccpostal.setDescription("Conyuge Domicilio habitual Codigo postal (27)");
-      m11ccodmuni.setDescription("Conyuge Domicilio habitual Codigo del Municipiol (28)");
-      m11cmunicipio.setDescription("Conyuge Domicilio habitual Nombre del Municipio (28)");
-      m11ccodprov.setDescription("Conyuge Domicilio habitual Codigo provincia. De 01 a 52.");
-      m11cprovincia.setDescription("Conyuge Domicilio habitual Provincia (29)");
-      m11ctelefijo.setDescription("Conyuge Domicilio habitual Telefono fijo (30)");
-      m11cmovil.setDescription("Conyuge Domicilio habitual Telefono movil (33)");
-      m11cfax.setDescription("Conyuge Domicilio habitual Num. De Fax (32)");
-      m11cextdomic.setDescription("Conyuge Domicilio extranjero Domicilio/Address (35)");
-      m11cextdatcom.setDescription("Conyuge Domicilio extranjero Datos complementarios del domicilio (36)");
-      m11cextpoblac.setDescription("Conyuge Domicilio extranjero Poblacion / Ciudad (37)");
-      m11cextmail.setDescription("Conyuge Domicilio extranjero email (38)");
-      m11cextcpost.setDescription("Conyuge Domicilio extranjero Codigo Postal (39)");
-      m11cextprovin.setDescription("Conyuge Domicilio extranjero Provincia / Region / Estado (40)");
-      m11cextpais.setDescription("Conyuge Domicilio extranjero Pais (41)");
-      m11cextcpais.setDescription("Conyuge Domicilio extranjero Codigo Pais (42)");
-      m11cexttelef.setDescription("Conyuge Domicilio extranjero Telefono fijo (43)");
-      m11cextmovil.setDescription("Conyuge Domicilio extranjero Telefono movil (44)");
-      m11cextfax.setDescription("Conyuge Domicilio extranjero Num. De Fax (45)");
-      m11repnif.setDescription("Representante N.I.F. (75)");
-      m11reprnombre.setDescription("Representante Apellidos y nombre o razon social (76)");
-      m11feclugar.setDescription("Fecha declaracion Lugar");
-      m11fecdia.setDescription("Fecha declaracion Fecha Dia");
-      m11fecmes.setDescription("Fecha declaracion Fecha Mes");
-      m11fecejerc.setDescription("Fecha declaracion Fecha Año");
-      m11idenclien.setDescription("Identificador cliente EEDD. RESERVADO PARA LAS EEDD.");
-      }
-    }
-    
-  public class TabMod100h2 extends TableDef
-    {
-    // Campos
-    public FieldDef m12dominio;
-    public FieldDef m12nif;
-    public FieldDef m12declarac;
-    public FieldDef m12ejercicio;
-    public FieldDef m12periodo;
-    public FieldDef m12h1nif;
-    public FieldDef m12h1nombre;
-    public FieldDef m12h1fecnaci;
-    public FieldDef m12h1fecadop;
-    public FieldDef m12h1minusva;
-    public FieldDef m12h1vincula;
-    public FieldDef m12h1otrsitu;
-    public FieldDef m12h2nif;
-    public FieldDef m12h2nombre;
-    public FieldDef m12h2fecnaci;
-    public FieldDef m12h2fecadop;
-    public FieldDef m12h2minusva;
-    public FieldDef m12h2vincula;
-    public FieldDef m12h2otrsitu;
-    public FieldDef m12h3nif;
-    public FieldDef m12h3nombre;
-    public FieldDef m12h3fecnaci;
-    public FieldDef m12h3fecadop;
-    public FieldDef m12h3minusva;
-    public FieldDef m12h3vincula;
-    public FieldDef m12h3otrsitu;
-    public FieldDef m12h4nif;
-    public FieldDef m12h4nombre;
-    public FieldDef m12h4fecnaci;
-    public FieldDef m12h4fecadop;
-    public FieldDef m12h4minusva;
-    public FieldDef m12h4vincula;
-    public FieldDef m12h4otrsitu;
-    public FieldDef m12h5nif;
-    public FieldDef m12h5nombre;
-    public FieldDef m12h5fecnaci;
-    public FieldDef m12h5fecadop;
-    public FieldDef m12h5minusva;
-    public FieldDef m12h5vincula;
-    public FieldDef m12h5otrsitu;
-    public FieldDef m12h6nif;
-    public FieldDef m12h6nombre;
-    public FieldDef m12h6fecnaci;
-    public FieldDef m12h6fecadop;
-    public FieldDef m12h6minusva;
-    public FieldDef m12h6vincula;
-    public FieldDef m12h6otrsitu;
-    public FieldDef m12h7nif;
-    public FieldDef m12h7nombre;
-    public FieldDef m12h7fecnaci;
-    public FieldDef m12h7fecadop;
-    public FieldDef m12h7minusva;
-    public FieldDef m12h7vincula;
-    public FieldDef m12h7otrsitu;
-    public FieldDef m12h8nif;
-    public FieldDef m12h8nombre;
-    public FieldDef m12h8fecnaci;
-    public FieldDef m12h8fecadop;
-    public FieldDef m12h8minusva;
-    public FieldDef m12h8vincula;
-    public FieldDef m12h8otrsitu;
-    public FieldDef m12h9nif;
-    public FieldDef m12h9nombre;
-    public FieldDef m12h9fecnaci;
-    public FieldDef m12h9fecadop;
-    public FieldDef m12h9minusva;
-    public FieldDef m12h9vincula;
-    public FieldDef m12h9otrsitu;
-    public FieldDef m12h10nif;
-    public FieldDef m12h10nombre;
-    public FieldDef m12h10fecnaci;
-    public FieldDef m12h10fecadop;
-    public FieldDef m12h10minusva;
-    public FieldDef m12h10vincula;
-    public FieldDef m12h10otrsitu;
-    public FieldDef m12h11nif;
-    public FieldDef m12h11nombre;
-    public FieldDef m12h11fecnaci;
-    public FieldDef m12h11fecadop;
-    public FieldDef m12h11minusva;
-    public FieldDef m12h11vincula;
-    public FieldDef m12h11otrsitu;
-    public FieldDef m12h12nif;
-    public FieldDef m12h12nombre;
-    public FieldDef m12h12fecnaci;
-    public FieldDef m12h12fecadop;
-    public FieldDef m12h12minusva;
-    public FieldDef m12h12vincula;
-    public FieldDef m12h12otrsitu;
-    public FieldDef m12h1fallorde;
-    public FieldDef m12h1fallfech;
-    public FieldDef m12h2fallorde;
-    public FieldDef m12h2fallfech;
-    public FieldDef m12h1relnif1;
-    public FieldDef m12h1relnif2;
-    public FieldDef m12a1nif;
-    public FieldDef m12a1nombre;
-    public FieldDef m12a1fecnaci;
-    public FieldDef m12a1minusva;
-    public FieldDef m12a1vincula;
-    public FieldDef m12a1convive;
-    public FieldDef m12a2nif;
-    public FieldDef m12a2nombre;
-    public FieldDef m12a2fecnaci;
-    public FieldDef m12a2minusva;
-    public FieldDef m12a2vincula;
-    public FieldDef m12a2convive;
-    public FieldDef m12a3nif;
-    public FieldDef m12a3nombre;
-    public FieldDef m12a3fecnaci;
-    public FieldDef m12a3minusva;
-    public FieldDef m12a3vincula;
-    public FieldDef m12a3convive;
-    public FieldDef m12a4nif;
-    public FieldDef m12a4nombre;
-    public FieldDef m12a4fecnaci;
-    public FieldDef m12a4minusva;
-    public FieldDef m12a4vincula;
-    public FieldDef m12a4convive;
-    public FieldDef m12fecdeven;
-    public FieldDef m12tipotribut;
-    public FieldDef m12comunidad;
-    public FieldDef m12asigigles;
-    public FieldDef m12asigsocia;
-    public FieldDef m12borrador1;
-    public FieldDef m12borrindiv;
-    public FieldDef m12borrador2;
-    public FieldDef m12compatras;
-    public FieldDef m12compesp;
-    public FieldDef m12compdevol;
-    public FieldDef m12compotros;
-    public TabMod100h2(String name)
-      {
-      super(name);
-      m12dominio = new FieldDef("m12dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m12nif = new FieldDef("m12nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m12declarac = new FieldDef("m12declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      m12ejercicio = new FieldDef("m12ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m12periodo = new FieldDef("m12periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m12h1nif = new FieldDef("m12h1nif",FieldDef.CHAR,9);
-      m12h1nombre = new FieldDef("m12h1nombre",FieldDef.CHAR,33);
-      m12h1fecnaci = new FieldDef("m12h1fecnaci",FieldDef.DATE);
-      m12h1fecadop = new FieldDef("m12h1fecadop",FieldDef.DATE);
-      m12h1minusva = new FieldDef("m12h1minusva",FieldDef.INTEGER,0);
-      m12h1vincula = new FieldDef("m12h1vincula",FieldDef.CHAR,1);
-      m12h1otrsitu = new FieldDef("m12h1otrsitu",FieldDef.CHAR,1);
-      m12h2nif = new FieldDef("m12h2nif",FieldDef.CHAR,9);
-      m12h2nombre = new FieldDef("m12h2nombre",FieldDef.CHAR,33);
-      m12h2fecnaci = new FieldDef("m12h2fecnaci",FieldDef.DATE);
-      m12h2fecadop = new FieldDef("m12h2fecadop",FieldDef.DATE);
-      m12h2minusva = new FieldDef("m12h2minusva",FieldDef.INTEGER,0);
-      m12h2vincula = new FieldDef("m12h2vincula",FieldDef.CHAR,1);
-      m12h2otrsitu = new FieldDef("m12h2otrsitu",FieldDef.CHAR,1);
-      m12h3nif = new FieldDef("m12h3nif",FieldDef.CHAR,9);
-      m12h3nombre = new FieldDef("m12h3nombre",FieldDef.CHAR,33);
-      m12h3fecnaci = new FieldDef("m12h3fecnaci",FieldDef.DATE);
-      m12h3fecadop = new FieldDef("m12h3fecadop",FieldDef.DATE);
-      m12h3minusva = new FieldDef("m12h3minusva",FieldDef.INTEGER,0);
-      m12h3vincula = new FieldDef("m12h3vincula",FieldDef.CHAR,1);
-      m12h3otrsitu = new FieldDef("m12h3otrsitu",FieldDef.CHAR,1);
-      m12h4nif = new FieldDef("m12h4nif",FieldDef.CHAR,9);
-      m12h4nombre = new FieldDef("m12h4nombre",FieldDef.CHAR,33);
-      m12h4fecnaci = new FieldDef("m12h4fecnaci",FieldDef.DATE);
-      m12h4fecadop = new FieldDef("m12h4fecadop",FieldDef.DATE);
-      m12h4minusva = new FieldDef("m12h4minusva",FieldDef.INTEGER,0);
-      m12h4vincula = new FieldDef("m12h4vincula",FieldDef.CHAR,1);
-      m12h4otrsitu = new FieldDef("m12h4otrsitu",FieldDef.CHAR,1);
-      m12h5nif = new FieldDef("m12h5nif",FieldDef.CHAR,9);
-      m12h5nombre = new FieldDef("m12h5nombre",FieldDef.CHAR,33);
-      m12h5fecnaci = new FieldDef("m12h5fecnaci",FieldDef.DATE);
-      m12h5fecadop = new FieldDef("m12h5fecadop",FieldDef.DATE);
-      m12h5minusva = new FieldDef("m12h5minusva",FieldDef.INTEGER,0);
-      m12h5vincula = new FieldDef("m12h5vincula",FieldDef.CHAR,1);
-      m12h5otrsitu = new FieldDef("m12h5otrsitu",FieldDef.CHAR,1);
-      m12h6nif = new FieldDef("m12h6nif",FieldDef.CHAR,9);
-      m12h6nombre = new FieldDef("m12h6nombre",FieldDef.CHAR,33);
-      m12h6fecnaci = new FieldDef("m12h6fecnaci",FieldDef.DATE);
-      m12h6fecadop = new FieldDef("m12h6fecadop",FieldDef.DATE);
-      m12h6minusva = new FieldDef("m12h6minusva",FieldDef.INTEGER,0);
-      m12h6vincula = new FieldDef("m12h6vincula",FieldDef.CHAR,1);
-      m12h6otrsitu = new FieldDef("m12h6otrsitu",FieldDef.CHAR,1);
-      m12h7nif = new FieldDef("m12h7nif",FieldDef.CHAR,9);
-      m12h7nombre = new FieldDef("m12h7nombre",FieldDef.CHAR,33);
-      m12h7fecnaci = new FieldDef("m12h7fecnaci",FieldDef.DATE);
-      m12h7fecadop = new FieldDef("m12h7fecadop",FieldDef.DATE);
-      m12h7minusva = new FieldDef("m12h7minusva",FieldDef.INTEGER,0);
-      m12h7vincula = new FieldDef("m12h7vincula",FieldDef.CHAR,1);
-      m12h7otrsitu = new FieldDef("m12h7otrsitu",FieldDef.CHAR,1);
-      m12h8nif = new FieldDef("m12h8nif",FieldDef.CHAR,9);
-      m12h8nombre = new FieldDef("m12h8nombre",FieldDef.CHAR,33);
-      m12h8fecnaci = new FieldDef("m12h8fecnaci",FieldDef.DATE);
-      m12h8fecadop = new FieldDef("m12h8fecadop",FieldDef.DATE);
-      m12h8minusva = new FieldDef("m12h8minusva",FieldDef.INTEGER,0);
-      m12h8vincula = new FieldDef("m12h8vincula",FieldDef.CHAR,1);
-      m12h8otrsitu = new FieldDef("m12h8otrsitu",FieldDef.CHAR,1);
-      m12h9nif = new FieldDef("m12h9nif",FieldDef.CHAR,9);
-      m12h9nombre = new FieldDef("m12h9nombre",FieldDef.CHAR,33);
-      m12h9fecnaci = new FieldDef("m12h9fecnaci",FieldDef.DATE);
-      m12h9fecadop = new FieldDef("m12h9fecadop",FieldDef.DATE);
-      m12h9minusva = new FieldDef("m12h9minusva",FieldDef.INTEGER,0);
-      m12h9vincula = new FieldDef("m12h9vincula",FieldDef.CHAR,1);
-      m12h9otrsitu = new FieldDef("m12h9otrsitu",FieldDef.CHAR,1);
-      m12h10nif = new FieldDef("m12h10nif",FieldDef.CHAR,9);
-      m12h10nombre = new FieldDef("m12h10nombre",FieldDef.CHAR,33);
-      m12h10fecnaci = new FieldDef("m12h10fecnaci",FieldDef.DATE);
-      m12h10fecadop = new FieldDef("m12h10fecadop",FieldDef.DATE);
-      m12h10minusva = new FieldDef("m12h10minusva",FieldDef.INTEGER,0);
-      m12h10vincula = new FieldDef("m12h10vincula",FieldDef.CHAR,1);
-      m12h10otrsitu = new FieldDef("m12h10otrsitu",FieldDef.CHAR,1);
-      m12h11nif = new FieldDef("m12h11nif",FieldDef.CHAR,9);
-      m12h11nombre = new FieldDef("m12h11nombre",FieldDef.CHAR,33);
-      m12h11fecnaci = new FieldDef("m12h11fecnaci",FieldDef.DATE);
-      m12h11fecadop = new FieldDef("m12h11fecadop",FieldDef.DATE);
-      m12h11minusva = new FieldDef("m12h11minusva",FieldDef.INTEGER,0);
-      m12h11vincula = new FieldDef("m12h11vincula",FieldDef.CHAR,1);
-      m12h11otrsitu = new FieldDef("m12h11otrsitu",FieldDef.CHAR,1);
-      m12h12nif = new FieldDef("m12h12nif",FieldDef.CHAR,9);
-      m12h12nombre = new FieldDef("m12h12nombre",FieldDef.CHAR,33);
-      m12h12fecnaci = new FieldDef("m12h12fecnaci",FieldDef.DATE);
-      m12h12fecadop = new FieldDef("m12h12fecadop",FieldDef.DATE);
-      m12h12minusva = new FieldDef("m12h12minusva",FieldDef.INTEGER,0);
-      m12h12vincula = new FieldDef("m12h12vincula",FieldDef.CHAR,1);
-      m12h12otrsitu = new FieldDef("m12h12otrsitu",FieldDef.CHAR,1);
-      m12h1fallorde = new FieldDef("m12h1fallorde",FieldDef.INTEGER,0);
-      m12h1fallfech = new FieldDef("m12h1fallfech",FieldDef.DATE);
-      m12h2fallorde = new FieldDef("m12h2fallorde",FieldDef.INTEGER,0);
-      m12h2fallfech = new FieldDef("m12h2fallfech",FieldDef.DATE);
-      m12h1relnif1 = new FieldDef("m12h1relnif1",FieldDef.CHAR,9);
-      m12h1relnif2 = new FieldDef("m12h1relnif2",FieldDef.CHAR,9);
-      m12a1nif = new FieldDef("m12a1nif",FieldDef.CHAR,9);
-      m12a1nombre = new FieldDef("m12a1nombre",FieldDef.CHAR,33);
-      m12a1fecnaci = new FieldDef("m12a1fecnaci",FieldDef.DATE);
-      m12a1minusva = new FieldDef("m12a1minusva",FieldDef.INTEGER,0);
-      m12a1vincula = new FieldDef("m12a1vincula",FieldDef.CHAR,1);
-      m12a1convive = new FieldDef("m12a1convive",FieldDef.CHAR,1);
-      m12a2nif = new FieldDef("m12a2nif",FieldDef.CHAR,9);
-      m12a2nombre = new FieldDef("m12a2nombre",FieldDef.CHAR,33);
-      m12a2fecnaci = new FieldDef("m12a2fecnaci",FieldDef.DATE);
-      m12a2minusva = new FieldDef("m12a2minusva",FieldDef.INTEGER,0);
-      m12a2vincula = new FieldDef("m12a2vincula",FieldDef.CHAR,1);
-      m12a2convive = new FieldDef("m12a2convive",FieldDef.CHAR,1);
-      m12a3nif = new FieldDef("m12a3nif",FieldDef.CHAR,9);
-      m12a3nombre = new FieldDef("m12a3nombre",FieldDef.CHAR,33);
-      m12a3fecnaci = new FieldDef("m12a3fecnaci",FieldDef.DATE);
-      m12a3minusva = new FieldDef("m12a3minusva",FieldDef.INTEGER,0);
-      m12a3vincula = new FieldDef("m12a3vincula",FieldDef.CHAR,1);
-      m12a3convive = new FieldDef("m12a3convive",FieldDef.CHAR,1);
-      m12a4nif = new FieldDef("m12a4nif",FieldDef.CHAR,9);
-      m12a4nombre = new FieldDef("m12a4nombre",FieldDef.CHAR,33);
-      m12a4fecnaci = new FieldDef("m12a4fecnaci",FieldDef.DATE);
-      m12a4minusva = new FieldDef("m12a4minusva",FieldDef.INTEGER,0);
-      m12a4vincula = new FieldDef("m12a4vincula",FieldDef.CHAR,1);
-      m12a4convive = new FieldDef("m12a4convive",FieldDef.CHAR,1);
-      m12fecdeven = new FieldDef("m12fecdeven",FieldDef.DATE);
-      m12tipotribut = new FieldDef("m12tipotribut",FieldDef.INTEGER,0);
-      m12comunidad = new FieldDef("m12comunidad",FieldDef.INTEGER,0);
-      m12asigigles = new FieldDef("m12asigigles",FieldDef.CHAR,1);
-      m12asigsocia = new FieldDef("m12asigsocia",FieldDef.CHAR,1);
-      m12borrador1 = new FieldDef("m12borrador1",FieldDef.INTEGER,0);
-      m12borrindiv = new FieldDef("m12borrindiv",FieldDef.INTEGER,0);
-      m12borrador2 = new FieldDef("m12borrador2",FieldDef.INTEGER,0);
-      m12compatras = new FieldDef("m12compatras",FieldDef.INTEGER,0);
-      m12compesp = new FieldDef("m12compesp",FieldDef.INTEGER,0);
-      m12compdevol = new FieldDef("m12compdevol",FieldDef.INTEGER,0);
-      m12compotros = new FieldDef("m12compotros",FieldDef.INTEGER,0);
-      FieldDef array[] = {
-        m12dominio,
-        m12nif,
-        m12declarac,
-        m12ejercicio,
-        m12periodo,
-        m12h1nif,
-        m12h1nombre,
-        m12h1fecnaci,
-        m12h1fecadop,
-        m12h1minusva,
-        m12h1vincula,
-        m12h1otrsitu,
-        m12h2nif,
-        m12h2nombre,
-        m12h2fecnaci,
-        m12h2fecadop,
-        m12h2minusva,
-        m12h2vincula,
-        m12h2otrsitu,
-        m12h3nif,
-        m12h3nombre,
-        m12h3fecnaci,
-        m12h3fecadop,
-        m12h3minusva,
-        m12h3vincula,
-        m12h3otrsitu,
-        m12h4nif,
-        m12h4nombre,
-        m12h4fecnaci,
-        m12h4fecadop,
-        m12h4minusva,
-        m12h4vincula,
-        m12h4otrsitu,
-        m12h5nif,
-        m12h5nombre,
-        m12h5fecnaci,
-        m12h5fecadop,
-        m12h5minusva,
-        m12h5vincula,
-        m12h5otrsitu,
-        m12h6nif,
-        m12h6nombre,
-        m12h6fecnaci,
-        m12h6fecadop,
-        m12h6minusva,
-        m12h6vincula,
-        m12h6otrsitu,
-        m12h7nif,
-        m12h7nombre,
-        m12h7fecnaci,
-        m12h7fecadop,
-        m12h7minusva,
-        m12h7vincula,
-        m12h7otrsitu,
-        m12h8nif,
-        m12h8nombre,
-        m12h8fecnaci,
-        m12h8fecadop,
-        m12h8minusva,
-        m12h8vincula,
-        m12h8otrsitu,
-        m12h9nif,
-        m12h9nombre,
-        m12h9fecnaci,
-        m12h9fecadop,
-        m12h9minusva,
-        m12h9vincula,
-        m12h9otrsitu,
-        m12h10nif,
-        m12h10nombre,
-        m12h10fecnaci,
-        m12h10fecadop,
-        m12h10minusva,
-        m12h10vincula,
-        m12h10otrsitu,
-        m12h11nif,
-        m12h11nombre,
-        m12h11fecnaci,
-        m12h11fecadop,
-        m12h11minusva,
-        m12h11vincula,
-        m12h11otrsitu,
-        m12h12nif,
-        m12h12nombre,
-        m12h12fecnaci,
-        m12h12fecadop,
-        m12h12minusva,
-        m12h12vincula,
-        m12h12otrsitu,
-        m12h1fallorde,
-        m12h1fallfech,
-        m12h2fallorde,
-        m12h2fallfech,
-        m12h1relnif1,
-        m12h1relnif2,
-        m12a1nif,
-        m12a1nombre,
-        m12a1fecnaci,
-        m12a1minusva,
-        m12a1vincula,
-        m12a1convive,
-        m12a2nif,
-        m12a2nombre,
-        m12a2fecnaci,
-        m12a2minusva,
-        m12a2vincula,
-        m12a2convive,
-        m12a3nif,
-        m12a3nombre,
-        m12a3fecnaci,
-        m12a3minusva,
-        m12a3vincula,
-        m12a3convive,
-        m12a4nif,
-        m12a4nombre,
-        m12a4fecnaci,
-        m12a4minusva,
-        m12a4vincula,
-        m12a4convive,
-        m12fecdeven,
-        m12tipotribut,
-        m12comunidad,
-        m12asigigles,
-        m12asigsocia,
-        m12borrador1,
-        m12borrindiv,
-        m12borrador2,
-        m12compatras,
-        m12compesp,
-        m12compdevol,
-        m12compotros        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m12dominio,m12nif,m12declarac,m12ejercicio,m12periodo };
-      setPrimaryKeys(arrayf);
-      m12declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
-      m12h1nif.setDescription("Hijos y descendientes 1 N.I.F. (80)");
-      m12h1nombre.setDescription("Hijos y descendientes 1 Apellidos y nombre (81)");
-      m12h1fecnaci.setDescription("Hijos y descendientes 1 Fecha de nacimiento.");
-      m12h1fecadop.setDescription("Hijos y descendientes 1 Fecha adopcion o acogimiento.");
-      m12h1minusva.setDescription("Hijos y descendientes 1 Grado minusvalia 0 1 2 o 3 (84)");
-      m12h1vincula.setDescription("Hijos y descendientes 1 Vinculacion. clave 1 2 3 4 o blanco (85)");
-      m12h1otrsitu.setDescription("Hijos y descendientes 1 Otras situaciones clave 1 2 3 4 o blanco (86)");
-      m12h2nif.setDescription("Hijos y descendientes 2 N.I.F. (80)");
-      m12h2nombre.setDescription("Hijos y descendientes 2 Apellidos y nombre (81)");
-      m12h2fecnaci.setDescription("Hijos y descendientes 2 Fecha de nacimiento.");
-      m12h2fecadop.setDescription("Hijos y descendientes 2 Fecha adopcion o acogimiento.");
-      m12h2minusva.setDescription("Hijos y descendientes 2 Grado minusvalia 0 1 2 o 3 (84)");
-      m12h2vincula.setDescription("Hijos y descendientes 2 Vinculacion. clave 1 2 3 4 o blanco (85)");
-      m12h2otrsitu.setDescription("Hijos y descendientes 2 Otras situaciones clave 1 2 3 4 o blanco (86)");
-      m12h3nif.setDescription("Hijos y descendientes 3 N.I.F. (80)");
-      m12h3nombre.setDescription("Hijos y descendientes 3 Apellidos y nombre (81)");
-      m12h3fecnaci.setDescription("Hijos y descendientes 3 Fecha de nacimiento.");
-      m12h3fecadop.setDescription("Hijos y descendientes 3 Fecha adopcion o acogimiento.");
-      m12h3minusva.setDescription("Hijos y descendientes 3 Grado minusvalia 0 1 2 o 3 (84)");
-      m12h3vincula.setDescription("Hijos y descendientes 3 Vinculacion. clave 1 2 3 4 o blanco (85)");
-      m12h3otrsitu.setDescription("Hijos y descendientes 3 Otras situaciones clave 1 2 3 4 o blanco (86)");
-      m12h4nif.setDescription("Hijos y descendientes 4 N.I.F. (80)");
-      m12h4nombre.setDescription("Hijos y descendientes 4 Apellidos y nombre (81)");
-      m12h4fecnaci.setDescription("Hijos y descendientes 4 Fecha de nacimiento.");
-      m12h4fecadop.setDescription("Hijos y descendientes 4 Fecha adopcion o acogimiento.");
-      m12h4minusva.setDescription("Hijos y descendientes 4 Grado minusvalia 0 1 2 o 4 (84)");
-      m12h4vincula.setDescription("Hijos y descendientes 4 Vinculacion. clave 1 2 4 4 o blanco (85)");
-      m12h4otrsitu.setDescription("Hijos y descendientes 4 Otras situaciones clave 1 2 3 4 o blanco (86)");
-      m12h5nif.setDescription("Hijos y descendientes 5  N.I.F. (80)");
-      m12h5nombre.setDescription("Hijos y descendientes 5  Apellidos y nombre (81)");
-      m12h5fecnaci.setDescription("Hijos y descendientes 5  Fecha de nacimiento.");
-      m12h5fecadop.setDescription("Hijos y descendientes 5  Fecha adopcion o acogimiento.");
-      m12h5minusva.setDescription("Hijos y descendientes 5  Grado minusvalia 0 1 2 o 5  (84)");
-      m12h5vincula.setDescription("Hijos y descendientes 5  Vinculacion. clave 1 2 5  4 o blanco (85)");
-      m12h5otrsitu.setDescription("Hijos y descendientes 5  Otras situaciones clave 1 2 5  4 o blanco (86)");
-      m12h6nif.setDescription("Hijos y descendientes 6 N.I.F. (80)");
-      m12h6nombre.setDescription("Hijos y descendientes 6 Apellidos y nombre (81)");
-      m12h6fecnaci.setDescription("Hijos y descendientes 6 Fecha de nacimiento.");
-      m12h6fecadop.setDescription("Hijos y descendientes 6 Fecha adopcion o acogimiento.");
-      m12h6minusva.setDescription("Hijos y descendientes 6 Grado minusvalia 0 1 2 o 3 (84)");
-      m12h6vincula.setDescription("Hijos y descendientes 6 Vinculacion. clave 1 2 3 4 o blanco (85)");
-      m12h6otrsitu.setDescription("Hijos y descendientes 6 Otras situaciones clave 1 2 3 4 o blanco (86)");
-      m12h7nif.setDescription("Hijos y descendientes 7 N.I.F. (80)");
-      m12h7nombre.setDescription("Hijos y descendientes 7 Apellidos y nombre (81)");
-      m12h7fecnaci.setDescription("Hijos y descendientes 7 Fecha de nacimiento.");
-      m12h7fecadop.setDescription("Hijos y descendientes 7 Fecha adopcion o acogimiento.");
-      m12h7minusva.setDescription("Hijos y descendientes 7 Grado minusvalia 0 1 2 o 3 (84)");
-      m12h7vincula.setDescription("Hijos y descendientes 7 Vinculacion. clave 1 2 3 4 o blanco (85)");
-      m12h7otrsitu.setDescription("Hijos y descendientes 7 Otras situaciones clave 1 2 3 4 o blanco (86)");
-      m12h8nif.setDescription("Hijos y descendientes 8 N.I.F. (80)");
-      m12h8nombre.setDescription("Hijos y descendientes 8 Apellidos y nombre (81)");
-      m12h8fecnaci.setDescription("Hijos y descendientes 8 Fecha de nacimiento.");
-      m12h8fecadop.setDescription("Hijos y descendientes 8 Fecha adopcion o acogimiento.");
-      m12h8minusva.setDescription("Hijos y descendientes 8 Grado minusvalia 0 1 2 o 3 (84)");
-      m12h8vincula.setDescription("Hijos y descendientes 8 Vinculacion. clave 1 2 3 4 o blanco (85)");
-      m12h8otrsitu.setDescription("Hijos y descendientes 8 Otras situaciones clave 1 2 3 4 o blanco (86)");
-      m12h9nif.setDescription("Hijos y descendientes 9 N.I.F. (80)");
-      m12h9nombre.setDescription("Hijos y descendientes 9 Apellidos y nombre (81)");
-      m12h9fecnaci.setDescription("Hijos y descendientes 9 Fecha de nacimiento.");
-      m12h9fecadop.setDescription("Hijos y descendientes 9 Fecha adopcion o acogimiento.");
-      m12h9minusva.setDescription("Hijos y descendientes 9 Grado minusvalia 0 1 2 o 3 (84)");
-      m12h9vincula.setDescription("Hijos y descendientes 9 Vinculacion. clave 1 2 3 4 o blanco (85)");
-      m12h9otrsitu.setDescription("Hijos y descendientes 9 Otras situaciones clave 1 2 3 4 o blanco (86)");
-      m12h10nif.setDescription("Hijos y descendientes 10 N.I.F. (80)");
-      m12h10nombre.setDescription("Hijos y descendientes 10 Apellidos y nombre (81)");
-      m12h10fecnaci.setDescription("Hijos y descendientes 10 Fecha de nacimiento.");
-      m12h10fecadop.setDescription("Hijos y descendientes 10 Fecha adopcion o acogimiento.");
-      m12h10minusva.setDescription("Hijos y descendientes 10 Grado minusvalia 0 1 2 o 10 (84)");
-      m12h10vincula.setDescription("Hijos y descendientes 10 Vinculacion. clave 1 2 10 4 o blanco (85)");
-      m12h10otrsitu.setDescription("Hijos y descendientes 10 Otras situaciones clave 1 2 10 4 o blanco (86)");
-      m12h11nif.setDescription("Hijos y descendientes 11 N.I.F. (80)");
-      m12h11nombre.setDescription("Hijos y descendientes 11 Apellidos y nombre (81)");
-      m12h11fecnaci.setDescription("Hijos y descendientes 11 Fecha de nacimiento.");
-      m12h11fecadop.setDescription("Hijos y descendientes 11 Fecha adopcion o acogimiento.");
-      m12h11minusva.setDescription("Hijos y descendientes 11 Grado minusvalia 0 1 2 o 11 (84)");
-      m12h11vincula.setDescription("Hijos y descendientes 11 Vinculacion. clave 1 2 11 4 o blanco (85)");
-      m12h11otrsitu.setDescription("Hijos y descendientes 11 Otras situaciones clave 1 2 11 4 o blanco (86)");
-      m12h12nif.setDescription("Hijos y descendientes 12 N.I.F. (80)");
-      m12h12nombre.setDescription("Hijos y descendientes 12 Apellidos y nombre (81)");
-      m12h12fecnaci.setDescription("Hijos y descendientes 12 Fecha de nacimiento.");
-      m12h12fecadop.setDescription("Hijos y descendientes 12 Fecha adopcion o acogimiento.");
-      m12h12minusva.setDescription("Hijos y descendientes 12 Grado minusvalia 0 1 2 o 12 (84)");
-      m12h12vincula.setDescription("Hijos y descendientes 12 Vinculacion. clave 1 2 12 4 o blanco (85)");
-      m12h12otrsitu.setDescription("Hijos y descendientes 12 Otras situaciones clave 1 2 12 4 o blanco (86)");
-      m12h1fallorde.setDescription("Hijos y descendientes Fallecido 2010 NRO. Orden (87)");
-      m12h1fallfech.setDescription("Hijos y descendientes Fecha de fallecimiento (88)");
-      m12h2fallorde.setDescription("Hijos y descendientes Fallecido 2010 NRO. Orden (87)");
-      m12h2fallfech.setDescription("Hijos y descendientes Fecha de fallecimiento (88)");
-      m12h1relnif1.setDescription("A efectos de la declaracion conjunta los hijos 1 y 2 son relacionados con los NIF");
-      m12h1relnif2.setDescription("A efectos de la declaracion conjunta los hijos 1 y 2 son relacionados con los NIF");
-      m12a1nif.setDescription("Ascendientes mayores 65 años o discapacitados 1 N.I.F. (90)");
-      m12a1nombre.setDescription("Ascendientes mayores 65 años o discapacitados 1 Apellidos y nombre (91)");
-      m12a1fecnaci.setDescription("Ascendientes mayores 65 años o discapacitados 1 Fecha de nacimiento. (DDMMAAAA) Año de 1886 a 2010 o cero (92)");
-      m12a1minusva.setDescription("Ascendientes mayores 65 años o discapacitados 1 Grado de Minusvalia 0 1 2 o 3 (93)");
-      m12a1vincula.setDescription("Ascendientes mayores 65 años o discapacitados 1 Vinculacion clave 1 2 o blanco (94)");
-      m12a1convive.setDescription("Ascendientes mayores 65 años o discapacitados 1 Convivencia 2 a 9 o blanco (95)");
-      m12a2nif.setDescription("Ascendientes mayores 65 años o discapacitados 2 N.I.F. (90)");
-      m12a2nombre.setDescription("Ascendientes mayores 65 años o discapacitados 2 Apellidos y nombre (91)");
-      m12a2fecnaci.setDescription("Ascendientes mayores 65 años o discapacitados 2 Fecha de nacimiento. (DDMMAAAA) Año de 1886 a 2010 o cero (92)");
-      m12a2minusva.setDescription("Ascendientes mayores 65 años o discapacitados 2 Grado de Minusvalia 0 1 2 o 3 (93)");
-      m12a2vincula.setDescription("Ascendientes mayores 65 años o discapacitados 2 Vinculacion clave 1 2 o blanco (94)");
-      m12a2convive.setDescription("Ascendientes mayores 65 años o discapacitados 2 Convivencia 2 a 9 o blanco (95)");
-      m12a3nif.setDescription("Ascendientes mayores 65 años o discapacitados 3 N.I.F. (90)");
-      m12a3nombre.setDescription("Ascendientes mayores 65 años o discapacitados 3 Apellidos y nombre (91)");
-      m12a3fecnaci.setDescription("Ascendientes mayores 65 años o discapacitados 3 Fecha de nacimiento. (DDMMAAAA) Año de 1886 a 2010 o cero (92)");
-      m12a3minusva.setDescription("Ascendientes mayores 65 años o discapacitados 3 Grado de Minusvalia 0 1 2 o 3 (93)");
-      m12a3vincula.setDescription("Ascendientes mayores 65 años o discapacitados 3 Vinculacion clave 1 2 o blanco (94)");
-      m12a3convive.setDescription("Ascendientes mayores 65 años o discapacitados 3 Convivencia 2 a 9 o blanco (95)");
-      m12a4nif.setDescription("Ascendientes mayores 65 años o discapacitados 4 N.I.F. (90)");
-      m12a4nombre.setDescription("Ascendientes mayores 65 años o discapacitados 4 Apellidos y nombre (91)");
-      m12a4fecnaci.setDescription("Ascendientes mayores 65 años o discapacitados 4 Fecha de nacimiento. (DDMMAAAA) Año de 1886 a 2010 o cero (92)");
-      m12a4minusva.setDescription("Ascendientes mayores 65 años o discapacitados 4 Grado de Minusvalia 0 1 2 o 3 (93)");
-      m12a4vincula.setDescription("Ascendientes mayores 65 años o discapacitados 4 Vinculacion clave 1 2 o blanco (94)");
-      m12a4convive.setDescription("Ascendientes mayores 65 años o discapacitados 4 Convivencia 2 a 9 o blanco (95)");
-      m12fecdeven.setDescription("Devengo Fecha de finalizacion del periodo impositivo (fallecimiento 2010) (DDMMAAAA) o cero (100)");
-      m12tipotribut.setDescription("Opcion de tributacion. 1 Individual 2 Conjunta. Campo OBLIGATORIO (101) (102) OBLIGATORIO");
-      m12comunidad.setDescription("Comunidad/Ciudad autonoma de residencia en 2010 Clave (103) Incluido en el fichero COMAUTO.TXT OBLIGATORIO");
-      m12asigigles.setDescription("Asignacion tributaria a la Iglesia Catolica. X o blanco. (105)");
-      m12asigsocia.setDescription("Asignacion de cantidades a fines sociales. X o blanco. (106)");
-      m12borrador1.setDescription("Solicitudes. Borrador de la declaracion o datos fiscales. 1 o cero (110)");
-      m12borrindiv.setDescription("Solicitudes. Envio individualizado borrador. 1 o cero (111)");
-      m12borrador2.setDescription("Solicitudes. Borrador o datos fiscales del ejercicio 2011 1 o cero");
-      m12compatras.setDescription("Declaracion complementaria Si es complementaria por atrasos de rendimientos del trabajo. 1 o cero (121)");
-      m12compesp.setDescription("Declaracion complementaria Si es complementaria por haberse producido alguno de los supuestos especiales. 1 o cero (122)");
-      m12compdevol.setDescription("Declaracion complementaria Si es complementaria a devolver. 1 o cero (123)");
-      m12compotros.setDescription("Declaracion complementaria Si es complementaria por supuestos distintos 1 o cero (120)");
       }
     }
     
@@ -1284,2684 +289,6 @@ public class CatModelo100 extends Catalog
       m13rdtonetomobg.setDescription("Rdto.cap.mob. Base imponible general Rendimiento neto (047)");
       m13reducirregul.setDescription("Rdto.cap.mob. Base imponible general Reducciones de rendimientos generados en mas de 2 años u obtenidos de forma irregular (048)");
       m13rdtonetoredg.setDescription("Rdto.cap.mob. Base imponible general Rendimiento neto reducido (050)");
-      }
-    }
-    
-  public class TabMod100h4 extends TableDef
-    {
-    // Campos
-    public FieldDef m14dominio;
-    public FieldDef m14nif;
-    public FieldDef m14declarac;
-    public FieldDef m14ejercicio;
-    public FieldDef m14periodo;
-    public FieldDef m14pagina;
-    public FieldDef m14titular1;
-    public FieldDef m14copropiedad1;
-    public FieldDef m14naturaleza1;
-    public FieldDef m14destino1;
-    public FieldDef m14situacion1;
-    public FieldDef m14referencia1;
-    public FieldDef m14disposicion1;
-    public FieldDef m14dias1;
-    public FieldDef m14imputacion1;
-    public FieldDef m14ingresosarr1;
-    public FieldDef m14gastosejant1;
-    public FieldDef m14gastosejact1;
-    public FieldDef m14gastoejactp1;
-    public FieldDef m14otrosgastos1;
-    public FieldDef m14rdtoneto1;
-    public FieldDef m14redvivienda1;
-    public FieldDef m14redirregula1;
-    public FieldDef m14rdtominimo1;
-    public FieldDef m14rdtonetored1;
-    public FieldDef m14titular2;
-    public FieldDef m14copropiedad2;
-    public FieldDef m14naturaleza2;
-    public FieldDef m14destino2;
-    public FieldDef m14situacion2;
-    public FieldDef m14referencia2;
-    public FieldDef m14disposicion2;
-    public FieldDef m14dias2;
-    public FieldDef m14imputacion2;
-    public FieldDef m14ingresosarr2;
-    public FieldDef m14gastosejant2;
-    public FieldDef m14gastosejact2;
-    public FieldDef m14gastoejactp2;
-    public FieldDef m14otrosgastos2;
-    public FieldDef m14rdtoneto2;
-    public FieldDef m14redvivienda2;
-    public FieldDef m14redirregula2;
-    public FieldDef m14rdtominimo2;
-    public FieldDef m14rdtonetored2;
-    public FieldDef m14titular3;
-    public FieldDef m14copropiedad3;
-    public FieldDef m14naturaleza3;
-    public FieldDef m14destino3;
-    public FieldDef m14situacion3;
-    public FieldDef m14referencia3;
-    public FieldDef m14disposicion3;
-    public FieldDef m14dias3;
-    public FieldDef m14imputacion3;
-    public FieldDef m14ingresosarr3;
-    public FieldDef m14gastosejant3;
-    public FieldDef m14gastosejact3;
-    public FieldDef m14gastoejactp3;
-    public FieldDef m14otrosgastos3;
-    public FieldDef m14rdtoneto3;
-    public FieldDef m14redvivienda3;
-    public FieldDef m14redirregula3;
-    public FieldDef m14rdtominimo3;
-    public FieldDef m14rdtonetored3;
-    public FieldDef m14totalimputac;
-    public FieldDef m14totalrdtos;
-    public FieldDef m14atrcontrib1;
-    public FieldDef m14atrnif1;
-    public FieldDef m14trtpartic1;
-    public FieldDef m14atrnatural1;
-    public FieldDef m14atrsituac1;
-    public FieldDef m14atrrefcata1;
-    public FieldDef m14atrcontrib2;
-    public FieldDef m14atrnif2;
-    public FieldDef m14trtpartic2;
-    public FieldDef m14atrnatural2;
-    public FieldDef m14atrsituac2;
-    public FieldDef m14atrrefcata2;
-    public FieldDef m14atrcontrib3;
-    public FieldDef m14atrnif3;
-    public FieldDef m14trtpartic3;
-    public FieldDef m14atrnatural3;
-    public FieldDef m14atrsituac3;
-    public FieldDef m14atrrefcata3;
-    public FieldDef m14actcontrib1;
-    public FieldDef m14actpartic1;
-    public FieldDef m14actsituac1;
-    public FieldDef m14actrefcatas1;
-    public FieldDef m14actcontrib2;
-    public FieldDef m14actpartic2;
-    public FieldDef m14actsituac2;
-    public FieldDef m14actrefcatas2;
-    public FieldDef m14actcontrib3;
-    public FieldDef m14actpartic3;
-    public FieldDef m14actsituac3;
-    public FieldDef m14actrefcatas3;
-    public TabMod100h4(String name)
-      {
-      super(name);
-      m14dominio = new FieldDef("m14dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m14nif = new FieldDef("m14nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m14declarac = new FieldDef("m14declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      m14ejercicio = new FieldDef("m14ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m14periodo = new FieldDef("m14periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m14pagina = new FieldDef("m14pagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m14titular1 = new FieldDef("m14titular1",FieldDef.INTEGER,0);
-      m14copropiedad1 = new FieldDef("m14copropiedad1",FieldDef.FLOAT,6,0);
-      m14naturaleza1 = new FieldDef("m14naturaleza1",FieldDef.INTEGER,0);
-      m14destino1 = new FieldDef("m14destino1",FieldDef.INTEGER,0);
-      m14situacion1 = new FieldDef("m14situacion1",FieldDef.INTEGER,0);
-      m14referencia1 = new FieldDef("m14referencia1",FieldDef.CHAR,20);
-      m14disposicion1 = new FieldDef("m14disposicion1",FieldDef.FLOAT,6,0);
-      m14dias1 = new FieldDef("m14dias1",FieldDef.INTEGER,0);
-      m14imputacion1 = new FieldDef("m14imputacion1",FieldDef.FLOAT,6,0);
-      m14ingresosarr1 = new FieldDef("m14ingresosarr1",FieldDef.FLOAT,6,0);
-      m14gastosejant1 = new FieldDef("m14gastosejant1",FieldDef.FLOAT,6,0);
-      m14gastosejact1 = new FieldDef("m14gastosejact1",FieldDef.FLOAT,6,0);
-      m14gastoejactp1 = new FieldDef("m14gastoejactp1",FieldDef.FLOAT,6,0);
-      m14otrosgastos1 = new FieldDef("m14otrosgastos1",FieldDef.FLOAT,6,0);
-      m14rdtoneto1 = new FieldDef("m14rdtoneto1",FieldDef.FLOAT,6,0);
-      m14redvivienda1 = new FieldDef("m14redvivienda1",FieldDef.FLOAT,6,0);
-      m14redirregula1 = new FieldDef("m14redirregula1",FieldDef.FLOAT,6,0);
-      m14rdtominimo1 = new FieldDef("m14rdtominimo1",FieldDef.FLOAT,6,0);
-      m14rdtonetored1 = new FieldDef("m14rdtonetored1",FieldDef.FLOAT,6,0);
-      m14titular2 = new FieldDef("m14titular2",FieldDef.INTEGER,0);
-      m14copropiedad2 = new FieldDef("m14copropiedad2",FieldDef.FLOAT,6,0);
-      m14naturaleza2 = new FieldDef("m14naturaleza2",FieldDef.INTEGER,0);
-      m14destino2 = new FieldDef("m14destino2",FieldDef.INTEGER,0);
-      m14situacion2 = new FieldDef("m14situacion2",FieldDef.INTEGER,0);
-      m14referencia2 = new FieldDef("m14referencia2",FieldDef.CHAR,20);
-      m14disposicion2 = new FieldDef("m14disposicion2",FieldDef.FLOAT,6,0);
-      m14dias2 = new FieldDef("m14dias2",FieldDef.INTEGER,0);
-      m14imputacion2 = new FieldDef("m14imputacion2",FieldDef.FLOAT,6,0);
-      m14ingresosarr2 = new FieldDef("m14ingresosarr2",FieldDef.FLOAT,6,0);
-      m14gastosejant2 = new FieldDef("m14gastosejant2",FieldDef.FLOAT,6,0);
-      m14gastosejact2 = new FieldDef("m14gastosejact2",FieldDef.FLOAT,6,0);
-      m14gastoejactp2 = new FieldDef("m14gastoejactp2",FieldDef.FLOAT,6,0);
-      m14otrosgastos2 = new FieldDef("m14otrosgastos2",FieldDef.FLOAT,6,0);
-      m14rdtoneto2 = new FieldDef("m14rdtoneto2",FieldDef.FLOAT,6,0);
-      m14redvivienda2 = new FieldDef("m14redvivienda2",FieldDef.FLOAT,6,0);
-      m14redirregula2 = new FieldDef("m14redirregula2",FieldDef.FLOAT,6,0);
-      m14rdtominimo2 = new FieldDef("m14rdtominimo2",FieldDef.FLOAT,6,0);
-      m14rdtonetored2 = new FieldDef("m14rdtonetored2",FieldDef.FLOAT,6,0);
-      m14titular3 = new FieldDef("m14titular3",FieldDef.INTEGER,0);
-      m14copropiedad3 = new FieldDef("m14copropiedad3",FieldDef.FLOAT,6,0);
-      m14naturaleza3 = new FieldDef("m14naturaleza3",FieldDef.INTEGER,0);
-      m14destino3 = new FieldDef("m14destino3",FieldDef.INTEGER,0);
-      m14situacion3 = new FieldDef("m14situacion3",FieldDef.INTEGER,0);
-      m14referencia3 = new FieldDef("m14referencia3",FieldDef.CHAR,20);
-      m14disposicion3 = new FieldDef("m14disposicion3",FieldDef.FLOAT,6,0);
-      m14dias3 = new FieldDef("m14dias3",FieldDef.INTEGER,0);
-      m14imputacion3 = new FieldDef("m14imputacion3",FieldDef.FLOAT,6,0);
-      m14ingresosarr3 = new FieldDef("m14ingresosarr3",FieldDef.FLOAT,6,0);
-      m14gastosejant3 = new FieldDef("m14gastosejant3",FieldDef.FLOAT,6,0);
-      m14gastosejact3 = new FieldDef("m14gastosejact3",FieldDef.FLOAT,6,0);
-      m14gastoejactp3 = new FieldDef("m14gastoejactp3",FieldDef.FLOAT,6,0);
-      m14otrosgastos3 = new FieldDef("m14otrosgastos3",FieldDef.FLOAT,6,0);
-      m14rdtoneto3 = new FieldDef("m14rdtoneto3",FieldDef.FLOAT,6,0);
-      m14redvivienda3 = new FieldDef("m14redvivienda3",FieldDef.FLOAT,6,0);
-      m14redirregula3 = new FieldDef("m14redirregula3",FieldDef.FLOAT,6,0);
-      m14rdtominimo3 = new FieldDef("m14rdtominimo3",FieldDef.FLOAT,6,0);
-      m14rdtonetored3 = new FieldDef("m14rdtonetored3",FieldDef.FLOAT,6,0);
-      m14totalimputac = new FieldDef("m14totalimputac",FieldDef.FLOAT,6,0);
-      m14totalrdtos = new FieldDef("m14totalrdtos",FieldDef.FLOAT,6,0);
-      m14atrcontrib1 = new FieldDef("m14atrcontrib1",FieldDef.INTEGER,0);
-      m14atrnif1 = new FieldDef("m14atrnif1",FieldDef.CHAR,9);
-      m14trtpartic1 = new FieldDef("m14trtpartic1",FieldDef.FLOAT,6,0);
-      m14atrnatural1 = new FieldDef("m14atrnatural1",FieldDef.INTEGER,0);
-      m14atrsituac1 = new FieldDef("m14atrsituac1",FieldDef.INTEGER,0);
-      m14atrrefcata1 = new FieldDef("m14atrrefcata1",FieldDef.CHAR,20);
-      m14atrcontrib2 = new FieldDef("m14atrcontrib2",FieldDef.INTEGER,0);
-      m14atrnif2 = new FieldDef("m14atrnif2",FieldDef.CHAR,9);
-      m14trtpartic2 = new FieldDef("m14trtpartic2",FieldDef.FLOAT,6,0);
-      m14atrnatural2 = new FieldDef("m14atrnatural2",FieldDef.INTEGER,0);
-      m14atrsituac2 = new FieldDef("m14atrsituac2",FieldDef.INTEGER,0);
-      m14atrrefcata2 = new FieldDef("m14atrrefcata2",FieldDef.CHAR,20);
-      m14atrcontrib3 = new FieldDef("m14atrcontrib3",FieldDef.INTEGER,0);
-      m14atrnif3 = new FieldDef("m14atrnif3",FieldDef.CHAR,9);
-      m14trtpartic3 = new FieldDef("m14trtpartic3",FieldDef.FLOAT,6,0);
-      m14atrnatural3 = new FieldDef("m14atrnatural3",FieldDef.INTEGER,0);
-      m14atrsituac3 = new FieldDef("m14atrsituac3",FieldDef.INTEGER,0);
-      m14atrrefcata3 = new FieldDef("m14atrrefcata3",FieldDef.CHAR,20);
-      m14actcontrib1 = new FieldDef("m14actcontrib1",FieldDef.INTEGER,0);
-      m14actpartic1 = new FieldDef("m14actpartic1",FieldDef.FLOAT,6,0);
-      m14actsituac1 = new FieldDef("m14actsituac1",FieldDef.INTEGER,0);
-      m14actrefcatas1 = new FieldDef("m14actrefcatas1",FieldDef.CHAR,20);
-      m14actcontrib2 = new FieldDef("m14actcontrib2",FieldDef.INTEGER,0);
-      m14actpartic2 = new FieldDef("m14actpartic2",FieldDef.FLOAT,6,0);
-      m14actsituac2 = new FieldDef("m14actsituac2",FieldDef.INTEGER,0);
-      m14actrefcatas2 = new FieldDef("m14actrefcatas2",FieldDef.CHAR,20);
-      m14actcontrib3 = new FieldDef("m14actcontrib3",FieldDef.INTEGER,0);
-      m14actpartic3 = new FieldDef("m14actpartic3",FieldDef.FLOAT,6,0);
-      m14actsituac3 = new FieldDef("m14actsituac3",FieldDef.INTEGER,0);
-      m14actrefcatas3 = new FieldDef("m14actrefcatas3",FieldDef.CHAR,20);
-      FieldDef array[] = {
-        m14dominio,
-        m14nif,
-        m14declarac,
-        m14ejercicio,
-        m14periodo,
-        m14pagina,
-        m14titular1,
-        m14copropiedad1,
-        m14naturaleza1,
-        m14destino1,
-        m14situacion1,
-        m14referencia1,
-        m14disposicion1,
-        m14dias1,
-        m14imputacion1,
-        m14ingresosarr1,
-        m14gastosejant1,
-        m14gastosejact1,
-        m14gastoejactp1,
-        m14otrosgastos1,
-        m14rdtoneto1,
-        m14redvivienda1,
-        m14redirregula1,
-        m14rdtominimo1,
-        m14rdtonetored1,
-        m14titular2,
-        m14copropiedad2,
-        m14naturaleza2,
-        m14destino2,
-        m14situacion2,
-        m14referencia2,
-        m14disposicion2,
-        m14dias2,
-        m14imputacion2,
-        m14ingresosarr2,
-        m14gastosejant2,
-        m14gastosejact2,
-        m14gastoejactp2,
-        m14otrosgastos2,
-        m14rdtoneto2,
-        m14redvivienda2,
-        m14redirregula2,
-        m14rdtominimo2,
-        m14rdtonetored2,
-        m14titular3,
-        m14copropiedad3,
-        m14naturaleza3,
-        m14destino3,
-        m14situacion3,
-        m14referencia3,
-        m14disposicion3,
-        m14dias3,
-        m14imputacion3,
-        m14ingresosarr3,
-        m14gastosejant3,
-        m14gastosejact3,
-        m14gastoejactp3,
-        m14otrosgastos3,
-        m14rdtoneto3,
-        m14redvivienda3,
-        m14redirregula3,
-        m14rdtominimo3,
-        m14rdtonetored3,
-        m14totalimputac,
-        m14totalrdtos,
-        m14atrcontrib1,
-        m14atrnif1,
-        m14trtpartic1,
-        m14atrnatural1,
-        m14atrsituac1,
-        m14atrrefcata1,
-        m14atrcontrib2,
-        m14atrnif2,
-        m14trtpartic2,
-        m14atrnatural2,
-        m14atrsituac2,
-        m14atrrefcata2,
-        m14atrcontrib3,
-        m14atrnif3,
-        m14trtpartic3,
-        m14atrnatural3,
-        m14atrsituac3,
-        m14atrrefcata3,
-        m14actcontrib1,
-        m14actpartic1,
-        m14actsituac1,
-        m14actrefcatas1,
-        m14actcontrib2,
-        m14actpartic2,
-        m14actsituac2,
-        m14actrefcatas2,
-        m14actcontrib3,
-        m14actpartic3,
-        m14actsituac3,
-        m14actrefcatas3        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m14dominio,m14nif,m14declarac,m14ejercicio,m14periodo,m14pagina };
-      setPrimaryKeys(arrayf);
-      m14declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
-      m14titular1.setDescription("(C) Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Contribuyente 0 a 9 (060)");
-      m14copropiedad1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Porcentaje titularidad (3 enteros y 2 decimales) (061)");
-      m14naturaleza1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Naturaleza (062)");
-      m14destino1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Uso o destino. Clave (063)");
-      m14situacion1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Situacion 0 1 2 3 o 4 (064)");
-      m14referencia1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Referencia catastral (065)");
-      m14disposicion1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. A disposicion. Porcentaje disposicion (3 enteros y 2 decimales) (067)");
-      m14dias1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. A disposicion. Numero de dias (068)");
-      m14imputacion1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. A disposicion. Renta imputada (069)");
-      m14ingresosarr1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Ingresos integros computables (070)");
-      m14gastosejant1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Gastos deducibles. Intereses. Importe pendiente (071)");
-      m14gastosejact1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Gastos deducibles. Intereses. Importe (072)");
-      m14gastoejactp1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Gastos deducibles. Intereses. Pendiente deducir (073)");
-      m14otrosgastos1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Gastos deducibles. Otros gastos deducibles (074)");
-      m14rdtoneto1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Rendimiento neto (075)");
-      m14redvivienda1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Reduccion por arrendamiento destinado a vivienda (076)");
-      m14redirregula1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Reduccion rendimientos mas de 2 años (077)");
-      m14rdtominimo1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Rendimiento minimo computable caso parentesto (078)");
-      m14rdtonetored1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Rendimiento neto reducido (079)");
-      m14titular2.setDescription("(C) Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Contribuyente 0 a 9 (060)");
-      m14copropiedad2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Porcentaje titularidad (3 enteros y 2 decimales) (061)");
-      m14naturaleza2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Naturaleza (062)");
-      m14destino2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Uso o destino. Clave (063)");
-      m14situacion2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Situacion 0 1 2 3 o 4 (064)");
-      m14referencia2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Referencia catastral (065)");
-      m14disposicion2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. A disposicion. Porcentaje disposicion (3 enteros y 2 decimales) (067)");
-      m14dias2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. A disposicion. Numero de dias (068)");
-      m14imputacion2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. A disposicion. Renta imputada (069)");
-      m14ingresosarr2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Ingresos integros computables (070)");
-      m14gastosejant2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Gastos deducibles. Intereses. Importe pendiente (071)");
-      m14gastosejact2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Gastos deducibles. Intereses. Importe (072)");
-      m14gastoejactp2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Gastos deducibles. Intereses. Pendiente deducir (073)");
-      m14otrosgastos2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Gastos deducibles. Otros gastos deducibles (074)");
-      m14rdtoneto2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Rendimiento neto (075)");
-      m14redvivienda2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Reduccion por arrendamiento destinado a vivienda (076)");
-      m14redirregula2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Reduccion rendimientos mas de 2 años (077)");
-      m14rdtominimo2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Rendimiento minimo computable caso parentesto (078)");
-      m14rdtonetored2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Rendimiento neto reducido (079)");
-      m14titular3.setDescription("(C) Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Contribuyente 0 a 9 (060)");
-      m14copropiedad3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Porcentaje titularidad (3 enteros y 2 decimales) (061)");
-      m14naturaleza3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Naturaleza (062)");
-      m14destino3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Uso o destino. Clave (063)");
-      m14situacion3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Situacion 0 1 2 3 o 4 (064)");
-      m14referencia3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Referencia catastral (065)");
-      m14disposicion3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. A disposicion. Porcentaje disposicion (3 enteros y 2 decimales) (067)");
-      m14dias3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. A disposicion. Numero de dias (068)");
-      m14imputacion3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. A disposicion. Renta imputada (069)");
-      m14ingresosarr3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Ingresos integros computables (070)");
-      m14gastosejant3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Gastos deducibles. Intereses. Importe pendiente (071)");
-      m14gastosejact3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Gastos deducibles. Intereses. Importe (072)");
-      m14gastoejactp3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Gastos deducibles. Intereses. Pendiente deducir (073)");
-      m14otrosgastos3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Gastos deducibles. Otros gastos deducibles (074)");
-      m14rdtoneto3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Rendimiento neto (075)");
-      m14redvivienda3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Reduccion por arrendamiento destinado a vivienda (076)");
-      m14redirregula3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Reduccion rendimientos mas de 2 años (077)");
-      m14rdtominimo3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Rendimiento minimo computable caso parentesto (078)");
-      m14rdtonetored3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Rendimiento neto reducido (079)");
-      m14totalimputac.setDescription("Bienes inmuebles no afectos. Rentas totales . Suma de rentas inmobiliarias imputadas (080)");
-      m14totalrdtos.setDescription("Bienes inmuebles no afectos. Rentas totales . Suma rendimientos netos reducidos del capital inmobiliario (085)");
-      m14atrcontrib1.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 1. Contribuyente 0 a 9 (094)");
-      m14atrnif1.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 1. NIF entidad (095)");
-      m14trtpartic1.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 1. Porcentaje participacion (3 enteros y 2 decimales) (096)");
-      m14atrnatural1.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 1. Naturaleza (097)");
-      m14atrsituac1.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 1. Situacion 0 1 2 3 o 4 (098)");
-      m14atrrefcata1.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 1. Referencia catastral (099)");
-      m14atrcontrib2.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 2. Contribuyente 0 a 9 (094)");
-      m14atrnif2.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 2. NIF entidad (095)");
-      m14trtpartic2.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 2. Porcentaje participacion (3 enteros y 2 decimales) (096)");
-      m14atrnatural2.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 2. Naturaleza (097)");
-      m14atrsituac2.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 2. Situacion 0 1 2 3 o 4 (098)");
-      m14atrrefcata2.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 2. Referencia catastral (099)");
-      m14atrcontrib3.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 3. Contribuyente 0 a 9 (094)");
-      m14atrnif3.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 3. NIF entidad (095)");
-      m14trtpartic3.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 3. Porcentaje participacion (3 enteros y 2 decimales) (096)");
-      m14atrnatural3.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 3. Naturaleza (097)");
-      m14atrsituac3.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 3. Situacion 0 1 2 3 o 4 (098)");
-      m14atrrefcata3.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 3. Referencia catastral (099)");
-      m14actcontrib1.setDescription("(D) Bienes inmuebles urbanos afectos. Inmueble 1. Contribuyente 0 a 9 (090)");
-      m14actpartic1.setDescription("Bienes inmuebles urbanos afectos. Inmueble 1. Porcentaje titularidad (3 enteros y 2 decimales) (091)");
-      m14actsituac1.setDescription("Bienes inmuebles urbanos afectos. Inmueble 1. Situacion 0 1 2 3 o 4 (092)");
-      m14actrefcatas1.setDescription("Bienes inmuebles urbanos afectos. Inmueble 1. Referencia catastral (093)");
-      m14actcontrib2.setDescription("(D) Bienes inmuebles urbanos afectos. Inmueble 2. Contribuyente 0 a 9 (090)");
-      m14actpartic2.setDescription("Bienes inmuebles urbanos afectos. Inmueble 2. Porcentaje titularidad (3 enteros y 2 decimales) (091)");
-      m14actsituac2.setDescription("Bienes inmuebles urbanos afectos. Inmueble 2. Situacion 0 1 2 3 o 4 (092)");
-      m14actrefcatas2.setDescription("Bienes inmuebles urbanos afectos. Inmueble 2  Referencia catastral (093)");
-      m14actcontrib3.setDescription("(D) Bienes inmuebles urbanos afectos. Inmueble 3. Contribuyente 0 a 9 (090)");
-      m14actpartic3.setDescription("Bienes inmuebles urbanos afectos. Inmueble 3. Porcentaje titularidad (3 enteros y 2 decimales) (091)");
-      m14actsituac3.setDescription("Bienes inmuebles urbanos afectos. Inmueble 3. Situacion 0 1 2 3 o 4 (092)");
-      m14actrefcatas3.setDescription("Bienes inmuebles urbanos afectos. Inmueble 3. Referencia catastral (093)");
-      }
-    }
-    
-  public class TabMod100h5 extends TableDef
-    {
-    // Campos
-    public FieldDef m15dominio;
-    public FieldDef m15nif;
-    public FieldDef m15declarac;
-    public FieldDef m15ejercicio;
-    public FieldDef m15periodo;
-    public FieldDef m15pagina;
-    public FieldDef m15titular1;
-    public FieldDef m15clave1;
-    public FieldDef m15modalidad1;
-    public FieldDef m15epigrafe1;
-    public FieldDef m15cobropago1;
-    public FieldDef m15ingrexplota1;
-    public FieldDef m15otringresos1;
-    public FieldDef m15autoconsumo1;
-    public FieldDef m15totalingres1;
-    public FieldDef m15consumo1;
-    public FieldDef m15sueldos1;
-    public FieldDef m15segsocial1;
-    public FieldDef m15otrgastpers1;
-    public FieldDef m15arrendamien1;
-    public FieldDef m15conservacio1;
-    public FieldDef m15servprofesi1;
-    public FieldDef m15otrservicio1;
-    public FieldDef m15tributdeduc1;
-    public FieldDef m15gastofinanc1;
-    public FieldDef m15amortizacio1;
-    public FieldDef m15perddeterio1;
-    public FieldDef m15actintgral1;
-    public FieldDef m15gastactgral1;
-    public FieldDef m15otrosgastos1;
-    public FieldDef m15sumagastos1;
-    public FieldDef m15provisiones1;
-    public FieldDef m15totalgastos1;
-    public FieldDef m15diferencia1;
-    public FieldDef m15gastdificju1;
-    public FieldDef m15totalgasto21;
-    public FieldDef m15rdtoneto1;
-    public FieldDef m15reducirregu1;
-    public FieldDef m15diferrdto1;
-    public FieldDef m15redcopameri1;
-    public FieldDef m15rdtonetored1;
-    public FieldDef m15titular2;
-    public FieldDef m15clave2;
-    public FieldDef m15modalidad2;
-    public FieldDef m15epigrafe2;
-    public FieldDef m15cobropago2;
-    public FieldDef m15ingrexplota2;
-    public FieldDef m15otringresos2;
-    public FieldDef m15autoconsumo2;
-    public FieldDef m15totalingres2;
-    public FieldDef m15consumo2;
-    public FieldDef m15sueldos2;
-    public FieldDef m15segsocial2;
-    public FieldDef m15otrgastpers2;
-    public FieldDef m15arrendamien2;
-    public FieldDef m15conservacio2;
-    public FieldDef m15servprofesi2;
-    public FieldDef m15otrservicio2;
-    public FieldDef m15tributdeduc2;
-    public FieldDef m15gastofinanc2;
-    public FieldDef m15amortizacio2;
-    public FieldDef m15perddeterio2;
-    public FieldDef m15actintgral2;
-    public FieldDef m15gastactgral2;
-    public FieldDef m15otrosgastos2;
-    public FieldDef m15sumagastos2;
-    public FieldDef m15provisiones2;
-    public FieldDef m15totalgastos2;
-    public FieldDef m15diferencia2;
-    public FieldDef m15gastdificju2;
-    public FieldDef m15totalgasto22;
-    public FieldDef m15rdtoneto2;
-    public FieldDef m15reducirregu2;
-    public FieldDef m15diferrdto2;
-    public FieldDef m15redcopameri2;
-    public FieldDef m15rdtonetored2;
-    public FieldDef m15titular3;
-    public FieldDef m15clave3;
-    public FieldDef m15modalidad3;
-    public FieldDef m15epigrafe3;
-    public FieldDef m15cobropago3;
-    public FieldDef m15ingrexplota3;
-    public FieldDef m15otringresos3;
-    public FieldDef m15autoconsumo3;
-    public FieldDef m15totalingres3;
-    public FieldDef m15consumo3;
-    public FieldDef m15sueldos3;
-    public FieldDef m15segsocial3;
-    public FieldDef m15otrgastpers3;
-    public FieldDef m15arrendamien3;
-    public FieldDef m15conservacio3;
-    public FieldDef m15servprofesi3;
-    public FieldDef m15otrservicio3;
-    public FieldDef m15tributdeduc3;
-    public FieldDef m15gastofinanc3;
-    public FieldDef m15amortizacio3;
-    public FieldDef m15perddeterio3;
-    public FieldDef m15actintgral3;
-    public FieldDef m15gastactgral3;
-    public FieldDef m15otrosgastos3;
-    public FieldDef m15sumagastos3;
-    public FieldDef m15provisiones3;
-    public FieldDef m15totalgastos3;
-    public FieldDef m15diferencia3;
-    public FieldDef m15gastdificju3;
-    public FieldDef m15totalgasto23;
-    public FieldDef m15rdtoneto3;
-    public FieldDef m15reducirregu3;
-    public FieldDef m15diferrdto3;
-    public FieldDef m15redcopameri3;
-    public FieldDef m15rdtonetored3;
-    public FieldDef m15totalrdto;
-    public FieldDef m15totalreduc;
-    public FieldDef m15totalempleo;
-    public FieldDef m15totalrdtored;
-    public TabMod100h5(String name)
-      {
-      super(name);
-      m15dominio = new FieldDef("m15dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m15nif = new FieldDef("m15nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m15declarac = new FieldDef("m15declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      m15ejercicio = new FieldDef("m15ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m15periodo = new FieldDef("m15periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m15pagina = new FieldDef("m15pagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m15titular1 = new FieldDef("m15titular1",FieldDef.INTEGER,0);
-      m15clave1 = new FieldDef("m15clave1",FieldDef.CHAR,1);
-      m15modalidad1 = new FieldDef("m15modalidad1",FieldDef.INTEGER,0);
-      m15epigrafe1 = new FieldDef("m15epigrafe1",FieldDef.CHAR,5);
-      m15cobropago1 = new FieldDef("m15cobropago1",FieldDef.INTEGER,0);
-      m15ingrexplota1 = new FieldDef("m15ingrexplota1",FieldDef.FLOAT,6,0);
-      m15otringresos1 = new FieldDef("m15otringresos1",FieldDef.FLOAT,6,0);
-      m15autoconsumo1 = new FieldDef("m15autoconsumo1",FieldDef.FLOAT,6,0);
-      m15totalingres1 = new FieldDef("m15totalingres1",FieldDef.FLOAT,6,0);
-      m15consumo1 = new FieldDef("m15consumo1",FieldDef.FLOAT,6,0);
-      m15sueldos1 = new FieldDef("m15sueldos1",FieldDef.FLOAT,6,0);
-      m15segsocial1 = new FieldDef("m15segsocial1",FieldDef.FLOAT,6,0);
-      m15otrgastpers1 = new FieldDef("m15otrgastpers1",FieldDef.FLOAT,6,0);
-      m15arrendamien1 = new FieldDef("m15arrendamien1",FieldDef.FLOAT,6,0);
-      m15conservacio1 = new FieldDef("m15conservacio1",FieldDef.FLOAT,6,0);
-      m15servprofesi1 = new FieldDef("m15servprofesi1",FieldDef.FLOAT,6,0);
-      m15otrservicio1 = new FieldDef("m15otrservicio1",FieldDef.FLOAT,6,0);
-      m15tributdeduc1 = new FieldDef("m15tributdeduc1",FieldDef.FLOAT,6,0);
-      m15gastofinanc1 = new FieldDef("m15gastofinanc1",FieldDef.FLOAT,6,0);
-      m15amortizacio1 = new FieldDef("m15amortizacio1",FieldDef.FLOAT,6,0);
-      m15perddeterio1 = new FieldDef("m15perddeterio1",FieldDef.FLOAT,6,0);
-      m15actintgral1 = new FieldDef("m15actintgral1",FieldDef.FLOAT,6,0);
-      m15gastactgral1 = new FieldDef("m15gastactgral1",FieldDef.FLOAT,6,0);
-      m15otrosgastos1 = new FieldDef("m15otrosgastos1",FieldDef.FLOAT,6,0);
-      m15sumagastos1 = new FieldDef("m15sumagastos1",FieldDef.FLOAT,6,0);
-      m15provisiones1 = new FieldDef("m15provisiones1",FieldDef.FLOAT,6,0);
-      m15totalgastos1 = new FieldDef("m15totalgastos1",FieldDef.FLOAT,6,0);
-      m15diferencia1 = new FieldDef("m15diferencia1",FieldDef.FLOAT,6,0);
-      m15gastdificju1 = new FieldDef("m15gastdificju1",FieldDef.FLOAT,6,0);
-      m15totalgasto21 = new FieldDef("m15totalgasto21",FieldDef.FLOAT,6,0);
-      m15rdtoneto1 = new FieldDef("m15rdtoneto1",FieldDef.FLOAT,6,0);
-      m15reducirregu1 = new FieldDef("m15reducirregu1",FieldDef.FLOAT,6,0);
-      m15diferrdto1 = new FieldDef("m15diferrdto1",FieldDef.FLOAT,6,0);
-      m15redcopameri1 = new FieldDef("m15redcopameri1",FieldDef.FLOAT,6,0);
-      m15rdtonetored1 = new FieldDef("m15rdtonetored1",FieldDef.FLOAT,6,0);
-      m15titular2 = new FieldDef("m15titular2",FieldDef.INTEGER,0);
-      m15clave2 = new FieldDef("m15clave2",FieldDef.CHAR,1);
-      m15modalidad2 = new FieldDef("m15modalidad2",FieldDef.INTEGER,0);
-      m15epigrafe2 = new FieldDef("m15epigrafe2",FieldDef.CHAR,5);
-      m15cobropago2 = new FieldDef("m15cobropago2",FieldDef.INTEGER,0);
-      m15ingrexplota2 = new FieldDef("m15ingrexplota2",FieldDef.FLOAT,6,0);
-      m15otringresos2 = new FieldDef("m15otringresos2",FieldDef.FLOAT,6,0);
-      m15autoconsumo2 = new FieldDef("m15autoconsumo2",FieldDef.FLOAT,6,0);
-      m15totalingres2 = new FieldDef("m15totalingres2",FieldDef.FLOAT,6,0);
-      m15consumo2 = new FieldDef("m15consumo2",FieldDef.FLOAT,6,0);
-      m15sueldos2 = new FieldDef("m15sueldos2",FieldDef.FLOAT,6,0);
-      m15segsocial2 = new FieldDef("m15segsocial2",FieldDef.FLOAT,6,0);
-      m15otrgastpers2 = new FieldDef("m15otrgastpers2",FieldDef.FLOAT,6,0);
-      m15arrendamien2 = new FieldDef("m15arrendamien2",FieldDef.FLOAT,6,0);
-      m15conservacio2 = new FieldDef("m15conservacio2",FieldDef.FLOAT,6,0);
-      m15servprofesi2 = new FieldDef("m15servprofesi2",FieldDef.FLOAT,6,0);
-      m15otrservicio2 = new FieldDef("m15otrservicio2",FieldDef.FLOAT,6,0);
-      m15tributdeduc2 = new FieldDef("m15tributdeduc2",FieldDef.FLOAT,6,0);
-      m15gastofinanc2 = new FieldDef("m15gastofinanc2",FieldDef.FLOAT,6,0);
-      m15amortizacio2 = new FieldDef("m15amortizacio2",FieldDef.FLOAT,6,0);
-      m15perddeterio2 = new FieldDef("m15perddeterio2",FieldDef.FLOAT,6,0);
-      m15actintgral2 = new FieldDef("m15actintgral2",FieldDef.FLOAT,6,0);
-      m15gastactgral2 = new FieldDef("m15gastactgral2",FieldDef.FLOAT,6,0);
-      m15otrosgastos2 = new FieldDef("m15otrosgastos2",FieldDef.FLOAT,6,0);
-      m15sumagastos2 = new FieldDef("m15sumagastos2",FieldDef.FLOAT,6,0);
-      m15provisiones2 = new FieldDef("m15provisiones2",FieldDef.FLOAT,6,0);
-      m15totalgastos2 = new FieldDef("m15totalgastos2",FieldDef.FLOAT,6,0);
-      m15diferencia2 = new FieldDef("m15diferencia2",FieldDef.FLOAT,6,0);
-      m15gastdificju2 = new FieldDef("m15gastdificju2",FieldDef.FLOAT,6,0);
-      m15totalgasto22 = new FieldDef("m15totalgasto22",FieldDef.FLOAT,6,0);
-      m15rdtoneto2 = new FieldDef("m15rdtoneto2",FieldDef.FLOAT,6,0);
-      m15reducirregu2 = new FieldDef("m15reducirregu2",FieldDef.FLOAT,6,0);
-      m15diferrdto2 = new FieldDef("m15diferrdto2",FieldDef.FLOAT,6,0);
-      m15redcopameri2 = new FieldDef("m15redcopameri2",FieldDef.FLOAT,6,0);
-      m15rdtonetored2 = new FieldDef("m15rdtonetored2",FieldDef.FLOAT,6,0);
-      m15titular3 = new FieldDef("m15titular3",FieldDef.INTEGER,0);
-      m15clave3 = new FieldDef("m15clave3",FieldDef.CHAR,1);
-      m15modalidad3 = new FieldDef("m15modalidad3",FieldDef.INTEGER,0);
-      m15epigrafe3 = new FieldDef("m15epigrafe3",FieldDef.CHAR,5);
-      m15cobropago3 = new FieldDef("m15cobropago3",FieldDef.INTEGER,0);
-      m15ingrexplota3 = new FieldDef("m15ingrexplota3",FieldDef.FLOAT,6,0);
-      m15otringresos3 = new FieldDef("m15otringresos3",FieldDef.FLOAT,6,0);
-      m15autoconsumo3 = new FieldDef("m15autoconsumo3",FieldDef.FLOAT,6,0);
-      m15totalingres3 = new FieldDef("m15totalingres3",FieldDef.FLOAT,6,0);
-      m15consumo3 = new FieldDef("m15consumo3",FieldDef.FLOAT,6,0);
-      m15sueldos3 = new FieldDef("m15sueldos3",FieldDef.FLOAT,6,0);
-      m15segsocial3 = new FieldDef("m15segsocial3",FieldDef.FLOAT,6,0);
-      m15otrgastpers3 = new FieldDef("m15otrgastpers3",FieldDef.FLOAT,6,0);
-      m15arrendamien3 = new FieldDef("m15arrendamien3",FieldDef.FLOAT,6,0);
-      m15conservacio3 = new FieldDef("m15conservacio3",FieldDef.FLOAT,6,0);
-      m15servprofesi3 = new FieldDef("m15servprofesi3",FieldDef.FLOAT,6,0);
-      m15otrservicio3 = new FieldDef("m15otrservicio3",FieldDef.FLOAT,6,0);
-      m15tributdeduc3 = new FieldDef("m15tributdeduc3",FieldDef.FLOAT,6,0);
-      m15gastofinanc3 = new FieldDef("m15gastofinanc3",FieldDef.FLOAT,6,0);
-      m15amortizacio3 = new FieldDef("m15amortizacio3",FieldDef.FLOAT,6,0);
-      m15perddeterio3 = new FieldDef("m15perddeterio3",FieldDef.FLOAT,6,0);
-      m15actintgral3 = new FieldDef("m15actintgral3",FieldDef.FLOAT,6,0);
-      m15gastactgral3 = new FieldDef("m15gastactgral3",FieldDef.FLOAT,6,0);
-      m15otrosgastos3 = new FieldDef("m15otrosgastos3",FieldDef.FLOAT,6,0);
-      m15sumagastos3 = new FieldDef("m15sumagastos3",FieldDef.FLOAT,6,0);
-      m15provisiones3 = new FieldDef("m15provisiones3",FieldDef.FLOAT,6,0);
-      m15totalgastos3 = new FieldDef("m15totalgastos3",FieldDef.FLOAT,6,0);
-      m15diferencia3 = new FieldDef("m15diferencia3",FieldDef.FLOAT,6,0);
-      m15gastdificju3 = new FieldDef("m15gastdificju3",FieldDef.FLOAT,6,0);
-      m15totalgasto23 = new FieldDef("m15totalgasto23",FieldDef.FLOAT,6,0);
-      m15rdtoneto3 = new FieldDef("m15rdtoneto3",FieldDef.FLOAT,6,0);
-      m15reducirregu3 = new FieldDef("m15reducirregu3",FieldDef.FLOAT,6,0);
-      m15diferrdto3 = new FieldDef("m15diferrdto3",FieldDef.FLOAT,6,0);
-      m15redcopameri3 = new FieldDef("m15redcopameri3",FieldDef.FLOAT,6,0);
-      m15rdtonetored3 = new FieldDef("m15rdtonetored3",FieldDef.FLOAT,6,0);
-      m15totalrdto = new FieldDef("m15totalrdto",FieldDef.FLOAT,6,0);
-      m15totalreduc = new FieldDef("m15totalreduc",FieldDef.FLOAT,6,0);
-      m15totalempleo = new FieldDef("m15totalempleo",FieldDef.FLOAT,6,0);
-      m15totalrdtored = new FieldDef("m15totalrdtored",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        m15dominio,
-        m15nif,
-        m15declarac,
-        m15ejercicio,
-        m15periodo,
-        m15pagina,
-        m15titular1,
-        m15clave1,
-        m15modalidad1,
-        m15epigrafe1,
-        m15cobropago1,
-        m15ingrexplota1,
-        m15otringresos1,
-        m15autoconsumo1,
-        m15totalingres1,
-        m15consumo1,
-        m15sueldos1,
-        m15segsocial1,
-        m15otrgastpers1,
-        m15arrendamien1,
-        m15conservacio1,
-        m15servprofesi1,
-        m15otrservicio1,
-        m15tributdeduc1,
-        m15gastofinanc1,
-        m15amortizacio1,
-        m15perddeterio1,
-        m15actintgral1,
-        m15gastactgral1,
-        m15otrosgastos1,
-        m15sumagastos1,
-        m15provisiones1,
-        m15totalgastos1,
-        m15diferencia1,
-        m15gastdificju1,
-        m15totalgasto21,
-        m15rdtoneto1,
-        m15reducirregu1,
-        m15diferrdto1,
-        m15redcopameri1,
-        m15rdtonetored1,
-        m15titular2,
-        m15clave2,
-        m15modalidad2,
-        m15epigrafe2,
-        m15cobropago2,
-        m15ingrexplota2,
-        m15otringresos2,
-        m15autoconsumo2,
-        m15totalingres2,
-        m15consumo2,
-        m15sueldos2,
-        m15segsocial2,
-        m15otrgastpers2,
-        m15arrendamien2,
-        m15conservacio2,
-        m15servprofesi2,
-        m15otrservicio2,
-        m15tributdeduc2,
-        m15gastofinanc2,
-        m15amortizacio2,
-        m15perddeterio2,
-        m15actintgral2,
-        m15gastactgral2,
-        m15otrosgastos2,
-        m15sumagastos2,
-        m15provisiones2,
-        m15totalgastos2,
-        m15diferencia2,
-        m15gastdificju2,
-        m15totalgasto22,
-        m15rdtoneto2,
-        m15reducirregu2,
-        m15diferrdto2,
-        m15redcopameri2,
-        m15rdtonetored2,
-        m15titular3,
-        m15clave3,
-        m15modalidad3,
-        m15epigrafe3,
-        m15cobropago3,
-        m15ingrexplota3,
-        m15otringresos3,
-        m15autoconsumo3,
-        m15totalingres3,
-        m15consumo3,
-        m15sueldos3,
-        m15segsocial3,
-        m15otrgastpers3,
-        m15arrendamien3,
-        m15conservacio3,
-        m15servprofesi3,
-        m15otrservicio3,
-        m15tributdeduc3,
-        m15gastofinanc3,
-        m15amortizacio3,
-        m15perddeterio3,
-        m15actintgral3,
-        m15gastactgral3,
-        m15otrosgastos3,
-        m15sumagastos3,
-        m15provisiones3,
-        m15totalgastos3,
-        m15diferencia3,
-        m15gastdificju3,
-        m15totalgasto23,
-        m15rdtoneto3,
-        m15reducirregu3,
-        m15diferrdto3,
-        m15redcopameri3,
-        m15rdtonetored3,
-        m15totalrdto,
-        m15totalreduc,
-        m15totalempleo,
-        m15totalrdtored        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m15dominio,m15nif,m15declarac,m15ejercicio,m15periodo,m15pagina };
-      setPrimaryKeys(arrayf);
-      m15declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
-      m15titular1.setDescription("(E1) Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 1 Contribuyente 0 a 9 (100)");
-      m15clave1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 1 Tipo actividad. Clave (Blanco o de 1 a 6) (101)");
-      m15modalidad1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 1 Modalidad Normal (103) o Simplificada (104) 0 1 o 2");
-      m15epigrafe1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 1 Epigrafe IAE (102) ()");
-      m15cobropago1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 1 Criterio cobros/pagos. 1 o cero. (105)");
-      m15ingrexplota1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 1 Explotacion (106)");
-      m15otringresos1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 1 Otros ingresos (107)");
-      m15autoconsumo1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 1 Autoconsumo bienes/servicios (108)");
-      m15totalingres1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 1 Total ingresos computables (109)");
-      m15consumo1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Consumos de explotacion (110)");
-      m15sueldos1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Sueldos y salarios (111)");
-      m15segsocial1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Seguridad Social (112)");
-      m15otrgastpers1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Otros gastos de personal (113)");
-      m15arrendamien1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Arrendamientos y canones (114)");
-      m15conservacio1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Reparacion y conservacion (115)");
-      m15servprofesi1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Servicios profesionales independientes (116)");
-      m15otrservicio1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Otros servicios exteriores (117)");
-      m15tributdeduc1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Tributos fiscalmente deducibles (118)");
-      m15gastofinanc1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Gastos financieros (119)");
-      m15amortizacio1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Amortizaciones (120)");
-      m15perddeterio1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Perdidas por deterioro (121)");
-      m15actintgral1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Mecenazgo (convenios) (122)");
-      m15gastactgral1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Mecenazgo (gastos) (123)");
-      m15otrosgastos1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Otros gastos fiscalmente deducibles (124)");
-      m15sumagastos1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Suma (125)");
-      m15provisiones1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Modalidad Normal Provisiones (126)");
-      m15totalgastos1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Modalidad Normal Total gastos deducibles (127)");
-      m15diferencia1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Modalidad Simplificada Diferencia (128)");
-      m15gastdificju1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Modalidad Simplificada Provisiones deduc./gastos dificil justif. (129)");
-      m15totalgasto21.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Modalidad Simplificada Total gastos deducibles (130)");
-      m15rdtoneto1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 1 Rdto. neto (131)");
-      m15reducirregu1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 1 Reducciones (132)");
-      m15diferrdto1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 1 Diferencia (133)");
-      m15redcopameri1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 1 Reduc. rdtos. 33. Copa del America (134)");
-      m15rdtonetored1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 1 Rdto. neto reducido (135)");
-      m15titular2.setDescription("(E1) Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 2 Contribuyente 0 a 9 (100)");
-      m15clave2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 2 Tipo actividad. Clave (Blanco o de 2 a 6) (101)");
-      m15modalidad2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 2 Modalidad Normal (103) o Simplificada (104) 0 2 o 2");
-      m15epigrafe2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 2 Epigrafe IAE (102) ()");
-      m15cobropago2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 2 Criterio cobros/pagos. 2 o cero. (105)");
-      m15ingrexplota2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 2 Explotacion (106)");
-      m15otringresos2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 2 Otros ingresos (107)");
-      m15autoconsumo2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 2 Autoconsumo bienes/servicios (108)");
-      m15totalingres2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 2 Total ingresos computables (109)");
-      m15consumo2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Consumos de explotacion (110)");
-      m15sueldos2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Sueldos y salarios (111)");
-      m15segsocial2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Seguridad Social (112)");
-      m15otrgastpers2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Otros gastos de personal (113)");
-      m15arrendamien2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Arrendamientos y canones (114)");
-      m15conservacio2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Reparacion y conservacion (115)");
-      m15servprofesi2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Servicios profesionales independientes (116)");
-      m15otrservicio2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Otros servicios exteriores (117)");
-      m15tributdeduc2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Tributos fiscalmente deducibles (118)");
-      m15gastofinanc2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Gastos financieros (119)");
-      m15amortizacio2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Amortizaciones (120)");
-      m15perddeterio2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Perdidas por deterioro (121)");
-      m15actintgral2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Mecenazgo (convenios) (122)");
-      m15gastactgral2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Mecenazgo (gastos) (123)");
-      m15otrosgastos2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Otros gastos fiscalmente deducibles (124)");
-      m15sumagastos2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Suma (125)");
-      m15provisiones2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Modalidad Normal Provisiones (126)");
-      m15totalgastos2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Modalidad Normal Total gastos deducibles (127)");
-      m15diferencia2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Modalidad Simplificada Diferencia (128)");
-      m15gastdificju2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Modalidad Simplificada Provisiones deduc./gastos dificil justif. (129)");
-      m15totalgasto22.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Modalidad Simplificada Total gastos deducibles (130)");
-      m15rdtoneto2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 2 Rdto. neto (131)");
-      m15reducirregu2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 2 Reducciones (132)");
-      m15diferrdto2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 2 Diferencia (133)");
-      m15redcopameri2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 2 Reduc. rdtos. 33. Copa del America (134)");
-      m15rdtonetored2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 2 Rdto. neto reducido (135)");
-      m15titular3.setDescription("(E1) Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 3 Contribuyente 0 a 9 (100)");
-      m15clave3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 3 Tipo actividad. Clave (Blanco o de 3 a 6) (101)");
-      m15modalidad3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 3 Modalidad Normal (103) o Simplificada (104) 0 3 o 2");
-      m15epigrafe3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 3 Epigrafe IAE (102) ()");
-      m15cobropago3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 3 Criterio cobros/pagos. 3 o cero. (105)");
-      m15ingrexplota3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 3 Explotacion (106)");
-      m15otringresos3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 3 Otros ingresos (107)");
-      m15autoconsumo3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 3 Autoconsumo bienes/servicios (108)");
-      m15totalingres3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 3 Total ingresos computables (109)");
-      m15consumo3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Consumos de explotacion (110)");
-      m15sueldos3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Sueldos y salarios (111)");
-      m15segsocial3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Seguridad Social (112)");
-      m15otrgastpers3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Otros gastos de personal (113)");
-      m15arrendamien3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Arrendamientos y canones (114)");
-      m15conservacio3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Reparacion y conservacion (115)");
-      m15servprofesi3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Servicios profesionales independientes (116)");
-      m15otrservicio3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Otros servicios exteriores (117)");
-      m15tributdeduc3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Tributos fiscalmente deducibles (118)");
-      m15gastofinanc3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Gastos financieros (119)");
-      m15amortizacio3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Amortizaciones (120)");
-      m15perddeterio3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Perdidas por deterioro (121)");
-      m15actintgral3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Mecenazgo (convenios) (122)");
-      m15gastactgral3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Mecenazgo (gastos) (123)");
-      m15otrosgastos3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Otros gastos fiscalmente deducibles (124)");
-      m15sumagastos3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Suma (125)");
-      m15provisiones3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Modalidad Normal Provisiones (126)");
-      m15totalgastos3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Modalidad Normal Total gastos deducibles (127)");
-      m15diferencia3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Modalidad Simplificada Diferencia (128)");
-      m15gastdificju3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Modalidad Simplificada Provisiones deduc./gastos dificil justif. (129)");
-      m15totalgasto23.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Modalidad Simplificada Total gastos deducibles (130)");
-      m15rdtoneto3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 3 Rdto. neto (131)");
-      m15reducirregu3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 3 Reducciones (132)");
-      m15diferrdto3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 3 Diferencia (133)");
-      m15redcopameri3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 3 Reduc. rdtos. 33. Copa del America (134)");
-      m15rdtonetored3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 3 Rdto. neto reducido (135)");
-      m15totalrdto.setDescription("Rdto.actv.econ.est.directa Rdto.neto reducido total en estimacion directa Suma de rendimientos netos reducidos (136)");
-      m15totalreduc.setDescription("Rdto.actv.econ.est.directa Rdto.neto reducido total en estimacion directa Reduccion ejercicio determinadas actividades (137)");
-      m15totalempleo.setDescription("Rdto.actv.econ.est.directa Rdto.neto reducido total en estimacion directa Reduccion por mantenimiento o creacion de empleo (138)");
-      m15totalrdtored.setDescription("Rdto.actv.econ.est.directa Rdto.neto reducido total en estimacion directa Rendimiento neto reducido total (140)");
-      }
-    }
-    
-  public class TabMod100h6 extends TableDef
-    {
-    // Campos
-    public FieldDef m16dominio;
-    public FieldDef m16nif;
-    public FieldDef m16declarac;
-    public FieldDef m16ejercicio;
-    public FieldDef m16periodo;
-    public FieldDef m16pagina;
-    public FieldDef m16epigrafe1;
-    public FieldDef m16titular1;
-    public FieldDef m16defunid11;
-    public FieldDef m16unidad11;
-    public FieldDef m16rdtounidad11;
-    public FieldDef m16defunid21;
-    public FieldDef m16unidad21;
-    public FieldDef m16rdtounidad21;
-    public FieldDef m16defunid31;
-    public FieldDef m16unidad31;
-    public FieldDef m16rdtounidad31;
-    public FieldDef m16defunid41;
-    public FieldDef m16unidad41;
-    public FieldDef m16rdtounidad41;
-    public FieldDef m16defunid51;
-    public FieldDef m16unidad51;
-    public FieldDef m16rdtounidad51;
-    public FieldDef m16defunid61;
-    public FieldDef m16unidad61;
-    public FieldDef m16rdtounidad61;
-    public FieldDef m16defunid71;
-    public FieldDef m16unidad71;
-    public FieldDef m16rdtounidad71;
-    public FieldDef m16rdtoprevio1;
-    public FieldDef m16incempleo1;
-    public FieldDef m16redinversio1;
-    public FieldDef m16rdtominorad1;
-    public FieldDef m16indespecial1;
-    public FieldDef m16indpeqempre1;
-    public FieldDef m16indtemporad1;
-    public FieldDef m16indexceso1;
-    public FieldDef m16indnuevaact1;
-    public FieldDef m16rdtomodulos1;
-    public FieldDef m16reducgral1;
-    public FieldDef m16gastextraor1;
-    public FieldDef m16otraspercep1;
-    public FieldDef m16rdtoneto1;
-    public FieldDef m16reducirregu1;
-    public FieldDef m16rdtonetored1;
-    public FieldDef m16epigrafe2;
-    public FieldDef m16titular2;
-    public FieldDef m16defunid12;
-    public FieldDef m16unidad12;
-    public FieldDef m16rdtounidad12;
-    public FieldDef m16defunid22;
-    public FieldDef m16unidad22;
-    public FieldDef m16rdtounidad22;
-    public FieldDef m16defunid32;
-    public FieldDef m16unidad32;
-    public FieldDef m16rdtounidad32;
-    public FieldDef m16defunid42;
-    public FieldDef m16unidad42;
-    public FieldDef m16rdtounidad42;
-    public FieldDef m16defunid52;
-    public FieldDef m16unidad52;
-    public FieldDef m16rdtounidad52;
-    public FieldDef m16defunid62;
-    public FieldDef m16unidad62;
-    public FieldDef m16rdtounidad62;
-    public FieldDef m16defunid72;
-    public FieldDef m16unidad72;
-    public FieldDef m16rdtounidad72;
-    public FieldDef m16rdtoprevio2;
-    public FieldDef m16incempleo2;
-    public FieldDef m16redinversio2;
-    public FieldDef m16rdtominorad2;
-    public FieldDef m16indespecial2;
-    public FieldDef m16indpeqempre2;
-    public FieldDef m16indtemporad2;
-    public FieldDef m16indexceso2;
-    public FieldDef m16indnuevaact2;
-    public FieldDef m16rdtomodulos2;
-    public FieldDef m16reducgral2;
-    public FieldDef m16gastextraor2;
-    public FieldDef m16otraspercep2;
-    public FieldDef m16rdtoneto2;
-    public FieldDef m16reducirregu2;
-    public FieldDef m16rdtonetored2;
-    public FieldDef m16totalrdto;
-    public FieldDef m16totalempleo;
-    public FieldDef m16totalrdtored;
-    public TabMod100h6(String name)
-      {
-      super(name);
-      m16dominio = new FieldDef("m16dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m16nif = new FieldDef("m16nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m16declarac = new FieldDef("m16declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      m16ejercicio = new FieldDef("m16ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m16periodo = new FieldDef("m16periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m16pagina = new FieldDef("m16pagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m16epigrafe1 = new FieldDef("m16epigrafe1",FieldDef.CHAR,5);
-      m16titular1 = new FieldDef("m16titular1",FieldDef.INTEGER,0);
-      m16defunid11 = new FieldDef("m16defunid11",FieldDef.CHAR,24);
-      m16unidad11 = new FieldDef("m16unidad11",FieldDef.FLOAT,6,0);
-      m16rdtounidad11 = new FieldDef("m16rdtounidad11",FieldDef.FLOAT,6,0);
-      m16defunid21 = new FieldDef("m16defunid21",FieldDef.CHAR,24);
-      m16unidad21 = new FieldDef("m16unidad21",FieldDef.FLOAT,6,0);
-      m16rdtounidad21 = new FieldDef("m16rdtounidad21",FieldDef.FLOAT,6,0);
-      m16defunid31 = new FieldDef("m16defunid31",FieldDef.CHAR,24);
-      m16unidad31 = new FieldDef("m16unidad31",FieldDef.FLOAT,6,0);
-      m16rdtounidad31 = new FieldDef("m16rdtounidad31",FieldDef.FLOAT,6,0);
-      m16defunid41 = new FieldDef("m16defunid41",FieldDef.CHAR,24);
-      m16unidad41 = new FieldDef("m16unidad41",FieldDef.FLOAT,6,0);
-      m16rdtounidad41 = new FieldDef("m16rdtounidad41",FieldDef.FLOAT,6,0);
-      m16defunid51 = new FieldDef("m16defunid51",FieldDef.CHAR,24);
-      m16unidad51 = new FieldDef("m16unidad51",FieldDef.FLOAT,6,0);
-      m16rdtounidad51 = new FieldDef("m16rdtounidad51",FieldDef.FLOAT,6,0);
-      m16defunid61 = new FieldDef("m16defunid61",FieldDef.CHAR,24);
-      m16unidad61 = new FieldDef("m16unidad61",FieldDef.FLOAT,6,0);
-      m16rdtounidad61 = new FieldDef("m16rdtounidad61",FieldDef.FLOAT,6,0);
-      m16defunid71 = new FieldDef("m16defunid71",FieldDef.CHAR,24);
-      m16unidad71 = new FieldDef("m16unidad71",FieldDef.FLOAT,6,0);
-      m16rdtounidad71 = new FieldDef("m16rdtounidad71",FieldDef.FLOAT,6,0);
-      m16rdtoprevio1 = new FieldDef("m16rdtoprevio1",FieldDef.FLOAT,6,0);
-      m16incempleo1 = new FieldDef("m16incempleo1",FieldDef.FLOAT,6,0);
-      m16redinversio1 = new FieldDef("m16redinversio1",FieldDef.FLOAT,6,0);
-      m16rdtominorad1 = new FieldDef("m16rdtominorad1",FieldDef.FLOAT,6,0);
-      m16indespecial1 = new FieldDef("m16indespecial1",FieldDef.FLOAT,6,0);
-      m16indpeqempre1 = new FieldDef("m16indpeqempre1",FieldDef.FLOAT,6,0);
-      m16indtemporad1 = new FieldDef("m16indtemporad1",FieldDef.FLOAT,6,0);
-      m16indexceso1 = new FieldDef("m16indexceso1",FieldDef.FLOAT,6,0);
-      m16indnuevaact1 = new FieldDef("m16indnuevaact1",FieldDef.FLOAT,6,0);
-      m16rdtomodulos1 = new FieldDef("m16rdtomodulos1",FieldDef.FLOAT,6,0);
-      m16reducgral1 = new FieldDef("m16reducgral1",FieldDef.FLOAT,6,0);
-      m16gastextraor1 = new FieldDef("m16gastextraor1",FieldDef.FLOAT,6,0);
-      m16otraspercep1 = new FieldDef("m16otraspercep1",FieldDef.FLOAT,6,0);
-      m16rdtoneto1 = new FieldDef("m16rdtoneto1",FieldDef.FLOAT,6,0);
-      m16reducirregu1 = new FieldDef("m16reducirregu1",FieldDef.FLOAT,6,0);
-      m16rdtonetored1 = new FieldDef("m16rdtonetored1",FieldDef.FLOAT,6,0);
-      m16epigrafe2 = new FieldDef("m16epigrafe2",FieldDef.CHAR,5);
-      m16titular2 = new FieldDef("m16titular2",FieldDef.INTEGER,0);
-      m16defunid12 = new FieldDef("m16defunid12",FieldDef.CHAR,24);
-      m16unidad12 = new FieldDef("m16unidad12",FieldDef.FLOAT,6,0);
-      m16rdtounidad12 = new FieldDef("m16rdtounidad12",FieldDef.FLOAT,6,0);
-      m16defunid22 = new FieldDef("m16defunid22",FieldDef.CHAR,24);
-      m16unidad22 = new FieldDef("m16unidad22",FieldDef.FLOAT,6,0);
-      m16rdtounidad22 = new FieldDef("m16rdtounidad22",FieldDef.FLOAT,6,0);
-      m16defunid32 = new FieldDef("m16defunid32",FieldDef.CHAR,24);
-      m16unidad32 = new FieldDef("m16unidad32",FieldDef.FLOAT,6,0);
-      m16rdtounidad32 = new FieldDef("m16rdtounidad32",FieldDef.FLOAT,6,0);
-      m16defunid42 = new FieldDef("m16defunid42",FieldDef.CHAR,24);
-      m16unidad42 = new FieldDef("m16unidad42",FieldDef.FLOAT,6,0);
-      m16rdtounidad42 = new FieldDef("m16rdtounidad42",FieldDef.FLOAT,6,0);
-      m16defunid52 = new FieldDef("m16defunid52",FieldDef.CHAR,24);
-      m16unidad52 = new FieldDef("m16unidad52",FieldDef.FLOAT,6,0);
-      m16rdtounidad52 = new FieldDef("m16rdtounidad52",FieldDef.FLOAT,6,0);
-      m16defunid62 = new FieldDef("m16defunid62",FieldDef.CHAR,24);
-      m16unidad62 = new FieldDef("m16unidad62",FieldDef.FLOAT,6,0);
-      m16rdtounidad62 = new FieldDef("m16rdtounidad62",FieldDef.FLOAT,6,0);
-      m16defunid72 = new FieldDef("m16defunid72",FieldDef.CHAR,24);
-      m16unidad72 = new FieldDef("m16unidad72",FieldDef.FLOAT,6,0);
-      m16rdtounidad72 = new FieldDef("m16rdtounidad72",FieldDef.FLOAT,6,0);
-      m16rdtoprevio2 = new FieldDef("m16rdtoprevio2",FieldDef.FLOAT,6,0);
-      m16incempleo2 = new FieldDef("m16incempleo2",FieldDef.FLOAT,6,0);
-      m16redinversio2 = new FieldDef("m16redinversio2",FieldDef.FLOAT,6,0);
-      m16rdtominorad2 = new FieldDef("m16rdtominorad2",FieldDef.FLOAT,6,0);
-      m16indespecial2 = new FieldDef("m16indespecial2",FieldDef.FLOAT,6,0);
-      m16indpeqempre2 = new FieldDef("m16indpeqempre2",FieldDef.FLOAT,6,0);
-      m16indtemporad2 = new FieldDef("m16indtemporad2",FieldDef.FLOAT,6,0);
-      m16indexceso2 = new FieldDef("m16indexceso2",FieldDef.FLOAT,6,0);
-      m16indnuevaact2 = new FieldDef("m16indnuevaact2",FieldDef.FLOAT,6,0);
-      m16rdtomodulos2 = new FieldDef("m16rdtomodulos2",FieldDef.FLOAT,6,0);
-      m16reducgral2 = new FieldDef("m16reducgral2",FieldDef.FLOAT,6,0);
-      m16gastextraor2 = new FieldDef("m16gastextraor2",FieldDef.FLOAT,6,0);
-      m16otraspercep2 = new FieldDef("m16otraspercep2",FieldDef.FLOAT,6,0);
-      m16rdtoneto2 = new FieldDef("m16rdtoneto2",FieldDef.FLOAT,6,0);
-      m16reducirregu2 = new FieldDef("m16reducirregu2",FieldDef.FLOAT,6,0);
-      m16rdtonetored2 = new FieldDef("m16rdtonetored2",FieldDef.FLOAT,6,0);
-      m16totalrdto = new FieldDef("m16totalrdto",FieldDef.FLOAT,6,0);
-      m16totalempleo = new FieldDef("m16totalempleo",FieldDef.FLOAT,6,0);
-      m16totalrdtored = new FieldDef("m16totalrdtored",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        m16dominio,
-        m16nif,
-        m16declarac,
-        m16ejercicio,
-        m16periodo,
-        m16pagina,
-        m16epigrafe1,
-        m16titular1,
-        m16defunid11,
-        m16unidad11,
-        m16rdtounidad11,
-        m16defunid21,
-        m16unidad21,
-        m16rdtounidad21,
-        m16defunid31,
-        m16unidad31,
-        m16rdtounidad31,
-        m16defunid41,
-        m16unidad41,
-        m16rdtounidad41,
-        m16defunid51,
-        m16unidad51,
-        m16rdtounidad51,
-        m16defunid61,
-        m16unidad61,
-        m16rdtounidad61,
-        m16defunid71,
-        m16unidad71,
-        m16rdtounidad71,
-        m16rdtoprevio1,
-        m16incempleo1,
-        m16redinversio1,
-        m16rdtominorad1,
-        m16indespecial1,
-        m16indpeqempre1,
-        m16indtemporad1,
-        m16indexceso1,
-        m16indnuevaact1,
-        m16rdtomodulos1,
-        m16reducgral1,
-        m16gastextraor1,
-        m16otraspercep1,
-        m16rdtoneto1,
-        m16reducirregu1,
-        m16rdtonetored1,
-        m16epigrafe2,
-        m16titular2,
-        m16defunid12,
-        m16unidad12,
-        m16rdtounidad12,
-        m16defunid22,
-        m16unidad22,
-        m16rdtounidad22,
-        m16defunid32,
-        m16unidad32,
-        m16rdtounidad32,
-        m16defunid42,
-        m16unidad42,
-        m16rdtounidad42,
-        m16defunid52,
-        m16unidad52,
-        m16rdtounidad52,
-        m16defunid62,
-        m16unidad62,
-        m16rdtounidad62,
-        m16defunid72,
-        m16unidad72,
-        m16rdtounidad72,
-        m16rdtoprevio2,
-        m16incempleo2,
-        m16redinversio2,
-        m16rdtominorad2,
-        m16indespecial2,
-        m16indpeqempre2,
-        m16indtemporad2,
-        m16indexceso2,
-        m16indnuevaact2,
-        m16rdtomodulos2,
-        m16reducgral2,
-        m16gastextraor2,
-        m16otraspercep2,
-        m16rdtoneto2,
-        m16reducirregu2,
-        m16rdtonetored2,
-        m16totalrdto,
-        m16totalempleo,
-        m16totalrdtored        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m16dominio,m16nif,m16declarac,m16ejercicio,m16periodo,m16pagina };
-      setPrimaryKeys(arrayf);
-      m16declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
-      m16epigrafe1.setDescription("(E2) Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Clasificacion IAE (151) ()");
-      m16titular1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Contribuyente titular actividad (150) 0 a 9");
-      m16defunid11.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 1 Definicion");
-      m16unidad11.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 1 Unidades (n)");
-      m16rdtounidad11.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 1 Rdto. por modulo");
-      m16defunid21.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 2 Definicion");
-      m16unidad21.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 2 Unidades (n)");
-      m16rdtounidad21.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 2 Rdto. por modulo");
-      m16defunid31.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 3 Definicion");
-      m16unidad31.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 3 Unidades (n)");
-      m16rdtounidad31.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 3 Rdto. por modulo");
-      m16defunid41.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 4 Definicion");
-      m16unidad41.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 4 Unidades (n)");
-      m16rdtounidad41.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 4 Rdto. por modulo");
-      m16defunid51.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 5 Definicion");
-      m16unidad51.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 5 Unidades (n)");
-      m16rdtounidad51.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 5 Rdto. por modulo");
-      m16defunid61.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 6 Definicion");
-      m16unidad61.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 6 Unidades (n)");
-      m16rdtounidad61.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 6 Rdto. por modulo");
-      m16defunid71.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 7 Definicion");
-      m16unidad71.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 7 Unidades (n)");
-      m16rdtounidad71.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 7 Rdto. por modulo");
-      m16rdtoprevio1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Rdto. neto previo (suma) (152)");
-      m16incempleo1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Minorizaciones por incentivos al empleo (153)");
-      m16redinversio1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Minorizaciones por incentivos a la inversion (154)");
-      m16rdtominorad1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Rdto. neto minorado (155)");
-      m16indespecial1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Indice corrector especial (2 enteros y 2 decimales) (156)");
-      m16indpeqempre1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Indice corr.empresas pequeña dimension (2 enteros y 2 decimales) (157)");
-      m16indtemporad1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Indice corrector de temporada (2 enteros y 2 decimales) (158)");
-      m16indexceso1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Indice corrector de exceso (2 enteros y 2 decimales) (159)");
-      m16indnuevaact1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Indice corr. por inicio nueva activ. (2 enteros y 2 decimales) (160)");
-      m16rdtomodulos1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Rdto. neto de modulos (161)");
-      m16reducgral1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Reduccion de caracter general (166)");
-      m16gastextraor1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Gastos extraordinarios circunstancias excepcionales (162)");
-      m16otraspercep1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Otras percepciones empresariales (163)");
-      m16rdtoneto1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Rendimiento neto actividad (164)");
-      m16reducirregu1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Reduccion art. 32.1 Ley del Impuesto (165)");
-      m16rdtonetored1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Rendimiento neto reducido (167)");
-      m16epigrafe2.setDescription("(E2) Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Clasificacion IAE (151) ()");
-      m16titular2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Contribuyente titular actividad (150) 0 a 9");
-      m16defunid12.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 2 Definicion");
-      m16unidad12.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 2 Unidades (n)");
-      m16rdtounidad12.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 2 Rdto. por modulo");
-      m16defunid22.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 2 Definicion");
-      m16unidad22.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 2 Unidades (n)");
-      m16rdtounidad22.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 2 Rdto. por modulo");
-      m16defunid32.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 3 Definicion");
-      m16unidad32.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 3 Unidades (n)");
-      m16rdtounidad32.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 3 Rdto. por modulo");
-      m16defunid42.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 4 Definicion");
-      m16unidad42.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 4 Unidades (n)");
-      m16rdtounidad42.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 4 Rdto. por modulo");
-      m16defunid52.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 5 Definicion");
-      m16unidad52.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 5 Unidades (n)");
-      m16rdtounidad52.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 5 Rdto. por modulo");
-      m16defunid62.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 6 Definicion");
-      m16unidad62.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 6 Unidades (n)");
-      m16rdtounidad62.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 6 Rdto. por modulo");
-      m16defunid72.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 7 Definicion");
-      m16unidad72.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 7 Unidades (n)");
-      m16rdtounidad72.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 7 Rdto. por modulo");
-      m16rdtoprevio2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Rdto. neto previo (suma) (152)");
-      m16incempleo2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Minorizaciones por incentivos al empleo (153)");
-      m16redinversio2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Minorizaciones por incentivos a la inversion (154)");
-      m16rdtominorad2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Rdto. neto minorado (155)");
-      m16indespecial2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Indice corrector especial (2 enteros y 2 decimales) (156)");
-      m16indpeqempre2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Indice corr.empresas pequeña dimension (2 enteros y 2 decimales) (157)");
-      m16indtemporad2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Indice corrector de temporada (2 enteros y 2 decimales) (158)");
-      m16indexceso2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Indice corrector de exceso (2 enteros y 2 decimales) (159)");
-      m16indnuevaact2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Indice corr. por inicio nueva activ. (2 enteros y 2 decimales) (160)");
-      m16rdtomodulos2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Rdto. neto de modulos (161)");
-      m16reducgral2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Reduccion de caracter general (166)");
-      m16gastextraor2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Gastos extraordinarios circunstancias excepcionales (162)");
-      m16otraspercep2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Otras percepciones empresariales (163)");
-      m16rdtoneto2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Rendimiento neto actividad (164)");
-      m16reducirregu2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Reduccion art. 32.2 Ley del Impuesto (165)");
-      m16rdtonetored2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Rendimiento neto reducido (167)");
-      m16totalrdto.setDescription("Rdtos.activ.econom.est.objetiva Rendimiento neto reducido total de las actividades economicas Suma rendimientos netos reducidos (168)");
-      m16totalempleo.setDescription("Rdtos.activ.econom.est.objetiva Rendimiento neto reducido total de las actividades economicas Reduccion por mantenimiento o creacion de empleo (169)");
-      m16totalrdtored.setDescription("Rdtos.activ.econom.est.objetiva Rendimiento neto reducido total de las actividades economicas (170)");
-      }
-    }
-    
-  public class TabMod100h7 extends TableDef
-    {
-    // Campos
-    public FieldDef m17dominio;
-    public FieldDef m17nif;
-    public FieldDef m17declarac;
-    public FieldDef m17ejercicio;
-    public FieldDef m17periodo;
-    public FieldDef m17pagina;
-    public FieldDef m17clave1;
-    public FieldDef m17titular1;
-    public FieldDef m17cobropago1;
-    public FieldDef m17ingresprod11;
-    public FieldDef m17indiceprod11;
-    public FieldDef m17rdtoprod11;
-    public FieldDef m17ingresprod21;
-    public FieldDef m17indiceprod21;
-    public FieldDef m17rdtoprod21;
-    public FieldDef m17ingresprod31;
-    public FieldDef m17indiceprod31;
-    public FieldDef m17rdtoprod31;
-    public FieldDef m17ingresprod41;
-    public FieldDef m17indiceprod41;
-    public FieldDef m17rdtoprod41;
-    public FieldDef m17ingresprod51;
-    public FieldDef m17indiceprod51;
-    public FieldDef m17rdtoprod51;
-    public FieldDef m17ingresprod61;
-    public FieldDef m17indiceprod61;
-    public FieldDef m17rdtoprod61;
-    public FieldDef m17ingresprod71;
-    public FieldDef m17indiceprod71;
-    public FieldDef m17rdtoprod71;
-    public FieldDef m17ingresprod81;
-    public FieldDef m17indiceprod81;
-    public FieldDef m17rdtoprod81;
-    public FieldDef m17ingresprod91;
-    public FieldDef m17indiceprod91;
-    public FieldDef m17rdtoprod91;
-    public FieldDef m17ingrespro101;
-    public FieldDef m17indicepro101;
-    public FieldDef m17rdtoprod101;
-    public FieldDef m17ingrespro111;
-    public FieldDef m17indicepro111;
-    public FieldDef m17rdtoprod111;
-    public FieldDef m17ingrespro121;
-    public FieldDef m17indicepro121;
-    public FieldDef m17rdtoprod121;
-    public FieldDef m17ingrespro131;
-    public FieldDef m17indicepro131;
-    public FieldDef m17rdtoprod131;
-    public FieldDef m17totingresos1;
-    public FieldDef m17rdtoprevio1;
-    public FieldDef m17reducciones1;
-    public FieldDef m17redamortiza1;
-    public FieldDef m17rdtominorad1;
-    public FieldDef m17indprodajen1;
-    public FieldDef m17indpersonal1;
-    public FieldDef m17indarrendad1;
-    public FieldDef m17indpiensos1;
-    public FieldDef m17indecologic1;
-    public FieldDef m17indpeqempre1;
-    public FieldDef m17indforestal1;
-    public FieldDef m17rdtomodulos1;
-    public FieldDef m17reducgral1;
-    public FieldDef m17diferencia1;
-    public FieldDef m17reducjovene1;
-    public FieldDef m17gastextraor1;
-    public FieldDef m17rdtoneto1;
-    public FieldDef m17reducirregu1;
-    public FieldDef m17rdtonetored1;
-    public FieldDef m17clave2;
-    public FieldDef m17titular2;
-    public FieldDef m17cobropago2;
-    public FieldDef m17ingresprod12;
-    public FieldDef m17indiceprod12;
-    public FieldDef m17rdtoprod12;
-    public FieldDef m17ingresprod22;
-    public FieldDef m17indiceprod22;
-    public FieldDef m17rdtoprod22;
-    public FieldDef m17ingresprod32;
-    public FieldDef m17indiceprod32;
-    public FieldDef m17rdtoprod32;
-    public FieldDef m17ingresprod42;
-    public FieldDef m17indiceprod42;
-    public FieldDef m17rdtoprod42;
-    public FieldDef m17ingresprod52;
-    public FieldDef m17indiceprod52;
-    public FieldDef m17rdtoprod52;
-    public FieldDef m17ingresprod62;
-    public FieldDef m17indiceprod62;
-    public FieldDef m17rdtoprod62;
-    public FieldDef m17ingresprod72;
-    public FieldDef m17indiceprod72;
-    public FieldDef m17rdtoprod72;
-    public FieldDef m17ingresprod82;
-    public FieldDef m17indiceprod82;
-    public FieldDef m17rdtoprod82;
-    public FieldDef m17ingresprod92;
-    public FieldDef m17indiceprod92;
-    public FieldDef m17rdtoprod92;
-    public FieldDef m17ingrespro102;
-    public FieldDef m17indicepro102;
-    public FieldDef m17rdtoprod102;
-    public FieldDef m17ingrespro112;
-    public FieldDef m17indicepro112;
-    public FieldDef m17rdtoprod112;
-    public FieldDef m17ingrespro122;
-    public FieldDef m17indicepro122;
-    public FieldDef m17rdtoprod122;
-    public FieldDef m17ingrespro132;
-    public FieldDef m17indicepro132;
-    public FieldDef m17rdtoprod132;
-    public FieldDef m17totingresos2;
-    public FieldDef m17rdtoprevio2;
-    public FieldDef m17reducciones2;
-    public FieldDef m17redamortiza2;
-    public FieldDef m17rdtominorad2;
-    public FieldDef m17indprodajen2;
-    public FieldDef m17indpersonal2;
-    public FieldDef m17indarrendad2;
-    public FieldDef m17indpiensos2;
-    public FieldDef m17indecologic2;
-    public FieldDef m17indpeqempre2;
-    public FieldDef m17indforestal2;
-    public FieldDef m17rdtomodulos2;
-    public FieldDef m17reducgral2;
-    public FieldDef m17diferencia2;
-    public FieldDef m17reducjovene2;
-    public FieldDef m17gastextraor2;
-    public FieldDef m17rdtoneto2;
-    public FieldDef m17reducirregu2;
-    public FieldDef m17rdtonetored2;
-    public FieldDef m17totalrdto;
-    public FieldDef m17totalempleo;
-    public FieldDef m17totalrdtored;
-    public TabMod100h7(String name)
-      {
-      super(name);
-      m17dominio = new FieldDef("m17dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m17nif = new FieldDef("m17nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m17declarac = new FieldDef("m17declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      m17ejercicio = new FieldDef("m17ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m17periodo = new FieldDef("m17periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m17pagina = new FieldDef("m17pagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m17clave1 = new FieldDef("m17clave1",FieldDef.INTEGER,0);
-      m17titular1 = new FieldDef("m17titular1",FieldDef.INTEGER,0);
-      m17cobropago1 = new FieldDef("m17cobropago1",FieldDef.INTEGER,0);
-      m17ingresprod11 = new FieldDef("m17ingresprod11",FieldDef.FLOAT,6,0);
-      m17indiceprod11 = new FieldDef("m17indiceprod11",FieldDef.CHAR,6);
-      m17rdtoprod11 = new FieldDef("m17rdtoprod11",FieldDef.FLOAT,6,0);
-      m17ingresprod21 = new FieldDef("m17ingresprod21",FieldDef.FLOAT,6,0);
-      m17indiceprod21 = new FieldDef("m17indiceprod21",FieldDef.CHAR,6);
-      m17rdtoprod21 = new FieldDef("m17rdtoprod21",FieldDef.FLOAT,6,0);
-      m17ingresprod31 = new FieldDef("m17ingresprod31",FieldDef.FLOAT,6,0);
-      m17indiceprod31 = new FieldDef("m17indiceprod31",FieldDef.CHAR,6);
-      m17rdtoprod31 = new FieldDef("m17rdtoprod31",FieldDef.FLOAT,6,0);
-      m17ingresprod41 = new FieldDef("m17ingresprod41",FieldDef.FLOAT,6,0);
-      m17indiceprod41 = new FieldDef("m17indiceprod41",FieldDef.CHAR,6);
-      m17rdtoprod41 = new FieldDef("m17rdtoprod41",FieldDef.FLOAT,6,0);
-      m17ingresprod51 = new FieldDef("m17ingresprod51",FieldDef.FLOAT,6,0);
-      m17indiceprod51 = new FieldDef("m17indiceprod51",FieldDef.CHAR,6);
-      m17rdtoprod51 = new FieldDef("m17rdtoprod51",FieldDef.FLOAT,6,0);
-      m17ingresprod61 = new FieldDef("m17ingresprod61",FieldDef.FLOAT,6,0);
-      m17indiceprod61 = new FieldDef("m17indiceprod61",FieldDef.CHAR,6);
-      m17rdtoprod61 = new FieldDef("m17rdtoprod61",FieldDef.FLOAT,6,0);
-      m17ingresprod71 = new FieldDef("m17ingresprod71",FieldDef.FLOAT,6,0);
-      m17indiceprod71 = new FieldDef("m17indiceprod71",FieldDef.CHAR,6);
-      m17rdtoprod71 = new FieldDef("m17rdtoprod71",FieldDef.FLOAT,6,0);
-      m17ingresprod81 = new FieldDef("m17ingresprod81",FieldDef.FLOAT,6,0);
-      m17indiceprod81 = new FieldDef("m17indiceprod81",FieldDef.CHAR,6);
-      m17rdtoprod81 = new FieldDef("m17rdtoprod81",FieldDef.FLOAT,6,0);
-      m17ingresprod91 = new FieldDef("m17ingresprod91",FieldDef.FLOAT,6,0);
-      m17indiceprod91 = new FieldDef("m17indiceprod91",FieldDef.CHAR,6);
-      m17rdtoprod91 = new FieldDef("m17rdtoprod91",FieldDef.FLOAT,6,0);
-      m17ingrespro101 = new FieldDef("m17ingrespro101",FieldDef.FLOAT,6,0);
-      m17indicepro101 = new FieldDef("m17indicepro101",FieldDef.CHAR,6);
-      m17rdtoprod101 = new FieldDef("m17rdtoprod101",FieldDef.FLOAT,6,0);
-      m17ingrespro111 = new FieldDef("m17ingrespro111",FieldDef.FLOAT,6,0);
-      m17indicepro111 = new FieldDef("m17indicepro111",FieldDef.CHAR,6);
-      m17rdtoprod111 = new FieldDef("m17rdtoprod111",FieldDef.FLOAT,6,0);
-      m17ingrespro121 = new FieldDef("m17ingrespro121",FieldDef.FLOAT,6,0);
-      m17indicepro121 = new FieldDef("m17indicepro121",FieldDef.CHAR,6);
-      m17rdtoprod121 = new FieldDef("m17rdtoprod121",FieldDef.FLOAT,6,0);
-      m17ingrespro131 = new FieldDef("m17ingrespro131",FieldDef.FLOAT,6,0);
-      m17indicepro131 = new FieldDef("m17indicepro131",FieldDef.CHAR,6);
-      m17rdtoprod131 = new FieldDef("m17rdtoprod131",FieldDef.FLOAT,6,0);
-      m17totingresos1 = new FieldDef("m17totingresos1",FieldDef.FLOAT,6,0);
-      m17rdtoprevio1 = new FieldDef("m17rdtoprevio1",FieldDef.FLOAT,6,0);
-      m17reducciones1 = new FieldDef("m17reducciones1",FieldDef.FLOAT,6,0);
-      m17redamortiza1 = new FieldDef("m17redamortiza1",FieldDef.FLOAT,6,0);
-      m17rdtominorad1 = new FieldDef("m17rdtominorad1",FieldDef.FLOAT,6,0);
-      m17indprodajen1 = new FieldDef("m17indprodajen1",FieldDef.FLOAT,6,0);
-      m17indpersonal1 = new FieldDef("m17indpersonal1",FieldDef.FLOAT,6,0);
-      m17indarrendad1 = new FieldDef("m17indarrendad1",FieldDef.FLOAT,6,0);
-      m17indpiensos1 = new FieldDef("m17indpiensos1",FieldDef.FLOAT,6,0);
-      m17indecologic1 = new FieldDef("m17indecologic1",FieldDef.FLOAT,6,0);
-      m17indpeqempre1 = new FieldDef("m17indpeqempre1",FieldDef.FLOAT,6,0);
-      m17indforestal1 = new FieldDef("m17indforestal1",FieldDef.FLOAT,6,0);
-      m17rdtomodulos1 = new FieldDef("m17rdtomodulos1",FieldDef.FLOAT,6,0);
-      m17reducgral1 = new FieldDef("m17reducgral1",FieldDef.FLOAT,6,0);
-      m17diferencia1 = new FieldDef("m17diferencia1",FieldDef.FLOAT,6,0);
-      m17reducjovene1 = new FieldDef("m17reducjovene1",FieldDef.FLOAT,6,0);
-      m17gastextraor1 = new FieldDef("m17gastextraor1",FieldDef.FLOAT,6,0);
-      m17rdtoneto1 = new FieldDef("m17rdtoneto1",FieldDef.FLOAT,6,0);
-      m17reducirregu1 = new FieldDef("m17reducirregu1",FieldDef.FLOAT,6,0);
-      m17rdtonetored1 = new FieldDef("m17rdtonetored1",FieldDef.FLOAT,6,0);
-      m17clave2 = new FieldDef("m17clave2",FieldDef.INTEGER,0);
-      m17titular2 = new FieldDef("m17titular2",FieldDef.INTEGER,0);
-      m17cobropago2 = new FieldDef("m17cobropago2",FieldDef.INTEGER,0);
-      m17ingresprod12 = new FieldDef("m17ingresprod12",FieldDef.FLOAT,6,0);
-      m17indiceprod12 = new FieldDef("m17indiceprod12",FieldDef.CHAR,6);
-      m17rdtoprod12 = new FieldDef("m17rdtoprod12",FieldDef.FLOAT,6,0);
-      m17ingresprod22 = new FieldDef("m17ingresprod22",FieldDef.FLOAT,6,0);
-      m17indiceprod22 = new FieldDef("m17indiceprod22",FieldDef.CHAR,6);
-      m17rdtoprod22 = new FieldDef("m17rdtoprod22",FieldDef.FLOAT,6,0);
-      m17ingresprod32 = new FieldDef("m17ingresprod32",FieldDef.FLOAT,6,0);
-      m17indiceprod32 = new FieldDef("m17indiceprod32",FieldDef.CHAR,6);
-      m17rdtoprod32 = new FieldDef("m17rdtoprod32",FieldDef.FLOAT,6,0);
-      m17ingresprod42 = new FieldDef("m17ingresprod42",FieldDef.FLOAT,6,0);
-      m17indiceprod42 = new FieldDef("m17indiceprod42",FieldDef.CHAR,6);
-      m17rdtoprod42 = new FieldDef("m17rdtoprod42",FieldDef.FLOAT,6,0);
-      m17ingresprod52 = new FieldDef("m17ingresprod52",FieldDef.FLOAT,6,0);
-      m17indiceprod52 = new FieldDef("m17indiceprod52",FieldDef.CHAR,6);
-      m17rdtoprod52 = new FieldDef("m17rdtoprod52",FieldDef.FLOAT,6,0);
-      m17ingresprod62 = new FieldDef("m17ingresprod62",FieldDef.FLOAT,6,0);
-      m17indiceprod62 = new FieldDef("m17indiceprod62",FieldDef.CHAR,6);
-      m17rdtoprod62 = new FieldDef("m17rdtoprod62",FieldDef.FLOAT,6,0);
-      m17ingresprod72 = new FieldDef("m17ingresprod72",FieldDef.FLOAT,6,0);
-      m17indiceprod72 = new FieldDef("m17indiceprod72",FieldDef.CHAR,6);
-      m17rdtoprod72 = new FieldDef("m17rdtoprod72",FieldDef.FLOAT,6,0);
-      m17ingresprod82 = new FieldDef("m17ingresprod82",FieldDef.FLOAT,6,0);
-      m17indiceprod82 = new FieldDef("m17indiceprod82",FieldDef.CHAR,6);
-      m17rdtoprod82 = new FieldDef("m17rdtoprod82",FieldDef.FLOAT,6,0);
-      m17ingresprod92 = new FieldDef("m17ingresprod92",FieldDef.FLOAT,6,0);
-      m17indiceprod92 = new FieldDef("m17indiceprod92",FieldDef.CHAR,6);
-      m17rdtoprod92 = new FieldDef("m17rdtoprod92",FieldDef.FLOAT,6,0);
-      m17ingrespro102 = new FieldDef("m17ingrespro102",FieldDef.FLOAT,6,0);
-      m17indicepro102 = new FieldDef("m17indicepro102",FieldDef.CHAR,6);
-      m17rdtoprod102 = new FieldDef("m17rdtoprod102",FieldDef.FLOAT,6,0);
-      m17ingrespro112 = new FieldDef("m17ingrespro112",FieldDef.FLOAT,6,0);
-      m17indicepro112 = new FieldDef("m17indicepro112",FieldDef.CHAR,6);
-      m17rdtoprod112 = new FieldDef("m17rdtoprod112",FieldDef.FLOAT,6,0);
-      m17ingrespro122 = new FieldDef("m17ingrespro122",FieldDef.FLOAT,6,0);
-      m17indicepro122 = new FieldDef("m17indicepro122",FieldDef.CHAR,6);
-      m17rdtoprod122 = new FieldDef("m17rdtoprod122",FieldDef.FLOAT,6,0);
-      m17ingrespro132 = new FieldDef("m17ingrespro132",FieldDef.FLOAT,6,0);
-      m17indicepro132 = new FieldDef("m17indicepro132",FieldDef.CHAR,6);
-      m17rdtoprod132 = new FieldDef("m17rdtoprod132",FieldDef.FLOAT,6,0);
-      m17totingresos2 = new FieldDef("m17totingresos2",FieldDef.FLOAT,6,0);
-      m17rdtoprevio2 = new FieldDef("m17rdtoprevio2",FieldDef.FLOAT,6,0);
-      m17reducciones2 = new FieldDef("m17reducciones2",FieldDef.FLOAT,6,0);
-      m17redamortiza2 = new FieldDef("m17redamortiza2",FieldDef.FLOAT,6,0);
-      m17rdtominorad2 = new FieldDef("m17rdtominorad2",FieldDef.FLOAT,6,0);
-      m17indprodajen2 = new FieldDef("m17indprodajen2",FieldDef.FLOAT,6,0);
-      m17indpersonal2 = new FieldDef("m17indpersonal2",FieldDef.FLOAT,6,0);
-      m17indarrendad2 = new FieldDef("m17indarrendad2",FieldDef.FLOAT,6,0);
-      m17indpiensos2 = new FieldDef("m17indpiensos2",FieldDef.FLOAT,6,0);
-      m17indecologic2 = new FieldDef("m17indecologic2",FieldDef.FLOAT,6,0);
-      m17indpeqempre2 = new FieldDef("m17indpeqempre2",FieldDef.FLOAT,6,0);
-      m17indforestal2 = new FieldDef("m17indforestal2",FieldDef.FLOAT,6,0);
-      m17rdtomodulos2 = new FieldDef("m17rdtomodulos2",FieldDef.FLOAT,6,0);
-      m17reducgral2 = new FieldDef("m17reducgral2",FieldDef.FLOAT,6,0);
-      m17diferencia2 = new FieldDef("m17diferencia2",FieldDef.FLOAT,6,0);
-      m17reducjovene2 = new FieldDef("m17reducjovene2",FieldDef.FLOAT,6,0);
-      m17gastextraor2 = new FieldDef("m17gastextraor2",FieldDef.FLOAT,6,0);
-      m17rdtoneto2 = new FieldDef("m17rdtoneto2",FieldDef.FLOAT,6,0);
-      m17reducirregu2 = new FieldDef("m17reducirregu2",FieldDef.FLOAT,6,0);
-      m17rdtonetored2 = new FieldDef("m17rdtonetored2",FieldDef.FLOAT,6,0);
-      m17totalrdto = new FieldDef("m17totalrdto",FieldDef.FLOAT,6,0);
-      m17totalempleo = new FieldDef("m17totalempleo",FieldDef.FLOAT,6,0);
-      m17totalrdtored = new FieldDef("m17totalrdtored",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        m17dominio,
-        m17nif,
-        m17declarac,
-        m17ejercicio,
-        m17periodo,
-        m17pagina,
-        m17clave1,
-        m17titular1,
-        m17cobropago1,
-        m17ingresprod11,
-        m17indiceprod11,
-        m17rdtoprod11,
-        m17ingresprod21,
-        m17indiceprod21,
-        m17rdtoprod21,
-        m17ingresprod31,
-        m17indiceprod31,
-        m17rdtoprod31,
-        m17ingresprod41,
-        m17indiceprod41,
-        m17rdtoprod41,
-        m17ingresprod51,
-        m17indiceprod51,
-        m17rdtoprod51,
-        m17ingresprod61,
-        m17indiceprod61,
-        m17rdtoprod61,
-        m17ingresprod71,
-        m17indiceprod71,
-        m17rdtoprod71,
-        m17ingresprod81,
-        m17indiceprod81,
-        m17rdtoprod81,
-        m17ingresprod91,
-        m17indiceprod91,
-        m17rdtoprod91,
-        m17ingrespro101,
-        m17indicepro101,
-        m17rdtoprod101,
-        m17ingrespro111,
-        m17indicepro111,
-        m17rdtoprod111,
-        m17ingrespro121,
-        m17indicepro121,
-        m17rdtoprod121,
-        m17ingrespro131,
-        m17indicepro131,
-        m17rdtoprod131,
-        m17totingresos1,
-        m17rdtoprevio1,
-        m17reducciones1,
-        m17redamortiza1,
-        m17rdtominorad1,
-        m17indprodajen1,
-        m17indpersonal1,
-        m17indarrendad1,
-        m17indpiensos1,
-        m17indecologic1,
-        m17indpeqempre1,
-        m17indforestal1,
-        m17rdtomodulos1,
-        m17reducgral1,
-        m17diferencia1,
-        m17reducjovene1,
-        m17gastextraor1,
-        m17rdtoneto1,
-        m17reducirregu1,
-        m17rdtonetored1,
-        m17clave2,
-        m17titular2,
-        m17cobropago2,
-        m17ingresprod12,
-        m17indiceprod12,
-        m17rdtoprod12,
-        m17ingresprod22,
-        m17indiceprod22,
-        m17rdtoprod22,
-        m17ingresprod32,
-        m17indiceprod32,
-        m17rdtoprod32,
-        m17ingresprod42,
-        m17indiceprod42,
-        m17rdtoprod42,
-        m17ingresprod52,
-        m17indiceprod52,
-        m17rdtoprod52,
-        m17ingresprod62,
-        m17indiceprod62,
-        m17rdtoprod62,
-        m17ingresprod72,
-        m17indiceprod72,
-        m17rdtoprod72,
-        m17ingresprod82,
-        m17indiceprod82,
-        m17rdtoprod82,
-        m17ingresprod92,
-        m17indiceprod92,
-        m17rdtoprod92,
-        m17ingrespro102,
-        m17indicepro102,
-        m17rdtoprod102,
-        m17ingrespro112,
-        m17indicepro112,
-        m17rdtoprod112,
-        m17ingrespro122,
-        m17indicepro122,
-        m17rdtoprod122,
-        m17ingrespro132,
-        m17indicepro132,
-        m17rdtoprod132,
-        m17totingresos2,
-        m17rdtoprevio2,
-        m17reducciones2,
-        m17redamortiza2,
-        m17rdtominorad2,
-        m17indprodajen2,
-        m17indpersonal2,
-        m17indarrendad2,
-        m17indpiensos2,
-        m17indecologic2,
-        m17indpeqempre2,
-        m17indforestal2,
-        m17rdtomodulos2,
-        m17reducgral2,
-        m17diferencia2,
-        m17reducjovene2,
-        m17gastextraor2,
-        m17rdtoneto2,
-        m17reducirregu2,
-        m17rdtonetored2,
-        m17totalrdto,
-        m17totalempleo,
-        m17totalrdtored        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m17dominio,m17nif,m17declarac,m17ejercicio,m17periodo,m17pagina };
-      setPrimaryKeys(arrayf);
-      m17declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
-      m17clave1.setDescription("(E3) Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Clave actividad de 0 a 9 (172)");
-      m17titular1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Contribuyente titular de actividad de 0 a 9 (171)");
-      m17cobropago1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Criterio cobros/pagos 1 o 0 (173)");
-      m17ingresprod11.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 1 Ingresos integros");
-      m17indiceprod11.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 1 Indice");
-      m17rdtoprod11.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 1 Rdto. base producto");
-      m17ingresprod21.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 2 Ingresos integros");
-      m17indiceprod21.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 2 Indice");
-      m17rdtoprod21.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 2 Rdto. base producto");
-      m17ingresprod31.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 3 Ingresos integros");
-      m17indiceprod31.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 3 Indice");
-      m17rdtoprod31.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 3 Rdto. base producto");
-      m17ingresprod41.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 4 Ingresos integros");
-      m17indiceprod41.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 4 Indice");
-      m17rdtoprod41.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 4 Rdto. base producto");
-      m17ingresprod51.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 5 Ingresos integros");
-      m17indiceprod51.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 5 Indice");
-      m17rdtoprod51.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 5 Rdto. base producto");
-      m17ingresprod61.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 6 Ingresos integros");
-      m17indiceprod61.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 6 Indice");
-      m17rdtoprod61.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 6 Rdto. base producto");
-      m17ingresprod71.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 7 Ingresos integros");
-      m17indiceprod71.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 7 Indice");
-      m17rdtoprod71.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 7 Rdto. base producto");
-      m17ingresprod81.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 8 Ingresos integros");
-      m17indiceprod81.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 8 Indice");
-      m17rdtoprod81.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 8 Rdto. base producto");
-      m17ingresprod91.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 9 Ingresos integros");
-      m17indiceprod91.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 9 Indice");
-      m17rdtoprod91.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 9 Rdto. base producto");
-      m17ingrespro101.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 10 Ingresos integros");
-      m17indicepro101.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 10 Indice");
-      m17rdtoprod101.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 10 Rdto. base producto");
-      m17ingrespro111.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 11 Ingresos integros");
-      m17indicepro111.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 11 Indice");
-      m17rdtoprod111.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 11 Rdto. base producto");
-      m17ingrespro121.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 12 Ingresos integros");
-      m17indicepro121.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 12 Indice");
-      m17rdtoprod121.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 12 Rdto. base producto");
-      m17ingrespro131.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 13 Ingresos integros");
-      m17indicepro131.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 13 Indice");
-      m17rdtoprod131.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 13 Rdto. base producto");
-      m17totingresos1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Total ingresos integros (174)");
-      m17rdtoprevio1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Rendimiento neto previo (suma) (175)");
-      m17reducciones1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Reducciones (176)");
-      m17redamortiza1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Amortizacion inmovilizado (178)");
-      m17rdtominorad1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Rdto. neto minorado (179)");
-      m17indprodajen1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Ind. correct.Medios ajenos (2 enteros y 2 decimales) (180)");
-      m17indpersonal1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Ind. correct.Utiliz. personal asalariado (2 enteros y 2 decimales) (181)");
-      m17indarrendad1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Ind. correct.Cultivos tierras arrendadas (2 enteros y 2 decimales) (182)");
-      m17indpiensos1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Ind. correct. Piensos adquir. 3 mas del 50 (2 enteros y 2 decimales)");
-      m17indecologic1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Ind. correct.Activ.agricultura ecologica (2 enteros y 2 decimales) (184)");
-      m17indpeqempre1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Ind. correct.Empresa no supera 9447 91 € (2 enteros y 2 decimales) (185)");
-      m17indforestal1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Ind. correct.Determin. activ. forestales (2 enteros y 2 decimales) (186)");
-      m17rdtomodulos1.setDescription("Rdtos agric ganad y forest est objetiva Act realiz /rdtos");
-      m17reducgral1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Reduccion caracter general (188)");
-      m17diferencia1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Diferencia (189)");
-      m17reducjovene1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Reduccion agricultores jovenes (190)");
-      m17gastextraor1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Gastos extraordinarios por circunstancias excepcionales (191)");
-      m17rdtoneto1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Rendimiento neto (192)");
-      m17reducirregu1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Reducciones rendimientos generados mas 2 años o forma irregular (193)");
-      m17rdtonetored1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Rendimiento neto reducido (194)");
-      m17clave2.setDescription("(E3) Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Clave actividad de 0 a 9 (172)");
-      m17titular2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Contribuyente titular de actividad de 0 a 9 (171)");
-      m17cobropago2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Criterio cobros/pagos 2 o 0 (173)");
-      m17ingresprod12.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 2 Ingresos integros");
-      m17indiceprod12.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 2 Indice");
-      m17rdtoprod12.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 2 Rdto. base producto");
-      m17ingresprod22.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 2 Ingresos integros");
-      m17indiceprod22.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 2 Indice");
-      m17rdtoprod22.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 2 Rdto. base producto");
-      m17ingresprod32.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 3 Ingresos integros");
-      m17indiceprod32.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 3 Indice");
-      m17rdtoprod32.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 3 Rdto. base producto");
-      m17ingresprod42.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 4 Ingresos integros");
-      m17indiceprod42.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 4 Indice");
-      m17rdtoprod42.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 4 Rdto. base producto");
-      m17ingresprod52.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 5 Ingresos integros");
-      m17indiceprod52.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 5 Indice");
-      m17rdtoprod52.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 5 Rdto. base producto");
-      m17ingresprod62.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 6 Ingresos integros");
-      m17indiceprod62.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 6 Indice");
-      m17rdtoprod62.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 6 Rdto. base producto");
-      m17ingresprod72.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 7 Ingresos integros");
-      m17indiceprod72.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 7 Indice");
-      m17rdtoprod72.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 7 Rdto. base producto");
-      m17ingresprod82.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 8 Ingresos integros");
-      m17indiceprod82.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 8 Indice");
-      m17rdtoprod82.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 8 Rdto. base producto");
-      m17ingresprod92.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 9 Ingresos integros");
-      m17indiceprod92.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 9 Indice");
-      m17rdtoprod92.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 9 Rdto. base producto");
-      m17ingrespro102.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 10 Ingresos integros");
-      m17indicepro102.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 10 Indice");
-      m17rdtoprod102.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 10 Rdto. base producto");
-      m17ingrespro112.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 12 Ingresos integros");
-      m17indicepro112.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 12 Indice");
-      m17rdtoprod112.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 12 Rdto. base producto");
-      m17ingrespro122.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 12 Ingresos integros");
-      m17indicepro122.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 12 Indice");
-      m17rdtoprod122.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 12 Rdto. base producto");
-      m17ingrespro132.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 13 Ingresos integros");
-      m17indicepro132.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 13 Indice");
-      m17rdtoprod132.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 13 Rdto. base producto");
-      m17totingresos2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Total ingresos integros (174)");
-      m17rdtoprevio2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Rendimiento neto previo (suma) (175)");
-      m17reducciones2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Reducciones (176)");
-      m17redamortiza2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Amortizacion inmovilizado (178)");
-      m17rdtominorad2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Rdto. neto minorado (179)");
-      m17indprodajen2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Ind. correct.Medios ajenos (2 enteros y 2 decimales) (180)");
-      m17indpersonal2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Ind. correct.Utiliz. personal asalariado (2 enteros y 2 decimales) (181)");
-      m17indarrendad2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Ind. correct.Cultivos tierras arrendadas (2 enteros y 2 decimales) (182)");
-      m17indpiensos2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Ind. correct. Piensos adquir. 3 mas del 50 (2 enteros y 2 decimales)");
-      m17indecologic2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Ind. correct.Activ.agricultura ecologica (2 enteros y 2 decimales) (184)");
-      m17indpeqempre2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Ind. correct.Empresa no supera 9447 92 € (2 enteros y 2 decimales) (185)");
-      m17indforestal2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Ind. correct.Determin. activ. forestales (2 enteros y 2 decimales) (186)");
-      m17rdtomodulos2.setDescription("Rdtos agric ganad y forest est objetiva Act realiz /rdtos");
-      m17reducgral2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Reduccion caracter general (188)");
-      m17diferencia2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Diferencia (189)");
-      m17reducjovene2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Reduccion agricultores jovenes (190)");
-      m17gastextraor2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Gastos extraordinarios por circunstancias excepcionales (191)");
-      m17rdtoneto2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Rendimiento neto (192)");
-      m17reducirregu2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Reducciones rendimientos generados mas 2 años o forma irregular (193)");
-      m17rdtonetored2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Rendimiento neto reducido (194)");
-      m17totalrdto.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Rendimiento neto reducido total actividades agricolas Suma rendimientos netos reducidos (195)");
-      m17totalempleo.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Rendimiento neto reducido total actividades agricolas Reduccion por mantenimiento o creacion de empleo (196");
-      m17totalrdtored.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Rendimiento neto reducido total actividades agricolas Rendimiento neto reducido total (197)");
-      }
-    }
-    
-  public class TabMod100h8 extends TableDef
-    {
-    // Campos
-    public FieldDef m18dominio;
-    public FieldDef m18nif;
-    public FieldDef m18declarac;
-    public FieldDef m18ejercicio;
-    public FieldDef m18periodo;
-    public FieldDef m18pagina;
-    public FieldDef m18titular1;
-    public FieldDef m18nifentidad1;
-    public FieldDef m18porcen1;
-    public FieldDef m18mobgrlrdtoa1;
-    public FieldDef m18mobgrlreduc1;
-    public FieldDef m18mobgrlrdto1;
-    public FieldDef m18mobahorrdto1;
-    public FieldDef m18capinmrdtoa1;
-    public FieldDef m18capinmreduc1;
-    public FieldDef m18capinmrdto1;
-    public FieldDef m18activrdtoa1;
-    public FieldDef m18activreduc1;
-    public FieldDef m18activrdto1;
-    public FieldDef m18ganannoelem1;
-    public FieldDef m18perdinoelem1;
-    public FieldDef m18gananelemen1;
-    public FieldDef m18perdielemen1;
-    public FieldDef m18retenciones1;
-    public FieldDef m18titular2;
-    public FieldDef m18nifentidad2;
-    public FieldDef m18porcen2;
-    public FieldDef m18mobgrlrdtoa2;
-    public FieldDef m18mobgrlreduc2;
-    public FieldDef m18mobgrlrdto2;
-    public FieldDef m18mobahorrdto2;
-    public FieldDef m18capinmrdtoa2;
-    public FieldDef m18capinmreduc2;
-    public FieldDef m18capinmrdto2;
-    public FieldDef m18activrdtoa2;
-    public FieldDef m18activreduc2;
-    public FieldDef m18activrdto2;
-    public FieldDef m18ganannoelem2;
-    public FieldDef m18perdinoelem2;
-    public FieldDef m18gananelemen2;
-    public FieldDef m18perdielemen2;
-    public FieldDef m18retenciones2;
-    public FieldDef m18titular3;
-    public FieldDef m18nifentidad3;
-    public FieldDef m18porcen3;
-    public FieldDef m18mobgrlrdtoa3;
-    public FieldDef m18mobgrlreduc3;
-    public FieldDef m18mobgrlrdto3;
-    public FieldDef m18mobahorrdto3;
-    public FieldDef m18capinmrdtoa3;
-    public FieldDef m18capinmreduc3;
-    public FieldDef m18capinmrdto3;
-    public FieldDef m18activrdtoa3;
-    public FieldDef m18activreduc3;
-    public FieldDef m18activrdto3;
-    public FieldDef m18ganannoelem3;
-    public FieldDef m18perdinoelem3;
-    public FieldDef m18gananelemen3;
-    public FieldDef m18perdielemen3;
-    public FieldDef m18retenciones3;
-    public FieldDef m18tcapmobbgral;
-    public FieldDef m18tcapmobbahor;
-    public FieldDef m18tcapinmobil;
-    public FieldDef m18tactividad;
-    public FieldDef m18tganabgral;
-    public FieldDef m18tperdbgral;
-    public FieldDef m18tganabahor;
-    public FieldDef m18tperdbahor;
-    public FieldDef m18tretencion;
-    public FieldDef m18utetitular1;
-    public FieldDef m18nifute1;
-    public FieldDef m18cobropago1;
-    public FieldDef m18utebaseimpo1;
-    public FieldDef m18utebasededa1;
-    public FieldDef m18utededcreae1;
-    public FieldDef m18utebaseceut1;
-    public FieldDef m18uteimpinter1;
-    public FieldDef m18uteretencio1;
-    public FieldDef m18utetitular2;
-    public FieldDef m18nifute2;
-    public FieldDef m18cobropago2;
-    public FieldDef m18utebaseimpo2;
-    public FieldDef m18utebasededa2;
-    public FieldDef m18utededcreae2;
-    public FieldDef m18utebaseceut2;
-    public FieldDef m18uteimpinter2;
-    public FieldDef m18uteretencio2;
-    public FieldDef m18utetitular3;
-    public FieldDef m18nifute3;
-    public FieldDef m18cobropago3;
-    public FieldDef m18utebaseimpo3;
-    public FieldDef m18utebasededa3;
-    public FieldDef m18utededcreae3;
-    public FieldDef m18utebaseceut3;
-    public FieldDef m18uteimpinter3;
-    public FieldDef m18uteretencio3;
-    public FieldDef m18utetbase;
-    public FieldDef m18utetreten;
-    public FieldDef m18tfinttitula1;
-    public FieldDef m18tfintnombre1;
-    public FieldDef m18tfintcriter1;
-    public FieldDef m18tfintimputa1;
-    public FieldDef m18tfinttitula2;
-    public FieldDef m18tfintnombre2;
-    public FieldDef m18tfintcriter2;
-    public FieldDef m18tfintimputa2;
-    public FieldDef m18tfinttitula3;
-    public FieldDef m18tfintnombre3;
-    public FieldDef m18tfintcriter3;
-    public FieldDef m18tfintimputa3;
-    public FieldDef m18tfinttimput;
-    public FieldDef m18imagtitular;
-    public FieldDef m18imagpersona;
-    public FieldDef m18imagniflabor;
-    public FieldDef m18imagimputac;
-    public FieldDef m18invcoltitul1;
-    public FieldDef m18invcolnombr1;
-    public FieldDef m18invcolimput1;
-    public FieldDef m18invcoltitul2;
-    public FieldDef m18invcolnombr2;
-    public FieldDef m18invcolimput2;
-    public FieldDef m18invcoltitul3;
-    public FieldDef m18invcolnombr3;
-    public FieldDef m18invcolimput3;
-    public FieldDef m18invcoltotal;
-    public TabMod100h8(String name)
-      {
-      super(name);
-      m18dominio = new FieldDef("m18dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m18nif = new FieldDef("m18nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m18declarac = new FieldDef("m18declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      m18ejercicio = new FieldDef("m18ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m18periodo = new FieldDef("m18periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m18pagina = new FieldDef("m18pagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m18titular1 = new FieldDef("m18titular1",FieldDef.INTEGER,0);
-      m18nifentidad1 = new FieldDef("m18nifentidad1",FieldDef.CHAR,9);
-      m18porcen1 = new FieldDef("m18porcen1",FieldDef.FLOAT,6,0);
-      m18mobgrlrdtoa1 = new FieldDef("m18mobgrlrdtoa1",FieldDef.FLOAT,6,0);
-      m18mobgrlreduc1 = new FieldDef("m18mobgrlreduc1",FieldDef.FLOAT,6,0);
-      m18mobgrlrdto1 = new FieldDef("m18mobgrlrdto1",FieldDef.FLOAT,6,0);
-      m18mobahorrdto1 = new FieldDef("m18mobahorrdto1",FieldDef.FLOAT,6,0);
-      m18capinmrdtoa1 = new FieldDef("m18capinmrdtoa1",FieldDef.FLOAT,6,0);
-      m18capinmreduc1 = new FieldDef("m18capinmreduc1",FieldDef.FLOAT,6,0);
-      m18capinmrdto1 = new FieldDef("m18capinmrdto1",FieldDef.FLOAT,6,0);
-      m18activrdtoa1 = new FieldDef("m18activrdtoa1",FieldDef.FLOAT,6,0);
-      m18activreduc1 = new FieldDef("m18activreduc1",FieldDef.FLOAT,6,0);
-      m18activrdto1 = new FieldDef("m18activrdto1",FieldDef.FLOAT,6,0);
-      m18ganannoelem1 = new FieldDef("m18ganannoelem1",FieldDef.FLOAT,6,0);
-      m18perdinoelem1 = new FieldDef("m18perdinoelem1",FieldDef.FLOAT,6,0);
-      m18gananelemen1 = new FieldDef("m18gananelemen1",FieldDef.FLOAT,6,0);
-      m18perdielemen1 = new FieldDef("m18perdielemen1",FieldDef.FLOAT,6,0);
-      m18retenciones1 = new FieldDef("m18retenciones1",FieldDef.FLOAT,6,0);
-      m18titular2 = new FieldDef("m18titular2",FieldDef.INTEGER,0);
-      m18nifentidad2 = new FieldDef("m18nifentidad2",FieldDef.CHAR,9);
-      m18porcen2 = new FieldDef("m18porcen2",FieldDef.FLOAT,6,0);
-      m18mobgrlrdtoa2 = new FieldDef("m18mobgrlrdtoa2",FieldDef.FLOAT,6,0);
-      m18mobgrlreduc2 = new FieldDef("m18mobgrlreduc2",FieldDef.FLOAT,6,0);
-      m18mobgrlrdto2 = new FieldDef("m18mobgrlrdto2",FieldDef.FLOAT,6,0);
-      m18mobahorrdto2 = new FieldDef("m18mobahorrdto2",FieldDef.FLOAT,6,0);
-      m18capinmrdtoa2 = new FieldDef("m18capinmrdtoa2",FieldDef.FLOAT,6,0);
-      m18capinmreduc2 = new FieldDef("m18capinmreduc2",FieldDef.FLOAT,6,0);
-      m18capinmrdto2 = new FieldDef("m18capinmrdto2",FieldDef.FLOAT,6,0);
-      m18activrdtoa2 = new FieldDef("m18activrdtoa2",FieldDef.FLOAT,6,0);
-      m18activreduc2 = new FieldDef("m18activreduc2",FieldDef.FLOAT,6,0);
-      m18activrdto2 = new FieldDef("m18activrdto2",FieldDef.FLOAT,6,0);
-      m18ganannoelem2 = new FieldDef("m18ganannoelem2",FieldDef.FLOAT,6,0);
-      m18perdinoelem2 = new FieldDef("m18perdinoelem2",FieldDef.FLOAT,6,0);
-      m18gananelemen2 = new FieldDef("m18gananelemen2",FieldDef.FLOAT,6,0);
-      m18perdielemen2 = new FieldDef("m18perdielemen2",FieldDef.FLOAT,6,0);
-      m18retenciones2 = new FieldDef("m18retenciones2",FieldDef.FLOAT,6,0);
-      m18titular3 = new FieldDef("m18titular3",FieldDef.INTEGER,0);
-      m18nifentidad3 = new FieldDef("m18nifentidad3",FieldDef.CHAR,9);
-      m18porcen3 = new FieldDef("m18porcen3",FieldDef.FLOAT,6,0);
-      m18mobgrlrdtoa3 = new FieldDef("m18mobgrlrdtoa3",FieldDef.FLOAT,6,0);
-      m18mobgrlreduc3 = new FieldDef("m18mobgrlreduc3",FieldDef.FLOAT,6,0);
-      m18mobgrlrdto3 = new FieldDef("m18mobgrlrdto3",FieldDef.FLOAT,6,0);
-      m18mobahorrdto3 = new FieldDef("m18mobahorrdto3",FieldDef.FLOAT,6,0);
-      m18capinmrdtoa3 = new FieldDef("m18capinmrdtoa3",FieldDef.FLOAT,6,0);
-      m18capinmreduc3 = new FieldDef("m18capinmreduc3",FieldDef.FLOAT,6,0);
-      m18capinmrdto3 = new FieldDef("m18capinmrdto3",FieldDef.FLOAT,6,0);
-      m18activrdtoa3 = new FieldDef("m18activrdtoa3",FieldDef.FLOAT,6,0);
-      m18activreduc3 = new FieldDef("m18activreduc3",FieldDef.FLOAT,6,0);
-      m18activrdto3 = new FieldDef("m18activrdto3",FieldDef.FLOAT,6,0);
-      m18ganannoelem3 = new FieldDef("m18ganannoelem3",FieldDef.FLOAT,6,0);
-      m18perdinoelem3 = new FieldDef("m18perdinoelem3",FieldDef.FLOAT,6,0);
-      m18gananelemen3 = new FieldDef("m18gananelemen3",FieldDef.FLOAT,6,0);
-      m18perdielemen3 = new FieldDef("m18perdielemen3",FieldDef.FLOAT,6,0);
-      m18retenciones3 = new FieldDef("m18retenciones3",FieldDef.FLOAT,6,0);
-      m18tcapmobbgral = new FieldDef("m18tcapmobbgral",FieldDef.FLOAT,6,0);
-      m18tcapmobbahor = new FieldDef("m18tcapmobbahor",FieldDef.FLOAT,6,0);
-      m18tcapinmobil = new FieldDef("m18tcapinmobil",FieldDef.FLOAT,6,0);
-      m18tactividad = new FieldDef("m18tactividad",FieldDef.FLOAT,6,0);
-      m18tganabgral = new FieldDef("m18tganabgral",FieldDef.FLOAT,6,0);
-      m18tperdbgral = new FieldDef("m18tperdbgral",FieldDef.FLOAT,6,0);
-      m18tganabahor = new FieldDef("m18tganabahor",FieldDef.FLOAT,6,0);
-      m18tperdbahor = new FieldDef("m18tperdbahor",FieldDef.FLOAT,6,0);
-      m18tretencion = new FieldDef("m18tretencion",FieldDef.FLOAT,6,0);
-      m18utetitular1 = new FieldDef("m18utetitular1",FieldDef.INTEGER,0);
-      m18nifute1 = new FieldDef("m18nifute1",FieldDef.CHAR,9);
-      m18cobropago1 = new FieldDef("m18cobropago1",FieldDef.CHAR,1);
-      m18utebaseimpo1 = new FieldDef("m18utebaseimpo1",FieldDef.FLOAT,6,0);
-      m18utebasededa1 = new FieldDef("m18utebasededa1",FieldDef.FLOAT,6,0);
-      m18utededcreae1 = new FieldDef("m18utededcreae1",FieldDef.FLOAT,6,0);
-      m18utebaseceut1 = new FieldDef("m18utebaseceut1",FieldDef.FLOAT,6,0);
-      m18uteimpinter1 = new FieldDef("m18uteimpinter1",FieldDef.FLOAT,6,0);
-      m18uteretencio1 = new FieldDef("m18uteretencio1",FieldDef.FLOAT,6,0);
-      m18utetitular2 = new FieldDef("m18utetitular2",FieldDef.INTEGER,0);
-      m18nifute2 = new FieldDef("m18nifute2",FieldDef.CHAR,9);
-      m18cobropago2 = new FieldDef("m18cobropago2",FieldDef.CHAR,1);
-      m18utebaseimpo2 = new FieldDef("m18utebaseimpo2",FieldDef.FLOAT,6,0);
-      m18utebasededa2 = new FieldDef("m18utebasededa2",FieldDef.FLOAT,6,0);
-      m18utededcreae2 = new FieldDef("m18utededcreae2",FieldDef.FLOAT,6,0);
-      m18utebaseceut2 = new FieldDef("m18utebaseceut2",FieldDef.FLOAT,6,0);
-      m18uteimpinter2 = new FieldDef("m18uteimpinter2",FieldDef.FLOAT,6,0);
-      m18uteretencio2 = new FieldDef("m18uteretencio2",FieldDef.FLOAT,6,0);
-      m18utetitular3 = new FieldDef("m18utetitular3",FieldDef.INTEGER,0);
-      m18nifute3 = new FieldDef("m18nifute3",FieldDef.CHAR,9);
-      m18cobropago3 = new FieldDef("m18cobropago3",FieldDef.CHAR,1);
-      m18utebaseimpo3 = new FieldDef("m18utebaseimpo3",FieldDef.FLOAT,6,0);
-      m18utebasededa3 = new FieldDef("m18utebasededa3",FieldDef.FLOAT,6,0);
-      m18utededcreae3 = new FieldDef("m18utededcreae3",FieldDef.FLOAT,6,0);
-      m18utebaseceut3 = new FieldDef("m18utebaseceut3",FieldDef.FLOAT,6,0);
-      m18uteimpinter3 = new FieldDef("m18uteimpinter3",FieldDef.FLOAT,6,0);
-      m18uteretencio3 = new FieldDef("m18uteretencio3",FieldDef.FLOAT,6,0);
-      m18utetbase = new FieldDef("m18utetbase",FieldDef.FLOAT,6,0);
-      m18utetreten = new FieldDef("m18utetreten",FieldDef.FLOAT,6,0);
-      m18tfinttitula1 = new FieldDef("m18tfinttitula1",FieldDef.INTEGER,0);
-      m18tfintnombre1 = new FieldDef("m18tfintnombre1",FieldDef.CHAR,24);
-      m18tfintcriter1 = new FieldDef("m18tfintcriter1",FieldDef.CHAR,1);
-      m18tfintimputa1 = new FieldDef("m18tfintimputa1",FieldDef.FLOAT,6,0);
-      m18tfinttitula2 = new FieldDef("m18tfinttitula2",FieldDef.INTEGER,0);
-      m18tfintnombre2 = new FieldDef("m18tfintnombre2",FieldDef.CHAR,24);
-      m18tfintcriter2 = new FieldDef("m18tfintcriter2",FieldDef.CHAR,1);
-      m18tfintimputa2 = new FieldDef("m18tfintimputa2",FieldDef.FLOAT,6,0);
-      m18tfinttitula3 = new FieldDef("m18tfinttitula3",FieldDef.INTEGER,0);
-      m18tfintnombre3 = new FieldDef("m18tfintnombre3",FieldDef.CHAR,24);
-      m18tfintcriter3 = new FieldDef("m18tfintcriter3",FieldDef.CHAR,1);
-      m18tfintimputa3 = new FieldDef("m18tfintimputa3",FieldDef.FLOAT,6,0);
-      m18tfinttimput = new FieldDef("m18tfinttimput",FieldDef.FLOAT,6,0);
-      m18imagtitular = new FieldDef("m18imagtitular",FieldDef.INTEGER,0);
-      m18imagpersona = new FieldDef("m18imagpersona",FieldDef.CHAR,25);
-      m18imagniflabor = new FieldDef("m18imagniflabor",FieldDef.CHAR,25);
-      m18imagimputac = new FieldDef("m18imagimputac",FieldDef.FLOAT,6,0);
-      m18invcoltitul1 = new FieldDef("m18invcoltitul1",FieldDef.INTEGER,0);
-      m18invcolnombr1 = new FieldDef("m18invcolnombr1",FieldDef.CHAR,24);
-      m18invcolimput1 = new FieldDef("m18invcolimput1",FieldDef.FLOAT,6,0);
-      m18invcoltitul2 = new FieldDef("m18invcoltitul2",FieldDef.INTEGER,0);
-      m18invcolnombr2 = new FieldDef("m18invcolnombr2",FieldDef.CHAR,24);
-      m18invcolimput2 = new FieldDef("m18invcolimput2",FieldDef.FLOAT,6,0);
-      m18invcoltitul3 = new FieldDef("m18invcoltitul3",FieldDef.INTEGER,0);
-      m18invcolnombr3 = new FieldDef("m18invcolnombr3",FieldDef.CHAR,24);
-      m18invcolimput3 = new FieldDef("m18invcolimput3",FieldDef.FLOAT,6,0);
-      m18invcoltotal = new FieldDef("m18invcoltotal",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        m18dominio,
-        m18nif,
-        m18declarac,
-        m18ejercicio,
-        m18periodo,
-        m18pagina,
-        m18titular1,
-        m18nifentidad1,
-        m18porcen1,
-        m18mobgrlrdtoa1,
-        m18mobgrlreduc1,
-        m18mobgrlrdto1,
-        m18mobahorrdto1,
-        m18capinmrdtoa1,
-        m18capinmreduc1,
-        m18capinmrdto1,
-        m18activrdtoa1,
-        m18activreduc1,
-        m18activrdto1,
-        m18ganannoelem1,
-        m18perdinoelem1,
-        m18gananelemen1,
-        m18perdielemen1,
-        m18retenciones1,
-        m18titular2,
-        m18nifentidad2,
-        m18porcen2,
-        m18mobgrlrdtoa2,
-        m18mobgrlreduc2,
-        m18mobgrlrdto2,
-        m18mobahorrdto2,
-        m18capinmrdtoa2,
-        m18capinmreduc2,
-        m18capinmrdto2,
-        m18activrdtoa2,
-        m18activreduc2,
-        m18activrdto2,
-        m18ganannoelem2,
-        m18perdinoelem2,
-        m18gananelemen2,
-        m18perdielemen2,
-        m18retenciones2,
-        m18titular3,
-        m18nifentidad3,
-        m18porcen3,
-        m18mobgrlrdtoa3,
-        m18mobgrlreduc3,
-        m18mobgrlrdto3,
-        m18mobahorrdto3,
-        m18capinmrdtoa3,
-        m18capinmreduc3,
-        m18capinmrdto3,
-        m18activrdtoa3,
-        m18activreduc3,
-        m18activrdto3,
-        m18ganannoelem3,
-        m18perdinoelem3,
-        m18gananelemen3,
-        m18perdielemen3,
-        m18retenciones3,
-        m18tcapmobbgral,
-        m18tcapmobbahor,
-        m18tcapinmobil,
-        m18tactividad,
-        m18tganabgral,
-        m18tperdbgral,
-        m18tganabahor,
-        m18tperdbahor,
-        m18tretencion,
-        m18utetitular1,
-        m18nifute1,
-        m18cobropago1,
-        m18utebaseimpo1,
-        m18utebasededa1,
-        m18utededcreae1,
-        m18utebaseceut1,
-        m18uteimpinter1,
-        m18uteretencio1,
-        m18utetitular2,
-        m18nifute2,
-        m18cobropago2,
-        m18utebaseimpo2,
-        m18utebasededa2,
-        m18utededcreae2,
-        m18utebaseceut2,
-        m18uteimpinter2,
-        m18uteretencio2,
-        m18utetitular3,
-        m18nifute3,
-        m18cobropago3,
-        m18utebaseimpo3,
-        m18utebasededa3,
-        m18utededcreae3,
-        m18utebaseceut3,
-        m18uteimpinter3,
-        m18uteretencio3,
-        m18utetbase,
-        m18utetreten,
-        m18tfinttitula1,
-        m18tfintnombre1,
-        m18tfintcriter1,
-        m18tfintimputa1,
-        m18tfinttitula2,
-        m18tfintnombre2,
-        m18tfintcriter2,
-        m18tfintimputa2,
-        m18tfinttitula3,
-        m18tfintnombre3,
-        m18tfintcriter3,
-        m18tfintimputa3,
-        m18tfinttimput,
-        m18imagtitular,
-        m18imagpersona,
-        m18imagniflabor,
-        m18imagimputac,
-        m18invcoltitul1,
-        m18invcolnombr1,
-        m18invcolimput1,
-        m18invcoltitul2,
-        m18invcolnombr2,
-        m18invcolimput2,
-        m18invcoltitul3,
-        m18invcolnombr3,
-        m18invcolimput3,
-        m18invcoltotal        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m18dominio,m18nif,m18declarac,m18ejercicio,m18periodo,m18pagina };
-      setPrimaryKeys(arrayf);
-      m18declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
-      m18titular1.setDescription("(F) Regs. especiales Regimen atribucion rentas Entidad 1 Entidades y contribuyentes participes Contribuyente 0 a 9 (200)");
-      m18nifentidad1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Entidades y contribuyentes participes NIF Entidad (201)");
-      m18porcen1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Entidades y contribuyentes participes Porcentaje participacion (202)");
-      m18mobgrlrdtoa1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. capital mobiliario. Rdto. integrar base imponible general Rdto. neto atribuido (203)");
-      m18mobgrlreduc1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. capital mobiliario. Rdto. integrar base imponible general Reducciones y minoraciones (204)");
-      m18mobgrlrdto1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. capital mobiliario. Rdto. integrar base imponible general Rdto. neto computable (205)");
-      m18mobahorrdto1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. capital mobiliario. Rdtos. integrar base imponible ahorro . Rdto. neto (206)");
-      m18capinmrdtoa1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. capital inmobiliario Rdto. neto atribuido (209)");
-      m18capinmreduc1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. capital inmobiliario Reducciones y minoraciones (210)");
-      m18capinmrdto1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. capital inmobiliario Rdto. neto computable (211)");
-      m18activrdtoa1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. actividades economicas Rdto. neto atribuido (212)");
-      m18activreduc1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. actividades economicas Reducciones y minoraciones (213)");
-      m18activrdto1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. actividades economicas Rdto. neto computable (214)");
-      m18ganannoelem1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Atribucion ganancias y perdidas No derivadas transmision Ganancias (215)");
-      m18perdinoelem1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Atribucion ganancias y perdidas No derivadas transmision Perdidas (216)");
-      m18gananelemen1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Atribucion ganancias y perdidas Derivadas transmision Ganancias (217)");
-      m18perdielemen1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Atribucion ganancias y perdidas Derivadas transmision Perdidas (218)");
-      m18retenciones1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Retenciones e ingresos a cuenta. Retenciones e ingresos atribuidos (219)");
-      m18titular2.setDescription("(F) Regs. especiales Regimen atribucion rentas Entidad 2 Entidades y contribuyentes participes Contribuyente 0 a 9 (200)");
-      m18nifentidad2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Entidades y contribuyentes participes NIF Entidad (201)");
-      m18porcen2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Entidades y contribuyentes participes Porcentaje participacion (202)");
-      m18mobgrlrdtoa2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. capital mobiliario. Rdto. integrar base imponible general Rdto. neto atribuido (203)");
-      m18mobgrlreduc2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. capital mobiliario. Rdto. integrar base imponible general Reducciones y minoraciones (204)");
-      m18mobgrlrdto2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. capital mobiliario. Rdto. integrar base imponible general Rdto. neto computable (205)");
-      m18mobahorrdto2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. capital mobiliario. Rdtos. integrar base imponible ahorro . Rdto. neto (206)");
-      m18capinmrdtoa2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. capital inmobiliario Rdto. neto atribuido (209)");
-      m18capinmreduc2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. capital inmobiliario Reducciones y minoraciones (210)");
-      m18capinmrdto2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. capital inmobiliario Rdto. neto computable (211)");
-      m18activrdtoa2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. actividades economicas Rdto. neto atribuido (212)");
-      m18activreduc2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. actividades economicas Reducciones y minoraciones (213)");
-      m18activrdto2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. actividades economicas Rdto. neto computable (214)");
-      m18ganannoelem2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Atribucion ganancias y perdidas No derivadas transmision Ganancias (215)");
-      m18perdinoelem2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Atribucion ganancias y perdidas No derivadas transmision Perdidas (216)");
-      m18gananelemen2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Atribucion ganancias y perdidas Derivadas transmision Ganancias (217)");
-      m18perdielemen2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Atribucion ganancias y perdidas Derivadas transmision Perdidas (218)");
-      m18retenciones2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Retenciones e ingresos a cuenta. Retenciones e ingresos atribuidos (219)");
-      m18titular3.setDescription("(F) Regs. especiales Regimen atribucion rentas Entidad 3 Entidades y contribuyentes participes Contribuyente 0 a 9 (200)");
-      m18nifentidad3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Entidades y contribuyentes participes NIF Entidad (201)");
-      m18porcen3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Entidades y contribuyentes participes Porcentaje participacion (202)");
-      m18mobgrlrdtoa3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. capital mobiliario. Rdto. integrar base imponible general Rdto. neto atribuido (203)");
-      m18mobgrlreduc3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. capital mobiliario. Rdto. integrar base imponible general Reducciones y minoraciones (204)");
-      m18mobgrlrdto3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. capital mobiliario. Rdto. integrar base imponible general Rdto. neto computable (205)");
-      m18mobahorrdto3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. capital mobiliario. Rdtos. integrar base imponible ahorro . Rdto. neto (206)");
-      m18capinmrdtoa3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. capital inmobiliario Rdto. neto atribuido (209)");
-      m18capinmreduc3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. capital inmobiliario Reducciones y minoraciones (210)");
-      m18capinmrdto3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. capital inmobiliario Rdto. neto computable (211)");
-      m18activrdtoa3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. actividades economicas Rdto. neto atribuido (212)");
-      m18activreduc3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. actividades economicas Reducciones y minoraciones (213)");
-      m18activrdto3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. actividades economicas Rdto. neto computable (214)");
-      m18ganannoelem3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Atribucion ganancias y perdidas No derivadas transmision Ganancias (215)");
-      m18perdinoelem3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Atribucion ganancias y perdidas No derivadas transmision Perdidas (216)");
-      m18gananelemen3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Atribucion ganancias y perdidas Derivadas transmision Ganancias (217)");
-      m18perdielemen3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Atribucion ganancias y perdidas Derivadas transmision Perdidas (218)");
-      m18retenciones3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Retenciones e ingresos a cuenta. Retenciones e ingresos atribuidos (219)");
-      m18tcapmobbgral.setDescription("Regs. especiales Regimen atribucion rentas Total Rdtos. capital mobiliario Rdto. integrar base imponible general Total rdto. neto computable (220)");
-      m18tcapmobbahor.setDescription("Regs. especiales Regimen atribucion rentas Total Rdtos. capital mobiliario Rdto. integrar base imponible ahorro Total rdto. neto atribuido (221)");
-      m18tcapinmobil.setDescription("Regs. especiales Regimen atribucion rentas Total Rdtos. capital inmobiliario Total rdto. neto computable (222)");
-      m18tactividad.setDescription("Regs. especiales Regimen atribucion rentas Total Rdtos. actividades economicas Total rdto. neto computable (223)");
-      m18tganabgral.setDescription("Regs. especiales Regimen atribucion rentas Total Atribucion ganancias y perdidas No derivadas transmision Total ganancias (224)");
-      m18tperdbgral.setDescription("Regs. especiales Regimen atribucion rentas Total Atribucion ganancias y perdidas No derivadas transmision Total perdidas (225)");
-      m18tganabahor.setDescription("Regs. especiales Regimen atribucion rentas Total Atribucion ganancias y perdidas Derivadas transmision Total ganancias (226)");
-      m18tperdbahor.setDescription("Regs. especiales Regimen atribucion rentas Total Atribucion ganancias y perdidas Derivadas transmision Total perdidas (227)");
-      m18tretencion.setDescription("Regs. especiales Regimen atribucion rentas Total Atribucion retenciones Total retenciones (746)");
-      m18utetitular1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Entidades y contribuyentes socios. Contribuyente 0 a 9 (230)");
-      m18nifute1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Entidades y contribuyentes socios. N.I.F. Entidad (231)");
-      m18cobropago1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Entidades y contribuyentes socios. Criterio imputacion temporal. Clave (blanco 1 o 2) (232)");
-      m18utebaseimpo1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Imput. base impon. y deduc. Base imponible imputada (233)");
-      m18utebasededa1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Imput. base impon. y deduc. Deduc. invers. empres. (234)");
-      m18utededcreae1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Imput. base impon. y deduc. Deduc. creacion empleo (235)");
-      m18utebaseceut1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Imput. base impon. y deduc. Deduc. rentas Ceuta/Melilla (236)");
-      m18uteimpinter1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Imput. base impon. y deduc. Deduc. doble impos. internac. (237)");
-      m18uteretencio1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Imput. Ret.e.ingresos cta. Retenc. e ingresos a cta. imputados (239)");
-      m18utetitular2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Entidades y contribuyentes socios. Contribuyente 0 a 9 (230)");
-      m18nifute2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Entidades y contribuyentes socios. N.I.F. Entidad (231)");
-      m18cobropago2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Entidades y contribuyentes socios. Criterio imputacion temporal. Clave (blanco 2 o 2) (232)");
-      m18utebaseimpo2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Imput. base impon. y deduc. Base imponible imputada (233)");
-      m18utebasededa2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Imput. base impon. y deduc. Deduc. invers. empres. (234)");
-      m18utededcreae2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Imput. base impon. y deduc. Deduc. creacion empleo (235)");
-      m18utebaseceut2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Imput. base impon. y deduc. Deduc. rentas Ceuta/Melilla (236)");
-      m18uteimpinter2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Imput. base impon. y deduc. Deduc. doble impos. internac. (237)");
-      m18uteretencio2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Imput. Ret.e.ingresos cta. Retenc. e ingresos a cta. imputados (239)");
-      m18utetitular3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Entidades y contribuyentes socios. Contribuyente 0 a 9 (230)");
-      m18nifute3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Entidades y contribuyentes socios. N.I.F. Entidad (231)");
-      m18cobropago3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Entidades y contribuyentes socios. Criterio imputacion temporal. Clave (blanco 3 o 2) (232)");
-      m18utebaseimpo3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Imput. base impon. y deduc. Base imponible imputada (233)");
-      m18utebasededa3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Imput. base impon. y deduc. Deduc. invers. empres. (234)");
-      m18utededcreae3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Imput. base impon. y deduc. Deduc. creacion empleo (235)");
-      m18utebaseceut3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Imput. base impon. y deduc. Deduc. rentas Ceuta/Melilla (236)");
-      m18uteimpinter3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Imput. base impon. y deduc. Deduc. doble impos. internac. (237)");
-      m18uteretencio3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Imput. Ret.e.ingresos cta. Retenc. e ingresos a cta. imputados (239)");
-      m18utetbase.setDescription("Regs. especiales Agrupac. ute Total base imponible imputada (245)");
-      m18utetreten.setDescription("Regs. especiales Agrupac. ute Total Retenciones e ingresos a cta. imputados (747)");
-      m18tfinttitula1.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 1 Contribuyente 0 a 9 (250)");
-      m18tfintnombre1.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 1 Denominacion entidad no residente (251)");
-      m18tfintcriter1.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 1 Criterio imput. temporal. Clave (blanco 1 o 2) (252)");
-      m18tfintimputa1.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 1 Importe imputacion (253)");
-      m18tfinttitula2.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 2 Contribuyente 0 a 9 (250)");
-      m18tfintnombre2.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 2 Denominacion entidad no residente (251)");
-      m18tfintcriter2.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 2 Criterio imput. temporal. Clave (blanco 2 o 2) (252)");
-      m18tfintimputa2.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 2 Importe imputacion (253)");
-      m18tfinttitula3.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 3 Contribuyente 0 a 9 (250)");
-      m18tfintnombre3.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 3 Denominacion entidad no residente (251)");
-      m18tfintcriter3.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 3 Criterio imput. temporal. Clave (blanco 3 o 2) (252)");
-      m18tfintimputa3.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 3 Importe imputacion (253)");
-      m18tfinttimput.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Total importe de la imputacion (255)");
-      m18imagtitular.setDescription("Regs. especiales Imputac. rentas derechos imagen Contribuyente que debe efectuar la imputacion. 0 a 9 (260)");
-      m18imagpersona.setDescription("Regs. especiales Imputac. rentas derechos imagen NIF o denominacion persona/entidad cesionaria derechos imagen (261)");
-      m18imagniflabor.setDescription("Regs. especiales Imputac. rentas derechos imagen NIF o denominacion persona/entidad relacion laboral (262)");
-      m18imagimputac.setDescription("Regs. especiales Imputac. rentas derechos imagen Cantidad a imputar (265)");
-      m18invcoltitul1.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 1 Contribuyente 0 a 9 (270)");
-      m18invcolnombr1.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 1 Denominacion Institucion (271)");
-      m18invcolimput1.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 1 Importe imputacion (272)");
-      m18invcoltitul2.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 2 Contribuyente 0 a 9 (270)");
-      m18invcolnombr2.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 2 Denominacion Institucion (271)");
-      m18invcolimput2.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 2 Importe imputacion (272)");
-      m18invcoltitul3.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 3 Contribuyente 0 a 9 (270)");
-      m18invcolnombr3.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 3 Denominacion Institucion (271)");
-      m18invcolimput3.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 3 Importe imputacion (272)");
-      m18invcoltotal.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales Total importe de la imputacion (275)");
-      }
-    }
-    
-  public class TabMod100h9 extends TableDef
-    {
-    // Campos
-    public FieldDef m19dominio;
-    public FieldDef m19nif;
-    public FieldDef m19declarac;
-    public FieldDef m19ejercicio;
-    public FieldDef m19periodo;
-    public FieldDef m19pagina;
-    public FieldDef m19g1premmetali;
-    public FieldDef m19premespvalor;
-    public FieldDef m19premespingct;
-    public FieldDef m19premespingre;
-    public FieldDef m19g1premespeci;
-    public FieldDef m19premespexent;
-    public FieldDef m19g1subvencion;
-    public FieldDef m19g1aprovfores;
-    public FieldDef m19g1otrasganan;
-    public FieldDef m19g1otrasperd;
-    public FieldDef m19fimtitular1;
-    public FieldDef m19fimnif1;
-    public FieldDef m19fimganancia1;
-    public FieldDef m19fimperdida1;
-    public FieldDef m19fimtitular2;
-    public FieldDef m19fimnif2;
-    public FieldDef m19fimganancia2;
-    public FieldDef m19fimperdida2;
-    public FieldDef m19fimtitular3;
-    public FieldDef m19fimnif3;
-    public FieldDef m19fimganancia3;
-    public FieldDef m19fimperdida3;
-    public FieldDef m19fimtotganan;
-    public FieldDef m19fimtotperdi;
-    public FieldDef m19acbtitular1;
-    public FieldDef m19acbentidad1;
-    public FieldDef m19acbtransmis1;
-    public FieldDef m19acbadquisic1;
-    public FieldDef m19acbganancia1;
-    public FieldDef m19acbganancom1;
-    public FieldDef m19acbperdida1;
-    public FieldDef m19acbperdcomp1;
-    public FieldDef m19acbtitular2;
-    public FieldDef m19acbentidad2;
-    public FieldDef m19acbtransmis2;
-    public FieldDef m19acbadquisic2;
-    public FieldDef m19acbganancia2;
-    public FieldDef m19acbganancom2;
-    public FieldDef m19acbperdida2;
-    public FieldDef m19acbperdcomp2;
-    public FieldDef m19acbtitular3;
-    public FieldDef m19acbentidad3;
-    public FieldDef m19acbtransmis3;
-    public FieldDef m19acbadquisic3;
-    public FieldDef m19acbganancia3;
-    public FieldDef m19acbganancom3;
-    public FieldDef m19acbperdida3;
-    public FieldDef m19acbperdcomp3;
-    public FieldDef m19acbtotgananc;
-    public FieldDef m19acbtotperdid;
-    public FieldDef m19otrtitular1;
-    public FieldDef m19otrclaveele1;
-    public FieldDef m19otrsituacio1;
-    public FieldDef m19otreferenci1;
-    public FieldDef m19otrfectrans1;
-    public FieldDef m19otrfecadqui1;
-    public FieldDef m19otrtransmis1;
-    public FieldDef m19otradquisic1;
-    public FieldDef m19otrperdobte1;
-    public FieldDef m19otrperdimpu1;
-    public FieldDef m19otrganaobte1;
-    public FieldDef m19otrganaredu1;
-    public FieldDef m19otranosperm1;
-    public FieldDef m19otrimpreduc1;
-    public FieldDef m19otrgananred1;
-    public FieldDef m19otrganexvda1;
-    public FieldDef m19otrganreduc1;
-    public FieldDef m19otrganredim1;
-    public FieldDef m19otrreduacti1;
-    public FieldDef m19otrgredacti1;
-    public FieldDef m19otrgredimpa1;
-    public FieldDef m19otrtitular2;
-    public FieldDef m19otrclaveele2;
-    public FieldDef m19otrsituacio2;
-    public FieldDef m19otreferenci2;
-    public FieldDef m19otrfectrans2;
-    public FieldDef m19otrfecadqui2;
-    public FieldDef m19otrtransmis2;
-    public FieldDef m19otradquisic2;
-    public FieldDef m19otrperdobte2;
-    public FieldDef m19otrperdimpu2;
-    public FieldDef m19otrganaobte2;
-    public FieldDef m19otrganaredu2;
-    public FieldDef m19otranosperm2;
-    public FieldDef m19otrimpreduc2;
-    public FieldDef m19otrgananred2;
-    public FieldDef m19otrganexvda2;
-    public FieldDef m19otrganreduc2;
-    public FieldDef m19otrganredim2;
-    public FieldDef m19otrreduacti2;
-    public FieldDef m19otrgredacti2;
-    public FieldDef m19otrgredimpa2;
-    public FieldDef m19otrtotperdid;
-    public FieldDef m19otrtotganred;
-    public FieldDef m19otrtotgananc;
-    public TabMod100h9(String name)
-      {
-      super(name);
-      m19dominio = new FieldDef("m19dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m19nif = new FieldDef("m19nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m19declarac = new FieldDef("m19declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      m19ejercicio = new FieldDef("m19ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m19periodo = new FieldDef("m19periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m19pagina = new FieldDef("m19pagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m19g1premmetali = new FieldDef("m19g1premmetali",FieldDef.FLOAT,6,0);
-      m19premespvalor = new FieldDef("m19premespvalor",FieldDef.FLOAT,6,0);
-      m19premespingct = new FieldDef("m19premespingct",FieldDef.FLOAT,6,0);
-      m19premespingre = new FieldDef("m19premespingre",FieldDef.FLOAT,6,0);
-      m19g1premespeci = new FieldDef("m19g1premespeci",FieldDef.FLOAT,6,0);
-      m19premespexent = new FieldDef("m19premespexent",FieldDef.FLOAT,6,0);
-      m19g1subvencion = new FieldDef("m19g1subvencion",FieldDef.FLOAT,6,0);
-      m19g1aprovfores = new FieldDef("m19g1aprovfores",FieldDef.FLOAT,6,0);
-      m19g1otrasganan = new FieldDef("m19g1otrasganan",FieldDef.FLOAT,6,0);
-      m19g1otrasperd = new FieldDef("m19g1otrasperd",FieldDef.FLOAT,6,0);
-      m19fimtitular1 = new FieldDef("m19fimtitular1",FieldDef.INTEGER,0);
-      m19fimnif1 = new FieldDef("m19fimnif1",FieldDef.CHAR,9);
-      m19fimganancia1 = new FieldDef("m19fimganancia1",FieldDef.FLOAT,6,0);
-      m19fimperdida1 = new FieldDef("m19fimperdida1",FieldDef.FLOAT,6,0);
-      m19fimtitular2 = new FieldDef("m19fimtitular2",FieldDef.INTEGER,0);
-      m19fimnif2 = new FieldDef("m19fimnif2",FieldDef.CHAR,9);
-      m19fimganancia2 = new FieldDef("m19fimganancia2",FieldDef.FLOAT,6,0);
-      m19fimperdida2 = new FieldDef("m19fimperdida2",FieldDef.FLOAT,6,0);
-      m19fimtitular3 = new FieldDef("m19fimtitular3",FieldDef.INTEGER,0);
-      m19fimnif3 = new FieldDef("m19fimnif3",FieldDef.CHAR,9);
-      m19fimganancia3 = new FieldDef("m19fimganancia3",FieldDef.FLOAT,6,0);
-      m19fimperdida3 = new FieldDef("m19fimperdida3",FieldDef.FLOAT,6,0);
-      m19fimtotganan = new FieldDef("m19fimtotganan",FieldDef.FLOAT,6,0);
-      m19fimtotperdi = new FieldDef("m19fimtotperdi",FieldDef.FLOAT,6,0);
-      m19acbtitular1 = new FieldDef("m19acbtitular1",FieldDef.INTEGER,0);
-      m19acbentidad1 = new FieldDef("m19acbentidad1",FieldDef.CHAR,20);
-      m19acbtransmis1 = new FieldDef("m19acbtransmis1",FieldDef.FLOAT,6,0);
-      m19acbadquisic1 = new FieldDef("m19acbadquisic1",FieldDef.FLOAT,6,0);
-      m19acbganancia1 = new FieldDef("m19acbganancia1",FieldDef.FLOAT,6,0);
-      m19acbganancom1 = new FieldDef("m19acbganancom1",FieldDef.FLOAT,6,0);
-      m19acbperdida1 = new FieldDef("m19acbperdida1",FieldDef.FLOAT,6,0);
-      m19acbperdcomp1 = new FieldDef("m19acbperdcomp1",FieldDef.FLOAT,6,0);
-      m19acbtitular2 = new FieldDef("m19acbtitular2",FieldDef.INTEGER,0);
-      m19acbentidad2 = new FieldDef("m19acbentidad2",FieldDef.CHAR,20);
-      m19acbtransmis2 = new FieldDef("m19acbtransmis2",FieldDef.FLOAT,6,0);
-      m19acbadquisic2 = new FieldDef("m19acbadquisic2",FieldDef.FLOAT,6,0);
-      m19acbganancia2 = new FieldDef("m19acbganancia2",FieldDef.FLOAT,6,0);
-      m19acbganancom2 = new FieldDef("m19acbganancom2",FieldDef.FLOAT,6,0);
-      m19acbperdida2 = new FieldDef("m19acbperdida2",FieldDef.FLOAT,6,0);
-      m19acbperdcomp2 = new FieldDef("m19acbperdcomp2",FieldDef.FLOAT,6,0);
-      m19acbtitular3 = new FieldDef("m19acbtitular3",FieldDef.INTEGER,0);
-      m19acbentidad3 = new FieldDef("m19acbentidad3",FieldDef.CHAR,20);
-      m19acbtransmis3 = new FieldDef("m19acbtransmis3",FieldDef.FLOAT,6,0);
-      m19acbadquisic3 = new FieldDef("m19acbadquisic3",FieldDef.FLOAT,6,0);
-      m19acbganancia3 = new FieldDef("m19acbganancia3",FieldDef.FLOAT,6,0);
-      m19acbganancom3 = new FieldDef("m19acbganancom3",FieldDef.FLOAT,6,0);
-      m19acbperdida3 = new FieldDef("m19acbperdida3",FieldDef.FLOAT,6,0);
-      m19acbperdcomp3 = new FieldDef("m19acbperdcomp3",FieldDef.FLOAT,6,0);
-      m19acbtotgananc = new FieldDef("m19acbtotgananc",FieldDef.FLOAT,6,0);
-      m19acbtotperdid = new FieldDef("m19acbtotperdid",FieldDef.FLOAT,6,0);
-      m19otrtitular1 = new FieldDef("m19otrtitular1",FieldDef.INTEGER,0);
-      m19otrclaveele1 = new FieldDef("m19otrclaveele1",FieldDef.INTEGER,0);
-      m19otrsituacio1 = new FieldDef("m19otrsituacio1",FieldDef.INTEGER,0);
-      m19otreferenci1 = new FieldDef("m19otreferenci1",FieldDef.CHAR,20);
-      m19otrfectrans1 = new FieldDef("m19otrfectrans1",FieldDef.DATE);
-      m19otrfecadqui1 = new FieldDef("m19otrfecadqui1",FieldDef.DATE);
-      m19otrtransmis1 = new FieldDef("m19otrtransmis1",FieldDef.FLOAT,6,0);
-      m19otradquisic1 = new FieldDef("m19otradquisic1",FieldDef.FLOAT,6,0);
-      m19otrperdobte1 = new FieldDef("m19otrperdobte1",FieldDef.FLOAT,6,0);
-      m19otrperdimpu1 = new FieldDef("m19otrperdimpu1",FieldDef.FLOAT,6,0);
-      m19otrganaobte1 = new FieldDef("m19otrganaobte1",FieldDef.FLOAT,6,0);
-      m19otrganaredu1 = new FieldDef("m19otrganaredu1",FieldDef.FLOAT,6,0);
-      m19otranosperm1 = new FieldDef("m19otranosperm1",FieldDef.INTEGER,0);
-      m19otrimpreduc1 = new FieldDef("m19otrimpreduc1",FieldDef.FLOAT,6,0);
-      m19otrgananred1 = new FieldDef("m19otrgananred1",FieldDef.FLOAT,6,0);
-      m19otrganexvda1 = new FieldDef("m19otrganexvda1",FieldDef.FLOAT,6,0);
-      m19otrganreduc1 = new FieldDef("m19otrganreduc1",FieldDef.FLOAT,6,0);
-      m19otrganredim1 = new FieldDef("m19otrganredim1",FieldDef.FLOAT,6,0);
-      m19otrreduacti1 = new FieldDef("m19otrreduacti1",FieldDef.FLOAT,6,0);
-      m19otrgredacti1 = new FieldDef("m19otrgredacti1",FieldDef.FLOAT,6,0);
-      m19otrgredimpa1 = new FieldDef("m19otrgredimpa1",FieldDef.FLOAT,6,0);
-      m19otrtitular2 = new FieldDef("m19otrtitular2",FieldDef.INTEGER,0);
-      m19otrclaveele2 = new FieldDef("m19otrclaveele2",FieldDef.INTEGER,0);
-      m19otrsituacio2 = new FieldDef("m19otrsituacio2",FieldDef.INTEGER,0);
-      m19otreferenci2 = new FieldDef("m19otreferenci2",FieldDef.CHAR,20);
-      m19otrfectrans2 = new FieldDef("m19otrfectrans2",FieldDef.DATE);
-      m19otrfecadqui2 = new FieldDef("m19otrfecadqui2",FieldDef.DATE);
-      m19otrtransmis2 = new FieldDef("m19otrtransmis2",FieldDef.FLOAT,6,0);
-      m19otradquisic2 = new FieldDef("m19otradquisic2",FieldDef.FLOAT,6,0);
-      m19otrperdobte2 = new FieldDef("m19otrperdobte2",FieldDef.FLOAT,6,0);
-      m19otrperdimpu2 = new FieldDef("m19otrperdimpu2",FieldDef.FLOAT,6,0);
-      m19otrganaobte2 = new FieldDef("m19otrganaobte2",FieldDef.FLOAT,6,0);
-      m19otrganaredu2 = new FieldDef("m19otrganaredu2",FieldDef.FLOAT,6,0);
-      m19otranosperm2 = new FieldDef("m19otranosperm2",FieldDef.INTEGER,0);
-      m19otrimpreduc2 = new FieldDef("m19otrimpreduc2",FieldDef.FLOAT,6,0);
-      m19otrgananred2 = new FieldDef("m19otrgananred2",FieldDef.FLOAT,6,0);
-      m19otrganexvda2 = new FieldDef("m19otrganexvda2",FieldDef.FLOAT,6,0);
-      m19otrganreduc2 = new FieldDef("m19otrganreduc2",FieldDef.FLOAT,6,0);
-      m19otrganredim2 = new FieldDef("m19otrganredim2",FieldDef.FLOAT,6,0);
-      m19otrreduacti2 = new FieldDef("m19otrreduacti2",FieldDef.FLOAT,6,0);
-      m19otrgredacti2 = new FieldDef("m19otrgredacti2",FieldDef.FLOAT,6,0);
-      m19otrgredimpa2 = new FieldDef("m19otrgredimpa2",FieldDef.FLOAT,6,0);
-      m19otrtotperdid = new FieldDef("m19otrtotperdid",FieldDef.FLOAT,6,0);
-      m19otrtotganred = new FieldDef("m19otrtotganred",FieldDef.FLOAT,6,0);
-      m19otrtotgananc = new FieldDef("m19otrtotgananc",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        m19dominio,
-        m19nif,
-        m19declarac,
-        m19ejercicio,
-        m19periodo,
-        m19pagina,
-        m19g1premmetali,
-        m19premespvalor,
-        m19premespingct,
-        m19premespingre,
-        m19g1premespeci,
-        m19premespexent,
-        m19g1subvencion,
-        m19g1aprovfores,
-        m19g1otrasganan,
-        m19g1otrasperd,
-        m19fimtitular1,
-        m19fimnif1,
-        m19fimganancia1,
-        m19fimperdida1,
-        m19fimtitular2,
-        m19fimnif2,
-        m19fimganancia2,
-        m19fimperdida2,
-        m19fimtitular3,
-        m19fimnif3,
-        m19fimganancia3,
-        m19fimperdida3,
-        m19fimtotganan,
-        m19fimtotperdi,
-        m19acbtitular1,
-        m19acbentidad1,
-        m19acbtransmis1,
-        m19acbadquisic1,
-        m19acbganancia1,
-        m19acbganancom1,
-        m19acbperdida1,
-        m19acbperdcomp1,
-        m19acbtitular2,
-        m19acbentidad2,
-        m19acbtransmis2,
-        m19acbadquisic2,
-        m19acbganancia2,
-        m19acbganancom2,
-        m19acbperdida2,
-        m19acbperdcomp2,
-        m19acbtitular3,
-        m19acbentidad3,
-        m19acbtransmis3,
-        m19acbadquisic3,
-        m19acbganancia3,
-        m19acbganancom3,
-        m19acbperdida3,
-        m19acbperdcomp3,
-        m19acbtotgananc,
-        m19acbtotperdid,
-        m19otrtitular1,
-        m19otrclaveele1,
-        m19otrsituacio1,
-        m19otreferenci1,
-        m19otrfectrans1,
-        m19otrfecadqui1,
-        m19otrtransmis1,
-        m19otradquisic1,
-        m19otrperdobte1,
-        m19otrperdimpu1,
-        m19otrganaobte1,
-        m19otrganaredu1,
-        m19otranosperm1,
-        m19otrimpreduc1,
-        m19otrgananred1,
-        m19otrganexvda1,
-        m19otrganreduc1,
-        m19otrganredim1,
-        m19otrreduacti1,
-        m19otrgredacti1,
-        m19otrgredimpa1,
-        m19otrtitular2,
-        m19otrclaveele2,
-        m19otrsituacio2,
-        m19otreferenci2,
-        m19otrfectrans2,
-        m19otrfecadqui2,
-        m19otrtransmis2,
-        m19otradquisic2,
-        m19otrperdobte2,
-        m19otrperdimpu2,
-        m19otrganaobte2,
-        m19otrganaredu2,
-        m19otranosperm2,
-        m19otrimpreduc2,
-        m19otrgananred2,
-        m19otrganexvda2,
-        m19otrganreduc2,
-        m19otrganredim2,
-        m19otrreduacti2,
-        m19otrgredacti2,
-        m19otrgredimpa2,
-        m19otrtotperdid,
-        m19otrtotganred,
-        m19otrtotgananc        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m19dominio,m19nif,m19declarac,m19ejercicio,m19periodo,m19pagina };
-      setPrimaryKeys(arrayf);
-      m19declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
-      m19g1premmetali.setDescription("(G1) Ganancias/perdidas patrimoniales no derivan transmision Premios juegos concursos rifas Premio en metalico Importe total (300)");
-      m19premespvalor.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Premios juegos concursos rifas Premio en especie Valoracion (301)");
-      m19premespingct.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Premios juegos concursos rifas Premio en especie Ingresos a cuenta (302)");
-      m19premespingre.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Premios juegos concursos rifas Premio en especie Ingresos a cuenta repercutidos (303)");
-      m19g1premespeci.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Premios juegos concursos rifas Premios en especie Importe computable (304)");
-      m19premespexent.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Premios juegos concursos rifas Premios exentos (305)");
-      m19g1subvencion.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Otras Ganancias/perdidas Subvenciones/ayudas adquision/rehabilitacion vivienda habitual (310)");
-      m19g1aprovfores.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Otras Ganancias/perdidas Ganancias patrimoniales vecinos aprovechamientos forestales (311)");
-      m19g1otrasganan.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Otras Ganancias/perdidas Importe ganancias (312)");
-      m19g1otrasperd.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Otras Ganancias/perdidas Importe perdidas (313)");
-      m19fimtitular1.setDescription("(G2) Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 1 Contribuyente 0 a 9 (320)");
-      m19fimnif1.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 1 N.I.F. (321)");
-      m19fimganancia1.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 1 Resultados netos positivos Ganancias netas (322)");
-      m19fimperdida1.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 1 Resultados netos negativos Perdidas netas (323)");
-      m19fimtitular2.setDescription("(G2) Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 2 Contribuyente 0 a 9 (320)");
-      m19fimnif2.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 2 N.I.F. (321)");
-      m19fimganancia2.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 2 Resultados netos positivos Ganancias netas (322)");
-      m19fimperdida2.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 2 Resultados netos negativos Perdidas netas (323)");
-      m19fimtitular3.setDescription("(G2) Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 3 Contribuyente 0 a 9 (320)");
-      m19fimnif3.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 3 N.I.F. (321)");
-      m19fimganancia3.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 3 Resultados netos positivos Ganancias netas (322)");
-      m19fimperdida3.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 3 Resultados netos negativos Perdidas netas (323)");
-      m19fimtotganan.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Totales Total ganancias netas (329)");
-      m19fimtotperdi.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Totales Total perdidas netas (330)");
-      m19acbtitular1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Contribuyente 0 a 9 (340)");
-      m19acbentidad1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Denominacion valores (341)");
-      m19acbtransmis1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Importe global (342)");
-      m19acbadquisic1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Valor adquisicion global (343)");
-      m19acbganancia1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Resultados Ganancias. Importe obtenido (344)");
-      m19acbganancom1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Resultados Ganancias. Importe computable (345)");
-      m19acbperdida1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Resultados Perdidas. Importe obtenido (346)");
-      m19acbperdcomp1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Resultados Perdidas. Importe computable (347)");
-      m19acbtitular2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Contribuyente 0 a 9 (340)");
-      m19acbentidad2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Denominacion valores (341)");
-      m19acbtransmis2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Importe global (342)");
-      m19acbadquisic2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Valor adquisicion global (343)");
-      m19acbganancia2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Resultados Ganancias. Importe obtenido (344)");
-      m19acbganancom2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Resultados Ganancias. Importe computable (345)");
-      m19acbperdida2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Resultados Perdidas. Importe obtenido (346)");
-      m19acbperdcomp2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Resultados Perdidas. Importe computable (347)");
-      m19acbtitular3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Contribuyente 0 a 9 (340)");
-      m19acbentidad3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Denominacion valores (341)");
-      m19acbtransmis3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Importe global (342)");
-      m19acbadquisic3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Valor adquisicion global (343)");
-      m19acbganancia3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Resultados Ganancias. Importe obtenido (344)");
-      m19acbganancom3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Resultados Ganancias. Importe computable (345)");
-      m19acbperdida3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Resultados Perdidas. Importe obtenido (346)");
-      m19acbperdcomp3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Resultados Perdidas. Importe computable (347)");
-      m19acbtotgananc.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Totales Ganancias. Importe reducido (349)");
-      m19acbtotperdid.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Totales Perdidas. Importe imputable (350)");
-      m19otrtitular1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Contribuyente 0 a 9 (360)");
-      m19otrclaveele1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Tipo elemento. Clave 0 a 7 (361)");
-      m19otrsituacio1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Inmuebles. Situacion. Clave 0 a 4 (362)");
-      m19otreferenci1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Inmuebles. Situacion. Ref. catastral (363)");
-      m19otrfectrans1.setDescription("Ganancias/perdidas patrim deriv transmision Otros elementos Elemento 63 627 8 Num C Ganancias/perdidas patrim. deriv. transmision Otros elementos Elem");
-      m19otrfecadqui1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Fecha adquisicion (365)");
-      m19otrtransmis1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Valor transmision (366)");
-      m19otradquisic1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Valor adquisicion (367)");
-      m19otrperdobte1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Diferencia negativa Perdida obtenida (368)");
-      m19otrperdimpu1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Diferencia negativa Perdida imputable (369)");
-      m19otrganaobte1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Diferencia positiva Ganancia obtenida (370)");
-      m19otrganaredu1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 No afectos Parte ganancia susceptible reduccion (371)");
-      m19otranosperm1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 No afectos Años permanencia hasta 311294 (372)");
-      m19otrimpreduc1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 No afectos Reduccion aplicable (373)");
-      m19otrgananred1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 No afectos Ganancia reducida (374)");
-      m19otrganexvda1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 No afectos Ganancia exenta reinversion viv. habitual (375)");
-      m19otrganreduc1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 No afectos Ganancia reducida no exenta (376)");
-      m19otrganredim1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 No afectos Ganancia reducida no exenta imputable (377)");
-      m19otrreduacti1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Afectos Reduccion (licencia autotaxis) (378)");
-      m19otrgredacti1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Afectos Ganancia reducida (379)");
-      m19otrgredimpa1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Afectos Ganancia reducida imputable (380)");
-      m19otrtitular2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Contribuyente 0 a 9 (360)");
-      m19otrclaveele2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Tipo elemento. Clave 0 a 7 (361)");
-      m19otrsituacio2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Inmuebles. Situacion. Clave 0 a 4 (362)");
-      m19otreferenci2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Inmuebles. Situacion. Ref. catastral (363)");
-      m19otrfectrans2.setDescription("Ganancias/perdidas patrim deriv transmision Otros elementos Elemento 63 627 8 Num C Ganancias/perdidas patrim. deriv. transmision Otros elementos Elem");
-      m19otrfecadqui2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Fecha adquisicion (365)");
-      m19otrtransmis2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Valor transmision (366)");
-      m19otradquisic2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Valor adquisicion (367)");
-      m19otrperdobte2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Diferencia negativa Perdida obtenida (368)");
-      m19otrperdimpu2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Diferencia negativa Perdida imputable (369)");
-      m19otrganaobte2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Diferencia positiva Ganancia obtenida (370)");
-      m19otrganaredu2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 No afectos Parte ganancia susceptible reduccion (371)");
-      m19otranosperm2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 No afectos Años permanencia hasta 311294 (372)");
-      m19otrimpreduc2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 No afectos Reduccion aplicable (373)");
-      m19otrgananred2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 No afectos Ganancia reducida (374)");
-      m19otrganexvda2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 No afectos Ganancia exenta reinversion viv. habitual (375)");
-      m19otrganreduc2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 No afectos Ganancia reducida no exenta (376)");
-      m19otrganredim2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 No afectos Ganancia reducida no exenta imputable (377)");
-      m19otrreduacti2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Afectos Reduccion (licencia autotaxis) (378)");
-      m19otrgredacti2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Afectos Ganancia reducida (379)");
-      m19otrgredimpa2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Afectos Ganancia reducida imputable (380)");
-      m19otrtotperdid.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Totales Total perdida imputable (383)");
-      m19otrtotganred.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Totales No afectos Total ganancia reducida no exenta imputable (384)");
-      m19otrtotgananc.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Totales Afectos Total ganancia reducida imputable (385)");
       }
     }
     
@@ -4677,260 +1004,6 @@ public class CatModelo100 extends Catalog
       }
     }
     
-  public class TabMod100h13 extends TableDef
-    {
-    // Campos
-    public FieldDef m113dominio;
-    public FieldDef m113nif;
-    public FieldDef m113declarac;
-    public FieldDef m113ejercicio;
-    public FieldDef m113periodo;
-    public FieldDef m113bliqgralest;
-    public FieldDef m113bliqgralaut;
-    public FieldDef m113minigralest;
-    public FieldDef m113minigralaut;
-    public FieldDef m113cuotgralest;
-    public FieldDef m113cuotgralaut;
-    public FieldDef m113tipogralest;
-    public FieldDef m113tipogralaut;
-    public FieldDef m113bliqahorest;
-    public FieldDef m113bliqahoraut;
-    public FieldDef m113cuotahorest;
-    public FieldDef m113cuotahoraut;
-    public FieldDef m113cuotaintest;
-    public FieldDef m113cuotaintaut;
-    public FieldDef m113dedvdaest;
-    public FieldDef m113dedvdaaut;
-    public FieldDef m113dedbicest;
-    public FieldDef m113dedbicaut;
-    public FieldDef m113deddonest;
-    public FieldDef m113deddonaut;
-    public FieldDef m113dedempest;
-    public FieldDef m113dedempaut;
-    public FieldDef m113dedricest;
-    public FieldDef m113dedricaut;
-    public FieldDef m113dedpacest;
-    public FieldDef m113dedpacaut;
-    public FieldDef m113dedceuest;
-    public FieldDef m113dedceuaut;
-    public FieldDef m113dedcheest;
-    public FieldDef m113dedcheaut;
-    public FieldDef m113dedavdest;
-    public FieldDef m113dedavdaut;
-    public FieldDef m113dedovdest;
-    public FieldDef m113totdedaut;
-    public FieldDef m113cuotaliqest;
-    public FieldDef m113cuotaliqaut;
-    public FieldDef m113perdded1est;
-    public FieldDef m113perdint1est;
-    public FieldDef m113perdded2est;
-    public FieldDef m113perdint2est;
-    public FieldDef m113perdded2aut;
-    public FieldDef m113perdint2aut;
-    public FieldDef m113perdded3aut;
-    public FieldDef m113perdint3aut;
-    public FieldDef m113cuotliqiest;
-    public FieldDef m113cuotliqiaut;
-    public FieldDef m113cuotaliqinc;
-    public FieldDef m113deddividend;
-    public FieldDef m113dedinterext;
-    public FieldDef m113dedtrabajo;
-    public FieldDef m113dedinternac;
-    public FieldDef m113dedderimage;
-    public FieldDef m113compenvda;
-    public FieldDef m113compenmobil;
-    public FieldDef m113retenbonifi;
-    public FieldDef m113cuotaresult;
-    public TabMod100h13(String name)
-      {
-      super(name);
-      m113dominio = new FieldDef("m113dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m113nif = new FieldDef("m113nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m113declarac = new FieldDef("m113declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      m113ejercicio = new FieldDef("m113ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m113periodo = new FieldDef("m113periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m113bliqgralest = new FieldDef("m113bliqgralest",FieldDef.FLOAT,6,0);
-      m113bliqgralaut = new FieldDef("m113bliqgralaut",FieldDef.FLOAT,6,0);
-      m113minigralest = new FieldDef("m113minigralest",FieldDef.FLOAT,6,0);
-      m113minigralaut = new FieldDef("m113minigralaut",FieldDef.FLOAT,6,0);
-      m113cuotgralest = new FieldDef("m113cuotgralest",FieldDef.FLOAT,6,0);
-      m113cuotgralaut = new FieldDef("m113cuotgralaut",FieldDef.FLOAT,6,0);
-      m113tipogralest = new FieldDef("m113tipogralest",FieldDef.FLOAT,6,0);
-      m113tipogralaut = new FieldDef("m113tipogralaut",FieldDef.FLOAT,6,0);
-      m113bliqahorest = new FieldDef("m113bliqahorest",FieldDef.FLOAT,6,0);
-      m113bliqahoraut = new FieldDef("m113bliqahoraut",FieldDef.FLOAT,6,0);
-      m113cuotahorest = new FieldDef("m113cuotahorest",FieldDef.FLOAT,6,0);
-      m113cuotahoraut = new FieldDef("m113cuotahoraut",FieldDef.FLOAT,6,0);
-      m113cuotaintest = new FieldDef("m113cuotaintest",FieldDef.FLOAT,6,0);
-      m113cuotaintaut = new FieldDef("m113cuotaintaut",FieldDef.FLOAT,6,0);
-      m113dedvdaest = new FieldDef("m113dedvdaest",FieldDef.FLOAT,6,0);
-      m113dedvdaaut = new FieldDef("m113dedvdaaut",FieldDef.FLOAT,6,0);
-      m113dedbicest = new FieldDef("m113dedbicest",FieldDef.FLOAT,6,0);
-      m113dedbicaut = new FieldDef("m113dedbicaut",FieldDef.FLOAT,6,0);
-      m113deddonest = new FieldDef("m113deddonest",FieldDef.FLOAT,6,0);
-      m113deddonaut = new FieldDef("m113deddonaut",FieldDef.FLOAT,6,0);
-      m113dedempest = new FieldDef("m113dedempest",FieldDef.FLOAT,6,0);
-      m113dedempaut = new FieldDef("m113dedempaut",FieldDef.FLOAT,6,0);
-      m113dedricest = new FieldDef("m113dedricest",FieldDef.FLOAT,6,0);
-      m113dedricaut = new FieldDef("m113dedricaut",FieldDef.FLOAT,6,0);
-      m113dedpacest = new FieldDef("m113dedpacest",FieldDef.FLOAT,6,0);
-      m113dedpacaut = new FieldDef("m113dedpacaut",FieldDef.FLOAT,6,0);
-      m113dedceuest = new FieldDef("m113dedceuest",FieldDef.FLOAT,6,0);
-      m113dedceuaut = new FieldDef("m113dedceuaut",FieldDef.FLOAT,6,0);
-      m113dedcheest = new FieldDef("m113dedcheest",FieldDef.FLOAT,6,0);
-      m113dedcheaut = new FieldDef("m113dedcheaut",FieldDef.FLOAT,6,0);
-      m113dedavdest = new FieldDef("m113dedavdest",FieldDef.FLOAT,6,0);
-      m113dedavdaut = new FieldDef("m113dedavdaut",FieldDef.FLOAT,6,0);
-      m113dedovdest = new FieldDef("m113dedovdest",FieldDef.FLOAT,6,0);
-      m113totdedaut = new FieldDef("m113totdedaut",FieldDef.FLOAT,6,0);
-      m113cuotaliqest = new FieldDef("m113cuotaliqest",FieldDef.FLOAT,6,0);
-      m113cuotaliqaut = new FieldDef("m113cuotaliqaut",FieldDef.FLOAT,6,0);
-      m113perdded1est = new FieldDef("m113perdded1est",FieldDef.FLOAT,6,0);
-      m113perdint1est = new FieldDef("m113perdint1est",FieldDef.FLOAT,6,0);
-      m113perdded2est = new FieldDef("m113perdded2est",FieldDef.FLOAT,6,0);
-      m113perdint2est = new FieldDef("m113perdint2est",FieldDef.FLOAT,6,0);
-      m113perdded2aut = new FieldDef("m113perdded2aut",FieldDef.FLOAT,6,0);
-      m113perdint2aut = new FieldDef("m113perdint2aut",FieldDef.FLOAT,6,0);
-      m113perdded3aut = new FieldDef("m113perdded3aut",FieldDef.FLOAT,6,0);
-      m113perdint3aut = new FieldDef("m113perdint3aut",FieldDef.FLOAT,6,0);
-      m113cuotliqiest = new FieldDef("m113cuotliqiest",FieldDef.FLOAT,6,0);
-      m113cuotliqiaut = new FieldDef("m113cuotliqiaut",FieldDef.FLOAT,6,0);
-      m113cuotaliqinc = new FieldDef("m113cuotaliqinc",FieldDef.FLOAT,6,0);
-      m113deddividend = new FieldDef("m113deddividend",FieldDef.FLOAT,6,0);
-      m113dedinterext = new FieldDef("m113dedinterext",FieldDef.FLOAT,6,0);
-      m113dedtrabajo = new FieldDef("m113dedtrabajo",FieldDef.FLOAT,6,0);
-      m113dedinternac = new FieldDef("m113dedinternac",FieldDef.FLOAT,6,0);
-      m113dedderimage = new FieldDef("m113dedderimage",FieldDef.FLOAT,6,0);
-      m113compenvda = new FieldDef("m113compenvda",FieldDef.FLOAT,6,0);
-      m113compenmobil = new FieldDef("m113compenmobil",FieldDef.FLOAT,6,0);
-      m113retenbonifi = new FieldDef("m113retenbonifi",FieldDef.FLOAT,6,0);
-      m113cuotaresult = new FieldDef("m113cuotaresult",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        m113dominio,
-        m113nif,
-        m113declarac,
-        m113ejercicio,
-        m113periodo,
-        m113bliqgralest,
-        m113bliqgralaut,
-        m113minigralest,
-        m113minigralaut,
-        m113cuotgralest,
-        m113cuotgralaut,
-        m113tipogralest,
-        m113tipogralaut,
-        m113bliqahorest,
-        m113bliqahoraut,
-        m113cuotahorest,
-        m113cuotahoraut,
-        m113cuotaintest,
-        m113cuotaintaut,
-        m113dedvdaest,
-        m113dedvdaaut,
-        m113dedbicest,
-        m113dedbicaut,
-        m113deddonest,
-        m113deddonaut,
-        m113dedempest,
-        m113dedempaut,
-        m113dedricest,
-        m113dedricaut,
-        m113dedpacest,
-        m113dedpacaut,
-        m113dedceuest,
-        m113dedceuaut,
-        m113dedcheest,
-        m113dedcheaut,
-        m113dedavdest,
-        m113dedavdaut,
-        m113dedovdest,
-        m113totdedaut,
-        m113cuotaliqest,
-        m113cuotaliqaut,
-        m113perdded1est,
-        m113perdint1est,
-        m113perdded2est,
-        m113perdint2est,
-        m113perdded2aut,
-        m113perdint2aut,
-        m113perdded3aut,
-        m113perdint3aut,
-        m113cuotliqiest,
-        m113cuotliqiaut,
-        m113cuotaliqinc,
-        m113deddividend,
-        m113dedinterext,
-        m113dedtrabajo,
-        m113dedinternac,
-        m113dedderimage,
-        m113compenvda,
-        m113compenmobil,
-        m113retenbonifi,
-        m113cuotaresult        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m113dominio,m113nif,m113declarac,m113ejercicio,m113periodo };
-      setPrimaryKeys(arrayf);
-      m113declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
-      m113bliqgralest.setDescription("Gravamen base liquidable general - Aplicación escalas Impuesto importe casilla 620 - Parte estatal (689)");
-      m113bliqgralaut.setDescription("Gravamen base liquidable general - Aplicación escalas Impuesto importe casilla 620 - Parte autonómica (690)");
-      m113minigralest.setDescription("Gravamen base liquidable general - Aplicación escala general Impuesto importe casilla 680 - Parte estatal (691)");
-      m113minigralaut.setDescription("Gravamen base liquidable general - Aplicación escala Impuesto importe casilla 683 - Parte autonómica (692)");
-      m113cuotgralest.setDescription("Gravamen base liquidable general - Cuota base liquidable general - Parte estatal (693)");
-      m113cuotgralaut.setDescription("Gravamen base liquidable general - Cuota base liquidable general - Parte autonómica (694)");
-      m113tipogralest.setDescription("Gravamen base liquidable general - Tipos medio gravamen - Parte estatal (TME)");
-      m113tipogralaut.setDescription("Gravamen base liquidable general - Tipos medio gravamen - Parte autonómica (TMA)");
-      m113bliqahorest.setDescription("Gravamen base liquidable ahorro - Base liquidable ahorro sometida gravamen - Parte estatal (695)");
-      m113bliqahoraut.setDescription("Gravamen base liquidable ahorro - Base liquidable ahorro sometida gravamen - Parte autonómica (771)");
-      m113cuotahorest.setDescription("Gravamen base liquidable ahorro - Cuota base liquidable ahorro - Parte estatal (696)");
-      m113cuotahoraut.setDescription("Gravamen base liquidable ahorro - Cuota base liquidable ahorro - Parte autonómica (697)");
-      m113cuotaintest.setDescription("Cuotas íntegras - Parte estatal (698)");
-      m113cuotaintaut.setDescription("Cuotas íntegras - Parte autonómica (699)");
-      m113dedvdaest.setDescription("Deducciones cuotas íntegras - Inversión vivienda habitual - Parte estatal (700)");
-      m113dedvdaaut.setDescription("Deducciones cuotas íntegras - Inversión vivienda habitual - Parte autonómica (701)");
-      m113dedbicest.setDescription("Deducciones cuotas íntegras - Inversiones/gastos interés cultural - Parte estatal (702)");
-      m113dedbicaut.setDescription("Deducciones cuotas íntegras - Inversiones/gastos interés cultural - Parte autonómica (703)");
-      m113deddonest.setDescription("Deducciones cuotas íntegras - Donativos - Parte estatal (704)");
-      m113deddonaut.setDescription("Deducciones cuotas íntegras - Donativos - Parte autonómica (705)");
-      m113dedempest.setDescription("Deducciones cuotas íntegras - Incentivos inversión empresarial - Parte estatal (706)");
-      m113dedempaut.setDescription("Deducciones cuotas íntegras - Incentivos inversión empresarial - Parte autonómica (707)");
-      m113dedricest.setDescription("Deducciones cuotas íntegras - Dotaciones Reserva Canarias - Parte estatal (708)");
-      m113dedricaut.setDescription("Deducciones cuotas íntegras - Dotaciones Reserva Canarias - Parte autonómica (709)");
-      m113dedpacest.setDescription("Deducciones cuotas íntegras - Rendimientos venta bienes Canarias - Parte estatal (710)");
-      m113dedpacaut.setDescription("Deducciones cuotas íntegras - Rendimientos venta bienes Canarias - Parte autonómica (711)");
-      m113dedceuest.setDescription("Deducciones cuotas íntegras - Rentas obtenidas Ceuta o Melilla - Parte estatal (712)");
-      m113dedceuaut.setDescription("Deducciones cuotas íntegras - Rentas obtenidas Ceuta o Melilla - Parte autonómica (713)");
-      m113dedcheest.setDescription("Deducciones cuotas íntegras - Cantidades depositadas cuentas ahorro-empresa - Parte estatal (714)");
-      m113dedcheaut.setDescription("Deducciones cuotas íntegras - Cantidades depositadas cuentas ahorro-empresa - Parte autonómica (715)");
-      m113dedavdest.setDescription("Deducciones cuotas íntegras - Alquiler vivienda habitual - Parte estatal (716)");
-      m113dedavdaut.setDescription("Deducciones cuotas íntegras - Alquiler vivienda habitual - Parte autonómica (772)");
-      m113dedovdest.setDescription("Deducciones cuotas íntegras - Obras de mejora en la vivienda habitual - Parte estatal (773)");
-      m113totdedaut.setDescription("Deducciones autonómicas - (717)");
-      m113cuotaliqest.setDescription("Cuota líquida estatal - Parte estatal (720)");
-      m113cuotaliqaut.setDescription("Cuota líquida autonómica - Parte autonómica (721)");
-      m113perdded1est.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones 1996 y anteriores - Importe - PE (722)");
-      m113perdint1est.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones 1996 y anteriores - Intereses demora - PE (723)");
-      m113perdded2est.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones generales 1997-2009 - Importe - PE (724)");
-      m113perdint2est.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones generales 1997-2009 - Intereses demora - PE (725)");
-      m113perdded2aut.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones generales 1997-2009 - Importe - PA (726)");
-      m113perdint2aut.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones generales 1997-2009 - Intereses demora - PA (727)");
-      m113perdded3aut.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones autonómicas 1998-2009 - Importe - PA (728)");
-      m113perdint3aut.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones autonómicas 1998-2009 - Intereses demora - PA (729)");
-      m113cuotliqiest.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Cuotas líquidas incrementadas - Parte estatal (730)");
-      m113cuotliqiaut.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Cuotas líquidas incrementadas - Parte autonómica (731)");
-      m113cuotaliqinc.setDescription("Cuota resultante autoliquidación - Cuota líquida incrementada total (732)");
-      m113deddividend.setDescription("Cuota resultante autoliquidación - Deducciones doble imposición - Dividendos pendientes ejercicio 2006 (733)");
-      m113dedinterext.setDescription("Cuota resultante autoliquidación - Deducciones doble imposición - Rentas obtenidas y gravadas en el extranjero (734)");
-      m113dedtrabajo.setDescription("Cuota resultante autoliquidación - Deducción obtención rendimientos trabajo o act. económicas (735)");
-      m113dedinternac.setDescription("Cuota resultante autoliquidación - Deducciones doble imposición - Aplicación régimen transparencia fiscal internacional (736)");
-      m113dedderimage.setDescription("Cuota resultante autoliquidación - Deducciones doble imposición - Aplicación régimen imputación rentas cesión derechos imagen (737)");
-      m113compenvda.setDescription("Cuota resultante autoliquidación - Compensaciones fiscales - Deducción por adquisición vivienda habitual adquirida antes 20-01-06 (738)");
-      m113compenmobil.setDescription("Cuota resultante autoliquidación - Compensaciones fiscales - Percepción rdtos.capital mobiliario > 2 años (739)");
-      m113retenbonifi.setDescription("Cuota resultante autoliquidación - Retenciones deducibles rendimientos bonificados - Importe retenciones no practicadas (740)");
-      m113cuotaresult.setDescription("Cuota resultante autoliquidación - Cuota resultante autoliquidación (741)");
-      }
-    }
-    
   public class TabMod100h14 extends TableDef
     {
     // Campos
@@ -5097,6 +1170,967 @@ public class CatModelo100 extends Catalog
       }
     }
     
+  public class TabMod100h22 extends TableDef
+    {
+    // Campos
+    public FieldDef m122dominio;
+    public FieldDef m122nif;
+    public FieldDef m122declarac;
+    public FieldDef m122ejercicio;
+    public FieldDef m122periodo;
+    public FieldDef m122resultado;
+    public FieldDef m122suspension;
+    public FieldDef m122rescomplem;
+    public FieldDef m122nofracciona;
+    public FieldDef m122fracciona;
+    public FieldDef m122ingreso;
+    public FieldDef m122formapago;
+    public FieldDef m122segplazono;
+    public FieldDef m122segplazodo;
+    public FieldDef m122impsegplazo;
+    public FieldDef m122tipodevoluc;
+    public FieldDef m122impdevoluc;
+    public FieldDef m122banco;
+    public FieldDef m122oficina;
+    public FieldDef m122digcontrol;
+    public FieldDef m122cuenta;
+    public TabMod100h22(String name)
+      {
+      super(name);
+      m122dominio = new FieldDef("m122dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m122nif = new FieldDef("m122nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m122declarac = new FieldDef("m122declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      m122ejercicio = new FieldDef("m122ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m122periodo = new FieldDef("m122periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m122resultado = new FieldDef("m122resultado",FieldDef.FLOAT,6,0);
+      m122suspension = new FieldDef("m122suspension",FieldDef.INTEGER,0);
+      m122rescomplem = new FieldDef("m122rescomplem",FieldDef.FLOAT,6,0);
+      m122nofracciona = new FieldDef("m122nofracciona",FieldDef.INTEGER,0);
+      m122fracciona = new FieldDef("m122fracciona",FieldDef.INTEGER,0);
+      m122ingreso = new FieldDef("m122ingreso",FieldDef.FLOAT,6,0);
+      m122formapago = new FieldDef("m122formapago",FieldDef.INTEGER,0);
+      m122segplazono = new FieldDef("m122segplazono",FieldDef.INTEGER,0);
+      m122segplazodo = new FieldDef("m122segplazodo",FieldDef.INTEGER,0);
+      m122impsegplazo = new FieldDef("m122impsegplazo",FieldDef.FLOAT,6,0);
+      m122tipodevoluc = new FieldDef("m122tipodevoluc",FieldDef.INTEGER,0);
+      m122impdevoluc = new FieldDef("m122impdevoluc",FieldDef.FLOAT,6,0);
+      m122banco = new FieldDef("m122banco",FieldDef.CHAR,4);
+      m122oficina = new FieldDef("m122oficina",FieldDef.CHAR,4);
+      m122digcontrol = new FieldDef("m122digcontrol",FieldDef.CHAR,2);
+      m122cuenta = new FieldDef("m122cuenta",FieldDef.CHAR,10);
+      FieldDef array[] = {
+        m122dominio,
+        m122nif,
+        m122declarac,
+        m122ejercicio,
+        m122periodo,
+        m122resultado,
+        m122suspension,
+        m122rescomplem,
+        m122nofracciona,
+        m122fracciona,
+        m122ingreso,
+        m122formapago,
+        m122segplazono,
+        m122segplazodo,
+        m122impsegplazo,
+        m122tipodevoluc,
+        m122impdevoluc,
+        m122banco,
+        m122oficina,
+        m122digcontrol,
+        m122cuenta        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m122dominio,m122nif,m122declarac,m122ejercicio,m122periodo };
+      setPrimaryKeys(arrayf);
+      m122declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
+      m122resultado.setDescription("Liquidacion (2) Resultado a ingresar o a devolver [770]");
+      m122suspension.setDescription("Liquidacion (2) Solicitud de suspension ingreso conyuge/Renuncia cobro devolucion otro conyuge. 1 o 0 [7]");
+      m122rescomplem.setDescription("Declaracion Complementaria (3) Resultado de Declaracion Complementaria [765]");
+      m122nofracciona.setDescription("Ingreso (4) Casilla 770 positiva NO FRACCIONA el pago [1] 1 o 0");
+      m122fracciona.setDescription("Ingreso (4) Casilla 770 positiva SI FRACCIONA el pago [6] 1 o 0");
+      m122ingreso.setDescription("Ingreso (4) Casilla 770 positiva Importe del ingreso [I1]");
+      m122formapago.setDescription("Ingreso (4) Casilla 770 positiva Forma de pago 0 No consta 1 Efectivo 2 Adeudo en Cuenta 3 Domiciliacion");
+      m122segplazono.setDescription("Opciones de pago 2 plazo (5) NO DOMICILIA el pago [2] 1 o 0");
+      m122segplazodo.setDescription("Opciones de pago 2 plazo (5) SI DOMICILIA el pago [3] 1 o 0");
+      m122impsegplazo.setDescription("Opciones de pago 2 plazo (5) Importe del 2 plazo [I2]");
+      m122tipodevoluc.setDescription("Devolucion (6) Casilla 770 negativa 0 No consta 1 Devolucion y 2 renuncia devolucion");
+      m122impdevoluc.setDescription("Devolucion (6) Casilla 770 negativa Importe [D]");
+      m122banco.setDescription("Codigo cuenta cliente Entidad");
+      m122oficina.setDescription("Codigo cuenta cliente Sucursal");
+      m122digcontrol.setDescription("Codigo cuenta cliente DC");
+      m122cuenta.setDescription("Codigo cuenta cliente Numero de cuenta");
+      }
+    }
+    
+  public class TabMod100h1 extends TableDef
+    {
+    // Campos
+    public FieldDef m11dominio;
+    public FieldDef m11nif;
+    public FieldDef m11declarac;
+    public FieldDef m11ejercicio;
+    public FieldDef m11periodo;
+    public FieldDef m11dprimapell;
+    public FieldDef m11dsegapell;
+    public FieldDef m11dnombre;
+    public FieldDef m11dsexo;
+    public FieldDef m11destcivil;
+    public FieldDef m11dfecnacim;
+    public FieldDef m11dminusval;
+    public FieldDef m11dsms;
+    public FieldDef m11dcambdomi;
+    public FieldDef m11dtipovia;
+    public FieldDef m11dvia;
+    public FieldDef m11dtiponum;
+    public FieldDef m11dnumcasa;
+    public FieldDef m11dcalifnum;
+    public FieldDef m11dbloque;
+    public FieldDef m11dportal;
+    public FieldDef m11descalera;
+    public FieldDef m11dplanta;
+    public FieldDef m11dpuerta;
+    public FieldDef m11ddatcomp;
+    public FieldDef m11dpoblacion;
+    public FieldDef m11dcpostal;
+    public FieldDef m11dcodmuni;
+    public FieldDef m11dmunicipio;
+    public FieldDef m11dcodprov;
+    public FieldDef m11dprovincia;
+    public FieldDef m11dtelefijo;
+    public FieldDef m11dmovil;
+    public FieldDef m11dfax;
+    public FieldDef m11dextdomic;
+    public FieldDef m11dextdatcom;
+    public FieldDef m11dextpoblac;
+    public FieldDef m11dextmail;
+    public FieldDef m11dextcpost;
+    public FieldDef m11dextprovin;
+    public FieldDef m11dextpais;
+    public FieldDef m11dextcpais;
+    public FieldDef m11dexttelef;
+    public FieldDef m11dextmovil;
+    public FieldDef m11dextfax;
+    public FieldDef m11vda1titul;
+    public FieldDef m11vda1porcd;
+    public FieldDef m11vda1porcc;
+    public FieldDef m11vda1situa;
+    public FieldDef m11vda1refer;
+    public FieldDef m11vda2titul;
+    public FieldDef m11vda2porcd;
+    public FieldDef m11vda2porcc;
+    public FieldDef m11vda2situa;
+    public FieldDef m11vda2refer;
+    public FieldDef m11vda3titul;
+    public FieldDef m11vda3porcd;
+    public FieldDef m11vda3porcc;
+    public FieldDef m11vda3situa;
+    public FieldDef m11vda3refer;
+    public FieldDef m11vda4titul;
+    public FieldDef m11vda4porcd;
+    public FieldDef m11vda4porcc;
+    public FieldDef m11vda4situa;
+    public FieldDef m11vda4refer;
+    public FieldDef m11cnif;
+    public FieldDef m11cprimapell;
+    public FieldDef m11csegapell;
+    public FieldDef m11cnombre;
+    public FieldDef m11csexo;
+    public FieldDef m11cfecnacim;
+    public FieldDef m11cminusval;
+    public FieldDef m11noirpf;
+    public FieldDef m11csms;
+    public FieldDef m11ccambdomi;
+    public FieldDef m11ctipovia;
+    public FieldDef m11cvia;
+    public FieldDef m11ctiponum;
+    public FieldDef m11cnumcasa;
+    public FieldDef m11ccalifnum;
+    public FieldDef m11cbloque;
+    public FieldDef m11cportal;
+    public FieldDef m11cescalera;
+    public FieldDef m11cplanta;
+    public FieldDef m11cpuerta;
+    public FieldDef m11cdatcomp;
+    public FieldDef m11cpoblacion;
+    public FieldDef m11ccpostal;
+    public FieldDef m11ccodmuni;
+    public FieldDef m11cmunicipio;
+    public FieldDef m11ccodprov;
+    public FieldDef m11cprovincia;
+    public FieldDef m11ctelefijo;
+    public FieldDef m11cmovil;
+    public FieldDef m11cfax;
+    public FieldDef m11cextdomic;
+    public FieldDef m11cextdatcom;
+    public FieldDef m11cextpoblac;
+    public FieldDef m11cextmail;
+    public FieldDef m11cextcpost;
+    public FieldDef m11cextprovin;
+    public FieldDef m11cextpais;
+    public FieldDef m11cextcpais;
+    public FieldDef m11cexttelef;
+    public FieldDef m11cextmovil;
+    public FieldDef m11cextfax;
+    public FieldDef m11repnif;
+    public FieldDef m11reprnombre;
+    public FieldDef m11feclugar;
+    public FieldDef m11fecdia;
+    public FieldDef m11fecmes;
+    public FieldDef m11fecejerc;
+    public FieldDef m11idenclien;
+    public FieldDef m11vdanifarr;
+    public TabMod100h1(String name)
+      {
+      super(name);
+      m11dominio = new FieldDef("m11dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m11nif = new FieldDef("m11nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m11declarac = new FieldDef("m11declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      m11ejercicio = new FieldDef("m11ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m11periodo = new FieldDef("m11periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m11dprimapell = new FieldDef("m11dprimapell",FieldDef.CHAR,15);
+      m11dsegapell = new FieldDef("m11dsegapell",FieldDef.CHAR,15);
+      m11dnombre = new FieldDef("m11dnombre",FieldDef.CHAR,15);
+      m11dsexo = new FieldDef("m11dsexo",FieldDef.CHAR,1);
+      m11destcivil = new FieldDef("m11destcivil",FieldDef.INTEGER,0);
+      m11dfecnacim = new FieldDef("m11dfecnacim",FieldDef.DATE);
+      m11dminusval = new FieldDef("m11dminusval",FieldDef.INTEGER,0);
+      m11dsms = new FieldDef("m11dsms",FieldDef.INTEGER,0);
+      m11dcambdomi = new FieldDef("m11dcambdomi",FieldDef.INTEGER,0);
+      m11dtipovia = new FieldDef("m11dtipovia",FieldDef.CHAR,5);
+      m11dvia = new FieldDef("m11dvia",FieldDef.CHAR,50);
+      m11dtiponum = new FieldDef("m11dtiponum",FieldDef.CHAR,3);
+      m11dnumcasa = new FieldDef("m11dnumcasa",FieldDef.INTEGER,0);
+      m11dcalifnum = new FieldDef("m11dcalifnum",FieldDef.CHAR,3);
+      m11dbloque = new FieldDef("m11dbloque",FieldDef.CHAR,3);
+      m11dportal = new FieldDef("m11dportal",FieldDef.CHAR,3);
+      m11descalera = new FieldDef("m11descalera",FieldDef.CHAR,3);
+      m11dplanta = new FieldDef("m11dplanta",FieldDef.CHAR,3);
+      m11dpuerta = new FieldDef("m11dpuerta",FieldDef.CHAR,3);
+      m11ddatcomp = new FieldDef("m11ddatcomp",FieldDef.CHAR,40);
+      m11dpoblacion = new FieldDef("m11dpoblacion",FieldDef.CHAR,30);
+      m11dcpostal = new FieldDef("m11dcpostal",FieldDef.INTEGER,0);
+      m11dcodmuni = new FieldDef("m11dcodmuni",FieldDef.INTEGER,0);
+      m11dmunicipio = new FieldDef("m11dmunicipio",FieldDef.CHAR,30);
+      m11dcodprov = new FieldDef("m11dcodprov",FieldDef.INTEGER,0);
+      m11dprovincia = new FieldDef("m11dprovincia",FieldDef.CHAR,20);
+      m11dtelefijo = new FieldDef("m11dtelefijo",FieldDef.CHAR,9);
+      m11dmovil = new FieldDef("m11dmovil",FieldDef.CHAR,9);
+      m11dfax = new FieldDef("m11dfax",FieldDef.CHAR,9);
+      m11dextdomic = new FieldDef("m11dextdomic",FieldDef.CHAR,50);
+      m11dextdatcom = new FieldDef("m11dextdatcom",FieldDef.CHAR,40);
+      m11dextpoblac = new FieldDef("m11dextpoblac",FieldDef.CHAR,30);
+      m11dextmail = new FieldDef("m11dextmail",FieldDef.CHAR,100);
+      m11dextcpost = new FieldDef("m11dextcpost",FieldDef.CHAR,10);
+      m11dextprovin = new FieldDef("m11dextprovin",FieldDef.CHAR,30);
+      m11dextpais = new FieldDef("m11dextpais",FieldDef.CHAR,30);
+      m11dextcpais = new FieldDef("m11dextcpais",FieldDef.CHAR,2);
+      m11dexttelef = new FieldDef("m11dexttelef",FieldDef.CHAR,15);
+      m11dextmovil = new FieldDef("m11dextmovil",FieldDef.CHAR,15);
+      m11dextfax = new FieldDef("m11dextfax",FieldDef.CHAR,15);
+      m11vda1titul = new FieldDef("m11vda1titul",FieldDef.INTEGER,0);
+      m11vda1porcd = new FieldDef("m11vda1porcd",FieldDef.FLOAT,6,0);
+      m11vda1porcc = new FieldDef("m11vda1porcc",FieldDef.FLOAT,6,0);
+      m11vda1situa = new FieldDef("m11vda1situa",FieldDef.INTEGER,0);
+      m11vda1refer = new FieldDef("m11vda1refer",FieldDef.CHAR,20);
+      m11vda2titul = new FieldDef("m11vda2titul",FieldDef.INTEGER,0);
+      m11vda2porcd = new FieldDef("m11vda2porcd",FieldDef.FLOAT,6,0);
+      m11vda2porcc = new FieldDef("m11vda2porcc",FieldDef.FLOAT,6,0);
+      m11vda2situa = new FieldDef("m11vda2situa",FieldDef.INTEGER,0);
+      m11vda2refer = new FieldDef("m11vda2refer",FieldDef.CHAR,20);
+      m11vda3titul = new FieldDef("m11vda3titul",FieldDef.INTEGER,0);
+      m11vda3porcd = new FieldDef("m11vda3porcd",FieldDef.FLOAT,6,0);
+      m11vda3porcc = new FieldDef("m11vda3porcc",FieldDef.FLOAT,6,0);
+      m11vda3situa = new FieldDef("m11vda3situa",FieldDef.INTEGER,0);
+      m11vda3refer = new FieldDef("m11vda3refer",FieldDef.CHAR,20);
+      m11vda4titul = new FieldDef("m11vda4titul",FieldDef.INTEGER,0);
+      m11vda4porcd = new FieldDef("m11vda4porcd",FieldDef.FLOAT,6,0);
+      m11vda4porcc = new FieldDef("m11vda4porcc",FieldDef.FLOAT,6,0);
+      m11vda4situa = new FieldDef("m11vda4situa",FieldDef.INTEGER,0);
+      m11vda4refer = new FieldDef("m11vda4refer",FieldDef.CHAR,20);
+      m11cnif = new FieldDef("m11cnif",FieldDef.CHAR,9);
+      m11cprimapell = new FieldDef("m11cprimapell",FieldDef.CHAR,15);
+      m11csegapell = new FieldDef("m11csegapell",FieldDef.CHAR,15);
+      m11cnombre = new FieldDef("m11cnombre",FieldDef.CHAR,15);
+      m11csexo = new FieldDef("m11csexo",FieldDef.CHAR,1);
+      m11cfecnacim = new FieldDef("m11cfecnacim",FieldDef.DATE);
+      m11cminusval = new FieldDef("m11cminusval",FieldDef.INTEGER,0);
+      m11noirpf = new FieldDef("m11noirpf",FieldDef.INTEGER,0);
+      m11csms = new FieldDef("m11csms",FieldDef.INTEGER,0);
+      m11ccambdomi = new FieldDef("m11ccambdomi",FieldDef.INTEGER,0);
+      m11ctipovia = new FieldDef("m11ctipovia",FieldDef.CHAR,5);
+      m11cvia = new FieldDef("m11cvia",FieldDef.CHAR,50);
+      m11ctiponum = new FieldDef("m11ctiponum",FieldDef.CHAR,3);
+      m11cnumcasa = new FieldDef("m11cnumcasa",FieldDef.INTEGER,0);
+      m11ccalifnum = new FieldDef("m11ccalifnum",FieldDef.CHAR,3);
+      m11cbloque = new FieldDef("m11cbloque",FieldDef.CHAR,3);
+      m11cportal = new FieldDef("m11cportal",FieldDef.CHAR,3);
+      m11cescalera = new FieldDef("m11cescalera",FieldDef.CHAR,3);
+      m11cplanta = new FieldDef("m11cplanta",FieldDef.CHAR,3);
+      m11cpuerta = new FieldDef("m11cpuerta",FieldDef.CHAR,3);
+      m11cdatcomp = new FieldDef("m11cdatcomp",FieldDef.CHAR,40);
+      m11cpoblacion = new FieldDef("m11cpoblacion",FieldDef.CHAR,30);
+      m11ccpostal = new FieldDef("m11ccpostal",FieldDef.INTEGER,0);
+      m11ccodmuni = new FieldDef("m11ccodmuni",FieldDef.INTEGER,0);
+      m11cmunicipio = new FieldDef("m11cmunicipio",FieldDef.CHAR,30);
+      m11ccodprov = new FieldDef("m11ccodprov",FieldDef.INTEGER,0);
+      m11cprovincia = new FieldDef("m11cprovincia",FieldDef.CHAR,20);
+      m11ctelefijo = new FieldDef("m11ctelefijo",FieldDef.CHAR,9);
+      m11cmovil = new FieldDef("m11cmovil",FieldDef.CHAR,9);
+      m11cfax = new FieldDef("m11cfax",FieldDef.CHAR,9);
+      m11cextdomic = new FieldDef("m11cextdomic",FieldDef.CHAR,50);
+      m11cextdatcom = new FieldDef("m11cextdatcom",FieldDef.CHAR,40);
+      m11cextpoblac = new FieldDef("m11cextpoblac",FieldDef.CHAR,30);
+      m11cextmail = new FieldDef("m11cextmail",FieldDef.CHAR,100);
+      m11cextcpost = new FieldDef("m11cextcpost",FieldDef.CHAR,10);
+      m11cextprovin = new FieldDef("m11cextprovin",FieldDef.CHAR,30);
+      m11cextpais = new FieldDef("m11cextpais",FieldDef.CHAR,30);
+      m11cextcpais = new FieldDef("m11cextcpais",FieldDef.CHAR,2);
+      m11cexttelef = new FieldDef("m11cexttelef",FieldDef.CHAR,15);
+      m11cextmovil = new FieldDef("m11cextmovil",FieldDef.CHAR,15);
+      m11cextfax = new FieldDef("m11cextfax",FieldDef.CHAR,15);
+      m11repnif = new FieldDef("m11repnif",FieldDef.CHAR,9);
+      m11reprnombre = new FieldDef("m11reprnombre",FieldDef.CHAR,32);
+      m11feclugar = new FieldDef("m11feclugar",FieldDef.CHAR,20);
+      m11fecdia = new FieldDef("m11fecdia",FieldDef.INTEGER,0);
+      m11fecmes = new FieldDef("m11fecmes",FieldDef.INTEGER,0);
+      m11fecejerc = new FieldDef("m11fecejerc",FieldDef.INTEGER,0);
+      m11idenclien = new FieldDef("m11idenclien",FieldDef.CHAR,20);
+      m11vdanifarr = new FieldDef("m11vdanifarr",FieldDef.CHAR,9);
+      FieldDef array[] = {
+        m11dominio,
+        m11nif,
+        m11declarac,
+        m11ejercicio,
+        m11periodo,
+        m11dprimapell,
+        m11dsegapell,
+        m11dnombre,
+        m11dsexo,
+        m11destcivil,
+        m11dfecnacim,
+        m11dminusval,
+        m11dsms,
+        m11dcambdomi,
+        m11dtipovia,
+        m11dvia,
+        m11dtiponum,
+        m11dnumcasa,
+        m11dcalifnum,
+        m11dbloque,
+        m11dportal,
+        m11descalera,
+        m11dplanta,
+        m11dpuerta,
+        m11ddatcomp,
+        m11dpoblacion,
+        m11dcpostal,
+        m11dcodmuni,
+        m11dmunicipio,
+        m11dcodprov,
+        m11dprovincia,
+        m11dtelefijo,
+        m11dmovil,
+        m11dfax,
+        m11dextdomic,
+        m11dextdatcom,
+        m11dextpoblac,
+        m11dextmail,
+        m11dextcpost,
+        m11dextprovin,
+        m11dextpais,
+        m11dextcpais,
+        m11dexttelef,
+        m11dextmovil,
+        m11dextfax,
+        m11vda1titul,
+        m11vda1porcd,
+        m11vda1porcc,
+        m11vda1situa,
+        m11vda1refer,
+        m11vda2titul,
+        m11vda2porcd,
+        m11vda2porcc,
+        m11vda2situa,
+        m11vda2refer,
+        m11vda3titul,
+        m11vda3porcd,
+        m11vda3porcc,
+        m11vda3situa,
+        m11vda3refer,
+        m11vda4titul,
+        m11vda4porcd,
+        m11vda4porcc,
+        m11vda4situa,
+        m11vda4refer,
+        m11cnif,
+        m11cprimapell,
+        m11csegapell,
+        m11cnombre,
+        m11csexo,
+        m11cfecnacim,
+        m11cminusval,
+        m11noirpf,
+        m11csms,
+        m11ccambdomi,
+        m11ctipovia,
+        m11cvia,
+        m11ctiponum,
+        m11cnumcasa,
+        m11ccalifnum,
+        m11cbloque,
+        m11cportal,
+        m11cescalera,
+        m11cplanta,
+        m11cpuerta,
+        m11cdatcomp,
+        m11cpoblacion,
+        m11ccpostal,
+        m11ccodmuni,
+        m11cmunicipio,
+        m11ccodprov,
+        m11cprovincia,
+        m11ctelefijo,
+        m11cmovil,
+        m11cfax,
+        m11cextdomic,
+        m11cextdatcom,
+        m11cextpoblac,
+        m11cextmail,
+        m11cextcpost,
+        m11cextprovin,
+        m11cextpais,
+        m11cextcpais,
+        m11cexttelef,
+        m11cextmovil,
+        m11cextfax,
+        m11repnif,
+        m11reprnombre,
+        m11feclugar,
+        m11fecdia,
+        m11fecmes,
+        m11fecejerc,
+        m11idenclien,
+        m11vdanifarr        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m11dominio,m11nif,m11declarac,m11ejercicio,m11periodo };
+      setPrimaryKeys(arrayf);
+      m11declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
+      m11dprimapell.setDescription("Primer Declarante Primer apellido (02)");
+      m11dsegapell.setDescription("Primer Declarante Segundo apellido (03)");
+      m11dnombre.setDescription("Primer Declarante Nombre (4)");
+      m11dsexo.setDescription("Primer Declarante Sexo H Hombre M Mujer (05)");
+      m11destcivil.setDescription("Primer Declarante Estado Civil. 1 Soltero/a 2 Casado/a 3 Viudo/a 4 Divorciado/a o Separado/a");
+      m11dfecnacim.setDescription("Primer Declarante Fecha de nacimiento.");
+      m11dminusval.setDescription("Primer Declarante Grado de Minusvalia 0 1 2 o 3 (11)");
+      m11dsms.setDescription("Primer Declarante Suscripcion servicio mensajes SMS 1 o cero (12)");
+      m11dcambdomi.setDescription("Primer Declarante Cambio de domicilio 1 o cero");
+      m11dtipovia.setDescription("Primer Declarante Domicilio habitual Tipo de Via (15)");
+      m11dvia.setDescription("Primer Declarante Domicilio habitual Nombre de la Via Publica (16)");
+      m11dtiponum.setDescription("Primer Declarante Domicilio habitual Tipo de numeracion. Valores NUM KM S/N OTR (17)");
+      m11dnumcasa.setDescription("Primer Declarante Domicilio habitual Numero de Casa (18)");
+      m11dcalifnum.setDescription("Primer Declarante Domicilio habitual Calificador del numero. Valores BIS DUP MOD ANT etc/metros si Tipo NumKM. (19)");
+      m11dbloque.setDescription("Primer Declarante Domicilio habitual Bloque (20)");
+      m11dportal.setDescription("Primer Declarante Domicilio habitual Portal (21)");
+      m11descalera.setDescription("Primer Declarante Domicilio habitual Escalera (22)");
+      m11dplanta.setDescription("Primer Declarante Domicilio habitual Planta (23)");
+      m11dpuerta.setDescription("Primer Declarante Domicilio habitual Puerta (24)");
+      m11ddatcomp.setDescription("Primer Declarante Domicilio habitual Datos complementarios del Domicilio habitual (25)");
+      m11dpoblacion.setDescription("Primer Declarante Domicilio habitual Localidad / Poblacion (26)");
+      m11dcpostal.setDescription("Primer Declarante Domicilio habitual Codigo postal (27)");
+      m11dcodmuni.setDescription("Primer Declarante Domicilio habitual Codigo del Municipiol (28)");
+      m11dmunicipio.setDescription("Primer Declarante Domicilio habitual Nombre del Municipio (28)");
+      m11dcodprov.setDescription("Primer Declarante Domicilio habitual Codigo provincia. De 01 a 52.");
+      m11dprovincia.setDescription("Primer Declarante Domicilio habitual Provincia (29)");
+      m11dtelefijo.setDescription("Primer Declarante Domicilio habitual Telefono fijo (30)");
+      m11dmovil.setDescription("Primer Declarante Domicilio habitual Telefono movil (31)");
+      m11dfax.setDescription("Primer Declarante Domicilio habitual Num. De Fax (32)");
+      m11dextdomic.setDescription("Primer Declarante Domicilio extranjero Domicilio/Address (35)");
+      m11dextdatcom.setDescription("Primer Declarante Domicilio extranjero Datos complementarios del domicilio (36)");
+      m11dextpoblac.setDescription("Primer Declarante Domicilio extranjero Poblacion / Ciudad (37)");
+      m11dextmail.setDescription("Primer Declarante Domicilio extranjero email (38)");
+      m11dextcpost.setDescription("Primer Declarante Domicilio extranjero Codigo Postal (39)");
+      m11dextprovin.setDescription("Primer Declarante Domicilio extranjero Provincia / Region / Estado (40)");
+      m11dextpais.setDescription("Primer Declarante Domicilio extranjero Pais. (41)");
+      m11dextcpais.setDescription("Primer Declarante Domicilio extranjero Codigo Pais. Codigo pais ISO3166 (alfabetico 2 letras). (42)");
+      m11dexttelef.setDescription("Primer Declarante Domicilio extranjero Telefono fijo (43)");
+      m11dextmovil.setDescription("Primer Declarante Domicilio extranjero Telefono movil (44)");
+      m11dextfax.setDescription("Primer Declarante Domicilio extranjero Num. De Fax (45)");
+      m11vda1titul.setDescription("Datos adicionales vivienda Titularidad 1 2 3 o 4 (50)");
+      m11vda1porcd.setDescription("Datos adicionales vivienda Porcentaje participacion Primer declarante (tres enteros dos decimales) (51)");
+      m11vda1porcc.setDescription("Datos adicionales vivienda Porcentaje participacion Conyuge (tres enteros dos decimales) (52)");
+      m11vda1situa.setDescription("Datos adicionales vivienda Situacion (clave) 1 2 3 o 4 (53)");
+      m11vda1refer.setDescription("Datos adicionales vivienda Referencia catastral (54)");
+      m11vda2titul.setDescription("Datos adicionales vivienda Titularidad 0 1 2 3 o 4 (50)");
+      m11vda2porcd.setDescription("Datos adicionales vivienda Porcentaje participacion Primer declarante (tres enteros dos decimales) (51)");
+      m11vda2porcc.setDescription("Datos adicionales vivienda Porcentaje participacion Conyuge (tres enteros dos decimales) (52)");
+      m11vda2situa.setDescription("Datos adicionales vivienda Situacion (clave) 0 1 2 3 o 4 (53)");
+      m11vda2refer.setDescription("Datos adicionales vivienda Referencia catastral (54)");
+      m11vda3titul.setDescription("Datos adicionales vivienda Titularidad 0 1 2 3 o 4 (50)");
+      m11vda3porcd.setDescription("Datos adicionales vivienda Porcentaje participacion Primer declarante (tres enteros dos decimales) (51)");
+      m11vda3porcc.setDescription("Datos adicionales vivienda Porcentaje participacion Conyuge (tres enteros dos decimales) (52)");
+      m11vda3situa.setDescription("Datos adicionales vivienda Situacion (clave) 0 1 2 3 o 4 (53)");
+      m11vda3refer.setDescription("Datos adicionales vivienda Referencia catastral (54)");
+      m11vda4titul.setDescription("Datos adicionales vivienda Titularidad 0 1 2 3 o 4 (50)");
+      m11vda4porcd.setDescription("Datos adicionales vivienda Porcentaje participacion Primer declarante (tres enteros dos decimales) (51)");
+      m11vda4porcc.setDescription("Datos adicionales vivienda Porcentaje participacion Conyuge (tres enteros dos decimales) (52)");
+      m11vda4situa.setDescription("Datos adicionales vivienda Situacion (clave) 0 1 2 3 o 4 (53)");
+      m11vda4refer.setDescription("Datos adicionales vivienda Referencia catastral (54)");
+      m11cnif.setDescription("Conyuge NIF (61)");
+      m11cprimapell.setDescription("Conyuge Primer apellido (62)");
+      m11csegapell.setDescription("Conyuge Segundo apellido (63)");
+      m11cnombre.setDescription("Conyuge Nombre (64)");
+      m11csexo.setDescription("Conyuge Sexo H Hombre M Mujer (65)");
+      m11cfecnacim.setDescription("Conyuge Fecha de nacimiento.");
+      m11cminusval.setDescription("Conyuge Grado de Minusvalia 0 1 2 o 3 (67)");
+      m11noirpf.setDescription("Conyuge No residente que no es contribuyente del I.R.P.F. 1 o cero (68)");
+      m11csms.setDescription("Conyuge Suscripcion servicio mensajes SMS 1 o cero (69)");
+      m11ccambdomi.setDescription("Conyuge Cambio de domicilio 1 o cero");
+      m11ctipovia.setDescription("Conyuge Domicilio habitual Tipo de Via (15)");
+      m11cvia.setDescription("Conyuge Domicilio habitual Nombre de la Via Publica (16)");
+      m11ctiponum.setDescription("Conyuge Domicilio habitual Tipo de numeracion. Valores NUM KM S/N OTR (17)");
+      m11cnumcasa.setDescription("Conyuge Domicilio habitual Numero de Casa (18)");
+      m11ccalifnum.setDescription("Conyuge Domicilio habitual Calificador del numero. Valores BIS DUP MOD ANT etc/metros si Tipo NumKM. (19)");
+      m11cbloque.setDescription("Conyuge Domicilio habitual Bloque (20)");
+      m11cportal.setDescription("Conyuge Domicilio habitual Portal (21)");
+      m11cescalera.setDescription("Conyuge Domicilio habitual Escalera (22)");
+      m11cplanta.setDescription("Conyuge Domicilio habitual Planta (23)");
+      m11cpuerta.setDescription("Conyuge Domicilio habitual Puerta (24)");
+      m11cdatcomp.setDescription("Conyuge Domicilio habitual Datos complementarios del Domicilio habitual (25)");
+      m11cpoblacion.setDescription("Conyuge Domicilio habitual Localidad / Poblacion (26)");
+      m11ccpostal.setDescription("Conyuge Domicilio habitual Codigo postal (27)");
+      m11ccodmuni.setDescription("Conyuge Domicilio habitual Codigo del Municipiol (28)");
+      m11cmunicipio.setDescription("Conyuge Domicilio habitual Nombre del Municipio (28)");
+      m11ccodprov.setDescription("Conyuge Domicilio habitual Codigo provincia. De 01 a 52.");
+      m11cprovincia.setDescription("Conyuge Domicilio habitual Provincia (29)");
+      m11ctelefijo.setDescription("Conyuge Domicilio habitual Telefono fijo (30)");
+      m11cmovil.setDescription("Conyuge Domicilio habitual Telefono movil (33)");
+      m11cfax.setDescription("Conyuge Domicilio habitual Num. De Fax (32)");
+      m11cextdomic.setDescription("Conyuge Domicilio extranjero Domicilio/Address (35)");
+      m11cextdatcom.setDescription("Conyuge Domicilio extranjero Datos complementarios del domicilio (36)");
+      m11cextpoblac.setDescription("Conyuge Domicilio extranjero Poblacion / Ciudad (37)");
+      m11cextmail.setDescription("Conyuge Domicilio extranjero email (38)");
+      m11cextcpost.setDescription("Conyuge Domicilio extranjero Codigo Postal (39)");
+      m11cextprovin.setDescription("Conyuge Domicilio extranjero Provincia / Region / Estado (40)");
+      m11cextpais.setDescription("Conyuge Domicilio extranjero Pais (41)");
+      m11cextcpais.setDescription("Conyuge Domicilio extranjero Codigo Pais (42)");
+      m11cexttelef.setDescription("Conyuge Domicilio extranjero Telefono fijo (43)");
+      m11cextmovil.setDescription("Conyuge Domicilio extranjero Telefono movil (44)");
+      m11cextfax.setDescription("Conyuge Domicilio extranjero Num. De Fax (45)");
+      m11repnif.setDescription("Representante N.I.F. (75)");
+      m11reprnombre.setDescription("Representante Apellidos y nombre o razon social (76)");
+      m11feclugar.setDescription("Fecha declaracion Lugar");
+      m11fecdia.setDescription("Fecha declaracion Fecha Dia");
+      m11fecmes.setDescription("Fecha declaracion Fecha Mes");
+      m11fecejerc.setDescription("Fecha declaracion Fecha Año");
+      m11idenclien.setDescription("Identificador cliente EEDD. RESERVADO PARA LAS EEDD.");
+      m11vdanifarr.setDescription("2011 Datos adicionales vivienda Nif Arrendador");
+      }
+    }
+    
+  public class TabMod100h4 extends TableDef
+    {
+    // Campos
+    public FieldDef m14dominio;
+    public FieldDef m14nif;
+    public FieldDef m14declarac;
+    public FieldDef m14ejercicio;
+    public FieldDef m14periodo;
+    public FieldDef m14pagina;
+    public FieldDef m14titular1;
+    public FieldDef m14copropiedad1;
+    public FieldDef m14naturaleza1;
+    public FieldDef m14destino1;
+    public FieldDef m14situacion1;
+    public FieldDef m14referencia1;
+    public FieldDef m14disposicion1;
+    public FieldDef m14dias1;
+    public FieldDef m14imputacion1;
+    public FieldDef m14ingresosarr1;
+    public FieldDef m14gastosejant1;
+    public FieldDef m14gastosejact1;
+    public FieldDef m14gastoejactp1;
+    public FieldDef m14otrosgastos1;
+    public FieldDef m14rdtoneto1;
+    public FieldDef m14redvivienda1;
+    public FieldDef m14redirregula1;
+    public FieldDef m14rdtominimo1;
+    public FieldDef m14rdtonetored1;
+    public FieldDef m14titular2;
+    public FieldDef m14copropiedad2;
+    public FieldDef m14naturaleza2;
+    public FieldDef m14destino2;
+    public FieldDef m14situacion2;
+    public FieldDef m14referencia2;
+    public FieldDef m14disposicion2;
+    public FieldDef m14dias2;
+    public FieldDef m14imputacion2;
+    public FieldDef m14ingresosarr2;
+    public FieldDef m14gastosejant2;
+    public FieldDef m14gastosejact2;
+    public FieldDef m14gastoejactp2;
+    public FieldDef m14otrosgastos2;
+    public FieldDef m14rdtoneto2;
+    public FieldDef m14redvivienda2;
+    public FieldDef m14redirregula2;
+    public FieldDef m14rdtominimo2;
+    public FieldDef m14rdtonetored2;
+    public FieldDef m14titular3;
+    public FieldDef m14copropiedad3;
+    public FieldDef m14naturaleza3;
+    public FieldDef m14destino3;
+    public FieldDef m14situacion3;
+    public FieldDef m14referencia3;
+    public FieldDef m14disposicion3;
+    public FieldDef m14dias3;
+    public FieldDef m14imputacion3;
+    public FieldDef m14ingresosarr3;
+    public FieldDef m14gastosejant3;
+    public FieldDef m14gastosejact3;
+    public FieldDef m14gastoejactp3;
+    public FieldDef m14otrosgastos3;
+    public FieldDef m14rdtoneto3;
+    public FieldDef m14redvivienda3;
+    public FieldDef m14redirregula3;
+    public FieldDef m14rdtominimo3;
+    public FieldDef m14rdtonetored3;
+    public FieldDef m14totalimputac;
+    public FieldDef m14totalrdtos;
+    public FieldDef m14atrcontrib1;
+    public FieldDef m14atrnif1;
+    public FieldDef m14trtpartic1;
+    public FieldDef m14atrnatural1;
+    public FieldDef m14atrsituac1;
+    public FieldDef m14atrrefcata1;
+    public FieldDef m14atrcontrib2;
+    public FieldDef m14atrnif2;
+    public FieldDef m14trtpartic2;
+    public FieldDef m14atrnatural2;
+    public FieldDef m14atrsituac2;
+    public FieldDef m14atrrefcata2;
+    public FieldDef m14atrcontrib3;
+    public FieldDef m14atrnif3;
+    public FieldDef m14trtpartic3;
+    public FieldDef m14atrnatural3;
+    public FieldDef m14atrsituac3;
+    public FieldDef m14atrrefcata3;
+    public FieldDef m14actcontrib1;
+    public FieldDef m14actpartic1;
+    public FieldDef m14actsituac1;
+    public FieldDef m14actrefcatas1;
+    public FieldDef m14actcontrib2;
+    public FieldDef m14actpartic2;
+    public FieldDef m14actsituac2;
+    public FieldDef m14actrefcatas2;
+    public FieldDef m14actcontrib3;
+    public FieldDef m14actpartic3;
+    public FieldDef m14actsituac3;
+    public FieldDef m14actrefcatas3;
+    public FieldDef m14actnatural1;
+    public FieldDef m14actnatural2;
+    public FieldDef m14actnatural3;
+    public TabMod100h4(String name)
+      {
+      super(name);
+      m14dominio = new FieldDef("m14dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m14nif = new FieldDef("m14nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m14declarac = new FieldDef("m14declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      m14ejercicio = new FieldDef("m14ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m14periodo = new FieldDef("m14periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m14pagina = new FieldDef("m14pagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m14titular1 = new FieldDef("m14titular1",FieldDef.INTEGER,0);
+      m14copropiedad1 = new FieldDef("m14copropiedad1",FieldDef.FLOAT,6,0);
+      m14naturaleza1 = new FieldDef("m14naturaleza1",FieldDef.INTEGER,0);
+      m14destino1 = new FieldDef("m14destino1",FieldDef.INTEGER,0);
+      m14situacion1 = new FieldDef("m14situacion1",FieldDef.INTEGER,0);
+      m14referencia1 = new FieldDef("m14referencia1",FieldDef.CHAR,20);
+      m14disposicion1 = new FieldDef("m14disposicion1",FieldDef.FLOAT,6,0);
+      m14dias1 = new FieldDef("m14dias1",FieldDef.INTEGER,0);
+      m14imputacion1 = new FieldDef("m14imputacion1",FieldDef.FLOAT,6,0);
+      m14ingresosarr1 = new FieldDef("m14ingresosarr1",FieldDef.FLOAT,6,0);
+      m14gastosejant1 = new FieldDef("m14gastosejant1",FieldDef.FLOAT,6,0);
+      m14gastosejact1 = new FieldDef("m14gastosejact1",FieldDef.FLOAT,6,0);
+      m14gastoejactp1 = new FieldDef("m14gastoejactp1",FieldDef.FLOAT,6,0);
+      m14otrosgastos1 = new FieldDef("m14otrosgastos1",FieldDef.FLOAT,6,0);
+      m14rdtoneto1 = new FieldDef("m14rdtoneto1",FieldDef.FLOAT,6,0);
+      m14redvivienda1 = new FieldDef("m14redvivienda1",FieldDef.FLOAT,6,0);
+      m14redirregula1 = new FieldDef("m14redirregula1",FieldDef.FLOAT,6,0);
+      m14rdtominimo1 = new FieldDef("m14rdtominimo1",FieldDef.FLOAT,6,0);
+      m14rdtonetored1 = new FieldDef("m14rdtonetored1",FieldDef.FLOAT,6,0);
+      m14titular2 = new FieldDef("m14titular2",FieldDef.INTEGER,0);
+      m14copropiedad2 = new FieldDef("m14copropiedad2",FieldDef.FLOAT,6,0);
+      m14naturaleza2 = new FieldDef("m14naturaleza2",FieldDef.INTEGER,0);
+      m14destino2 = new FieldDef("m14destino2",FieldDef.INTEGER,0);
+      m14situacion2 = new FieldDef("m14situacion2",FieldDef.INTEGER,0);
+      m14referencia2 = new FieldDef("m14referencia2",FieldDef.CHAR,20);
+      m14disposicion2 = new FieldDef("m14disposicion2",FieldDef.FLOAT,6,0);
+      m14dias2 = new FieldDef("m14dias2",FieldDef.INTEGER,0);
+      m14imputacion2 = new FieldDef("m14imputacion2",FieldDef.FLOAT,6,0);
+      m14ingresosarr2 = new FieldDef("m14ingresosarr2",FieldDef.FLOAT,6,0);
+      m14gastosejant2 = new FieldDef("m14gastosejant2",FieldDef.FLOAT,6,0);
+      m14gastosejact2 = new FieldDef("m14gastosejact2",FieldDef.FLOAT,6,0);
+      m14gastoejactp2 = new FieldDef("m14gastoejactp2",FieldDef.FLOAT,6,0);
+      m14otrosgastos2 = new FieldDef("m14otrosgastos2",FieldDef.FLOAT,6,0);
+      m14rdtoneto2 = new FieldDef("m14rdtoneto2",FieldDef.FLOAT,6,0);
+      m14redvivienda2 = new FieldDef("m14redvivienda2",FieldDef.FLOAT,6,0);
+      m14redirregula2 = new FieldDef("m14redirregula2",FieldDef.FLOAT,6,0);
+      m14rdtominimo2 = new FieldDef("m14rdtominimo2",FieldDef.FLOAT,6,0);
+      m14rdtonetored2 = new FieldDef("m14rdtonetored2",FieldDef.FLOAT,6,0);
+      m14titular3 = new FieldDef("m14titular3",FieldDef.INTEGER,0);
+      m14copropiedad3 = new FieldDef("m14copropiedad3",FieldDef.FLOAT,6,0);
+      m14naturaleza3 = new FieldDef("m14naturaleza3",FieldDef.INTEGER,0);
+      m14destino3 = new FieldDef("m14destino3",FieldDef.INTEGER,0);
+      m14situacion3 = new FieldDef("m14situacion3",FieldDef.INTEGER,0);
+      m14referencia3 = new FieldDef("m14referencia3",FieldDef.CHAR,20);
+      m14disposicion3 = new FieldDef("m14disposicion3",FieldDef.FLOAT,6,0);
+      m14dias3 = new FieldDef("m14dias3",FieldDef.INTEGER,0);
+      m14imputacion3 = new FieldDef("m14imputacion3",FieldDef.FLOAT,6,0);
+      m14ingresosarr3 = new FieldDef("m14ingresosarr3",FieldDef.FLOAT,6,0);
+      m14gastosejant3 = new FieldDef("m14gastosejant3",FieldDef.FLOAT,6,0);
+      m14gastosejact3 = new FieldDef("m14gastosejact3",FieldDef.FLOAT,6,0);
+      m14gastoejactp3 = new FieldDef("m14gastoejactp3",FieldDef.FLOAT,6,0);
+      m14otrosgastos3 = new FieldDef("m14otrosgastos3",FieldDef.FLOAT,6,0);
+      m14rdtoneto3 = new FieldDef("m14rdtoneto3",FieldDef.FLOAT,6,0);
+      m14redvivienda3 = new FieldDef("m14redvivienda3",FieldDef.FLOAT,6,0);
+      m14redirregula3 = new FieldDef("m14redirregula3",FieldDef.FLOAT,6,0);
+      m14rdtominimo3 = new FieldDef("m14rdtominimo3",FieldDef.FLOAT,6,0);
+      m14rdtonetored3 = new FieldDef("m14rdtonetored3",FieldDef.FLOAT,6,0);
+      m14totalimputac = new FieldDef("m14totalimputac",FieldDef.FLOAT,6,0);
+      m14totalrdtos = new FieldDef("m14totalrdtos",FieldDef.FLOAT,6,0);
+      m14atrcontrib1 = new FieldDef("m14atrcontrib1",FieldDef.INTEGER,0);
+      m14atrnif1 = new FieldDef("m14atrnif1",FieldDef.CHAR,9);
+      m14trtpartic1 = new FieldDef("m14trtpartic1",FieldDef.FLOAT,6,0);
+      m14atrnatural1 = new FieldDef("m14atrnatural1",FieldDef.INTEGER,0);
+      m14atrsituac1 = new FieldDef("m14atrsituac1",FieldDef.INTEGER,0);
+      m14atrrefcata1 = new FieldDef("m14atrrefcata1",FieldDef.CHAR,20);
+      m14atrcontrib2 = new FieldDef("m14atrcontrib2",FieldDef.INTEGER,0);
+      m14atrnif2 = new FieldDef("m14atrnif2",FieldDef.CHAR,9);
+      m14trtpartic2 = new FieldDef("m14trtpartic2",FieldDef.FLOAT,6,0);
+      m14atrnatural2 = new FieldDef("m14atrnatural2",FieldDef.INTEGER,0);
+      m14atrsituac2 = new FieldDef("m14atrsituac2",FieldDef.INTEGER,0);
+      m14atrrefcata2 = new FieldDef("m14atrrefcata2",FieldDef.CHAR,20);
+      m14atrcontrib3 = new FieldDef("m14atrcontrib3",FieldDef.INTEGER,0);
+      m14atrnif3 = new FieldDef("m14atrnif3",FieldDef.CHAR,9);
+      m14trtpartic3 = new FieldDef("m14trtpartic3",FieldDef.FLOAT,6,0);
+      m14atrnatural3 = new FieldDef("m14atrnatural3",FieldDef.INTEGER,0);
+      m14atrsituac3 = new FieldDef("m14atrsituac3",FieldDef.INTEGER,0);
+      m14atrrefcata3 = new FieldDef("m14atrrefcata3",FieldDef.CHAR,20);
+      m14actcontrib1 = new FieldDef("m14actcontrib1",FieldDef.INTEGER,0);
+      m14actpartic1 = new FieldDef("m14actpartic1",FieldDef.FLOAT,6,0);
+      m14actsituac1 = new FieldDef("m14actsituac1",FieldDef.INTEGER,0);
+      m14actrefcatas1 = new FieldDef("m14actrefcatas1",FieldDef.CHAR,20);
+      m14actcontrib2 = new FieldDef("m14actcontrib2",FieldDef.INTEGER,0);
+      m14actpartic2 = new FieldDef("m14actpartic2",FieldDef.FLOAT,6,0);
+      m14actsituac2 = new FieldDef("m14actsituac2",FieldDef.INTEGER,0);
+      m14actrefcatas2 = new FieldDef("m14actrefcatas2",FieldDef.CHAR,20);
+      m14actcontrib3 = new FieldDef("m14actcontrib3",FieldDef.INTEGER,0);
+      m14actpartic3 = new FieldDef("m14actpartic3",FieldDef.FLOAT,6,0);
+      m14actsituac3 = new FieldDef("m14actsituac3",FieldDef.INTEGER,0);
+      m14actrefcatas3 = new FieldDef("m14actrefcatas3",FieldDef.CHAR,20);
+      m14actnatural1 = new FieldDef("m14actnatural1",FieldDef.INTEGER,0);
+      m14actnatural2 = new FieldDef("m14actnatural2",FieldDef.INTEGER,0);
+      m14actnatural3 = new FieldDef("m14actnatural3",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        m14dominio,
+        m14nif,
+        m14declarac,
+        m14ejercicio,
+        m14periodo,
+        m14pagina,
+        m14titular1,
+        m14copropiedad1,
+        m14naturaleza1,
+        m14destino1,
+        m14situacion1,
+        m14referencia1,
+        m14disposicion1,
+        m14dias1,
+        m14imputacion1,
+        m14ingresosarr1,
+        m14gastosejant1,
+        m14gastosejact1,
+        m14gastoejactp1,
+        m14otrosgastos1,
+        m14rdtoneto1,
+        m14redvivienda1,
+        m14redirregula1,
+        m14rdtominimo1,
+        m14rdtonetored1,
+        m14titular2,
+        m14copropiedad2,
+        m14naturaleza2,
+        m14destino2,
+        m14situacion2,
+        m14referencia2,
+        m14disposicion2,
+        m14dias2,
+        m14imputacion2,
+        m14ingresosarr2,
+        m14gastosejant2,
+        m14gastosejact2,
+        m14gastoejactp2,
+        m14otrosgastos2,
+        m14rdtoneto2,
+        m14redvivienda2,
+        m14redirregula2,
+        m14rdtominimo2,
+        m14rdtonetored2,
+        m14titular3,
+        m14copropiedad3,
+        m14naturaleza3,
+        m14destino3,
+        m14situacion3,
+        m14referencia3,
+        m14disposicion3,
+        m14dias3,
+        m14imputacion3,
+        m14ingresosarr3,
+        m14gastosejant3,
+        m14gastosejact3,
+        m14gastoejactp3,
+        m14otrosgastos3,
+        m14rdtoneto3,
+        m14redvivienda3,
+        m14redirregula3,
+        m14rdtominimo3,
+        m14rdtonetored3,
+        m14totalimputac,
+        m14totalrdtos,
+        m14atrcontrib1,
+        m14atrnif1,
+        m14trtpartic1,
+        m14atrnatural1,
+        m14atrsituac1,
+        m14atrrefcata1,
+        m14atrcontrib2,
+        m14atrnif2,
+        m14trtpartic2,
+        m14atrnatural2,
+        m14atrsituac2,
+        m14atrrefcata2,
+        m14atrcontrib3,
+        m14atrnif3,
+        m14trtpartic3,
+        m14atrnatural3,
+        m14atrsituac3,
+        m14atrrefcata3,
+        m14actcontrib1,
+        m14actpartic1,
+        m14actsituac1,
+        m14actrefcatas1,
+        m14actcontrib2,
+        m14actpartic2,
+        m14actsituac2,
+        m14actrefcatas2,
+        m14actcontrib3,
+        m14actpartic3,
+        m14actsituac3,
+        m14actrefcatas3,
+        m14actnatural1,
+        m14actnatural2,
+        m14actnatural3        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m14dominio,m14nif,m14declarac,m14ejercicio,m14periodo,m14pagina };
+      setPrimaryKeys(arrayf);
+      m14declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
+      m14titular1.setDescription("(C) Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Contribuyente 0 a 9 (060)");
+      m14copropiedad1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Porcentaje titularidad (3 enteros y 2 decimales) (061)");
+      m14naturaleza1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Naturaleza (062)");
+      m14destino1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Uso o destino. Clave (063)");
+      m14situacion1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Situacion 0 1 2 3 o 4 (064)");
+      m14referencia1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Referencia catastral (065)");
+      m14disposicion1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. A disposicion. Porcentaje disposicion (3 enteros y 2 decimales) (067)");
+      m14dias1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. A disposicion. Numero de dias (068)");
+      m14imputacion1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. A disposicion. Renta imputada (069)");
+      m14ingresosarr1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Ingresos integros computables (070)");
+      m14gastosejant1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Gastos deducibles. Intereses. Importe pendiente (071)");
+      m14gastosejact1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Gastos deducibles. Intereses. Importe (072)");
+      m14gastoejactp1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Gastos deducibles. Intereses. Pendiente deducir (073)");
+      m14otrosgastos1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Gastos deducibles. Otros gastos deducibles (074)");
+      m14rdtoneto1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Rendimiento neto (075)");
+      m14redvivienda1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Reduccion por arrendamiento destinado a vivienda (076)");
+      m14redirregula1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Reduccion rendimientos mas de 2 años (077)");
+      m14rdtominimo1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Rendimiento minimo computable caso parentesto (078)");
+      m14rdtonetored1.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 1. Arrendado o cedido. Rendimiento neto reducido (079)");
+      m14titular2.setDescription("(C) Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Contribuyente 0 a 9 (060)");
+      m14copropiedad2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Porcentaje titularidad (3 enteros y 2 decimales) (061)");
+      m14naturaleza2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Naturaleza (062)");
+      m14destino2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Uso o destino. Clave (063)");
+      m14situacion2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Situacion 0 1 2 3 o 4 (064)");
+      m14referencia2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Referencia catastral (065)");
+      m14disposicion2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. A disposicion. Porcentaje disposicion (3 enteros y 2 decimales) (067)");
+      m14dias2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. A disposicion. Numero de dias (068)");
+      m14imputacion2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. A disposicion. Renta imputada (069)");
+      m14ingresosarr2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Ingresos integros computables (070)");
+      m14gastosejant2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Gastos deducibles. Intereses. Importe pendiente (071)");
+      m14gastosejact2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Gastos deducibles. Intereses. Importe (072)");
+      m14gastoejactp2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Gastos deducibles. Intereses. Pendiente deducir (073)");
+      m14otrosgastos2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Gastos deducibles. Otros gastos deducibles (074)");
+      m14rdtoneto2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Rendimiento neto (075)");
+      m14redvivienda2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Reduccion por arrendamiento destinado a vivienda (076)");
+      m14redirregula2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Reduccion rendimientos mas de 2 años (077)");
+      m14rdtominimo2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Rendimiento minimo computable caso parentesto (078)");
+      m14rdtonetored2.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 2. Arrendado o cedido. Rendimiento neto reducido (079)");
+      m14titular3.setDescription("(C) Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Contribuyente 0 a 9 (060)");
+      m14copropiedad3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Porcentaje titularidad (3 enteros y 2 decimales) (061)");
+      m14naturaleza3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Naturaleza (062)");
+      m14destino3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Uso o destino. Clave (063)");
+      m14situacion3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Situacion 0 1 2 3 o 4 (064)");
+      m14referencia3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Referencia catastral (065)");
+      m14disposicion3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. A disposicion. Porcentaje disposicion (3 enteros y 2 decimales) (067)");
+      m14dias3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. A disposicion. Numero de dias (068)");
+      m14imputacion3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. A disposicion. Renta imputada (069)");
+      m14ingresosarr3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Ingresos integros computables (070)");
+      m14gastosejant3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Gastos deducibles. Intereses. Importe pendiente (071)");
+      m14gastosejact3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Gastos deducibles. Intereses. Importe (072)");
+      m14gastoejactp3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Gastos deducibles. Intereses. Pendiente deducir (073)");
+      m14otrosgastos3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Gastos deducibles. Otros gastos deducibles (074)");
+      m14rdtoneto3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Rendimiento neto (075)");
+      m14redvivienda3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Reduccion por arrendamiento destinado a vivienda (076)");
+      m14redirregula3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Reduccion rendimientos mas de 2 años (077)");
+      m14rdtominimo3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Rendimiento minimo computable caso parentesto (078)");
+      m14rdtonetored3.setDescription("Bienes inmuebles no afectos. Relacion inmuebles y rentas. Inmueble 3. Arrendado o cedido. Rendimiento neto reducido (079)");
+      m14totalimputac.setDescription("Bienes inmuebles no afectos. Rentas totales . Suma de rentas inmobiliarias imputadas (080)");
+      m14totalrdtos.setDescription("Bienes inmuebles no afectos. Rentas totales . Suma rendimientos netos reducidos del capital inmobiliario (085)");
+      m14atrcontrib1.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 1. Contribuyente 0 a 9 (094)");
+      m14atrnif1.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 1. NIF entidad (095)");
+      m14trtpartic1.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 1. Porcentaje participacion (3 enteros y 2 decimales) (096)");
+      m14atrnatural1.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 1. Naturaleza (097)");
+      m14atrsituac1.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 1. Situacion 0 1 2 3 o 4 (098)");
+      m14atrrefcata1.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 1. Referencia catastral (099)");
+      m14atrcontrib2.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 2. Contribuyente 0 a 9 (094)");
+      m14atrnif2.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 2. NIF entidad (095)");
+      m14trtpartic2.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 2. Porcentaje participacion (3 enteros y 2 decimales) (096)");
+      m14atrnatural2.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 2. Naturaleza (097)");
+      m14atrsituac2.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 2. Situacion 0 1 2 3 o 4 (098)");
+      m14atrrefcata2.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 2. Referencia catastral (099)");
+      m14atrcontrib3.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 3. Contribuyente 0 a 9 (094)");
+      m14atrnif3.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 3. NIF entidad (095)");
+      m14trtpartic3.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 3. Porcentaje participacion (3 enteros y 2 decimales) (096)");
+      m14atrnatural3.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 3. Naturaleza (097)");
+      m14atrsituac3.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 3. Situacion 0 1 2 3 o 4 (098)");
+      m14atrrefcata3.setDescription("Bienes inmuebles no afectos. Bienes inmuebles arrendados o cedidos. Inmueble 3. Referencia catastral (099)");
+      m14actcontrib1.setDescription("(D) Bienes inmuebles urbanos afectos. Inmueble 1. Contribuyente 0 a 9 (090)");
+      m14actpartic1.setDescription("Bienes inmuebles urbanos afectos. Inmueble 1. Porcentaje titularidad (3 enteros y 2 decimales) (091)");
+      m14actsituac1.setDescription("Bienes inmuebles urbanos afectos. Inmueble 1. Situacion 0 1 2 3 o 4 (092)");
+      m14actrefcatas1.setDescription("Bienes inmuebles urbanos afectos. Inmueble 1. Referencia catastral (093)");
+      m14actcontrib2.setDescription("(D) Bienes inmuebles urbanos afectos. Inmueble 2. Contribuyente 0 a 9 (090)");
+      m14actpartic2.setDescription("Bienes inmuebles urbanos afectos. Inmueble 2. Porcentaje titularidad (3 enteros y 2 decimales) (091)");
+      m14actsituac2.setDescription("Bienes inmuebles urbanos afectos. Inmueble 2. Situacion 0 1 2 3 o 4 (092)");
+      m14actrefcatas2.setDescription("Bienes inmuebles urbanos afectos. Inmueble 2  Referencia catastral (093)");
+      m14actcontrib3.setDescription("(D) Bienes inmuebles urbanos afectos. Inmueble 3. Contribuyente 0 a 9 (090)");
+      m14actpartic3.setDescription("Bienes inmuebles urbanos afectos. Inmueble 3. Porcentaje titularidad (3 enteros y 2 decimales) (091)");
+      m14actsituac3.setDescription("Bienes inmuebles urbanos afectos. Inmueble 3. Situacion 0 1 2 3 o 4 (092)");
+      m14actrefcatas3.setDescription("Bienes inmuebles urbanos afectos. Inmueble 3. Referencia catastral (093)");
+      m14actnatural1.setDescription("2011 Bienes inmuebles afectos. Inmueble 1. Naturaleza (089)");
+      m14actnatural2.setDescription("2011 Bienes inmuebles afectos. Inmueble 2. Naturaleza (089)");
+      m14actnatural3.setDescription("2011 Bienes inmuebles afectos. Inmueble 2. Naturaleza (089)");
+      }
+    }
+    
   public class TabMod100h15 extends TableDef
     {
     // Campos
@@ -5153,6 +2187,12 @@ public class CatModelo100 extends Catalog
     public FieldDef m115bicdeduccio;
     public FieldDef m115totbicestat;
     public FieldDef m115totbicauton;
+    public FieldDef m115dedceuta;
+    public FieldDef m115dedceutaest;
+    public FieldDef m115dedceutaaut;
+    public FieldDef m115vdareainver;
+    public FieldDef m115vdareadedes;
+    public FieldDef m115vdareadedau;
     public TabMod100h15(String name)
       {
       super(name);
@@ -5209,6 +2249,12 @@ public class CatModelo100 extends Catalog
       m115bicdeduccio = new FieldDef("m115bicdeduccio",FieldDef.FLOAT,6,0);
       m115totbicestat = new FieldDef("m115totbicestat",FieldDef.FLOAT,6,0);
       m115totbicauton = new FieldDef("m115totbicauton",FieldDef.FLOAT,6,0);
+      m115dedceuta = new FieldDef("m115dedceuta",FieldDef.FLOAT,6,0);
+      m115dedceutaest = new FieldDef("m115dedceutaest",FieldDef.FLOAT,6,0);
+      m115dedceutaaut = new FieldDef("m115dedceutaaut",FieldDef.FLOAT,6,0);
+      m115vdareainver = new FieldDef("m115vdareainver",FieldDef.FLOAT,6,0);
+      m115vdareadedes = new FieldDef("m115vdareadedes",FieldDef.FLOAT,6,0);
+      m115vdareadedau = new FieldDef("m115vdareadedau",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m115dominio,
         m115nif,
@@ -5262,7 +2308,13 @@ public class CatModelo100 extends Catalog
         m115bicinversio,
         m115bicdeduccio,
         m115totbicestat,
-        m115totbicauton        
+        m115totbicauton,
+        m115dedceuta,
+        m115dedceutaest,
+        m115dedceutaaut,
+        m115vdareainver,
+        m115vdareadedes,
+        m115vdareadedau        
         };
       setColumns(array);
       FieldDef arrayf[] = {m115dominio,m115nif,m115declarac,m115ejercicio,m115periodo };
@@ -5316,6 +2368,4023 @@ public class CatModelo100 extends Catalog
       m115bicdeduccio.setDescription("Otras deducciones generales Por inversiones o gastos de interes cultural Para la proteccion y difusion del Patrimonio. Importe de la deduccion (797)");
       m115totbicestat.setDescription("Otras deducciones generales Por inversiones o gastos de interes cultural Parte estatal (702)");
       m115totbicauton.setDescription("Otras deducciones generales Por inversiones o gastos de interes cultural Parte autonomica (703)");
+      m115dedceuta.setDescription("2011 Otras deducciones generales Ceuta o Melilla Importe total (798)");
+      m115dedceutaest.setDescription("2011 Otras deducciones generales Ceuta o Melilla Parte estatal (712)");
+      m115dedceutaaut.setDescription("2011 Otras deducciones generales Ceuta o Melilla Parte autonomica (713)");
+      m115vdareainver.setDescription("2011 Rehabilitac. o ampliacio vda hab. Inversion (C)");
+      m115vdareadedes.setDescription("2011 Rehabilitac. o ampliacio vda hab. Ded.Parte Estat (784)");
+      m115vdareadedau.setDescription("2011 Rehabilitac. o ampliacio vda hab. Ded.Parte Auton (786)");
+      }
+    }
+    
+  public class TabMod100h2 extends TableDef
+    {
+    // Campos
+    public FieldDef m12dominio;
+    public FieldDef m12nif;
+    public FieldDef m12declarac;
+    public FieldDef m12ejercicio;
+    public FieldDef m12periodo;
+    public FieldDef m12h1nif;
+    public FieldDef m12h1nombre;
+    public FieldDef m12h1fecnaci;
+    public FieldDef m12h1fecadop;
+    public FieldDef m12h1minusva;
+    public FieldDef m12h1vincula;
+    public FieldDef m12h1otrsitu;
+    public FieldDef m12h2nif;
+    public FieldDef m12h2nombre;
+    public FieldDef m12h2fecnaci;
+    public FieldDef m12h2fecadop;
+    public FieldDef m12h2minusva;
+    public FieldDef m12h2vincula;
+    public FieldDef m12h2otrsitu;
+    public FieldDef m12h3nif;
+    public FieldDef m12h3nombre;
+    public FieldDef m12h3fecnaci;
+    public FieldDef m12h3fecadop;
+    public FieldDef m12h3minusva;
+    public FieldDef m12h3vincula;
+    public FieldDef m12h3otrsitu;
+    public FieldDef m12h4nif;
+    public FieldDef m12h4nombre;
+    public FieldDef m12h4fecnaci;
+    public FieldDef m12h4fecadop;
+    public FieldDef m12h4minusva;
+    public FieldDef m12h4vincula;
+    public FieldDef m12h4otrsitu;
+    public FieldDef m12h5nif;
+    public FieldDef m12h5nombre;
+    public FieldDef m12h5fecnaci;
+    public FieldDef m12h5fecadop;
+    public FieldDef m12h5minusva;
+    public FieldDef m12h5vincula;
+    public FieldDef m12h5otrsitu;
+    public FieldDef m12h6nif;
+    public FieldDef m12h6nombre;
+    public FieldDef m12h6fecnaci;
+    public FieldDef m12h6fecadop;
+    public FieldDef m12h6minusva;
+    public FieldDef m12h6vincula;
+    public FieldDef m12h6otrsitu;
+    public FieldDef m12h7nif;
+    public FieldDef m12h7nombre;
+    public FieldDef m12h7fecnaci;
+    public FieldDef m12h7fecadop;
+    public FieldDef m12h7minusva;
+    public FieldDef m12h7vincula;
+    public FieldDef m12h7otrsitu;
+    public FieldDef m12h8nif;
+    public FieldDef m12h8nombre;
+    public FieldDef m12h8fecnaci;
+    public FieldDef m12h8fecadop;
+    public FieldDef m12h8minusva;
+    public FieldDef m12h8vincula;
+    public FieldDef m12h8otrsitu;
+    public FieldDef m12h9nif;
+    public FieldDef m12h9nombre;
+    public FieldDef m12h9fecnaci;
+    public FieldDef m12h9fecadop;
+    public FieldDef m12h9minusva;
+    public FieldDef m12h9vincula;
+    public FieldDef m12h9otrsitu;
+    public FieldDef m12h10nif;
+    public FieldDef m12h10nombre;
+    public FieldDef m12h10fecnaci;
+    public FieldDef m12h10fecadop;
+    public FieldDef m12h10minusva;
+    public FieldDef m12h10vincula;
+    public FieldDef m12h10otrsitu;
+    public FieldDef m12h11nif;
+    public FieldDef m12h11nombre;
+    public FieldDef m12h11fecnaci;
+    public FieldDef m12h11fecadop;
+    public FieldDef m12h11minusva;
+    public FieldDef m12h11vincula;
+    public FieldDef m12h11otrsitu;
+    public FieldDef m12h12nif;
+    public FieldDef m12h12nombre;
+    public FieldDef m12h12fecnaci;
+    public FieldDef m12h12fecadop;
+    public FieldDef m12h12minusva;
+    public FieldDef m12h12vincula;
+    public FieldDef m12h12otrsitu;
+    public FieldDef m12h1fallorde;
+    public FieldDef m12h1fallfech;
+    public FieldDef m12h2fallorde;
+    public FieldDef m12h2fallfech;
+    public FieldDef m12h1relnif1;
+    public FieldDef m12h1relnif2;
+    public FieldDef m12a1nif;
+    public FieldDef m12a1nombre;
+    public FieldDef m12a1fecnaci;
+    public FieldDef m12a1minusva;
+    public FieldDef m12a1vincula;
+    public FieldDef m12a1convive;
+    public FieldDef m12a2nif;
+    public FieldDef m12a2nombre;
+    public FieldDef m12a2fecnaci;
+    public FieldDef m12a2minusva;
+    public FieldDef m12a2vincula;
+    public FieldDef m12a2convive;
+    public FieldDef m12a3nif;
+    public FieldDef m12a3nombre;
+    public FieldDef m12a3fecnaci;
+    public FieldDef m12a3minusva;
+    public FieldDef m12a3vincula;
+    public FieldDef m12a3convive;
+    public FieldDef m12a4nif;
+    public FieldDef m12a4nombre;
+    public FieldDef m12a4fecnaci;
+    public FieldDef m12a4minusva;
+    public FieldDef m12a4vincula;
+    public FieldDef m12a4convive;
+    public FieldDef m12fecdeven;
+    public FieldDef m12tipotribut;
+    public FieldDef m12comunidad;
+    public FieldDef m12asigigles;
+    public FieldDef m12asigsocia;
+    public FieldDef m12borrador1;
+    public FieldDef m12borrindiv;
+    public FieldDef m12borrador2;
+    public FieldDef m12compatras;
+    public FieldDef m12compesp;
+    public FieldDef m12compdevol;
+    public FieldDef m12compotros;
+    public FieldDef m12hotronif;
+    public FieldDef m12hotronom;
+    public FieldDef m12hotrosindni;
+    public FieldDef m12compimput;
+    public TabMod100h2(String name)
+      {
+      super(name);
+      m12dominio = new FieldDef("m12dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m12nif = new FieldDef("m12nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m12declarac = new FieldDef("m12declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      m12ejercicio = new FieldDef("m12ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m12periodo = new FieldDef("m12periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m12h1nif = new FieldDef("m12h1nif",FieldDef.CHAR,9);
+      m12h1nombre = new FieldDef("m12h1nombre",FieldDef.CHAR,33);
+      m12h1fecnaci = new FieldDef("m12h1fecnaci",FieldDef.DATE);
+      m12h1fecadop = new FieldDef("m12h1fecadop",FieldDef.DATE);
+      m12h1minusva = new FieldDef("m12h1minusva",FieldDef.INTEGER,0);
+      m12h1vincula = new FieldDef("m12h1vincula",FieldDef.CHAR,1);
+      m12h1otrsitu = new FieldDef("m12h1otrsitu",FieldDef.CHAR,1);
+      m12h2nif = new FieldDef("m12h2nif",FieldDef.CHAR,9);
+      m12h2nombre = new FieldDef("m12h2nombre",FieldDef.CHAR,33);
+      m12h2fecnaci = new FieldDef("m12h2fecnaci",FieldDef.DATE);
+      m12h2fecadop = new FieldDef("m12h2fecadop",FieldDef.DATE);
+      m12h2minusva = new FieldDef("m12h2minusva",FieldDef.INTEGER,0);
+      m12h2vincula = new FieldDef("m12h2vincula",FieldDef.CHAR,1);
+      m12h2otrsitu = new FieldDef("m12h2otrsitu",FieldDef.CHAR,1);
+      m12h3nif = new FieldDef("m12h3nif",FieldDef.CHAR,9);
+      m12h3nombre = new FieldDef("m12h3nombre",FieldDef.CHAR,33);
+      m12h3fecnaci = new FieldDef("m12h3fecnaci",FieldDef.DATE);
+      m12h3fecadop = new FieldDef("m12h3fecadop",FieldDef.DATE);
+      m12h3minusva = new FieldDef("m12h3minusva",FieldDef.INTEGER,0);
+      m12h3vincula = new FieldDef("m12h3vincula",FieldDef.CHAR,1);
+      m12h3otrsitu = new FieldDef("m12h3otrsitu",FieldDef.CHAR,1);
+      m12h4nif = new FieldDef("m12h4nif",FieldDef.CHAR,9);
+      m12h4nombre = new FieldDef("m12h4nombre",FieldDef.CHAR,33);
+      m12h4fecnaci = new FieldDef("m12h4fecnaci",FieldDef.DATE);
+      m12h4fecadop = new FieldDef("m12h4fecadop",FieldDef.DATE);
+      m12h4minusva = new FieldDef("m12h4minusva",FieldDef.INTEGER,0);
+      m12h4vincula = new FieldDef("m12h4vincula",FieldDef.CHAR,1);
+      m12h4otrsitu = new FieldDef("m12h4otrsitu",FieldDef.CHAR,1);
+      m12h5nif = new FieldDef("m12h5nif",FieldDef.CHAR,9);
+      m12h5nombre = new FieldDef("m12h5nombre",FieldDef.CHAR,33);
+      m12h5fecnaci = new FieldDef("m12h5fecnaci",FieldDef.DATE);
+      m12h5fecadop = new FieldDef("m12h5fecadop",FieldDef.DATE);
+      m12h5minusva = new FieldDef("m12h5minusva",FieldDef.INTEGER,0);
+      m12h5vincula = new FieldDef("m12h5vincula",FieldDef.CHAR,1);
+      m12h5otrsitu = new FieldDef("m12h5otrsitu",FieldDef.CHAR,1);
+      m12h6nif = new FieldDef("m12h6nif",FieldDef.CHAR,9);
+      m12h6nombre = new FieldDef("m12h6nombre",FieldDef.CHAR,33);
+      m12h6fecnaci = new FieldDef("m12h6fecnaci",FieldDef.DATE);
+      m12h6fecadop = new FieldDef("m12h6fecadop",FieldDef.DATE);
+      m12h6minusva = new FieldDef("m12h6minusva",FieldDef.INTEGER,0);
+      m12h6vincula = new FieldDef("m12h6vincula",FieldDef.CHAR,1);
+      m12h6otrsitu = new FieldDef("m12h6otrsitu",FieldDef.CHAR,1);
+      m12h7nif = new FieldDef("m12h7nif",FieldDef.CHAR,9);
+      m12h7nombre = new FieldDef("m12h7nombre",FieldDef.CHAR,33);
+      m12h7fecnaci = new FieldDef("m12h7fecnaci",FieldDef.DATE);
+      m12h7fecadop = new FieldDef("m12h7fecadop",FieldDef.DATE);
+      m12h7minusva = new FieldDef("m12h7minusva",FieldDef.INTEGER,0);
+      m12h7vincula = new FieldDef("m12h7vincula",FieldDef.CHAR,1);
+      m12h7otrsitu = new FieldDef("m12h7otrsitu",FieldDef.CHAR,1);
+      m12h8nif = new FieldDef("m12h8nif",FieldDef.CHAR,9);
+      m12h8nombre = new FieldDef("m12h8nombre",FieldDef.CHAR,33);
+      m12h8fecnaci = new FieldDef("m12h8fecnaci",FieldDef.DATE);
+      m12h8fecadop = new FieldDef("m12h8fecadop",FieldDef.DATE);
+      m12h8minusva = new FieldDef("m12h8minusva",FieldDef.INTEGER,0);
+      m12h8vincula = new FieldDef("m12h8vincula",FieldDef.CHAR,1);
+      m12h8otrsitu = new FieldDef("m12h8otrsitu",FieldDef.CHAR,1);
+      m12h9nif = new FieldDef("m12h9nif",FieldDef.CHAR,9);
+      m12h9nombre = new FieldDef("m12h9nombre",FieldDef.CHAR,33);
+      m12h9fecnaci = new FieldDef("m12h9fecnaci",FieldDef.DATE);
+      m12h9fecadop = new FieldDef("m12h9fecadop",FieldDef.DATE);
+      m12h9minusva = new FieldDef("m12h9minusva",FieldDef.INTEGER,0);
+      m12h9vincula = new FieldDef("m12h9vincula",FieldDef.CHAR,1);
+      m12h9otrsitu = new FieldDef("m12h9otrsitu",FieldDef.CHAR,1);
+      m12h10nif = new FieldDef("m12h10nif",FieldDef.CHAR,9);
+      m12h10nombre = new FieldDef("m12h10nombre",FieldDef.CHAR,33);
+      m12h10fecnaci = new FieldDef("m12h10fecnaci",FieldDef.DATE);
+      m12h10fecadop = new FieldDef("m12h10fecadop",FieldDef.DATE);
+      m12h10minusva = new FieldDef("m12h10minusva",FieldDef.INTEGER,0);
+      m12h10vincula = new FieldDef("m12h10vincula",FieldDef.CHAR,1);
+      m12h10otrsitu = new FieldDef("m12h10otrsitu",FieldDef.CHAR,1);
+      m12h11nif = new FieldDef("m12h11nif",FieldDef.CHAR,9);
+      m12h11nombre = new FieldDef("m12h11nombre",FieldDef.CHAR,33);
+      m12h11fecnaci = new FieldDef("m12h11fecnaci",FieldDef.DATE);
+      m12h11fecadop = new FieldDef("m12h11fecadop",FieldDef.DATE);
+      m12h11minusva = new FieldDef("m12h11minusva",FieldDef.INTEGER,0);
+      m12h11vincula = new FieldDef("m12h11vincula",FieldDef.CHAR,1);
+      m12h11otrsitu = new FieldDef("m12h11otrsitu",FieldDef.CHAR,1);
+      m12h12nif = new FieldDef("m12h12nif",FieldDef.CHAR,9);
+      m12h12nombre = new FieldDef("m12h12nombre",FieldDef.CHAR,33);
+      m12h12fecnaci = new FieldDef("m12h12fecnaci",FieldDef.DATE);
+      m12h12fecadop = new FieldDef("m12h12fecadop",FieldDef.DATE);
+      m12h12minusva = new FieldDef("m12h12minusva",FieldDef.INTEGER,0);
+      m12h12vincula = new FieldDef("m12h12vincula",FieldDef.CHAR,1);
+      m12h12otrsitu = new FieldDef("m12h12otrsitu",FieldDef.CHAR,1);
+      m12h1fallorde = new FieldDef("m12h1fallorde",FieldDef.INTEGER,0);
+      m12h1fallfech = new FieldDef("m12h1fallfech",FieldDef.DATE);
+      m12h2fallorde = new FieldDef("m12h2fallorde",FieldDef.INTEGER,0);
+      m12h2fallfech = new FieldDef("m12h2fallfech",FieldDef.DATE);
+      m12h1relnif1 = new FieldDef("m12h1relnif1",FieldDef.CHAR,9);
+      m12h1relnif2 = new FieldDef("m12h1relnif2",FieldDef.CHAR,9);
+      m12a1nif = new FieldDef("m12a1nif",FieldDef.CHAR,9);
+      m12a1nombre = new FieldDef("m12a1nombre",FieldDef.CHAR,33);
+      m12a1fecnaci = new FieldDef("m12a1fecnaci",FieldDef.DATE);
+      m12a1minusva = new FieldDef("m12a1minusva",FieldDef.INTEGER,0);
+      m12a1vincula = new FieldDef("m12a1vincula",FieldDef.CHAR,1);
+      m12a1convive = new FieldDef("m12a1convive",FieldDef.CHAR,1);
+      m12a2nif = new FieldDef("m12a2nif",FieldDef.CHAR,9);
+      m12a2nombre = new FieldDef("m12a2nombre",FieldDef.CHAR,33);
+      m12a2fecnaci = new FieldDef("m12a2fecnaci",FieldDef.DATE);
+      m12a2minusva = new FieldDef("m12a2minusva",FieldDef.INTEGER,0);
+      m12a2vincula = new FieldDef("m12a2vincula",FieldDef.CHAR,1);
+      m12a2convive = new FieldDef("m12a2convive",FieldDef.CHAR,1);
+      m12a3nif = new FieldDef("m12a3nif",FieldDef.CHAR,9);
+      m12a3nombre = new FieldDef("m12a3nombre",FieldDef.CHAR,33);
+      m12a3fecnaci = new FieldDef("m12a3fecnaci",FieldDef.DATE);
+      m12a3minusva = new FieldDef("m12a3minusva",FieldDef.INTEGER,0);
+      m12a3vincula = new FieldDef("m12a3vincula",FieldDef.CHAR,1);
+      m12a3convive = new FieldDef("m12a3convive",FieldDef.CHAR,1);
+      m12a4nif = new FieldDef("m12a4nif",FieldDef.CHAR,9);
+      m12a4nombre = new FieldDef("m12a4nombre",FieldDef.CHAR,33);
+      m12a4fecnaci = new FieldDef("m12a4fecnaci",FieldDef.DATE);
+      m12a4minusva = new FieldDef("m12a4minusva",FieldDef.INTEGER,0);
+      m12a4vincula = new FieldDef("m12a4vincula",FieldDef.CHAR,1);
+      m12a4convive = new FieldDef("m12a4convive",FieldDef.CHAR,1);
+      m12fecdeven = new FieldDef("m12fecdeven",FieldDef.DATE);
+      m12tipotribut = new FieldDef("m12tipotribut",FieldDef.INTEGER,0);
+      m12comunidad = new FieldDef("m12comunidad",FieldDef.INTEGER,0);
+      m12asigigles = new FieldDef("m12asigigles",FieldDef.CHAR,1);
+      m12asigsocia = new FieldDef("m12asigsocia",FieldDef.CHAR,1);
+      m12borrador1 = new FieldDef("m12borrador1",FieldDef.INTEGER,0);
+      m12borrindiv = new FieldDef("m12borrindiv",FieldDef.INTEGER,0);
+      m12borrador2 = new FieldDef("m12borrador2",FieldDef.INTEGER,0);
+      m12compatras = new FieldDef("m12compatras",FieldDef.INTEGER,0);
+      m12compesp = new FieldDef("m12compesp",FieldDef.INTEGER,0);
+      m12compdevol = new FieldDef("m12compdevol",FieldDef.INTEGER,0);
+      m12compotros = new FieldDef("m12compotros",FieldDef.INTEGER,0);
+      m12hotronif = new FieldDef("m12hotronif",FieldDef.CHAR,9);
+      m12hotronom = new FieldDef("m12hotronom",FieldDef.CHAR,33);
+      m12hotrosindni = new FieldDef("m12hotrosindni",FieldDef.INTEGER,0);
+      m12compimput = new FieldDef("m12compimput",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        m12dominio,
+        m12nif,
+        m12declarac,
+        m12ejercicio,
+        m12periodo,
+        m12h1nif,
+        m12h1nombre,
+        m12h1fecnaci,
+        m12h1fecadop,
+        m12h1minusva,
+        m12h1vincula,
+        m12h1otrsitu,
+        m12h2nif,
+        m12h2nombre,
+        m12h2fecnaci,
+        m12h2fecadop,
+        m12h2minusva,
+        m12h2vincula,
+        m12h2otrsitu,
+        m12h3nif,
+        m12h3nombre,
+        m12h3fecnaci,
+        m12h3fecadop,
+        m12h3minusva,
+        m12h3vincula,
+        m12h3otrsitu,
+        m12h4nif,
+        m12h4nombre,
+        m12h4fecnaci,
+        m12h4fecadop,
+        m12h4minusva,
+        m12h4vincula,
+        m12h4otrsitu,
+        m12h5nif,
+        m12h5nombre,
+        m12h5fecnaci,
+        m12h5fecadop,
+        m12h5minusva,
+        m12h5vincula,
+        m12h5otrsitu,
+        m12h6nif,
+        m12h6nombre,
+        m12h6fecnaci,
+        m12h6fecadop,
+        m12h6minusva,
+        m12h6vincula,
+        m12h6otrsitu,
+        m12h7nif,
+        m12h7nombre,
+        m12h7fecnaci,
+        m12h7fecadop,
+        m12h7minusva,
+        m12h7vincula,
+        m12h7otrsitu,
+        m12h8nif,
+        m12h8nombre,
+        m12h8fecnaci,
+        m12h8fecadop,
+        m12h8minusva,
+        m12h8vincula,
+        m12h8otrsitu,
+        m12h9nif,
+        m12h9nombre,
+        m12h9fecnaci,
+        m12h9fecadop,
+        m12h9minusva,
+        m12h9vincula,
+        m12h9otrsitu,
+        m12h10nif,
+        m12h10nombre,
+        m12h10fecnaci,
+        m12h10fecadop,
+        m12h10minusva,
+        m12h10vincula,
+        m12h10otrsitu,
+        m12h11nif,
+        m12h11nombre,
+        m12h11fecnaci,
+        m12h11fecadop,
+        m12h11minusva,
+        m12h11vincula,
+        m12h11otrsitu,
+        m12h12nif,
+        m12h12nombre,
+        m12h12fecnaci,
+        m12h12fecadop,
+        m12h12minusva,
+        m12h12vincula,
+        m12h12otrsitu,
+        m12h1fallorde,
+        m12h1fallfech,
+        m12h2fallorde,
+        m12h2fallfech,
+        m12h1relnif1,
+        m12h1relnif2,
+        m12a1nif,
+        m12a1nombre,
+        m12a1fecnaci,
+        m12a1minusva,
+        m12a1vincula,
+        m12a1convive,
+        m12a2nif,
+        m12a2nombre,
+        m12a2fecnaci,
+        m12a2minusva,
+        m12a2vincula,
+        m12a2convive,
+        m12a3nif,
+        m12a3nombre,
+        m12a3fecnaci,
+        m12a3minusva,
+        m12a3vincula,
+        m12a3convive,
+        m12a4nif,
+        m12a4nombre,
+        m12a4fecnaci,
+        m12a4minusva,
+        m12a4vincula,
+        m12a4convive,
+        m12fecdeven,
+        m12tipotribut,
+        m12comunidad,
+        m12asigigles,
+        m12asigsocia,
+        m12borrador1,
+        m12borrindiv,
+        m12borrador2,
+        m12compatras,
+        m12compesp,
+        m12compdevol,
+        m12compotros,
+        m12hotronif,
+        m12hotronom,
+        m12hotrosindni,
+        m12compimput        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m12dominio,m12nif,m12declarac,m12ejercicio,m12periodo };
+      setPrimaryKeys(arrayf);
+      m12declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
+      m12h1nif.setDescription("Hijos y descendientes 1 N.I.F. (80)");
+      m12h1nombre.setDescription("Hijos y descendientes 1 Apellidos y nombre (81)");
+      m12h1fecnaci.setDescription("Hijos y descendientes 1 Fecha de nacimiento.");
+      m12h1fecadop.setDescription("Hijos y descendientes 1 Fecha adopcion o acogimiento.");
+      m12h1minusva.setDescription("Hijos y descendientes 1 Grado minusvalia 0 1 2 o 3 (84)");
+      m12h1vincula.setDescription("Hijos y descendientes 1 Vinculacion. clave 1 2 3 4 o blanco (85)");
+      m12h1otrsitu.setDescription("Hijos y descendientes 1 Otras situaciones clave 1 2 3 4 o blanco (86)");
+      m12h2nif.setDescription("Hijos y descendientes 2 N.I.F. (80)");
+      m12h2nombre.setDescription("Hijos y descendientes 2 Apellidos y nombre (81)");
+      m12h2fecnaci.setDescription("Hijos y descendientes 2 Fecha de nacimiento.");
+      m12h2fecadop.setDescription("Hijos y descendientes 2 Fecha adopcion o acogimiento.");
+      m12h2minusva.setDescription("Hijos y descendientes 2 Grado minusvalia 0 1 2 o 3 (84)");
+      m12h2vincula.setDescription("Hijos y descendientes 2 Vinculacion. clave 1 2 3 4 o blanco (85)");
+      m12h2otrsitu.setDescription("Hijos y descendientes 2 Otras situaciones clave 1 2 3 4 o blanco (86)");
+      m12h3nif.setDescription("Hijos y descendientes 3 N.I.F. (80)");
+      m12h3nombre.setDescription("Hijos y descendientes 3 Apellidos y nombre (81)");
+      m12h3fecnaci.setDescription("Hijos y descendientes 3 Fecha de nacimiento.");
+      m12h3fecadop.setDescription("Hijos y descendientes 3 Fecha adopcion o acogimiento.");
+      m12h3minusva.setDescription("Hijos y descendientes 3 Grado minusvalia 0 1 2 o 3 (84)");
+      m12h3vincula.setDescription("Hijos y descendientes 3 Vinculacion. clave 1 2 3 4 o blanco (85)");
+      m12h3otrsitu.setDescription("Hijos y descendientes 3 Otras situaciones clave 1 2 3 4 o blanco (86)");
+      m12h4nif.setDescription("Hijos y descendientes 4 N.I.F. (80)");
+      m12h4nombre.setDescription("Hijos y descendientes 4 Apellidos y nombre (81)");
+      m12h4fecnaci.setDescription("Hijos y descendientes 4 Fecha de nacimiento.");
+      m12h4fecadop.setDescription("Hijos y descendientes 4 Fecha adopcion o acogimiento.");
+      m12h4minusva.setDescription("Hijos y descendientes 4 Grado minusvalia 0 1 2 o 4 (84)");
+      m12h4vincula.setDescription("Hijos y descendientes 4 Vinculacion. clave 1 2 4 4 o blanco (85)");
+      m12h4otrsitu.setDescription("Hijos y descendientes 4 Otras situaciones clave 1 2 3 4 o blanco (86)");
+      m12h5nif.setDescription("Hijos y descendientes 5  N.I.F. (80)");
+      m12h5nombre.setDescription("Hijos y descendientes 5  Apellidos y nombre (81)");
+      m12h5fecnaci.setDescription("Hijos y descendientes 5  Fecha de nacimiento.");
+      m12h5fecadop.setDescription("Hijos y descendientes 5  Fecha adopcion o acogimiento.");
+      m12h5minusva.setDescription("Hijos y descendientes 5  Grado minusvalia 0 1 2 o 5  (84)");
+      m12h5vincula.setDescription("Hijos y descendientes 5  Vinculacion. clave 1 2 5  4 o blanco (85)");
+      m12h5otrsitu.setDescription("Hijos y descendientes 5  Otras situaciones clave 1 2 5  4 o blanco (86)");
+      m12h6nif.setDescription("Hijos y descendientes 6 N.I.F. (80)");
+      m12h6nombre.setDescription("Hijos y descendientes 6 Apellidos y nombre (81)");
+      m12h6fecnaci.setDescription("Hijos y descendientes 6 Fecha de nacimiento.");
+      m12h6fecadop.setDescription("Hijos y descendientes 6 Fecha adopcion o acogimiento.");
+      m12h6minusva.setDescription("Hijos y descendientes 6 Grado minusvalia 0 1 2 o 3 (84)");
+      m12h6vincula.setDescription("Hijos y descendientes 6 Vinculacion. clave 1 2 3 4 o blanco (85)");
+      m12h6otrsitu.setDescription("Hijos y descendientes 6 Otras situaciones clave 1 2 3 4 o blanco (86)");
+      m12h7nif.setDescription("Hijos y descendientes 7 N.I.F. (80)");
+      m12h7nombre.setDescription("Hijos y descendientes 7 Apellidos y nombre (81)");
+      m12h7fecnaci.setDescription("Hijos y descendientes 7 Fecha de nacimiento.");
+      m12h7fecadop.setDescription("Hijos y descendientes 7 Fecha adopcion o acogimiento.");
+      m12h7minusva.setDescription("Hijos y descendientes 7 Grado minusvalia 0 1 2 o 3 (84)");
+      m12h7vincula.setDescription("Hijos y descendientes 7 Vinculacion. clave 1 2 3 4 o blanco (85)");
+      m12h7otrsitu.setDescription("Hijos y descendientes 7 Otras situaciones clave 1 2 3 4 o blanco (86)");
+      m12h8nif.setDescription("Hijos y descendientes 8 N.I.F. (80)");
+      m12h8nombre.setDescription("Hijos y descendientes 8 Apellidos y nombre (81)");
+      m12h8fecnaci.setDescription("Hijos y descendientes 8 Fecha de nacimiento.");
+      m12h8fecadop.setDescription("Hijos y descendientes 8 Fecha adopcion o acogimiento.");
+      m12h8minusva.setDescription("Hijos y descendientes 8 Grado minusvalia 0 1 2 o 3 (84)");
+      m12h8vincula.setDescription("Hijos y descendientes 8 Vinculacion. clave 1 2 3 4 o blanco (85)");
+      m12h8otrsitu.setDescription("Hijos y descendientes 8 Otras situaciones clave 1 2 3 4 o blanco (86)");
+      m12h9nif.setDescription("Hijos y descendientes 9 N.I.F. (80)");
+      m12h9nombre.setDescription("Hijos y descendientes 9 Apellidos y nombre (81)");
+      m12h9fecnaci.setDescription("Hijos y descendientes 9 Fecha de nacimiento.");
+      m12h9fecadop.setDescription("Hijos y descendientes 9 Fecha adopcion o acogimiento.");
+      m12h9minusva.setDescription("Hijos y descendientes 9 Grado minusvalia 0 1 2 o 3 (84)");
+      m12h9vincula.setDescription("Hijos y descendientes 9 Vinculacion. clave 1 2 3 4 o blanco (85)");
+      m12h9otrsitu.setDescription("Hijos y descendientes 9 Otras situaciones clave 1 2 3 4 o blanco (86)");
+      m12h10nif.setDescription("Hijos y descendientes 10 N.I.F. (80)");
+      m12h10nombre.setDescription("Hijos y descendientes 10 Apellidos y nombre (81)");
+      m12h10fecnaci.setDescription("Hijos y descendientes 10 Fecha de nacimiento.");
+      m12h10fecadop.setDescription("Hijos y descendientes 10 Fecha adopcion o acogimiento.");
+      m12h10minusva.setDescription("Hijos y descendientes 10 Grado minusvalia 0 1 2 o 10 (84)");
+      m12h10vincula.setDescription("Hijos y descendientes 10 Vinculacion. clave 1 2 10 4 o blanco (85)");
+      m12h10otrsitu.setDescription("Hijos y descendientes 10 Otras situaciones clave 1 2 10 4 o blanco (86)");
+      m12h11nif.setDescription("Hijos y descendientes 11 N.I.F. (80)");
+      m12h11nombre.setDescription("Hijos y descendientes 11 Apellidos y nombre (81)");
+      m12h11fecnaci.setDescription("Hijos y descendientes 11 Fecha de nacimiento.");
+      m12h11fecadop.setDescription("Hijos y descendientes 11 Fecha adopcion o acogimiento.");
+      m12h11minusva.setDescription("Hijos y descendientes 11 Grado minusvalia 0 1 2 o 11 (84)");
+      m12h11vincula.setDescription("Hijos y descendientes 11 Vinculacion. clave 1 2 11 4 o blanco (85)");
+      m12h11otrsitu.setDescription("Hijos y descendientes 11 Otras situaciones clave 1 2 11 4 o blanco (86)");
+      m12h12nif.setDescription("Hijos y descendientes 12 N.I.F. (80)");
+      m12h12nombre.setDescription("Hijos y descendientes 12 Apellidos y nombre (81)");
+      m12h12fecnaci.setDescription("Hijos y descendientes 12 Fecha de nacimiento.");
+      m12h12fecadop.setDescription("Hijos y descendientes 12 Fecha adopcion o acogimiento.");
+      m12h12minusva.setDescription("Hijos y descendientes 12 Grado minusvalia 0 1 2 o 12 (84)");
+      m12h12vincula.setDescription("Hijos y descendientes 12 Vinculacion. clave 1 2 12 4 o blanco (85)");
+      m12h12otrsitu.setDescription("Hijos y descendientes 12 Otras situaciones clave 1 2 12 4 o blanco (86)");
+      m12h1fallorde.setDescription("Hijos y descendientes Fallecido 2010 NRO. Orden (87)");
+      m12h1fallfech.setDescription("Hijos y descendientes Fecha de fallecimiento (88)");
+      m12h2fallorde.setDescription("Hijos y descendientes Fallecido 2010 NRO. Orden (87)");
+      m12h2fallfech.setDescription("Hijos y descendientes Fecha de fallecimiento (88)");
+      m12h1relnif1.setDescription("A efectos de la declaracion conjunta los hijos 1 y 2 son relacionados con los NIF");
+      m12h1relnif2.setDescription("A efectos de la declaracion conjunta los hijos 1 y 2 son relacionados con los NIF");
+      m12a1nif.setDescription("Ascendientes mayores 65 años o discapacitados 1 N.I.F. (90)");
+      m12a1nombre.setDescription("Ascendientes mayores 65 años o discapacitados 1 Apellidos y nombre (91)");
+      m12a1fecnaci.setDescription("Ascendientes mayores 65 años o discapacitados 1 Fecha de nacimiento. (DDMMAAAA) Año de 1886 a 2010 o cero (92)");
+      m12a1minusva.setDescription("Ascendientes mayores 65 años o discapacitados 1 Grado de Minusvalia 0 1 2 o 3 (93)");
+      m12a1vincula.setDescription("Ascendientes mayores 65 años o discapacitados 1 Vinculacion clave 1 2 o blanco (94)");
+      m12a1convive.setDescription("Ascendientes mayores 65 años o discapacitados 1 Convivencia 2 a 9 o blanco (95)");
+      m12a2nif.setDescription("Ascendientes mayores 65 años o discapacitados 2 N.I.F. (90)");
+      m12a2nombre.setDescription("Ascendientes mayores 65 años o discapacitados 2 Apellidos y nombre (91)");
+      m12a2fecnaci.setDescription("Ascendientes mayores 65 años o discapacitados 2 Fecha de nacimiento. (DDMMAAAA) Año de 1886 a 2010 o cero (92)");
+      m12a2minusva.setDescription("Ascendientes mayores 65 años o discapacitados 2 Grado de Minusvalia 0 1 2 o 3 (93)");
+      m12a2vincula.setDescription("Ascendientes mayores 65 años o discapacitados 2 Vinculacion clave 1 2 o blanco (94)");
+      m12a2convive.setDescription("Ascendientes mayores 65 años o discapacitados 2 Convivencia 2 a 9 o blanco (95)");
+      m12a3nif.setDescription("Ascendientes mayores 65 años o discapacitados 3 N.I.F. (90)");
+      m12a3nombre.setDescription("Ascendientes mayores 65 años o discapacitados 3 Apellidos y nombre (91)");
+      m12a3fecnaci.setDescription("Ascendientes mayores 65 años o discapacitados 3 Fecha de nacimiento. (DDMMAAAA) Año de 1886 a 2010 o cero (92)");
+      m12a3minusva.setDescription("Ascendientes mayores 65 años o discapacitados 3 Grado de Minusvalia 0 1 2 o 3 (93)");
+      m12a3vincula.setDescription("Ascendientes mayores 65 años o discapacitados 3 Vinculacion clave 1 2 o blanco (94)");
+      m12a3convive.setDescription("Ascendientes mayores 65 años o discapacitados 3 Convivencia 2 a 9 o blanco (95)");
+      m12a4nif.setDescription("Ascendientes mayores 65 años o discapacitados 4 N.I.F. (90)");
+      m12a4nombre.setDescription("Ascendientes mayores 65 años o discapacitados 4 Apellidos y nombre (91)");
+      m12a4fecnaci.setDescription("Ascendientes mayores 65 años o discapacitados 4 Fecha de nacimiento. (DDMMAAAA) Año de 1886 a 2010 o cero (92)");
+      m12a4minusva.setDescription("Ascendientes mayores 65 años o discapacitados 4 Grado de Minusvalia 0 1 2 o 3 (93)");
+      m12a4vincula.setDescription("Ascendientes mayores 65 años o discapacitados 4 Vinculacion clave 1 2 o blanco (94)");
+      m12a4convive.setDescription("Ascendientes mayores 65 años o discapacitados 4 Convivencia 2 a 9 o blanco (95)");
+      m12fecdeven.setDescription("Devengo Fecha de finalizacion del periodo impositivo (fallecimiento 2010) (DDMMAAAA) o cero (100)");
+      m12tipotribut.setDescription("Opcion de tributacion. 1 Individual 2 Conjunta. Campo OBLIGATORIO (101) (102) OBLIGATORIO");
+      m12comunidad.setDescription("Comunidad/Ciudad autonoma de residencia en 2010 Clave (103) Incluido en el fichero COMAUTO.TXT OBLIGATORIO");
+      m12asigigles.setDescription("Asignacion tributaria a la Iglesia Catolica. X o blanco. (105)");
+      m12asigsocia.setDescription("Asignacion de cantidades a fines sociales. X o blanco. (106)");
+      m12borrador1.setDescription("Solicitudes. Borrador de la declaracion o datos fiscales. 1 o cero (110)");
+      m12borrindiv.setDescription("Solicitudes. Envio individualizado borrador. 1 o cero (111)");
+      m12borrador2.setDescription("Solicitudes. Borrador o datos fiscales del ejercicio 2011 1 o cero");
+      m12compatras.setDescription("Declaracion complementaria Si es complementaria por atrasos de rendimientos del trabajo. 1 o cero (121)");
+      m12compesp.setDescription("Declaracion complementaria Si es complementaria por haberse producido alguno de los supuestos especiales. 1 o cero (122)");
+      m12compdevol.setDescription("Declaracion complementaria Si es complementaria a devolver. 1 o cero (123)");
+      m12compotros.setDescription("Declaracion complementaria Si es complementaria por supuestos distintos 1 o cero (120)");
+      m12hotronif.setDescription("2011 Descendientes. Nif del otro progenitor");
+      m12hotronom.setDescription("2011 Descendientes. Apellidos y nombre del otro progenitor");
+      m12hotrosindni.setDescription("2012 Descendientes. El otro progenitor no tiene DNI-NIE  (58)");
+      m12compimput.setDescription("2012 Declarac.complementaria Si es complementaria por traslado residencia otro pais UE 1 o cero (124)");
+      }
+    }
+    
+  public class TabMod100h5 extends TableDef
+    {
+    // Campos
+    public FieldDef m15dominio;
+    public FieldDef m15nif;
+    public FieldDef m15declarac;
+    public FieldDef m15ejercicio;
+    public FieldDef m15periodo;
+    public FieldDef m15pagina;
+    public FieldDef m15titular1;
+    public FieldDef m15clave1;
+    public FieldDef m15modalidad1;
+    public FieldDef m15epigrafe1;
+    public FieldDef m15cobropago1;
+    public FieldDef m15ingrexplota1;
+    public FieldDef m15otringresos1;
+    public FieldDef m15autoconsumo1;
+    public FieldDef m15totalingres1;
+    public FieldDef m15consumo1;
+    public FieldDef m15sueldos1;
+    public FieldDef m15segsocial1;
+    public FieldDef m15otrgastpers1;
+    public FieldDef m15arrendamien1;
+    public FieldDef m15conservacio1;
+    public FieldDef m15servprofesi1;
+    public FieldDef m15otrservicio1;
+    public FieldDef m15tributdeduc1;
+    public FieldDef m15gastofinanc1;
+    public FieldDef m15amortizacio1;
+    public FieldDef m15perddeterio1;
+    public FieldDef m15actintgral1;
+    public FieldDef m15gastactgral1;
+    public FieldDef m15otrosgastos1;
+    public FieldDef m15sumagastos1;
+    public FieldDef m15provisiones1;
+    public FieldDef m15totalgastos1;
+    public FieldDef m15diferencia1;
+    public FieldDef m15gastdificju1;
+    public FieldDef m15totalgasto21;
+    public FieldDef m15rdtoneto1;
+    public FieldDef m15reducirregu1;
+    public FieldDef m15diferrdto1;
+    public FieldDef m15redcopameri1;
+    public FieldDef m15rdtonetored1;
+    public FieldDef m15titular2;
+    public FieldDef m15clave2;
+    public FieldDef m15modalidad2;
+    public FieldDef m15epigrafe2;
+    public FieldDef m15cobropago2;
+    public FieldDef m15ingrexplota2;
+    public FieldDef m15otringresos2;
+    public FieldDef m15autoconsumo2;
+    public FieldDef m15totalingres2;
+    public FieldDef m15consumo2;
+    public FieldDef m15sueldos2;
+    public FieldDef m15segsocial2;
+    public FieldDef m15otrgastpers2;
+    public FieldDef m15arrendamien2;
+    public FieldDef m15conservacio2;
+    public FieldDef m15servprofesi2;
+    public FieldDef m15otrservicio2;
+    public FieldDef m15tributdeduc2;
+    public FieldDef m15gastofinanc2;
+    public FieldDef m15amortizacio2;
+    public FieldDef m15perddeterio2;
+    public FieldDef m15actintgral2;
+    public FieldDef m15gastactgral2;
+    public FieldDef m15otrosgastos2;
+    public FieldDef m15sumagastos2;
+    public FieldDef m15provisiones2;
+    public FieldDef m15totalgastos2;
+    public FieldDef m15diferencia2;
+    public FieldDef m15gastdificju2;
+    public FieldDef m15totalgasto22;
+    public FieldDef m15rdtoneto2;
+    public FieldDef m15reducirregu2;
+    public FieldDef m15diferrdto2;
+    public FieldDef m15redcopameri2;
+    public FieldDef m15rdtonetored2;
+    public FieldDef m15titular3;
+    public FieldDef m15clave3;
+    public FieldDef m15modalidad3;
+    public FieldDef m15epigrafe3;
+    public FieldDef m15cobropago3;
+    public FieldDef m15ingrexplota3;
+    public FieldDef m15otringresos3;
+    public FieldDef m15autoconsumo3;
+    public FieldDef m15totalingres3;
+    public FieldDef m15consumo3;
+    public FieldDef m15sueldos3;
+    public FieldDef m15segsocial3;
+    public FieldDef m15otrgastpers3;
+    public FieldDef m15arrendamien3;
+    public FieldDef m15conservacio3;
+    public FieldDef m15servprofesi3;
+    public FieldDef m15otrservicio3;
+    public FieldDef m15tributdeduc3;
+    public FieldDef m15gastofinanc3;
+    public FieldDef m15amortizacio3;
+    public FieldDef m15perddeterio3;
+    public FieldDef m15actintgral3;
+    public FieldDef m15gastactgral3;
+    public FieldDef m15otrosgastos3;
+    public FieldDef m15sumagastos3;
+    public FieldDef m15provisiones3;
+    public FieldDef m15totalgastos3;
+    public FieldDef m15diferencia3;
+    public FieldDef m15gastdificju3;
+    public FieldDef m15totalgasto23;
+    public FieldDef m15rdtoneto3;
+    public FieldDef m15reducirregu3;
+    public FieldDef m15diferrdto3;
+    public FieldDef m15redcopameri3;
+    public FieldDef m15rdtonetored3;
+    public FieldDef m15totalrdto;
+    public FieldDef m15totalreduc;
+    public FieldDef m15totalempleo;
+    public FieldDef m15totalrdtored;
+    public FieldDef m15gravaunico;
+    public FieldDef m15ingrtransam1;
+    public FieldDef m15ingrtransam2;
+    public FieldDef m15ingrtransam3;
+    public TabMod100h5(String name)
+      {
+      super(name);
+      m15dominio = new FieldDef("m15dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m15nif = new FieldDef("m15nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m15declarac = new FieldDef("m15declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      m15ejercicio = new FieldDef("m15ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m15periodo = new FieldDef("m15periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m15pagina = new FieldDef("m15pagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m15titular1 = new FieldDef("m15titular1",FieldDef.INTEGER,0);
+      m15clave1 = new FieldDef("m15clave1",FieldDef.CHAR,1);
+      m15modalidad1 = new FieldDef("m15modalidad1",FieldDef.INTEGER,0);
+      m15epigrafe1 = new FieldDef("m15epigrafe1",FieldDef.CHAR,5);
+      m15cobropago1 = new FieldDef("m15cobropago1",FieldDef.INTEGER,0);
+      m15ingrexplota1 = new FieldDef("m15ingrexplota1",FieldDef.FLOAT,6,0);
+      m15otringresos1 = new FieldDef("m15otringresos1",FieldDef.FLOAT,6,0);
+      m15autoconsumo1 = new FieldDef("m15autoconsumo1",FieldDef.FLOAT,6,0);
+      m15totalingres1 = new FieldDef("m15totalingres1",FieldDef.FLOAT,6,0);
+      m15consumo1 = new FieldDef("m15consumo1",FieldDef.FLOAT,6,0);
+      m15sueldos1 = new FieldDef("m15sueldos1",FieldDef.FLOAT,6,0);
+      m15segsocial1 = new FieldDef("m15segsocial1",FieldDef.FLOAT,6,0);
+      m15otrgastpers1 = new FieldDef("m15otrgastpers1",FieldDef.FLOAT,6,0);
+      m15arrendamien1 = new FieldDef("m15arrendamien1",FieldDef.FLOAT,6,0);
+      m15conservacio1 = new FieldDef("m15conservacio1",FieldDef.FLOAT,6,0);
+      m15servprofesi1 = new FieldDef("m15servprofesi1",FieldDef.FLOAT,6,0);
+      m15otrservicio1 = new FieldDef("m15otrservicio1",FieldDef.FLOAT,6,0);
+      m15tributdeduc1 = new FieldDef("m15tributdeduc1",FieldDef.FLOAT,6,0);
+      m15gastofinanc1 = new FieldDef("m15gastofinanc1",FieldDef.FLOAT,6,0);
+      m15amortizacio1 = new FieldDef("m15amortizacio1",FieldDef.FLOAT,6,0);
+      m15perddeterio1 = new FieldDef("m15perddeterio1",FieldDef.FLOAT,6,0);
+      m15actintgral1 = new FieldDef("m15actintgral1",FieldDef.FLOAT,6,0);
+      m15gastactgral1 = new FieldDef("m15gastactgral1",FieldDef.FLOAT,6,0);
+      m15otrosgastos1 = new FieldDef("m15otrosgastos1",FieldDef.FLOAT,6,0);
+      m15sumagastos1 = new FieldDef("m15sumagastos1",FieldDef.FLOAT,6,0);
+      m15provisiones1 = new FieldDef("m15provisiones1",FieldDef.FLOAT,6,0);
+      m15totalgastos1 = new FieldDef("m15totalgastos1",FieldDef.FLOAT,6,0);
+      m15diferencia1 = new FieldDef("m15diferencia1",FieldDef.FLOAT,6,0);
+      m15gastdificju1 = new FieldDef("m15gastdificju1",FieldDef.FLOAT,6,0);
+      m15totalgasto21 = new FieldDef("m15totalgasto21",FieldDef.FLOAT,6,0);
+      m15rdtoneto1 = new FieldDef("m15rdtoneto1",FieldDef.FLOAT,6,0);
+      m15reducirregu1 = new FieldDef("m15reducirregu1",FieldDef.FLOAT,6,0);
+      m15diferrdto1 = new FieldDef("m15diferrdto1",FieldDef.FLOAT,6,0);
+      m15redcopameri1 = new FieldDef("m15redcopameri1",FieldDef.FLOAT,6,0);
+      m15rdtonetored1 = new FieldDef("m15rdtonetored1",FieldDef.FLOAT,6,0);
+      m15titular2 = new FieldDef("m15titular2",FieldDef.INTEGER,0);
+      m15clave2 = new FieldDef("m15clave2",FieldDef.CHAR,1);
+      m15modalidad2 = new FieldDef("m15modalidad2",FieldDef.INTEGER,0);
+      m15epigrafe2 = new FieldDef("m15epigrafe2",FieldDef.CHAR,5);
+      m15cobropago2 = new FieldDef("m15cobropago2",FieldDef.INTEGER,0);
+      m15ingrexplota2 = new FieldDef("m15ingrexplota2",FieldDef.FLOAT,6,0);
+      m15otringresos2 = new FieldDef("m15otringresos2",FieldDef.FLOAT,6,0);
+      m15autoconsumo2 = new FieldDef("m15autoconsumo2",FieldDef.FLOAT,6,0);
+      m15totalingres2 = new FieldDef("m15totalingres2",FieldDef.FLOAT,6,0);
+      m15consumo2 = new FieldDef("m15consumo2",FieldDef.FLOAT,6,0);
+      m15sueldos2 = new FieldDef("m15sueldos2",FieldDef.FLOAT,6,0);
+      m15segsocial2 = new FieldDef("m15segsocial2",FieldDef.FLOAT,6,0);
+      m15otrgastpers2 = new FieldDef("m15otrgastpers2",FieldDef.FLOAT,6,0);
+      m15arrendamien2 = new FieldDef("m15arrendamien2",FieldDef.FLOAT,6,0);
+      m15conservacio2 = new FieldDef("m15conservacio2",FieldDef.FLOAT,6,0);
+      m15servprofesi2 = new FieldDef("m15servprofesi2",FieldDef.FLOAT,6,0);
+      m15otrservicio2 = new FieldDef("m15otrservicio2",FieldDef.FLOAT,6,0);
+      m15tributdeduc2 = new FieldDef("m15tributdeduc2",FieldDef.FLOAT,6,0);
+      m15gastofinanc2 = new FieldDef("m15gastofinanc2",FieldDef.FLOAT,6,0);
+      m15amortizacio2 = new FieldDef("m15amortizacio2",FieldDef.FLOAT,6,0);
+      m15perddeterio2 = new FieldDef("m15perddeterio2",FieldDef.FLOAT,6,0);
+      m15actintgral2 = new FieldDef("m15actintgral2",FieldDef.FLOAT,6,0);
+      m15gastactgral2 = new FieldDef("m15gastactgral2",FieldDef.FLOAT,6,0);
+      m15otrosgastos2 = new FieldDef("m15otrosgastos2",FieldDef.FLOAT,6,0);
+      m15sumagastos2 = new FieldDef("m15sumagastos2",FieldDef.FLOAT,6,0);
+      m15provisiones2 = new FieldDef("m15provisiones2",FieldDef.FLOAT,6,0);
+      m15totalgastos2 = new FieldDef("m15totalgastos2",FieldDef.FLOAT,6,0);
+      m15diferencia2 = new FieldDef("m15diferencia2",FieldDef.FLOAT,6,0);
+      m15gastdificju2 = new FieldDef("m15gastdificju2",FieldDef.FLOAT,6,0);
+      m15totalgasto22 = new FieldDef("m15totalgasto22",FieldDef.FLOAT,6,0);
+      m15rdtoneto2 = new FieldDef("m15rdtoneto2",FieldDef.FLOAT,6,0);
+      m15reducirregu2 = new FieldDef("m15reducirregu2",FieldDef.FLOAT,6,0);
+      m15diferrdto2 = new FieldDef("m15diferrdto2",FieldDef.FLOAT,6,0);
+      m15redcopameri2 = new FieldDef("m15redcopameri2",FieldDef.FLOAT,6,0);
+      m15rdtonetored2 = new FieldDef("m15rdtonetored2",FieldDef.FLOAT,6,0);
+      m15titular3 = new FieldDef("m15titular3",FieldDef.INTEGER,0);
+      m15clave3 = new FieldDef("m15clave3",FieldDef.CHAR,1);
+      m15modalidad3 = new FieldDef("m15modalidad3",FieldDef.INTEGER,0);
+      m15epigrafe3 = new FieldDef("m15epigrafe3",FieldDef.CHAR,5);
+      m15cobropago3 = new FieldDef("m15cobropago3",FieldDef.INTEGER,0);
+      m15ingrexplota3 = new FieldDef("m15ingrexplota3",FieldDef.FLOAT,6,0);
+      m15otringresos3 = new FieldDef("m15otringresos3",FieldDef.FLOAT,6,0);
+      m15autoconsumo3 = new FieldDef("m15autoconsumo3",FieldDef.FLOAT,6,0);
+      m15totalingres3 = new FieldDef("m15totalingres3",FieldDef.FLOAT,6,0);
+      m15consumo3 = new FieldDef("m15consumo3",FieldDef.FLOAT,6,0);
+      m15sueldos3 = new FieldDef("m15sueldos3",FieldDef.FLOAT,6,0);
+      m15segsocial3 = new FieldDef("m15segsocial3",FieldDef.FLOAT,6,0);
+      m15otrgastpers3 = new FieldDef("m15otrgastpers3",FieldDef.FLOAT,6,0);
+      m15arrendamien3 = new FieldDef("m15arrendamien3",FieldDef.FLOAT,6,0);
+      m15conservacio3 = new FieldDef("m15conservacio3",FieldDef.FLOAT,6,0);
+      m15servprofesi3 = new FieldDef("m15servprofesi3",FieldDef.FLOAT,6,0);
+      m15otrservicio3 = new FieldDef("m15otrservicio3",FieldDef.FLOAT,6,0);
+      m15tributdeduc3 = new FieldDef("m15tributdeduc3",FieldDef.FLOAT,6,0);
+      m15gastofinanc3 = new FieldDef("m15gastofinanc3",FieldDef.FLOAT,6,0);
+      m15amortizacio3 = new FieldDef("m15amortizacio3",FieldDef.FLOAT,6,0);
+      m15perddeterio3 = new FieldDef("m15perddeterio3",FieldDef.FLOAT,6,0);
+      m15actintgral3 = new FieldDef("m15actintgral3",FieldDef.FLOAT,6,0);
+      m15gastactgral3 = new FieldDef("m15gastactgral3",FieldDef.FLOAT,6,0);
+      m15otrosgastos3 = new FieldDef("m15otrosgastos3",FieldDef.FLOAT,6,0);
+      m15sumagastos3 = new FieldDef("m15sumagastos3",FieldDef.FLOAT,6,0);
+      m15provisiones3 = new FieldDef("m15provisiones3",FieldDef.FLOAT,6,0);
+      m15totalgastos3 = new FieldDef("m15totalgastos3",FieldDef.FLOAT,6,0);
+      m15diferencia3 = new FieldDef("m15diferencia3",FieldDef.FLOAT,6,0);
+      m15gastdificju3 = new FieldDef("m15gastdificju3",FieldDef.FLOAT,6,0);
+      m15totalgasto23 = new FieldDef("m15totalgasto23",FieldDef.FLOAT,6,0);
+      m15rdtoneto3 = new FieldDef("m15rdtoneto3",FieldDef.FLOAT,6,0);
+      m15reducirregu3 = new FieldDef("m15reducirregu3",FieldDef.FLOAT,6,0);
+      m15diferrdto3 = new FieldDef("m15diferrdto3",FieldDef.FLOAT,6,0);
+      m15redcopameri3 = new FieldDef("m15redcopameri3",FieldDef.FLOAT,6,0);
+      m15rdtonetored3 = new FieldDef("m15rdtonetored3",FieldDef.FLOAT,6,0);
+      m15totalrdto = new FieldDef("m15totalrdto",FieldDef.FLOAT,6,0);
+      m15totalreduc = new FieldDef("m15totalreduc",FieldDef.FLOAT,6,0);
+      m15totalempleo = new FieldDef("m15totalempleo",FieldDef.FLOAT,6,0);
+      m15totalrdtored = new FieldDef("m15totalrdtored",FieldDef.FLOAT,6,0);
+      m15gravaunico = new FieldDef("m15gravaunico",FieldDef.INTEGER,0);
+      m15ingrtransam1 = new FieldDef("m15ingrtransam1",FieldDef.FLOAT,6,0);
+      m15ingrtransam2 = new FieldDef("m15ingrtransam2",FieldDef.FLOAT,6,0);
+      m15ingrtransam3 = new FieldDef("m15ingrtransam3",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        m15dominio,
+        m15nif,
+        m15declarac,
+        m15ejercicio,
+        m15periodo,
+        m15pagina,
+        m15titular1,
+        m15clave1,
+        m15modalidad1,
+        m15epigrafe1,
+        m15cobropago1,
+        m15ingrexplota1,
+        m15otringresos1,
+        m15autoconsumo1,
+        m15totalingres1,
+        m15consumo1,
+        m15sueldos1,
+        m15segsocial1,
+        m15otrgastpers1,
+        m15arrendamien1,
+        m15conservacio1,
+        m15servprofesi1,
+        m15otrservicio1,
+        m15tributdeduc1,
+        m15gastofinanc1,
+        m15amortizacio1,
+        m15perddeterio1,
+        m15actintgral1,
+        m15gastactgral1,
+        m15otrosgastos1,
+        m15sumagastos1,
+        m15provisiones1,
+        m15totalgastos1,
+        m15diferencia1,
+        m15gastdificju1,
+        m15totalgasto21,
+        m15rdtoneto1,
+        m15reducirregu1,
+        m15diferrdto1,
+        m15redcopameri1,
+        m15rdtonetored1,
+        m15titular2,
+        m15clave2,
+        m15modalidad2,
+        m15epigrafe2,
+        m15cobropago2,
+        m15ingrexplota2,
+        m15otringresos2,
+        m15autoconsumo2,
+        m15totalingres2,
+        m15consumo2,
+        m15sueldos2,
+        m15segsocial2,
+        m15otrgastpers2,
+        m15arrendamien2,
+        m15conservacio2,
+        m15servprofesi2,
+        m15otrservicio2,
+        m15tributdeduc2,
+        m15gastofinanc2,
+        m15amortizacio2,
+        m15perddeterio2,
+        m15actintgral2,
+        m15gastactgral2,
+        m15otrosgastos2,
+        m15sumagastos2,
+        m15provisiones2,
+        m15totalgastos2,
+        m15diferencia2,
+        m15gastdificju2,
+        m15totalgasto22,
+        m15rdtoneto2,
+        m15reducirregu2,
+        m15diferrdto2,
+        m15redcopameri2,
+        m15rdtonetored2,
+        m15titular3,
+        m15clave3,
+        m15modalidad3,
+        m15epigrafe3,
+        m15cobropago3,
+        m15ingrexplota3,
+        m15otringresos3,
+        m15autoconsumo3,
+        m15totalingres3,
+        m15consumo3,
+        m15sueldos3,
+        m15segsocial3,
+        m15otrgastpers3,
+        m15arrendamien3,
+        m15conservacio3,
+        m15servprofesi3,
+        m15otrservicio3,
+        m15tributdeduc3,
+        m15gastofinanc3,
+        m15amortizacio3,
+        m15perddeterio3,
+        m15actintgral3,
+        m15gastactgral3,
+        m15otrosgastos3,
+        m15sumagastos3,
+        m15provisiones3,
+        m15totalgastos3,
+        m15diferencia3,
+        m15gastdificju3,
+        m15totalgasto23,
+        m15rdtoneto3,
+        m15reducirregu3,
+        m15diferrdto3,
+        m15redcopameri3,
+        m15rdtonetored3,
+        m15totalrdto,
+        m15totalreduc,
+        m15totalempleo,
+        m15totalrdtored,
+        m15gravaunico,
+        m15ingrtransam1,
+        m15ingrtransam2,
+        m15ingrtransam3        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m15dominio,m15nif,m15declarac,m15ejercicio,m15periodo,m15pagina };
+      setPrimaryKeys(arrayf);
+      m15declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
+      m15titular1.setDescription("(E1) Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 1 Contribuyente 0 a 9 (100)");
+      m15clave1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 1 Tipo actividad. Clave (Blanco o de 1 a 6) (101)");
+      m15modalidad1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 1 Modalidad Normal (103) o Simplificada (104) 0 1 o 2");
+      m15epigrafe1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 1 Epigrafe IAE (102) ()");
+      m15cobropago1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 1 Criterio cobros/pagos. 1 o cero. (105)");
+      m15ingrexplota1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 1 Explotacion (106)");
+      m15otringresos1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 1 Otros ingresos (107)");
+      m15autoconsumo1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 1 Autoconsumo bienes/servicios (108)");
+      m15totalingres1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 1 Total ingresos computables (109)");
+      m15consumo1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Consumos de explotacion (110)");
+      m15sueldos1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Sueldos y salarios (111)");
+      m15segsocial1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Seguridad Social (112)");
+      m15otrgastpers1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Otros gastos de personal (113)");
+      m15arrendamien1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Arrendamientos y canones (114)");
+      m15conservacio1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Reparacion y conservacion (115)");
+      m15servprofesi1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Servicios profesionales independientes (116)");
+      m15otrservicio1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Otros servicios exteriores (117)");
+      m15tributdeduc1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Tributos fiscalmente deducibles (118)");
+      m15gastofinanc1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Gastos financieros (119)");
+      m15amortizacio1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Amortizaciones (120)");
+      m15perddeterio1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Perdidas por deterioro (121)");
+      m15actintgral1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Mecenazgo (convenios) (122)");
+      m15gastactgral1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Mecenazgo (gastos) (123)");
+      m15otrosgastos1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Otros gastos fiscalmente deducibles (124)");
+      m15sumagastos1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Suma (125)");
+      m15provisiones1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Modalidad Normal Provisiones (126)");
+      m15totalgastos1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Modalidad Normal Total gastos deducibles (127)");
+      m15diferencia1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Modalidad Simplificada Diferencia (128)");
+      m15gastdificju1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Modalidad Simplificada Provisiones deduc./gastos dificil justif. (129)");
+      m15totalgasto21.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 1 Modalidad Simplificada Total gastos deducibles (130)");
+      m15rdtoneto1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 1 Rdto. neto (131)");
+      m15reducirregu1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 1 Reducciones (132)");
+      m15diferrdto1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 1 Diferencia (133)");
+      m15redcopameri1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 1 Reduc. rdtos. 33. Copa del America (134)");
+      m15rdtonetored1.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 1 Rdto. neto reducido (135)");
+      m15titular2.setDescription("(E1) Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 2 Contribuyente 0 a 9 (100)");
+      m15clave2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 2 Tipo actividad. Clave (Blanco o de 2 a 6) (101)");
+      m15modalidad2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 2 Modalidad Normal (103) o Simplificada (104) 0 2 o 2");
+      m15epigrafe2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 2 Epigrafe IAE (102) ()");
+      m15cobropago2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 2 Criterio cobros/pagos. 2 o cero. (105)");
+      m15ingrexplota2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 2 Explotacion (106)");
+      m15otringresos2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 2 Otros ingresos (107)");
+      m15autoconsumo2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 2 Autoconsumo bienes/servicios (108)");
+      m15totalingres2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 2 Total ingresos computables (109)");
+      m15consumo2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Consumos de explotacion (110)");
+      m15sueldos2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Sueldos y salarios (111)");
+      m15segsocial2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Seguridad Social (112)");
+      m15otrgastpers2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Otros gastos de personal (113)");
+      m15arrendamien2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Arrendamientos y canones (114)");
+      m15conservacio2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Reparacion y conservacion (115)");
+      m15servprofesi2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Servicios profesionales independientes (116)");
+      m15otrservicio2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Otros servicios exteriores (117)");
+      m15tributdeduc2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Tributos fiscalmente deducibles (118)");
+      m15gastofinanc2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Gastos financieros (119)");
+      m15amortizacio2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Amortizaciones (120)");
+      m15perddeterio2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Perdidas por deterioro (121)");
+      m15actintgral2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Mecenazgo (convenios) (122)");
+      m15gastactgral2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Mecenazgo (gastos) (123)");
+      m15otrosgastos2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Otros gastos fiscalmente deducibles (124)");
+      m15sumagastos2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Suma (125)");
+      m15provisiones2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Modalidad Normal Provisiones (126)");
+      m15totalgastos2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Modalidad Normal Total gastos deducibles (127)");
+      m15diferencia2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Modalidad Simplificada Diferencia (128)");
+      m15gastdificju2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Modalidad Simplificada Provisiones deduc./gastos dificil justif. (129)");
+      m15totalgasto22.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 2 Modalidad Simplificada Total gastos deducibles (130)");
+      m15rdtoneto2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 2 Rdto. neto (131)");
+      m15reducirregu2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 2 Reducciones (132)");
+      m15diferrdto2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 2 Diferencia (133)");
+      m15redcopameri2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 2 Reduc. rdtos. 33. Copa del America (134)");
+      m15rdtonetored2.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 2 Rdto. neto reducido (135)");
+      m15titular3.setDescription("(E1) Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 3 Contribuyente 0 a 9 (100)");
+      m15clave3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 3 Tipo actividad. Clave (Blanco o de 3 a 6) (101)");
+      m15modalidad3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 3 Modalidad Normal (103) o Simplificada (104) 0 3 o 2");
+      m15epigrafe3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 3 Epigrafe IAE (102) ()");
+      m15cobropago3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Actv.realizada Actividad 3 Criterio cobros/pagos. 3 o cero. (105)");
+      m15ingrexplota3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 3 Explotacion (106)");
+      m15otringresos3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 3 Otros ingresos (107)");
+      m15autoconsumo3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 3 Autoconsumo bienes/servicios (108)");
+      m15totalingres3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Ingresos integros Actividad 3 Total ingresos computables (109)");
+      m15consumo3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Consumos de explotacion (110)");
+      m15sueldos3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Sueldos y salarios (111)");
+      m15segsocial3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Seguridad Social (112)");
+      m15otrgastpers3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Otros gastos de personal (113)");
+      m15arrendamien3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Arrendamientos y canones (114)");
+      m15conservacio3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Reparacion y conservacion (115)");
+      m15servprofesi3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Servicios profesionales independientes (116)");
+      m15otrservicio3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Otros servicios exteriores (117)");
+      m15tributdeduc3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Tributos fiscalmente deducibles (118)");
+      m15gastofinanc3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Gastos financieros (119)");
+      m15amortizacio3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Amortizaciones (120)");
+      m15perddeterio3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Perdidas por deterioro (121)");
+      m15actintgral3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Mecenazgo (convenios) (122)");
+      m15gastactgral3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Mecenazgo (gastos) (123)");
+      m15otrosgastos3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Otros gastos fiscalmente deducibles (124)");
+      m15sumagastos3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Suma (125)");
+      m15provisiones3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Modalidad Normal Provisiones (126)");
+      m15totalgastos3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Modalidad Normal Total gastos deducibles (127)");
+      m15diferencia3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Modalidad Simplificada Diferencia (128)");
+      m15gastdificju3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Modalidad Simplificada Provisiones deduc./gastos dificil justif. (129)");
+      m15totalgasto23.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Gastos Actividad 3 Modalidad Simplificada Total gastos deducibles (130)");
+      m15rdtoneto3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 3 Rdto. neto (131)");
+      m15reducirregu3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 3 Reducciones (132)");
+      m15diferrdto3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 3 Diferencia (133)");
+      m15redcopameri3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 3 Reduc. rdtos. 33. Copa del America (134)");
+      m15rdtonetored3.setDescription("Rdto.actv.econ.est.directa Actividad y rdto. obtenido Rdto. neto y rdto. neto reduc. Actividad 3 Rdto. neto reducido (135)");
+      m15totalrdto.setDescription("Rdto.actv.econ.est.directa Rdto.neto reducido total en estimacion directa Suma de rendimientos netos reducidos (136)");
+      m15totalreduc.setDescription("Rdto.actv.econ.est.directa Rdto.neto reducido total en estimacion directa Reduccion ejercicio determinadas actividades (137)");
+      m15totalempleo.setDescription("Rdto.actv.econ.est.directa Rdto.neto reducido total en estimacion directa Reduccion por mantenimiento o creacion de empleo (138)");
+      m15totalrdtored.setDescription("Rdto.actv.econ.est.directa Rdto.neto reducido total en estimacion directa Rendimiento neto reducido total (140)");
+      m15gravaunico.setDescription("2012 Si ha presentado la autoliquidación del Gravamen único. 1 o cero. (134)");
+      m15ingrtransam1.setDescription("2012 Actividad 1- Transmisión elementos patrimoniales: exceso amortización deducida (135)");
+      m15ingrtransam2.setDescription("2012 Actividad 2- Transmisión elementos patrimoniales: exceso amortización deducida (135)");
+      m15ingrtransam3.setDescription("2012 Actividad 3- Transmisión elementos patrimoniales: exceso amortización deducida (135)");
+      }
+    }
+    
+  public class TabMod100h6 extends TableDef
+    {
+    // Campos
+    public FieldDef m16dominio;
+    public FieldDef m16nif;
+    public FieldDef m16declarac;
+    public FieldDef m16ejercicio;
+    public FieldDef m16periodo;
+    public FieldDef m16pagina;
+    public FieldDef m16epigrafe1;
+    public FieldDef m16titular1;
+    public FieldDef m16defunid11;
+    public FieldDef m16unidad11;
+    public FieldDef m16rdtounidad11;
+    public FieldDef m16defunid21;
+    public FieldDef m16unidad21;
+    public FieldDef m16rdtounidad21;
+    public FieldDef m16defunid31;
+    public FieldDef m16unidad31;
+    public FieldDef m16rdtounidad31;
+    public FieldDef m16defunid41;
+    public FieldDef m16unidad41;
+    public FieldDef m16rdtounidad41;
+    public FieldDef m16defunid51;
+    public FieldDef m16unidad51;
+    public FieldDef m16rdtounidad51;
+    public FieldDef m16defunid61;
+    public FieldDef m16unidad61;
+    public FieldDef m16rdtounidad61;
+    public FieldDef m16defunid71;
+    public FieldDef m16unidad71;
+    public FieldDef m16rdtounidad71;
+    public FieldDef m16rdtoprevio1;
+    public FieldDef m16incempleo1;
+    public FieldDef m16redinversio1;
+    public FieldDef m16rdtominorad1;
+    public FieldDef m16indespecial1;
+    public FieldDef m16indpeqempre1;
+    public FieldDef m16indtemporad1;
+    public FieldDef m16indexceso1;
+    public FieldDef m16indnuevaact1;
+    public FieldDef m16rdtomodulos1;
+    public FieldDef m16reducgral1;
+    public FieldDef m16gastextraor1;
+    public FieldDef m16otraspercep1;
+    public FieldDef m16rdtoneto1;
+    public FieldDef m16reducirregu1;
+    public FieldDef m16rdtonetored1;
+    public FieldDef m16epigrafe2;
+    public FieldDef m16titular2;
+    public FieldDef m16defunid12;
+    public FieldDef m16unidad12;
+    public FieldDef m16rdtounidad12;
+    public FieldDef m16defunid22;
+    public FieldDef m16unidad22;
+    public FieldDef m16rdtounidad22;
+    public FieldDef m16defunid32;
+    public FieldDef m16unidad32;
+    public FieldDef m16rdtounidad32;
+    public FieldDef m16defunid42;
+    public FieldDef m16unidad42;
+    public FieldDef m16rdtounidad42;
+    public FieldDef m16defunid52;
+    public FieldDef m16unidad52;
+    public FieldDef m16rdtounidad52;
+    public FieldDef m16defunid62;
+    public FieldDef m16unidad62;
+    public FieldDef m16rdtounidad62;
+    public FieldDef m16defunid72;
+    public FieldDef m16unidad72;
+    public FieldDef m16rdtounidad72;
+    public FieldDef m16rdtoprevio2;
+    public FieldDef m16incempleo2;
+    public FieldDef m16redinversio2;
+    public FieldDef m16rdtominorad2;
+    public FieldDef m16indespecial2;
+    public FieldDef m16indpeqempre2;
+    public FieldDef m16indtemporad2;
+    public FieldDef m16indexceso2;
+    public FieldDef m16indnuevaact2;
+    public FieldDef m16rdtomodulos2;
+    public FieldDef m16reducgral2;
+    public FieldDef m16gastextraor2;
+    public FieldDef m16otraspercep2;
+    public FieldDef m16rdtoneto2;
+    public FieldDef m16reducirregu2;
+    public FieldDef m16rdtonetored2;
+    public FieldDef m16totalrdto;
+    public FieldDef m16totalempleo;
+    public FieldDef m16totalrdtored;
+    public FieldDef m16redlorca1;
+    public FieldDef m16redlorca2;
+    public FieldDef m16cobropago1;
+    public FieldDef m16cobropago2;
+    public FieldDef m16gravaunico;
+    public TabMod100h6(String name)
+      {
+      super(name);
+      m16dominio = new FieldDef("m16dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m16nif = new FieldDef("m16nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m16declarac = new FieldDef("m16declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      m16ejercicio = new FieldDef("m16ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m16periodo = new FieldDef("m16periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m16pagina = new FieldDef("m16pagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m16epigrafe1 = new FieldDef("m16epigrafe1",FieldDef.CHAR,5);
+      m16titular1 = new FieldDef("m16titular1",FieldDef.INTEGER,0);
+      m16defunid11 = new FieldDef("m16defunid11",FieldDef.CHAR,24);
+      m16unidad11 = new FieldDef("m16unidad11",FieldDef.FLOAT,6,0);
+      m16rdtounidad11 = new FieldDef("m16rdtounidad11",FieldDef.FLOAT,6,0);
+      m16defunid21 = new FieldDef("m16defunid21",FieldDef.CHAR,24);
+      m16unidad21 = new FieldDef("m16unidad21",FieldDef.FLOAT,6,0);
+      m16rdtounidad21 = new FieldDef("m16rdtounidad21",FieldDef.FLOAT,6,0);
+      m16defunid31 = new FieldDef("m16defunid31",FieldDef.CHAR,24);
+      m16unidad31 = new FieldDef("m16unidad31",FieldDef.FLOAT,6,0);
+      m16rdtounidad31 = new FieldDef("m16rdtounidad31",FieldDef.FLOAT,6,0);
+      m16defunid41 = new FieldDef("m16defunid41",FieldDef.CHAR,24);
+      m16unidad41 = new FieldDef("m16unidad41",FieldDef.FLOAT,6,0);
+      m16rdtounidad41 = new FieldDef("m16rdtounidad41",FieldDef.FLOAT,6,0);
+      m16defunid51 = new FieldDef("m16defunid51",FieldDef.CHAR,24);
+      m16unidad51 = new FieldDef("m16unidad51",FieldDef.FLOAT,6,0);
+      m16rdtounidad51 = new FieldDef("m16rdtounidad51",FieldDef.FLOAT,6,0);
+      m16defunid61 = new FieldDef("m16defunid61",FieldDef.CHAR,24);
+      m16unidad61 = new FieldDef("m16unidad61",FieldDef.FLOAT,6,0);
+      m16rdtounidad61 = new FieldDef("m16rdtounidad61",FieldDef.FLOAT,6,0);
+      m16defunid71 = new FieldDef("m16defunid71",FieldDef.CHAR,24);
+      m16unidad71 = new FieldDef("m16unidad71",FieldDef.FLOAT,6,0);
+      m16rdtounidad71 = new FieldDef("m16rdtounidad71",FieldDef.FLOAT,6,0);
+      m16rdtoprevio1 = new FieldDef("m16rdtoprevio1",FieldDef.FLOAT,6,0);
+      m16incempleo1 = new FieldDef("m16incempleo1",FieldDef.FLOAT,6,0);
+      m16redinversio1 = new FieldDef("m16redinversio1",FieldDef.FLOAT,6,0);
+      m16rdtominorad1 = new FieldDef("m16rdtominorad1",FieldDef.FLOAT,6,0);
+      m16indespecial1 = new FieldDef("m16indespecial1",FieldDef.FLOAT,6,0);
+      m16indpeqempre1 = new FieldDef("m16indpeqempre1",FieldDef.FLOAT,6,0);
+      m16indtemporad1 = new FieldDef("m16indtemporad1",FieldDef.FLOAT,6,0);
+      m16indexceso1 = new FieldDef("m16indexceso1",FieldDef.FLOAT,6,0);
+      m16indnuevaact1 = new FieldDef("m16indnuevaact1",FieldDef.FLOAT,6,0);
+      m16rdtomodulos1 = new FieldDef("m16rdtomodulos1",FieldDef.FLOAT,6,0);
+      m16reducgral1 = new FieldDef("m16reducgral1",FieldDef.FLOAT,6,0);
+      m16gastextraor1 = new FieldDef("m16gastextraor1",FieldDef.FLOAT,6,0);
+      m16otraspercep1 = new FieldDef("m16otraspercep1",FieldDef.FLOAT,6,0);
+      m16rdtoneto1 = new FieldDef("m16rdtoneto1",FieldDef.FLOAT,6,0);
+      m16reducirregu1 = new FieldDef("m16reducirregu1",FieldDef.FLOAT,6,0);
+      m16rdtonetored1 = new FieldDef("m16rdtonetored1",FieldDef.FLOAT,6,0);
+      m16epigrafe2 = new FieldDef("m16epigrafe2",FieldDef.CHAR,5);
+      m16titular2 = new FieldDef("m16titular2",FieldDef.INTEGER,0);
+      m16defunid12 = new FieldDef("m16defunid12",FieldDef.CHAR,24);
+      m16unidad12 = new FieldDef("m16unidad12",FieldDef.FLOAT,6,0);
+      m16rdtounidad12 = new FieldDef("m16rdtounidad12",FieldDef.FLOAT,6,0);
+      m16defunid22 = new FieldDef("m16defunid22",FieldDef.CHAR,24);
+      m16unidad22 = new FieldDef("m16unidad22",FieldDef.FLOAT,6,0);
+      m16rdtounidad22 = new FieldDef("m16rdtounidad22",FieldDef.FLOAT,6,0);
+      m16defunid32 = new FieldDef("m16defunid32",FieldDef.CHAR,24);
+      m16unidad32 = new FieldDef("m16unidad32",FieldDef.FLOAT,6,0);
+      m16rdtounidad32 = new FieldDef("m16rdtounidad32",FieldDef.FLOAT,6,0);
+      m16defunid42 = new FieldDef("m16defunid42",FieldDef.CHAR,24);
+      m16unidad42 = new FieldDef("m16unidad42",FieldDef.FLOAT,6,0);
+      m16rdtounidad42 = new FieldDef("m16rdtounidad42",FieldDef.FLOAT,6,0);
+      m16defunid52 = new FieldDef("m16defunid52",FieldDef.CHAR,24);
+      m16unidad52 = new FieldDef("m16unidad52",FieldDef.FLOAT,6,0);
+      m16rdtounidad52 = new FieldDef("m16rdtounidad52",FieldDef.FLOAT,6,0);
+      m16defunid62 = new FieldDef("m16defunid62",FieldDef.CHAR,24);
+      m16unidad62 = new FieldDef("m16unidad62",FieldDef.FLOAT,6,0);
+      m16rdtounidad62 = new FieldDef("m16rdtounidad62",FieldDef.FLOAT,6,0);
+      m16defunid72 = new FieldDef("m16defunid72",FieldDef.CHAR,24);
+      m16unidad72 = new FieldDef("m16unidad72",FieldDef.FLOAT,6,0);
+      m16rdtounidad72 = new FieldDef("m16rdtounidad72",FieldDef.FLOAT,6,0);
+      m16rdtoprevio2 = new FieldDef("m16rdtoprevio2",FieldDef.FLOAT,6,0);
+      m16incempleo2 = new FieldDef("m16incempleo2",FieldDef.FLOAT,6,0);
+      m16redinversio2 = new FieldDef("m16redinversio2",FieldDef.FLOAT,6,0);
+      m16rdtominorad2 = new FieldDef("m16rdtominorad2",FieldDef.FLOAT,6,0);
+      m16indespecial2 = new FieldDef("m16indespecial2",FieldDef.FLOAT,6,0);
+      m16indpeqempre2 = new FieldDef("m16indpeqempre2",FieldDef.FLOAT,6,0);
+      m16indtemporad2 = new FieldDef("m16indtemporad2",FieldDef.FLOAT,6,0);
+      m16indexceso2 = new FieldDef("m16indexceso2",FieldDef.FLOAT,6,0);
+      m16indnuevaact2 = new FieldDef("m16indnuevaact2",FieldDef.FLOAT,6,0);
+      m16rdtomodulos2 = new FieldDef("m16rdtomodulos2",FieldDef.FLOAT,6,0);
+      m16reducgral2 = new FieldDef("m16reducgral2",FieldDef.FLOAT,6,0);
+      m16gastextraor2 = new FieldDef("m16gastextraor2",FieldDef.FLOAT,6,0);
+      m16otraspercep2 = new FieldDef("m16otraspercep2",FieldDef.FLOAT,6,0);
+      m16rdtoneto2 = new FieldDef("m16rdtoneto2",FieldDef.FLOAT,6,0);
+      m16reducirregu2 = new FieldDef("m16reducirregu2",FieldDef.FLOAT,6,0);
+      m16rdtonetored2 = new FieldDef("m16rdtonetored2",FieldDef.FLOAT,6,0);
+      m16totalrdto = new FieldDef("m16totalrdto",FieldDef.FLOAT,6,0);
+      m16totalempleo = new FieldDef("m16totalempleo",FieldDef.FLOAT,6,0);
+      m16totalrdtored = new FieldDef("m16totalrdtored",FieldDef.FLOAT,6,0);
+      m16redlorca1 = new FieldDef("m16redlorca1",FieldDef.FLOAT,6,0);
+      m16redlorca2 = new FieldDef("m16redlorca2",FieldDef.FLOAT,6,0);
+      m16cobropago1 = new FieldDef("m16cobropago1",FieldDef.INTEGER,0);
+      m16cobropago2 = new FieldDef("m16cobropago2",FieldDef.INTEGER,0);
+      m16gravaunico = new FieldDef("m16gravaunico",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        m16dominio,
+        m16nif,
+        m16declarac,
+        m16ejercicio,
+        m16periodo,
+        m16pagina,
+        m16epigrafe1,
+        m16titular1,
+        m16defunid11,
+        m16unidad11,
+        m16rdtounidad11,
+        m16defunid21,
+        m16unidad21,
+        m16rdtounidad21,
+        m16defunid31,
+        m16unidad31,
+        m16rdtounidad31,
+        m16defunid41,
+        m16unidad41,
+        m16rdtounidad41,
+        m16defunid51,
+        m16unidad51,
+        m16rdtounidad51,
+        m16defunid61,
+        m16unidad61,
+        m16rdtounidad61,
+        m16defunid71,
+        m16unidad71,
+        m16rdtounidad71,
+        m16rdtoprevio1,
+        m16incempleo1,
+        m16redinversio1,
+        m16rdtominorad1,
+        m16indespecial1,
+        m16indpeqempre1,
+        m16indtemporad1,
+        m16indexceso1,
+        m16indnuevaact1,
+        m16rdtomodulos1,
+        m16reducgral1,
+        m16gastextraor1,
+        m16otraspercep1,
+        m16rdtoneto1,
+        m16reducirregu1,
+        m16rdtonetored1,
+        m16epigrafe2,
+        m16titular2,
+        m16defunid12,
+        m16unidad12,
+        m16rdtounidad12,
+        m16defunid22,
+        m16unidad22,
+        m16rdtounidad22,
+        m16defunid32,
+        m16unidad32,
+        m16rdtounidad32,
+        m16defunid42,
+        m16unidad42,
+        m16rdtounidad42,
+        m16defunid52,
+        m16unidad52,
+        m16rdtounidad52,
+        m16defunid62,
+        m16unidad62,
+        m16rdtounidad62,
+        m16defunid72,
+        m16unidad72,
+        m16rdtounidad72,
+        m16rdtoprevio2,
+        m16incempleo2,
+        m16redinversio2,
+        m16rdtominorad2,
+        m16indespecial2,
+        m16indpeqempre2,
+        m16indtemporad2,
+        m16indexceso2,
+        m16indnuevaact2,
+        m16rdtomodulos2,
+        m16reducgral2,
+        m16gastextraor2,
+        m16otraspercep2,
+        m16rdtoneto2,
+        m16reducirregu2,
+        m16rdtonetored2,
+        m16totalrdto,
+        m16totalempleo,
+        m16totalrdtored,
+        m16redlorca1,
+        m16redlorca2,
+        m16cobropago1,
+        m16cobropago2,
+        m16gravaunico        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m16dominio,m16nif,m16declarac,m16ejercicio,m16periodo,m16pagina };
+      setPrimaryKeys(arrayf);
+      m16declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
+      m16epigrafe1.setDescription("(E2) Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Clasificacion IAE (151) ()");
+      m16titular1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Contribuyente titular actividad (150) 0 a 9");
+      m16defunid11.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 1 Definicion");
+      m16unidad11.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 1 Unidades (n)");
+      m16rdtounidad11.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 1 Rdto. por modulo");
+      m16defunid21.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 2 Definicion");
+      m16unidad21.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 2 Unidades (n)");
+      m16rdtounidad21.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 2 Rdto. por modulo");
+      m16defunid31.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 3 Definicion");
+      m16unidad31.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 3 Unidades (n)");
+      m16rdtounidad31.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 3 Rdto. por modulo");
+      m16defunid41.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 4 Definicion");
+      m16unidad41.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 4 Unidades (n)");
+      m16rdtounidad41.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 4 Rdto. por modulo");
+      m16defunid51.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 5 Definicion");
+      m16unidad51.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 5 Unidades (n)");
+      m16rdtounidad51.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 5 Rdto. por modulo");
+      m16defunid61.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 6 Definicion");
+      m16unidad61.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 6 Unidades (n)");
+      m16rdtounidad61.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 6 Rdto. por modulo");
+      m16defunid71.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 7 Definicion");
+      m16unidad71.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 7 Unidades (n)");
+      m16rdtounidad71.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Modulo 7 Rdto. por modulo");
+      m16rdtoprevio1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Rdto. neto previo (suma) (152)");
+      m16incempleo1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Minorizaciones por incentivos al empleo (153)");
+      m16redinversio1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Minorizaciones por incentivos a la inversion (154)");
+      m16rdtominorad1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Rdto. neto minorado (155)");
+      m16indespecial1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Indice corrector especial (2 enteros y 2 decimales) (156)");
+      m16indpeqempre1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Indice corr.empresas pequeña dimension (2 enteros y 2 decimales) (157)");
+      m16indtemporad1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Indice corrector de temporada (2 enteros y 2 decimales) (158)");
+      m16indexceso1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Indice corrector de exceso (2 enteros y 2 decimales) (159)");
+      m16indnuevaact1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Indice corr. por inicio nueva activ. (2 enteros y 2 decimales) (160)");
+      m16rdtomodulos1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Rdto. neto de modulos (161)");
+      m16reducgral1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Reduccion de caracter general (166)");
+      m16gastextraor1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Gastos extraordinarios circunstancias excepcionales (162)");
+      m16otraspercep1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Otras percepciones empresariales (163)");
+      m16rdtoneto1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Rendimiento neto actividad (164)");
+      m16reducirregu1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Reduccion art. 32.1 Ley del Impuesto (165)");
+      m16rdtonetored1.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 1 Rendimiento neto reducido (167)");
+      m16epigrafe2.setDescription("(E2) Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Clasificacion IAE (151) ()");
+      m16titular2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Contribuyente titular actividad (150) 0 a 9");
+      m16defunid12.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 2 Definicion");
+      m16unidad12.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 2 Unidades (n)");
+      m16rdtounidad12.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 2 Rdto. por modulo");
+      m16defunid22.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 2 Definicion");
+      m16unidad22.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 2 Unidades (n)");
+      m16rdtounidad22.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 2 Rdto. por modulo");
+      m16defunid32.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 3 Definicion");
+      m16unidad32.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 3 Unidades (n)");
+      m16rdtounidad32.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 3 Rdto. por modulo");
+      m16defunid42.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 4 Definicion");
+      m16unidad42.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 4 Unidades (n)");
+      m16rdtounidad42.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 4 Rdto. por modulo");
+      m16defunid52.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 5 Definicion");
+      m16unidad52.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 5 Unidades (n)");
+      m16rdtounidad52.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 5 Rdto. por modulo");
+      m16defunid62.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 6 Definicion");
+      m16unidad62.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 6 Unidades (n)");
+      m16rdtounidad62.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 6 Rdto. por modulo");
+      m16defunid72.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 7 Definicion");
+      m16unidad72.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 7 Unidades (n)");
+      m16rdtounidad72.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Modulo 7 Rdto. por modulo");
+      m16rdtoprevio2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Rdto. neto previo (suma) (152)");
+      m16incempleo2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Minorizaciones por incentivos al empleo (153)");
+      m16redinversio2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Minorizaciones por incentivos a la inversion (154)");
+      m16rdtominorad2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Rdto. neto minorado (155)");
+      m16indespecial2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Indice corrector especial (2 enteros y 2 decimales) (156)");
+      m16indpeqempre2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Indice corr.empresas pequeña dimension (2 enteros y 2 decimales) (157)");
+      m16indtemporad2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Indice corrector de temporada (2 enteros y 2 decimales) (158)");
+      m16indexceso2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Indice corrector de exceso (2 enteros y 2 decimales) (159)");
+      m16indnuevaact2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Indice corr. por inicio nueva activ. (2 enteros y 2 decimales) (160)");
+      m16rdtomodulos2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Rdto. neto de modulos (161)");
+      m16reducgral2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Reduccion de caracter general (166)");
+      m16gastextraor2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Gastos extraordinarios circunstancias excepcionales (162)");
+      m16otraspercep2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Otras percepciones empresariales (163)");
+      m16rdtoneto2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Rendimiento neto actividad (164)");
+      m16reducirregu2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Reduccion art. 32.2 Ley del Impuesto (165)");
+      m16rdtonetored2.setDescription("Rdtos.activ.econom.est.objetiva Act. realiz./rdtos. obtenidos Activ. 2 Rendimiento neto reducido (167)");
+      m16totalrdto.setDescription("Rdtos.activ.econom.est.objetiva Rendimiento neto reducido total de las actividades economicas Suma rendimientos netos reducidos (168)");
+      m16totalempleo.setDescription("Rdtos.activ.econom.est.objetiva Rendimiento neto reducido total de las actividades economicas Reduccion por mantenimiento o creacion de empleo (169)");
+      m16totalrdtored.setDescription("Rdtos.activ.econom.est.objetiva Rendimiento neto reducido total de las actividades economicas (170)");
+      m16redlorca1.setDescription("Rdtos.activ.econom.est.objetiva Act.1 Reduccion Lorca (149)");
+      m16redlorca2.setDescription("Rdtos.activ.econom.est.objetiva Act.2 Reduccion Lorca (149)");
+      m16cobropago1.setDescription("Act.1 Criterio cobro pago  (280)");
+      m16cobropago2.setDescription("Act.2 Criterio cobro pago  (280)");
+      m16gravaunico.setDescription("2012 Si ha presentado la autoliquidación del Gravamen único. 1 o cero. (148)");
+      }
+    }
+    
+  public class TabMod100h7 extends TableDef
+    {
+    // Campos
+    public FieldDef m17dominio;
+    public FieldDef m17nif;
+    public FieldDef m17declarac;
+    public FieldDef m17ejercicio;
+    public FieldDef m17periodo;
+    public FieldDef m17pagina;
+    public FieldDef m17clave1;
+    public FieldDef m17titular1;
+    public FieldDef m17cobropago1;
+    public FieldDef m17ingresprod11;
+    public FieldDef m17indiceprod11;
+    public FieldDef m17rdtoprod11;
+    public FieldDef m17ingresprod21;
+    public FieldDef m17indiceprod21;
+    public FieldDef m17rdtoprod21;
+    public FieldDef m17ingresprod31;
+    public FieldDef m17indiceprod31;
+    public FieldDef m17rdtoprod31;
+    public FieldDef m17ingresprod41;
+    public FieldDef m17indiceprod41;
+    public FieldDef m17rdtoprod41;
+    public FieldDef m17ingresprod51;
+    public FieldDef m17indiceprod51;
+    public FieldDef m17rdtoprod51;
+    public FieldDef m17ingresprod61;
+    public FieldDef m17indiceprod61;
+    public FieldDef m17rdtoprod61;
+    public FieldDef m17ingresprod71;
+    public FieldDef m17indiceprod71;
+    public FieldDef m17rdtoprod71;
+    public FieldDef m17ingresprod81;
+    public FieldDef m17indiceprod81;
+    public FieldDef m17rdtoprod81;
+    public FieldDef m17ingresprod91;
+    public FieldDef m17indiceprod91;
+    public FieldDef m17rdtoprod91;
+    public FieldDef m17ingrespro101;
+    public FieldDef m17indicepro101;
+    public FieldDef m17rdtoprod101;
+    public FieldDef m17ingrespro111;
+    public FieldDef m17indicepro111;
+    public FieldDef m17rdtoprod111;
+    public FieldDef m17ingrespro121;
+    public FieldDef m17indicepro121;
+    public FieldDef m17rdtoprod121;
+    public FieldDef m17ingrespro131;
+    public FieldDef m17indicepro131;
+    public FieldDef m17rdtoprod131;
+    public FieldDef m17totingresos1;
+    public FieldDef m17rdtoprevio1;
+    public FieldDef m17reducciones1;
+    public FieldDef m17redamortiza1;
+    public FieldDef m17rdtominorad1;
+    public FieldDef m17indprodajen1;
+    public FieldDef m17indpersonal1;
+    public FieldDef m17indarrendad1;
+    public FieldDef m17indpiensos1;
+    public FieldDef m17indecologic1;
+    public FieldDef m17indpeqempre1;
+    public FieldDef m17indforestal1;
+    public FieldDef m17rdtomodulos1;
+    public FieldDef m17reducgral1;
+    public FieldDef m17diferencia1;
+    public FieldDef m17reducjovene1;
+    public FieldDef m17gastextraor1;
+    public FieldDef m17rdtoneto1;
+    public FieldDef m17reducirregu1;
+    public FieldDef m17rdtonetored1;
+    public FieldDef m17clave2;
+    public FieldDef m17titular2;
+    public FieldDef m17cobropago2;
+    public FieldDef m17ingresprod12;
+    public FieldDef m17indiceprod12;
+    public FieldDef m17rdtoprod12;
+    public FieldDef m17ingresprod22;
+    public FieldDef m17indiceprod22;
+    public FieldDef m17rdtoprod22;
+    public FieldDef m17ingresprod32;
+    public FieldDef m17indiceprod32;
+    public FieldDef m17rdtoprod32;
+    public FieldDef m17ingresprod42;
+    public FieldDef m17indiceprod42;
+    public FieldDef m17rdtoprod42;
+    public FieldDef m17ingresprod52;
+    public FieldDef m17indiceprod52;
+    public FieldDef m17rdtoprod52;
+    public FieldDef m17ingresprod62;
+    public FieldDef m17indiceprod62;
+    public FieldDef m17rdtoprod62;
+    public FieldDef m17ingresprod72;
+    public FieldDef m17indiceprod72;
+    public FieldDef m17rdtoprod72;
+    public FieldDef m17ingresprod82;
+    public FieldDef m17indiceprod82;
+    public FieldDef m17rdtoprod82;
+    public FieldDef m17ingresprod92;
+    public FieldDef m17indiceprod92;
+    public FieldDef m17rdtoprod92;
+    public FieldDef m17ingrespro102;
+    public FieldDef m17indicepro102;
+    public FieldDef m17rdtoprod102;
+    public FieldDef m17ingrespro112;
+    public FieldDef m17indicepro112;
+    public FieldDef m17rdtoprod112;
+    public FieldDef m17ingrespro122;
+    public FieldDef m17indicepro122;
+    public FieldDef m17rdtoprod122;
+    public FieldDef m17ingrespro132;
+    public FieldDef m17indicepro132;
+    public FieldDef m17rdtoprod132;
+    public FieldDef m17totingresos2;
+    public FieldDef m17rdtoprevio2;
+    public FieldDef m17reducciones2;
+    public FieldDef m17redamortiza2;
+    public FieldDef m17rdtominorad2;
+    public FieldDef m17indprodajen2;
+    public FieldDef m17indpersonal2;
+    public FieldDef m17indarrendad2;
+    public FieldDef m17indpiensos2;
+    public FieldDef m17indecologic2;
+    public FieldDef m17indpeqempre2;
+    public FieldDef m17indforestal2;
+    public FieldDef m17rdtomodulos2;
+    public FieldDef m17reducgral2;
+    public FieldDef m17diferencia2;
+    public FieldDef m17reducjovene2;
+    public FieldDef m17gastextraor2;
+    public FieldDef m17rdtoneto2;
+    public FieldDef m17reducirregu2;
+    public FieldDef m17rdtonetored2;
+    public FieldDef m17totalrdto;
+    public FieldDef m17totalempleo;
+    public FieldDef m17totalrdtored;
+    public FieldDef m17gravaunico;
+    public TabMod100h7(String name)
+      {
+      super(name);
+      m17dominio = new FieldDef("m17dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m17nif = new FieldDef("m17nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m17declarac = new FieldDef("m17declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      m17ejercicio = new FieldDef("m17ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m17periodo = new FieldDef("m17periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m17pagina = new FieldDef("m17pagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m17clave1 = new FieldDef("m17clave1",FieldDef.INTEGER,0);
+      m17titular1 = new FieldDef("m17titular1",FieldDef.INTEGER,0);
+      m17cobropago1 = new FieldDef("m17cobropago1",FieldDef.INTEGER,0);
+      m17ingresprod11 = new FieldDef("m17ingresprod11",FieldDef.FLOAT,6,0);
+      m17indiceprod11 = new FieldDef("m17indiceprod11",FieldDef.CHAR,6);
+      m17rdtoprod11 = new FieldDef("m17rdtoprod11",FieldDef.FLOAT,6,0);
+      m17ingresprod21 = new FieldDef("m17ingresprod21",FieldDef.FLOAT,6,0);
+      m17indiceprod21 = new FieldDef("m17indiceprod21",FieldDef.CHAR,6);
+      m17rdtoprod21 = new FieldDef("m17rdtoprod21",FieldDef.FLOAT,6,0);
+      m17ingresprod31 = new FieldDef("m17ingresprod31",FieldDef.FLOAT,6,0);
+      m17indiceprod31 = new FieldDef("m17indiceprod31",FieldDef.CHAR,6);
+      m17rdtoprod31 = new FieldDef("m17rdtoprod31",FieldDef.FLOAT,6,0);
+      m17ingresprod41 = new FieldDef("m17ingresprod41",FieldDef.FLOAT,6,0);
+      m17indiceprod41 = new FieldDef("m17indiceprod41",FieldDef.CHAR,6);
+      m17rdtoprod41 = new FieldDef("m17rdtoprod41",FieldDef.FLOAT,6,0);
+      m17ingresprod51 = new FieldDef("m17ingresprod51",FieldDef.FLOAT,6,0);
+      m17indiceprod51 = new FieldDef("m17indiceprod51",FieldDef.CHAR,6);
+      m17rdtoprod51 = new FieldDef("m17rdtoprod51",FieldDef.FLOAT,6,0);
+      m17ingresprod61 = new FieldDef("m17ingresprod61",FieldDef.FLOAT,6,0);
+      m17indiceprod61 = new FieldDef("m17indiceprod61",FieldDef.CHAR,6);
+      m17rdtoprod61 = new FieldDef("m17rdtoprod61",FieldDef.FLOAT,6,0);
+      m17ingresprod71 = new FieldDef("m17ingresprod71",FieldDef.FLOAT,6,0);
+      m17indiceprod71 = new FieldDef("m17indiceprod71",FieldDef.CHAR,6);
+      m17rdtoprod71 = new FieldDef("m17rdtoprod71",FieldDef.FLOAT,6,0);
+      m17ingresprod81 = new FieldDef("m17ingresprod81",FieldDef.FLOAT,6,0);
+      m17indiceprod81 = new FieldDef("m17indiceprod81",FieldDef.CHAR,6);
+      m17rdtoprod81 = new FieldDef("m17rdtoprod81",FieldDef.FLOAT,6,0);
+      m17ingresprod91 = new FieldDef("m17ingresprod91",FieldDef.FLOAT,6,0);
+      m17indiceprod91 = new FieldDef("m17indiceprod91",FieldDef.CHAR,6);
+      m17rdtoprod91 = new FieldDef("m17rdtoprod91",FieldDef.FLOAT,6,0);
+      m17ingrespro101 = new FieldDef("m17ingrespro101",FieldDef.FLOAT,6,0);
+      m17indicepro101 = new FieldDef("m17indicepro101",FieldDef.CHAR,6);
+      m17rdtoprod101 = new FieldDef("m17rdtoprod101",FieldDef.FLOAT,6,0);
+      m17ingrespro111 = new FieldDef("m17ingrespro111",FieldDef.FLOAT,6,0);
+      m17indicepro111 = new FieldDef("m17indicepro111",FieldDef.CHAR,6);
+      m17rdtoprod111 = new FieldDef("m17rdtoprod111",FieldDef.FLOAT,6,0);
+      m17ingrespro121 = new FieldDef("m17ingrespro121",FieldDef.FLOAT,6,0);
+      m17indicepro121 = new FieldDef("m17indicepro121",FieldDef.CHAR,6);
+      m17rdtoprod121 = new FieldDef("m17rdtoprod121",FieldDef.FLOAT,6,0);
+      m17ingrespro131 = new FieldDef("m17ingrespro131",FieldDef.FLOAT,6,0);
+      m17indicepro131 = new FieldDef("m17indicepro131",FieldDef.CHAR,6);
+      m17rdtoprod131 = new FieldDef("m17rdtoprod131",FieldDef.FLOAT,6,0);
+      m17totingresos1 = new FieldDef("m17totingresos1",FieldDef.FLOAT,6,0);
+      m17rdtoprevio1 = new FieldDef("m17rdtoprevio1",FieldDef.FLOAT,6,0);
+      m17reducciones1 = new FieldDef("m17reducciones1",FieldDef.FLOAT,6,0);
+      m17redamortiza1 = new FieldDef("m17redamortiza1",FieldDef.FLOAT,6,0);
+      m17rdtominorad1 = new FieldDef("m17rdtominorad1",FieldDef.FLOAT,6,0);
+      m17indprodajen1 = new FieldDef("m17indprodajen1",FieldDef.FLOAT,6,0);
+      m17indpersonal1 = new FieldDef("m17indpersonal1",FieldDef.FLOAT,6,0);
+      m17indarrendad1 = new FieldDef("m17indarrendad1",FieldDef.FLOAT,6,0);
+      m17indpiensos1 = new FieldDef("m17indpiensos1",FieldDef.FLOAT,6,0);
+      m17indecologic1 = new FieldDef("m17indecologic1",FieldDef.FLOAT,6,0);
+      m17indpeqempre1 = new FieldDef("m17indpeqempre1",FieldDef.FLOAT,6,0);
+      m17indforestal1 = new FieldDef("m17indforestal1",FieldDef.FLOAT,6,0);
+      m17rdtomodulos1 = new FieldDef("m17rdtomodulos1",FieldDef.FLOAT,6,0);
+      m17reducgral1 = new FieldDef("m17reducgral1",FieldDef.FLOAT,6,0);
+      m17diferencia1 = new FieldDef("m17diferencia1",FieldDef.FLOAT,6,0);
+      m17reducjovene1 = new FieldDef("m17reducjovene1",FieldDef.FLOAT,6,0);
+      m17gastextraor1 = new FieldDef("m17gastextraor1",FieldDef.FLOAT,6,0);
+      m17rdtoneto1 = new FieldDef("m17rdtoneto1",FieldDef.FLOAT,6,0);
+      m17reducirregu1 = new FieldDef("m17reducirregu1",FieldDef.FLOAT,6,0);
+      m17rdtonetored1 = new FieldDef("m17rdtonetored1",FieldDef.FLOAT,6,0);
+      m17clave2 = new FieldDef("m17clave2",FieldDef.INTEGER,0);
+      m17titular2 = new FieldDef("m17titular2",FieldDef.INTEGER,0);
+      m17cobropago2 = new FieldDef("m17cobropago2",FieldDef.INTEGER,0);
+      m17ingresprod12 = new FieldDef("m17ingresprod12",FieldDef.FLOAT,6,0);
+      m17indiceprod12 = new FieldDef("m17indiceprod12",FieldDef.CHAR,6);
+      m17rdtoprod12 = new FieldDef("m17rdtoprod12",FieldDef.FLOAT,6,0);
+      m17ingresprod22 = new FieldDef("m17ingresprod22",FieldDef.FLOAT,6,0);
+      m17indiceprod22 = new FieldDef("m17indiceprod22",FieldDef.CHAR,6);
+      m17rdtoprod22 = new FieldDef("m17rdtoprod22",FieldDef.FLOAT,6,0);
+      m17ingresprod32 = new FieldDef("m17ingresprod32",FieldDef.FLOAT,6,0);
+      m17indiceprod32 = new FieldDef("m17indiceprod32",FieldDef.CHAR,6);
+      m17rdtoprod32 = new FieldDef("m17rdtoprod32",FieldDef.FLOAT,6,0);
+      m17ingresprod42 = new FieldDef("m17ingresprod42",FieldDef.FLOAT,6,0);
+      m17indiceprod42 = new FieldDef("m17indiceprod42",FieldDef.CHAR,6);
+      m17rdtoprod42 = new FieldDef("m17rdtoprod42",FieldDef.FLOAT,6,0);
+      m17ingresprod52 = new FieldDef("m17ingresprod52",FieldDef.FLOAT,6,0);
+      m17indiceprod52 = new FieldDef("m17indiceprod52",FieldDef.CHAR,6);
+      m17rdtoprod52 = new FieldDef("m17rdtoprod52",FieldDef.FLOAT,6,0);
+      m17ingresprod62 = new FieldDef("m17ingresprod62",FieldDef.FLOAT,6,0);
+      m17indiceprod62 = new FieldDef("m17indiceprod62",FieldDef.CHAR,6);
+      m17rdtoprod62 = new FieldDef("m17rdtoprod62",FieldDef.FLOAT,6,0);
+      m17ingresprod72 = new FieldDef("m17ingresprod72",FieldDef.FLOAT,6,0);
+      m17indiceprod72 = new FieldDef("m17indiceprod72",FieldDef.CHAR,6);
+      m17rdtoprod72 = new FieldDef("m17rdtoprod72",FieldDef.FLOAT,6,0);
+      m17ingresprod82 = new FieldDef("m17ingresprod82",FieldDef.FLOAT,6,0);
+      m17indiceprod82 = new FieldDef("m17indiceprod82",FieldDef.CHAR,6);
+      m17rdtoprod82 = new FieldDef("m17rdtoprod82",FieldDef.FLOAT,6,0);
+      m17ingresprod92 = new FieldDef("m17ingresprod92",FieldDef.FLOAT,6,0);
+      m17indiceprod92 = new FieldDef("m17indiceprod92",FieldDef.CHAR,6);
+      m17rdtoprod92 = new FieldDef("m17rdtoprod92",FieldDef.FLOAT,6,0);
+      m17ingrespro102 = new FieldDef("m17ingrespro102",FieldDef.FLOAT,6,0);
+      m17indicepro102 = new FieldDef("m17indicepro102",FieldDef.CHAR,6);
+      m17rdtoprod102 = new FieldDef("m17rdtoprod102",FieldDef.FLOAT,6,0);
+      m17ingrespro112 = new FieldDef("m17ingrespro112",FieldDef.FLOAT,6,0);
+      m17indicepro112 = new FieldDef("m17indicepro112",FieldDef.CHAR,6);
+      m17rdtoprod112 = new FieldDef("m17rdtoprod112",FieldDef.FLOAT,6,0);
+      m17ingrespro122 = new FieldDef("m17ingrespro122",FieldDef.FLOAT,6,0);
+      m17indicepro122 = new FieldDef("m17indicepro122",FieldDef.CHAR,6);
+      m17rdtoprod122 = new FieldDef("m17rdtoprod122",FieldDef.FLOAT,6,0);
+      m17ingrespro132 = new FieldDef("m17ingrespro132",FieldDef.FLOAT,6,0);
+      m17indicepro132 = new FieldDef("m17indicepro132",FieldDef.CHAR,6);
+      m17rdtoprod132 = new FieldDef("m17rdtoprod132",FieldDef.FLOAT,6,0);
+      m17totingresos2 = new FieldDef("m17totingresos2",FieldDef.FLOAT,6,0);
+      m17rdtoprevio2 = new FieldDef("m17rdtoprevio2",FieldDef.FLOAT,6,0);
+      m17reducciones2 = new FieldDef("m17reducciones2",FieldDef.FLOAT,6,0);
+      m17redamortiza2 = new FieldDef("m17redamortiza2",FieldDef.FLOAT,6,0);
+      m17rdtominorad2 = new FieldDef("m17rdtominorad2",FieldDef.FLOAT,6,0);
+      m17indprodajen2 = new FieldDef("m17indprodajen2",FieldDef.FLOAT,6,0);
+      m17indpersonal2 = new FieldDef("m17indpersonal2",FieldDef.FLOAT,6,0);
+      m17indarrendad2 = new FieldDef("m17indarrendad2",FieldDef.FLOAT,6,0);
+      m17indpiensos2 = new FieldDef("m17indpiensos2",FieldDef.FLOAT,6,0);
+      m17indecologic2 = new FieldDef("m17indecologic2",FieldDef.FLOAT,6,0);
+      m17indpeqempre2 = new FieldDef("m17indpeqempre2",FieldDef.FLOAT,6,0);
+      m17indforestal2 = new FieldDef("m17indforestal2",FieldDef.FLOAT,6,0);
+      m17rdtomodulos2 = new FieldDef("m17rdtomodulos2",FieldDef.FLOAT,6,0);
+      m17reducgral2 = new FieldDef("m17reducgral2",FieldDef.FLOAT,6,0);
+      m17diferencia2 = new FieldDef("m17diferencia2",FieldDef.FLOAT,6,0);
+      m17reducjovene2 = new FieldDef("m17reducjovene2",FieldDef.FLOAT,6,0);
+      m17gastextraor2 = new FieldDef("m17gastextraor2",FieldDef.FLOAT,6,0);
+      m17rdtoneto2 = new FieldDef("m17rdtoneto2",FieldDef.FLOAT,6,0);
+      m17reducirregu2 = new FieldDef("m17reducirregu2",FieldDef.FLOAT,6,0);
+      m17rdtonetored2 = new FieldDef("m17rdtonetored2",FieldDef.FLOAT,6,0);
+      m17totalrdto = new FieldDef("m17totalrdto",FieldDef.FLOAT,6,0);
+      m17totalempleo = new FieldDef("m17totalempleo",FieldDef.FLOAT,6,0);
+      m17totalrdtored = new FieldDef("m17totalrdtored",FieldDef.FLOAT,6,0);
+      m17gravaunico = new FieldDef("m17gravaunico",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        m17dominio,
+        m17nif,
+        m17declarac,
+        m17ejercicio,
+        m17periodo,
+        m17pagina,
+        m17clave1,
+        m17titular1,
+        m17cobropago1,
+        m17ingresprod11,
+        m17indiceprod11,
+        m17rdtoprod11,
+        m17ingresprod21,
+        m17indiceprod21,
+        m17rdtoprod21,
+        m17ingresprod31,
+        m17indiceprod31,
+        m17rdtoprod31,
+        m17ingresprod41,
+        m17indiceprod41,
+        m17rdtoprod41,
+        m17ingresprod51,
+        m17indiceprod51,
+        m17rdtoprod51,
+        m17ingresprod61,
+        m17indiceprod61,
+        m17rdtoprod61,
+        m17ingresprod71,
+        m17indiceprod71,
+        m17rdtoprod71,
+        m17ingresprod81,
+        m17indiceprod81,
+        m17rdtoprod81,
+        m17ingresprod91,
+        m17indiceprod91,
+        m17rdtoprod91,
+        m17ingrespro101,
+        m17indicepro101,
+        m17rdtoprod101,
+        m17ingrespro111,
+        m17indicepro111,
+        m17rdtoprod111,
+        m17ingrespro121,
+        m17indicepro121,
+        m17rdtoprod121,
+        m17ingrespro131,
+        m17indicepro131,
+        m17rdtoprod131,
+        m17totingresos1,
+        m17rdtoprevio1,
+        m17reducciones1,
+        m17redamortiza1,
+        m17rdtominorad1,
+        m17indprodajen1,
+        m17indpersonal1,
+        m17indarrendad1,
+        m17indpiensos1,
+        m17indecologic1,
+        m17indpeqempre1,
+        m17indforestal1,
+        m17rdtomodulos1,
+        m17reducgral1,
+        m17diferencia1,
+        m17reducjovene1,
+        m17gastextraor1,
+        m17rdtoneto1,
+        m17reducirregu1,
+        m17rdtonetored1,
+        m17clave2,
+        m17titular2,
+        m17cobropago2,
+        m17ingresprod12,
+        m17indiceprod12,
+        m17rdtoprod12,
+        m17ingresprod22,
+        m17indiceprod22,
+        m17rdtoprod22,
+        m17ingresprod32,
+        m17indiceprod32,
+        m17rdtoprod32,
+        m17ingresprod42,
+        m17indiceprod42,
+        m17rdtoprod42,
+        m17ingresprod52,
+        m17indiceprod52,
+        m17rdtoprod52,
+        m17ingresprod62,
+        m17indiceprod62,
+        m17rdtoprod62,
+        m17ingresprod72,
+        m17indiceprod72,
+        m17rdtoprod72,
+        m17ingresprod82,
+        m17indiceprod82,
+        m17rdtoprod82,
+        m17ingresprod92,
+        m17indiceprod92,
+        m17rdtoprod92,
+        m17ingrespro102,
+        m17indicepro102,
+        m17rdtoprod102,
+        m17ingrespro112,
+        m17indicepro112,
+        m17rdtoprod112,
+        m17ingrespro122,
+        m17indicepro122,
+        m17rdtoprod122,
+        m17ingrespro132,
+        m17indicepro132,
+        m17rdtoprod132,
+        m17totingresos2,
+        m17rdtoprevio2,
+        m17reducciones2,
+        m17redamortiza2,
+        m17rdtominorad2,
+        m17indprodajen2,
+        m17indpersonal2,
+        m17indarrendad2,
+        m17indpiensos2,
+        m17indecologic2,
+        m17indpeqempre2,
+        m17indforestal2,
+        m17rdtomodulos2,
+        m17reducgral2,
+        m17diferencia2,
+        m17reducjovene2,
+        m17gastextraor2,
+        m17rdtoneto2,
+        m17reducirregu2,
+        m17rdtonetored2,
+        m17totalrdto,
+        m17totalempleo,
+        m17totalrdtored,
+        m17gravaunico        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m17dominio,m17nif,m17declarac,m17ejercicio,m17periodo,m17pagina };
+      setPrimaryKeys(arrayf);
+      m17declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
+      m17clave1.setDescription("(E3) Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Clave actividad de 0 a 9 (172)");
+      m17titular1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Contribuyente titular de actividad de 0 a 9 (171)");
+      m17cobropago1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Criterio cobros/pagos 1 o 0 (173)");
+      m17ingresprod11.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 1 Ingresos integros");
+      m17indiceprod11.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 1 Indice");
+      m17rdtoprod11.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 1 Rdto. base producto");
+      m17ingresprod21.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 2 Ingresos integros");
+      m17indiceprod21.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 2 Indice");
+      m17rdtoprod21.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 2 Rdto. base producto");
+      m17ingresprod31.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 3 Ingresos integros");
+      m17indiceprod31.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 3 Indice");
+      m17rdtoprod31.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 3 Rdto. base producto");
+      m17ingresprod41.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 4 Ingresos integros");
+      m17indiceprod41.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 4 Indice");
+      m17rdtoprod41.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 4 Rdto. base producto");
+      m17ingresprod51.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 5 Ingresos integros");
+      m17indiceprod51.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 5 Indice");
+      m17rdtoprod51.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 5 Rdto. base producto");
+      m17ingresprod61.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 6 Ingresos integros");
+      m17indiceprod61.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 6 Indice");
+      m17rdtoprod61.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 6 Rdto. base producto");
+      m17ingresprod71.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 7 Ingresos integros");
+      m17indiceprod71.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 7 Indice");
+      m17rdtoprod71.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 7 Rdto. base producto");
+      m17ingresprod81.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 8 Ingresos integros");
+      m17indiceprod81.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 8 Indice");
+      m17rdtoprod81.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 8 Rdto. base producto");
+      m17ingresprod91.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 9 Ingresos integros");
+      m17indiceprod91.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 9 Indice");
+      m17rdtoprod91.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 9 Rdto. base producto");
+      m17ingrespro101.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 10 Ingresos integros");
+      m17indicepro101.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 10 Indice");
+      m17rdtoprod101.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 10 Rdto. base producto");
+      m17ingrespro111.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 11 Ingresos integros");
+      m17indicepro111.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 11 Indice");
+      m17rdtoprod111.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 11 Rdto. base producto");
+      m17ingrespro121.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 12 Ingresos integros");
+      m17indicepro121.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 12 Indice");
+      m17rdtoprod121.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 12 Rdto. base producto");
+      m17ingrespro131.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 13 Ingresos integros");
+      m17indicepro131.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 13 Indice");
+      m17rdtoprod131.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Producto 13 Rdto. base producto");
+      m17totingresos1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Total ingresos integros (174)");
+      m17rdtoprevio1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Rendimiento neto previo (suma) (175)");
+      m17reducciones1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Reducciones (176)");
+      m17redamortiza1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Amortizacion inmovilizado (178)");
+      m17rdtominorad1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Rdto. neto minorado (179)");
+      m17indprodajen1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Ind. correct.Medios ajenos (2 enteros y 2 decimales) (180)");
+      m17indpersonal1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Ind. correct.Utiliz. personal asalariado (2 enteros y 2 decimales) (181)");
+      m17indarrendad1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Ind. correct.Cultivos tierras arrendadas (2 enteros y 2 decimales) (182)");
+      m17indpiensos1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Ind. correct. Piensos adquir. 3 mas del 50 (2 enteros y 2 decimales)");
+      m17indecologic1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Ind. correct.Activ.agricultura ecologica (2 enteros y 2 decimales) (184)");
+      m17indpeqempre1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Ind. correct.Empresa no supera 9447 91 € (2 enteros y 2 decimales) (185)");
+      m17indforestal1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Ind. correct.Determin. activ. forestales (2 enteros y 2 decimales) (186)");
+      m17rdtomodulos1.setDescription("Rdtos agric ganad y forest est objetiva Act realiz /rdtos");
+      m17reducgral1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Reduccion caracter general (188)");
+      m17diferencia1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Diferencia (189)");
+      m17reducjovene1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Reduccion agricultores jovenes (190)");
+      m17gastextraor1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Gastos extraordinarios por circunstancias excepcionales (191)");
+      m17rdtoneto1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Rendimiento neto (192)");
+      m17reducirregu1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Reducciones rendimientos generados mas 2 años o forma irregular (193)");
+      m17rdtonetored1.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 1 Rendimiento neto reducido (194)");
+      m17clave2.setDescription("(E3) Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Clave actividad de 0 a 9 (172)");
+      m17titular2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Contribuyente titular de actividad de 0 a 9 (171)");
+      m17cobropago2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Criterio cobros/pagos 2 o 0 (173)");
+      m17ingresprod12.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 2 Ingresos integros");
+      m17indiceprod12.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 2 Indice");
+      m17rdtoprod12.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 2 Rdto. base producto");
+      m17ingresprod22.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 2 Ingresos integros");
+      m17indiceprod22.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 2 Indice");
+      m17rdtoprod22.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 2 Rdto. base producto");
+      m17ingresprod32.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 3 Ingresos integros");
+      m17indiceprod32.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 3 Indice");
+      m17rdtoprod32.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 3 Rdto. base producto");
+      m17ingresprod42.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 4 Ingresos integros");
+      m17indiceprod42.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 4 Indice");
+      m17rdtoprod42.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 4 Rdto. base producto");
+      m17ingresprod52.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 5 Ingresos integros");
+      m17indiceprod52.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 5 Indice");
+      m17rdtoprod52.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 5 Rdto. base producto");
+      m17ingresprod62.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 6 Ingresos integros");
+      m17indiceprod62.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 6 Indice");
+      m17rdtoprod62.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 6 Rdto. base producto");
+      m17ingresprod72.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 7 Ingresos integros");
+      m17indiceprod72.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 7 Indice");
+      m17rdtoprod72.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 7 Rdto. base producto");
+      m17ingresprod82.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 8 Ingresos integros");
+      m17indiceprod82.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 8 Indice");
+      m17rdtoprod82.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 8 Rdto. base producto");
+      m17ingresprod92.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 9 Ingresos integros");
+      m17indiceprod92.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 9 Indice");
+      m17rdtoprod92.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 9 Rdto. base producto");
+      m17ingrespro102.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 10 Ingresos integros");
+      m17indicepro102.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 10 Indice");
+      m17rdtoprod102.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 10 Rdto. base producto");
+      m17ingrespro112.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 12 Ingresos integros");
+      m17indicepro112.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 12 Indice");
+      m17rdtoprod112.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 12 Rdto. base producto");
+      m17ingrespro122.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 12 Ingresos integros");
+      m17indicepro122.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 12 Indice");
+      m17rdtoprod122.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 12 Rdto. base producto");
+      m17ingrespro132.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 13 Ingresos integros");
+      m17indicepro132.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 13 Indice");
+      m17rdtoprod132.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Producto 13 Rdto. base producto");
+      m17totingresos2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Total ingresos integros (174)");
+      m17rdtoprevio2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Rendimiento neto previo (suma) (175)");
+      m17reducciones2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Reducciones (176)");
+      m17redamortiza2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Amortizacion inmovilizado (178)");
+      m17rdtominorad2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Rdto. neto minorado (179)");
+      m17indprodajen2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Ind. correct.Medios ajenos (2 enteros y 2 decimales) (180)");
+      m17indpersonal2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Ind. correct.Utiliz. personal asalariado (2 enteros y 2 decimales) (181)");
+      m17indarrendad2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Ind. correct.Cultivos tierras arrendadas (2 enteros y 2 decimales) (182)");
+      m17indpiensos2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Ind. correct. Piensos adquir. 3 mas del 50 (2 enteros y 2 decimales)");
+      m17indecologic2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Ind. correct.Activ.agricultura ecologica (2 enteros y 2 decimales) (184)");
+      m17indpeqempre2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Ind. correct.Empresa no supera 9447 92 € (2 enteros y 2 decimales) (185)");
+      m17indforestal2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Ind. correct.Determin. activ. forestales (2 enteros y 2 decimales) (186)");
+      m17rdtomodulos2.setDescription("Rdtos agric ganad y forest est objetiva Act realiz /rdtos");
+      m17reducgral2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Reduccion caracter general (188)");
+      m17diferencia2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Diferencia (189)");
+      m17reducjovene2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Reduccion agricultores jovenes (190)");
+      m17gastextraor2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Gastos extraordinarios por circunstancias excepcionales (191)");
+      m17rdtoneto2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Rendimiento neto (192)");
+      m17reducirregu2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Reducciones rendimientos generados mas 2 años o forma irregular (193)");
+      m17rdtonetored2.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Act. realiz./rdtos Activ 2 Rendimiento neto reducido (194)");
+      m17totalrdto.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Rendimiento neto reducido total actividades agricolas Suma rendimientos netos reducidos (195)");
+      m17totalempleo.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Rendimiento neto reducido total actividades agricolas Reduccion por mantenimiento o creacion de empleo (196");
+      m17totalrdtored.setDescription("Rdtos. agric.ganad.y forest. est. objetiva Rendimiento neto reducido total actividades agricolas Rendimiento neto reducido total (197)");
+      m17gravaunico.setDescription("2012 Si ha presentado la autoliquidación del Gravamen único. 1 o cero. (178)");
+      }
+    }
+    
+  public class TabMod100h8 extends TableDef
+    {
+    // Campos
+    public FieldDef m18dominio;
+    public FieldDef m18nif;
+    public FieldDef m18declarac;
+    public FieldDef m18ejercicio;
+    public FieldDef m18periodo;
+    public FieldDef m18pagina;
+    public FieldDef m18titular1;
+    public FieldDef m18nifentidad1;
+    public FieldDef m18porcen1;
+    public FieldDef m18mobgrlrdtoa1;
+    public FieldDef m18mobgrlreduc1;
+    public FieldDef m18mobgrlrdto1;
+    public FieldDef m18mobahorrdto1;
+    public FieldDef m18capinmrdtoa1;
+    public FieldDef m18capinmreduc1;
+    public FieldDef m18capinmrdto1;
+    public FieldDef m18activrdtoa1;
+    public FieldDef m18activreduc1;
+    public FieldDef m18activrdto1;
+    public FieldDef m18ganannoelem1;
+    public FieldDef m18perdinoelem1;
+    public FieldDef m18gananelemen1;
+    public FieldDef m18perdielemen1;
+    public FieldDef m18retenciones1;
+    public FieldDef m18titular2;
+    public FieldDef m18nifentidad2;
+    public FieldDef m18porcen2;
+    public FieldDef m18mobgrlrdtoa2;
+    public FieldDef m18mobgrlreduc2;
+    public FieldDef m18mobgrlrdto2;
+    public FieldDef m18mobahorrdto2;
+    public FieldDef m18capinmrdtoa2;
+    public FieldDef m18capinmreduc2;
+    public FieldDef m18capinmrdto2;
+    public FieldDef m18activrdtoa2;
+    public FieldDef m18activreduc2;
+    public FieldDef m18activrdto2;
+    public FieldDef m18ganannoelem2;
+    public FieldDef m18perdinoelem2;
+    public FieldDef m18gananelemen2;
+    public FieldDef m18perdielemen2;
+    public FieldDef m18retenciones2;
+    public FieldDef m18titular3;
+    public FieldDef m18nifentidad3;
+    public FieldDef m18porcen3;
+    public FieldDef m18mobgrlrdtoa3;
+    public FieldDef m18mobgrlreduc3;
+    public FieldDef m18mobgrlrdto3;
+    public FieldDef m18mobahorrdto3;
+    public FieldDef m18capinmrdtoa3;
+    public FieldDef m18capinmreduc3;
+    public FieldDef m18capinmrdto3;
+    public FieldDef m18activrdtoa3;
+    public FieldDef m18activreduc3;
+    public FieldDef m18activrdto3;
+    public FieldDef m18ganannoelem3;
+    public FieldDef m18perdinoelem3;
+    public FieldDef m18gananelemen3;
+    public FieldDef m18perdielemen3;
+    public FieldDef m18retenciones3;
+    public FieldDef m18tcapmobbgral;
+    public FieldDef m18tcapmobbahor;
+    public FieldDef m18tcapinmobil;
+    public FieldDef m18tactividad;
+    public FieldDef m18tganabgral;
+    public FieldDef m18tperdbgral;
+    public FieldDef m18tganabahor;
+    public FieldDef m18tperdbahor;
+    public FieldDef m18tretencion;
+    public FieldDef m18utetitular1;
+    public FieldDef m18nifute1;
+    public FieldDef m18cobropago1;
+    public FieldDef m18utebaseimpo1;
+    public FieldDef m18utebasededa1;
+    public FieldDef m18utededcreae1;
+    public FieldDef m18utebaseceut1;
+    public FieldDef m18uteimpinter1;
+    public FieldDef m18uteretencio1;
+    public FieldDef m18utetitular2;
+    public FieldDef m18nifute2;
+    public FieldDef m18cobropago2;
+    public FieldDef m18utebaseimpo2;
+    public FieldDef m18utebasededa2;
+    public FieldDef m18utededcreae2;
+    public FieldDef m18utebaseceut2;
+    public FieldDef m18uteimpinter2;
+    public FieldDef m18uteretencio2;
+    public FieldDef m18utetitular3;
+    public FieldDef m18nifute3;
+    public FieldDef m18cobropago3;
+    public FieldDef m18utebaseimpo3;
+    public FieldDef m18utebasededa3;
+    public FieldDef m18utededcreae3;
+    public FieldDef m18utebaseceut3;
+    public FieldDef m18uteimpinter3;
+    public FieldDef m18uteretencio3;
+    public FieldDef m18utetbase;
+    public FieldDef m18utetreten;
+    public FieldDef m18tfinttitula1;
+    public FieldDef m18tfintnombre1;
+    public FieldDef m18tfintcriter1;
+    public FieldDef m18tfintimputa1;
+    public FieldDef m18tfinttitula2;
+    public FieldDef m18tfintnombre2;
+    public FieldDef m18tfintcriter2;
+    public FieldDef m18tfintimputa2;
+    public FieldDef m18tfinttitula3;
+    public FieldDef m18tfintnombre3;
+    public FieldDef m18tfintcriter3;
+    public FieldDef m18tfintimputa3;
+    public FieldDef m18tfinttimput;
+    public FieldDef m18imagtitular;
+    public FieldDef m18imagpersona;
+    public FieldDef m18imagniflabor;
+    public FieldDef m18imagimputac;
+    public FieldDef m18invcoltitul1;
+    public FieldDef m18invcolnombr1;
+    public FieldDef m18invcolimput1;
+    public FieldDef m18invcoltitul2;
+    public FieldDef m18invcolnombr2;
+    public FieldDef m18invcolimput2;
+    public FieldDef m18invcoltitul3;
+    public FieldDef m18invcolnombr3;
+    public FieldDef m18invcolimput3;
+    public FieldDef m18invcoltotal;
+    public FieldDef m18gravaunico;
+    public TabMod100h8(String name)
+      {
+      super(name);
+      m18dominio = new FieldDef("m18dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m18nif = new FieldDef("m18nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m18declarac = new FieldDef("m18declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      m18ejercicio = new FieldDef("m18ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m18periodo = new FieldDef("m18periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m18pagina = new FieldDef("m18pagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m18titular1 = new FieldDef("m18titular1",FieldDef.INTEGER,0);
+      m18nifentidad1 = new FieldDef("m18nifentidad1",FieldDef.CHAR,9);
+      m18porcen1 = new FieldDef("m18porcen1",FieldDef.FLOAT,6,0);
+      m18mobgrlrdtoa1 = new FieldDef("m18mobgrlrdtoa1",FieldDef.FLOAT,6,0);
+      m18mobgrlreduc1 = new FieldDef("m18mobgrlreduc1",FieldDef.FLOAT,6,0);
+      m18mobgrlrdto1 = new FieldDef("m18mobgrlrdto1",FieldDef.FLOAT,6,0);
+      m18mobahorrdto1 = new FieldDef("m18mobahorrdto1",FieldDef.FLOAT,6,0);
+      m18capinmrdtoa1 = new FieldDef("m18capinmrdtoa1",FieldDef.FLOAT,6,0);
+      m18capinmreduc1 = new FieldDef("m18capinmreduc1",FieldDef.FLOAT,6,0);
+      m18capinmrdto1 = new FieldDef("m18capinmrdto1",FieldDef.FLOAT,6,0);
+      m18activrdtoa1 = new FieldDef("m18activrdtoa1",FieldDef.FLOAT,6,0);
+      m18activreduc1 = new FieldDef("m18activreduc1",FieldDef.FLOAT,6,0);
+      m18activrdto1 = new FieldDef("m18activrdto1",FieldDef.FLOAT,6,0);
+      m18ganannoelem1 = new FieldDef("m18ganannoelem1",FieldDef.FLOAT,6,0);
+      m18perdinoelem1 = new FieldDef("m18perdinoelem1",FieldDef.FLOAT,6,0);
+      m18gananelemen1 = new FieldDef("m18gananelemen1",FieldDef.FLOAT,6,0);
+      m18perdielemen1 = new FieldDef("m18perdielemen1",FieldDef.FLOAT,6,0);
+      m18retenciones1 = new FieldDef("m18retenciones1",FieldDef.FLOAT,6,0);
+      m18titular2 = new FieldDef("m18titular2",FieldDef.INTEGER,0);
+      m18nifentidad2 = new FieldDef("m18nifentidad2",FieldDef.CHAR,9);
+      m18porcen2 = new FieldDef("m18porcen2",FieldDef.FLOAT,6,0);
+      m18mobgrlrdtoa2 = new FieldDef("m18mobgrlrdtoa2",FieldDef.FLOAT,6,0);
+      m18mobgrlreduc2 = new FieldDef("m18mobgrlreduc2",FieldDef.FLOAT,6,0);
+      m18mobgrlrdto2 = new FieldDef("m18mobgrlrdto2",FieldDef.FLOAT,6,0);
+      m18mobahorrdto2 = new FieldDef("m18mobahorrdto2",FieldDef.FLOAT,6,0);
+      m18capinmrdtoa2 = new FieldDef("m18capinmrdtoa2",FieldDef.FLOAT,6,0);
+      m18capinmreduc2 = new FieldDef("m18capinmreduc2",FieldDef.FLOAT,6,0);
+      m18capinmrdto2 = new FieldDef("m18capinmrdto2",FieldDef.FLOAT,6,0);
+      m18activrdtoa2 = new FieldDef("m18activrdtoa2",FieldDef.FLOAT,6,0);
+      m18activreduc2 = new FieldDef("m18activreduc2",FieldDef.FLOAT,6,0);
+      m18activrdto2 = new FieldDef("m18activrdto2",FieldDef.FLOAT,6,0);
+      m18ganannoelem2 = new FieldDef("m18ganannoelem2",FieldDef.FLOAT,6,0);
+      m18perdinoelem2 = new FieldDef("m18perdinoelem2",FieldDef.FLOAT,6,0);
+      m18gananelemen2 = new FieldDef("m18gananelemen2",FieldDef.FLOAT,6,0);
+      m18perdielemen2 = new FieldDef("m18perdielemen2",FieldDef.FLOAT,6,0);
+      m18retenciones2 = new FieldDef("m18retenciones2",FieldDef.FLOAT,6,0);
+      m18titular3 = new FieldDef("m18titular3",FieldDef.INTEGER,0);
+      m18nifentidad3 = new FieldDef("m18nifentidad3",FieldDef.CHAR,9);
+      m18porcen3 = new FieldDef("m18porcen3",FieldDef.FLOAT,6,0);
+      m18mobgrlrdtoa3 = new FieldDef("m18mobgrlrdtoa3",FieldDef.FLOAT,6,0);
+      m18mobgrlreduc3 = new FieldDef("m18mobgrlreduc3",FieldDef.FLOAT,6,0);
+      m18mobgrlrdto3 = new FieldDef("m18mobgrlrdto3",FieldDef.FLOAT,6,0);
+      m18mobahorrdto3 = new FieldDef("m18mobahorrdto3",FieldDef.FLOAT,6,0);
+      m18capinmrdtoa3 = new FieldDef("m18capinmrdtoa3",FieldDef.FLOAT,6,0);
+      m18capinmreduc3 = new FieldDef("m18capinmreduc3",FieldDef.FLOAT,6,0);
+      m18capinmrdto3 = new FieldDef("m18capinmrdto3",FieldDef.FLOAT,6,0);
+      m18activrdtoa3 = new FieldDef("m18activrdtoa3",FieldDef.FLOAT,6,0);
+      m18activreduc3 = new FieldDef("m18activreduc3",FieldDef.FLOAT,6,0);
+      m18activrdto3 = new FieldDef("m18activrdto3",FieldDef.FLOAT,6,0);
+      m18ganannoelem3 = new FieldDef("m18ganannoelem3",FieldDef.FLOAT,6,0);
+      m18perdinoelem3 = new FieldDef("m18perdinoelem3",FieldDef.FLOAT,6,0);
+      m18gananelemen3 = new FieldDef("m18gananelemen3",FieldDef.FLOAT,6,0);
+      m18perdielemen3 = new FieldDef("m18perdielemen3",FieldDef.FLOAT,6,0);
+      m18retenciones3 = new FieldDef("m18retenciones3",FieldDef.FLOAT,6,0);
+      m18tcapmobbgral = new FieldDef("m18tcapmobbgral",FieldDef.FLOAT,6,0);
+      m18tcapmobbahor = new FieldDef("m18tcapmobbahor",FieldDef.FLOAT,6,0);
+      m18tcapinmobil = new FieldDef("m18tcapinmobil",FieldDef.FLOAT,6,0);
+      m18tactividad = new FieldDef("m18tactividad",FieldDef.FLOAT,6,0);
+      m18tganabgral = new FieldDef("m18tganabgral",FieldDef.FLOAT,6,0);
+      m18tperdbgral = new FieldDef("m18tperdbgral",FieldDef.FLOAT,6,0);
+      m18tganabahor = new FieldDef("m18tganabahor",FieldDef.FLOAT,6,0);
+      m18tperdbahor = new FieldDef("m18tperdbahor",FieldDef.FLOAT,6,0);
+      m18tretencion = new FieldDef("m18tretencion",FieldDef.FLOAT,6,0);
+      m18utetitular1 = new FieldDef("m18utetitular1",FieldDef.INTEGER,0);
+      m18nifute1 = new FieldDef("m18nifute1",FieldDef.CHAR,9);
+      m18cobropago1 = new FieldDef("m18cobropago1",FieldDef.CHAR,1);
+      m18utebaseimpo1 = new FieldDef("m18utebaseimpo1",FieldDef.FLOAT,6,0);
+      m18utebasededa1 = new FieldDef("m18utebasededa1",FieldDef.FLOAT,6,0);
+      m18utededcreae1 = new FieldDef("m18utededcreae1",FieldDef.FLOAT,6,0);
+      m18utebaseceut1 = new FieldDef("m18utebaseceut1",FieldDef.FLOAT,6,0);
+      m18uteimpinter1 = new FieldDef("m18uteimpinter1",FieldDef.FLOAT,6,0);
+      m18uteretencio1 = new FieldDef("m18uteretencio1",FieldDef.FLOAT,6,0);
+      m18utetitular2 = new FieldDef("m18utetitular2",FieldDef.INTEGER,0);
+      m18nifute2 = new FieldDef("m18nifute2",FieldDef.CHAR,9);
+      m18cobropago2 = new FieldDef("m18cobropago2",FieldDef.CHAR,1);
+      m18utebaseimpo2 = new FieldDef("m18utebaseimpo2",FieldDef.FLOAT,6,0);
+      m18utebasededa2 = new FieldDef("m18utebasededa2",FieldDef.FLOAT,6,0);
+      m18utededcreae2 = new FieldDef("m18utededcreae2",FieldDef.FLOAT,6,0);
+      m18utebaseceut2 = new FieldDef("m18utebaseceut2",FieldDef.FLOAT,6,0);
+      m18uteimpinter2 = new FieldDef("m18uteimpinter2",FieldDef.FLOAT,6,0);
+      m18uteretencio2 = new FieldDef("m18uteretencio2",FieldDef.FLOAT,6,0);
+      m18utetitular3 = new FieldDef("m18utetitular3",FieldDef.INTEGER,0);
+      m18nifute3 = new FieldDef("m18nifute3",FieldDef.CHAR,9);
+      m18cobropago3 = new FieldDef("m18cobropago3",FieldDef.CHAR,1);
+      m18utebaseimpo3 = new FieldDef("m18utebaseimpo3",FieldDef.FLOAT,6,0);
+      m18utebasededa3 = new FieldDef("m18utebasededa3",FieldDef.FLOAT,6,0);
+      m18utededcreae3 = new FieldDef("m18utededcreae3",FieldDef.FLOAT,6,0);
+      m18utebaseceut3 = new FieldDef("m18utebaseceut3",FieldDef.FLOAT,6,0);
+      m18uteimpinter3 = new FieldDef("m18uteimpinter3",FieldDef.FLOAT,6,0);
+      m18uteretencio3 = new FieldDef("m18uteretencio3",FieldDef.FLOAT,6,0);
+      m18utetbase = new FieldDef("m18utetbase",FieldDef.FLOAT,6,0);
+      m18utetreten = new FieldDef("m18utetreten",FieldDef.FLOAT,6,0);
+      m18tfinttitula1 = new FieldDef("m18tfinttitula1",FieldDef.INTEGER,0);
+      m18tfintnombre1 = new FieldDef("m18tfintnombre1",FieldDef.CHAR,24);
+      m18tfintcriter1 = new FieldDef("m18tfintcriter1",FieldDef.CHAR,1);
+      m18tfintimputa1 = new FieldDef("m18tfintimputa1",FieldDef.FLOAT,6,0);
+      m18tfinttitula2 = new FieldDef("m18tfinttitula2",FieldDef.INTEGER,0);
+      m18tfintnombre2 = new FieldDef("m18tfintnombre2",FieldDef.CHAR,24);
+      m18tfintcriter2 = new FieldDef("m18tfintcriter2",FieldDef.CHAR,1);
+      m18tfintimputa2 = new FieldDef("m18tfintimputa2",FieldDef.FLOAT,6,0);
+      m18tfinttitula3 = new FieldDef("m18tfinttitula3",FieldDef.INTEGER,0);
+      m18tfintnombre3 = new FieldDef("m18tfintnombre3",FieldDef.CHAR,24);
+      m18tfintcriter3 = new FieldDef("m18tfintcriter3",FieldDef.CHAR,1);
+      m18tfintimputa3 = new FieldDef("m18tfintimputa3",FieldDef.FLOAT,6,0);
+      m18tfinttimput = new FieldDef("m18tfinttimput",FieldDef.FLOAT,6,0);
+      m18imagtitular = new FieldDef("m18imagtitular",FieldDef.INTEGER,0);
+      m18imagpersona = new FieldDef("m18imagpersona",FieldDef.CHAR,25);
+      m18imagniflabor = new FieldDef("m18imagniflabor",FieldDef.CHAR,25);
+      m18imagimputac = new FieldDef("m18imagimputac",FieldDef.FLOAT,6,0);
+      m18invcoltitul1 = new FieldDef("m18invcoltitul1",FieldDef.INTEGER,0);
+      m18invcolnombr1 = new FieldDef("m18invcolnombr1",FieldDef.CHAR,24);
+      m18invcolimput1 = new FieldDef("m18invcolimput1",FieldDef.FLOAT,6,0);
+      m18invcoltitul2 = new FieldDef("m18invcoltitul2",FieldDef.INTEGER,0);
+      m18invcolnombr2 = new FieldDef("m18invcolnombr2",FieldDef.CHAR,24);
+      m18invcolimput2 = new FieldDef("m18invcolimput2",FieldDef.FLOAT,6,0);
+      m18invcoltitul3 = new FieldDef("m18invcoltitul3",FieldDef.INTEGER,0);
+      m18invcolnombr3 = new FieldDef("m18invcolnombr3",FieldDef.CHAR,24);
+      m18invcolimput3 = new FieldDef("m18invcolimput3",FieldDef.FLOAT,6,0);
+      m18invcoltotal = new FieldDef("m18invcoltotal",FieldDef.FLOAT,6,0);
+      m18gravaunico = new FieldDef("m18gravaunico",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        m18dominio,
+        m18nif,
+        m18declarac,
+        m18ejercicio,
+        m18periodo,
+        m18pagina,
+        m18titular1,
+        m18nifentidad1,
+        m18porcen1,
+        m18mobgrlrdtoa1,
+        m18mobgrlreduc1,
+        m18mobgrlrdto1,
+        m18mobahorrdto1,
+        m18capinmrdtoa1,
+        m18capinmreduc1,
+        m18capinmrdto1,
+        m18activrdtoa1,
+        m18activreduc1,
+        m18activrdto1,
+        m18ganannoelem1,
+        m18perdinoelem1,
+        m18gananelemen1,
+        m18perdielemen1,
+        m18retenciones1,
+        m18titular2,
+        m18nifentidad2,
+        m18porcen2,
+        m18mobgrlrdtoa2,
+        m18mobgrlreduc2,
+        m18mobgrlrdto2,
+        m18mobahorrdto2,
+        m18capinmrdtoa2,
+        m18capinmreduc2,
+        m18capinmrdto2,
+        m18activrdtoa2,
+        m18activreduc2,
+        m18activrdto2,
+        m18ganannoelem2,
+        m18perdinoelem2,
+        m18gananelemen2,
+        m18perdielemen2,
+        m18retenciones2,
+        m18titular3,
+        m18nifentidad3,
+        m18porcen3,
+        m18mobgrlrdtoa3,
+        m18mobgrlreduc3,
+        m18mobgrlrdto3,
+        m18mobahorrdto3,
+        m18capinmrdtoa3,
+        m18capinmreduc3,
+        m18capinmrdto3,
+        m18activrdtoa3,
+        m18activreduc3,
+        m18activrdto3,
+        m18ganannoelem3,
+        m18perdinoelem3,
+        m18gananelemen3,
+        m18perdielemen3,
+        m18retenciones3,
+        m18tcapmobbgral,
+        m18tcapmobbahor,
+        m18tcapinmobil,
+        m18tactividad,
+        m18tganabgral,
+        m18tperdbgral,
+        m18tganabahor,
+        m18tperdbahor,
+        m18tretencion,
+        m18utetitular1,
+        m18nifute1,
+        m18cobropago1,
+        m18utebaseimpo1,
+        m18utebasededa1,
+        m18utededcreae1,
+        m18utebaseceut1,
+        m18uteimpinter1,
+        m18uteretencio1,
+        m18utetitular2,
+        m18nifute2,
+        m18cobropago2,
+        m18utebaseimpo2,
+        m18utebasededa2,
+        m18utededcreae2,
+        m18utebaseceut2,
+        m18uteimpinter2,
+        m18uteretencio2,
+        m18utetitular3,
+        m18nifute3,
+        m18cobropago3,
+        m18utebaseimpo3,
+        m18utebasededa3,
+        m18utededcreae3,
+        m18utebaseceut3,
+        m18uteimpinter3,
+        m18uteretencio3,
+        m18utetbase,
+        m18utetreten,
+        m18tfinttitula1,
+        m18tfintnombre1,
+        m18tfintcriter1,
+        m18tfintimputa1,
+        m18tfinttitula2,
+        m18tfintnombre2,
+        m18tfintcriter2,
+        m18tfintimputa2,
+        m18tfinttitula3,
+        m18tfintnombre3,
+        m18tfintcriter3,
+        m18tfintimputa3,
+        m18tfinttimput,
+        m18imagtitular,
+        m18imagpersona,
+        m18imagniflabor,
+        m18imagimputac,
+        m18invcoltitul1,
+        m18invcolnombr1,
+        m18invcolimput1,
+        m18invcoltitul2,
+        m18invcolnombr2,
+        m18invcolimput2,
+        m18invcoltitul3,
+        m18invcolnombr3,
+        m18invcolimput3,
+        m18invcoltotal,
+        m18gravaunico        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m18dominio,m18nif,m18declarac,m18ejercicio,m18periodo,m18pagina };
+      setPrimaryKeys(arrayf);
+      m18declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
+      m18titular1.setDescription("(F) Regs. especiales Regimen atribucion rentas Entidad 1 Entidades y contribuyentes participes Contribuyente 0 a 9 (200)");
+      m18nifentidad1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Entidades y contribuyentes participes NIF Entidad (201)");
+      m18porcen1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Entidades y contribuyentes participes Porcentaje participacion (202)");
+      m18mobgrlrdtoa1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. capital mobiliario. Rdto. integrar base imponible general Rdto. neto atribuido (203)");
+      m18mobgrlreduc1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. capital mobiliario. Rdto. integrar base imponible general Reducciones y minoraciones (204)");
+      m18mobgrlrdto1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. capital mobiliario. Rdto. integrar base imponible general Rdto. neto computable (205)");
+      m18mobahorrdto1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. capital mobiliario. Rdtos. integrar base imponible ahorro . Rdto. neto (206)");
+      m18capinmrdtoa1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. capital inmobiliario Rdto. neto atribuido (209)");
+      m18capinmreduc1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. capital inmobiliario Reducciones y minoraciones (210)");
+      m18capinmrdto1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. capital inmobiliario Rdto. neto computable (211)");
+      m18activrdtoa1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. actividades economicas Rdto. neto atribuido (212)");
+      m18activreduc1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. actividades economicas Reducciones y minoraciones (213)");
+      m18activrdto1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Rdtos. actividades economicas Rdto. neto computable (214)");
+      m18ganannoelem1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Atribucion ganancias y perdidas No derivadas transmision Ganancias (215)");
+      m18perdinoelem1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Atribucion ganancias y perdidas No derivadas transmision Perdidas (216)");
+      m18gananelemen1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Atribucion ganancias y perdidas Derivadas transmision Ganancias (217)");
+      m18perdielemen1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Atribucion ganancias y perdidas Derivadas transmision Perdidas (218)");
+      m18retenciones1.setDescription("Regs. especiales Regimen atribucion rentas Entidad 1 Retenciones e ingresos a cuenta. Retenciones e ingresos atribuidos (219)");
+      m18titular2.setDescription("(F) Regs. especiales Regimen atribucion rentas Entidad 2 Entidades y contribuyentes participes Contribuyente 0 a 9 (200)");
+      m18nifentidad2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Entidades y contribuyentes participes NIF Entidad (201)");
+      m18porcen2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Entidades y contribuyentes participes Porcentaje participacion (202)");
+      m18mobgrlrdtoa2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. capital mobiliario. Rdto. integrar base imponible general Rdto. neto atribuido (203)");
+      m18mobgrlreduc2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. capital mobiliario. Rdto. integrar base imponible general Reducciones y minoraciones (204)");
+      m18mobgrlrdto2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. capital mobiliario. Rdto. integrar base imponible general Rdto. neto computable (205)");
+      m18mobahorrdto2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. capital mobiliario. Rdtos. integrar base imponible ahorro . Rdto. neto (206)");
+      m18capinmrdtoa2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. capital inmobiliario Rdto. neto atribuido (209)");
+      m18capinmreduc2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. capital inmobiliario Reducciones y minoraciones (210)");
+      m18capinmrdto2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. capital inmobiliario Rdto. neto computable (211)");
+      m18activrdtoa2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. actividades economicas Rdto. neto atribuido (212)");
+      m18activreduc2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. actividades economicas Reducciones y minoraciones (213)");
+      m18activrdto2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Rdtos. actividades economicas Rdto. neto computable (214)");
+      m18ganannoelem2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Atribucion ganancias y perdidas No derivadas transmision Ganancias (215)");
+      m18perdinoelem2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Atribucion ganancias y perdidas No derivadas transmision Perdidas (216)");
+      m18gananelemen2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Atribucion ganancias y perdidas Derivadas transmision Ganancias (217)");
+      m18perdielemen2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Atribucion ganancias y perdidas Derivadas transmision Perdidas (218)");
+      m18retenciones2.setDescription("Regs. especiales Regimen atribucion rentas Entidad 2 Retenciones e ingresos a cuenta. Retenciones e ingresos atribuidos (219)");
+      m18titular3.setDescription("(F) Regs. especiales Regimen atribucion rentas Entidad 3 Entidades y contribuyentes participes Contribuyente 0 a 9 (200)");
+      m18nifentidad3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Entidades y contribuyentes participes NIF Entidad (201)");
+      m18porcen3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Entidades y contribuyentes participes Porcentaje participacion (202)");
+      m18mobgrlrdtoa3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. capital mobiliario. Rdto. integrar base imponible general Rdto. neto atribuido (203)");
+      m18mobgrlreduc3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. capital mobiliario. Rdto. integrar base imponible general Reducciones y minoraciones (204)");
+      m18mobgrlrdto3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. capital mobiliario. Rdto. integrar base imponible general Rdto. neto computable (205)");
+      m18mobahorrdto3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. capital mobiliario. Rdtos. integrar base imponible ahorro . Rdto. neto (206)");
+      m18capinmrdtoa3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. capital inmobiliario Rdto. neto atribuido (209)");
+      m18capinmreduc3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. capital inmobiliario Reducciones y minoraciones (210)");
+      m18capinmrdto3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. capital inmobiliario Rdto. neto computable (211)");
+      m18activrdtoa3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. actividades economicas Rdto. neto atribuido (212)");
+      m18activreduc3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. actividades economicas Reducciones y minoraciones (213)");
+      m18activrdto3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Rdtos. actividades economicas Rdto. neto computable (214)");
+      m18ganannoelem3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Atribucion ganancias y perdidas No derivadas transmision Ganancias (215)");
+      m18perdinoelem3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Atribucion ganancias y perdidas No derivadas transmision Perdidas (216)");
+      m18gananelemen3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Atribucion ganancias y perdidas Derivadas transmision Ganancias (217)");
+      m18perdielemen3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Atribucion ganancias y perdidas Derivadas transmision Perdidas (218)");
+      m18retenciones3.setDescription("Regs. especiales Regimen atribucion rentas Entidad 3 Retenciones e ingresos a cuenta. Retenciones e ingresos atribuidos (219)");
+      m18tcapmobbgral.setDescription("Regs. especiales Regimen atribucion rentas Total Rdtos. capital mobiliario Rdto. integrar base imponible general Total rdto. neto computable (220)");
+      m18tcapmobbahor.setDescription("Regs. especiales Regimen atribucion rentas Total Rdtos. capital mobiliario Rdto. integrar base imponible ahorro Total rdto. neto atribuido (221)");
+      m18tcapinmobil.setDescription("Regs. especiales Regimen atribucion rentas Total Rdtos. capital inmobiliario Total rdto. neto computable (222)");
+      m18tactividad.setDescription("Regs. especiales Regimen atribucion rentas Total Rdtos. actividades economicas Total rdto. neto computable (223)");
+      m18tganabgral.setDescription("Regs. especiales Regimen atribucion rentas Total Atribucion ganancias y perdidas No derivadas transmision Total ganancias (224)");
+      m18tperdbgral.setDescription("Regs. especiales Regimen atribucion rentas Total Atribucion ganancias y perdidas No derivadas transmision Total perdidas (225)");
+      m18tganabahor.setDescription("Regs. especiales Regimen atribucion rentas Total Atribucion ganancias y perdidas Derivadas transmision Total ganancias (226)");
+      m18tperdbahor.setDescription("Regs. especiales Regimen atribucion rentas Total Atribucion ganancias y perdidas Derivadas transmision Total perdidas (227)");
+      m18tretencion.setDescription("Regs. especiales Regimen atribucion rentas Total Atribucion retenciones Total retenciones (746)");
+      m18utetitular1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Entidades y contribuyentes socios. Contribuyente 0 a 9 (230)");
+      m18nifute1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Entidades y contribuyentes socios. N.I.F. Entidad (231)");
+      m18cobropago1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Entidades y contribuyentes socios. Criterio imputacion temporal. Clave (blanco 1 o 2) (232)");
+      m18utebaseimpo1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Imput. base impon. y deduc. Base imponible imputada (233)");
+      m18utebasededa1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Imput. base impon. y deduc. Deduc. invers. empres. (234)");
+      m18utededcreae1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Imput. base impon. y deduc. Deduc. creacion empleo (235)");
+      m18utebaseceut1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Imput. base impon. y deduc. Deduc. rentas Ceuta/Melilla (236)");
+      m18uteimpinter1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Imput. base impon. y deduc. Deduc. doble impos. internac. (237)");
+      m18uteretencio1.setDescription("Regs. especiales Agrupac. ute Entidad 1 Imput. Ret.e.ingresos cta. Retenc. e ingresos a cta. imputados (239)");
+      m18utetitular2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Entidades y contribuyentes socios. Contribuyente 0 a 9 (230)");
+      m18nifute2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Entidades y contribuyentes socios. N.I.F. Entidad (231)");
+      m18cobropago2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Entidades y contribuyentes socios. Criterio imputacion temporal. Clave (blanco 2 o 2) (232)");
+      m18utebaseimpo2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Imput. base impon. y deduc. Base imponible imputada (233)");
+      m18utebasededa2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Imput. base impon. y deduc. Deduc. invers. empres. (234)");
+      m18utededcreae2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Imput. base impon. y deduc. Deduc. creacion empleo (235)");
+      m18utebaseceut2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Imput. base impon. y deduc. Deduc. rentas Ceuta/Melilla (236)");
+      m18uteimpinter2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Imput. base impon. y deduc. Deduc. doble impos. internac. (237)");
+      m18uteretencio2.setDescription("Regs. especiales Agrupac. ute Entidad 2 Imput. Ret.e.ingresos cta. Retenc. e ingresos a cta. imputados (239)");
+      m18utetitular3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Entidades y contribuyentes socios. Contribuyente 0 a 9 (230)");
+      m18nifute3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Entidades y contribuyentes socios. N.I.F. Entidad (231)");
+      m18cobropago3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Entidades y contribuyentes socios. Criterio imputacion temporal. Clave (blanco 3 o 2) (232)");
+      m18utebaseimpo3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Imput. base impon. y deduc. Base imponible imputada (233)");
+      m18utebasededa3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Imput. base impon. y deduc. Deduc. invers. empres. (234)");
+      m18utededcreae3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Imput. base impon. y deduc. Deduc. creacion empleo (235)");
+      m18utebaseceut3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Imput. base impon. y deduc. Deduc. rentas Ceuta/Melilla (236)");
+      m18uteimpinter3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Imput. base impon. y deduc. Deduc. doble impos. internac. (237)");
+      m18uteretencio3.setDescription("Regs. especiales Agrupac. ute Entidad 3 Imput. Ret.e.ingresos cta. Retenc. e ingresos a cta. imputados (239)");
+      m18utetbase.setDescription("Regs. especiales Agrupac. ute Total base imponible imputada (245)");
+      m18utetreten.setDescription("Regs. especiales Agrupac. ute Total Retenciones e ingresos a cta. imputados (747)");
+      m18tfinttitula1.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 1 Contribuyente 0 a 9 (250)");
+      m18tfintnombre1.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 1 Denominacion entidad no residente (251)");
+      m18tfintcriter1.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 1 Criterio imput. temporal. Clave (blanco 1 o 2) (252)");
+      m18tfintimputa1.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 1 Importe imputacion (253)");
+      m18tfinttitula2.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 2 Contribuyente 0 a 9 (250)");
+      m18tfintnombre2.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 2 Denominacion entidad no residente (251)");
+      m18tfintcriter2.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 2 Criterio imput. temporal. Clave (blanco 2 o 2) (252)");
+      m18tfintimputa2.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 2 Importe imputacion (253)");
+      m18tfinttitula3.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 3 Contribuyente 0 a 9 (250)");
+      m18tfintnombre3.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 3 Denominacion entidad no residente (251)");
+      m18tfintcriter3.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 3 Criterio imput. temporal. Clave (blanco 3 o 2) (252)");
+      m18tfintimputa3.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Entidad 3 Importe imputacion (253)");
+      m18tfinttimput.setDescription("Regs. especiales Imputac. rentas reg. transp. fiscal internacional Total importe de la imputacion (255)");
+      m18imagtitular.setDescription("Regs. especiales Imputac. rentas derechos imagen Contribuyente que debe efectuar la imputacion. 0 a 9 (260)");
+      m18imagpersona.setDescription("Regs. especiales Imputac. rentas derechos imagen NIF o denominacion persona/entidad cesionaria derechos imagen (261)");
+      m18imagniflabor.setDescription("Regs. especiales Imputac. rentas derechos imagen NIF o denominacion persona/entidad relacion laboral (262)");
+      m18imagimputac.setDescription("Regs. especiales Imputac. rentas derechos imagen Cantidad a imputar (265)");
+      m18invcoltitul1.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 1 Contribuyente 0 a 9 (270)");
+      m18invcolnombr1.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 1 Denominacion Institucion (271)");
+      m18invcolimput1.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 1 Importe imputacion (272)");
+      m18invcoltitul2.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 2 Contribuyente 0 a 9 (270)");
+      m18invcolnombr2.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 2 Denominacion Institucion (271)");
+      m18invcolimput2.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 2 Importe imputacion (272)");
+      m18invcoltitul3.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 3 Contribuyente 0 a 9 (270)");
+      m18invcolnombr3.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 3 Denominacion Institucion (271)");
+      m18invcolimput3.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales I. I. C. 3 Importe imputacion (272)");
+      m18invcoltotal.setDescription("Regs. especiales Imputac.rentas I. I.Colectiva paraisos fiscales Total importe de la imputacion (275)");
+      m18gravaunico.setDescription("2012 Si ha presentado la autoliquidación del Gravamen único. 1 o cero. (186)");
+      }
+    }
+    
+  public class TabMod100h9 extends TableDef
+    {
+    // Campos
+    public FieldDef m19dominio;
+    public FieldDef m19nif;
+    public FieldDef m19declarac;
+    public FieldDef m19ejercicio;
+    public FieldDef m19periodo;
+    public FieldDef m19pagina;
+    public FieldDef m19g1premmetali;
+    public FieldDef m19premespvalor;
+    public FieldDef m19premespingct;
+    public FieldDef m19premespingre;
+    public FieldDef m19g1premespeci;
+    public FieldDef m19premespexent;
+    public FieldDef m19g1subvencion;
+    public FieldDef m19g1aprovfores;
+    public FieldDef m19g1otrasganan;
+    public FieldDef m19g1otrasperd;
+    public FieldDef m19fimtitular1;
+    public FieldDef m19fimnif1;
+    public FieldDef m19fimganancia1;
+    public FieldDef m19fimperdida1;
+    public FieldDef m19fimtitular2;
+    public FieldDef m19fimnif2;
+    public FieldDef m19fimganancia2;
+    public FieldDef m19fimperdida2;
+    public FieldDef m19fimtitular3;
+    public FieldDef m19fimnif3;
+    public FieldDef m19fimganancia3;
+    public FieldDef m19fimperdida3;
+    public FieldDef m19fimtotganan;
+    public FieldDef m19fimtotperdi;
+    public FieldDef m19acbtitular1;
+    public FieldDef m19acbentidad1;
+    public FieldDef m19acbtransmis1;
+    public FieldDef m19acbadquisic1;
+    public FieldDef m19acbganancia1;
+    public FieldDef m19acbganancom1;
+    public FieldDef m19acbperdida1;
+    public FieldDef m19acbperdcomp1;
+    public FieldDef m19acbtitular2;
+    public FieldDef m19acbentidad2;
+    public FieldDef m19acbtransmis2;
+    public FieldDef m19acbadquisic2;
+    public FieldDef m19acbganancia2;
+    public FieldDef m19acbganancom2;
+    public FieldDef m19acbperdida2;
+    public FieldDef m19acbperdcomp2;
+    public FieldDef m19acbtitular3;
+    public FieldDef m19acbentidad3;
+    public FieldDef m19acbtransmis3;
+    public FieldDef m19acbadquisic3;
+    public FieldDef m19acbganancia3;
+    public FieldDef m19acbganancom3;
+    public FieldDef m19acbperdida3;
+    public FieldDef m19acbperdcomp3;
+    public FieldDef m19acbtotgananc;
+    public FieldDef m19acbtotperdid;
+    public FieldDef m19otrtitular1;
+    public FieldDef m19otrclaveele1;
+    public FieldDef m19otrsituacio1;
+    public FieldDef m19otreferenci1;
+    public FieldDef m19otrfectrans1;
+    public FieldDef m19otrfecadqui1;
+    public FieldDef m19otrtransmis1;
+    public FieldDef m19otradquisic1;
+    public FieldDef m19otrperdobte1;
+    public FieldDef m19otrperdimpu1;
+    public FieldDef m19otrganaobte1;
+    public FieldDef m19otrganaredu1;
+    public FieldDef m19otranosperm1;
+    public FieldDef m19otrimpreduc1;
+    public FieldDef m19otrgananred1;
+    public FieldDef m19otrganexvda1;
+    public FieldDef m19otrganreduc1;
+    public FieldDef m19otrganredim1;
+    public FieldDef m19otrreduacti1;
+    public FieldDef m19otrgredacti1;
+    public FieldDef m19otrgredimpa1;
+    public FieldDef m19otrtitular2;
+    public FieldDef m19otrclaveele2;
+    public FieldDef m19otrsituacio2;
+    public FieldDef m19otreferenci2;
+    public FieldDef m19otrfectrans2;
+    public FieldDef m19otrfecadqui2;
+    public FieldDef m19otrtransmis2;
+    public FieldDef m19otradquisic2;
+    public FieldDef m19otrperdobte2;
+    public FieldDef m19otrperdimpu2;
+    public FieldDef m19otrganaobte2;
+    public FieldDef m19otrganaredu2;
+    public FieldDef m19otranosperm2;
+    public FieldDef m19otrimpreduc2;
+    public FieldDef m19otrgananred2;
+    public FieldDef m19otrganexvda2;
+    public FieldDef m19otrganreduc2;
+    public FieldDef m19otrganredim2;
+    public FieldDef m19otrreduacti2;
+    public FieldDef m19otrgredacti2;
+    public FieldDef m19otrgredimpa2;
+    public FieldDef m19otrtotperdid;
+    public FieldDef m19otrtotganred;
+    public FieldDef m19otrtotgananc;
+    public FieldDef m19otrcobro1;
+    public FieldDef m19otrcobro2;
+    public FieldDef m19g1emancipa;
+    public FieldDef m19otrexe501;
+    public FieldDef m19otrexe50act1;
+    public FieldDef m19otrnoexeact1;
+    public FieldDef m19otrexe502;
+    public FieldDef m19otrexe50act2;
+    public FieldDef m19otrnoexeact2;
+    public TabMod100h9(String name)
+      {
+      super(name);
+      m19dominio = new FieldDef("m19dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m19nif = new FieldDef("m19nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m19declarac = new FieldDef("m19declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      m19ejercicio = new FieldDef("m19ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m19periodo = new FieldDef("m19periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m19pagina = new FieldDef("m19pagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m19g1premmetali = new FieldDef("m19g1premmetali",FieldDef.FLOAT,6,0);
+      m19premespvalor = new FieldDef("m19premespvalor",FieldDef.FLOAT,6,0);
+      m19premespingct = new FieldDef("m19premespingct",FieldDef.FLOAT,6,0);
+      m19premespingre = new FieldDef("m19premespingre",FieldDef.FLOAT,6,0);
+      m19g1premespeci = new FieldDef("m19g1premespeci",FieldDef.FLOAT,6,0);
+      m19premespexent = new FieldDef("m19premespexent",FieldDef.FLOAT,6,0);
+      m19g1subvencion = new FieldDef("m19g1subvencion",FieldDef.FLOAT,6,0);
+      m19g1aprovfores = new FieldDef("m19g1aprovfores",FieldDef.FLOAT,6,0);
+      m19g1otrasganan = new FieldDef("m19g1otrasganan",FieldDef.FLOAT,6,0);
+      m19g1otrasperd = new FieldDef("m19g1otrasperd",FieldDef.FLOAT,6,0);
+      m19fimtitular1 = new FieldDef("m19fimtitular1",FieldDef.INTEGER,0);
+      m19fimnif1 = new FieldDef("m19fimnif1",FieldDef.CHAR,9);
+      m19fimganancia1 = new FieldDef("m19fimganancia1",FieldDef.FLOAT,6,0);
+      m19fimperdida1 = new FieldDef("m19fimperdida1",FieldDef.FLOAT,6,0);
+      m19fimtitular2 = new FieldDef("m19fimtitular2",FieldDef.INTEGER,0);
+      m19fimnif2 = new FieldDef("m19fimnif2",FieldDef.CHAR,9);
+      m19fimganancia2 = new FieldDef("m19fimganancia2",FieldDef.FLOAT,6,0);
+      m19fimperdida2 = new FieldDef("m19fimperdida2",FieldDef.FLOAT,6,0);
+      m19fimtitular3 = new FieldDef("m19fimtitular3",FieldDef.INTEGER,0);
+      m19fimnif3 = new FieldDef("m19fimnif3",FieldDef.CHAR,9);
+      m19fimganancia3 = new FieldDef("m19fimganancia3",FieldDef.FLOAT,6,0);
+      m19fimperdida3 = new FieldDef("m19fimperdida3",FieldDef.FLOAT,6,0);
+      m19fimtotganan = new FieldDef("m19fimtotganan",FieldDef.FLOAT,6,0);
+      m19fimtotperdi = new FieldDef("m19fimtotperdi",FieldDef.FLOAT,6,0);
+      m19acbtitular1 = new FieldDef("m19acbtitular1",FieldDef.INTEGER,0);
+      m19acbentidad1 = new FieldDef("m19acbentidad1",FieldDef.CHAR,20);
+      m19acbtransmis1 = new FieldDef("m19acbtransmis1",FieldDef.FLOAT,6,0);
+      m19acbadquisic1 = new FieldDef("m19acbadquisic1",FieldDef.FLOAT,6,0);
+      m19acbganancia1 = new FieldDef("m19acbganancia1",FieldDef.FLOAT,6,0);
+      m19acbganancom1 = new FieldDef("m19acbganancom1",FieldDef.FLOAT,6,0);
+      m19acbperdida1 = new FieldDef("m19acbperdida1",FieldDef.FLOAT,6,0);
+      m19acbperdcomp1 = new FieldDef("m19acbperdcomp1",FieldDef.FLOAT,6,0);
+      m19acbtitular2 = new FieldDef("m19acbtitular2",FieldDef.INTEGER,0);
+      m19acbentidad2 = new FieldDef("m19acbentidad2",FieldDef.CHAR,20);
+      m19acbtransmis2 = new FieldDef("m19acbtransmis2",FieldDef.FLOAT,6,0);
+      m19acbadquisic2 = new FieldDef("m19acbadquisic2",FieldDef.FLOAT,6,0);
+      m19acbganancia2 = new FieldDef("m19acbganancia2",FieldDef.FLOAT,6,0);
+      m19acbganancom2 = new FieldDef("m19acbganancom2",FieldDef.FLOAT,6,0);
+      m19acbperdida2 = new FieldDef("m19acbperdida2",FieldDef.FLOAT,6,0);
+      m19acbperdcomp2 = new FieldDef("m19acbperdcomp2",FieldDef.FLOAT,6,0);
+      m19acbtitular3 = new FieldDef("m19acbtitular3",FieldDef.INTEGER,0);
+      m19acbentidad3 = new FieldDef("m19acbentidad3",FieldDef.CHAR,20);
+      m19acbtransmis3 = new FieldDef("m19acbtransmis3",FieldDef.FLOAT,6,0);
+      m19acbadquisic3 = new FieldDef("m19acbadquisic3",FieldDef.FLOAT,6,0);
+      m19acbganancia3 = new FieldDef("m19acbganancia3",FieldDef.FLOAT,6,0);
+      m19acbganancom3 = new FieldDef("m19acbganancom3",FieldDef.FLOAT,6,0);
+      m19acbperdida3 = new FieldDef("m19acbperdida3",FieldDef.FLOAT,6,0);
+      m19acbperdcomp3 = new FieldDef("m19acbperdcomp3",FieldDef.FLOAT,6,0);
+      m19acbtotgananc = new FieldDef("m19acbtotgananc",FieldDef.FLOAT,6,0);
+      m19acbtotperdid = new FieldDef("m19acbtotperdid",FieldDef.FLOAT,6,0);
+      m19otrtitular1 = new FieldDef("m19otrtitular1",FieldDef.INTEGER,0);
+      m19otrclaveele1 = new FieldDef("m19otrclaveele1",FieldDef.INTEGER,0);
+      m19otrsituacio1 = new FieldDef("m19otrsituacio1",FieldDef.INTEGER,0);
+      m19otreferenci1 = new FieldDef("m19otreferenci1",FieldDef.CHAR,20);
+      m19otrfectrans1 = new FieldDef("m19otrfectrans1",FieldDef.DATE);
+      m19otrfecadqui1 = new FieldDef("m19otrfecadqui1",FieldDef.DATE);
+      m19otrtransmis1 = new FieldDef("m19otrtransmis1",FieldDef.FLOAT,6,0);
+      m19otradquisic1 = new FieldDef("m19otradquisic1",FieldDef.FLOAT,6,0);
+      m19otrperdobte1 = new FieldDef("m19otrperdobte1",FieldDef.FLOAT,6,0);
+      m19otrperdimpu1 = new FieldDef("m19otrperdimpu1",FieldDef.FLOAT,6,0);
+      m19otrganaobte1 = new FieldDef("m19otrganaobte1",FieldDef.FLOAT,6,0);
+      m19otrganaredu1 = new FieldDef("m19otrganaredu1",FieldDef.FLOAT,6,0);
+      m19otranosperm1 = new FieldDef("m19otranosperm1",FieldDef.INTEGER,0);
+      m19otrimpreduc1 = new FieldDef("m19otrimpreduc1",FieldDef.FLOAT,6,0);
+      m19otrgananred1 = new FieldDef("m19otrgananred1",FieldDef.FLOAT,6,0);
+      m19otrganexvda1 = new FieldDef("m19otrganexvda1",FieldDef.FLOAT,6,0);
+      m19otrganreduc1 = new FieldDef("m19otrganreduc1",FieldDef.FLOAT,6,0);
+      m19otrganredim1 = new FieldDef("m19otrganredim1",FieldDef.FLOAT,6,0);
+      m19otrreduacti1 = new FieldDef("m19otrreduacti1",FieldDef.FLOAT,6,0);
+      m19otrgredacti1 = new FieldDef("m19otrgredacti1",FieldDef.FLOAT,6,0);
+      m19otrgredimpa1 = new FieldDef("m19otrgredimpa1",FieldDef.FLOAT,6,0);
+      m19otrtitular2 = new FieldDef("m19otrtitular2",FieldDef.INTEGER,0);
+      m19otrclaveele2 = new FieldDef("m19otrclaveele2",FieldDef.INTEGER,0);
+      m19otrsituacio2 = new FieldDef("m19otrsituacio2",FieldDef.INTEGER,0);
+      m19otreferenci2 = new FieldDef("m19otreferenci2",FieldDef.CHAR,20);
+      m19otrfectrans2 = new FieldDef("m19otrfectrans2",FieldDef.DATE);
+      m19otrfecadqui2 = new FieldDef("m19otrfecadqui2",FieldDef.DATE);
+      m19otrtransmis2 = new FieldDef("m19otrtransmis2",FieldDef.FLOAT,6,0);
+      m19otradquisic2 = new FieldDef("m19otradquisic2",FieldDef.FLOAT,6,0);
+      m19otrperdobte2 = new FieldDef("m19otrperdobte2",FieldDef.FLOAT,6,0);
+      m19otrperdimpu2 = new FieldDef("m19otrperdimpu2",FieldDef.FLOAT,6,0);
+      m19otrganaobte2 = new FieldDef("m19otrganaobte2",FieldDef.FLOAT,6,0);
+      m19otrganaredu2 = new FieldDef("m19otrganaredu2",FieldDef.FLOAT,6,0);
+      m19otranosperm2 = new FieldDef("m19otranosperm2",FieldDef.INTEGER,0);
+      m19otrimpreduc2 = new FieldDef("m19otrimpreduc2",FieldDef.FLOAT,6,0);
+      m19otrgananred2 = new FieldDef("m19otrgananred2",FieldDef.FLOAT,6,0);
+      m19otrganexvda2 = new FieldDef("m19otrganexvda2",FieldDef.FLOAT,6,0);
+      m19otrganreduc2 = new FieldDef("m19otrganreduc2",FieldDef.FLOAT,6,0);
+      m19otrganredim2 = new FieldDef("m19otrganredim2",FieldDef.FLOAT,6,0);
+      m19otrreduacti2 = new FieldDef("m19otrreduacti2",FieldDef.FLOAT,6,0);
+      m19otrgredacti2 = new FieldDef("m19otrgredacti2",FieldDef.FLOAT,6,0);
+      m19otrgredimpa2 = new FieldDef("m19otrgredimpa2",FieldDef.FLOAT,6,0);
+      m19otrtotperdid = new FieldDef("m19otrtotperdid",FieldDef.FLOAT,6,0);
+      m19otrtotganred = new FieldDef("m19otrtotganred",FieldDef.FLOAT,6,0);
+      m19otrtotgananc = new FieldDef("m19otrtotgananc",FieldDef.FLOAT,6,0);
+      m19otrcobro1 = new FieldDef("m19otrcobro1",FieldDef.INTEGER,0);
+      m19otrcobro2 = new FieldDef("m19otrcobro2",FieldDef.INTEGER,0);
+      m19g1emancipa = new FieldDef("m19g1emancipa",FieldDef.FLOAT,6,0);
+      m19otrexe501 = new FieldDef("m19otrexe501",FieldDef.FLOAT,6,0);
+      m19otrexe50act1 = new FieldDef("m19otrexe50act1",FieldDef.FLOAT,6,0);
+      m19otrnoexeact1 = new FieldDef("m19otrnoexeact1",FieldDef.FLOAT,6,0);
+      m19otrexe502 = new FieldDef("m19otrexe502",FieldDef.FLOAT,6,0);
+      m19otrexe50act2 = new FieldDef("m19otrexe50act2",FieldDef.FLOAT,6,0);
+      m19otrnoexeact2 = new FieldDef("m19otrnoexeact2",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        m19dominio,
+        m19nif,
+        m19declarac,
+        m19ejercicio,
+        m19periodo,
+        m19pagina,
+        m19g1premmetali,
+        m19premespvalor,
+        m19premespingct,
+        m19premespingre,
+        m19g1premespeci,
+        m19premespexent,
+        m19g1subvencion,
+        m19g1aprovfores,
+        m19g1otrasganan,
+        m19g1otrasperd,
+        m19fimtitular1,
+        m19fimnif1,
+        m19fimganancia1,
+        m19fimperdida1,
+        m19fimtitular2,
+        m19fimnif2,
+        m19fimganancia2,
+        m19fimperdida2,
+        m19fimtitular3,
+        m19fimnif3,
+        m19fimganancia3,
+        m19fimperdida3,
+        m19fimtotganan,
+        m19fimtotperdi,
+        m19acbtitular1,
+        m19acbentidad1,
+        m19acbtransmis1,
+        m19acbadquisic1,
+        m19acbganancia1,
+        m19acbganancom1,
+        m19acbperdida1,
+        m19acbperdcomp1,
+        m19acbtitular2,
+        m19acbentidad2,
+        m19acbtransmis2,
+        m19acbadquisic2,
+        m19acbganancia2,
+        m19acbganancom2,
+        m19acbperdida2,
+        m19acbperdcomp2,
+        m19acbtitular3,
+        m19acbentidad3,
+        m19acbtransmis3,
+        m19acbadquisic3,
+        m19acbganancia3,
+        m19acbganancom3,
+        m19acbperdida3,
+        m19acbperdcomp3,
+        m19acbtotgananc,
+        m19acbtotperdid,
+        m19otrtitular1,
+        m19otrclaveele1,
+        m19otrsituacio1,
+        m19otreferenci1,
+        m19otrfectrans1,
+        m19otrfecadqui1,
+        m19otrtransmis1,
+        m19otradquisic1,
+        m19otrperdobte1,
+        m19otrperdimpu1,
+        m19otrganaobte1,
+        m19otrganaredu1,
+        m19otranosperm1,
+        m19otrimpreduc1,
+        m19otrgananred1,
+        m19otrganexvda1,
+        m19otrganreduc1,
+        m19otrganredim1,
+        m19otrreduacti1,
+        m19otrgredacti1,
+        m19otrgredimpa1,
+        m19otrtitular2,
+        m19otrclaveele2,
+        m19otrsituacio2,
+        m19otreferenci2,
+        m19otrfectrans2,
+        m19otrfecadqui2,
+        m19otrtransmis2,
+        m19otradquisic2,
+        m19otrperdobte2,
+        m19otrperdimpu2,
+        m19otrganaobte2,
+        m19otrganaredu2,
+        m19otranosperm2,
+        m19otrimpreduc2,
+        m19otrgananred2,
+        m19otrganexvda2,
+        m19otrganreduc2,
+        m19otrganredim2,
+        m19otrreduacti2,
+        m19otrgredacti2,
+        m19otrgredimpa2,
+        m19otrtotperdid,
+        m19otrtotganred,
+        m19otrtotgananc,
+        m19otrcobro1,
+        m19otrcobro2,
+        m19g1emancipa,
+        m19otrexe501,
+        m19otrexe50act1,
+        m19otrnoexeact1,
+        m19otrexe502,
+        m19otrexe50act2,
+        m19otrnoexeact2        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m19dominio,m19nif,m19declarac,m19ejercicio,m19periodo,m19pagina };
+      setPrimaryKeys(arrayf);
+      m19declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
+      m19g1premmetali.setDescription("(G1) Ganancias/perdidas patrimoniales no derivan transmision Premios juegos concursos rifas Premio en metalico Importe total (300)");
+      m19premespvalor.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Premios juegos concursos rifas Premio en especie Valoracion (301)");
+      m19premespingct.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Premios juegos concursos rifas Premio en especie Ingresos a cuenta (302)");
+      m19premespingre.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Premios juegos concursos rifas Premio en especie Ingresos a cuenta repercutidos (303)");
+      m19g1premespeci.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Premios juegos concursos rifas Premios en especie Importe computable (304)");
+      m19premespexent.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Premios juegos concursos rifas Premios exentos (305)");
+      m19g1subvencion.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Otras Ganancias/perdidas Subvenciones/ayudas adquision/rehabilitacion vivienda habitual (310)");
+      m19g1aprovfores.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Otras Ganancias/perdidas Ganancias patrimoniales vecinos aprovechamientos forestales (311)");
+      m19g1otrasganan.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Otras Ganancias/perdidas Importe ganancias (312)");
+      m19g1otrasperd.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Otras Ganancias/perdidas Importe perdidas (313)");
+      m19fimtitular1.setDescription("(G2) Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 1 Contribuyente 0 a 9 (320)");
+      m19fimnif1.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 1 N.I.F. (321)");
+      m19fimganancia1.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 1 Resultados netos positivos Ganancias netas (322)");
+      m19fimperdida1.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 1 Resultados netos negativos Perdidas netas (323)");
+      m19fimtitular2.setDescription("(G2) Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 2 Contribuyente 0 a 9 (320)");
+      m19fimnif2.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 2 N.I.F. (321)");
+      m19fimganancia2.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 2 Resultados netos positivos Ganancias netas (322)");
+      m19fimperdida2.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 2 Resultados netos negativos Perdidas netas (323)");
+      m19fimtitular3.setDescription("(G2) Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 3 Contribuyente 0 a 9 (320)");
+      m19fimnif3.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 3 N.I.F. (321)");
+      m19fimganancia3.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 3 Resultados netos positivos Ganancias netas (322)");
+      m19fimperdida3.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Sociedad/Fondo 3 Resultados netos negativos Perdidas netas (323)");
+      m19fimtotganan.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Totales Total ganancias netas (329)");
+      m19fimtotperdi.setDescription("Ganancias/perdidas patrim. deriv. transmision Inst. inv. colectiva Totales Total perdidas netas (330)");
+      m19acbtitular1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Contribuyente 0 a 9 (340)");
+      m19acbentidad1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Denominacion valores (341)");
+      m19acbtransmis1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Importe global (342)");
+      m19acbadquisic1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Valor adquisicion global (343)");
+      m19acbganancia1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Resultados Ganancias. Importe obtenido (344)");
+      m19acbganancom1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Resultados Ganancias. Importe computable (345)");
+      m19acbperdida1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Resultados Perdidas. Importe obtenido (346)");
+      m19acbperdcomp1.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 1 Resultados Perdidas. Importe computable (347)");
+      m19acbtitular2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Contribuyente 0 a 9 (340)");
+      m19acbentidad2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Denominacion valores (341)");
+      m19acbtransmis2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Importe global (342)");
+      m19acbadquisic2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Valor adquisicion global (343)");
+      m19acbganancia2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Resultados Ganancias. Importe obtenido (344)");
+      m19acbganancom2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Resultados Ganancias. Importe computable (345)");
+      m19acbperdida2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Resultados Perdidas. Importe obtenido (346)");
+      m19acbperdcomp2.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 2 Resultados Perdidas. Importe computable (347)");
+      m19acbtitular3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Contribuyente 0 a 9 (340)");
+      m19acbentidad3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Denominacion valores (341)");
+      m19acbtransmis3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Importe global (342)");
+      m19acbadquisic3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Valor adquisicion global (343)");
+      m19acbganancia3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Resultados Ganancias. Importe obtenido (344)");
+      m19acbganancom3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Resultados Ganancias. Importe computable (345)");
+      m19acbperdida3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Resultados Perdidas. Importe obtenido (346)");
+      m19acbperdcomp3.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Entidad 3 Resultados Perdidas. Importe computable (347)");
+      m19acbtotgananc.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Totales Ganancias. Importe reducido (349)");
+      m19acbtotperdid.setDescription("Ganancias/perdidas patrim. deriv. transmision Mercados oficiales Totales Perdidas. Importe imputable (350)");
+      m19otrtitular1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Contribuyente 0 a 9 (360)");
+      m19otrclaveele1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Tipo elemento. Clave 0 a 7 (361)");
+      m19otrsituacio1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Inmuebles. Situacion. Clave 0 a 4 (362)");
+      m19otreferenci1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Inmuebles. Situacion. Ref. catastral (363)");
+      m19otrfectrans1.setDescription("Ganancias/perdidas patrim deriv transmision Otros elementos Elemento 63 627 8 Num C Ganancias/perdidas patrim. deriv. transmision Otros elementos Elem");
+      m19otrfecadqui1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Fecha adquisicion (365)");
+      m19otrtransmis1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Valor transmision (366)");
+      m19otradquisic1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Valor adquisicion (367)");
+      m19otrperdobte1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Diferencia negativa Perdida obtenida (368)");
+      m19otrperdimpu1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Diferencia negativa Perdida imputable (369)");
+      m19otrganaobte1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Diferencia positiva Ganancia obtenida (370)");
+      m19otrganaredu1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 No afectos Parte ganancia susceptible reduccion (371)");
+      m19otranosperm1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 No afectos Años permanencia hasta 311294 (372)");
+      m19otrimpreduc1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 No afectos Reduccion aplicable (373)");
+      m19otrgananred1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 No afectos Ganancia reducida (374)");
+      m19otrganexvda1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 No afectos Ganancia exenta reinversion viv. habitual (375)");
+      m19otrganreduc1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 No afectos Ganancia reducida no exenta (376)");
+      m19otrganredim1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 No afectos Ganancia reducida no exenta imputable (377)");
+      m19otrreduacti1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Afectos Reduccion (licencia autotaxis) (378)");
+      m19otrgredacti1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Afectos Ganancia reducida (379)");
+      m19otrgredimpa1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Afectos Ganancia reducida imputable (380)");
+      m19otrtitular2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Contribuyente 0 a 9 (360)");
+      m19otrclaveele2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Tipo elemento. Clave 0 a 7 (361)");
+      m19otrsituacio2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Inmuebles. Situacion. Clave 0 a 4 (362)");
+      m19otreferenci2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Inmuebles. Situacion. Ref. catastral (363)");
+      m19otrfectrans2.setDescription("Ganancias/perdidas patrim deriv transmision Otros elementos Elemento 63 627 8 Num C Ganancias/perdidas patrim. deriv. transmision Otros elementos Elem");
+      m19otrfecadqui2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Fecha adquisicion (365)");
+      m19otrtransmis2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Valor transmision (366)");
+      m19otradquisic2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Valor adquisicion (367)");
+      m19otrperdobte2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Diferencia negativa Perdida obtenida (368)");
+      m19otrperdimpu2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Diferencia negativa Perdida imputable (369)");
+      m19otrganaobte2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Diferencia positiva Ganancia obtenida (370)");
+      m19otrganaredu2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 No afectos Parte ganancia susceptible reduccion (371)");
+      m19otranosperm2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 No afectos Años permanencia hasta 311294 (372)");
+      m19otrimpreduc2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 No afectos Reduccion aplicable (373)");
+      m19otrgananred2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 No afectos Ganancia reducida (374)");
+      m19otrganexvda2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 No afectos Ganancia exenta reinversion viv. habitual (375)");
+      m19otrganreduc2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 No afectos Ganancia reducida no exenta (376)");
+      m19otrganredim2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 No afectos Ganancia reducida no exenta imputable (377)");
+      m19otrreduacti2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Afectos Reduccion (licencia autotaxis) (378)");
+      m19otrgredacti2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Afectos Ganancia reducida (379)");
+      m19otrgredimpa2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Afectos Ganancia reducida imputable (380)");
+      m19otrtotperdid.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Totales Total perdida imputable (383)");
+      m19otrtotganred.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Totales No afectos Total ganancia reducida no exenta imputable (384)");
+      m19otrtotgananc.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Totales Afectos Total ganancia reducida imputable (385)");
+      m19otrcobro1.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 1 Imputac.temporal cobro pago (361)");
+      m19otrcobro2.setDescription("Ganancias/perdidas patrim. deriv. transmision Otros elementos Elemento 2 Imputac.temporal cobro pago (361)");
+      m19g1emancipa.setDescription("Ganancias/perdidas patrimoniales no derivan transmision Renta basica emancipacion (314)");
+      m19otrexe501.setDescription("2012 Elemento 1 No afectos - Ganancia exenta 50 por 100 (382)");
+      m19otrexe50act1.setDescription("2012 Elemento 1 Afectos - Ganancia exenta (383)");
+      m19otrnoexeact1.setDescription("2012 Elemento 1 Afectos - Ganancia patrimonial reducida no exenta (384)");
+      m19otrexe502.setDescription("2012 Elemento 2 No afectos - Ganancia exenta 50 por 100 (382)");
+      m19otrexe50act2.setDescription("2012 Elemento 2 Afectos - Ganancia exenta (383)");
+      m19otrnoexeact2.setDescription("2012 Elemento 2 Afectos - Ganancia patrimonial reducida no exenta (384)");
+      }
+    }
+    
+  public class TabMod100h17 extends TableDef
+    {
+    // Campos
+    public FieldDef m117dominio;
+    public FieldDef m117nif;
+    public FieldDef m117declarac;
+    public FieldDef m117ejercicio;
+    public FieldDef m117periodo;
+    public FieldDef m117invant1inie;
+    public FieldDef m117invant1apli;
+    public FieldDef m117invant1pdte;
+    public FieldDef m117invant2inie;
+    public FieldDef m117invant2apli;
+    public FieldDef m117invant2pdte;
+    public FieldDef m117invidiniej;
+    public FieldDef m117invidaplic;
+    public FieldDef m117invidpdte;
+    public FieldDef m117invticiniej;
+    public FieldDef m117invticaplic;
+    public FieldDef m117invticpdte;
+    public FieldDef m117inveeiniej;
+    public FieldDef m117inveeaplic;
+    public FieldDef m117inveepdte;
+    public FieldDef m117inva38iniej;
+    public FieldDef m117inva38aplic;
+    public FieldDef m117inva38pdte;
+    public FieldDef m117invpmainiej;
+    public FieldDef m117invpmaaplic;
+    public FieldDef m117invpmapdte;
+    public FieldDef m117invfpiniej;
+    public FieldDef m117invfpaplic;
+    public FieldDef m117invfppdte;
+    public FieldDef m117invceiniej;
+    public FieldDef m117invceaplic;
+    public FieldDef m117invcepdte;
+    public FieldDef m117inva43iniej;
+    public FieldDef m117inva43aplic;
+    public FieldDef m117inva43pdte;
+    public FieldDef m117invafiniej;
+    public FieldDef m117invafaplic;
+    public FieldDef m117invafpdte;
+    public FieldDef m117totalinver;
+    public FieldDef m117dedestatal;
+    public FieldDef m117dedautonom;
+    public FieldDef m117ricdotant3;
+    public FieldDef m117ricmatant3;
+    public FieldDef m117ricclaant3;
+    public FieldDef m117ricdotant2;
+    public FieldDef m117ricmat1ant2;
+    public FieldDef m117ricmat2ant2;
+    public FieldDef m117ricpdteant2;
+    public FieldDef m117ricdotant1;
+    public FieldDef m117ricmat1ant1;
+    public FieldDef m117ricmat2ant1;
+    public FieldDef m117ricpdteant1;
+    public FieldDef m117ricdotant;
+    public FieldDef m117ricmat1ant;
+    public FieldDef m117ricmat2ant;
+    public FieldDef m117ricpdteant;
+    public FieldDef m117ricdotact;
+    public FieldDef m117ricmat1act;
+    public FieldDef m117ricmat2act;
+    public FieldDef m117ricpdteact;
+    public FieldDef m117ricmat1fut;
+    public FieldDef m117ricmat2fut;
+    public FieldDef m117ricded;
+    public FieldDef m117invant1ini;
+    public FieldDef m117invant1apl;
+    public FieldDef m117invant1pdt;
+    public FieldDef m117invant2ini;
+    public FieldDef m117invant2apl;
+    public FieldDef m117invant2pdt;
+    public FieldDef m117invidinie;
+    public FieldDef m117invidapli;
+    public FieldDef m117invidpdt;
+    public FieldDef m117inva38inie;
+    public FieldDef m117inva38apli;
+    public FieldDef m117inva38pdt;
+    public FieldDef m117invpmainie;
+    public FieldDef m117invpmaapli;
+    public FieldDef m117invpmapdt;
+    public FieldDef m117invfpinie;
+    public FieldDef m117invfpapli;
+    public FieldDef m117invfppdt;
+    public FieldDef m117invceinie;
+    public FieldDef m117invceapli;
+    public FieldDef m117invcepdt;
+    public FieldDef m117invalviniej;
+    public FieldDef m117invalvaplic;
+    public FieldDef m117invalvpdte;
+    public FieldDef m117invbwriniej;
+    public FieldDef m117invbwraplic;
+    public FieldDef m117invbwrpdte;
+    public FieldDef m117invgrhiniej;
+    public FieldDef m117invgrhaplic;
+    public FieldDef m117invgrhpdte;
+    public FieldDef m117invcbciniej;
+    public FieldDef m117invcbcaplic;
+    public FieldDef m117invcbcpdte;
+    public FieldDef m117invloniniej;
+    public FieldDef m117invlonaplic;
+    public FieldDef m117invlonpdte;
+    public FieldDef m117invalziniej;
+    public FieldDef m117invalzaplic;
+    public FieldDef m117invalzpdte;
+    public FieldDef m117invjmjiniej;
+    public FieldDef m117invjmjaplic;
+    public FieldDef m117invjmjpdte;
+    public FieldDef m117invcrginiej;
+    public FieldDef m117invcrgaplic;
+    public FieldDef m117invcrgpdte;
+    public FieldDef m117invsdeiniej;
+    public FieldDef m117invsdeaplic;
+    public FieldDef m117invsdepdte;
+    public FieldDef m117invglxiniej;
+    public FieldDef m117invglxaplic;
+    public FieldDef m117invglxpdte;
+    public FieldDef m117invaoriniej;
+    public FieldDef m117invaoraplic;
+    public FieldDef m117invaorpdte;
+    public FieldDef m117invmbainiej;
+    public FieldDef m117invmbaaplic;
+    public FieldDef m117invmbapdte;
+    public FieldDef m117invcmbiniej;
+    public FieldDef m117invcmbaplic;
+    public FieldDef m117invcmbpdte;
+    public FieldDef m117invbneiniej;
+    public FieldDef m117invbneaplic;
+    public FieldDef m117invbnepdte;
+    public FieldDef m117invgreiniej;
+    public FieldDef m117invgreaplic;
+    public FieldDef m117invgrepdte;
+    public FieldDef m117invcsciniej;
+    public FieldDef m117invcscaplic;
+    public FieldDef m117invcscpdte;
+    public FieldDef m117ricmat2ant3;
+    public FieldDef m117invvcviniej;
+    public FieldDef m117invvcvaplic;
+    public FieldDef m117invvcvpdte;
+    public FieldDef m117invcmviniej;
+    public FieldDef m117invcmvaplic;
+    public FieldDef m117invcmvpdte;
+    public FieldDef m117invaeviniej;
+    public FieldDef m117invaevaplic;
+    public FieldDef m117invaevpdte;
+    public FieldDef m117invcejiniej;
+    public FieldDef m117invcejaplic;
+    public FieldDef m117invcejpdte;
+    public FieldDef m117invrpliniej;
+    public FieldDef m117invrplaplic;
+    public FieldDef m117invrplpdte;
+    public FieldDef m117invfjiiniej;
+    public FieldDef m117invfjiaplic;
+    public FieldDef m117invfjipdte;
+    public FieldDef m117invuiginiej;
+    public FieldDef m117invuigaplic;
+    public FieldDef m117invuigpdte;
+    public FieldDef m117invccpiniej;
+    public FieldDef m117invccpaplic;
+    public FieldDef m117invccppdte;
+    public FieldDef m117invcariniej;
+    public FieldDef m117invcaraplic;
+    public FieldDef m117invcarpdte;
+    public FieldDef m117invbwjiniej;
+    public FieldDef m117invbwjaplic;
+    public FieldDef m117invbwjpdte;
+    public FieldDef m117invcnbiniej;
+    public FieldDef m117invcnbaplic;
+    public FieldDef m117invcnbpdte;
+    public FieldDef m117invbmwiniej;
+    public FieldDef m117invbmwaplic;
+    public FieldDef m117invbmwpdte;
+    public FieldDef m117invpariniej;
+    public FieldDef m117invparaplic;
+    public FieldDef m117invparpdte;
+    public FieldDef m117invctoiniej;
+    public FieldDef m117invctoaplic;
+    public FieldDef m117invctopdte;
+    public FieldDef m117invcbpiniej;
+    public FieldDef m117invcbpaplic;
+    public FieldDef m117invcbppdte;
+    public FieldDef m117invcpliniej;
+    public FieldDef m117invcplaplic;
+    public FieldDef m117invcplpdte;
+    public FieldDef m117invcaniniej;
+    public FieldDef m117invcanaplic;
+    public FieldDef m117invcanpdte;
+    public FieldDef m117invcbniniej;
+    public FieldDef m117invcbnaplic;
+    public FieldDef m117invcbnpdte;
+    public FieldDef m117invajminiej;
+    public FieldDef m117invajmaplic;
+    public FieldDef m117invajmpdte;
+    public FieldDef m117invcmoiniej;
+    public FieldDef m117invcmoaplic;
+    public FieldDef m117invcmopdte;
+    public FieldDef m117invdiminiej;
+    public FieldDef m117invdimaplic;
+    public FieldDef m117invdimpdte;
+    public FieldDef m117invceeiniej;
+    public FieldDef m117invceeaplic;
+    public FieldDef m117invceepdte;
+    public TabMod100h17(String name)
+      {
+      super(name);
+      m117dominio = new FieldDef("m117dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m117nif = new FieldDef("m117nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m117declarac = new FieldDef("m117declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      m117ejercicio = new FieldDef("m117ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m117periodo = new FieldDef("m117periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m117invant1inie = new FieldDef("m117invant1inie",FieldDef.FLOAT,6,0);
+      m117invant1apli = new FieldDef("m117invant1apli",FieldDef.FLOAT,6,0);
+      m117invant1pdte = new FieldDef("m117invant1pdte",FieldDef.FLOAT,6,0);
+      m117invant2inie = new FieldDef("m117invant2inie",FieldDef.FLOAT,6,0);
+      m117invant2apli = new FieldDef("m117invant2apli",FieldDef.FLOAT,6,0);
+      m117invant2pdte = new FieldDef("m117invant2pdte",FieldDef.FLOAT,6,0);
+      m117invidiniej = new FieldDef("m117invidiniej",FieldDef.FLOAT,6,0);
+      m117invidaplic = new FieldDef("m117invidaplic",FieldDef.FLOAT,6,0);
+      m117invidpdte = new FieldDef("m117invidpdte",FieldDef.FLOAT,6,0);
+      m117invticiniej = new FieldDef("m117invticiniej",FieldDef.FLOAT,6,0);
+      m117invticaplic = new FieldDef("m117invticaplic",FieldDef.FLOAT,6,0);
+      m117invticpdte = new FieldDef("m117invticpdte",FieldDef.FLOAT,6,0);
+      m117inveeiniej = new FieldDef("m117inveeiniej",FieldDef.FLOAT,6,0);
+      m117inveeaplic = new FieldDef("m117inveeaplic",FieldDef.FLOAT,6,0);
+      m117inveepdte = new FieldDef("m117inveepdte",FieldDef.FLOAT,6,0);
+      m117inva38iniej = new FieldDef("m117inva38iniej",FieldDef.FLOAT,6,0);
+      m117inva38aplic = new FieldDef("m117inva38aplic",FieldDef.FLOAT,6,0);
+      m117inva38pdte = new FieldDef("m117inva38pdte",FieldDef.FLOAT,6,0);
+      m117invpmainiej = new FieldDef("m117invpmainiej",FieldDef.FLOAT,6,0);
+      m117invpmaaplic = new FieldDef("m117invpmaaplic",FieldDef.FLOAT,6,0);
+      m117invpmapdte = new FieldDef("m117invpmapdte",FieldDef.FLOAT,6,0);
+      m117invfpiniej = new FieldDef("m117invfpiniej",FieldDef.FLOAT,6,0);
+      m117invfpaplic = new FieldDef("m117invfpaplic",FieldDef.FLOAT,6,0);
+      m117invfppdte = new FieldDef("m117invfppdte",FieldDef.FLOAT,6,0);
+      m117invceiniej = new FieldDef("m117invceiniej",FieldDef.FLOAT,6,0);
+      m117invceaplic = new FieldDef("m117invceaplic",FieldDef.FLOAT,6,0);
+      m117invcepdte = new FieldDef("m117invcepdte",FieldDef.FLOAT,6,0);
+      m117inva43iniej = new FieldDef("m117inva43iniej",FieldDef.FLOAT,6,0);
+      m117inva43aplic = new FieldDef("m117inva43aplic",FieldDef.FLOAT,6,0);
+      m117inva43pdte = new FieldDef("m117inva43pdte",FieldDef.FLOAT,6,0);
+      m117invafiniej = new FieldDef("m117invafiniej",FieldDef.FLOAT,6,0);
+      m117invafaplic = new FieldDef("m117invafaplic",FieldDef.FLOAT,6,0);
+      m117invafpdte = new FieldDef("m117invafpdte",FieldDef.FLOAT,6,0);
+      m117totalinver = new FieldDef("m117totalinver",FieldDef.FLOAT,6,0);
+      m117dedestatal = new FieldDef("m117dedestatal",FieldDef.FLOAT,6,0);
+      m117dedautonom = new FieldDef("m117dedautonom",FieldDef.FLOAT,6,0);
+      m117ricdotant3 = new FieldDef("m117ricdotant3",FieldDef.FLOAT,6,0);
+      m117ricmatant3 = new FieldDef("m117ricmatant3",FieldDef.FLOAT,6,0);
+      m117ricclaant3 = new FieldDef("m117ricclaant3",FieldDef.INTEGER,0);
+      m117ricdotant2 = new FieldDef("m117ricdotant2",FieldDef.FLOAT,6,0);
+      m117ricmat1ant2 = new FieldDef("m117ricmat1ant2",FieldDef.FLOAT,6,0);
+      m117ricmat2ant2 = new FieldDef("m117ricmat2ant2",FieldDef.FLOAT,6,0);
+      m117ricpdteant2 = new FieldDef("m117ricpdteant2",FieldDef.FLOAT,6,0);
+      m117ricdotant1 = new FieldDef("m117ricdotant1",FieldDef.FLOAT,6,0);
+      m117ricmat1ant1 = new FieldDef("m117ricmat1ant1",FieldDef.FLOAT,6,0);
+      m117ricmat2ant1 = new FieldDef("m117ricmat2ant1",FieldDef.FLOAT,6,0);
+      m117ricpdteant1 = new FieldDef("m117ricpdteant1",FieldDef.FLOAT,6,0);
+      m117ricdotant = new FieldDef("m117ricdotant",FieldDef.FLOAT,6,0);
+      m117ricmat1ant = new FieldDef("m117ricmat1ant",FieldDef.FLOAT,6,0);
+      m117ricmat2ant = new FieldDef("m117ricmat2ant",FieldDef.FLOAT,6,0);
+      m117ricpdteant = new FieldDef("m117ricpdteant",FieldDef.FLOAT,6,0);
+      m117ricdotact = new FieldDef("m117ricdotact",FieldDef.FLOAT,6,0);
+      m117ricmat1act = new FieldDef("m117ricmat1act",FieldDef.FLOAT,6,0);
+      m117ricmat2act = new FieldDef("m117ricmat2act",FieldDef.FLOAT,6,0);
+      m117ricpdteact = new FieldDef("m117ricpdteact",FieldDef.FLOAT,6,0);
+      m117ricmat1fut = new FieldDef("m117ricmat1fut",FieldDef.FLOAT,6,0);
+      m117ricmat2fut = new FieldDef("m117ricmat2fut",FieldDef.FLOAT,6,0);
+      m117ricded = new FieldDef("m117ricded",FieldDef.FLOAT,6,0);
+      m117invant1ini = new FieldDef("m117invant1ini",FieldDef.FLOAT,6,0);
+      m117invant1apl = new FieldDef("m117invant1apl",FieldDef.FLOAT,6,0);
+      m117invant1pdt = new FieldDef("m117invant1pdt",FieldDef.FLOAT,6,0);
+      m117invant2ini = new FieldDef("m117invant2ini",FieldDef.FLOAT,6,0);
+      m117invant2apl = new FieldDef("m117invant2apl",FieldDef.FLOAT,6,0);
+      m117invant2pdt = new FieldDef("m117invant2pdt",FieldDef.FLOAT,6,0);
+      m117invidinie = new FieldDef("m117invidinie",FieldDef.FLOAT,6,0);
+      m117invidapli = new FieldDef("m117invidapli",FieldDef.FLOAT,6,0);
+      m117invidpdt = new FieldDef("m117invidpdt",FieldDef.FLOAT,6,0);
+      m117inva38inie = new FieldDef("m117inva38inie",FieldDef.FLOAT,6,0);
+      m117inva38apli = new FieldDef("m117inva38apli",FieldDef.FLOAT,6,0);
+      m117inva38pdt = new FieldDef("m117inva38pdt",FieldDef.FLOAT,6,0);
+      m117invpmainie = new FieldDef("m117invpmainie",FieldDef.FLOAT,6,0);
+      m117invpmaapli = new FieldDef("m117invpmaapli",FieldDef.FLOAT,6,0);
+      m117invpmapdt = new FieldDef("m117invpmapdt",FieldDef.FLOAT,6,0);
+      m117invfpinie = new FieldDef("m117invfpinie",FieldDef.FLOAT,6,0);
+      m117invfpapli = new FieldDef("m117invfpapli",FieldDef.FLOAT,6,0);
+      m117invfppdt = new FieldDef("m117invfppdt",FieldDef.FLOAT,6,0);
+      m117invceinie = new FieldDef("m117invceinie",FieldDef.FLOAT,6,0);
+      m117invceapli = new FieldDef("m117invceapli",FieldDef.FLOAT,6,0);
+      m117invcepdt = new FieldDef("m117invcepdt",FieldDef.FLOAT,6,0);
+      m117invalviniej = new FieldDef("m117invalviniej",FieldDef.FLOAT,6,0);
+      m117invalvaplic = new FieldDef("m117invalvaplic",FieldDef.FLOAT,6,0);
+      m117invalvpdte = new FieldDef("m117invalvpdte",FieldDef.FLOAT,6,0);
+      m117invbwriniej = new FieldDef("m117invbwriniej",FieldDef.FLOAT,6,0);
+      m117invbwraplic = new FieldDef("m117invbwraplic",FieldDef.FLOAT,6,0);
+      m117invbwrpdte = new FieldDef("m117invbwrpdte",FieldDef.FLOAT,6,0);
+      m117invgrhiniej = new FieldDef("m117invgrhiniej",FieldDef.FLOAT,6,0);
+      m117invgrhaplic = new FieldDef("m117invgrhaplic",FieldDef.FLOAT,6,0);
+      m117invgrhpdte = new FieldDef("m117invgrhpdte",FieldDef.FLOAT,6,0);
+      m117invcbciniej = new FieldDef("m117invcbciniej",FieldDef.FLOAT,6,0);
+      m117invcbcaplic = new FieldDef("m117invcbcaplic",FieldDef.FLOAT,6,0);
+      m117invcbcpdte = new FieldDef("m117invcbcpdte",FieldDef.FLOAT,6,0);
+      m117invloniniej = new FieldDef("m117invloniniej",FieldDef.FLOAT,6,0);
+      m117invlonaplic = new FieldDef("m117invlonaplic",FieldDef.FLOAT,6,0);
+      m117invlonpdte = new FieldDef("m117invlonpdte",FieldDef.FLOAT,6,0);
+      m117invalziniej = new FieldDef("m117invalziniej",FieldDef.FLOAT,6,0);
+      m117invalzaplic = new FieldDef("m117invalzaplic",FieldDef.FLOAT,6,0);
+      m117invalzpdte = new FieldDef("m117invalzpdte",FieldDef.FLOAT,6,0);
+      m117invjmjiniej = new FieldDef("m117invjmjiniej",FieldDef.FLOAT,6,0);
+      m117invjmjaplic = new FieldDef("m117invjmjaplic",FieldDef.FLOAT,6,0);
+      m117invjmjpdte = new FieldDef("m117invjmjpdte",FieldDef.FLOAT,6,0);
+      m117invcrginiej = new FieldDef("m117invcrginiej",FieldDef.FLOAT,6,0);
+      m117invcrgaplic = new FieldDef("m117invcrgaplic",FieldDef.FLOAT,6,0);
+      m117invcrgpdte = new FieldDef("m117invcrgpdte",FieldDef.FLOAT,6,0);
+      m117invsdeiniej = new FieldDef("m117invsdeiniej",FieldDef.FLOAT,6,0);
+      m117invsdeaplic = new FieldDef("m117invsdeaplic",FieldDef.FLOAT,6,0);
+      m117invsdepdte = new FieldDef("m117invsdepdte",FieldDef.FLOAT,6,0);
+      m117invglxiniej = new FieldDef("m117invglxiniej",FieldDef.FLOAT,6,0);
+      m117invglxaplic = new FieldDef("m117invglxaplic",FieldDef.FLOAT,6,0);
+      m117invglxpdte = new FieldDef("m117invglxpdte",FieldDef.FLOAT,6,0);
+      m117invaoriniej = new FieldDef("m117invaoriniej",FieldDef.FLOAT,6,0);
+      m117invaoraplic = new FieldDef("m117invaoraplic",FieldDef.FLOAT,6,0);
+      m117invaorpdte = new FieldDef("m117invaorpdte",FieldDef.FLOAT,6,0);
+      m117invmbainiej = new FieldDef("m117invmbainiej",FieldDef.FLOAT,6,0);
+      m117invmbaaplic = new FieldDef("m117invmbaaplic",FieldDef.FLOAT,6,0);
+      m117invmbapdte = new FieldDef("m117invmbapdte",FieldDef.FLOAT,6,0);
+      m117invcmbiniej = new FieldDef("m117invcmbiniej",FieldDef.FLOAT,6,0);
+      m117invcmbaplic = new FieldDef("m117invcmbaplic",FieldDef.FLOAT,6,0);
+      m117invcmbpdte = new FieldDef("m117invcmbpdte",FieldDef.FLOAT,6,0);
+      m117invbneiniej = new FieldDef("m117invbneiniej",FieldDef.FLOAT,6,0);
+      m117invbneaplic = new FieldDef("m117invbneaplic",FieldDef.FLOAT,6,0);
+      m117invbnepdte = new FieldDef("m117invbnepdte",FieldDef.FLOAT,6,0);
+      m117invgreiniej = new FieldDef("m117invgreiniej",FieldDef.FLOAT,6,0);
+      m117invgreaplic = new FieldDef("m117invgreaplic",FieldDef.FLOAT,6,0);
+      m117invgrepdte = new FieldDef("m117invgrepdte",FieldDef.FLOAT,6,0);
+      m117invcsciniej = new FieldDef("m117invcsciniej",FieldDef.FLOAT,6,0);
+      m117invcscaplic = new FieldDef("m117invcscaplic",FieldDef.FLOAT,6,0);
+      m117invcscpdte = new FieldDef("m117invcscpdte",FieldDef.FLOAT,6,0);
+      m117ricmat2ant3 = new FieldDef("m117ricmat2ant3",FieldDef.FLOAT,6,0);
+      m117invvcviniej = new FieldDef("m117invvcviniej",FieldDef.FLOAT,6,0);
+      m117invvcvaplic = new FieldDef("m117invvcvaplic",FieldDef.FLOAT,6,0);
+      m117invvcvpdte = new FieldDef("m117invvcvpdte",FieldDef.FLOAT,6,0);
+      m117invcmviniej = new FieldDef("m117invcmviniej",FieldDef.FLOAT,6,0);
+      m117invcmvaplic = new FieldDef("m117invcmvaplic",FieldDef.FLOAT,6,0);
+      m117invcmvpdte = new FieldDef("m117invcmvpdte",FieldDef.FLOAT,6,0);
+      m117invaeviniej = new FieldDef("m117invaeviniej",FieldDef.FLOAT,6,0);
+      m117invaevaplic = new FieldDef("m117invaevaplic",FieldDef.FLOAT,6,0);
+      m117invaevpdte = new FieldDef("m117invaevpdte",FieldDef.FLOAT,6,0);
+      m117invcejiniej = new FieldDef("m117invcejiniej",FieldDef.FLOAT,6,0);
+      m117invcejaplic = new FieldDef("m117invcejaplic",FieldDef.FLOAT,6,0);
+      m117invcejpdte = new FieldDef("m117invcejpdte",FieldDef.FLOAT,6,0);
+      m117invrpliniej = new FieldDef("m117invrpliniej",FieldDef.FLOAT,6,0);
+      m117invrplaplic = new FieldDef("m117invrplaplic",FieldDef.FLOAT,6,0);
+      m117invrplpdte = new FieldDef("m117invrplpdte",FieldDef.FLOAT,6,0);
+      m117invfjiiniej = new FieldDef("m117invfjiiniej",FieldDef.FLOAT,6,0);
+      m117invfjiaplic = new FieldDef("m117invfjiaplic",FieldDef.FLOAT,6,0);
+      m117invfjipdte = new FieldDef("m117invfjipdte",FieldDef.FLOAT,6,0);
+      m117invuiginiej = new FieldDef("m117invuiginiej",FieldDef.FLOAT,6,0);
+      m117invuigaplic = new FieldDef("m117invuigaplic",FieldDef.FLOAT,6,0);
+      m117invuigpdte = new FieldDef("m117invuigpdte",FieldDef.FLOAT,6,0);
+      m117invccpiniej = new FieldDef("m117invccpiniej",FieldDef.FLOAT,6,0);
+      m117invccpaplic = new FieldDef("m117invccpaplic",FieldDef.FLOAT,6,0);
+      m117invccppdte = new FieldDef("m117invccppdte",FieldDef.FLOAT,6,0);
+      m117invcariniej = new FieldDef("m117invcariniej",FieldDef.FLOAT,6,0);
+      m117invcaraplic = new FieldDef("m117invcaraplic",FieldDef.FLOAT,6,0);
+      m117invcarpdte = new FieldDef("m117invcarpdte",FieldDef.FLOAT,6,0);
+      m117invbwjiniej = new FieldDef("m117invbwjiniej",FieldDef.FLOAT,6,0);
+      m117invbwjaplic = new FieldDef("m117invbwjaplic",FieldDef.FLOAT,6,0);
+      m117invbwjpdte = new FieldDef("m117invbwjpdte",FieldDef.FLOAT,6,0);
+      m117invcnbiniej = new FieldDef("m117invcnbiniej",FieldDef.FLOAT,6,0);
+      m117invcnbaplic = new FieldDef("m117invcnbaplic",FieldDef.FLOAT,6,0);
+      m117invcnbpdte = new FieldDef("m117invcnbpdte",FieldDef.FLOAT,6,0);
+      m117invbmwiniej = new FieldDef("m117invbmwiniej",FieldDef.FLOAT,6,0);
+      m117invbmwaplic = new FieldDef("m117invbmwaplic",FieldDef.FLOAT,6,0);
+      m117invbmwpdte = new FieldDef("m117invbmwpdte",FieldDef.FLOAT,6,0);
+      m117invpariniej = new FieldDef("m117invpariniej",FieldDef.FLOAT,6,0);
+      m117invparaplic = new FieldDef("m117invparaplic",FieldDef.FLOAT,6,0);
+      m117invparpdte = new FieldDef("m117invparpdte",FieldDef.FLOAT,6,0);
+      m117invctoiniej = new FieldDef("m117invctoiniej",FieldDef.FLOAT,6,0);
+      m117invctoaplic = new FieldDef("m117invctoaplic",FieldDef.FLOAT,6,0);
+      m117invctopdte = new FieldDef("m117invctopdte",FieldDef.FLOAT,6,0);
+      m117invcbpiniej = new FieldDef("m117invcbpiniej",FieldDef.FLOAT,6,0);
+      m117invcbpaplic = new FieldDef("m117invcbpaplic",FieldDef.FLOAT,6,0);
+      m117invcbppdte = new FieldDef("m117invcbppdte",FieldDef.FLOAT,6,0);
+      m117invcpliniej = new FieldDef("m117invcpliniej",FieldDef.FLOAT,6,0);
+      m117invcplaplic = new FieldDef("m117invcplaplic",FieldDef.FLOAT,6,0);
+      m117invcplpdte = new FieldDef("m117invcplpdte",FieldDef.FLOAT,6,0);
+      m117invcaniniej = new FieldDef("m117invcaniniej",FieldDef.FLOAT,6,0);
+      m117invcanaplic = new FieldDef("m117invcanaplic",FieldDef.FLOAT,6,0);
+      m117invcanpdte = new FieldDef("m117invcanpdte",FieldDef.FLOAT,6,0);
+      m117invcbniniej = new FieldDef("m117invcbniniej",FieldDef.FLOAT,6,0);
+      m117invcbnaplic = new FieldDef("m117invcbnaplic",FieldDef.FLOAT,6,0);
+      m117invcbnpdte = new FieldDef("m117invcbnpdte",FieldDef.FLOAT,6,0);
+      m117invajminiej = new FieldDef("m117invajminiej",FieldDef.FLOAT,6,0);
+      m117invajmaplic = new FieldDef("m117invajmaplic",FieldDef.FLOAT,6,0);
+      m117invajmpdte = new FieldDef("m117invajmpdte",FieldDef.FLOAT,6,0);
+      m117invcmoiniej = new FieldDef("m117invcmoiniej",FieldDef.FLOAT,6,0);
+      m117invcmoaplic = new FieldDef("m117invcmoaplic",FieldDef.FLOAT,6,0);
+      m117invcmopdte = new FieldDef("m117invcmopdte",FieldDef.FLOAT,6,0);
+      m117invdiminiej = new FieldDef("m117invdiminiej",FieldDef.FLOAT,6,0);
+      m117invdimaplic = new FieldDef("m117invdimaplic",FieldDef.FLOAT,6,0);
+      m117invdimpdte = new FieldDef("m117invdimpdte",FieldDef.FLOAT,6,0);
+      m117invceeiniej = new FieldDef("m117invceeiniej",FieldDef.FLOAT,6,0);
+      m117invceeaplic = new FieldDef("m117invceeaplic",FieldDef.FLOAT,6,0);
+      m117invceepdte = new FieldDef("m117invceepdte",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        m117dominio,
+        m117nif,
+        m117declarac,
+        m117ejercicio,
+        m117periodo,
+        m117invant1inie,
+        m117invant1apli,
+        m117invant1pdte,
+        m117invant2inie,
+        m117invant2apli,
+        m117invant2pdte,
+        m117invidiniej,
+        m117invidaplic,
+        m117invidpdte,
+        m117invticiniej,
+        m117invticaplic,
+        m117invticpdte,
+        m117inveeiniej,
+        m117inveeaplic,
+        m117inveepdte,
+        m117inva38iniej,
+        m117inva38aplic,
+        m117inva38pdte,
+        m117invpmainiej,
+        m117invpmaaplic,
+        m117invpmapdte,
+        m117invfpiniej,
+        m117invfpaplic,
+        m117invfppdte,
+        m117invceiniej,
+        m117invceaplic,
+        m117invcepdte,
+        m117inva43iniej,
+        m117inva43aplic,
+        m117inva43pdte,
+        m117invafiniej,
+        m117invafaplic,
+        m117invafpdte,
+        m117totalinver,
+        m117dedestatal,
+        m117dedautonom,
+        m117ricdotant3,
+        m117ricmatant3,
+        m117ricclaant3,
+        m117ricdotant2,
+        m117ricmat1ant2,
+        m117ricmat2ant2,
+        m117ricpdteant2,
+        m117ricdotant1,
+        m117ricmat1ant1,
+        m117ricmat2ant1,
+        m117ricpdteant1,
+        m117ricdotant,
+        m117ricmat1ant,
+        m117ricmat2ant,
+        m117ricpdteant,
+        m117ricdotact,
+        m117ricmat1act,
+        m117ricmat2act,
+        m117ricpdteact,
+        m117ricmat1fut,
+        m117ricmat2fut,
+        m117ricded,
+        m117invant1ini,
+        m117invant1apl,
+        m117invant1pdt,
+        m117invant2ini,
+        m117invant2apl,
+        m117invant2pdt,
+        m117invidinie,
+        m117invidapli,
+        m117invidpdt,
+        m117inva38inie,
+        m117inva38apli,
+        m117inva38pdt,
+        m117invpmainie,
+        m117invpmaapli,
+        m117invpmapdt,
+        m117invfpinie,
+        m117invfpapli,
+        m117invfppdt,
+        m117invceinie,
+        m117invceapli,
+        m117invcepdt,
+        m117invalviniej,
+        m117invalvaplic,
+        m117invalvpdte,
+        m117invbwriniej,
+        m117invbwraplic,
+        m117invbwrpdte,
+        m117invgrhiniej,
+        m117invgrhaplic,
+        m117invgrhpdte,
+        m117invcbciniej,
+        m117invcbcaplic,
+        m117invcbcpdte,
+        m117invloniniej,
+        m117invlonaplic,
+        m117invlonpdte,
+        m117invalziniej,
+        m117invalzaplic,
+        m117invalzpdte,
+        m117invjmjiniej,
+        m117invjmjaplic,
+        m117invjmjpdte,
+        m117invcrginiej,
+        m117invcrgaplic,
+        m117invcrgpdte,
+        m117invsdeiniej,
+        m117invsdeaplic,
+        m117invsdepdte,
+        m117invglxiniej,
+        m117invglxaplic,
+        m117invglxpdte,
+        m117invaoriniej,
+        m117invaoraplic,
+        m117invaorpdte,
+        m117invmbainiej,
+        m117invmbaaplic,
+        m117invmbapdte,
+        m117invcmbiniej,
+        m117invcmbaplic,
+        m117invcmbpdte,
+        m117invbneiniej,
+        m117invbneaplic,
+        m117invbnepdte,
+        m117invgreiniej,
+        m117invgreaplic,
+        m117invgrepdte,
+        m117invcsciniej,
+        m117invcscaplic,
+        m117invcscpdte,
+        m117ricmat2ant3,
+        m117invvcviniej,
+        m117invvcvaplic,
+        m117invvcvpdte,
+        m117invcmviniej,
+        m117invcmvaplic,
+        m117invcmvpdte,
+        m117invaeviniej,
+        m117invaevaplic,
+        m117invaevpdte,
+        m117invcejiniej,
+        m117invcejaplic,
+        m117invcejpdte,
+        m117invrpliniej,
+        m117invrplaplic,
+        m117invrplpdte,
+        m117invfjiiniej,
+        m117invfjiaplic,
+        m117invfjipdte,
+        m117invuiginiej,
+        m117invuigaplic,
+        m117invuigpdte,
+        m117invccpiniej,
+        m117invccpaplic,
+        m117invccppdte,
+        m117invcariniej,
+        m117invcaraplic,
+        m117invcarpdte,
+        m117invbwjiniej,
+        m117invbwjaplic,
+        m117invbwjpdte,
+        m117invcnbiniej,
+        m117invcnbaplic,
+        m117invcnbpdte,
+        m117invbmwiniej,
+        m117invbmwaplic,
+        m117invbmwpdte,
+        m117invpariniej,
+        m117invparaplic,
+        m117invparpdte,
+        m117invctoiniej,
+        m117invctoaplic,
+        m117invctopdte,
+        m117invcbpiniej,
+        m117invcbpaplic,
+        m117invcbppdte,
+        m117invcpliniej,
+        m117invcplaplic,
+        m117invcplpdte,
+        m117invcaniniej,
+        m117invcanaplic,
+        m117invcanpdte,
+        m117invcbniniej,
+        m117invcbnaplic,
+        m117invcbnpdte,
+        m117invajminiej,
+        m117invajmaplic,
+        m117invajmpdte,
+        m117invcmoiniej,
+        m117invcmoaplic,
+        m117invcmopdte,
+        m117invdiminiej,
+        m117invdimaplic,
+        m117invdimpdte,
+        m117invceeiniej,
+        m117invceeaplic,
+        m117invceepdte        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m117dominio,m117nif,m117declarac,m117ejercicio,m117periodo };
+      setPrimaryKeys(arrayf);
+      m117declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
+      m117invant1inie.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Saldos ptes. Inv. adquisicion activos fijos Saldo anterior");
+      m117invant1apli.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Saldos ptes. Inv. adquisicion activos fijos Aplicado en esta declaracion (968)");
+      m117invant1pdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Saldos ptes. Inv. adquisicion activos fijos Pendiente de aplicacion");
+      m117invant2inie.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Saldos ptes. Restantes modalidades Saldo anterior");
+      m117invant2apli.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Saldos ptes. Restantes modalidades Aplicado en esta declaracion (969)");
+      m117invant2pdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Saldos ptes. Restantes modalidades Pendiente de aplicacion");
+      m117invidiniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Investigacion desarrollo innovacion tecnologica Deduccion");
+      m117invidaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Investigacion desarrollo innovacion tecnologica Aplicado e");
+      m117invidpdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Investigacion desarrollo innovacion tecnologica Pendiente");
+      m117invticiniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Fomento tecnologias informacion y comunicacion Deduccion 2");
+      m117invticaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Fomento tecnologias informacion y comunicacion Aplicado en");
+      m117invticpdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Fomento tecnologias informacion y comunicacion Pendiente d");
+      m117inveeiniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Actividades exportacion Deduccion 2010");
+      m117inveeaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Actividades exportacion Aplicado en esta declaracion (972)");
+      m117inveepdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Actividades exportacion Pendiente de aplicacion");
+      m117inva38iniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 L.I.S. Inversiones/gastos art. 38 Deduccion 2010");
+      m117inva38aplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 L.I.S. Inversiones/gastos art. 38 Aplicado en esta declaracion (9");
+      m117inva38pdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 L.I.S. Inversiones/gastos art. 38 Pendiente de aplicacion");
+      m117invpmainiej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 L.I.S. Inversiones medioambientales Deduccion 2010");
+      m117invpmaaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 L.I.S. Inversiones medioambientales Aplicado en esta declaracion");
+      m117invpmapdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 L.I.S. Inversiones medioambientales Pendiente de aplicacion");
+      m117invfpiniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Gastos formacion profesional Deduccion 2010");
+      m117invfpaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Gastos formacion profesional Aplicado en esta declaracion");
+      m117invfppdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Gastos formacion profesional Pendiente de aplicacion");
+      m117invceiniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Creacion empleo trabajadores minusvalidos Deduccion 2010");
+      m117invceaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Creacion empleo trabajadores minusvalidos Aplicado en esta");
+      m117invcepdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Creacion empleo trabajadores minusvalidos Pendiente de apl");
+      m117inva43iniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Contribuciones empresariales y aportaciones art. 43 Deducc");
+      m117inva43aplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Contribuciones empresariales y aportaciones art. 43 Aplica");
+      m117inva43pdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Contribuciones empresariales y aportaciones art. 43 Pendie");
+      m117invafiniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 Inversiones en la adquisicion de activos fijos Deduccion 2010");
+      m117invafaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 Inversiones en la adquisicion de activos fijos Aplicado en esta d");
+      m117invafpdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 Inversiones en la adquisicion de activos fijos Pendiente de aplic");
+      m117totalinver.setDescription("Deducciones incentivos/estimulos inv. empres. Importe aplicado declaracion Importe total (979)");
+      m117dedestatal.setDescription("Deducciones por incentivos y estimulos incentivos/estimulos inv. empres. Importe aplicado declaracion Deducciones por incentivos y estimulos Parte est");
+      m117dedautonom.setDescription("Deducciones por incentivos y estimulos incentivos/estimulos inv. empres. Importe aplicado declaracion Deducciones por incentivos y estimulos Parte aut");
+      m117ricdotant3.setDescription("Reserva inversiones Canarias (Ley 19/1994) Reserva inversiones Canarias 2006 Importe dotaciones");
+      m117ricmatant3.setDescription("Reserva inversiones Canarias (Ley 19/1994) Reserva inversiones Canarias 2006 Materializaciones 2010 (980)");
+      m117ricclaant3.setDescription("Reserva inversiones Canarias (Ley 19/1994) Reserva inversiones Canarias 2006 Clave (0 a 5) (981)");
+      m117ricdotant2.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2007. Importe dotaciones (984)");
+      m117ricmat1ant2.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2007. Inversiones previstas A B y D art.27.4 (985)");
+      m117ricmat2ant2.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2007. Inversiones previstas C y D (2 a 6) art.27.4 (986)");
+      m117ricpdteant2.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2007. Pendiente materializar (987)");
+      m117ricdotant1.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2008. Dotacion y materializaciones. Importe dotacion (988)");
+      m117ricmat1ant1.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2008. Dotacion y materializaciones. Inversiones A B y D (1) art.27.4 (989)");
+      m117ricmat2ant1.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2008. Dotacion y materializaciones. Inversiones C y D (2 a 6) art.27.4 (990)");
+      m117ricpdteant1.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2008. Dotacion y materializaciones. Pendiente de materializar. (991)");
+      m117ricdotant.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2009. Dotacion y materializaciones. Importe dotacion (992)");
+      m117ricmat1ant.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2009. Dotacion y materializaciones. Inversiones A B y D (1) art.27.4 (993)");
+      m117ricmat2ant.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2009. Dotacion y materializaciones. Inversiones C y D (2 a 6) art.27.4 (994)");
+      m117ricpdteant.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2009. Dotacion y materializaciones. Pendiente de materializar. (995)");
+      m117ricdotact.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2010. Dotacion y materializaciones. Importe dotacion (539)");
+      m117ricmat1act.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2010. Dotacion y materializaciones. Inversiones A B y D (1) art.27.4 (561)");
+      m117ricmat2act.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2010. Dotacion y materializaciones. Inversiones C y D (2 a 6) art.27.4 (562)");
+      m117ricpdteact.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2010. Dotacion y materializaciones. Pendiente de materializar. (563)");
+      m117ricmat1fut.setDescription("Reserva inversiones Canarias (Ley 19/1994). Inversiones anticipadas futuras dotaciones. Inversiones A B y D (1) art.27.4 (996)");
+      m117ricmat2fut.setDescription("Reserva inversiones Canarias (Ley 19/1994) Inversiones anticipadas futuras dotaciones Inversiones Reserva inversiones Canarias (Ley 19/199");
+      m117ricded.setDescription("RIC  Dotaciones materializaciones e inversiones anticipadas Importe de la deduccion 2011");
+      m117invant1ini.setDescription("Saldos ptes. Reg. Gral. Ley Impuesto Sociedades Saldo anterior");
+      m117invant1apl.setDescription("Saldos ptes. Reg. Gral. Ley Impuesto Sociedades Aplicado en esta declaracion (945)");
+      m117invant1pdt.setDescription("Saldos ptes. Reg. Gral. Ley Impuesto Sociedades Pendiente de aplicacion");
+      m117invant2ini.setDescription("Saldos ptes. Regimenes especial interes publico. Saldo anterior");
+      m117invant2apl.setDescription("Saldos ptes. Regimenes especial interes publico. Aplicado en esta declaracion (946)");
+      m117invant2pdt.setDescription("Saldos ptes. Regimenes especial interes publico. Pendiente de aplicacion");
+      m117invidinie.setDescription("Investigacion/innovacion tecnolog. Deduccion 2010");
+      m117invidapli.setDescription("Investigacion/innovacion tecnolog. Aplicado en esta declaracion (947)");
+      m117invidpdt.setDescription("Investigacion/innovacion tecnolog. Pendiente de aplicacion");
+      m117inva38inie.setDescription("inv. Art. 38 L.I.S. Deduccion 2010");
+      m117inva38apli.setDescription("inv. Art. 38 L.I.S. Aplicado en esta declaracion (950)");
+      m117inva38pdt.setDescription("inv. Art. 38 L.I.S. Pendiente de aplicacion");
+      m117invpmainie.setDescription("inv. medioambientales Deduccion 2010");
+      m117invpmaapli.setDescription("inv. medioambientales Aplicado en esta declaracion (951)");
+      m117invpmapdt.setDescription("inv. medioambientales Pendiente de aplicacion");
+      m117invfpinie.setDescription("Gastos formacion profesional Deduccion 2010");
+      m117invfpapli.setDescription("Gastos formacion profesional Aplicado en esta declaracion (952)");
+      m117invfppdt.setDescription("Gastos formacion profesional Pendiente de aplicacion");
+      m117invceinie.setDescription("Creacion empleo trabajadores minusvalidos Deduccion 2010");
+      m117invceapli.setDescription("Creacion empleo trabajadores minusvalidos Aplicado en esta declaracion (953)");
+      m117invcepdt.setDescription("Creacion empleo trabajadores minusvalidos Pendiente de aplicacion");
+      m117invalviniej.setDescription("Ded.Inv.Emp. Regimenes apoyo Alicante 2011. Vuelta al Mundo a Vela Deduccion 2010");
+      m117invalvaplic.setDescription("Ded.Inv.Emp. Regimenes apoyo Alicante 2011. Vuelta al Mundo a Vela Aplicado en esta declaracion (955)");
+      m117invalvpdte.setDescription("Ded.Inv.Emp. Regimenes apoyo Alicante 2011. Vuelta al Mundo a Vela Pendiente de aplicacion");
+      m117invbwriniej.setDescription("Ded.Inv.Emp. Regimenes apoyo Barcelona World Race Deduccion");
+      m117invbwraplic.setDescription("Ded.Inv.Emp. Regimenes apoyo Barcelona World Race Aplicado en esta declaracion (956)");
+      m117invbwrpdte.setDescription("Ded.Inv.Emp. Regimenes apoyo Barcelona World Race Pendiente de aplicacion");
+      m117invgrhiniej.setDescription("Ded.Inv.Emp. Regimenes apoyo Guadalquivir Rio de Historia Deduccion 2010");
+      m117invgrhaplic.setDescription("Ded.Inv.Emp. Regimenes apoyo Guadalquivir Rio de Historia Aplicado en esta declaracion (958)");
+      m117invgrhpdte.setDescription("Ded.Inv.Emp. Regimenes apoyo Guadalquivir Rio de Historia Pendiente de aplicacion");
+      m117invcbciniej.setDescription("Ded.Inv.Emp. Regimenes apoyo Conmemoracion Bicentenario Constitucion 1812 Deduccion 2010");
+      m117invcbcaplic.setDescription("Ded.Inv.Emp. Regimenes apoyo Conmemoracion Bicentenario Constitucion 1812 Aplicado en esta declaracion");
+      m117invcbcpdte.setDescription("Ded.Inv.Emp. Regimenes apoyo Conmemoracion Bicentenario Constitucion 1812 Pendiente de aplicacion");
+      m117invloniniej.setDescription("Ded.Inv.Emp. Regimenes apoyo Londres 2012 Deduccion 2010");
+      m117invlonaplic.setDescription("Ded.Inv.Emp. Regimenes apoyo Londres 2012 Aplicado en esta declaracion (960)");
+      m117invlonpdte.setDescription("Ded.Inv.Emp. Regimenes apoyo Londres 2012 Pendiente de aplicacion");
+      m117invalziniej.setDescription("Ded.Inv.Emp. Regimenes apoyo Alzheimer Internacional 2011 Deduccion 2010");
+      m117invalzaplic.setDescription("Ded.Inv.Emp. Regimenes apoyo Alzheimer Internacional 2011 Aplicado en esta declaracion (964)");
+      m117invalzpdte.setDescription("Ded.Inv.Emp. Regimenes apoyo Alzheimer Internacional 2011 Pendiente de aplicacion");
+      m117invjmjiniej.setDescription("Ded.Inv.Emp. Regimenes apoyo Jornadas Mundiales Juventud 2011 Deduccion 2010");
+      m117invjmjaplic.setDescription("Ded.Inv.Emp. Regimenes apoyo Jornadas Mundiales Juventud 2011 Aplicado en esta declaracion (535)");
+      m117invjmjpdte.setDescription("Ded.Inv.Emp. Regimenes apoyo Jornadas Mundiales Juventud 2011 Pendiente de aplicacion");
+      m117invcrginiej.setDescription("Ded.Inv.Emp. Regimenes apoyo Conmemoracion Milenio fundacion Reino de Granada Deduccion 2010");
+      m117invcrgaplic.setDescription("Ded.Inv.Emp. Regimenes apoyo Conmemoracion Milenio fundacion Reino de Granada Aplicado en esta declara");
+      m117invcrgpdte.setDescription("Ded.Inv.Emp. Regimenes apoyo Conmemoracion Milenio fundacion Reino Deducciones incentivos/");
+      m117invsdeiniej.setDescription("Ded.Inv.Emp. Regimenes apoyo Solar Decathlon Europe 2010 y 2012 Deduccion 2010");
+      m117invsdeaplic.setDescription("Ded.Inv.Emp. Regimenes apoyo Solar Decathlon Europe 2010 y 2012 Aplicado en esta declaracion (537)             cicio,");
+      m117invsdepdte.setDescription("Ded.Inv.Emp. Regimenes apoyo Solar Decathlon Europe 2010 y 2012 Pendiente de aplicacion");
+      m117invglxiniej.setDescription("Ded.Inv.Emp. Regimenes apoyo Google Lunar X Prize Deduccion 2010");
+      m117invglxaplic.setDescription("Ded.Inv.Emp. Regimenes apoyo Google Lunar X Prize Aplicado en esta declaracion (538)");
+      m117invglxpdte.setDescription("Ded.Inv.Emp. Regimenes apoyo Google Lunar X Prize Pendiente de aplicacion");
+      m117invaoriniej.setDescription("Ded.Inv.Emp. Deduccion AOR Orellana 2011");
+      m117invaoraplic.setDescription("Ded.Inv.Emp. Aplicado  AOR Orellana 2011");
+      m117invaorpdte.setDescription("Ded.Inv.Emp. Pendiente AOR Orellana 2011");
+      m117invmbainiej.setDescription("Ded.Inv.Emp. Deduccion MBA Mundobasket 2014");
+      m117invmbaaplic.setDescription("Ded.Inv.Emp. Aplicado  MBA Mundobasket 2014");
+      m117invmbapdte.setDescription("Ded.Inv.Emp. Pendiente MBA Mundobasket 2014");
+      m117invcmbiniej.setDescription("Ded.Inv.Emp. Deduccion CMB Balonmano 2013");
+      m117invcmbaplic.setDescription("Ded.Inv.Emp. Aplicado  CMB Balonmano 2013");
+      m117invcmbpdte.setDescription("Ded.Inv.Emp. Pendiente CMB Balonmano 2013");
+      m117invbneiniej.setDescription("Ded.Inv.Emp. Deduccion BNE Biblioteca");
+      m117invbneaplic.setDescription("Ded.Inv.Emp. Aplicado  BNE Biblioteca");
+      m117invbnepdte.setDescription("Ded.Inv.Emp. Pendiente BNE Biblioteca");
+      m117invgreiniej.setDescription("Ded.Inv.Emp. Deduccion GRE Greco");
+      m117invgreaplic.setDescription("Ded.Inv.Emp. Aplicado  GRE Greco");
+      m117invgrepdte.setDescription("Ded.Inv.Emp. Pendiente GRE Greco");
+      m117invcsciniej.setDescription("Ded.Inv.Emp. Deduccion CSC VII centenarioSantiago compostela");
+      m117invcscaplic.setDescription("Ded.Inv.Emp. Aplicado  CSC VII centenarioSantiago compostela");
+      m117invcscpdte.setDescription("Ded.Inv.Emp. Pendiente CSC VII centenarioSantiago compostela");
+      m117ricmat2ant3.setDescription("Materializacion RIC 2007: importe materializacion C y D");
+      m117invvcviniej.setDescription("2012 Ded.Inv.Emp. VCV Victoria Gasteiz capital verde europea 2012 Saldo inicio");
+      m117invvcvaplic.setDescription("2012 Ded.Inv.Emp.     Victoria Gasteiz capital verde europea 2012 Aplicado");
+      m117invvcvpdte.setDescription("2012 Ded.Inv.Emp.     Victoria Gasteiz capital verde europea 2012 Saldo pendiente");
+      m117invcmviniej.setDescription("2012 Ded.Inv.Emp. CMV Campeonato mundo vela ISAF 2014 Saldo inicio");
+      m117invcmvaplic.setDescription("2012 Ded.Inv.Emp.     Campeonato mundo vela ISAF 2014 Aplicado");
+      m117invcmvpdte.setDescription("2012 Ded.Inv.Emp.     Campeonato mundo vela ISAF 2014 Saldo pendiente");
+      m117invaeviniej.setDescription("2012 Ded.Inv.Emp. AEV El árbol es vida Saldo inicio");
+      m117invaevaplic.setDescription("2012 Ded.Inv.Emp.     El árbol es vida Aplicado");
+      m117invaevpdte.setDescription("2012 Ded.Inv.Emp.     El árbol es vida Saldo pendiente");
+      m117invcejiniej.setDescription("2012 Ded.Inv.Emp. CEJ IV Centenario relaciones Esp Japón Saldo inicio");
+      m117invcejaplic.setDescription("2012 Ded.Inv.Emp.     IV Centenario relaciones Esp Japón Aplicado");
+      m117invcejpdte.setDescription("2012 Ded.Inv.Emp.     IV Centenario relaciones Esp Japón Saldo pendiente");
+      m117invrpliniej.setDescription("2012 Ded.Inv.Emp. RPL Recuperación patrimonio cultural Lorca Saldo inicio");
+      m117invrplaplic.setDescription("2012 Ded.Inv.Emp.     Recuperación patrimonio cultural Lorca Aplicado");
+      m117invrplpdte.setDescription("2012 Ded.Inv.Emp.     Recuperación patrimonio cultural Lorca Saldo pendiente");
+      m117invfjiiniej.setDescription("2012 Ded.Inv.Emp. FJI Foro juvenil Iberoamericano del patrimonio mundial Saldo inicio");
+      m117invfjiaplic.setDescription("2012 Ded.Inv.Emp.     Foro juvenil Iberoamericano del patrimonio mundial Aplicado");
+      m117invfjipdte.setDescription("2012 Ded.Inv.Emp.     Foro juvenil Iberoamericano del patrimonio mundial Saldo pendiente");
+      m117invuiginiej.setDescription("2012 Ded.Inv.Emp. UIG Universiada de invierno Granada 2015 Saldo inicio");
+      m117invuigaplic.setDescription("2012 Ded.Inv.Emp.     Universiada de invierno Granada 2015 Aplicado");
+      m117invuigpdte.setDescription("2012 Ded.Inv.Emp.     Universiada de invierno Granada 2015 Saldo pendiente");
+      m117invccpiniej.setDescription("2012 Ded.Inv.Emp. CCP Campeonato ciclismo  Ponferrada 2014 Saldo inicio");
+      m117invccpaplic.setDescription("2012 Ded.Inv.Emp.     Campeonato ciclismo  Ponferrada 2014 Aplicado");
+      m117invccppdte.setDescription("2012 Ded.Inv.Emp.     Campeonato ciclismo  Ponferrada 2014 Saldo pendiente");
+      m117invcariniej.setDescription("2012 Ded.Inv.Emp. CAR Centro UNESCO para arte rupestre Saldo inicio");
+      m117invcaraplic.setDescription("2012 Ded.Inv.Emp.     Centro UNESCO para arte rupestre Aplicado");
+      m117invcarpdte.setDescription("2012 Ded.Inv.Emp.     Centro UNESCO para arte rupestre Saldo pendiente");
+      m117invbwjiniej.setDescription("2012 Ded.Inv.Emp. BWJ Barcelona word Jumping Challenge Saldo inicio");
+      m117invbwjaplic.setDescription("2012 Ded.Inv.Emp.     Barcelona word Jumping Challenge Aplicado");
+      m117invbwjpdte.setDescription("2012 Ded.Inv.Emp.     Barcelona word Jumping Challenge Saldo pendiente");
+      m117invcnbiniej.setDescription("2012 Ded.Inv.Emp. CNB Campeonato natacion Barcelona 2013 Saldo inicio");
+      m117invcnbaplic.setDescription("2012 Ded.Inv.Emp.     Campeonato natacion Barcelona 2013 Aplicado");
+      m117invcnbpdte.setDescription("2012 Ded.Inv.Emp.     Campeonato natacion Barcelona 2013 Saldo pendiente");
+      m117invbmwiniej.setDescription("2012 Ded.Inv.Emp. BMW Barcelona Mobile world Capital Saldo inicio");
+      m117invbmwaplic.setDescription("2012 Ded.Inv.Emp.     Barcelona Mobile world Capital Aplicado");
+      m117invbmwpdte.setDescription("2012 Ded.Inv.Emp.     Barcelona Mobile world Capital Saldo pendiente");
+      m117invpariniej.setDescription("2012 Ded.Inv.Emp. PAR Paris 1972 40 aniversario convencion mundial Saldo inicio");
+      m117invparaplic.setDescription("2012 Ded.Inv.Emp.     Paris 1972 40 aniversario convencion mundial Aplicado");
+      m117invparpdte.setDescription("2012 Ded.Inv.Emp.     Paris 1972 40 aniversario convencion mundial Capital Saldo pendiente");
+      m117invctoiniej.setDescription("2012 Ded.Inv.Emp. CTO Campeonato tiro olimpico Las Gabias 2014 Saldo inicio");
+      m117invctoaplic.setDescription("2012 Ded.Inv.Emp.     Campeonato tiro olimpico Las Gabias 2014 Aplicado");
+      m117invctopdte.setDescription("2012 Ded.Inv.Emp.     Campeonato tiro olimpico Las Gabias 2014 Capital Saldo pendiente");
+      m117invcbpiniej.setDescription("2012 Ded.Inv.Emp. CBP Conmemoración 500 años  Bula Papal Saldo inicio");
+      m117invcbpaplic.setDescription("2012 Ded.Inv.Emp.     Conmemoración 500 años  Bula Papal Aplicado");
+      m117invcbppdte.setDescription("2012 Ded.Inv.Emp.     Conmemoración 500 años  Bula Papal Saldo pendiente");
+      m117invcpliniej.setDescription("2012 Ded.Inv.Emp. CPL 2012 año de las culturas, la paz y la libertad Saldo inicio");
+      m117invcplaplic.setDescription("2012 Ded.Inv.Emp.     2012 año de las culturas, la paz y la libertad Aplicado");
+      m117invcplpdte.setDescription("2012 Ded.Inv.Emp.     2012 año de las culturas, la paz y la libertad Capital Saldo pendiente");
+      m117invcaniniej.setDescription("2012 Ded.Inv.Emp. CAN Conmemoración Año de la neurociencia Saldo inicio");
+      m117invcanaplic.setDescription("2012 Ded.Inv.Emp.     Conmemoración Año de la neurociencia Aplicado");
+      m117invcanpdte.setDescription("2012 Ded.Inv.Emp.     Conmemoración Año de la neurociencia Capital Saldo pendiente");
+      m117invcbniniej.setDescription("2012 Ded.Inv.Emp. CBN VIII Centenario batalla Navas de Tolosa 1212 Saldo inicio");
+      m117invcbnaplic.setDescription("2012 Ded.Inv.Emp.     VIII Centenario batalla Navas de Tolosa 1212 Aplicado");
+      m117invcbnpdte.setDescription("2012 Ded.Inv.Emp.     VIII Centenario batalla Navas de Tolosa 1212 Capital Saldo pendiente");
+      m117invajminiej.setDescription("2012 Ded.Inv.Emp. AJM Año Jubilar Mariano 2012-2013 Almonte Saldo inicio");
+      m117invajmaplic.setDescription("2012 Ded.Inv.Emp.     Año Jubilar Mariano 2012-2013 Almonte Aplicado");
+      m117invajmpdte.setDescription("2012 Ded.Inv.Emp.     Año Jubilar Mariano 2012-2013 Almonte Capital Saldo pendiente");
+      m117invcmoiniej.setDescription("2012 Ded.Inv.Emp. CMO Candidatura de Madrid 2020 Saldo inicio");
+      m117invcmoaplic.setDescription("2012 Ded.Inv.Emp.     Candidatura de Madrid 2020 Aplicado");
+      m117invcmopdte.setDescription("2012 Ded.Inv.Emp.     Candidatura de Madrid 2020 Capital Saldo pendiente");
+      m117invdiminiej.setDescription("2012 Ded.Inv.Emp. DIM Dieta Mediterranea Saldo inicio");
+      m117invdimaplic.setDescription("2012 Ded.Inv.Emp.     Dieta Mediterranea Aplicado");
+      m117invdimpdte.setDescription("2012 Ded.Inv.Emp.     Dieta Mediterranea Saldo pendiente");
+      m117invceeiniej.setDescription("2013 Ded.Inv.Emp. CEE Creacion empleo emprendedores art.43 Saldo inicio");
+      m117invceeaplic.setDescription("2013 Ded.Inv.Emp.     Creacion empleo emprendedores art.43 Aplicado");
+      m117invceepdte.setDescription("2013 Ded.Inv.Emp.     Creacion empleo emprendedores art.43 Pendiente");
+      }
+    }
+    
+  public class TabMod100h13 extends TableDef
+    {
+    // Campos
+    public FieldDef m113dominio;
+    public FieldDef m113nif;
+    public FieldDef m113declarac;
+    public FieldDef m113ejercicio;
+    public FieldDef m113periodo;
+    public FieldDef m113bliqgralest;
+    public FieldDef m113bliqgralaut;
+    public FieldDef m113minigralest;
+    public FieldDef m113minigralaut;
+    public FieldDef m113cuotgralest;
+    public FieldDef m113cuotgralaut;
+    public FieldDef m113tipogralest;
+    public FieldDef m113tipogralaut;
+    public FieldDef m113bliqahorest;
+    public FieldDef m113bliqahoraut;
+    public FieldDef m113cuotahorest;
+    public FieldDef m113cuotahoraut;
+    public FieldDef m113cuotaintest;
+    public FieldDef m113cuotaintaut;
+    public FieldDef m113dedvdaest;
+    public FieldDef m113dedvdaaut;
+    public FieldDef m113dedbicest;
+    public FieldDef m113dedbicaut;
+    public FieldDef m113deddonest;
+    public FieldDef m113deddonaut;
+    public FieldDef m113dedempest;
+    public FieldDef m113dedempaut;
+    public FieldDef m113dedricest;
+    public FieldDef m113dedricaut;
+    public FieldDef m113dedpacest;
+    public FieldDef m113dedpacaut;
+    public FieldDef m113dedceuest;
+    public FieldDef m113dedceuaut;
+    public FieldDef m113dedcheest;
+    public FieldDef m113dedcheaut;
+    public FieldDef m113dedavdest;
+    public FieldDef m113dedavdaut;
+    public FieldDef m113dedovdest;
+    public FieldDef m113totdedaut;
+    public FieldDef m113cuotaliqest;
+    public FieldDef m113cuotaliqaut;
+    public FieldDef m113perdded1est;
+    public FieldDef m113perdint1est;
+    public FieldDef m113perdded2est;
+    public FieldDef m113perdint2est;
+    public FieldDef m113perdded2aut;
+    public FieldDef m113perdint2aut;
+    public FieldDef m113perdded3aut;
+    public FieldDef m113perdint3aut;
+    public FieldDef m113cuotliqiest;
+    public FieldDef m113cuotliqiaut;
+    public FieldDef m113cuotaliqinc;
+    public FieldDef m113deddividend;
+    public FieldDef m113dedinterext;
+    public FieldDef m113dedtrabajo;
+    public FieldDef m113dedinternac;
+    public FieldDef m113dedderimage;
+    public FieldDef m113compenvda;
+    public FieldDef m113compenmobil;
+    public FieldDef m113retenbonifi;
+    public FieldDef m113cuotaresult;
+    public FieldDef m113dedovdest2;
+    public FieldDef m113bliqgralcom;
+    public FieldDef m113mingralcom;
+    public FieldDef m113cderiv;
+    public FieldDef m113cderivcom;
+    public FieldDef m113cahor;
+    public FieldDef m113cuotahorau1;
+    public FieldDef m113cahorcom;
+    public TabMod100h13(String name)
+      {
+      super(name);
+      m113dominio = new FieldDef("m113dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m113nif = new FieldDef("m113nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m113declarac = new FieldDef("m113declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      m113ejercicio = new FieldDef("m113ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m113periodo = new FieldDef("m113periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m113bliqgralest = new FieldDef("m113bliqgralest",FieldDef.FLOAT,6,0);
+      m113bliqgralaut = new FieldDef("m113bliqgralaut",FieldDef.FLOAT,6,0);
+      m113minigralest = new FieldDef("m113minigralest",FieldDef.FLOAT,6,0);
+      m113minigralaut = new FieldDef("m113minigralaut",FieldDef.FLOAT,6,0);
+      m113cuotgralest = new FieldDef("m113cuotgralest",FieldDef.FLOAT,6,0);
+      m113cuotgralaut = new FieldDef("m113cuotgralaut",FieldDef.FLOAT,6,0);
+      m113tipogralest = new FieldDef("m113tipogralest",FieldDef.FLOAT,6,0);
+      m113tipogralaut = new FieldDef("m113tipogralaut",FieldDef.FLOAT,6,0);
+      m113bliqahorest = new FieldDef("m113bliqahorest",FieldDef.FLOAT,6,0);
+      m113bliqahoraut = new FieldDef("m113bliqahoraut",FieldDef.FLOAT,6,0);
+      m113cuotahorest = new FieldDef("m113cuotahorest",FieldDef.FLOAT,6,0);
+      m113cuotahoraut = new FieldDef("m113cuotahoraut",FieldDef.FLOAT,6,0);
+      m113cuotaintest = new FieldDef("m113cuotaintest",FieldDef.FLOAT,6,0);
+      m113cuotaintaut = new FieldDef("m113cuotaintaut",FieldDef.FLOAT,6,0);
+      m113dedvdaest = new FieldDef("m113dedvdaest",FieldDef.FLOAT,6,0);
+      m113dedvdaaut = new FieldDef("m113dedvdaaut",FieldDef.FLOAT,6,0);
+      m113dedbicest = new FieldDef("m113dedbicest",FieldDef.FLOAT,6,0);
+      m113dedbicaut = new FieldDef("m113dedbicaut",FieldDef.FLOAT,6,0);
+      m113deddonest = new FieldDef("m113deddonest",FieldDef.FLOAT,6,0);
+      m113deddonaut = new FieldDef("m113deddonaut",FieldDef.FLOAT,6,0);
+      m113dedempest = new FieldDef("m113dedempest",FieldDef.FLOAT,6,0);
+      m113dedempaut = new FieldDef("m113dedempaut",FieldDef.FLOAT,6,0);
+      m113dedricest = new FieldDef("m113dedricest",FieldDef.FLOAT,6,0);
+      m113dedricaut = new FieldDef("m113dedricaut",FieldDef.FLOAT,6,0);
+      m113dedpacest = new FieldDef("m113dedpacest",FieldDef.FLOAT,6,0);
+      m113dedpacaut = new FieldDef("m113dedpacaut",FieldDef.FLOAT,6,0);
+      m113dedceuest = new FieldDef("m113dedceuest",FieldDef.FLOAT,6,0);
+      m113dedceuaut = new FieldDef("m113dedceuaut",FieldDef.FLOAT,6,0);
+      m113dedcheest = new FieldDef("m113dedcheest",FieldDef.FLOAT,6,0);
+      m113dedcheaut = new FieldDef("m113dedcheaut",FieldDef.FLOAT,6,0);
+      m113dedavdest = new FieldDef("m113dedavdest",FieldDef.FLOAT,6,0);
+      m113dedavdaut = new FieldDef("m113dedavdaut",FieldDef.FLOAT,6,0);
+      m113dedovdest = new FieldDef("m113dedovdest",FieldDef.FLOAT,6,0);
+      m113totdedaut = new FieldDef("m113totdedaut",FieldDef.FLOAT,6,0);
+      m113cuotaliqest = new FieldDef("m113cuotaliqest",FieldDef.FLOAT,6,0);
+      m113cuotaliqaut = new FieldDef("m113cuotaliqaut",FieldDef.FLOAT,6,0);
+      m113perdded1est = new FieldDef("m113perdded1est",FieldDef.FLOAT,6,0);
+      m113perdint1est = new FieldDef("m113perdint1est",FieldDef.FLOAT,6,0);
+      m113perdded2est = new FieldDef("m113perdded2est",FieldDef.FLOAT,6,0);
+      m113perdint2est = new FieldDef("m113perdint2est",FieldDef.FLOAT,6,0);
+      m113perdded2aut = new FieldDef("m113perdded2aut",FieldDef.FLOAT,6,0);
+      m113perdint2aut = new FieldDef("m113perdint2aut",FieldDef.FLOAT,6,0);
+      m113perdded3aut = new FieldDef("m113perdded3aut",FieldDef.FLOAT,6,0);
+      m113perdint3aut = new FieldDef("m113perdint3aut",FieldDef.FLOAT,6,0);
+      m113cuotliqiest = new FieldDef("m113cuotliqiest",FieldDef.FLOAT,6,0);
+      m113cuotliqiaut = new FieldDef("m113cuotliqiaut",FieldDef.FLOAT,6,0);
+      m113cuotaliqinc = new FieldDef("m113cuotaliqinc",FieldDef.FLOAT,6,0);
+      m113deddividend = new FieldDef("m113deddividend",FieldDef.FLOAT,6,0);
+      m113dedinterext = new FieldDef("m113dedinterext",FieldDef.FLOAT,6,0);
+      m113dedtrabajo = new FieldDef("m113dedtrabajo",FieldDef.FLOAT,6,0);
+      m113dedinternac = new FieldDef("m113dedinternac",FieldDef.FLOAT,6,0);
+      m113dedderimage = new FieldDef("m113dedderimage",FieldDef.FLOAT,6,0);
+      m113compenvda = new FieldDef("m113compenvda",FieldDef.FLOAT,6,0);
+      m113compenmobil = new FieldDef("m113compenmobil",FieldDef.FLOAT,6,0);
+      m113retenbonifi = new FieldDef("m113retenbonifi",FieldDef.FLOAT,6,0);
+      m113cuotaresult = new FieldDef("m113cuotaresult",FieldDef.FLOAT,6,0);
+      m113dedovdest2 = new FieldDef("m113dedovdest2",FieldDef.FLOAT,6,0);
+      m113bliqgralcom = new FieldDef("m113bliqgralcom",FieldDef.FLOAT,6,0);
+      m113mingralcom = new FieldDef("m113mingralcom",FieldDef.FLOAT,6,0);
+      m113cderiv = new FieldDef("m113cderiv",FieldDef.FLOAT,6,0);
+      m113cderivcom = new FieldDef("m113cderivcom",FieldDef.FLOAT,6,0);
+      m113cahor = new FieldDef("m113cahor",FieldDef.FLOAT,6,0);
+      m113cuotahorau1 = new FieldDef("m113cuotahorau1",FieldDef.FLOAT,6,0);
+      m113cahorcom = new FieldDef("m113cahorcom",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        m113dominio,
+        m113nif,
+        m113declarac,
+        m113ejercicio,
+        m113periodo,
+        m113bliqgralest,
+        m113bliqgralaut,
+        m113minigralest,
+        m113minigralaut,
+        m113cuotgralest,
+        m113cuotgralaut,
+        m113tipogralest,
+        m113tipogralaut,
+        m113bliqahorest,
+        m113bliqahoraut,
+        m113cuotahorest,
+        m113cuotahoraut,
+        m113cuotaintest,
+        m113cuotaintaut,
+        m113dedvdaest,
+        m113dedvdaaut,
+        m113dedbicest,
+        m113dedbicaut,
+        m113deddonest,
+        m113deddonaut,
+        m113dedempest,
+        m113dedempaut,
+        m113dedricest,
+        m113dedricaut,
+        m113dedpacest,
+        m113dedpacaut,
+        m113dedceuest,
+        m113dedceuaut,
+        m113dedcheest,
+        m113dedcheaut,
+        m113dedavdest,
+        m113dedavdaut,
+        m113dedovdest,
+        m113totdedaut,
+        m113cuotaliqest,
+        m113cuotaliqaut,
+        m113perdded1est,
+        m113perdint1est,
+        m113perdded2est,
+        m113perdint2est,
+        m113perdded2aut,
+        m113perdint2aut,
+        m113perdded3aut,
+        m113perdint3aut,
+        m113cuotliqiest,
+        m113cuotliqiaut,
+        m113cuotaliqinc,
+        m113deddividend,
+        m113dedinterext,
+        m113dedtrabajo,
+        m113dedinternac,
+        m113dedderimage,
+        m113compenvda,
+        m113compenmobil,
+        m113retenbonifi,
+        m113cuotaresult,
+        m113dedovdest2,
+        m113bliqgralcom,
+        m113mingralcom,
+        m113cderiv,
+        m113cderivcom,
+        m113cahor,
+        m113cuotahorau1,
+        m113cahorcom        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m113dominio,m113nif,m113declarac,m113ejercicio,m113periodo };
+      setPrimaryKeys(arrayf);
+      m113declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
+      m113bliqgralest.setDescription("Gravamen base liquidable general - Aplicación escalas Impuesto importe casilla 620 - Parte estatal (689)");
+      m113bliqgralaut.setDescription("Gravamen base liquidable general - Aplicación escalas Impuesto importe casilla 620 - Parte autonómica (690)");
+      m113minigralest.setDescription("Gravamen base liquidable general - Aplicación escala general Impuesto importe casilla 680 - Parte estatal (691)");
+      m113minigralaut.setDescription("Gravamen base liquidable general - Aplicación escala Impuesto importe casilla 683 - Parte autonómica (692)");
+      m113cuotgralest.setDescription("Gravamen base liquidable general - Cuota base liquidable general - Parte estatal (693)");
+      m113cuotgralaut.setDescription("Gravamen base liquidable general - Cuota base liquidable general - Parte autonómica (694)");
+      m113tipogralest.setDescription("Gravamen base liquidable general - Tipos medio gravamen - Parte estatal (TME)");
+      m113tipogralaut.setDescription("Gravamen base liquidable general - Tipos medio gravamen - Parte autonómica (TMA)");
+      m113bliqahorest.setDescription("Gravamen base liquidable ahorro - Base liquidable ahorro sometida gravamen - Parte estatal (695)");
+      m113bliqahoraut.setDescription("Gravamen base liquidable ahorro - Base liquidable ahorro sometida gravamen - Parte autonómica (771)");
+      m113cuotahorest.setDescription("Gravamen base liquidable ahorro - Cuota base liquidable ahorro - Parte estatal (696)");
+      m113cuotahoraut.setDescription("Gravamen base liquidable ahorro - Cuota base liquidable ahorro - Parte autonómica (697)");
+      m113cuotaintest.setDescription("Cuotas íntegras - Parte estatal (698)");
+      m113cuotaintaut.setDescription("Cuotas íntegras - Parte autonómica (699)");
+      m113dedvdaest.setDescription("Deducciones cuotas íntegras - Inversión vivienda habitual - Parte estatal (700)");
+      m113dedvdaaut.setDescription("Deducciones cuotas íntegras - Inversión vivienda habitual - Parte autonómica (701)");
+      m113dedbicest.setDescription("Deducciones cuotas íntegras - Inversiones/gastos interés cultural - Parte estatal (702)");
+      m113dedbicaut.setDescription("Deducciones cuotas íntegras - Inversiones/gastos interés cultural - Parte autonómica (703)");
+      m113deddonest.setDescription("Deducciones cuotas íntegras - Donativos - Parte estatal (704)");
+      m113deddonaut.setDescription("Deducciones cuotas íntegras - Donativos - Parte autonómica (705)");
+      m113dedempest.setDescription("Deducciones cuotas íntegras - Incentivos inversión empresarial - Parte estatal (706)");
+      m113dedempaut.setDescription("Deducciones cuotas íntegras - Incentivos inversión empresarial - Parte autonómica (707)");
+      m113dedricest.setDescription("Deducciones cuotas íntegras - Dotaciones Reserva Canarias - Parte estatal (708)");
+      m113dedricaut.setDescription("Deducciones cuotas íntegras - Dotaciones Reserva Canarias - Parte autonómica (709)");
+      m113dedpacest.setDescription("Deducciones cuotas íntegras - Rendimientos venta bienes Canarias - Parte estatal (710)");
+      m113dedpacaut.setDescription("Deducciones cuotas íntegras - Rendimientos venta bienes Canarias - Parte autonómica (711)");
+      m113dedceuest.setDescription("Deducciones cuotas íntegras - Rentas obtenidas Ceuta o Melilla - Parte estatal (712)");
+      m113dedceuaut.setDescription("Deducciones cuotas íntegras - Rentas obtenidas Ceuta o Melilla - Parte autonómica (713)");
+      m113dedcheest.setDescription("Deducciones cuotas íntegras - Cantidades depositadas cuentas ahorro-empresa - Parte estatal (714)");
+      m113dedcheaut.setDescription("Deducciones cuotas íntegras - Cantidades depositadas cuentas ahorro-empresa - Parte autonómica (715)");
+      m113dedavdest.setDescription("Deducciones cuotas íntegras - Alquiler vivienda habitual - Parte estatal (716)");
+      m113dedavdaut.setDescription("Deducciones cuotas íntegras - Alquiler vivienda habitual - Parte autonómica (772)");
+      m113dedovdest.setDescription("Deducciones cuotas íntegras - Obras de mejora en la vivienda habitual - Parte estatal (773)");
+      m113totdedaut.setDescription("Deducciones autonómicas - (717)");
+      m113cuotaliqest.setDescription("Cuota líquida estatal - Parte estatal (720)");
+      m113cuotaliqaut.setDescription("Cuota líquida autonómica - Parte autonómica (721)");
+      m113perdded1est.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones 1996 y anteriores - Importe - PE (722)");
+      m113perdint1est.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones 1996 y anteriores - Intereses demora - PE (723)");
+      m113perdded2est.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones generales 1997-2009 - Importe - PE (724)");
+      m113perdint2est.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones generales 1997-2009 - Intereses demora - PE (725)");
+      m113perdded2aut.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones generales 1997-2009 - Importe - PA (726)");
+      m113perdint2aut.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones generales 1997-2009 - Intereses demora - PA (727)");
+      m113perdded3aut.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones autonómicas 1998-2009 - Importe - PA (728)");
+      m113perdint3aut.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Deducciones autonómicas 1998-2009 - Intereses demora - PA (729)");
+      m113cuotliqiest.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Cuotas líquidas incrementadas - Parte estatal (730)");
+      m113cuotliqiaut.setDescription("Incremento cuotas líquidas pérdida derecho deducciones - Cuotas líquidas incrementadas - Parte autonómica (731)");
+      m113cuotaliqinc.setDescription("Cuota resultante autoliquidación - Cuota líquida incrementada total (732)");
+      m113deddividend.setDescription("Cuota resultante autoliquidación - Deducciones doble imposición - Dividendos pendientes ejercicio 2006 (733)");
+      m113dedinterext.setDescription("Cuota resultante autoliquidación - Deducciones doble imposición - Rentas obtenidas y gravadas en el extranjero (734)");
+      m113dedtrabajo.setDescription("Cuota resultante autoliquidación - Deducción obtención rendimientos trabajo o act. económicas (735)");
+      m113dedinternac.setDescription("Cuota resultante autoliquidación - Deducciones doble imposición - Aplicación régimen transparencia fiscal internacional (736)");
+      m113dedderimage.setDescription("Cuota resultante autoliquidación - Deducciones doble imposición - Aplicación régimen imputación rentas cesión derechos imagen (737)");
+      m113compenvda.setDescription("Cuota resultante autoliquidación - Compensaciones fiscales - Deducción por adquisición vivienda habitual adquirida antes 20-01-06 (738)");
+      m113compenmobil.setDescription("Cuota resultante autoliquidación - Compensaciones fiscales - Percepción rdtos.capital mobiliario > 2 años (739)");
+      m113retenbonifi.setDescription("Cuota resultante autoliquidación - Retenciones deducibles rendimientos bonificados - Importe retenciones no practicadas (740)");
+      m113cuotaresult.setDescription("Cuota resultante autoliquidación - Cuota resultante autoliquidación (741)");
+      m113dedovdest2.setDescription("Deducciones cuotas íntegras - Obras de mejora viviendas desde 7/5/11 (733)");
+      m113bliqgralcom.setDescription("Gravamen base liq.general - (624) Aplicación escalas complementaria importe casilla 620");
+      m113mingralcom.setDescription("Gravamen base liq.general - (625) Aplicación escalas complementaria importe casilla 680");
+      m113cderiv.setDescription("Gravamen base liq.general - (626) Cuota derivada escala gral");
+      m113cderivcom.setDescription("Gravamen base liq.general - (627) Cuota derivada escala complementaria");
+      m113cahor.setDescription("Gravamen base liq.ahorro  - (628) Aplicacion escala ahorro a casilla 695");
+      m113cuotahorau1.setDescription("Gravamen base liq.ahorro  - (697) Aplicacion escala ahorro a casilla 771");
+      m113cahorcom.setDescription("Gravamen base liq.ahorro  - (629) Aplicacion esc.complementaria a    695");
       }
     }
     
@@ -5433,6 +6502,49 @@ public class CatModelo100 extends Catalog
     public FieldDef m116invglxiniej;
     public FieldDef m116invglxaplic;
     public FieldDef m116invglxpdte;
+    public FieldDef m116mej2ntotinm;
+    public FieldDef m116mej2inver1;
+    public FieldDef m116mej2base1;
+    public FieldDef m116mej2ded1;
+    public FieldDef m116mej2porpa1;
+    public FieldDef m116mej2porto1;
+    public FieldDef m116mej2exces1;
+    public FieldDef m116mej2nif1;
+    public FieldDef m116mej2refer1;
+    public FieldDef m116mej2inver2;
+    public FieldDef m116mej2base2;
+    public FieldDef m116mej2ded2;
+    public FieldDef m116mej2porpa2;
+    public FieldDef m116mej2porto2;
+    public FieldDef m116mej2exces2;
+    public FieldDef m116mej2nif2;
+    public FieldDef m116mej2refer2;
+    public FieldDef m116mej2inver3;
+    public FieldDef m116mej2base3;
+    public FieldDef m116mej2ded3;
+    public FieldDef m116mej2exces3;
+    public FieldDef m116mej2totded;
+    public FieldDef m116mej1canant;
+    public FieldDef m116mej1invant;
+    public FieldDef m116mej1dedant;
+    public FieldDef m116mej1canact;
+    public FieldDef m116mej1invact;
+    public FieldDef m116mej1dedact;
+    public FieldDef m116mej1porpa;
+    public FieldDef m116mej1porto;
+    public FieldDef m116mej1totded;
+    public FieldDef m116mej1exces;
+    public FieldDef m116mej1nif;
+    public FieldDef m116mej1refer;
+    public FieldDef m116mej2invant1;
+    public FieldDef m116mej2bant1;
+    public FieldDef m116mej2dedant1;
+    public FieldDef m116mej2invant2;
+    public FieldDef m116mej2bant2;
+    public FieldDef m116mej2dedant2;
+    public FieldDef m116mej2invant3;
+    public FieldDef m116mej2bant3;
+    public FieldDef m116mej2dedant3;
     public TabMod100h16(String name)
       {
       super(name);
@@ -5547,6 +6659,49 @@ public class CatModelo100 extends Catalog
       m116invglxiniej = new FieldDef("m116invglxiniej",FieldDef.FLOAT,6,0);
       m116invglxaplic = new FieldDef("m116invglxaplic",FieldDef.FLOAT,6,0);
       m116invglxpdte = new FieldDef("m116invglxpdte",FieldDef.FLOAT,6,0);
+      m116mej2ntotinm = new FieldDef("m116mej2ntotinm",FieldDef.INTEGER,0);
+      m116mej2inver1 = new FieldDef("m116mej2inver1",FieldDef.FLOAT,6,0);
+      m116mej2base1 = new FieldDef("m116mej2base1",FieldDef.FLOAT,6,0);
+      m116mej2ded1 = new FieldDef("m116mej2ded1",FieldDef.FLOAT,6,0);
+      m116mej2porpa1 = new FieldDef("m116mej2porpa1",FieldDef.FLOAT,6,0);
+      m116mej2porto1 = new FieldDef("m116mej2porto1",FieldDef.FLOAT,6,0);
+      m116mej2exces1 = new FieldDef("m116mej2exces1",FieldDef.FLOAT,6,0);
+      m116mej2nif1 = new FieldDef("m116mej2nif1",FieldDef.CHAR,9);
+      m116mej2refer1 = new FieldDef("m116mej2refer1",FieldDef.CHAR,20);
+      m116mej2inver2 = new FieldDef("m116mej2inver2",FieldDef.FLOAT,6,0);
+      m116mej2base2 = new FieldDef("m116mej2base2",FieldDef.FLOAT,6,0);
+      m116mej2ded2 = new FieldDef("m116mej2ded2",FieldDef.FLOAT,6,0);
+      m116mej2porpa2 = new FieldDef("m116mej2porpa2",FieldDef.FLOAT,6,0);
+      m116mej2porto2 = new FieldDef("m116mej2porto2",FieldDef.FLOAT,6,0);
+      m116mej2exces2 = new FieldDef("m116mej2exces2",FieldDef.FLOAT,6,0);
+      m116mej2nif2 = new FieldDef("m116mej2nif2",FieldDef.CHAR,9);
+      m116mej2refer2 = new FieldDef("m116mej2refer2",FieldDef.CHAR,20);
+      m116mej2inver3 = new FieldDef("m116mej2inver3",FieldDef.FLOAT,6,0);
+      m116mej2base3 = new FieldDef("m116mej2base3",FieldDef.FLOAT,6,0);
+      m116mej2ded3 = new FieldDef("m116mej2ded3",FieldDef.FLOAT,6,0);
+      m116mej2exces3 = new FieldDef("m116mej2exces3",FieldDef.FLOAT,6,0);
+      m116mej2totded = new FieldDef("m116mej2totded",FieldDef.FLOAT,6,0);
+      m116mej1canant = new FieldDef("m116mej1canant",FieldDef.FLOAT,6,0);
+      m116mej1invant = new FieldDef("m116mej1invant",FieldDef.FLOAT,6,0);
+      m116mej1dedant = new FieldDef("m116mej1dedant",FieldDef.FLOAT,6,0);
+      m116mej1canact = new FieldDef("m116mej1canact",FieldDef.FLOAT,6,0);
+      m116mej1invact = new FieldDef("m116mej1invact",FieldDef.FLOAT,6,0);
+      m116mej1dedact = new FieldDef("m116mej1dedact",FieldDef.FLOAT,6,0);
+      m116mej1porpa = new FieldDef("m116mej1porpa",FieldDef.FLOAT,6,0);
+      m116mej1porto = new FieldDef("m116mej1porto",FieldDef.FLOAT,6,0);
+      m116mej1totded = new FieldDef("m116mej1totded",FieldDef.FLOAT,6,0);
+      m116mej1exces = new FieldDef("m116mej1exces",FieldDef.FLOAT,6,0);
+      m116mej1nif = new FieldDef("m116mej1nif",FieldDef.CHAR,9);
+      m116mej1refer = new FieldDef("m116mej1refer",FieldDef.CHAR,20);
+      m116mej2invant1 = new FieldDef("m116mej2invant1",FieldDef.FLOAT,6,0);
+      m116mej2bant1 = new FieldDef("m116mej2bant1",FieldDef.FLOAT,6,0);
+      m116mej2dedant1 = new FieldDef("m116mej2dedant1",FieldDef.FLOAT,6,0);
+      m116mej2invant2 = new FieldDef("m116mej2invant2",FieldDef.FLOAT,6,0);
+      m116mej2bant2 = new FieldDef("m116mej2bant2",FieldDef.FLOAT,6,0);
+      m116mej2dedant2 = new FieldDef("m116mej2dedant2",FieldDef.FLOAT,6,0);
+      m116mej2invant3 = new FieldDef("m116mej2invant3",FieldDef.FLOAT,6,0);
+      m116mej2bant3 = new FieldDef("m116mej2bant3",FieldDef.FLOAT,6,0);
+      m116mej2dedant3 = new FieldDef("m116mej2dedant3",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m116dominio,
         m116nif,
@@ -5658,7 +6813,50 @@ public class CatModelo100 extends Catalog
         m116invsdepdte,
         m116invglxiniej,
         m116invglxaplic,
-        m116invglxpdte        
+        m116invglxpdte,
+        m116mej2ntotinm,
+        m116mej2inver1,
+        m116mej2base1,
+        m116mej2ded1,
+        m116mej2porpa1,
+        m116mej2porto1,
+        m116mej2exces1,
+        m116mej2nif1,
+        m116mej2refer1,
+        m116mej2inver2,
+        m116mej2base2,
+        m116mej2ded2,
+        m116mej2porpa2,
+        m116mej2porto2,
+        m116mej2exces2,
+        m116mej2nif2,
+        m116mej2refer2,
+        m116mej2inver3,
+        m116mej2base3,
+        m116mej2ded3,
+        m116mej2exces3,
+        m116mej2totded,
+        m116mej1canant,
+        m116mej1invant,
+        m116mej1dedant,
+        m116mej1canact,
+        m116mej1invact,
+        m116mej1dedact,
+        m116mej1porpa,
+        m116mej1porto,
+        m116mej1totded,
+        m116mej1exces,
+        m116mej1nif,
+        m116mej1refer,
+        m116mej2invant1,
+        m116mej2bant1,
+        m116mej2dedant1,
+        m116mej2invant2,
+        m116mej2bant2,
+        m116mej2dedant2,
+        m116mej2invant3,
+        m116mej2bant3,
+        m116mej2dedant3        
         };
       setColumns(array);
       FieldDef arrayf[] = {m116dominio,m116nif,m116declarac,m116ejercicio,m116periodo };
@@ -5720,7 +6918,7 @@ public class CatModelo100 extends Catalog
       m116invbwraplic.setDescription("Deducciones incentivos/estimulos inv. empres. Ejercicio 2010 Regimenes apoyo Barcelona World Race Aplicado en esta declaracion (956)");
       m116invbwrpdte.setDescription("Deducciones incentivos/estimulos inv. empres. Ejercicio 2010 Regimenes apoyo Barcelona World Race Pendiente de aplicacion");
       m116invgcainiej.setDescription("Deducciones incentivos/estimulos inv. empres. Ejercicio 2010 Regimenes apoyo 33 Copa del America Deduccion 2010");
-      m116invgcaaplic.setDescription("Deducciones incentivos/estimulos inv empres Ejercicio 2010 Regimenes apoyo 33 Copa del America 62 640 13 FLOATDeducciones incentivos/estimulos inv. empre");
+      m116invgcaaplic.setDescription("Deducciones incentivos/estimulos inv  empres  Ejercicio 2010 Regimenes apoyo 33 Copa del America 62 640 13 FLOATDeducciones incentivos/estimulos inv. empre");
       m116invgcapdte.setDescription("Deducciones incentivos/estimulos inv. empres. Ejercicio 2010 Regimenes apoyo 33 Copa del America Pendiente de aplicacion");
       m116invgrhiniej.setDescription("Deducciones incentivos/estimulos inv. empres. Ejercicio 2010 Regimenes apoyo Guadalquivir Rio de Historia Deduccion 2010");
       m116invgrhaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Ejercicio 2010 Regimenes apoyo Guadalquivir Rio de Historia Aplicado en esta declaracion (958)");
@@ -5770,264 +6968,49 @@ public class CatModelo100 extends Catalog
       m116invglxiniej.setDescription("Deducciones incentivos/estimulos inv. empres. Ejercicio 2010 Regimenes apoyo Google Lunar X Prize Deduccion 2010");
       m116invglxaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Ejercicio 2010 Regimenes apoyo Google Lunar X Prize Aplicado en esta declaracion (538)");
       m116invglxpdte.setDescription("Deducciones incentivos/estimulos inv. empres. Ejercicio 2010 Regimenes apoyo Google Lunar X Prize Pendiente de aplicacion");
-      }
-    }
-    
-  public class TabMod100h17 extends TableDef
-    {
-    // Campos
-    public FieldDef m117dominio;
-    public FieldDef m117nif;
-    public FieldDef m117declarac;
-    public FieldDef m117ejercicio;
-    public FieldDef m117periodo;
-    public FieldDef m117invant1inie;
-    public FieldDef m117invant1apli;
-    public FieldDef m117invant1pdte;
-    public FieldDef m117invant2inie;
-    public FieldDef m117invant2apli;
-    public FieldDef m117invant2pdte;
-    public FieldDef m117invidiniej;
-    public FieldDef m117invidaplic;
-    public FieldDef m117invidpdte;
-    public FieldDef m117invticiniej;
-    public FieldDef m117invticaplic;
-    public FieldDef m117invticpdte;
-    public FieldDef m117inveeiniej;
-    public FieldDef m117inveeaplic;
-    public FieldDef m117inveepdte;
-    public FieldDef m117inva38iniej;
-    public FieldDef m117inva38aplic;
-    public FieldDef m117inva38pdte;
-    public FieldDef m117invpmainiej;
-    public FieldDef m117invpmaaplic;
-    public FieldDef m117invpmapdte;
-    public FieldDef m117invfpiniej;
-    public FieldDef m117invfpaplic;
-    public FieldDef m117invfppdte;
-    public FieldDef m117invceiniej;
-    public FieldDef m117invceaplic;
-    public FieldDef m117invcepdte;
-    public FieldDef m117inva43iniej;
-    public FieldDef m117inva43aplic;
-    public FieldDef m117inva43pdte;
-    public FieldDef m117invafiniej;
-    public FieldDef m117invafaplic;
-    public FieldDef m117invafpdte;
-    public FieldDef m117totalinver;
-    public FieldDef m117dedestatal;
-    public FieldDef m117dedautonom;
-    public FieldDef m117ricdotant3;
-    public FieldDef m117ricmatant3;
-    public FieldDef m117ricclaant3;
-    public FieldDef m117ricdotant2;
-    public FieldDef m117ricmat1ant2;
-    public FieldDef m117ricmat2ant2;
-    public FieldDef m117ricpdteant2;
-    public FieldDef m117ricdotant1;
-    public FieldDef m117ricmat1ant1;
-    public FieldDef m117ricmat2ant1;
-    public FieldDef m117ricpdteant1;
-    public FieldDef m117ricdotant;
-    public FieldDef m117ricmat1ant;
-    public FieldDef m117ricmat2ant;
-    public FieldDef m117ricpdteant;
-    public FieldDef m117ricdotact;
-    public FieldDef m117ricmat1act;
-    public FieldDef m117ricmat2act;
-    public FieldDef m117ricpdteact;
-    public FieldDef m117ricmat1fut;
-    public FieldDef m117ricmat2fut;
-    public TabMod100h17(String name)
-      {
-      super(name);
-      m117dominio = new FieldDef("m117dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m117nif = new FieldDef("m117nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m117declarac = new FieldDef("m117declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      m117ejercicio = new FieldDef("m117ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m117periodo = new FieldDef("m117periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m117invant1inie = new FieldDef("m117invant1inie",FieldDef.FLOAT,6,0);
-      m117invant1apli = new FieldDef("m117invant1apli",FieldDef.FLOAT,6,0);
-      m117invant1pdte = new FieldDef("m117invant1pdte",FieldDef.FLOAT,6,0);
-      m117invant2inie = new FieldDef("m117invant2inie",FieldDef.FLOAT,6,0);
-      m117invant2apli = new FieldDef("m117invant2apli",FieldDef.FLOAT,6,0);
-      m117invant2pdte = new FieldDef("m117invant2pdte",FieldDef.FLOAT,6,0);
-      m117invidiniej = new FieldDef("m117invidiniej",FieldDef.FLOAT,6,0);
-      m117invidaplic = new FieldDef("m117invidaplic",FieldDef.FLOAT,6,0);
-      m117invidpdte = new FieldDef("m117invidpdte",FieldDef.FLOAT,6,0);
-      m117invticiniej = new FieldDef("m117invticiniej",FieldDef.FLOAT,6,0);
-      m117invticaplic = new FieldDef("m117invticaplic",FieldDef.FLOAT,6,0);
-      m117invticpdte = new FieldDef("m117invticpdte",FieldDef.FLOAT,6,0);
-      m117inveeiniej = new FieldDef("m117inveeiniej",FieldDef.FLOAT,6,0);
-      m117inveeaplic = new FieldDef("m117inveeaplic",FieldDef.FLOAT,6,0);
-      m117inveepdte = new FieldDef("m117inveepdte",FieldDef.FLOAT,6,0);
-      m117inva38iniej = new FieldDef("m117inva38iniej",FieldDef.FLOAT,6,0);
-      m117inva38aplic = new FieldDef("m117inva38aplic",FieldDef.FLOAT,6,0);
-      m117inva38pdte = new FieldDef("m117inva38pdte",FieldDef.FLOAT,6,0);
-      m117invpmainiej = new FieldDef("m117invpmainiej",FieldDef.FLOAT,6,0);
-      m117invpmaaplic = new FieldDef("m117invpmaaplic",FieldDef.FLOAT,6,0);
-      m117invpmapdte = new FieldDef("m117invpmapdte",FieldDef.FLOAT,6,0);
-      m117invfpiniej = new FieldDef("m117invfpiniej",FieldDef.FLOAT,6,0);
-      m117invfpaplic = new FieldDef("m117invfpaplic",FieldDef.FLOAT,6,0);
-      m117invfppdte = new FieldDef("m117invfppdte",FieldDef.FLOAT,6,0);
-      m117invceiniej = new FieldDef("m117invceiniej",FieldDef.FLOAT,6,0);
-      m117invceaplic = new FieldDef("m117invceaplic",FieldDef.FLOAT,6,0);
-      m117invcepdte = new FieldDef("m117invcepdte",FieldDef.FLOAT,6,0);
-      m117inva43iniej = new FieldDef("m117inva43iniej",FieldDef.FLOAT,6,0);
-      m117inva43aplic = new FieldDef("m117inva43aplic",FieldDef.FLOAT,6,0);
-      m117inva43pdte = new FieldDef("m117inva43pdte",FieldDef.FLOAT,6,0);
-      m117invafiniej = new FieldDef("m117invafiniej",FieldDef.FLOAT,6,0);
-      m117invafaplic = new FieldDef("m117invafaplic",FieldDef.FLOAT,6,0);
-      m117invafpdte = new FieldDef("m117invafpdte",FieldDef.FLOAT,6,0);
-      m117totalinver = new FieldDef("m117totalinver",FieldDef.FLOAT,6,0);
-      m117dedestatal = new FieldDef("m117dedestatal",FieldDef.FLOAT,6,0);
-      m117dedautonom = new FieldDef("m117dedautonom",FieldDef.FLOAT,6,0);
-      m117ricdotant3 = new FieldDef("m117ricdotant3",FieldDef.FLOAT,6,0);
-      m117ricmatant3 = new FieldDef("m117ricmatant3",FieldDef.FLOAT,6,0);
-      m117ricclaant3 = new FieldDef("m117ricclaant3",FieldDef.INTEGER,0);
-      m117ricdotant2 = new FieldDef("m117ricdotant2",FieldDef.FLOAT,6,0);
-      m117ricmat1ant2 = new FieldDef("m117ricmat1ant2",FieldDef.FLOAT,6,0);
-      m117ricmat2ant2 = new FieldDef("m117ricmat2ant2",FieldDef.FLOAT,6,0);
-      m117ricpdteant2 = new FieldDef("m117ricpdteant2",FieldDef.FLOAT,6,0);
-      m117ricdotant1 = new FieldDef("m117ricdotant1",FieldDef.FLOAT,6,0);
-      m117ricmat1ant1 = new FieldDef("m117ricmat1ant1",FieldDef.FLOAT,6,0);
-      m117ricmat2ant1 = new FieldDef("m117ricmat2ant1",FieldDef.FLOAT,6,0);
-      m117ricpdteant1 = new FieldDef("m117ricpdteant1",FieldDef.FLOAT,6,0);
-      m117ricdotant = new FieldDef("m117ricdotant",FieldDef.FLOAT,6,0);
-      m117ricmat1ant = new FieldDef("m117ricmat1ant",FieldDef.FLOAT,6,0);
-      m117ricmat2ant = new FieldDef("m117ricmat2ant",FieldDef.FLOAT,6,0);
-      m117ricpdteant = new FieldDef("m117ricpdteant",FieldDef.FLOAT,6,0);
-      m117ricdotact = new FieldDef("m117ricdotact",FieldDef.FLOAT,6,0);
-      m117ricmat1act = new FieldDef("m117ricmat1act",FieldDef.FLOAT,6,0);
-      m117ricmat2act = new FieldDef("m117ricmat2act",FieldDef.FLOAT,6,0);
-      m117ricpdteact = new FieldDef("m117ricpdteact",FieldDef.FLOAT,6,0);
-      m117ricmat1fut = new FieldDef("m117ricmat1fut",FieldDef.FLOAT,6,0);
-      m117ricmat2fut = new FieldDef("m117ricmat2fut",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        m117dominio,
-        m117nif,
-        m117declarac,
-        m117ejercicio,
-        m117periodo,
-        m117invant1inie,
-        m117invant1apli,
-        m117invant1pdte,
-        m117invant2inie,
-        m117invant2apli,
-        m117invant2pdte,
-        m117invidiniej,
-        m117invidaplic,
-        m117invidpdte,
-        m117invticiniej,
-        m117invticaplic,
-        m117invticpdte,
-        m117inveeiniej,
-        m117inveeaplic,
-        m117inveepdte,
-        m117inva38iniej,
-        m117inva38aplic,
-        m117inva38pdte,
-        m117invpmainiej,
-        m117invpmaaplic,
-        m117invpmapdte,
-        m117invfpiniej,
-        m117invfpaplic,
-        m117invfppdte,
-        m117invceiniej,
-        m117invceaplic,
-        m117invcepdte,
-        m117inva43iniej,
-        m117inva43aplic,
-        m117inva43pdte,
-        m117invafiniej,
-        m117invafaplic,
-        m117invafpdte,
-        m117totalinver,
-        m117dedestatal,
-        m117dedautonom,
-        m117ricdotant3,
-        m117ricmatant3,
-        m117ricclaant3,
-        m117ricdotant2,
-        m117ricmat1ant2,
-        m117ricmat2ant2,
-        m117ricpdteant2,
-        m117ricdotant1,
-        m117ricmat1ant1,
-        m117ricmat2ant1,
-        m117ricpdteant1,
-        m117ricdotant,
-        m117ricmat1ant,
-        m117ricmat2ant,
-        m117ricpdteant,
-        m117ricdotact,
-        m117ricmat1act,
-        m117ricmat2act,
-        m117ricpdteact,
-        m117ricmat1fut,
-        m117ricmat2fut        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m117dominio,m117nif,m117declarac,m117ejercicio,m117periodo };
-      setPrimaryKeys(arrayf);
-      m117declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
-      m117invant1inie.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Saldos ptes. Inv. adquisicion activos fijos Saldo anterior");
-      m117invant1apli.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Saldos ptes. Inv. adquisicion activos fijos Aplicado en esta declaracion (968)");
-      m117invant1pdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Saldos ptes. Inv. adquisicion activos fijos Pendiente de aplicacion");
-      m117invant2inie.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Saldos ptes. Restantes modalidades Saldo anterior");
-      m117invant2apli.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Saldos ptes. Restantes modalidades Aplicado en esta declaracion (969)");
-      m117invant2pdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Saldos ptes. Restantes modalidades Pendiente de aplicacion");
-      m117invidiniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Investigacion desarrollo innovacion tecnologica Deduccion");
-      m117invidaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Investigacion desarrollo innovacion tecnologica Aplicado e");
-      m117invidpdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Investigacion desarrollo innovacion tecnologica Pendiente");
-      m117invticiniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Fomento tecnologias informacion y comunicacion Deduccion 2");
-      m117invticaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Fomento tecnologias informacion y comunicacion Aplicado en");
-      m117invticpdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Fomento tecnologias informacion y comunicacion Pendiente d");
-      m117inveeiniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Actividades exportacion Deduccion 2010");
-      m117inveeaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Actividades exportacion Aplicado en esta declaracion (972)");
-      m117inveepdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Actividades exportacion Pendiente de aplicacion");
-      m117inva38iniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 L.I.S. Inversiones/gastos art. 38 Deduccion 2010");
-      m117inva38aplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 L.I.S. Inversiones/gastos art. 38 Aplicado en esta declaracion (9");
-      m117inva38pdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 L.I.S. Inversiones/gastos art. 38 Pendiente de aplicacion");
-      m117invpmainiej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 L.I.S. Inversiones medioambientales Deduccion 2010");
-      m117invpmaaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 L.I.S. Inversiones medioambientales Aplicado en esta declaracion");
-      m117invpmapdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 L.I.S. Inversiones medioambientales Pendiente de aplicacion");
-      m117invfpiniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Gastos formacion profesional Deduccion 2010");
-      m117invfpaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Gastos formacion profesional Aplicado en esta declaracion");
-      m117invfppdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Gastos formacion profesional Pendiente de aplicacion");
-      m117invceiniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Creacion empleo trabajadores minusvalidos Deduccion 2010");
-      m117invceaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Creacion empleo trabajadores minusvalidos Aplicado en esta");
-      m117invcepdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Creacion empleo trabajadores minusvalidos Pendiente de apl");
-      m117inva43iniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Contribuciones empresariales y aportaciones art. 43 Deducc");
-      m117inva43aplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Contribuciones empresariales y aportaciones art. 43 Aplica");
-      m117inva43pdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. inv. Canarias Ejercicio 2010 L.I.S. Contribuciones empresariales y aportaciones art. 43 Pendie");
-      m117invafiniej.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 Inversiones en la adquisicion de activos fijos Deduccion 2010");
-      m117invafaplic.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 Inversiones en la adquisicion de activos fijos Aplicado en esta d");
-      m117invafpdte.setDescription("Deducciones incentivos/estimulos inv. empres. Reg. Esp. Inv. Canarias Ejercicio 2010 Inversiones en la adquisicion de activos fijos Pendiente de aplic");
-      m117totalinver.setDescription("Deducciones incentivos/estimulos inv. empres. Importe aplicado declaracion Importe total (979)");
-      m117dedestatal.setDescription("Deducciones por incentivos y estimulos incentivos/estimulos inv. empres. Importe aplicado declaracion Deducciones por incentivos y estimulos Parte est");
-      m117dedautonom.setDescription("Deducciones por incentivos y estimulos incentivos/estimulos inv. empres. Importe aplicado declaracion Deducciones por incentivos y estimulos Parte aut");
-      m117ricdotant3.setDescription("Reserva inversiones Canarias (Ley 19/1994) Reserva inversiones Canarias 2006 Importe dotaciones");
-      m117ricmatant3.setDescription("Reserva inversiones Canarias (Ley 19/1994) Reserva inversiones Canarias 2006 Materializaciones 2010 (980)");
-      m117ricclaant3.setDescription("Reserva inversiones Canarias (Ley 19/1994) Reserva inversiones Canarias 2006 Clave (0 a 5) (981)");
-      m117ricdotant2.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2007. Importe dotaciones (984)");
-      m117ricmat1ant2.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2007. Inversiones previstas A B y D art.27.4 (985)");
-      m117ricmat2ant2.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2007. Inversiones previstas C y D (2 a 6) art.27.4 (986)");
-      m117ricpdteant2.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2007. Pendiente materializar (987)");
-      m117ricdotant1.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2008. Dotacion y materializaciones. Importe dotacion (988)");
-      m117ricmat1ant1.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2008. Dotacion y materializaciones. Inversiones A B y D (1) art.27.4 (989)");
-      m117ricmat2ant1.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2008. Dotacion y materializaciones. Inversiones C y D (2 a 6) art.27.4 (990)");
-      m117ricpdteant1.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2008. Dotacion y materializaciones. Pendiente de materializar. (991)");
-      m117ricdotant.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2009. Dotacion y materializaciones. Importe dotacion (992)");
-      m117ricmat1ant.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2009. Dotacion y materializaciones. Inversiones A B y D (1) art.27.4 (993)");
-      m117ricmat2ant.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2009. Dotacion y materializaciones. Inversiones C y D (2 a 6) art.27.4 (994)");
-      m117ricpdteant.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2009. Dotacion y materializaciones. Pendiente de materializar. (995)");
-      m117ricdotact.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2010. Dotacion y materializaciones. Importe dotacion (539)");
-      m117ricmat1act.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2010. Dotacion y materializaciones. Inversiones A B y D (1) art.27.4 (561)");
-      m117ricmat2act.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2010. Dotacion y materializaciones. Inversiones C y D (2 a 6) art.27.4 (562)");
-      m117ricpdteact.setDescription("Reserva inversiones Canarias (Ley 19/1994). Reserva inversiones Canarias 2010. Dotacion y materializaciones. Pendiente de materializar. (563)");
-      m117ricmat1fut.setDescription("Reserva inversiones Canarias (Ley 19/1994). Inversiones anticipadas futuras dotaciones. Inversiones A B y D (1) art.27.4 (996)");
-      m117ricmat2fut.setDescription("Reserva inversiones Canarias (Ley 19/1994) Inversiones anticipadas futuras dotaciones Inversiones Reserva inversiones Canarias (Ley 19/199");
+      m116mej2ntotinm.setDescription("Ded.Obras vdas desde 7/5/2011 Nro total viviendas");
+      m116mej2inver1.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 1 Cantidades invertidas (436)");
+      m116mej2base1.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 1 Base deduccion");
+      m116mej2ded1.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 1 Deduccion       (437)");
+      m116mej2porpa1.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 1 Porcen paticipa (438)");
+      m116mej2porto1.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 1 Porcen total    (439)");
+      m116mej2exces1.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 1 Exceso          (446)");
+      m116mej2nif1.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 1 NIF             (447)");
+      m116mej2refer1.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 1 Referemcia      (448)");
+      m116mej2inver2.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 2 Cantidades invertidas (449)");
+      m116mej2base2.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 2 Base deduccion");
+      m116mej2ded2.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 2 Deduccion       (462)");
+      m116mej2porpa2.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 2 Porcen paticipa (463)");
+      m116mej2porto2.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 2 Porcen total    (464)");
+      m116mej2exces2.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 2 Exceso          (466)");
+      m116mej2nif2.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 2 NIF             (467)");
+      m116mej2refer2.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 2 Referemcia      (468)");
+      m116mej2inver3.setDescription("Ded.Obras vdas desde 7/5/2011 Vda 3 Cantidades invertidas (469)");
+      m116mej2base3.setDescription("Ded.Obras vdas desde 7/5/2011 Resto vdas Base deduccion");
+      m116mej2ded3.setDescription("Ded.Obras vdas desde 7/5/2011 Resto vdas Deduccion       (471)");
+      m116mej2exces3.setDescription("Ded.Obras vdas desde 7/5/2011 Resto vdas Exceso          (472)");
+      m116mej2totded.setDescription("Ded.Obras vdas desde 7/5/2011 Importe total deduccion (773) (437+462+472)");
+      m116mej1canant.setDescription("Ded.Obras vda hab. antes 7/5/2011 Cantidad pdte 2010 (425)");
+      m116mej1invant.setDescription("Ded.Obras vda hab. antes 7/5/2011 Inversio/base      (O)");
+      m116mej1dedant.setDescription("Ded.Obras vda hab. antes 7/5/2011 Deduccio           (426)");
+      m116mej1canact.setDescription("Ded.Obras vda hab. antes 7/5/2011 Cantidad 2011      (427)");
+      m116mej1invact.setDescription("Ded.Obras vda hab. antes 7/5/2011 Inversio/base      (P)");
+      m116mej1dedact.setDescription("Ded.Obras vda hab. antes 7/5/2011 Deduccio           (428)");
+      m116mej1porpa.setDescription("Ded.Obras vda hab. antes 7/5/2011 Porcen paticipacio (429)");
+      m116mej1porto.setDescription("Ded.Obras vda hab. antes 7/5/2011 Porcen total       (434)");
+      m116mej1totded.setDescription("Ded.Obras vda hab. antes 7/5/2011 Importe total deduccion (773) (426+428)");
+      m116mej1exces.setDescription("Ded.Obras vda hab. antes 7/5/2011 Exceso     (435)");
+      m116mej1nif.setDescription("Ded.Obras vda hab. antes 7/5/2011 NIF        (531)");
+      m116mej1refer.setDescription("Ded.Obras vda hab. antes 7/5/2011 Referencia (532)");
+      m116mej2invant1.setDescription("Ded.Obras desde 7/5/2011 Vda 1 Cantidades invertidas pdtes ej.ant (474)");
+      m116mej2bant1.setDescription("Ded.Obras desde 7/5/2011 Vda 1 Base deduccion  (K)");
+      m116mej2dedant1.setDescription("Ded.Obras desde 7/5/2011 Vda 1 Deduccion       (475)");
+      m116mej2invant2.setDescription("Ded.Obras desde 7/5/2011 Vda 1 Cantidades invertidas pdtes ej.ant (476)");
+      m116mej2bant2.setDescription("Ded.Obras desde 7/5/2011 Vda 1 Base deduccion  (M)");
+      m116mej2dedant2.setDescription("Ded.Obras desde 7/5/2011 Vda 1 Deduccion       (477)");
+      m116mej2invant3.setDescription("Ded.Obras desde 7/5/2011 Vda 1 Cantidades invertidas pdtes ej.ant (478)");
+      m116mej2bant3.setDescription("Ded.Obras desde 7/5/2011 Vda 1 Base deduccion  (O)");
+      m116mej2dedant3.setDescription("Ded.Obras desde 7/5/2011 Vda 1 Deduccion       (479)");
       }
     }
     
@@ -6088,6 +7071,16 @@ public class CatModelo100 extends Catalog
     public FieldDef m11804transmvpr;
     public FieldDef m11804autoemple;
     public FieldDef m11804total;
+    public FieldDef m11802accmercal;
+    public FieldDef m11803gforestal;
+    public FieldDef m11801gasdefens;
+    public FieldDef m11801mejoravda;
+    public FieldDef m11801mejoraexc;
+    public FieldDef m11801conyugemi;
+    public FieldDef m11802adqaccion;
+    public FieldDef m11802vdarural;
+    public FieldDef m11804adqaccion;
+    public FieldDef m11804gastosalu;
     public TabMod100h18(String name)
       {
       super(name);
@@ -6145,6 +7138,16 @@ public class CatModelo100 extends Catalog
       m11804transmvpr = new FieldDef("m11804transmvpr",FieldDef.FLOAT,6,0);
       m11804autoemple = new FieldDef("m11804autoemple",FieldDef.FLOAT,6,0);
       m11804total = new FieldDef("m11804total",FieldDef.FLOAT,6,0);
+      m11802accmercal = new FieldDef("m11802accmercal",FieldDef.FLOAT,6,0);
+      m11803gforestal = new FieldDef("m11803gforestal",FieldDef.FLOAT,6,0);
+      m11801gasdefens = new FieldDef("m11801gasdefens",FieldDef.FLOAT,6,0);
+      m11801mejoravda = new FieldDef("m11801mejoravda",FieldDef.FLOAT,6,0);
+      m11801mejoraexc = new FieldDef("m11801mejoraexc",FieldDef.FLOAT,6,0);
+      m11801conyugemi = new FieldDef("m11801conyugemi",FieldDef.FLOAT,6,0);
+      m11802adqaccion = new FieldDef("m11802adqaccion",FieldDef.FLOAT,6,0);
+      m11802vdarural = new FieldDef("m11802vdarural",FieldDef.FLOAT,6,0);
+      m11804adqaccion = new FieldDef("m11804adqaccion",FieldDef.FLOAT,6,0);
+      m11804gastosalu = new FieldDef("m11804gastosalu",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m118dominio,
         m118nif,
@@ -6199,7 +7202,17 @@ public class CatModelo100 extends Catalog
         m11804transmvda,
         m11804transmvpr,
         m11804autoemple,
-        m11804total        
+        m11804total,
+        m11802accmercal,
+        m11803gforestal,
+        m11801gasdefens,
+        m11801mejoravda,
+        m11801mejoraexc,
+        m11801conyugemi,
+        m11802adqaccion,
+        m11802vdarural,
+        m11804adqaccion,
+        m11804gastosalu        
         };
       setColumns(array);
       FieldDef arrayf[] = {m118dominio,m118nif,m118declarac,m118ejercicio,m118periodo };
@@ -6254,6 +7267,278 @@ public class CatModelo100 extends Catalog
       m11804transmvpr.setDescription("Deducciones Autonomicas Illes Balears Por el impuesto transmisiones y AJD por adquisicion vivienda habitual protegida (837)");
       m11804autoemple.setDescription("Deducciones Autonomicas Illes Balears Para el fomento del autoempleo (838)");
       m11804total.setDescription("Deducciones Autonomicas Illes Balears Total deducciones autonomicas (717)");
+      m11802accmercal.setDescription("2011 Aragon Por inversion en acc. de entidades que cotizan en Mercado bursatil (306)");
+      m11803gforestal.setDescription("2011 Asturias Por gestion forestal sostenible (307)");
+      m11801gasdefens.setDescription("Andalucia 2012  gastos defensa juridica");
+      m11801mejoravda.setDescription("Andalucia 2012  obras de mejoras energeticas");
+      m11801mejoraexc.setDescription("Andalucia 2012  exceso pdte obras de mejoras energeticas");
+      m11801conyugemi.setDescription("Andalucia 2012: conyuge minusvalido");
+      m11802adqaccion.setDescription("Aragon: 2012 compra acciones entidades investigacion y desarrollo  (266)");
+      m11802vdarural.setDescription("Aragon: 2012 adquisicion primera vivienda  nucleos rurales (267)");
+      m11804adqaccion.setDescription("Baleares 2012 inversion adquisicion acciones (268)");
+      m11804gastosalu.setDescription("Baleares 2012 gastos primas seguros salud (269)");
+      }
+    }
+    
+  public class TabMod100h20 extends TableDef
+    {
+    // Campos
+    public FieldDef m120dominio;
+    public FieldDef m120nif;
+    public FieldDef m120declarac;
+    public FieldDef m120ejercicio;
+    public FieldDef m120periodo;
+    public FieldDef m12009nacimient;
+    public FieldDef m12009donlegua;
+    public FieldDef m12009donid;
+    public FieldDef m12009nifalquil;
+    public FieldDef m12009impalquil;
+    public FieldDef m12009intestudi;
+    public FieldDef m12009viudos;
+    public FieldDef m12009rehvda;
+    public FieldDef m12009donmedioa;
+    public FieldDef m12009adqaccion;
+    public FieldDef m12009accmercal;
+    public FieldDef m12009total;
+    public FieldDef m12010adqvda;
+    public FieldDef m12010trabdepen;
+    public FieldDef m12010donpatrim;
+    public FieldDef m12010invpatrim;
+    public FieldDef m12010nifalquil;
+    public FieldDef m12010impalquil;
+    public FieldDef m12010cuidado;
+    public FieldDef m12010acogmenor;
+    public FieldDef m12010total;
+    public FieldDef m12011nacimient;
+    public FieldDef m12011famnumero;
+    public FieldDef m12011cuidado;
+    public FieldDef m12011titdiscap;
+    public FieldDef m12011tecnologi;
+    public FieldDef m12011nifalquil;
+    public FieldDef m12011impalquil;
+    public FieldDef m12011autoemple;
+    public FieldDef m12011total;
+    public FieldDef m12012nacimient;
+    public FieldDef m12012adopinter;
+    public FieldDef m12012acogmenor;
+    public FieldDef m12012acogmayor;
+    public FieldDef m12012nifalquil;
+    public FieldDef m12012impalquil;
+    public FieldDef m12012donfundac;
+    public FieldDef m12012ncremcost;
+    public FieldDef m12012gastosedu;
+    public FieldDef m12012vdanueva;
+    public FieldDef m12012mas2desce;
+    public FieldDef m12012accnuevas;
+    public FieldDef m12012autoemple;
+    public FieldDef m12012accmercal;
+    public FieldDef m12012total;
+    public FieldDef m12010ayudadome;
+    public FieldDef m12010empleomuj;
+    public FieldDef m12010empleojov;
+    public FieldDef m12010adopinter;
+    public FieldDef m12010fammono;
+    public FieldDef m12010nacmulti;
+    public FieldDef m12010mejoravda;
+    public FieldDef m12010ordenador;
+    public FieldDef m12010donecolog;
+    public FieldDef m12011acogmenor;
+    public FieldDef m12011adqaccion;
+    public FieldDef m12011accmercal;
+    public FieldDef m12010escolar;
+    public TabMod100h20(String name)
+      {
+      super(name);
+      m120dominio = new FieldDef("m120dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m120nif = new FieldDef("m120nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m120declarac = new FieldDef("m120declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      m120ejercicio = new FieldDef("m120ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m120periodo = new FieldDef("m120periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m12009nacimient = new FieldDef("m12009nacimient",FieldDef.FLOAT,6,0);
+      m12009donlegua = new FieldDef("m12009donlegua",FieldDef.FLOAT,6,0);
+      m12009donid = new FieldDef("m12009donid",FieldDef.FLOAT,6,0);
+      m12009nifalquil = new FieldDef("m12009nifalquil",FieldDef.CHAR,9);
+      m12009impalquil = new FieldDef("m12009impalquil",FieldDef.FLOAT,6,0);
+      m12009intestudi = new FieldDef("m12009intestudi",FieldDef.FLOAT,6,0);
+      m12009viudos = new FieldDef("m12009viudos",FieldDef.FLOAT,6,0);
+      m12009rehvda = new FieldDef("m12009rehvda",FieldDef.FLOAT,6,0);
+      m12009donmedioa = new FieldDef("m12009donmedioa",FieldDef.FLOAT,6,0);
+      m12009adqaccion = new FieldDef("m12009adqaccion",FieldDef.FLOAT,6,0);
+      m12009accmercal = new FieldDef("m12009accmercal",FieldDef.FLOAT,6,0);
+      m12009total = new FieldDef("m12009total",FieldDef.FLOAT,6,0);
+      m12010adqvda = new FieldDef("m12010adqvda",FieldDef.FLOAT,6,0);
+      m12010trabdepen = new FieldDef("m12010trabdepen",FieldDef.FLOAT,6,0);
+      m12010donpatrim = new FieldDef("m12010donpatrim",FieldDef.FLOAT,6,0);
+      m12010invpatrim = new FieldDef("m12010invpatrim",FieldDef.FLOAT,6,0);
+      m12010nifalquil = new FieldDef("m12010nifalquil",FieldDef.CHAR,9);
+      m12010impalquil = new FieldDef("m12010impalquil",FieldDef.FLOAT,6,0);
+      m12010cuidado = new FieldDef("m12010cuidado",FieldDef.FLOAT,6,0);
+      m12010acogmenor = new FieldDef("m12010acogmenor",FieldDef.FLOAT,6,0);
+      m12010total = new FieldDef("m12010total",FieldDef.FLOAT,6,0);
+      m12011nacimient = new FieldDef("m12011nacimient",FieldDef.FLOAT,6,0);
+      m12011famnumero = new FieldDef("m12011famnumero",FieldDef.FLOAT,6,0);
+      m12011cuidado = new FieldDef("m12011cuidado",FieldDef.FLOAT,6,0);
+      m12011titdiscap = new FieldDef("m12011titdiscap",FieldDef.FLOAT,6,0);
+      m12011tecnologi = new FieldDef("m12011tecnologi",FieldDef.FLOAT,6,0);
+      m12011nifalquil = new FieldDef("m12011nifalquil",FieldDef.CHAR,9);
+      m12011impalquil = new FieldDef("m12011impalquil",FieldDef.FLOAT,6,0);
+      m12011autoemple = new FieldDef("m12011autoemple",FieldDef.FLOAT,6,0);
+      m12011total = new FieldDef("m12011total",FieldDef.FLOAT,6,0);
+      m12012nacimient = new FieldDef("m12012nacimient",FieldDef.FLOAT,6,0);
+      m12012adopinter = new FieldDef("m12012adopinter",FieldDef.FLOAT,6,0);
+      m12012acogmenor = new FieldDef("m12012acogmenor",FieldDef.FLOAT,6,0);
+      m12012acogmayor = new FieldDef("m12012acogmayor",FieldDef.FLOAT,6,0);
+      m12012nifalquil = new FieldDef("m12012nifalquil",FieldDef.CHAR,9);
+      m12012impalquil = new FieldDef("m12012impalquil",FieldDef.FLOAT,6,0);
+      m12012donfundac = new FieldDef("m12012donfundac",FieldDef.FLOAT,6,0);
+      m12012ncremcost = new FieldDef("m12012ncremcost",FieldDef.FLOAT,6,0);
+      m12012gastosedu = new FieldDef("m12012gastosedu",FieldDef.FLOAT,6,0);
+      m12012vdanueva = new FieldDef("m12012vdanueva",FieldDef.FLOAT,6,0);
+      m12012mas2desce = new FieldDef("m12012mas2desce",FieldDef.FLOAT,6,0);
+      m12012accnuevas = new FieldDef("m12012accnuevas",FieldDef.FLOAT,6,0);
+      m12012autoemple = new FieldDef("m12012autoemple",FieldDef.FLOAT,6,0);
+      m12012accmercal = new FieldDef("m12012accmercal",FieldDef.FLOAT,6,0);
+      m12012total = new FieldDef("m12012total",FieldDef.FLOAT,6,0);
+      m12010ayudadome = new FieldDef("m12010ayudadome",FieldDef.FLOAT,6,0);
+      m12010empleomuj = new FieldDef("m12010empleomuj",FieldDef.FLOAT,6,0);
+      m12010empleojov = new FieldDef("m12010empleojov",FieldDef.FLOAT,6,0);
+      m12010adopinter = new FieldDef("m12010adopinter",FieldDef.FLOAT,6,0);
+      m12010fammono = new FieldDef("m12010fammono",FieldDef.FLOAT,6,0);
+      m12010nacmulti = new FieldDef("m12010nacmulti",FieldDef.FLOAT,6,0);
+      m12010mejoravda = new FieldDef("m12010mejoravda",FieldDef.FLOAT,6,0);
+      m12010ordenador = new FieldDef("m12010ordenador",FieldDef.FLOAT,6,0);
+      m12010donecolog = new FieldDef("m12010donecolog",FieldDef.FLOAT,6,0);
+      m12011acogmenor = new FieldDef("m12011acogmenor",FieldDef.FLOAT,6,0);
+      m12011adqaccion = new FieldDef("m12011adqaccion",FieldDef.FLOAT,6,0);
+      m12011accmercal = new FieldDef("m12011accmercal",FieldDef.FLOAT,6,0);
+      m12010escolar = new FieldDef("m12010escolar",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        m120dominio,
+        m120nif,
+        m120declarac,
+        m120ejercicio,
+        m120periodo,
+        m12009nacimient,
+        m12009donlegua,
+        m12009donid,
+        m12009nifalquil,
+        m12009impalquil,
+        m12009intestudi,
+        m12009viudos,
+        m12009rehvda,
+        m12009donmedioa,
+        m12009adqaccion,
+        m12009accmercal,
+        m12009total,
+        m12010adqvda,
+        m12010trabdepen,
+        m12010donpatrim,
+        m12010invpatrim,
+        m12010nifalquil,
+        m12010impalquil,
+        m12010cuidado,
+        m12010acogmenor,
+        m12010total,
+        m12011nacimient,
+        m12011famnumero,
+        m12011cuidado,
+        m12011titdiscap,
+        m12011tecnologi,
+        m12011nifalquil,
+        m12011impalquil,
+        m12011autoemple,
+        m12011total,
+        m12012nacimient,
+        m12012adopinter,
+        m12012acogmenor,
+        m12012acogmayor,
+        m12012nifalquil,
+        m12012impalquil,
+        m12012donfundac,
+        m12012ncremcost,
+        m12012gastosedu,
+        m12012vdanueva,
+        m12012mas2desce,
+        m12012accnuevas,
+        m12012autoemple,
+        m12012accmercal,
+        m12012total,
+        m12010ayudadome,
+        m12010empleomuj,
+        m12010empleojov,
+        m12010adopinter,
+        m12010fammono,
+        m12010nacmulti,
+        m12010mejoravda,
+        m12010ordenador,
+        m12010donecolog,
+        m12011acogmenor,
+        m12011adqaccion,
+        m12011accmercal,
+        m12010escolar        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m120dominio,m120nif,m120declarac,m120ejercicio,m120periodo };
+      setPrimaryKeys(arrayf);
+      m120declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
+      m12009nacimient.setDescription("Deducciones Autonomicas Cataluña Por nacimiento o adopcion hijos (876)");
+      m12009donlegua.setDescription("Deducciones Autonomicas Cataluña Por donativos a entidades que fomentan el uso lengua catalana (877)");
+      m12009donid.setDescription("Deducciones Autonomicas Cataluña Por donativos a entidades que fomentan la investigacion cientifica (878)");
+      m12009nifalquil.setDescription("Deducciones Autonomicas Cataluña Por alquiler de vivienda habitual NIF arrendador (943)");
+      m12009impalquil.setDescription("Deducciones Autonomicas Cataluña Por alquiler de vivienda habitual Importe (879)");
+      m12009intestudi.setDescription("Deducciones Autonomicas Cataluña Por pago intereses prestamos estudio universitarios de tercer ciclo (880)");
+      m12009viudos.setDescription("Deducciones Autonomicas Cataluña Para los contribuyentes que queden viudos (881)");
+      m12009rehvda.setDescription("Deducciones Autonomicas Cataluña Por rehabilitacion vivienda habitual (882)");
+      m12009donmedioa.setDescription("Deducciones Autonomicas Cataluña Por donaciones en beneficio del medio ambiente (883)");
+      m12009adqaccion.setDescription("Deducciones Autonomicas Cataluña Por inversion adquisicion de acciones o participaciones sociales (566)");
+      m12009accmercal.setDescription("Deducciones Autonomicas Cataluña Por inversion en acciones de entidades que cotizan en empresas en expansion (567)");
+      m12009total.setDescription("Deducciones Autonomicas Cataluña Total -- Deducciones autonomicas (717)");
+      m12010adqvda.setDescription("Deducciones Autonomicas Extremadura Por adquisicion vivienda habitual para jovenes y victimas del terrorismo (884)");
+      m12010trabdepen.setDescription("Deducciones Autonomicas Extremadura Por trabajo dependiente (885)");
+      m12010donpatrim.setDescription("Deducciones Autonomicas Extremadura Por donaciones de bienes integrantes del Patrimonio Historico y Cultural Extremeño (886)");
+      m12010invpatrim.setDescription("Deducciones Autonomicas Extremadura Por cantidades destinadas a la conservacion reparacion etc. bienes Patrimonio Historico y Cultural Extremeño (887)");
+      m12010nifalquil.setDescription("Deducciones Autonomicas Extremadura Por alquiler de vivienda habitual para jovenes familias numerosas y minusvalidos NIF arrendador (943)");
+      m12010impalquil.setDescription("Deducciones Autonomicas Extremadura Por alquiler de vivienda habitual para jovenes familias numerosas y minusvalidos Importe (888)");
+      m12010cuidado.setDescription("Deducciones Autonomicas Extremadura Por cuidado de familiares discapacitados (889)");
+      m12010acogmenor.setDescription("Deducciones Autonomicas Extremadura Por acogimiento de menores (890)");
+      m12010total.setDescription("Deducciones Autonomicas Extremadura Total -- Deducciones autonomicas (717)");
+      m12011nacimient.setDescription("Deducciones Autonomicas Galicia Por nacimiento o adopcion hijos (891)");
+      m12011famnumero.setDescription("Deducciones Autonomicas Galicia Por familia numerosa (892)");
+      m12011cuidado.setDescription("Deducciones Autonomicas Galicia Por cuidado hijos menores (893)");
+      m12011titdiscap.setDescription("Deducciones Autonomicas Galicia Por contribuyentes minusvalidos > 65 años que precisan ayuda de terceras personas (894)");
+      m12011tecnologi.setDescription("Deducciones Autonomicas Galicia Por gastos de nuevas tecnologias en hogares gallegos (895)");
+      m12011nifalquil.setDescription("Deducciones Autonomicas Galicia Por alquiler de vivienda habitual NIF arrendador (943)");
+      m12011impalquil.setDescription("Deducciones Autonomicas Galicia Por alquiler de vivienda habitual Importe (896)");
+      m12011autoemple.setDescription("Deducciones Autonomicas Galicia Para fomento autoempleo hombres menores 35 años y mujeres cualquier edad (897)");
+      m12011total.setDescription("Deducciones Autonomicas Galicia Total -- Deducciones autonomicas (717)");
+      m12012nacimient.setDescription("Deducciones Autonomicas Madrid Por nacimiento o adopcion hijos (898)");
+      m12012adopinter.setDescription("Deducciones Autonomicas Madrid Por adopcion internacional niños (899)");
+      m12012acogmenor.setDescription("Deducciones Autonomicas Madrid Por acogimiento familiar de menores (900)");
+      m12012acogmayor.setDescription("Deducciones Autonomicas Madrid Por acogimiento no remunerado de mayores 65 años y/o discapacitados (901)");
+      m12012nifalquil.setDescription("Deducciones Autonomicas Madrid Por arrendamiento de vivienda habitual por menores de 35 años NIF arrendador (943)");
+      m12012impalquil.setDescription("Deducciones Autonomicas Madrid Por arrendamiento de vivienda habitual por menores de 35 años Importe (902)");
+      m12012donfundac.setDescription("Deducciones Autonomicas Madrid Por donativos a fundaciones (903)");
+      m12012ncremcost.setDescription("Deducciones Autonomicas Madrid Por incremento costes financiacion ajena para inversion en vivienda habitual (904)");
+      m12012gastosedu.setDescription("Deducciones Autonomicas Madrid Por gastos educativos (905)");
+      m12012vdanueva.setDescription("Deducciones Autonomicas Madrid Por inversion en vivienda habitual de nueva construccion (906)");
+      m12012mas2desce.setDescription("Deducciones Autonomicas Madrid Para familias con dos o mas descendientes e ingresos reducidos (568)");
+      m12012accnuevas.setDescription("Deducciones Autonomicas Madrid Por inversion en adquisicion de acciones y participaciones sociales de nuevas entidades (569)");
+      m12012autoemple.setDescription("Deducciones Autonomicas Madrid Para el fomento del autoempleo de jovenes menores de 35 años (586)");
+      m12012accmercal.setDescription("Deducciones Autonomicas Madrid Por inversiones en entidades cotizadas en el Mercado Alternativo Bursatil (587)");
+      m12012total.setDescription("Deducciones Autonomicas Madrid Total deducciones autonomicas (717)");
+      m12010ayudadome.setDescription("2011 Extremadura Por ayuda domestica (339)");
+      m12010empleomuj.setDescription("2011 Extremadura Para fomento autoempleo de las mujeres emprendedoras (348)");
+      m12010empleojov.setDescription("2011 Extremadura Para fomento autoempleo de los jovenes emprendedores menores de 36 (351)");
+      m12010adopinter.setDescription("2011 Extremadura Por adopcion de hijos en el ambito internacional (352)");
+      m12010fammono.setDescription("2011 Extremadura Para la madre o el padre de familia monoparental (353)");
+      m12010nacmulti.setDescription("2011 Extremadura Por partos multiples (354)");
+      m12010mejoravda.setDescription("2011 Extremadura Por obras de mejora en la vivienda habitual (355)");
+      m12010ordenador.setDescription("2011 Extremadura Por inversion no empresarial en adq. ordenadores personales para uso domestico (356)");
+      m12010donecolog.setDescription("2011 Extremadura Por donaciones con finalidad ecologica (357)");
+      m12011acogmenor.setDescription("2011 Galicia Por acogimiento familiar de menores (358)");
+      m12011adqaccion.setDescription("2011 Galicia Por inver. en acciones nuevas entidades/reciente creacion (359)");
+      m12011accmercal.setDescription("2011 Galicia Por inversiones en entidades cotizadas Mercado Bursatil (382)");
+      m12010escolar.setDescription("2012 Extremadura Por compra de material escolar (414)");
       }
     }
     
@@ -6311,6 +7596,43 @@ public class CatModelo100 extends Catalog
     public FieldDef m11908autoemple;
     public FieldDef m11908invenergi;
     public FieldDef m11908total;
+    public FieldDef m11905mejoravda;
+    public FieldDef m11906codimuni;
+    public FieldDef m11908nifemplea;
+    public FieldDef m11908empleados;
+    public FieldDef m11908nifadecua;
+    public FieldDef m11908adecuavda;
+    public FieldDef m11908nifmejora;
+    public FieldDef m11908mejoravda;
+    public FieldDef m11908dedaplfej;
+    public FieldDef m11908nacmulti;
+    public FieldDef m11908nifcmenor;
+    public FieldDef m11908paternita;
+    public FieldDef m11908gastoadop;
+    public FieldDef m11908dedaplic;
+    public FieldDef m11908dedexcfej;
+    public FieldDef m11908dedexces;
+    public FieldDef m11905refalquil;
+    public FieldDef m11905sinorefer;
+    public FieldDef m11905invalquil;
+    public FieldDef m11907autoemple;
+    public FieldDef m11907dedaplfej;
+    public FieldDef m11907dedexcfej;
+    public FieldDef m11907famnum;
+    public FieldDef m11907doninv;
+    public FieldDef m11908fecvda;
+    public FieldDef m11908adqvda;
+    public FieldDef m11908antpdtfej;
+    public FieldDef m11908antaplfej;
+    public FieldDef m11908fechafej;
+    public FieldDef m11908fechafec;
+    public FieldDef m11908crisiauto;
+    public FieldDef m11908dedaplfec;
+    public FieldDef m11908antpdte;
+    public FieldDef m11908antapli;
+    public FieldDef m11908antexcfej;
+    public FieldDef m11908antexcded;
+    public FieldDef m11908nacmulti1;
     public TabMod100h19(String name)
       {
       super(name);
@@ -6365,6 +7687,43 @@ public class CatModelo100 extends Catalog
       m11908autoemple = new FieldDef("m11908autoemple",FieldDef.FLOAT,6,0);
       m11908invenergi = new FieldDef("m11908invenergi",FieldDef.FLOAT,6,0);
       m11908total = new FieldDef("m11908total",FieldDef.FLOAT,6,0);
+      m11905mejoravda = new FieldDef("m11905mejoravda",FieldDef.FLOAT,6,0);
+      m11906codimuni = new FieldDef("m11906codimuni",FieldDef.INTEGER,0);
+      m11908nifemplea = new FieldDef("m11908nifemplea",FieldDef.CHAR,9);
+      m11908empleados = new FieldDef("m11908empleados",FieldDef.FLOAT,6,0);
+      m11908nifadecua = new FieldDef("m11908nifadecua",FieldDef.CHAR,9);
+      m11908adecuavda = new FieldDef("m11908adecuavda",FieldDef.FLOAT,6,0);
+      m11908nifmejora = new FieldDef("m11908nifmejora",FieldDef.CHAR,9);
+      m11908mejoravda = new FieldDef("m11908mejoravda",FieldDef.FLOAT,6,0);
+      m11908dedaplfej = new FieldDef("m11908dedaplfej",FieldDef.FLOAT,6,0);
+      m11908nacmulti = new FieldDef("m11908nacmulti",FieldDef.FLOAT,6,0);
+      m11908nifcmenor = new FieldDef("m11908nifcmenor",FieldDef.CHAR,9);
+      m11908paternita = new FieldDef("m11908paternita",FieldDef.FLOAT,6,0);
+      m11908gastoadop = new FieldDef("m11908gastoadop",FieldDef.FLOAT,6,0);
+      m11908dedaplic = new FieldDef("m11908dedaplic",FieldDef.FLOAT,6,0);
+      m11908dedexcfej = new FieldDef("m11908dedexcfej",FieldDef.FLOAT,6,0);
+      m11908dedexces = new FieldDef("m11908dedexces",FieldDef.FLOAT,6,0);
+      m11905refalquil = new FieldDef("m11905refalquil",FieldDef.CHAR,20);
+      m11905sinorefer = new FieldDef("m11905sinorefer",FieldDef.INTEGER,0);
+      m11905invalquil = new FieldDef("m11905invalquil",FieldDef.FLOAT,6,0);
+      m11907autoemple = new FieldDef("m11907autoemple",FieldDef.FLOAT,6,0);
+      m11907dedaplfej = new FieldDef("m11907dedaplfej",FieldDef.FLOAT,6,0);
+      m11907dedexcfej = new FieldDef("m11907dedexcfej",FieldDef.FLOAT,6,0);
+      m11907famnum = new FieldDef("m11907famnum",FieldDef.FLOAT,6,0);
+      m11907doninv = new FieldDef("m11907doninv",FieldDef.FLOAT,6,0);
+      m11908fecvda = new FieldDef("m11908fecvda",FieldDef.DATE);
+      m11908adqvda = new FieldDef("m11908adqvda",FieldDef.FLOAT,6,0);
+      m11908antpdtfej = new FieldDef("m11908antpdtfej",FieldDef.FLOAT,6,0);
+      m11908antaplfej = new FieldDef("m11908antaplfej",FieldDef.FLOAT,6,0);
+      m11908fechafej = new FieldDef("m11908fechafej",FieldDef.DATE);
+      m11908fechafec = new FieldDef("m11908fechafec",FieldDef.DATE);
+      m11908crisiauto = new FieldDef("m11908crisiauto",FieldDef.FLOAT,6,0);
+      m11908dedaplfec = new FieldDef("m11908dedaplfec",FieldDef.FLOAT,6,0);
+      m11908antpdte = new FieldDef("m11908antpdte",FieldDef.FLOAT,6,0);
+      m11908antapli = new FieldDef("m11908antapli",FieldDef.FLOAT,6,0);
+      m11908antexcfej = new FieldDef("m11908antexcfej",FieldDef.FLOAT,6,0);
+      m11908antexcded = new FieldDef("m11908antexcded",FieldDef.FLOAT,6,0);
+      m11908nacmulti1 = new FieldDef("m11908nacmulti1",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m119dominio,
         m119nif,
@@ -6416,7 +7775,44 @@ public class CatModelo100 extends Catalog
         m11908impalquil,
         m11908autoemple,
         m11908invenergi,
-        m11908total        
+        m11908total,
+        m11905mejoravda,
+        m11906codimuni,
+        m11908nifemplea,
+        m11908empleados,
+        m11908nifadecua,
+        m11908adecuavda,
+        m11908nifmejora,
+        m11908mejoravda,
+        m11908dedaplfej,
+        m11908nacmulti,
+        m11908nifcmenor,
+        m11908paternita,
+        m11908gastoadop,
+        m11908dedaplic,
+        m11908dedexcfej,
+        m11908dedexces,
+        m11905refalquil,
+        m11905sinorefer,
+        m11905invalquil,
+        m11907autoemple,
+        m11907dedaplfej,
+        m11907dedexcfej,
+        m11907famnum,
+        m11907doninv,
+        m11908fecvda,
+        m11908adqvda,
+        m11908antpdtfej,
+        m11908antaplfej,
+        m11908fechafej,
+        m11908fechafec,
+        m11908crisiauto,
+        m11908dedaplfec,
+        m11908antpdte,
+        m11908antapli,
+        m11908antexcfej,
+        m11908antexcded,
+        m11908nacmulti1        
         };
       setColumns(array);
       FieldDef arrayf[] = {m119dominio,m119nif,m119declarac,m119ejercicio,m119periodo };
@@ -6468,216 +7864,43 @@ public class CatModelo100 extends Catalog
       m11908autoemple.setDescription("Deducciones Autonomicas Castilla y Leon Para fomento autoempleo mujeres y jovenes (875)");
       m11908invenergi.setDescription("Deducciones Autonomicas Castilla y Leon Por inversion instalaciones recursos energeticos renovables y ahorro agua (565)");
       m11908total.setDescription("Deducciones Autonomicas Castilla y Leon Total deducciones autonomicas (717)");
-      }
-    }
-    
-  public class TabMod100h20 extends TableDef
-    {
-    // Campos
-    public FieldDef m120dominio;
-    public FieldDef m120nif;
-    public FieldDef m120declarac;
-    public FieldDef m120ejercicio;
-    public FieldDef m120periodo;
-    public FieldDef m12009nacimient;
-    public FieldDef m12009donlegua;
-    public FieldDef m12009donid;
-    public FieldDef m12009nifalquil;
-    public FieldDef m12009impalquil;
-    public FieldDef m12009intestudi;
-    public FieldDef m12009viudos;
-    public FieldDef m12009rehvda;
-    public FieldDef m12009donmedioa;
-    public FieldDef m12009adqaccion;
-    public FieldDef m12009accmercal;
-    public FieldDef m12009total;
-    public FieldDef m12010adqvda;
-    public FieldDef m12010trabdepen;
-    public FieldDef m12010donpatrim;
-    public FieldDef m12010invpatrim;
-    public FieldDef m12010nifalquil;
-    public FieldDef m12010impalquil;
-    public FieldDef m12010cuidado;
-    public FieldDef m12010acogmenor;
-    public FieldDef m12010total;
-    public FieldDef m12011nacimient;
-    public FieldDef m12011famnumero;
-    public FieldDef m12011cuidado;
-    public FieldDef m12011titdiscap;
-    public FieldDef m12011tecnologi;
-    public FieldDef m12011nifalquil;
-    public FieldDef m12011impalquil;
-    public FieldDef m12011autoemple;
-    public FieldDef m12011total;
-    public FieldDef m12012nacimient;
-    public FieldDef m12012adopinter;
-    public FieldDef m12012acogmenor;
-    public FieldDef m12012acogmayor;
-    public FieldDef m12012nifalquil;
-    public FieldDef m12012impalquil;
-    public FieldDef m12012donfundac;
-    public FieldDef m12012ncremcost;
-    public FieldDef m12012gastosedu;
-    public FieldDef m12012vdanueva;
-    public FieldDef m12012mas2desce;
-    public FieldDef m12012accnuevas;
-    public FieldDef m12012autoemple;
-    public FieldDef m12012accmercal;
-    public FieldDef m12012total;
-    public TabMod100h20(String name)
-      {
-      super(name);
-      m120dominio = new FieldDef("m120dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m120nif = new FieldDef("m120nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m120declarac = new FieldDef("m120declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      m120ejercicio = new FieldDef("m120ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m120periodo = new FieldDef("m120periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m12009nacimient = new FieldDef("m12009nacimient",FieldDef.FLOAT,6,0);
-      m12009donlegua = new FieldDef("m12009donlegua",FieldDef.FLOAT,6,0);
-      m12009donid = new FieldDef("m12009donid",FieldDef.FLOAT,6,0);
-      m12009nifalquil = new FieldDef("m12009nifalquil",FieldDef.CHAR,9);
-      m12009impalquil = new FieldDef("m12009impalquil",FieldDef.FLOAT,6,0);
-      m12009intestudi = new FieldDef("m12009intestudi",FieldDef.FLOAT,6,0);
-      m12009viudos = new FieldDef("m12009viudos",FieldDef.FLOAT,6,0);
-      m12009rehvda = new FieldDef("m12009rehvda",FieldDef.FLOAT,6,0);
-      m12009donmedioa = new FieldDef("m12009donmedioa",FieldDef.FLOAT,6,0);
-      m12009adqaccion = new FieldDef("m12009adqaccion",FieldDef.FLOAT,6,0);
-      m12009accmercal = new FieldDef("m12009accmercal",FieldDef.FLOAT,6,0);
-      m12009total = new FieldDef("m12009total",FieldDef.FLOAT,6,0);
-      m12010adqvda = new FieldDef("m12010adqvda",FieldDef.FLOAT,6,0);
-      m12010trabdepen = new FieldDef("m12010trabdepen",FieldDef.FLOAT,6,0);
-      m12010donpatrim = new FieldDef("m12010donpatrim",FieldDef.FLOAT,6,0);
-      m12010invpatrim = new FieldDef("m12010invpatrim",FieldDef.FLOAT,6,0);
-      m12010nifalquil = new FieldDef("m12010nifalquil",FieldDef.CHAR,9);
-      m12010impalquil = new FieldDef("m12010impalquil",FieldDef.FLOAT,6,0);
-      m12010cuidado = new FieldDef("m12010cuidado",FieldDef.FLOAT,6,0);
-      m12010acogmenor = new FieldDef("m12010acogmenor",FieldDef.FLOAT,6,0);
-      m12010total = new FieldDef("m12010total",FieldDef.FLOAT,6,0);
-      m12011nacimient = new FieldDef("m12011nacimient",FieldDef.FLOAT,6,0);
-      m12011famnumero = new FieldDef("m12011famnumero",FieldDef.FLOAT,6,0);
-      m12011cuidado = new FieldDef("m12011cuidado",FieldDef.FLOAT,6,0);
-      m12011titdiscap = new FieldDef("m12011titdiscap",FieldDef.FLOAT,6,0);
-      m12011tecnologi = new FieldDef("m12011tecnologi",FieldDef.FLOAT,6,0);
-      m12011nifalquil = new FieldDef("m12011nifalquil",FieldDef.CHAR,9);
-      m12011impalquil = new FieldDef("m12011impalquil",FieldDef.FLOAT,6,0);
-      m12011autoemple = new FieldDef("m12011autoemple",FieldDef.FLOAT,6,0);
-      m12011total = new FieldDef("m12011total",FieldDef.FLOAT,6,0);
-      m12012nacimient = new FieldDef("m12012nacimient",FieldDef.FLOAT,6,0);
-      m12012adopinter = new FieldDef("m12012adopinter",FieldDef.FLOAT,6,0);
-      m12012acogmenor = new FieldDef("m12012acogmenor",FieldDef.FLOAT,6,0);
-      m12012acogmayor = new FieldDef("m12012acogmayor",FieldDef.FLOAT,6,0);
-      m12012nifalquil = new FieldDef("m12012nifalquil",FieldDef.CHAR,9);
-      m12012impalquil = new FieldDef("m12012impalquil",FieldDef.FLOAT,6,0);
-      m12012donfundac = new FieldDef("m12012donfundac",FieldDef.FLOAT,6,0);
-      m12012ncremcost = new FieldDef("m12012ncremcost",FieldDef.FLOAT,6,0);
-      m12012gastosedu = new FieldDef("m12012gastosedu",FieldDef.FLOAT,6,0);
-      m12012vdanueva = new FieldDef("m12012vdanueva",FieldDef.FLOAT,6,0);
-      m12012mas2desce = new FieldDef("m12012mas2desce",FieldDef.FLOAT,6,0);
-      m12012accnuevas = new FieldDef("m12012accnuevas",FieldDef.FLOAT,6,0);
-      m12012autoemple = new FieldDef("m12012autoemple",FieldDef.FLOAT,6,0);
-      m12012accmercal = new FieldDef("m12012accmercal",FieldDef.FLOAT,6,0);
-      m12012total = new FieldDef("m12012total",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        m120dominio,
-        m120nif,
-        m120declarac,
-        m120ejercicio,
-        m120periodo,
-        m12009nacimient,
-        m12009donlegua,
-        m12009donid,
-        m12009nifalquil,
-        m12009impalquil,
-        m12009intestudi,
-        m12009viudos,
-        m12009rehvda,
-        m12009donmedioa,
-        m12009adqaccion,
-        m12009accmercal,
-        m12009total,
-        m12010adqvda,
-        m12010trabdepen,
-        m12010donpatrim,
-        m12010invpatrim,
-        m12010nifalquil,
-        m12010impalquil,
-        m12010cuidado,
-        m12010acogmenor,
-        m12010total,
-        m12011nacimient,
-        m12011famnumero,
-        m12011cuidado,
-        m12011titdiscap,
-        m12011tecnologi,
-        m12011nifalquil,
-        m12011impalquil,
-        m12011autoemple,
-        m12011total,
-        m12012nacimient,
-        m12012adopinter,
-        m12012acogmenor,
-        m12012acogmayor,
-        m12012nifalquil,
-        m12012impalquil,
-        m12012donfundac,
-        m12012ncremcost,
-        m12012gastosedu,
-        m12012vdanueva,
-        m12012mas2desce,
-        m12012accnuevas,
-        m12012autoemple,
-        m12012accmercal,
-        m12012total        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m120dominio,m120nif,m120declarac,m120ejercicio,m120periodo };
-      setPrimaryKeys(arrayf);
-      m120declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
-      m12009nacimient.setDescription("Deducciones Autonomicas Cataluña Por nacimiento o adopcion hijos (876)");
-      m12009donlegua.setDescription("Deducciones Autonomicas Cataluña Por donativos a entidades que fomentan el uso lengua catalana (877)");
-      m12009donid.setDescription("Deducciones Autonomicas Cataluña Por donativos a entidades que fomentan la investigacion cientifica (878)");
-      m12009nifalquil.setDescription("Deducciones Autonomicas Cataluña Por alquiler de vivienda habitual NIF arrendador (943)");
-      m12009impalquil.setDescription("Deducciones Autonomicas Cataluña Por alquiler de vivienda habitual Importe (879)");
-      m12009intestudi.setDescription("Deducciones Autonomicas Cataluña Por pago intereses prestamos estudio universitarios de tercer ciclo (880)");
-      m12009viudos.setDescription("Deducciones Autonomicas Cataluña Para los contribuyentes que queden viudos (881)");
-      m12009rehvda.setDescription("Deducciones Autonomicas Cataluña Por rehabilitacion vivienda habitual (882)");
-      m12009donmedioa.setDescription("Deducciones Autonomicas Cataluña Por donaciones en beneficio del medio ambiente (883)");
-      m12009adqaccion.setDescription("Deducciones Autonomicas Cataluña Por inversion adquisicion de acciones o participaciones sociales (566)");
-      m12009accmercal.setDescription("Deducciones Autonomicas Cataluña Por inversion en acciones de entidades que cotizan en empresas en expansion (567)");
-      m12009total.setDescription("Deducciones Autonomicas Cataluña Total -- Deducciones autonomicas (717)");
-      m12010adqvda.setDescription("Deducciones Autonomicas Extremadura Por adquisicion vivienda habitual para jovenes y victimas del terrorismo (884)");
-      m12010trabdepen.setDescription("Deducciones Autonomicas Extremadura Por trabajo dependiente (885)");
-      m12010donpatrim.setDescription("Deducciones Autonomicas Extremadura Por donaciones de bienes integrantes del Patrimonio Historico y Cultural Extremeño (886)");
-      m12010invpatrim.setDescription("Deducciones Autonomicas Extremadura Por cantidades destinadas a la conservacion reparacion etc. bienes Patrimonio Historico y Cultural Extremeño (887)");
-      m12010nifalquil.setDescription("Deducciones Autonomicas Extremadura Por alquiler de vivienda habitual para jovenes familias numerosas y minusvalidos NIF arrendador (943)");
-      m12010impalquil.setDescription("Deducciones Autonomicas Extremadura Por alquiler de vivienda habitual para jovenes familias numerosas y minusvalidos Importe (888)");
-      m12010cuidado.setDescription("Deducciones Autonomicas Extremadura Por cuidado de familiares discapacitados (889)");
-      m12010acogmenor.setDescription("Deducciones Autonomicas Extremadura Por acogimiento de menores (890)");
-      m12010total.setDescription("Deducciones Autonomicas Extremadura Total -- Deducciones autonomicas (717)");
-      m12011nacimient.setDescription("Deducciones Autonomicas Galicia Por nacimiento o adopcion hijos (891)");
-      m12011famnumero.setDescription("Deducciones Autonomicas Galicia Por familia numerosa (892)");
-      m12011cuidado.setDescription("Deducciones Autonomicas Galicia Por cuidado hijos menores (893)");
-      m12011titdiscap.setDescription("Deducciones Autonomicas Galicia Por contribuyentes minusvalidos > 65 años que precisan ayuda de terceras personas (894)");
-      m12011tecnologi.setDescription("Deducciones Autonomicas Galicia Por gastos de nuevas tecnologias en hogares gallegos (895)");
-      m12011nifalquil.setDescription("Deducciones Autonomicas Galicia Por alquiler de vivienda habitual NIF arrendador (943)");
-      m12011impalquil.setDescription("Deducciones Autonomicas Galicia Por alquiler de vivienda habitual Importe (896)");
-      m12011autoemple.setDescription("Deducciones Autonomicas Galicia Para fomento autoempleo hombres menores 35 años y mujeres cualquier edad (897)");
-      m12011total.setDescription("Deducciones Autonomicas Galicia Total -- Deducciones autonomicas (717)");
-      m12012nacimient.setDescription("Deducciones Autonomicas Madrid Por nacimiento o adopcion hijos (898)");
-      m12012adopinter.setDescription("Deducciones Autonomicas Madrid Por adopcion internacional niños (899)");
-      m12012acogmenor.setDescription("Deducciones Autonomicas Madrid Por acogimiento familiar de menores (900)");
-      m12012acogmayor.setDescription("Deducciones Autonomicas Madrid Por acogimiento no remunerado de mayores 65 años y/o discapacitados (901)");
-      m12012nifalquil.setDescription("Deducciones Autonomicas Madrid Por arrendamiento de vivienda habitual por menores de 35 años NIF arrendador (943)");
-      m12012impalquil.setDescription("Deducciones Autonomicas Madrid Por arrendamiento de vivienda habitual por menores de 35 años Importe (902)");
-      m12012donfundac.setDescription("Deducciones Autonomicas Madrid Por donativos a fundaciones (903)");
-      m12012ncremcost.setDescription("Deducciones Autonomicas Madrid Por incremento costes financiacion ajena para inversion en vivienda habitual (904)");
-      m12012gastosedu.setDescription("Deducciones Autonomicas Madrid Por gastos educativos (905)");
-      m12012vdanueva.setDescription("Deducciones Autonomicas Madrid Por inversion en vivienda habitual de nueva construccion (906)");
-      m12012mas2desce.setDescription("Deducciones Autonomicas Madrid Para familias con dos o mas descendientes e ingresos reducidos (568)");
-      m12012accnuevas.setDescription("Deducciones Autonomicas Madrid Por inversion en adquisicion de acciones y participaciones sociales de nuevas entidades (569)");
-      m12012autoemple.setDescription("Deducciones Autonomicas Madrid Para el fomento del autoempleo de jovenes menores de 35 años (586)");
-      m12012accmercal.setDescription("Deducciones Autonomicas Madrid Por inversiones en entidades cotizadas en el Mercado Alternativo Bursatil (587)");
-      m12012total.setDescription("Deducciones Autonomicas Madrid Total deducciones autonomicas (717)");
+      m11905mejoravda.setDescription("2011 Canarias Por obras de rehabilitacion o reforma en vivienda (308)");
+      m11906codimuni.setDescription("2011 Cantabria Por adquisicion o rehabilitacion de vivienda Codigo municipio (939)");
+      m11908nifemplea.setDescription("2011 Castilla y Leon Por cuota Seg.Social empleados hogar Nif pers.empleada (324)");
+      m11908empleados.setDescription("2011 Castilla y Leon Por cuota Seg.Social empleados del hogar Importe (309)");
+      m11908nifadecua.setDescription("2011 Castilla y Leon Por inversion obras adecuac.inspec.Nif persona o entidad (325)");
+      m11908adecuavda.setDescription("2011 Castilla y Leon Por inversion obras adecuacion inspeccion tecnica Importe (315)");
+      m11908nifmejora.setDescription("2011 Castilla y Leon Por inversion en obras mejora en vda.habitual Nif  (326)");
+      m11908mejoravda.setDescription("2011 Castilla y Leon Por inversion en obras de mejora en vda. habitual Importe (316)");
+      m11908dedaplfej.setDescription("2011 Castilla y Leon Para fomento del autoempleo de mujeres y jovenes (875)");
+      m11908nacmulti.setDescription("2011 Castilla y Leon Por partos multiples o adopciones simultaneas (868)");
+      m11908nifcmenor.setDescription("2011 Castilla y Leon Por cuidado de hijos menores Nif empleada (327)");
+      m11908paternita.setDescription("2011 Castilla y Leon Por paternidad (334)");
+      m11908gastoadop.setDescription("2011 Castilla y Leon Por gastos de adopcion (337)");
+      m11908dedaplic.setDescription("2011 Castilla y Leon Importe total (317)");
+      m11908dedexcfej.setDescription("2011 Castilla y Leon No aplicadas en 2011 Deduc para fomento Autoempleo (318)");
+      m11908dedexces.setDescription("2011 Castilla y Leon No aplicadas en 2011 Deduc por familia numerosa (319)");
+      m11905refalquil.setDescription("2012 Canarias Alquiler Referencia catastral (273)");
+      m11905sinorefer.setDescription("2012 Canarias Alquiler Si no tiene referencia catastral. 1 o cero (274)");
+      m11905invalquil.setDescription("2012 Canarias Alquiler Cantidades totales satisfechas al arrendador (276)");
+      m11907autoemple.setDescription("2012 Cast-Mancha  Para el fomento del autoempleo. Generado 2012 (278)");
+      m11907dedaplfej.setDescription("2012 Cast-Mancha  Para el fomento del autoempleo. Aplicado 2012 (279)");
+      m11907dedexcfej.setDescription("2012 Cast-Mancha  Para el fomento del autoempleo. Exceso pdte   (328)");
+      m11907famnum.setDescription("2012 Cast-Mancha  Por familia numerosa (277)");
+      m11907doninv.setDescription("2012 Cast-Mancha  Por donaciones investigación y desarrollo (332)");
+      m11908fecvda.setDescription("2012 CastLeon  Fecha de visado del proyecto  (406)");
+      m11908adqvda.setDescription("2012 CastLeon  Por adq vda nueva construcn para residencia habitual (333)");
+      m11908antpdtfej.setDescription("2012 CastLeon  Ded.Pendiente ejer.anter autoempleo jovenes mujeres (407)");
+      m11908antaplfej.setDescription("2012 CastLeon  Ded.Aplicada  ejer.anter autoempleo jovenes mujeres (335)");
+      m11908fechafej.setDescription("2012 CastLeon  Fecha de alta censo autoempleo  (408)");
+      m11908fechafec.setDescription("2012 CastLeon  Fecha de alta censo autoempleo autonomos (409)");
+      m11908crisiauto.setDescription("2012 CastLeon  Fomento autoempleo autónomos Generado (338)");
+      m11908dedaplfec.setDescription("2012 CastLeon  Fomento autoempleo autónomos Aplicado (413)");
+      m11908antpdte.setDescription("2012 CastLeon  Ded.Pendiente ejer.ant.(fam.nrosa,nac.adopc,etc.)(417)");
+      m11908antapli.setDescription("2012 CastLeon  Ded.Aplciada  ejer.ant.(fam.nrosa,nac.adopc,etc.)(336)");
+      m11908antexcfej.setDescription("2012 CastLeon  No aplicadas en ejer.ant. fomento Autoempleo (419)");
+      m11908antexcded.setDescription("2012 CastLeon  No aplicadas en ejer.ant. fam.nro.,nac,etc   (429)");
+      m11908nacmulti1.setDescription("2012 CastLeon  Por partos múltiples o adopciones simultáneas en 2011 (418)");
       }
     }
     
@@ -6729,6 +7952,22 @@ public class CatModelo100 extends Catalog
     public FieldDef m12117mas2desce;
     public FieldDef m12117ayudaspub;
     public FieldDef m12117total;
+    public FieldDef m12112vdanueva;
+    public FieldDef m12112mas2desce;
+    public FieldDef m12112accnuevas;
+    public FieldDef m12112autoemple;
+    public FieldDef m12112accmercal;
+    public FieldDef m12112total;
+    public FieldDef m12113empleo;
+    public FieldDef m12112nacimient;
+    public FieldDef m12112adopinter;
+    public FieldDef m12112acogmenor;
+    public FieldDef m12112acogmayor;
+    public FieldDef m12112nifalquil;
+    public FieldDef m12112impalquil;
+    public FieldDef m12112donfundac;
+    public FieldDef m12112ncremcost;
+    public FieldDef m12112gastosedu;
     public TabMod100h21(String name)
       {
       super(name);
@@ -6777,6 +8016,22 @@ public class CatModelo100 extends Catalog
       m12117mas2desce = new FieldDef("m12117mas2desce",FieldDef.FLOAT,6,0);
       m12117ayudaspub = new FieldDef("m12117ayudaspub",FieldDef.FLOAT,6,0);
       m12117total = new FieldDef("m12117total",FieldDef.FLOAT,6,0);
+      m12112vdanueva = new FieldDef("m12112vdanueva",FieldDef.FLOAT,6,0);
+      m12112mas2desce = new FieldDef("m12112mas2desce",FieldDef.FLOAT,6,0);
+      m12112accnuevas = new FieldDef("m12112accnuevas",FieldDef.FLOAT,6,0);
+      m12112autoemple = new FieldDef("m12112autoemple",FieldDef.FLOAT,6,0);
+      m12112accmercal = new FieldDef("m12112accmercal",FieldDef.FLOAT,6,0);
+      m12112total = new FieldDef("m12112total",FieldDef.FLOAT,6,0);
+      m12113empleo = new FieldDef("m12113empleo",FieldDef.FLOAT,6,0);
+      m12112nacimient = new FieldDef("m12112nacimient",FieldDef.FLOAT,6,0);
+      m12112adopinter = new FieldDef("m12112adopinter",FieldDef.FLOAT,6,0);
+      m12112acogmenor = new FieldDef("m12112acogmenor",FieldDef.FLOAT,6,0);
+      m12112acogmayor = new FieldDef("m12112acogmayor",FieldDef.FLOAT,6,0);
+      m12112nifalquil = new FieldDef("m12112nifalquil",FieldDef.CHAR,9);
+      m12112impalquil = new FieldDef("m12112impalquil",FieldDef.FLOAT,6,0);
+      m12112donfundac = new FieldDef("m12112donfundac",FieldDef.FLOAT,6,0);
+      m12112ncremcost = new FieldDef("m12112ncremcost",FieldDef.FLOAT,6,0);
+      m12112gastosedu = new FieldDef("m12112gastosedu",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m121dominio,
         m121nif,
@@ -6822,7 +8077,23 @@ public class CatModelo100 extends Catalog
         m12117ncremcost,
         m12117mas2desce,
         m12117ayudaspub,
-        m12117total        
+        m12117total,
+        m12112vdanueva,
+        m12112mas2desce,
+        m12112accnuevas,
+        m12112autoemple,
+        m12112accmercal,
+        m12112total,
+        m12113empleo,
+        m12112nacimient,
+        m12112adopinter,
+        m12112acogmenor,
+        m12112acogmayor,
+        m12112nifalquil,
+        m12112impalquil,
+        m12112donfundac,
+        m12112ncremcost,
+        m12112gastosedu        
         };
       setColumns(array);
       FieldDef arrayf[] = {m121dominio,m121nif,m121declarac,m121ejercicio,m121periodo };
@@ -6868,152 +8139,538 @@ public class CatModelo100 extends Catalog
       m12117mas2desce.setDescription("Deducciones Autonomicas Comunidad Valenciana Por contribuyentes con dos o mas descendientes (588)");
       m12117ayudaspub.setDescription("Deducciones Autonomicas Comunidad Valenciana Por cantidades procedentes de ayudas publicas concedidas por la Generalitat (589)");
       m12117total.setDescription("Deducciones Autonomicas Comunidad Valenciana Total deduciones autonomicas (717)");
+      m12112vdanueva.setDescription("2011 Madrid Por inversion en vivienda habitual de nueva construccion (906)");
+      m12112mas2desce.setDescription("2011 Madrid Para familias con dos o mas descendientes e ingresos reducidos (568)");
+      m12112accnuevas.setDescription("2011 Madrid Por inversion en adquisicion de acciones y participaciones sociales de nuevas entidades (569)");
+      m12112autoemple.setDescription("2011 Madrid Para el fomento del autoempleo de jovenes menores de 35 años (586)");
+      m12112accmercal.setDescription("2011 Madrid Por inversiones en entidades cotizadas en el Mercado Alternativo Bursatil (587)");
+      m12112total.setDescription("2011 Madrid Total deducciones autonomicas (717)");
+      m12113empleo.setDescription("2012 Murcia Autoempleo jovenes (915)");
+      m12112nacimient.setDescription("Madrid Por nacimiento o adopcion hijos (898)");
+      m12112adopinter.setDescription("Madrid Por adopcion internacional niños (899)");
+      m12112acogmenor.setDescription("Madrid Por acogimiento familiar de menores (900)");
+      m12112acogmayor.setDescription("Madrid Por acogimiento no remunerado de mayores 65 años y/o discapacitados (901)");
+      m12112nifalquil.setDescription("Madrid Por arrendamiento de vivienda habitual por menores de 35 años NIF arrendador (943)");
+      m12112impalquil.setDescription("Madrid Por arrendamiento de vivienda habitual por menores de 35 años Importe (902)");
+      m12112donfundac.setDescription("Madrid Por donativos a fundaciones (903)");
+      m12112ncremcost.setDescription("Madrid Por incremento costes financiacion ajena para inversion en vivienda habitual (904)");
+      m12112gastosedu.setDescription("Madrid Por gastos educativos (905)");
       }
     }
     
-  public class TabMod100h22 extends TableDef
+  public class TabMod100h91 extends TableDef
     {
     // Campos
-    public FieldDef m122dominio;
-    public FieldDef m122nif;
-    public FieldDef m122declarac;
-    public FieldDef m122ejercicio;
-    public FieldDef m122periodo;
-    public FieldDef m122resultado;
-    public FieldDef m122suspension;
-    public FieldDef m122rescomplem;
-    public FieldDef m122nofracciona;
-    public FieldDef m122fracciona;
-    public FieldDef m122ingreso;
-    public FieldDef m122formapago;
-    public FieldDef m122segplazono;
-    public FieldDef m122segplazodo;
-    public FieldDef m122impsegplazo;
-    public FieldDef m122tipodevoluc;
-    public FieldDef m122impdevoluc;
-    public FieldDef m122banco;
-    public FieldDef m122oficina;
-    public FieldDef m122digcontrol;
-    public FieldDef m122cuenta;
-    public TabMod100h22(String name)
+    public FieldDef m191dominio;
+    public FieldDef m191nif;
+    public FieldDef m191declarac;
+    public FieldDef m191ejercicio;
+    public FieldDef m191periodo;
+    public FieldDef m191pagina;
+    public FieldDef m191fimtitular1;
+    public FieldDef m191fimnif1;
+    public FieldDef m191fimgananci1;
+    public FieldDef m191fimperdida1;
+    public FieldDef m191fimtitular2;
+    public FieldDef m191fimnif2;
+    public FieldDef m191fimgananci2;
+    public FieldDef m191fimperdida2;
+    public FieldDef m191fimtitular3;
+    public FieldDef m191fimnif3;
+    public FieldDef m191fimgananci3;
+    public FieldDef m191fimperdida3;
+    public FieldDef m191fimtotganan;
+    public FieldDef m191fimtotperdi;
+    public FieldDef m191acbtitular1;
+    public FieldDef m191acbentidad1;
+    public FieldDef m191acbtransmi1;
+    public FieldDef m191acbadquisi1;
+    public FieldDef m191acbgananci1;
+    public FieldDef m191acbgananco1;
+    public FieldDef m191acbperdida1;
+    public FieldDef m191acbperdcom1;
+    public FieldDef m191acbtitular2;
+    public FieldDef m191acbentidad2;
+    public FieldDef m191acbtransmi2;
+    public FieldDef m191acbadquisi2;
+    public FieldDef m191acbgananci2;
+    public FieldDef m191acbgananco2;
+    public FieldDef m191acbperdida2;
+    public FieldDef m191acbperdcom2;
+    public FieldDef m191acbtitular3;
+    public FieldDef m191acbentidad3;
+    public FieldDef m191acbtransmi3;
+    public FieldDef m191acbadquisi3;
+    public FieldDef m191acbgananci3;
+    public FieldDef m191acbgananco3;
+    public FieldDef m191acbperdida3;
+    public FieldDef m191acbperdcom3;
+    public FieldDef m191acbtotganan;
+    public FieldDef m191acbtotperdi;
+    public FieldDef m191otrtitular1;
+    public FieldDef m191otrcobro1;
+    public FieldDef m191otrclaveel1;
+    public FieldDef m191otrsituaci1;
+    public FieldDef m191otreferenc1;
+    public FieldDef m191otrfectran1;
+    public FieldDef m191otrfecadqu1;
+    public FieldDef m191otrtransmi1;
+    public FieldDef m191otradquisi1;
+    public FieldDef m191otrperdobt1;
+    public FieldDef m191otrperdimp1;
+    public FieldDef m191otrganaobt1;
+    public FieldDef m191otrganared1;
+    public FieldDef m191otranosper1;
+    public FieldDef m191otrimpredu1;
+    public FieldDef m191otrgananre1;
+    public FieldDef m191otrexe501;
+    public FieldDef m191otrganexvd1;
+    public FieldDef m191otrganredu1;
+    public FieldDef m191otrganredi1;
+    public FieldDef m191otrreduact1;
+    public FieldDef m191otrgredact1;
+    public FieldDef m191otrexe50ac1;
+    public FieldDef m191otrnoexeac1;
+    public FieldDef m191otrgredimp1;
+    public FieldDef m191otrtitular2;
+    public FieldDef m191otrcobro2;
+    public FieldDef m191otrclaveel2;
+    public FieldDef m191otrsituaci2;
+    public FieldDef m191otreferenc2;
+    public FieldDef m191otrfectran2;
+    public FieldDef m191otrfecadqu2;
+    public FieldDef m191otrtransmi2;
+    public FieldDef m191otradquisi2;
+    public FieldDef m191otrperdobt2;
+    public FieldDef m191otrperdimp2;
+    public FieldDef m191otrganaobt2;
+    public FieldDef m191otrganared2;
+    public FieldDef m191otranosper2;
+    public FieldDef m191otrimpredu2;
+    public FieldDef m191otrgananre2;
+    public FieldDef m191otrexe502;
+    public FieldDef m191otrganexvd2;
+    public FieldDef m191otrganredu2;
+    public FieldDef m191otrganredi2;
+    public FieldDef m191otrreduact2;
+    public FieldDef m191otrgredact2;
+    public FieldDef m191otrexe50ac2;
+    public FieldDef m191otrnoexeac2;
+    public FieldDef m191otrgredimp2;
+    public FieldDef m191otrtotperd;
+    public FieldDef m191otrtotganre;
+    public FieldDef m191otrtotganan;
+    public FieldDef m191antgantitu1;
+    public FieldDef m191antgananci1;
+    public FieldDef m191antgantitu2;
+    public FieldDef m191antgananci2;
+    public FieldDef m191antgantitu3;
+    public FieldDef m191antgananci3;
+    public FieldDef m191anttotganan;
+    public FieldDef m191antpertitu1;
+    public FieldDef m191antperdida1;
+    public FieldDef m191antpertitu2;
+    public FieldDef m191antperdida2;
+    public FieldDef m191antpertitu3;
+    public FieldDef m191antperdida3;
+    public FieldDef m191anttotperdi;
+    public TabMod100h91(String name)
       {
       super(name);
-      m122dominio = new FieldDef("m122dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m122nif = new FieldDef("m122nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m122declarac = new FieldDef("m122declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      m122ejercicio = new FieldDef("m122ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m122periodo = new FieldDef("m122periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m122resultado = new FieldDef("m122resultado",FieldDef.FLOAT,6,0);
-      m122suspension = new FieldDef("m122suspension",FieldDef.INTEGER,0);
-      m122rescomplem = new FieldDef("m122rescomplem",FieldDef.FLOAT,6,0);
-      m122nofracciona = new FieldDef("m122nofracciona",FieldDef.INTEGER,0);
-      m122fracciona = new FieldDef("m122fracciona",FieldDef.INTEGER,0);
-      m122ingreso = new FieldDef("m122ingreso",FieldDef.FLOAT,6,0);
-      m122formapago = new FieldDef("m122formapago",FieldDef.INTEGER,0);
-      m122segplazono = new FieldDef("m122segplazono",FieldDef.INTEGER,0);
-      m122segplazodo = new FieldDef("m122segplazodo",FieldDef.INTEGER,0);
-      m122impsegplazo = new FieldDef("m122impsegplazo",FieldDef.FLOAT,6,0);
-      m122tipodevoluc = new FieldDef("m122tipodevoluc",FieldDef.INTEGER,0);
-      m122impdevoluc = new FieldDef("m122impdevoluc",FieldDef.FLOAT,6,0);
-      m122banco = new FieldDef("m122banco",FieldDef.CHAR,4);
-      m122oficina = new FieldDef("m122oficina",FieldDef.CHAR,4);
-      m122digcontrol = new FieldDef("m122digcontrol",FieldDef.CHAR,2);
-      m122cuenta = new FieldDef("m122cuenta",FieldDef.CHAR,10);
+      m191dominio = new FieldDef("m191dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m191nif = new FieldDef("m191nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m191declarac = new FieldDef("m191declarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      m191ejercicio = new FieldDef("m191ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m191periodo = new FieldDef("m191periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m191pagina = new FieldDef("m191pagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m191fimtitular1 = new FieldDef("m191fimtitular1",FieldDef.INTEGER,0);
+      m191fimnif1 = new FieldDef("m191fimnif1",FieldDef.CHAR,9);
+      m191fimgananci1 = new FieldDef("m191fimgananci1",FieldDef.FLOAT,6,0);
+      m191fimperdida1 = new FieldDef("m191fimperdida1",FieldDef.FLOAT,6,0);
+      m191fimtitular2 = new FieldDef("m191fimtitular2",FieldDef.INTEGER,0);
+      m191fimnif2 = new FieldDef("m191fimnif2",FieldDef.CHAR,9);
+      m191fimgananci2 = new FieldDef("m191fimgananci2",FieldDef.FLOAT,6,0);
+      m191fimperdida2 = new FieldDef("m191fimperdida2",FieldDef.FLOAT,6,0);
+      m191fimtitular3 = new FieldDef("m191fimtitular3",FieldDef.INTEGER,0);
+      m191fimnif3 = new FieldDef("m191fimnif3",FieldDef.CHAR,9);
+      m191fimgananci3 = new FieldDef("m191fimgananci3",FieldDef.FLOAT,6,0);
+      m191fimperdida3 = new FieldDef("m191fimperdida3",FieldDef.FLOAT,6,0);
+      m191fimtotganan = new FieldDef("m191fimtotganan",FieldDef.FLOAT,6,0);
+      m191fimtotperdi = new FieldDef("m191fimtotperdi",FieldDef.FLOAT,6,0);
+      m191acbtitular1 = new FieldDef("m191acbtitular1",FieldDef.INTEGER,0);
+      m191acbentidad1 = new FieldDef("m191acbentidad1",FieldDef.CHAR,20);
+      m191acbtransmi1 = new FieldDef("m191acbtransmi1",FieldDef.FLOAT,6,0);
+      m191acbadquisi1 = new FieldDef("m191acbadquisi1",FieldDef.FLOAT,6,0);
+      m191acbgananci1 = new FieldDef("m191acbgananci1",FieldDef.FLOAT,6,0);
+      m191acbgananco1 = new FieldDef("m191acbgananco1",FieldDef.FLOAT,6,0);
+      m191acbperdida1 = new FieldDef("m191acbperdida1",FieldDef.FLOAT,6,0);
+      m191acbperdcom1 = new FieldDef("m191acbperdcom1",FieldDef.FLOAT,6,0);
+      m191acbtitular2 = new FieldDef("m191acbtitular2",FieldDef.INTEGER,0);
+      m191acbentidad2 = new FieldDef("m191acbentidad2",FieldDef.CHAR,20);
+      m191acbtransmi2 = new FieldDef("m191acbtransmi2",FieldDef.FLOAT,6,0);
+      m191acbadquisi2 = new FieldDef("m191acbadquisi2",FieldDef.FLOAT,6,0);
+      m191acbgananci2 = new FieldDef("m191acbgananci2",FieldDef.FLOAT,6,0);
+      m191acbgananco2 = new FieldDef("m191acbgananco2",FieldDef.FLOAT,6,0);
+      m191acbperdida2 = new FieldDef("m191acbperdida2",FieldDef.FLOAT,6,0);
+      m191acbperdcom2 = new FieldDef("m191acbperdcom2",FieldDef.FLOAT,6,0);
+      m191acbtitular3 = new FieldDef("m191acbtitular3",FieldDef.INTEGER,0);
+      m191acbentidad3 = new FieldDef("m191acbentidad3",FieldDef.CHAR,20);
+      m191acbtransmi3 = new FieldDef("m191acbtransmi3",FieldDef.FLOAT,6,0);
+      m191acbadquisi3 = new FieldDef("m191acbadquisi3",FieldDef.FLOAT,6,0);
+      m191acbgananci3 = new FieldDef("m191acbgananci3",FieldDef.FLOAT,6,0);
+      m191acbgananco3 = new FieldDef("m191acbgananco3",FieldDef.FLOAT,6,0);
+      m191acbperdida3 = new FieldDef("m191acbperdida3",FieldDef.FLOAT,6,0);
+      m191acbperdcom3 = new FieldDef("m191acbperdcom3",FieldDef.FLOAT,6,0);
+      m191acbtotganan = new FieldDef("m191acbtotganan",FieldDef.FLOAT,6,0);
+      m191acbtotperdi = new FieldDef("m191acbtotperdi",FieldDef.FLOAT,6,0);
+      m191otrtitular1 = new FieldDef("m191otrtitular1",FieldDef.INTEGER,0);
+      m191otrcobro1 = new FieldDef("m191otrcobro1",FieldDef.INTEGER,0);
+      m191otrclaveel1 = new FieldDef("m191otrclaveel1",FieldDef.INTEGER,0);
+      m191otrsituaci1 = new FieldDef("m191otrsituaci1",FieldDef.INTEGER,0);
+      m191otreferenc1 = new FieldDef("m191otreferenc1",FieldDef.CHAR,20);
+      m191otrfectran1 = new FieldDef("m191otrfectran1",FieldDef.DATE);
+      m191otrfecadqu1 = new FieldDef("m191otrfecadqu1",FieldDef.DATE);
+      m191otrtransmi1 = new FieldDef("m191otrtransmi1",FieldDef.FLOAT,6,0);
+      m191otradquisi1 = new FieldDef("m191otradquisi1",FieldDef.FLOAT,6,0);
+      m191otrperdobt1 = new FieldDef("m191otrperdobt1",FieldDef.FLOAT,6,0);
+      m191otrperdimp1 = new FieldDef("m191otrperdimp1",FieldDef.FLOAT,6,0);
+      m191otrganaobt1 = new FieldDef("m191otrganaobt1",FieldDef.FLOAT,6,0);
+      m191otrganared1 = new FieldDef("m191otrganared1",FieldDef.FLOAT,6,0);
+      m191otranosper1 = new FieldDef("m191otranosper1",FieldDef.INTEGER,0);
+      m191otrimpredu1 = new FieldDef("m191otrimpredu1",FieldDef.FLOAT,6,0);
+      m191otrgananre1 = new FieldDef("m191otrgananre1",FieldDef.FLOAT,6,0);
+      m191otrexe501 = new FieldDef("m191otrexe501",FieldDef.FLOAT,6,0);
+      m191otrganexvd1 = new FieldDef("m191otrganexvd1",FieldDef.FLOAT,6,0);
+      m191otrganredu1 = new FieldDef("m191otrganredu1",FieldDef.FLOAT,6,0);
+      m191otrganredi1 = new FieldDef("m191otrganredi1",FieldDef.FLOAT,6,0);
+      m191otrreduact1 = new FieldDef("m191otrreduact1",FieldDef.FLOAT,6,0);
+      m191otrgredact1 = new FieldDef("m191otrgredact1",FieldDef.FLOAT,6,0);
+      m191otrexe50ac1 = new FieldDef("m191otrexe50ac1",FieldDef.FLOAT,6,0);
+      m191otrnoexeac1 = new FieldDef("m191otrnoexeac1",FieldDef.FLOAT,6,0);
+      m191otrgredimp1 = new FieldDef("m191otrgredimp1",FieldDef.FLOAT,6,0);
+      m191otrtitular2 = new FieldDef("m191otrtitular2",FieldDef.INTEGER,0);
+      m191otrcobro2 = new FieldDef("m191otrcobro2",FieldDef.INTEGER,0);
+      m191otrclaveel2 = new FieldDef("m191otrclaveel2",FieldDef.INTEGER,0);
+      m191otrsituaci2 = new FieldDef("m191otrsituaci2",FieldDef.INTEGER,0);
+      m191otreferenc2 = new FieldDef("m191otreferenc2",FieldDef.CHAR,20);
+      m191otrfectran2 = new FieldDef("m191otrfectran2",FieldDef.DATE);
+      m191otrfecadqu2 = new FieldDef("m191otrfecadqu2",FieldDef.DATE);
+      m191otrtransmi2 = new FieldDef("m191otrtransmi2",FieldDef.FLOAT,6,0);
+      m191otradquisi2 = new FieldDef("m191otradquisi2",FieldDef.FLOAT,6,0);
+      m191otrperdobt2 = new FieldDef("m191otrperdobt2",FieldDef.FLOAT,6,0);
+      m191otrperdimp2 = new FieldDef("m191otrperdimp2",FieldDef.FLOAT,6,0);
+      m191otrganaobt2 = new FieldDef("m191otrganaobt2",FieldDef.FLOAT,6,0);
+      m191otrganared2 = new FieldDef("m191otrganared2",FieldDef.FLOAT,6,0);
+      m191otranosper2 = new FieldDef("m191otranosper2",FieldDef.INTEGER,0);
+      m191otrimpredu2 = new FieldDef("m191otrimpredu2",FieldDef.FLOAT,6,0);
+      m191otrgananre2 = new FieldDef("m191otrgananre2",FieldDef.FLOAT,6,0);
+      m191otrexe502 = new FieldDef("m191otrexe502",FieldDef.FLOAT,6,0);
+      m191otrganexvd2 = new FieldDef("m191otrganexvd2",FieldDef.FLOAT,6,0);
+      m191otrganredu2 = new FieldDef("m191otrganredu2",FieldDef.FLOAT,6,0);
+      m191otrganredi2 = new FieldDef("m191otrganredi2",FieldDef.FLOAT,6,0);
+      m191otrreduact2 = new FieldDef("m191otrreduact2",FieldDef.FLOAT,6,0);
+      m191otrgredact2 = new FieldDef("m191otrgredact2",FieldDef.FLOAT,6,0);
+      m191otrexe50ac2 = new FieldDef("m191otrexe50ac2",FieldDef.FLOAT,6,0);
+      m191otrnoexeac2 = new FieldDef("m191otrnoexeac2",FieldDef.FLOAT,6,0);
+      m191otrgredimp2 = new FieldDef("m191otrgredimp2",FieldDef.FLOAT,6,0);
+      m191otrtotperd = new FieldDef("m191otrtotperd",FieldDef.FLOAT,6,0);
+      m191otrtotganre = new FieldDef("m191otrtotganre",FieldDef.FLOAT,6,0);
+      m191otrtotganan = new FieldDef("m191otrtotganan",FieldDef.FLOAT,6,0);
+      m191antgantitu1 = new FieldDef("m191antgantitu1",FieldDef.CHAR,1);
+      m191antgananci1 = new FieldDef("m191antgananci1",FieldDef.FLOAT,6,0);
+      m191antgantitu2 = new FieldDef("m191antgantitu2",FieldDef.CHAR,1);
+      m191antgananci2 = new FieldDef("m191antgananci2",FieldDef.FLOAT,6,0);
+      m191antgantitu3 = new FieldDef("m191antgantitu3",FieldDef.CHAR,1);
+      m191antgananci3 = new FieldDef("m191antgananci3",FieldDef.FLOAT,6,0);
+      m191anttotganan = new FieldDef("m191anttotganan",FieldDef.FLOAT,6,0);
+      m191antpertitu1 = new FieldDef("m191antpertitu1",FieldDef.CHAR,1);
+      m191antperdida1 = new FieldDef("m191antperdida1",FieldDef.FLOAT,6,0);
+      m191antpertitu2 = new FieldDef("m191antpertitu2",FieldDef.CHAR,1);
+      m191antperdida2 = new FieldDef("m191antperdida2",FieldDef.FLOAT,6,0);
+      m191antpertitu3 = new FieldDef("m191antpertitu3",FieldDef.CHAR,1);
+      m191antperdida3 = new FieldDef("m191antperdida3",FieldDef.FLOAT,6,0);
+      m191anttotperdi = new FieldDef("m191anttotperdi",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
-        m122dominio,
-        m122nif,
-        m122declarac,
-        m122ejercicio,
-        m122periodo,
-        m122resultado,
-        m122suspension,
-        m122rescomplem,
-        m122nofracciona,
-        m122fracciona,
-        m122ingreso,
-        m122formapago,
-        m122segplazono,
-        m122segplazodo,
-        m122impsegplazo,
-        m122tipodevoluc,
-        m122impdevoluc,
-        m122banco,
-        m122oficina,
-        m122digcontrol,
-        m122cuenta        
+        m191dominio,
+        m191nif,
+        m191declarac,
+        m191ejercicio,
+        m191periodo,
+        m191pagina,
+        m191fimtitular1,
+        m191fimnif1,
+        m191fimgananci1,
+        m191fimperdida1,
+        m191fimtitular2,
+        m191fimnif2,
+        m191fimgananci2,
+        m191fimperdida2,
+        m191fimtitular3,
+        m191fimnif3,
+        m191fimgananci3,
+        m191fimperdida3,
+        m191fimtotganan,
+        m191fimtotperdi,
+        m191acbtitular1,
+        m191acbentidad1,
+        m191acbtransmi1,
+        m191acbadquisi1,
+        m191acbgananci1,
+        m191acbgananco1,
+        m191acbperdida1,
+        m191acbperdcom1,
+        m191acbtitular2,
+        m191acbentidad2,
+        m191acbtransmi2,
+        m191acbadquisi2,
+        m191acbgananci2,
+        m191acbgananco2,
+        m191acbperdida2,
+        m191acbperdcom2,
+        m191acbtitular3,
+        m191acbentidad3,
+        m191acbtransmi3,
+        m191acbadquisi3,
+        m191acbgananci3,
+        m191acbgananco3,
+        m191acbperdida3,
+        m191acbperdcom3,
+        m191acbtotganan,
+        m191acbtotperdi,
+        m191otrtitular1,
+        m191otrcobro1,
+        m191otrclaveel1,
+        m191otrsituaci1,
+        m191otreferenc1,
+        m191otrfectran1,
+        m191otrfecadqu1,
+        m191otrtransmi1,
+        m191otradquisi1,
+        m191otrperdobt1,
+        m191otrperdimp1,
+        m191otrganaobt1,
+        m191otrganared1,
+        m191otranosper1,
+        m191otrimpredu1,
+        m191otrgananre1,
+        m191otrexe501,
+        m191otrganexvd1,
+        m191otrganredu1,
+        m191otrganredi1,
+        m191otrreduact1,
+        m191otrgredact1,
+        m191otrexe50ac1,
+        m191otrnoexeac1,
+        m191otrgredimp1,
+        m191otrtitular2,
+        m191otrcobro2,
+        m191otrclaveel2,
+        m191otrsituaci2,
+        m191otreferenc2,
+        m191otrfectran2,
+        m191otrfecadqu2,
+        m191otrtransmi2,
+        m191otradquisi2,
+        m191otrperdobt2,
+        m191otrperdimp2,
+        m191otrganaobt2,
+        m191otrganared2,
+        m191otranosper2,
+        m191otrimpredu2,
+        m191otrgananre2,
+        m191otrexe502,
+        m191otrganexvd2,
+        m191otrganredu2,
+        m191otrganredi2,
+        m191otrreduact2,
+        m191otrgredact2,
+        m191otrexe50ac2,
+        m191otrnoexeac2,
+        m191otrgredimp2,
+        m191otrtotperd,
+        m191otrtotganre,
+        m191otrtotganan,
+        m191antgantitu1,
+        m191antgananci1,
+        m191antgantitu2,
+        m191antgananci2,
+        m191antgantitu3,
+        m191antgananci3,
+        m191anttotganan,
+        m191antpertitu1,
+        m191antperdida1,
+        m191antpertitu2,
+        m191antperdida2,
+        m191antpertitu3,
+        m191antperdida3,
+        m191anttotperdi        
         };
       setColumns(array);
-      FieldDef arrayf[] = {m122dominio,m122nif,m122declarac,m122ejercicio,m122periodo };
+      FieldDef arrayf[] = {m191dominio,m191nif,m191declarac,m191ejercicio,m191periodo,m191pagina };
+      setDescription("Ganan/Perd. Base Ahorro G3 i G4 ganan.ejer.anter  R2013 Pag.10");
       setPrimaryKeys(arrayf);
-      m122declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
-      m122resultado.setDescription("Liquidacion (2) Resultado a ingresar o a devolver [770]");
-      m122suspension.setDescription("Liquidacion (2) Solicitud de suspension ingreso conyuge/Renuncia cobro devolucion otro conyuge. 1 o 0 [7]");
-      m122rescomplem.setDescription("Declaracion Complementaria (3) Resultado de Declaracion Complementaria [765]");
-      m122nofracciona.setDescription("Ingreso (4) Casilla 770 positiva NO FRACCIONA el pago [1] 1 o 0");
-      m122fracciona.setDescription("Ingreso (4) Casilla 770 positiva SI FRACCIONA el pago [6] 1 o 0");
-      m122ingreso.setDescription("Ingreso (4) Casilla 770 positiva Importe del ingreso [I1]");
-      m122formapago.setDescription("Ingreso (4) Casilla 770 positiva Forma de pago 0 No consta 1 Efectivo 2 Adeudo en Cuenta 3 Domiciliacion");
-      m122segplazono.setDescription("Opciones de pago 2 plazo (5) NO DOMICILIA el pago [2] 1 o 0");
-      m122segplazodo.setDescription("Opciones de pago 2 plazo (5) SI DOMICILIA el pago [3] 1 o 0");
-      m122impsegplazo.setDescription("Opciones de pago 2 plazo (5) Importe del 2 plazo [I2]");
-      m122tipodevoluc.setDescription("Devolucion (6) Casilla 770 negativa 0 No consta 1 Devolucion y 2 renuncia devolucion");
-      m122impdevoluc.setDescription("Devolucion (6) Casilla 770 negativa Importe [D]");
-      m122banco.setDescription("Codigo cuenta cliente Entidad");
-      m122oficina.setDescription("Codigo cuenta cliente Sucursal");
-      m122digcontrol.setDescription("Codigo cuenta cliente DC");
-      m122cuenta.setDescription("Codigo cuenta cliente Numero de cuenta");
+      m191declarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
+      m191fimtitular1.setDescription("(G3) Ganan Fondo 1 Contribuyente 0 a 9");
+      m191fimnif1.setDescription("Ganan Fondo 1 N.I.F.");
+      m191fimgananci1.setDescription("Ganan Fondo 1 Resultados netos positivos Ganancias netas");
+      m191fimperdida1.setDescription("Ganan Fondo 1 Resultados netos negativos Perdidas netas");
+      m191fimtitular2.setDescription("Ganan Fondo 2 Contribuyente 0 a 9");
+      m191fimnif2.setDescription("Ganan Fondo 2 N.I.F.");
+      m191fimgananci2.setDescription("Ganan Fondo 2 Resultados netos positivos Ganancias netas");
+      m191fimperdida2.setDescription("Ganan Fondo 2 Resultados netos negativos Perdidas netas");
+      m191fimtitular3.setDescription("Ganan Fondo 3 Contribuyente 0 a 9");
+      m191fimnif3.setDescription("Ganan Fondo 3 N.I.F.");
+      m191fimgananci3.setDescription("Ganan Fondo 3 Resultados netos positivos Ganancias netas");
+      m191fimperdida3.setDescription("Ganan Fondo 3 Resultados netos negativos Perdidas netas");
+      m191fimtotganan.setDescription("Ganan Totales Total ganancias netas (292)");
+      m191fimtotperdi.setDescription("Ganan Totales Total perdidas netas  (293)");
+      m191acbtitular1.setDescription("Ganan Acciones Entidad 1 Contribuyente 0 a 9");
+      m191acbentidad1.setDescription("Ganan Acciones Entidad 1 Denominacion valores");
+      m191acbtransmi1.setDescription("Ganan Acciones Entidad 1 Importe global");
+      m191acbadquisi1.setDescription("Ganan Acciones Entidad 1 Valor adquisicion global");
+      m191acbgananci1.setDescription("Ganan Acciones Entidad 1 Resultados Ganancias. Importe obtenido");
+      m191acbgananco1.setDescription("Ganan Acciones Entidad 1 Resultados Ganancias. Importe computable");
+      m191acbperdida1.setDescription("Ganan Acciones Entidad 1 Resultados Perdidas. Importe obtenido");
+      m191acbperdcom1.setDescription("Ganan Acciones Entidad 1 Resultados Perdidas. Importe computable");
+      m191acbtitular2.setDescription("Ganan Acciones Entidad 2 Contribuyente 0 a 9");
+      m191acbentidad2.setDescription("Ganan Acciones Entidad 2 Denominacion valores");
+      m191acbtransmi2.setDescription("Ganan Acciones Entidad 2 Importe global");
+      m191acbadquisi2.setDescription("Ganan Acciones Entidad 2 Valor adquisicion global");
+      m191acbgananci2.setDescription("Ganan Acciones Entidad 2 Resultados Ganancias. Importe obtenido");
+      m191acbgananco2.setDescription("Ganan Acciones Entidad 2 Resultados Ganancias. Importe computable");
+      m191acbperdida2.setDescription("Ganan Acciones Entidad 2 Resultados Perdidas. Importe obtenido");
+      m191acbperdcom2.setDescription("Ganan Acciones Entidad 2 Resultados Perdidas. Importe computable");
+      m191acbtitular3.setDescription("Ganan Acciones Entidad 3 Contribuyente 0 a 9");
+      m191acbentidad3.setDescription("Ganan Acciones Entidad 3 Denominacion valores");
+      m191acbtransmi3.setDescription("Ganan Acciones Entidad 3 Importe global");
+      m191acbadquisi3.setDescription("Ganan Acciones Entidad 3 Valor adquisicion global");
+      m191acbgananci3.setDescription("Ganan Acciones Entidad 3 Resultados Ganancias. Importe obtenido");
+      m191acbgananco3.setDescription("Ganan Acciones Entidad 3 Resultados Ganancias. Importe computable");
+      m191acbperdida3.setDescription("Ganan Acciones Entidad 3 Resultados Perdidas. Importe obtenido");
+      m191acbperdcom3.setDescription("Ganan Acciones Entidad 3 Resultados Perdidas. Importe computable");
+      m191acbtotganan.setDescription("Ganan Acciones Totales Ganancias. Importe reducido (303)");
+      m191acbtotperdi.setDescription("Ganan Acciones Totales Perdidas. Importe imputable (304)");
+      m191otrtitular1.setDescription("Ganan Otros Elemento 1 Contribuyente 0 a 9");
+      m191otrcobro1.setDescription("Ganan Otros Elemento 1 Imputac.temporal cobro pago (306)");
+      m191otrclaveel1.setDescription("Ganan Otros Elemento 1 Tipo elemento. Clave 0 a 7");
+      m191otrsituaci1.setDescription("Ganan Otros Elemento 1 Inmuebles. Situacion. Clave 0 a 4");
+      m191otreferenc1.setDescription("Ganan Otros Elemento 1 Inmuebles. Situacion. Ref. catastral");
+      m191otrfectran1.setDescription("Ganan Otros Elemento 1 Fecha transmision");
+      m191otrfecadqu1.setDescription("Ganan Otros Elemento 1 Fecha adquisicion");
+      m191otrtransmi1.setDescription("Ganan Otros Elemento 1 Valor transmision");
+      m191otradquisi1.setDescription("Ganan Otros Elemento 1 Valor adquisicion");
+      m191otrperdobt1.setDescription("Ganan Otros Elemento 1 Diferencia negativa Perdida obtenida");
+      m191otrperdimp1.setDescription("Ganan Otros Elemento 1 Diferencia negativa Perdida imputable");
+      m191otrganaobt1.setDescription("Ganan Otros Elemento 1 Diferencia positiva Ganancia obtenida");
+      m191otrganared1.setDescription("Ganan Otros Elemento 1 No afectos Parte ganancia susceptible reduccion");
+      m191otranosper1.setDescription("Ganan Otros Elemento 1 No afectos Años permanencia hasta 311294");
+      m191otrimpredu1.setDescription("Ganan Otros Elemento 1 No afectos Reduccion aplicable");
+      m191otrgananre1.setDescription("Ganan Otros Elemento 1 No afectos Ganancia reducida");
+      m191otrexe501.setDescription("Ganan Otros Elemento 1 No afectos - Ganancia exenta 50 por 100 (321)");
+      m191otrganexvd1.setDescription("Ganan Otros Elemento 1 No afectos Ganancia exenta reinversion viv. habitual");
+      m191otrganredu1.setDescription("Ganan Otros Elemento 1 No afectos Ganancia reducida no exenta");
+      m191otrganredi1.setDescription("Ganan Otros Elemento 1 No afectos Ganancia reducida no exenta imputable");
+      m191otrreduact1.setDescription("Ganan Otros Elemento 1 Afectos Reduccion (licencia autotaxis)");
+      m191otrgredact1.setDescription("Ganan Otros Elemento 1 Afectos Ganancia reducida");
+      m191otrexe50ac1.setDescription("Ganan Otros Elemento 1 Afectos - Ganancia exenta (327)");
+      m191otrnoexeac1.setDescription("Ganan Otros Elemento 1 Afectos - Ganancia patrimonial reducida no exenta (328)");
+      m191otrgredimp1.setDescription("Ganan Otros Elemento 1 Afectos Ganancia reducida imputable");
+      m191otrtitular2.setDescription("Ganan Otros Elemento 2 Contribuyente 0 a 9");
+      m191otrcobro2.setDescription("Ganan Otros Elemento 2 Imputac.temporal cobro pago (306)");
+      m191otrclaveel2.setDescription("Ganan Otros Elemento 2 Tipo elemento. Clave 0 a 7");
+      m191otrsituaci2.setDescription("Ganan Otros Elemento 2 Inmuebles. Situacion. Clave 0 a 4");
+      m191otreferenc2.setDescription("Ganan Otros Elemento 2 Inmuebles. Situacion. Ref. catastral");
+      m191otrfectran2.setDescription("Ganan Otros Elemento 2 Fecha transmision");
+      m191otrfecadqu2.setDescription("Ganan Otros Elemento 2 Fecha adquisicion");
+      m191otrtransmi2.setDescription("Ganan Otros Elemento 2 Valor transmision");
+      m191otradquisi2.setDescription("Ganan Otros Elemento 2 Valor adquisicion");
+      m191otrperdobt2.setDescription("Ganan Otros Elemento 2 Diferencia negativa Perdida obtenida");
+      m191otrperdimp2.setDescription("Ganan Otros Elemento 2 Diferencia negativa Perdida imputable");
+      m191otrganaobt2.setDescription("Ganan Otros Elemento 2 Diferencia positiva Ganancia obtenida");
+      m191otrganared2.setDescription("Ganan Otros Elemento 2 No afectos Parte ganancia susceptible reduccion");
+      m191otranosper2.setDescription("Ganan Otros Elemento 2 No afectos Años permanencia hasta 311294");
+      m191otrimpredu2.setDescription("Ganan Otros Elemento 2 No afectos Reduccion aplicable");
+      m191otrgananre2.setDescription("Ganan Otros Elemento 2 No afectos Ganancia reducida");
+      m191otrexe502.setDescription("Ganan Otros Elemento 2 No afectos - Ganancia exenta 50 por 100 (321)");
+      m191otrganexvd2.setDescription("Ganan Otros Elemento 2 No afectos Ganancia exenta reinversion viv. habitual");
+      m191otrganredu2.setDescription("Ganan Otros Elemento 2 No afectos Ganancia reducida no exenta");
+      m191otrganredi2.setDescription("Ganan Otros Elemento 2 No afectos Ganancia reducida no exenta imputable");
+      m191otrreduact2.setDescription("Ganan Otros Elemento 2 Afectos Reduccion (licencia autotaxis)");
+      m191otrgredact2.setDescription("Ganan Otros Elemento 2 Afectos Ganancia reducida");
+      m191otrexe50ac2.setDescription("Ganan Otros Elemento 2 Afectos - Ganancia exenta (327)");
+      m191otrnoexeac2.setDescription("Ganan Otros Elemento 2 Afectos - Ganancia patrimonial reducida no exenta (328)");
+      m191otrgredimp2.setDescription("Ganan Otros Elemento 2 Afectos Ganancia reducida imputable");
+      m191otrtotperd.setDescription("Ganan Otros Totales perdida imputable (331)");
+      m191otrtotganre.setDescription("Ganan Otros Totales No afectos   (332)");
+      m191otrtotganan.setDescription("Ganan Otros Totales Afectos      (333)");
+      m191antgantitu1.setDescription("(G4) Ganan ej.anter. Imputacion ej.actual Ganancia 1 Contribuyente 0 a 9");
+      m191antgananci1.setDescription("Ganan ej.anter. Imputacion ej.actual Ganancia 1 Importe ganancia");
+      m191antgantitu2.setDescription("Ganan ej.anter. Imputacion ej.actual Ganancia 2 Contribuyente 0 a 9");
+      m191antgananci2.setDescription("Ganan ej.anter. Imputacion ej.actual Ganancia 2 Importe ganancia");
+      m191antgantitu3.setDescription("Ganan ej.anter. Imputacion ej.actual Ganancia 3 Contribuyente 0 a 9");
+      m191antgananci3.setDescription("Ganan ej.anter. Imputacion ej.actual Ganancia 3 Importe ganancia");
+      m191anttotganan.setDescription("Ganan ej.anter. Imputacion ej.actual Total ganancias (292)");
+      m191antpertitu1.setDescription("Ganan ej.anter. Imputacion ej.actual Perdida 1 Contribuyente 0 a 9");
+      m191antperdida1.setDescription("Ganan ej.anter. Imputacion ej.actual Perdida 1 Importe perdida");
+      m191antpertitu2.setDescription("Ganan ej.anter. Imputacion ej.actual Perdida 2 Contribuyente 0 a 9");
+      m191antperdida2.setDescription("Ganan ej.anter. Imputacion ej.actual Perdida 2 Importe perdida");
+      m191antpertitu3.setDescription("Ganan ej.anter. Imputacion ej.actual Perdida 3 Contribuyente 0 a 9");
+      m191antperdida3.setDescription("Ganan ej.anter. Imputacion ej.actual Perdida 3 Importe perdida");
+      m191anttotperdi.setDescription("Ganan ej.anter. Imputacion ej.actual Total perdidas (293)");
       }
     }
     
   public CatModelo100()
     {
     tabdeflis100 = new TabDeflis100("deflis100");
-    tabmod100h1 = new TabMod100h1("mod100h1");
-    tabmod100h2 = new TabMod100h2("mod100h2");
     tabmod100h3 = new TabMod100h3("mod100h3");
+    tabmod100h10 = new TabMod100h10("mod100h10");
+    tabmod100h11 = new TabMod100h11("mod100h11");
+    tabmod100h12 = new TabMod100h12("mod100h12");
+    tabmod100h14 = new TabMod100h14("mod100h14");
+    tabmod100h22 = new TabMod100h22("mod100h22");
+    tabmod100h1 = new TabMod100h1("mod100h1");
     tabmod100h4 = new TabMod100h4("mod100h4");
+    tabmod100h15 = new TabMod100h15("mod100h15");
+    tabmod100h2 = new TabMod100h2("mod100h2");
     tabmod100h5 = new TabMod100h5("mod100h5");
     tabmod100h6 = new TabMod100h6("mod100h6");
     tabmod100h7 = new TabMod100h7("mod100h7");
     tabmod100h8 = new TabMod100h8("mod100h8");
     tabmod100h9 = new TabMod100h9("mod100h9");
-    tabmod100h10 = new TabMod100h10("mod100h10");
-    tabmod100h11 = new TabMod100h11("mod100h11");
-    tabmod100h12 = new TabMod100h12("mod100h12");
-    tabmod100h13 = new TabMod100h13("mod100h13");
-    tabmod100h14 = new TabMod100h14("mod100h14");
-    tabmod100h15 = new TabMod100h15("mod100h15");
-    tabmod100h16 = new TabMod100h16("mod100h16");
     tabmod100h17 = new TabMod100h17("mod100h17");
+    tabmod100h13 = new TabMod100h13("mod100h13");
+    tabmod100h16 = new TabMod100h16("mod100h16");
     tabmod100h18 = new TabMod100h18("mod100h18");
-    tabmod100h19 = new TabMod100h19("mod100h19");
     tabmod100h20 = new TabMod100h20("mod100h20");
+    tabmod100h19 = new TabMod100h19("mod100h19");
     tabmod100h21 = new TabMod100h21("mod100h21");
-    tabmod100h22 = new TabMod100h22("mod100h22");
+    tabmod100h91 = new TabMod100h91("mod100h91");
     TableDef array[] = {
       tabdeflis100,
-      tabmod100h1,
-      tabmod100h2,
       tabmod100h3,
+      tabmod100h10,
+      tabmod100h11,
+      tabmod100h12,
+      tabmod100h14,
+      tabmod100h22,
+      tabmod100h1,
       tabmod100h4,
+      tabmod100h15,
+      tabmod100h2,
       tabmod100h5,
       tabmod100h6,
       tabmod100h7,
       tabmod100h8,
       tabmod100h9,
-      tabmod100h10,
-      tabmod100h11,
-      tabmod100h12,
-      tabmod100h13,
-      tabmod100h14,
-      tabmod100h15,
-      tabmod100h16,
       tabmod100h17,
+      tabmod100h13,
+      tabmod100h16,
       tabmod100h18,
-      tabmod100h19,
       tabmod100h20,
+      tabmod100h19,
       tabmod100h21,
-      tabmod100h22      
+      tabmod100h91      
       };
     setTables(array);
     }

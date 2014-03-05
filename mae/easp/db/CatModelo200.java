@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111110
-// Hora:             18:26:07
+// Fecha:            20140305
+// Hora:             17:18:09
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -38,12 +38,13 @@ public class CatModelo200 extends Catalog
   public TabDeflis200 tabdeflis200;
   public TabMod200ac tabmod200ac;
   public TabMod200ad tabmod200ad;
-  public TabMod200h1 tabmod200h1;
   public TabMod200h8 tabmod200h8;
   public TabMod200h15 tabmod200h15;
-  public TabMod200h16 tabmod200h16;
-  public TabMod200h17 tabmod200h17;
   public TabMod200h20 tabmod200h20;
+  public TabMod200h16 tabmod200h16;
+  public TabMod200h1 tabmod200h1;
+  public TabMod200h17 tabmod200h17;
+  public TabMod200h18b tabmod200h18b;
   public class TabMod200h2 extends TableDef
     {
     // Campos
@@ -2822,6 +2823,13 @@ public class CatModelo200 extends Catalog
     public FieldDef m2012dregsinfin;
     public FieldDef m2012acopamer;
     public FieldDef m2012dcopamer;
+    public FieldDef m2012alibcmant;
+    public FieldDef m2012dlibcmant;
+    public FieldDef m2012alibsmant;
+    public FieldDef m2012dlibsmant;
+    public FieldDef m2012adentcred;
+    public FieldDef m2012adedgastfi;
+    public FieldDef m2012ddedgastfi;
     public TabMod200h12(String name)
       {
       super(name);
@@ -2919,6 +2927,13 @@ public class CatModelo200 extends Catalog
       m2012dregsinfin = new FieldDef("m2012dregsinfin",FieldDef.FLOAT,6,0);
       m2012acopamer = new FieldDef("m2012acopamer",FieldDef.FLOAT,6,0);
       m2012dcopamer = new FieldDef("m2012dcopamer",FieldDef.FLOAT,6,0);
+      m2012alibcmant = new FieldDef("m2012alibcmant",FieldDef.FLOAT,6,0);
+      m2012dlibcmant = new FieldDef("m2012dlibcmant",FieldDef.FLOAT,6,0);
+      m2012alibsmant = new FieldDef("m2012alibsmant",FieldDef.FLOAT,6,0);
+      m2012dlibsmant = new FieldDef("m2012dlibsmant",FieldDef.FLOAT,6,0);
+      m2012adentcred = new FieldDef("m2012adentcred",FieldDef.FLOAT,6,0);
+      m2012adedgastfi = new FieldDef("m2012adedgastfi",FieldDef.FLOAT,6,0);
+      m2012ddedgastfi = new FieldDef("m2012ddedgastfi",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m2012dominio,
         m2012nif,
@@ -3013,7 +3028,14 @@ public class CatModelo200 extends Catalog
         m2012aregsinfin,
         m2012dregsinfin,
         m2012acopamer,
-        m2012dcopamer        
+        m2012dcopamer,
+        m2012alibcmant,
+        m2012dlibcmant,
+        m2012alibsmant,
+        m2012dlibsmant,
+        m2012adentcred,
+        m2012adedgastfi,
+        m2012ddedgastfi        
         };
       setColumns(array);
       FieldDef arrayf[] = {m2012dominio,m2012nif,m2012ejercicio,m2012periodo };
@@ -3108,6 +3130,13 @@ public class CatModelo200 extends Catalog
       m2012dregsinfin.setDescription("Regimen fiscal entidades sin fines lucrativos. Disminuciones [392]");
       m2012acopamer.setDescription("33 Copa del America. Aumentos [393]");
       m2012dcopamer.setDescription("33 Copa del America. Disminuciones [394]");
+      m2012alibcmant.setDescription("Libertat amortizacion con mantenimiento empleo. Aumentos [514]");
+      m2012dlibcmant.setDescription("Libertat amortizacion con mantenimiento empleo. Disminuciones [509]");
+      m2012alibsmant.setDescription("Libertat amortizacion sin mantenimiento empleo. Aumentos [516]");
+      m2012dlibsmant.setDescription("Libertat amortizacion sin mantenimiento empleo. Disminuciones [551]");
+      m2012adentcred.setDescription("Gastos financieros derivados deudas entidades credito. Aumentos [508]");
+      m2012adedgastfi.setDescription("Deducibilidad gastos financieros. Aumentos [363]");
+      m2012ddedgastfi.setDescription("Deducibilidad gastos financieros. Disminuciones [364]");
       }
     }
     
@@ -3161,6 +3190,22 @@ public class CatModelo200 extends Catalog
     public FieldDef m2013cuotintpre;
     public FieldDef m2013compencuot;
     public FieldDef m2013cuotainteg;
+    public FieldDef m2013aparcexent;
+    public FieldDef m2013dparcexent;
+    public FieldDef m2013aentsinfin;
+    public FieldDef m2013dentsinfin;
+    public FieldDef m2013aregsinfin;
+    public FieldDef m2013dregsinfin;
+    public FieldDef m2013adividen8;
+    public FieldDef m2013ddividen8;
+    public FieldDef m2013adividen10;
+    public FieldDef m2013ddividen10;
+    public FieldDef m2013atransminm;
+    public FieldDef m2013dtransminm;
+    public FieldDef m2013aimpsbfos;
+    public FieldDef m2013aimpsopor;
+    public FieldDef m2013dsubvpubl;
+    public FieldDef m2013aredcapit;
     public TabMod200h13(String name)
       {
       super(name);
@@ -3211,6 +3256,22 @@ public class CatModelo200 extends Catalog
       m2013cuotintpre = new FieldDef("m2013cuotintpre",FieldDef.FLOAT,6,0);
       m2013compencuot = new FieldDef("m2013compencuot",FieldDef.FLOAT,6,0);
       m2013cuotainteg = new FieldDef("m2013cuotainteg",FieldDef.FLOAT,6,0);
+      m2013aparcexent = new FieldDef("m2013aparcexent",FieldDef.FLOAT,6,0);
+      m2013dparcexent = new FieldDef("m2013dparcexent",FieldDef.FLOAT,6,0);
+      m2013aentsinfin = new FieldDef("m2013aentsinfin",FieldDef.FLOAT,6,0);
+      m2013dentsinfin = new FieldDef("m2013dentsinfin",FieldDef.FLOAT,6,0);
+      m2013aregsinfin = new FieldDef("m2013aregsinfin",FieldDef.FLOAT,6,0);
+      m2013dregsinfin = new FieldDef("m2013dregsinfin",FieldDef.FLOAT,6,0);
+      m2013adividen8 = new FieldDef("m2013adividen8",FieldDef.FLOAT,6,0);
+      m2013ddividen8 = new FieldDef("m2013ddividen8",FieldDef.FLOAT,6,0);
+      m2013adividen10 = new FieldDef("m2013adividen10",FieldDef.FLOAT,6,0);
+      m2013ddividen10 = new FieldDef("m2013ddividen10",FieldDef.FLOAT,6,0);
+      m2013atransminm = new FieldDef("m2013atransminm",FieldDef.FLOAT,6,0);
+      m2013dtransminm = new FieldDef("m2013dtransminm",FieldDef.FLOAT,6,0);
+      m2013aimpsbfos = new FieldDef("m2013aimpsbfos",FieldDef.FLOAT,6,0);
+      m2013aimpsopor = new FieldDef("m2013aimpsopor",FieldDef.FLOAT,6,0);
+      m2013dsubvpubl = new FieldDef("m2013dsubvpubl",FieldDef.FLOAT,6,0);
+      m2013aredcapit = new FieldDef("m2013aredcapit",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m2013dominio,
         m2013nif,
@@ -3258,7 +3319,23 @@ public class CatModelo200 extends Catalog
         m2013tipogravam,
         m2013cuotintpre,
         m2013compencuot,
-        m2013cuotainteg        
+        m2013cuotainteg,
+        m2013aparcexent,
+        m2013dparcexent,
+        m2013aentsinfin,
+        m2013dentsinfin,
+        m2013aregsinfin,
+        m2013dregsinfin,
+        m2013adividen8,
+        m2013ddividen8,
+        m2013adividen10,
+        m2013ddividen10,
+        m2013atransminm,
+        m2013dtransminm,
+        m2013aimpsbfos,
+        m2013aimpsopor,
+        m2013dsubvpubl,
+        m2013aredcapit        
         };
       setColumns(array);
       FieldDef arrayf[] = {m2013dominio,m2013nif,m2013ejercicio,m2013periodo };
@@ -3306,6 +3383,22 @@ public class CatModelo200 extends Catalog
       m2013cuotintpre.setDescription("Cooperativas - Cuota integra previa [560]");
       m2013compencuot.setDescription("Cooperativas - Compensacion de cuotas por perdidas de cooperativas [561]");
       m2013cuotainteg.setDescription("Cuota integra -Cuota integra [562]");
+      m2013aparcexent.setDescription("Regimen entidades parcialmente exentas. Aumentos [389]");
+      m2013dparcexent.setDescription("Regimen entidades parcialmente exentas. Disminuciones [390]");
+      m2013aentsinfin.setDescription("Aportaciones a favor entidades sin fines lucrativos. Aumentos [250]");
+      m2013dentsinfin.setDescription("Aportaciones a favor entidades sin fines lucrativos. Disminuciones [251]");
+      m2013aregsinfin.setDescription("Regimen fiscal entidades sin fines lucrativos. Aumentos [391]");
+      m2013dregsinfin.setDescription("Regimen fiscal entidades sin fines lucrativos. Disminuciones [392]");
+      m2013adividen8.setDescription("Dividendos y otras rentas extranjeras gravamen 8% . Aumentos [510]");
+      m2013ddividen8.setDescription("Dividendos y otras rentas extranjeras gravamen 8% . Disminuciones [511]");
+      m2013adividen10.setDescription("Dividendos y otras rentas extranjeras gravamen 10% . Aumentos [512]");
+      m2013ddividen10.setDescription("Dividendos y otras rentas extranjeras gravamen 10% . Disminuciones [513]");
+      m2013atransminm.setDescription("Exencion transmision bienes inmuebles . Aumentos [518]");
+      m2013dtransminm.setDescription("Exencion transmision bienes inmuebles . Disminuciones [519]");
+      m2013aimpsbfos.setDescription("Impuesto extranjero sobre bfos. Aumentos [340]");
+      m2013aimpsopor.setDescription("Impuesto extranjero soportado sujeto pasivo. Aumentos [351]");
+      m2013dsubvpubl.setDescription("Subvenciones publicas no integrables. Disminuciones [368]");
+      m2013aredcapit.setDescription("SICAV: Reduccion de capital. Aumentos [371]");
       }
     }
     
@@ -3361,6 +3454,7 @@ public class CatModelo200 extends Catalog
     public FieldDef m2014decorigdip;
     public FieldDef m2014liqingrest;
     public FieldDef m2014liqingrdip;
+    public FieldDef m2014retenpremi;
     public TabMod200h14(String name)
       {
       super(name);
@@ -3413,6 +3507,7 @@ public class CatModelo200 extends Catalog
       m2014decorigdip = new FieldDef("m2014decorigdip",FieldDef.FLOAT,6,0);
       m2014liqingrest = new FieldDef("m2014liqingrest",FieldDef.FLOAT,6,0);
       m2014liqingrdip = new FieldDef("m2014liqingrdip",FieldDef.FLOAT,6,0);
+      m2014retenpremi = new FieldDef("m2014retenpremi",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m2014dominio,
         m2014nif,
@@ -3462,7 +3557,8 @@ public class CatModelo200 extends Catalog
         m2014decorigest,
         m2014decorigdip,
         m2014liqingrest,
-        m2014liqingrdip        
+        m2014liqingrdip,
+        m2014retenpremi        
         };
       setColumns(array);
       FieldDef arrayf[] = {m2014dominio,m2014nif,m2014ejercicio,m2014periodo };
@@ -3512,6 +3608,7 @@ public class CatModelo200 extends Catalog
       m2014decorigdip.setDescription("Importe ingreso/devolucion efectuada declaracion originaria D. Forales/Navarra (Totales) [620]");
       m2014liqingrest.setDescription("Liquido a ingresar o a devolver Estado [621]");
       m2014liqingrdip.setDescription("Liquido a ingresar o a devolver D. Forales/Navarra (Totales) [622]");
+      m2014retenpremi.setDescription("Retenciones sobre premios determinadas loterias [597]");
       }
     }
     
@@ -3592,6 +3689,42 @@ public class CatModelo200 extends Catalog
     public FieldDef m2018dtotalpdte;
     public FieldDef m2018regelec1;
     public FieldDef m2018regelec2;
+    public FieldDef m2018donini02;
+    public FieldDef m2018donapl02;
+    public FieldDef m2018donini03;
+    public FieldDef m2018donapl03;
+    public FieldDef m2018donpdt03;
+    public FieldDef m2018donini04;
+    public FieldDef m2018donapl04;
+    public FieldDef m2018donpdt04;
+    public FieldDef m2018donini05;
+    public FieldDef m2018donapl05;
+    public FieldDef m2018donpdt05;
+    public FieldDef m2018donini06;
+    public FieldDef m2018donapl06;
+    public FieldDef m2018donpdt06;
+    public FieldDef m2018donini07;
+    public FieldDef m2018donapl07;
+    public FieldDef m2018donpdt07;
+    public FieldDef m2018donini08;
+    public FieldDef m2018donapl08;
+    public FieldDef m2018donpdt08;
+    public FieldDef m2018donini09;
+    public FieldDef m2018donapl09;
+    public FieldDef m2018donpdt09;
+    public FieldDef m2018donini10;
+    public FieldDef m2018donapl10;
+    public FieldDef m2018donpdt10;
+    public FieldDef m2018donini11;
+    public FieldDef m2018donapl11;
+    public FieldDef m2018donpdt11;
+    public FieldDef m2018donini12;
+    public FieldDef m2018donapl12;
+    public FieldDef m2018donpdt12;
+    public FieldDef m2018totdonini;
+    public FieldDef m2018totdonapl;
+    public FieldDef m2018totdonpdt;
+    public FieldDef m2018impdonej;
     public TabMod200h18(String name)
       {
       super(name);
@@ -3669,6 +3802,42 @@ public class CatModelo200 extends Catalog
       m2018dtotalpdte = new FieldDef("m2018dtotalpdte",FieldDef.FLOAT,6,0);
       m2018regelec1 = new FieldDef("m2018regelec1",FieldDef.CHAR,22);
       m2018regelec2 = new FieldDef("m2018regelec2",FieldDef.CHAR,22);
+      m2018donini02 = new FieldDef("m2018donini02",FieldDef.FLOAT,6,0);
+      m2018donapl02 = new FieldDef("m2018donapl02",FieldDef.FLOAT,6,0);
+      m2018donini03 = new FieldDef("m2018donini03",FieldDef.FLOAT,6,0);
+      m2018donapl03 = new FieldDef("m2018donapl03",FieldDef.FLOAT,6,0);
+      m2018donpdt03 = new FieldDef("m2018donpdt03",FieldDef.FLOAT,6,0);
+      m2018donini04 = new FieldDef("m2018donini04",FieldDef.FLOAT,6,0);
+      m2018donapl04 = new FieldDef("m2018donapl04",FieldDef.FLOAT,6,0);
+      m2018donpdt04 = new FieldDef("m2018donpdt04",FieldDef.FLOAT,6,0);
+      m2018donini05 = new FieldDef("m2018donini05",FieldDef.FLOAT,6,0);
+      m2018donapl05 = new FieldDef("m2018donapl05",FieldDef.FLOAT,6,0);
+      m2018donpdt05 = new FieldDef("m2018donpdt05",FieldDef.FLOAT,6,0);
+      m2018donini06 = new FieldDef("m2018donini06",FieldDef.FLOAT,6,0);
+      m2018donapl06 = new FieldDef("m2018donapl06",FieldDef.FLOAT,6,0);
+      m2018donpdt06 = new FieldDef("m2018donpdt06",FieldDef.FLOAT,6,0);
+      m2018donini07 = new FieldDef("m2018donini07",FieldDef.FLOAT,6,0);
+      m2018donapl07 = new FieldDef("m2018donapl07",FieldDef.FLOAT,6,0);
+      m2018donpdt07 = new FieldDef("m2018donpdt07",FieldDef.FLOAT,6,0);
+      m2018donini08 = new FieldDef("m2018donini08",FieldDef.FLOAT,6,0);
+      m2018donapl08 = new FieldDef("m2018donapl08",FieldDef.FLOAT,6,0);
+      m2018donpdt08 = new FieldDef("m2018donpdt08",FieldDef.FLOAT,6,0);
+      m2018donini09 = new FieldDef("m2018donini09",FieldDef.FLOAT,6,0);
+      m2018donapl09 = new FieldDef("m2018donapl09",FieldDef.FLOAT,6,0);
+      m2018donpdt09 = new FieldDef("m2018donpdt09",FieldDef.FLOAT,6,0);
+      m2018donini10 = new FieldDef("m2018donini10",FieldDef.FLOAT,6,0);
+      m2018donapl10 = new FieldDef("m2018donapl10",FieldDef.FLOAT,6,0);
+      m2018donpdt10 = new FieldDef("m2018donpdt10",FieldDef.FLOAT,6,0);
+      m2018donini11 = new FieldDef("m2018donini11",FieldDef.FLOAT,6,0);
+      m2018donapl11 = new FieldDef("m2018donapl11",FieldDef.FLOAT,6,0);
+      m2018donpdt11 = new FieldDef("m2018donpdt11",FieldDef.FLOAT,6,0);
+      m2018donini12 = new FieldDef("m2018donini12",FieldDef.FLOAT,6,0);
+      m2018donapl12 = new FieldDef("m2018donapl12",FieldDef.FLOAT,6,0);
+      m2018donpdt12 = new FieldDef("m2018donpdt12",FieldDef.FLOAT,6,0);
+      m2018totdonini = new FieldDef("m2018totdonini",FieldDef.FLOAT,6,0);
+      m2018totdonapl = new FieldDef("m2018totdonapl",FieldDef.FLOAT,6,0);
+      m2018totdonpdt = new FieldDef("m2018totdonpdt",FieldDef.FLOAT,6,0);
+      m2018impdonej = new FieldDef("m2018impdonej",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m2018dominio,
         m2018nif,
@@ -3743,7 +3912,43 @@ public class CatModelo200 extends Catalog
         m2018atotalpdte,
         m2018dtotalpdte,
         m2018regelec1,
-        m2018regelec2        
+        m2018regelec2,
+        m2018donini02,
+        m2018donapl02,
+        m2018donini03,
+        m2018donapl03,
+        m2018donpdt03,
+        m2018donini04,
+        m2018donapl04,
+        m2018donpdt04,
+        m2018donini05,
+        m2018donapl05,
+        m2018donpdt05,
+        m2018donini06,
+        m2018donapl06,
+        m2018donpdt06,
+        m2018donini07,
+        m2018donapl07,
+        m2018donpdt07,
+        m2018donini08,
+        m2018donapl08,
+        m2018donpdt08,
+        m2018donini09,
+        m2018donapl09,
+        m2018donpdt09,
+        m2018donini10,
+        m2018donapl10,
+        m2018donpdt10,
+        m2018donini11,
+        m2018donapl11,
+        m2018donpdt11,
+        m2018donini12,
+        m2018donapl12,
+        m2018donpdt12,
+        m2018totdonini,
+        m2018totdonapl,
+        m2018totdonpdt,
+        m2018impdonej        
         };
       setColumns(array);
       FieldDef arrayf[] = {m2018dominio,m2018nif,m2018ejercicio,m2018periodo };
@@ -3818,6 +4023,42 @@ public class CatModelo200 extends Catalog
       m2018dtotalpdte.setDescription("Total correcciones resultado contable. Saldo pendiente. Disminuciones");
       m2018regelec1.setDescription("Presentacion de documentacion previa por Registro electronico. Numero de registro 1");
       m2018regelec2.setDescription("Presentacion de documentacion previa por Registro electronico. Numero de registro 2");
+      m2018donini02.setDescription("Deducc.donativos 2002 Deduccion pendiente/generada [929]");
+      m2018donapl02.setDescription("Deducc.donativos 2002 Aplicado en esta declaracion [930]");
+      m2018donini03.setDescription("Deducc.donativos 2003 Deduccion pendiente/generada [942]");
+      m2018donapl03.setDescription("Deducc.donativos 2003 Aplicado en esta declaracion [943]");
+      m2018donpdt03.setDescription("Deducc.donativos 2003 Pendiente de aplicacion [944]");
+      m2018donini04.setDescription("Deducc.donativos 2004 Deduccion pendiente/generada [294]");
+      m2018donapl04.setDescription("Deducc.donativos 2004 Aplicado en esta declaracion [295]");
+      m2018donpdt04.setDescription("Deducc.donativos 2004 Pendiente de aplicacion [296]");
+      m2018donini05.setDescription("Deducc.donativos 2005 Deduccion pendiente/generada [066]");
+      m2018donapl05.setDescription("Deducc.donativos 2005 Aplicado en esta declaracion [074]");
+      m2018donpdt05.setDescription("Deducc.donativos 2005 Pendiente de aplicacion [084]");
+      m2018donini06.setDescription("Deducc.donativos 2006 Deduccion pendiente/generada [008]");
+      m2018donapl06.setDescription("Deducc.donativos 2006 Aplicado en esta declaracion [009]");
+      m2018donpdt06.setDescription("Deducc.donativos 2006 Pendiente de aplicacion [010]");
+      m2018donini07.setDescription("Deducc.donativos 2007 Deduccion pendiente/generada [034]");
+      m2018donapl07.setDescription("Deducc.donativos 2007 Aplicado en esta declaracion [035]");
+      m2018donpdt07.setDescription("Deducc.donativos 2007 Pendiente de aplicacion [036]");
+      m2018donini08.setDescription("Deducc.donativos 2008 Deduccion pendiente/generada [201]");
+      m2018donapl08.setDescription("Deducc.donativos 2008 Aplicado en esta declaracion [202]");
+      m2018donpdt08.setDescription("Deducc.donativos 2008 Pendiente de aplicacion [203]");
+      m2018donini09.setDescription("Deducc.donativos 2009 Deduccion pendiente/generada [904]");
+      m2018donapl09.setDescription("Deducc.donativos 2009 Aplicado en esta declaracion [905]");
+      m2018donpdt09.setDescription("Deducc.donativos 2009 Pendiente de aplicacion [906]");
+      m2018donini10.setDescription("Deducc.donativos 2010 Deduccion pendiente/generada [990]");
+      m2018donapl10.setDescription("Deducc.donativos 2010 Aplicado en esta declaracion [991]");
+      m2018donpdt10.setDescription("Deducc.donativos 2010 Pendiente de aplicacion [992]");
+      m2018donini11.setDescription("Deducc.donativos 2011 Deduccion pendiente/generada [997]");
+      m2018donapl11.setDescription("Deducc.donativos 2011 Aplicado en esta declaracion [998]");
+      m2018donpdt11.setDescription("Deducc.donativos 2011 Pendiente de aplicacion [999]");
+      m2018donini12.setDescription("Deducc.donativos 2012 Deduccion pendiente/generada [993]");
+      m2018donapl12.setDescription("Deducc.donativos 2012 Aplicado en esta declaracion [994]");
+      m2018donpdt12.setDescription("Deducc.donativos 2012 Pendiente de aplicacion [995]");
+      m2018totdonini.setDescription("Total deducciones donac.sin fines de lucro Deduccion pendiente/generada [598]");
+      m2018totdonapl.setDescription("Total deducciones donac.sin fines de lucro Aplicado en esta declaracion [565]");
+      m2018totdonpdt.setDescription("Total deducciones donac.sin fines de lucro Pendiente de aplicacion [895]");
+      m2018impdonej.setDescription("Donaciones periodo impositivo efectuada a entidades sin fines de lucro [974]");
       }
     }
     
@@ -6013,6 +6254,7 @@ public class CatModelo200 extends Catalog
     public FieldDef m20atdedimd;
     public FieldDef m20atdedexp;
     public FieldDef m20atimporte;
+    public FieldDef m20atdedinnov;
     public TabMod200ac(String name)
       {
       super(name);
@@ -6027,6 +6269,7 @@ public class CatModelo200 extends Catalog
       m20atdedimd = new FieldDef("m20atdedimd",FieldDef.FLOAT,6,0);
       m20atdedexp = new FieldDef("m20atdedexp",FieldDef.FLOAT,6,0);
       m20atimporte = new FieldDef("m20atimporte",FieldDef.FLOAT,6,0);
+      m20atdedinnov = new FieldDef("m20atdedinnov",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m20acdominio,
         m20acnif,
@@ -6038,7 +6281,8 @@ public class CatModelo200 extends Catalog
         m20atdedinv,
         m20atdedimd,
         m20atdedexp,
-        m20atimporte        
+        m20atimporte,
+        m20atdedinnov        
         };
       setColumns(array);
       FieldDef arrayf[] = {m20acdominio,m20acnif,m20acejercicio,m20acperiodo };
@@ -6088,378 +6332,6 @@ public class CatModelo200 extends Catalog
       FieldDef arrayf[] = {m20adcodigo };
       setPrimaryKeys(arrayf);
       m20adcodigo.setAutoIncrementable(true);
-      }
-    }
-    
-  public class TabMod200h1 extends TableDef
-    {
-    // Campos
-    public FieldDef m2001dominio;
-    public FieldDef m2001nif;
-    public FieldDef m2001ejercicio;
-    public FieldDef m2001periodo;
-    public FieldDef m2001deleg;
-    public FieldDef m2001admon;
-    public FieldDef m2001codadmon;
-    public FieldDef m2001fechaini;
-    public FieldDef m2001fechafin;
-    public FieldDef m2001tipoejer;
-    public FieldDef m2001cnae;
-    public FieldDef m2001nombre;
-    public FieldDef m2001telef1;
-    public FieldDef m2001telef2;
-    public FieldDef m2001car001;
-    public FieldDef m2001car002;
-    public FieldDef m2001car003;
-    public FieldDef m2001car004;
-    public FieldDef m2001car005;
-    public FieldDef m2001car011;
-    public FieldDef m2001car013;
-    public FieldDef m2001car014;
-    public FieldDef m2001car017;
-    public FieldDef m2001car018;
-    public FieldDef m2001car019;
-    public FieldDef m2001car021;
-    public FieldDef m2001car023;
-    public FieldDef m2001car024;
-    public FieldDef m2001car025;
-    public FieldDef m2001car031;
-    public FieldDef m2001car032;
-    public FieldDef m2001car036;
-    public FieldDef m2001car048;
-    public FieldDef m2001car006;
-    public FieldDef m2001car015;
-    public FieldDef m2001car022;
-    public FieldDef m2001car028;
-    public FieldDef m2001car047;
-    public FieldDef m2001car049;
-    public FieldDef m2001car029;
-    public FieldDef m2001car033;
-    public FieldDef m2001car034;
-    public FieldDef m2001car038;
-    public FieldDef m2001car046;
-    public FieldDef m2001car012;
-    public FieldDef m2001car020;
-    public FieldDef m2001car056;
-    public FieldDef m2001car007;
-    public FieldDef m2001car008;
-    public FieldDef m2001car009;
-    public FieldDef m2001car010;
-    public FieldDef m2001car016;
-    public FieldDef m2001car026;
-    public FieldDef m2001car027;
-    public FieldDef m2001car030;
-    public FieldDef m2001car035;
-    public FieldDef m2001car037;
-    public FieldDef m2001car039;
-    public FieldDef m2001car043;
-    public FieldDef m2001car044;
-    public FieldDef m2001car045;
-    public FieldDef m2001tipbal;
-    public FieldDef m2001tippyg;
-    public FieldDef m2001ngrupo;
-    public FieldDef m2001perfijo;
-    public FieldDef m2001pernofijo;
-    public FieldDef m2001complem;
-    public FieldDef m2001njusti;
-    public FieldDef m2001secrenom;
-    public FieldDef m2001secrenif;
-    public FieldDef m2001fechairnr;
-    public FieldDef m2001firmalocal;
-    public FieldDef m2001fechafirma;
-    public FieldDef m2001repnombre1;
-    public FieldDef m2001repnif1;
-    public FieldDef m2001repfecha1;
-    public FieldDef m2001repnotar1;
-    public FieldDef m2001repnombre2;
-    public FieldDef m2001repnif2;
-    public FieldDef m2001repfecha2;
-    public FieldDef m2001repnotar2;
-    public FieldDef m2001repnombre3;
-    public FieldDef m2001repnif3;
-    public FieldDef m2001repfecha3;
-    public FieldDef m2001repnotar3;
-    public FieldDef m2001contacto;
-    public FieldDef m2001conttel;
-    public FieldDef m2001contmovil;
-    public FieldDef m2001contmail;
-    public FieldDef m2001car058;
-    public FieldDef m2001car057;
-    public TabMod200h1(String name)
-      {
-      super(name);
-      m2001dominio = new FieldDef("m2001dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m2001nif = new FieldDef("m2001nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m2001ejercicio = new FieldDef("m2001ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m2001periodo = new FieldDef("m2001periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m2001deleg = new FieldDef("m2001deleg",FieldDef.CHAR,30);
-      m2001admon = new FieldDef("m2001admon",FieldDef.CHAR,30);
-      m2001codadmon = new FieldDef("m2001codadmon",FieldDef.INTEGER,0);
-      m2001fechaini = new FieldDef("m2001fechaini",FieldDef.DATE);
-      m2001fechafin = new FieldDef("m2001fechafin",FieldDef.DATE);
-      m2001tipoejer = new FieldDef("m2001tipoejer",FieldDef.INTEGER,0);
-      m2001cnae = new FieldDef("m2001cnae",FieldDef.INTEGER,0);
-      m2001nombre = new FieldDef("m2001nombre",FieldDef.CHAR,40);
-      m2001telef1 = new FieldDef("m2001telef1",FieldDef.CHAR,9);
-      m2001telef2 = new FieldDef("m2001telef2",FieldDef.CHAR,9);
-      m2001car001 = new FieldDef("m2001car001",FieldDef.CHAR,1);
-      m2001car002 = new FieldDef("m2001car002",FieldDef.CHAR,1);
-      m2001car003 = new FieldDef("m2001car003",FieldDef.CHAR,1);
-      m2001car004 = new FieldDef("m2001car004",FieldDef.CHAR,1);
-      m2001car005 = new FieldDef("m2001car005",FieldDef.CHAR,1);
-      m2001car011 = new FieldDef("m2001car011",FieldDef.CHAR,1);
-      m2001car013 = new FieldDef("m2001car013",FieldDef.CHAR,1);
-      m2001car014 = new FieldDef("m2001car014",FieldDef.CHAR,1);
-      m2001car017 = new FieldDef("m2001car017",FieldDef.CHAR,1);
-      m2001car018 = new FieldDef("m2001car018",FieldDef.CHAR,1);
-      m2001car019 = new FieldDef("m2001car019",FieldDef.CHAR,1);
-      m2001car021 = new FieldDef("m2001car021",FieldDef.CHAR,1);
-      m2001car023 = new FieldDef("m2001car023",FieldDef.CHAR,1);
-      m2001car024 = new FieldDef("m2001car024",FieldDef.CHAR,1);
-      m2001car025 = new FieldDef("m2001car025",FieldDef.CHAR,1);
-      m2001car031 = new FieldDef("m2001car031",FieldDef.CHAR,1);
-      m2001car032 = new FieldDef("m2001car032",FieldDef.CHAR,1);
-      m2001car036 = new FieldDef("m2001car036",FieldDef.CHAR,1);
-      m2001car048 = new FieldDef("m2001car048",FieldDef.CHAR,1);
-      m2001car006 = new FieldDef("m2001car006",FieldDef.CHAR,1);
-      m2001car015 = new FieldDef("m2001car015",FieldDef.CHAR,1);
-      m2001car022 = new FieldDef("m2001car022",FieldDef.CHAR,1);
-      m2001car028 = new FieldDef("m2001car028",FieldDef.CHAR,1);
-      m2001car047 = new FieldDef("m2001car047",FieldDef.CHAR,1);
-      m2001car049 = new FieldDef("m2001car049",FieldDef.CHAR,1);
-      m2001car029 = new FieldDef("m2001car029",FieldDef.CHAR,1);
-      m2001car033 = new FieldDef("m2001car033",FieldDef.CHAR,1);
-      m2001car034 = new FieldDef("m2001car034",FieldDef.CHAR,1);
-      m2001car038 = new FieldDef("m2001car038",FieldDef.CHAR,1);
-      m2001car046 = new FieldDef("m2001car046",FieldDef.CHAR,1);
-      m2001car012 = new FieldDef("m2001car012",FieldDef.CHAR,1);
-      m2001car020 = new FieldDef("m2001car020",FieldDef.CHAR,1);
-      m2001car056 = new FieldDef("m2001car056",FieldDef.CHAR,1);
-      m2001car007 = new FieldDef("m2001car007",FieldDef.CHAR,1);
-      m2001car008 = new FieldDef("m2001car008",FieldDef.CHAR,1);
-      m2001car009 = new FieldDef("m2001car009",FieldDef.CHAR,1);
-      m2001car010 = new FieldDef("m2001car010",FieldDef.CHAR,1);
-      m2001car016 = new FieldDef("m2001car016",FieldDef.CHAR,1);
-      m2001car026 = new FieldDef("m2001car026",FieldDef.CHAR,1);
-      m2001car027 = new FieldDef("m2001car027",FieldDef.CHAR,1);
-      m2001car030 = new FieldDef("m2001car030",FieldDef.CHAR,1);
-      m2001car035 = new FieldDef("m2001car035",FieldDef.CHAR,1);
-      m2001car037 = new FieldDef("m2001car037",FieldDef.CHAR,1);
-      m2001car039 = new FieldDef("m2001car039",FieldDef.CHAR,1);
-      m2001car043 = new FieldDef("m2001car043",FieldDef.CHAR,1);
-      m2001car044 = new FieldDef("m2001car044",FieldDef.CHAR,1);
-      m2001car045 = new FieldDef("m2001car045",FieldDef.CHAR,1);
-      m2001tipbal = new FieldDef("m2001tipbal",FieldDef.CHAR,1);
-      m2001tippyg = new FieldDef("m2001tippyg",FieldDef.CHAR,1);
-      m2001ngrupo = new FieldDef("m2001ngrupo",FieldDef.CHAR,7);
-      m2001perfijo = new FieldDef("m2001perfijo",FieldDef.FLOAT,6,0);
-      m2001pernofijo = new FieldDef("m2001pernofijo",FieldDef.FLOAT,6,0);
-      m2001complem = new FieldDef("m2001complem",FieldDef.CHAR,1);
-      m2001njusti = new FieldDef("m2001njusti",FieldDef.CHAR,13);
-      m2001secrenom = new FieldDef("m2001secrenom",FieldDef.CHAR,21);
-      m2001secrenif = new FieldDef("m2001secrenif",FieldDef.CHAR,9);
-      m2001fechairnr = new FieldDef("m2001fechairnr",FieldDef.DATE);
-      m2001firmalocal = new FieldDef("m2001firmalocal",FieldDef.CHAR,25);
-      m2001fechafirma = new FieldDef("m2001fechafirma",FieldDef.DATE);
-      m2001repnombre1 = new FieldDef("m2001repnombre1",FieldDef.CHAR,36);
-      m2001repnif1 = new FieldDef("m2001repnif1",FieldDef.CHAR,9);
-      m2001repfecha1 = new FieldDef("m2001repfecha1",FieldDef.DATE);
-      m2001repnotar1 = new FieldDef("m2001repnotar1",FieldDef.CHAR,12);
-      m2001repnombre2 = new FieldDef("m2001repnombre2",FieldDef.CHAR,36);
-      m2001repnif2 = new FieldDef("m2001repnif2",FieldDef.CHAR,9);
-      m2001repfecha2 = new FieldDef("m2001repfecha2",FieldDef.DATE);
-      m2001repnotar2 = new FieldDef("m2001repnotar2",FieldDef.CHAR,12);
-      m2001repnombre3 = new FieldDef("m2001repnombre3",FieldDef.CHAR,36);
-      m2001repnif3 = new FieldDef("m2001repnif3",FieldDef.CHAR,9);
-      m2001repfecha3 = new FieldDef("m2001repfecha3",FieldDef.DATE);
-      m2001repnotar3 = new FieldDef("m2001repnotar3",FieldDef.CHAR,12);
-      m2001contacto = new FieldDef("m2001contacto",FieldDef.CHAR,50);
-      m2001conttel = new FieldDef("m2001conttel",FieldDef.CHAR,9);
-      m2001contmovil = new FieldDef("m2001contmovil",FieldDef.CHAR,9);
-      m2001contmail = new FieldDef("m2001contmail",FieldDef.CHAR,50);
-      m2001car058 = new FieldDef("m2001car058",FieldDef.CHAR,1);
-      m2001car057 = new FieldDef("m2001car057",FieldDef.CHAR,1);
-      FieldDef array[] = {
-        m2001dominio,
-        m2001nif,
-        m2001ejercicio,
-        m2001periodo,
-        m2001deleg,
-        m2001admon,
-        m2001codadmon,
-        m2001fechaini,
-        m2001fechafin,
-        m2001tipoejer,
-        m2001cnae,
-        m2001nombre,
-        m2001telef1,
-        m2001telef2,
-        m2001car001,
-        m2001car002,
-        m2001car003,
-        m2001car004,
-        m2001car005,
-        m2001car011,
-        m2001car013,
-        m2001car014,
-        m2001car017,
-        m2001car018,
-        m2001car019,
-        m2001car021,
-        m2001car023,
-        m2001car024,
-        m2001car025,
-        m2001car031,
-        m2001car032,
-        m2001car036,
-        m2001car048,
-        m2001car006,
-        m2001car015,
-        m2001car022,
-        m2001car028,
-        m2001car047,
-        m2001car049,
-        m2001car029,
-        m2001car033,
-        m2001car034,
-        m2001car038,
-        m2001car046,
-        m2001car012,
-        m2001car020,
-        m2001car056,
-        m2001car007,
-        m2001car008,
-        m2001car009,
-        m2001car010,
-        m2001car016,
-        m2001car026,
-        m2001car027,
-        m2001car030,
-        m2001car035,
-        m2001car037,
-        m2001car039,
-        m2001car043,
-        m2001car044,
-        m2001car045,
-        m2001tipbal,
-        m2001tippyg,
-        m2001ngrupo,
-        m2001perfijo,
-        m2001pernofijo,
-        m2001complem,
-        m2001njusti,
-        m2001secrenom,
-        m2001secrenif,
-        m2001fechairnr,
-        m2001firmalocal,
-        m2001fechafirma,
-        m2001repnombre1,
-        m2001repnif1,
-        m2001repfecha1,
-        m2001repnotar1,
-        m2001repnombre2,
-        m2001repnif2,
-        m2001repfecha2,
-        m2001repnotar2,
-        m2001repnombre3,
-        m2001repnif3,
-        m2001repfecha3,
-        m2001repnotar3,
-        m2001contacto,
-        m2001conttel,
-        m2001contmovil,
-        m2001contmail,
-        m2001car058,
-        m2001car057        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m2001dominio,m2001nif,m2001ejercicio,m2001periodo };
-      setPrimaryKeys(arrayf);
-      m2001codadmon.setDescription("Codigo Administracion.");
-      m2001fechaini.setDescription("Periodo Impositivo - Fecha inicio");
-      m2001fechafin.setDescription("Periodo Impositivo - Fecha fin ejercicio");
-      m2001tipoejer.setDescription("Identificacion - Tipo de ejercicio.");
-      m2001cnae.setDescription("Identificacion - C.N.A.E. Incluido en el fichero CNAE.TXT.");
-      m2001nombre.setDescription("Identificacion - Apellidos y nombre o Razon Social.");
-      m2001telef1.setDescription("Identificacion - Telefono 1");
-      m2001telef2.setDescription("Identificacion - Telefono 2");
-      m2001car001.setDescription("Entidad sin animo de lucro acogida regimen fiscal Titulo II Ley 49/2002 [001]:");
-      m2001car002.setDescription("Entidad parcialmente exenta [002]");
-      m2001car003.setDescription("Sociedad inversion de capital variable o fondo de inversion de caracter financiero [003]");
-      m2001car004.setDescription("Sociedad de inversion inmobiliaria o fondo de inversion inmobiliaria [004]");
-      m2001car005.setDescription("Comunidades titulares de montes vecinales en mano comun [005]");
-      m2001car011.setDescription("Entidad de tenencia de valores extranjeros [011]");
-      m2001car013.setDescription("Agrupacion de interes economico espanola o U.T.E. [013]");
-      m2001car014.setDescription("Agrupacion europea de interes economico [014]");
-      m2001car017.setDescription("Cooperativa protegida [017]");
-      m2001car018.setDescription("Cooperativa especialmente protegida [018]");
-      m2001car019.setDescription("Resto cooperativas [019]");
-      m2001car021.setDescription("Establecimiento permanente [021]");
-      m2001car023.setDescription("Gran empresa [023]");
-      m2001car024.setDescription("Entidad de credito [024]");
-      m2001car025.setDescription("Entidad aseguradora [025]");
-      m2001car031.setDescription("Entidades de capital-riesgo [031]");
-      m2001car032.setDescription("Sociedades desarrollo industrial regional [032]");
-      m2001car036.setDescription("Sociedad de garantia reciproca [036]");
-      m2001car048.setDescription("Fondo de Pensiones Real Decreto Legislativo 1/2002 de 29 de noviembre [048]");
-      m2001car006.setDescription("Incentivos empresa de reducida dimension ( cap XII, tit VII L.I.S ) [006]");
-      m2001car015.setDescription("Entidad ZEC [015]");
-      m2001car022.setDescription("Regimen entidades navieras en funcion del tonelaje [022]");
-      m2001car028.setDescription("Tributacion conjunta Estado/Diput.Cdad.Forales [028]");
-      m2001car047.setDescription("Entidades sometidas a normativa foral [047]");
-      m2001car049.setDescription("Regimenes especiales de normativa foral [049]");
-      m2001car029.setDescription("Regimen especial Canarias [029]");
-      m2001car033.setDescription("Regimen especial mineria [033]");
-      m2001car034.setDescription("Regimen especial hidrocarburos [034]");
-      m2001car038.setDescription("Entidad dedicada al arrend.viviendas [38]");
-      m2001car046.setDescription("Entidad en reg. atribucion rentas constituida extranjero presencia en territorio espanol [046]");
-      m2001car012.setDescription("SOCIMI [012]");
-      m2001car020.setDescription("Otros regimenes especiales [020]");
-      m2001car056.setDescription("Tipo gravamen reducido mant.o creacion empleo [056]");
-      m2001car007.setDescription("Inclusion en base imponible rentas positivas art. 107 L.I.S. [007]");
-      m2001car008.setDescription("Opcion art. 107.6 L.I.S. [008]");
-      m2001car009.setDescription("Sociedad dominante de grupo fiscal [009]");
-      m2001car010.setDescription("Sociedad dependiente de grupo fiscal [010]");
-      m2001car016.setDescription("Opcion art.51.2.b) L.I.S. [016]");
-      m2001car026.setDescription("Entidad inactiva [026]");
-      m2001car027.setDescription("Base imponible negativa o cero [027]");
-      m2001car030.setDescription("Transmision elementos patrimoniales arts. 26.2.d) y 84.1 L.I.S. [030]");
-      m2001car035.setDescription("Opcion art.43.1 R.I.S. [035]");
-      m2001car037.setDescription("Opcion art. 43.3 R.I.S. [037]");
-      m2001car039.setDescription("Entidad que forma parte de un grupo mercantil (art. 42 del Cod. Comercio) [039]");
-      m2001car043.setDescription("Obligacion informacion art. 15 R.I.S. [043]");
-      m2001car044.setDescription("Obligacion informacion art. 45 R.I.S. [044]");
-      m2001car045.setDescription("Inversiones anticipadas - reserva inversiones en Canarias (art. 27.10 Ley 19/1994) [045]");
-      m2001tipbal.setDescription("Balance y ECPN 0.No consta 1.Mod.normal 2.Mod.abreviado 3. Mod.PYMES");
-      m2001tippyg.setDescription("Perdidas y ganancias 0.No consta 1.Mod.normal 2.Mod.abreviado 3. Mod.PYMES");
-      m2001ngrupo.setDescription("Nº de grupo fiscal");
-      m2001perfijo.setDescription("Personal fijo [041] 7enteros 2 decimales");
-      m2001pernofijo.setDescription("Personal no fijo [042] 7enteros 2 decimales");
-      m2001complem.setDescription("Declaracion complementaria");
-      m2001njusti.setDescription("Nº de justificante de la declaracion anterior");
-      m2001secrenom.setDescription("Nombre o Razon social - Secretario del Consejo de Administracion");
-      m2001secrenif.setDescription("N.I.F. - Secretario del Consejo de Administracion");
-      m2001fechairnr.setDescription("Fecha-Contribuyentes por el I.R.N.R. AAAAMMDD");
-      m2001firmalocal.setDescription("representantes legales entidad. Firma - Localidad");
-      m2001fechafirma.setDescription("representantes legales entidad. Fecha firma");
-      m2001repnombre1.setDescription("representante legales entidad. 1 - Nombre y apellidos");
-      m2001repnif1.setDescription("representante legales entidad. 1 - N.I.F");
-      m2001repfecha1.setDescription("representante legales entidad. 1 - Fecha Poder AAAAMMDD");
-      m2001repnotar1.setDescription("representante legales entidad. 1 - Notaria");
-      m2001repnombre2.setDescription("representante legales entidad. 2 - Nombre y apellidos");
-      m2001repnif2.setDescription("representante legales entidad. 2 - N.I.F");
-      m2001repfecha2.setDescription("representante legales entidad. 2 - Fecha Poder AAAAMMDD");
-      m2001repnotar2.setDescription("representante legales entidad. 2 - Notaria");
-      m2001repnombre3.setDescription("representante legales entidad. 3 - Nombre y apellidos");
-      m2001repnif3.setDescription("representante legales entidad. 3 - N.I.F");
-      m2001repfecha3.setDescription("representante legales entidad.3 - Fecha Poder AAAAMMDD");
-      m2001repnotar3.setDescription("representante legales entidad. 3 - Notaria");
-      m2001contacto.setDescription("Nombre y Apellidos persona de contacto para incidencias");
-      m2001conttel.setDescription("Telefono fijo de contacto");
-      m2001contmovil.setDescription("Telefono movil de contacto");
-      m2001contmail.setDescription("Direccion mail contacto");
-      m2001car058.setDescription("Mutua de seguros o Mutualidad de prevision social");
-      m2001car057.setDescription("Entidades que aplican el regimen especial Ley 11/2009");
       }
     }
     
@@ -6794,6 +6666,7 @@ public class CatModelo200 extends Catalog
     public FieldDef m2015dincini10;
     public FieldDef m2015dincapl10;
     public FieldDef m2015dincpdt10;
+    public FieldDef m2015bnegpdt94;
     public TabMod200h15(String name)
       {
       super(name);
@@ -6983,6 +6856,7 @@ public class CatModelo200 extends Catalog
       m2015dincini10 = new FieldDef("m2015dincini10",FieldDef.FLOAT,6,0);
       m2015dincapl10 = new FieldDef("m2015dincapl10",FieldDef.FLOAT,6,0);
       m2015dincpdt10 = new FieldDef("m2015dincpdt10",FieldDef.FLOAT,6,0);
+      m2015bnegpdt94 = new FieldDef("m2015bnegpdt94",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m2015dominio,
         m2015nif,
@@ -7169,7 +7043,8 @@ public class CatModelo200 extends Catalog
         m2015dincgra10,
         m2015dincini10,
         m2015dincapl10,
-        m2015dincpdt10        
+        m2015dincpdt10,
+        m2015bnegpdt94        
         };
       setColumns(array);
       FieldDef arrayf[] = {m2015dominio,m2015nif,m2015ejercicio,m2015periodo };
@@ -7356,1330 +7231,7 @@ public class CatModelo200 extends Catalog
       m2015dincini10.setDescription("Ded.doble impos. internacional 2010 Deduccion pendiente [135]");
       m2015dincapl10.setDescription("Ded.doble impos. internacional 2010 Deduccion aplicada en esta liquidacion [136]");
       m2015dincpdt10.setDescription("Ded.doble impos. internacional 2010 Deduccion pendiente ejercicios futuros [137]");
-      }
-    }
-    
-  public class TabMod200h16 extends TableDef
-    {
-    // Campos
-    public FieldDef m2016dominio;
-    public FieldDef m2016nif;
-    public FieldDef m2016ejercicio;
-    public FieldDef m2016periodo;
-    public FieldDef m2016art42in01;
-    public FieldDef m2016art42ap01;
-    public FieldDef m2016art42pd01;
-    public FieldDef m2016art42in02;
-    public FieldDef m2016art42ap02;
-    public FieldDef m2016art42pd02;
-    public FieldDef m2016art42in03;
-    public FieldDef m2016art42ap03;
-    public FieldDef m2016art42pd03;
-    public FieldDef m2016art42in04;
-    public FieldDef m2016art42ap04;
-    public FieldDef m2016art42pd04;
-    public FieldDef m2016art42in05;
-    public FieldDef m2016art42ap05;
-    public FieldDef m2016art42pd05;
-    public FieldDef m2016art42in06;
-    public FieldDef m2016art42ap06;
-    public FieldDef m2016art42pd06;
-    public FieldDef m2016art42in07;
-    public FieldDef m2016art42ap07;
-    public FieldDef m2016art42pd07;
-    public FieldDef m2016art42in08;
-    public FieldDef m2016art42ap08;
-    public FieldDef m2016art42pd08;
-    public FieldDef m2016art42in09;
-    public FieldDef m2016art42ap09;
-    public FieldDef m2016art42pd09;
-    public FieldDef m2016art42intot;
-    public FieldDef m2016art42aptot;
-    public FieldDef m2016art42pdtot;
-    public FieldDef m2016dt8ini04;
-    public FieldDef m2016dt8apl04;
-    public FieldDef m2016dt8ini05;
-    public FieldDef m2016dt8apl05;
-    public FieldDef m2016dt8pdt05;
-    public FieldDef m2016dt8ini06;
-    public FieldDef m2016dt8apl06;
-    public FieldDef m2016dt8pdt06;
-    public FieldDef m2016dt8ini07;
-    public FieldDef m2016dt8apl07;
-    public FieldDef m2016dt8pdt07;
-    public FieldDef m2016dt8ini08;
-    public FieldDef m2016dt8apl08;
-    public FieldDef m2016dt8pdt08;
-    public FieldDef m2016dt8ini09;
-    public FieldDef m2016dt8apl09;
-    public FieldDef m2016dt8pdt09;
-    public FieldDef m2016dt8initot;
-    public FieldDef m2016dt8apltot;
-    public FieldDef m2016dt8pdttot;
-    public FieldDef m2016ricdot05;
-    public FieldDef m2016ricmat05;
-    public FieldDef m2016ricclave05;
-    public FieldDef m2016ricdot06;
-    public FieldDef m2016ricmat06;
-    public FieldDef m2016ricclave06;
-    public FieldDef m2016ricpdt06;
-    public FieldDef m2016ricdot07;
-    public FieldDef m2016ricmat107;
-    public FieldDef m2016ricmat207;
-    public FieldDef m2016ricpdt07;
-    public FieldDef m2016ricdot08;
-    public FieldDef m2016ricmat108;
-    public FieldDef m2016ricmat208;
-    public FieldDef m2016ricpdt08;
-    public FieldDef m2016ricdot09;
-    public FieldDef m2016ricmat109;
-    public FieldDef m2016ricmat209;
-    public FieldDef m2016ricpdt09;
-    public FieldDef m2016ricant109;
-    public FieldDef m2016ricant209;
-    public FieldDef m2016afini2004;
-    public FieldDef m2016afapl2004;
-    public FieldDef m2016afini2005;
-    public FieldDef m2016afapl2005;
-    public FieldDef m2016afpdt2005;
-    public FieldDef m2016afini2006;
-    public FieldDef m2016afapl2006;
-    public FieldDef m2016afpdt2006;
-    public FieldDef m2016afini2007;
-    public FieldDef m2016afapl2007;
-    public FieldDef m2016afpdt2007;
-    public FieldDef m2016afini2008;
-    public FieldDef m2016afapl2008;
-    public FieldDef m2016afpdt2008;
-    public FieldDef m2016dedini96;
-    public FieldDef m2016dedapl96;
-    public FieldDef m2016dedpdt96;
-    public FieldDef m2016dedini97;
-    public FieldDef m2016dedapl97;
-    public FieldDef m2016dedpdt97;
-    public FieldDef m2016dedini98;
-    public FieldDef m2016dedapl98;
-    public FieldDef m2016dedpdt98;
-    public FieldDef m2016dedini99;
-    public FieldDef m2016dedapl99;
-    public FieldDef m2016dedpdt99;
-    public FieldDef m2016dedini00;
-    public FieldDef m2016dedapl00;
-    public FieldDef m2016dedpdt00;
-    public FieldDef m2016dedini01;
-    public FieldDef m2016dedapl01;
-    public FieldDef m2016dedpdt01;
-    public FieldDef m2016dedini02;
-    public FieldDef m2016dedapl02;
-    public FieldDef m2016dedpdt02;
-    public FieldDef m2016dedini03;
-    public FieldDef m2016dedapl03;
-    public FieldDef m2016dedpdt03;
-    public FieldDef m2016dedini04;
-    public FieldDef m2016dedapl04;
-    public FieldDef m2016dedpdt04;
-    public FieldDef m2016dedini05;
-    public FieldDef m2016dedapl05;
-    public FieldDef m2016dedpdt05;
-    public FieldDef m2016dedini06;
-    public FieldDef m2016dedapl06;
-    public FieldDef m2016dedpdt06;
-    public FieldDef m2016dedini07;
-    public FieldDef m2016dedapl07;
-    public FieldDef m2016dedpdt07;
-    public FieldDef m2016dedini08;
-    public FieldDef m2016dedapl08;
-    public FieldDef m2016dedpdt08;
-    public FieldDef m2016dedini09;
-    public FieldDef m2016dedapl09;
-    public FieldDef m2016dedpdt09;
-    public FieldDef m2016afini2009;
-    public FieldDef m2016afapl2009;
-    public FieldDef m2016afpdt2009;
-    public FieldDef m2016totini;
-    public FieldDef m2016totapl;
-    public FieldDef m2016totpdte;
-    public FieldDef m2016art42in10;
-    public FieldDef m2016art42ap10;
-    public FieldDef m2016art42pd10;
-    public FieldDef m2016ricdot10;
-    public FieldDef m2016ricmat110;
-    public FieldDef m2016ricmat210;
-    public FieldDef m2016ricpdt10;
-    public FieldDef m2016dedini10;
-    public FieldDef m2016dedapl10;
-    public FieldDef m2016dedpdt10;
-    public TabMod200h16(String name)
-      {
-      super(name);
-      m2016dominio = new FieldDef("m2016dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m2016nif = new FieldDef("m2016nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m2016ejercicio = new FieldDef("m2016ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m2016periodo = new FieldDef("m2016periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m2016art42in01 = new FieldDef("m2016art42in01",FieldDef.FLOAT,6,0);
-      m2016art42ap01 = new FieldDef("m2016art42ap01",FieldDef.FLOAT,6,0);
-      m2016art42pd01 = new FieldDef("m2016art42pd01",FieldDef.FLOAT,6,0);
-      m2016art42in02 = new FieldDef("m2016art42in02",FieldDef.FLOAT,6,0);
-      m2016art42ap02 = new FieldDef("m2016art42ap02",FieldDef.FLOAT,6,0);
-      m2016art42pd02 = new FieldDef("m2016art42pd02",FieldDef.FLOAT,6,0);
-      m2016art42in03 = new FieldDef("m2016art42in03",FieldDef.FLOAT,6,0);
-      m2016art42ap03 = new FieldDef("m2016art42ap03",FieldDef.FLOAT,6,0);
-      m2016art42pd03 = new FieldDef("m2016art42pd03",FieldDef.FLOAT,6,0);
-      m2016art42in04 = new FieldDef("m2016art42in04",FieldDef.FLOAT,6,0);
-      m2016art42ap04 = new FieldDef("m2016art42ap04",FieldDef.FLOAT,6,0);
-      m2016art42pd04 = new FieldDef("m2016art42pd04",FieldDef.FLOAT,6,0);
-      m2016art42in05 = new FieldDef("m2016art42in05",FieldDef.FLOAT,6,0);
-      m2016art42ap05 = new FieldDef("m2016art42ap05",FieldDef.FLOAT,6,0);
-      m2016art42pd05 = new FieldDef("m2016art42pd05",FieldDef.FLOAT,6,0);
-      m2016art42in06 = new FieldDef("m2016art42in06",FieldDef.FLOAT,6,0);
-      m2016art42ap06 = new FieldDef("m2016art42ap06",FieldDef.FLOAT,6,0);
-      m2016art42pd06 = new FieldDef("m2016art42pd06",FieldDef.FLOAT,6,0);
-      m2016art42in07 = new FieldDef("m2016art42in07",FieldDef.FLOAT,6,0);
-      m2016art42ap07 = new FieldDef("m2016art42ap07",FieldDef.FLOAT,6,0);
-      m2016art42pd07 = new FieldDef("m2016art42pd07",FieldDef.FLOAT,6,0);
-      m2016art42in08 = new FieldDef("m2016art42in08",FieldDef.FLOAT,6,0);
-      m2016art42ap08 = new FieldDef("m2016art42ap08",FieldDef.FLOAT,6,0);
-      m2016art42pd08 = new FieldDef("m2016art42pd08",FieldDef.FLOAT,6,0);
-      m2016art42in09 = new FieldDef("m2016art42in09",FieldDef.FLOAT,6,0);
-      m2016art42ap09 = new FieldDef("m2016art42ap09",FieldDef.FLOAT,6,0);
-      m2016art42pd09 = new FieldDef("m2016art42pd09",FieldDef.FLOAT,6,0);
-      m2016art42intot = new FieldDef("m2016art42intot",FieldDef.FLOAT,6,0);
-      m2016art42aptot = new FieldDef("m2016art42aptot",FieldDef.FLOAT,6,0);
-      m2016art42pdtot = new FieldDef("m2016art42pdtot",FieldDef.FLOAT,6,0);
-      m2016dt8ini04 = new FieldDef("m2016dt8ini04",FieldDef.FLOAT,6,0);
-      m2016dt8apl04 = new FieldDef("m2016dt8apl04",FieldDef.FLOAT,6,0);
-      m2016dt8ini05 = new FieldDef("m2016dt8ini05",FieldDef.FLOAT,6,0);
-      m2016dt8apl05 = new FieldDef("m2016dt8apl05",FieldDef.FLOAT,6,0);
-      m2016dt8pdt05 = new FieldDef("m2016dt8pdt05",FieldDef.FLOAT,6,0);
-      m2016dt8ini06 = new FieldDef("m2016dt8ini06",FieldDef.FLOAT,6,0);
-      m2016dt8apl06 = new FieldDef("m2016dt8apl06",FieldDef.FLOAT,6,0);
-      m2016dt8pdt06 = new FieldDef("m2016dt8pdt06",FieldDef.FLOAT,6,0);
-      m2016dt8ini07 = new FieldDef("m2016dt8ini07",FieldDef.FLOAT,6,0);
-      m2016dt8apl07 = new FieldDef("m2016dt8apl07",FieldDef.FLOAT,6,0);
-      m2016dt8pdt07 = new FieldDef("m2016dt8pdt07",FieldDef.FLOAT,6,0);
-      m2016dt8ini08 = new FieldDef("m2016dt8ini08",FieldDef.FLOAT,6,0);
-      m2016dt8apl08 = new FieldDef("m2016dt8apl08",FieldDef.FLOAT,6,0);
-      m2016dt8pdt08 = new FieldDef("m2016dt8pdt08",FieldDef.FLOAT,6,0);
-      m2016dt8ini09 = new FieldDef("m2016dt8ini09",FieldDef.FLOAT,6,0);
-      m2016dt8apl09 = new FieldDef("m2016dt8apl09",FieldDef.FLOAT,6,0);
-      m2016dt8pdt09 = new FieldDef("m2016dt8pdt09",FieldDef.FLOAT,6,0);
-      m2016dt8initot = new FieldDef("m2016dt8initot",FieldDef.FLOAT,6,0);
-      m2016dt8apltot = new FieldDef("m2016dt8apltot",FieldDef.FLOAT,6,0);
-      m2016dt8pdttot = new FieldDef("m2016dt8pdttot",FieldDef.FLOAT,6,0);
-      m2016ricdot05 = new FieldDef("m2016ricdot05",FieldDef.FLOAT,6,0);
-      m2016ricmat05 = new FieldDef("m2016ricmat05",FieldDef.FLOAT,6,0);
-      m2016ricclave05 = new FieldDef("m2016ricclave05",FieldDef.FLOAT,6,0);
-      m2016ricdot06 = new FieldDef("m2016ricdot06",FieldDef.FLOAT,6,0);
-      m2016ricmat06 = new FieldDef("m2016ricmat06",FieldDef.FLOAT,6,0);
-      m2016ricclave06 = new FieldDef("m2016ricclave06",FieldDef.FLOAT,6,0);
-      m2016ricpdt06 = new FieldDef("m2016ricpdt06",FieldDef.FLOAT,6,0);
-      m2016ricdot07 = new FieldDef("m2016ricdot07",FieldDef.FLOAT,6,0);
-      m2016ricmat107 = new FieldDef("m2016ricmat107",FieldDef.FLOAT,6,0);
-      m2016ricmat207 = new FieldDef("m2016ricmat207",FieldDef.FLOAT,6,0);
-      m2016ricpdt07 = new FieldDef("m2016ricpdt07",FieldDef.FLOAT,6,0);
-      m2016ricdot08 = new FieldDef("m2016ricdot08",FieldDef.FLOAT,6,0);
-      m2016ricmat108 = new FieldDef("m2016ricmat108",FieldDef.FLOAT,6,0);
-      m2016ricmat208 = new FieldDef("m2016ricmat208",FieldDef.FLOAT,6,0);
-      m2016ricpdt08 = new FieldDef("m2016ricpdt08",FieldDef.FLOAT,6,0);
-      m2016ricdot09 = new FieldDef("m2016ricdot09",FieldDef.FLOAT,6,0);
-      m2016ricmat109 = new FieldDef("m2016ricmat109",FieldDef.FLOAT,6,0);
-      m2016ricmat209 = new FieldDef("m2016ricmat209",FieldDef.FLOAT,6,0);
-      m2016ricpdt09 = new FieldDef("m2016ricpdt09",FieldDef.FLOAT,6,0);
-      m2016ricant109 = new FieldDef("m2016ricant109",FieldDef.FLOAT,6,0);
-      m2016ricant209 = new FieldDef("m2016ricant209",FieldDef.FLOAT,6,0);
-      m2016afini2004 = new FieldDef("m2016afini2004",FieldDef.FLOAT,6,0);
-      m2016afapl2004 = new FieldDef("m2016afapl2004",FieldDef.FLOAT,6,0);
-      m2016afini2005 = new FieldDef("m2016afini2005",FieldDef.FLOAT,6,0);
-      m2016afapl2005 = new FieldDef("m2016afapl2005",FieldDef.FLOAT,6,0);
-      m2016afpdt2005 = new FieldDef("m2016afpdt2005",FieldDef.FLOAT,6,0);
-      m2016afini2006 = new FieldDef("m2016afini2006",FieldDef.FLOAT,6,0);
-      m2016afapl2006 = new FieldDef("m2016afapl2006",FieldDef.FLOAT,6,0);
-      m2016afpdt2006 = new FieldDef("m2016afpdt2006",FieldDef.FLOAT,6,0);
-      m2016afini2007 = new FieldDef("m2016afini2007",FieldDef.FLOAT,6,0);
-      m2016afapl2007 = new FieldDef("m2016afapl2007",FieldDef.FLOAT,6,0);
-      m2016afpdt2007 = new FieldDef("m2016afpdt2007",FieldDef.FLOAT,6,0);
-      m2016afini2008 = new FieldDef("m2016afini2008",FieldDef.FLOAT,6,0);
-      m2016afapl2008 = new FieldDef("m2016afapl2008",FieldDef.FLOAT,6,0);
-      m2016afpdt2008 = new FieldDef("m2016afpdt2008",FieldDef.FLOAT,6,0);
-      m2016dedini96 = new FieldDef("m2016dedini96",FieldDef.FLOAT,6,0);
-      m2016dedapl96 = new FieldDef("m2016dedapl96",FieldDef.FLOAT,6,0);
-      m2016dedpdt96 = new FieldDef("m2016dedpdt96",FieldDef.FLOAT,6,0);
-      m2016dedini97 = new FieldDef("m2016dedini97",FieldDef.FLOAT,6,0);
-      m2016dedapl97 = new FieldDef("m2016dedapl97",FieldDef.FLOAT,6,0);
-      m2016dedpdt97 = new FieldDef("m2016dedpdt97",FieldDef.FLOAT,6,0);
-      m2016dedini98 = new FieldDef("m2016dedini98",FieldDef.FLOAT,6,0);
-      m2016dedapl98 = new FieldDef("m2016dedapl98",FieldDef.FLOAT,6,0);
-      m2016dedpdt98 = new FieldDef("m2016dedpdt98",FieldDef.FLOAT,6,0);
-      m2016dedini99 = new FieldDef("m2016dedini99",FieldDef.FLOAT,6,0);
-      m2016dedapl99 = new FieldDef("m2016dedapl99",FieldDef.FLOAT,6,0);
-      m2016dedpdt99 = new FieldDef("m2016dedpdt99",FieldDef.FLOAT,6,0);
-      m2016dedini00 = new FieldDef("m2016dedini00",FieldDef.FLOAT,6,0);
-      m2016dedapl00 = new FieldDef("m2016dedapl00",FieldDef.FLOAT,6,0);
-      m2016dedpdt00 = new FieldDef("m2016dedpdt00",FieldDef.FLOAT,6,0);
-      m2016dedini01 = new FieldDef("m2016dedini01",FieldDef.FLOAT,6,0);
-      m2016dedapl01 = new FieldDef("m2016dedapl01",FieldDef.FLOAT,6,0);
-      m2016dedpdt01 = new FieldDef("m2016dedpdt01",FieldDef.FLOAT,6,0);
-      m2016dedini02 = new FieldDef("m2016dedini02",FieldDef.FLOAT,6,0);
-      m2016dedapl02 = new FieldDef("m2016dedapl02",FieldDef.FLOAT,6,0);
-      m2016dedpdt02 = new FieldDef("m2016dedpdt02",FieldDef.FLOAT,6,0);
-      m2016dedini03 = new FieldDef("m2016dedini03",FieldDef.FLOAT,6,0);
-      m2016dedapl03 = new FieldDef("m2016dedapl03",FieldDef.FLOAT,6,0);
-      m2016dedpdt03 = new FieldDef("m2016dedpdt03",FieldDef.FLOAT,6,0);
-      m2016dedini04 = new FieldDef("m2016dedini04",FieldDef.FLOAT,6,0);
-      m2016dedapl04 = new FieldDef("m2016dedapl04",FieldDef.FLOAT,6,0);
-      m2016dedpdt04 = new FieldDef("m2016dedpdt04",FieldDef.FLOAT,6,0);
-      m2016dedini05 = new FieldDef("m2016dedini05",FieldDef.FLOAT,6,0);
-      m2016dedapl05 = new FieldDef("m2016dedapl05",FieldDef.FLOAT,6,0);
-      m2016dedpdt05 = new FieldDef("m2016dedpdt05",FieldDef.FLOAT,6,0);
-      m2016dedini06 = new FieldDef("m2016dedini06",FieldDef.FLOAT,6,0);
-      m2016dedapl06 = new FieldDef("m2016dedapl06",FieldDef.FLOAT,6,0);
-      m2016dedpdt06 = new FieldDef("m2016dedpdt06",FieldDef.FLOAT,6,0);
-      m2016dedini07 = new FieldDef("m2016dedini07",FieldDef.FLOAT,6,0);
-      m2016dedapl07 = new FieldDef("m2016dedapl07",FieldDef.FLOAT,6,0);
-      m2016dedpdt07 = new FieldDef("m2016dedpdt07",FieldDef.FLOAT,6,0);
-      m2016dedini08 = new FieldDef("m2016dedini08",FieldDef.FLOAT,6,0);
-      m2016dedapl08 = new FieldDef("m2016dedapl08",FieldDef.FLOAT,6,0);
-      m2016dedpdt08 = new FieldDef("m2016dedpdt08",FieldDef.FLOAT,6,0);
-      m2016dedini09 = new FieldDef("m2016dedini09",FieldDef.FLOAT,6,0);
-      m2016dedapl09 = new FieldDef("m2016dedapl09",FieldDef.FLOAT,6,0);
-      m2016dedpdt09 = new FieldDef("m2016dedpdt09",FieldDef.FLOAT,6,0);
-      m2016afini2009 = new FieldDef("m2016afini2009",FieldDef.FLOAT,6,0);
-      m2016afapl2009 = new FieldDef("m2016afapl2009",FieldDef.FLOAT,6,0);
-      m2016afpdt2009 = new FieldDef("m2016afpdt2009",FieldDef.FLOAT,6,0);
-      m2016totini = new FieldDef("m2016totini",FieldDef.FLOAT,6,0);
-      m2016totapl = new FieldDef("m2016totapl",FieldDef.FLOAT,6,0);
-      m2016totpdte = new FieldDef("m2016totpdte",FieldDef.FLOAT,6,0);
-      m2016art42in10 = new FieldDef("m2016art42in10",FieldDef.FLOAT,6,0);
-      m2016art42ap10 = new FieldDef("m2016art42ap10",FieldDef.FLOAT,6,0);
-      m2016art42pd10 = new FieldDef("m2016art42pd10",FieldDef.FLOAT,6,0);
-      m2016ricdot10 = new FieldDef("m2016ricdot10",FieldDef.FLOAT,6,0);
-      m2016ricmat110 = new FieldDef("m2016ricmat110",FieldDef.FLOAT,6,0);
-      m2016ricmat210 = new FieldDef("m2016ricmat210",FieldDef.FLOAT,6,0);
-      m2016ricpdt10 = new FieldDef("m2016ricpdt10",FieldDef.FLOAT,6,0);
-      m2016dedini10 = new FieldDef("m2016dedini10",FieldDef.FLOAT,6,0);
-      m2016dedapl10 = new FieldDef("m2016dedapl10",FieldDef.FLOAT,6,0);
-      m2016dedpdt10 = new FieldDef("m2016dedpdt10",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        m2016dominio,
-        m2016nif,
-        m2016ejercicio,
-        m2016periodo,
-        m2016art42in01,
-        m2016art42ap01,
-        m2016art42pd01,
-        m2016art42in02,
-        m2016art42ap02,
-        m2016art42pd02,
-        m2016art42in03,
-        m2016art42ap03,
-        m2016art42pd03,
-        m2016art42in04,
-        m2016art42ap04,
-        m2016art42pd04,
-        m2016art42in05,
-        m2016art42ap05,
-        m2016art42pd05,
-        m2016art42in06,
-        m2016art42ap06,
-        m2016art42pd06,
-        m2016art42in07,
-        m2016art42ap07,
-        m2016art42pd07,
-        m2016art42in08,
-        m2016art42ap08,
-        m2016art42pd08,
-        m2016art42in09,
-        m2016art42ap09,
-        m2016art42pd09,
-        m2016art42intot,
-        m2016art42aptot,
-        m2016art42pdtot,
-        m2016dt8ini04,
-        m2016dt8apl04,
-        m2016dt8ini05,
-        m2016dt8apl05,
-        m2016dt8pdt05,
-        m2016dt8ini06,
-        m2016dt8apl06,
-        m2016dt8pdt06,
-        m2016dt8ini07,
-        m2016dt8apl07,
-        m2016dt8pdt07,
-        m2016dt8ini08,
-        m2016dt8apl08,
-        m2016dt8pdt08,
-        m2016dt8ini09,
-        m2016dt8apl09,
-        m2016dt8pdt09,
-        m2016dt8initot,
-        m2016dt8apltot,
-        m2016dt8pdttot,
-        m2016ricdot05,
-        m2016ricmat05,
-        m2016ricclave05,
-        m2016ricdot06,
-        m2016ricmat06,
-        m2016ricclave06,
-        m2016ricpdt06,
-        m2016ricdot07,
-        m2016ricmat107,
-        m2016ricmat207,
-        m2016ricpdt07,
-        m2016ricdot08,
-        m2016ricmat108,
-        m2016ricmat208,
-        m2016ricpdt08,
-        m2016ricdot09,
-        m2016ricmat109,
-        m2016ricmat209,
-        m2016ricpdt09,
-        m2016ricant109,
-        m2016ricant209,
-        m2016afini2004,
-        m2016afapl2004,
-        m2016afini2005,
-        m2016afapl2005,
-        m2016afpdt2005,
-        m2016afini2006,
-        m2016afapl2006,
-        m2016afpdt2006,
-        m2016afini2007,
-        m2016afapl2007,
-        m2016afpdt2007,
-        m2016afini2008,
-        m2016afapl2008,
-        m2016afpdt2008,
-        m2016dedini96,
-        m2016dedapl96,
-        m2016dedpdt96,
-        m2016dedini97,
-        m2016dedapl97,
-        m2016dedpdt97,
-        m2016dedini98,
-        m2016dedapl98,
-        m2016dedpdt98,
-        m2016dedini99,
-        m2016dedapl99,
-        m2016dedpdt99,
-        m2016dedini00,
-        m2016dedapl00,
-        m2016dedpdt00,
-        m2016dedini01,
-        m2016dedapl01,
-        m2016dedpdt01,
-        m2016dedini02,
-        m2016dedapl02,
-        m2016dedpdt02,
-        m2016dedini03,
-        m2016dedapl03,
-        m2016dedpdt03,
-        m2016dedini04,
-        m2016dedapl04,
-        m2016dedpdt04,
-        m2016dedini05,
-        m2016dedapl05,
-        m2016dedpdt05,
-        m2016dedini06,
-        m2016dedapl06,
-        m2016dedpdt06,
-        m2016dedini07,
-        m2016dedapl07,
-        m2016dedpdt07,
-        m2016dedini08,
-        m2016dedapl08,
-        m2016dedpdt08,
-        m2016dedini09,
-        m2016dedapl09,
-        m2016dedpdt09,
-        m2016afini2009,
-        m2016afapl2009,
-        m2016afpdt2009,
-        m2016totini,
-        m2016totapl,
-        m2016totpdte,
-        m2016art42in10,
-        m2016art42ap10,
-        m2016art42pd10,
-        m2016ricdot10,
-        m2016ricmat110,
-        m2016ricmat210,
-        m2016ricpdt10,
-        m2016dedini10,
-        m2016dedapl10,
-        m2016dedpdt10        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m2016dominio,m2016nif,m2016ejercicio,m2016periodo };
-      setPrimaryKeys(arrayf);
-      m2016art42in01.setDescription("Deducc. Art. 36 ter 2001 Deduccion pendiente/generada [835]");
-      m2016art42ap01.setDescription("Deducc. Art. 36 ter 2001 Aplicado en esta liquidacion [836]");
-      m2016art42pd01.setDescription("Deducc. Art. 36 ter 2001 Pendiente aplicacion [837]");
-      m2016art42in02.setDescription("Deducc. Art. 36 ter 2002 Deduccion pendiente/generada [838]");
-      m2016art42ap02.setDescription("Deducc. Art. 36 ter 2002 Aplicado en esta liquidacion [839]");
-      m2016art42pd02.setDescription("Deducc. Art. 36 ter 2002 Pendiente aplicacion [840]");
-      m2016art42in03.setDescription("Deducc. Art. 36 ter 2003 Deduccion pendiente/generada [932]");
-      m2016art42ap03.setDescription("Deducc. Art. 36 ter 2003 Aplicado en esta liquidacion [933]");
-      m2016art42pd03.setDescription("Deducc. Art. 36 ter 2003 Pendiente aplicacion [934]");
-      m2016art42in04.setDescription("Deducc. Art. 42 2004 Deduccion pendiente/generada [297]");
-      m2016art42ap04.setDescription("Deducc. Art. 42 2004 Aplicado en esta liquidacion [298]");
-      m2016art42pd04.setDescription("Deducc. Art. 42 2004 Pendiente aplicacion [299]");
-      m2016art42in05.setDescription("Deducc. Art. 42 2005 Deduccion pendiente/generada [090]");
-      m2016art42ap05.setDescription("Deducc. Art. 42 2005 Aplicado en esta liquidacion [091]");
-      m2016art42pd05.setDescription("Deducc. Art. 42 2005 Pendiente aplicacion [092]");
-      m2016art42in06.setDescription("Deducc. Art. 42 2006 Deduccion pendiente/generada [004]");
-      m2016art42ap06.setDescription("Deducc. Art. 42 2006 Aplicado en esta liquidacion [005]");
-      m2016art42pd06.setDescription("Deducc. Art. 42 2006 Pendiente aplicacion [006]");
-      m2016art42in07.setDescription("Deducc. Art. 42 2007 Deduccion pendiente/generada [031]");
-      m2016art42ap07.setDescription("Deducc. Art. 42 2007 Aplicado en esta liquidacion [032]");
-      m2016art42pd07.setDescription("Deducc. Art. 42 2007 Pendiente aplicacion [033]");
-      m2016art42in08.setDescription("Deducc. Art. 42 2008 Deduccion pendiente/generada [022]");
-      m2016art42ap08.setDescription("Deducc. Art. 42 2008 Aplicado en esta liquidacion [023]");
-      m2016art42pd08.setDescription("Deducc. Art. 42 2008 Pendiente aplicacion [024]");
-      m2016art42in09.setDescription("Deducc. Art. 42 2009 Deduccion pendiente/generada [040]");
-      m2016art42ap09.setDescription("Deducc. Art. 42 2009 Aplicado en esta liquidacion [041]");
-      m2016art42pd09.setDescription("Deducc. Art. 42 2009 Pendiente aplicacion [042]");
-      m2016art42intot.setDescription("Deducc. Art. 36 ter Total Deducc.Deduccion pendiente/generada [841]");
-      m2016art42aptot.setDescription("Deducc. Art. 36 ter Total Deducc.Aplicado en esta liquidacion [585]");
-      m2016art42pdtot.setDescription("Deducc. Art. 36 ter Total Deducc.Pendiente aplicacion [843]");
-      m2016dt8ini04.setDescription("Deducc DT octava 2004 Periodificacion/diferimiento. Deduccion pendiente/generada [749]");
-      m2016dt8apl04.setDescription("Deducc DT octava 2004 Periodificacion/diferimiento. Aplicado en esta liquidacion [750]");
-      m2016dt8ini05.setDescription("Deducc DT octava 2005 Periodificacion. Deduccion pendiente/generada [752]");
-      m2016dt8apl05.setDescription("Deducc DT octava 2005 Periodificacion. Aplicado en esta liquidacion [753]");
-      m2016dt8pdt05.setDescription("Deducc DT octava 2005 Periodificacion. Pendiente de aplicacion [754]");
-      m2016dt8ini06.setDescription("Deducc DT octava 2006 Periodificacion. Deduccion pendiente/generada [755]");
-      m2016dt8apl06.setDescription("Deducc DT octava 2006 Periodificacion. Aplicado en esta liquidacion [756]");
-      m2016dt8pdt06.setDescription("Deducc DT octava 2006 Periodificacion. Pendiente de aplicacion [757]");
-      m2016dt8ini07.setDescription("Deducc DT octava 2007 Periodificacion. Deduccion pendiente/generada [758]");
-      m2016dt8apl07.setDescription("Deducc DT octava 2007 Periodificacion. Aplicado en esta liquidacion [759]");
-      m2016dt8pdt07.setDescription("Deducc DT octava 2007 Periodificacion. Pendiente de aplicacion [760]");
-      m2016dt8ini08.setDescription("Deducc DT octava 2008 Periodificacion. Deduccion pendiente/generada [761]");
-      m2016dt8apl08.setDescription("Deducc DT octava 2008 Periodificacion. Aplicado en esta liquidacion [762]");
-      m2016dt8pdt08.setDescription("Deducc DT octava 2008 Periodificacion. Pendiente de aplicacion [763]");
-      m2016dt8ini09.setDescription("Deducc DT octava 2009 Periodificacion. Deduccion pendiente/generada [744]");
-      m2016dt8apl09.setDescription("Deducc DT octava 2009 Periodificacion. Aplicado en esta liquidacion [745]");
-      m2016dt8pdt09.setDescription("Deducc DT octava 2009 Periodificacion. Pendiente de aplicacion [746]");
-      m2016dt8initot.setDescription("Deducc DT octava Total deducciones Deduccion pendiente/generada [764]");
-      m2016dt8apltot.setDescription("Deducc DT octava Total deducciones Aplicado en esta liquidacion [584]");
-      m2016dt8pdttot.setDescription("Deducc DT octava Total deducciones Pendiente de aplicacion [765]");
-      m2016ricdot05.setDescription("R.inversiones Canarias 2005. Importe dotaciones [078]");
-      m2016ricmat05.setDescription("R.inversiones Canarias 2005. Materializaciones 2009 [079]");
-      m2016ricclave05.setDescription("R.inversiones Canarias 2005. Clave [087]");
-      m2016ricdot06.setDescription("R.inversiones Canarias 2006. Importe dotaciones [081]");
-      m2016ricmat06.setDescription("R.inversiones Canarias 2006. Materializaciones 2009 [082]");
-      m2016ricclave06.setDescription("R.inversiones Canarias 2006. Clave [088]");
-      m2016ricpdt06.setDescription("R.inversiones Canarias 2006. Pendiente materializar [083]");
-      m2016ricdot07.setDescription("R.inversiones Canarias 2007. Importe dotacion [089]");
-      m2016ricmat107.setDescription("R.inversiones Canarias 2007. Inversiones previstas A B D (1) [094]");
-      m2016ricmat207.setDescription("R.inversiones Canarias 2007. Inversiones previstas C y D (2 a 6) [095]");
-      m2016ricpdt07.setDescription("R.inversiones Canarias 2007. Pendiente materializar [096]");
-      m2016ricdot08.setDescription("R.inversiones Canarias 2008. Importe dotacion [097]");
-      m2016ricmat108.setDescription("R.inversiones Canarias 2008. Inversiones previstas A B D (1) [098]");
-      m2016ricmat208.setDescription("R.inversiones Canarias 2008. Inversiones previstas C y D (2 a 6) [047]");
-      m2016ricpdt08.setDescription("R.inversiones Canarias 2008. Pendiente materializar [048]");
-      m2016ricdot09.setDescription("R.inversiones Canarias 2009. Importe dotacion [524]");
-      m2016ricmat109.setDescription("R.inversiones Canarias 2009. Inversiones previstas A B D (1) [525]");
-      m2016ricmat209.setDescription("R.inversiones Canarias 2009. Inversiones previstas C y D (2 a 6) [526]");
-      m2016ricpdt09.setDescription("R.inversiones Canarias 2009. Pendiente materializar [527]");
-      m2016ricant109.setDescription("R.inversiones Canarias Inv.anticipadas 2009. Inversiones previstas A B D (1) [020]");
-      m2016ricant209.setDescription("R.inversiones Canarias Inv.anticipadas 2009. Inversiones previstas C y D (2 a 6) [021]");
-      m2016afini2004.setDescription("Deduc inversion Canarias Activos fijos 2004. Deduccion pendiente/generada [854]");
-      m2016afapl2004.setDescription("Deduc inversion Canarias Activos fijos 2004. Aplicado en esta liquidacion [855]");
-      m2016afini2005.setDescription("Deduc inversion Canarias Activos fijos 2005. Deduccion pendiente/generada [857]");
-      m2016afapl2005.setDescription("Deduc inversion Canarias Activos fijos 2005. Aplicado en esta liquidacion [858]");
-      m2016afpdt2005.setDescription("Deduc inversion Canarias Activos fijos 2005. Pendiente de aplicacion [859]");
-      m2016afini2006.setDescription("Deduc inversion Canarias Activos fijos 2006. Deduccion pendiente/generada [860]");
-      m2016afapl2006.setDescription("Deduc inversion Canarias Activos fijos 2006. Aplicado en esta liquidacion [861]");
-      m2016afpdt2006.setDescription("Deduc inversion Canarias Activos fijos 2006. Pendiente de aplicacion [862]");
-      m2016afini2007.setDescription("Deduc inversion Canarias Activos fijos 2007. Deduccion pendiente/generada [863]");
-      m2016afapl2007.setDescription("Deduc inversion Canarias Activos fijos 2007. Aplicado en esta liquidacion [864]");
-      m2016afpdt2007.setDescription("Deduc inversion Canarias Activos fijos 2007. Pendiente de aplicacion [865]");
-      m2016afini2008.setDescription("Deduc inversion Canarias Activos fijos 2008. Deduccion pendiente/generada [883]");
-      m2016afapl2008.setDescription("Deduc inversion Canarias Activos fijos 2008. Aplicado en esta liquidacion [884]");
-      m2016afpdt2008.setDescription("Deduc inversion Canarias Activos fijos 2008. Pendiente de aplicacion [885]");
-      m2016dedini96.setDescription("Deduc inversion Canarias 1996 ID. Deduccion pendiente/generada [194]");
-      m2016dedapl96.setDescription("Deduc inversion Canarias 1996 ID. Aplicado en esta liquidacion [195]");
-      m2016dedpdt96.setDescription("Deduc inversion Canarias 1996 ID. Pendiente de aplicacion [196]");
-      m2016dedini97.setDescription("Deduc inversion Canarias 1997. Deduccion pendiente/generada [868]");
-      m2016dedapl97.setDescription("Deduc inversion Canarias 1997. Aplicado en esta liquidacion [869]");
-      m2016dedpdt97.setDescription("Deduc inversion Canarias 1997. Pendiente de aplicacion [834]");
-      m2016dedini98.setDescription("Deduc inversion Canarias 1998. Deduccion pendiente/generada [871]");
-      m2016dedapl98.setDescription("Deduc inversion Canarias 1998. Aplicado en esta liquidacion [872]");
-      m2016dedpdt98.setDescription("Deduc inversion Canarias 1998. Pendiente de aplicacion [873]");
-      m2016dedini99.setDescription("Deduc inversion Canarias 1999. Deduccion pendiente/generada [874]");
-      m2016dedapl99.setDescription("Deduc inversion Canarias 1999. Aplicado en esta liquidacion [875]");
-      m2016dedpdt99.setDescription("Deduc inversion Canarias 1999. Pendiente de aplicacion [876]");
-      m2016dedini00.setDescription("Deduc inversion Canarias 2000. Deduccion pendiente/generada [877]");
-      m2016dedapl00.setDescription("Deduc inversion Canarias 2000. Aplicado en esta liquidacion [878]");
-      m2016dedpdt00.setDescription("Deduc inversion Canarias 2000. Pendiente de aplicacion [879]");
-      m2016dedini01.setDescription("Deduc inversion Canarias 2001. Deduccion pendiente/generada [880]");
-      m2016dedapl01.setDescription("Deduc inversion Canarias 2001. Aplicado en esta liquidacion [881]");
-      m2016dedpdt01.setDescription("Deduc inversion Canarias 2001. Pendiente de aplicacion [882]");
-      m2016dedini02.setDescription("Deduc inversion Canarias 2002. Deduccion pendiente/generada [866]");
-      m2016dedapl02.setDescription("Deduc inversion Canarias 2002. Aplicado en esta liquidacion [867]");
-      m2016dedpdt02.setDescription("Deduc inversion Canarias 2002. Pendiente de aplicacion [870]");
-      m2016dedini03.setDescription("Deduc inversion Canarias 2003. Deduccion pendiente/generada [939]");
-      m2016dedapl03.setDescription("Deduc inversion Canarias 2003. Aplicado en esta liquidacion [940]");
-      m2016dedpdt03.setDescription("Deduc inversion Canarias 2003. Pendiente de aplicacion [941]");
-      m2016dedini04.setDescription("Deduc inversion Canarias 2004. Deduccion pendiente/generada [191]");
-      m2016dedapl04.setDescription("Deduc inversion Canarias 2004. Aplicado en esta liquidacion [192]");
-      m2016dedpdt04.setDescription("Deduc inversion Canarias 2004. Pendiente de aplicacion [193]");
-      m2016dedini05.setDescription("Deduc inversion Canarias 2005. Deduccion pendiente/generada [613]");
-      m2016dedapl05.setDescription("Deduc inversion Canarias 2005. Aplicado en esta liquidacion [614]");
-      m2016dedpdt05.setDescription("Deduc inversion Canarias 2005. Pendiente de aplicacion [701]");
-      m2016dedini06.setDescription("Deduc inversion Canarias 2006. Deduccion pendiente/generada [200]");
-      m2016dedapl06.setDescription("Deduc inversion Canarias 2006. Aplicado en esta liquidacion [257]");
-      m2016dedpdt06.setDescription("Deduc inversion Canarias 2006. Pendiente de aplicacion [011]");
-      m2016dedini07.setDescription("Deduc inversion Canarias 2007. Deduccion pendiente/generada [037]");
-      m2016dedapl07.setDescription("Deduc inversion Canarias 2007. Aplicado en esta liquidacion [038]");
-      m2016dedpdt07.setDescription("Deduc inversion Canarias 2007. Pendiente de aplicacion [039]");
-      m2016dedini08.setDescription("Deduc inversion Canarias 2008. Deduccion pendiente/generada [044]");
-      m2016dedapl08.setDescription("Deduc inversion Canarias 2008. Aplicado en esta liquidacion [045]");
-      m2016dedpdt08.setDescription("Deduc inversion Canarias 2008. Pendiente de aplicacion [046]");
-      m2016dedini09.setDescription("Deduc inversion Canarias 2009. Deduccion pendiente/generada [528]");
-      m2016dedapl09.setDescription("Deduc inversion Canarias 2009. Aplicado en esta liquidacion [529]");
-      m2016dedpdt09.setDescription("Deduc inversion Canarias 2009. Pendiente de aplicacion [530]");
-      m2016afini2009.setDescription("Deduc inversion Canarias Activos fijos 2009. Deduccion pendiente/generada [852]");
-      m2016afapl2009.setDescription("Deduc inversion Canarias Activos fijos 2009. Aplicado en esta liquidacion [853]");
-      m2016afpdt2009.setDescription("Deduc inversion Canarias Activos fijos 2009. Pendiente de aplicacion [856]");
-      m2016totini.setDescription("Deduc inversion Canarias Total. Deduccion pendiente/generada [886]");
-      m2016totapl.setDescription("Deduc inversion Canarias Total. Aplicado en esta liquidacion [590]");
-      m2016totpdte.setDescription("Deduc inversion Canarias Total. Pendiente de aplicacion [887]");
-      m2016art42in10.setDescription("Deducc. Art. 42 2010 Deduccion pendiente/generada [138]");
-      m2016art42ap10.setDescription("Deducc. Art. 42 2010 Aplicado en esta liquidacion [139]");
-      m2016art42pd10.setDescription("Deducc. Art. 42 2010 Pendiente aplicacion [140]");
-      m2016ricdot10.setDescription("R.inversiones Canarias 2010. Importe dotacion [922]");
-      m2016ricmat110.setDescription("R.inversiones Canarias 2010. Inversiones previstas A B D (1) [923]");
-      m2016ricmat210.setDescription("R.inversiones Canarias 2010. Inversiones previstas C y D (2 a 6) [924]");
-      m2016ricpdt10.setDescription("R.inversiones Canarias 2010. Pendiente materializar [925]");
-      m2016dedini10.setDescription("Deduc inversion Canarias 2010. Deduccion pendiente/generada [144]");
-      m2016dedapl10.setDescription("Deduc inversion Canarias 2010. Aplicado en esta liquidacion [145]");
-      m2016dedpdt10.setDescription("Deduc inversion Canarias 2010. Pendiente de aplicacion [146]");
-      }
-    }
-    
-  public class TabMod200h17 extends TableDef
-    {
-    // Campos
-    public FieldDef m2017dominio;
-    public FieldDef m2017nif;
-    public FieldDef m2017ejercicio;
-    public FieldDef m2017periodo;
-    public FieldDef m2017dedini96;
-    public FieldDef m2017dedapl96;
-    public FieldDef m2017dedpdt96;
-    public FieldDef m2017dedini97;
-    public FieldDef m2017dedapl97;
-    public FieldDef m2017dedpdt97;
-    public FieldDef m2017dedini98;
-    public FieldDef m2017dedapl98;
-    public FieldDef m2017dedpdt98;
-    public FieldDef m2017dedini99;
-    public FieldDef m2017dedapl99;
-    public FieldDef m2017dedpdt99;
-    public FieldDef m2017dedini00;
-    public FieldDef m2017dedapl00;
-    public FieldDef m2017dedpdt00;
-    public FieldDef m2017dedini01;
-    public FieldDef m2017dedapl01;
-    public FieldDef m2017dedpdt01;
-    public FieldDef m2017dedini02;
-    public FieldDef m2017dedapl02;
-    public FieldDef m2017dedpdt02;
-    public FieldDef m2017dedini03;
-    public FieldDef m2017dedapl03;
-    public FieldDef m2017dedpdt03;
-    public FieldDef m2017dedini04;
-    public FieldDef m2017dedapl04;
-    public FieldDef m2017dedpdt04;
-    public FieldDef m2017dedini05;
-    public FieldDef m2017dedapl05;
-    public FieldDef m2017dedpdt05;
-    public FieldDef m2017dedini06;
-    public FieldDef m2017dedapl06;
-    public FieldDef m2017dedpdt06;
-    public FieldDef m2017dedini07;
-    public FieldDef m2017dedapl07;
-    public FieldDef m2017dedpdt07;
-    public FieldDef m2017dedini08;
-    public FieldDef m2017dedapl08;
-    public FieldDef m2017dedpdt08;
-    public FieldDef m2017pmini09;
-    public FieldDef m2017pmapl09;
-    public FieldDef m2017pmpdt09;
-    public FieldDef m2017ceini09;
-    public FieldDef m2017ceapl09;
-    public FieldDef m2017cepdt09;
-    public FieldDef m2017idini09;
-    public FieldDef m2017idapl09;
-    public FieldDef m2017idpdt09;
-    public FieldDef m2017itini09;
-    public FieldDef m2017itapl09;
-    public FieldDef m2017itpdt09;
-    public FieldDef m2017atini09;
-    public FieldDef m2017atapl09;
-    public FieldDef m2017atpdt09;
-    public FieldDef m2017pcini09;
-    public FieldDef m2017pcapl09;
-    public FieldDef m2017pcpdt09;
-    public FieldDef m2017phini09;
-    public FieldDef m2017phapl09;
-    public FieldDef m2017phpdt09;
-    public FieldDef m2017eeini09;
-    public FieldDef m2017eeapl09;
-    public FieldDef m2017eepdt09;
-    public FieldDef m2017fpini09;
-    public FieldDef m2017fpapl09;
-    public FieldDef m2017fppdt09;
-    public FieldDef m2017edini09;
-    public FieldDef m2017edapl09;
-    public FieldDef m2017edpdt09;
-    public FieldDef m2017ppini09;
-    public FieldDef m2017ppapl09;
-    public FieldDef m2017pppdt09;
-    public FieldDef m2017guaini09;
-    public FieldDef m2017guaapl09;
-    public FieldDef m2017guapdt09;
-    public FieldDef m2017alini09;
-    public FieldDef m2017alapl09;
-    public FieldDef m2017alpdt09;
-    public FieldDef m2017bwini09;
-    public FieldDef m2017bwapl09;
-    public FieldDef m2017bwpdt09;
-    public FieldDef m2017caini09;
-    public FieldDef m2017caapl09;
-    public FieldDef m2017capdt09;
-    public FieldDef m2017rhini09;
-    public FieldDef m2017rhapl09;
-    public FieldDef m2017rhpdt09;
-    public FieldDef m2017bcini09;
-    public FieldDef m2017bcapl09;
-    public FieldDef m2017bcpdt09;
-    public FieldDef m2017deini09;
-    public FieldDef m2017deapl09;
-    public FieldDef m2017depdt09;
-    public FieldDef m2017sxini09;
-    public FieldDef m2017sxapl09;
-    public FieldDef m2017sxpdt09;
-    public FieldDef m2017dcini09;
-    public FieldDef m2017dcapl09;
-    public FieldDef m2017dcpdt09;
-    public FieldDef m2017cjini09;
-    public FieldDef m2017cjapl09;
-    public FieldDef m2017cjpdt09;
-    public FieldDef m2017aiini09;
-    public FieldDef m2017aiapl09;
-    public FieldDef m2017aipdt09;
-    public FieldDef m2017hoini09;
-    public FieldDef m2017hoapl09;
-    public FieldDef m2017hopdt09;
-    public FieldDef m2017cbini09;
-    public FieldDef m2017cbapl09;
-    public FieldDef m2017cbpdt09;
-    public FieldDef m2017saini09;
-    public FieldDef m2017saapl09;
-    public FieldDef m2017sapdt09;
-    public FieldDef m2017dfini09;
-    public FieldDef m2017dfapl09;
-    public FieldDef m2017dfpdt09;
-    public FieldDef m2017totdedini;
-    public FieldDef m2017totdedapl;
-    public FieldDef m2017totdedpdt;
-    public FieldDef m2017donini02;
-    public FieldDef m2017donapl02;
-    public FieldDef m2017donpdt02;
-    public FieldDef m2017donini03;
-    public FieldDef m2017donapl03;
-    public FieldDef m2017donpdt03;
-    public FieldDef m2017donini04;
-    public FieldDef m2017donapl04;
-    public FieldDef m2017donpdt04;
-    public FieldDef m2017donini05;
-    public FieldDef m2017donapl05;
-    public FieldDef m2017donpdt05;
-    public FieldDef m2017donini06;
-    public FieldDef m2017donapl06;
-    public FieldDef m2017donpdt06;
-    public FieldDef m2017donini07;
-    public FieldDef m2017donapl07;
-    public FieldDef m2017donpdt07;
-    public FieldDef m2017donini08;
-    public FieldDef m2017donapl08;
-    public FieldDef m2017donpdt08;
-    public FieldDef m2017donini09;
-    public FieldDef m2017donapl09;
-    public FieldDef m2017donpdt09;
-    public FieldDef m2017totdonini;
-    public FieldDef m2017totdonapl;
-    public FieldDef m2017totdonpdt;
-    public FieldDef m2017impdonej;
-    public FieldDef m2017dedini09;
-    public FieldDef m2017dedapl09;
-    public FieldDef m2017dedpdt09;
-    public FieldDef m2017elxini09;
-    public FieldDef m2017elxapl09;
-    public FieldDef m2017elxpdt09;
-    public FieldDef m2017jguini09;
-    public FieldDef m2017jguapl09;
-    public FieldDef m2017jgupdt09;
-    public FieldDef m2017jmjini09;
-    public FieldDef m2017jmjapl09;
-    public FieldDef m2017jmjpdt09;
-    public FieldDef m2017crgini09;
-    public FieldDef m2017crgapl09;
-    public FieldDef m2017crgpdt09;
-    public FieldDef m2017sdeini09;
-    public FieldDef m2017sdeapl09;
-    public FieldDef m2017sdepdt09;
-    public FieldDef m2017alvini09;
-    public FieldDef m2017alvapl09;
-    public FieldDef m2017alvpdt09;
-    public FieldDef m2017glxini09;
-    public FieldDef m2017glxapl09;
-    public FieldDef m2017glxpdt09;
-    public FieldDef m2017donini10;
-    public FieldDef m2017donapl10;
-    public FieldDef m2017donpdt10;
-    public TabMod200h17(String name)
-      {
-      super(name);
-      m2017dominio = new FieldDef("m2017dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m2017nif = new FieldDef("m2017nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m2017ejercicio = new FieldDef("m2017ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m2017periodo = new FieldDef("m2017periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m2017dedini96 = new FieldDef("m2017dedini96",FieldDef.FLOAT,6,0);
-      m2017dedapl96 = new FieldDef("m2017dedapl96",FieldDef.FLOAT,6,0);
-      m2017dedpdt96 = new FieldDef("m2017dedpdt96",FieldDef.FLOAT,6,0);
-      m2017dedini97 = new FieldDef("m2017dedini97",FieldDef.FLOAT,6,0);
-      m2017dedapl97 = new FieldDef("m2017dedapl97",FieldDef.FLOAT,6,0);
-      m2017dedpdt97 = new FieldDef("m2017dedpdt97",FieldDef.FLOAT,6,0);
-      m2017dedini98 = new FieldDef("m2017dedini98",FieldDef.FLOAT,6,0);
-      m2017dedapl98 = new FieldDef("m2017dedapl98",FieldDef.FLOAT,6,0);
-      m2017dedpdt98 = new FieldDef("m2017dedpdt98",FieldDef.FLOAT,6,0);
-      m2017dedini99 = new FieldDef("m2017dedini99",FieldDef.FLOAT,6,0);
-      m2017dedapl99 = new FieldDef("m2017dedapl99",FieldDef.FLOAT,6,0);
-      m2017dedpdt99 = new FieldDef("m2017dedpdt99",FieldDef.FLOAT,6,0);
-      m2017dedini00 = new FieldDef("m2017dedini00",FieldDef.FLOAT,6,0);
-      m2017dedapl00 = new FieldDef("m2017dedapl00",FieldDef.FLOAT,6,0);
-      m2017dedpdt00 = new FieldDef("m2017dedpdt00",FieldDef.FLOAT,6,0);
-      m2017dedini01 = new FieldDef("m2017dedini01",FieldDef.FLOAT,6,0);
-      m2017dedapl01 = new FieldDef("m2017dedapl01",FieldDef.FLOAT,6,0);
-      m2017dedpdt01 = new FieldDef("m2017dedpdt01",FieldDef.FLOAT,6,0);
-      m2017dedini02 = new FieldDef("m2017dedini02",FieldDef.FLOAT,6,0);
-      m2017dedapl02 = new FieldDef("m2017dedapl02",FieldDef.FLOAT,6,0);
-      m2017dedpdt02 = new FieldDef("m2017dedpdt02",FieldDef.FLOAT,6,0);
-      m2017dedini03 = new FieldDef("m2017dedini03",FieldDef.FLOAT,6,0);
-      m2017dedapl03 = new FieldDef("m2017dedapl03",FieldDef.FLOAT,6,0);
-      m2017dedpdt03 = new FieldDef("m2017dedpdt03",FieldDef.FLOAT,6,0);
-      m2017dedini04 = new FieldDef("m2017dedini04",FieldDef.FLOAT,6,0);
-      m2017dedapl04 = new FieldDef("m2017dedapl04",FieldDef.FLOAT,6,0);
-      m2017dedpdt04 = new FieldDef("m2017dedpdt04",FieldDef.FLOAT,6,0);
-      m2017dedini05 = new FieldDef("m2017dedini05",FieldDef.FLOAT,6,0);
-      m2017dedapl05 = new FieldDef("m2017dedapl05",FieldDef.FLOAT,6,0);
-      m2017dedpdt05 = new FieldDef("m2017dedpdt05",FieldDef.FLOAT,6,0);
-      m2017dedini06 = new FieldDef("m2017dedini06",FieldDef.FLOAT,6,0);
-      m2017dedapl06 = new FieldDef("m2017dedapl06",FieldDef.FLOAT,6,0);
-      m2017dedpdt06 = new FieldDef("m2017dedpdt06",FieldDef.FLOAT,6,0);
-      m2017dedini07 = new FieldDef("m2017dedini07",FieldDef.FLOAT,6,0);
-      m2017dedapl07 = new FieldDef("m2017dedapl07",FieldDef.FLOAT,6,0);
-      m2017dedpdt07 = new FieldDef("m2017dedpdt07",FieldDef.FLOAT,6,0);
-      m2017dedini08 = new FieldDef("m2017dedini08",FieldDef.FLOAT,6,0);
-      m2017dedapl08 = new FieldDef("m2017dedapl08",FieldDef.FLOAT,6,0);
-      m2017dedpdt08 = new FieldDef("m2017dedpdt08",FieldDef.FLOAT,6,0);
-      m2017pmini09 = new FieldDef("m2017pmini09",FieldDef.FLOAT,6,0);
-      m2017pmapl09 = new FieldDef("m2017pmapl09",FieldDef.FLOAT,6,0);
-      m2017pmpdt09 = new FieldDef("m2017pmpdt09",FieldDef.FLOAT,6,0);
-      m2017ceini09 = new FieldDef("m2017ceini09",FieldDef.FLOAT,6,0);
-      m2017ceapl09 = new FieldDef("m2017ceapl09",FieldDef.FLOAT,6,0);
-      m2017cepdt09 = new FieldDef("m2017cepdt09",FieldDef.FLOAT,6,0);
-      m2017idini09 = new FieldDef("m2017idini09",FieldDef.FLOAT,6,0);
-      m2017idapl09 = new FieldDef("m2017idapl09",FieldDef.FLOAT,6,0);
-      m2017idpdt09 = new FieldDef("m2017idpdt09",FieldDef.FLOAT,6,0);
-      m2017itini09 = new FieldDef("m2017itini09",FieldDef.FLOAT,6,0);
-      m2017itapl09 = new FieldDef("m2017itapl09",FieldDef.FLOAT,6,0);
-      m2017itpdt09 = new FieldDef("m2017itpdt09",FieldDef.FLOAT,6,0);
-      m2017atini09 = new FieldDef("m2017atini09",FieldDef.FLOAT,6,0);
-      m2017atapl09 = new FieldDef("m2017atapl09",FieldDef.FLOAT,6,0);
-      m2017atpdt09 = new FieldDef("m2017atpdt09",FieldDef.FLOAT,6,0);
-      m2017pcini09 = new FieldDef("m2017pcini09",FieldDef.FLOAT,6,0);
-      m2017pcapl09 = new FieldDef("m2017pcapl09",FieldDef.FLOAT,6,0);
-      m2017pcpdt09 = new FieldDef("m2017pcpdt09",FieldDef.FLOAT,6,0);
-      m2017phini09 = new FieldDef("m2017phini09",FieldDef.FLOAT,6,0);
-      m2017phapl09 = new FieldDef("m2017phapl09",FieldDef.FLOAT,6,0);
-      m2017phpdt09 = new FieldDef("m2017phpdt09",FieldDef.FLOAT,6,0);
-      m2017eeini09 = new FieldDef("m2017eeini09",FieldDef.FLOAT,6,0);
-      m2017eeapl09 = new FieldDef("m2017eeapl09",FieldDef.FLOAT,6,0);
-      m2017eepdt09 = new FieldDef("m2017eepdt09",FieldDef.FLOAT,6,0);
-      m2017fpini09 = new FieldDef("m2017fpini09",FieldDef.FLOAT,6,0);
-      m2017fpapl09 = new FieldDef("m2017fpapl09",FieldDef.FLOAT,6,0);
-      m2017fppdt09 = new FieldDef("m2017fppdt09",FieldDef.FLOAT,6,0);
-      m2017edini09 = new FieldDef("m2017edini09",FieldDef.FLOAT,6,0);
-      m2017edapl09 = new FieldDef("m2017edapl09",FieldDef.FLOAT,6,0);
-      m2017edpdt09 = new FieldDef("m2017edpdt09",FieldDef.FLOAT,6,0);
-      m2017ppini09 = new FieldDef("m2017ppini09",FieldDef.FLOAT,6,0);
-      m2017ppapl09 = new FieldDef("m2017ppapl09",FieldDef.FLOAT,6,0);
-      m2017pppdt09 = new FieldDef("m2017pppdt09",FieldDef.FLOAT,6,0);
-      m2017guaini09 = new FieldDef("m2017guaini09",FieldDef.FLOAT,6,0);
-      m2017guaapl09 = new FieldDef("m2017guaapl09",FieldDef.FLOAT,6,0);
-      m2017guapdt09 = new FieldDef("m2017guapdt09",FieldDef.FLOAT,6,0);
-      m2017alini09 = new FieldDef("m2017alini09",FieldDef.FLOAT,6,0);
-      m2017alapl09 = new FieldDef("m2017alapl09",FieldDef.FLOAT,6,0);
-      m2017alpdt09 = new FieldDef("m2017alpdt09",FieldDef.FLOAT,6,0);
-      m2017bwini09 = new FieldDef("m2017bwini09",FieldDef.FLOAT,6,0);
-      m2017bwapl09 = new FieldDef("m2017bwapl09",FieldDef.FLOAT,6,0);
-      m2017bwpdt09 = new FieldDef("m2017bwpdt09",FieldDef.FLOAT,6,0);
-      m2017caini09 = new FieldDef("m2017caini09",FieldDef.FLOAT,6,0);
-      m2017caapl09 = new FieldDef("m2017caapl09",FieldDef.FLOAT,6,0);
-      m2017capdt09 = new FieldDef("m2017capdt09",FieldDef.FLOAT,6,0);
-      m2017rhini09 = new FieldDef("m2017rhini09",FieldDef.FLOAT,6,0);
-      m2017rhapl09 = new FieldDef("m2017rhapl09",FieldDef.FLOAT,6,0);
-      m2017rhpdt09 = new FieldDef("m2017rhpdt09",FieldDef.FLOAT,6,0);
-      m2017bcini09 = new FieldDef("m2017bcini09",FieldDef.FLOAT,6,0);
-      m2017bcapl09 = new FieldDef("m2017bcapl09",FieldDef.FLOAT,6,0);
-      m2017bcpdt09 = new FieldDef("m2017bcpdt09",FieldDef.FLOAT,6,0);
-      m2017deini09 = new FieldDef("m2017deini09",FieldDef.FLOAT,6,0);
-      m2017deapl09 = new FieldDef("m2017deapl09",FieldDef.FLOAT,6,0);
-      m2017depdt09 = new FieldDef("m2017depdt09",FieldDef.FLOAT,6,0);
-      m2017sxini09 = new FieldDef("m2017sxini09",FieldDef.FLOAT,6,0);
-      m2017sxapl09 = new FieldDef("m2017sxapl09",FieldDef.FLOAT,6,0);
-      m2017sxpdt09 = new FieldDef("m2017sxpdt09",FieldDef.FLOAT,6,0);
-      m2017dcini09 = new FieldDef("m2017dcini09",FieldDef.FLOAT,6,0);
-      m2017dcapl09 = new FieldDef("m2017dcapl09",FieldDef.FLOAT,6,0);
-      m2017dcpdt09 = new FieldDef("m2017dcpdt09",FieldDef.FLOAT,6,0);
-      m2017cjini09 = new FieldDef("m2017cjini09",FieldDef.FLOAT,6,0);
-      m2017cjapl09 = new FieldDef("m2017cjapl09",FieldDef.FLOAT,6,0);
-      m2017cjpdt09 = new FieldDef("m2017cjpdt09",FieldDef.FLOAT,6,0);
-      m2017aiini09 = new FieldDef("m2017aiini09",FieldDef.FLOAT,6,0);
-      m2017aiapl09 = new FieldDef("m2017aiapl09",FieldDef.FLOAT,6,0);
-      m2017aipdt09 = new FieldDef("m2017aipdt09",FieldDef.FLOAT,6,0);
-      m2017hoini09 = new FieldDef("m2017hoini09",FieldDef.FLOAT,6,0);
-      m2017hoapl09 = new FieldDef("m2017hoapl09",FieldDef.FLOAT,6,0);
-      m2017hopdt09 = new FieldDef("m2017hopdt09",FieldDef.FLOAT,6,0);
-      m2017cbini09 = new FieldDef("m2017cbini09",FieldDef.FLOAT,6,0);
-      m2017cbapl09 = new FieldDef("m2017cbapl09",FieldDef.FLOAT,6,0);
-      m2017cbpdt09 = new FieldDef("m2017cbpdt09",FieldDef.FLOAT,6,0);
-      m2017saini09 = new FieldDef("m2017saini09",FieldDef.FLOAT,6,0);
-      m2017saapl09 = new FieldDef("m2017saapl09",FieldDef.FLOAT,6,0);
-      m2017sapdt09 = new FieldDef("m2017sapdt09",FieldDef.FLOAT,6,0);
-      m2017dfini09 = new FieldDef("m2017dfini09",FieldDef.FLOAT,6,0);
-      m2017dfapl09 = new FieldDef("m2017dfapl09",FieldDef.FLOAT,6,0);
-      m2017dfpdt09 = new FieldDef("m2017dfpdt09",FieldDef.FLOAT,6,0);
-      m2017totdedini = new FieldDef("m2017totdedini",FieldDef.FLOAT,6,0);
-      m2017totdedapl = new FieldDef("m2017totdedapl",FieldDef.FLOAT,6,0);
-      m2017totdedpdt = new FieldDef("m2017totdedpdt",FieldDef.FLOAT,6,0);
-      m2017donini02 = new FieldDef("m2017donini02",FieldDef.FLOAT,6,0);
-      m2017donapl02 = new FieldDef("m2017donapl02",FieldDef.FLOAT,6,0);
-      m2017donpdt02 = new FieldDef("m2017donpdt02",FieldDef.FLOAT,6,0);
-      m2017donini03 = new FieldDef("m2017donini03",FieldDef.FLOAT,6,0);
-      m2017donapl03 = new FieldDef("m2017donapl03",FieldDef.FLOAT,6,0);
-      m2017donpdt03 = new FieldDef("m2017donpdt03",FieldDef.FLOAT,6,0);
-      m2017donini04 = new FieldDef("m2017donini04",FieldDef.FLOAT,6,0);
-      m2017donapl04 = new FieldDef("m2017donapl04",FieldDef.FLOAT,6,0);
-      m2017donpdt04 = new FieldDef("m2017donpdt04",FieldDef.FLOAT,6,0);
-      m2017donini05 = new FieldDef("m2017donini05",FieldDef.FLOAT,6,0);
-      m2017donapl05 = new FieldDef("m2017donapl05",FieldDef.FLOAT,6,0);
-      m2017donpdt05 = new FieldDef("m2017donpdt05",FieldDef.FLOAT,6,0);
-      m2017donini06 = new FieldDef("m2017donini06",FieldDef.FLOAT,6,0);
-      m2017donapl06 = new FieldDef("m2017donapl06",FieldDef.FLOAT,6,0);
-      m2017donpdt06 = new FieldDef("m2017donpdt06",FieldDef.FLOAT,6,0);
-      m2017donini07 = new FieldDef("m2017donini07",FieldDef.FLOAT,6,0);
-      m2017donapl07 = new FieldDef("m2017donapl07",FieldDef.FLOAT,6,0);
-      m2017donpdt07 = new FieldDef("m2017donpdt07",FieldDef.FLOAT,6,0);
-      m2017donini08 = new FieldDef("m2017donini08",FieldDef.FLOAT,6,0);
-      m2017donapl08 = new FieldDef("m2017donapl08",FieldDef.FLOAT,6,0);
-      m2017donpdt08 = new FieldDef("m2017donpdt08",FieldDef.FLOAT,6,0);
-      m2017donini09 = new FieldDef("m2017donini09",FieldDef.FLOAT,6,0);
-      m2017donapl09 = new FieldDef("m2017donapl09",FieldDef.FLOAT,6,0);
-      m2017donpdt09 = new FieldDef("m2017donpdt09",FieldDef.FLOAT,6,0);
-      m2017totdonini = new FieldDef("m2017totdonini",FieldDef.FLOAT,6,0);
-      m2017totdonapl = new FieldDef("m2017totdonapl",FieldDef.FLOAT,6,0);
-      m2017totdonpdt = new FieldDef("m2017totdonpdt",FieldDef.FLOAT,6,0);
-      m2017impdonej = new FieldDef("m2017impdonej",FieldDef.FLOAT,6,0);
-      m2017dedini09 = new FieldDef("m2017dedini09",FieldDef.FLOAT,6,0);
-      m2017dedapl09 = new FieldDef("m2017dedapl09",FieldDef.FLOAT,6,0);
-      m2017dedpdt09 = new FieldDef("m2017dedpdt09",FieldDef.FLOAT,6,0);
-      m2017elxini09 = new FieldDef("m2017elxini09",FieldDef.FLOAT,6,0);
-      m2017elxapl09 = new FieldDef("m2017elxapl09",FieldDef.FLOAT,6,0);
-      m2017elxpdt09 = new FieldDef("m2017elxpdt09",FieldDef.FLOAT,6,0);
-      m2017jguini09 = new FieldDef("m2017jguini09",FieldDef.FLOAT,6,0);
-      m2017jguapl09 = new FieldDef("m2017jguapl09",FieldDef.FLOAT,6,0);
-      m2017jgupdt09 = new FieldDef("m2017jgupdt09",FieldDef.FLOAT,6,0);
-      m2017jmjini09 = new FieldDef("m2017jmjini09",FieldDef.FLOAT,6,0);
-      m2017jmjapl09 = new FieldDef("m2017jmjapl09",FieldDef.FLOAT,6,0);
-      m2017jmjpdt09 = new FieldDef("m2017jmjpdt09",FieldDef.FLOAT,6,0);
-      m2017crgini09 = new FieldDef("m2017crgini09",FieldDef.FLOAT,6,0);
-      m2017crgapl09 = new FieldDef("m2017crgapl09",FieldDef.FLOAT,6,0);
-      m2017crgpdt09 = new FieldDef("m2017crgpdt09",FieldDef.FLOAT,6,0);
-      m2017sdeini09 = new FieldDef("m2017sdeini09",FieldDef.FLOAT,6,0);
-      m2017sdeapl09 = new FieldDef("m2017sdeapl09",FieldDef.FLOAT,6,0);
-      m2017sdepdt09 = new FieldDef("m2017sdepdt09",FieldDef.FLOAT,6,0);
-      m2017alvini09 = new FieldDef("m2017alvini09",FieldDef.FLOAT,6,0);
-      m2017alvapl09 = new FieldDef("m2017alvapl09",FieldDef.FLOAT,6,0);
-      m2017alvpdt09 = new FieldDef("m2017alvpdt09",FieldDef.FLOAT,6,0);
-      m2017glxini09 = new FieldDef("m2017glxini09",FieldDef.FLOAT,6,0);
-      m2017glxapl09 = new FieldDef("m2017glxapl09",FieldDef.FLOAT,6,0);
-      m2017glxpdt09 = new FieldDef("m2017glxpdt09",FieldDef.FLOAT,6,0);
-      m2017donini10 = new FieldDef("m2017donini10",FieldDef.FLOAT,6,0);
-      m2017donapl10 = new FieldDef("m2017donapl10",FieldDef.FLOAT,6,0);
-      m2017donpdt10 = new FieldDef("m2017donpdt10",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        m2017dominio,
-        m2017nif,
-        m2017ejercicio,
-        m2017periodo,
-        m2017dedini96,
-        m2017dedapl96,
-        m2017dedpdt96,
-        m2017dedini97,
-        m2017dedapl97,
-        m2017dedpdt97,
-        m2017dedini98,
-        m2017dedapl98,
-        m2017dedpdt98,
-        m2017dedini99,
-        m2017dedapl99,
-        m2017dedpdt99,
-        m2017dedini00,
-        m2017dedapl00,
-        m2017dedpdt00,
-        m2017dedini01,
-        m2017dedapl01,
-        m2017dedpdt01,
-        m2017dedini02,
-        m2017dedapl02,
-        m2017dedpdt02,
-        m2017dedini03,
-        m2017dedapl03,
-        m2017dedpdt03,
-        m2017dedini04,
-        m2017dedapl04,
-        m2017dedpdt04,
-        m2017dedini05,
-        m2017dedapl05,
-        m2017dedpdt05,
-        m2017dedini06,
-        m2017dedapl06,
-        m2017dedpdt06,
-        m2017dedini07,
-        m2017dedapl07,
-        m2017dedpdt07,
-        m2017dedini08,
-        m2017dedapl08,
-        m2017dedpdt08,
-        m2017pmini09,
-        m2017pmapl09,
-        m2017pmpdt09,
-        m2017ceini09,
-        m2017ceapl09,
-        m2017cepdt09,
-        m2017idini09,
-        m2017idapl09,
-        m2017idpdt09,
-        m2017itini09,
-        m2017itapl09,
-        m2017itpdt09,
-        m2017atini09,
-        m2017atapl09,
-        m2017atpdt09,
-        m2017pcini09,
-        m2017pcapl09,
-        m2017pcpdt09,
-        m2017phini09,
-        m2017phapl09,
-        m2017phpdt09,
-        m2017eeini09,
-        m2017eeapl09,
-        m2017eepdt09,
-        m2017fpini09,
-        m2017fpapl09,
-        m2017fppdt09,
-        m2017edini09,
-        m2017edapl09,
-        m2017edpdt09,
-        m2017ppini09,
-        m2017ppapl09,
-        m2017pppdt09,
-        m2017guaini09,
-        m2017guaapl09,
-        m2017guapdt09,
-        m2017alini09,
-        m2017alapl09,
-        m2017alpdt09,
-        m2017bwini09,
-        m2017bwapl09,
-        m2017bwpdt09,
-        m2017caini09,
-        m2017caapl09,
-        m2017capdt09,
-        m2017rhini09,
-        m2017rhapl09,
-        m2017rhpdt09,
-        m2017bcini09,
-        m2017bcapl09,
-        m2017bcpdt09,
-        m2017deini09,
-        m2017deapl09,
-        m2017depdt09,
-        m2017sxini09,
-        m2017sxapl09,
-        m2017sxpdt09,
-        m2017dcini09,
-        m2017dcapl09,
-        m2017dcpdt09,
-        m2017cjini09,
-        m2017cjapl09,
-        m2017cjpdt09,
-        m2017aiini09,
-        m2017aiapl09,
-        m2017aipdt09,
-        m2017hoini09,
-        m2017hoapl09,
-        m2017hopdt09,
-        m2017cbini09,
-        m2017cbapl09,
-        m2017cbpdt09,
-        m2017saini09,
-        m2017saapl09,
-        m2017sapdt09,
-        m2017dfini09,
-        m2017dfapl09,
-        m2017dfpdt09,
-        m2017totdedini,
-        m2017totdedapl,
-        m2017totdedpdt,
-        m2017donini02,
-        m2017donapl02,
-        m2017donpdt02,
-        m2017donini03,
-        m2017donapl03,
-        m2017donpdt03,
-        m2017donini04,
-        m2017donapl04,
-        m2017donpdt04,
-        m2017donini05,
-        m2017donapl05,
-        m2017donpdt05,
-        m2017donini06,
-        m2017donapl06,
-        m2017donpdt06,
-        m2017donini07,
-        m2017donapl07,
-        m2017donpdt07,
-        m2017donini08,
-        m2017donapl08,
-        m2017donpdt08,
-        m2017donini09,
-        m2017donapl09,
-        m2017donpdt09,
-        m2017totdonini,
-        m2017totdonapl,
-        m2017totdonpdt,
-        m2017impdonej,
-        m2017dedini09,
-        m2017dedapl09,
-        m2017dedpdt09,
-        m2017elxini09,
-        m2017elxapl09,
-        m2017elxpdt09,
-        m2017jguini09,
-        m2017jguapl09,
-        m2017jgupdt09,
-        m2017jmjini09,
-        m2017jmjapl09,
-        m2017jmjpdt09,
-        m2017crgini09,
-        m2017crgapl09,
-        m2017crgpdt09,
-        m2017sdeini09,
-        m2017sdeapl09,
-        m2017sdepdt09,
-        m2017alvini09,
-        m2017alvapl09,
-        m2017alvpdt09,
-        m2017glxini09,
-        m2017glxapl09,
-        m2017glxpdt09,
-        m2017donini10,
-        m2017donapl10,
-        m2017donpdt10        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m2017dominio,m2017nif,m2017ejercicio,m2017periodo };
-      setPrimaryKeys(arrayf);
-      m2017dedini96.setDescription("Deducc.determinadas actividades 1996 Suma deducciones ID. Deduccion pendiente/generada");
-      m2017dedapl96.setDescription("Deducc.determinadas actividades 1996 Suma deducciones ID. Aplicado en esta liquidacion [844]");
-      m2017dedpdt96.setDescription("Deducc.determinadas actividades 1996 Suma deducciones ID. Pendiente de aplicacion [845]");
-      m2017dedini97.setDescription("Deducc.determ.actividades 1997 Suma deducciones. Deduccion pendiente/generada [768]");
-      m2017dedapl97.setDescription("Deducc.determ.actividades 1997 Suma deducciones. Aplicado en esta liquidacion [769]");
-      m2017dedpdt97.setDescription("Deducc.determ.actividades 1997 Suma deducciones. Pendiente de aplicacion [770]");
-      m2017dedini98.setDescription("Deducc.determ.actividades 1998 Suma deducciones. Deduccion pendiente/generada [774]");
-      m2017dedapl98.setDescription("Deducc.determ.actividades 1998 Suma deducciones. Aplicado en esta liquidacion [775]");
-      m2017dedpdt98.setDescription("Deducc.determ.actividades 1998 Suma deducciones. Pendiente de aplicacion [776]");
-      m2017dedini99.setDescription("Deducc.determ.actividades 1999 Suma deducciones. Deduccion pendiente/generada [780]");
-      m2017dedapl99.setDescription("Deducc.determ.actividades 1999 Suma deducciones. Aplicado en esta liquidacion [781]");
-      m2017dedpdt99.setDescription("Deducc.determ.actividades 1999 Suma deducciones. Pendiente de aplicacion [782]");
-      m2017dedini00.setDescription("Deducc.determ.actividades 2000 Suma deducciones. Deduccion pendiente/generada [786]");
-      m2017dedapl00.setDescription("Deducc.determ.actividades 2000 Suma deducciones. Aplicado en esta liquidacion [787]");
-      m2017dedpdt00.setDescription("Deducc.determ.actividades 2000 Suma deducciones. Pendiente de aplicacion [788]");
-      m2017dedini01.setDescription("Deducc.determ.actividades 2001 Suma deducciones. Deduccion pendiente/generada [766]");
-      m2017dedapl01.setDescription("Deducc.determ.actividades 2001 Suma deducciones. Aplicado en esta liquidacion [767]");
-      m2017dedpdt01.setDescription("Deducc.determ.actividades 2001 Suma deducciones. Pendiente de aplicacion [833]");
-      m2017dedini02.setDescription("Deducc.determ.actividades 2002 Suma deducciones. Deduccion pendiente/generada [198]");
-      m2017dedapl02.setDescription("Deducc.determ.actividades 2002 Suma deducciones. Aplicado en esta liquidacion [896]");
-      m2017dedpdt02.setDescription("Deducc.determ.actividades 2002 Suma deducciones. Pendiente de aplicacion [897]");
-      m2017dedini03.setDescription("Deducc.determ.actividades 2003 Suma deducciones. Deduccion pendiente/generada [288]");
-      m2017dedapl03.setDescription("Deducc.determ.actividades 2003 Suma deducciones. Aplicado en esta liquidacion [289]");
-      m2017dedpdt03.setDescription("Deducc.determ.actividades 2003 Suma deducciones. Pendiente de aplicacion [290]");
-      m2017dedini04.setDescription("Deducc.determ.actividades 2004 Suma deducciones. Deduccion pendiente/generada [466]");
-      m2017dedapl04.setDescription("Deducc.determ.actividades 2004 Suma deducciones. Aplicado en esta liquidacion [467]");
-      m2017dedpdt04.setDescription("Deducc.determ.actividades 2004 Suma deducciones. Pendiente de aplicacion [468]");
-      m2017dedini05.setDescription("Deducc.determ.actividades 2005 Suma deducciones. Deduccion pendiente/generada [061]");
-      m2017dedapl05.setDescription("Deducc.determ.actividades 2005 Suma deducciones. Aplicado en esta liquidacion [498]");
-      m2017dedpdt05.setDescription("Deducc.determ.actividades 2005 Suma deducciones. Pendiente de aplicacion [586]");
-      m2017dedini06.setDescription("Deducc.determ.actividades 2006 Suma deducciones. Deduccion pendiente/generada [472]");
-      m2017dedapl06.setDescription("Deducc.determ.actividades 2006 Suma deducciones. Aplicado en esta liquidacion [473]");
-      m2017dedpdt06.setDescription("Deducc.determ.actividades 2006 Suma deducciones. Pendiente de aplicacion [478]");
-      m2017dedini07.setDescription("Deducc.determ.actividades 2007 Suma deducciones. Deduccion pendiente/generada [180]");
-      m2017dedapl07.setDescription("Deducc.determ.actividades 2007 Suma deducciones. Aplicado en esta liquidacion [181]");
-      m2017dedpdt07.setDescription("Deducc.determ.actividades 2007 Suma deducciones. Pendiente de aplicacion [182]");
-      m2017dedini08.setDescription("Deducc.determ.actividades 2008 Suma deducciones. Deduccion pendiente/generada [531]");
-      m2017dedapl08.setDescription("Deducc.determ.actividades 2008 Suma deducciones. Aplicado en esta liquidacion [532]");
-      m2017dedpdt08.setDescription("Deducc.determ.actividades 2008 Suma deducciones. Pendiente de aplicacion [533]");
-      m2017pmini09.setDescription("Deducc.determ.actividades 2009 Inv.proteccion medio ambiente. Deduccion pendiente/generada[792]");
-      m2017pmapl09.setDescription("Deducc.determ.actividades 2009 Inv.proteccion medio ambiente. Aplicado en esta liquidacion [793]");
-      m2017pmpdt09.setDescription("Deducc.determ.actividades 2009 Inv.proteccion medio ambiente. Pendiente de aplicacion [794]");
-      m2017ceini09.setDescription("Deducc.determ.actividades 2009 Creacion empleo minusvalidos. Deduccion pendiente/generada[795]");
-      m2017ceapl09.setDescription("Deducc.determ.actividades 2009 Creacion empleo minusvalidos. Aplicado en esta liquidacion [796]");
-      m2017cepdt09.setDescription("Deducc.determ.actividades 2009 Creacion empleo minusvalidos. Pendiente de aplicacion [797]");
-      m2017idini09.setDescription("Deducc.determ.actividades 2009 Gastos investigacion y desarrollo. Deduccion pendiente/generada[798]");
-      m2017idapl09.setDescription("Deducc.determ.actividades 2009 Gastos investigacion y desarrollo. Aplicado en esta liquidacion[799]");
-      m2017idpdt09.setDescription("Deducc.determ.actividades 2009 Gastos investigacion y desarrollo. Pendiente de aplicacion [800]");
-      m2017itini09.setDescription("Deducc.determ.actividades 2009 Inv.tecnologias informacion. Deduccion pendiente/generada[801]");
-      m2017itapl09.setDescription("Deducc.determ.actividades 2009 Inv.tecnologias informacion. Aplicado en esta liquidacion [802]");
-      m2017itpdt09.setDescription("Deducc.determ.actividades 2009 Inv.tecnologias informacion. Pendiente de aplicacion [803]");
-      m2017atini09.setDescription("Deducc.determ.actividades 2009 Deducc.medidas apoyo transporte. Deduccion pendiente/generada [804]");
-      m2017atapl09.setDescription("Deducc.determ.actividades 2009 Deducc.medidas apoyo transporte. Aplicado en esta liquidacion[805]");
-      m2017atpdt09.setDescription("Deducc.determ.actividades 2009 Deducc.medidas apoyo transporte. Pendiente de aplicacion [806]");
-      m2017pcini09.setDescription("Deducc.determ.actividades 2009 Produc.cinematograficas. Deduccion pendiente/generada [807]");
-      m2017pcapl09.setDescription("Deducc.determ.actividades 2009 Produc.cinematograficas. Aplicado en esta liquidacion [808]");
-      m2017pcpdt09.setDescription("Deducc.determ.actividades 2009 Produc.cinematograficas. Pendiente de aplicacion [809]");
-      m2017phini09.setDescription("Deducc.determ.actividades 2009 Bienes interes cultural. Deduccion pendiente/generada [810]");
-      m2017phapl09.setDescription("Deducc.determ.actividades 2009 Bienes interes cultural. Aplicado en esta liquidacion [811]");
-      m2017phpdt09.setDescription("Deducc.determ.actividades 2009 Bienes interes cultural. Pendiente de aplicacion [812]");
-      m2017eeini09.setDescription("Deducc.determ.actividades 2009 Empresas exportadoras. Deduccion pendiente/generada [813]");
-      m2017eeapl09.setDescription("Deducc.determ.actividades 2009 Empresas exportadoras. Aplicado en esta liquidacion [814]");
-      m2017eepdt09.setDescription("Deducc.determ.actividades 2009 Empresas exportadoras. Pendiente de aplicacion [815]");
-      m2017fpini09.setDescription("Deducc.determ.actividades 2009 Gastos formacion profesional. Deduccion pendiente/generada[816]");
-      m2017fpapl09.setDescription("Deducc.determ.actividades 2009 Gastos formacion profesional. Aplicado en esta liquidacion [817]");
-      m2017fppdt09.setDescription("Deducc.determ.actividades 2009 Gastos formacion profesional. Pendiente de aplicacion [818]");
-      m2017edini09.setDescription("Deducc.determ.actividades 2009 Edicion libros. Deduccion pendiente/generada [819]");
-      m2017edapl09.setDescription("Deducc.determ.actividades 2009 Edicion libros. Aplicado en esta liquidacion [820]");
-      m2017edpdt09.setDescription("Deducc.determ.actividades 2009 Edicion libros. Pendiente de aplicacion [821]");
-      m2017ppini09.setDescription("Deducc.determ.actividades 2009 Contrib.planes de pensiones. Deduccion pendiente/generada[891]");
-      m2017ppapl09.setDescription("Deducc.determ.actividades 2009 Contrib.planes de pensiones. Aplicado en esta liquidacion [892]");
-      m2017pppdt09.setDescription("Deducc.determ.actividades 2009 Contrib.planes de pensiones. Pendiente de aplicacion [893]");
-      m2017guaini09.setDescription("Deducc.determ.actividades 2009 Guarderias para hijos. Deduccion pendiente/generada [822]");
-      m2017guaapl09.setDescription("Deducc.determ.actividades 2009 Guarderias para hijos. Aplicado en esta liquidacion [823]");
-      m2017guapdt09.setDescription("Deducc.determ.actividades 2009 Guarderias para hijos. Pendiente de aplicacion [824]");
-      m2017alini09.setDescription("Deducc.determ.actividades 2009 Alicante 2009. Vuelta al mundo a vela. Deduccion pendiente/generada [589]");
-      m2017alapl09.setDescription("Deducc.determ.actividades 2009 Alicante 2009. Vuelta al mundo a vela. Aplicado en esta liquidacion [850]");
-      m2017alpdt09.setDescription("Deducc.determ.actividades 2009 Alicante 2009. Vuelta al mundo a vela. Pendiente de aplicacion[851]");
-      m2017bwini09.setDescription("Deducc.determ.actividades 2009 Barcelona World Race. Deduccion pendiente/generada [993]");
-      m2017bwapl09.setDescription("Deducc.determ.actividades 2009 Barcelona World Race. Aplicado en esta liquidacion [994]");
-      m2017bwpdt09.setDescription("Deducc.determ.actividades 2009 Barcelona World Race. Pendiente de aplicacion [995]");
-      m2017caini09.setDescription("Deducc.determ.actividades 2009 33ª Copa del America. Deduccion pendiente/generada [177]");
-      m2017caapl09.setDescription("Deducc.determ.actividades 2009 33ª Copa del America. Aplicado en esta liquidacion [178]");
-      m2017capdt09.setDescription("Deducc.determ.actividades 2009 33ª Copa del America. Pendiente de aplicacion [179]");
-      m2017rhini09.setDescription("Deducc.determ.actividades 2009 Guadalquivir Rio de Historia. Deduccion pendiente/generada[183]");
-      m2017rhapl09.setDescription("Deducc.determ.actividades 2009 Guadalquivir Rio de Historia. Aplicado en esta liquidacion [185]");
-      m2017rhpdt09.setDescription("Deducc.determ.actividades 2009 Guadalquivir Rio de Historia. Pendiente de aplicacion [186]");
-      m2017bcini09.setDescription("Deducc.determ.actividades 2009 Bicentenario Constitucion 1812. Deduccion pendiente/generada [188]");
-      m2017bcapl09.setDescription("Deducc.determ.actividades 2009 Bicentenario Constitucion 1812. Aplicado en esta liquidacion[189]");
-      m2017bcpdt09.setDescription("Deducc.determ.actividades 2009 Bicentenario Constitucion 1812. Pendiente de aplicacion [190]");
-      m2017deini09.setDescription("Deducc.determ.actividades 2009 Programa preparacion deportistas espanoles. Deduccion pendiente/generada [534]");
-      m2017deapl09.setDescription("Deducc.determ.actividades 2009 Programa preparacion deportistas espanoles. Aplicado en esta liquidacion [535]");
-      m2017depdt09.setDescription("Deducc.determ.actividades 2009 Programa preparacion deportistas espanoles. Pendiente de aplicacion [536]");
-      m2017sxini09.setDescription("Deducc.determ.actividades 2009 Ano Santo Xacobeo. Deduccion pendiente/generada [537]");
-      m2017sxapl09.setDescription("Deducc.determ.actividades 2009 Ano Santo Xacobeo. Aplicado en esta liquidacion [538]");
-      m2017sxpdt09.setDescription("Deducc.determ.actividades 2009 Ano Santo Xacobeo. Pendiente de aplicacion [539]");
-      m2017dcini09.setDescription("Deducc.determ.actividades 2009 IX Centenario Santo Domingo de la Calzada. Deduccion pendiente/generada [540]");
-      m2017dcapl09.setDescription("Deducc.determ.actividades 2009 IX Centenario Santo Domingo de la Calzada. Aplicado en esta liquidacion [541]");
-      m2017dcpdt09.setDescription("Deducc.determ.actividades 2009 IX Centenario Santo Domingo de la Calzada. Pendiente de aplicacion [542]");
-      m2017cjini09.setDescription("Deducc.determ.actividades 2009 Caravaca jubilar 2010. Deduccion pendiente/generada [543]");
-      m2017cjapl09.setDescription("Deducc.determ.actividades 2009 Caravaca jubilar 2010. Aplicado en esta liquidacion [544]");
-      m2017cjpdt09.setDescription("Deducc.determ.actividades 2009 Caravaca jubilar 2010. Pendiente de aplicacion [545]");
-      m2017aiini09.setDescription("Deducc.determ.actividades 2009 Alzheimer internacional 2011. Deduccion pendiente/generada [546]");
-      m2017aiapl09.setDescription("Deducc.determ.actividades 2009 Alzheimer internacional 2011. Aplicado en esta liquidacion [548]");
-      m2017aipdt09.setDescription("Deducc.determ.actividades 2009 Alzheimer internacional 2011. Pendiente de aplicacion [549]");
-      m2017hoini09.setDescription("Deducc.determ.actividades 2009 Ano Hernandiano. Orihuela 2010. Deduccion pendiente/generada [551]");
-      m2017hoapl09.setDescription("Deducc.determ.actividades 2009 Ano Hernandiano. Orihuela 2010. Aplicado en esta liquidacion[580]");
-      m2017hopdt09.setDescription("Deducc.determ.actividades 2009 Ano Hernandiano. Orihuela 2010. Pendiente de aplicacion [593]");
-      m2017cbini09.setDescription("Deducc.determ.actividades 2009 Centenario de la Costa Brava. Deduccion pendiente/generada[901]");
-      m2017cbapl09.setDescription("Deducc.determ.actividades 2009 Centenario de la Costa Brava. Aplicado en esta liquidacion [902]");
-      m2017cbpdt09.setDescription("Deducc.determ.actividades 2009 Centenario de la Costa Brava. Pendiente de aplicacion [903]");
-      m2017saini09.setDescription("Deducc.determ.actividades 2009 Symposium 90 Aniversario Salon automovil Barcelona.Deduccion pendiente/generada [917]");
-      m2017saapl09.setDescription("Deducc.determ.actividades 2009 Symposium 90 Aniversario Salon automovil Barcelona. Aplicado en esta liquidacion [918]");
-      m2017sapdt09.setDescription("Deducc.determ.actividades 2009 Symposium 90 Aniversario Salon automovil Barcelona.Pendiente de aplicacion [919]");
-      m2017dfini09.setDescription("Deducc.determ.actividades 2009 Diferimiento 2009 Deducciones. Deduccion pendiente/generada [828]");
-      m2017dfapl09.setDescription("Deducc.determ.actividades 2009 Diferimiento deducciones. Aplicado en esta liquidacion [829]");
-      m2017dfpdt09.setDescription("Deducc.determ.actividades 2009 Diferimiento deducciones. Pendiente de aplicacion [830]");
-      m2017totdedini.setDescription("Deducc.determ.actividades 2009 Total deducciones Cap.IV Tit.VI. Deduccion pendiente/generada [831]");
-      m2017totdedapl.setDescription("Deducc.determ.actividades 2009 Total deducciones Cap.IV Tit.VI. Aplicado en esta liquidacion [588]");
-      m2017totdedpdt.setDescription("Deducc.determ.actividades 2009 Total deducciones Cap.IV Tit.VI. Pendiente de aplicacion [832]");
-      m2017donini02.setDescription("Deducc.donativos 2002 Deduccion pendiente/generada [929]");
-      m2017donapl02.setDescription("Deducc.donativos 2002 Aplicado en esta declaracion [930]");
-      m2017donpdt02.setDescription("Deducc.donativos 2002 Pendiente de aplicacion [931]");
-      m2017donini03.setDescription("Deducc.donativos 2003 Deduccion pendiente/generada [942]");
-      m2017donapl03.setDescription("Deducc.donativos 2003 Aplicado en esta declaracion [943]");
-      m2017donpdt03.setDescription("Deducc.donativos 2003 Pendiente de aplicacion [944]");
-      m2017donini04.setDescription("Deducc.donativos 2004 Deduccion pendiente/generada [294]");
-      m2017donapl04.setDescription("Deducc.donativos 2004 Aplicado en esta declaracion [295]");
-      m2017donpdt04.setDescription("Deducc.donativos 2004 Pendiente de aplicacion [296]");
-      m2017donini05.setDescription("Deducc.donativos 2005 Deduccion pendiente/generada [066]");
-      m2017donapl05.setDescription("Deducc.donativos 2005 Aplicado en esta declaracion [074]");
-      m2017donpdt05.setDescription("Deducc.donativos 2005 Pendiente de aplicacion [084]");
-      m2017donini06.setDescription("Deducc.donativos 2006 Deduccion pendiente/generada [008]");
-      m2017donapl06.setDescription("Deducc.donativos 2006 Aplicado en esta declaracion [009]");
-      m2017donpdt06.setDescription("Deducc.donativos 2006 Pendiente de aplicacion [010]");
-      m2017donini07.setDescription("Deducc.donativos 2007 Deduccion pendiente/generada [034]");
-      m2017donapl07.setDescription("Deducc.donativos 2007 Aplicado en esta declaracion [035]");
-      m2017donpdt07.setDescription("Deducc.donativos 2007 Pendiente de aplicacion [036]");
-      m2017donini08.setDescription("Deducc.donativos 2008 Deduccion pendiente/generada [201]");
-      m2017donapl08.setDescription("Deducc.donativos 2008 Aplicado en esta declaracion [202]");
-      m2017donpdt08.setDescription("Deducc.donativos 2008 Pendiente de aplicacion [203]");
-      m2017donini09.setDescription("Deducc.donativos 2009 Deduccion pendiente/generada [904]");
-      m2017donapl09.setDescription("Deducc.donativos 2009 Aplicado en esta declaracion [905]");
-      m2017donpdt09.setDescription("Deducc.donativos 2009 Pendiente de aplicacion [906]");
-      m2017totdonini.setDescription("Total deducciones donac.sin fines de lucro Deduccion pendiente/generada [598]");
-      m2017totdonapl.setDescription("Total deducciones donac.sin fines de lucro Aplicado en esta declaracion [565]");
-      m2017totdonpdt.setDescription("Total deducciones donac.sin fines de lucro Pendiente de aplicacion [895]");
-      m2017impdonej.setDescription("Donaciones periodo impositivo efectuada a entidades sin fines de lucro [974]");
-      m2017dedini09.setDescription("Deducc.determ.actividades 2009 Suma deducciones. Deduccion pendiente/generada [531]");
-      m2017dedapl09.setDescription("Deducc.determ.actividades 2009 Suma deducciones. Aplicado en esta liquidacion [532]");
-      m2017dedpdt09.setDescription("Deducc.determ.actividades 2009 Suma deducciones. Pendiente de aplicacion [533]");
-      m2017elxini09.setDescription("Deducc.determ.actividades 2009 Misteri Elx .Deduccion pendiente/generada [957]");
-      m2017elxapl09.setDescription("Deducc.determ.actividades 2009 Misteri Elx .Aplicado en esta liquidacion [958]");
-      m2017elxpdt09.setDescription("Deducc.determ.actividades 2009 Misteri Elx .Pendiente de aplicacion [959]");
-      m2017jguini09.setDescription("Deducc.determ.actividades 2009 Jubilar Guadalupense 2010 .Deduccion pendiente/generada [960]");
-      m2017jguapl09.setDescription("Deducc.determ.actividades 2009 Jubilar Guadalupense 2010 .Aplicado en esta liquidacion [961]");
-      m2017jgupdt09.setDescription("Deducc.determ.actividades 2009 Jubilar Guadalupense 2010 .Pendiente de aplicacion [962]");
-      m2017jmjini09.setDescription("Deducc.determ.actividades 2009 Jornadas mundiales juventud 2011.Deduccion pendiente/generada [963]");
-      m2017jmjapl09.setDescription("Deducc.determ.actividades 2009 Jornadas mundiales juventud 2011.Aplicado en esta liquidacion [964]");
-      m2017jmjpdt09.setDescription("Deducc.determ.actividades 2009 Jornadas mundiales juventud 2011.Pendiente de aplicacion [965]");
-      m2017crgini09.setDescription("Deducc.determ.actividades 2009 Fundacion milenio Reino Granada.Deduccion pendiente/generada [966]");
-      m2017crgapl09.setDescription("Deducc.determ.actividades 2009 Fundacion milenio Reino Granada.Aplicado en esta liquidacion [967]");
-      m2017crgpdt09.setDescription("Deducc.determ.actividades 2009 Fundacion milenio Reino Granada.Pendiente de aplicacion [968]");
-      m2017sdeini09.setDescription("Deducc.determ.actividades 2009 Solar Decathlon Europa .Deduccion pendiente/generada [969]");
-      m2017sdeapl09.setDescription("Deducc.determ.actividades 2009 Solar Decathlon Europa .Aplicado en esta liquidacion [970]");
-      m2017sdepdt09.setDescription("Deducc.determ.actividades 2009 Solar Decathlon Europa .Pendiente de aplicacion [971]");
-      m2017alvini09.setDescription("Deducc.determ.actividades 2009 Alicante 2011 .Deduccion pendiente/generada [972]");
-      m2017alvapl09.setDescription("Deducc.determ.actividades 2009 Alicante 2011 .Aplicado en esta liquidacion [973]");
-      m2017alvpdt09.setDescription("Deducc.determ.actividades 2009 Alicante 2011 .Pendiente de aplicacion [975]");
-      m2017glxini09.setDescription("Deducc.determ.actividades 2009 Google Lunar X Prize .Deduccion pendiente/generada [976]");
-      m2017glxapl09.setDescription("Deducc.determ.actividades 2009 Google Lunar X Prize .Aplicado en esta liquidacion [977]");
-      m2017glxpdt09.setDescription("Deducc.determ.actividades 2009 Google Lunar X Prize .Pendiente de aplicacion [978]");
-      m2017donini10.setDescription("Deducc.donativos 2010 Deduccion pendiente/generada [990]");
-      m2017donapl10.setDescription("Deducc.donativos 2010 Aplicado en esta declaracion [991]");
-      m2017donpdt10.setDescription("Deducc.donativos 2010 Pendiente de aplicacion [992]");
+      m2015bnegpdt94.setDescription("bases imp. negat. 1997 Pte.aplicacion en periodos futuros [548]");
       }
     }
     
@@ -9220,6 +7772,2084 @@ public class CatModelo200 extends Catalog
       }
     }
     
+  public class TabMod200h16 extends TableDef
+    {
+    // Campos
+    public FieldDef m2016dominio;
+    public FieldDef m2016nif;
+    public FieldDef m2016ejercicio;
+    public FieldDef m2016periodo;
+    public FieldDef m2016art42in01;
+    public FieldDef m2016art42ap01;
+    public FieldDef m2016art42pd01;
+    public FieldDef m2016art42in02;
+    public FieldDef m2016art42ap02;
+    public FieldDef m2016art42pd02;
+    public FieldDef m2016art42in03;
+    public FieldDef m2016art42ap03;
+    public FieldDef m2016art42pd03;
+    public FieldDef m2016art42in04;
+    public FieldDef m2016art42ap04;
+    public FieldDef m2016art42pd04;
+    public FieldDef m2016art42in05;
+    public FieldDef m2016art42ap05;
+    public FieldDef m2016art42pd05;
+    public FieldDef m2016art42in06;
+    public FieldDef m2016art42ap06;
+    public FieldDef m2016art42pd06;
+    public FieldDef m2016art42in07;
+    public FieldDef m2016art42ap07;
+    public FieldDef m2016art42pd07;
+    public FieldDef m2016art42in08;
+    public FieldDef m2016art42ap08;
+    public FieldDef m2016art42pd08;
+    public FieldDef m2016art42in09;
+    public FieldDef m2016art42ap09;
+    public FieldDef m2016art42pd09;
+    public FieldDef m2016art42intot;
+    public FieldDef m2016art42aptot;
+    public FieldDef m2016art42pdtot;
+    public FieldDef m2016dt8ini04;
+    public FieldDef m2016dt8apl04;
+    public FieldDef m2016dt8ini05;
+    public FieldDef m2016dt8apl05;
+    public FieldDef m2016dt8pdt05;
+    public FieldDef m2016dt8ini06;
+    public FieldDef m2016dt8apl06;
+    public FieldDef m2016dt8pdt06;
+    public FieldDef m2016dt8ini07;
+    public FieldDef m2016dt8apl07;
+    public FieldDef m2016dt8pdt07;
+    public FieldDef m2016dt8ini08;
+    public FieldDef m2016dt8apl08;
+    public FieldDef m2016dt8pdt08;
+    public FieldDef m2016dt8ini09;
+    public FieldDef m2016dt8apl09;
+    public FieldDef m2016dt8pdt09;
+    public FieldDef m2016dt8initot;
+    public FieldDef m2016dt8apltot;
+    public FieldDef m2016dt8pdttot;
+    public FieldDef m2016ricdot05;
+    public FieldDef m2016ricmat05;
+    public FieldDef m2016ricclave05;
+    public FieldDef m2016ricdot06;
+    public FieldDef m2016ricmat06;
+    public FieldDef m2016ricclave06;
+    public FieldDef m2016ricpdt06;
+    public FieldDef m2016ricdot07;
+    public FieldDef m2016ricmat107;
+    public FieldDef m2016ricmat207;
+    public FieldDef m2016ricpdt07;
+    public FieldDef m2016ricdot08;
+    public FieldDef m2016ricmat108;
+    public FieldDef m2016ricmat208;
+    public FieldDef m2016ricpdt08;
+    public FieldDef m2016ricdot09;
+    public FieldDef m2016ricmat109;
+    public FieldDef m2016ricmat209;
+    public FieldDef m2016ricpdt09;
+    public FieldDef m2016ricant109;
+    public FieldDef m2016ricant209;
+    public FieldDef m2016afini2004;
+    public FieldDef m2016afapl2004;
+    public FieldDef m2016afini2005;
+    public FieldDef m2016afapl2005;
+    public FieldDef m2016afpdt2005;
+    public FieldDef m2016afini2006;
+    public FieldDef m2016afapl2006;
+    public FieldDef m2016afpdt2006;
+    public FieldDef m2016afini2007;
+    public FieldDef m2016afapl2007;
+    public FieldDef m2016afpdt2007;
+    public FieldDef m2016afini2008;
+    public FieldDef m2016afapl2008;
+    public FieldDef m2016afpdt2008;
+    public FieldDef m2016dedini96;
+    public FieldDef m2016dedapl96;
+    public FieldDef m2016dedpdt96;
+    public FieldDef m2016dedini97;
+    public FieldDef m2016dedapl97;
+    public FieldDef m2016dedpdt97;
+    public FieldDef m2016dedini98;
+    public FieldDef m2016dedapl98;
+    public FieldDef m2016dedpdt98;
+    public FieldDef m2016dedini99;
+    public FieldDef m2016dedapl99;
+    public FieldDef m2016dedpdt99;
+    public FieldDef m2016dedini00;
+    public FieldDef m2016dedapl00;
+    public FieldDef m2016dedpdt00;
+    public FieldDef m2016dedini01;
+    public FieldDef m2016dedapl01;
+    public FieldDef m2016dedpdt01;
+    public FieldDef m2016dedini02;
+    public FieldDef m2016dedapl02;
+    public FieldDef m2016dedpdt02;
+    public FieldDef m2016dedini03;
+    public FieldDef m2016dedapl03;
+    public FieldDef m2016dedpdt03;
+    public FieldDef m2016dedini04;
+    public FieldDef m2016dedapl04;
+    public FieldDef m2016dedpdt04;
+    public FieldDef m2016dedini05;
+    public FieldDef m2016dedapl05;
+    public FieldDef m2016dedpdt05;
+    public FieldDef m2016dedini06;
+    public FieldDef m2016dedapl06;
+    public FieldDef m2016dedpdt06;
+    public FieldDef m2016dedini07;
+    public FieldDef m2016dedapl07;
+    public FieldDef m2016dedpdt07;
+    public FieldDef m2016dedini08;
+    public FieldDef m2016dedapl08;
+    public FieldDef m2016dedpdt08;
+    public FieldDef m2016dedini09;
+    public FieldDef m2016dedapl09;
+    public FieldDef m2016dedpdt09;
+    public FieldDef m2016afini2009;
+    public FieldDef m2016afapl2009;
+    public FieldDef m2016afpdt2009;
+    public FieldDef m2016totini;
+    public FieldDef m2016totapl;
+    public FieldDef m2016totpdte;
+    public FieldDef m2016art42in10;
+    public FieldDef m2016art42ap10;
+    public FieldDef m2016art42pd10;
+    public FieldDef m2016ricdot10;
+    public FieldDef m2016ricmat110;
+    public FieldDef m2016ricmat210;
+    public FieldDef m2016ricpdt10;
+    public FieldDef m2016dedini10;
+    public FieldDef m2016dedapl10;
+    public FieldDef m2016dedpdt10;
+    public FieldDef m2016art42in11;
+    public FieldDef m2016art42ap11;
+    public FieldDef m2016art42pd11;
+    public FieldDef m2016ricdot11;
+    public FieldDef m2016ricmat111;
+    public FieldDef m2016ricmat211;
+    public FieldDef m2016ricpdt11;
+    public FieldDef m2016dedini11;
+    public FieldDef m2016dedapl11;
+    public FieldDef m2016dedpdt11;
+    public TabMod200h16(String name)
+      {
+      super(name);
+      m2016dominio = new FieldDef("m2016dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m2016nif = new FieldDef("m2016nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m2016ejercicio = new FieldDef("m2016ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m2016periodo = new FieldDef("m2016periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m2016art42in01 = new FieldDef("m2016art42in01",FieldDef.FLOAT,6,0);
+      m2016art42ap01 = new FieldDef("m2016art42ap01",FieldDef.FLOAT,6,0);
+      m2016art42pd01 = new FieldDef("m2016art42pd01",FieldDef.FLOAT,6,0);
+      m2016art42in02 = new FieldDef("m2016art42in02",FieldDef.FLOAT,6,0);
+      m2016art42ap02 = new FieldDef("m2016art42ap02",FieldDef.FLOAT,6,0);
+      m2016art42pd02 = new FieldDef("m2016art42pd02",FieldDef.FLOAT,6,0);
+      m2016art42in03 = new FieldDef("m2016art42in03",FieldDef.FLOAT,6,0);
+      m2016art42ap03 = new FieldDef("m2016art42ap03",FieldDef.FLOAT,6,0);
+      m2016art42pd03 = new FieldDef("m2016art42pd03",FieldDef.FLOAT,6,0);
+      m2016art42in04 = new FieldDef("m2016art42in04",FieldDef.FLOAT,6,0);
+      m2016art42ap04 = new FieldDef("m2016art42ap04",FieldDef.FLOAT,6,0);
+      m2016art42pd04 = new FieldDef("m2016art42pd04",FieldDef.FLOAT,6,0);
+      m2016art42in05 = new FieldDef("m2016art42in05",FieldDef.FLOAT,6,0);
+      m2016art42ap05 = new FieldDef("m2016art42ap05",FieldDef.FLOAT,6,0);
+      m2016art42pd05 = new FieldDef("m2016art42pd05",FieldDef.FLOAT,6,0);
+      m2016art42in06 = new FieldDef("m2016art42in06",FieldDef.FLOAT,6,0);
+      m2016art42ap06 = new FieldDef("m2016art42ap06",FieldDef.FLOAT,6,0);
+      m2016art42pd06 = new FieldDef("m2016art42pd06",FieldDef.FLOAT,6,0);
+      m2016art42in07 = new FieldDef("m2016art42in07",FieldDef.FLOAT,6,0);
+      m2016art42ap07 = new FieldDef("m2016art42ap07",FieldDef.FLOAT,6,0);
+      m2016art42pd07 = new FieldDef("m2016art42pd07",FieldDef.FLOAT,6,0);
+      m2016art42in08 = new FieldDef("m2016art42in08",FieldDef.FLOAT,6,0);
+      m2016art42ap08 = new FieldDef("m2016art42ap08",FieldDef.FLOAT,6,0);
+      m2016art42pd08 = new FieldDef("m2016art42pd08",FieldDef.FLOAT,6,0);
+      m2016art42in09 = new FieldDef("m2016art42in09",FieldDef.FLOAT,6,0);
+      m2016art42ap09 = new FieldDef("m2016art42ap09",FieldDef.FLOAT,6,0);
+      m2016art42pd09 = new FieldDef("m2016art42pd09",FieldDef.FLOAT,6,0);
+      m2016art42intot = new FieldDef("m2016art42intot",FieldDef.FLOAT,6,0);
+      m2016art42aptot = new FieldDef("m2016art42aptot",FieldDef.FLOAT,6,0);
+      m2016art42pdtot = new FieldDef("m2016art42pdtot",FieldDef.FLOAT,6,0);
+      m2016dt8ini04 = new FieldDef("m2016dt8ini04",FieldDef.FLOAT,6,0);
+      m2016dt8apl04 = new FieldDef("m2016dt8apl04",FieldDef.FLOAT,6,0);
+      m2016dt8ini05 = new FieldDef("m2016dt8ini05",FieldDef.FLOAT,6,0);
+      m2016dt8apl05 = new FieldDef("m2016dt8apl05",FieldDef.FLOAT,6,0);
+      m2016dt8pdt05 = new FieldDef("m2016dt8pdt05",FieldDef.FLOAT,6,0);
+      m2016dt8ini06 = new FieldDef("m2016dt8ini06",FieldDef.FLOAT,6,0);
+      m2016dt8apl06 = new FieldDef("m2016dt8apl06",FieldDef.FLOAT,6,0);
+      m2016dt8pdt06 = new FieldDef("m2016dt8pdt06",FieldDef.FLOAT,6,0);
+      m2016dt8ini07 = new FieldDef("m2016dt8ini07",FieldDef.FLOAT,6,0);
+      m2016dt8apl07 = new FieldDef("m2016dt8apl07",FieldDef.FLOAT,6,0);
+      m2016dt8pdt07 = new FieldDef("m2016dt8pdt07",FieldDef.FLOAT,6,0);
+      m2016dt8ini08 = new FieldDef("m2016dt8ini08",FieldDef.FLOAT,6,0);
+      m2016dt8apl08 = new FieldDef("m2016dt8apl08",FieldDef.FLOAT,6,0);
+      m2016dt8pdt08 = new FieldDef("m2016dt8pdt08",FieldDef.FLOAT,6,0);
+      m2016dt8ini09 = new FieldDef("m2016dt8ini09",FieldDef.FLOAT,6,0);
+      m2016dt8apl09 = new FieldDef("m2016dt8apl09",FieldDef.FLOAT,6,0);
+      m2016dt8pdt09 = new FieldDef("m2016dt8pdt09",FieldDef.FLOAT,6,0);
+      m2016dt8initot = new FieldDef("m2016dt8initot",FieldDef.FLOAT,6,0);
+      m2016dt8apltot = new FieldDef("m2016dt8apltot",FieldDef.FLOAT,6,0);
+      m2016dt8pdttot = new FieldDef("m2016dt8pdttot",FieldDef.FLOAT,6,0);
+      m2016ricdot05 = new FieldDef("m2016ricdot05",FieldDef.FLOAT,6,0);
+      m2016ricmat05 = new FieldDef("m2016ricmat05",FieldDef.FLOAT,6,0);
+      m2016ricclave05 = new FieldDef("m2016ricclave05",FieldDef.FLOAT,6,0);
+      m2016ricdot06 = new FieldDef("m2016ricdot06",FieldDef.FLOAT,6,0);
+      m2016ricmat06 = new FieldDef("m2016ricmat06",FieldDef.FLOAT,6,0);
+      m2016ricclave06 = new FieldDef("m2016ricclave06",FieldDef.FLOAT,6,0);
+      m2016ricpdt06 = new FieldDef("m2016ricpdt06",FieldDef.FLOAT,6,0);
+      m2016ricdot07 = new FieldDef("m2016ricdot07",FieldDef.FLOAT,6,0);
+      m2016ricmat107 = new FieldDef("m2016ricmat107",FieldDef.FLOAT,6,0);
+      m2016ricmat207 = new FieldDef("m2016ricmat207",FieldDef.FLOAT,6,0);
+      m2016ricpdt07 = new FieldDef("m2016ricpdt07",FieldDef.FLOAT,6,0);
+      m2016ricdot08 = new FieldDef("m2016ricdot08",FieldDef.FLOAT,6,0);
+      m2016ricmat108 = new FieldDef("m2016ricmat108",FieldDef.FLOAT,6,0);
+      m2016ricmat208 = new FieldDef("m2016ricmat208",FieldDef.FLOAT,6,0);
+      m2016ricpdt08 = new FieldDef("m2016ricpdt08",FieldDef.FLOAT,6,0);
+      m2016ricdot09 = new FieldDef("m2016ricdot09",FieldDef.FLOAT,6,0);
+      m2016ricmat109 = new FieldDef("m2016ricmat109",FieldDef.FLOAT,6,0);
+      m2016ricmat209 = new FieldDef("m2016ricmat209",FieldDef.FLOAT,6,0);
+      m2016ricpdt09 = new FieldDef("m2016ricpdt09",FieldDef.FLOAT,6,0);
+      m2016ricant109 = new FieldDef("m2016ricant109",FieldDef.FLOAT,6,0);
+      m2016ricant209 = new FieldDef("m2016ricant209",FieldDef.FLOAT,6,0);
+      m2016afini2004 = new FieldDef("m2016afini2004",FieldDef.FLOAT,6,0);
+      m2016afapl2004 = new FieldDef("m2016afapl2004",FieldDef.FLOAT,6,0);
+      m2016afini2005 = new FieldDef("m2016afini2005",FieldDef.FLOAT,6,0);
+      m2016afapl2005 = new FieldDef("m2016afapl2005",FieldDef.FLOAT,6,0);
+      m2016afpdt2005 = new FieldDef("m2016afpdt2005",FieldDef.FLOAT,6,0);
+      m2016afini2006 = new FieldDef("m2016afini2006",FieldDef.FLOAT,6,0);
+      m2016afapl2006 = new FieldDef("m2016afapl2006",FieldDef.FLOAT,6,0);
+      m2016afpdt2006 = new FieldDef("m2016afpdt2006",FieldDef.FLOAT,6,0);
+      m2016afini2007 = new FieldDef("m2016afini2007",FieldDef.FLOAT,6,0);
+      m2016afapl2007 = new FieldDef("m2016afapl2007",FieldDef.FLOAT,6,0);
+      m2016afpdt2007 = new FieldDef("m2016afpdt2007",FieldDef.FLOAT,6,0);
+      m2016afini2008 = new FieldDef("m2016afini2008",FieldDef.FLOAT,6,0);
+      m2016afapl2008 = new FieldDef("m2016afapl2008",FieldDef.FLOAT,6,0);
+      m2016afpdt2008 = new FieldDef("m2016afpdt2008",FieldDef.FLOAT,6,0);
+      m2016dedini96 = new FieldDef("m2016dedini96",FieldDef.FLOAT,6,0);
+      m2016dedapl96 = new FieldDef("m2016dedapl96",FieldDef.FLOAT,6,0);
+      m2016dedpdt96 = new FieldDef("m2016dedpdt96",FieldDef.FLOAT,6,0);
+      m2016dedini97 = new FieldDef("m2016dedini97",FieldDef.FLOAT,6,0);
+      m2016dedapl97 = new FieldDef("m2016dedapl97",FieldDef.FLOAT,6,0);
+      m2016dedpdt97 = new FieldDef("m2016dedpdt97",FieldDef.FLOAT,6,0);
+      m2016dedini98 = new FieldDef("m2016dedini98",FieldDef.FLOAT,6,0);
+      m2016dedapl98 = new FieldDef("m2016dedapl98",FieldDef.FLOAT,6,0);
+      m2016dedpdt98 = new FieldDef("m2016dedpdt98",FieldDef.FLOAT,6,0);
+      m2016dedini99 = new FieldDef("m2016dedini99",FieldDef.FLOAT,6,0);
+      m2016dedapl99 = new FieldDef("m2016dedapl99",FieldDef.FLOAT,6,0);
+      m2016dedpdt99 = new FieldDef("m2016dedpdt99",FieldDef.FLOAT,6,0);
+      m2016dedini00 = new FieldDef("m2016dedini00",FieldDef.FLOAT,6,0);
+      m2016dedapl00 = new FieldDef("m2016dedapl00",FieldDef.FLOAT,6,0);
+      m2016dedpdt00 = new FieldDef("m2016dedpdt00",FieldDef.FLOAT,6,0);
+      m2016dedini01 = new FieldDef("m2016dedini01",FieldDef.FLOAT,6,0);
+      m2016dedapl01 = new FieldDef("m2016dedapl01",FieldDef.FLOAT,6,0);
+      m2016dedpdt01 = new FieldDef("m2016dedpdt01",FieldDef.FLOAT,6,0);
+      m2016dedini02 = new FieldDef("m2016dedini02",FieldDef.FLOAT,6,0);
+      m2016dedapl02 = new FieldDef("m2016dedapl02",FieldDef.FLOAT,6,0);
+      m2016dedpdt02 = new FieldDef("m2016dedpdt02",FieldDef.FLOAT,6,0);
+      m2016dedini03 = new FieldDef("m2016dedini03",FieldDef.FLOAT,6,0);
+      m2016dedapl03 = new FieldDef("m2016dedapl03",FieldDef.FLOAT,6,0);
+      m2016dedpdt03 = new FieldDef("m2016dedpdt03",FieldDef.FLOAT,6,0);
+      m2016dedini04 = new FieldDef("m2016dedini04",FieldDef.FLOAT,6,0);
+      m2016dedapl04 = new FieldDef("m2016dedapl04",FieldDef.FLOAT,6,0);
+      m2016dedpdt04 = new FieldDef("m2016dedpdt04",FieldDef.FLOAT,6,0);
+      m2016dedini05 = new FieldDef("m2016dedini05",FieldDef.FLOAT,6,0);
+      m2016dedapl05 = new FieldDef("m2016dedapl05",FieldDef.FLOAT,6,0);
+      m2016dedpdt05 = new FieldDef("m2016dedpdt05",FieldDef.FLOAT,6,0);
+      m2016dedini06 = new FieldDef("m2016dedini06",FieldDef.FLOAT,6,0);
+      m2016dedapl06 = new FieldDef("m2016dedapl06",FieldDef.FLOAT,6,0);
+      m2016dedpdt06 = new FieldDef("m2016dedpdt06",FieldDef.FLOAT,6,0);
+      m2016dedini07 = new FieldDef("m2016dedini07",FieldDef.FLOAT,6,0);
+      m2016dedapl07 = new FieldDef("m2016dedapl07",FieldDef.FLOAT,6,0);
+      m2016dedpdt07 = new FieldDef("m2016dedpdt07",FieldDef.FLOAT,6,0);
+      m2016dedini08 = new FieldDef("m2016dedini08",FieldDef.FLOAT,6,0);
+      m2016dedapl08 = new FieldDef("m2016dedapl08",FieldDef.FLOAT,6,0);
+      m2016dedpdt08 = new FieldDef("m2016dedpdt08",FieldDef.FLOAT,6,0);
+      m2016dedini09 = new FieldDef("m2016dedini09",FieldDef.FLOAT,6,0);
+      m2016dedapl09 = new FieldDef("m2016dedapl09",FieldDef.FLOAT,6,0);
+      m2016dedpdt09 = new FieldDef("m2016dedpdt09",FieldDef.FLOAT,6,0);
+      m2016afini2009 = new FieldDef("m2016afini2009",FieldDef.FLOAT,6,0);
+      m2016afapl2009 = new FieldDef("m2016afapl2009",FieldDef.FLOAT,6,0);
+      m2016afpdt2009 = new FieldDef("m2016afpdt2009",FieldDef.FLOAT,6,0);
+      m2016totini = new FieldDef("m2016totini",FieldDef.FLOAT,6,0);
+      m2016totapl = new FieldDef("m2016totapl",FieldDef.FLOAT,6,0);
+      m2016totpdte = new FieldDef("m2016totpdte",FieldDef.FLOAT,6,0);
+      m2016art42in10 = new FieldDef("m2016art42in10",FieldDef.FLOAT,6,0);
+      m2016art42ap10 = new FieldDef("m2016art42ap10",FieldDef.FLOAT,6,0);
+      m2016art42pd10 = new FieldDef("m2016art42pd10",FieldDef.FLOAT,6,0);
+      m2016ricdot10 = new FieldDef("m2016ricdot10",FieldDef.FLOAT,6,0);
+      m2016ricmat110 = new FieldDef("m2016ricmat110",FieldDef.FLOAT,6,0);
+      m2016ricmat210 = new FieldDef("m2016ricmat210",FieldDef.FLOAT,6,0);
+      m2016ricpdt10 = new FieldDef("m2016ricpdt10",FieldDef.FLOAT,6,0);
+      m2016dedini10 = new FieldDef("m2016dedini10",FieldDef.FLOAT,6,0);
+      m2016dedapl10 = new FieldDef("m2016dedapl10",FieldDef.FLOAT,6,0);
+      m2016dedpdt10 = new FieldDef("m2016dedpdt10",FieldDef.FLOAT,6,0);
+      m2016art42in11 = new FieldDef("m2016art42in11",FieldDef.FLOAT,6,0);
+      m2016art42ap11 = new FieldDef("m2016art42ap11",FieldDef.FLOAT,6,0);
+      m2016art42pd11 = new FieldDef("m2016art42pd11",FieldDef.FLOAT,6,0);
+      m2016ricdot11 = new FieldDef("m2016ricdot11",FieldDef.FLOAT,6,0);
+      m2016ricmat111 = new FieldDef("m2016ricmat111",FieldDef.FLOAT,6,0);
+      m2016ricmat211 = new FieldDef("m2016ricmat211",FieldDef.FLOAT,6,0);
+      m2016ricpdt11 = new FieldDef("m2016ricpdt11",FieldDef.FLOAT,6,0);
+      m2016dedini11 = new FieldDef("m2016dedini11",FieldDef.FLOAT,6,0);
+      m2016dedapl11 = new FieldDef("m2016dedapl11",FieldDef.FLOAT,6,0);
+      m2016dedpdt11 = new FieldDef("m2016dedpdt11",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        m2016dominio,
+        m2016nif,
+        m2016ejercicio,
+        m2016periodo,
+        m2016art42in01,
+        m2016art42ap01,
+        m2016art42pd01,
+        m2016art42in02,
+        m2016art42ap02,
+        m2016art42pd02,
+        m2016art42in03,
+        m2016art42ap03,
+        m2016art42pd03,
+        m2016art42in04,
+        m2016art42ap04,
+        m2016art42pd04,
+        m2016art42in05,
+        m2016art42ap05,
+        m2016art42pd05,
+        m2016art42in06,
+        m2016art42ap06,
+        m2016art42pd06,
+        m2016art42in07,
+        m2016art42ap07,
+        m2016art42pd07,
+        m2016art42in08,
+        m2016art42ap08,
+        m2016art42pd08,
+        m2016art42in09,
+        m2016art42ap09,
+        m2016art42pd09,
+        m2016art42intot,
+        m2016art42aptot,
+        m2016art42pdtot,
+        m2016dt8ini04,
+        m2016dt8apl04,
+        m2016dt8ini05,
+        m2016dt8apl05,
+        m2016dt8pdt05,
+        m2016dt8ini06,
+        m2016dt8apl06,
+        m2016dt8pdt06,
+        m2016dt8ini07,
+        m2016dt8apl07,
+        m2016dt8pdt07,
+        m2016dt8ini08,
+        m2016dt8apl08,
+        m2016dt8pdt08,
+        m2016dt8ini09,
+        m2016dt8apl09,
+        m2016dt8pdt09,
+        m2016dt8initot,
+        m2016dt8apltot,
+        m2016dt8pdttot,
+        m2016ricdot05,
+        m2016ricmat05,
+        m2016ricclave05,
+        m2016ricdot06,
+        m2016ricmat06,
+        m2016ricclave06,
+        m2016ricpdt06,
+        m2016ricdot07,
+        m2016ricmat107,
+        m2016ricmat207,
+        m2016ricpdt07,
+        m2016ricdot08,
+        m2016ricmat108,
+        m2016ricmat208,
+        m2016ricpdt08,
+        m2016ricdot09,
+        m2016ricmat109,
+        m2016ricmat209,
+        m2016ricpdt09,
+        m2016ricant109,
+        m2016ricant209,
+        m2016afini2004,
+        m2016afapl2004,
+        m2016afini2005,
+        m2016afapl2005,
+        m2016afpdt2005,
+        m2016afini2006,
+        m2016afapl2006,
+        m2016afpdt2006,
+        m2016afini2007,
+        m2016afapl2007,
+        m2016afpdt2007,
+        m2016afini2008,
+        m2016afapl2008,
+        m2016afpdt2008,
+        m2016dedini96,
+        m2016dedapl96,
+        m2016dedpdt96,
+        m2016dedini97,
+        m2016dedapl97,
+        m2016dedpdt97,
+        m2016dedini98,
+        m2016dedapl98,
+        m2016dedpdt98,
+        m2016dedini99,
+        m2016dedapl99,
+        m2016dedpdt99,
+        m2016dedini00,
+        m2016dedapl00,
+        m2016dedpdt00,
+        m2016dedini01,
+        m2016dedapl01,
+        m2016dedpdt01,
+        m2016dedini02,
+        m2016dedapl02,
+        m2016dedpdt02,
+        m2016dedini03,
+        m2016dedapl03,
+        m2016dedpdt03,
+        m2016dedini04,
+        m2016dedapl04,
+        m2016dedpdt04,
+        m2016dedini05,
+        m2016dedapl05,
+        m2016dedpdt05,
+        m2016dedini06,
+        m2016dedapl06,
+        m2016dedpdt06,
+        m2016dedini07,
+        m2016dedapl07,
+        m2016dedpdt07,
+        m2016dedini08,
+        m2016dedapl08,
+        m2016dedpdt08,
+        m2016dedini09,
+        m2016dedapl09,
+        m2016dedpdt09,
+        m2016afini2009,
+        m2016afapl2009,
+        m2016afpdt2009,
+        m2016totini,
+        m2016totapl,
+        m2016totpdte,
+        m2016art42in10,
+        m2016art42ap10,
+        m2016art42pd10,
+        m2016ricdot10,
+        m2016ricmat110,
+        m2016ricmat210,
+        m2016ricpdt10,
+        m2016dedini10,
+        m2016dedapl10,
+        m2016dedpdt10,
+        m2016art42in11,
+        m2016art42ap11,
+        m2016art42pd11,
+        m2016ricdot11,
+        m2016ricmat111,
+        m2016ricmat211,
+        m2016ricpdt11,
+        m2016dedini11,
+        m2016dedapl11,
+        m2016dedpdt11        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m2016dominio,m2016nif,m2016ejercicio,m2016periodo };
+      setPrimaryKeys(arrayf);
+      m2016art42in01.setDescription("Deducc. Art. 36 ter 2001 Deduccion pendiente/generada [835]");
+      m2016art42ap01.setDescription("Deducc. Art. 36 ter 2001 Aplicado en esta liquidacion [836]");
+      m2016art42pd01.setDescription("Deducc. Art. 36 ter 2001 Pendiente aplicacion [837]");
+      m2016art42in02.setDescription("Deducc. Art. 36 ter 2002 Deduccion pendiente/generada [838]");
+      m2016art42ap02.setDescription("Deducc. Art. 36 ter 2002 Aplicado en esta liquidacion [839]");
+      m2016art42pd02.setDescription("Deducc. Art. 36 ter 2002 Pendiente aplicacion [840]");
+      m2016art42in03.setDescription("Deducc. Art. 36 ter 2003 Deduccion pendiente/generada [932]");
+      m2016art42ap03.setDescription("Deducc. Art. 36 ter 2003 Aplicado en esta liquidacion [933]");
+      m2016art42pd03.setDescription("Deducc. Art. 36 ter 2003 Pendiente aplicacion [934]");
+      m2016art42in04.setDescription("Deducc. Art. 42 2004 Deduccion pendiente/generada [297]");
+      m2016art42ap04.setDescription("Deducc. Art. 42 2004 Aplicado en esta liquidacion [298]");
+      m2016art42pd04.setDescription("Deducc. Art. 42 2004 Pendiente aplicacion [299]");
+      m2016art42in05.setDescription("Deducc. Art. 42 2005 Deduccion pendiente/generada [090]");
+      m2016art42ap05.setDescription("Deducc. Art. 42 2005 Aplicado en esta liquidacion [091]");
+      m2016art42pd05.setDescription("Deducc. Art. 42 2005 Pendiente aplicacion [092]");
+      m2016art42in06.setDescription("Deducc. Art. 42 2006 Deduccion pendiente/generada [004]");
+      m2016art42ap06.setDescription("Deducc. Art. 42 2006 Aplicado en esta liquidacion [005]");
+      m2016art42pd06.setDescription("Deducc. Art. 42 2006 Pendiente aplicacion [006]");
+      m2016art42in07.setDescription("Deducc. Art. 42 2007 Deduccion pendiente/generada [031]");
+      m2016art42ap07.setDescription("Deducc. Art. 42 2007 Aplicado en esta liquidacion [032]");
+      m2016art42pd07.setDescription("Deducc. Art. 42 2007 Pendiente aplicacion [033]");
+      m2016art42in08.setDescription("Deducc. Art. 42 2008 Deduccion pendiente/generada [022]");
+      m2016art42ap08.setDescription("Deducc. Art. 42 2008 Aplicado en esta liquidacion [023]");
+      m2016art42pd08.setDescription("Deducc. Art. 42 2008 Pendiente aplicacion [024]");
+      m2016art42in09.setDescription("Deducc. Art. 42 2009 Deduccion pendiente/generada [040]");
+      m2016art42ap09.setDescription("Deducc. Art. 42 2009 Aplicado en esta liquidacion [041]");
+      m2016art42pd09.setDescription("Deducc. Art. 42 2009 Pendiente aplicacion [042]");
+      m2016art42intot.setDescription("Deducc. Art. 36 ter Total Deducc.Deduccion pendiente/generada [841]");
+      m2016art42aptot.setDescription("Deducc. Art. 36 ter Total Deducc.Aplicado en esta liquidacion [585]");
+      m2016art42pdtot.setDescription("Deducc. Art. 36 ter Total Deducc.Pendiente aplicacion [843]");
+      m2016dt8ini04.setDescription("Deducc DT octava 2004 Periodificacion/diferimiento. Deduccion pendiente/generada [749]");
+      m2016dt8apl04.setDescription("Deducc DT octava 2004 Periodificacion/diferimiento. Aplicado en esta liquidacion [750]");
+      m2016dt8ini05.setDescription("Deducc DT octava 2005 Periodificacion. Deduccion pendiente/generada [752]");
+      m2016dt8apl05.setDescription("Deducc DT octava 2005 Periodificacion. Aplicado en esta liquidacion [753]");
+      m2016dt8pdt05.setDescription("Deducc DT octava 2005 Periodificacion. Pendiente de aplicacion [754]");
+      m2016dt8ini06.setDescription("Deducc DT octava 2006 Periodificacion. Deduccion pendiente/generada [755]");
+      m2016dt8apl06.setDescription("Deducc DT octava 2006 Periodificacion. Aplicado en esta liquidacion [756]");
+      m2016dt8pdt06.setDescription("Deducc DT octava 2006 Periodificacion. Pendiente de aplicacion [757]");
+      m2016dt8ini07.setDescription("Deducc DT octava 2007 Periodificacion. Deduccion pendiente/generada [758]");
+      m2016dt8apl07.setDescription("Deducc DT octava 2007 Periodificacion. Aplicado en esta liquidacion [759]");
+      m2016dt8pdt07.setDescription("Deducc DT octava 2007 Periodificacion. Pendiente de aplicacion [760]");
+      m2016dt8ini08.setDescription("Deducc DT octava 2008 Periodificacion. Deduccion pendiente/generada [761]");
+      m2016dt8apl08.setDescription("Deducc DT octava 2008 Periodificacion. Aplicado en esta liquidacion [762]");
+      m2016dt8pdt08.setDescription("Deducc DT octava 2008 Periodificacion. Pendiente de aplicacion [763]");
+      m2016dt8ini09.setDescription("Deducc DT octava 2009 Periodificacion. Deduccion pendiente/generada [744]");
+      m2016dt8apl09.setDescription("Deducc DT octava 2009 Periodificacion. Aplicado en esta liquidacion [745]");
+      m2016dt8pdt09.setDescription("Deducc DT octava 2009 Periodificacion. Pendiente de aplicacion [746]");
+      m2016dt8initot.setDescription("Deducc DT octava Total deducciones Deduccion pendiente/generada [764]");
+      m2016dt8apltot.setDescription("Deducc DT octava Total deducciones Aplicado en esta liquidacion [584]");
+      m2016dt8pdttot.setDescription("Deducc DT octava Total deducciones Pendiente de aplicacion [765]");
+      m2016ricdot05.setDescription("R.inversiones Canarias 2005. Importe dotaciones [078]");
+      m2016ricmat05.setDescription("R.inversiones Canarias 2005. Materializaciones 2009 [079]");
+      m2016ricclave05.setDescription("R.inversiones Canarias 2005. Clave [087]");
+      m2016ricdot06.setDescription("R.inversiones Canarias 2006. Importe dotaciones [081]");
+      m2016ricmat06.setDescription("R.inversiones Canarias 2006. Materializaciones 2009 [082]");
+      m2016ricclave06.setDescription("R.inversiones Canarias 2006. Clave [088]");
+      m2016ricpdt06.setDescription("R.inversiones Canarias 2006. Pendiente materializar [083]");
+      m2016ricdot07.setDescription("R.inversiones Canarias 2007. Importe dotacion [089]");
+      m2016ricmat107.setDescription("R.inversiones Canarias 2007. Inversiones previstas A B D (1) [094]");
+      m2016ricmat207.setDescription("R.inversiones Canarias 2007. Inversiones previstas C y D (2 a 6) [095]");
+      m2016ricpdt07.setDescription("R.inversiones Canarias 2007. Pendiente materializar [096]");
+      m2016ricdot08.setDescription("R.inversiones Canarias 2008. Importe dotacion [097]");
+      m2016ricmat108.setDescription("R.inversiones Canarias 2008. Inversiones previstas A B D (1) [098]");
+      m2016ricmat208.setDescription("R.inversiones Canarias 2008. Inversiones previstas C y D (2 a 6) [047]");
+      m2016ricpdt08.setDescription("R.inversiones Canarias 2008. Pendiente materializar [048]");
+      m2016ricdot09.setDescription("R.inversiones Canarias 2009. Importe dotacion [524]");
+      m2016ricmat109.setDescription("R.inversiones Canarias 2009. Inversiones previstas A B D (1) [525]");
+      m2016ricmat209.setDescription("R.inversiones Canarias 2009. Inversiones previstas C y D (2 a 6) [526]");
+      m2016ricpdt09.setDescription("R.inversiones Canarias 2009. Pendiente materializar [527]");
+      m2016ricant109.setDescription("R.inversiones Canarias Inv.anticipadas 2009. Inversiones previstas A B D (1) [020]");
+      m2016ricant209.setDescription("R.inversiones Canarias Inv.anticipadas 2009. Inversiones previstas C y D (2 a 6) [021]");
+      m2016afini2004.setDescription("Deduc inversion Canarias Activos fijos 2004. Deduccion pendiente/generada [854]");
+      m2016afapl2004.setDescription("Deduc inversion Canarias Activos fijos 2004. Aplicado en esta liquidacion [855]");
+      m2016afini2005.setDescription("Deduc inversion Canarias Activos fijos 2005. Deduccion pendiente/generada [857]");
+      m2016afapl2005.setDescription("Deduc inversion Canarias Activos fijos 2005. Aplicado en esta liquidacion [858]");
+      m2016afpdt2005.setDescription("Deduc inversion Canarias Activos fijos 2005. Pendiente de aplicacion [859]");
+      m2016afini2006.setDescription("Deduc inversion Canarias Activos fijos 2006. Deduccion pendiente/generada [860]");
+      m2016afapl2006.setDescription("Deduc inversion Canarias Activos fijos 2006. Aplicado en esta liquidacion [861]");
+      m2016afpdt2006.setDescription("Deduc inversion Canarias Activos fijos 2006. Pendiente de aplicacion [862]");
+      m2016afini2007.setDescription("Deduc inversion Canarias Activos fijos 2007. Deduccion pendiente/generada [863]");
+      m2016afapl2007.setDescription("Deduc inversion Canarias Activos fijos 2007. Aplicado en esta liquidacion [864]");
+      m2016afpdt2007.setDescription("Deduc inversion Canarias Activos fijos 2007. Pendiente de aplicacion [865]");
+      m2016afini2008.setDescription("Deduc inversion Canarias Activos fijos 2008. Deduccion pendiente/generada [883]");
+      m2016afapl2008.setDescription("Deduc inversion Canarias Activos fijos 2008. Aplicado en esta liquidacion [884]");
+      m2016afpdt2008.setDescription("Deduc inversion Canarias Activos fijos 2008. Pendiente de aplicacion [885]");
+      m2016dedini96.setDescription("Deduc inversion Canarias 1996 ID. Deduccion pendiente/generada [194]");
+      m2016dedapl96.setDescription("Deduc inversion Canarias 1996 ID. Aplicado en esta liquidacion [195]");
+      m2016dedpdt96.setDescription("Deduc inversion Canarias 1996 ID. Pendiente de aplicacion [196]");
+      m2016dedini97.setDescription("Deduc inversion Canarias 1997. Deduccion pendiente/generada [868]");
+      m2016dedapl97.setDescription("Deduc inversion Canarias 1997. Aplicado en esta liquidacion [869]");
+      m2016dedpdt97.setDescription("Deduc inversion Canarias 1997. Pendiente de aplicacion [834]");
+      m2016dedini98.setDescription("Deduc inversion Canarias 1998. Deduccion pendiente/generada [871]");
+      m2016dedapl98.setDescription("Deduc inversion Canarias 1998. Aplicado en esta liquidacion [872]");
+      m2016dedpdt98.setDescription("Deduc inversion Canarias 1998. Pendiente de aplicacion [873]");
+      m2016dedini99.setDescription("Deduc inversion Canarias 1999. Deduccion pendiente/generada [874]");
+      m2016dedapl99.setDescription("Deduc inversion Canarias 1999. Aplicado en esta liquidacion [875]");
+      m2016dedpdt99.setDescription("Deduc inversion Canarias 1999. Pendiente de aplicacion [876]");
+      m2016dedini00.setDescription("Deduc inversion Canarias 2000. Deduccion pendiente/generada [877]");
+      m2016dedapl00.setDescription("Deduc inversion Canarias 2000. Aplicado en esta liquidacion [878]");
+      m2016dedpdt00.setDescription("Deduc inversion Canarias 2000. Pendiente de aplicacion [879]");
+      m2016dedini01.setDescription("Deduc inversion Canarias 2001. Deduccion pendiente/generada [880]");
+      m2016dedapl01.setDescription("Deduc inversion Canarias 2001. Aplicado en esta liquidacion [881]");
+      m2016dedpdt01.setDescription("Deduc inversion Canarias 2001. Pendiente de aplicacion [882]");
+      m2016dedini02.setDescription("Deduc inversion Canarias 2002. Deduccion pendiente/generada [866]");
+      m2016dedapl02.setDescription("Deduc inversion Canarias 2002. Aplicado en esta liquidacion [867]");
+      m2016dedpdt02.setDescription("Deduc inversion Canarias 2002. Pendiente de aplicacion [870]");
+      m2016dedini03.setDescription("Deduc inversion Canarias 2003. Deduccion pendiente/generada [939]");
+      m2016dedapl03.setDescription("Deduc inversion Canarias 2003. Aplicado en esta liquidacion [940]");
+      m2016dedpdt03.setDescription("Deduc inversion Canarias 2003. Pendiente de aplicacion [941]");
+      m2016dedini04.setDescription("Deduc inversion Canarias 2004. Deduccion pendiente/generada [191]");
+      m2016dedapl04.setDescription("Deduc inversion Canarias 2004. Aplicado en esta liquidacion [192]");
+      m2016dedpdt04.setDescription("Deduc inversion Canarias 2004. Pendiente de aplicacion [193]");
+      m2016dedini05.setDescription("Deduc inversion Canarias 2005. Deduccion pendiente/generada [613]");
+      m2016dedapl05.setDescription("Deduc inversion Canarias 2005. Aplicado en esta liquidacion [614]");
+      m2016dedpdt05.setDescription("Deduc inversion Canarias 2005. Pendiente de aplicacion [701]");
+      m2016dedini06.setDescription("Deduc inversion Canarias 2006. Deduccion pendiente/generada [200]");
+      m2016dedapl06.setDescription("Deduc inversion Canarias 2006. Aplicado en esta liquidacion [257]");
+      m2016dedpdt06.setDescription("Deduc inversion Canarias 2006. Pendiente de aplicacion [011]");
+      m2016dedini07.setDescription("Deduc inversion Canarias 2007. Deduccion pendiente/generada [037]");
+      m2016dedapl07.setDescription("Deduc inversion Canarias 2007. Aplicado en esta liquidacion [038]");
+      m2016dedpdt07.setDescription("Deduc inversion Canarias 2007. Pendiente de aplicacion [039]");
+      m2016dedini08.setDescription("Deduc inversion Canarias 2008. Deduccion pendiente/generada [044]");
+      m2016dedapl08.setDescription("Deduc inversion Canarias 2008. Aplicado en esta liquidacion [045]");
+      m2016dedpdt08.setDescription("Deduc inversion Canarias 2008. Pendiente de aplicacion [046]");
+      m2016dedini09.setDescription("Deduc inversion Canarias 2009. Deduccion pendiente/generada [528]");
+      m2016dedapl09.setDescription("Deduc inversion Canarias 2009. Aplicado en esta liquidacion [529]");
+      m2016dedpdt09.setDescription("Deduc inversion Canarias 2009. Pendiente de aplicacion [530]");
+      m2016afini2009.setDescription("Deduc inversion Canarias Activos fijos 2009. Deduccion pendiente/generada [852]");
+      m2016afapl2009.setDescription("Deduc inversion Canarias Activos fijos 2009. Aplicado en esta liquidacion [853]");
+      m2016afpdt2009.setDescription("Deduc inversion Canarias Activos fijos 2009. Pendiente de aplicacion [856]");
+      m2016totini.setDescription("Deduc inversion Canarias Total. Deduccion pendiente/generada [886]");
+      m2016totapl.setDescription("Deduc inversion Canarias Total. Aplicado en esta liquidacion [590]");
+      m2016totpdte.setDescription("Deduc inversion Canarias Total. Pendiente de aplicacion [887]");
+      m2016art42in10.setDescription("Deducc. Art. 42 2010 Deduccion pendiente/generada [138]");
+      m2016art42ap10.setDescription("Deducc. Art. 42 2010 Aplicado en esta liquidacion [139]");
+      m2016art42pd10.setDescription("Deducc. Art. 42 2010 Pendiente aplicacion [140]");
+      m2016ricdot10.setDescription("R.inversiones Canarias 2010. Importe dotacion [922]");
+      m2016ricmat110.setDescription("R.inversiones Canarias 2010. Inversiones previstas A B D (1) [923]");
+      m2016ricmat210.setDescription("R.inversiones Canarias 2010. Inversiones previstas C y D (2 a 6) [924]");
+      m2016ricpdt10.setDescription("R.inversiones Canarias 2010. Pendiente materializar [925]");
+      m2016dedini10.setDescription("Deduc inversion Canarias 2010. Deduccion pendiente/generada [144]");
+      m2016dedapl10.setDescription("Deduc inversion Canarias 2010. Aplicado en esta liquidacion [145]");
+      m2016dedpdt10.setDescription("Deduc inversion Canarias 2010. Pendiente de aplicacion [146]");
+      m2016art42in11.setDescription("Deducc. Art. 36 ter 2011 Deduccion pendiente/generada [141]");
+      m2016art42ap11.setDescription("Deducc. Art. 36 ter 2011 Aplicado en esta liquidacion [142]");
+      m2016art42pd11.setDescription("Deducc. Art. 36 ter 2011 Pendiente aplicacion [143]");
+      m2016ricdot11.setDescription("R.inversiones Canarias 2011. Importe dotacion [927]");
+      m2016ricmat111.setDescription("R.inversiones Canarias 2011. Inversiones previstas A B D (1) [928]");
+      m2016ricmat211.setDescription("R.inversiones Canarias 2011. Inversiones previstas C y D (2 a 6) [938]");
+      m2016ricpdt11.setDescription("R.inversiones Canarias 2011. Pendiente materializar [996]");
+      m2016dedini11.setDescription("Deduc inversion Canarias 2011. Deduccion pendiente/generada [147]");
+      m2016dedapl11.setDescription("Deduc inversion Canarias 2011. Aplicado en esta liquidacion [148]");
+      m2016dedpdt11.setDescription("Deduc inversion Canarias 2011. Pendiente de aplicacion [149]");
+      }
+    }
+    
+  public class TabMod200h1 extends TableDef
+    {
+    // Campos
+    public FieldDef m2001dominio;
+    public FieldDef m2001nif;
+    public FieldDef m2001ejercicio;
+    public FieldDef m2001periodo;
+    public FieldDef m2001deleg;
+    public FieldDef m2001admon;
+    public FieldDef m2001codadmon;
+    public FieldDef m2001fechaini;
+    public FieldDef m2001fechafin;
+    public FieldDef m2001tipoejer;
+    public FieldDef m2001cnae;
+    public FieldDef m2001nombre;
+    public FieldDef m2001telef1;
+    public FieldDef m2001telef2;
+    public FieldDef m2001car001;
+    public FieldDef m2001car002;
+    public FieldDef m2001car003;
+    public FieldDef m2001car004;
+    public FieldDef m2001car005;
+    public FieldDef m2001car011;
+    public FieldDef m2001car013;
+    public FieldDef m2001car014;
+    public FieldDef m2001car017;
+    public FieldDef m2001car018;
+    public FieldDef m2001car019;
+    public FieldDef m2001car021;
+    public FieldDef m2001car023;
+    public FieldDef m2001car024;
+    public FieldDef m2001car025;
+    public FieldDef m2001car031;
+    public FieldDef m2001car032;
+    public FieldDef m2001car036;
+    public FieldDef m2001car048;
+    public FieldDef m2001car006;
+    public FieldDef m2001car015;
+    public FieldDef m2001car022;
+    public FieldDef m2001car028;
+    public FieldDef m2001car047;
+    public FieldDef m2001car049;
+    public FieldDef m2001car029;
+    public FieldDef m2001car033;
+    public FieldDef m2001car034;
+    public FieldDef m2001car038;
+    public FieldDef m2001car046;
+    public FieldDef m2001car012;
+    public FieldDef m2001car020;
+    public FieldDef m2001car056;
+    public FieldDef m2001car007;
+    public FieldDef m2001car008;
+    public FieldDef m2001car009;
+    public FieldDef m2001car010;
+    public FieldDef m2001car016;
+    public FieldDef m2001car026;
+    public FieldDef m2001car027;
+    public FieldDef m2001car030;
+    public FieldDef m2001car035;
+    public FieldDef m2001car037;
+    public FieldDef m2001car039;
+    public FieldDef m2001car043;
+    public FieldDef m2001car044;
+    public FieldDef m2001car045;
+    public FieldDef m2001tipbal;
+    public FieldDef m2001tippyg;
+    public FieldDef m2001ngrupo;
+    public FieldDef m2001perfijo;
+    public FieldDef m2001pernofijo;
+    public FieldDef m2001complem;
+    public FieldDef m2001njusti;
+    public FieldDef m2001secrenom;
+    public FieldDef m2001secrenif;
+    public FieldDef m2001fechairnr;
+    public FieldDef m2001firmalocal;
+    public FieldDef m2001fechafirma;
+    public FieldDef m2001repnombre1;
+    public FieldDef m2001repnif1;
+    public FieldDef m2001repfecha1;
+    public FieldDef m2001repnotar1;
+    public FieldDef m2001repnombre2;
+    public FieldDef m2001repnif2;
+    public FieldDef m2001repfecha2;
+    public FieldDef m2001repnotar2;
+    public FieldDef m2001repnombre3;
+    public FieldDef m2001repnif3;
+    public FieldDef m2001repfecha3;
+    public FieldDef m2001repnotar3;
+    public FieldDef m2001contacto;
+    public FieldDef m2001conttel;
+    public FieldDef m2001contmovil;
+    public FieldDef m2001contmail;
+    public FieldDef m2001car058;
+    public FieldDef m2001car057;
+    public FieldDef m2001nifdomin;
+    public FieldDef m2001car059;
+    public FieldDef m2001car060;
+    public FieldDef m2001car062;
+    public TabMod200h1(String name)
+      {
+      super(name);
+      m2001dominio = new FieldDef("m2001dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m2001nif = new FieldDef("m2001nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m2001ejercicio = new FieldDef("m2001ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m2001periodo = new FieldDef("m2001periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m2001deleg = new FieldDef("m2001deleg",FieldDef.CHAR,30);
+      m2001admon = new FieldDef("m2001admon",FieldDef.CHAR,30);
+      m2001codadmon = new FieldDef("m2001codadmon",FieldDef.INTEGER,0);
+      m2001fechaini = new FieldDef("m2001fechaini",FieldDef.DATE);
+      m2001fechafin = new FieldDef("m2001fechafin",FieldDef.DATE);
+      m2001tipoejer = new FieldDef("m2001tipoejer",FieldDef.INTEGER,0);
+      m2001cnae = new FieldDef("m2001cnae",FieldDef.INTEGER,0);
+      m2001nombre = new FieldDef("m2001nombre",FieldDef.CHAR,40);
+      m2001telef1 = new FieldDef("m2001telef1",FieldDef.CHAR,9);
+      m2001telef2 = new FieldDef("m2001telef2",FieldDef.CHAR,9);
+      m2001car001 = new FieldDef("m2001car001",FieldDef.CHAR,1);
+      m2001car002 = new FieldDef("m2001car002",FieldDef.CHAR,1);
+      m2001car003 = new FieldDef("m2001car003",FieldDef.CHAR,1);
+      m2001car004 = new FieldDef("m2001car004",FieldDef.CHAR,1);
+      m2001car005 = new FieldDef("m2001car005",FieldDef.CHAR,1);
+      m2001car011 = new FieldDef("m2001car011",FieldDef.CHAR,1);
+      m2001car013 = new FieldDef("m2001car013",FieldDef.CHAR,1);
+      m2001car014 = new FieldDef("m2001car014",FieldDef.CHAR,1);
+      m2001car017 = new FieldDef("m2001car017",FieldDef.CHAR,1);
+      m2001car018 = new FieldDef("m2001car018",FieldDef.CHAR,1);
+      m2001car019 = new FieldDef("m2001car019",FieldDef.CHAR,1);
+      m2001car021 = new FieldDef("m2001car021",FieldDef.CHAR,1);
+      m2001car023 = new FieldDef("m2001car023",FieldDef.CHAR,1);
+      m2001car024 = new FieldDef("m2001car024",FieldDef.CHAR,1);
+      m2001car025 = new FieldDef("m2001car025",FieldDef.CHAR,1);
+      m2001car031 = new FieldDef("m2001car031",FieldDef.CHAR,1);
+      m2001car032 = new FieldDef("m2001car032",FieldDef.CHAR,1);
+      m2001car036 = new FieldDef("m2001car036",FieldDef.CHAR,1);
+      m2001car048 = new FieldDef("m2001car048",FieldDef.CHAR,1);
+      m2001car006 = new FieldDef("m2001car006",FieldDef.CHAR,1);
+      m2001car015 = new FieldDef("m2001car015",FieldDef.CHAR,1);
+      m2001car022 = new FieldDef("m2001car022",FieldDef.CHAR,1);
+      m2001car028 = new FieldDef("m2001car028",FieldDef.CHAR,1);
+      m2001car047 = new FieldDef("m2001car047",FieldDef.CHAR,1);
+      m2001car049 = new FieldDef("m2001car049",FieldDef.CHAR,1);
+      m2001car029 = new FieldDef("m2001car029",FieldDef.CHAR,1);
+      m2001car033 = new FieldDef("m2001car033",FieldDef.CHAR,1);
+      m2001car034 = new FieldDef("m2001car034",FieldDef.CHAR,1);
+      m2001car038 = new FieldDef("m2001car038",FieldDef.CHAR,1);
+      m2001car046 = new FieldDef("m2001car046",FieldDef.CHAR,1);
+      m2001car012 = new FieldDef("m2001car012",FieldDef.CHAR,1);
+      m2001car020 = new FieldDef("m2001car020",FieldDef.CHAR,1);
+      m2001car056 = new FieldDef("m2001car056",FieldDef.CHAR,1);
+      m2001car007 = new FieldDef("m2001car007",FieldDef.CHAR,1);
+      m2001car008 = new FieldDef("m2001car008",FieldDef.CHAR,1);
+      m2001car009 = new FieldDef("m2001car009",FieldDef.CHAR,1);
+      m2001car010 = new FieldDef("m2001car010",FieldDef.CHAR,1);
+      m2001car016 = new FieldDef("m2001car016",FieldDef.CHAR,1);
+      m2001car026 = new FieldDef("m2001car026",FieldDef.CHAR,1);
+      m2001car027 = new FieldDef("m2001car027",FieldDef.CHAR,1);
+      m2001car030 = new FieldDef("m2001car030",FieldDef.CHAR,1);
+      m2001car035 = new FieldDef("m2001car035",FieldDef.CHAR,1);
+      m2001car037 = new FieldDef("m2001car037",FieldDef.CHAR,1);
+      m2001car039 = new FieldDef("m2001car039",FieldDef.CHAR,1);
+      m2001car043 = new FieldDef("m2001car043",FieldDef.CHAR,1);
+      m2001car044 = new FieldDef("m2001car044",FieldDef.CHAR,1);
+      m2001car045 = new FieldDef("m2001car045",FieldDef.CHAR,1);
+      m2001tipbal = new FieldDef("m2001tipbal",FieldDef.CHAR,1);
+      m2001tippyg = new FieldDef("m2001tippyg",FieldDef.CHAR,1);
+      m2001ngrupo = new FieldDef("m2001ngrupo",FieldDef.CHAR,7);
+      m2001perfijo = new FieldDef("m2001perfijo",FieldDef.FLOAT,6,0);
+      m2001pernofijo = new FieldDef("m2001pernofijo",FieldDef.FLOAT,6,0);
+      m2001complem = new FieldDef("m2001complem",FieldDef.CHAR,1);
+      m2001njusti = new FieldDef("m2001njusti",FieldDef.CHAR,13);
+      m2001secrenom = new FieldDef("m2001secrenom",FieldDef.CHAR,21);
+      m2001secrenif = new FieldDef("m2001secrenif",FieldDef.CHAR,9);
+      m2001fechairnr = new FieldDef("m2001fechairnr",FieldDef.DATE);
+      m2001firmalocal = new FieldDef("m2001firmalocal",FieldDef.CHAR,25);
+      m2001fechafirma = new FieldDef("m2001fechafirma",FieldDef.DATE);
+      m2001repnombre1 = new FieldDef("m2001repnombre1",FieldDef.CHAR,36);
+      m2001repnif1 = new FieldDef("m2001repnif1",FieldDef.CHAR,9);
+      m2001repfecha1 = new FieldDef("m2001repfecha1",FieldDef.DATE);
+      m2001repnotar1 = new FieldDef("m2001repnotar1",FieldDef.CHAR,12);
+      m2001repnombre2 = new FieldDef("m2001repnombre2",FieldDef.CHAR,36);
+      m2001repnif2 = new FieldDef("m2001repnif2",FieldDef.CHAR,9);
+      m2001repfecha2 = new FieldDef("m2001repfecha2",FieldDef.DATE);
+      m2001repnotar2 = new FieldDef("m2001repnotar2",FieldDef.CHAR,12);
+      m2001repnombre3 = new FieldDef("m2001repnombre3",FieldDef.CHAR,36);
+      m2001repnif3 = new FieldDef("m2001repnif3",FieldDef.CHAR,9);
+      m2001repfecha3 = new FieldDef("m2001repfecha3",FieldDef.DATE);
+      m2001repnotar3 = new FieldDef("m2001repnotar3",FieldDef.CHAR,12);
+      m2001contacto = new FieldDef("m2001contacto",FieldDef.CHAR,50);
+      m2001conttel = new FieldDef("m2001conttel",FieldDef.CHAR,9);
+      m2001contmovil = new FieldDef("m2001contmovil",FieldDef.CHAR,9);
+      m2001contmail = new FieldDef("m2001contmail",FieldDef.CHAR,50);
+      m2001car058 = new FieldDef("m2001car058",FieldDef.CHAR,1);
+      m2001car057 = new FieldDef("m2001car057",FieldDef.CHAR,1);
+      m2001nifdomin = new FieldDef("m2001nifdomin",FieldDef.CHAR,9);
+      m2001car059 = new FieldDef("m2001car059",FieldDef.CHAR,1);
+      m2001car060 = new FieldDef("m2001car060",FieldDef.CHAR,1);
+      m2001car062 = new FieldDef("m2001car062",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        m2001dominio,
+        m2001nif,
+        m2001ejercicio,
+        m2001periodo,
+        m2001deleg,
+        m2001admon,
+        m2001codadmon,
+        m2001fechaini,
+        m2001fechafin,
+        m2001tipoejer,
+        m2001cnae,
+        m2001nombre,
+        m2001telef1,
+        m2001telef2,
+        m2001car001,
+        m2001car002,
+        m2001car003,
+        m2001car004,
+        m2001car005,
+        m2001car011,
+        m2001car013,
+        m2001car014,
+        m2001car017,
+        m2001car018,
+        m2001car019,
+        m2001car021,
+        m2001car023,
+        m2001car024,
+        m2001car025,
+        m2001car031,
+        m2001car032,
+        m2001car036,
+        m2001car048,
+        m2001car006,
+        m2001car015,
+        m2001car022,
+        m2001car028,
+        m2001car047,
+        m2001car049,
+        m2001car029,
+        m2001car033,
+        m2001car034,
+        m2001car038,
+        m2001car046,
+        m2001car012,
+        m2001car020,
+        m2001car056,
+        m2001car007,
+        m2001car008,
+        m2001car009,
+        m2001car010,
+        m2001car016,
+        m2001car026,
+        m2001car027,
+        m2001car030,
+        m2001car035,
+        m2001car037,
+        m2001car039,
+        m2001car043,
+        m2001car044,
+        m2001car045,
+        m2001tipbal,
+        m2001tippyg,
+        m2001ngrupo,
+        m2001perfijo,
+        m2001pernofijo,
+        m2001complem,
+        m2001njusti,
+        m2001secrenom,
+        m2001secrenif,
+        m2001fechairnr,
+        m2001firmalocal,
+        m2001fechafirma,
+        m2001repnombre1,
+        m2001repnif1,
+        m2001repfecha1,
+        m2001repnotar1,
+        m2001repnombre2,
+        m2001repnif2,
+        m2001repfecha2,
+        m2001repnotar2,
+        m2001repnombre3,
+        m2001repnif3,
+        m2001repfecha3,
+        m2001repnotar3,
+        m2001contacto,
+        m2001conttel,
+        m2001contmovil,
+        m2001contmail,
+        m2001car058,
+        m2001car057,
+        m2001nifdomin,
+        m2001car059,
+        m2001car060,
+        m2001car062        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m2001dominio,m2001nif,m2001ejercicio,m2001periodo };
+      setPrimaryKeys(arrayf);
+      m2001codadmon.setDescription("Codigo Administracion.");
+      m2001fechaini.setDescription("Periodo Impositivo - Fecha inicio");
+      m2001fechafin.setDescription("Periodo Impositivo - Fecha fin ejercicio");
+      m2001tipoejer.setDescription("Identificacion - Tipo de ejercicio.");
+      m2001cnae.setDescription("Identificacion - C.N.A.E. Incluido en el fichero CNAE.TXT.");
+      m2001nombre.setDescription("Identificacion - Apellidos y nombre o Razon Social.");
+      m2001telef1.setDescription("Identificacion - Telefono 1");
+      m2001telef2.setDescription("Identificacion - Telefono 2");
+      m2001car001.setDescription("Entidad sin animo de lucro acogida regimen fiscal Titulo II Ley 49/2002 [001]:");
+      m2001car002.setDescription("Entidad parcialmente exenta [002]");
+      m2001car003.setDescription("Sociedad inversion de capital variable o fondo de inversion de caracter financiero [003]");
+      m2001car004.setDescription("Sociedad de inversion inmobiliaria o fondo de inversion inmobiliaria [004]");
+      m2001car005.setDescription("Comunidades titulares de montes vecinales en mano comun [005]");
+      m2001car011.setDescription("Entidad de tenencia de valores extranjeros [011]");
+      m2001car013.setDescription("Agrupacion de interes economico espanola o U.T.E. [013]");
+      m2001car014.setDescription("Agrupacion europea de interes economico [014]");
+      m2001car017.setDescription("Cooperativa protegida [017]");
+      m2001car018.setDescription("Cooperativa especialmente protegida [018]");
+      m2001car019.setDescription("Resto cooperativas [019]");
+      m2001car021.setDescription("Establecimiento permanente [021]");
+      m2001car023.setDescription("Gran empresa [023]");
+      m2001car024.setDescription("Entidad de credito [024]");
+      m2001car025.setDescription("Entidad aseguradora [025]");
+      m2001car031.setDescription("Entidades de capital-riesgo [031]");
+      m2001car032.setDescription("Sociedades desarrollo industrial regional [032]");
+      m2001car036.setDescription("Sociedad de garantia reciproca [036]");
+      m2001car048.setDescription("Fondo de Pensiones Real Decreto Legislativo 1/2002 de 29 de noviembre [048]");
+      m2001car006.setDescription("Incentivos empresa de reducida dimension ( cap XII, tit VII L.I.S ) [006]");
+      m2001car015.setDescription("Entidad ZEC [015]");
+      m2001car022.setDescription("Regimen entidades navieras en funcion del tonelaje [022]");
+      m2001car028.setDescription("Tributacion conjunta Estado/Diput.Cdad.Forales [028]");
+      m2001car047.setDescription("Entidades sometidas a normativa foral [047]");
+      m2001car049.setDescription("Regimenes especiales de normativa foral [049]");
+      m2001car029.setDescription("Regimen especial Canarias [029]");
+      m2001car033.setDescription("Regimen especial mineria [033]");
+      m2001car034.setDescription("Regimen especial hidrocarburos [034]");
+      m2001car038.setDescription("Entidad dedicada al arrend.viviendas [38]");
+      m2001car046.setDescription("Entidad en reg. atribucion rentas constituida extranjero presencia en territorio espanol [046]");
+      m2001car012.setDescription("SOCIMI [012]");
+      m2001car020.setDescription("Otros regimenes especiales [020]");
+      m2001car056.setDescription("Tipo gravamen reducido mant.o creacion empleo [056]");
+      m2001car007.setDescription("Inclusion en base imponible rentas positivas art. 107 L.I.S. [007]");
+      m2001car008.setDescription("Opcion art. 107.6 L.I.S. [008]");
+      m2001car009.setDescription("Sociedad dominante de grupo fiscal [009]");
+      m2001car010.setDescription("Sociedad dependiente de grupo fiscal [010]");
+      m2001car016.setDescription("Opcion art.51.2.b) L.I.S. [016]");
+      m2001car026.setDescription("Entidad inactiva [026]");
+      m2001car027.setDescription("Base imponible negativa o cero [027]");
+      m2001car030.setDescription("Transmision elementos patrimoniales arts. 26.2.d) y 84.1 L.I.S. [030]");
+      m2001car035.setDescription("Opcion art.43.1 R.I.S. [035]");
+      m2001car037.setDescription("Opcion art. 43.3 R.I.S. [037]");
+      m2001car039.setDescription("Entidad que forma parte de un grupo mercantil (art. 42 del Cod. Comercio) [039]");
+      m2001car043.setDescription("Obligacion informacion art. 15 R.I.S. [043]");
+      m2001car044.setDescription("Obligacion informacion art. 45 R.I.S. [044]");
+      m2001car045.setDescription("Inversiones anticipadas - reserva inversiones en Canarias (art. 27.10 Ley 19/1994) [045]");
+      m2001tipbal.setDescription("Balance y ECPN 0.No consta 1.Mod.normal 2.Mod.abreviado 3. Mod.PYMES");
+      m2001tippyg.setDescription("Perdidas y ganancias 0.No consta 1.Mod.normal 2.Mod.abreviado 3. Mod.PYMES");
+      m2001ngrupo.setDescription("Nº de grupo fiscal");
+      m2001perfijo.setDescription("Personal fijo [041] 7enteros 2 decimales");
+      m2001pernofijo.setDescription("Personal no fijo [042] 7enteros 2 decimales");
+      m2001complem.setDescription("Declaracion complementaria");
+      m2001njusti.setDescription("Nº de justificante de la declaracion anterior");
+      m2001secrenom.setDescription("Nombre o Razon social - Secretario del Consejo de Administracion");
+      m2001secrenif.setDescription("N.I.F. - Secretario del Consejo de Administracion");
+      m2001fechairnr.setDescription("Fecha-Contribuyentes por el I.R.N.R. AAAAMMDD");
+      m2001firmalocal.setDescription("representantes legales entidad. Firma - Localidad");
+      m2001fechafirma.setDescription("representantes legales entidad. Fecha firma");
+      m2001repnombre1.setDescription("representante legales entidad. 1 - Nombre y apellidos");
+      m2001repnif1.setDescription("representante legales entidad. 1 - N.I.F");
+      m2001repfecha1.setDescription("representante legales entidad. 1 - Fecha Poder AAAAMMDD");
+      m2001repnotar1.setDescription("representante legales entidad. 1 - Notaria");
+      m2001repnombre2.setDescription("representante legales entidad. 2 - Nombre y apellidos");
+      m2001repnif2.setDescription("representante legales entidad. 2 - N.I.F");
+      m2001repfecha2.setDescription("representante legales entidad. 2 - Fecha Poder AAAAMMDD");
+      m2001repnotar2.setDescription("representante legales entidad. 2 - Notaria");
+      m2001repnombre3.setDescription("representante legales entidad. 3 - Nombre y apellidos");
+      m2001repnif3.setDescription("representante legales entidad. 3 - N.I.F");
+      m2001repfecha3.setDescription("representante legales entidad.3 - Fecha Poder AAAAMMDD");
+      m2001repnotar3.setDescription("representante legales entidad. 3 - Notaria");
+      m2001contacto.setDescription("Nombre y Apellidos persona de contacto para incidencias");
+      m2001conttel.setDescription("Telefono fijo de contacto");
+      m2001contmovil.setDescription("Telefono movil de contacto");
+      m2001contmail.setDescription("Direccion mail contacto");
+      m2001car058.setDescription("Mutua de seguros o Mutualidad de prevision social");
+      m2001car057.setDescription("Entidades que aplican el regimen especial Ley 11/2009");
+      m2001nifdomin.setDescription("NIF de la sociedad dominante");
+      m2001car059.setDescription("Revalorizacion activos Ley 16/2012");
+      m2001car060.setDescription("Fondos o activos de titulización");
+      m2001car062.setDescription("Reg.fiscal aportacion activos para la gestion activos");
+      }
+    }
+    
+  public class TabMod200h17 extends TableDef
+    {
+    // Campos
+    public FieldDef m2017dominio;
+    public FieldDef m2017nif;
+    public FieldDef m2017ejercicio;
+    public FieldDef m2017periodo;
+    public FieldDef m2017dedini96;
+    public FieldDef m2017dedapl96;
+    public FieldDef m2017dedpdt96;
+    public FieldDef m2017dedini97;
+    public FieldDef m2017dedapl97;
+    public FieldDef m2017dedpdt97;
+    public FieldDef m2017dedini98;
+    public FieldDef m2017dedapl98;
+    public FieldDef m2017dedpdt98;
+    public FieldDef m2017dedini99;
+    public FieldDef m2017dedapl99;
+    public FieldDef m2017dedpdt99;
+    public FieldDef m2017dedini00;
+    public FieldDef m2017dedapl00;
+    public FieldDef m2017dedpdt00;
+    public FieldDef m2017dedini01;
+    public FieldDef m2017dedapl01;
+    public FieldDef m2017dedpdt01;
+    public FieldDef m2017dedini02;
+    public FieldDef m2017dedapl02;
+    public FieldDef m2017dedpdt02;
+    public FieldDef m2017dedini03;
+    public FieldDef m2017dedapl03;
+    public FieldDef m2017dedpdt03;
+    public FieldDef m2017dedini04;
+    public FieldDef m2017dedapl04;
+    public FieldDef m2017dedpdt04;
+    public FieldDef m2017dedini05;
+    public FieldDef m2017dedapl05;
+    public FieldDef m2017dedpdt05;
+    public FieldDef m2017dedini06;
+    public FieldDef m2017dedapl06;
+    public FieldDef m2017dedpdt06;
+    public FieldDef m2017dedini07;
+    public FieldDef m2017dedapl07;
+    public FieldDef m2017dedpdt07;
+    public FieldDef m2017dedini08;
+    public FieldDef m2017dedapl08;
+    public FieldDef m2017dedpdt08;
+    public FieldDef m2017pmini09;
+    public FieldDef m2017pmapl09;
+    public FieldDef m2017pmpdt09;
+    public FieldDef m2017ceini09;
+    public FieldDef m2017ceapl09;
+    public FieldDef m2017cepdt09;
+    public FieldDef m2017idini09;
+    public FieldDef m2017idapl09;
+    public FieldDef m2017idpdt09;
+    public FieldDef m2017itini09;
+    public FieldDef m2017itapl09;
+    public FieldDef m2017itpdt09;
+    public FieldDef m2017atini09;
+    public FieldDef m2017atapl09;
+    public FieldDef m2017atpdt09;
+    public FieldDef m2017pcini09;
+    public FieldDef m2017pcapl09;
+    public FieldDef m2017pcpdt09;
+    public FieldDef m2017phini09;
+    public FieldDef m2017phapl09;
+    public FieldDef m2017phpdt09;
+    public FieldDef m2017eeini09;
+    public FieldDef m2017eeapl09;
+    public FieldDef m2017eepdt09;
+    public FieldDef m2017fpini09;
+    public FieldDef m2017fpapl09;
+    public FieldDef m2017fppdt09;
+    public FieldDef m2017edini09;
+    public FieldDef m2017edapl09;
+    public FieldDef m2017edpdt09;
+    public FieldDef m2017ppini09;
+    public FieldDef m2017ppapl09;
+    public FieldDef m2017pppdt09;
+    public FieldDef m2017guaini09;
+    public FieldDef m2017guaapl09;
+    public FieldDef m2017guapdt09;
+    public FieldDef m2017alini09;
+    public FieldDef m2017alapl09;
+    public FieldDef m2017alpdt09;
+    public FieldDef m2017bwini09;
+    public FieldDef m2017bwapl09;
+    public FieldDef m2017bwpdt09;
+    public FieldDef m2017caini09;
+    public FieldDef m2017caapl09;
+    public FieldDef m2017capdt09;
+    public FieldDef m2017rhini09;
+    public FieldDef m2017rhapl09;
+    public FieldDef m2017rhpdt09;
+    public FieldDef m2017bcini09;
+    public FieldDef m2017bcapl09;
+    public FieldDef m2017bcpdt09;
+    public FieldDef m2017deini09;
+    public FieldDef m2017deapl09;
+    public FieldDef m2017depdt09;
+    public FieldDef m2017sxini09;
+    public FieldDef m2017sxapl09;
+    public FieldDef m2017sxpdt09;
+    public FieldDef m2017dcini09;
+    public FieldDef m2017dcapl09;
+    public FieldDef m2017dcpdt09;
+    public FieldDef m2017cjini09;
+    public FieldDef m2017cjapl09;
+    public FieldDef m2017cjpdt09;
+    public FieldDef m2017aiini09;
+    public FieldDef m2017aiapl09;
+    public FieldDef m2017aipdt09;
+    public FieldDef m2017hoini09;
+    public FieldDef m2017hoapl09;
+    public FieldDef m2017hopdt09;
+    public FieldDef m2017cbini09;
+    public FieldDef m2017cbapl09;
+    public FieldDef m2017cbpdt09;
+    public FieldDef m2017saini09;
+    public FieldDef m2017saapl09;
+    public FieldDef m2017sapdt09;
+    public FieldDef m2017dfini09;
+    public FieldDef m2017dfapl09;
+    public FieldDef m2017dfpdt09;
+    public FieldDef m2017totdedini;
+    public FieldDef m2017totdedapl;
+    public FieldDef m2017totdedpdt;
+    public FieldDef m2017donini02;
+    public FieldDef m2017donapl02;
+    public FieldDef m2017donpdt02;
+    public FieldDef m2017donini03;
+    public FieldDef m2017donapl03;
+    public FieldDef m2017donpdt03;
+    public FieldDef m2017donini04;
+    public FieldDef m2017donapl04;
+    public FieldDef m2017donpdt04;
+    public FieldDef m2017donini05;
+    public FieldDef m2017donapl05;
+    public FieldDef m2017donpdt05;
+    public FieldDef m2017donini06;
+    public FieldDef m2017donapl06;
+    public FieldDef m2017donpdt06;
+    public FieldDef m2017donini07;
+    public FieldDef m2017donapl07;
+    public FieldDef m2017donpdt07;
+    public FieldDef m2017donini08;
+    public FieldDef m2017donapl08;
+    public FieldDef m2017donpdt08;
+    public FieldDef m2017donini09;
+    public FieldDef m2017donapl09;
+    public FieldDef m2017donpdt09;
+    public FieldDef m2017totdonini;
+    public FieldDef m2017totdonapl;
+    public FieldDef m2017totdonpdt;
+    public FieldDef m2017impdonej;
+    public FieldDef m2017dedini09;
+    public FieldDef m2017dedapl09;
+    public FieldDef m2017dedpdt09;
+    public FieldDef m2017elxini09;
+    public FieldDef m2017elxapl09;
+    public FieldDef m2017elxpdt09;
+    public FieldDef m2017jguini09;
+    public FieldDef m2017jguapl09;
+    public FieldDef m2017jgupdt09;
+    public FieldDef m2017jmjini09;
+    public FieldDef m2017jmjapl09;
+    public FieldDef m2017jmjpdt09;
+    public FieldDef m2017crgini09;
+    public FieldDef m2017crgapl09;
+    public FieldDef m2017crgpdt09;
+    public FieldDef m2017sdeini09;
+    public FieldDef m2017sdeapl09;
+    public FieldDef m2017sdepdt09;
+    public FieldDef m2017alvini09;
+    public FieldDef m2017alvapl09;
+    public FieldDef m2017alvpdt09;
+    public FieldDef m2017glxini09;
+    public FieldDef m2017glxapl09;
+    public FieldDef m2017glxpdt09;
+    public FieldDef m2017donini10;
+    public FieldDef m2017donapl10;
+    public FieldDef m2017donpdt10;
+    public FieldDef m2017dedini10;
+    public FieldDef m2017dedapl10;
+    public FieldDef m2017dedpdt10;
+    public FieldDef m2017aorini09;
+    public FieldDef m2017aorapl09;
+    public FieldDef m2017aorpdt09;
+    public FieldDef m2017mbaini09;
+    public FieldDef m2017mbaapl09;
+    public FieldDef m2017mbapdt09;
+    public FieldDef m2017cmbini09;
+    public FieldDef m2017cmbapl09;
+    public FieldDef m2017cmbpdt09;
+    public FieldDef m2017bneini09;
+    public FieldDef m2017bneapl09;
+    public FieldDef m2017bnepdt09;
+    public FieldDef m2017greini09;
+    public FieldDef m2017greapl09;
+    public FieldDef m2017grepdt09;
+    public FieldDef m2017cscini09;
+    public FieldDef m2017cscapl09;
+    public FieldDef m2017cscpdt09;
+    public FieldDef m2017donini11;
+    public FieldDef m2017donapl11;
+    public FieldDef m2017donpdt11;
+    public FieldDef m2017ajmini12;
+    public FieldDef m2017ajmapl12;
+    public FieldDef m2017ajmpdt12;
+    public FieldDef m2017dmini12;
+    public FieldDef m2017dmapl12;
+    public FieldDef m2017dmpdt12;
+    public FieldDef m2017cmaini12;
+    public FieldDef m2017cmaapl12;
+    public FieldDef m2017cmapdt12;
+    public FieldDef m2017tapini12;
+    public FieldDef m2017tapapl12;
+    public FieldDef m2017tappdt12;
+    public FieldDef m2017ce1ini12;
+    public FieldDef m2017ce1apl12;
+    public FieldDef m2017ce1pdt12;
+    public FieldDef m2017ce2ini12;
+    public FieldDef m2017ce2apl12;
+    public FieldDef m2017ce2pdt12;
+    public TabMod200h17(String name)
+      {
+      super(name);
+      m2017dominio = new FieldDef("m2017dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m2017nif = new FieldDef("m2017nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m2017ejercicio = new FieldDef("m2017ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m2017periodo = new FieldDef("m2017periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m2017dedini96 = new FieldDef("m2017dedini96",FieldDef.FLOAT,6,0);
+      m2017dedapl96 = new FieldDef("m2017dedapl96",FieldDef.FLOAT,6,0);
+      m2017dedpdt96 = new FieldDef("m2017dedpdt96",FieldDef.FLOAT,6,0);
+      m2017dedini97 = new FieldDef("m2017dedini97",FieldDef.FLOAT,6,0);
+      m2017dedapl97 = new FieldDef("m2017dedapl97",FieldDef.FLOAT,6,0);
+      m2017dedpdt97 = new FieldDef("m2017dedpdt97",FieldDef.FLOAT,6,0);
+      m2017dedini98 = new FieldDef("m2017dedini98",FieldDef.FLOAT,6,0);
+      m2017dedapl98 = new FieldDef("m2017dedapl98",FieldDef.FLOAT,6,0);
+      m2017dedpdt98 = new FieldDef("m2017dedpdt98",FieldDef.FLOAT,6,0);
+      m2017dedini99 = new FieldDef("m2017dedini99",FieldDef.FLOAT,6,0);
+      m2017dedapl99 = new FieldDef("m2017dedapl99",FieldDef.FLOAT,6,0);
+      m2017dedpdt99 = new FieldDef("m2017dedpdt99",FieldDef.FLOAT,6,0);
+      m2017dedini00 = new FieldDef("m2017dedini00",FieldDef.FLOAT,6,0);
+      m2017dedapl00 = new FieldDef("m2017dedapl00",FieldDef.FLOAT,6,0);
+      m2017dedpdt00 = new FieldDef("m2017dedpdt00",FieldDef.FLOAT,6,0);
+      m2017dedini01 = new FieldDef("m2017dedini01",FieldDef.FLOAT,6,0);
+      m2017dedapl01 = new FieldDef("m2017dedapl01",FieldDef.FLOAT,6,0);
+      m2017dedpdt01 = new FieldDef("m2017dedpdt01",FieldDef.FLOAT,6,0);
+      m2017dedini02 = new FieldDef("m2017dedini02",FieldDef.FLOAT,6,0);
+      m2017dedapl02 = new FieldDef("m2017dedapl02",FieldDef.FLOAT,6,0);
+      m2017dedpdt02 = new FieldDef("m2017dedpdt02",FieldDef.FLOAT,6,0);
+      m2017dedini03 = new FieldDef("m2017dedini03",FieldDef.FLOAT,6,0);
+      m2017dedapl03 = new FieldDef("m2017dedapl03",FieldDef.FLOAT,6,0);
+      m2017dedpdt03 = new FieldDef("m2017dedpdt03",FieldDef.FLOAT,6,0);
+      m2017dedini04 = new FieldDef("m2017dedini04",FieldDef.FLOAT,6,0);
+      m2017dedapl04 = new FieldDef("m2017dedapl04",FieldDef.FLOAT,6,0);
+      m2017dedpdt04 = new FieldDef("m2017dedpdt04",FieldDef.FLOAT,6,0);
+      m2017dedini05 = new FieldDef("m2017dedini05",FieldDef.FLOAT,6,0);
+      m2017dedapl05 = new FieldDef("m2017dedapl05",FieldDef.FLOAT,6,0);
+      m2017dedpdt05 = new FieldDef("m2017dedpdt05",FieldDef.FLOAT,6,0);
+      m2017dedini06 = new FieldDef("m2017dedini06",FieldDef.FLOAT,6,0);
+      m2017dedapl06 = new FieldDef("m2017dedapl06",FieldDef.FLOAT,6,0);
+      m2017dedpdt06 = new FieldDef("m2017dedpdt06",FieldDef.FLOAT,6,0);
+      m2017dedini07 = new FieldDef("m2017dedini07",FieldDef.FLOAT,6,0);
+      m2017dedapl07 = new FieldDef("m2017dedapl07",FieldDef.FLOAT,6,0);
+      m2017dedpdt07 = new FieldDef("m2017dedpdt07",FieldDef.FLOAT,6,0);
+      m2017dedini08 = new FieldDef("m2017dedini08",FieldDef.FLOAT,6,0);
+      m2017dedapl08 = new FieldDef("m2017dedapl08",FieldDef.FLOAT,6,0);
+      m2017dedpdt08 = new FieldDef("m2017dedpdt08",FieldDef.FLOAT,6,0);
+      m2017pmini09 = new FieldDef("m2017pmini09",FieldDef.FLOAT,6,0);
+      m2017pmapl09 = new FieldDef("m2017pmapl09",FieldDef.FLOAT,6,0);
+      m2017pmpdt09 = new FieldDef("m2017pmpdt09",FieldDef.FLOAT,6,0);
+      m2017ceini09 = new FieldDef("m2017ceini09",FieldDef.FLOAT,6,0);
+      m2017ceapl09 = new FieldDef("m2017ceapl09",FieldDef.FLOAT,6,0);
+      m2017cepdt09 = new FieldDef("m2017cepdt09",FieldDef.FLOAT,6,0);
+      m2017idini09 = new FieldDef("m2017idini09",FieldDef.FLOAT,6,0);
+      m2017idapl09 = new FieldDef("m2017idapl09",FieldDef.FLOAT,6,0);
+      m2017idpdt09 = new FieldDef("m2017idpdt09",FieldDef.FLOAT,6,0);
+      m2017itini09 = new FieldDef("m2017itini09",FieldDef.FLOAT,6,0);
+      m2017itapl09 = new FieldDef("m2017itapl09",FieldDef.FLOAT,6,0);
+      m2017itpdt09 = new FieldDef("m2017itpdt09",FieldDef.FLOAT,6,0);
+      m2017atini09 = new FieldDef("m2017atini09",FieldDef.FLOAT,6,0);
+      m2017atapl09 = new FieldDef("m2017atapl09",FieldDef.FLOAT,6,0);
+      m2017atpdt09 = new FieldDef("m2017atpdt09",FieldDef.FLOAT,6,0);
+      m2017pcini09 = new FieldDef("m2017pcini09",FieldDef.FLOAT,6,0);
+      m2017pcapl09 = new FieldDef("m2017pcapl09",FieldDef.FLOAT,6,0);
+      m2017pcpdt09 = new FieldDef("m2017pcpdt09",FieldDef.FLOAT,6,0);
+      m2017phini09 = new FieldDef("m2017phini09",FieldDef.FLOAT,6,0);
+      m2017phapl09 = new FieldDef("m2017phapl09",FieldDef.FLOAT,6,0);
+      m2017phpdt09 = new FieldDef("m2017phpdt09",FieldDef.FLOAT,6,0);
+      m2017eeini09 = new FieldDef("m2017eeini09",FieldDef.FLOAT,6,0);
+      m2017eeapl09 = new FieldDef("m2017eeapl09",FieldDef.FLOAT,6,0);
+      m2017eepdt09 = new FieldDef("m2017eepdt09",FieldDef.FLOAT,6,0);
+      m2017fpini09 = new FieldDef("m2017fpini09",FieldDef.FLOAT,6,0);
+      m2017fpapl09 = new FieldDef("m2017fpapl09",FieldDef.FLOAT,6,0);
+      m2017fppdt09 = new FieldDef("m2017fppdt09",FieldDef.FLOAT,6,0);
+      m2017edini09 = new FieldDef("m2017edini09",FieldDef.FLOAT,6,0);
+      m2017edapl09 = new FieldDef("m2017edapl09",FieldDef.FLOAT,6,0);
+      m2017edpdt09 = new FieldDef("m2017edpdt09",FieldDef.FLOAT,6,0);
+      m2017ppini09 = new FieldDef("m2017ppini09",FieldDef.FLOAT,6,0);
+      m2017ppapl09 = new FieldDef("m2017ppapl09",FieldDef.FLOAT,6,0);
+      m2017pppdt09 = new FieldDef("m2017pppdt09",FieldDef.FLOAT,6,0);
+      m2017guaini09 = new FieldDef("m2017guaini09",FieldDef.FLOAT,6,0);
+      m2017guaapl09 = new FieldDef("m2017guaapl09",FieldDef.FLOAT,6,0);
+      m2017guapdt09 = new FieldDef("m2017guapdt09",FieldDef.FLOAT,6,0);
+      m2017alini09 = new FieldDef("m2017alini09",FieldDef.FLOAT,6,0);
+      m2017alapl09 = new FieldDef("m2017alapl09",FieldDef.FLOAT,6,0);
+      m2017alpdt09 = new FieldDef("m2017alpdt09",FieldDef.FLOAT,6,0);
+      m2017bwini09 = new FieldDef("m2017bwini09",FieldDef.FLOAT,6,0);
+      m2017bwapl09 = new FieldDef("m2017bwapl09",FieldDef.FLOAT,6,0);
+      m2017bwpdt09 = new FieldDef("m2017bwpdt09",FieldDef.FLOAT,6,0);
+      m2017caini09 = new FieldDef("m2017caini09",FieldDef.FLOAT,6,0);
+      m2017caapl09 = new FieldDef("m2017caapl09",FieldDef.FLOAT,6,0);
+      m2017capdt09 = new FieldDef("m2017capdt09",FieldDef.FLOAT,6,0);
+      m2017rhini09 = new FieldDef("m2017rhini09",FieldDef.FLOAT,6,0);
+      m2017rhapl09 = new FieldDef("m2017rhapl09",FieldDef.FLOAT,6,0);
+      m2017rhpdt09 = new FieldDef("m2017rhpdt09",FieldDef.FLOAT,6,0);
+      m2017bcini09 = new FieldDef("m2017bcini09",FieldDef.FLOAT,6,0);
+      m2017bcapl09 = new FieldDef("m2017bcapl09",FieldDef.FLOAT,6,0);
+      m2017bcpdt09 = new FieldDef("m2017bcpdt09",FieldDef.FLOAT,6,0);
+      m2017deini09 = new FieldDef("m2017deini09",FieldDef.FLOAT,6,0);
+      m2017deapl09 = new FieldDef("m2017deapl09",FieldDef.FLOAT,6,0);
+      m2017depdt09 = new FieldDef("m2017depdt09",FieldDef.FLOAT,6,0);
+      m2017sxini09 = new FieldDef("m2017sxini09",FieldDef.FLOAT,6,0);
+      m2017sxapl09 = new FieldDef("m2017sxapl09",FieldDef.FLOAT,6,0);
+      m2017sxpdt09 = new FieldDef("m2017sxpdt09",FieldDef.FLOAT,6,0);
+      m2017dcini09 = new FieldDef("m2017dcini09",FieldDef.FLOAT,6,0);
+      m2017dcapl09 = new FieldDef("m2017dcapl09",FieldDef.FLOAT,6,0);
+      m2017dcpdt09 = new FieldDef("m2017dcpdt09",FieldDef.FLOAT,6,0);
+      m2017cjini09 = new FieldDef("m2017cjini09",FieldDef.FLOAT,6,0);
+      m2017cjapl09 = new FieldDef("m2017cjapl09",FieldDef.FLOAT,6,0);
+      m2017cjpdt09 = new FieldDef("m2017cjpdt09",FieldDef.FLOAT,6,0);
+      m2017aiini09 = new FieldDef("m2017aiini09",FieldDef.FLOAT,6,0);
+      m2017aiapl09 = new FieldDef("m2017aiapl09",FieldDef.FLOAT,6,0);
+      m2017aipdt09 = new FieldDef("m2017aipdt09",FieldDef.FLOAT,6,0);
+      m2017hoini09 = new FieldDef("m2017hoini09",FieldDef.FLOAT,6,0);
+      m2017hoapl09 = new FieldDef("m2017hoapl09",FieldDef.FLOAT,6,0);
+      m2017hopdt09 = new FieldDef("m2017hopdt09",FieldDef.FLOAT,6,0);
+      m2017cbini09 = new FieldDef("m2017cbini09",FieldDef.FLOAT,6,0);
+      m2017cbapl09 = new FieldDef("m2017cbapl09",FieldDef.FLOAT,6,0);
+      m2017cbpdt09 = new FieldDef("m2017cbpdt09",FieldDef.FLOAT,6,0);
+      m2017saini09 = new FieldDef("m2017saini09",FieldDef.FLOAT,6,0);
+      m2017saapl09 = new FieldDef("m2017saapl09",FieldDef.FLOAT,6,0);
+      m2017sapdt09 = new FieldDef("m2017sapdt09",FieldDef.FLOAT,6,0);
+      m2017dfini09 = new FieldDef("m2017dfini09",FieldDef.FLOAT,6,0);
+      m2017dfapl09 = new FieldDef("m2017dfapl09",FieldDef.FLOAT,6,0);
+      m2017dfpdt09 = new FieldDef("m2017dfpdt09",FieldDef.FLOAT,6,0);
+      m2017totdedini = new FieldDef("m2017totdedini",FieldDef.FLOAT,6,0);
+      m2017totdedapl = new FieldDef("m2017totdedapl",FieldDef.FLOAT,6,0);
+      m2017totdedpdt = new FieldDef("m2017totdedpdt",FieldDef.FLOAT,6,0);
+      m2017donini02 = new FieldDef("m2017donini02",FieldDef.FLOAT,6,0);
+      m2017donapl02 = new FieldDef("m2017donapl02",FieldDef.FLOAT,6,0);
+      m2017donpdt02 = new FieldDef("m2017donpdt02",FieldDef.FLOAT,6,0);
+      m2017donini03 = new FieldDef("m2017donini03",FieldDef.FLOAT,6,0);
+      m2017donapl03 = new FieldDef("m2017donapl03",FieldDef.FLOAT,6,0);
+      m2017donpdt03 = new FieldDef("m2017donpdt03",FieldDef.FLOAT,6,0);
+      m2017donini04 = new FieldDef("m2017donini04",FieldDef.FLOAT,6,0);
+      m2017donapl04 = new FieldDef("m2017donapl04",FieldDef.FLOAT,6,0);
+      m2017donpdt04 = new FieldDef("m2017donpdt04",FieldDef.FLOAT,6,0);
+      m2017donini05 = new FieldDef("m2017donini05",FieldDef.FLOAT,6,0);
+      m2017donapl05 = new FieldDef("m2017donapl05",FieldDef.FLOAT,6,0);
+      m2017donpdt05 = new FieldDef("m2017donpdt05",FieldDef.FLOAT,6,0);
+      m2017donini06 = new FieldDef("m2017donini06",FieldDef.FLOAT,6,0);
+      m2017donapl06 = new FieldDef("m2017donapl06",FieldDef.FLOAT,6,0);
+      m2017donpdt06 = new FieldDef("m2017donpdt06",FieldDef.FLOAT,6,0);
+      m2017donini07 = new FieldDef("m2017donini07",FieldDef.FLOAT,6,0);
+      m2017donapl07 = new FieldDef("m2017donapl07",FieldDef.FLOAT,6,0);
+      m2017donpdt07 = new FieldDef("m2017donpdt07",FieldDef.FLOAT,6,0);
+      m2017donini08 = new FieldDef("m2017donini08",FieldDef.FLOAT,6,0);
+      m2017donapl08 = new FieldDef("m2017donapl08",FieldDef.FLOAT,6,0);
+      m2017donpdt08 = new FieldDef("m2017donpdt08",FieldDef.FLOAT,6,0);
+      m2017donini09 = new FieldDef("m2017donini09",FieldDef.FLOAT,6,0);
+      m2017donapl09 = new FieldDef("m2017donapl09",FieldDef.FLOAT,6,0);
+      m2017donpdt09 = new FieldDef("m2017donpdt09",FieldDef.FLOAT,6,0);
+      m2017totdonini = new FieldDef("m2017totdonini",FieldDef.FLOAT,6,0);
+      m2017totdonapl = new FieldDef("m2017totdonapl",FieldDef.FLOAT,6,0);
+      m2017totdonpdt = new FieldDef("m2017totdonpdt",FieldDef.FLOAT,6,0);
+      m2017impdonej = new FieldDef("m2017impdonej",FieldDef.FLOAT,6,0);
+      m2017dedini09 = new FieldDef("m2017dedini09",FieldDef.FLOAT,6,0);
+      m2017dedapl09 = new FieldDef("m2017dedapl09",FieldDef.FLOAT,6,0);
+      m2017dedpdt09 = new FieldDef("m2017dedpdt09",FieldDef.FLOAT,6,0);
+      m2017elxini09 = new FieldDef("m2017elxini09",FieldDef.FLOAT,6,0);
+      m2017elxapl09 = new FieldDef("m2017elxapl09",FieldDef.FLOAT,6,0);
+      m2017elxpdt09 = new FieldDef("m2017elxpdt09",FieldDef.FLOAT,6,0);
+      m2017jguini09 = new FieldDef("m2017jguini09",FieldDef.FLOAT,6,0);
+      m2017jguapl09 = new FieldDef("m2017jguapl09",FieldDef.FLOAT,6,0);
+      m2017jgupdt09 = new FieldDef("m2017jgupdt09",FieldDef.FLOAT,6,0);
+      m2017jmjini09 = new FieldDef("m2017jmjini09",FieldDef.FLOAT,6,0);
+      m2017jmjapl09 = new FieldDef("m2017jmjapl09",FieldDef.FLOAT,6,0);
+      m2017jmjpdt09 = new FieldDef("m2017jmjpdt09",FieldDef.FLOAT,6,0);
+      m2017crgini09 = new FieldDef("m2017crgini09",FieldDef.FLOAT,6,0);
+      m2017crgapl09 = new FieldDef("m2017crgapl09",FieldDef.FLOAT,6,0);
+      m2017crgpdt09 = new FieldDef("m2017crgpdt09",FieldDef.FLOAT,6,0);
+      m2017sdeini09 = new FieldDef("m2017sdeini09",FieldDef.FLOAT,6,0);
+      m2017sdeapl09 = new FieldDef("m2017sdeapl09",FieldDef.FLOAT,6,0);
+      m2017sdepdt09 = new FieldDef("m2017sdepdt09",FieldDef.FLOAT,6,0);
+      m2017alvini09 = new FieldDef("m2017alvini09",FieldDef.FLOAT,6,0);
+      m2017alvapl09 = new FieldDef("m2017alvapl09",FieldDef.FLOAT,6,0);
+      m2017alvpdt09 = new FieldDef("m2017alvpdt09",FieldDef.FLOAT,6,0);
+      m2017glxini09 = new FieldDef("m2017glxini09",FieldDef.FLOAT,6,0);
+      m2017glxapl09 = new FieldDef("m2017glxapl09",FieldDef.FLOAT,6,0);
+      m2017glxpdt09 = new FieldDef("m2017glxpdt09",FieldDef.FLOAT,6,0);
+      m2017donini10 = new FieldDef("m2017donini10",FieldDef.FLOAT,6,0);
+      m2017donapl10 = new FieldDef("m2017donapl10",FieldDef.FLOAT,6,0);
+      m2017donpdt10 = new FieldDef("m2017donpdt10",FieldDef.FLOAT,6,0);
+      m2017dedini10 = new FieldDef("m2017dedini10",FieldDef.FLOAT,6,0);
+      m2017dedapl10 = new FieldDef("m2017dedapl10",FieldDef.FLOAT,6,0);
+      m2017dedpdt10 = new FieldDef("m2017dedpdt10",FieldDef.FLOAT,6,0);
+      m2017aorini09 = new FieldDef("m2017aorini09",FieldDef.FLOAT,6,0);
+      m2017aorapl09 = new FieldDef("m2017aorapl09",FieldDef.FLOAT,6,0);
+      m2017aorpdt09 = new FieldDef("m2017aorpdt09",FieldDef.FLOAT,6,0);
+      m2017mbaini09 = new FieldDef("m2017mbaini09",FieldDef.FLOAT,6,0);
+      m2017mbaapl09 = new FieldDef("m2017mbaapl09",FieldDef.FLOAT,6,0);
+      m2017mbapdt09 = new FieldDef("m2017mbapdt09",FieldDef.FLOAT,6,0);
+      m2017cmbini09 = new FieldDef("m2017cmbini09",FieldDef.FLOAT,6,0);
+      m2017cmbapl09 = new FieldDef("m2017cmbapl09",FieldDef.FLOAT,6,0);
+      m2017cmbpdt09 = new FieldDef("m2017cmbpdt09",FieldDef.FLOAT,6,0);
+      m2017bneini09 = new FieldDef("m2017bneini09",FieldDef.FLOAT,6,0);
+      m2017bneapl09 = new FieldDef("m2017bneapl09",FieldDef.FLOAT,6,0);
+      m2017bnepdt09 = new FieldDef("m2017bnepdt09",FieldDef.FLOAT,6,0);
+      m2017greini09 = new FieldDef("m2017greini09",FieldDef.FLOAT,6,0);
+      m2017greapl09 = new FieldDef("m2017greapl09",FieldDef.FLOAT,6,0);
+      m2017grepdt09 = new FieldDef("m2017grepdt09",FieldDef.FLOAT,6,0);
+      m2017cscini09 = new FieldDef("m2017cscini09",FieldDef.FLOAT,6,0);
+      m2017cscapl09 = new FieldDef("m2017cscapl09",FieldDef.FLOAT,6,0);
+      m2017cscpdt09 = new FieldDef("m2017cscpdt09",FieldDef.FLOAT,6,0);
+      m2017donini11 = new FieldDef("m2017donini11",FieldDef.FLOAT,6,0);
+      m2017donapl11 = new FieldDef("m2017donapl11",FieldDef.FLOAT,6,0);
+      m2017donpdt11 = new FieldDef("m2017donpdt11",FieldDef.FLOAT,6,0);
+      m2017ajmini12 = new FieldDef("m2017ajmini12",FieldDef.FLOAT,6,0);
+      m2017ajmapl12 = new FieldDef("m2017ajmapl12",FieldDef.FLOAT,6,0);
+      m2017ajmpdt12 = new FieldDef("m2017ajmpdt12",FieldDef.FLOAT,6,0);
+      m2017dmini12 = new FieldDef("m2017dmini12",FieldDef.FLOAT,6,0);
+      m2017dmapl12 = new FieldDef("m2017dmapl12",FieldDef.FLOAT,6,0);
+      m2017dmpdt12 = new FieldDef("m2017dmpdt12",FieldDef.FLOAT,6,0);
+      m2017cmaini12 = new FieldDef("m2017cmaini12",FieldDef.FLOAT,6,0);
+      m2017cmaapl12 = new FieldDef("m2017cmaapl12",FieldDef.FLOAT,6,0);
+      m2017cmapdt12 = new FieldDef("m2017cmapdt12",FieldDef.FLOAT,6,0);
+      m2017tapini12 = new FieldDef("m2017tapini12",FieldDef.FLOAT,6,0);
+      m2017tapapl12 = new FieldDef("m2017tapapl12",FieldDef.FLOAT,6,0);
+      m2017tappdt12 = new FieldDef("m2017tappdt12",FieldDef.FLOAT,6,0);
+      m2017ce1ini12 = new FieldDef("m2017ce1ini12",FieldDef.FLOAT,6,0);
+      m2017ce1apl12 = new FieldDef("m2017ce1apl12",FieldDef.FLOAT,6,0);
+      m2017ce1pdt12 = new FieldDef("m2017ce1pdt12",FieldDef.FLOAT,6,0);
+      m2017ce2ini12 = new FieldDef("m2017ce2ini12",FieldDef.FLOAT,6,0);
+      m2017ce2apl12 = new FieldDef("m2017ce2apl12",FieldDef.FLOAT,6,0);
+      m2017ce2pdt12 = new FieldDef("m2017ce2pdt12",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        m2017dominio,
+        m2017nif,
+        m2017ejercicio,
+        m2017periodo,
+        m2017dedini96,
+        m2017dedapl96,
+        m2017dedpdt96,
+        m2017dedini97,
+        m2017dedapl97,
+        m2017dedpdt97,
+        m2017dedini98,
+        m2017dedapl98,
+        m2017dedpdt98,
+        m2017dedini99,
+        m2017dedapl99,
+        m2017dedpdt99,
+        m2017dedini00,
+        m2017dedapl00,
+        m2017dedpdt00,
+        m2017dedini01,
+        m2017dedapl01,
+        m2017dedpdt01,
+        m2017dedini02,
+        m2017dedapl02,
+        m2017dedpdt02,
+        m2017dedini03,
+        m2017dedapl03,
+        m2017dedpdt03,
+        m2017dedini04,
+        m2017dedapl04,
+        m2017dedpdt04,
+        m2017dedini05,
+        m2017dedapl05,
+        m2017dedpdt05,
+        m2017dedini06,
+        m2017dedapl06,
+        m2017dedpdt06,
+        m2017dedini07,
+        m2017dedapl07,
+        m2017dedpdt07,
+        m2017dedini08,
+        m2017dedapl08,
+        m2017dedpdt08,
+        m2017pmini09,
+        m2017pmapl09,
+        m2017pmpdt09,
+        m2017ceini09,
+        m2017ceapl09,
+        m2017cepdt09,
+        m2017idini09,
+        m2017idapl09,
+        m2017idpdt09,
+        m2017itini09,
+        m2017itapl09,
+        m2017itpdt09,
+        m2017atini09,
+        m2017atapl09,
+        m2017atpdt09,
+        m2017pcini09,
+        m2017pcapl09,
+        m2017pcpdt09,
+        m2017phini09,
+        m2017phapl09,
+        m2017phpdt09,
+        m2017eeini09,
+        m2017eeapl09,
+        m2017eepdt09,
+        m2017fpini09,
+        m2017fpapl09,
+        m2017fppdt09,
+        m2017edini09,
+        m2017edapl09,
+        m2017edpdt09,
+        m2017ppini09,
+        m2017ppapl09,
+        m2017pppdt09,
+        m2017guaini09,
+        m2017guaapl09,
+        m2017guapdt09,
+        m2017alini09,
+        m2017alapl09,
+        m2017alpdt09,
+        m2017bwini09,
+        m2017bwapl09,
+        m2017bwpdt09,
+        m2017caini09,
+        m2017caapl09,
+        m2017capdt09,
+        m2017rhini09,
+        m2017rhapl09,
+        m2017rhpdt09,
+        m2017bcini09,
+        m2017bcapl09,
+        m2017bcpdt09,
+        m2017deini09,
+        m2017deapl09,
+        m2017depdt09,
+        m2017sxini09,
+        m2017sxapl09,
+        m2017sxpdt09,
+        m2017dcini09,
+        m2017dcapl09,
+        m2017dcpdt09,
+        m2017cjini09,
+        m2017cjapl09,
+        m2017cjpdt09,
+        m2017aiini09,
+        m2017aiapl09,
+        m2017aipdt09,
+        m2017hoini09,
+        m2017hoapl09,
+        m2017hopdt09,
+        m2017cbini09,
+        m2017cbapl09,
+        m2017cbpdt09,
+        m2017saini09,
+        m2017saapl09,
+        m2017sapdt09,
+        m2017dfini09,
+        m2017dfapl09,
+        m2017dfpdt09,
+        m2017totdedini,
+        m2017totdedapl,
+        m2017totdedpdt,
+        m2017donini02,
+        m2017donapl02,
+        m2017donpdt02,
+        m2017donini03,
+        m2017donapl03,
+        m2017donpdt03,
+        m2017donini04,
+        m2017donapl04,
+        m2017donpdt04,
+        m2017donini05,
+        m2017donapl05,
+        m2017donpdt05,
+        m2017donini06,
+        m2017donapl06,
+        m2017donpdt06,
+        m2017donini07,
+        m2017donapl07,
+        m2017donpdt07,
+        m2017donini08,
+        m2017donapl08,
+        m2017donpdt08,
+        m2017donini09,
+        m2017donapl09,
+        m2017donpdt09,
+        m2017totdonini,
+        m2017totdonapl,
+        m2017totdonpdt,
+        m2017impdonej,
+        m2017dedini09,
+        m2017dedapl09,
+        m2017dedpdt09,
+        m2017elxini09,
+        m2017elxapl09,
+        m2017elxpdt09,
+        m2017jguini09,
+        m2017jguapl09,
+        m2017jgupdt09,
+        m2017jmjini09,
+        m2017jmjapl09,
+        m2017jmjpdt09,
+        m2017crgini09,
+        m2017crgapl09,
+        m2017crgpdt09,
+        m2017sdeini09,
+        m2017sdeapl09,
+        m2017sdepdt09,
+        m2017alvini09,
+        m2017alvapl09,
+        m2017alvpdt09,
+        m2017glxini09,
+        m2017glxapl09,
+        m2017glxpdt09,
+        m2017donini10,
+        m2017donapl10,
+        m2017donpdt10,
+        m2017dedini10,
+        m2017dedapl10,
+        m2017dedpdt10,
+        m2017aorini09,
+        m2017aorapl09,
+        m2017aorpdt09,
+        m2017mbaini09,
+        m2017mbaapl09,
+        m2017mbapdt09,
+        m2017cmbini09,
+        m2017cmbapl09,
+        m2017cmbpdt09,
+        m2017bneini09,
+        m2017bneapl09,
+        m2017bnepdt09,
+        m2017greini09,
+        m2017greapl09,
+        m2017grepdt09,
+        m2017cscini09,
+        m2017cscapl09,
+        m2017cscpdt09,
+        m2017donini11,
+        m2017donapl11,
+        m2017donpdt11,
+        m2017ajmini12,
+        m2017ajmapl12,
+        m2017ajmpdt12,
+        m2017dmini12,
+        m2017dmapl12,
+        m2017dmpdt12,
+        m2017cmaini12,
+        m2017cmaapl12,
+        m2017cmapdt12,
+        m2017tapini12,
+        m2017tapapl12,
+        m2017tappdt12,
+        m2017ce1ini12,
+        m2017ce1apl12,
+        m2017ce1pdt12,
+        m2017ce2ini12,
+        m2017ce2apl12,
+        m2017ce2pdt12        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m2017dominio,m2017nif,m2017ejercicio,m2017periodo };
+      setPrimaryKeys(arrayf);
+      m2017dedini96.setDescription("Deducc.determinadas actividades 1996 Suma deducciones ID. Deduccion pendiente/generada");
+      m2017dedapl96.setDescription("Deducc.determinadas actividades 1996 Suma deducciones ID. Aplicado en esta liquidacion [844]");
+      m2017dedpdt96.setDescription("Deducc.determinadas actividades 1996 Suma deducciones ID. Pendiente de aplicacion [845]");
+      m2017dedini97.setDescription("Deducc.determ.actividades 1997 Suma deducciones. Deduccion pendiente/generada [768]");
+      m2017dedapl97.setDescription("Deducc.determ.actividades 1997 Suma deducciones. Aplicado en esta liquidacion [769]");
+      m2017dedpdt97.setDescription("Deducc.determ.actividades 1997 Suma deducciones. Pendiente de aplicacion [770]");
+      m2017dedini98.setDescription("Deducc.determ.actividades 1998 Suma deducciones. Deduccion pendiente/generada [774]");
+      m2017dedapl98.setDescription("Deducc.determ.actividades 1998 Suma deducciones. Aplicado en esta liquidacion [775]");
+      m2017dedpdt98.setDescription("Deducc.determ.actividades 1998 Suma deducciones. Pendiente de aplicacion [776]");
+      m2017dedini99.setDescription("Deducc.determ.actividades 1999 Suma deducciones. Deduccion pendiente/generada [780]");
+      m2017dedapl99.setDescription("Deducc.determ.actividades 1999 Suma deducciones. Aplicado en esta liquidacion [781]");
+      m2017dedpdt99.setDescription("Deducc.determ.actividades 1999 Suma deducciones. Pendiente de aplicacion [782]");
+      m2017dedini00.setDescription("Deducc.determ.actividades 2000 Suma deducciones. Deduccion pendiente/generada [786]");
+      m2017dedapl00.setDescription("Deducc.determ.actividades 2000 Suma deducciones. Aplicado en esta liquidacion [787]");
+      m2017dedpdt00.setDescription("Deducc.determ.actividades 2000 Suma deducciones. Pendiente de aplicacion [788]");
+      m2017dedini01.setDescription("Deducc.determ.actividades 2001 Suma deducciones. Deduccion pendiente/generada [766]");
+      m2017dedapl01.setDescription("Deducc.determ.actividades 2001 Suma deducciones. Aplicado en esta liquidacion [767]");
+      m2017dedpdt01.setDescription("Deducc.determ.actividades 2001 Suma deducciones. Pendiente de aplicacion [833]");
+      m2017dedini02.setDescription("Deducc.determ.actividades 2002 Suma deducciones. Deduccion pendiente/generada [198]");
+      m2017dedapl02.setDescription("Deducc.determ.actividades 2002 Suma deducciones. Aplicado en esta liquidacion [896]");
+      m2017dedpdt02.setDescription("Deducc.determ.actividades 2002 Suma deducciones. Pendiente de aplicacion [897]");
+      m2017dedini03.setDescription("Deducc.determ.actividades 2003 Suma deducciones. Deduccion pendiente/generada [288]");
+      m2017dedapl03.setDescription("Deducc.determ.actividades 2003 Suma deducciones. Aplicado en esta liquidacion [289]");
+      m2017dedpdt03.setDescription("Deducc.determ.actividades 2003 Suma deducciones. Pendiente de aplicacion [290]");
+      m2017dedini04.setDescription("Deducc.determ.actividades 2004 Suma deducciones. Deduccion pendiente/generada [466]");
+      m2017dedapl04.setDescription("Deducc.determ.actividades 2004 Suma deducciones. Aplicado en esta liquidacion [467]");
+      m2017dedpdt04.setDescription("Deducc.determ.actividades 2004 Suma deducciones. Pendiente de aplicacion [468]");
+      m2017dedini05.setDescription("Deducc.determ.actividades 2005 Suma deducciones. Deduccion pendiente/generada [061]");
+      m2017dedapl05.setDescription("Deducc.determ.actividades 2005 Suma deducciones. Aplicado en esta liquidacion [498]");
+      m2017dedpdt05.setDescription("Deducc.determ.actividades 2005 Suma deducciones. Pendiente de aplicacion [586]");
+      m2017dedini06.setDescription("Deducc.determ.actividades 2006 Suma deducciones. Deduccion pendiente/generada [472]");
+      m2017dedapl06.setDescription("Deducc.determ.actividades 2006 Suma deducciones. Aplicado en esta liquidacion [473]");
+      m2017dedpdt06.setDescription("Deducc.determ.actividades 2006 Suma deducciones. Pendiente de aplicacion [478]");
+      m2017dedini07.setDescription("Deducc.determ.actividades 2007 Suma deducciones. Deduccion pendiente/generada [180]");
+      m2017dedapl07.setDescription("Deducc.determ.actividades 2007 Suma deducciones. Aplicado en esta liquidacion [181]");
+      m2017dedpdt07.setDescription("Deducc.determ.actividades 2007 Suma deducciones. Pendiente de aplicacion [182]");
+      m2017dedini08.setDescription("Deducc.determ.actividades 2008 Suma deducciones. Deduccion pendiente/generada [531]");
+      m2017dedapl08.setDescription("Deducc.determ.actividades 2008 Suma deducciones. Aplicado en esta liquidacion [532]");
+      m2017dedpdt08.setDescription("Deducc.determ.actividades 2008 Suma deducciones. Pendiente de aplicacion [533]");
+      m2017pmini09.setDescription("Deducc.determ.actividades 2009 Inv.proteccion medio ambiente. Deduccion pendiente/generada[792]");
+      m2017pmapl09.setDescription("Deducc.determ.actividades 2009 Inv.proteccion medio ambiente. Aplicado en esta liquidacion [793]");
+      m2017pmpdt09.setDescription("Deducc.determ.actividades 2009 Inv.proteccion medio ambiente. Pendiente de aplicacion [794]");
+      m2017ceini09.setDescription("Deducc.determ.actividades 2009 Creacion empleo minusvalidos. Deduccion pendiente/generada[795]");
+      m2017ceapl09.setDescription("Deducc.determ.actividades 2009 Creacion empleo minusvalidos. Aplicado en esta liquidacion [796]");
+      m2017cepdt09.setDescription("Deducc.determ.actividades 2009 Creacion empleo minusvalidos. Pendiente de aplicacion [797]");
+      m2017idini09.setDescription("Deducc.determ.actividades 2009 Gastos investigacion y desarrollo. Deduccion pendiente/generada[798]");
+      m2017idapl09.setDescription("Deducc.determ.actividades 2009 Gastos investigacion y desarrollo. Aplicado en esta liquidacion[799]");
+      m2017idpdt09.setDescription("Deducc.determ.actividades 2009 Gastos investigacion y desarrollo. Pendiente de aplicacion [800]");
+      m2017itini09.setDescription("Deducc.determ.actividades 2009 Inv.tecnologias informacion. Deduccion pendiente/generada[801]");
+      m2017itapl09.setDescription("Deducc.determ.actividades 2009 Inv.tecnologias informacion. Aplicado en esta liquidacion [802]");
+      m2017itpdt09.setDescription("Deducc.determ.actividades 2009 Inv.tecnologias informacion. Pendiente de aplicacion [803]");
+      m2017atini09.setDescription("Deducc.determ.actividades 2009 Deducc.medidas apoyo transporte. Deduccion pendiente/generada [804] o Capital Verde 2012");
+      m2017atapl09.setDescription("Deducc.determ.actividades 2009 Deducc.medidas apoyo transporte. Aplicado en esta liquidacion[805] o Capital Verde 2012");
+      m2017atpdt09.setDescription("Deducc.determ.actividades 2009 Deducc.medidas apoyo transporte. Pendiente de aplicacion [806] o Capital Verde 2012");
+      m2017pcini09.setDescription("Deducc.determ.actividades 2009 Produc.cinematograficas. Deduccion pendiente/generada [807]");
+      m2017pcapl09.setDescription("Deducc.determ.actividades 2009 Produc.cinematograficas. Aplicado en esta liquidacion [808]");
+      m2017pcpdt09.setDescription("Deducc.determ.actividades 2009 Produc.cinematograficas. Pendiente de aplicacion [809]");
+      m2017phini09.setDescription("Deducc.determ.actividades 2009 Bienes interes cultural. Deduccion pendiente/generada [810]");
+      m2017phapl09.setDescription("Deducc.determ.actividades 2009 Bienes interes cultural. Aplicado en esta liquidacion [811]");
+      m2017phpdt09.setDescription("Deducc.determ.actividades 2009 Bienes interes cultural. Pendiente de aplicacion [812]");
+      m2017eeini09.setDescription("Deducc.determ.actividades 2009 Empresas exportadoras. Deduccion pendiente/generada [813] o Campeonato Vela Santander");
+      m2017eeapl09.setDescription("Deducc.determ.actividades 2009 Empresas exportadoras. Aplicado en esta liquidacion [814] o Campeonato Vela Santander");
+      m2017eepdt09.setDescription("Deducc.determ.actividades 2009 Empresas exportadoras. Pendiente de aplicacion [815] o Campeonato Vela Santander");
+      m2017fpini09.setDescription("Deducc.determ.actividades 2009 Gastos formacion profesional. Deduccion pendiente/generada[816]");
+      m2017fpapl09.setDescription("Deducc.determ.actividades 2009 Gastos formacion profesional. Aplicado en esta liquidacion [817]");
+      m2017fppdt09.setDescription("Deducc.determ.actividades 2009 Gastos formacion profesional. Pendiente de aplicacion [818]");
+      m2017edini09.setDescription("Deducc.determ.actividades 2009 Edicion libros. Deduccion pendiente/generada [819]");
+      m2017edapl09.setDescription("Deducc.determ.actividades 2009 Edicion libros. Aplicado en esta liquidacion [820]");
+      m2017edpdt09.setDescription("Deducc.determ.actividades 2009 Edicion libros. Pendiente de aplicacion [821]");
+      m2017ppini09.setDescription("Deducc.determ.actividades 2009 Contrib.planes de pensiones. Deduccion pendiente/generada[891] o Arbol de la Vida");
+      m2017ppapl09.setDescription("Deducc.determ.actividades 2009 Contrib.planes de pensiones. Aplicado en esta liquidacion [892] o Arbol de la Vida");
+      m2017pppdt09.setDescription("Deducc.determ.actividades 2009 Contrib.planes de pensiones. Pendiente de aplicacion [893] o Arbol de la Vida");
+      m2017guaini09.setDescription("Deducc.determ.actividades 2009 Guarderias para hijos. Deduccion pendiente/generada [822] o Año de España en Japon");
+      m2017guaapl09.setDescription("Deducc.determ.actividades 2009 Guarderias para hijos. Aplicado en esta liquidacion [823] o Año de España en Japon");
+      m2017guapdt09.setDescription("Deducc.determ.actividades 2009 Guarderias para hijos. Pendiente de aplicacion [824] o Año de España en Japon");
+      m2017alini09.setDescription("Deducc.determ.actividades 2009 Alicante 2009. Vuelta al mundo a vela. Deduccion pendiente/generada [589] o Patrimonio Cultural Lorca");
+      m2017alapl09.setDescription("Deducc.determ.actividades 2009 Alicante 2009. Vuelta al mundo a vela. Aplicado en esta liquidacion [850] o Patrimonio Cultural Lorca");
+      m2017alpdt09.setDescription("Deducc.determ.actividades 2009 Alicante 2009. Vuelta al mundo a vela. Pendiente de aplicacion[851] o Patrimonio Cultural Lorca");
+      m2017bwini09.setDescription("Deducc.determ.actividades 2009 Barcelona World Race. Deduccion pendiente/generada [993]");
+      m2017bwapl09.setDescription("Deducc.determ.actividades 2009 Barcelona World Race. Aplicado en esta liquidacion [994]");
+      m2017bwpdt09.setDescription("Deducc.determ.actividades 2009 Barcelona World Race. Pendiente de aplicacion [995]");
+      m2017caini09.setDescription("Deducc.determ.actividades 2009 33ª Copa del America. Deduccion pendiente/generada [177] o Programa patrimonio joven");
+      m2017caapl09.setDescription("Deducc.determ.actividades 2009 33ª Copa del America. Aplicado en esta liquidacion [178] o Programa patrimonio joven");
+      m2017capdt09.setDescription("Deducc.determ.actividades 2009 33ª Copa del America. Pendiente de aplicacion [179] o Programa patrimonio joven");
+      m2017rhini09.setDescription("Deducc.determ.actividades 2009 Guadalquivir Rio de Historia. Deduccion pendiente/generada[183]");
+      m2017rhapl09.setDescription("Deducc.determ.actividades 2009 Guadalquivir Rio de Historia. Aplicado en esta liquidacion [185]");
+      m2017rhpdt09.setDescription("Deducc.determ.actividades 2009 Guadalquivir Rio de Historia. Pendiente de aplicacion [186]");
+      m2017bcini09.setDescription("Deducc.determ.actividades 2009 Bicentenario Constitucion 1812. Deduccion pendiente/generada [188]");
+      m2017bcapl09.setDescription("Deducc.determ.actividades 2009 Bicentenario Constitucion 1812. Aplicado en esta liquidacion[189]");
+      m2017bcpdt09.setDescription("Deducc.determ.actividades 2009 Bicentenario Constitucion 1812. Pendiente de aplicacion [190]");
+      m2017deini09.setDescription("Deducc.determ.actividades 2009 Programa preparacion deportistas espanoles. Deduccion pendiente/generada [534]");
+      m2017deapl09.setDescription("Deducc.determ.actividades 2009 Programa preparacion deportistas espanoles. Aplicado en esta liquidacion [535]");
+      m2017depdt09.setDescription("Deducc.determ.actividades 2009 Programa preparacion deportistas espanoles. Pendiente de aplicacion [536]");
+      m2017sxini09.setDescription("Deducc.determ.actividades 2009 Ano Santo Xacobeo. Deduccion pendiente/generada [537] o Invierno Granada");
+      m2017sxapl09.setDescription("Deducc.determ.actividades 2009 Ano Santo Xacobeo. Aplicado en esta liquidacion [538] o Invierno Granada");
+      m2017sxpdt09.setDescription("Deducc.determ.actividades 2009 Ano Santo Xacobeo. Pendiente de aplicacion [539] o Invierno Granada");
+      m2017dcini09.setDescription("Deducc.determ.actividades 2009 IX Centenario Santo Domingo de la Calzada. Deduccion pendiente/generada [540] o Ciclismo Ponferrada");
+      m2017dcapl09.setDescription("Deducc.determ.actividades 2009 IX Centenario Santo Domingo de la Calzada. Aplicado en esta liquidacion [541] o Ciclismo Ponferrada");
+      m2017dcpdt09.setDescription("Deducc.determ.actividades 2009 IX Centenario Santo Domingo de la Calzada. Pendiente de aplicacion [542] o Ciclismo Ponferrada");
+      m2017cjini09.setDescription("Deducc.determ.actividades 2009 Caravaca jubilar 2010. Deduccion pendiente/generada [543] o Centro Categoria UNESCO");
+      m2017cjapl09.setDescription("Deducc.determ.actividades 2009 Caravaca jubilar 2010. Aplicado en esta liquidacion [544] o Centro Categoria UNESCO");
+      m2017cjpdt09.setDescription("Deducc.determ.actividades 2009 Caravaca jubilar 2010. Pendiente de aplicacion [545] o Centro Categoria UNESCO");
+      m2017aiini09.setDescription("Deducc.determ.actividades 2009 Alzheimer internacional 2011. Deduccion pendiente/generada [546] o Barcelona World Jumping");
+      m2017aiapl09.setDescription("Deducc.determ.actividades 2009 Alzheimer internacional 2011. Aplicado en esta liquidacion [548] o Barcelona World Jumping");
+      m2017aipdt09.setDescription("Deducc.determ.actividades 2009 Alzheimer internacional 2011. Pendiente de aplicacion [549] o Barcelona World Jumping");
+      m2017hoini09.setDescription("Deducc.determ.actividades 2009 Ano Hernandiano. Orihuela 2010. Deduccion pendiente/generada [551] o Campeonato Natacion Barcelona");
+      m2017hoapl09.setDescription("Deducc.determ.actividades 2009 Ano Hernandiano. Orihuela 2010. Aplicado en esta liquidacion[580]  o Campeonato Natacion Barcelona");
+      m2017hopdt09.setDescription("Deducc.determ.actividades 2009 Ano Hernandiano. Orihuela 2010. Pendiente de aplicacion [593] o Campeonato Natacion Barcelona");
+      m2017cbini09.setDescription("Deducc.determ.actividades 2009 Centenario de la Costa Brava. Deduccion pendiente/generada[901] o Barcelona Mobile");
+      m2017cbapl09.setDescription("Deducc.determ.actividades 2009 Centenario de la Costa Brava. Aplicado en esta liquidacion [902] o Barcelona Mobile");
+      m2017cbpdt09.setDescription("Deducc.determ.actividades 2009 Centenario de la Costa Brava. Pendiente de aplicacion [903] o Barcelona Mobile");
+      m2017saini09.setDescription("Deducc.determ.actividades 2009 Symposium 90 Aniversario Salon automovil Barcelona.Deduccion pendiente/generada [917] o Convencion Paris");
+      m2017saapl09.setDescription("Deducc.determ.actividades 2009 Symposium 90 Aniversario Salon automovil Barcelona. Aplicado en esta liquidacion [918] o Convencion Paris");
+      m2017sapdt09.setDescription("Deducc.determ.actividades 2009 Symposium 90 Aniversario Salon automovil Barcelona.Pendiente de aplicacion [919] o Convencion Paris");
+      m2017dfini09.setDescription("Deducc.determ.actividades 2009 Diferimiento 2009 Deducciones. Deduccion pendiente/generada [828]");
+      m2017dfapl09.setDescription("Deducc.determ.actividades 2009 Diferimiento deducciones. Aplicado en esta liquidacion [829]");
+      m2017dfpdt09.setDescription("Deducc.determ.actividades 2009 Diferimiento deducciones. Pendiente de aplicacion [830]");
+      m2017totdedini.setDescription("Deducc.determ.actividades 2009 Total deducciones Cap.IV Tit.VI. Deduccion pendiente/generada [831]");
+      m2017totdedapl.setDescription("Deducc.determ.actividades 2009 Total deducciones Cap.IV Tit.VI. Aplicado en esta liquidacion [588]");
+      m2017totdedpdt.setDescription("Deducc.determ.actividades 2009 Total deducciones Cap.IV Tit.VI. Pendiente de aplicacion [832]");
+      m2017donini02.setDescription("Deducc.donativos 2002 Deduccion pendiente/generada [929]");
+      m2017donapl02.setDescription("Deducc.donativos 2002 Aplicado en esta declaracion [930]");
+      m2017donpdt02.setDescription("Deducc.donativos 2002 Pendiente de aplicacion [931]");
+      m2017donini03.setDescription("Deducc.donativos 2003 Deduccion pendiente/generada [942]");
+      m2017donapl03.setDescription("Deducc.donativos 2003 Aplicado en esta declaracion [943]");
+      m2017donpdt03.setDescription("Deducc.donativos 2003 Pendiente de aplicacion [944]");
+      m2017donini04.setDescription("Deducc.donativos 2004 Deduccion pendiente/generada [294]");
+      m2017donapl04.setDescription("Deducc.donativos 2004 Aplicado en esta declaracion [295]");
+      m2017donpdt04.setDescription("Deducc.donativos 2004 Pendiente de aplicacion [296]");
+      m2017donini05.setDescription("Deducc.donativos 2005 Deduccion pendiente/generada [066]");
+      m2017donapl05.setDescription("Deducc.donativos 2005 Aplicado en esta declaracion [074]");
+      m2017donpdt05.setDescription("Deducc.donativos 2005 Pendiente de aplicacion [084]");
+      m2017donini06.setDescription("Deducc.donativos 2006 Deduccion pendiente/generada [008]");
+      m2017donapl06.setDescription("Deducc.donativos 2006 Aplicado en esta declaracion [009]");
+      m2017donpdt06.setDescription("Deducc.donativos 2006 Pendiente de aplicacion [010]");
+      m2017donini07.setDescription("Deducc.donativos 2007 Deduccion pendiente/generada [034]");
+      m2017donapl07.setDescription("Deducc.donativos 2007 Aplicado en esta declaracion [035]");
+      m2017donpdt07.setDescription("Deducc.donativos 2007 Pendiente de aplicacion [036]");
+      m2017donini08.setDescription("Deducc.donativos 2008 Deduccion pendiente/generada [201]");
+      m2017donapl08.setDescription("Deducc.donativos 2008 Aplicado en esta declaracion [202]");
+      m2017donpdt08.setDescription("Deducc.donativos 2008 Pendiente de aplicacion [203]");
+      m2017donini09.setDescription("Deducc.donativos 2009 Deduccion pendiente/generada [904]");
+      m2017donapl09.setDescription("Deducc.donativos 2009 Aplicado en esta declaracion [905]");
+      m2017donpdt09.setDescription("Deducc.donativos 2009 Pendiente de aplicacion [906]");
+      m2017totdonini.setDescription("Total deducciones donac.sin fines de lucro Deduccion pendiente/generada [598]");
+      m2017totdonapl.setDescription("Total deducciones donac.sin fines de lucro Aplicado en esta declaracion [565]");
+      m2017totdonpdt.setDescription("Total deducciones donac.sin fines de lucro Pendiente de aplicacion [895]");
+      m2017impdonej.setDescription("Donaciones periodo impositivo efectuada a entidades sin fines de lucro [974]");
+      m2017dedini09.setDescription("Deducc.determ.actividades 2009 Suma deducciones. Deduccion pendiente/generada [531]");
+      m2017dedapl09.setDescription("Deducc.determ.actividades 2009 Suma deducciones. Aplicado en esta liquidacion [532]");
+      m2017dedpdt09.setDescription("Deducc.determ.actividades 2009 Suma deducciones. Pendiente de aplicacion [533]");
+      m2017elxini09.setDescription("Deducc.determ.actividades 2009 Misteri Elx .Deduccion pendiente/generada [957] o Tiro Olimpico Las Gabias");
+      m2017elxapl09.setDescription("Deducc.determ.actividades 2009 Misteri Elx .Aplicado en esta liquidacion [958] o Tiro Olimpico Las Gabias");
+      m2017elxpdt09.setDescription("Deducc.determ.actividades 2009 Misteri Elx .Pendiente de aplicacion [959] o Tiro Olimpico Las Gabias");
+      m2017jguini09.setDescription("Deducc.determ.actividades 2009 Jubilar Guadalupense 2010 .Deduccion pendiente/generada [960] o Bula Papal");
+      m2017jguapl09.setDescription("Deducc.determ.actividades 2009 Jubilar Guadalupense 2010 .Aplicado en esta liquidacion [961] o Bula Papal");
+      m2017jgupdt09.setDescription("Deducc.determ.actividades 2009 Jubilar Guadalupense 2010 .Pendiente de aplicacion [962] o Bula Papal");
+      m2017jmjini09.setDescription("Deducc.determ.actividades 2009 Jornadas mundiales juventud 2011.Deduccion pendiente/generada [963] o Año Culturas y Paz");
+      m2017jmjapl09.setDescription("Deducc.determ.actividades 2009 Jornadas mundiales juventud 2011.Aplicado en esta liquidacion [964] o Año Culturas y Paz");
+      m2017jmjpdt09.setDescription("Deducc.determ.actividades 2009 Jornadas mundiales juventud 2011.Pendiente de aplicacion [965] o Año Culturas y Paz");
+      m2017crgini09.setDescription("Deducc.determ.actividades 2009 Fundacion milenio Reino Granada.Deduccion pendiente/generada [966]");
+      m2017crgapl09.setDescription("Deducc.determ.actividades 2009 Fundacion milenio Reino Granada.Aplicado en esta liquidacion [967]");
+      m2017crgpdt09.setDescription("Deducc.determ.actividades 2009 Fundacion milenio Reino Granada.Pendiente de aplicacion [968]");
+      m2017sdeini09.setDescription("Deducc.determ.actividades 2009 Solar Decathlon Europa .Deduccion pendiente/generada [969]");
+      m2017sdeapl09.setDescription("Deducc.determ.actividades 2009 Solar Decathlon Europa .Aplicado en esta liquidacion [970]");
+      m2017sdepdt09.setDescription("Deducc.determ.actividades 2009 Solar Decathlon Europa .Pendiente de aplicacion [971]");
+      m2017alvini09.setDescription("Deducc.determ.actividades 2009 Alicante 2011 .Deduccion pendiente/generada [972]");
+      m2017alvapl09.setDescription("Deducc.determ.actividades 2009 Alicante 2011 .Aplicado en esta liquidacion [973]");
+      m2017alvpdt09.setDescription("Deducc.determ.actividades 2009 Alicante 2011 .Pendiente de aplicacion [975]");
+      m2017glxini09.setDescription("Deducc.determ.actividades 2009 Google Lunar X Prize .Deduccion pendiente/generada [976]");
+      m2017glxapl09.setDescription("Deducc.determ.actividades 2009 Google Lunar X Prize .Aplicado en esta liquidacion [977]");
+      m2017glxpdt09.setDescription("Deducc.determ.actividades 2009 Google Lunar X Prize .Pendiente de aplicacion [978]");
+      m2017donini10.setDescription("Deducc.donativos 2010 Deduccion pendiente/generada [990]");
+      m2017donapl10.setDescription("Deducc.donativos 2010 Aplicado en esta declaracion [991]");
+      m2017donpdt10.setDescription("Deducc.donativos 2010 Pendiente de aplicacion [992]");
+      m2017dedini10.setDescription("Deducc.determ.actividades 2010 Suma deducciones. Deduccion pendiente/generada [960]");
+      m2017dedapl10.setDescription("Deducc.determ.actividades 2010 Suma deducciones. Aplicado en esta liquidacion [961]");
+      m2017dedpdt10.setDescription("Deducc.determ.actividades 2010 Suma deducciones. Pendiente de aplicacion [962]");
+      m2017aorini09.setDescription("Deducc.determ.actividades 2011 Año Orellana .Deduccion pendiente/generada [537] o Año neurociencia");
+      m2017aorapl09.setDescription("Deducc.determ.actividades 2011 Año Orellana .Aplicado en esta liquidacion [538] o Año neurociencia");
+      m2017aorpdt09.setDescription("Deducc.determ.actividades 2011 Año Orellana .Pendiente de aplicacion [539] o Año neurociencia");
+      m2017mbaini09.setDescription("Deducc.determ.actividades 2011 Mundobasket 2014  .Deduccion pendiente/generada [540]");
+      m2017mbaapl09.setDescription("Deducc.determ.actividades 2011 Mundobasket 2014  .Aplicado en esta liquidacion [541]");
+      m2017mbapdt09.setDescription("Deducc.determ.actividades 2011 Mundobasket 2014  .Pendiente de aplicacion [542]");
+      m2017cmbini09.setDescription("Deducc.determ.actividades 2011 Campeonato Mundo Balonmano 2013  .Deduccion pendiente/generada [543]");
+      m2017cmbapl09.setDescription("Deducc.determ.actividades 2011 Campeonato Mundo Balonmano 2013  .Aplicado en esta liquidacion [544]");
+      m2017cmbpdt09.setDescription("Deducc.determ.actividades 2011 Campeonato Mundo Balonmano 2013  .Pendiente de aplicacion [545]");
+      m2017bneini09.setDescription("Deducc.determ.actividades 2011 Tricentenario Biblioteca Nacional Esp .Deduccion pendiente/generada [551] o Navas de Tolosa");
+      m2017bneapl09.setDescription("Deducc.determ.actividades 2011 Tricentenario Biblioteca Nacional Esp .Aplicado en esta liquidacion [580] o Navas de Tolosa");
+      m2017bnepdt09.setDescription("Deducc.determ.actividades 2011 Tricentenario Biblioteca Nacional Esp .Pendiente de aplicacion [593] o Navas de Tolosa");
+      m2017greini09.setDescription("Deducc.determ.actividades 2011 IV Centenario fallecimimento pintor El Greco  .Deduccion pendiente/generada [901]");
+      m2017greapl09.setDescription("Deducc.determ.actividades 2011 IV Centenario fallecimimento pintor El Greco  .Aplicado en esta liquidacion [902]");
+      m2017grepdt09.setDescription("Deducc.determ.actividades 2011 IV Centenario fallecimimento pintor El Greco  .Pendiente de aplicacion [903]");
+      m2017cscini09.setDescription("Deducc.determ.actividades 2011 VIII Centenario Catedral Santiago Compostela  .Deduccion pendiente/generada [912]");
+      m2017cscapl09.setDescription("Deducc.determ.actividades 2011 VIII Centenario Catedral Santiago Compostela  .Aplicado en esta liquidacion [918]");
+      m2017cscpdt09.setDescription("Deducc.determ.actividades 2011 VIII Centenario Catedral Santiago Compostela  .Pendiente de aplicacion [919]");
+      m2017donini11.setDescription("Deducc.donativos 2011 Deduccion pendiente/generada [997]");
+      m2017donapl11.setDescription("Deducc.donativos 2011 Aplicado en esta declaracion [998]");
+      m2017donpdt11.setDescription("Deducc.donativos 2011 Pendiente de aplicacion [999]");
+      m2017ajmini12.setDescription("Deducc.determ.actividades Año Jubilar Mariano.Deduccion pendiente/generada [240]");
+      m2017ajmapl12.setDescription("Deducc.determ.actividades Año Jubilar Mariano.Aplicado en esta liquidacion [241]");
+      m2017ajmpdt12.setDescription("Deducc.determ.actividades Año Jubilar Mariano.Pendiente de aplicacion [242]");
+      m2017dmini12.setDescription("Deducc.determ.actividades Año internacional Dieta Mediterranea.Deduccion pendiente/generada [243]");
+      m2017dmapl12.setDescription("Deducc.determ.actividades Año internacional Dieta Mediterranea.Aplicado en esta liquidacion [244]");
+      m2017dmpdt12.setDescription("Deducc.determ.actividades Año internacional Dieta Mediterranea.Pendiente de aplicacion [245]");
+      m2017cmaini12.setDescription("Deducc.determ.actividades Candidatura Madrid 2020.Deduccion pendiente/generada [246]");
+      m2017cmaapl12.setDescription("Deducc.determ.actividades Candidatura Madrid 2020.Aplicado en esta liquidacion [247]");
+      m2017cmapdt12.setDescription("Deducc.determ.actividades Candidatura Madrid 2020.Pendiente de aplicacion [248]");
+      m2017tapini12.setDescription("Deducc.determ.actividades Total programas apoyo mecenazgo.Deduccion pendiente/generada [634]");
+      m2017tapapl12.setDescription("Deducc.determ.actividades Total programas apoyo mecenazgo.Aplicado en esta liquidacion [635]");
+      m2017tappdt12.setDescription("Deducc.determ.actividades Total programas apoyo mecenazgo.Pendiente de aplicacion [636]");
+      m2017ce1ini12.setDescription("Deducc.determ.actividades Creacion empleo menores 30 años.Deduccion pendiente/generada [963]");
+      m2017ce1apl12.setDescription("Deducc.determ.actividades Creacion empleo menores 30 años.Aplicado en esta liquidacion [964]");
+      m2017ce1pdt12.setDescription("Deducc.determ.actividades Creacion empleo menores 30 años.Pendiente de aplicacion [965]");
+      m2017ce2ini12.setDescription("Deducc.determ.actividades Creacion empleo desempleados.Deduccion pendiente/generada [931]");
+      m2017ce2apl12.setDescription("Deducc.determ.actividades Creacion empleo desempleados.Aplicado en esta liquidacion [502]");
+      m2017ce2pdt12.setDescription("Deducc.determ.actividades Creacion empleo desempleados.Pendiente de aplicacion [751]");
+      }
+    }
+    
+  public class TabMod200h18b extends TableDef
+    {
+    // Campos
+    public FieldDef m2018bdominio;
+    public FieldDef m2018bnif;
+    public FieldDef m2018bejercicio;
+    public FieldDef m2018bperiodo;
+    public FieldDef m2018bresexplot;
+    public FieldDef m2018bamortinm;
+    public FieldDef m2018bsubvenc;
+    public FieldDef m2018bdeterio;
+    public FieldDef m2018bingfinpat;
+    public FieldDef m2018blimgastos;
+    public FieldDef m2018blimbfoant;
+    public FieldDef m2018bgastfinan;
+    public FieldDef m2018bingfinan;
+    public FieldDef m2018bgastnetos;
+    public FieldDef m2018bgastdeduc;
+    public FieldDef m2018bgastnoded;
+    public FieldDef m2018bgastejant;
+    public FieldDef m2018btotgastde;
+    public FieldDef m2018btotal;
+    public FieldDef m2018bgini12;
+    public FieldDef m2018bgapl12;
+    public FieldDef m2018bgpdt12;
+    public FieldDef m2018bgini212;
+    public FieldDef m2018bgapl212;
+    public FieldDef m2018bgpdt212;
+    public FieldDef m2018bgtotini;
+    public FieldDef m2018bgtotapl;
+    public FieldDef m2018bgtotpdt;
+    public FieldDef m2018bbini12;
+    public FieldDef m2018bbapl12;
+    public FieldDef m2018bbpdt12;
+    public FieldDef m2018bbini212;
+    public FieldDef m2018bbapl212;
+    public FieldDef m2018bbpdt212;
+    public FieldDef m2018bbtotini;
+    public FieldDef m2018bbtotapl;
+    public FieldDef m2018bbtotpdt;
+    public TabMod200h18b(String name)
+      {
+      super(name);
+      m2018bdominio = new FieldDef("m2018bdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m2018bnif = new FieldDef("m2018bnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m2018bejercicio = new FieldDef("m2018bejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m2018bperiodo = new FieldDef("m2018bperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m2018bresexplot = new FieldDef("m2018bresexplot",FieldDef.FLOAT,6,0);
+      m2018bamortinm = new FieldDef("m2018bamortinm",FieldDef.FLOAT,6,0);
+      m2018bsubvenc = new FieldDef("m2018bsubvenc",FieldDef.FLOAT,6,0);
+      m2018bdeterio = new FieldDef("m2018bdeterio",FieldDef.FLOAT,6,0);
+      m2018bingfinpat = new FieldDef("m2018bingfinpat",FieldDef.FLOAT,6,0);
+      m2018blimgastos = new FieldDef("m2018blimgastos",FieldDef.FLOAT,6,0);
+      m2018blimbfoant = new FieldDef("m2018blimbfoant",FieldDef.FLOAT,6,0);
+      m2018bgastfinan = new FieldDef("m2018bgastfinan",FieldDef.FLOAT,6,0);
+      m2018bingfinan = new FieldDef("m2018bingfinan",FieldDef.FLOAT,6,0);
+      m2018bgastnetos = new FieldDef("m2018bgastnetos",FieldDef.FLOAT,6,0);
+      m2018bgastdeduc = new FieldDef("m2018bgastdeduc",FieldDef.FLOAT,6,0);
+      m2018bgastnoded = new FieldDef("m2018bgastnoded",FieldDef.FLOAT,6,0);
+      m2018bgastejant = new FieldDef("m2018bgastejant",FieldDef.FLOAT,6,0);
+      m2018btotgastde = new FieldDef("m2018btotgastde",FieldDef.FLOAT,6,0);
+      m2018btotal = new FieldDef("m2018btotal",FieldDef.FLOAT,6,0);
+      m2018bgini12 = new FieldDef("m2018bgini12",FieldDef.FLOAT,6,0);
+      m2018bgapl12 = new FieldDef("m2018bgapl12",FieldDef.FLOAT,6,0);
+      m2018bgpdt12 = new FieldDef("m2018bgpdt12",FieldDef.FLOAT,6,0);
+      m2018bgini212 = new FieldDef("m2018bgini212",FieldDef.FLOAT,6,0);
+      m2018bgapl212 = new FieldDef("m2018bgapl212",FieldDef.FLOAT,6,0);
+      m2018bgpdt212 = new FieldDef("m2018bgpdt212",FieldDef.FLOAT,6,0);
+      m2018bgtotini = new FieldDef("m2018bgtotini",FieldDef.FLOAT,6,0);
+      m2018bgtotapl = new FieldDef("m2018bgtotapl",FieldDef.FLOAT,6,0);
+      m2018bgtotpdt = new FieldDef("m2018bgtotpdt",FieldDef.FLOAT,6,0);
+      m2018bbini12 = new FieldDef("m2018bbini12",FieldDef.FLOAT,6,0);
+      m2018bbapl12 = new FieldDef("m2018bbapl12",FieldDef.FLOAT,6,0);
+      m2018bbpdt12 = new FieldDef("m2018bbpdt12",FieldDef.FLOAT,6,0);
+      m2018bbini212 = new FieldDef("m2018bbini212",FieldDef.FLOAT,6,0);
+      m2018bbapl212 = new FieldDef("m2018bbapl212",FieldDef.FLOAT,6,0);
+      m2018bbpdt212 = new FieldDef("m2018bbpdt212",FieldDef.FLOAT,6,0);
+      m2018bbtotini = new FieldDef("m2018bbtotini",FieldDef.FLOAT,6,0);
+      m2018bbtotapl = new FieldDef("m2018bbtotapl",FieldDef.FLOAT,6,0);
+      m2018bbtotpdt = new FieldDef("m2018bbtotpdt",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        m2018bdominio,
+        m2018bnif,
+        m2018bejercicio,
+        m2018bperiodo,
+        m2018bresexplot,
+        m2018bamortinm,
+        m2018bsubvenc,
+        m2018bdeterio,
+        m2018bingfinpat,
+        m2018blimgastos,
+        m2018blimbfoant,
+        m2018bgastfinan,
+        m2018bingfinan,
+        m2018bgastnetos,
+        m2018bgastdeduc,
+        m2018bgastnoded,
+        m2018bgastejant,
+        m2018btotgastde,
+        m2018btotal,
+        m2018bgini12,
+        m2018bgapl12,
+        m2018bgpdt12,
+        m2018bgini212,
+        m2018bgapl212,
+        m2018bgpdt212,
+        m2018bgtotini,
+        m2018bgtotapl,
+        m2018bgtotpdt,
+        m2018bbini12,
+        m2018bbapl12,
+        m2018bbpdt12,
+        m2018bbini212,
+        m2018bbapl212,
+        m2018bbpdt212,
+        m2018bbtotini,
+        m2018bbtotapl,
+        m2018bbtotpdt        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m2018bdominio,m2018bnif,m2018bejercicio,m2018bperiodo };
+      setPrimaryKeys(arrayf);
+      m2018bresexplot.setDescription("Resultado de explotacion [175]");
+      m2018bamortinm.setDescription("Amortizacion inmovilizado [176]");
+      m2018bsubvenc.setDescription("Imputacion subvenciones inmovilizado [177]");
+      m2018bdeterio.setDescription("Deterioro y resultado por enajenaciones [178]");
+      m2018bingfinpat.setDescription("Ingresos financieros instrumentos patrimonio [179]");
+      m2018blimgastos.setDescription("Limitacion gastos financieros [043]");
+      m2018blimbfoant.setDescription("Adicion por limite bfos operativo no aplicado ejer.anter. [049]");
+      m2018bgastfinan.setDescription("Gastos financieros del periodo [249]");
+      m2018bingfinan.setDescription("Ingresos financieros del periodo [252]");
+      m2018bgastnetos.setDescription("Gastos financieros netos del periodo [253]");
+      m2018bgastdeduc.setDescription("Gastos financieros netos deducibles del periodo [254]");
+      m2018bgastnoded.setDescription("Gastos financieros netos no deducibles del periodo [255]");
+      m2018bgastejant.setDescription("Gastos financieros netos ejer.anteriores aplicados [258]");
+      m2018btotgastde.setDescription("Total gastos financieros netos deducibles en el periodo [259]");
+      m2018btotal.setDescription("Total gastos financieros deducibles en el periodo [260]");
+      m2018bgini12.setDescription("Gastos financieros pdtes. Saldo inicio ejer.2012 [261]");
+      m2018bgapl12.setDescription("Gastos financieros pdtes. Aplicado ejer.2012 [262]");
+      m2018bgpdt12.setDescription("Gastos financieros pdtes. Pendiente aplicacion 2012 [263]");
+      m2018bgini212.setDescription("Gastos financieros pdtes. Saldo inicio ejer.2012 [264]");
+      m2018bgapl212.setDescription("Gastos financieros pdtes. Aplicado ejer.2012 [265]");
+      m2018bgpdt212.setDescription("Gastos financieros pdtes. Pendiente aplicacion 2012 [266]");
+      m2018bgtotini.setDescription("Gastos financieros pdtes. Total Saldo inicio ejer.[267]");
+      m2018bgtotapl.setDescription("Gastos financieros pdtes. Total Aplicado ejer. [268]");
+      m2018bgtotpdt.setDescription("Gastos financieros pdtes. Total Pendiente aplicacion [269]");
+      m2018bbini12.setDescription("Beneficio operativo pdtes. Saldo inicio ejer.2012 [270]");
+      m2018bbapl12.setDescription("Beneficio operativo pdtes. Aplicado ejer.2012 [271]");
+      m2018bbpdt12.setDescription("Beneficio operativo pdtes. Pendiente aplicacion 2012 [272]");
+      m2018bbini212.setDescription("Beneficio operativo pdtes. Saldo inicio ejer.2012 [273]");
+      m2018bbapl212.setDescription("Beneficio operativo pdtes. Aplicado ejer.2012 [274]");
+      m2018bbpdt212.setDescription("Beneficio operativo pdtes. Pendiente aplicacion 2012 [537]");
+      m2018bbtotini.setDescription("Beneficio operativo pdtes. Total Saldo inicio ejer.[538]");
+      m2018bbtotapl.setDescription("Beneficio operativo pdtes. Total Aplicado ejer. [539]");
+      m2018bbtotpdt.setDescription("Beneficio operativo pdtes. Total Pendiente aplicacion [546]");
+      }
+    }
+    
   public CatModelo200()
     {
     tabmod200h2 = new TabMod200h2("mod200h2");
@@ -9244,12 +9874,13 @@ public class CatModelo200 extends Catalog
     tabdeflis200 = new TabDeflis200("deflis200");
     tabmod200ac = new TabMod200ac("mod200ac");
     tabmod200ad = new TabMod200ad("mod200ad");
-    tabmod200h1 = new TabMod200h1("mod200h1");
     tabmod200h8 = new TabMod200h8("mod200h8");
     tabmod200h15 = new TabMod200h15("mod200h15");
-    tabmod200h16 = new TabMod200h16("mod200h16");
-    tabmod200h17 = new TabMod200h17("mod200h17");
     tabmod200h20 = new TabMod200h20("mod200h20");
+    tabmod200h16 = new TabMod200h16("mod200h16");
+    tabmod200h1 = new TabMod200h1("mod200h1");
+    tabmod200h17 = new TabMod200h17("mod200h17");
+    tabmod200h18b = new TabMod200h18b("mod200h18b");
     TableDef array[] = {
       tabmod200h2,
       tabmod200h3,
@@ -9273,12 +9904,13 @@ public class CatModelo200 extends Catalog
       tabdeflis200,
       tabmod200ac,
       tabmod200ad,
-      tabmod200h1,
       tabmod200h8,
       tabmod200h15,
+      tabmod200h20,
       tabmod200h16,
+      tabmod200h1,
       tabmod200h17,
-      tabmod200h20      
+      tabmod200h18b      
       };
     setTables(array);
     FieldDef tabmod200adArrayf1[] = { tabmod200ad.m20addominio,tabmod200ad.m20adnif,tabmod200ad.m20adejercicio,tabmod200ad.m20adperiodo };

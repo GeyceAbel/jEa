@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111110
-// Hora:             18:26:06
+// Fecha:            20140305
+// Hora:             17:18:34
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -37,12 +37,10 @@ public class CatModelos2 extends Catalog
   public TabMod576 tabmod576;
   public TabMod130des tabmod130des;
   public TabMod036p1 tabmod036p1;
-  public TabMod036p2 tabmod036p2;
   public TabMod036p2b tabmod036p2b;
   public TabMod036p2c tabmod036p2c;
   public TabMod036p3 tabmod036p3;
   public TabMod036p4 tabmod036p4;
-  public TabMod036p5 tabmod036p5;
   public TabMod036p6 tabmod036p6;
   public TabMod036p7 tabmod036p7;
   public TabMod036p8 tabmod036p8;
@@ -57,6 +55,10 @@ public class CatModelos2 extends Catalog
   public TabMod309 tabmod309;
   public TabMod210 tabmod210;
   public TabMod210cp tabmod210cp;
+  public TabMod720c tabmod720c;
+  public TabMod720d tabmod720d;
+  public TabMod036p2 tabmod036p2;
+  public TabMod036p5 tabmod036p5;
   public class TabMod184d extends TableDef
     {
     // Campos
@@ -136,6 +138,8 @@ public class CatModelos2 extends Catalog
     public FieldDef m184dtotkreten;
     public FieldDef m184dtotlexren;
     public FieldDef m184dissnoresid;
+    public FieldDef m184dtotmganan;
+    public FieldDef m184dtotmperdi;
     public TabMod184d(String name)
       {
       super(name);
@@ -215,6 +219,8 @@ public class CatModelos2 extends Catalog
       m184dtotkreten = new FieldDef("m184dtotkreten",FieldDef.FLOAT,6,0);
       m184dtotlexren = new FieldDef("m184dtotlexren",FieldDef.FLOAT,6,0);
       m184dissnoresid = new FieldDef("m184dissnoresid",FieldDef.CHAR,1);
+      m184dtotmganan = new FieldDef("m184dtotmganan",FieldDef.FLOAT,6,0);
+      m184dtotmperdi = new FieldDef("m184dtotmperdi",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m184ddominio,
         m184dnif,
@@ -291,11 +297,19 @@ public class CatModelos2 extends Catalog
         m184dtotjbded6,
         m184dtotkreten,
         m184dtotlexren,
-        m184dissnoresid        
+        m184dissnoresid,
+        m184dtotmganan,
+        m184dtotmperdi        
         };
       setColumns(array);
       FieldDef arrayf[] = {m184ddominio,m184dnif,m184dejercicio,m184dperiodo };
       setPrimaryKeys(arrayf);
+      m184dtotfganan.setDescription("F Gananc. NO derivadas transmisiones");
+      m184dtotfperdi.setDescription("F Perdida NO derivadas transmisiones");
+      m184dtotgganan.setDescription("G Gananc. derivadas transmisiones >1 any");
+      m184dtotgperdi.setDescription("G Perdida derivadas transmisiones >1 any");
+      m184dtotmganan.setDescription("M Gananc. derivadas transmisiones <=1 any");
+      m184dtotmperdi.setDescription("M Perdida derivadas transmisiones <=1 any");
       }
     }
     
@@ -4126,314 +4140,6 @@ public class CatModelos2 extends Catalog
       }
     }
     
-  public class TabMod036p2 extends TableDef
-    {
-    // Campos
-    public FieldDef m36p2adominio;
-    public FieldDef m36p2anif;
-    public FieldDef m36p2aejercicio;
-    public FieldDef m36p2aperiodo;
-    public FieldDef m36p2a1a2;
-    public FieldDef m36p2a3;
-    public FieldDef m36p2a4;
-    public FieldDef m36p2a5;
-    public FieldDef m36p2a6;
-    public FieldDef m36p2a7;
-    public FieldDef m36p2a8;
-    public FieldDef m36p2a11;
-    public FieldDef m36p2a12;
-    public FieldDef m36p2a13;
-    public FieldDef m36p2a14;
-    public FieldDef m36p2a15;
-    public FieldDef m36p2a16;
-    public FieldDef m36p2a17;
-    public FieldDef m36p2a18;
-    public FieldDef m36p2a19;
-    public FieldDef m36p2a20;
-    public FieldDef m36p2a21;
-    public FieldDef m36p2a22;
-    public FieldDef m36p2a23;
-    public FieldDef m36p2a24;
-    public FieldDef m36p2a24m;
-    public FieldDef m36p2a25;
-    public FieldDef m36p2a26;
-    public FieldDef m36p2a27;
-    public FieldDef m36p2a28;
-    public FieldDef m36p2a29;
-    public FieldDef m36p2a99;
-    public FieldDef m36p2a31;
-    public FieldDef m36p2a32;
-    public FieldDef m36p2a33;
-    public FieldDef m36p2a34;
-    public FieldDef m36p2a35;
-    public FieldDef m36p2a36;
-    public FieldDef m36p2a37;
-    public FieldDef m36p2a38;
-    public FieldDef m36p2a39;
-    public FieldDef m36p2a40;
-    public FieldDef m36p2a41;
-    public FieldDef m36p2a42;
-    public FieldDef m36p2a43;
-    public FieldDef m36p2a44;
-    public FieldDef m36p2a45;
-    public FieldDef m36p2a46;
-    public FieldDef m36p2a47;
-    public FieldDef m36p2a48;
-    public FieldDef m36p2a49;
-    public FieldDef m36p2a50;
-    public FieldDef m36p2a51;
-    public FieldDef m36p2a52;
-    public FieldDef m36p2a53;
-    public FieldDef m36p2a54;
-    public FieldDef m36p2a54m;
-    public FieldDef m36p2a55;
-    public FieldDef m36p2a56;
-    public FieldDef m36p2a57;
-    public FieldDef m36p2a58;
-    public FieldDef m36p2a59;
-    public FieldDef m36p2a60;
-    public FieldDef m36p2a61;
-    public FieldDef m36p2a62;
-    public FieldDef m36p2a63;
-    public FieldDef m36p2a64;
-    public FieldDef m36p2a65;
-    public FieldDef m36p2a66;
-    public FieldDef m36p2a67;
-    public FieldDef m36p2a68;
-    public FieldDef m36p2a69;
-    public FieldDef m36p2a70;
-    public FieldDef m36p2a71;
-    public FieldDef m36p2a72;
-    public FieldDef m36p2a73;
-    public FieldDef m36p2a74;
-    public FieldDef m36p2a75;
-    public FieldDef m36p2a76;
-    public FieldDef m36p2a77;
-    public FieldDef m36p2a78;
-    public FieldDef m36p2a79;
-    public FieldDef m36p2a80;
-    public FieldDef m36p2a81;
-    public FieldDef m36p2a82;
-    public FieldDef m36p2a83;
-    public FieldDef m36p2a84;
-    public FieldDef m36p2a84m;
-    public FieldDef m36p2a85;
-    public FieldDef m36p2a86;
-    public FieldDef m36p2a87;
-    public FieldDef m36p2a88;
-    public FieldDef m36p2a89;
-    public FieldDef m36p2a91;
-    public FieldDef m36p2a92;
-    public FieldDef m36p2a94;
-    public FieldDef m36p2a96;
-    public FieldDef m36p2a98;
-    public TabMod036p2(String name)
-      {
-      super(name);
-      m36p2adominio = new FieldDef("m36p2adominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m36p2anif = new FieldDef("m36p2anif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m36p2aejercicio = new FieldDef("m36p2aejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m36p2aperiodo = new FieldDef("m36p2aperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m36p2a1a2 = new FieldDef("m36p2a1a2",FieldDef.CHAR,1);
-      m36p2a3 = new FieldDef("m36p2a3",FieldDef.CHAR,2);
-      m36p2a4 = new FieldDef("m36p2a4",FieldDef.CHAR,9);
-      m36p2a5 = new FieldDef("m36p2a5",FieldDef.CHAR,50);
-      m36p2a6 = new FieldDef("m36p2a6",FieldDef.CHAR,50);
-      m36p2a7 = new FieldDef("m36p2a7",FieldDef.CHAR,25);
-      m36p2a8 = new FieldDef("m36p2a8",FieldDef.CHAR,25);
-      m36p2a11 = new FieldDef("m36p2a11",FieldDef.CHAR,5);
-      m36p2a12 = new FieldDef("m36p2a12",FieldDef.CHAR,50);
-      m36p2a13 = new FieldDef("m36p2a13",FieldDef.CHAR,3);
-      m36p2a14 = new FieldDef("m36p2a14",FieldDef.INTEGER,0);
-      m36p2a15 = new FieldDef("m36p2a15",FieldDef.CHAR,3);
-      m36p2a16 = new FieldDef("m36p2a16",FieldDef.CHAR,3);
-      m36p2a17 = new FieldDef("m36p2a17",FieldDef.CHAR,3);
-      m36p2a18 = new FieldDef("m36p2a18",FieldDef.CHAR,3);
-      m36p2a19 = new FieldDef("m36p2a19",FieldDef.CHAR,3);
-      m36p2a20 = new FieldDef("m36p2a20",FieldDef.CHAR,3);
-      m36p2a21 = new FieldDef("m36p2a21",FieldDef.CHAR,40);
-      m36p2a22 = new FieldDef("m36p2a22",FieldDef.CHAR,30);
-      m36p2a23 = new FieldDef("m36p2a23",FieldDef.CHAR,5);
-      m36p2a24 = new FieldDef("m36p2a24",FieldDef.CHAR,30);
-      m36p2a24m = new FieldDef("m36p2a24m",FieldDef.CHAR,5);
-      m36p2a25 = new FieldDef("m36p2a25",FieldDef.CHAR,2);
-      m36p2a26 = new FieldDef("m36p2a26",FieldDef.INTEGER,0);
-      m36p2a27 = new FieldDef("m36p2a27",FieldDef.INTEGER,0);
-      m36p2a28 = new FieldDef("m36p2a28",FieldDef.INTEGER,0);
-      m36p2a29 = new FieldDef("m36p2a29",FieldDef.CHAR,100);
-      m36p2a99 = new FieldDef("m36p2a99",FieldDef.CHAR,100);
-      m36p2a31 = new FieldDef("m36p2a31",FieldDef.CHAR,50);
-      m36p2a32 = new FieldDef("m36p2a32",FieldDef.CHAR,40);
-      m36p2a33 = new FieldDef("m36p2a33",FieldDef.CHAR,10);
-      m36p2a34 = new FieldDef("m36p2a34",FieldDef.CHAR,30);
-      m36p2a35 = new FieldDef("m36p2a35",FieldDef.CHAR,30);
-      m36p2a36 = new FieldDef("m36p2a36",FieldDef.CHAR,30);
-      m36p2a37 = new FieldDef("m36p2a37",FieldDef.CHAR,2);
-      m36p2a38 = new FieldDef("m36p2a38",FieldDef.CHAR,15);
-      m36p2a39 = new FieldDef("m36p2a39",FieldDef.CHAR,15);
-      m36p2a40 = new FieldDef("m36p2a40",FieldDef.CHAR,15);
-      m36p2a41 = new FieldDef("m36p2a41",FieldDef.CHAR,5);
-      m36p2a42 = new FieldDef("m36p2a42",FieldDef.CHAR,50);
-      m36p2a43 = new FieldDef("m36p2a43",FieldDef.CHAR,3);
-      m36p2a44 = new FieldDef("m36p2a44",FieldDef.INTEGER,0);
-      m36p2a45 = new FieldDef("m36p2a45",FieldDef.CHAR,3);
-      m36p2a46 = new FieldDef("m36p2a46",FieldDef.CHAR,3);
-      m36p2a47 = new FieldDef("m36p2a47",FieldDef.CHAR,3);
-      m36p2a48 = new FieldDef("m36p2a48",FieldDef.CHAR,3);
-      m36p2a49 = new FieldDef("m36p2a49",FieldDef.CHAR,3);
-      m36p2a50 = new FieldDef("m36p2a50",FieldDef.CHAR,3);
-      m36p2a51 = new FieldDef("m36p2a51",FieldDef.CHAR,40);
-      m36p2a52 = new FieldDef("m36p2a52",FieldDef.CHAR,30);
-      m36p2a53 = new FieldDef("m36p2a53",FieldDef.CHAR,5);
-      m36p2a54 = new FieldDef("m36p2a54",FieldDef.CHAR,30);
-      m36p2a54m = new FieldDef("m36p2a54m",FieldDef.CHAR,5);
-      m36p2a55 = new FieldDef("m36p2a55",FieldDef.CHAR,2);
-      m36p2a56 = new FieldDef("m36p2a56",FieldDef.INTEGER,0);
-      m36p2a57 = new FieldDef("m36p2a57",FieldDef.INTEGER,0);
-      m36p2a58 = new FieldDef("m36p2a58",FieldDef.INTEGER,0);
-      m36p2a59 = new FieldDef("m36p2a59",FieldDef.CHAR,50);
-      m36p2a60 = new FieldDef("m36p2a60",FieldDef.CHAR,2);
-      m36p2a61 = new FieldDef("m36p2a61",FieldDef.INTEGER,0);
-      m36p2a62 = new FieldDef("m36p2a62",FieldDef.CHAR,30);
-      m36p2a63 = new FieldDef("m36p2a63",FieldDef.CHAR,5);
-      m36p2a64 = new FieldDef("m36p2a64",FieldDef.CHAR,2);
-      m36p2a65 = new FieldDef("m36p2a65",FieldDef.INTEGER,0);
-      m36p2a66 = new FieldDef("m36p2a66",FieldDef.INTEGER,0);
-      m36p2a67 = new FieldDef("m36p2a67",FieldDef.INTEGER,0);
-      m36p2a68 = new FieldDef("m36p2a68",FieldDef.CHAR,50);
-      m36p2a69 = new FieldDef("m36p2a69",FieldDef.CHAR,2);
-      m36p2a70 = new FieldDef("m36p2a70",FieldDef.CHAR,100);
-      m36p2a71 = new FieldDef("m36p2a71",FieldDef.CHAR,5);
-      m36p2a72 = new FieldDef("m36p2a72",FieldDef.CHAR,50);
-      m36p2a73 = new FieldDef("m36p2a73",FieldDef.CHAR,3);
-      m36p2a74 = new FieldDef("m36p2a74",FieldDef.INTEGER,0);
-      m36p2a75 = new FieldDef("m36p2a75",FieldDef.CHAR,3);
-      m36p2a76 = new FieldDef("m36p2a76",FieldDef.CHAR,3);
-      m36p2a77 = new FieldDef("m36p2a77",FieldDef.CHAR,3);
-      m36p2a78 = new FieldDef("m36p2a78",FieldDef.CHAR,3);
-      m36p2a79 = new FieldDef("m36p2a79",FieldDef.CHAR,3);
-      m36p2a80 = new FieldDef("m36p2a80",FieldDef.CHAR,3);
-      m36p2a81 = new FieldDef("m36p2a81",FieldDef.CHAR,40);
-      m36p2a82 = new FieldDef("m36p2a82",FieldDef.CHAR,30);
-      m36p2a83 = new FieldDef("m36p2a83",FieldDef.CHAR,5);
-      m36p2a84 = new FieldDef("m36p2a84",FieldDef.CHAR,30);
-      m36p2a84m = new FieldDef("m36p2a84m",FieldDef.CHAR,5);
-      m36p2a85 = new FieldDef("m36p2a85",FieldDef.CHAR,2);
-      m36p2a86 = new FieldDef("m36p2a86",FieldDef.CHAR,9);
-      m36p2a87 = new FieldDef("m36p2a87",FieldDef.INTEGER,0);
-      m36p2a88 = new FieldDef("m36p2a88",FieldDef.INTEGER,0);
-      m36p2a89 = new FieldDef("m36p2a89",FieldDef.INTEGER,0);
-      m36p2a91 = new FieldDef("m36p2a91",FieldDef.CHAR,1);
-      m36p2a92 = new FieldDef("m36p2a92",FieldDef.INTEGER,0);
-      m36p2a94 = new FieldDef("m36p2a94",FieldDef.CHAR,40);
-      m36p2a96 = new FieldDef("m36p2a96",FieldDef.CHAR,40);
-      m36p2a98 = new FieldDef("m36p2a98",FieldDef.CHAR,40);
-      FieldDef array[] = {
-        m36p2adominio,
-        m36p2anif,
-        m36p2aejercicio,
-        m36p2aperiodo,
-        m36p2a1a2,
-        m36p2a3,
-        m36p2a4,
-        m36p2a5,
-        m36p2a6,
-        m36p2a7,
-        m36p2a8,
-        m36p2a11,
-        m36p2a12,
-        m36p2a13,
-        m36p2a14,
-        m36p2a15,
-        m36p2a16,
-        m36p2a17,
-        m36p2a18,
-        m36p2a19,
-        m36p2a20,
-        m36p2a21,
-        m36p2a22,
-        m36p2a23,
-        m36p2a24,
-        m36p2a24m,
-        m36p2a25,
-        m36p2a26,
-        m36p2a27,
-        m36p2a28,
-        m36p2a29,
-        m36p2a99,
-        m36p2a31,
-        m36p2a32,
-        m36p2a33,
-        m36p2a34,
-        m36p2a35,
-        m36p2a36,
-        m36p2a37,
-        m36p2a38,
-        m36p2a39,
-        m36p2a40,
-        m36p2a41,
-        m36p2a42,
-        m36p2a43,
-        m36p2a44,
-        m36p2a45,
-        m36p2a46,
-        m36p2a47,
-        m36p2a48,
-        m36p2a49,
-        m36p2a50,
-        m36p2a51,
-        m36p2a52,
-        m36p2a53,
-        m36p2a54,
-        m36p2a54m,
-        m36p2a55,
-        m36p2a56,
-        m36p2a57,
-        m36p2a58,
-        m36p2a59,
-        m36p2a60,
-        m36p2a61,
-        m36p2a62,
-        m36p2a63,
-        m36p2a64,
-        m36p2a65,
-        m36p2a66,
-        m36p2a67,
-        m36p2a68,
-        m36p2a69,
-        m36p2a70,
-        m36p2a71,
-        m36p2a72,
-        m36p2a73,
-        m36p2a74,
-        m36p2a75,
-        m36p2a76,
-        m36p2a77,
-        m36p2a78,
-        m36p2a79,
-        m36p2a80,
-        m36p2a81,
-        m36p2a82,
-        m36p2a83,
-        m36p2a84,
-        m36p2a84m,
-        m36p2a85,
-        m36p2a86,
-        m36p2a87,
-        m36p2a88,
-        m36p2a89,
-        m36p2a91,
-        m36p2a92,
-        m36p2a94,
-        m36p2a96,
-        m36p2a98        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m36p2adominio,m36p2anif,m36p2aejercicio,m36p2aperiodo };
-      setPrimaryKeys(arrayf);
-      }
-    }
-    
   public class TabMod036p2b extends TableDef
     {
     // Campos
@@ -5510,206 +5216,6 @@ public class CatModelos2 extends Catalog
       }
     }
     
-  public class TabMod036p5 extends TableDef
-    {
-    // Campos
-    public FieldDef m36p5dominio;
-    public FieldDef m36p5nif;
-    public FieldDef m36p5ejercicio;
-    public FieldDef m36p5periodo;
-    public FieldDef m36p541;
-    public FieldDef m36p545;
-    public FieldDef m36p577;
-    public FieldDef m36p578;
-    public FieldDef m36p500;
-    public FieldDef m36p501;
-    public FieldDef m36p502;
-    public FieldDef m36p503;
-    public FieldDef m36p504;
-    public FieldDef m36p505;
-    public FieldDef m36p506;
-    public FieldDef m36p507;
-    public FieldDef m36p508;
-    public FieldDef m36p509;
-    public FieldDef m36p510;
-    public FieldDef m36p511;
-    public FieldDef m36p512;
-    public FieldDef m36p514;
-    public FieldDef m36p515;
-    public FieldDef m36p516;
-    public FieldDef m36p518;
-    public FieldDef m36p519;
-    public FieldDef m36p520;
-    public FieldDef m36p522;
-    public FieldDef m36p523;
-    public FieldDef m36p524;
-    public FieldDef m36p526;
-    public FieldDef m36p527;
-    public FieldDef m36p528;
-    public FieldDef m36p530;
-    public FieldDef m36p531;
-    public FieldDef m36p532;
-    public FieldDef m36p534;
-    public FieldDef m36p535;
-    public FieldDef m36p536;
-    public FieldDef m36p550;
-    public FieldDef m36p551;
-    public FieldDef m36p552;
-    public FieldDef m36p574;
-    public FieldDef m36p575;
-    public FieldDef m36p576;
-    public FieldDef m36p579;
-    public FieldDef m36p582;
-    public FieldDef m36p584;
-    public FieldDef m36p586;
-    public FieldDef m36p587;
-    public FieldDef m36p588;
-    public FieldDef m36p589;
-    public FieldDef m36p590;
-    public FieldDef m36p591;
-    public FieldDef m36p592;
-    public FieldDef m36p593;
-    public FieldDef m36p594;
-    public FieldDef m36p595;
-    public FieldDef m36p596;
-    public FieldDef m36p597;
-    public FieldDef m36p598;
-    public FieldDef m36p599;
-    public TabMod036p5(String name)
-      {
-      super(name);
-      m36p5dominio = new FieldDef("m36p5dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-      m36p5nif = new FieldDef("m36p5nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      m36p5ejercicio = new FieldDef("m36p5ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      m36p5periodo = new FieldDef("m36p5periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      m36p541 = new FieldDef("m36p541",FieldDef.CHAR,1);
-      m36p545 = new FieldDef("m36p545",FieldDef.DATE);
-      m36p577 = new FieldDef("m36p577",FieldDef.CHAR,1);
-      m36p578 = new FieldDef("m36p578",FieldDef.DATE);
-      m36p500 = new FieldDef("m36p500",FieldDef.CHAR,1);
-      m36p501 = new FieldDef("m36p501",FieldDef.CHAR,1);
-      m36p502 = new FieldDef("m36p502",FieldDef.CHAR,1);
-      m36p503 = new FieldDef("m36p503",FieldDef.DATE);
-      m36p504 = new FieldDef("m36p504",FieldDef.CHAR,1);
-      m36p505 = new FieldDef("m36p505",FieldDef.DATE);
-      m36p506 = new FieldDef("m36p506",FieldDef.CHAR,1);
-      m36p507 = new FieldDef("m36p507",FieldDef.DATE);
-      m36p508 = new FieldDef("m36p508",FieldDef.CHAR,1);
-      m36p509 = new FieldDef("m36p509",FieldDef.DATE);
-      m36p510 = new FieldDef("m36p510",FieldDef.CHAR,1);
-      m36p511 = new FieldDef("m36p511",FieldDef.CHAR,6);
-      m36p512 = new FieldDef("m36p512",FieldDef.DATE);
-      m36p514 = new FieldDef("m36p514",FieldDef.CHAR,1);
-      m36p515 = new FieldDef("m36p515",FieldDef.CHAR,6);
-      m36p516 = new FieldDef("m36p516",FieldDef.DATE);
-      m36p518 = new FieldDef("m36p518",FieldDef.CHAR,1);
-      m36p519 = new FieldDef("m36p519",FieldDef.CHAR,6);
-      m36p520 = new FieldDef("m36p520",FieldDef.DATE);
-      m36p522 = new FieldDef("m36p522",FieldDef.CHAR,1);
-      m36p523 = new FieldDef("m36p523",FieldDef.CHAR,6);
-      m36p524 = new FieldDef("m36p524",FieldDef.DATE);
-      m36p526 = new FieldDef("m36p526",FieldDef.CHAR,1);
-      m36p527 = new FieldDef("m36p527",FieldDef.CHAR,6);
-      m36p528 = new FieldDef("m36p528",FieldDef.DATE);
-      m36p530 = new FieldDef("m36p530",FieldDef.CHAR,1);
-      m36p531 = new FieldDef("m36p531",FieldDef.CHAR,6);
-      m36p532 = new FieldDef("m36p532",FieldDef.DATE);
-      m36p534 = new FieldDef("m36p534",FieldDef.CHAR,1);
-      m36p535 = new FieldDef("m36p535",FieldDef.CHAR,6);
-      m36p536 = new FieldDef("m36p536",FieldDef.DATE);
-      m36p550 = new FieldDef("m36p550",FieldDef.CHAR,1);
-      m36p551 = new FieldDef("m36p551",FieldDef.CHAR,6);
-      m36p552 = new FieldDef("m36p552",FieldDef.DATE);
-      m36p574 = new FieldDef("m36p574",FieldDef.CHAR,1);
-      m36p575 = new FieldDef("m36p575",FieldDef.CHAR,6);
-      m36p576 = new FieldDef("m36p576",FieldDef.DATE);
-      m36p579 = new FieldDef("m36p579",FieldDef.CHAR,1);
-      m36p582 = new FieldDef("m36p582",FieldDef.CHAR,1);
-      m36p584 = new FieldDef("m36p584",FieldDef.DATE);
-      m36p586 = new FieldDef("m36p586",FieldDef.FLOAT,6,0);
-      m36p587 = new FieldDef("m36p587",FieldDef.CHAR,1);
-      m36p588 = new FieldDef("m36p588",FieldDef.CHAR,6);
-      m36p589 = new FieldDef("m36p589",FieldDef.CHAR,6);
-      m36p590 = new FieldDef("m36p590",FieldDef.CHAR,6);
-      m36p591 = new FieldDef("m36p591",FieldDef.CHAR,1);
-      m36p592 = new FieldDef("m36p592",FieldDef.CHAR,6);
-      m36p593 = new FieldDef("m36p593",FieldDef.CHAR,6);
-      m36p594 = new FieldDef("m36p594",FieldDef.CHAR,6);
-      m36p595 = new FieldDef("m36p595",FieldDef.CHAR,1);
-      m36p596 = new FieldDef("m36p596",FieldDef.CHAR,6);
-      m36p597 = new FieldDef("m36p597",FieldDef.CHAR,6);
-      m36p598 = new FieldDef("m36p598",FieldDef.CHAR,6);
-      m36p599 = new FieldDef("m36p599",FieldDef.CHAR,1);
-      FieldDef array[] = {
-        m36p5dominio,
-        m36p5nif,
-        m36p5ejercicio,
-        m36p5periodo,
-        m36p541,
-        m36p545,
-        m36p577,
-        m36p578,
-        m36p500,
-        m36p501,
-        m36p502,
-        m36p503,
-        m36p504,
-        m36p505,
-        m36p506,
-        m36p507,
-        m36p508,
-        m36p509,
-        m36p510,
-        m36p511,
-        m36p512,
-        m36p514,
-        m36p515,
-        m36p516,
-        m36p518,
-        m36p519,
-        m36p520,
-        m36p522,
-        m36p523,
-        m36p524,
-        m36p526,
-        m36p527,
-        m36p528,
-        m36p530,
-        m36p531,
-        m36p532,
-        m36p534,
-        m36p535,
-        m36p536,
-        m36p550,
-        m36p551,
-        m36p552,
-        m36p574,
-        m36p575,
-        m36p576,
-        m36p579,
-        m36p582,
-        m36p584,
-        m36p586,
-        m36p587,
-        m36p588,
-        m36p589,
-        m36p590,
-        m36p591,
-        m36p592,
-        m36p593,
-        m36p594,
-        m36p595,
-        m36p596,
-        m36p597,
-        m36p598,
-        m36p599        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {m36p5dominio,m36p5nif,m36p5ejercicio,m36p5periodo };
-      setPrimaryKeys(arrayf);
-      }
-    }
-    
   public class TabMod036p6 extends TableDef
     {
     // Campos
@@ -6019,6 +5525,9 @@ public class CatModelos2 extends Catalog
     public FieldDef m36p900si26;
     public FieldDef m36p902de26;
     public FieldDef m36p903re26;
+    public FieldDef m36p900si27;
+    public FieldDef m36p902de27;
+    public FieldDef m36p903re27;
     public FieldDef m36p902debi;
     public FieldDef m36p900siot;
     public FieldDef m36p902deot;
@@ -6134,6 +5643,9 @@ public class CatModelos2 extends Catalog
       m36p900si26 = new FieldDef("m36p900si26",FieldDef.CHAR,1);
       m36p902de26 = new FieldDef("m36p902de26",FieldDef.CHAR,1);
       m36p903re26 = new FieldDef("m36p903re26",FieldDef.CHAR,1);
+      m36p900si27 = new FieldDef("m36p900si27",FieldDef.CHAR,1);
+      m36p902de27 = new FieldDef("m36p902de27",FieldDef.CHAR,1);
+      m36p903re27 = new FieldDef("m36p903re27",FieldDef.CHAR,1);
       m36p902debi = new FieldDef("m36p902debi",FieldDef.CHAR,1);
       m36p900siot = new FieldDef("m36p900siot",FieldDef.CHAR,1);
       m36p902deot = new FieldDef("m36p902deot",FieldDef.CHAR,1);
@@ -6247,6 +5759,9 @@ public class CatModelos2 extends Catalog
         m36p900si26,
         m36p902de26,
         m36p903re26,
+        m36p900si27,
+        m36p902de27,
+        m36p903re27,
         m36p902debi,
         m36p900siot,
         m36p902deot,
@@ -6635,6 +6150,15 @@ public class CatModelos2 extends Catalog
     public FieldDef m340enrorectifi;
     public FieldDef m340eporcenre;
     public FieldDef m340ecuotare;
+    public FieldDef m340esituacion;
+    public FieldDef m340erefcat;
+    public FieldDef m340eimpef;
+    public FieldDef m340eejeinm;
+    public FieldDef m340eimpefinm;
+    public FieldDef m340efecrecc;
+    public FieldDef m340eimprecc;
+    public FieldDef m340emedrecc;
+    public FieldDef m340ecccrec;
     public TabMod340e(String name)
       {
       super(name);
@@ -6667,6 +6191,15 @@ public class CatModelos2 extends Catalog
       m340enrorectifi = new FieldDef("m340enrorectifi",FieldDef.CHAR,40);
       m340eporcenre = new FieldDef("m340eporcenre",FieldDef.FLOAT,6,0);
       m340ecuotare = new FieldDef("m340ecuotare",FieldDef.FLOAT,6,0);
+      m340esituacion = new FieldDef("m340esituacion",FieldDef.INTEGER,0);
+      m340erefcat = new FieldDef("m340erefcat",FieldDef.CHAR,25);
+      m340eimpef = new FieldDef("m340eimpef",FieldDef.FLOAT,6,0);
+      m340eejeinm = new FieldDef("m340eejeinm",FieldDef.INTEGER,0);
+      m340eimpefinm = new FieldDef("m340eimpefinm",FieldDef.FLOAT,6,0);
+      m340efecrecc = new FieldDef("m340efecrecc",FieldDef.DATE);
+      m340eimprecc = new FieldDef("m340eimprecc",FieldDef.FLOAT,6,0);
+      m340emedrecc = new FieldDef("m340emedrecc",FieldDef.CHAR,1);
+      m340ecccrec = new FieldDef("m340ecccrec",FieldDef.CHAR,34);
       FieldDef array[] = {
         m340eident,
         m340edominio,
@@ -6696,7 +6229,16 @@ public class CatModelos2 extends Catalog
         m340enroacumul2,
         m340enrorectifi,
         m340eporcenre,
-        m340ecuotare        
+        m340ecuotare,
+        m340esituacion,
+        m340erefcat,
+        m340eimpef,
+        m340eejeinm,
+        m340eimpefinm,
+        m340efecrecc,
+        m340eimprecc,
+        m340emedrecc,
+        m340ecccrec        
         };
       setColumns(array);
       FieldDef arrayf[] = {m340eident };
@@ -6735,6 +6277,10 @@ public class CatModelos2 extends Catalog
     public FieldDef m340rnroacumul1;
     public FieldDef m340rnroacumul2;
     public FieldDef m340rcuotadeduc;
+    public FieldDef m340rfecrecc;
+    public FieldDef m340rimprecc;
+    public FieldDef m340rmedrecc;
+    public FieldDef m340rcccrec;
     public TabMod340r(String name)
       {
       super(name);
@@ -6765,6 +6311,10 @@ public class CatModelos2 extends Catalog
       m340rnroacumul1 = new FieldDef("m340rnroacumul1",FieldDef.CHAR,40);
       m340rnroacumul2 = new FieldDef("m340rnroacumul2",FieldDef.CHAR,40);
       m340rcuotadeduc = new FieldDef("m340rcuotadeduc",FieldDef.FLOAT,6,0);
+      m340rfecrecc = new FieldDef("m340rfecrecc",FieldDef.DATE);
+      m340rimprecc = new FieldDef("m340rimprecc",FieldDef.FLOAT,6,0);
+      m340rmedrecc = new FieldDef("m340rmedrecc",FieldDef.CHAR,1);
+      m340rcccrec = new FieldDef("m340rcccrec",FieldDef.CHAR,34);
       FieldDef array[] = {
         m340rident,
         m340rdominio,
@@ -6792,7 +6342,11 @@ public class CatModelos2 extends Catalog
         m340rnrodesglos,
         m340rnroacumul1,
         m340rnroacumul2,
-        m340rcuotadeduc        
+        m340rcuotadeduc,
+        m340rfecrecc,
+        m340rimprecc,
+        m340rmedrecc,
+        m340rcccrec        
         };
       setColumns(array);
       FieldDef arrayf[] = {m340rident };
@@ -7773,6 +7327,7 @@ public class CatModelos2 extends Catalog
     public FieldDef m210nif;
     public FieldDef m210ejercicio;
     public FieldDef m210periodo;
+    public FieldDef m210perpresen;
     public FieldDef m210tipodec;
     public FieldDef m210nombre;
     public FieldDef m210condis;
@@ -7888,6 +7443,8 @@ public class CatModelos2 extends Catalog
     public FieldDef m210telf1firma;
     public FieldDef m210telf2firma;
     public FieldDef m210emailfirma;
+    public FieldDef m210fechacrea;
+    public FieldDef m210nifperauto;
     public TabMod210(String name)
       {
       super(name);
@@ -7895,6 +7452,7 @@ public class CatModelos2 extends Catalog
       m210nif = new FieldDef("m210nif",FieldDef.CHAR,9,FieldDef.NOTNULL);
       m210ejercicio = new FieldDef("m210ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
       m210periodo = new FieldDef("m210periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m210perpresen = new FieldDef("m210perpresen",FieldDef.CHAR,2,FieldDef.NOTNULL);
       m210tipodec = new FieldDef("m210tipodec",FieldDef.CHAR,1);
       m210nombre = new FieldDef("m210nombre",FieldDef.CHAR,125);
       m210condis = new FieldDef("m210condis",FieldDef.CHAR,1);
@@ -7941,9 +7499,9 @@ public class CatModelos2 extends Catalog
       m210puertar = new FieldDef("m210puertar",FieldDef.CHAR,3);
       m210dcompler = new FieldDef("m210dcompler",FieldDef.CHAR,40);
       m210poblacior = new FieldDef("m210poblacior",FieldDef.CHAR,30);
-      m210postalr = new FieldDef("m210postalr",FieldDef.INTEGER,0);
+      m210postalr = new FieldDef("m210postalr",FieldDef.CHAR,5);
       m210nommunir = new FieldDef("m210nommunir",FieldDef.CHAR,30);
-      m210codmunir = new FieldDef("m210codmunir",FieldDef.INTEGER,0);
+      m210codmunir = new FieldDef("m210codmunir",FieldDef.CHAR,5);
       m210codprovr = new FieldDef("m210codprovr",FieldDef.INTEGER,0);
       m210telfr = new FieldDef("m210telfr",FieldDef.CHAR,9);
       m210movilr = new FieldDef("m210movilr",FieldDef.CHAR,9);
@@ -7963,9 +7521,9 @@ public class CatModelos2 extends Catalog
       m210puertainm = new FieldDef("m210puertainm",FieldDef.CHAR,3);
       m210dcompleinm = new FieldDef("m210dcompleinm",FieldDef.CHAR,40);
       m210lpoblacioin = new FieldDef("m210lpoblacioin",FieldDef.CHAR,30);
-      m210postalinm = new FieldDef("m210postalinm",FieldDef.INTEGER,0);
+      m210postalinm = new FieldDef("m210postalinm",FieldDef.CHAR,5);
       m210nommuniinm = new FieldDef("m210nommuniinm",FieldDef.CHAR,30);
-      m210codmuniinm = new FieldDef("m210codmuniinm",FieldDef.INTEGER,0);
+      m210codmuniinm = new FieldDef("m210codmuniinm",FieldDef.CHAR,5);
       m210provinm = new FieldDef("m210provinm",FieldDef.INTEGER,0);
       m210referinm = new FieldDef("m210referinm",FieldDef.CHAR,20);
       m210basei = new FieldDef("m210basei",FieldDef.FLOAT,6,0);
@@ -7974,8 +7532,8 @@ public class CatModelos2 extends Catalog
       m210gastor = new FieldDef("m210gastor",FieldDef.FLOAT,6,0);
       m210baser = new FieldDef("m210baser",FieldDef.FLOAT,6,0);
       m210ambosh = new FieldDef("m210ambosh",FieldDef.CHAR,1);
-      m210porcendech = new FieldDef("m210porcendech",FieldDef.INTEGER,0);
-      m210porcenconh = new FieldDef("m210porcenconh",FieldDef.INTEGER,0);
+      m210porcendech = new FieldDef("m210porcendech",FieldDef.FLOAT,6,0);
+      m210porcenconh = new FieldDef("m210porcenconh",FieldDef.FLOAT,6,0);
       m210nifconh = new FieldDef("m210nifconh",FieldDef.CHAR,9);
       m210nomconh = new FieldDef("m210nomconh",FieldDef.CHAR,40);
       m210vventah = new FieldDef("m210vventah",FieldDef.FLOAT,6,0);
@@ -7993,7 +7551,7 @@ public class CatModelos2 extends Catalog
       m210baseg = new FieldDef("m210baseg",FieldDef.FLOAT,6,0);
       m210exencion = new FieldDef("m210exencion",FieldDef.CHAR,1);
       m210convenio = new FieldDef("m210convenio",FieldDef.CHAR,1);
-      m210tipoimpos = new FieldDef("m210tipoimpos",FieldDef.INTEGER,0);
+      m210tipoimpos = new FieldDef("m210tipoimpos",FieldDef.FLOAT,6,0);
       m210cuotaint = new FieldDef("m210cuotaint",FieldDef.FLOAT,6,0);
       m210deddonac = new FieldDef("m210deddonac",FieldDef.FLOAT,6,0);
       m210cuotaley = new FieldDef("m210cuotaley",FieldDef.FLOAT,6,0);
@@ -8010,11 +7568,14 @@ public class CatModelos2 extends Catalog
       m210telf1firma = new FieldDef("m210telf1firma",FieldDef.CHAR,15);
       m210telf2firma = new FieldDef("m210telf2firma",FieldDef.CHAR,15);
       m210emailfirma = new FieldDef("m210emailfirma",FieldDef.CHAR,100);
+      m210fechacrea = new FieldDef("m210fechacrea",FieldDef.DATE);
+      m210nifperauto = new FieldDef("m210nifperauto",FieldDef.CHAR,9);
       FieldDef array[] = {
         m210dominio,
         m210nif,
         m210ejercicio,
         m210periodo,
+        m210perpresen,
         m210tipodec,
         m210nombre,
         m210condis,
@@ -8129,7 +7690,9 @@ public class CatModelos2 extends Catalog
         m210contacto,
         m210telf1firma,
         m210telf2firma,
-        m210emailfirma        
+        m210emailfirma,
+        m210fechacrea,
+        m210nifperauto        
         };
       setColumns(array);
       FieldDef arrayf[] = {m210dominio,m210nif,m210ejercicio,m210periodo };
@@ -8286,6 +7849,769 @@ public class CatModelos2 extends Catalog
       }
     }
     
+  public class TabMod720c extends TableDef
+    {
+    // Campos
+    public FieldDef m720cdominio;
+    public FieldDef m720cnif;
+    public FieldDef m720cejercicio;
+    public FieldDef m720cperiodo;
+    public FieldDef m720cnombre;
+    public FieldDef m720ctiposop;
+    public FieldDef m720ctelfrel;
+    public FieldDef m720cnomrel;
+    public FieldDef m720cnumjustif;
+    public FieldDef m720ccomplem;
+    public FieldDef m720csustitu;
+    public FieldDef m720cnumdecant;
+    public FieldDef m720ctotnumreg;
+    public FieldDef m720ctotvalor1;
+    public FieldDef m720ctotvalor2;
+    public TabMod720c(String name)
+      {
+      super(name);
+      m720cdominio = new FieldDef("m720cdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m720cnif = new FieldDef("m720cnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m720cejercicio = new FieldDef("m720cejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m720cperiodo = new FieldDef("m720cperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m720cnombre = new FieldDef("m720cnombre",FieldDef.CHAR,40);
+      m720ctiposop = new FieldDef("m720ctiposop",FieldDef.CHAR,1);
+      m720ctelfrel = new FieldDef("m720ctelfrel",FieldDef.CHAR,9);
+      m720cnomrel = new FieldDef("m720cnomrel",FieldDef.CHAR,40);
+      m720cnumjustif = new FieldDef("m720cnumjustif",FieldDef.CHAR,13);
+      m720ccomplem = new FieldDef("m720ccomplem",FieldDef.CHAR,1);
+      m720csustitu = new FieldDef("m720csustitu",FieldDef.CHAR,1);
+      m720cnumdecant = new FieldDef("m720cnumdecant",FieldDef.CHAR,13);
+      m720ctotnumreg = new FieldDef("m720ctotnumreg",FieldDef.INTEGER,0);
+      m720ctotvalor1 = new FieldDef("m720ctotvalor1",FieldDef.FLOAT,6,0);
+      m720ctotvalor2 = new FieldDef("m720ctotvalor2",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        m720cdominio,
+        m720cnif,
+        m720cejercicio,
+        m720cperiodo,
+        m720cnombre,
+        m720ctiposop,
+        m720ctelfrel,
+        m720cnomrel,
+        m720cnumjustif,
+        m720ccomplem,
+        m720csustitu,
+        m720cnumdecant,
+        m720ctotnumreg,
+        m720ctotvalor1,
+        m720ctotvalor2        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m720cdominio,m720cnif,m720cejercicio,m720cperiodo };
+      setDescription("720 Declarante Tipo 1");
+      setPrimaryKeys(arrayf);
+      m720cnif.setDescription("NIF declarante");
+      m720cejercicio.setDescription("Ejercicio aplicacion");
+      m720cnombre.setDescription("Declarante apellidos,razon social");
+      m720ctiposop.setDescription("Tipo soporte T");
+      m720ctelfrel.setDescription("Persona con quien relacionarse: Telefono");
+      m720cnomrel.setDescription("Persona con quien relacionarse: Nombre");
+      m720cnumjustif.setDescription("Nro declaracion 720+numero secuencial");
+      m720ccomplem.setDescription("C  Declaracion complementaria");
+      m720csustitu.setDescription("S  Declaracion sustitutiva");
+      m720cnumdecant.setDescription("Nro identificativo de declarac anterior");
+      m720ctotnumreg.setDescription("Nro total registros declarados");
+      m720ctotvalor1.setDescription("Total Valoracion1");
+      m720ctotvalor2.setDescription("Total Valoracion2");
+      }
+    }
+    
+  public class TabMod720d extends TableDef
+    {
+    // Campos
+    public FieldDef m720dident;
+    public FieldDef m720ddominio;
+    public FieldDef m720dnif;
+    public FieldDef m720dejercicio;
+    public FieldDef m720dperiodo;
+    public FieldDef m720dempresa;
+    public FieldDef m720dnifper;
+    public FieldDef m720dnifrepre;
+    public FieldDef m720dnombre;
+    public FieldDef m720dcondicion;
+    public FieldDef m720dtipotiula;
+    public FieldDef m720dclave;
+    public FieldDef m720dsubclave;
+    public FieldDef m720dtiporeal;
+    public FieldDef m720dpais;
+    public FieldDef m720dclauident;
+    public FieldDef m720disin;
+    public FieldDef m720dclaucta;
+    public FieldDef m720dbic;
+    public FieldDef m720diban;
+    public FieldDef m720dbanco;
+    public FieldDef m720dnrorigen;
+    public FieldDef m720dcalle;
+    public FieldDef m720dcalle2;
+    public FieldDef m720dciudad;
+    public FieldDef m720dregion;
+    public FieldDef m720dzipcode;
+    public FieldDef m720dpaisinm;
+    public FieldDef m720dfeccompra;
+    public FieldDef m720dorigen;
+    public FieldDef m720dfecventa;
+    public FieldDef m720dvalor1;
+    public FieldDef m720dvalor2;
+    public FieldDef m720dclaveval;
+    public FieldDef m720dtitulos;
+    public FieldDef m720durbana;
+    public FieldDef m720dporcen;
+    public TabMod720d(String name)
+      {
+      super(name);
+      m720dident = new FieldDef("m720dident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m720ddominio = new FieldDef("m720ddominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m720dnif = new FieldDef("m720dnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m720dejercicio = new FieldDef("m720dejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m720dperiodo = new FieldDef("m720dperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m720dempresa = new FieldDef("m720dempresa",FieldDef.CHAR,12);
+      m720dnifper = new FieldDef("m720dnifper",FieldDef.CHAR,9);
+      m720dnifrepre = new FieldDef("m720dnifrepre",FieldDef.CHAR,9);
+      m720dnombre = new FieldDef("m720dnombre",FieldDef.CHAR,40);
+      m720dcondicion = new FieldDef("m720dcondicion",FieldDef.INTEGER,0);
+      m720dtipotiula = new FieldDef("m720dtipotiula",FieldDef.CHAR,25);
+      m720dclave = new FieldDef("m720dclave",FieldDef.CHAR,1);
+      m720dsubclave = new FieldDef("m720dsubclave",FieldDef.INTEGER,0);
+      m720dtiporeal = new FieldDef("m720dtiporeal",FieldDef.CHAR,25);
+      m720dpais = new FieldDef("m720dpais",FieldDef.CHAR,2);
+      m720dclauident = new FieldDef("m720dclauident",FieldDef.INTEGER,0);
+      m720disin = new FieldDef("m720disin",FieldDef.CHAR,12);
+      m720dclaucta = new FieldDef("m720dclaucta",FieldDef.CHAR,1);
+      m720dbic = new FieldDef("m720dbic",FieldDef.CHAR,11);
+      m720diban = new FieldDef("m720diban",FieldDef.CHAR,34);
+      m720dbanco = new FieldDef("m720dbanco",FieldDef.CHAR,41);
+      m720dnrorigen = new FieldDef("m720dnrorigen",FieldDef.CHAR,20);
+      m720dcalle = new FieldDef("m720dcalle",FieldDef.CHAR,52);
+      m720dcalle2 = new FieldDef("m720dcalle2",FieldDef.CHAR,40);
+      m720dciudad = new FieldDef("m720dciudad",FieldDef.CHAR,30);
+      m720dregion = new FieldDef("m720dregion",FieldDef.CHAR,30);
+      m720dzipcode = new FieldDef("m720dzipcode",FieldDef.CHAR,10);
+      m720dpaisinm = new FieldDef("m720dpaisinm",FieldDef.CHAR,2);
+      m720dfeccompra = new FieldDef("m720dfeccompra",FieldDef.DATE);
+      m720dorigen = new FieldDef("m720dorigen",FieldDef.CHAR,1);
+      m720dfecventa = new FieldDef("m720dfecventa",FieldDef.DATE);
+      m720dvalor1 = new FieldDef("m720dvalor1",FieldDef.FLOAT,6,0);
+      m720dvalor2 = new FieldDef("m720dvalor2",FieldDef.FLOAT,6,0);
+      m720dclaveval = new FieldDef("m720dclaveval",FieldDef.CHAR,1);
+      m720dtitulos = new FieldDef("m720dtitulos",FieldDef.FLOAT,6,0);
+      m720durbana = new FieldDef("m720durbana",FieldDef.CHAR,1);
+      m720dporcen = new FieldDef("m720dporcen",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        m720dident,
+        m720ddominio,
+        m720dnif,
+        m720dejercicio,
+        m720dperiodo,
+        m720dempresa,
+        m720dnifper,
+        m720dnifrepre,
+        m720dnombre,
+        m720dcondicion,
+        m720dtipotiula,
+        m720dclave,
+        m720dsubclave,
+        m720dtiporeal,
+        m720dpais,
+        m720dclauident,
+        m720disin,
+        m720dclaucta,
+        m720dbic,
+        m720diban,
+        m720dbanco,
+        m720dnrorigen,
+        m720dcalle,
+        m720dcalle2,
+        m720dciudad,
+        m720dregion,
+        m720dzipcode,
+        m720dpaisinm,
+        m720dfeccompra,
+        m720dorigen,
+        m720dfecventa,
+        m720dvalor1,
+        m720dvalor2,
+        m720dclaveval,
+        m720dtitulos,
+        m720durbana,
+        m720dporcen        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m720dident };
+      setDescription("720 Detalle Tipo 2");
+      setPrimaryKeys(arrayf);
+      m720dident.setAutoIncrementable(true);
+      m720dident.setDescription("CODIGO DE DECLARANTE");
+      m720dnif.setDescription("NIF declarante");
+      m720dejercicio.setDescription("Ejercicio aplicacion");
+      m720dperiodo.setDescription("codi declarate / empresa Jiss");
+      m720dnifper.setDescription("NIF declarado");
+      m720dnifrepre.setDescription("NIF representante legal del declarado");
+      m720dnombre.setDescription("Declarado apellidos,razon social");
+      m720dcondicion.setDescription("Condicion del declarante (titular,repre,usuf...)");
+      m720dtipotiula.setDescription("Tipo titularidad sobre el Bien    (condicion=8)");
+      m720dclave.setDescription("Clave Tipo del Bien C-V-I-S-B");
+      m720dsubclave.setDescription("Subclave tipo del Bien");
+      m720dtiporeal.setDescription("Tipo derecho real inmueble  (Clave B Subclave 4)");
+      m720dpais.setDescription("Codigo alfab.Pais del Bien");
+      m720dclauident.setDescription("Clave identificacion 0-1-2           (Clave V-I)");
+      m720disin.setDescription("Codigo ISIN                          (Clave V-I)");
+      m720dclaucta.setDescription("Clave ident.cuenta 1-IBAN,2-BIC,0-otro (Clave C)");
+      m720dbic.setDescription("Codigo BIC                             (Clave C)");
+      m720diban.setDescription("Codigo cuenta IBAN                     (Clave C)");
+      m720dbanco.setDescription("Entidad rao social               (Clave C-V-I-S)");
+      m720dnrorigen.setDescription("Nr.Ident.Fiscal en el pais de residenc.fisal");
+      m720dcalle.setDescription("Entidad o inmueble: Calle-Nro");
+      m720dcalle2.setDescription("Entidad o inmueble: Complemento calle");
+      m720dciudad.setDescription("Entidad o inmueble: Poblacion-Ciudad");
+      m720dregion.setDescription("Entidad o inmueble: Provincia-Region-Estado");
+      m720dzipcode.setDescription("Entidad o inmueble: ZIP-CODE postal");
+      m720dpaisinm.setDescription("Entidad o inmueble: Codigo alfab.Pais");
+      m720dfeccompra.setDescription("Fecha compra-apertura AAAAMMDD");
+      m720dorigen.setDescription("Origen del bien  A-M-C");
+      m720dfecventa.setDescription("Fecha ventaa-extincion AAAAMMDD");
+      m720dvalor1.setDescription("Valoracion1 saldo-valora 31/12 o v.compra");
+      m720dvalor2.setDescription("Valoracion2 rescate-capitaliz-compra (Clave B-C)");
+      m720dclaveval.setDescription("Clave valoracion A-B                 (Clave V-I)");
+      m720dtitulos.setDescription("Nro acciones                         (Clave V-I)");
+      m720durbana.setDescription("Urbana-Rustica                         (Clave B)");
+      m720dporcen.setDescription("Porc.participacion");
+      }
+    }
+    
+  public class TabMod036p2 extends TableDef
+    {
+    // Campos
+    public FieldDef m36p2adominio;
+    public FieldDef m36p2anif;
+    public FieldDef m36p2aejercicio;
+    public FieldDef m36p2aperiodo;
+    public FieldDef m36p2a1a2;
+    public FieldDef m36p2a3;
+    public FieldDef m36p2a4;
+    public FieldDef m36p2a5;
+    public FieldDef m36p2a6;
+    public FieldDef m36p2a7;
+    public FieldDef m36p2a8;
+    public FieldDef m36p2a11;
+    public FieldDef m36p2a12;
+    public FieldDef m36p2a13;
+    public FieldDef m36p2a14;
+    public FieldDef m36p2a15;
+    public FieldDef m36p2a16;
+    public FieldDef m36p2a17;
+    public FieldDef m36p2a18;
+    public FieldDef m36p2a19;
+    public FieldDef m36p2a20;
+    public FieldDef m36p2a21;
+    public FieldDef m36p2a22;
+    public FieldDef m36p2a23;
+    public FieldDef m36p2a24;
+    public FieldDef m36p2a24m;
+    public FieldDef m36p2a25;
+    public FieldDef m36p2a26;
+    public FieldDef m36p2a27;
+    public FieldDef m36p2a28;
+    public FieldDef m36p2a29;
+    public FieldDef m36p2a99;
+    public FieldDef m36p2a31;
+    public FieldDef m36p2a32;
+    public FieldDef m36p2a33;
+    public FieldDef m36p2a34;
+    public FieldDef m36p2a35;
+    public FieldDef m36p2a36;
+    public FieldDef m36p2a37;
+    public FieldDef m36p2a38;
+    public FieldDef m36p2a39;
+    public FieldDef m36p2a40;
+    public FieldDef m36p2a41;
+    public FieldDef m36p2a42;
+    public FieldDef m36p2a43;
+    public FieldDef m36p2a44;
+    public FieldDef m36p2a45;
+    public FieldDef m36p2a46;
+    public FieldDef m36p2a47;
+    public FieldDef m36p2a48;
+    public FieldDef m36p2a49;
+    public FieldDef m36p2a50;
+    public FieldDef m36p2a51;
+    public FieldDef m36p2a52;
+    public FieldDef m36p2a53;
+    public FieldDef m36p2a54;
+    public FieldDef m36p2a54m;
+    public FieldDef m36p2a55;
+    public FieldDef m36p2a56;
+    public FieldDef m36p2a57;
+    public FieldDef m36p2a58;
+    public FieldDef m36p2a59;
+    public FieldDef m36p2a60;
+    public FieldDef m36p2a61;
+    public FieldDef m36p2a62;
+    public FieldDef m36p2a63;
+    public FieldDef m36p2a64;
+    public FieldDef m36p2a65;
+    public FieldDef m36p2a66;
+    public FieldDef m36p2a67;
+    public FieldDef m36p2a68;
+    public FieldDef m36p2a69;
+    public FieldDef m36p2a70;
+    public FieldDef m36p2a71;
+    public FieldDef m36p2a72;
+    public FieldDef m36p2a73;
+    public FieldDef m36p2a74;
+    public FieldDef m36p2a75;
+    public FieldDef m36p2a76;
+    public FieldDef m36p2a77;
+    public FieldDef m36p2a78;
+    public FieldDef m36p2a79;
+    public FieldDef m36p2a80;
+    public FieldDef m36p2a81;
+    public FieldDef m36p2a82;
+    public FieldDef m36p2a83;
+    public FieldDef m36p2a84;
+    public FieldDef m36p2a84m;
+    public FieldDef m36p2a85;
+    public FieldDef m36p2a86;
+    public FieldDef m36p2a87;
+    public FieldDef m36p2a88;
+    public FieldDef m36p2a89;
+    public FieldDef m36p2a91;
+    public FieldDef m36p2a92;
+    public FieldDef m36p2a94;
+    public FieldDef m36p2a96;
+    public FieldDef m36p2a98;
+    public FieldDef m36p2a9;
+    public FieldDef m36p2a10;
+    public TabMod036p2(String name)
+      {
+      super(name);
+      m36p2adominio = new FieldDef("m36p2adominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m36p2anif = new FieldDef("m36p2anif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m36p2aejercicio = new FieldDef("m36p2aejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m36p2aperiodo = new FieldDef("m36p2aperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m36p2a1a2 = new FieldDef("m36p2a1a2",FieldDef.CHAR,1);
+      m36p2a3 = new FieldDef("m36p2a3",FieldDef.CHAR,2);
+      m36p2a4 = new FieldDef("m36p2a4",FieldDef.CHAR,9);
+      m36p2a5 = new FieldDef("m36p2a5",FieldDef.CHAR,50);
+      m36p2a6 = new FieldDef("m36p2a6",FieldDef.CHAR,50);
+      m36p2a7 = new FieldDef("m36p2a7",FieldDef.CHAR,25);
+      m36p2a8 = new FieldDef("m36p2a8",FieldDef.CHAR,25);
+      m36p2a11 = new FieldDef("m36p2a11",FieldDef.CHAR,5);
+      m36p2a12 = new FieldDef("m36p2a12",FieldDef.CHAR,50);
+      m36p2a13 = new FieldDef("m36p2a13",FieldDef.CHAR,3);
+      m36p2a14 = new FieldDef("m36p2a14",FieldDef.INTEGER,0);
+      m36p2a15 = new FieldDef("m36p2a15",FieldDef.CHAR,3);
+      m36p2a16 = new FieldDef("m36p2a16",FieldDef.CHAR,3);
+      m36p2a17 = new FieldDef("m36p2a17",FieldDef.CHAR,3);
+      m36p2a18 = new FieldDef("m36p2a18",FieldDef.CHAR,3);
+      m36p2a19 = new FieldDef("m36p2a19",FieldDef.CHAR,3);
+      m36p2a20 = new FieldDef("m36p2a20",FieldDef.CHAR,3);
+      m36p2a21 = new FieldDef("m36p2a21",FieldDef.CHAR,40);
+      m36p2a22 = new FieldDef("m36p2a22",FieldDef.CHAR,30);
+      m36p2a23 = new FieldDef("m36p2a23",FieldDef.CHAR,5);
+      m36p2a24 = new FieldDef("m36p2a24",FieldDef.CHAR,30);
+      m36p2a24m = new FieldDef("m36p2a24m",FieldDef.CHAR,5);
+      m36p2a25 = new FieldDef("m36p2a25",FieldDef.CHAR,2);
+      m36p2a26 = new FieldDef("m36p2a26",FieldDef.INTEGER,0);
+      m36p2a27 = new FieldDef("m36p2a27",FieldDef.INTEGER,0);
+      m36p2a28 = new FieldDef("m36p2a28",FieldDef.INTEGER,0);
+      m36p2a29 = new FieldDef("m36p2a29",FieldDef.CHAR,100);
+      m36p2a99 = new FieldDef("m36p2a99",FieldDef.CHAR,100);
+      m36p2a31 = new FieldDef("m36p2a31",FieldDef.CHAR,50);
+      m36p2a32 = new FieldDef("m36p2a32",FieldDef.CHAR,40);
+      m36p2a33 = new FieldDef("m36p2a33",FieldDef.CHAR,10);
+      m36p2a34 = new FieldDef("m36p2a34",FieldDef.CHAR,30);
+      m36p2a35 = new FieldDef("m36p2a35",FieldDef.CHAR,30);
+      m36p2a36 = new FieldDef("m36p2a36",FieldDef.CHAR,30);
+      m36p2a37 = new FieldDef("m36p2a37",FieldDef.CHAR,2);
+      m36p2a38 = new FieldDef("m36p2a38",FieldDef.CHAR,15);
+      m36p2a39 = new FieldDef("m36p2a39",FieldDef.CHAR,15);
+      m36p2a40 = new FieldDef("m36p2a40",FieldDef.CHAR,15);
+      m36p2a41 = new FieldDef("m36p2a41",FieldDef.CHAR,5);
+      m36p2a42 = new FieldDef("m36p2a42",FieldDef.CHAR,50);
+      m36p2a43 = new FieldDef("m36p2a43",FieldDef.CHAR,3);
+      m36p2a44 = new FieldDef("m36p2a44",FieldDef.INTEGER,0);
+      m36p2a45 = new FieldDef("m36p2a45",FieldDef.CHAR,3);
+      m36p2a46 = new FieldDef("m36p2a46",FieldDef.CHAR,3);
+      m36p2a47 = new FieldDef("m36p2a47",FieldDef.CHAR,3);
+      m36p2a48 = new FieldDef("m36p2a48",FieldDef.CHAR,3);
+      m36p2a49 = new FieldDef("m36p2a49",FieldDef.CHAR,3);
+      m36p2a50 = new FieldDef("m36p2a50",FieldDef.CHAR,3);
+      m36p2a51 = new FieldDef("m36p2a51",FieldDef.CHAR,40);
+      m36p2a52 = new FieldDef("m36p2a52",FieldDef.CHAR,30);
+      m36p2a53 = new FieldDef("m36p2a53",FieldDef.CHAR,5);
+      m36p2a54 = new FieldDef("m36p2a54",FieldDef.CHAR,30);
+      m36p2a54m = new FieldDef("m36p2a54m",FieldDef.CHAR,5);
+      m36p2a55 = new FieldDef("m36p2a55",FieldDef.CHAR,2);
+      m36p2a56 = new FieldDef("m36p2a56",FieldDef.INTEGER,0);
+      m36p2a57 = new FieldDef("m36p2a57",FieldDef.INTEGER,0);
+      m36p2a58 = new FieldDef("m36p2a58",FieldDef.INTEGER,0);
+      m36p2a59 = new FieldDef("m36p2a59",FieldDef.CHAR,50);
+      m36p2a60 = new FieldDef("m36p2a60",FieldDef.CHAR,2);
+      m36p2a61 = new FieldDef("m36p2a61",FieldDef.INTEGER,0);
+      m36p2a62 = new FieldDef("m36p2a62",FieldDef.CHAR,30);
+      m36p2a63 = new FieldDef("m36p2a63",FieldDef.CHAR,5);
+      m36p2a64 = new FieldDef("m36p2a64",FieldDef.CHAR,2);
+      m36p2a65 = new FieldDef("m36p2a65",FieldDef.INTEGER,0);
+      m36p2a66 = new FieldDef("m36p2a66",FieldDef.INTEGER,0);
+      m36p2a67 = new FieldDef("m36p2a67",FieldDef.INTEGER,0);
+      m36p2a68 = new FieldDef("m36p2a68",FieldDef.CHAR,50);
+      m36p2a69 = new FieldDef("m36p2a69",FieldDef.CHAR,2);
+      m36p2a70 = new FieldDef("m36p2a70",FieldDef.CHAR,100);
+      m36p2a71 = new FieldDef("m36p2a71",FieldDef.CHAR,5);
+      m36p2a72 = new FieldDef("m36p2a72",FieldDef.CHAR,50);
+      m36p2a73 = new FieldDef("m36p2a73",FieldDef.CHAR,3);
+      m36p2a74 = new FieldDef("m36p2a74",FieldDef.INTEGER,0);
+      m36p2a75 = new FieldDef("m36p2a75",FieldDef.CHAR,3);
+      m36p2a76 = new FieldDef("m36p2a76",FieldDef.CHAR,3);
+      m36p2a77 = new FieldDef("m36p2a77",FieldDef.CHAR,3);
+      m36p2a78 = new FieldDef("m36p2a78",FieldDef.CHAR,3);
+      m36p2a79 = new FieldDef("m36p2a79",FieldDef.CHAR,3);
+      m36p2a80 = new FieldDef("m36p2a80",FieldDef.CHAR,3);
+      m36p2a81 = new FieldDef("m36p2a81",FieldDef.CHAR,40);
+      m36p2a82 = new FieldDef("m36p2a82",FieldDef.CHAR,30);
+      m36p2a83 = new FieldDef("m36p2a83",FieldDef.CHAR,5);
+      m36p2a84 = new FieldDef("m36p2a84",FieldDef.CHAR,30);
+      m36p2a84m = new FieldDef("m36p2a84m",FieldDef.CHAR,5);
+      m36p2a85 = new FieldDef("m36p2a85",FieldDef.CHAR,2);
+      m36p2a86 = new FieldDef("m36p2a86",FieldDef.CHAR,9);
+      m36p2a87 = new FieldDef("m36p2a87",FieldDef.INTEGER,0);
+      m36p2a88 = new FieldDef("m36p2a88",FieldDef.INTEGER,0);
+      m36p2a89 = new FieldDef("m36p2a89",FieldDef.INTEGER,0);
+      m36p2a91 = new FieldDef("m36p2a91",FieldDef.CHAR,1);
+      m36p2a92 = new FieldDef("m36p2a92",FieldDef.INTEGER,0);
+      m36p2a94 = new FieldDef("m36p2a94",FieldDef.CHAR,40);
+      m36p2a96 = new FieldDef("m36p2a96",FieldDef.CHAR,40);
+      m36p2a98 = new FieldDef("m36p2a98",FieldDef.CHAR,40);
+      m36p2a9 = new FieldDef("m36p2a9",FieldDef.CHAR,1);
+      m36p2a10 = new FieldDef("m36p2a10",FieldDef.DATE);
+      FieldDef array[] = {
+        m36p2adominio,
+        m36p2anif,
+        m36p2aejercicio,
+        m36p2aperiodo,
+        m36p2a1a2,
+        m36p2a3,
+        m36p2a4,
+        m36p2a5,
+        m36p2a6,
+        m36p2a7,
+        m36p2a8,
+        m36p2a11,
+        m36p2a12,
+        m36p2a13,
+        m36p2a14,
+        m36p2a15,
+        m36p2a16,
+        m36p2a17,
+        m36p2a18,
+        m36p2a19,
+        m36p2a20,
+        m36p2a21,
+        m36p2a22,
+        m36p2a23,
+        m36p2a24,
+        m36p2a24m,
+        m36p2a25,
+        m36p2a26,
+        m36p2a27,
+        m36p2a28,
+        m36p2a29,
+        m36p2a99,
+        m36p2a31,
+        m36p2a32,
+        m36p2a33,
+        m36p2a34,
+        m36p2a35,
+        m36p2a36,
+        m36p2a37,
+        m36p2a38,
+        m36p2a39,
+        m36p2a40,
+        m36p2a41,
+        m36p2a42,
+        m36p2a43,
+        m36p2a44,
+        m36p2a45,
+        m36p2a46,
+        m36p2a47,
+        m36p2a48,
+        m36p2a49,
+        m36p2a50,
+        m36p2a51,
+        m36p2a52,
+        m36p2a53,
+        m36p2a54,
+        m36p2a54m,
+        m36p2a55,
+        m36p2a56,
+        m36p2a57,
+        m36p2a58,
+        m36p2a59,
+        m36p2a60,
+        m36p2a61,
+        m36p2a62,
+        m36p2a63,
+        m36p2a64,
+        m36p2a65,
+        m36p2a66,
+        m36p2a67,
+        m36p2a68,
+        m36p2a69,
+        m36p2a70,
+        m36p2a71,
+        m36p2a72,
+        m36p2a73,
+        m36p2a74,
+        m36p2a75,
+        m36p2a76,
+        m36p2a77,
+        m36p2a78,
+        m36p2a79,
+        m36p2a80,
+        m36p2a81,
+        m36p2a82,
+        m36p2a83,
+        m36p2a84,
+        m36p2a84m,
+        m36p2a85,
+        m36p2a86,
+        m36p2a87,
+        m36p2a88,
+        m36p2a89,
+        m36p2a91,
+        m36p2a92,
+        m36p2a94,
+        m36p2a96,
+        m36p2a98,
+        m36p2a9,
+        m36p2a10        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m36p2adominio,m36p2anif,m36p2aejercicio,m36p2aperiodo };
+      setPrimaryKeys(arrayf);
+      m36p2a9.setDescription("Emprendedor A-Alta, B-Baja");
+      m36p2a10.setDescription("Emprendedor fecha inscrip.o cancelacion");
+      }
+    }
+    
+  public class TabMod036p5 extends TableDef
+    {
+    // Campos
+    public FieldDef m36p5dominio;
+    public FieldDef m36p5nif;
+    public FieldDef m36p5ejercicio;
+    public FieldDef m36p5periodo;
+    public FieldDef m36p541;
+    public FieldDef m36p545;
+    public FieldDef m36p577;
+    public FieldDef m36p578;
+    public FieldDef m36p500;
+    public FieldDef m36p501;
+    public FieldDef m36p502;
+    public FieldDef m36p503;
+    public FieldDef m36p504;
+    public FieldDef m36p505;
+    public FieldDef m36p506;
+    public FieldDef m36p507;
+    public FieldDef m36p508;
+    public FieldDef m36p509;
+    public FieldDef m36p510;
+    public FieldDef m36p511;
+    public FieldDef m36p512;
+    public FieldDef m36p514;
+    public FieldDef m36p515;
+    public FieldDef m36p516;
+    public FieldDef m36p518;
+    public FieldDef m36p519;
+    public FieldDef m36p520;
+    public FieldDef m36p522;
+    public FieldDef m36p523;
+    public FieldDef m36p524;
+    public FieldDef m36p526;
+    public FieldDef m36p527;
+    public FieldDef m36p528;
+    public FieldDef m36p530;
+    public FieldDef m36p531;
+    public FieldDef m36p532;
+    public FieldDef m36p534;
+    public FieldDef m36p535;
+    public FieldDef m36p536;
+    public FieldDef m36p550;
+    public FieldDef m36p551;
+    public FieldDef m36p552;
+    public FieldDef m36p574;
+    public FieldDef m36p575;
+    public FieldDef m36p576;
+    public FieldDef m36p579;
+    public FieldDef m36p582;
+    public FieldDef m36p584;
+    public FieldDef m36p586;
+    public FieldDef m36p587;
+    public FieldDef m36p588;
+    public FieldDef m36p589;
+    public FieldDef m36p590;
+    public FieldDef m36p591;
+    public FieldDef m36p592;
+    public FieldDef m36p593;
+    public FieldDef m36p594;
+    public FieldDef m36p595;
+    public FieldDef m36p596;
+    public FieldDef m36p597;
+    public FieldDef m36p598;
+    public FieldDef m36p599;
+    public FieldDef m36p517;
+    public FieldDef m36p521;
+    public FieldDef m36p525;
+    public TabMod036p5(String name)
+      {
+      super(name);
+      m36p5dominio = new FieldDef("m36p5dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m36p5nif = new FieldDef("m36p5nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m36p5ejercicio = new FieldDef("m36p5ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m36p5periodo = new FieldDef("m36p5periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      m36p541 = new FieldDef("m36p541",FieldDef.CHAR,1);
+      m36p545 = new FieldDef("m36p545",FieldDef.DATE);
+      m36p577 = new FieldDef("m36p577",FieldDef.CHAR,1);
+      m36p578 = new FieldDef("m36p578",FieldDef.DATE);
+      m36p500 = new FieldDef("m36p500",FieldDef.CHAR,1);
+      m36p501 = new FieldDef("m36p501",FieldDef.CHAR,1);
+      m36p502 = new FieldDef("m36p502",FieldDef.CHAR,1);
+      m36p503 = new FieldDef("m36p503",FieldDef.DATE);
+      m36p504 = new FieldDef("m36p504",FieldDef.CHAR,1);
+      m36p505 = new FieldDef("m36p505",FieldDef.DATE);
+      m36p506 = new FieldDef("m36p506",FieldDef.CHAR,1);
+      m36p507 = new FieldDef("m36p507",FieldDef.DATE);
+      m36p508 = new FieldDef("m36p508",FieldDef.CHAR,1);
+      m36p509 = new FieldDef("m36p509",FieldDef.DATE);
+      m36p510 = new FieldDef("m36p510",FieldDef.CHAR,1);
+      m36p511 = new FieldDef("m36p511",FieldDef.CHAR,6);
+      m36p512 = new FieldDef("m36p512",FieldDef.DATE);
+      m36p514 = new FieldDef("m36p514",FieldDef.CHAR,1);
+      m36p515 = new FieldDef("m36p515",FieldDef.CHAR,6);
+      m36p516 = new FieldDef("m36p516",FieldDef.DATE);
+      m36p518 = new FieldDef("m36p518",FieldDef.CHAR,1);
+      m36p519 = new FieldDef("m36p519",FieldDef.CHAR,6);
+      m36p520 = new FieldDef("m36p520",FieldDef.DATE);
+      m36p522 = new FieldDef("m36p522",FieldDef.CHAR,1);
+      m36p523 = new FieldDef("m36p523",FieldDef.CHAR,6);
+      m36p524 = new FieldDef("m36p524",FieldDef.DATE);
+      m36p526 = new FieldDef("m36p526",FieldDef.CHAR,1);
+      m36p527 = new FieldDef("m36p527",FieldDef.CHAR,6);
+      m36p528 = new FieldDef("m36p528",FieldDef.DATE);
+      m36p530 = new FieldDef("m36p530",FieldDef.CHAR,1);
+      m36p531 = new FieldDef("m36p531",FieldDef.CHAR,6);
+      m36p532 = new FieldDef("m36p532",FieldDef.DATE);
+      m36p534 = new FieldDef("m36p534",FieldDef.CHAR,1);
+      m36p535 = new FieldDef("m36p535",FieldDef.CHAR,6);
+      m36p536 = new FieldDef("m36p536",FieldDef.DATE);
+      m36p550 = new FieldDef("m36p550",FieldDef.CHAR,1);
+      m36p551 = new FieldDef("m36p551",FieldDef.CHAR,6);
+      m36p552 = new FieldDef("m36p552",FieldDef.DATE);
+      m36p574 = new FieldDef("m36p574",FieldDef.CHAR,1);
+      m36p575 = new FieldDef("m36p575",FieldDef.CHAR,6);
+      m36p576 = new FieldDef("m36p576",FieldDef.DATE);
+      m36p579 = new FieldDef("m36p579",FieldDef.CHAR,1);
+      m36p582 = new FieldDef("m36p582",FieldDef.CHAR,1);
+      m36p584 = new FieldDef("m36p584",FieldDef.DATE);
+      m36p586 = new FieldDef("m36p586",FieldDef.FLOAT,6,0);
+      m36p587 = new FieldDef("m36p587",FieldDef.CHAR,1);
+      m36p588 = new FieldDef("m36p588",FieldDef.CHAR,6);
+      m36p589 = new FieldDef("m36p589",FieldDef.CHAR,6);
+      m36p590 = new FieldDef("m36p590",FieldDef.CHAR,6);
+      m36p591 = new FieldDef("m36p591",FieldDef.CHAR,1);
+      m36p592 = new FieldDef("m36p592",FieldDef.CHAR,6);
+      m36p593 = new FieldDef("m36p593",FieldDef.CHAR,6);
+      m36p594 = new FieldDef("m36p594",FieldDef.CHAR,6);
+      m36p595 = new FieldDef("m36p595",FieldDef.CHAR,1);
+      m36p596 = new FieldDef("m36p596",FieldDef.CHAR,6);
+      m36p597 = new FieldDef("m36p597",FieldDef.CHAR,6);
+      m36p598 = new FieldDef("m36p598",FieldDef.CHAR,6);
+      m36p599 = new FieldDef("m36p599",FieldDef.CHAR,1);
+      m36p517 = new FieldDef("m36p517",FieldDef.CHAR,1);
+      m36p521 = new FieldDef("m36p521",FieldDef.CHAR,6);
+      m36p525 = new FieldDef("m36p525",FieldDef.DATE);
+      FieldDef array[] = {
+        m36p5dominio,
+        m36p5nif,
+        m36p5ejercicio,
+        m36p5periodo,
+        m36p541,
+        m36p545,
+        m36p577,
+        m36p578,
+        m36p500,
+        m36p501,
+        m36p502,
+        m36p503,
+        m36p504,
+        m36p505,
+        m36p506,
+        m36p507,
+        m36p508,
+        m36p509,
+        m36p510,
+        m36p511,
+        m36p512,
+        m36p514,
+        m36p515,
+        m36p516,
+        m36p518,
+        m36p519,
+        m36p520,
+        m36p522,
+        m36p523,
+        m36p524,
+        m36p526,
+        m36p527,
+        m36p528,
+        m36p530,
+        m36p531,
+        m36p532,
+        m36p534,
+        m36p535,
+        m36p536,
+        m36p550,
+        m36p551,
+        m36p552,
+        m36p574,
+        m36p575,
+        m36p576,
+        m36p579,
+        m36p582,
+        m36p584,
+        m36p586,
+        m36p587,
+        m36p588,
+        m36p589,
+        m36p590,
+        m36p591,
+        m36p592,
+        m36p593,
+        m36p594,
+        m36p595,
+        m36p596,
+        m36p597,
+        m36p598,
+        m36p599,
+        m36p517,
+        m36p521,
+        m36p525        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m36p5dominio,m36p5nif,m36p5ejercicio,m36p5periodo };
+      setPrimaryKeys(arrayf);
+      m36p517.setDescription("Reg.criterio caja 1-Incluido/2-Excluido/3-Renuncia/4-Revocacion/5-baja");
+      m36p521.setDescription("Reg.criterio caja Epigrafe");
+      m36p525.setDescription("Reg.criterio caja Fecha");
+      }
+    }
+    
   public CatModelos2()
     {
     tabmod184d = new TabMod184d("mod184d");
@@ -8309,12 +8635,10 @@ public class CatModelos2 extends Catalog
     tabmod576 = new TabMod576("mod576");
     tabmod130des = new TabMod130des("mod130des");
     tabmod036p1 = new TabMod036p1("mod036p1");
-    tabmod036p2 = new TabMod036p2("mod036p2");
     tabmod036p2b = new TabMod036p2b("mod036p2b");
     tabmod036p2c = new TabMod036p2c("mod036p2c");
     tabmod036p3 = new TabMod036p3("mod036p3");
     tabmod036p4 = new TabMod036p4("mod036p4");
-    tabmod036p5 = new TabMod036p5("mod036p5");
     tabmod036p6 = new TabMod036p6("mod036p6");
     tabmod036p7 = new TabMod036p7("mod036p7");
     tabmod036p8 = new TabMod036p8("mod036p8");
@@ -8329,6 +8653,10 @@ public class CatModelos2 extends Catalog
     tabmod309 = new TabMod309("mod309");
     tabmod210 = new TabMod210("mod210");
     tabmod210cp = new TabMod210cp("mod210cp");
+    tabmod720c = new TabMod720c("mod720c");
+    tabmod720d = new TabMod720d("mod720d");
+    tabmod036p2 = new TabMod036p2("mod036p2");
+    tabmod036p5 = new TabMod036p5("mod036p5");
     TableDef array[] = {
       tabmod184d,
       tabmod184e,
@@ -8351,12 +8679,10 @@ public class CatModelos2 extends Catalog
       tabmod576,
       tabmod130des,
       tabmod036p1,
-      tabmod036p2,
       tabmod036p2b,
       tabmod036p2c,
       tabmod036p3,
       tabmod036p4,
-      tabmod036p5,
       tabmod036p6,
       tabmod036p7,
       tabmod036p8,
@@ -8370,7 +8696,11 @@ public class CatModelos2 extends Catalog
       tabmod308,
       tabmod309,
       tabmod210,
-      tabmod210cp      
+      tabmod210cp,
+      tabmod720c,
+      tabmod720d,
+      tabmod036p2,
+      tabmod036p5      
       };
     setTables(array);
     FieldDef tabmod184eArrayf1[] = { tabmod184e.m184edominio,tabmod184e.m184enif,tabmod184e.m184eejercicio,tabmod184e.m184eperiodo };
@@ -8413,6 +8743,11 @@ public class CatModelos2 extends Catalog
       new ForeignKey(tabmod340c,tabmod340iArrayf1)      
       };
     tabmod340i.setForeignKeys(tabmod340iArrayfk);
+    FieldDef tabmod720dArrayf1[] = { tabmod720d.m720ddominio,tabmod720d.m720dnif,tabmod720d.m720dejercicio,tabmod720d.m720dperiodo };
+    ForeignKey tabmod720dArrayfk[] = { 
+      new ForeignKey(tabmod720c,tabmod720dArrayf1)      
+      };
+    tabmod720d.setForeignKeys(tabmod720dArrayfk);
     }
   }
   

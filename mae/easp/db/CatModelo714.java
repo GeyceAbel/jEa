@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111110
-// Hora:             18:26:07
+// Fecha:            20140305
+// Hora:             17:18:18
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -3916,6 +3916,7 @@ public class CatModelo714 extends Catalog
     public FieldDef m710vlcprop;
     public FieldDef m710vlcboni;
     public FieldDef m710ingreso;
+    public FieldDef m710autbonif;
     public TabMod714h10(String name)
       {
       super(name);
@@ -3950,6 +3951,7 @@ public class CatModelo714 extends Catalog
       m710vlcprop = new FieldDef("m710vlcprop",FieldDef.FLOAT,6,0);
       m710vlcboni = new FieldDef("m710vlcboni",FieldDef.FLOAT,6,0);
       m710ingreso = new FieldDef("m710ingreso",FieldDef.FLOAT,6,0);
+      m710autbonif = new FieldDef("m710autbonif",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m710dominio,
         m710nif,
@@ -3981,7 +3983,8 @@ public class CatModelo714 extends Catalog
         m710vlcaneto,
         m710vlcprop,
         m710vlcboni,
-        m710ingreso        
+        m710ingreso,
+        m710autbonif        
         };
       setColumns(array);
       FieldDef arrayf[] = {m710dominio,m710nif,m710ejercicio,m710periodo };
@@ -4013,6 +4016,7 @@ public class CatModelo714 extends Catalog
       m710vlcprop.setDescription("Liquidacion Bonificaciones autonomicas C.Valenciana Copa America 2007 Parte cuota proporcional a dichos bienes y derechos [50]");
       m710vlcboni.setDescription("Liquidacion Bonificaciones autonomicas C.Valenciana Copa America 2007 Bonificacion 99 99 de la casilla (45) [51]");
       m710ingreso.setDescription("Liquidacion Cuota a ingresar Cuota a ingresar [52]");
+      m710autbonif.setDescription("Liquidacion Bonificacion autonomica Importe bonificacion autonomica (50)");
       }
     }
     

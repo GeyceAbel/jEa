@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111110
-// Hora:             18:26:06
+// Fecha:            20140305
+// Hora:             17:17:30
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -19,7 +19,6 @@ public class CatJeo extends Catalog
   public TabGycauto tabgycauto;
   public TabIrpf tabirpf;
   public TabIva tabiva;
-  public TabTransaccion tabtransaccion;
   public TabColumnagasto tabcolumnagasto;
   public TabTamortizacion tabtamortizacion;
   public TabLinacumulados tablinacumulados;
@@ -28,8 +27,6 @@ public class CatJeo extends Catalog
   public TabVtoscond tabvtoscond;
   public TabActividades tabactividades;
   public TabPsocios tabpsocios;
-  public TabPcmayor tabpcmayor;
-  public TabPcuentas tabpcuentas;
   public TabPcadicionales tabpcadicionales;
   public TabDefcabapuntes tabdefcabapuntes;
   public TabDefapuntes tabdefapuntes;
@@ -53,7 +50,6 @@ public class CatJeo extends Catalog
   public TabImportdef tabimportdef;
   public TabImportdet tabimportdet;
   public TabDoctablasbd tabdoctablasbd;
-  public TabQuefrase tabquefrase;
   public TabQuevariables tabquevariables;
   public TabQuetabla tabquetabla;
   public TabQuecolumn tabquecolumn;
@@ -63,7 +59,6 @@ public class CatJeo extends Catalog
   public TabDocrtfs tabdocrtfs;
   public TabDocrtfcampos tabdocrtfcampos;
   public TabSeries tabseries;
-  public TabBieninversion tabbieninversion;
   public TabPclocales tabpclocales;
   public TabLisresumen tablisresumen;
   public TabEjercicio tabejercicio;
@@ -71,13 +66,20 @@ public class CatJeo extends Catalog
   public TabDocumentos tabdocumentos;
   public TabAcum347locales tabacum347locales;
   public TabConceptos tabconceptos;
-  public TabImportaapuntes tabimportaapuntes;
-  public TabApuntes tabapuntes;
   public TabEmpresa tabempresa;
-  public TabSocios tabsocios;
+  public TabRegborrado tabregborrado;
+  public TabBieninversion tabbieninversion;
+  public TabImportaapuntes tabimportaapuntes;
   public TabAcumulado347 tabacumulado347;
   public TabListado347 tablistado347;
-  public TabRegborrado tabregborrado;
+  public TabQuefrase tabquefrase;
+  public TabSocios tabsocios;
+  public TabTransaccion tabtransaccion;
+  public TabPcmayor tabpcmayor;
+  public TabPcuentas tabpcuentas;
+  public TabApuntes tabapuntes;
+  public TabCobropago tabcobropago;
+  public TabListadolibros tablistadolibros;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -156,53 +158,6 @@ public class CatJeo extends Catalog
       ivatipo.setDescription("IVA, IGIC o Compensación agricultura y pesca, Recargo de equivalencia");
       ivanrotipo.setDescription("Número tipo impositivo");
       ivaporcen.setDescription("% de IVA, IGIC,compensación agricultura y pesca o Recargo de equivalencia");
-      }
-    }
-    
-  public class TabTransaccion extends TableDef
-    {
-    // Campos
-    public FieldDef traejercicio;
-    public FieldDef tramodelo;
-    public FieldDef tracodigo;
-    public FieldDef tratipomodiva;
-    public FieldDef tradescripcion;
-    public FieldDef traemitrecib;
-    public FieldDef travoloper;
-    public FieldDef traoperespec;
-    public TabTransaccion(String name)
-      {
-      super(name);
-      traejercicio = new FieldDef("traejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      tramodelo = new FieldDef("tramodelo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      tracodigo = new FieldDef("tracodigo",FieldDef.CHAR,5,FieldDef.NOTNULL);
-      tratipomodiva = new FieldDef("tratipomodiva",FieldDef.CHAR,3);
-      tradescripcion = new FieldDef("tradescripcion",FieldDef.CHAR,40);
-      traemitrecib = new FieldDef("traemitrecib",FieldDef.CHAR,1);
-      travoloper = new FieldDef("travoloper",FieldDef.CHAR,3);
-      traoperespec = new FieldDef("traoperespec",FieldDef.CHAR,3);
-      FieldDef array[] = {
-        traejercicio,
-        tramodelo,
-        tracodigo,
-        tratipomodiva,
-        tradescripcion,
-        traemitrecib,
-        travoloper,
-        traoperespec        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {traejercicio,tramodelo,tracodigo };
-      setDescription("Tipo de IVA");
-      setPrimaryKeys(arrayf);
-      traejercicio.setDescription("Ejercicio");
-      tramodelo.setDescription("Modelo declaración IVA");
-      tracodigo.setDescription("Código de transacción");
-      tratipomodiva.setDescription("Tipo de transacción declaración IVA");
-      tradescripcion.setDescription("Descripción");
-      traemitrecib.setDescription("Emitida o recibida");
-      travoloper.setDescription("Volumen operaciones 390/392");
-      traoperespec.setDescription("Operación específica 390/392");
       }
     }
     
@@ -726,180 +681,6 @@ public class CatJeo extends Catalog
       psocpartictrim4.setDescription("% de participación trimestre 4");
       psocfechaalta.setDescription("Fecha de alta");
       psocfechabaja.setDescription("Fecha de baja");
-      }
-    }
-    
-  public class TabPcmayor extends TableDef
-    {
-    // Campos
-    public FieldDef pcmempresa;
-    public FieldDef pcmcuenta;
-    public FieldDef pcmtipocuenta;
-    public FieldDef pcmcolumnalibro;
-    public FieldDef pcmlineairpf;
-    public FieldDef pcmdesc;
-    public FieldDef pcmmediacion;
-    public FieldDef pcmpiva;
-    public FieldDef pcmprecargo;
-    public FieldDef pcmpirpf;
-    public FieldDef pcmivaded;
-    public FieldDef pcm347;
-    public FieldDef pcm349;
-    public FieldDef pcmttrans;
-    public FieldDef pcm349servicios;
-    public TabPcmayor(String name)
-      {
-      super(name);
-      pcmempresa = new FieldDef("pcmempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      pcmcuenta = new FieldDef("pcmcuenta",FieldDef.CHAR,4,FieldDef.NOTNULL);
-      pcmtipocuenta = new FieldDef("pcmtipocuenta",FieldDef.CHAR,1);
-      pcmcolumnalibro = new FieldDef("pcmcolumnalibro",FieldDef.INTEGER,0);
-      pcmlineairpf = new FieldDef("pcmlineairpf",FieldDef.INTEGER,0);
-      pcmdesc = new FieldDef("pcmdesc",FieldDef.CHAR,40);
-      pcmmediacion = new FieldDef("pcmmediacion",FieldDef.CHAR,1);
-      pcmpiva = new FieldDef("pcmpiva",FieldDef.INTEGER,0);
-      pcmprecargo = new FieldDef("pcmprecargo",FieldDef.INTEGER,0);
-      pcmpirpf = new FieldDef("pcmpirpf",FieldDef.INTEGER,0);
-      pcmivaded = new FieldDef("pcmivaded",FieldDef.CHAR,1);
-      pcm347 = new FieldDef("pcm347",FieldDef.CHAR,1);
-      pcm349 = new FieldDef("pcm349",FieldDef.CHAR,1);
-      pcmttrans = new FieldDef("pcmttrans",FieldDef.CHAR,5);
-      pcm349servicios = new FieldDef("pcm349servicios",FieldDef.CHAR,1);
-      FieldDef array[] = {
-        pcmempresa,
-        pcmcuenta,
-        pcmtipocuenta,
-        pcmcolumnalibro,
-        pcmlineairpf,
-        pcmdesc,
-        pcmmediacion,
-        pcmpiva,
-        pcmprecargo,
-        pcmpirpf,
-        pcmivaded,
-        pcm347,
-        pcm349,
-        pcmttrans,
-        pcm349servicios        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {pcmempresa,pcmcuenta };
-      setDescription("Relación de cuentas de mayor");
-      setPrimaryKeys(arrayf);
-      pcmempresa.setDescription("Empresa");
-      pcmcuenta.setDescription("Cuenta de mayor");
-      pcmtipocuenta.setDescription("Tipo de cuenta. (Ingresos, gastos, bienes de inversión,...)");
-      pcmcolumnalibro.setDescription("Número de columna del libro de gastos");
-      pcmlineairpf.setDescription("Equivalencia con ingresos/gastos declaración IRPF");
-      pcmdesc.setDescription("Descripción");
-      pcmmediacion.setDescription("Debe tenerse en cuenta para la relación de pagos por mediación");
-      pcmpiva.setDescription("Tipo impositivo de IVA, IGIC o Reg.especial agricultura y pesca");
-      pcmprecargo.setDescription("% de recargo de equivalencia");
-      pcmpirpf.setDescription("% de IRPF");
-      pcmivaded.setDescription("Iva deducible");
-      pcm347.setDescription("Debe tenerse en cuenta para el 347");
-      pcm349.setDescription("Debe tenerse en cuenta para el 349");
-      pcmttrans.setDescription("Código de transacción");
-      pcm349servicios.setDescription("Debe tenerse en cuenta para el 349, en las claves servicios");
-      }
-    }
-    
-  public class TabPcuentas extends TableDef
-    {
-    // Campos
-    public FieldDef pcuempresa;
-    public FieldDef pcucuenta;
-    public FieldDef pcusubcuenta;
-    public FieldDef pcudesc;
-    public FieldDef pcunif;
-    public FieldDef pcumediacion;
-    public FieldDef pcupiva;
-    public FieldDef pcuprecargo;
-    public FieldDef pcupirpf;
-    public FieldDef pcuivaded;
-    public FieldDef pcu347;
-    public FieldDef pcu349;
-    public FieldDef pcuttrans;
-    public FieldDef pcucodvto;
-    public FieldDef pcudias1;
-    public FieldDef pcudias2;
-    public FieldDef pcudias3;
-    public FieldDef pcudias4;
-    public FieldDef pcudias5;
-    public FieldDef pcudias6;
-    public FieldDef pcu349servicios;
-    public TabPcuentas(String name)
-      {
-      super(name);
-      pcuempresa = new FieldDef("pcuempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      pcucuenta = new FieldDef("pcucuenta",FieldDef.CHAR,4,FieldDef.NOTNULL);
-      pcusubcuenta = new FieldDef("pcusubcuenta",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      pcudesc = new FieldDef("pcudesc",FieldDef.CHAR,40);
-      pcunif = new FieldDef("pcunif",FieldDef.CHAR,15);
-      pcumediacion = new FieldDef("pcumediacion",FieldDef.CHAR,1);
-      pcupiva = new FieldDef("pcupiva",FieldDef.INTEGER,0);
-      pcuprecargo = new FieldDef("pcuprecargo",FieldDef.INTEGER,0);
-      pcupirpf = new FieldDef("pcupirpf",FieldDef.INTEGER,0);
-      pcuivaded = new FieldDef("pcuivaded",FieldDef.CHAR,1);
-      pcu347 = new FieldDef("pcu347",FieldDef.CHAR,1);
-      pcu349 = new FieldDef("pcu349",FieldDef.CHAR,1);
-      pcuttrans = new FieldDef("pcuttrans",FieldDef.CHAR,5);
-      pcucodvto = new FieldDef("pcucodvto",FieldDef.CHAR,3);
-      pcudias1 = new FieldDef("pcudias1",FieldDef.INTEGER,0);
-      pcudias2 = new FieldDef("pcudias2",FieldDef.INTEGER,0);
-      pcudias3 = new FieldDef("pcudias3",FieldDef.INTEGER,0);
-      pcudias4 = new FieldDef("pcudias4",FieldDef.INTEGER,0);
-      pcudias5 = new FieldDef("pcudias5",FieldDef.INTEGER,0);
-      pcudias6 = new FieldDef("pcudias6",FieldDef.INTEGER,0);
-      pcu349servicios = new FieldDef("pcu349servicios",FieldDef.CHAR,1);
-      FieldDef array[] = {
-        pcuempresa,
-        pcucuenta,
-        pcusubcuenta,
-        pcudesc,
-        pcunif,
-        pcumediacion,
-        pcupiva,
-        pcuprecargo,
-        pcupirpf,
-        pcuivaded,
-        pcu347,
-        pcu349,
-        pcuttrans,
-        pcucodvto,
-        pcudias1,
-        pcudias2,
-        pcudias3,
-        pcudias4,
-        pcudias5,
-        pcudias6,
-        pcu349servicios        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {pcuempresa,pcucuenta,pcusubcuenta };
-      setDescription("Relación de subcuentas");
-      setPrimaryKeys(arrayf);
-      pcuempresa.setDescription("Empresa");
-      pcucuenta.setDescription("Cuenta de mayor");
-      pcusubcuenta.setDescription("Subcuenta");
-      pcudesc.setDescription("Descripción");
-      pcunif.setDescription("NIF o CIF");
-      pcumediacion.setDescription("Debe tenerse en cuenta para la relación de pagos por mediación");
-      pcupiva.setDescription("Tipo impositivo de IVA, IGIC o Reg.especial agricultura y pesca");
-      pcuprecargo.setDescription("% de recargo de equivalencia");
-      pcupirpf.setDescription("% de IRPF");
-      pcuivaded.setDescription("Iva deducible");
-      pcu347.setDescription("Debe tenerse en cuenta para el 347");
-      pcu349.setDescription("Debe tenerse en cuenta para el 349");
-      pcuttrans.setDescription("Código de transacción");
-      pcucodvto.setDescription("Código de vencimiento");
-      pcudias1.setDescription("Días que transcurrirá hasta el primer plazo de cobro/pago");
-      pcudias2.setDescription("Días que transcurrirá hasta el segundo plazo de cobro/pago");
-      pcudias3.setDescription("Días que transcurrirá hasta el tercer plazo de cobro/pago");
-      pcudias4.setDescription("Días que transcurrirá hasta el cuarto plazo de cobro/pago");
-      pcudias5.setDescription("Días que transcurrirá hasta el quinto plazo de cobro/pago");
-      pcudias6.setDescription("Días que transcurrirá hasta el sexto plazo de cobro/pago");
-      pcu349servicios.setDescription("Debe tenerse en cuenta para el 349, en las claves servicios");
       }
     }
     
@@ -2281,59 +2062,6 @@ public class CatJeo extends Catalog
       }
     }
     
-  public class TabQuefrase extends TableDef
-    {
-    // Campos
-    public FieldDef qefaplicacion;
-    public FieldDef qeffrase;
-    public FieldDef qefdescripcion;
-    public FieldDef qefmaster;
-    public FieldDef qeftitulo;
-    public FieldDef qefapaisado;
-    public FieldDef qefletra;
-    public FieldDef qefpaginado;
-    public FieldDef qeffrom;
-    public FieldDef qefwhere;
-    public FieldDef qefect;
-    public FieldDef qefrepetir;
-    public FieldDef qefcount;
-    public TabQuefrase(String name)
-      {
-      super(name);
-      qefaplicacion = new FieldDef("qefaplicacion",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      qeffrase = new FieldDef("qeffrase",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      qefdescripcion = new FieldDef("qefdescripcion",FieldDef.CHAR,80);
-      qefmaster = new FieldDef("qefmaster",FieldDef.CHAR,15);
-      qeftitulo = new FieldDef("qeftitulo",FieldDef.CHAR,80);
-      qefapaisado = new FieldDef("qefapaisado",FieldDef.CHAR,1);
-      qefletra = new FieldDef("qefletra",FieldDef.INTEGER,0);
-      qefpaginado = new FieldDef("qefpaginado",FieldDef.CHAR,1);
-      qeffrom = new FieldDef("qeffrom",FieldDef.CHAR,255);
-      qefwhere = new FieldDef("qefwhere",FieldDef.CHAR,255);
-      qefect = new FieldDef("qefect",FieldDef.CHAR,1);
-      qefrepetir = new FieldDef("qefrepetir",FieldDef.CHAR,1);
-      qefcount = new FieldDef("qefcount",FieldDef.CHAR,1);
-      FieldDef array[] = {
-        qefaplicacion,
-        qeffrase,
-        qefdescripcion,
-        qefmaster,
-        qeftitulo,
-        qefapaisado,
-        qefletra,
-        qefpaginado,
-        qeffrom,
-        qefwhere,
-        qefect,
-        qefrepetir,
-        qefcount        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {qefaplicacion,qeffrase };
-      setPrimaryKeys(arrayf);
-      }
-    }
-    
   public class TabQuevariables extends TableDef
     {
     // Campos
@@ -2440,6 +2168,10 @@ public class CatJeo extends Catalog
     public FieldDef qecbbdd;
     public FieldDef qecsum;
     public FieldDef qecgrupby;
+    public FieldDef qecmedia;
+    public FieldDef qeccontador;
+    public FieldDef qecrotura;
+    public FieldDef qectitrotura;
     public TabQuecolumn(String name)
       {
       super(name);
@@ -2461,6 +2193,10 @@ public class CatJeo extends Catalog
       qecbbdd = new FieldDef("qecbbdd",FieldDef.CHAR,15);
       qecsum = new FieldDef("qecsum",FieldDef.CHAR,1);
       qecgrupby = new FieldDef("qecgrupby",FieldDef.CHAR,1);
+      qecmedia = new FieldDef("qecmedia",FieldDef.CHAR,1);
+      qeccontador = new FieldDef("qeccontador",FieldDef.CHAR,1);
+      qecrotura = new FieldDef("qecrotura",FieldDef.CHAR,1);
+      qectitrotura = new FieldDef("qectitrotura",FieldDef.CHAR,20);
       FieldDef array[] = {
         qecaplicacion,
         qecfrase,
@@ -2479,7 +2215,11 @@ public class CatJeo extends Catalog
         qecformato,
         qecbbdd,
         qecsum,
-        qecgrupby        
+        qecgrupby,
+        qecmedia,
+        qeccontador,
+        qecrotura,
+        qectitrotura        
         };
       setColumns(array);
       FieldDef arrayf[] = {qecaplicacion,qecfrase,qecorden };
@@ -2749,217 +2489,6 @@ public class CatJeo extends Catalog
       }
     }
     
-  public class TabBieninversion extends TableDef
-    {
-    // Campos
-    public FieldDef bieelemento;
-    public FieldDef bieempresa;
-    public FieldDef bieactividad;
-    public FieldDef bienumero;
-    public FieldDef biefechafactura;
-    public FieldDef biefechautiliz;
-    public FieldDef biecuenta;
-    public FieldDef biesubcuenta;
-    public FieldDef biedocumento;
-    public FieldDef bienif;
-    public FieldDef bienombre;
-    public FieldDef biectaamortizac;
-    public FieldDef biesbctaamortiz;
-    public FieldDef biedescripcion;
-    public FieldDef bietotalfactura;
-    public FieldDef biebaseiva;
-    public FieldDef bieporciva;
-    public FieldDef biecuotaiva;
-    public FieldDef bievaladquis;
-    public FieldDef bievalresidual;
-    public FieldDef bieamortacumul;
-    public FieldDef bietipobien;
-    public FieldDef bieelemnuevo;
-    public FieldDef bieelemusado;
-    public FieldDef bietipoamortiz;
-    public FieldDef biemasunturno;
-    public FieldDef bienumerohoras;
-    public FieldDef bielibamorempl;
-    public FieldDef bieincrplantil;
-    public FieldDef bielimiteinver;
-    public FieldDef bielibamoresc;
-    public FieldDef bieamortacel;
-    public FieldDef biecoefincre;
-    public FieldDef bienrounidad;
-    public FieldDef biefechabaja;
-    public FieldDef biecausabaja;
-    public FieldDef biecultivoirpf;
-    public FieldDef biecultivoiva;
-    public FieldDef biecodigotabla;
-    public FieldDef bieperiodirpf;
-    public FieldDef bieporcenirpf;
-    public FieldDef bieperioregul;
-    public FieldDef biedivisor;
-    public FieldDef biepprorrata;
-    public FieldDef biecodasiento;
-    public FieldDef bieporcentabla;
-    public FieldDef bieperiodotabla;
-    public FieldDef biecodtablamort;
-    public FieldDef biefechaoperac;
-    public TabBieninversion(String name)
-      {
-      super(name);
-      bieelemento = new FieldDef("bieelemento",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      bieempresa = new FieldDef("bieempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      bieactividad = new FieldDef("bieactividad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      bienumero = new FieldDef("bienumero",FieldDef.INTEGER,0);
-      biefechafactura = new FieldDef("biefechafactura",FieldDef.DATE);
-      biefechautiliz = new FieldDef("biefechautiliz",FieldDef.DATE);
-      biecuenta = new FieldDef("biecuenta",FieldDef.CHAR,4);
-      biesubcuenta = new FieldDef("biesubcuenta",FieldDef.CHAR,15);
-      biedocumento = new FieldDef("biedocumento",FieldDef.CHAR,12);
-      bienif = new FieldDef("bienif",FieldDef.CHAR,15);
-      bienombre = new FieldDef("bienombre",FieldDef.CHAR,40);
-      biectaamortizac = new FieldDef("biectaamortizac",FieldDef.CHAR,4);
-      biesbctaamortiz = new FieldDef("biesbctaamortiz",FieldDef.CHAR,15);
-      biedescripcion = new FieldDef("biedescripcion",FieldDef.CHAR,40);
-      bietotalfactura = new FieldDef("bietotalfactura",FieldDef.FLOAT,6,0);
-      biebaseiva = new FieldDef("biebaseiva",FieldDef.FLOAT,6,0);
-      bieporciva = new FieldDef("bieporciva",FieldDef.FLOAT,6,0);
-      biecuotaiva = new FieldDef("biecuotaiva",FieldDef.FLOAT,6,0);
-      bievaladquis = new FieldDef("bievaladquis",FieldDef.FLOAT,6,0);
-      bievalresidual = new FieldDef("bievalresidual",FieldDef.FLOAT,6,0);
-      bieamortacumul = new FieldDef("bieamortacumul",FieldDef.FLOAT,6,0);
-      bietipobien = new FieldDef("bietipobien",FieldDef.CHAR,1);
-      bieelemnuevo = new FieldDef("bieelemnuevo",FieldDef.CHAR,1);
-      bieelemusado = new FieldDef("bieelemusado",FieldDef.CHAR,1);
-      bietipoamortiz = new FieldDef("bietipoamortiz",FieldDef.CHAR,3);
-      biemasunturno = new FieldDef("biemasunturno",FieldDef.CHAR,1);
-      bienumerohoras = new FieldDef("bienumerohoras",FieldDef.INTEGER,0);
-      bielibamorempl = new FieldDef("bielibamorempl",FieldDef.CHAR,1);
-      bieincrplantil = new FieldDef("bieincrplantil",FieldDef.FLOAT,6,0);
-      bielimiteinver = new FieldDef("bielimiteinver",FieldDef.FLOAT,6,0);
-      bielibamoresc = new FieldDef("bielibamoresc",FieldDef.CHAR,1);
-      bieamortacel = new FieldDef("bieamortacel",FieldDef.CHAR,1);
-      biecoefincre = new FieldDef("biecoefincre",FieldDef.FLOAT,6,0);
-      bienrounidad = new FieldDef("bienrounidad",FieldDef.INTEGER,0);
-      biefechabaja = new FieldDef("biefechabaja",FieldDef.DATE);
-      biecausabaja = new FieldDef("biecausabaja",FieldDef.CHAR,100);
-      biecultivoirpf = new FieldDef("biecultivoirpf",FieldDef.INTEGER,0);
-      biecultivoiva = new FieldDef("biecultivoiva",FieldDef.INTEGER,0);
-      biecodigotabla = new FieldDef("biecodigotabla",FieldDef.INTEGER,0);
-      bieperiodirpf = new FieldDef("bieperiodirpf",FieldDef.INTEGER,0);
-      bieporcenirpf = new FieldDef("bieporcenirpf",FieldDef.FLOAT,6,0);
-      bieperioregul = new FieldDef("bieperioregul",FieldDef.INTEGER,0);
-      biedivisor = new FieldDef("biedivisor",FieldDef.INTEGER,0);
-      biepprorrata = new FieldDef("biepprorrata",FieldDef.FLOAT,6,0);
-      biecodasiento = new FieldDef("biecodasiento",FieldDef.INTEGER,0);
-      bieporcentabla = new FieldDef("bieporcentabla",FieldDef.FLOAT,6,0);
-      bieperiodotabla = new FieldDef("bieperiodotabla",FieldDef.FLOAT,6,0);
-      biecodtablamort = new FieldDef("biecodtablamort",FieldDef.CHAR,8);
-      biefechaoperac = new FieldDef("biefechaoperac",FieldDef.DATE);
-      FieldDef array[] = {
-        bieelemento,
-        bieempresa,
-        bieactividad,
-        bienumero,
-        biefechafactura,
-        biefechautiliz,
-        biecuenta,
-        biesubcuenta,
-        biedocumento,
-        bienif,
-        bienombre,
-        biectaamortizac,
-        biesbctaamortiz,
-        biedescripcion,
-        bietotalfactura,
-        biebaseiva,
-        bieporciva,
-        biecuotaiva,
-        bievaladquis,
-        bievalresidual,
-        bieamortacumul,
-        bietipobien,
-        bieelemnuevo,
-        bieelemusado,
-        bietipoamortiz,
-        biemasunturno,
-        bienumerohoras,
-        bielibamorempl,
-        bieincrplantil,
-        bielimiteinver,
-        bielibamoresc,
-        bieamortacel,
-        biecoefincre,
-        bienrounidad,
-        biefechabaja,
-        biecausabaja,
-        biecultivoirpf,
-        biecultivoiva,
-        biecodigotabla,
-        bieperiodirpf,
-        bieporcenirpf,
-        bieperioregul,
-        biedivisor,
-        biepprorrata,
-        biecodasiento,
-        bieporcentabla,
-        bieperiodotabla,
-        biecodtablamort,
-        biefechaoperac        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {bieelemento };
-      setDescription("Bienes de inversión");
-      setPrimaryKeys(arrayf);
-      bieelemento.setAutoIncrementable(true);
-      bieempresa.setDescription("Empresa");
-      bieactividad.setDescription("Actividad");
-      bienumero.setDescription("Número de factura");
-      biefechafactura.setDescription("Fecha de factura");
-      biefechautiliz.setDescription("Fecha de puesta en servicio");
-      biecuenta.setDescription("Cuenta de mayor");
-      biesubcuenta.setDescription("Subcuenta");
-      biedocumento.setDescription("Número de documento");
-      bienif.setDescription("NIF cliente o proveedor");
-      bienombre.setDescription("Nombre del cliente");
-      biectaamortizac.setDescription("Cuenta de mayor para amortizar");
-      biesbctaamortiz.setDescription("Subcuenta para amortizar");
-      biedescripcion.setDescription("Descripción del inmovilizado");
-      bietotalfactura.setDescription("Total factura");
-      biebaseiva.setDescription("Base iva");
-      bieporciva.setDescription("% de iva");
-      biecuotaiva.setDescription("Cuota de iva");
-      bievaladquis.setDescription("Valor amortizable");
-      bievalresidual.setDescription("Valor residual");
-      bieamortacumul.setDescription("Amortización acumulada");
-      bietipobien.setDescription("Naturaleza del bien (Material, Inmaterial)");
-      bieelemnuevo.setDescription("Activo nuevo");
-      bieelemusado.setDescription("Elemento usado");
-      bietipoamortiz.setDescription("Tipo de amortización (Lineal, Números dígitos, Coeficiente constante)");
-      biemasunturno.setDescription("Elemento usado en más de un turno");
-      bienumerohoras.setDescription("Número de horas de utilización");
-      bielibamorempl.setDescription("Libertad amortización inversiones generadoras de empleo");
-      bieincrplantil.setDescription("Incremento de plantilla");
-      bielimiteinver.setDescription("Límite inversión");
-      bielibamoresc.setDescription("Libertad de amortización para inversiones de escaso valor");
-      bieamortacel.setDescription("Amortización acelerada");
-      biecoefincre.setDescription("Porcentaje multiplicador del coeficiente lineal");
-      bienrounidad.setDescription("Número de unidades");
-      biefechabaja.setDescription("Fecha de baja");
-      biecausabaja.setDescription("Causa de la baja");
-      biecultivoirpf.setDescription("Código de cultivo de IRPF");
-      biecultivoiva.setDescription("Código de cultivo de IVA");
-      biecodigotabla.setDescription("Código en tabla amortización");
-      bieperiodirpf.setDescription("Número de años amortización IRPF");
-      bieporcenirpf.setDescription("% de amortización IRPF");
-      bieperioregul.setDescription("Años de regularización del bien a efectos de IVA");
-      biedivisor.setDescription("Divisor");
-      biepprorrata.setDescription("% de prorrata definitiva año adquisición");
-      biecodasiento.setDescription("Código de asiento");
-      bieporcentabla.setDescription("% máximo assignado en tabla");
-      bieperiodotabla.setDescription("% máximo assignado en tabla");
-      biecodtablamort.setDescription("Código de elemento en la tabla amortizaciones");
-      biefechaoperac.setDescription("Fecha de operación");
-      }
-    }
-    
   public class TabPclocales extends TableDef
     {
     // Campos
@@ -3107,6 +2636,10 @@ public class CatJeo extends Catalog
     public FieldDef lrsdiciembre;
     public FieldDef lrsacumul;
     public FieldDef lrsivarecargo;
+    public FieldDef lrsdesctrans;
+    public FieldDef lrsnomempresa;
+    public FieldDef lrsnomactiv;
+    public FieldDef lrsnifempre;
     public TabLisresumen(String name)
       {
       super(name);
@@ -3139,6 +2672,10 @@ public class CatJeo extends Catalog
       lrsdiciembre = new FieldDef("lrsdiciembre",FieldDef.FLOAT,6,0);
       lrsacumul = new FieldDef("lrsacumul",FieldDef.FLOAT,6,0);
       lrsivarecargo = new FieldDef("lrsivarecargo",FieldDef.CHAR,1);
+      lrsdesctrans = new FieldDef("lrsdesctrans",FieldDef.CHAR,40);
+      lrsnomempresa = new FieldDef("lrsnomempresa",FieldDef.CHAR,70);
+      lrsnomactiv = new FieldDef("lrsnomactiv",FieldDef.CHAR,40);
+      lrsnifempre = new FieldDef("lrsnifempre",FieldDef.CHAR,15);
       FieldDef array[] = {
         lrscodigo,
         lrsempresa,
@@ -3168,7 +2705,11 @@ public class CatJeo extends Catalog
         lrsnoviembre,
         lrsdiciembre,
         lrsacumul,
-        lrsivarecargo        
+        lrsivarecargo,
+        lrsdesctrans,
+        lrsnomempresa,
+        lrsnomactiv,
+        lrsnifempre        
         };
       setColumns(array);
       FieldDef arrayf[] = {lrscodigo };
@@ -3485,6 +3026,410 @@ public class CatJeo extends Catalog
       }
     }
     
+  public class TabEmpresa extends TableDef
+    {
+    // Campos
+    public FieldDef empcodigo;
+    public FieldDef empnif;
+    public FieldDef empregdeduciva;
+    public FieldDef empconfeclibros;
+    public FieldDef empcontadorfras;
+    public FieldDef empplancuentas;
+    public FieldDef empcodigoplan;
+    public FieldDef empfechabaja;
+    public FieldDef empfpagopagocta;
+    public FieldDef empfpagoirpf;
+    public FieldDef empfpagoiva;
+    public FieldDef empultliquida;
+    public FieldDef empmovimientos;
+    public FieldDef empacumulados;
+    public FieldDef empgastoscomun;
+    public FieldDef empgranempresa;
+    public FieldDef empexportadora;
+    public FieldDef empobserv;
+    public FieldDef empnombre;
+    public FieldDef empuser;
+    public FieldDef empgrupo;
+    public FieldDef empdefasientos;
+    public FieldDef empcodastingr;
+    public FieldDef empcodastgast;
+    public FieldDef empcalcliquida;
+    public FieldDef empetiquetas;
+    public FieldDef empcirculares;
+    public FieldDef empcodeoant;
+    public FieldDef emppagahipoteca;
+    public FieldDef empart80bis;
+    public FieldDef empinactiva;
+    public FieldDef empfecinactiva;
+    public FieldDef empvdaantes2011;
+    public TabEmpresa(String name)
+      {
+      super(name);
+      empcodigo = new FieldDef("empcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      empnif = new FieldDef("empnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      empregdeduciva = new FieldDef("empregdeduciva",FieldDef.CHAR,1);
+      empconfeclibros = new FieldDef("empconfeclibros",FieldDef.CHAR,1);
+      empcontadorfras = new FieldDef("empcontadorfras",FieldDef.CHAR,1);
+      empplancuentas = new FieldDef("empplancuentas",FieldDef.CHAR,1);
+      empcodigoplan = new FieldDef("empcodigoplan",FieldDef.INTEGER,0);
+      empfechabaja = new FieldDef("empfechabaja",FieldDef.DATE);
+      empfpagopagocta = new FieldDef("empfpagopagocta",FieldDef.CHAR,2);
+      empfpagoirpf = new FieldDef("empfpagoirpf",FieldDef.CHAR,2);
+      empfpagoiva = new FieldDef("empfpagoiva",FieldDef.CHAR,2);
+      empultliquida = new FieldDef("empultliquida",FieldDef.CHAR,1);
+      empmovimientos = new FieldDef("empmovimientos",FieldDef.CHAR,1);
+      empacumulados = new FieldDef("empacumulados",FieldDef.CHAR,1);
+      empgastoscomun = new FieldDef("empgastoscomun",FieldDef.CHAR,1);
+      empgranempresa = new FieldDef("empgranempresa",FieldDef.CHAR,1);
+      empexportadora = new FieldDef("empexportadora",FieldDef.CHAR,1);
+      empobserv = new FieldDef("empobserv",FieldDef.CHAR,2000);
+      empnombre = new FieldDef("empnombre",FieldDef.CHAR,70);
+      empuser = new FieldDef("empuser",FieldDef.CHAR,25);
+      empgrupo = new FieldDef("empgrupo",FieldDef.CHAR,15);
+      empdefasientos = new FieldDef("empdefasientos",FieldDef.CHAR,1);
+      empcodastingr = new FieldDef("empcodastingr",FieldDef.INTEGER,0);
+      empcodastgast = new FieldDef("empcodastgast",FieldDef.INTEGER,0);
+      empcalcliquida = new FieldDef("empcalcliquida",FieldDef.CHAR,1);
+      empetiquetas = new FieldDef("empetiquetas",FieldDef.CHAR,1);
+      empcirculares = new FieldDef("empcirculares",FieldDef.CHAR,1);
+      empcodeoant = new FieldDef("empcodeoant",FieldDef.INTEGER,0);
+      emppagahipoteca = new FieldDef("emppagahipoteca",FieldDef.CHAR,1);
+      empart80bis = new FieldDef("empart80bis",FieldDef.CHAR,1);
+      empinactiva = new FieldDef("empinactiva",FieldDef.CHAR,1);
+      empfecinactiva = new FieldDef("empfecinactiva",FieldDef.DATE);
+      empvdaantes2011 = new FieldDef("empvdaantes2011",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        empcodigo,
+        empnif,
+        empregdeduciva,
+        empconfeclibros,
+        empcontadorfras,
+        empplancuentas,
+        empcodigoplan,
+        empfechabaja,
+        empfpagopagocta,
+        empfpagoirpf,
+        empfpagoiva,
+        empultliquida,
+        empmovimientos,
+        empacumulados,
+        empgastoscomun,
+        empgranempresa,
+        empexportadora,
+        empobserv,
+        empnombre,
+        empuser,
+        empgrupo,
+        empdefasientos,
+        empcodastingr,
+        empcodastgast,
+        empcalcliquida,
+        empetiquetas,
+        empcirculares,
+        empcodeoant,
+        emppagahipoteca,
+        empart80bis,
+        empinactiva,
+        empfecinactiva,
+        empvdaantes2011        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {empcodigo };
+      setDescription("Datos adicionales empresas");
+      setPrimaryKeys(arrayf);
+      empcodigo.setDescription("Código de empresa");
+      empnif.setDescription("NIF Empresa");
+      empregdeduciva.setDescription("Régimen deducción IVA");
+      empconfeclibros.setDescription("Tipo libros a obtener");
+      empcontadorfras.setDescription("Iniciar contador facturas cada año");
+      empplancuentas.setDescription("Tipo plan de cuentas utilizado");
+      empcodigoplan.setDescription("Código de empresa plan de cuentas");
+      empfechabaja.setDescription("Fecha de baja de la empresa");
+      empfpagopagocta.setDescription("Forma de pago de los pagos a cuenta");
+      empfpagoirpf.setDescription("Forma de pago liquidaciones IRPF");
+      empfpagoiva.setDescription("Forma de pago liquidaciones IVA");
+      empultliquida.setDescription("A compensar o devolver última liquidación");
+      empmovimientos.setDescription("Permite entrada de apuntes contables");
+      empacumulados.setDescription("Permite entrada de acumulados");
+      empgastoscomun.setDescription("Desea distribuir entre actividades gastos");
+      empgranempresa.setDescription("Gran empresa");
+      empexportadora.setDescription("Es empresa exportadora");
+      empobserv.setDescription("Observaciones sobre empresa");
+      empnombre.setDescription("Nombre de la empresa");
+      empuser.setDescription("Usuario asignado a empresa");
+      empgrupo.setDescription("Grupo asignado a empresa");
+      empdefasientos.setDescription("Asientos predefinidos: Propios o comunes");
+      empcodastingr.setDescription("Código de asiento predefinido de ingresos");
+      empcodastgast.setDescription("Código de asiento predefinido de gastos");
+      empcalcliquida.setDescription("Cálculo liquidaciones");
+      empetiquetas.setDescription("Emitir etiquetas");
+      empcirculares.setDescription("Emitir circulares");
+      empcodeoant.setDescription("Código empresa eo antigual. De utilidad para enlace");
+      emppagahipoteca.setDescription("Paga hipoteca");
+      empart80bis.setDescription("Aplicar artículo 80 bis");
+      empinactiva.setDescription("Empresa inactiva");
+      empfecinactiva.setDescription("Fecha desde que la empresa esta inactiva");
+      empvdaantes2011.setDescription("La vivienda es anterior a 2011");
+      }
+    }
+    
+  public class TabRegborrado extends TableDef
+    {
+    // Campos
+    public FieldDef rboriden;
+    public FieldDef rborejercicio;
+    public FieldDef rborempresa;
+    public FieldDef rboractividad;
+    public FieldDef rbortabla;
+    public FieldDef rborfecha;
+    public FieldDef rbordescripcion;
+    public FieldDef rborusuario;
+    public TabRegborrado(String name)
+      {
+      super(name);
+      rboriden = new FieldDef("rboriden",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      rborejercicio = new FieldDef("rborejercicio",FieldDef.INTEGER,0);
+      rborempresa = new FieldDef("rborempresa",FieldDef.INTEGER,0);
+      rboractividad = new FieldDef("rboractividad",FieldDef.INTEGER,0);
+      rbortabla = new FieldDef("rbortabla",FieldDef.CHAR,15);
+      rborfecha = new FieldDef("rborfecha",FieldDef.DATE);
+      rbordescripcion = new FieldDef("rbordescripcion",FieldDef.CHAR,200);
+      rborusuario = new FieldDef("rborusuario",FieldDef.CHAR,25);
+      FieldDef array[] = {
+        rboriden,
+        rborejercicio,
+        rborempresa,
+        rboractividad,
+        rbortabla,
+        rborfecha,
+        rbordescripcion,
+        rborusuario        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {rboriden };
+      setPrimaryKeys(arrayf);
+      rboriden.setAutoIncrementable(true);
+      rborejercicio.setDescription("Ejericicio");
+      rborempresa.setDescription("Empresa");
+      rboractividad.setDescription("Actividad");
+      rbortabla.setDescription("Tabla");
+      rborfecha.setDescription("Fecha");
+      rbordescripcion.setDescription("Descripcion");
+      rborusuario.setDescription("Usuario");
+      }
+    }
+    
+  public class TabBieninversion extends TableDef
+    {
+    // Campos
+    public FieldDef bieelemento;
+    public FieldDef bieempresa;
+    public FieldDef bieactividad;
+    public FieldDef bienumero;
+    public FieldDef biefechafactura;
+    public FieldDef biefechautiliz;
+    public FieldDef biecuenta;
+    public FieldDef biesubcuenta;
+    public FieldDef biedocumento;
+    public FieldDef bienif;
+    public FieldDef bienombre;
+    public FieldDef biectaamortizac;
+    public FieldDef biesbctaamortiz;
+    public FieldDef biedescripcion;
+    public FieldDef bietotalfactura;
+    public FieldDef biebaseiva;
+    public FieldDef bieporciva;
+    public FieldDef biecuotaiva;
+    public FieldDef bievaladquis;
+    public FieldDef bievalresidual;
+    public FieldDef bieamortacumul;
+    public FieldDef bietipobien;
+    public FieldDef bieelemnuevo;
+    public FieldDef bieelemusado;
+    public FieldDef bietipoamortiz;
+    public FieldDef biemasunturno;
+    public FieldDef bienumerohoras;
+    public FieldDef bielibamorempl;
+    public FieldDef bieincrplantil;
+    public FieldDef bielimiteinver;
+    public FieldDef bielibamoresc;
+    public FieldDef bieamortacel;
+    public FieldDef biecoefincre;
+    public FieldDef bienrounidad;
+    public FieldDef biefechabaja;
+    public FieldDef biecausabaja;
+    public FieldDef biecultivoirpf;
+    public FieldDef biecultivoiva;
+    public FieldDef biecodigotabla;
+    public FieldDef bieperiodirpf;
+    public FieldDef bieporcenirpf;
+    public FieldDef bieperioregul;
+    public FieldDef biedivisor;
+    public FieldDef biepprorrata;
+    public FieldDef biecodasiento;
+    public FieldDef bieporcentabla;
+    public FieldDef bieperiodotabla;
+    public FieldDef biecodtablamort;
+    public FieldDef biefechaoperac;
+    public TabBieninversion(String name)
+      {
+      super(name);
+      bieelemento = new FieldDef("bieelemento",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      bieempresa = new FieldDef("bieempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      bieactividad = new FieldDef("bieactividad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      bienumero = new FieldDef("bienumero",FieldDef.INTEGER,0);
+      biefechafactura = new FieldDef("biefechafactura",FieldDef.DATE);
+      biefechautiliz = new FieldDef("biefechautiliz",FieldDef.DATE);
+      biecuenta = new FieldDef("biecuenta",FieldDef.CHAR,4);
+      biesubcuenta = new FieldDef("biesubcuenta",FieldDef.CHAR,15);
+      biedocumento = new FieldDef("biedocumento",FieldDef.CHAR,14);
+      bienif = new FieldDef("bienif",FieldDef.CHAR,15);
+      bienombre = new FieldDef("bienombre",FieldDef.CHAR,40);
+      biectaamortizac = new FieldDef("biectaamortizac",FieldDef.CHAR,4);
+      biesbctaamortiz = new FieldDef("biesbctaamortiz",FieldDef.CHAR,15);
+      biedescripcion = new FieldDef("biedescripcion",FieldDef.CHAR,40);
+      bietotalfactura = new FieldDef("bietotalfactura",FieldDef.FLOAT,6,0);
+      biebaseiva = new FieldDef("biebaseiva",FieldDef.FLOAT,6,0);
+      bieporciva = new FieldDef("bieporciva",FieldDef.FLOAT,6,0);
+      biecuotaiva = new FieldDef("biecuotaiva",FieldDef.FLOAT,6,0);
+      bievaladquis = new FieldDef("bievaladquis",FieldDef.FLOAT,6,0);
+      bievalresidual = new FieldDef("bievalresidual",FieldDef.FLOAT,6,0);
+      bieamortacumul = new FieldDef("bieamortacumul",FieldDef.FLOAT,6,0);
+      bietipobien = new FieldDef("bietipobien",FieldDef.CHAR,1);
+      bieelemnuevo = new FieldDef("bieelemnuevo",FieldDef.CHAR,1);
+      bieelemusado = new FieldDef("bieelemusado",FieldDef.CHAR,1);
+      bietipoamortiz = new FieldDef("bietipoamortiz",FieldDef.CHAR,3);
+      biemasunturno = new FieldDef("biemasunturno",FieldDef.CHAR,1);
+      bienumerohoras = new FieldDef("bienumerohoras",FieldDef.INTEGER,0);
+      bielibamorempl = new FieldDef("bielibamorempl",FieldDef.CHAR,1);
+      bieincrplantil = new FieldDef("bieincrplantil",FieldDef.FLOAT,6,0);
+      bielimiteinver = new FieldDef("bielimiteinver",FieldDef.FLOAT,6,0);
+      bielibamoresc = new FieldDef("bielibamoresc",FieldDef.CHAR,1);
+      bieamortacel = new FieldDef("bieamortacel",FieldDef.CHAR,1);
+      biecoefincre = new FieldDef("biecoefincre",FieldDef.FLOAT,6,0);
+      bienrounidad = new FieldDef("bienrounidad",FieldDef.INTEGER,0);
+      biefechabaja = new FieldDef("biefechabaja",FieldDef.DATE);
+      biecausabaja = new FieldDef("biecausabaja",FieldDef.CHAR,100);
+      biecultivoirpf = new FieldDef("biecultivoirpf",FieldDef.INTEGER,0);
+      biecultivoiva = new FieldDef("biecultivoiva",FieldDef.INTEGER,0);
+      biecodigotabla = new FieldDef("biecodigotabla",FieldDef.INTEGER,0);
+      bieperiodirpf = new FieldDef("bieperiodirpf",FieldDef.INTEGER,0);
+      bieporcenirpf = new FieldDef("bieporcenirpf",FieldDef.FLOAT,6,0);
+      bieperioregul = new FieldDef("bieperioregul",FieldDef.INTEGER,0);
+      biedivisor = new FieldDef("biedivisor",FieldDef.INTEGER,0);
+      biepprorrata = new FieldDef("biepprorrata",FieldDef.FLOAT,6,0);
+      biecodasiento = new FieldDef("biecodasiento",FieldDef.INTEGER,0);
+      bieporcentabla = new FieldDef("bieporcentabla",FieldDef.FLOAT,6,0);
+      bieperiodotabla = new FieldDef("bieperiodotabla",FieldDef.FLOAT,6,0);
+      biecodtablamort = new FieldDef("biecodtablamort",FieldDef.CHAR,8);
+      biefechaoperac = new FieldDef("biefechaoperac",FieldDef.DATE);
+      FieldDef array[] = {
+        bieelemento,
+        bieempresa,
+        bieactividad,
+        bienumero,
+        biefechafactura,
+        biefechautiliz,
+        biecuenta,
+        biesubcuenta,
+        biedocumento,
+        bienif,
+        bienombre,
+        biectaamortizac,
+        biesbctaamortiz,
+        biedescripcion,
+        bietotalfactura,
+        biebaseiva,
+        bieporciva,
+        biecuotaiva,
+        bievaladquis,
+        bievalresidual,
+        bieamortacumul,
+        bietipobien,
+        bieelemnuevo,
+        bieelemusado,
+        bietipoamortiz,
+        biemasunturno,
+        bienumerohoras,
+        bielibamorempl,
+        bieincrplantil,
+        bielimiteinver,
+        bielibamoresc,
+        bieamortacel,
+        biecoefincre,
+        bienrounidad,
+        biefechabaja,
+        biecausabaja,
+        biecultivoirpf,
+        biecultivoiva,
+        biecodigotabla,
+        bieperiodirpf,
+        bieporcenirpf,
+        bieperioregul,
+        biedivisor,
+        biepprorrata,
+        biecodasiento,
+        bieporcentabla,
+        bieperiodotabla,
+        biecodtablamort,
+        biefechaoperac        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {bieelemento };
+      setDescription("Bienes de inversión");
+      setPrimaryKeys(arrayf);
+      bieelemento.setAutoIncrementable(true);
+      bieempresa.setDescription("Empresa");
+      bieactividad.setDescription("Actividad");
+      bienumero.setDescription("Número de factura");
+      biefechafactura.setDescription("Fecha de factura");
+      biefechautiliz.setDescription("Fecha de puesta en servicio");
+      biecuenta.setDescription("Cuenta de mayor");
+      biesubcuenta.setDescription("Subcuenta");
+      biedocumento.setDescription("Número de documento");
+      bienif.setDescription("NIF cliente o proveedor");
+      bienombre.setDescription("Nombre del cliente");
+      biectaamortizac.setDescription("Cuenta de mayor para amortizar");
+      biesbctaamortiz.setDescription("Subcuenta para amortizar");
+      biedescripcion.setDescription("Descripción del inmovilizado");
+      bietotalfactura.setDescription("Total factura");
+      biebaseiva.setDescription("Base iva");
+      bieporciva.setDescription("% de iva");
+      biecuotaiva.setDescription("Cuota de iva");
+      bievaladquis.setDescription("Valor amortizable");
+      bievalresidual.setDescription("Valor residual");
+      bieamortacumul.setDescription("Amortización acumulada");
+      bietipobien.setDescription("Naturaleza del bien (Material, Inmaterial)");
+      bieelemnuevo.setDescription("Activo nuevo");
+      bieelemusado.setDescription("Elemento usado");
+      bietipoamortiz.setDescription("Tipo de amortización (Lineal, Números dígitos, Coeficiente constante)");
+      biemasunturno.setDescription("Elemento usado en más de un turno");
+      bienumerohoras.setDescription("Número de horas de utilización");
+      bielibamorempl.setDescription("Libertad amortización inversiones generadoras de empleo");
+      bieincrplantil.setDescription("Incremento de plantilla");
+      bielimiteinver.setDescription("Límite inversión");
+      bielibamoresc.setDescription("Libertad de amortización para inversiones de escaso valor");
+      bieamortacel.setDescription("Amortización acelerada");
+      biecoefincre.setDescription("Porcentaje multiplicador del coeficiente lineal");
+      bienrounidad.setDescription("Número de unidades");
+      biefechabaja.setDescription("Fecha de baja");
+      biecausabaja.setDescription("Causa de la baja");
+      biecultivoirpf.setDescription("Código de cultivo de IRPF");
+      biecultivoiva.setDescription("Código de cultivo de IVA");
+      biecodigotabla.setDescription("Código en tabla amortización");
+      bieperiodirpf.setDescription("Número de años amortización IRPF");
+      bieporcenirpf.setDescription("% de amortización IRPF");
+      bieperioregul.setDescription("Años de regularización del bien a efectos de IVA");
+      biedivisor.setDescription("Divisor");
+      biepprorrata.setDescription("% de prorrata definitiva año adquisición");
+      biecodasiento.setDescription("Código de asiento");
+      bieporcentabla.setDescription("% máximo assignado en tabla");
+      bieperiodotabla.setDescription("% máximo assignado en tabla");
+      biecodtablamort.setDescription("Código de elemento en la tabla amortizaciones");
+      biefechaoperac.setDescription("Fecha de operación");
+      }
+    }
+    
   public class TabImportaapuntes extends TableDef
     {
     // Campos
@@ -3564,7 +3509,7 @@ public class CatJeo extends Catalog
       impfechacobro = new FieldDef("impfechacobro",FieldDef.DATE);
       impcuenta = new FieldDef("impcuenta",FieldDef.CHAR,4,FieldDef.NOTNULL);
       impsubcuenta = new FieldDef("impsubcuenta",FieldDef.CHAR,15);
-      impdocumento = new FieldDef("impdocumento",FieldDef.CHAR,12);
+      impdocumento = new FieldDef("impdocumento",FieldDef.CHAR,14);
       impnroinggasto = new FieldDef("impnroinggasto",FieldDef.INTEGER,0);
       impconcepto = new FieldDef("impconcepto",FieldDef.CHAR,4);
       impnif = new FieldDef("impnif",FieldDef.CHAR,15);
@@ -3748,6 +3693,628 @@ public class CatJeo extends Catalog
       }
     }
     
+  public class TabAcumulado347 extends TableDef
+    {
+    // Campos
+    public FieldDef a347ident;
+    public FieldDef a347empresa;
+    public FieldDef a347ejercicio;
+    public FieldDef a347actividad;
+    public FieldDef a347nif;
+    public FieldDef a347nifrepre;
+    public FieldDef a347razon;
+    public FieldDef a347provin;
+    public FieldDef a347clave;
+    public FieldDef a347importe;
+    public FieldDef a347seguro;
+    public FieldDef a347arrend;
+    public FieldDef a347pais;
+    public FieldDef a347importeef;
+    public FieldDef a347importin;
+    public FieldDef a347ejeref;
+    public FieldDef a347importe1t;
+    public FieldDef a347importe2t;
+    public FieldDef a347importe3t;
+    public FieldDef a347importe4t;
+    public FieldDef a347imporin1t;
+    public FieldDef a347imporin2t;
+    public FieldDef a347imporin3t;
+    public FieldDef a347imporin4t;
+    public TabAcumulado347(String name)
+      {
+      super(name);
+      a347ident = new FieldDef("a347ident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      a347empresa = new FieldDef("a347empresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      a347ejercicio = new FieldDef("a347ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      a347actividad = new FieldDef("a347actividad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      a347nif = new FieldDef("a347nif",FieldDef.CHAR,15);
+      a347nifrepre = new FieldDef("a347nifrepre",FieldDef.CHAR,15);
+      a347razon = new FieldDef("a347razon",FieldDef.CHAR,40);
+      a347provin = new FieldDef("a347provin",FieldDef.INTEGER,0);
+      a347clave = new FieldDef("a347clave",FieldDef.CHAR,1);
+      a347importe = new FieldDef("a347importe",FieldDef.FLOAT,6,0);
+      a347seguro = new FieldDef("a347seguro",FieldDef.CHAR,1);
+      a347arrend = new FieldDef("a347arrend",FieldDef.CHAR,1);
+      a347pais = new FieldDef("a347pais",FieldDef.CHAR,3);
+      a347importeef = new FieldDef("a347importeef",FieldDef.FLOAT,6,0);
+      a347importin = new FieldDef("a347importin",FieldDef.FLOAT,6,0);
+      a347ejeref = new FieldDef("a347ejeref",FieldDef.INTEGER,0);
+      a347importe1t = new FieldDef("a347importe1t",FieldDef.FLOAT,6,0);
+      a347importe2t = new FieldDef("a347importe2t",FieldDef.FLOAT,6,0);
+      a347importe3t = new FieldDef("a347importe3t",FieldDef.FLOAT,6,0);
+      a347importe4t = new FieldDef("a347importe4t",FieldDef.FLOAT,6,0);
+      a347imporin1t = new FieldDef("a347imporin1t",FieldDef.FLOAT,6,0);
+      a347imporin2t = new FieldDef("a347imporin2t",FieldDef.FLOAT,6,0);
+      a347imporin3t = new FieldDef("a347imporin3t",FieldDef.FLOAT,6,0);
+      a347imporin4t = new FieldDef("a347imporin4t",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        a347ident,
+        a347empresa,
+        a347ejercicio,
+        a347actividad,
+        a347nif,
+        a347nifrepre,
+        a347razon,
+        a347provin,
+        a347clave,
+        a347importe,
+        a347seguro,
+        a347arrend,
+        a347pais,
+        a347importeef,
+        a347importin,
+        a347ejeref,
+        a347importe1t,
+        a347importe2t,
+        a347importe3t,
+        a347importe4t,
+        a347imporin1t,
+        a347imporin2t,
+        a347imporin3t,
+        a347imporin4t        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {a347ident };
+      setDescription("Acumulados 347");
+      setPrimaryKeys(arrayf);
+      a347ident.setAutoIncrementable(true);
+      a347empresa.setDescription("Codigo empresa");
+      a347ejercicio.setDescription("Ejercicio");
+      a347actividad.setDescription("Actividad");
+      a347nif.setDescription("NIF declarado");
+      a347nifrepre.setDescription("NIF representante");
+      a347razon.setDescription("Nombre declarado");
+      a347provin.setDescription("Provincia");
+      a347clave.setDescription("Clave");
+      a347importe.setDescription("Importe operacion anual");
+      a347seguro.setDescription("Operacion seguro");
+      a347arrend.setDescription("Arrendamiento negocio");
+      a347pais.setDescription("Pais");
+      a347importeef.setDescription("Importe percibido metalico");
+      a347importin.setDescription("Importe transmision inmuebles anual");
+      a347ejeref.setDescription("Ejercicio referencia");
+      a347importe1t.setDescription("Importe operacion 1T");
+      a347importe2t.setDescription("Importe operacion 2T");
+      a347importe3t.setDescription("Importe operacion 3T");
+      a347importe4t.setDescription("Importe operacion 4T");
+      a347imporin1t.setDescription("Importe transmision inmuebles 1T");
+      a347imporin2t.setDescription("Importe transmision inmuebles 2T");
+      a347imporin3t.setDescription("Importe transmision inmuebles 3T");
+      a347imporin4t.setDescription("Importe transmision inmuebles 4T");
+      }
+    }
+    
+  public class TabListado347 extends TableDef
+    {
+    // Campos
+    public FieldDef l347iden;
+    public FieldDef l347usuario;
+    public FieldDef l347ejercicio;
+    public FieldDef l347empresa;
+    public FieldDef l347clave;
+    public FieldDef l347cuenta;
+    public FieldDef l347subcuenta;
+    public FieldDef l347nif;
+    public FieldDef l347nombre;
+    public FieldDef l347importe;
+    public FieldDef l347ira347;
+    public FieldDef l347provincia;
+    public FieldDef l347pais;
+    public FieldDef l347telefono;
+    public FieldDef l347direccion;
+    public FieldDef l347cpostal;
+    public FieldDef l347municipio;
+    public FieldDef l347excede;
+    public FieldDef l347efectivo;
+    public FieldDef l347impefectivo;
+    public FieldDef l347mail;
+    public FieldDef l347importe1t;
+    public FieldDef l347importe2t;
+    public FieldDef l347importe3t;
+    public FieldDef l347importe4t;
+    public FieldDef l347imporin1t;
+    public FieldDef l347imporin2t;
+    public FieldDef l347imporin3t;
+    public FieldDef l347imporin4t;
+    public TabListado347(String name)
+      {
+      super(name);
+      l347iden = new FieldDef("l347iden",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      l347usuario = new FieldDef("l347usuario",FieldDef.CHAR,25);
+      l347ejercicio = new FieldDef("l347ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      l347empresa = new FieldDef("l347empresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      l347clave = new FieldDef("l347clave",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      l347cuenta = new FieldDef("l347cuenta",FieldDef.CHAR,4,FieldDef.NOTNULL);
+      l347subcuenta = new FieldDef("l347subcuenta",FieldDef.CHAR,15);
+      l347nif = new FieldDef("l347nif",FieldDef.CHAR,15);
+      l347nombre = new FieldDef("l347nombre",FieldDef.CHAR,40);
+      l347importe = new FieldDef("l347importe",FieldDef.FLOAT,6,0);
+      l347ira347 = new FieldDef("l347ira347",FieldDef.CHAR,1);
+      l347provincia = new FieldDef("l347provincia",FieldDef.INTEGER,0);
+      l347pais = new FieldDef("l347pais",FieldDef.CHAR,2);
+      l347telefono = new FieldDef("l347telefono",FieldDef.CHAR,15);
+      l347direccion = new FieldDef("l347direccion",FieldDef.CHAR,50);
+      l347cpostal = new FieldDef("l347cpostal",FieldDef.INTEGER,0);
+      l347municipio = new FieldDef("l347municipio",FieldDef.CHAR,40);
+      l347excede = new FieldDef("l347excede",FieldDef.CHAR,1);
+      l347efectivo = new FieldDef("l347efectivo",FieldDef.CHAR,1);
+      l347impefectivo = new FieldDef("l347impefectivo",FieldDef.FLOAT,6,0);
+      l347mail = new FieldDef("l347mail",FieldDef.CHAR,100);
+      l347importe1t = new FieldDef("l347importe1t",FieldDef.FLOAT,6,0);
+      l347importe2t = new FieldDef("l347importe2t",FieldDef.FLOAT,6,0);
+      l347importe3t = new FieldDef("l347importe3t",FieldDef.FLOAT,6,0);
+      l347importe4t = new FieldDef("l347importe4t",FieldDef.FLOAT,6,0);
+      l347imporin1t = new FieldDef("l347imporin1t",FieldDef.FLOAT,6,0);
+      l347imporin2t = new FieldDef("l347imporin2t",FieldDef.FLOAT,6,0);
+      l347imporin3t = new FieldDef("l347imporin3t",FieldDef.FLOAT,6,0);
+      l347imporin4t = new FieldDef("l347imporin4t",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        l347iden,
+        l347usuario,
+        l347ejercicio,
+        l347empresa,
+        l347clave,
+        l347cuenta,
+        l347subcuenta,
+        l347nif,
+        l347nombre,
+        l347importe,
+        l347ira347,
+        l347provincia,
+        l347pais,
+        l347telefono,
+        l347direccion,
+        l347cpostal,
+        l347municipio,
+        l347excede,
+        l347efectivo,
+        l347impefectivo,
+        l347mail,
+        l347importe1t,
+        l347importe2t,
+        l347importe3t,
+        l347importe4t,
+        l347imporin1t,
+        l347imporin2t,
+        l347imporin3t,
+        l347imporin4t        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {l347iden };
+      setDescription("Clientes / Proveedores a 347");
+      setPrimaryKeys(arrayf);
+      l347iden.setAutoIncrementable(true);
+      l347usuario.setDescription("Usuario");
+      l347ejercicio.setDescription("Ejericicio");
+      l347empresa.setDescription("Empresa");
+      l347clave.setDescription("Clave 347 (Cliente, Proveedor o Pago Mediacion");
+      l347cuenta.setDescription("Cuenta de mayor");
+      l347subcuenta.setDescription("Subcuenta");
+      l347nif.setDescription("NIF cliente o proveedor");
+      l347nombre.setDescription("Nombre del cliente");
+      l347importe.setDescription("Importe");
+      l347ira347.setDescription("Va a 347 en plan de cuentas o actividad");
+      l347provincia.setDescription("Codigo provincia");
+      l347pais.setDescription("Codigo pais");
+      l347telefono.setDescription("Telefono");
+      l347direccion.setDescription("Direccion");
+      l347cpostal.setDescription("Codigo postal");
+      l347municipio.setDescription("Municipio");
+      l347excede.setDescription("Indica si el NIF aparecera en 347");
+      l347efectivo.setDescription("Se ha cobrado en efectivo");
+      l347impefectivo.setDescription("Importe efectivo");
+      l347mail.setDescription("Correo electronico");
+      l347importe1t.setDescription("Importe operacion 1T");
+      l347importe2t.setDescription("Importe operacion 2T");
+      l347importe3t.setDescription("Importe operacion 3T");
+      l347importe4t.setDescription("Importe operacion 4T");
+      l347imporin1t.setDescription("Importe transmision inmuebles 1T");
+      l347imporin2t.setDescription("Importe transmision inmuebles 2T");
+      l347imporin3t.setDescription("Importe transmision inmuebles 3T");
+      l347imporin4t.setDescription("Importe transmision inmuebles 4T");
+      }
+    }
+    
+  public class TabQuefrase extends TableDef
+    {
+    // Campos
+    public FieldDef qefaplicacion;
+    public FieldDef qeffrase;
+    public FieldDef qefdescripcion;
+    public FieldDef qefmaster;
+    public FieldDef qeftitulo;
+    public FieldDef qefapaisado;
+    public FieldDef qefletra;
+    public FieldDef qefpaginado;
+    public FieldDef qeffrom;
+    public FieldDef qefwhere;
+    public FieldDef qefect;
+    public FieldDef qefrepetir;
+    public FieldDef qefcount;
+    public FieldDef qefplantilla;
+    public TabQuefrase(String name)
+      {
+      super(name);
+      qefaplicacion = new FieldDef("qefaplicacion",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      qeffrase = new FieldDef("qeffrase",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      qefdescripcion = new FieldDef("qefdescripcion",FieldDef.CHAR,80);
+      qefmaster = new FieldDef("qefmaster",FieldDef.CHAR,15);
+      qeftitulo = new FieldDef("qeftitulo",FieldDef.CHAR,80);
+      qefapaisado = new FieldDef("qefapaisado",FieldDef.CHAR,1);
+      qefletra = new FieldDef("qefletra",FieldDef.INTEGER,0);
+      qefpaginado = new FieldDef("qefpaginado",FieldDef.CHAR,1);
+      qeffrom = new FieldDef("qeffrom",FieldDef.CHAR,255);
+      qefwhere = new FieldDef("qefwhere",FieldDef.CHAR,255);
+      qefect = new FieldDef("qefect",FieldDef.CHAR,1);
+      qefrepetir = new FieldDef("qefrepetir",FieldDef.CHAR,1);
+      qefcount = new FieldDef("qefcount",FieldDef.CHAR,1);
+      qefplantilla = new FieldDef("qefplantilla",FieldDef.CHAR,15);
+      FieldDef array[] = {
+        qefaplicacion,
+        qeffrase,
+        qefdescripcion,
+        qefmaster,
+        qeftitulo,
+        qefapaisado,
+        qefletra,
+        qefpaginado,
+        qeffrom,
+        qefwhere,
+        qefect,
+        qefrepetir,
+        qefcount,
+        qefplantilla        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {qefaplicacion,qeffrase };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabSocios extends TableDef
+    {
+    // Campos
+    public FieldDef socempresa;
+    public FieldDef socnif;
+    public FieldDef socfechaalta;
+    public FieldDef socfechabaja;
+    public FieldDef soccodigocdp;
+    public FieldDef socpagahipoteca;
+    public FieldDef socart80bis;
+    public FieldDef socvdaantes2011;
+    public FieldDef soccapitalista;
+    public TabSocios(String name)
+      {
+      super(name);
+      socempresa = new FieldDef("socempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      socnif = new FieldDef("socnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      socfechaalta = new FieldDef("socfechaalta",FieldDef.DATE);
+      socfechabaja = new FieldDef("socfechabaja",FieldDef.DATE);
+      soccodigocdp = new FieldDef("soccodigocdp",FieldDef.CHAR,12);
+      socpagahipoteca = new FieldDef("socpagahipoteca",FieldDef.CHAR,1);
+      socart80bis = new FieldDef("socart80bis",FieldDef.CHAR,1);
+      socvdaantes2011 = new FieldDef("socvdaantes2011",FieldDef.CHAR,1);
+      soccapitalista = new FieldDef("soccapitalista",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        socempresa,
+        socnif,
+        socfechaalta,
+        socfechabaja,
+        soccodigocdp,
+        socpagahipoteca,
+        socart80bis,
+        socvdaantes2011,
+        soccapitalista        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {socempresa,socnif };
+      setDescription("Datos identificativos del socio");
+      setPrimaryKeys(arrayf);
+      socempresa.setDescription("Código de empresa");
+      socnif.setDescription("NIF del socio");
+      socfechaalta.setDescription("Fecha de alta");
+      socfechabaja.setDescription("Fecha de baja");
+      soccodigocdp.setDescription("Código de CDP");
+      socpagahipoteca.setDescription("Paga hipoteca");
+      socart80bis.setDescription("Aplicar artículo 80 bis");
+      socvdaantes2011.setDescription("La vivienda es anterior a 2011");
+      soccapitalista.setDescription("Es socio capitalista");
+      }
+    }
+    
+  public class TabTransaccion extends TableDef
+    {
+    // Campos
+    public FieldDef traejercicio;
+    public FieldDef tramodelo;
+    public FieldDef tracodigo;
+    public FieldDef tratipomodiva;
+    public FieldDef tradescripcion;
+    public FieldDef traemitrecib;
+    public FieldDef travoloper;
+    public FieldDef traoperespec;
+    public TabTransaccion(String name)
+      {
+      super(name);
+      traejercicio = new FieldDef("traejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      tramodelo = new FieldDef("tramodelo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      tracodigo = new FieldDef("tracodigo",FieldDef.CHAR,5,FieldDef.NOTNULL);
+      tratipomodiva = new FieldDef("tratipomodiva",FieldDef.CHAR,4);
+      tradescripcion = new FieldDef("tradescripcion",FieldDef.CHAR,40);
+      traemitrecib = new FieldDef("traemitrecib",FieldDef.CHAR,1);
+      travoloper = new FieldDef("travoloper",FieldDef.CHAR,3);
+      traoperespec = new FieldDef("traoperespec",FieldDef.CHAR,3);
+      FieldDef array[] = {
+        traejercicio,
+        tramodelo,
+        tracodigo,
+        tratipomodiva,
+        tradescripcion,
+        traemitrecib,
+        travoloper,
+        traoperespec        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {traejercicio,tramodelo,tracodigo };
+      setDescription("Tipo de IVA");
+      setPrimaryKeys(arrayf);
+      traejercicio.setDescription("Ejercicio");
+      tramodelo.setDescription("Modelo declaración IVA");
+      tracodigo.setDescription("Código de transacción");
+      tratipomodiva.setDescription("Tipo de transacción declaración IVA");
+      tradescripcion.setDescription("Descripción");
+      traemitrecib.setDescription("Emitida o recibida");
+      travoloper.setDescription("Volumen operaciones 390/392");
+      traoperespec.setDescription("Operación específica 390/392");
+      }
+    }
+    
+  public class TabPcmayor extends TableDef
+    {
+    // Campos
+    public FieldDef pcmempresa;
+    public FieldDef pcmcuenta;
+    public FieldDef pcmtipocuenta;
+    public FieldDef pcmcolumnalibro;
+    public FieldDef pcmlineairpf;
+    public FieldDef pcmdesc;
+    public FieldDef pcmmediacion;
+    public FieldDef pcmpiva;
+    public FieldDef pcmprecargo;
+    public FieldDef pcmpirpf;
+    public FieldDef pcmivaded;
+    public FieldDef pcm347;
+    public FieldDef pcm349;
+    public FieldDef pcmttrans;
+    public FieldDef pcm349servicios;
+    public FieldDef pcmdescadicion;
+    public FieldDef pcmpiva2;
+    public FieldDef pcmprecargo2;
+    public FieldDef pcmpiva3;
+    public FieldDef pcmprecargo3;
+    public TabPcmayor(String name)
+      {
+      super(name);
+      pcmempresa = new FieldDef("pcmempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pcmcuenta = new FieldDef("pcmcuenta",FieldDef.CHAR,4,FieldDef.NOTNULL);
+      pcmtipocuenta = new FieldDef("pcmtipocuenta",FieldDef.CHAR,1);
+      pcmcolumnalibro = new FieldDef("pcmcolumnalibro",FieldDef.INTEGER,0);
+      pcmlineairpf = new FieldDef("pcmlineairpf",FieldDef.INTEGER,0);
+      pcmdesc = new FieldDef("pcmdesc",FieldDef.CHAR,40);
+      pcmmediacion = new FieldDef("pcmmediacion",FieldDef.CHAR,1);
+      pcmpiva = new FieldDef("pcmpiva",FieldDef.INTEGER,0);
+      pcmprecargo = new FieldDef("pcmprecargo",FieldDef.INTEGER,0);
+      pcmpirpf = new FieldDef("pcmpirpf",FieldDef.INTEGER,0);
+      pcmivaded = new FieldDef("pcmivaded",FieldDef.CHAR,1);
+      pcm347 = new FieldDef("pcm347",FieldDef.CHAR,1);
+      pcm349 = new FieldDef("pcm349",FieldDef.CHAR,1);
+      pcmttrans = new FieldDef("pcmttrans",FieldDef.CHAR,5);
+      pcm349servicios = new FieldDef("pcm349servicios",FieldDef.CHAR,1);
+      pcmdescadicion = new FieldDef("pcmdescadicion",FieldDef.CHAR,40);
+      pcmpiva2 = new FieldDef("pcmpiva2",FieldDef.INTEGER,0);
+      pcmprecargo2 = new FieldDef("pcmprecargo2",FieldDef.INTEGER,0);
+      pcmpiva3 = new FieldDef("pcmpiva3",FieldDef.INTEGER,0);
+      pcmprecargo3 = new FieldDef("pcmprecargo3",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        pcmempresa,
+        pcmcuenta,
+        pcmtipocuenta,
+        pcmcolumnalibro,
+        pcmlineairpf,
+        pcmdesc,
+        pcmmediacion,
+        pcmpiva,
+        pcmprecargo,
+        pcmpirpf,
+        pcmivaded,
+        pcm347,
+        pcm349,
+        pcmttrans,
+        pcm349servicios,
+        pcmdescadicion,
+        pcmpiva2,
+        pcmprecargo2,
+        pcmpiva3,
+        pcmprecargo3        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {pcmempresa,pcmcuenta };
+      setDescription("Relación de cuentas de mayor");
+      setPrimaryKeys(arrayf);
+      pcmempresa.setDescription("Empresa");
+      pcmcuenta.setDescription("Cuenta de mayor");
+      pcmtipocuenta.setDescription("Tipo de cuenta. (Ingresos, gastos, bienes de inversión,...)");
+      pcmcolumnalibro.setDescription("Número de columna del libro de gastos");
+      pcmlineairpf.setDescription("Equivalencia con ingresos/gastos declaración IRPF");
+      pcmdesc.setDescription("Descripción");
+      pcmmediacion.setDescription("Debe tenerse en cuenta para la relación de pagos por mediación");
+      pcmpiva.setDescription("Tipo impositivo de IVA, IGIC o Reg.especial agricultura y pesca");
+      pcmprecargo.setDescription("% de recargo de equivalencia");
+      pcmpirpf.setDescription("% de IRPF");
+      pcmivaded.setDescription("Iva deducible");
+      pcm347.setDescription("Debe tenerse en cuenta para el 347");
+      pcm349.setDescription("Debe tenerse en cuenta para el 349");
+      pcmttrans.setDescription("Código de transacción");
+      pcm349servicios.setDescription("Debe tenerse en cuenta para el 349, en las claves servicios");
+      pcmdescadicion.setDescription("Descripción");
+      pcmpiva2.setDescription("Tipo impositivo de IVA, IGIC o Reg.especial agricultura y pesca");
+      pcmprecargo2.setDescription("% de recargo de equivalencia");
+      pcmpiva3.setDescription("Tipo impositivo de IVA, IGIC o Reg.especial agricultura y pesca");
+      pcmprecargo3.setDescription("% de recargo de equivalencia");
+      }
+    }
+    
+  public class TabPcuentas extends TableDef
+    {
+    // Campos
+    public FieldDef pcuempresa;
+    public FieldDef pcucuenta;
+    public FieldDef pcusubcuenta;
+    public FieldDef pcudesc;
+    public FieldDef pcunif;
+    public FieldDef pcumediacion;
+    public FieldDef pcupiva;
+    public FieldDef pcuprecargo;
+    public FieldDef pcupirpf;
+    public FieldDef pcuivaded;
+    public FieldDef pcu347;
+    public FieldDef pcu349;
+    public FieldDef pcuttrans;
+    public FieldDef pcucodvto;
+    public FieldDef pcudias1;
+    public FieldDef pcudias2;
+    public FieldDef pcudias3;
+    public FieldDef pcudias4;
+    public FieldDef pcudias5;
+    public FieldDef pcudias6;
+    public FieldDef pcu349servicios;
+    public FieldDef pcudescadicion;
+    public FieldDef pcupiva2;
+    public FieldDef pcuprecargo2;
+    public FieldDef pcupiva3;
+    public FieldDef pcuprecargo3;
+    public FieldDef pcuregimencaja;
+    public FieldDef pcuformapago;
+    public FieldDef pcuctabancaria;
+    public TabPcuentas(String name)
+      {
+      super(name);
+      pcuempresa = new FieldDef("pcuempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pcucuenta = new FieldDef("pcucuenta",FieldDef.CHAR,4,FieldDef.NOTNULL);
+      pcusubcuenta = new FieldDef("pcusubcuenta",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      pcudesc = new FieldDef("pcudesc",FieldDef.CHAR,40);
+      pcunif = new FieldDef("pcunif",FieldDef.CHAR,15);
+      pcumediacion = new FieldDef("pcumediacion",FieldDef.CHAR,1);
+      pcupiva = new FieldDef("pcupiva",FieldDef.INTEGER,0);
+      pcuprecargo = new FieldDef("pcuprecargo",FieldDef.INTEGER,0);
+      pcupirpf = new FieldDef("pcupirpf",FieldDef.INTEGER,0);
+      pcuivaded = new FieldDef("pcuivaded",FieldDef.CHAR,1);
+      pcu347 = new FieldDef("pcu347",FieldDef.CHAR,1);
+      pcu349 = new FieldDef("pcu349",FieldDef.CHAR,1);
+      pcuttrans = new FieldDef("pcuttrans",FieldDef.CHAR,5);
+      pcucodvto = new FieldDef("pcucodvto",FieldDef.CHAR,3);
+      pcudias1 = new FieldDef("pcudias1",FieldDef.INTEGER,0);
+      pcudias2 = new FieldDef("pcudias2",FieldDef.INTEGER,0);
+      pcudias3 = new FieldDef("pcudias3",FieldDef.INTEGER,0);
+      pcudias4 = new FieldDef("pcudias4",FieldDef.INTEGER,0);
+      pcudias5 = new FieldDef("pcudias5",FieldDef.INTEGER,0);
+      pcudias6 = new FieldDef("pcudias6",FieldDef.INTEGER,0);
+      pcu349servicios = new FieldDef("pcu349servicios",FieldDef.CHAR,1);
+      pcudescadicion = new FieldDef("pcudescadicion",FieldDef.CHAR,40);
+      pcupiva2 = new FieldDef("pcupiva2",FieldDef.INTEGER,0);
+      pcuprecargo2 = new FieldDef("pcuprecargo2",FieldDef.INTEGER,0);
+      pcupiva3 = new FieldDef("pcupiva3",FieldDef.INTEGER,0);
+      pcuprecargo3 = new FieldDef("pcuprecargo3",FieldDef.INTEGER,0);
+      pcuregimencaja = new FieldDef("pcuregimencaja",FieldDef.CHAR,1);
+      pcuformapago = new FieldDef("pcuformapago",FieldDef.CHAR,3);
+      pcuctabancaria = new FieldDef("pcuctabancaria",FieldDef.CHAR,34);
+      FieldDef array[] = {
+        pcuempresa,
+        pcucuenta,
+        pcusubcuenta,
+        pcudesc,
+        pcunif,
+        pcumediacion,
+        pcupiva,
+        pcuprecargo,
+        pcupirpf,
+        pcuivaded,
+        pcu347,
+        pcu349,
+        pcuttrans,
+        pcucodvto,
+        pcudias1,
+        pcudias2,
+        pcudias3,
+        pcudias4,
+        pcudias5,
+        pcudias6,
+        pcu349servicios,
+        pcudescadicion,
+        pcupiva2,
+        pcuprecargo2,
+        pcupiva3,
+        pcuprecargo3,
+        pcuregimencaja,
+        pcuformapago,
+        pcuctabancaria        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {pcuempresa,pcucuenta,pcusubcuenta };
+      setDescription("Relación de subcuentas");
+      setPrimaryKeys(arrayf);
+      pcuempresa.setDescription("Empresa");
+      pcucuenta.setDescription("Cuenta de mayor");
+      pcusubcuenta.setDescription("Subcuenta");
+      pcudesc.setDescription("Descripción");
+      pcunif.setDescription("NIF o CIF");
+      pcumediacion.setDescription("Debe tenerse en cuenta para la relación de pagos por mediación");
+      pcupiva.setDescription("Tipo impositivo de IVA, IGIC o Reg.especial agricultura y pesca");
+      pcuprecargo.setDescription("% de recargo de equivalencia");
+      pcupirpf.setDescription("% de IRPF");
+      pcuivaded.setDescription("Iva deducible");
+      pcu347.setDescription("Debe tenerse en cuenta para el 347");
+      pcu349.setDescription("Debe tenerse en cuenta para el 349");
+      pcuttrans.setDescription("Código de transacción");
+      pcucodvto.setDescription("Código de vencimiento");
+      pcudias1.setDescription("Días que transcurrirá hasta el primer plazo de cobro/pago");
+      pcudias2.setDescription("Días que transcurrirá hasta el segundo plazo de cobro/pago");
+      pcudias3.setDescription("Días que transcurrirá hasta el tercer plazo de cobro/pago");
+      pcudias4.setDescription("Días que transcurrirá hasta el cuarto plazo de cobro/pago");
+      pcudias5.setDescription("Días que transcurrirá hasta el quinto plazo de cobro/pago");
+      pcudias6.setDescription("Días que transcurrirá hasta el sexto plazo de cobro/pago");
+      pcu349servicios.setDescription("Debe tenerse en cuenta para el 349, en las claves servicios");
+      pcudescadicion.setDescription("Descripción");
+      pcupiva2.setDescription("Tipo impositivo de IVA, IGIC o Reg.especial agricultura y pesca");
+      pcuprecargo2.setDescription("% de recargo de equivalencia");
+      pcupiva3.setDescription("Tipo impositivo de IVA, IGIC o Reg.especial agricultura y pesca");
+      pcuprecargo3.setDescription("% de recargo de equivalencia");
+      pcuregimencaja.setDescription("Esta acogido al RECC");
+      pcuformapago.setDescription("Forma cobro o pago");
+      pcuctabancaria.setDescription("Codigo IBAN habitual");
+      }
+    }
+    
   public class TabApuntes extends TableDef
     {
     // Campos
@@ -3815,6 +4382,10 @@ public class CatJeo extends Catalog
     public FieldDef apuefectivo;
     public FieldDef apuimpefectivo;
     public FieldDef apufechaoperac;
+    public FieldDef apuregimencaja;
+    public FieldDef apuperliqiva;
+    public FieldDef apuperliqpagfr;
+    public FieldDef apuperliqirpf;
     public TabApuntes(String name)
       {
       super(name);
@@ -3829,7 +4400,7 @@ public class CatJeo extends Catalog
       apufechacobro = new FieldDef("apufechacobro",FieldDef.DATE);
       apucuenta = new FieldDef("apucuenta",FieldDef.CHAR,4,FieldDef.NOTNULL);
       apusubcuenta = new FieldDef("apusubcuenta",FieldDef.CHAR,15);
-      apudocumento = new FieldDef("apudocumento",FieldDef.CHAR,12);
+      apudocumento = new FieldDef("apudocumento",FieldDef.CHAR,14);
       apunroinggasto = new FieldDef("apunroinggasto",FieldDef.INTEGER,0);
       apuconcepto = new FieldDef("apuconcepto",FieldDef.CHAR,4);
       apunif = new FieldDef("apunif",FieldDef.CHAR,15);
@@ -3882,6 +4453,10 @@ public class CatJeo extends Catalog
       apuefectivo = new FieldDef("apuefectivo",FieldDef.CHAR,1);
       apuimpefectivo = new FieldDef("apuimpefectivo",FieldDef.FLOAT,6,0);
       apufechaoperac = new FieldDef("apufechaoperac",FieldDef.DATE);
+      apuregimencaja = new FieldDef("apuregimencaja",FieldDef.CHAR,1);
+      apuperliqiva = new FieldDef("apuperliqiva",FieldDef.CHAR,6);
+      apuperliqpagfr = new FieldDef("apuperliqpagfr",FieldDef.CHAR,6);
+      apuperliqirpf = new FieldDef("apuperliqirpf",FieldDef.CHAR,6);
       FieldDef array[] = {
         apuiden,
         apuejercicio,
@@ -3946,7 +4521,11 @@ public class CatJeo extends Catalog
         aputipoprovis,
         apuefectivo,
         apuimpefectivo,
-        apufechaoperac        
+        apufechaoperac,
+        apuregimencaja,
+        apuperliqiva,
+        apuperliqpagfr,
+        apuperliqirpf        
         };
       setColumns(array);
       FieldDef arrayf[] = {apuiden };
@@ -4016,424 +4595,227 @@ public class CatJeo extends Catalog
       apuefectivo.setDescription("Se ha pagado/cobrado en efectivo");
       apuimpefectivo.setDescription("Importe que se ha cobrado en efectivo");
       apufechaoperac.setDescription("Fecha de operación");
+      apuregimencaja.setDescription("Esta acogido al RECC");
+      apuperliqiva.setDescription("Periodo liquidacion modelo IVA");
+      apuperliqpagfr.setDescription("Periodo liquidacion modelo Pago fraccionado");
+      apuperliqirpf.setDescription("Periodo liquidacion modelo IRPF");
       }
     }
     
-  public class TabEmpresa extends TableDef
+  public class TabCobropago extends TableDef
     {
     // Campos
-    public FieldDef empcodigo;
-    public FieldDef empnif;
-    public FieldDef empregdeduciva;
-    public FieldDef empconfeclibros;
-    public FieldDef empcontadorfras;
-    public FieldDef empplancuentas;
-    public FieldDef empcodigoplan;
-    public FieldDef empfechabaja;
-    public FieldDef empfpagopagocta;
-    public FieldDef empfpagoirpf;
-    public FieldDef empfpagoiva;
-    public FieldDef empultliquida;
-    public FieldDef empmovimientos;
-    public FieldDef empacumulados;
-    public FieldDef empgastoscomun;
-    public FieldDef empgranempresa;
-    public FieldDef empexportadora;
-    public FieldDef empobserv;
-    public FieldDef empnombre;
-    public FieldDef empuser;
-    public FieldDef empgrupo;
-    public FieldDef empdefasientos;
-    public FieldDef empcodastingr;
-    public FieldDef empcodastgast;
-    public FieldDef empcalcliquida;
-    public FieldDef empetiquetas;
-    public FieldDef empcirculares;
-    public FieldDef empcodeoant;
-    public FieldDef emppagahipoteca;
-    public FieldDef empart80bis;
-    public FieldDef empinactiva;
-    public FieldDef empfecinactiva;
-    public FieldDef empvdaantes2011;
-    public TabEmpresa(String name)
+    public FieldDef cobcodi;
+    public FieldDef cobempresa;
+    public FieldDef cobasiento;
+    public FieldDef cobcobropago;
+    public FieldDef cobfecha;
+    public FieldDef cobconcepto;
+    public FieldDef cobimporte;
+    public FieldDef cobestado;
+    public FieldDef cobformapago;
+    public FieldDef cobccc;
+    public TabCobropago(String name)
       {
       super(name);
-      empcodigo = new FieldDef("empcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      empnif = new FieldDef("empnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      empregdeduciva = new FieldDef("empregdeduciva",FieldDef.CHAR,1);
-      empconfeclibros = new FieldDef("empconfeclibros",FieldDef.CHAR,1);
-      empcontadorfras = new FieldDef("empcontadorfras",FieldDef.CHAR,1);
-      empplancuentas = new FieldDef("empplancuentas",FieldDef.CHAR,1);
-      empcodigoplan = new FieldDef("empcodigoplan",FieldDef.INTEGER,0);
-      empfechabaja = new FieldDef("empfechabaja",FieldDef.DATE);
-      empfpagopagocta = new FieldDef("empfpagopagocta",FieldDef.CHAR,2);
-      empfpagoirpf = new FieldDef("empfpagoirpf",FieldDef.CHAR,2);
-      empfpagoiva = new FieldDef("empfpagoiva",FieldDef.CHAR,2);
-      empultliquida = new FieldDef("empultliquida",FieldDef.CHAR,1);
-      empmovimientos = new FieldDef("empmovimientos",FieldDef.CHAR,1);
-      empacumulados = new FieldDef("empacumulados",FieldDef.CHAR,1);
-      empgastoscomun = new FieldDef("empgastoscomun",FieldDef.CHAR,1);
-      empgranempresa = new FieldDef("empgranempresa",FieldDef.CHAR,1);
-      empexportadora = new FieldDef("empexportadora",FieldDef.CHAR,1);
-      empobserv = new FieldDef("empobserv",FieldDef.CHAR,2000);
-      empnombre = new FieldDef("empnombre",FieldDef.CHAR,70);
-      empuser = new FieldDef("empuser",FieldDef.CHAR,25);
-      empgrupo = new FieldDef("empgrupo",FieldDef.CHAR,15);
-      empdefasientos = new FieldDef("empdefasientos",FieldDef.CHAR,1);
-      empcodastingr = new FieldDef("empcodastingr",FieldDef.INTEGER,0);
-      empcodastgast = new FieldDef("empcodastgast",FieldDef.INTEGER,0);
-      empcalcliquida = new FieldDef("empcalcliquida",FieldDef.CHAR,1);
-      empetiquetas = new FieldDef("empetiquetas",FieldDef.CHAR,1);
-      empcirculares = new FieldDef("empcirculares",FieldDef.CHAR,1);
-      empcodeoant = new FieldDef("empcodeoant",FieldDef.INTEGER,0);
-      emppagahipoteca = new FieldDef("emppagahipoteca",FieldDef.CHAR,1);
-      empart80bis = new FieldDef("empart80bis",FieldDef.CHAR,1);
-      empinactiva = new FieldDef("empinactiva",FieldDef.CHAR,1);
-      empfecinactiva = new FieldDef("empfecinactiva",FieldDef.DATE);
-      empvdaantes2011 = new FieldDef("empvdaantes2011",FieldDef.CHAR,1);
+      cobcodi = new FieldDef("cobcodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      cobempresa = new FieldDef("cobempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      cobasiento = new FieldDef("cobasiento",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      cobcobropago = new FieldDef("cobcobropago",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      cobfecha = new FieldDef("cobfecha",FieldDef.DATE);
+      cobconcepto = new FieldDef("cobconcepto",FieldDef.CHAR,40);
+      cobimporte = new FieldDef("cobimporte",FieldDef.FLOAT,6,0);
+      cobestado = new FieldDef("cobestado",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      cobformapago = new FieldDef("cobformapago",FieldDef.CHAR,3);
+      cobccc = new FieldDef("cobccc",FieldDef.CHAR,34);
       FieldDef array[] = {
-        empcodigo,
-        empnif,
-        empregdeduciva,
-        empconfeclibros,
-        empcontadorfras,
-        empplancuentas,
-        empcodigoplan,
-        empfechabaja,
-        empfpagopagocta,
-        empfpagoirpf,
-        empfpagoiva,
-        empultliquida,
-        empmovimientos,
-        empacumulados,
-        empgastoscomun,
-        empgranempresa,
-        empexportadora,
-        empobserv,
-        empnombre,
-        empuser,
-        empgrupo,
-        empdefasientos,
-        empcodastingr,
-        empcodastgast,
-        empcalcliquida,
-        empetiquetas,
-        empcirculares,
-        empcodeoant,
-        emppagahipoteca,
-        empart80bis,
-        empinactiva,
-        empfecinactiva,
-        empvdaantes2011        
+        cobcodi,
+        cobempresa,
+        cobasiento,
+        cobcobropago,
+        cobfecha,
+        cobconcepto,
+        cobimporte,
+        cobestado,
+        cobformapago,
+        cobccc        
         };
       setColumns(array);
-      FieldDef arrayf[] = {empcodigo };
-      setDescription("Datos adicionales empresas");
+      FieldDef arrayf[] = {cobcodi };
       setPrimaryKeys(arrayf);
-      empcodigo.setDescription("Código de empresa");
-      empnif.setDescription("NIF Empresa");
-      empregdeduciva.setDescription("Régimen deducción IVA");
-      empconfeclibros.setDescription("Tipo libros a obtener");
-      empcontadorfras.setDescription("Iniciar contador facturas cada año");
-      empplancuentas.setDescription("Tipo plan de cuentas utilizado");
-      empcodigoplan.setDescription("Código de empresa plan de cuentas");
-      empfechabaja.setDescription("Fecha de baja de la empresa");
-      empfpagopagocta.setDescription("Forma de pago de los pagos a cuenta");
-      empfpagoirpf.setDescription("Forma de pago liquidaciones IRPF");
-      empfpagoiva.setDescription("Forma de pago liquidaciones IVA");
-      empultliquida.setDescription("A compensar o devolver última liquidación");
-      empmovimientos.setDescription("Permite entrada de apuntes contables");
-      empacumulados.setDescription("Permite entrada de acumulados");
-      empgastoscomun.setDescription("Desea distribuir entre actividades gastos");
-      empgranempresa.setDescription("Gran empresa");
-      empexportadora.setDescription("Es empresa exportadora");
-      empobserv.setDescription("Observaciones sobre empresa");
-      empnombre.setDescription("Nombre de la empresa");
-      empuser.setDescription("Usuario asignado a empresa");
-      empgrupo.setDescription("Grupo asignado a empresa");
-      empdefasientos.setDescription("Asientos predefinidos: Propios o comunes");
-      empcodastingr.setDescription("Código de asiento predefinido de ingresos");
-      empcodastgast.setDescription("Código de asiento predefinido de gastos");
-      empcalcliquida.setDescription("Cálculo liquidaciones");
-      empetiquetas.setDescription("Emitir etiquetas");
-      empcirculares.setDescription("Emitir circulares");
-      empcodeoant.setDescription("Código empresa eo antigual. De utilidad para enlace");
-      emppagahipoteca.setDescription("Paga hipoteca");
-      empart80bis.setDescription("Aplicar artículo 80 bis");
-      empinactiva.setDescription("Empresa inactiva");
-      empfecinactiva.setDescription("Fecha desde que la empresa esta inactiva");
-      empvdaantes2011.setDescription("La vivienda es anterior a 2011");
+      cobcodi.setAutoIncrementable(true);
+      cobempresa.setDescription("Ejericicio");
+      cobasiento.setDescription("Apunte");
+      cobcobropago.setDescription("Cobro o Pago");
+      cobfecha.setDescription("Fecha cobro o pago");
+      cobconcepto.setDescription("Descripcion");
+      cobimporte.setDescription("Importe");
+      cobestado.setDescription("Estado");
+      cobformapago.setDescription("Forma Cobro o Pago");
+      cobccc.setDescription("Cuenta corriente");
       }
     }
     
-  public class TabSocios extends TableDef
+  public class TabListadolibros extends TableDef
     {
     // Campos
-    public FieldDef socempresa;
-    public FieldDef socnif;
-    public FieldDef socfechaalta;
-    public FieldDef socfechabaja;
-    public FieldDef soccodigocdp;
-    public FieldDef socpagahipoteca;
-    public FieldDef socart80bis;
-    public FieldDef socvdaantes2011;
-    public TabSocios(String name)
+    public FieldDef llbcodigo;
+    public FieldDef llbusuario;
+    public FieldDef llblistipo;
+    public FieldDef llbtiplibro;
+    public FieldDef llbempresa;
+    public FieldDef llbempnombre;
+    public FieldDef llbempnif;
+    public FieldDef llbactividad;
+    public FieldDef llbactdescrip;
+    public FieldDef llbasiento;
+    public FieldDef llbserie;
+    public FieldDef llbnumero;
+    public FieldDef llbfechafactura;
+    public FieldDef llbfechaiva;
+    public FieldDef llbfechaoperac;
+    public FieldDef llbfechacobpag;
+    public FieldDef llbtipfactura;
+    public FieldDef llbnrobase;
+    public FieldDef llbdocumento;
+    public FieldDef llbnombre;
+    public FieldDef llbnif;
+    public FieldDef llbdescripcion;
+    public FieldDef llbtransaccion;
+    public FieldDef llbregimencaja;
+    public FieldDef llbdeducible;
+    public FieldDef llbbaseiva;
+    public FieldDef llbporciva;
+    public FieldDef llbimporteiva;
+    public FieldDef llbporcreceq;
+    public FieldDef llbimporterec;
+    public FieldDef llbporcirpf;
+    public FieldDef llbimporteirpf;
+    public FieldDef llbtotalfactura;
+    public FieldDef llbimpcobpago;
+    public FieldDef llbformapago;
+    public FieldDef llbccc;
+    public FieldDef llbdesctransac;
+    public TabListadolibros(String name)
       {
       super(name);
-      socempresa = new FieldDef("socempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      socnif = new FieldDef("socnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      socfechaalta = new FieldDef("socfechaalta",FieldDef.DATE);
-      socfechabaja = new FieldDef("socfechabaja",FieldDef.DATE);
-      soccodigocdp = new FieldDef("soccodigocdp",FieldDef.CHAR,12);
-      socpagahipoteca = new FieldDef("socpagahipoteca",FieldDef.CHAR,1);
-      socart80bis = new FieldDef("socart80bis",FieldDef.CHAR,1);
-      socvdaantes2011 = new FieldDef("socvdaantes2011",FieldDef.CHAR,1);
+      llbcodigo = new FieldDef("llbcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      llbusuario = new FieldDef("llbusuario",FieldDef.CHAR,25);
+      llblistipo = new FieldDef("llblistipo",FieldDef.CHAR,15);
+      llbtiplibro = new FieldDef("llbtiplibro",FieldDef.CHAR,2);
+      llbempresa = new FieldDef("llbempresa",FieldDef.INTEGER,0);
+      llbempnombre = new FieldDef("llbempnombre",FieldDef.CHAR,40);
+      llbempnif = new FieldDef("llbempnif",FieldDef.CHAR,15);
+      llbactividad = new FieldDef("llbactividad",FieldDef.INTEGER,0);
+      llbactdescrip = new FieldDef("llbactdescrip",FieldDef.CHAR,40);
+      llbasiento = new FieldDef("llbasiento",FieldDef.INTEGER,0);
+      llbserie = new FieldDef("llbserie",FieldDef.CHAR,1);
+      llbnumero = new FieldDef("llbnumero",FieldDef.INTEGER,0);
+      llbfechafactura = new FieldDef("llbfechafactura",FieldDef.DATE);
+      llbfechaiva = new FieldDef("llbfechaiva",FieldDef.DATE);
+      llbfechaoperac = new FieldDef("llbfechaoperac",FieldDef.DATE);
+      llbfechacobpag = new FieldDef("llbfechacobpag",FieldDef.DATE);
+      llbtipfactura = new FieldDef("llbtipfactura",FieldDef.CHAR,1);
+      llbnrobase = new FieldDef("llbnrobase",FieldDef.INTEGER,0);
+      llbdocumento = new FieldDef("llbdocumento",FieldDef.CHAR,14);
+      llbnombre = new FieldDef("llbnombre",FieldDef.CHAR,40);
+      llbnif = new FieldDef("llbnif",FieldDef.CHAR,15);
+      llbdescripcion = new FieldDef("llbdescripcion",FieldDef.CHAR,40);
+      llbtransaccion = new FieldDef("llbtransaccion",FieldDef.CHAR,5);
+      llbregimencaja = new FieldDef("llbregimencaja",FieldDef.CHAR,1);
+      llbdeducible = new FieldDef("llbdeducible",FieldDef.CHAR,1);
+      llbbaseiva = new FieldDef("llbbaseiva",FieldDef.FLOAT,6,0);
+      llbporciva = new FieldDef("llbporciva",FieldDef.FLOAT,6,0);
+      llbimporteiva = new FieldDef("llbimporteiva",FieldDef.FLOAT,6,0);
+      llbporcreceq = new FieldDef("llbporcreceq",FieldDef.FLOAT,6,0);
+      llbimporterec = new FieldDef("llbimporterec",FieldDef.FLOAT,6,0);
+      llbporcirpf = new FieldDef("llbporcirpf",FieldDef.FLOAT,6,0);
+      llbimporteirpf = new FieldDef("llbimporteirpf",FieldDef.FLOAT,6,0);
+      llbtotalfactura = new FieldDef("llbtotalfactura",FieldDef.FLOAT,6,0);
+      llbimpcobpago = new FieldDef("llbimpcobpago",FieldDef.FLOAT,6,0);
+      llbformapago = new FieldDef("llbformapago",FieldDef.CHAR,3);
+      llbccc = new FieldDef("llbccc",FieldDef.CHAR,34);
+      llbdesctransac = new FieldDef("llbdesctransac",FieldDef.CHAR,40);
       FieldDef array[] = {
-        socempresa,
-        socnif,
-        socfechaalta,
-        socfechabaja,
-        soccodigocdp,
-        socpagahipoteca,
-        socart80bis,
-        socvdaantes2011        
+        llbcodigo,
+        llbusuario,
+        llblistipo,
+        llbtiplibro,
+        llbempresa,
+        llbempnombre,
+        llbempnif,
+        llbactividad,
+        llbactdescrip,
+        llbasiento,
+        llbserie,
+        llbnumero,
+        llbfechafactura,
+        llbfechaiva,
+        llbfechaoperac,
+        llbfechacobpag,
+        llbtipfactura,
+        llbnrobase,
+        llbdocumento,
+        llbnombre,
+        llbnif,
+        llbdescripcion,
+        llbtransaccion,
+        llbregimencaja,
+        llbdeducible,
+        llbbaseiva,
+        llbporciva,
+        llbimporteiva,
+        llbporcreceq,
+        llbimporterec,
+        llbporcirpf,
+        llbimporteirpf,
+        llbtotalfactura,
+        llbimpcobpago,
+        llbformapago,
+        llbccc,
+        llbdesctransac        
         };
       setColumns(array);
-      FieldDef arrayf[] = {socempresa,socnif };
-      setDescription("Datos identificativos del socio");
+      FieldDef arrayf[] = {llbcodigo };
+      setDescription("Temporal para listar libros");
       setPrimaryKeys(arrayf);
-      socempresa.setDescription("Código de empresa");
-      socnif.setDescription("NIF del socio");
-      socfechaalta.setDescription("Fecha de alta");
-      socfechabaja.setDescription("Fecha de baja");
-      soccodigocdp.setDescription("Código de CDP");
-      socpagahipoteca.setDescription("Paga hipoteca");
-      socart80bis.setDescription("Aplicar artículo 80 bis");
-      socvdaantes2011.setDescription("La vivienda es anterior a 2011");
-      }
-    }
-    
-  public class TabAcumulado347 extends TableDef
-    {
-    // Campos
-    public FieldDef a347ident;
-    public FieldDef a347empresa;
-    public FieldDef a347ejercicio;
-    public FieldDef a347actividad;
-    public FieldDef a347nif;
-    public FieldDef a347nifrepre;
-    public FieldDef a347razon;
-    public FieldDef a347provin;
-    public FieldDef a347clave;
-    public FieldDef a347importe;
-    public FieldDef a347seguro;
-    public FieldDef a347arrend;
-    public FieldDef a347pais;
-    public FieldDef a347importeef;
-    public FieldDef a347importin;
-    public FieldDef a347ejeref;
-    public TabAcumulado347(String name)
-      {
-      super(name);
-      a347ident = new FieldDef("a347ident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      a347empresa = new FieldDef("a347empresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      a347ejercicio = new FieldDef("a347ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      a347actividad = new FieldDef("a347actividad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      a347nif = new FieldDef("a347nif",FieldDef.CHAR,15);
-      a347nifrepre = new FieldDef("a347nifrepre",FieldDef.CHAR,15);
-      a347razon = new FieldDef("a347razon",FieldDef.CHAR,40);
-      a347provin = new FieldDef("a347provin",FieldDef.INTEGER,0);
-      a347clave = new FieldDef("a347clave",FieldDef.CHAR,1);
-      a347importe = new FieldDef("a347importe",FieldDef.FLOAT,6,0);
-      a347seguro = new FieldDef("a347seguro",FieldDef.CHAR,1);
-      a347arrend = new FieldDef("a347arrend",FieldDef.CHAR,1);
-      a347pais = new FieldDef("a347pais",FieldDef.CHAR,3);
-      a347importeef = new FieldDef("a347importeef",FieldDef.FLOAT,6,0);
-      a347importin = new FieldDef("a347importin",FieldDef.FLOAT,6,0);
-      a347ejeref = new FieldDef("a347ejeref",FieldDef.INTEGER,0);
-      FieldDef array[] = {
-        a347ident,
-        a347empresa,
-        a347ejercicio,
-        a347actividad,
-        a347nif,
-        a347nifrepre,
-        a347razon,
-        a347provin,
-        a347clave,
-        a347importe,
-        a347seguro,
-        a347arrend,
-        a347pais,
-        a347importeef,
-        a347importin,
-        a347ejeref        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {a347ident };
-      setDescription("Acumulados 347");
-      setPrimaryKeys(arrayf);
-      a347ident.setAutoIncrementable(true);
-      a347empresa.setDescription("Codigo empresa");
-      a347ejercicio.setDescription("Ejercicio");
-      a347actividad.setDescription("Actividad");
-      a347nif.setDescription("NIF declarado");
-      a347nifrepre.setDescription("NIF representante");
-      a347razon.setDescription("Nombre declarado");
-      a347provin.setDescription("Provincia");
-      a347clave.setDescription("Clave");
-      a347importe.setDescription("Importe operacion");
-      a347seguro.setDescription("Operacion seguro");
-      a347arrend.setDescription("Arrendamiento negocio");
-      a347pais.setDescription("Pais");
-      a347importeef.setDescription("Importe percibido metalico");
-      a347importin.setDescription("Importe transmision inmuebles");
-      a347ejeref.setDescription("Ejercicio referencia");
-      }
-    }
-    
-  public class TabListado347 extends TableDef
-    {
-    // Campos
-    public FieldDef l347iden;
-    public FieldDef l347usuario;
-    public FieldDef l347ejercicio;
-    public FieldDef l347empresa;
-    public FieldDef l347clave;
-    public FieldDef l347cuenta;
-    public FieldDef l347subcuenta;
-    public FieldDef l347nif;
-    public FieldDef l347nombre;
-    public FieldDef l347importe;
-    public FieldDef l347ira347;
-    public FieldDef l347provincia;
-    public FieldDef l347pais;
-    public FieldDef l347telefono;
-    public FieldDef l347direccion;
-    public FieldDef l347cpostal;
-    public FieldDef l347municipio;
-    public FieldDef l347excede;
-    public FieldDef l347efectivo;
-    public FieldDef l347impefectivo;
-    public FieldDef l347mail;
-    public TabListado347(String name)
-      {
-      super(name);
-      l347iden = new FieldDef("l347iden",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      l347usuario = new FieldDef("l347usuario",FieldDef.CHAR,25);
-      l347ejercicio = new FieldDef("l347ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      l347empresa = new FieldDef("l347empresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      l347clave = new FieldDef("l347clave",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      l347cuenta = new FieldDef("l347cuenta",FieldDef.CHAR,4,FieldDef.NOTNULL);
-      l347subcuenta = new FieldDef("l347subcuenta",FieldDef.CHAR,15);
-      l347nif = new FieldDef("l347nif",FieldDef.CHAR,15);
-      l347nombre = new FieldDef("l347nombre",FieldDef.CHAR,40);
-      l347importe = new FieldDef("l347importe",FieldDef.FLOAT,6,0);
-      l347ira347 = new FieldDef("l347ira347",FieldDef.CHAR,1);
-      l347provincia = new FieldDef("l347provincia",FieldDef.INTEGER,0);
-      l347pais = new FieldDef("l347pais",FieldDef.CHAR,2);
-      l347telefono = new FieldDef("l347telefono",FieldDef.CHAR,15);
-      l347direccion = new FieldDef("l347direccion",FieldDef.CHAR,50);
-      l347cpostal = new FieldDef("l347cpostal",FieldDef.INTEGER,0);
-      l347municipio = new FieldDef("l347municipio",FieldDef.CHAR,40);
-      l347excede = new FieldDef("l347excede",FieldDef.CHAR,1);
-      l347efectivo = new FieldDef("l347efectivo",FieldDef.CHAR,1);
-      l347impefectivo = new FieldDef("l347impefectivo",FieldDef.FLOAT,6,0);
-      l347mail = new FieldDef("l347mail",FieldDef.CHAR,100);
-      FieldDef array[] = {
-        l347iden,
-        l347usuario,
-        l347ejercicio,
-        l347empresa,
-        l347clave,
-        l347cuenta,
-        l347subcuenta,
-        l347nif,
-        l347nombre,
-        l347importe,
-        l347ira347,
-        l347provincia,
-        l347pais,
-        l347telefono,
-        l347direccion,
-        l347cpostal,
-        l347municipio,
-        l347excede,
-        l347efectivo,
-        l347impefectivo,
-        l347mail        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {l347iden };
-      setDescription("Clientes / Proveedores a 347");
-      setPrimaryKeys(arrayf);
-      l347iden.setAutoIncrementable(true);
-      l347usuario.setDescription("Usuario");
-      l347ejercicio.setDescription("Ejericicio");
-      l347empresa.setDescription("Empresa");
-      l347clave.setDescription("Clave 347 (Cliente, Proveedor o Pago Mediacion");
-      l347cuenta.setDescription("Cuenta de mayor");
-      l347subcuenta.setDescription("Subcuenta");
-      l347nif.setDescription("NIF cliente o proveedor");
-      l347nombre.setDescription("Nombre del cliente");
-      l347importe.setDescription("Importe");
-      l347ira347.setDescription("Va a 347 en plan de cuentas o actividad");
-      l347provincia.setDescription("Codigo provincia");
-      l347pais.setDescription("Codigo pais");
-      l347telefono.setDescription("Telefono");
-      l347direccion.setDescription("Direccion");
-      l347cpostal.setDescription("Codigo postal");
-      l347municipio.setDescription("Municipio");
-      l347excede.setDescription("Indica si el NIF aparecera en 347");
-      l347efectivo.setDescription("Se ha cobrado en efectivo");
-      l347impefectivo.setDescription("Importe efectivo");
-      l347mail.setDescription("Correo electronico");
-      }
-    }
-    
-  public class TabRegborrado extends TableDef
-    {
-    // Campos
-    public FieldDef rboriden;
-    public FieldDef rborejercicio;
-    public FieldDef rborempresa;
-    public FieldDef rboractividad;
-    public FieldDef rbortabla;
-    public FieldDef rborfecha;
-    public FieldDef rbordescripcion;
-    public FieldDef rborusuario;
-    public TabRegborrado(String name)
-      {
-      super(name);
-      rboriden = new FieldDef("rboriden",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      rborejercicio = new FieldDef("rborejercicio",FieldDef.INTEGER,0);
-      rborempresa = new FieldDef("rborempresa",FieldDef.INTEGER,0);
-      rboractividad = new FieldDef("rboractividad",FieldDef.INTEGER,0);
-      rbortabla = new FieldDef("rbortabla",FieldDef.CHAR,15);
-      rborfecha = new FieldDef("rborfecha",FieldDef.DATE);
-      rbordescripcion = new FieldDef("rbordescripcion",FieldDef.CHAR,200);
-      rborusuario = new FieldDef("rborusuario",FieldDef.CHAR,25);
-      FieldDef array[] = {
-        rboriden,
-        rborejercicio,
-        rborempresa,
-        rboractividad,
-        rbortabla,
-        rborfecha,
-        rbordescripcion,
-        rborusuario        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {rboriden };
-      setPrimaryKeys(arrayf);
-      rboriden.setAutoIncrementable(true);
-      rborejercicio.setDescription("Ejericicio");
-      rborempresa.setDescription("Empresa");
-      rboractividad.setDescription("Actividad");
-      rbortabla.setDescription("Tabla");
-      rborfecha.setDescription("Fecha");
-      rbordescripcion.setDescription("Descripcion");
-      rborusuario.setDescription("Usuario");
+      llbcodigo.setAutoIncrementable(true);
+      llbusuario.setDescription("Usuario");
+      llblistipo.setDescription("Tipo listado");
+      llbtiplibro.setDescription("Tipo de libro");
+      llbempresa.setDescription("Empresa");
+      llbempnombre.setDescription("Nombre empresa");
+      llbempnif.setDescription("Nif empresa");
+      llbactividad.setDescription("Actividad");
+      llbactdescrip.setDescription("Descripcion actividad");
+      llbasiento.setDescription("Numero asiento");
+      llbserie.setDescription("Serie de facturación");
+      llbnumero.setDescription("Número de factura");
+      llbfechafactura.setDescription("Fecha de factura");
+      llbfechaiva.setDescription("Fecha a efectos de IVA");
+      llbfechaoperac.setDescription("Fecha de operación");
+      llbfechacobpag.setDescription("Fecha cobro o pago");
+      llbtipfactura.setDescription("Tipo de factura (I=ingresos, G=gastos, B=bien de inversión, P=provisiones, S=suplidos)");
+      llbnrobase.setDescription("Numero base");
+      llbdocumento.setDescription("Número de documento");
+      llbnombre.setDescription("Nombre del cliente");
+      llbnif.setDescription("NIF cliente o proveedor");
+      llbdescripcion.setDescription("Descripcion del movimiento");
+      llbtransaccion.setDescription("Transacción");
+      llbregimencaja.setDescription("Esta acogido al RECC");
+      llbdeducible.setDescription("Deducible");
+      llbbaseiva.setDescription("Base iva 1");
+      llbporciva.setDescription("% de iva 1");
+      llbimporteiva.setDescription("Importe iva 1");
+      llbporcreceq.setDescription("% de rec.equivalencia 1");
+      llbimporterec.setDescription("Importe rec.equivalencia 1");
+      llbporcirpf.setDescription("% de irpf");
+      llbimporteirpf.setDescription("Importe irpf");
+      llbtotalfactura.setDescription("Total factura");
+      llbimpcobpago.setDescription("Importe cobrado o pagado");
+      llbformapago.setDescription("Forma Cobro o Pago");
+      llbccc.setDescription("Cuenta corriente cobro o pago");
+      llbdesctransac.setDescription("Descripcion transaccion");
       }
     }
     
@@ -4442,7 +4824,6 @@ public class CatJeo extends Catalog
     tabgycauto = new TabGycauto("gycauto");
     tabirpf = new TabIrpf("irpf");
     tabiva = new TabIva("iva");
-    tabtransaccion = new TabTransaccion("transaccion");
     tabcolumnagasto = new TabColumnagasto("columnagasto");
     tabtamortizacion = new TabTamortizacion("tamortizacion");
     tablinacumulados = new TabLinacumulados("linacumulados");
@@ -4451,8 +4832,6 @@ public class CatJeo extends Catalog
     tabvtoscond = new TabVtoscond("vtoscond");
     tabactividades = new TabActividades("actividades");
     tabpsocios = new TabPsocios("psocios");
-    tabpcmayor = new TabPcmayor("pcmayor");
-    tabpcuentas = new TabPcuentas("pcuentas");
     tabpcadicionales = new TabPcadicionales("pcadicionales");
     tabdefcabapuntes = new TabDefcabapuntes("defcabapuntes");
     tabdefapuntes = new TabDefapuntes("defapuntes");
@@ -4476,7 +4855,6 @@ public class CatJeo extends Catalog
     tabimportdef = new TabImportdef("importdef");
     tabimportdet = new TabImportdet("importdet");
     tabdoctablasbd = new TabDoctablasbd("doctablasbd");
-    tabquefrase = new TabQuefrase("quefrase");
     tabquevariables = new TabQuevariables("quevariables");
     tabquetabla = new TabQuetabla("quetabla");
     tabquecolumn = new TabQuecolumn("quecolumn");
@@ -4486,7 +4864,6 @@ public class CatJeo extends Catalog
     tabdocrtfs = new TabDocrtfs("docrtfs");
     tabdocrtfcampos = new TabDocrtfcampos("docrtfcampos");
     tabseries = new TabSeries("series");
-    tabbieninversion = new TabBieninversion("bieninversion");
     tabpclocales = new TabPclocales("pclocales");
     tablisresumen = new TabLisresumen("lisresumen");
     tabejercicio = new TabEjercicio("ejercicio");
@@ -4494,18 +4871,24 @@ public class CatJeo extends Catalog
     tabdocumentos = new TabDocumentos("documentos");
     tabacum347locales = new TabAcum347locales("acum347locales");
     tabconceptos = new TabConceptos("conceptos");
-    tabimportaapuntes = new TabImportaapuntes("importaapuntes");
-    tabapuntes = new TabApuntes("apuntes");
     tabempresa = new TabEmpresa("empresa");
-    tabsocios = new TabSocios("socios");
+    tabregborrado = new TabRegborrado("regborrado");
+    tabbieninversion = new TabBieninversion("bieninversion");
+    tabimportaapuntes = new TabImportaapuntes("importaapuntes");
     tabacumulado347 = new TabAcumulado347("acumulado347");
     tablistado347 = new TabListado347("listado347");
-    tabregborrado = new TabRegborrado("regborrado");
+    tabquefrase = new TabQuefrase("quefrase");
+    tabsocios = new TabSocios("socios");
+    tabtransaccion = new TabTransaccion("transaccion");
+    tabpcmayor = new TabPcmayor("pcmayor");
+    tabpcuentas = new TabPcuentas("pcuentas");
+    tabapuntes = new TabApuntes("apuntes");
+    tabcobropago = new TabCobropago("cobropago");
+    tablistadolibros = new TabListadolibros("listadolibros");
     TableDef array[] = {
       tabgycauto,
       tabirpf,
       tabiva,
-      tabtransaccion,
       tabcolumnagasto,
       tabtamortizacion,
       tablinacumulados,
@@ -4514,8 +4897,6 @@ public class CatJeo extends Catalog
       tabvtoscond,
       tabactividades,
       tabpsocios,
-      tabpcmayor,
-      tabpcuentas,
       tabpcadicionales,
       tabdefcabapuntes,
       tabdefapuntes,
@@ -4539,7 +4920,6 @@ public class CatJeo extends Catalog
       tabimportdef,
       tabimportdet,
       tabdoctablasbd,
-      tabquefrase,
       tabquevariables,
       tabquetabla,
       tabquecolumn,
@@ -4549,7 +4929,6 @@ public class CatJeo extends Catalog
       tabdocrtfs,
       tabdocrtfcampos,
       tabseries,
-      tabbieninversion,
       tabpclocales,
       tablisresumen,
       tabejercicio,
@@ -4557,13 +4936,20 @@ public class CatJeo extends Catalog
       tabdocumentos,
       tabacum347locales,
       tabconceptos,
-      tabimportaapuntes,
-      tabapuntes,
       tabempresa,
-      tabsocios,
+      tabregborrado,
+      tabbieninversion,
+      tabimportaapuntes,
       tabacumulado347,
       tablistado347,
-      tabregborrado      
+      tabquefrase,
+      tabsocios,
+      tabtransaccion,
+      tabpcmayor,
+      tabpcuentas,
+      tabapuntes,
+      tabcobropago,
+      tablistadolibros      
       };
     setTables(array);
     FieldDef tabcalendariodetArrayf1[] = { tabcalendariodet.caldcodigo };
@@ -4585,18 +4971,6 @@ public class CatJeo extends Catalog
       new ForeignKey(tabactividades,tabpsociosArrayf3)      
       };
     tabpsocios.setForeignKeys(tabpsociosArrayfk);
-    FieldDef tabpcmayorArrayf1[] = { tabpcmayor.pcmempresa };
-    ForeignKey tabpcmayorArrayfk[] = { 
-      new ForeignKey(tabempresa,tabpcmayorArrayf1)      
-      };
-    tabpcmayor.setForeignKeys(tabpcmayorArrayfk);
-    FieldDef tabpcuentasArrayf1[] = { tabpcuentas.pcuempresa,tabpcuentas.pcucuenta };
-    FieldDef tabpcuentasArrayf2[] = { tabpcuentas.pcuempresa };
-    ForeignKey tabpcuentasArrayfk[] = { 
-      new ForeignKey(tabpcmayor,tabpcuentasArrayf1),
-      new ForeignKey(tabempresa,tabpcuentasArrayf2)      
-      };
-    tabpcuentas.setForeignKeys(tabpcuentasArrayfk);
     FieldDef tabpcadicionalesArrayf1[] = { tabpcadicionales.pcaempresa };
     ForeignKey tabpcadicionalesArrayfk[] = { 
       new ForeignKey(tabempresa,tabpcadicionalesArrayf1)      
@@ -4688,11 +5062,6 @@ public class CatJeo extends Catalog
       new ForeignKey(tabempresa,tabseriesArrayf1)      
       };
     tabseries.setForeignKeys(tabseriesArrayfk);
-    FieldDef tabbieninversionArrayf1[] = { tabbieninversion.bieempresa };
-    ForeignKey tabbieninversionArrayfk[] = { 
-      new ForeignKey(tabempresa,tabbieninversionArrayf1)      
-      };
-    tabbieninversion.setForeignKeys(tabbieninversionArrayfk);
     FieldDef tabpclocalesArrayf1[] = { tabpclocales.pclempresa };
     ForeignKey tabpclocalesArrayfk[] = { 
       new ForeignKey(tabempresa,tabpclocalesArrayf1)      
@@ -4703,6 +5072,11 @@ public class CatJeo extends Catalog
       new ForeignKey(tabacumulado347,tabacum347localesArrayf1)      
       };
     tabacum347locales.setForeignKeys(tabacum347localesArrayfk);
+    FieldDef tabbieninversionArrayf1[] = { tabbieninversion.bieempresa };
+    ForeignKey tabbieninversionArrayfk[] = { 
+      new ForeignKey(tabempresa,tabbieninversionArrayf1)      
+      };
+    tabbieninversion.setForeignKeys(tabbieninversionArrayfk);
     FieldDef tabimportaapuntesArrayf1[] = { tabimportaapuntes.impempresa };
     FieldDef tabimportaapuntesArrayf2[] = { tabimportaapuntes.impejercicio,tabimportaapuntes.impempresa,tabimportaapuntes.impactividad };
     FieldDef tabimportaapuntesArrayf3[] = { tabimportaapuntes.impejercicio,tabimportaapuntes.impempresa,tabimportaapuntes.impserie };
@@ -4712,6 +5086,28 @@ public class CatJeo extends Catalog
       new ForeignKey(tabseries,tabimportaapuntesArrayf3)      
       };
     tabimportaapuntes.setForeignKeys(tabimportaapuntesArrayfk);
+    FieldDef tablistado347Arrayf1[] = { tablistado347.l347empresa };
+    ForeignKey tablistado347Arrayfk[] = { 
+      new ForeignKey(tabempresa,tablistado347Arrayf1)      
+      };
+    tablistado347.setForeignKeys(tablistado347Arrayfk);
+    FieldDef tabsociosArrayf1[] = { tabsocios.socempresa };
+    ForeignKey tabsociosArrayfk[] = { 
+      new ForeignKey(tabempresa,tabsociosArrayf1)      
+      };
+    tabsocios.setForeignKeys(tabsociosArrayfk);
+    FieldDef tabpcmayorArrayf1[] = { tabpcmayor.pcmempresa };
+    ForeignKey tabpcmayorArrayfk[] = { 
+      new ForeignKey(tabempresa,tabpcmayorArrayf1)      
+      };
+    tabpcmayor.setForeignKeys(tabpcmayorArrayfk);
+    FieldDef tabpcuentasArrayf1[] = { tabpcuentas.pcuempresa,tabpcuentas.pcucuenta };
+    FieldDef tabpcuentasArrayf2[] = { tabpcuentas.pcuempresa };
+    ForeignKey tabpcuentasArrayfk[] = { 
+      new ForeignKey(tabpcmayor,tabpcuentasArrayf1),
+      new ForeignKey(tabempresa,tabpcuentasArrayf2)      
+      };
+    tabpcuentas.setForeignKeys(tabpcuentasArrayfk);
     FieldDef tabapuntesArrayf1[] = { tabapuntes.apuempresa };
     FieldDef tabapuntesArrayf2[] = { tabapuntes.apuejercicio,tabapuntes.apuempresa,tabapuntes.apuactividad };
     FieldDef tabapuntesArrayf3[] = { tabapuntes.apuejercicio,tabapuntes.apuempresa,tabapuntes.apuserie };
@@ -4721,16 +5117,13 @@ public class CatJeo extends Catalog
       new ForeignKey(tabseries,tabapuntesArrayf3)      
       };
     tabapuntes.setForeignKeys(tabapuntesArrayfk);
-    FieldDef tabsociosArrayf1[] = { tabsocios.socempresa };
-    ForeignKey tabsociosArrayfk[] = { 
-      new ForeignKey(tabempresa,tabsociosArrayf1)      
+    FieldDef tabcobropagoArrayf1[] = { tabcobropago.cobempresa };
+    FieldDef tabcobropagoArrayf2[] = { tabcobropago.cobasiento };
+    ForeignKey tabcobropagoArrayfk[] = { 
+      new ForeignKey(tabempresa,tabcobropagoArrayf1),
+      new ForeignKey(tabapuntes,tabcobropagoArrayf2)      
       };
-    tabsocios.setForeignKeys(tabsociosArrayfk);
-    FieldDef tablistado347Arrayf1[] = { tablistado347.l347empresa };
-    ForeignKey tablistado347Arrayfk[] = { 
-      new ForeignKey(tabempresa,tablistado347Arrayf1)      
-      };
-    tablistado347.setForeignKeys(tablistado347Arrayfk);
+    tabcobropago.setForeignKeys(tabcobropagoArrayfk);
     }
   }
   
