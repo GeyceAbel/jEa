@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140129
-// Hora:             15:37:58
+// Fecha:            20140313
+// Hora:             09:49:52
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1273,8 +1273,9 @@ public class ProgInsprconver extends Program
         "INSERT INTO FORMACOBPAG (fcpforma,fcpdesc) VALUES ('PAG','Pagaré');",
         "INSERT INTO FORMACOBPAG (fcpforma,fcpdesc,fcptipo) VALUES ('DOM','Domiciliación','TB');"
       };
-    
-      
+      String sentencias11_9[]={
+        "UPDATE TRANSACCIONES set tratipoiva='EN' where traoper349='S'"
+      };
     
       int i=0;
       try {
@@ -2922,7 +2923,22 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("11.8");
         }
-     
+        if (versio < 11.9) {
+          for (i=0;i<sentencias11_9.length;++i) {
+            try {
+              Easp.chivato("11.9 Exec : ["+sentencias11_9[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias11_9[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias11_9[i];
+              Easp.chivato("11.9 *** Error : ["+sentencias11_9[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","11.9");
+          Easp.connEA.commit();
+          vvveractual.setValue("11.9");
+        }
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
