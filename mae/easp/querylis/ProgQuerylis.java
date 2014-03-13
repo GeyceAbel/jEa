@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140225
-// Hora:             13:44:52
+// Fecha:            20140312
+// Hora:             17:24:53
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -259,8 +259,25 @@ public class ProgQuerylis extends Program
             String cataleg3="";
             if (quonexions[i].catalog3!=null)
                cataleg3=quonexions[i].catalog3.getName();
+            String cataleg4="";
+            if (quonexions[i].catalog4!=null)
+               cataleg4=quonexions[i].catalog4.getName();
+            String cataleg5="";
+            if (quonexions[i].catalog5!=null)
+               cataleg5=quonexions[i].catalog5.getName();
+            String cataleg6="";
+            if (quonexions[i].catalog6!=null)
+               cataleg6=quonexions[i].catalog6.getName();
+            String cataleg7="";
+            if (quonexions[i].catalog7!=null)
+               cataleg7=quonexions[i].catalog7.getName();
+            String cataleg8="";
+            if (quonexions[i].catalog8!=null)
+               cataleg8=quonexions[i].catalog8.getName();
   
             if (bbdd!=null && !cataleg1.equals(bbdd) && !cataleg2.equals(bbdd) && !cataleg3.equals(bbdd)
+                 && !cataleg4.equals(bbdd) && !cataleg5.equals(bbdd) && !cataleg6.equals(bbdd)  
+                 && !cataleg7.equals(bbdd) && !cataleg8.equals(bbdd)
                && ((i!=0) || bbdd!=null)) continue;  // Si bbdd==null, vol dir la conexió principal
             TableDef td=quonexions[i].catalog.getTable(tabla);
   
@@ -285,6 +302,51 @@ public class ProgQuerylis extends Program
                          tc.table=td;
                          tc.catalogo=quonexions[i].catalog3;
                          return tc;
+                   }
+                   else if (quonexions[i].catalog4!=null) {
+                        td=quonexions[i].catalog4.getTable(tabla);
+                        if (td!=null) {
+                             TablaCatalogo tc=new TablaCatalogo();
+                             tc.table=td;
+                             tc.catalogo=quonexions[i].catalog4;
+                             return tc;
+                       }
+                       else if (quonexions[i].catalog5!=null) {
+                            td=quonexions[i].catalog5.getTable(tabla);
+                            if (td!=null) {
+                                 TablaCatalogo tc=new TablaCatalogo();
+                                 tc.table=td;
+                                 tc.catalogo=quonexions[i].catalog5;
+                                 return tc;
+                           }
+                           else if (quonexions[i].catalog6!=null) {
+                                td=quonexions[i].catalog6.getTable(tabla);
+                                if (td!=null) {
+                                     TablaCatalogo tc=new TablaCatalogo();
+                                     tc.table=td;
+                                     tc.catalogo=quonexions[i].catalog6;
+                                     return tc;
+                               }
+                               else if (quonexions[i].catalog7!=null) {
+                                    td=quonexions[i].catalog7.getTable(tabla);
+                                    if (td!=null) {
+                                         TablaCatalogo tc=new TablaCatalogo();
+                                         tc.table=td;
+                                         tc.catalogo=quonexions[i].catalog7;
+                                         return tc;
+                                   }
+                                   else if (quonexions[i].catalog8!=null) {
+                                        td=quonexions[i].catalog8.getTable(tabla);
+                                        if (td!=null) {
+                                             TablaCatalogo tc=new TablaCatalogo();
+                                             tc.table=td;
+                                             tc.catalogo=quonexions[i].catalog8;
+                                             return tc;
+                                       }
+                                   }
+                               }
+                           }
+                       }
                    }
                }
             }
@@ -1003,12 +1065,28 @@ public class ProgQuerylis extends Program
     Catalog catalog=conn.catalog;
     Catalog catalog2=null;
     Catalog catalog3=null;
+    Catalog catalog4=null;
+    Catalog catalog5=null;
+    Catalog catalog6=null;
+    Catalog catalog7=null;
+    Catalog catalog8=null;
+  
     if (conn.catalog2!=null)
        catalog2=conn.catalog2;
     if (conn.catalog3!=null)
        catalog3=conn.catalog3;
+    if (conn.catalog4!=null)
+       catalog4=conn.catalog4;
+    if (conn.catalog5!=null)
+       catalog5=conn.catalog5;
+    if (conn.catalog6!=null)
+       catalog6=conn.catalog6;
+    if (conn.catalog7!=null)
+       catalog7=conn.catalog7;
+    if (conn.catalog8!=null)
+       catalog8=conn.catalog8;
   
-    if (catalog==cat || catalog2==cat || catalog3==cat)
+    if (catalog==cat || catalog2==cat || catalog3==cat || catalog4==cat || catalog5==cat || catalog6==cat || catalog7==cat || catalog8==cat)
        return true;
     else
        return false;

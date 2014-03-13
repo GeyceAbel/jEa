@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20131014
-// Hora:             17:37:17
+// Fecha:            20140312
+// Hora:             17:24:47
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -108,8 +108,25 @@ public class ProgQuerytrat extends Program
             String cataleg3="";
             if (quonexions[i].catalog3!=null)
                cataleg3=quonexions[i].catalog3.getName();
+            String cataleg4="";
+            if (quonexions[i].catalog4!=null)
+               cataleg4=quonexions[i].catalog4.getName();
+            String cataleg5="";
+            if (quonexions[i].catalog5!=null)
+               cataleg5=quonexions[i].catalog5.getName();
+            String cataleg6="";
+            if (quonexions[i].catalog6!=null)
+               cataleg6=quonexions[i].catalog6.getName();
+            String cataleg7="";
+            if (quonexions[i].catalog7!=null)
+               cataleg7=quonexions[i].catalog7.getName();
+            String cataleg8="";
+            if (quonexions[i].catalog8!=null)
+               cataleg8=quonexions[i].catalog8.getName();
   
-            if (bbdd!=null && !cataleg1.equals(bbdd) && !cataleg2.equals(bbdd) && !cataleg3.equals(bbdd)) continue;
+  
+            if (bbdd!=null && !cataleg1.equals(bbdd) && !cataleg2.equals(bbdd) && !cataleg3.equals(bbdd) && 
+                !cataleg4.equals(bbdd) && !cataleg5.equals(bbdd) && !cataleg6.equals(bbdd) && !cataleg7.equals(bbdd) && !cataleg8.equals(bbdd)) continue;
   //          if (bbdd!=null && !quonexions[i].name.equals(bbdd)) continue;
             TableDef td=quonexions[i].catalog.getTable(tabla);
             
@@ -135,6 +152,51 @@ public class ProgQuerytrat extends Program
                          tc.catalogo=quonexions[i].catalog3;
                          return tc;
               	   }    
+                     else if (quonexions[i].catalog4!=null) {
+                          td=quonexions[i].catalog4.getTable(tabla);
+                          if (td!=null) {
+                             TablaCatalogo tc=new TablaCatalogo();
+                             tc.table=td;
+                             tc.catalogo=quonexions[i].catalog4;
+                             return tc;
+                          }
+                          else if (quonexions[i].catalog5!=null) {
+                              td=quonexions[i].catalog5.getTable(tabla);
+                              if (td!=null) {
+                                 TablaCatalogo tc=new TablaCatalogo();
+                                 tc.table=td;
+                                 tc.catalogo=quonexions[i].catalog5;
+                                 return tc;
+                             }    
+                        	   else if (quonexions[i].catalog6!=null) {
+                                  td=quonexions[i].catalog6.getTable(tabla);
+                                  if (td!=null) {
+                                     TablaCatalogo tc=new TablaCatalogo();
+                                     tc.table=td;
+                                     tc.catalogo=quonexions[i].catalog6;
+                                     return tc;
+                                 }    
+                             	   else if (quonexions[i].catalog7!=null) {
+                                      td=quonexions[i].catalog7.getTable(tabla);
+                                      if (td!=null) {
+                                         TablaCatalogo tc=new TablaCatalogo();
+                                         tc.table=td;
+                                         tc.catalogo=quonexions[i].catalog7;
+                                         return tc;
+                                     }    
+                                 	   else if (quonexions[i].catalog8!=null) {
+                                          td=quonexions[i].catalog8.getTable(tabla);
+                                          if (td!=null) {
+                                             TablaCatalogo tc=new TablaCatalogo();
+                                             tc.table=td;
+                                             tc.catalogo=quonexions[i].catalog8;
+                                             return tc;
+                                         }    
+                                     } 
+                                 }
+                             } 
+                          }
+                     }    
           	   }
             }
        }     
@@ -285,12 +347,33 @@ public class ProgQuerytrat extends Program
         if (quonexions[0].catalog3!=null)
            cataleg3=quonexions[0].catalog3.getName();
         
+        String cataleg4="";
+        if (quonexions[0].catalog4!=null)
+           cataleg4=quonexions[0].catalog4.getName();
+        
+        String cataleg5="";
+        if (quonexions[0].catalog5!=null)
+           cataleg5=quonexions[0].catalog5.getName();
+        
+        String cataleg6="";
+        if (quonexions[0].catalog6!=null)
+           cataleg6=quonexions[0].catalog6.getName();
+        
+        String cataleg7="";
+        if (quonexions[0].catalog7!=null)
+           cataleg7=quonexions[0].catalog7.getName();
+        
+        String cataleg8="";
+        if (quonexions[0].catalog8!=null)
+           cataleg8=quonexions[0].catalog8.getName();
+        
         if (!isNull()) {
             TablaCatalogo tc=buscaTabla(getString());
             if (tc!=null)
                nomCataleg =tc.catalogo.getName();
         }
-        if (nomCataleg.equals("") || nomCataleg.equals(cataleg1) || nomCataleg.equals(cataleg2) || nomCataleg.equals(cataleg3)) {
+        if (nomCataleg.equals("") || nomCataleg.equals(cataleg1) || nomCataleg.equals(cataleg2) || nomCataleg.equals(cataleg3) ||
+            nomCataleg.equals(cataleg4) || nomCataleg.equals(cataleg5) || nomCataleg.equals(cataleg6) || nomCataleg.equals(cataleg7) || nomCataleg.equals(cataleg8)) {
            qefect.setEnabled(true);  
            if (aplicacion.equals("JMODELOS")) qefect.setValue("D");  
         }
@@ -3016,6 +3099,26 @@ public class ProgQuerytrat extends Program
         }
         if (quonexions[j].catalog3!=null) {
            catalogo=quonexions[j].catalog3;
+           recoreTaules(catalogo.getTables(),quonexions[j].name);
+        }
+        if (quonexions[j].catalog4!=null) {
+           catalogo=quonexions[j].catalog4;
+           recoreTaules(catalogo.getTables(),quonexions[j].name);
+        }
+        if (quonexions[j].catalog5!=null) {
+           catalogo=quonexions[j].catalog5;
+           recoreTaules(catalogo.getTables(),quonexions[j].name);
+        }
+        if (quonexions[j].catalog6!=null) {
+           catalogo=quonexions[j].catalog6;
+           recoreTaules(catalogo.getTables(),quonexions[j].name);
+        }
+        if (quonexions[j].catalog7!=null) {
+           catalogo=quonexions[j].catalog7;
+           recoreTaules(catalogo.getTables(),quonexions[j].name);
+        }
+        if (quonexions[j].catalog8!=null) {
+           catalogo=quonexions[j].catalog8;
            recoreTaules(catalogo.getTables(),quonexions[j].name);
         }
     }

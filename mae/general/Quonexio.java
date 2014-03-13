@@ -12,6 +12,11 @@ public class Quonexio
   public Catalog catalog;
   public Catalog catalog2;
   public Catalog catalog3;
+  public Catalog catalog4;
+  public Catalog catalog5;
+  public Catalog catalog6;
+  public Catalog catalog7;
+  public Catalog catalog8;
 
   public DBConnection connection;
 
