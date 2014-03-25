@@ -29,6 +29,7 @@ import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.export.JRPdfExporterParameter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
+import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
 
 public class PrintJasperPanelXLS extends PrintJasperPanel
 {
@@ -41,6 +42,7 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 	public ControlButton   crear;
 	public ControlCheck    abrir;
 	public ControlCheck    csv;
+	public ControlCheck    chxlsx;
 	private PrintJasperWork job;
 
 	public PrintJasperPanelXLS(PrintJasperWork job) {
@@ -78,6 +80,7 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 				int punt = destino.getString().lastIndexOf(".");
 				String extensio="";
 				if(csv.getBoolean())extensio="CSV";
+				else if (chxlsx.getBoolean()) extensio="XLSX";
 				else extensio="XLS";				 
 				if (punt < 0 || !destino.getString().substring(punt + 1).toUpperCase().equals(extensio))
 				{
@@ -127,6 +130,17 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 		};
 		csv.setName("vvformatocsv");
 		addControl(csv);
+		// chxlsx
+		chxlsx = new ControlCheck(this) {
+			public void userChange(Value v) {
+				if(v.getBoolean()) destino.setValue(destino.getString().replace(".xls", ".xlsx"));
+				else destino.setValue(destino.getString().replace(".xlsx", ".xls"));
+				super.userChange(v);
+				this.show();
+			}
+		};		
+		chxlsx.setName("chxlsx");
+		addControl(chxlsx);
 		
 
 		// Butó crear
@@ -175,7 +189,9 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 				}
 				FileOutputStream output = new FileOutputStream(new File(destino.getString()));
 				if(!csv.getBoolean()) {
-				  JRExporter exporter = new JRXlsExporter();
+				  JRExporter exporter = null;
+				  if (chxlsx.getBoolean()) exporter = new JRXlsxExporter();
+				  else exporter = new JRXlsExporter();
 				  exporter.setParameter(JRXlsExporterParameter.JASPER_PRINT_LIST, jprintlist);
 				  
 				  if (job.multiPaginaExcel ) exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
