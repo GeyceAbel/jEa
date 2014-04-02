@@ -86,6 +86,7 @@ public class JListado {
 	private whenNoData sinDatos;
 	public Vector <ExtraBand> vDetailExtraBand;
 	public boolean bSinColor = false;
+  public int sizePageHeader = 0;
 
 	public JListado (Select slistado, Orientacion or) {
 		rutaFicheroJRXML = null;
@@ -204,18 +205,18 @@ public class JListado {
 
 	public void setPageSize(int width, int height) {
 		pageheight = height;
-		pagewidth = width;	
+		pagewidth = width;
 		columnWidth = (pagewidth-margender-margenizq);
 		rightWidthPosicion = pagewidth - margender;
 	}
-	
+
 	public void setMargin(int left, int right, int up, int down) {
 		margensup = up;
 		margeninf = down;
 		margenizq = left;
 		margender = right;
 	}
-	
+
 	public boolean isXmlDataSource() {
 		return isXmlDataSource;
 	}
@@ -554,9 +555,9 @@ public class JListado {
 				else {
 					pw.write("<band height=\""+r.getHeaderHeight()+"\">");
 					pw.write("<frame>");
-					pw.write("<reportElement mode=\"Opaque\" x=\"0\" y=\"0\" width=\"" + columnWidth + "\" height=\"" + r.getHeaderHeight() + "\" backcolor=\"" + r.getBackGroundHeaderColor() + "\"/>");
+          pw.write("<reportElement mode=\"Opaque\" x=\"" + r.getPosX() + "\" y=\""+r.getPosY()+"\" width=\"" + columnWidth + "\" height=\"" + (r.getHeaderHeight() - r.getPosY()) + "\" backcolor=\"" + r.getBackGroundHeaderColor() + "\"/>");
 					pw.write("<textField>");
-					pw.write("<reportElement x=\"0\" y=\"0\" width=\"" + columnWidth + "\" height=\"" + r.getHeaderHeight() +"\"/>");
+          pw.write("<reportElement x=\"0\" y=\"0\" width=\"" + columnWidth + "\" height=\"" + (r.getHeaderHeight()-r.getPosY()) +"\"/>");
 					pw.write("<textElement textAlignment=\"Left\" verticalAlignment=\"Middle\">");
 					pw.write("<font size=\"" + r.getSizeFont() + "\" isBold=\"true\"/>");
 					pw.write("<paragraph leftIndent=\""+leftIndentTitol+"\"/>");
@@ -1121,8 +1122,10 @@ public class JListado {
             maxCol += 10;
           }
       }
-      if (hayColumnaSuperior) pw.write("<band height=\""+(getTamanyoPageHeader()+2*espacioDetalle+maxCol)+"\" splitType=\"Stretch\">");
-      else pw.write("<band height=\""+(getTamanyoPageHeader()+espacioDetalle+maxCol)+"\" splitType=\"Stretch\">");
+      int alzada= getTamanyoPageHeader()+espacioDetalle+maxCol;
+      if (hayColumnaSuperior) alzada = getTamanyoPageHeader()+2*espacioDetalle+maxCol;
+      if (sizePageHeader!=0) alzada = sizePageHeader;
+      pw.write("<band height=\""+alzada+"\" splitType=\"Stretch\">");
 
       int posFinEncab = 0;
 			String mo = "Opaque";
@@ -1478,16 +1481,16 @@ public class JListado {
 			pw.write("<property name=\"ireport.y\" value=\"0\"/>");
 
 			if (propiedadesExcelAutomaticas) {
-				for(int i=0; i<roturas.size();i++) {				  
+				for(int i=0; i<roturas.size();i++) {
 				  Rotura r = roturas.get(i);
 				  pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band." + ((i*2)+10) +"\" value=\"groupFooter\"/>");
 				  pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.group." + ((i*2)+10) +"\" value=\"" + r.getNombre() +"\"/>");
 				  pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band." + (((i*2)+1)+10) +"\" value=\"groupHeader\"/>");
 				  pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.group." + (((i*2)+1)+10) +"\" value=\"" + r.getNombre() +"\"/>");
-				  
+
 				}
 				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band.3\" value=\"pageFooter\"/>");
-				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band.4\" value=\"pageHeader\"/>");				
+				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band.4\" value=\"pageHeader\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band.5\" value=\"groupFooter\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.group.5\" value=\"totales\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.keep.first.band.dummy\" value=\"groupHeader\"/>");

@@ -13,7 +13,7 @@ public class Rotura {
 	private String colorFons;
 	private String colorFont;
 	private boolean asignarColorFondo;
-	
+
 	private String groupHeaderName;
 	private String titul;
 	private int posIniciTitul=0;
@@ -34,7 +34,8 @@ public class Rotura {
 	private String expresionVariables;
 	private boolean noImprimirSiTotalesEsCero = false;
 	private boolean sinRectangulo;
-
+  private int posX = 0;
+  private int posY = 0;
 
 	/*
 	public Rotura (JListado jl, java.util.List<Integer> columnes, String nombre, String agruparPor,String titol) {
@@ -55,7 +56,7 @@ public class Rotura {
 		headerHeight = 15;
 		//setEsCampo();
 	}
-*/	
+*/
 	public Rotura (JListado jl, java.util.List<Totalizar> totales, String nombre, String agruparPor,String titol) {
 		anchura = 15;
 		negreta = true;
@@ -78,10 +79,27 @@ public class Rotura {
 		expresionVariables = null;
 		noImprimirSiTotalesEsCero = false;
 		sinRectangulo = false;
+    posX = 0;
+    posY = 0;
 		//setEsCampo();
 	}
-	
-	
+
+  public void setPosX(int posX) {
+    this.posX = posX;
+  }
+
+  public void setPosY(int posY) {
+    this.posY = posY;
+  }
+
+  public int getPosX() {
+    return posX;
+  }
+
+  public int getPosY() {
+    return posY;
+  }
+
 	public boolean isSinRectangulo() {
 		return sinRectangulo;
 	}
@@ -121,20 +139,20 @@ public class Rotura {
 		this.posIniciTitul = posIniciTitul;
 		this.widthTitul = widthTitul;
 	}
-	
+
 	public void setGroupHeaderName(String groupHeaderName){
 	  printGroupHeader = true;
 	  this.groupHeaderName = groupHeaderName;
 	}
-	
+
 	public String getGroupHeaderName() {
 		return groupHeaderName;
 	}
-	
+
 	public boolean isPrintGroupHeader() {
 		return printGroupHeader;
 	}
-		
+
 	public boolean isSaltoPagina() {
 		return saltoPagina;
 	}
@@ -245,19 +263,19 @@ public class Rotura {
 	public void setAsignarColorFondo(boolean asignarColorFondo) {
 		this.asignarColorFondo = asignarColorFondo;
 	}
-	
+
 	public void setBackGroundHeaderColor(String color) {
 		this.backGroundHeaderColor = color;
 	}
-	
+
 	public String getBackGroundHeaderColor() {
 		return backGroundHeaderColor;
 	}
-	
+
 	public void setHeaderHeight(int height) {
-	  this.headerHeight = height;	
+	  this.headerHeight = height;
 	}
-	
+
 	public int getHeaderHeight()  {
 		return headerHeight;
 	}
@@ -277,8 +295,8 @@ public class Rotura {
 		this.noImprimirSiTotalesEsCero = noImprimirSiTotalesEsCero;
 	}
 
-	
-	
+
+
 /*
 	public boolean isEsVar() {
 		return esVar;
@@ -309,7 +327,7 @@ public class Rotura {
 		esVar = false;
 		esCampo = false;
 	}
-	
+
 	*/
 
 }

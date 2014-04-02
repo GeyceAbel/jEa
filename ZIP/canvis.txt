@@ -124,3 +124,4 @@
 140202 --> APXAVI: QuerLys + Jasper: rediseny del quadre de dialeg d'impresio d'un query. Reestructuracio de l'objecte jListado per adequarse a les propietats de la fulla avans d'imprimir. Noves clases exclusives per aixo.
 140301 --> APESTER: Refresh catalecs JEO, JCONTA, JISS, JRENTA, JMODELOS perque si no query no permet seleccionar les noves taules
 140302 --> APESTER: Modificat la classe Conexion perque se li pugui passar els catalegs de modelos100, 714 i 200. TAmbe fet canvis query per aquest tema
+140401 --> APESTER: Modificat jlistado.java i Rotura.java que se li passa posX i posY
