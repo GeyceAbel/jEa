@@ -87,6 +87,8 @@ public class JListado {
 	public Vector <ExtraBand> vDetailExtraBand;
 	public boolean bSinColor = false;
   public int sizePageHeader = 0;
+  public int posFinEncabezado = 0;
+  public boolean afegirStyle1 = false;
 
 	public JListado (Select slistado, Orientacion or) {
 		rutaFicheroJRXML = null;
@@ -107,6 +109,7 @@ public class JListado {
 		propiedadesExcelAutomaticas = true;
 		paginarExcel = true;
 		bSinColor = false;
+    afegirStyle1 = false;
 	}
 
 	public JListado (String queryString, LinkedHashMap<String, Integer> fields, Orientacion or) {
@@ -123,6 +126,7 @@ public class JListado {
 		propiedadesExcelAutomaticas = true;
 		paginarExcel = true;
 		bSinColor = false;
+    afegirStyle1=false;
 	}
 
 	public void setDefaultParameters() {
@@ -465,6 +469,7 @@ public class JListado {
 			if(getNumParameters() > 0) {
 				if (bOk) bOk = generarImportaciones (pw);
 			}
+      if (bOk && afegirStyle1) bOk = generarStyle(pw);
 			if (bOk) bOk = generarSubDataSet (pw);
 			if(getNumParameters() > 0) {
 				if (bOk) bOk = generarParametros (pw);
@@ -524,6 +529,29 @@ public class JListado {
 		}
 		return bOk;
 	}
+  private boolean generarStyle(BufferedWriter pw) {
+		boolean bOk = true;
+		try {
+          pw.write("<style name=\"style1\" forecolor=\"#000000\" >");
+          pw.write("  <box topPadding=\"0\" leftPadding=\"0\" bottomPadding=\"0\" rightPadding=\"0\">");
+          pw.write("    <topPen lineWidth=\"0.5\" lineColor=\"#CCCCCC\"/>");
+          pw.write("    <leftPen lineWidth=\"0.5\" lineColor=\"#CCCCCC\"/>");
+          pw.write("    <bottomPen lineWidth=\"0.5\" lineColor=\"#CCCCCC\"/>");
+          pw.write("    <rightPen lineWidth=\"0.5\" lineColor=\"#CCCCCC\"/>");
+          pw.write("  </box>");
+          /*pw.write("  <conditionalStyle>");
+          pw.write("    <conditionExpression><![CDATA[$V{"+models[k]+"}.StringValue().equals( new String(\"PDTE\"))]]></conditionExpression>");
+          pw.write("    <style forecolor=\"#CC0000\" >");
+          pw.write("    </style>");
+          pw.write("  </conditionalStyle>");*/
+          pw.write("</style>");
+		}
+		catch (IOException e) {
+			bOk = false;
+			sError = e.getMessage();
+		}
+		return bOk;
+  }
 
 	private boolean generarGrupos(BufferedWriter pw) {
 		boolean bOk = true;
@@ -1172,6 +1200,7 @@ public class JListado {
 			}
 
       if (getTitolColumnasEncabezado()) {
+          if (posFinEncabezado!=0) posFinEncab = posFinEncabezado;
           pw.write("<frame>");
           pw.write("<reportElement mode=\""+mo+"\" x=\"0\" y=\""+(posFinEncab+1)+"\" width=\""+rightWidthPosicion+"\" height=\"5\" backcolor=\"#FFFFFF\"/>");
           pw.write("</frame>");
@@ -1253,7 +1282,9 @@ public class JListado {
 		pw.write("<textField isBlankWhenNull=\"true\""+pattern + evaluation + isStretchWithOverflow+">");
 		String tran = "";
 		if (tf.isAsignarColorFondo()) tran = "mode=\"Opaque\" backcolor=\""+tf.getColorFons()+"\" ";
-		pw.write("<reportElement"+repeVal+"forecolor=\""+tf.getColorFont()+"\" x=\""+tf.getPosIni()+"\" y=\""+tf.getY()+"\" width=\""+tf.getWidth()+"\" height=\""+tf.getAmplada()+"\" "+tran+">");
+    String estilo = "";
+    if (!"".equals(tf.getStyle())) estilo = " style=\""+tf.getStyle()+"\" ";
+    pw.write("<reportElement"+repeVal+estilo+"forecolor=\""+tf.getColorFont()+"\" x=\""+tf.getPosIni()+"\" y=\""+tf.getY()+"\" width=\""+tf.getWidth()+"\" height=\""+tf.getAmplada()+"\" "+tran+">");
 		pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"true\"/>");
 		//pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");
 		pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
@@ -1479,7 +1510,6 @@ public class JListado {
 			pw.write("<property name=\"ireport.zoom\" value=\"2.0\"/>");
 			pw.write("<property name=\"ireport.x\" value=\"0\"/>");
 			pw.write("<property name=\"ireport.y\" value=\"0\"/>");
-
 			if (propiedadesExcelAutomaticas) {
 				for(int i=0; i<roturas.size();i++) {
 				  Rotura r = roturas.get(i);
@@ -1505,9 +1535,6 @@ public class JListado {
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.collapse.row.span\" value=\"true\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");
 				//pw.write("<property name=\"net.sf.jasperreports.export.csv.record.delimiter\" value=\"&#x0D;&#x0A;\"/>");
-
-
-
 			}
 			for (int i=0;i<vPropiedadesExcel.size();i++) {
 				pw.write(vPropiedadesExcel.elementAt(i));

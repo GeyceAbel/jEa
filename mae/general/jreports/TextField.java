@@ -24,12 +24,13 @@ public class TextField {
 	private boolean printValoresRepetidos;
 	private boolean esExpresionCompleta;
 	private boolean isStretchWithOverflow=false;
+  private String style = "";
 
-	
+
 	private TextField () {
-		
+
 	}
-	
+
 	public TextField (JListado jlis,int x, int y, int width, int height)  {
 		this.jl = jlis;
 		negreta = false;
@@ -48,6 +49,7 @@ public class TextField {
 		verticalAlig = "Top";
 		printValoresRepetidos = true;
 		esExpresionCompleta = false;
+    style = "";
 		//y = 0;
 		//amplada = 13;
 	}
@@ -71,7 +73,7 @@ public class TextField {
 	public String getPrintWhen() {
 		return printWhen;
 	}
-	
+
 	public boolean isEsExpresionCompleta() {
 		return esExpresionCompleta;
 	}
@@ -92,7 +94,12 @@ public class TextField {
 		this.printWhen = printWhen;
 	}
 
-	
+  public void setStyle (String style) {
+    this.style = style;
+  }
+  public String getStyle() {
+    return style;
+  }
 	public boolean esVariable () {
 		return variable != null;
 	}
@@ -101,7 +108,7 @@ public class TextField {
 		return campoSelect != null;
 	}
 	*/
-	
+
 	public boolean isExpression() {
 		return expression !=null;
 	}
@@ -168,7 +175,7 @@ public class TextField {
 	public String getCampoSelect() {
 		return campoSelect;
 	}
-	
+
 	public void setCampoSelect(String campoSelect) {
 		this.campoSelect = campoSelect;
 		variable = null;
@@ -178,11 +185,11 @@ public class TextField {
 		expression = null;
 		this.variable = v;
 	}
-	
+
 	public Variable getVariable() {
 		return variable;
 	}
-	 
+
 	public int getY() {
 		return y;
 	}
