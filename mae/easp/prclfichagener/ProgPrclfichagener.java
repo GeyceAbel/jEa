@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20131119
-// Hora:             16:42:07
+// Fecha:            20140502
+// Hora:             11:27:22
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1255,20 +1255,37 @@ public class ProgPrclfichagener extends Program
           break;
         }
       }*/
+    void mensajeSinLiquidacion() {
+      if (!chiva.getBoolean() && !chirpf.getBoolean() && !chpagosc.getBoolean() && !chliqanual.getBoolean())
+         Maefc.message("En esta cuenta no ha informado si debe utilizarse para 'IVA' o para 'IRPF'\n o para 'Pagos a Cuenta' o para 'Liquidaciones Anuales'." ,"Atención",Maefc.INFORMATION_MESSAGE);
+    }
     
     void accionTipo(ControlCheck ck, String tipo){
       boolean result=true;
-      if (ck.getBoolean())
-        result=deleteAsignacion(tipo);
-      else
-        result=nuevaAsignacion(tipo);
-      if (result) {
-        sasignaciones.commit();
-        refrescaVentana();
-        }
-      else
-        sasignaciones.rollback();
+      if (ck.getBoolean()) {
+         if ("300".equals(tipo) && Maefc.NO_OPTION==Maefc.message("Ha seleccionado que no desea utilizar esta cuenta para las liquidaciones de IVA. ¿Es correcto?","Atención",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION)) 
+            result = false; 
+         if ("110".equals(tipo) && Maefc.NO_OPTION==Maefc.message("Ha seleccionado que no desea utilizar esta cuenta para las liquidaciones de IRPF. ¿Es correcto?","Atención",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION)) 
+            result = false;
+         if ("130".equals(tipo) && Maefc.NO_OPTION==Maefc.message("Ha seleccionado que no desea utilizar esta cuenta para los Pagos a Cuenta.¿Es correcto?","Atención",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION)) 
+            result = false;
+         if ("100".equals(tipo) && Maefc.NO_OPTION==Maefc.message("Ha seleccionado que no desea utilizar esta cuenta para las Liquidaciones Anuales. ¿Es correcto?","Atención",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION)) 
+            result = false;
       }
+      if (result) {
+          if (ck.getBoolean())
+            result=deleteAsignacion(tipo);
+          else
+            result=nuevaAsignacion(tipo);
+          if (result) {
+            sasignaciones.commit();
+            refrescaVentana();
+            }
+          else
+            sasignaciones.rollback();
+          mensajeSinLiquidacion();
+      }
+    }
      
     boolean nuevaAsignacion(String tipo) {
       if (deleteAsignacion(tipo)) {
@@ -1706,10 +1723,7 @@ public class ProgPrclfichagener extends Program
           sfichageneral.next();
           }
        
-        }
-      
-      
-      
+      }
       return retorn ;
       }
     public boolean onOkDelete()
@@ -1790,6 +1804,7 @@ public class ProgPrclfichagener extends Program
       public boolean onInsert()
         {
         sbancocli.bcccodigo.setValue(codiCDP);
+        Maefc.message("En esta cuenta deberá informar si debe utilizarse para 'IVA' o para 'IRPF'\n o para 'Pagos a Cuenta' o para 'Liquidaciones Anuales'." ,"Atención",Maefc.INFORMATION_MESSAGE);
         return super.onInsert();
         
         }
