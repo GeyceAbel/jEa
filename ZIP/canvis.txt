@@ -127,3 +127,4 @@
 140401 --> APESTER: Modificat jlistado.java i Rotura.java que se li passa posX i posY
 140403 --> APESTER: Modificat jlistado.java i texfield.java perque incorpori un style
 140501 --> APESTER: Modificat prclfichagener.java perque si es graba una compte sense assignar cap model avisi o al desmarcar un model també avisi
+140502 --> APJORDI: CANVis jasper per poder afegir un Summary que contingui grafics i conclusions (Es pot extendre a qualsevol altre tipus de objecte jasper).

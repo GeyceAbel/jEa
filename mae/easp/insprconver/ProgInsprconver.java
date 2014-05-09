@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140313
-// Hora:             09:49:52
+// Fecha:            20140509
+// Hora:             10:14:34
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -187,6 +187,8 @@ public class ProgInsprconver extends Program
      "ALTER TABLE CDP ADD cdpbdcomunomina CHAR(1),cdpbdcomuconta CHAR(1),cdpbdcomueo CHAR(1),cdpbdcomuiss CHAR(1),cdpbdcomurenta CHAR(1),cdpbdestanomina CHAR(1),cdpbdestaconta CHAR(1),cdpbdestaeo CHAR(1),cdpbdestaiss CHAR(1),cdpbdestarenta CHAR(1)"
       };
   
+  private void checkTablasInformeJConta () {
+  }
   // Fin declaraciones globales
   // Ventana
   public FormVproceso vproceso;
@@ -1276,6 +1278,30 @@ public class ProgInsprconver extends Program
       String sentencias11_9[]={
         "UPDATE TRANSACCIONES set tratipoiva='EN' where traoper349='S'"
       };
+    
+      String sentencias12_0[] = {
+        "CREATE TABLE JCOPREEST             "+
+        " (jpeestruc VARCHAR(3) NOT NULL,            "+
+        "  jpeidepi  VARCHAR(15) NOT NULL,           "+
+        "  jpeepiest VARCHAR(6) NOT NULL,            "+
+        "  jpetipoimp VARCHAR(1),           "+
+        "  PRIMARY KEY (jpeestruc,jpeidepi,jpeepiest));          ",
+    	"CREATE TABLE JCORATIS              "+
+        " (jpeidrati VARCHAR(3) NOT NULL,            "+
+        "  jpenomrati VARCHAR(30),          "+
+        "  jpenumer VARCHAR(255),           "+
+        "  jpedenom VARCHAR(255),           "+
+        "  jpedesc "+getMemo(2000)           +
+        "  jpemin  FLOAT,                   "+
+        "  jpemax  FLOAT,                   "+
+        "  jpedescmin "+getMemo(2000)        +
+        "  jpedescmax "+getMemo(2000)        +
+        "  jpedescok "+getMemo(2000)         +
+        "  PRIMARY KEY (jpeidrati));          ",
+        "CREATE TABLE JCOEPIGRAFE           "+
+        " (jepidepi  VARCHAR(15) NOT NULL,  "+
+        "  jepdesc   VARCHAR(40),           "+
+        "  PRIMARY KEY (jepidepi));         "};
     
       int i=0;
       try {
@@ -2938,6 +2964,29 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","11.9");
           Easp.connEA.commit();
           vvveractual.setValue("11.9");
+        }  
+        if (versio < 12.0) {
+          for (i=0;i<sentencias12_0.length;++i) {
+            try {
+              Easp.chivato("12.0 Exec : ["+sentencias12_0[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias12_0[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias12_0[i];
+              Easp.chivato("12.0 *** Error : ["+sentencias12_0[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","12.0");
+          Easp.connEA.commit();
+          vvveractual.setValue("12.0");
+        }
+        if (versio < 12.1) {
+          String tablas[]= {"JCOEPIGRAFE","JCOPREEST","JCORATIS"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1201","easp.jar");
+          Easp.setVersionBD("bdeasp","12.1");
+          Easp.connEA.commit();
+          vvveractual.setValue("12.1");
         }
       }
       catch(Exception e) {

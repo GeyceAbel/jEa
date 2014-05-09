@@ -1,7 +1,7 @@
 @echo off
 REM  **********  Aqui se especifica la version , y los paquetes de jtoken que se van a crear ***********
-set versio=140501
-set version=14.05.01
+set versio=140502
+set version=14.05.02
 
 GOTO JEA
 :FIJEA
@@ -21,7 +21,6 @@ REM *** FICHEROS NO .CLASS ********* HTML,GIF,XML,XSL **************************
 
 pkzip25 -add -path zip/easp%versio%.zip   .properties
 pkzip25 -add -path zip/easp%versio%.zip   look.properties
-pkzip25 -add -path zip/easp%versio%.zip   maefc0108.dll
 pkzip25 -add -path zip/easp%versio%.zip   maefc0110.dll
 pkzip25 -add -path zip/easp%versio%.zip   mae\easp\scripts\*.vbs
 pkzip25 -add -path zip/easp%versio%.zip   mae\easp\vbs\query.vbs
@@ -63,6 +62,7 @@ pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver1004\*.txt
 pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver1006\*.txt
 pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver1009\*.txt
 pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver1103\*.txt
+pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver1201\*.txt
 
 
 pkzip25 -add -path zip/easp%versio%.zip   query.xls

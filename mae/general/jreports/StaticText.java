@@ -18,7 +18,7 @@ public class StaticText {
 	private String verticalAlig;
 	private int leftIndent =0;
 	private int rightIndent=0;
-
+	private boolean underline;
 	private StaticText () {
 		
 	}
@@ -36,6 +36,7 @@ public class StaticText {
 		colorFont = "#000000";
 		verticalAlig = "Top";
 		setAligLeft();
+		underline = false;
 	}
 
 	public int getWidth() {
@@ -179,6 +180,14 @@ public class StaticText {
 		sttmp.leftIndent = leftIndent;
 		sttmp.rightIndent = rightIndent;
 		return sttmp;
+	}
+
+	public void setUnderline(boolean under) {
+		underline = under;		
+	}
+
+	public boolean isUnderLine() {
+		return underline;
 	}
 	
 	

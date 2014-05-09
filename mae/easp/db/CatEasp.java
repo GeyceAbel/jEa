@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20131128
-// Hora:             16:27:04
+// Fecha:            20140509
+// Hora:             10:07:54
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -95,6 +95,9 @@ public class CatEasp extends Catalog
   public TabFormacobpag tabformacobpag;
   public TabTareajasper tabtareajasper;
   public TabTareajasperdet tabtareajasperdet;
+  public TabJcopreest tabjcopreest;
+  public TabJcoratis tabjcoratis;
+  public TabJcoepigrafe tabjcoepigrafe;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -3527,6 +3530,96 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabJcopreest extends TableDef
+    {
+    // Campos
+    public FieldDef jpeestruc;
+    public FieldDef jpeidepi;
+    public FieldDef jpeepiest;
+    public FieldDef jpetipoimp;
+    public TabJcopreest(String name)
+      {
+      super(name);
+      jpeestruc = new FieldDef("jpeestruc",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      jpeidepi = new FieldDef("jpeidepi",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      jpeepiest = new FieldDef("jpeepiest",FieldDef.CHAR,6,FieldDef.NOTNULL);
+      jpetipoimp = new FieldDef("jpetipoimp",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        jpeestruc,
+        jpeidepi,
+        jpeepiest,
+        jpetipoimp        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {jpeestruc,jpeidepi,jpeepiest };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabJcoratis extends TableDef
+    {
+    // Campos
+    public FieldDef jpeidrati;
+    public FieldDef jpenomrati;
+    public FieldDef jpenumer;
+    public FieldDef jpedenom;
+    public FieldDef jpedesc;
+    public FieldDef jpemin;
+    public FieldDef jpemax;
+    public FieldDef jpedescmin;
+    public FieldDef jpedescmax;
+    public FieldDef jpedescok;
+    public TabJcoratis(String name)
+      {
+      super(name);
+      jpeidrati = new FieldDef("jpeidrati",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      jpenomrati = new FieldDef("jpenomrati",FieldDef.CHAR,30);
+      jpenumer = new FieldDef("jpenumer",FieldDef.CHAR,255);
+      jpedenom = new FieldDef("jpedenom",FieldDef.CHAR,255);
+      jpedesc = new FieldDef("jpedesc",FieldDef.CHAR,2000);
+      jpemin = new FieldDef("jpemin",FieldDef.FLOAT,6,0);
+      jpemax = new FieldDef("jpemax",FieldDef.FLOAT,6,0);
+      jpedescmin = new FieldDef("jpedescmin",FieldDef.CHAR,2000);
+      jpedescmax = new FieldDef("jpedescmax",FieldDef.CHAR,2000);
+      jpedescok = new FieldDef("jpedescok",FieldDef.CHAR,2000);
+      FieldDef array[] = {
+        jpeidrati,
+        jpenomrati,
+        jpenumer,
+        jpedenom,
+        jpedesc,
+        jpemin,
+        jpemax,
+        jpedescmin,
+        jpedescmax,
+        jpedescok        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {jpeidrati };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabJcoepigrafe extends TableDef
+    {
+    // Campos
+    public FieldDef jepidepi;
+    public FieldDef jepdesc;
+    public TabJcoepigrafe(String name)
+      {
+      super(name);
+      jepidepi = new FieldDef("jepidepi",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      jepdesc = new FieldDef("jepdesc",FieldDef.CHAR,40);
+      FieldDef array[] = {
+        jepidepi,
+        jepdesc        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {jepidepi };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -3608,6 +3701,9 @@ public class CatEasp extends Catalog
     tabformacobpag = new TabFormacobpag("formacobpag");
     tabtareajasper = new TabTareajasper("tareajasper");
     tabtareajasperdet = new TabTareajasperdet("tareajasperdet");
+    tabjcopreest = new TabJcopreest("jcopreest");
+    tabjcoratis = new TabJcoratis("jcoratis");
+    tabjcoepigrafe = new TabJcoepigrafe("jcoepigrafe");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -3687,7 +3783,10 @@ public class CatEasp extends Catalog
       tabplantillas,
       tabformacobpag,
       tabtareajasper,
-      tabtareajasperdet      
+      tabtareajasperdet,
+      tabjcopreest,
+      tabjcoratis,
+      tabjcoepigrafe      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };

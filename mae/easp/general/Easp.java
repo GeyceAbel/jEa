@@ -24,8 +24,8 @@ public class Easp {
 
   //variables de versiones
   public static String versionAplicacion="9.7";
-  public static String versionFecha="Marzo/2014";
-  public static String versionBDEA="11.9";
+  public static String versionFecha="Mayo/2014";
+  public static String versionBDEA="12.1";
 
   //Constantes
   public final static int IVA=16;
@@ -48,14 +48,10 @@ public class Easp {
       usuario=usuario.toUpperCase();
 
     String destino=System.getProperty("user.dir")+"\\";
-    java.io.File fileDll=new java.io.File("maefc0108.dll");
+    java.io.File fileDll=new java.io.File("maefc0110.dll");
     if (!fileDll.exists()) {
-      setFileFromjar(destino,"maefc0108.dll",destino+"maefc0108.dll");
+      setFileFromjar(destino,"maefc0110.dll",destino+"maefc0110.dll");
       }
-
-    // String carpetaini=Aplication.getAplication().getConfig("carpetaexcel");
-    // setFileFromjar(carpetaini,"exportexcel.vbs",carpetaini+"exportexcel.vbs");
-
     return true;
     }
 

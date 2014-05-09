@@ -51,7 +51,7 @@ public class JListado {
 	public DBConnection conn;
 	public String rutaFicheroJRXML;
 	public int posActualColumnHeader =0;
-	private String sError;
+	protected String sError;
 	private StaticText stTitulo;
 	public int sizeDetalle;
 	public int sizeTitulo;
@@ -71,7 +71,7 @@ public class JListado {
 	private int rightWidthPosicion;
 	private boolean autoFillColumns;
 	private boolean viewTotalesFinales = true;
-  private boolean titolColumnasEncabezado=false;
+	private boolean titolColumnasEncabezado=false;
 	public int minHeightToStartNewPage;
 	private int titleHeight;
 	private String nombreReport;
@@ -86,9 +86,10 @@ public class JListado {
 	private whenNoData sinDatos;
 	public Vector <ExtraBand> vDetailExtraBand;
 	public boolean bSinColor = false;
-  public int sizePageHeader = 0;
-  public int posFinEncabezado = 0;
-  public boolean afegirStyle1 = false;
+	public int sizePageHeader = 0;
+	public int posFinEncabezado = 0;
+	public boolean afegirStyle1 = false;
+	public Summary sumario;
 
 	public JListado (Select slistado, Orientacion or) {
 		rutaFicheroJRXML = null;
@@ -109,7 +110,7 @@ public class JListado {
 		propiedadesExcelAutomaticas = true;
 		paginarExcel = true;
 		bSinColor = false;
-    afegirStyle1 = false;
+		afegirStyle1 = false;
 	}
 
 	public JListado (String queryString, LinkedHashMap<String, Integer> fields, Orientacion or) {
@@ -126,7 +127,7 @@ public class JListado {
 		propiedadesExcelAutomaticas = true;
 		paginarExcel = true;
 		bSinColor = false;
-    afegirStyle1=false;
+		afegirStyle1=false;
 	}
 
 	public void setDefaultParameters() {
@@ -322,11 +323,11 @@ public class JListado {
 		return r;
 	}
 
-  public Rotura addRotura (String nombre, String agruparPor,String titol,boolean totalizar) {
-    Rotura r = null;
-    if (totalizar) r = new Rotura(this, totales, nombre, agruparPor,titol);
-    else r = new Rotura(this, new ArrayList<Totalizar>(), nombre, agruparPor,titol);
-    roturas.add(r);
+	public Rotura addRotura (String nombre, String agruparPor,String titol,boolean totalizar) {
+		Rotura r = null;
+		if (totalizar) r = new Rotura(this, totales, nombre, agruparPor,titol);
+		else r = new Rotura(this, new ArrayList<Totalizar>(), nombre, agruparPor,titol);
+		roturas.add(r);
 
 		return r;
 	}
@@ -469,8 +470,14 @@ public class JListado {
 			if(getNumParameters() > 0) {
 				if (bOk) bOk = generarImportaciones (pw);
 			}
-      if (bOk && afegirStyle1) bOk = generarStyle(pw);
+			if (bOk && afegirStyle1) bOk = generarStyle(pw);
 			if (bOk) bOk = generarSubDataSet (pw);
+			if (sumario!= null && sumario.hayGraficos()) {
+				for (int i=0;i<sumario.graficos.size();i++) {
+					Grafico gr = sumario.graficos.get(i);
+					if (bOk) bOk = gr.generarSubDataSet (pw);
+				}
+			}			
 			if(getNumParameters() > 0) {
 				if (bOk) bOk = generarParametros (pw);
 			}
@@ -485,7 +492,7 @@ public class JListado {
 			if(viewTotalesFinales)
 				if (bOk) bOk = generarTotalesFooter (pw);
 			if (bOk) bOk = generarRoturas (pw);
-      if (bOk && !getTitolColumnasEncabezado()) bOk = generarDummyHeader(pw);
+			if (bOk && !getTitolColumnasEncabezado()) bOk = generarDummyHeader(pw);
 			if (bOk) bOk = generarGrupos(pw);
 			//if (bOk) bOk = generarBandBackground (pw);
 			if (bOk) bOk = generarBandTitle (pw);
@@ -494,6 +501,7 @@ public class JListado {
 			if (bOk) bOk = generarDetail (pw);
 			//if (bOk) bOk = generarColumnFooter (pw);
 			if (bOk) bOk = generarPageFooter (pw);
+			if (sumario != null && sumario.haySummary()) sumario.generarSumary(pw);
 			if (bOk) bOk = generarFinal (pw);
 			if (bOk) rutaFicheroJRXML = fjrxml.getAbsolutePath();
 		}
@@ -514,7 +522,7 @@ public class JListado {
 		return bOk;
 	}
 
-	private boolean generarParametroPaginaInicial(BufferedWriter pw) {
+	protected boolean generarParametroPaginaInicial(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			if (nombreVariablePaginaInicial!=null) {
@@ -529,31 +537,31 @@ public class JListado {
 		}
 		return bOk;
 	}
-  private boolean generarStyle(BufferedWriter pw) {
+	private boolean generarStyle(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
-          pw.write("<style name=\"style1\" forecolor=\"#000000\" >");
-          pw.write("  <box topPadding=\"0\" leftPadding=\"0\" bottomPadding=\"0\" rightPadding=\"0\">");
-          pw.write("    <topPen lineWidth=\"0.5\" lineColor=\"#CCCCCC\"/>");
-          pw.write("    <leftPen lineWidth=\"0.5\" lineColor=\"#CCCCCC\"/>");
-          pw.write("    <bottomPen lineWidth=\"0.5\" lineColor=\"#CCCCCC\"/>");
-          pw.write("    <rightPen lineWidth=\"0.5\" lineColor=\"#CCCCCC\"/>");
-          pw.write("  </box>");
-          /*pw.write("  <conditionalStyle>");
+			pw.write("<style name=\"style1\" forecolor=\"#000000\" >");
+			pw.write("  <box topPadding=\"0\" leftPadding=\"0\" bottomPadding=\"0\" rightPadding=\"0\">");
+			pw.write("    <topPen lineWidth=\"0.5\" lineColor=\"#CCCCCC\"/>");
+			pw.write("    <leftPen lineWidth=\"0.5\" lineColor=\"#CCCCCC\"/>");
+			pw.write("    <bottomPen lineWidth=\"0.5\" lineColor=\"#CCCCCC\"/>");
+			pw.write("    <rightPen lineWidth=\"0.5\" lineColor=\"#CCCCCC\"/>");
+			pw.write("  </box>");
+			/*pw.write("  <conditionalStyle>");
           pw.write("    <conditionExpression><![CDATA[$V{"+models[k]+"}.StringValue().equals( new String(\"PDTE\"))]]></conditionExpression>");
           pw.write("    <style forecolor=\"#CC0000\" >");
           pw.write("    </style>");
           pw.write("  </conditionalStyle>");*/
-          pw.write("</style>");
+			pw.write("</style>");
 		}
 		catch (IOException e) {
 			bOk = false;
 			sError = e.getMessage();
 		}
 		return bOk;
-  }
+	}
 
-	private boolean generarGrupos(BufferedWriter pw) {
+	protected boolean generarGrupos(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			for (int i=0;i<grupos.size();i++) pw.write(grupos.elementAt(i));
@@ -570,7 +578,7 @@ public class JListado {
 		try {
 			int leftIndentTitol=10;
 			for (int i=getNumRoturas()-1;i>=0;i--) {
-			//for (int i=0; i<getNumRoturas();i++) {
+				//for (int i=0; i<getNumRoturas();i++) {
 				Rotura r = getRotura(i);
 				String saltPage = "";
 				if (r.isSaltoPagina()) saltPage = " isStartNewPage=\"true\" ";
@@ -583,9 +591,9 @@ public class JListado {
 				else {
 					pw.write("<band height=\""+r.getHeaderHeight()+"\">");
 					pw.write("<frame>");
-          pw.write("<reportElement mode=\"Opaque\" x=\"" + r.getPosX() + "\" y=\""+r.getPosY()+"\" width=\"" + columnWidth + "\" height=\"" + (r.getHeaderHeight() - r.getPosY()) + "\" backcolor=\"" + r.getBackGroundHeaderColor() + "\"/>");
+					pw.write("<reportElement mode=\"Opaque\" x=\"" + r.getPosX() + "\" y=\""+r.getPosY()+"\" width=\"" + columnWidth + "\" height=\"" + (r.getHeaderHeight() - r.getPosY()) + "\" backcolor=\"" + r.getBackGroundHeaderColor() + "\"/>");
 					pw.write("<textField>");
-          pw.write("<reportElement x=\"0\" y=\"0\" width=\"" + columnWidth + "\" height=\"" + (r.getHeaderHeight()-r.getPosY()) +"\"/>");
+					pw.write("<reportElement x=\"0\" y=\"0\" width=\"" + columnWidth + "\" height=\"" + (r.getHeaderHeight()-r.getPosY()) +"\"/>");
 					pw.write("<textElement textAlignment=\"Left\" verticalAlignment=\"Middle\">");
 					pw.write("<font size=\"" + r.getSizeFont() + "\" isBold=\"true\"/>");
 					pw.write("<paragraph leftIndent=\""+leftIndentTitol+"\"/>");
@@ -786,8 +794,8 @@ public class JListado {
 				if (hayColumnaSuperior) pw.write("<reportElement x=\"0\" y=\""+(2*espacioDetalle)+"\" width=\""+columnWidth+"\" height=\"1\"  forecolor=\""+colorLineas+"\" />");
 				else pw.write("<reportElement x=\"0\" y=\""+espacioDetalle+"\" width=\""+columnWidth+"\" height=\"1\"  forecolor=\""+colorLineas+"\" />");
 				pw.write("</line>");
-				pw.write("</band>");
 			}
+			pw.write("</band>");
 			for (int i=0;i<dummyExtraBands.size();i++) {
 				generarExtraBand (pw,dummyExtraBands.elementAt(i));
 			}
@@ -832,7 +840,7 @@ public class JListado {
 		return t;
 	}
 
-	private boolean generarQueryString(BufferedWriter pw) {
+	protected boolean generarQueryString(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			pw.write("<queryString language=\"" + (isXmlDataSource?"xPath":"SQL") + "\">");
@@ -957,7 +965,7 @@ public class JListado {
 	}
 
 
-	private boolean generarVariablesColumnas (BufferedWriter pw) {
+	protected boolean generarVariablesColumnas (BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			for (int i=0;i<getNumColumnas();i++) {
@@ -1000,22 +1008,22 @@ public class JListado {
 		return bOk;
 	}
 
-	private boolean generarExtraVariables (BufferedWriter pw) {
+	protected boolean generarExtraVariables (BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			for (int i=0;i<vExtraVariables.size();i++) {
 				Variable v = vExtraVariables.elementAt(i);
 				String resetType = v.getResetType();
-					if (resetType == null || resetType.length()==0) resetType = "None";
-					String resetGroup = v.getResetGroup();
-					if (resetGroup == null || resetGroup.length()==0) resetGroup = "";
-					else resetGroup =  " resetGroup=\""+resetGroup+"\"";
+				if (resetType == null || resetType.length()==0) resetType = "None";
+				String resetGroup = v.getResetGroup();
+				if (resetGroup == null || resetGroup.length()==0) resetGroup = "";
+				else resetGroup =  " resetGroup=\""+resetGroup+"\"";
 
-					pw.write("<variable name=\""+v.getNom()+"\" class=\""+getTipoFieldColumna(v.getTipo())+"\" calculation=\"Sum\" resetType=\""+resetType+"\""+resetGroup+">");
-					pw.write("<variableExpression><"+v.getExpression()+"></variableExpression>");
-					String initialValue = v.getInitialValue();
-					if (initialValue != null && initialValue.length()>0) pw.write("<initialValueExpression><![CDATA["+initialValue+"]]></initialValueExpression>");
-					pw.write("</variable>");
+				pw.write("<variable name=\""+v.getNom()+"\" class=\""+getTipoFieldColumna(v.getTipo())+"\" calculation=\"Sum\" resetType=\""+resetType+"\""+resetGroup+">");
+				pw.write("<variableExpression><"+v.getExpression()+"></variableExpression>");
+				String initialValue = v.getInitialValue();
+				if (initialValue != null && initialValue.length()>0) pw.write("<initialValueExpression><![CDATA["+initialValue+"]]></initialValueExpression>");
+				pw.write("</variable>");
 			}
 		}
 		catch (Exception e) {
@@ -1040,7 +1048,7 @@ public class JListado {
 		return bOk;
 	}
 	 */
-	private boolean generarFields(BufferedWriter pw) {
+	protected boolean generarFields(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			Set<Entry<String, Integer>> set = fields.entrySet();
@@ -1084,7 +1092,7 @@ public class JListado {
 		return bOk;
 	}
 	 */
-	private boolean generarSubDataSet(BufferedWriter pw) {
+	protected boolean generarSubDataSet(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			if(slistado != null)
@@ -1136,26 +1144,26 @@ public class JListado {
 		return stTitulo.getAmplada() + total;
 	}
 
-	private boolean generarPageHeader (BufferedWriter pw) {
+	protected boolean generarPageHeader (BufferedWriter pw) {
 		boolean bOk = true;
-    boolean hayColumnaSuperior = columnasSup.size()>0;
+		boolean hayColumnaSuperior = columnasSup.size()>0;
 		try {
 			pw.write("<pageHeader>");
-      int maxCol = 0;
-      if (getTitolColumnasEncabezado()) {
-          if (getNumColumnas()>0) {
-            for (int i=0;i<getNumColumnas();i++) {
-               if (maxCol<getColumna(i).getSt().getAmplada()) maxCol = getColumna(i).getSt().getAmplada();
-            }
-            maxCol += 10;
-          }
-      }
-      int alzada= getTamanyoPageHeader()+espacioDetalle+maxCol;
-      if (hayColumnaSuperior) alzada = getTamanyoPageHeader()+2*espacioDetalle+maxCol;
-      if (sizePageHeader!=0) alzada = sizePageHeader;
-      pw.write("<band height=\""+alzada+"\" splitType=\"Stretch\">");
+			int maxCol = 0;
+			if (getTitolColumnasEncabezado()) {
+				if (getNumColumnas()>0) {
+					for (int i=0;i<getNumColumnas();i++) {
+						if (maxCol<getColumna(i).getSt().getAmplada()) maxCol = getColumna(i).getSt().getAmplada();
+					}
+					maxCol += 10;
+				}
+			}
+			int alzada= getTamanyoPageHeader()+espacioDetalle+maxCol;
+			if (hayColumnaSuperior) alzada = getTamanyoPageHeader()+2*espacioDetalle+maxCol;
+			if (sizePageHeader!=0) alzada = sizePageHeader;
+			pw.write("<band height=\""+alzada+"\" splitType=\"Stretch\">");
 
-      int posFinEncab = 0;
+			int posFinEncab = 0;
 			String mo = "Opaque";
 			if (bSinColor) {
 				mo = "Transparent";
@@ -1199,28 +1207,28 @@ public class JListado {
 				}
 			}
 
-      if (getTitolColumnasEncabezado()) {
-          if (posFinEncabezado!=0) posFinEncab = posFinEncabezado;
-          pw.write("<frame>");
-          pw.write("<reportElement mode=\""+mo+"\" x=\"0\" y=\""+(posFinEncab+1)+"\" width=\""+rightWidthPosicion+"\" height=\"5\" backcolor=\"#FFFFFF\"/>");
-          pw.write("</frame>");
-          if (getNumColumnas()>0) {
-             int amplada = 0;
-             for (int i=0;i<columnasSup.size();i++) {
-               StaticText st = columnasSup.get(i);
-               if (st.getAmplada()>amplada) amplada = st.getAmplada();
-               generarStaticText(pw, st,posFinEncab+5);
-             }
+			if (getTitolColumnasEncabezado()) {
+				if (posFinEncabezado!=0) posFinEncab = posFinEncabezado;
+				pw.write("<frame>");
+				pw.write("<reportElement mode=\""+mo+"\" x=\"0\" y=\""+(posFinEncab+1)+"\" width=\""+rightWidthPosicion+"\" height=\"5\" backcolor=\"#FFFFFF\"/>");
+				pw.write("</frame>");
+				if (getNumColumnas()>0) {
+					int amplada = 0;
+					for (int i=0;i<columnasSup.size();i++) {
+						StaticText st = columnasSup.get(i);
+						if (st.getAmplada()>amplada) amplada = st.getAmplada();
+						generarStaticText(pw, st,posFinEncab+5);
+					}
 
-            for (int i=0;i<getNumColumnas();i++) {
-              Columna c = getColumna(i);
-              generarStaticText(pw, c.getSt(),posFinEncab+5+amplada);
-            }
-            pw.write("<line>");
-            pw.write("<reportElement x=\"0\" y=\""+(posFinEncab+maxCol+amplada)+"\" width=\""+columnWidth+"\" height=\"1\"  forecolor=\""+colorLineas+"\" />");
-            pw.write("</line>");
-          }
-      }
+					for (int i=0;i<getNumColumnas();i++) {
+						Columna c = getColumna(i);
+						generarStaticText(pw, c.getSt(),posFinEncab+5+amplada);
+					}
+					pw.write("<line>");
+					pw.write("<reportElement x=\"0\" y=\""+(posFinEncab+maxCol+amplada)+"\" width=\""+columnWidth+"\" height=\"1\"  forecolor=\""+colorLineas+"\" />");
+					pw.write("</line>");
+				}
+			}
 			pw.write("</band>");
 			pw.write("</pageHeader>");
 		}
@@ -1232,15 +1240,15 @@ public class JListado {
 		return bOk;
 	}
 
-  private void generarStaticText (BufferedWriter pw, StaticText st)throws Exception {
-     generarStaticText (pw, st,0);
-  }
+	protected void generarStaticText (BufferedWriter pw, StaticText st)throws Exception {
+		generarStaticText (pw, st,0);
+	}
 
-  private void generarStaticText (BufferedWriter pw, StaticText st, int incrementarY     ) throws Exception {
+	protected void generarStaticText (BufferedWriter pw, StaticText st, int incrementarY     ) throws Exception {
 		pw.write("<staticText>");
 		String tran = "";
 		if (st.isAsignarColorFondo()) tran = "mode=\"Opaque\" backcolor=\""+st.getColorFons()+"\" ";
-    pw.write("<reportElement forecolor=\""+st.getColorFont()+"\" x=\""+st.getPosInicial()+"\" y=\""+(st.getY()+incrementarY)+"\" width=\""+st.getWidth()+"\" height=\""+st.getAmplada()+"\" "+tran+">");
+		pw.write("<reportElement forecolor=\""+st.getColorFont()+"\" x=\""+st.getPosInicial()+"\" y=\""+(st.getY()+incrementarY)+"\" width=\""+st.getWidth()+"\" height=\""+st.getAmplada()+"\" "+tran+">");
 
 		pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"true\"/>");
 		//pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");
@@ -1261,8 +1269,10 @@ public class JListado {
 			//pw.write("<paragraph leftIndent=\""+st.getLeftIndent()+"\"/>");
 		}
 
-		if (st.isNegreta()) pw.write("<font isBold=\"true\" size=\""+st.getSizeFont()+"\" />");
-		else pw.write("<font isBold=\"false\" size=\""+st.getSizeFont()+"\" />");
+		String under = "";
+		if (st.isUnderLine()) under = " isUnderline=\"true\"";
+		if (st.isNegreta()) pw.write("<font isBold=\"true\" size=\""+st.getSizeFont()+"\" "+under+" />");
+		else pw.write("<font isBold=\"false\" size=\""+st.getSizeFont()+"\" "+under+"/>");
 		pw.write(indent);
 		//pw.write("<paragraph rightIndent=\""+espacioEntreColumnas+"\"/>");
 		pw.write("</textElement>");
@@ -1282,9 +1292,9 @@ public class JListado {
 		pw.write("<textField isBlankWhenNull=\"true\""+pattern + evaluation + isStretchWithOverflow+">");
 		String tran = "";
 		if (tf.isAsignarColorFondo()) tran = "mode=\"Opaque\" backcolor=\""+tf.getColorFons()+"\" ";
-    String estilo = "";
-    if (!"".equals(tf.getStyle())) estilo = " style=\""+tf.getStyle()+"\" ";
-    pw.write("<reportElement"+repeVal+estilo+"forecolor=\""+tf.getColorFont()+"\" x=\""+tf.getPosIni()+"\" y=\""+tf.getY()+"\" width=\""+tf.getWidth()+"\" height=\""+tf.getAmplada()+"\" "+tran+">");
+		String estilo = "";
+		if (!"".equals(tf.getStyle())) estilo = " style=\""+tf.getStyle()+"\" ";
+		pw.write("<reportElement"+repeVal+estilo+"forecolor=\""+tf.getColorFont()+"\" x=\""+tf.getPosIni()+"\" y=\""+tf.getY()+"\" width=\""+tf.getWidth()+"\" height=\""+tf.getAmplada()+"\" "+tran+">");
 		pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"true\"/>");
 		//pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");
 		pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
@@ -1330,7 +1340,7 @@ public class JListado {
 		return roturas.size();
 	}
 
-	private int getNumParameters() {
+	protected int getNumParameters() {
 		return xmlParameter.size();
 	}
 
@@ -1402,7 +1412,7 @@ public class JListado {
 		return bOk;
 	}
 
-	private boolean generarFinal(BufferedWriter pw) {
+	protected boolean generarFinal(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			pw.write("</jasperReport>");
@@ -1441,7 +1451,7 @@ public class JListado {
 		return bOk;
 	}
 
-	private boolean generarPageFooter(BufferedWriter pw) {
+	protected boolean generarPageFooter(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			pw.write("<pageFooter>");
@@ -1488,7 +1498,7 @@ public class JListado {
 		}
 		return bOk;
 	}
-	private boolean generarBandTitle(BufferedWriter pw) {
+	protected boolean generarBandTitle(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			pw.write("<title>");
@@ -1502,7 +1512,7 @@ public class JListado {
 		return bOk;
 	}
 
-	private boolean generarCabecera(BufferedWriter pw) {
+	protected boolean generarCabecera(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			pw.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
@@ -1512,11 +1522,11 @@ public class JListado {
 			pw.write("<property name=\"ireport.y\" value=\"0\"/>");
 			if (propiedadesExcelAutomaticas) {
 				for(int i=0; i<roturas.size();i++) {
-				  Rotura r = roturas.get(i);
-				  pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band." + ((i*2)+10) +"\" value=\"groupFooter\"/>");
-				  pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.group." + ((i*2)+10) +"\" value=\"" + r.getNombre() +"\"/>");
-				  pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band." + (((i*2)+1)+10) +"\" value=\"groupHeader\"/>");
-				  pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.group." + (((i*2)+1)+10) +"\" value=\"" + r.getNombre() +"\"/>");
+					Rotura r = roturas.get(i);
+					pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band." + ((i*2)+10) +"\" value=\"groupFooter\"/>");
+					pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.group." + ((i*2)+10) +"\" value=\"" + r.getNombre() +"\"/>");
+					pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band." + (((i*2)+1)+10) +"\" value=\"groupHeader\"/>");
+					pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.group." + (((i*2)+1)+10) +"\" value=\"" + r.getNombre() +"\"/>");
 
 				}
 				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band.3\" value=\"pageFooter\"/>");
@@ -1524,7 +1534,7 @@ public class JListado {
 				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.band.5\" value=\"groupFooter\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.group.5\" value=\"totales\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.keep.first.band.dummy\" value=\"groupHeader\"/>");
-			    pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.keep.first.group.dummy\" value=\"dummy\"/>");
+				pw.write("<property name=\"net.sf.jasperreports.export.csv.exclude.origin.keep.first.group.dummy\" value=\"dummy\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.exclude.origin.band.2\" value=\"pageFooter\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.rows\" value=\"true\"/>");
 				pw.write("<property name=\"net.sf.jasperreports.export.xls.remove.empty.space.between.columns\" value=\"true\"/>");
@@ -1547,7 +1557,7 @@ public class JListado {
 		return bOk;
 	}
 
-	private boolean generarImportaciones(BufferedWriter pw) {
+	protected boolean generarImportaciones(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			for (int i=0;i<getNumParameters();i++) {
@@ -1563,7 +1573,7 @@ public class JListado {
 		return bOk;
 	}
 
-	private boolean generarParametros(BufferedWriter pw) {
+	protected boolean generarParametros(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
 			for (int i=0;i<getNumParameters();i++) {
@@ -1646,30 +1656,30 @@ public class JListado {
 	public void setTitleHeight(int height) {
 		this.titleHeight = height;
 	}
-  public void setTitolColumnasEncabezado(boolean titolColumnasEncabezado) {
-    this.titolColumnasEncabezado = titolColumnasEncabezado;
+	public void setTitolColumnasEncabezado(boolean titolColumnasEncabezado) {
+		this.titolColumnasEncabezado = titolColumnasEncabezado;
 	}
-  public boolean getTitolColumnasEncabezado() {
-    return titolColumnasEncabezado;
+	public boolean getTitolColumnasEncabezado() {
+		return titolColumnasEncabezado;
 	}
 
 	public void setWhenNoData(whenNoData noData) {
-		 sinDatos = noData;
+		sinDatos = noData;
 	}
 	public whenNoData getWhenNoData() {
 		return sinDatos;
 	}
 	private String tipoTratamientoSinDatos() {
-      if(sinDatos == null) return "";
-      else if(sinDatos == whenNoData.NO_PAGES) return"";
-      else if(sinDatos == whenNoData.BLANK_PAGE) return"whenNoDataType=\"BlankPage\"";
-      else if(sinDatos == whenNoData.ALL_SECTIONS_NO_DETAIL) return"whenNoDataType=\"AllSectionsNoDetail\"";
-      else if(sinDatos == whenNoData.NO_DATA_SECTION) return"whenNoDataType=\"NoDataSection\"";
-      else return "";
+		if(sinDatos == null) return "";
+		else if(sinDatos == whenNoData.NO_PAGES) return"";
+		else if(sinDatos == whenNoData.BLANK_PAGE) return"whenNoDataType=\"BlankPage\"";
+		else if(sinDatos == whenNoData.ALL_SECTIONS_NO_DETAIL) return"whenNoDataType=\"AllSectionsNoDetail\"";
+		else if(sinDatos == whenNoData.NO_DATA_SECTION) return"whenNoDataType=\"NoDataSection\"";
+		else return "";
 	}
 
 	public DBConnection getConnection() {
-	  return conn;
+		return conn;
 	}
 	public void setConnection(DBConnection conn) {
 		this.conn = conn;
