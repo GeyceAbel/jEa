@@ -1514,9 +1514,9 @@ public class JListado {
 
 	protected boolean generarCabecera(BufferedWriter pw) {
 		boolean bOk = true;
-		try {
+		try { 
 			pw.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-			pw.write("<jasperReport xmlns=\"http://jasperreports.sourceforge.net/jasperreports\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd\" name=\""+nombreReport+"\" language=\"groovy\" pageWidth=\""+pagewidth+"\" pageHeight=\""+pageheight+"\" " + tipoTratamientoSinDatos() + (orientacionPapel == Orientacion.HORIZONTAL?" orientation=\"Landscape\"":"") + " columnWidth=\""+columnWidth+"\" leftMargin=\""+margenizq+"\" rightMargin=\""+margender+"\" topMargin=\""+margensup+"\" bottomMargin=\""+margeninf+"\">");
+			pw.write("<jasperReport xmlns=\"http://jasperreports.sourceforge.net/jasperreports\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd\" name=\""+nombreReport+"\" language=\"groovy\" pageWidth=\""+pagewidth+"\" pageHeight=\""+pageheight+"\" " + tipoTratamientoSinDatos() + (orientacionPapel == Orientacion.HORIZONTAL?" orientation=\"Landscape\"":"") + " columnWidth=\""+columnWidth+"\" leftMargin=\""+margenizq+"\" rightMargin=\""+margender+"\" topMargin=\""+margensup+"\" bottomMargin=\""+margeninf+"\" isSummaryWithPageHeaderAndFooter=\"true\" >");
 			pw.write("<property name=\"ireport.zoom\" value=\"2.0\"/>");
 			pw.write("<property name=\"ireport.x\" value=\"0\"/>");
 			pw.write("<property name=\"ireport.y\" value=\"0\"/>");
