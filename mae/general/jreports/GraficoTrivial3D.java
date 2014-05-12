@@ -40,7 +40,7 @@ public class GraficoTrivial3D extends Grafico {
 			pw.write("<keyExpression><![CDATA[$F{"+campoClave+"}]]></keyExpression>");
 			pw.write("<valueExpression><![CDATA[$F{"+campoValor+"}]]></valueExpression>");
 			pw.write("</pieDataset>");
-			pw.write("<pie"+prefix+"Plot labelFormat=\"{2}\" isCircular=\"false\">");
+			pw.write("<pie"+prefix+"Plot labelFormat=\"{2}\" legendLabelFormat=\"{0} ({2})\" isCircular=\"false\">");
 			pw.write("<plot/>");
 			pw.write("<itemLabel>");
 			pw.write("<font size=\""+tamanyFontLabel+"\"/>");
