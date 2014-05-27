@@ -8,7 +8,6 @@ import mae.modasp.general.Modasp;
 import geyce.maefc.DBConnection;
 import geyce.maefc.Insert;
 import geyce.maefc.Program;
-import geyce.maefc.Update;
 
 public abstract class Conversion {
 	public static enum APLICACION_ORIGEN {LOGICCLASS};

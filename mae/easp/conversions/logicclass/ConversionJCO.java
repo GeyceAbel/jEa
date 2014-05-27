@@ -334,7 +334,6 @@ public class ConversionJCO extends ConversionLC {
 			String NombrePersona = null;
 			String PrimerApellido = null;
 			String SegundoApellido = null;
-			String MarcaEmpresaPersona = null;
 			String LetrasEtiqueta = null;
 			int IdTipoPersona = 0;
 
@@ -346,7 +345,6 @@ public class ConversionJCO extends ConversionLC {
 				NombrePersona = (String)sEmp.getObject("NombrePersona");
 				PrimerApellido = (String)sEmp.getObject("PrimerApellido");
 				SegundoApellido = (String)sEmp.getObject("SegundoApellido");    
-				MarcaEmpresaPersona = (String)sEmp.getObject("MarcaEmpresaPersona");    
 				LetrasEtiqueta = (String)sEmp.getObject("LetrasEtiqueta");    
 				IdTipoPersona = sEmp.getint("IdTipoPersona");    
 			}
@@ -3374,9 +3372,9 @@ public class ConversionJCO extends ConversionLC {
 	}
 
 	private class TipoIVA {
-		int CodigoIva;
-		double Iva;
-		double RecargoEquivalencia;
+		public int CodigoIva;
+		public double Iva;
+		public double RecargoEquivalencia;
 		int codJC;
 
 		int getCodJC() {

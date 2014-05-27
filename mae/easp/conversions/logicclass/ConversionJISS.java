@@ -4,11 +4,8 @@ import java.util.Vector;
 
 import mae.easp.conversions.DadesEmpresa;
 import mae.easp.conversions.Incidencia;
-import mae.easp.conversions.Conversion.APLICACION_GEYCE;
 import mae.easp.conversions.logicclass.db.SelectorLogic;
-import mae.general.Numero;
 import mae.general.ProgressBarForm;
-import mae.jiss.general.Jiss;
 import geyce.maefc.DBConnection;
 import geyce.maefc.Program;
 
