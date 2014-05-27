@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140305
-// Hora:             17:17:45
+// Fecha:            20140523
+// Hora:             08:44:01
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -89,6 +89,7 @@ public class CatCtasp extends Catalog
   public TabAcum130 tabacum130;
   public TabSocis130 tabsocis130;
   public TabListadotmp tablistadotmp;
+  public TabConfiginforme tabconfiginforme;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -4241,6 +4242,30 @@ public class CatCtasp extends Catalog
     public FieldDef ecpfp4c10;
     public FieldDef ecpfp4c11;
     public FieldDef ecpfp4c12;
+    public FieldDef ecpf12ac1;
+    public FieldDef ecpf12ac2;
+    public FieldDef ecpf12ac3;
+    public FieldDef ecpf12ac4;
+    public FieldDef ecpf12ac5;
+    public FieldDef ecpf12ac6;
+    public FieldDef ecpf12ac7;
+    public FieldDef ecpf12ac8;
+    public FieldDef ecpf12ac9;
+    public FieldDef ecpf12ac10;
+    public FieldDef ecpf12ac11;
+    public FieldDef ecpf12ac12;
+    public FieldDef ecpf12bc1;
+    public FieldDef ecpf12bc2;
+    public FieldDef ecpf12bc3;
+    public FieldDef ecpf12bc4;
+    public FieldDef ecpf12bc5;
+    public FieldDef ecpf12bc6;
+    public FieldDef ecpf12bc7;
+    public FieldDef ecpf12bc8;
+    public FieldDef ecpf12bc9;
+    public FieldDef ecpf12bc10;
+    public FieldDef ecpf12bc11;
+    public FieldDef ecpf12bc12;
     public TabEstcampat(String name)
       {
       super(name);
@@ -4451,6 +4476,30 @@ public class CatCtasp extends Catalog
       ecpfp4c10 = new FieldDef("ecpfp4c10",FieldDef.FLOAT,6,0);
       ecpfp4c11 = new FieldDef("ecpfp4c11",FieldDef.FLOAT,6,0);
       ecpfp4c12 = new FieldDef("ecpfp4c12",FieldDef.FLOAT,6,0);
+      ecpf12ac1 = new FieldDef("ecpf12ac1",FieldDef.FLOAT,6,0);
+      ecpf12ac2 = new FieldDef("ecpf12ac2",FieldDef.FLOAT,6,0);
+      ecpf12ac3 = new FieldDef("ecpf12ac3",FieldDef.FLOAT,6,0);
+      ecpf12ac4 = new FieldDef("ecpf12ac4",FieldDef.FLOAT,6,0);
+      ecpf12ac5 = new FieldDef("ecpf12ac5",FieldDef.FLOAT,6,0);
+      ecpf12ac6 = new FieldDef("ecpf12ac6",FieldDef.FLOAT,6,0);
+      ecpf12ac7 = new FieldDef("ecpf12ac7",FieldDef.FLOAT,6,0);
+      ecpf12ac8 = new FieldDef("ecpf12ac8",FieldDef.FLOAT,6,0);
+      ecpf12ac9 = new FieldDef("ecpf12ac9",FieldDef.FLOAT,6,0);
+      ecpf12ac10 = new FieldDef("ecpf12ac10",FieldDef.FLOAT,6,0);
+      ecpf12ac11 = new FieldDef("ecpf12ac11",FieldDef.FLOAT,6,0);
+      ecpf12ac12 = new FieldDef("ecpf12ac12",FieldDef.FLOAT,6,0);
+      ecpf12bc1 = new FieldDef("ecpf12bc1",FieldDef.FLOAT,6,0);
+      ecpf12bc2 = new FieldDef("ecpf12bc2",FieldDef.FLOAT,6,0);
+      ecpf12bc3 = new FieldDef("ecpf12bc3",FieldDef.FLOAT,6,0);
+      ecpf12bc4 = new FieldDef("ecpf12bc4",FieldDef.FLOAT,6,0);
+      ecpf12bc5 = new FieldDef("ecpf12bc5",FieldDef.FLOAT,6,0);
+      ecpf12bc6 = new FieldDef("ecpf12bc6",FieldDef.FLOAT,6,0);
+      ecpf12bc7 = new FieldDef("ecpf12bc7",FieldDef.FLOAT,6,0);
+      ecpf12bc8 = new FieldDef("ecpf12bc8",FieldDef.FLOAT,6,0);
+      ecpf12bc9 = new FieldDef("ecpf12bc9",FieldDef.FLOAT,6,0);
+      ecpf12bc10 = new FieldDef("ecpf12bc10",FieldDef.FLOAT,6,0);
+      ecpf12bc11 = new FieldDef("ecpf12bc11",FieldDef.FLOAT,6,0);
+      ecpf12bc12 = new FieldDef("ecpf12bc12",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         ecpempresa,
         ecpejercicio,
@@ -4658,7 +4707,31 @@ public class CatCtasp extends Catalog
         ecpfp4c9,
         ecpfp4c10,
         ecpfp4c11,
-        ecpfp4c12        
+        ecpfp4c12,
+        ecpf12ac1,
+        ecpf12ac2,
+        ecpf12ac3,
+        ecpf12ac4,
+        ecpf12ac5,
+        ecpf12ac6,
+        ecpf12ac7,
+        ecpf12ac8,
+        ecpf12ac9,
+        ecpf12ac10,
+        ecpf12ac11,
+        ecpf12ac12,
+        ecpf12bc1,
+        ecpf12bc2,
+        ecpf12bc3,
+        ecpf12bc4,
+        ecpf12bc5,
+        ecpf12bc6,
+        ecpf12bc7,
+        ecpf12bc8,
+        ecpf12bc9,
+        ecpf12bc10,
+        ecpf12bc11,
+        ecpf12bc12        
         };
       setColumns(array);
       FieldDef arrayf[] = {ecpempresa,ecpejercicio,ecpperiodo };
@@ -5427,6 +5500,38 @@ public class CatCtasp extends Catalog
       }
     }
     
+  public class TabConfiginforme extends TableDef
+    {
+    // Campos
+    public FieldDef cifempresa;
+    public FieldDef cifejercicio;
+    public FieldDef cifidcomen;
+    public FieldDef cifnumero;
+    public FieldDef ciftitulo;
+    public FieldDef cifcomen;
+    public TabConfiginforme(String name)
+      {
+      super(name);
+      cifempresa = new FieldDef("cifempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      cifejercicio = new FieldDef("cifejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      cifidcomen = new FieldDef("cifidcomen",FieldDef.CHAR,30,FieldDef.NOTNULL);
+      cifnumero = new FieldDef("cifnumero",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      ciftitulo = new FieldDef("ciftitulo",FieldDef.CHAR,60);
+      cifcomen = new FieldDef("cifcomen",FieldDef.CHAR,4000);
+      FieldDef array[] = {
+        cifempresa,
+        cifejercicio,
+        cifidcomen,
+        cifnumero,
+        ciftitulo,
+        cifcomen        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {cifempresa,cifejercicio,cifidcomen,cifnumero };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public CatCtasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -5502,6 +5607,7 @@ public class CatCtasp extends Catalog
     tabacum130 = new TabAcum130("acum130");
     tabsocis130 = new TabSocis130("socis130");
     tablistadotmp = new TabListadotmp("listadotmp");
+    tabconfiginforme = new TabConfiginforme("configinforme");
     TableDef array[] = {
       tabgycauto,
       tabparamlis,
@@ -5575,7 +5681,8 @@ public class CatCtasp extends Catalog
       tabacum347,
       tabacum130,
       tabsocis130,
-      tablistadotmp      
+      tablistadotmp,
+      tabconfiginforme      
       };
     setTables(array);
     FieldDef tabempresaArrayf1[] = { tabempresa.empirpfgral };
@@ -5851,7 +5958,7 @@ public class CatCtasp extends Catalog
     tabinfoperacion.setForeignKeys(tabinfoperacionArrayfk);
     FieldDef tabcuentanotaArrayf1[] = { tabcuentanota.cnocodinota };
     ForeignKey tabcuentanotaArrayfk[] = { 
-      new ForeignKey(tabcuentanota,tabcuentanotaArrayf1)      
+      new ForeignKey(tabnotas,tabcuentanotaArrayf1)      
       };
     tabcuentanota.setForeignKeys(tabcuentanotaArrayfk);
     FieldDef tabestadoflujoArrayf1[] = { tabestadoflujo.eflempresa };

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130404
-// Hora:             16:11:44
+// Fecha:            20140527
+// Hora:             17:08:47
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -27,6 +27,26 @@ public class AppEasp extends Aplication
     progMenu.run();  
   }
   
+    Menu eliminaOpcioSubmenu(MenuBar barra,String menu, String submenu, String opcio) {
+      Menu[] menutmp = barra.getItems();
+      for(int i=0;i<menutmp.length;i++) {
+        if (menutmp[i].getName().toLowerCase().equals(menu.toLowerCase())) {        
+          MenuItem[] submenus1=menutmp[i].getItems();
+          for(int j=0;j<submenus1.length;j++) {
+            if (submenus1[j].getName().toLowerCase().equals(submenu.toLowerCase())) {
+              MenuItem[] submenus2=((Menu)submenus1[j]).getItems();
+              for(int k=0;k<submenus2.length;k++) {
+                if (submenus2[k].getName().toLowerCase().equals(opcio.toLowerCase())) {
+                  ((Menu)submenus1[j]).remove(submenus2[k]);
+                }
+              }
+            }
+          }  
+        }
+      }
+      return null;
+    }
+  
   // Fin declaraciones globales
   public Barramenu barramenu;
   public Bdeasp bdeasp;
@@ -48,6 +68,10 @@ public class AppEasp extends Aplication
     // setErrorManager(mae.admon.general.Admon.getErrorManager());
     
     Aplication.getAplication().setErrorManager(new mae.easp.general.ErrorManagerDefaultJ());
+    
+    if (!"S".equals(Aplication.getAplication().getConfig("CNVLOGCLASS")) ) {
+      eliminaOpcioSubmenu(Aplication.getAplication().getMenuBar(),"minstalacion", "m1otrasaplic", "m1logclass");
+    }
     
     super.onInit();
     if (!checkPermission() || !Easp.init())
@@ -97,7 +121,18 @@ class Barramenu extends MenuBar
       
     class M1otrasaplic extends Menu
       {
+      public M1logclass m1logclass;
       public M1logicclass m1logicclass;
+      class M1logclass extends MenuItemProgram
+        {
+        public M1logclass()
+          {
+          super("Logic CLASS - Lógic Control");
+          setName("m1logclass");
+          setProgram("mae.easp.cnvlogicclass.ProgCnvlogicclass");
+          }
+        }
+        
       class M1logicclass extends MenuItemProgram
         {
         public M1logicclass()
@@ -112,6 +147,7 @@ class Barramenu extends MenuBar
         {
         super("&Importación datos Otras Aplicaciones");
         setName("m1otrasaplic");
+        add(m1logclass=new M1logclass());
         add(m1logicclass=new M1logicclass());
         }
       }

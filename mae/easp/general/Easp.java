@@ -6,6 +6,7 @@ import geyce.maefc.*;
 import mae.easp.*;
 import mae.easp.db.*;
 import mae.admon.general.*;
+
 import java.util.*;
 import java.text.*;
 import java.io.*;
@@ -52,6 +53,7 @@ public class Easp {
     if (!fileDll.exists()) {
       setFileFromjar(destino,"maefc0110.dll",destino+"maefc0110.dll");
       }
+    asignaResolucioInicial();
     return true;
     }
 
@@ -110,7 +112,7 @@ public class Easp {
     if (!filePlantillas.exists()) {
       setFileFromjar(destinoPlantillas,"query.xls",destinoPlantillas+"query.xls");
       }
-
+    
     return true;
     }
 
@@ -2473,6 +2475,21 @@ public static int messageConNuevosBotones(String message, String titol, int icon
 
  }
  //------------------
+
+public static void asignaResolucioInicial() {
+   java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+   double width = screenSize.getWidth();
+   double height = screenSize.getHeight();
+   int pantallaWidth = 1024;
+   int pantallaHeight = 768;
+   if (width<pantallaWidth || height<pantallaHeight) {
+	   ((javax.swing.JFrame)((geyce.maefc.swing.WViewAplication)Aplication.getAplication().getView()).getComponentView()).setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+   }
+   else {
+	   ((javax.swing.JFrame)((geyce.maefc.swing.WViewAplication)Aplication.getAplication().getView()).getComponentView()).setSize(pantallaWidth, pantallaHeight);
+	   Maefc.center((java.awt.Component)((javax.swing.JFrame)((geyce.maefc.swing.WViewAplication)Aplication.getAplication().getView()).getComponentView()));
+   }
+}
 
 
 public static String getNomPC() {

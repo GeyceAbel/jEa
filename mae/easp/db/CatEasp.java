@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140509
-// Hora:             10:07:54
+// Fecha:            20140527
+// Hora:             10:54:05
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -98,6 +98,9 @@ public class CatEasp extends Catalog
   public TabJcopreest tabjcopreest;
   public TabJcoratis tabjcoratis;
   public TabJcoepigrafe tabjcoepigrafe;
+  public TabCodcnvotraplc tabcodcnvotraplc;
+  public TabCodcnvotrapll tabcodcnvotrapll;
+  public TabCodcnvinciden tabcodcnvinciden;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -3620,6 +3623,189 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabCodcnvotraplc extends TableDef
+    {
+    // Campos
+    public FieldDef ccocodi;
+    public FieldDef ccoaplic;
+    public FieldDef ccofecha;
+    public FieldDef ccoservidor;
+    public FieldDef ccoinstancia;
+    public FieldDef ccouserbd;
+    public FieldDef ccopwdbd;
+    public FieldDef ccobbdd;
+    public FieldDef ccousuario;
+    public FieldDef ccohistorico;
+    public FieldDef ccoempini;
+    public FieldDef ccoempfin;
+    public FieldDef ccoejeini;
+    public FieldDef ccoejefin;
+    public FieldDef ccotraspjco;
+    public FieldDef ccotraspjeo;
+    public FieldDef ccotraspjre;
+    public FieldDef ccotraspjsoc;
+    public FieldDef ccotraspjges;
+    public FieldDef ccotraspjnom;
+    public FieldDef ccojcotipocta;
+    public FieldDef ccojcoctamayor;
+    public FieldDef ccojcocanales;
+    public FieldDef ccojcosql;
+    public TabCodcnvotraplc(String name)
+      {
+      super(name);
+      ccocodi = new FieldDef("ccocodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      ccoaplic = new FieldDef("ccoaplic",FieldDef.CHAR,15);
+      ccofecha = new FieldDef("ccofecha",FieldDef.DATE);
+      ccoservidor = new FieldDef("ccoservidor",FieldDef.CHAR,50);
+      ccoinstancia = new FieldDef("ccoinstancia",FieldDef.CHAR,50);
+      ccouserbd = new FieldDef("ccouserbd",FieldDef.CHAR,25);
+      ccopwdbd = new FieldDef("ccopwdbd",FieldDef.CHAR,25);
+      ccobbdd = new FieldDef("ccobbdd",FieldDef.CHAR,50);
+      ccousuario = new FieldDef("ccousuario",FieldDef.CHAR,15);
+      ccohistorico = new FieldDef("ccohistorico",FieldDef.CHAR,1);
+      ccoempini = new FieldDef("ccoempini",FieldDef.INTEGER,0);
+      ccoempfin = new FieldDef("ccoempfin",FieldDef.INTEGER,0);
+      ccoejeini = new FieldDef("ccoejeini",FieldDef.INTEGER,0);
+      ccoejefin = new FieldDef("ccoejefin",FieldDef.INTEGER,0);
+      ccotraspjco = new FieldDef("ccotraspjco",FieldDef.CHAR,1);
+      ccotraspjeo = new FieldDef("ccotraspjeo",FieldDef.CHAR,1);
+      ccotraspjre = new FieldDef("ccotraspjre",FieldDef.CHAR,1);
+      ccotraspjsoc = new FieldDef("ccotraspjsoc",FieldDef.CHAR,1);
+      ccotraspjges = new FieldDef("ccotraspjges",FieldDef.CHAR,1);
+      ccotraspjnom = new FieldDef("ccotraspjnom",FieldDef.CHAR,1);
+      ccojcotipocta = new FieldDef("ccojcotipocta",FieldDef.CHAR,1);
+      ccojcoctamayor = new FieldDef("ccojcoctamayor",FieldDef.CHAR,1);
+      ccojcocanales = new FieldDef("ccojcocanales",FieldDef.CHAR,1);
+      ccojcosql = new FieldDef("ccojcosql",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        ccocodi,
+        ccoaplic,
+        ccofecha,
+        ccoservidor,
+        ccoinstancia,
+        ccouserbd,
+        ccopwdbd,
+        ccobbdd,
+        ccousuario,
+        ccohistorico,
+        ccoempini,
+        ccoempfin,
+        ccoejeini,
+        ccoejefin,
+        ccotraspjco,
+        ccotraspjeo,
+        ccotraspjre,
+        ccotraspjsoc,
+        ccotraspjges,
+        ccotraspjnom,
+        ccojcotipocta,
+        ccojcoctamayor,
+        ccojcocanales,
+        ccojcosql        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {ccocodi };
+      setPrimaryKeys(arrayf);
+      ccocodi.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabCodcnvotrapll extends TableDef
+    {
+    // Campos
+    public FieldDef cclcodi;
+    public FieldDef cclccocodi;
+    public FieldDef cclsel;
+    public FieldDef cclcodiorigen;
+    public FieldDef cclnombre;
+    public FieldDef cclnif;
+    public FieldDef cclcodigeyce;
+    public FieldDef ccltraspjco;
+    public FieldDef ccltraspjeo;
+    public FieldDef ccltraspjre;
+    public FieldDef ccltraspjsoc;
+    public FieldDef ccltraspjges;
+    public FieldDef ccltraspjnom;
+    public TabCodcnvotrapll(String name)
+      {
+      super(name);
+      cclcodi = new FieldDef("cclcodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      cclccocodi = new FieldDef("cclccocodi",FieldDef.INTEGER,0);
+      cclsel = new FieldDef("cclsel",FieldDef.CHAR,1);
+      cclcodiorigen = new FieldDef("cclcodiorigen",FieldDef.INTEGER,0);
+      cclnombre = new FieldDef("cclnombre",FieldDef.CHAR,255);
+      cclnif = new FieldDef("cclnif",FieldDef.CHAR,15);
+      cclcodigeyce = new FieldDef("cclcodigeyce",FieldDef.INTEGER,0);
+      ccltraspjco = new FieldDef("ccltraspjco",FieldDef.CHAR,1);
+      ccltraspjeo = new FieldDef("ccltraspjeo",FieldDef.CHAR,1);
+      ccltraspjre = new FieldDef("ccltraspjre",FieldDef.CHAR,1);
+      ccltraspjsoc = new FieldDef("ccltraspjsoc",FieldDef.CHAR,1);
+      ccltraspjges = new FieldDef("ccltraspjges",FieldDef.CHAR,1);
+      ccltraspjnom = new FieldDef("ccltraspjnom",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        cclcodi,
+        cclccocodi,
+        cclsel,
+        cclcodiorigen,
+        cclnombre,
+        cclnif,
+        cclcodigeyce,
+        ccltraspjco,
+        ccltraspjeo,
+        ccltraspjre,
+        ccltraspjsoc,
+        ccltraspjges,
+        ccltraspjnom        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {cclcodi };
+      setPrimaryKeys(arrayf);
+      cclcodi.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabCodcnvinciden extends TableDef
+    {
+    // Campos
+    public FieldDef ccicodi;
+    public FieldDef cciccocodi;
+    public FieldDef ccicodiorigen;
+    public FieldDef ccicodigeyce;
+    public FieldDef cciejercicio;
+    public FieldDef ccinombre;
+    public FieldDef ccinif;
+    public FieldDef cciaplic;
+    public FieldDef ccimsg;
+    public TabCodcnvinciden(String name)
+      {
+      super(name);
+      ccicodi = new FieldDef("ccicodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      cciccocodi = new FieldDef("cciccocodi",FieldDef.INTEGER,0);
+      ccicodiorigen = new FieldDef("ccicodiorigen",FieldDef.INTEGER,0);
+      ccicodigeyce = new FieldDef("ccicodigeyce",FieldDef.INTEGER,0);
+      cciejercicio = new FieldDef("cciejercicio",FieldDef.INTEGER,0);
+      ccinombre = new FieldDef("ccinombre",FieldDef.CHAR,255);
+      ccinif = new FieldDef("ccinif",FieldDef.CHAR,15);
+      cciaplic = new FieldDef("cciaplic",FieldDef.CHAR,15);
+      ccimsg = new FieldDef("ccimsg",FieldDef.CHAR,255);
+      FieldDef array[] = {
+        ccicodi,
+        cciccocodi,
+        ccicodiorigen,
+        ccicodigeyce,
+        cciejercicio,
+        ccinombre,
+        ccinif,
+        cciaplic,
+        ccimsg        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {ccicodi };
+      setPrimaryKeys(arrayf);
+      ccicodi.setAutoIncrementable(true);
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -3704,6 +3890,9 @@ public class CatEasp extends Catalog
     tabjcopreest = new TabJcopreest("jcopreest");
     tabjcoratis = new TabJcoratis("jcoratis");
     tabjcoepigrafe = new TabJcoepigrafe("jcoepigrafe");
+    tabcodcnvotraplc = new TabCodcnvotraplc("codcnvotraplc");
+    tabcodcnvotrapll = new TabCodcnvotrapll("codcnvotrapll");
+    tabcodcnvinciden = new TabCodcnvinciden("codcnvinciden");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -3786,7 +3975,10 @@ public class CatEasp extends Catalog
       tabtareajasperdet,
       tabjcopreest,
       tabjcoratis,
-      tabjcoepigrafe      
+      tabjcoepigrafe,
+      tabcodcnvotraplc,
+      tabcodcnvotrapll,
+      tabcodcnvinciden      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
