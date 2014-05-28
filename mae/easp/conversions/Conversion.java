@@ -53,13 +53,7 @@ public abstract class Conversion {
 		return sError != null;
 	}
 
-	public Vector<DadesEmpresa> getVDadesEmpresa() {
-		return vDadesEmpresa;
-	}
-
 	public boolean convertir () {
-		vIncidencias.removeAllElements();
-		iniConver();
 		ProgressBarForm pbf=new ProgressBarForm(pr,"Conversión "+aplicOrigen.toString()+" - "+aplicGeyce.toString()+" ...",true,true,true) {
 			public void job() {
 				setPercent(0);
@@ -70,18 +64,20 @@ public abstract class Conversion {
 					Vector<Incidencia> vInTmp = convertirEmpresa (de, this);
 					if (vInTmp != null) vIncidencias.addAll(vInTmp);
 				}
-				if (vIncidencias != null && vIncidencias.size()>0) {
-					if (procesarIncidencias ()) {
-						sError = "Se han producido incidencas en la conversión ("+aplicGeyce.toString()+")";
-					}
-				}
+				if (vIncidencias != null && vIncidencias.size()>0) procesarIncidencias ();
 				exit ();
 			}
 		};
-		pbf.setFormWidth(600);
+		pbf.setFormWidth(800);
 		pbf.setEnabledCancel(false);
 		pbf.setSecondaryAuto(false);
+		
+		sError = null;
+		vIncidencias.removeAllElements();
+		iniConver();
+		
 		pbf.launch();
+		
 		finConver();
 		return vIncidencias.size()>0;
 	}
@@ -94,11 +90,11 @@ public abstract class Conversion {
 		connModasp = Modasp.getConnModasp();
 	}
 
-	private boolean procesarIncidencias() {
-		boolean bOk = true;
-		for (int j=0;j<vIncidencias.size() && bOk;j++) {
+	private void procesarIncidencias() {
+		for (int j=0;j<vIncidencias.size();j++) {
 			Incidencia in = vIncidencias.elementAt(j);
 			Insert i = new Insert (connEA,"CODCNVINCIDEN");
+			i.valor ("ccicodi",0);
 			i.valor ("ccicodigeyce",in.empresaDestino);
 			i.valor ("ccicodiorigen",in.empresaOrigen);
 			i.valor ("cciejercicio",in.ejercicio);
@@ -107,13 +103,9 @@ public abstract class Conversion {
 			i.valor ("ccinif",in.nif);
 			i.valor ("ccinombre",in.nom);
 			i.valor ("cciaplic",in.aplicacio.toString());
-			i.valor ("ccicodi",0);
-			bOk = i.execute();
-			if (!bOk) sError = "Error al grabar tabla de incidencias.";
+			i.execute();
 		}
-		if (bOk) connEA.commit();
-		else connEA.rollback();
-		return bOk;
+		connEA.commit();
 	}
 
 	protected abstract Vector<Incidencia> convertirEmpresa (DadesEmpresa de, ProgressBarForm pbf);

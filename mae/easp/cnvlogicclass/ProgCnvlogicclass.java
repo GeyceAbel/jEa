@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140527
-// Hora:             15:33:30
+// Fecha:            20140528
+// Hora:             10:44:52
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -31,6 +31,9 @@ public class ProgCnvlogicclass extends Program
   mae.easp.conversions.logicclass.ConversionJCO clcjco;
   mae.easp.conversions.logicclass.ConversionJEO clcjeo;
   mae.easp.conversions.logicclass.ConversionJISS clcjiss;
+  mae.easp.conversions.logicclass.ConversionJREN clcjren;
+  mae.easp.conversions.logicclass.ConversionJNOM clcjnom;
+  mae.easp.conversions.logicclass.ConversionJGES clcjges;
   
   public void onOpened() {
     super.onOpened();
@@ -809,6 +812,49 @@ public class ProgCnvlogicclass extends Program
                 clcjiss.desconetarConexionLogic();
               }
             }
+            //JNOM
+            if (bOk && chjnom.getBoolean()) {
+              clcjnom = new mae.easp.conversions.logicclass.ConversionJNOM (cnvlogicclass,codiCab,vvempini.getInteger(),vvempfin.getInteger(),vvejeini.getInteger(),vvejefin.getInteger(),
+                                                                                                                     vvservidor.getString(), vvinstancia.getString(), vvnombrebd.getString(),vvuser.getString(),
+                                                                                                                     vvpasswd.getString(), getDataBase());
+              if (clcjnom.hayError()) {
+                bOk = false;
+                sError = clcjnom.getError();
+              }
+              else {
+                gc.addVectorEmpresas(clcjnom.initEmpreses());
+                clcjnom.desconetarConexionLogic();
+              }
+            }
+            //JGES
+            if (bOk && chjges.getBoolean()) {
+              clcjges = new mae.easp.conversions.logicclass.ConversionJGES (cnvlogicclass,codiCab,vvempini.getInteger(),vvempfin.getInteger(),vvejeini.getInteger(),vvejefin.getInteger(),
+                                                                                                                     vvservidor.getString(), vvinstancia.getString(), vvnombrebd.getString(),vvuser.getString(),
+                                                                                                                     vvpasswd.getString(), getDataBase());
+              if (clcjges.hayError()) {
+                bOk = false;
+                sError = clcjges.getError();
+              }
+              else {
+                gc.addVectorEmpresas(clcjges.initEmpreses());
+                clcjges.desconetarConexionLogic();
+              }
+            }
+            //JREN
+            if (bOk && chjre.getBoolean()) {
+              clcjren = new mae.easp.conversions.logicclass.ConversionJREN (cnvlogicclass,codiCab,vvempini.getInteger(),vvempfin.getInteger(),vvejeini.getInteger(),vvejefin.getInteger(),
+                                                                                                                     vvservidor.getString(), vvinstancia.getString(), vvnombrebd.getString(),vvuser.getString(),
+                                                                                                                     vvpasswd.getString(), getDataBase());
+              if (clcjren.hayError()) {
+                bOk = false;
+                sError = clcjren.getError();
+              }
+              else {
+                gc.addVectorEmpresas(clcjren.initEmpreses());
+                clcjren.desconetarConexionLogic();
+              }
+            }
+        
         
           }
           if (bOk) {
@@ -1152,9 +1198,12 @@ public class ProgCnvlogicclass extends Program
         if (mae.easp.conversions.Incidencia.eliminarIncidencias (idConver,getDataBase())) {
           ((mae.easp.general.ErrorManagerDefaultJ)Aplication.getAplication().getErrorManager()).saltarErrores = true;
           boolean hayIncidencias = false;
-          if (chjco.getBoolean() && clcjco.convertir ()) hayIncidencias = true;
-          if (chjeo.getBoolean() && clcjeo.convertir ()) hayIncidencias = true;
-          if (chjsoc.getBoolean() && clcjiss.convertir ()) hayIncidencias = true;
+          if (vconversion.chjco.getBoolean()  && clcjco.convertir () ) hayIncidencias = true;
+          if (vconversion.chjeo.getBoolean()  && clcjeo.convertir () ) hayIncidencias = true;
+          if (vconversion.chjsoc.getBoolean() && clcjiss.convertir ()) hayIncidencias = true;
+          if (vconversion.chjre.getBoolean()  && clcjren.convertir ()) hayIncidencias = true;
+          if (vconversion.chjnom.getBoolean() && clcjnom.convertir ()) hayIncidencias = true;
+          if (vconversion.chjges.getBoolean() && clcjges.convertir ()) hayIncidencias = true;
           Update u = new Update (getDataBase(),"CODCNVOTRAPLC");
           u.valor("ccohistorico", "S");
           u.execute("ccocodi="+idConver);
@@ -1162,7 +1211,7 @@ public class ProgCnvlogicclass extends Program
           disableIniConver ();
           ((mae.easp.general.ErrorManagerDefaultJ)Aplication.getAplication().getErrorManager()).saltarErrores = false;
           if (hayIncidencias) {
-            Maefc.message ("Se han producido incidencias en el proceso de conversión.\n\nA continuación se abrirá la gestión de incidencias para poder tratarlas.","¡Atención!",Maefc.WARNING_MESSAGE);
+            Maefc.message ("Se han producido incidencias en el proceso de conversión.\n\nA continuación se abrirá la gestión de incidencias para poder gestionarlas.","¡Atención!",Maefc.WARNING_MESSAGE);
             vincidencias.idConversion = idConver;
             vincidencias.open();
           }
