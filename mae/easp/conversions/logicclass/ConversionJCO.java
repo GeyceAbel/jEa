@@ -2551,6 +2551,7 @@ public class ConversionJCO extends ConversionLC {
 	}
 	private boolean altaModelo303(String nif,int codEmp,int codGYC, int ejer) {
 		boolean bOk = true;
+		if (ejer>=2014) return true;
 		pbf.setSecondaryPercent(0);
 		pbf.setState("Convirtiendo LC: "+codEmp+"  JC:"+codGYC+" ("+ejer+")  -  Modelo 303");
 
@@ -2703,6 +2704,7 @@ public class ConversionJCO extends ConversionLC {
 					double ADevolver = s303.getdouble("ADevolver");
 					String m300tipodecl = "I";
 					String IOFTipoDeclaracion = s303.getString("IOFTipoDeclaracion");
+					if (IOFTipoDeclaracion == null) IOFTipoDeclaracion = "";
 					String banco = null;
 					String sucursal = null;
 					String digito = null;
