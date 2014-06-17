@@ -10,16 +10,22 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import mae.general.jreports.Totalizar.Calculation;
+
 public class PrintingDialogQuery extends Thread  implements WindowListener, ActionListener
 {
+	  
+	  protected enum Icon { WORD, PDF} ;
 	  protected mae.general.PlantillaJacob plantilla;
 	  protected JLabel    pagina;
 	  protected JButton   cancelar;
 	  protected JDialog dialog;
+	  private Icon typeIcon;
 
-	  PrintingDialogQuery(PlantillaJacob plantilla)
+	  PrintingDialogQuery(PlantillaJacob plantilla,Icon typeIcon)
 	  {
 	    this.plantilla = plantilla;
+	    this.typeIcon = typeIcon;
 	    createDialog();
 	  }
 
@@ -65,7 +71,11 @@ public class PrintingDialogQuery extends Thread  implements WindowListener, Acti
 
 	  protected JComponent createIcon()
 	  {
-	    ImageIcon icon = Maefc.getImageIcon("mae/easp/html/documentWordIcon.png");	    
+	    ImageIcon icon;
+	    if(typeIcon == Icon.WORD)
+	      icon = Maefc.getImageIcon("mae/easp/html/documentWordIconNew.png");
+	    else 
+	      icon = Maefc.getImageIcon("mae/easp/html/documentPdfIcon.png");
 
 	    JLabel label = new JLabel(icon);
 	    label.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
