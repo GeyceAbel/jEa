@@ -2,15 +2,17 @@ package mae.general.jreports;
 
 import geyce.maefc.ControlButton;
 import geyce.maefc.ControlCombo;
-import geyce.maefc.ControlComboBox;
 import geyce.maefc.ControlEdit;
 import geyce.maefc.LayoutHtml;
 import geyce.maefc.LocationTabbed;
 import geyce.maefc.Maefc;
 import geyce.maefc.Selector;
 import geyce.maefc.VisualComponent;
+
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFileChooser;
@@ -40,6 +42,7 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 	private String nom;
 	private String cdp;
 	private String aplicacio;
+	private ArrayList<Object> empresaList;
 	
 	public PrintJasperPanelEMIR(PrintJasperWork job)
 	{
@@ -47,9 +50,14 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 		this.job = job;
 		this.empresa = job.empresa;
 		this.aplicacio = job.aplicacio;
-		nif = getNif ();
-		nom = Easp.nombreEmpresa(nif);
-		cdp = getCDP ();
+		if(!job.mirMasivo) {
+		  nif = getNif ();
+		  nom = Easp.nombreEmpresa(nif);
+		  cdp = getCDP ();
+		}
+		else {
+			empresaList=job.relacionEmpresas;	
+		}
 	}
 
 
@@ -57,7 +65,9 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 	{
 		setLayout(new LayoutHtml("mae/general/jreports/PrintPanelEMIR.html"));
 		creaControls();
-		destino.setValue(job.destino+".pdf");
+		if(!job.mirMasivo)
+		  destino.setValue(job.destino+".pdf");
+		else destino.setValue(System.getProperty("user.dir"));
 		return this;
 	}
 
@@ -77,6 +87,8 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 		JFileChooser chooser = new JFileChooser();
 
 		FileFilter filter = new FileFilter()
+		
+		
 		{
 			public boolean accept(File file)
 			{
@@ -90,9 +102,15 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 				return "Fichero PDF";
 			}
 		};
-
-		chooser.setFileFilter(filter);
-		chooser.setDialogTitle("Archivo PDF resultado del listado");
+		if(!job.mirMasivo) {
+		  chooser.setFileFilter(filter);
+		  chooser.setDialogTitle("Archivo PDF resultado del listado");
+		}
+		else {
+			chooser.setDialogTitle("Directori destino ficheros MIR");
+		  chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		}
+		
 		if (!destino.isNull())
 			chooser.setSelectedFile(new File(destino.getString()));
 		if (chooser.showSaveDialog(geyce.maefc.swing.WSystemView.getFrame()) == JFileChooser.APPROVE_OPTION)
@@ -109,9 +127,11 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 		codigoCDP.setLength(12);
 		codigoCDP.setDescriptionShow(true);
 		codigoCDP.setDescriptionLength(40);
-		codigoCDP.setObligate(true);
+		codigoCDP.setObligate(!job.mirMasivo);
 		codigoCDP.setEnabled(false);
-		codigoCDP.setValue (cdp+"/"+nom);
+		if(!job.mirMasivo) 
+		  codigoCDP.setValue (cdp+"/"+nom);
+		else codigoCDP.setNull();
 		addControl(codigoCDP);
 
 		// Usuari CDP
@@ -135,7 +155,7 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 			public boolean valid()
 			{
 				int punt = destino.getString().lastIndexOf(".");
-				if (punt < 0 || !destino.getString().substring(punt + 1).toUpperCase().equals("PDF"))
+				if ((punt < 0 || !destino.getString().substring(punt + 1).toUpperCase().equals("PDF"))&& !job.mirMasivo)
 				{
 					setMessageWarning("La extensión del archivo de salida tiene que ser .PDF");
 					return false;
@@ -169,7 +189,12 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 		{
 			public void onClick()
 			{
-				if (PrintJasperPanelEMIR.this.isValid()) onEnviar();
+				if (PrintJasperPanelEMIR.this.isValid()) {
+				  if(!job.mirMasivo)	
+					onEnviar();
+				  else
+					onEnviarMasivo();
+				}
 			}
 		};
 		crear.setName("btenviar");
@@ -265,6 +290,75 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 				e.printStackTrace();
 			}
 		}
+		return bOk;
+	}
+	
+	public boolean onEnviarMasivo () {
+		boolean bOk = false;					
+			try {	
+			  job.resultEnvioEmir = java.io.File.createTempFile("REMIR", ".txt");
+			  for(Object empresaActual:empresaList) {
+				int startPage = 0;
+				String nif="";
+				List<JasperPrint> jprintlist = new ArrayList<JasperPrint>();
+				for (int i=0;i<job.vTarea.size();i++) {					
+				  JListado jl = job.vTarea.elementAt(i);
+				  int relacio = (Integer)jl.relListadoObj;
+				  empresa = (Integer)empresaActual;
+				  if(relacio == empresa) {					
+					//empresa = (Integer) empresaActual;
+					nif = getNif ();
+					VistaPrevia vp = null;
+					if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);    		  
+					else if  (!jl.isXmlDataSource()) {
+						if(jl.getConnection() != null) vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getConnection() , job.titulo);
+						else vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
+					}
+					else vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getXmlDataSource() , job.titulo);   
+					if (job.parametroPaginaInicial != null) {
+						jl.getParameters().put(job.parametroPaginaInicial, new Integer(startPage));
+					}
+					vp.setParameter(jl.getParameters());
+					vp.compile();    	
+					JasperPrint jp = vp.getJprint();    		  
+					jprintlist.add(jp);
+					startPage += jp.getPages().size();
+				  }
+				}
+				JRExporter exporter = new JRPdfExporter();
+				exporter.setParameter(JRPdfExporterParameter.JASPER_PRINT_LIST, jprintlist);
+				
+				
+				String aleatori = Numero.format( ((int)(Math.random()*10000)),"0000000") ;
+		        String  filename = destino.getString()+"\\"+(job.prefixNomFitxer!=null?job.prefixNomFitxer:"")+nif+aleatori+".pdf";        
+		        while ( Easp.existeFichero(filename) ) {
+		            aleatori = Numero.format( ((int)(Math.random()*10000)),"0000000") ;
+		            filename = destino.getString()+"\\"+(job.prefixNomFitxer!=null?job.prefixNomFitxer:"")+nif+aleatori+".pdf";                	
+		          } 
+				
+				FileOutputStream output = new FileOutputStream(new File(filename));
+				exporter.setParameter(JRPdfExporterParameter.OUTPUT_STREAM, output);
+				exporter.exportReport();
+				output.close();
+				
+				
+				Mir envioMir = new Mir(empresa, nif, job.titolMir!=null?job.titolMir:"EMIR", job.titolMir!=null?job.titolMir:"EMIR", filename, aplicacio);
+				int codiMir = envioMir.registraMir(false);				
+				
+		        if ( codiMir == 0 ) {		          	
+		          //String msg = "Cliente: ["+empresa+"] Con CIF/NIF: ["+nif+"] No encontrado en Afinity o no tiene contratado el producto MIR" ;
+		          BufferedWriter bw = new BufferedWriter(new FileWriter(job.resultEnvioEmir,true));
+		    	  bw.write(empresa +";"+nif+";"+filename+";"+envioMir.getErrorEnvio());
+		    	  bw.newLine();
+		    	  bw.close();
+		        }
+			  }
+			  job.dialog.exit();
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		
 		return bOk;
 	}
 }

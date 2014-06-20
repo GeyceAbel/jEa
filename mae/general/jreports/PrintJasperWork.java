@@ -1,6 +1,7 @@
 package mae.general.jreports;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Vector;
 
@@ -16,6 +17,7 @@ public class PrintJasperWork {
 	public DBConnection conn;
 	public File xmlDataSourceFile;
 	public String xmlNodeLoop;
+	public boolean mirMasivo =false;
 	protected Vector <JasperViewer> vjv = new Vector<JasperViewer>();
 	private boolean pestanaPDF=true;
 	private boolean pestanaEXCEL=true;
@@ -45,6 +47,10 @@ public class PrintJasperWork {
 	protected int empresa;
 	protected String aplicacio;
 	private boolean isQuery=false;
+	public ArrayList<Object> relacionEmpresas;
+	public File resultEnvioEmir;
+	protected String prefixNomFitxer;
+	protected String titolMir;
     
 	
 	private void showPanels(){
@@ -85,6 +91,15 @@ public class PrintJasperWork {
 		this.pestanaEMIR = true;
 		this.empresa = empresa;
 		this.aplicacio = aplicacio;
+	}
+	
+	public void setPestanaEMIRMasivo (ArrayList<Object> relacionEmpresas, String aplicacio,String titolMir,String prefixNomFitxer) throws Exception {
+		this.pestanaEMIR = true;
+		this.relacionEmpresas = relacionEmpresas;
+		this.aplicacio = aplicacio;
+		this.mirMasivo = true;
+		this.prefixNomFitxer = prefixNomFitxer;
+	    this.titolMir = titolMir;		
 	}
 	
 	public void setPestanaTXT(boolean pestanaTXT,LinkedHashMap<String,String[]> fieldsNameLength,File xmlFileDataSource) {
@@ -129,7 +144,7 @@ public class PrintJasperWork {
 		showPanels();		
 	}
 
-	private void setDefaults() {
+	private void setDefaults() {		
 		destino=System.getProperty("user.dir")+"\\listado_"+Easp.getNomPC();
 		abrir = true;
 		//horizontal = false;
@@ -175,5 +190,12 @@ public class PrintJasperWork {
 		panel.creaControls();
 		panel.destino.setValue(nombre);
 		return panel.onImprimir(true);
+	}
+	
+	public JListado runBackgroundList (Program pr) {
+		setDefaults();
+		PrintJasperPanelPDFQuer panel = new PrintJasperPanelPDFQuer (this);
+		panel.creaControls();
+		return panel.getListado();
 	}
 }

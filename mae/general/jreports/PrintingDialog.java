@@ -19,7 +19,7 @@ public class PrintingDialog extends Thread implements WindowListener, ActionList
 	  protected JButton   cancelar;
 	  protected JDialog dialog;
 
-	  PrintingDialog(AsynchronousFillHandle handle)
+	  public PrintingDialog(AsynchronousFillHandle handle)
 	  {
 	    this.handle = handle;
 	    createDialog();

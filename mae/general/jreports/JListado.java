@@ -90,6 +90,7 @@ public class JListado {
 	public int posFinEncabezado = 0;
 	public boolean afegirStyle1 = false;
 	public Summary sumario;
+	public Object relListadoObj;
 
 	public JListado (Select slistado, Orientacion or) {
 		rutaFicheroJRXML = null;
