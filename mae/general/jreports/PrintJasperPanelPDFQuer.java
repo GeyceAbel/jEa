@@ -305,6 +305,28 @@ public class PrintJasperPanelPDFQuer extends PrintJasperPanel
     DecimalFormat dec = new DecimalFormat("##.##");
     return dec.format(Maefc.round(width * relacio, 1)) + "cm x " + dec.format(Maefc.round(height * relacio, 1)) + "cm";
   }
+  
+  public JListado getListado() {
+	  try {
+	    JListado jl = job.vTarea.elementAt(0);
+	    pageSize.put("A4"        , new int[]{595 ,842 });
+		  vertical.setValue(!job.horizontal);
+		  horizontal.setValue(job.horizontal);
+		  hoja.setValue("A4");
+		  margenSup.setValue(job.margenSuperior);
+		  margenInf.setValue(job.margenInferior);
+		  margenIzq.setValue(job.margenIzquierdo);
+		  margenDer.setValue(job.margenDerecho);
+		  tamañoLetra.setValue(job.tamañoLetra);
+	    generaJrxml(jl);
+	    jl.generalJRXML();
+	    return jl;
+	  }
+	  catch (Exception ex) {
+		ex.printStackTrace();
+		return null;  
+	  }
+  }
 
 	public boolean onImprimir(boolean background) {
 		boolean bOk = false;

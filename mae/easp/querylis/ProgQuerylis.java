@@ -38,6 +38,8 @@ public class ProgQuerylis extends Program
   public int gasesor = 1 ;
   public boolean isJasper = false;
   public boolean isOldButonListar = false;
+  public String fraseEspecifica;
+  public mae.general.jreports.JListado jasperList;
   
   
   Seleccio seleccio;
@@ -1002,7 +1004,7 @@ public class ProgQuerylis extends Program
   /* 02-12-2001 APXAVI nou parametre per cambiar el nom del botó segons es cridi desde listar o combinar*/
   boolean demanarParametres(boolean callCombinarButton) {
     if ((frase.variables.size()==0 || !algunaVariableVisible()) &&
-        (frase.ect==null || frase.ect.length()==0 || frase.ect.equals("N")) )
+        (frase.ect==null || frase.ect.length()==0 || frase.ect.equals("N"))||fraseEspecifica!=null )
        return true;
   
     FormVparam form=new FormVparam(querylis);
@@ -2201,9 +2203,12 @@ public class ProgQuerylis extends Program
           }
         else {
         super.onAction();
-        
-        frase=llegeixFrase(qeffrase.getString());
-        
+        if(fraseEspecifica ==null) 
+          frase=llegeixFrase(qeffrase.getString());
+        else  {
+          frase=llegeixFrase(fraseEspecifica);
+          frase.ect ="E";
+        }
         if (!demanarParametres(false)) 
           return;
         
@@ -2389,8 +2394,12 @@ public class ProgQuerylis extends Program
             pjw.addListado(listadoJasper);
             pjw.setPestanaTXT(true, fieldsLength,fjrxml);
             pjw.setQuery(true);
-            if(frase.apaisat) pjw.horizontal = true;   
-            pjw.dialog(querylis);       
+            if(frase.apaisat) pjw.horizontal = true; 
+            if(fraseEspecifica == null)
+              pjw.dialog(querylis);
+            else {
+              jasperList = pjw.runBackgroundList(querylis);	
+            }
           //}
           
           
