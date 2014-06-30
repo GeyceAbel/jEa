@@ -1,10 +1,7 @@
 package mae.general;
 
-import geyce.maefc.Maefc;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 
@@ -29,11 +26,15 @@ public class MailJacob {
 	private boolean ReadReceiptRequested=false;
 	private ArrayList<File> attachment;
 	private int defautlTypeMail = olFormatHTML;
+	private String version="";
+	private String account = null;
+	private boolean display = false;
 	//private Dispatch outlookAccount;
 	
 	public MailJacob() {
 	  outlook = new ActiveXComponent("Outlook.Application");
-	  System.out.println("version outlook =" + outlook.getProperty("Version"));
+	  version = outlook.getProperty("Version").toString();
+	  //System.out.println("version outlook =" + outlook.getProperty("Version"));
 	  attachment = new ArrayList<File>();
 	  //ActiveXComponent regedit = new ActiveXComponent("WScript.Shell");
 	  
@@ -57,7 +58,8 @@ public class MailJacob {
 	/**
 	 * Retorna una llista de comptes d'usuari de outlook. Nomes outlook 2007 o superior
 	 */
-	public void getOutlookUserAccounts(){
+	public ArrayList<String> getOutlookUserAccounts(){
+	  ArrayList<String> account = new ArrayList<String>();
 	  Dispatch mail =	Dispatch.invoke(outlook.getObject(), "GetNamespace", Dispatch.Get, 
                 new Object[] { "MAPI" }, new int[0]).toDispatch();
 	  Dispatch accounts = Dispatch.get(mail, "Accounts").getDispatch();	  	
@@ -65,8 +67,24 @@ public class MailJacob {
 	  while (en.hasMoreElements()) {
 		Dispatch dItem = en.nextElement().getDispatch();
 		String nameAccount = Dispatch.get(dItem,"DisplayName").toString();
+		account.add(nameAccount);
 		System.out.println("xivato " +nameAccount);
 	  }
+	  return account;
+	}
+	
+	public Dispatch getAccount(String account) {
+	  Dispatch mail =	Dispatch.invoke(outlook.getObject(), "GetNamespace", Dispatch.Get, 
+	               new Object[] { "MAPI" }, new int[0]).toDispatch();
+	  Dispatch accounts = Dispatch.get(mail, "Accounts").getDispatch();	  	
+	  EnumVariant en = new EnumVariant(accounts);
+	  while (en.hasMoreElements()) {
+		Dispatch dItem = en.nextElement().getDispatch();
+		String nameAccount = Dispatch.get(dItem,"DisplayName").toString();
+		if(nameAccount.toUpperCase().trim().equals(account.toUpperCase()))
+			return dItem;
+	  }
+	  return null;
 	}
 	
 	public void setReadReceiptRequested(boolean ReadReceiptRequested) {
@@ -137,58 +155,13 @@ public class MailJacob {
 	    anexo1 = f.getAbsolutePath();
 	    Dispatch.call(attachs, "Add", anexo1);
 	  }	
+	  if(account != null)
+		Dispatch.put(mail, "SendUsingAccount",getAccount(account));
+	  if(display)
+		  Dispatch.call(mail, "Display");
+	  else
 	  Dispatch.call(mail, "Send"); 
 		
-	}
-	
-	
-	public void runTest() {
-	  try {
-		
-		ActiveXComponent outlook = new ActiveXComponent("Outlook.Application");
-		  
-		for(int i =0; i<3;i++) {
-		  String subject ="";
-			
-		  switch(i)  {
-		    case 0: subject = "xavier.santos@gmail.com";break;
-		    //case 1: subject = "pau.sabates@geyce.es";break;
-		    default: subject = "xavier.santos@gmail.com";break;
-		  }
-		  
-		  
-		  
-		  Dispatch mail =	Dispatch.invoke(outlook.getObject(), "CreateItem", Dispatch.Get, 
-                            new Object[] { "0" }, new int[0]).toDispatch();
-		  Dispatch.put(mail, "To", subject);
-
-		  Dispatch.put(mail, "Subject", "Testeando mail jacob");
-		
-		  String body = "prova mail Jacob";
-		  
-
-		  Dispatch.put(mail, "BodyFormat",2);
-
-		  Dispatch.put(mail, "Body", body);
-
-		  Dispatch.put(mail, "ReadReceiptRequested", "false");
-
-		  Dispatch attachs = Dispatch.get(mail, "Attachments").toDispatch();
-		
-		  Object anexo1 = new Object();
-		  anexo1 = "C:\\Temp\\ejemplo.xls";
-
-		  Dispatch.call(attachs, "Add", anexo1);
-
-		  Dispatch.call(mail, "Send");
-		  //Dispatch.call(mail, "Display");
-		}
-		
-	  }
-	  catch(Exception ex) {
-		  ex.printStackTrace();
-	  }
-
 	}
 	
 	/**
@@ -199,14 +172,20 @@ public class MailJacob {
       this.defautlTypeMail=type; 	
 	}
 	
+	public String getOutlookVersion() {
+	  return version;
+	}
+	
+	public void setOutlookAccount(String account) {
+		this.account = account;
+	}
 	
 	public void saveDefaultTemplate(String url) throws Exception {
-		Dispatch mail =	Dispatch.invoke(outlook.getObject(), "CreateItem", Dispatch.Get,		   
-                new Object[] { "0" }, new int[0]).toDispatch();
-		//Dispatch mail = Dispatch.call(outlook, "CreateItemFromTemplate", new Variant(url)).toDispatch();		
+		//Dispatch mail =	Dispatch.invoke(outlook.getObject(), "CreateItem", Dispatch.Get, new Object[] { "0" }, new int[0]).toDispatch();
+		Dispatch mail = Dispatch.call(outlook, "CreateItemFromTemplate", new Variant(url)).toDispatch();		
 		Dispatch.call(mail, "Display");
 		Dispatch.call(mail, "SaveAs",url,2);
-		String htmlBody=Dispatch.get(mail, "HTMLBody").toString();
+		//String htmlBody=Dispatch.get(mail, "HTMLBody").toString();
 		
 		Dispatch inspector = Dispatch.call(mail, "GetInspector").toDispatch();
 		String num = Dispatch.call(inspector, "EditorType").toString();
@@ -286,4 +265,10 @@ public class MailJacob {
 	  in.close();  
 	  return buf.toString();	
     }
+	
+	public void setDisplay(boolean display) {
+	  this.display = display;
+	}
+	
+	
 }
