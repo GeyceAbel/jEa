@@ -25,8 +25,6 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.export.JExcelApiExporterParameter;
 import net.sf.jasperreports.engine.export.JRCsvExporter;
 import net.sf.jasperreports.engine.export.JRCsvExporterParameter;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.export.JRPdfExporterParameter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
 import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
@@ -117,7 +115,7 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 		abrir = new ControlCheck(this);
 		abrir.setName("vvabrir");
 		addControl(abrir);
-		
+
 		// csv
 		csv = new ControlCheck(this) {
 			public void userChange(Value v) {
@@ -141,7 +139,7 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 		};		
 		chxlsx.setName("chxlsx");
 		addControl(chxlsx);
-		
+
 
 		// Butó crear
 		crear = new ControlButton(this)
@@ -165,7 +163,7 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 	{
 		return onGenerar (false);
 	}
-	
+
 	public boolean onGenerar (boolean background)
 	{
 		boolean bOk = false;
@@ -189,34 +187,35 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 				}
 				FileOutputStream output = new FileOutputStream(new File(destino.getString()));
 				if(!csv.getBoolean()) {
-				  JRExporter exporter = null;
-				  if (chxlsx.getBoolean()) exporter = new JRXlsxExporter();
-				  else exporter = new JRXlsExporter();
-				  exporter.setParameter(JRXlsExporterParameter.JASPER_PRINT_LIST, jprintlist);
-				  
-				  if (job.multiPaginaExcel ) exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
-				  exporter.setParameter(JRXlsExporterParameter.OUTPUT_STREAM, output);
-				  exporter.setParameter(JExcelApiExporterParameter.IS_COLLAPSE_ROW_SPAN, Boolean.TRUE);		
-				  exporter.setParameter(JRXlsExporterParameter.IGNORE_PAGE_MARGINS, Boolean.TRUE);	
-				  
-				  exporter.exportReport();				
-				  
+					JRExporter exporter = null;
+					if (chxlsx.getBoolean()) exporter = new JRXlsxExporter();
+					else exporter = new JRXlsExporter();
+					exporter.setParameter(JRXlsExporterParameter.JASPER_PRINT_LIST, jprintlist);
+
+					if (job.multiPaginaExcel ) exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
+					exporter.setParameter(JRXlsExporterParameter.OUTPUT_STREAM, output);
+					exporter.setParameter(JExcelApiExporterParameter.IS_COLLAPSE_ROW_SPAN, Boolean.TRUE);		
+					exporter.setParameter(JRXlsExporterParameter.IGNORE_PAGE_MARGINS, Boolean.TRUE);	
+
+					exporter.exportReport();				
+
 				}
 				//exportacio csv
 				else {
 					//final JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
-				    JRAbstractExporter exporter = new JRCsvExporter();
-				    exporter.setParameter(JRCsvExporterParameter.JASPER_PRINT_LIST, jprintlist);
-				    exporter.setParameter(JRCsvExporterParameter.FIELD_DELIMITER, ";");				    
-				    exporter.setParameter(JRCsvExporterParameter.OUTPUT_STREAM, output);
-				    //exporter.setParameter(JRCsvExporterParameter.CHARACTER_ENCODING,"ISO-8859-1");
-				    //exporter.setParameter(JRCsvExporterParameter.CHARACTER_ENCODING,"ISO-8859-1");
-				    exporter.exportReport();	
+					JRAbstractExporter exporter = new JRCsvExporter();
+					exporter.setParameter(JRCsvExporterParameter.JASPER_PRINT_LIST, jprintlist);
+					exporter.setParameter(JRCsvExporterParameter.FIELD_DELIMITER, ";");				    
+					exporter.setParameter(JRCsvExporterParameter.OUTPUT_STREAM, output);
+					//exporter.setParameter(JRCsvExporterParameter.CHARACTER_ENCODING,"ISO-8859-1");
+					//exporter.setParameter(JRCsvExporterParameter.CHARACTER_ENCODING,"ISO-8859-1");
+					exporter.exportReport();	
 				}
 				output.close();
 				bOk = true;
-				if (!background && abrir.getBoolean()) abrir(destino.getString(),"Microsoft Excel");
 				if (!background) job.dialog.exit();
+				if (!csv.getBoolean() && job.editarExcelAlFinalizar) job.editXLS (destino.getString(),chxlsx.getBoolean());
+				if (!background && abrir.getBoolean()) abrir(destino.getString(),"Microsoft Excel");
 			}
 			catch (Exception e) {
 				e.printStackTrace();
@@ -224,6 +223,8 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 		}
 		return bOk;
 	}
+
+
 
 
 	protected void seleccionarArchivoSalida()

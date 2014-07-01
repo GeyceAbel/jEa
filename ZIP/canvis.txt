@@ -132,3 +132,4 @@
 140602 --> APXAVI:  Jasper envio masius de documents per emir
 140603 --> APXAVI:  MailJacob. Possibilitat d'enviar correus a partir d'una plantilla predeterminada de outlook.
 140604 --> APXAVI:  Updates MailJacob.
+140605 --> APJORDI: Modificacion excel generats jasper

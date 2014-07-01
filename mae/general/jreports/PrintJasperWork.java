@@ -1,12 +1,20 @@
 package mae.general.jreports;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Vector;
 
-import net.sf.jasperreports.view.JasperViewer;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFFont;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
+import net.sf.jasperreports.view.JasperViewer;
 import mae.easp.general.Easp;
 import geyce.maefc.Aplication;
 import geyce.maefc.DBConnection;
@@ -51,7 +59,9 @@ public class PrintJasperWork {
 	public File resultEnvioEmir;
 	protected String prefixNomFitxer;
 	protected String titolMir;
-    
+	public int extraPercentWithColumnExcel;
+	public short tamanyMinimFontExcel;
+	public boolean editarExcelAlFinalizar;
 	
 	private void showPanels(){
      	 for (int j=0;j<vjv.size();j++) {
@@ -114,6 +124,9 @@ public class PrintJasperWork {
 		this.conn = conn;		
 		this.tituloVistaPrevia = "Vista Previa";
 		multiPaginaExcel = false;
+		extraPercentWithColumnExcel = 0;
+		tamanyMinimFontExcel = 0;
+		editarExcelAlFinalizar = false;
 	}
 	
 	public PrintJasperWork(String titulo,File xmlDataSourceFile,String nodeLoop) {
@@ -123,6 +136,9 @@ public class PrintJasperWork {
 		this.xmlNodeLoop = nodeLoop;
 		this.tituloVistaPrevia = "Vista Previa";
 		multiPaginaExcel = false;
+		extraPercentWithColumnExcel = 0;
+		tamanyMinimFontExcel = 0;
+		editarExcelAlFinalizar = false;
 	}
 
 	public void dialog (Program program) {
@@ -197,5 +213,164 @@ public class PrintJasperWork {
 		PrintJasperPanelPDFQuer panel = new PrintJasperPanelPDFQuer (this);
 		panel.creaControls();
 		return panel.getListado();
+	}
+	
+	public double addPercentWithExcelColumn () {
+		return extraPercentWithColumnExcel;
+	}
+	
+	public short getTamanyMinimFontExcel () {
+		return tamanyMinimFontExcel;
+	}
+	
+	protected int endOfRow(HSSFSheet sheet) { 
+		int lastRowNum = sheet.getLastRowNum(); 
+		if (lastRowNum> 0) return (lastRowNum + 1); 
+		else return sheet.getPhysicalNumberOfRows()> 0 ? 1 : 0; 
+	} 
+
+	protected int endOfColumn(HSSFSheet sheet) { 
+		int rowCount = endOfRow(sheet); 
+		int maxCellNum = 0; 
+		for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) { 
+			HSSFRow row = sheet.getRow(rowIndex); 
+			if (row != null) maxCellNum = Math.max(maxCellNum, row.getLastCellNum()); 
+		} 
+		return maxCellNum; 
+	} 
+
+	public void editXLS2000 (String ruta) {
+		try {
+			FileInputStream inp = new FileInputStream(ruta);
+			HSSFWorkbook wb = new HSSFWorkbook(inp); 					
+			if (getTamanyMinimFontExcel()>0) {
+				for (int i=0;i<wb.getNumberOfSheets();i++) {			        	
+					HSSFSheet sheet = wb.getSheetAt(i);
+					int numRows = endOfRow(sheet);
+					int numCols = endOfColumn(sheet);
+					for (int j=0;j<numRows;j++) {
+						HSSFRow row = sheet.getRow(j);
+						for (int k=0;k<numCols;k++) {
+							HSSFCell cell = row.getCell(k);
+							if (cell != null) {
+								HSSFCellStyle style = cell.getCellStyle();
+								if (style != null) {
+									HSSFFont font = style.getFont(wb);
+									if (font != null && font.getFontHeightInPoints()<getTamanyMinimFontExcel()) {
+										font.setFontHeightInPoints(getTamanyMinimFontExcel());
+									}
+								}
+							}
+						}
+					}
+					if (numRows>0 && numCols>0) {
+						HSSFCell cell = sheet.getRow(0).getCell(numCols);
+						if (cell == null) cell = sheet.getRow(0).createCell(numCols);
+						if (cell != null) {
+							cell.setCellType(HSSFCell.CELL_TYPE_BLANK);
+							sheet.setColumnHidden(numCols, false);
+							sheet.setColumnWidth(numCols, 2000);		
+						}
+					}
+					for (int k=0;k<numCols;k++) sheet.autoSizeColumn(k);
+				}
+			}
+			if (addPercentWithExcelColumn() > 0) {
+				for (int i=0;i<wb.getNumberOfSheets();i++) {			        	
+					HSSFSheet sheet = wb.getSheetAt(i);						
+					int numCols = endOfColumn(sheet);					
+					for (int j=0;j<numCols;j++) {
+						sheet.setColumnWidth(j, sheet.getColumnWidth(j) + (int)(addPercentWithExcelColumn() * sheet.getColumnWidth(j) / 100));							
+					}			        	
+				}
+			}
+			FileOutputStream fous =  new FileOutputStream(ruta);
+			wb.write(fous);
+			fous.close();
+			inp.close();			
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void editXLS2007 (String ruta) {
+	}
+	
+	/*	 
+	protected int endOfRow(XSSFSheet sheet) { 
+		int lastRowNum = sheet.getLastRowNum(); 
+		if (lastRowNum> 0) return (lastRowNum + 1); 
+		else return sheet.getPhysicalNumberOfRows()> 0 ? 1 : 0; 
+	} 
+
+	protected int endOfColumn(XSSFSheet sheet) { 
+		int rowCount = endOfRow(sheet); 
+		int maxCellNum = 0; 
+		for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) { 
+			XSSFRow row = sheet.getRow(rowIndex); 
+			if (row != null) maxCellNum = Math.max(maxCellNum, row.getLastCellNum()); 
+		} 
+		return maxCellNum; 
+	} 
+	 
+	public void editXLS2007 (String ruta) {
+		try {
+			FileInputStream inp = new FileInputStream(ruta);
+			XSSFWorkbook wb = new XSSFWorkbook(inp); 					
+			if (getTamanyMinimFontExcel()>0) {
+				for (int i=0;i<wb.getNumberOfSheets();i++) {			        	
+					XSSFSheet sheet = wb.getSheetAt(i);
+					int numRows = endOfRow(sheet);
+					int numCols = endOfColumn(sheet);
+					for (int j=0;j<numRows;j++) {
+						XSSFRow row = sheet.getRow(j);
+						for (int k=0;k<numCols;k++) {
+							XSSFCell cell = row.getCell(k);
+							if (cell != null) {
+								XSSFCellStyle style = cell.getCellStyle();
+								if (style != null) {
+									XSSFFont font = style.getFont();
+									if (font != null && font.getFontHeightInPoints()<getTamanyMinimFontExcel()) {
+										font.setFontHeightInPoints(getTamanyMinimFontExcel());
+									}
+								}
+							}
+						}
+					}
+					if (numRows>0 && numCols>0) {
+						XSSFCell cell = sheet.getRow(0).getCell(numCols);
+						if (cell == null) cell = sheet.getRow(0).createCell(numCols);
+						if (cell != null) {
+							cell.setCellType(XSSFCell.CELL_TYPE_BLANK);
+							sheet.setColumnHidden(numCols, false);
+							sheet.setColumnWidth(numCols, 2000);		
+						}
+					}
+					for (int k=0;k<numCols;k++) sheet.autoSizeColumn(k);
+				}
+			}
+			if (addPercentWithExcelColumn() > 0) {
+				for (int i=0;i<wb.getNumberOfSheets();i++) {			        	
+					XSSFSheet sheet = wb.getSheetAt(i);						
+					int numCols = endOfColumn(sheet);					
+					for (int j=0;j<numCols;j++) {
+						sheet.setColumnWidth(j, sheet.getColumnWidth(j) + (int)(addPercentWithExcelColumn() * sheet.getColumnWidth(j) / 100));							
+					}			        	
+				}
+			}
+			FileOutputStream fous =  new FileOutputStream(ruta);
+			wb.write(fous);
+			fous.close();
+			inp.close();			
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	*/
+	protected void editXLS(String ruta, boolean esExcel2007) {
+		if (esExcel2007) editXLS2007(ruta);
+		else editXLS2000(ruta);
 	}
 }
