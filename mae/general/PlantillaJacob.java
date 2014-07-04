@@ -26,13 +26,16 @@ public class PlantillaJacob extends Thread {
 	private int typeDocument;  //0=letters  1=labels  2=sobres
 	private boolean cancela=false;
 	private boolean printDirecto=false;
-	private int saveAs = 16;
-	private String filePdf;
+	private int saveAs = 999;
+	private String fileSaveAs;
 	private boolean overwritePDF;
-	private double versionWord;
+	private String oVersion;
+	private String oBuild;
+	//private double versionWord;
 	private boolean openPdfFileAfterFinish = true;
 	private String printer;
 	private boolean showPrintDialog=true;
+	private String password = null;
 	
 	/* tipus de format per a saveAS*/
     public static int  wdFormatDocument                    =  0;
@@ -205,6 +208,8 @@ public class PlantillaJacob extends Thread {
 		pd.setLabelText("Abriendo plantilla...");		
 		Dispatch oDocument = Dispatch.call(oDocuments, "Open", urlTemplate).toDispatch();	
 		Dispatch activeDocument = oWord.getProperty("ActiveDocument").toDispatch();
+		if(password != null)
+		    Dispatch.put(activeDocument, "WritePassword", new Variant(password));
 		Dispatch mailmerge = Dispatch.get(activeDocument,"MailMerge").toDispatch();
 		Dispatch.put(mailmerge,"MainDocumentType",typeDocument);
 		pd.setLabelText("Abriendo origen de datos...");
@@ -213,14 +218,76 @@ public class PlantillaJacob extends Thread {
 		Dispatch.call(mailmerge,"Execute",true);
 		pd.setLabelText("Finalizando...");
 		Dispatch.call(oDocument,"Activate");
+		
 		Dispatch.call(oDocument,"Close",new Variant(0));				
 		//oWord.setProperty("Visible", new Variant(true));
 		
-		//save to pdf			
-		if(saveAs == wdFormatPDF) {
-		  if(versionWord>12.0) {  //versions 2007 o superiors
+		//save to pdf		
+		if(saveAs != 999) {
+		  boolean creado =false;
+			Dispatch activeDocumentOpen = oWord.getProperty("ActiveDocument").toDispatch();
+		    if(saveAs != wdFormatPDF ) {		      
+		      saveActiveDocumentAS(activeDocumentOpen, fileSaveAs, saveAs);
+		      creado = true;
+		    }
+		    else {
+		      String[] tokensVersion = oBuild.split("[.]");
+			  int versionOutlook1 = Integer.parseInt(tokensVersion[0]);
+			  int versionOutlook2 = Integer.parseInt(tokensVersion[1]);
+			  int versionOutlook3 = Integer.parseInt(tokensVersion[2]);
+			  if((versionOutlook1>11 && versionOutlook3>6424) || versionOutlook1>=12 ) {
+				//versions 2007 o superiors
+				  saveActiveDocumentAS(activeDocumentOpen, fileSaveAs, saveAs);
+				  creado = true;
+			  }
+			  else {
+				//versions 2003 o inferiors
+				PdfCreator pdfCreator = new PdfCreator(); 
+	            boolean tienePdfCreator = false;
+			    try {
+			       tienePdfCreator = pdfCreator.checkPrinters("PDFCreator") ;
+		        }
+		        catch (Exception e ) {
+			    }
+		        if ( !tienePdfCreator ) {
+		          if ( Maefc.message("No tiene instalado el PDFCreator \n \n Para Utilizar esta opción es necesario tenerlo instalado. \n \n ¿ Desea Descargar ahora el programa de instalación del PDFCreator ?","Atención",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION) == Maefc.YES_OPTION ) {
+		        	Runtime rt = Runtime.getRuntime();
+		        	rt.exec( "rundll32 url.dll,FileProtocolHandler " + "http://www.pdfforge.org/");
+		            //JExpe.abrirExplorer("http://www.pdfforge.org/",false);
+	              }
+		          return ;  
+		        }
+		        File fileSaveDoc = new File(fileSaveAs.replace(".pdf", ".doc"));
+		        File fileSavePdf = new File(fileSaveAs);				        
+		        saveActiveDocumentAS(activeDocumentOpen, fileSaveDoc.getAbsolutePath(), saveAs);
+			    if (oWord!=null) {
+	  		      oWord.invoke("Quit", new Variant(0)); 
+			      oWord=null;
+			    }
+		        creado = pdfCreator.creaPDF(fileSaveDoc.getParent()+"\\", fileSaveDoc.getName(), fileSavePdf.getParent()+"\\", fileSavePdf.getName(),true ) ;					  
+			  }
+		    }
+		    if (oWord!=null) {
+  		      oWord.invoke("Quit", new Variant(0)); 
+		      oWord=null;
+		    }
+		    if(creado && openPdfFileAfterFinish) {
+		    	Process p = Runtime
+     			   .getRuntime()
+     			   .exec("rundll32 url.dll,FileProtocolHandler " + fileSaveAs);
+     			p.waitFor();	
+		    }		    
+		}
+		/*
+		if(saveAs == wdFormatPDF) {			
+		  String[] tokensVersion = oVersion.split("[.]");
+		  int versionOutlook1 = Integer.parseInt(tokensVersion[0]);
+		  int versionOutlook2 = Integer.parseInt(tokensVersion[1]);
+		  //int versionOutlook3 = Integer.parseInt(tokensVersion[2]);
+		  //if(versionWord>12.0) {  //versions 2007 o superiors
+		  if((versionOutlook1>11 && versionOutlook2>6424) || versionOutlook1>=12 ) {  //versions 2007 o superiors
 		    Dispatch activeDocumentToPdf = oWord.getProperty("ActiveDocument").toDispatch();		  
-		    Dispatch.call(activeDocumentToPdf,"SaveAs",filePdf,wdFormatPDF);
+		    Dispatch.call(activeDocumentToPdf,"SaveAs",fileSaveAs,wdFormatPDF);
 		    Dispatch.call(activeDocumentToPdf,"Activate");
 		    Dispatch.call(activeDocumentToPdf,"Close",new Variant(0));
 		    if (oWord!=null) {
@@ -230,7 +297,7 @@ public class PlantillaJacob extends Thread {
 		    if(openPdfFileAfterFinish) {
 		    	Process p = Runtime
      			   .getRuntime()
-     			   .exec("rundll32 url.dll,FileProtocolHandler " + filePdf);
+     			   .exec("rundll32 url.dll,FileProtocolHandler " + fileSaveAs);
      			p.waitFor();	
 		    }
 		  }
@@ -252,8 +319,8 @@ public class PlantillaJacob extends Thread {
 	        }
 	        
 	        Dispatch activeDocumentToPdf = oWord.getProperty("ActiveDocument").toDispatch();
-	        File fileSaveDoc = new File(filePdf.replace(".pdf", ".doc"));
-	        File fileSavePdf = new File(filePdf);
+	        File fileSaveDoc = new File(fileSaveAs.replace(".pdf", ".doc"));
+	        File fileSavePdf = new File(fileSaveAs);
 	        
 		    Dispatch.call(activeDocumentToPdf,"SaveAs",fileSaveDoc.getAbsolutePath(),wdFormatDocumentDefault);
 		    Dispatch.call(activeDocumentToPdf,"Activate");
@@ -272,6 +339,8 @@ public class PlantillaJacob extends Thread {
 	        }
 		  }
 		}
+		
+		*/
 		
 		if(printDirecto) {
 		  pd.setLabelText("Imprimiendo...");
@@ -305,9 +374,10 @@ public class PlantillaJacob extends Thread {
 	public void executeMerge() {
 	  try {	
 		oWord = new ActiveXComponent("Word.Application"); 
-		String oVersion = oWord.getProperty("Version").toString();
-		versionWord = Double.parseDouble(oVersion);
-		System.out.println("Version office = " + oVersion);
+		oVersion = oWord.getProperty("Version").toString();
+		//versionWord = Double.parseDouble(oVersion);
+		oBuild = oWord.getProperty("Build").toString();
+		System.out.println("Version word = " + oBuild);
 		cancela = false;		
 		Icon icon = Icon.WORD;
 		if(saveAs == wdFormatPDF) icon = Icon.PDF;
@@ -375,16 +445,18 @@ public class PlantillaJacob extends Thread {
 		this.printer=printer;
 	}
 	
-	public void saveAs (int typeFile) {
+	public void saveAs (int typeFile,String urlPdf,boolean openPdfFileAfterFinish) {
 		this.saveAs=typeFile;
+		this.fileSaveAs= urlPdf;
+		this.openPdfFileAfterFinish =openPdfFileAfterFinish;
 	}
-	
+	/*
 	public void savePdf(String urlPdf,boolean openPdfFileAfterFinish) {
 		this.filePdf= urlPdf;
 		this.saveAs = wdFormatPDF;
 		this.openPdfFileAfterFinish =openPdfFileAfterFinish;
 	}
-	
+	*/
 	public void setShowPrintDialog(boolean show) {
 		this.showPrintDialog = show;
 	}
@@ -393,6 +465,15 @@ public class PlantillaJacob extends Thread {
 		this.openPdfFileAfterFinish = openFile;
 	}
 	
+	public void setPassword(String password) {
+		this.password= password;
+	}
+	
+	private void saveActiveDocumentAS(Dispatch activeDocument,String fileSaveAs,int format) throws Exception {
+	    Dispatch.call(activeDocument,"SaveAs",fileSaveAs,format);
+	    Dispatch.call(activeDocument,"Activate");
+	    Dispatch.call(activeDocument,"Close",new Variant(0));	
+	}
   
 }
 

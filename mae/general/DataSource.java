@@ -172,8 +172,17 @@ public class DataSource {
 	    for(int z=0;z<controls.size();z++) {
 	      if(controls.get(z).getValue()==null)
 	        cadena +="\""+"\"" + (z+1==controls.size()?"":";");
-	      else
-	      cadena +="\""+controls.get(z).getValue()+"\"" + (z+1==controls.size()?"":";");
+	      else {
+	    	Value valor = controls.get(z).getValue();
+	    	if(controls.get(z).getType() == Value.STRING){
+	    	  String val = valor.getString().replace("\"", "").replace(";","");
+	    	  cadena +="\""+val+"\"" + (z+1==select.getNumColumns()?"":";"); 
+	    	}
+	    	else {
+	    	  cadena +="\""+valor+"\"" + (z+1==select.getNumColumns()?"":";");  
+	    	}
+	      }
+	      //cadena +="\""+controls.get(z).getValue()+"\"" + (z+1==controls.size()?"":";");
 	    }
 	    fileout.println(cadena);
 	  }
@@ -215,8 +224,11 @@ public class DataSource {
         String valor = rows.obtiene(x).obtiene(z).valor ;
         if(valor==null)
           cadena +="\""+"\"" + (z+1==rows.obtiene(x).cantidad()?"":";");
-        else
-        cadena +="\""+valor+"\"" + (z+1==rows.obtiene(x).cantidad()?"":";");
+        else {
+        	valor = valor.replace("\"","").replace(";", "");
+        	cadena +="\""+valor+"\"" + (z+1==rows.obtiene(x).cantidad()?"":";");	
+        }
+        
       }
       fileout.println(cadena);
     }
@@ -255,8 +267,11 @@ public class DataSource {
 		    for(int z=0;z<select.getNumColumns();z++) {
 		      if(select.getColumn(z).isNull() || select.getColumn(z).getStringValue().equals(""))
 		        cadena +="\""+"\"" + (z+1==select.getNumColumns()?"":";");   
-		      else
-		      cadena +="\""+select.getColumn(z).getStringValue().trim()+"\"" + (z+1==select.getNumColumns()?"":";");   
+		      else {
+		    	String valor = select.getColumn(z).getStringValue().trim();
+		    	valor = valor.replace("\"","").replace(";", "");
+		        cadena +="\""+valor+"\"" + (z+1==select.getNumColumns()?"":";");
+		      }
 		    }
 		    fileout.println(cadena);
 		    select.next();
