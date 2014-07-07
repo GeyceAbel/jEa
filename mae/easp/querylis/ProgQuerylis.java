@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140312
-// Hora:             17:24:53
+// Fecha:            20140707
+// Hora:             12:00:30
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -38,8 +38,9 @@ public class ProgQuerylis extends Program
   public int gasesor = 1 ;
   public boolean isJasper = false;
   public boolean isOldButonListar = false;
-  public String fraseEspecifica;
-  public mae.general.jreports.JListado jasperList;
+  
+  public boolean isUserRemoto = false ;
+  
   
   
   Seleccio seleccio;
@@ -1004,7 +1005,7 @@ public class ProgQuerylis extends Program
   /* 02-12-2001 APXAVI nou parametre per cambiar el nom del botó segons es cridi desde listar o combinar*/
   boolean demanarParametres(boolean callCombinarButton) {
     if ((frase.variables.size()==0 || !algunaVariableVisible()) &&
-        (frase.ect==null || frase.ect.length()==0 || frase.ect.equals("N"))||fraseEspecifica!=null )
+        (frase.ect==null || frase.ect.length()==0 || frase.ect.equals("N")) )
        return true;
   
     FormVparam form=new FormVparam(querylis);
@@ -2203,12 +2204,9 @@ public class ProgQuerylis extends Program
           }
         else {
         super.onAction();
-        if(fraseEspecifica ==null) 
-          frase=llegeixFrase(qeffrase.getString());
-        else  {
-          frase=llegeixFrase(fraseEspecifica);
-          frase.ect ="E";
-        }
+        
+        frase=llegeixFrase(qeffrase.getString());
+        
         if (!demanarParametres(false)) 
           return;
         
@@ -2394,12 +2392,8 @@ public class ProgQuerylis extends Program
             pjw.addListado(listadoJasper);
             pjw.setPestanaTXT(true, fieldsLength,fjrxml);
             pjw.setQuery(true);
-            if(frase.apaisat) pjw.horizontal = true; 
-            if(fraseEspecifica == null)
-              pjw.dialog(querylis);
-            else {
-              jasperList = pjw.runBackgroundList(querylis);	
-            }
+            if(frase.apaisat) pjw.horizontal = true;   
+            pjw.dialog(querylis);       
           //}
           
           
@@ -2806,7 +2800,13 @@ public class ProgQuerylis extends Program
       }
     public String getWhere()
       {
-      return "qefaplicacion='"+aplicacion+"'";
+      String retorn =  "qefaplicacion='"+aplicacion+"'";
+      
+      if ( aplicacion != null && aplicacion.equals("LABORAL") && isUserRemoto ) {
+        retorn  +=  "and qeffrase in ( select pliprograma from paramlis where pliusuario = '"+Easp.usuario+"' and plicampoa1 = 'USUARIO-REMOTO.LISTADOS' ) " ;
+        }
+      
+      return retorn ;
       }
     public String getOrder()
       {
@@ -3680,6 +3680,10 @@ public class ProgQuerylis extends Program
       nomDirec="jConta";
     }
     else nomDirec="jNomina";
+    
+    if ( aplicacion != null && aplicacion.equals("LABORAL") && isUserRemoto ) {
+      vseleccion.setStates(DataForm.SHOW | DataForm.SEARCH );
+      }
     
     super.onInit();
     
