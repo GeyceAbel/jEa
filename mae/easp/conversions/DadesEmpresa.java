@@ -7,11 +7,13 @@ import mae.easp.conversions.Conversion;
 
 public class DadesEmpresa {	
 	private int codiOrigen;
+	private String codiOrigenStr;
 	private int codiGeyce;
 	private String nif;
 	private String razonSocial;
 	private APLICACION_GEYCE aplicOrigen;
 	private Vector <APLICACION_GEYCE> vAplicOrigen;
+	private boolean codigoOrigenString;
 	
 	public DadesEmpresa(int codiLC, String nif, String razonSocial, APLICACION_GEYCE aplicOrigen) {
 		this.codiOrigen = codiLC;
@@ -21,8 +23,20 @@ public class DadesEmpresa {
 		vAplicOrigen.addElement(aplicOrigen);
 		this.aplicOrigen = aplicOrigen;
 		codiGeyce = Conversion.CODIGO_EMPRESA_NO_ASIGNADA;
+		codigoOrigenString = false;
 	}
 
+	public DadesEmpresa(String codiLC, String nif, String razonSocial, APLICACION_GEYCE aplicOrigen) {
+		this.codiOrigenStr = codiLC;
+		this.nif = nif;
+		this.razonSocial = razonSocial;
+		vAplicOrigen = new Vector<APLICACION_GEYCE>();
+		vAplicOrigen.addElement(aplicOrigen);
+		this.aplicOrigen = aplicOrigen;
+		codiGeyce = Conversion.CODIGO_EMPRESA_NO_ASIGNADA;
+		codigoOrigenString = true;
+	}
+	
 	public int getCodiOrigen() {
 		return codiOrigen;
 	}
@@ -55,5 +69,11 @@ public class DadesEmpresa {
 		return aplicOrigen;
 	}
 
+	public String getCodiOrigenStr() {
+		return codiOrigenStr;
+	}
 
+	public boolean esCodigoOrigenString() {
+		return codigoOrigenString;
+	}
 }

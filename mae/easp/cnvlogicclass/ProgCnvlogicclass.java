@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140528
-// Hora:             10:44:52
+// Fecha:            20140707
+// Hora:             12:34:38
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -139,6 +139,9 @@ public class ProgCnvlogicclass extends Program
     public CtrlVvpasswd vvpasswd;
     public CtrlVvctas vvctas;
     public CtrlVvnumalfa vvnumalfa;
+    public CtrlVvdesdedec vvdesdedec;
+    public CtrlVvhastadec vvhastadec;
+    public CtrlVrensimul vrensimul;
     public CtrlChsql chsql;
     public CtrlChproy chproy;
     public CtrlChjco chjco;
@@ -538,6 +541,54 @@ public class ProgCnvlogicclass extends Program
         }
       }
       
+    public class CtrlVvdesdedec extends ControlEdit
+      {
+      public CtrlVvdesdedec(Form form)
+        {
+        super(form);
+        setName("vvdesdedec");
+        setMessageHelp("Desde Declarante");
+        setTitle("Desde Declarante");
+        setType(STRING);
+        setLength(15);
+        setPrintable(false);
+        }
+      }
+      
+    public class CtrlVvhastadec extends ControlEdit
+      {
+      public CtrlVvhastadec(Form form)
+        {
+        super(form);
+        setName("vvhastadec");
+        setTitle("Hasta Declarante");
+        setType(STRING);
+        setLength(15);
+        setPrintable(false);
+        }
+      }
+      
+    public class CtrlVrensimul extends ControlComboBox
+      {
+      public CtrlVrensimul(Form form)
+        {
+        super(form);
+        setName("vrensimul");
+        setMessageHelp("Simulación");
+        setTitle("Simulación");
+        setType(STRING);
+        setLength(1);
+        setPrintable(false);
+        setDescriptionShow(false);
+        addItem("N/Trasladar sólo los registros de Declaración");
+        addItem("S/Trasladar también los registros de Simulación");
+        }
+      public Object getDefault()
+        {
+        return "S";
+        }
+      }
+      
     public class CtrlChsql extends ControlCheck
       {
       public CtrlChsql(Form form)
@@ -844,7 +895,7 @@ public class ProgCnvlogicclass extends Program
             if (bOk && chjre.getBoolean()) {
               clcjren = new mae.easp.conversions.logicclass.ConversionJREN (cnvlogicclass,codiCab,vvempini.getInteger(),vvempfin.getInteger(),vvejeini.getInteger(),vvejefin.getInteger(),
                                                                                                                      vvservidor.getString(), vvinstancia.getString(), vvnombrebd.getString(),vvuser.getString(),
-                                                                                                                     vvpasswd.getString(), getDataBase());
+                                                                                                                     vvpasswd.getString(), getDataBase(), vvdesdedec.getString(), vvhastadec.getString(), vrensimul.getString());
               if (clcjren.hayError()) {
                 bOk = false;
                 sError = clcjren.getError();
@@ -926,6 +977,9 @@ public class ProgCnvlogicclass extends Program
       addControl(vvpasswd=new CtrlVvpasswd(this));
       addControl(vvctas=new CtrlVvctas(this));
       addControl(vvnumalfa=new CtrlVvnumalfa(this));
+      addControl(vvdesdedec=new CtrlVvdesdedec(this));
+      addControl(vvhastadec=new CtrlVvhastadec(this));
+      addControl(vrensimul=new CtrlVrensimul(this));
       addControl(chsql=new CtrlChsql(this));
       addControl(chproy=new CtrlChproy(this));
       addControl(chjco=new CtrlChjco(this));
@@ -1017,7 +1071,7 @@ public class ProgCnvlogicclass extends Program
     // Fin declaraciones globales
     // Controles
     public CtrlChsel chsel;
-    public CtrlCclcodiorigen cclcodiorigen;
+    public CtrlVvcodorig vvcodorig;
     public CtrlCclnombre cclnombre;
     public CtrlCclnif cclnif;
     public CtrlCclcodigeyce cclcodigeyce;
@@ -1049,18 +1103,17 @@ public class ProgCnvlogicclass extends Program
         }
       }
       
-    public class CtrlCclcodiorigen extends ColumnEdit
+    public class CtrlVvcodorig extends ColumnEdit
       {
-      public CtrlCclcodiorigen(Form form)
+      public CtrlVvcodorig(Form form)
         {
         super(form);
-        setName("cclcodiorigen");
+        setName("vvcodorig");
         setMessageHelp("Código Aplicación Origen");
         setTitle("Origen");
-        setType(INTEGER);
-        setLength(10);
+        setType(STRING);
+        setLength(15);
         setPrintable(false);
-        setField(scodcnvotrapll.cclcodiorigen);
         }
       }
       
@@ -1232,7 +1285,7 @@ public class ProgCnvlogicclass extends Program
       setPrintable(false);
       addSelect(scodcnvotrapll=new Scodcnvotrapll());
       addControl(chsel=new CtrlChsel(this));
-      addControl(cclcodiorigen=new CtrlCclcodiorigen(this));
+      addControl(vvcodorig=new CtrlVvcodorig(this));
       addControl(cclnombre=new CtrlCclnombre(this));
       addControl(cclnif=new CtrlCclnif(this));
       addControl(cclcodigeyce=new CtrlCclcodigeyce(this));
@@ -1255,7 +1308,8 @@ public class ProgCnvlogicclass extends Program
       chjre.setValue("S".equals(scodcnvotrapll.ccltraspjre.getString()));
       chjnom.setValue("S".equals(scodcnvotrapll.ccltraspjnom.getString()));
       chjges.setValue("S".equals(scodcnvotrapll.ccltraspjges.getString()));
-      
+      if (scodcnvotrapll.cclcodiorigens.getString().length()>0) vvcodorig.setValue(scodcnvotrapll.cclcodiorigens.getString());
+      else vvcodorig.setValue(scodcnvotrapll.cclcodiorigen.getString());
       }
     }
     
@@ -1278,6 +1332,7 @@ public class ProgCnvlogicclass extends Program
     public Field ccltraspjnom;
     public Field ccltraspjre;
     public Field ccltraspjsoc;
+    public Field cclcodiorigens;
     class Codcnvotrapll extends Table
       {
       public Codcnvotrapll(Select select)
@@ -1305,6 +1360,7 @@ public class ProgCnvlogicclass extends Program
       addField(ccltraspjnom=new Field(this,codcnvotrapll,"ccltraspjnom"));
       addField(ccltraspjre=new Field(this,codcnvotrapll,"ccltraspjre"));
       addField(ccltraspjsoc=new Field(this,codcnvotrapll,"ccltraspjsoc"));
+      addField(cclcodiorigens=new Field(this,codcnvotrapll,"cclcodiorigens"));
       }
     public String getWhere()
       {

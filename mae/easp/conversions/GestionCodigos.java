@@ -24,15 +24,16 @@ public class GestionCodigos {
 		htEmpresas = new Hashtable<String, DadesEmpresa>();
 	}
 
-	private String getKey (int empresa, String nif) {
-		return Numero.format(empresa, "000000") +"@@@@"+nif;
+	private String getKey (int empresa, String empresaStr, String nif, boolean esString) {
+		if (esString) return empresaStr +"@@@@"+nif;
+		else return Numero.format(empresa, "000000") +"@@@@"+nif;
 	}
 	
 	public void addVectorEmpresas (Vector<DadesEmpresa> vdades) {
 		if (vdades != null) {
 			for (int i=0;i<vdades.size();i++) {
 				DadesEmpresa de = vdades.elementAt(i);
-				String clau = getKey(de.getCodiOrigen(),de.getNif());
+				String clau = getKey(de.getCodiOrigen(),de.getCodiOrigenStr(),de.getNif(), de.esCodigoOrigenString());
 				if (!htEmpresas.containsKey(clau)) htEmpresas.put(clau, de);
 				else htEmpresas.get(clau).addAplicacionAConvertir(de.getAplicOrigen());
 			}
@@ -55,10 +56,12 @@ public class GestionCodigos {
 		//1. intentem asignar el codi LogicClass
 		for (int i=0; i<aKeys.size();i++) {
 			DadesEmpresa de = htEmpresas.get(aKeys.get(i));
-			String cdp = Easp.dominio.substring(0,6)+Numero.format(de.getCodiOrigen(),"000000");
-			if (!existeCDP (cdp) || esElMismoCDP(cdp,de.getNif())) {
-				de.setCodiGeyce(de.getCodiOrigen());
-				vAsignadas.addElement(de.getCodiGeyce());	          
+			if (!de.esCodigoOrigenString()) {
+				String cdp = Easp.dominio.substring(0,6)+Numero.format(de.getCodiOrigen(),"000000");
+				if (!existeCDP (cdp) || esElMismoCDP(cdp,de.getNif())) {
+					de.setCodiGeyce(de.getCodiOrigen());
+					vAsignadas.addElement(de.getCodiGeyce());	          
+				}
 			}
 		}
 		//2. intentem asignar el codi a partir del nif
@@ -108,6 +111,7 @@ public class GestionCodigos {
 				iccl.valor("cclccocodi",idCabecera);
 				iccl.valor("cclsel",(de.getCodiGeyce() == Conversion.CODIGO_EMPRESA_NO_ASIGNADA) ? "N" : "S");
 				iccl.valor("cclcodiorigen",de.getCodiOrigen());
+				iccl.valor("cclcodiorigens",de.getCodiOrigenStr());
 				iccl.valor("cclnif",de.getNif());
 				iccl.valor("cclnombre",de.getRazonSocial());
 				iccl.valor("cclcodigeyce",de.getCodiGeyce());

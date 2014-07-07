@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140527
-// Hora:             10:54:05
+// Fecha:            20140707
+// Hora:             12:23:38
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -3717,6 +3717,7 @@ public class CatEasp extends Catalog
     public FieldDef cclccocodi;
     public FieldDef cclsel;
     public FieldDef cclcodiorigen;
+    public FieldDef cclcodiorigens;
     public FieldDef cclnombre;
     public FieldDef cclnif;
     public FieldDef cclcodigeyce;
@@ -3733,6 +3734,7 @@ public class CatEasp extends Catalog
       cclccocodi = new FieldDef("cclccocodi",FieldDef.INTEGER,0);
       cclsel = new FieldDef("cclsel",FieldDef.CHAR,1);
       cclcodiorigen = new FieldDef("cclcodiorigen",FieldDef.INTEGER,0);
+      cclcodiorigens = new FieldDef("cclcodiorigens",FieldDef.CHAR,15);
       cclnombre = new FieldDef("cclnombre",FieldDef.CHAR,255);
       cclnif = new FieldDef("cclnif",FieldDef.CHAR,15);
       cclcodigeyce = new FieldDef("cclcodigeyce",FieldDef.INTEGER,0);
@@ -3747,6 +3749,7 @@ public class CatEasp extends Catalog
         cclccocodi,
         cclsel,
         cclcodiorigen,
+        cclcodiorigens,
         cclnombre,
         cclnif,
         cclcodigeyce,
