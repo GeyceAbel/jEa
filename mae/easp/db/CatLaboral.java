@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111110
-// Hora:             18:26:06
+// Fecha:            20140709
+// Hora:             09:08:30
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -47,6 +47,7 @@ public class CatLaboral extends Catalog
   public TabSsbonif tabssbonif;
   public TabSsbontram tabssbontram;
   public TabSsartistas tabssartistas;
+  public TabSsemphogar tabssemphogar;
   public TabContratos tabcontratos;
   public TabConclaves tabconclaves;
   public TabConbonif tabconbonif;
@@ -169,6 +170,22 @@ public class CatLaboral extends Catalog
   public TabEmpusers tabempusers;
   public TabUsosremotos tabusosremotos;
   public TabNuevaconversion tabnuevaconversion;
+  public TabDefimportscab tabdefimportscab;
+  public TabDefimportsdet tabdefimportsdet;
+  public TabDefimportsequiv tabdefimportsequiv;
+  public TabEre tabere;
+  public TabEredet taberedet;
+  public TabTratpdettra tabtratpdettra;
+  public TabCretaliqs tabcretaliqs;
+  public TabCretacccs tabcretacccs;
+  public TabCretanafs tabcretanafs;
+  public TabCretafandat tabcretafandat;
+  public TabCretafanedl tabcretafanedl;
+  public TabCretatramos tabcretatramos;
+  public TabCretadattram tabcretadattram;
+  public TabCretafiles tabcretafiles;
+  public TabCccscreta tabcccscreta;
+  public TabCretaerrores tabcretaerrores;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -1040,6 +1057,9 @@ public class CatLaboral extends Catalog
     public FieldDef ssedesde;
     public FieldDef ssehasta;
     public FieldDef sseporcentaje;
+    public FieldDef sstipocalc1;
+    public FieldDef sstipocalc2;
+    public FieldDef sstipocalc3;
     public TabSsembargo(String name)
       {
       super(name);
@@ -1049,13 +1069,19 @@ public class CatLaboral extends Catalog
       ssedesde = new FieldDef("ssedesde",FieldDef.FLOAT,6,0);
       ssehasta = new FieldDef("ssehasta",FieldDef.FLOAT,6,0);
       sseporcentaje = new FieldDef("sseporcentaje",FieldDef.FLOAT,6,0);
+      sstipocalc1 = new FieldDef("sstipocalc1",FieldDef.CHAR,5);
+      sstipocalc2 = new FieldDef("sstipocalc2",FieldDef.CHAR,5);
+      sstipocalc3 = new FieldDef("sstipocalc3",FieldDef.CHAR,5);
       FieldDef array[] = {
         sseejercicio,
         sseperiodo,
         ssetramo,
         ssedesde,
         ssehasta,
-        sseporcentaje        
+        sseporcentaje,
+        sstipocalc1,
+        sstipocalc2,
+        sstipocalc3        
         };
       setColumns(array);
       FieldDef arrayf[] = {sseejercicio,sseperiodo,ssetramo };
@@ -1653,6 +1679,8 @@ public class CatLaboral extends Catalog
     public FieldDef boncolecdef;
     public FieldDef boncodifan;
     public FieldDef bontextil;
+    public FieldDef bonrdl202012;
+    public FieldDef boncontrol1;
     public TabSsbonif(String name)
       {
       super(name);
@@ -1673,6 +1701,8 @@ public class CatLaboral extends Catalog
       boncolecdef = new FieldDef("boncolecdef",FieldDef.INTEGER,0);
       boncodifan = new FieldDef("boncodifan",FieldDef.INTEGER,0);
       bontextil = new FieldDef("bontextil",FieldDef.CHAR,1);
+      bonrdl202012 = new FieldDef("bonrdl202012",FieldDef.CHAR,1);
+      boncontrol1 = new FieldDef("boncontrol1",FieldDef.CHAR,1);
       FieldDef array[] = {
         boncodigo,
         bonbonif,
@@ -1690,7 +1720,9 @@ public class CatLaboral extends Catalog
         boncodiinem,
         boncolecdef,
         boncodifan,
-        bontextil        
+        bontextil,
+        bonrdl202012,
+        boncontrol1        
         };
       setColumns(array);
       FieldDef arrayf[] = {boncodigo };
@@ -1824,6 +1856,38 @@ public class CatLaboral extends Catalog
       artdesderetrib.setDescription("Desde Retribucion");
       arthastaretrib.setDescription("Hasta Retribucion");
       artbasemaxima.setDescription("Base Maxima");
+      }
+    }
+    
+  public class TabSsemphogar extends TableDef
+    {
+    // Campos
+    public FieldDef emhejercicio;
+    public FieldDef emhperiodo;
+    public FieldDef emhtramo;
+    public FieldDef emhdesderetrib;
+    public FieldDef emhhastaretrib;
+    public FieldDef emhbase;
+    public TabSsemphogar(String name)
+      {
+      super(name);
+      emhejercicio = new FieldDef("emhejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      emhperiodo = new FieldDef("emhperiodo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      emhtramo = new FieldDef("emhtramo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      emhdesderetrib = new FieldDef("emhdesderetrib",FieldDef.FLOAT,6,0);
+      emhhastaretrib = new FieldDef("emhhastaretrib",FieldDef.FLOAT,6,0);
+      emhbase = new FieldDef("emhbase",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        emhejercicio,
+        emhperiodo,
+        emhtramo,
+        emhdesderetrib,
+        emhhastaretrib,
+        emhbase        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {emhejercicio,emhperiodo,emhtramo };
+      setPrimaryKeys(arrayf);
       }
     }
     
@@ -2023,6 +2087,16 @@ public class CatLaboral extends Catalog
     public FieldDef conlibre01;
     public FieldDef conlibre02;
     public FieldDef conlibre03;
+    public FieldDef conirregular;
+    public FieldDef contipoirregul;
+    public FieldDef conporirregul;
+    public FieldDef conctrlcnv01;
+    public FieldDef conctrlcnv02;
+    public FieldDef conctrlcnv03;
+    public FieldDef contipocra;
+    public FieldDef conexclcra;
+    public FieldDef concotizahcom;
+    public FieldDef conafecrdl1613;
     public TabConcepto(String name)
       {
       super(name);
@@ -2065,6 +2139,16 @@ public class CatLaboral extends Catalog
       conlibre01 = new FieldDef("conlibre01",FieldDef.CHAR,1);
       conlibre02 = new FieldDef("conlibre02",FieldDef.CHAR,1);
       conlibre03 = new FieldDef("conlibre03",FieldDef.CHAR,2);
+      conirregular = new FieldDef("conirregular",FieldDef.CHAR,1);
+      contipoirregul = new FieldDef("contipoirregul",FieldDef.CHAR,5);
+      conporirregul = new FieldDef("conporirregul",FieldDef.FLOAT,6,0);
+      conctrlcnv01 = new FieldDef("conctrlcnv01",FieldDef.CHAR,1);
+      conctrlcnv02 = new FieldDef("conctrlcnv02",FieldDef.CHAR,1);
+      conctrlcnv03 = new FieldDef("conctrlcnv03",FieldDef.CHAR,1);
+      contipocra = new FieldDef("contipocra",FieldDef.CHAR,7);
+      conexclcra = new FieldDef("conexclcra",FieldDef.CHAR,7);
+      concotizahcom = new FieldDef("concotizahcom",FieldDef.CHAR,1);
+      conafecrdl1613 = new FieldDef("conafecrdl1613",FieldDef.CHAR,4);
       FieldDef array[] = {
         conconvemp,
         conconcepto,
@@ -2104,7 +2188,17 @@ public class CatLaboral extends Catalog
         conespdescretri,
         conlibre01,
         conlibre02,
-        conlibre03        
+        conlibre03,
+        conirregular,
+        contipoirregul,
+        conporirregul,
+        conctrlcnv01,
+        conctrlcnv02,
+        conctrlcnv03,
+        contipocra,
+        conexclcra,
+        concotizahcom,
+        conafecrdl1613        
         };
       setColumns(array);
       FieldDef arrayf[] = {conconvemp,conconcepto };
@@ -2198,6 +2292,40 @@ public class CatLaboral extends Catalog
     public FieldDef facproceso;
     public FieldDef facnoproporcion;
     public FieldDef faccalcpropor;
+    public FieldDef facdefconcep;
+    public FieldDef factipocon;
+    public FieldDef facdescrip;
+    public FieldDef facrecibos;
+    public FieldDef facpagas;
+    public FieldDef facafeatrasos;
+    public FieldDef facafedtoatr;
+    public FieldDef facafevacas;
+    public FieldDef facafesolovaca;
+    public FieldDef facafecomplemit;
+    public FieldDef faccotizacomun;
+    public FieldDef faccotizaacc;
+    public FieldDef faccotizahext;
+    public FieldDef faccotizahextf;
+    public FieldDef faccotizairpf;
+    public FieldDef facexclirpf;
+    public FieldDef facexclbcc;
+    public FieldDef facexclacc;
+    public FieldDef facconta;
+    public FieldDef facsubconta;
+    public FieldDef faccontadh;
+    public FieldDef facvariable;
+    public FieldDef facespcreadeduc;
+    public FieldDef facnoindemniz;
+    public FieldDef facespcreatipo;
+    public FieldDef faclibre01;
+    public FieldDef faclibre02;
+    public FieldDef faclibre03;
+    public FieldDef facirregular;
+    public FieldDef factipoirregul;
+    public FieldDef facporirregul;
+    public FieldDef facctrlcnv01;
+    public FieldDef facctrlcnv02;
+    public FieldDef facctrlcnv03;
     public TabConfactor(String name)
       {
       super(name);
@@ -2239,7 +2367,7 @@ public class CatLaboral extends Catalog
       facoctubre = new FieldDef("facoctubre",FieldDef.CHAR,1);
       facnoviemb = new FieldDef("facnoviemb",FieldDef.CHAR,1);
       facdiciemb = new FieldDef("facdiciemb",FieldDef.CHAR,1);
-      facformula = new FieldDef("facformula",FieldDef.CHAR,2000);
+      facformula = new FieldDef("facformula",FieldDef.CHAR,20008);
       facimporte = new FieldDef("facimporte",FieldDef.FLOAT,6,0);
       facexcluir = new FieldDef("facexcluir",FieldDef.CHAR,1);
       facincluir = new FieldDef("facincluir",FieldDef.CHAR,1);
@@ -2251,6 +2379,40 @@ public class CatLaboral extends Catalog
       facproceso = new FieldDef("facproceso",FieldDef.INTEGER,0);
       facnoproporcion = new FieldDef("facnoproporcion",FieldDef.CHAR,1);
       faccalcpropor = new FieldDef("faccalcpropor",FieldDef.CHAR,1);
+      facdefconcep = new FieldDef("facdefconcep",FieldDef.CHAR,1);
+      factipocon = new FieldDef("factipocon",FieldDef.INTEGER,0);
+      facdescrip = new FieldDef("facdescrip",FieldDef.CHAR,50);
+      facrecibos = new FieldDef("facrecibos",FieldDef.CHAR,1);
+      facpagas = new FieldDef("facpagas",FieldDef.CHAR,1);
+      facafeatrasos = new FieldDef("facafeatrasos",FieldDef.CHAR,1);
+      facafedtoatr = new FieldDef("facafedtoatr",FieldDef.CHAR,1);
+      facafevacas = new FieldDef("facafevacas",FieldDef.CHAR,1);
+      facafesolovaca = new FieldDef("facafesolovaca",FieldDef.CHAR,1);
+      facafecomplemit = new FieldDef("facafecomplemit",FieldDef.CHAR,1);
+      faccotizacomun = new FieldDef("faccotizacomun",FieldDef.CHAR,1);
+      faccotizaacc = new FieldDef("faccotizaacc",FieldDef.CHAR,1);
+      faccotizahext = new FieldDef("faccotizahext",FieldDef.CHAR,1);
+      faccotizahextf = new FieldDef("faccotizahextf",FieldDef.CHAR,1);
+      faccotizairpf = new FieldDef("faccotizairpf",FieldDef.INTEGER,0);
+      facexclirpf = new FieldDef("facexclirpf",FieldDef.INTEGER,0);
+      facexclbcc = new FieldDef("facexclbcc",FieldDef.INTEGER,0);
+      facexclacc = new FieldDef("facexclacc",FieldDef.INTEGER,0);
+      facconta = new FieldDef("facconta",FieldDef.CHAR,4);
+      facsubconta = new FieldDef("facsubconta",FieldDef.CHAR,12);
+      faccontadh = new FieldDef("faccontadh",FieldDef.CHAR,1);
+      facvariable = new FieldDef("facvariable",FieldDef.CHAR,1);
+      facespcreadeduc = new FieldDef("facespcreadeduc",FieldDef.CHAR,1);
+      facnoindemniz = new FieldDef("facnoindemniz",FieldDef.CHAR,1);
+      facespcreatipo = new FieldDef("facespcreatipo",FieldDef.CHAR,2);
+      faclibre01 = new FieldDef("faclibre01",FieldDef.CHAR,1);
+      faclibre02 = new FieldDef("faclibre02",FieldDef.CHAR,1);
+      faclibre03 = new FieldDef("faclibre03",FieldDef.CHAR,2);
+      facirregular = new FieldDef("facirregular",FieldDef.CHAR,1);
+      factipoirregul = new FieldDef("factipoirregul",FieldDef.CHAR,5);
+      facporirregul = new FieldDef("facporirregul",FieldDef.FLOAT,6,0);
+      facctrlcnv01 = new FieldDef("facctrlcnv01",FieldDef.CHAR,1);
+      facctrlcnv02 = new FieldDef("facctrlcnv02",FieldDef.CHAR,1);
+      facctrlcnv03 = new FieldDef("facctrlcnv03",FieldDef.CHAR,1);
       FieldDef array[] = {
         faccodi,
         facconvemp,
@@ -2301,7 +2463,41 @@ public class CatLaboral extends Catalog
         facimpcolum,
         facproceso,
         facnoproporcion,
-        faccalcpropor        
+        faccalcpropor,
+        facdefconcep,
+        factipocon,
+        facdescrip,
+        facrecibos,
+        facpagas,
+        facafeatrasos,
+        facafedtoatr,
+        facafevacas,
+        facafesolovaca,
+        facafecomplemit,
+        faccotizacomun,
+        faccotizaacc,
+        faccotizahext,
+        faccotizahextf,
+        faccotizairpf,
+        facexclirpf,
+        facexclbcc,
+        facexclacc,
+        facconta,
+        facsubconta,
+        faccontadh,
+        facvariable,
+        facespcreadeduc,
+        facnoindemniz,
+        facespcreatipo,
+        faclibre01,
+        faclibre02,
+        faclibre03,
+        facirregular,
+        factipoirregul,
+        facporirregul,
+        facctrlcnv01,
+        facctrlcnv02,
+        facctrlcnv03        
         };
       setColumns(array);
       FieldDef arrayf[] = {faccodi };
@@ -2393,6 +2589,8 @@ public class CatLaboral extends Catalog
     public FieldDef proceso;
     public FieldDef proliqred;
     public FieldDef propagasdias;
+    public FieldDef protipocra;
+    public FieldDef proexclcra;
     public TabProcesos(String name)
       {
       super(name);
@@ -2407,6 +2605,8 @@ public class CatLaboral extends Catalog
       proceso = new FieldDef("proceso",FieldDef.CHAR,3);
       proliqred = new FieldDef("proliqred",FieldDef.CHAR,3);
       propagasdias = new FieldDef("propagasdias",FieldDef.CHAR,1);
+      protipocra = new FieldDef("protipocra",FieldDef.CHAR,7);
+      proexclcra = new FieldDef("proexclcra",FieldDef.CHAR,7);
       FieldDef array[] = {
         procodi,
         prodescri,
@@ -2418,7 +2618,9 @@ public class CatLaboral extends Catalog
         proactilt,
         proceso,
         proliqred,
-        propagasdias        
+        propagasdias,
+        protipocra,
+        proexclcra        
         };
       setColumns(array);
       FieldDef arrayf[] = {procodi };
@@ -2677,6 +2879,8 @@ public class CatLaboral extends Catalog
     public FieldDef pagpordesc04;
     public FieldDef pagprorrateada;
     public FieldDef pagtipodesglo;
+    public FieldDef pagrdl202012;
+    public FieldDef pagcontrol1;
     public TabPagas(String name)
       {
       super(name);
@@ -2715,6 +2919,8 @@ public class CatLaboral extends Catalog
       pagpordesc04 = new FieldDef("pagpordesc04",FieldDef.FLOAT,6,0);
       pagprorrateada = new FieldDef("pagprorrateada",FieldDef.CHAR,1);
       pagtipodesglo = new FieldDef("pagtipodesglo",FieldDef.CHAR,1);
+      pagrdl202012 = new FieldDef("pagrdl202012",FieldDef.CHAR,1);
+      pagcontrol1 = new FieldDef("pagcontrol1",FieldDef.CHAR,1);
       FieldDef array[] = {
         pagconvemp,
         pagcodigo,
@@ -2750,7 +2956,9 @@ public class CatLaboral extends Catalog
         pagpordesc03,
         pagpordesc04,
         pagprorrateada,
-        pagtipodesglo        
+        pagtipodesglo,
+        pagrdl202012,
+        pagcontrol1        
         };
       setColumns(array);
       FieldDef arrayf[] = {pagconvemp,pagcodigo };
@@ -3026,6 +3234,8 @@ public class CatLaboral extends Catalog
     public FieldDef empfirmaepo;
     public FieldDef empfirmaepolenx;
     public FieldDef empfirmaepoleny;
+    public FieldDef empproyecto;
+    public FieldDef emptipocreta;
     public TabEmpresa(String name)
       {
       super(name);
@@ -3107,6 +3317,8 @@ public class CatLaboral extends Catalog
       empfirmaepo = new FieldDef("empfirmaepo",FieldDef.CHAR,250);
       empfirmaepolenx = new FieldDef("empfirmaepolenx",FieldDef.FLOAT,6,0);
       empfirmaepoleny = new FieldDef("empfirmaepoleny",FieldDef.FLOAT,6,0);
+      empproyecto = new FieldDef("empproyecto",FieldDef.CHAR,10);
+      emptipocreta = new FieldDef("emptipocreta",FieldDef.CHAR,5);
       FieldDef array[] = {
         empcodigo,
         empnombre,
@@ -3185,7 +3397,9 @@ public class CatLaboral extends Catalog
         empfirmamirleny,
         empfirmaepo,
         empfirmaepolenx,
-        empfirmaepoleny        
+        empfirmaepoleny,
+        empproyecto,
+        emptipocreta        
         };
       setColumns(array);
       FieldDef arrayf[] = {empcodigo };
@@ -3234,7 +3448,7 @@ public class CatLaboral extends Catalog
       empenlace.setDescription("Codigo enlace convenio");
       empconvac.setDescription("Concepto vacaciones para finiquito");
       empconpag.setDescription("Concepto pagas para finiquito");
-      empconinde.setDescription("Concepto indemnizacion para finiquito");
+      empconinde.setDescription("codigo empresa enlace jEstimacion");
       empuser.setDescription("Usuario asignado a empresa");
       empgrupo.setDescription("Grupo asignado a empresa");
       empidioma.setDescription("Idioma documentos empresa");
@@ -3419,6 +3633,8 @@ public class CatLaboral extends Catalog
     public FieldDef cendatoctr04;
     public FieldDef cendatoctr05;
     public FieldDef cencuotobrera;
+    public FieldDef cenproyecto;
+    public FieldDef centipocreta;
     public TabCentros(String name)
       {
       super(name);
@@ -3514,6 +3730,8 @@ public class CatLaboral extends Catalog
       cendatoctr04 = new FieldDef("cendatoctr04",FieldDef.CHAR,50);
       cendatoctr05 = new FieldDef("cendatoctr05",FieldDef.CHAR,50);
       cencuotobrera = new FieldDef("cencuotobrera",FieldDef.CHAR,1);
+      cenproyecto = new FieldDef("cenproyecto",FieldDef.CHAR,10);
+      centipocreta = new FieldDef("centipocreta",FieldDef.CHAR,5);
       FieldDef array[] = {
         cencodiemp,
         cencodigo,
@@ -3606,7 +3824,9 @@ public class CatLaboral extends Catalog
         cendatoctr03,
         cendatoctr04,
         cendatoctr05,
-        cencuotobrera        
+        cencuotobrera,
+        cenproyecto,
+        centipocreta        
         };
       setColumns(array);
       FieldDef arrayf[] = {cencodiemp,cencodigo };
@@ -3742,6 +3962,13 @@ public class CatLaboral extends Catalog
     public FieldDef cevcodfacnom;
     public FieldDef cevtipojr;
     public FieldDef cevtipopagoagra;
+    public FieldDef cevhorarionorm;
+    public FieldDef cevhorariovaca;
+    public FieldDef cevhorariootr1;
+    public FieldDef cevhorariootr2;
+    public FieldDef cevhorariootr3;
+    public FieldDef cevperiodovaca;
+    public FieldDef cevplanticalen;
     public TabCentrosvar(String name)
       {
       super(name);
@@ -3754,6 +3981,13 @@ public class CatLaboral extends Catalog
       cevcodfacnom = new FieldDef("cevcodfacnom",FieldDef.INTEGER,0);
       cevtipojr = new FieldDef("cevtipojr",FieldDef.INTEGER,0);
       cevtipopagoagra = new FieldDef("cevtipopagoagra",FieldDef.CHAR,1);
+      cevhorarionorm = new FieldDef("cevhorarionorm",FieldDef.CHAR,1000);
+      cevhorariovaca = new FieldDef("cevhorariovaca",FieldDef.CHAR,1000);
+      cevhorariootr1 = new FieldDef("cevhorariootr1",FieldDef.CHAR,1000);
+      cevhorariootr2 = new FieldDef("cevhorariootr2",FieldDef.CHAR,1000);
+      cevhorariootr3 = new FieldDef("cevhorariootr3",FieldDef.CHAR,1000);
+      cevperiodovaca = new FieldDef("cevperiodovaca",FieldDef.CHAR,1000);
+      cevplanticalen = new FieldDef("cevplanticalen",FieldDef.CHAR,1000);
       FieldDef array[] = {
         cevcodiemp,
         cevcodigo,
@@ -3763,7 +3997,14 @@ public class CatLaboral extends Catalog
         cevmarnombre,
         cevcodfacnom,
         cevtipojr,
-        cevtipopagoagra        
+        cevtipopagoagra,
+        cevhorarionorm,
+        cevhorariovaca,
+        cevhorariootr1,
+        cevhorariootr2,
+        cevhorariootr3,
+        cevperiodovaca,
+        cevplanticalen        
         };
       setColumns(array);
       FieldDef arrayf[] = {cevcodiemp,cevcodigo };
@@ -3945,6 +4186,11 @@ public class CatLaboral extends Catalog
     public FieldDef cebdomiirpf;
     public FieldDef cebventanass;
     public FieldDef cebdesactivado;
+    public FieldDef cebsufijo;
+    public FieldDef cebiban;
+    public FieldDef cebbic;
+    public FieldDef cebiban01;
+    public FieldDef cebibandc;
     public TabCendbancos(String name)
       {
       super(name);
@@ -3962,6 +4208,11 @@ public class CatLaboral extends Catalog
       cebdomiirpf = new FieldDef("cebdomiirpf",FieldDef.CHAR,1);
       cebventanass = new FieldDef("cebventanass",FieldDef.CHAR,1);
       cebdesactivado = new FieldDef("cebdesactivado",FieldDef.CHAR,1);
+      cebsufijo = new FieldDef("cebsufijo",FieldDef.CHAR,10);
+      cebiban = new FieldDef("cebiban",FieldDef.CHAR,35);
+      cebbic = new FieldDef("cebbic",FieldDef.CHAR,35);
+      cebiban01 = new FieldDef("cebiban01",FieldDef.CHAR,2);
+      cebibandc = new FieldDef("cebibandc",FieldDef.CHAR,2);
       FieldDef array[] = {
         cebcodiemp,
         cebcodigo,
@@ -3976,7 +4227,12 @@ public class CatLaboral extends Catalog
         cebonomtit,
         cebdomiirpf,
         cebventanass,
-        cebdesactivado        
+        cebdesactivado,
+        cebsufijo,
+        cebiban,
+        cebbic,
+        cebiban01,
+        cebibandc        
         };
       setColumns(array);
       FieldDef arrayf[] = {cebcodiemp,cebcodigo,cebpago };
@@ -4100,13 +4356,29 @@ public class CatLaboral extends Catalog
     public FieldDef tranumere;
     public FieldDef trafinsuspen;
     public FieldDef trareducere;
+    public FieldDef tracodere;
+    public FieldDef trasubdpto;
+    public FieldDef traproyecto;
+    public FieldDef tradeparconta;
+    public FieldDef tracanal;
+    public FieldDef tradelegacion;
+    public FieldDef traseccion;
+    public FieldDef trabcotraiban;
+    public FieldDef trabcotrabic;
+    public FieldDef trabcotresiban;
+    public FieldDef trabcotraiban1;
+    public FieldDef trabcotrabic1;
+    public FieldDef trabcotresiban1;
+    public FieldDef trabcotraiban2;
+    public FieldDef trabcotrabic2;
+    public FieldDef trabcotresiban2;
     public TabTrabajador(String name)
       {
       super(name);
       tracodiemp = new FieldDef("tracodiemp",FieldDef.INTEGER,0,FieldDef.NOTNULL);
       tracodigo = new FieldDef("tracodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
       tranif = new FieldDef("tranif",FieldDef.CHAR,15);
-      tranombre = new FieldDef("tranombre",FieldDef.CHAR,50);
+      tranombre = new FieldDef("tranombre",FieldDef.CHAR,100);
       tranaf1 = new FieldDef("tranaf1",FieldDef.INTEGER,0);
       tranaf2 = new FieldDef("tranaf2",FieldDef.INTEGER,0);
       tranaf3 = new FieldDef("tranaf3",FieldDef.INTEGER,0);
@@ -4179,6 +4451,22 @@ public class CatLaboral extends Catalog
       tranumere = new FieldDef("tranumere",FieldDef.CHAR,15);
       trafinsuspen = new FieldDef("trafinsuspen",FieldDef.DATE);
       trareducere = new FieldDef("trareducere",FieldDef.FLOAT,6,0);
+      tracodere = new FieldDef("tracodere",FieldDef.INTEGER,0);
+      trasubdpto = new FieldDef("trasubdpto",FieldDef.INTEGER,0);
+      traproyecto = new FieldDef("traproyecto",FieldDef.CHAR,10);
+      tradeparconta = new FieldDef("tradeparconta",FieldDef.CHAR,10);
+      tracanal = new FieldDef("tracanal",FieldDef.CHAR,10);
+      tradelegacion = new FieldDef("tradelegacion",FieldDef.CHAR,10);
+      traseccion = new FieldDef("traseccion",FieldDef.CHAR,10);
+      trabcotraiban = new FieldDef("trabcotraiban",FieldDef.CHAR,35);
+      trabcotrabic = new FieldDef("trabcotrabic",FieldDef.CHAR,35);
+      trabcotresiban = new FieldDef("trabcotresiban",FieldDef.CHAR,4);
+      trabcotraiban1 = new FieldDef("trabcotraiban1",FieldDef.CHAR,35);
+      trabcotrabic1 = new FieldDef("trabcotrabic1",FieldDef.CHAR,35);
+      trabcotresiban1 = new FieldDef("trabcotresiban1",FieldDef.CHAR,4);
+      trabcotraiban2 = new FieldDef("trabcotraiban2",FieldDef.CHAR,35);
+      trabcotrabic2 = new FieldDef("trabcotrabic2",FieldDef.CHAR,35);
+      trabcotresiban2 = new FieldDef("trabcotresiban2",FieldDef.CHAR,4);
       FieldDef array[] = {
         tracodiemp,
         tracodigo,
@@ -4255,7 +4543,23 @@ public class CatLaboral extends Catalog
         tractainactiv,
         tranumere,
         trafinsuspen,
-        trareducere        
+        trareducere,
+        tracodere,
+        trasubdpto,
+        traproyecto,
+        tradeparconta,
+        tracanal,
+        tradelegacion,
+        traseccion,
+        trabcotraiban,
+        trabcotrabic,
+        trabcotresiban,
+        trabcotraiban1,
+        trabcotrabic1,
+        trabcotresiban1,
+        trabcotraiban2,
+        trabcotrabic2,
+        trabcotresiban2        
         };
       setColumns(array);
       FieldDef arrayf[] = {tracodiemp,tracodigo };
@@ -4478,6 +4782,15 @@ public class CatLaboral extends Catalog
     public FieldDef trcformaciminus;
     public FieldDef trccno11;
     public FieldDef trcformaciboni2;
+    public FieldDef trc7dias;
+    public FieldDef trc5jr;
+    public FieldDef trcformdesem;
+    public FieldDef trcjubilatraba;
+    public FieldDef trccentro;
+    public FieldDef trcntrabemp;
+    public FieldDef trctipoexclus;
+    public FieldDef trctipreducjor;
+    public FieldDef trcporreducant;
     public TabTracontrato(String name)
       {
       super(name);
@@ -4623,6 +4936,15 @@ public class CatLaboral extends Catalog
       trcformaciminus = new FieldDef("trcformaciminus",FieldDef.CHAR,1);
       trccno11 = new FieldDef("trccno11",FieldDef.CHAR,4);
       trcformaciboni2 = new FieldDef("trcformaciboni2",FieldDef.CHAR,1);
+      trc7dias = new FieldDef("trc7dias",FieldDef.CHAR,1);
+      trc5jr = new FieldDef("trc5jr",FieldDef.CHAR,1);
+      trcformdesem = new FieldDef("trcformdesem",FieldDef.CHAR,4);
+      trcjubilatraba = new FieldDef("trcjubilatraba",FieldDef.CHAR,1);
+      trccentro = new FieldDef("trccentro",FieldDef.INTEGER,0);
+      trcntrabemp = new FieldDef("trcntrabemp",FieldDef.CHAR,5);
+      trctipoexclus = new FieldDef("trctipoexclus",FieldDef.CHAR,5);
+      trctipreducjor = new FieldDef("trctipreducjor",FieldDef.CHAR,3);
+      trcporreducant = new FieldDef("trcporreducant",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         trccodiemp,
         trccodigo,
@@ -4765,7 +5087,16 @@ public class CatLaboral extends Catalog
         trcformacibonif,
         trcformaciminus,
         trccno11,
-        trcformaciboni2        
+        trcformaciboni2,
+        trc7dias,
+        trc5jr,
+        trcformdesem,
+        trcjubilatraba,
+        trccentro,
+        trcntrabemp,
+        trctipoexclus,
+        trctipreducjor,
+        trcporreducant        
         };
       setColumns(array);
       FieldDef arrayf[] = {trccodiemp,trccodigo,trcrelacion };
@@ -5333,6 +5664,8 @@ public class CatLaboral extends Catalog
     public FieldDef trbindreduc;
     public FieldDef trbimpormax;
     public FieldDef trbimpoacum;
+    public FieldDef trbfecfinant;
+    public FieldDef trbderogada;
     public TabTrabonif(String name)
       {
       super(name);
@@ -5350,6 +5683,8 @@ public class CatLaboral extends Catalog
       trbindreduc = new FieldDef("trbindreduc",FieldDef.INTEGER,0);
       trbimpormax = new FieldDef("trbimpormax",FieldDef.FLOAT,6,0);
       trbimpoacum = new FieldDef("trbimpoacum",FieldDef.FLOAT,6,0);
+      trbfecfinant = new FieldDef("trbfecfinant",FieldDef.DATE);
+      trbderogada = new FieldDef("trbderogada",FieldDef.CHAR,1);
       FieldDef array[] = {
         trbcodiemp,
         trbcodigo,
@@ -5364,7 +5699,9 @@ public class CatLaboral extends Catalog
         trbcoleboni,
         trbindreduc,
         trbimpormax,
-        trbimpoacum        
+        trbimpoacum,
+        trbfecfinant,
+        trbderogada        
         };
       setColumns(array);
       FieldDef arrayf[] = {trbcodiemp,trbcodigo,trbrelacion,trbbonif,trbtramo };
@@ -5525,6 +5862,7 @@ public class CatLaboral extends Catalog
     public FieldDef increducmat;
     public FieldDef inchospital;
     public FieldDef incobserv;
+    public FieldDef inccodere;
     public TabIncidencias(String name)
       {
       super(name);
@@ -5545,6 +5883,7 @@ public class CatLaboral extends Catalog
       increducmat = new FieldDef("increducmat",FieldDef.FLOAT,6,0);
       inchospital = new FieldDef("inchospital",FieldDef.CHAR,1);
       incobserv = new FieldDef("incobserv",FieldDef.CHAR,256);
+      inccodere = new FieldDef("inccodere",FieldDef.INTEGER,0);
       FieldDef array[] = {
         inccodigo,
         inccodiemp,
@@ -5562,7 +5901,8 @@ public class CatLaboral extends Catalog
         inccotiza,
         increducmat,
         inchospital,
-        incobserv        
+        incobserv,
+        inccodere        
         };
       setColumns(array);
       FieldDef arrayf[] = {inccodigo };
@@ -5690,6 +6030,17 @@ public class CatLaboral extends Catalog
     public FieldDef finqporcenindem;
     public FieldDef finqtipimporcen;
     public FieldDef finqimpporcen;
+    public FieldDef finqrdl202012;
+    public FieldDef finqindemretie;
+    public FieldDef finqcontrol1;
+    public FieldDef finqindemcotiz;
+    public FieldDef finqcotizsaldo;
+    public FieldDef finqejerinicot;
+    public FieldDef finqperiinicot;
+    public FieldDef finqejerfincot;
+    public FieldDef finqperifincot;
+    public FieldDef finqproceso;
+    public FieldDef finqindecotitra;
     public TabFiniquito(String name)
       {
       super(name);
@@ -5727,6 +6078,17 @@ public class CatLaboral extends Catalog
       finqporcenindem = new FieldDef("finqporcenindem",FieldDef.FLOAT,6,0);
       finqtipimporcen = new FieldDef("finqtipimporcen",FieldDef.CHAR,1);
       finqimpporcen = new FieldDef("finqimpporcen",FieldDef.FLOAT,6,0);
+      finqrdl202012 = new FieldDef("finqrdl202012",FieldDef.CHAR,1);
+      finqindemretie = new FieldDef("finqindemretie",FieldDef.CHAR,1);
+      finqcontrol1 = new FieldDef("finqcontrol1",FieldDef.CHAR,1);
+      finqindemcotiz = new FieldDef("finqindemcotiz",FieldDef.FLOAT,6,0);
+      finqcotizsaldo = new FieldDef("finqcotizsaldo",FieldDef.FLOAT,6,0);
+      finqejerinicot = new FieldDef("finqejerinicot",FieldDef.INTEGER,0);
+      finqperiinicot = new FieldDef("finqperiinicot",FieldDef.INTEGER,0);
+      finqejerfincot = new FieldDef("finqejerfincot",FieldDef.INTEGER,0);
+      finqperifincot = new FieldDef("finqperifincot",FieldDef.INTEGER,0);
+      finqproceso = new FieldDef("finqproceso",FieldDef.INTEGER,0);
+      finqindecotitra = new FieldDef("finqindecotitra",FieldDef.CHAR,1);
       FieldDef array[] = {
         finqcodigo,
         finqejerci,
@@ -5761,7 +6123,18 @@ public class CatLaboral extends Catalog
         finqimpppreavis,
         finqporcenindem,
         finqtipimporcen,
-        finqimpporcen        
+        finqimpporcen,
+        finqrdl202012,
+        finqindemretie,
+        finqcontrol1,
+        finqindemcotiz,
+        finqcotizsaldo,
+        finqejerinicot,
+        finqperiinicot,
+        finqejerfincot,
+        finqperifincot,
+        finqproceso,
+        finqindecotitra        
         };
       setColumns(array);
       FieldDef arrayf[] = {finqcodigo };
@@ -5821,6 +6194,8 @@ public class CatLaboral extends Catalog
     public FieldDef hisrimporte;
     public FieldDef hisrporcinc;
     public FieldDef hisrinciden;
+    public FieldDef hisrtipocra;
+    public FieldDef hisrexclcra;
     public TabHisretri(String name)
       {
       super(name);
@@ -5839,6 +6214,8 @@ public class CatLaboral extends Catalog
       hisrimporte = new FieldDef("hisrimporte",FieldDef.FLOAT,6,0);
       hisrporcinc = new FieldDef("hisrporcinc",FieldDef.FLOAT,6,0);
       hisrinciden = new FieldDef("hisrinciden",FieldDef.INTEGER,0);
+      hisrtipocra = new FieldDef("hisrtipocra",FieldDef.CHAR,7);
+      hisrexclcra = new FieldDef("hisrexclcra",FieldDef.CHAR,7);
       FieldDef array[] = {
         hisrcodigo,
         hisrcalculo,
@@ -5854,7 +6231,9 @@ public class CatLaboral extends Catalog
         hisrunidades,
         hisrimporte,
         hisrporcinc,
-        hisrinciden        
+        hisrinciden,
+        hisrtipocra,
+        hisrexclcra        
         };
       setColumns(array);
       FieldDef arrayf[] = {hisrcodigo };
@@ -6308,6 +6687,12 @@ public class CatLaboral extends Catalog
     public FieldDef hispformaciminu;
     public FieldDef hispbloqueado;
     public FieldDef hispformacibon2;
+    public FieldDef hispjubilatraba;
+    public FieldDef hispproyecto;
+    public FieldDef hisptipocra;
+    public FieldDef hispexclcra;
+    public FieldDef hispfeciniperi;
+    public FieldDef hispfecfinperi;
     public TabHisperso(String name)
       {
       super(name);
@@ -6419,6 +6804,12 @@ public class CatLaboral extends Catalog
       hispformaciminu = new FieldDef("hispformaciminu",FieldDef.CHAR,1);
       hispbloqueado = new FieldDef("hispbloqueado",FieldDef.CHAR,1);
       hispformacibon2 = new FieldDef("hispformacibon2",FieldDef.CHAR,1);
+      hispjubilatraba = new FieldDef("hispjubilatraba",FieldDef.CHAR,1);
+      hispproyecto = new FieldDef("hispproyecto",FieldDef.CHAR,10);
+      hisptipocra = new FieldDef("hisptipocra",FieldDef.CHAR,7);
+      hispexclcra = new FieldDef("hispexclcra",FieldDef.CHAR,7);
+      hispfeciniperi = new FieldDef("hispfeciniperi",FieldDef.DATE);
+      hispfecfinperi = new FieldDef("hispfecfinperi",FieldDef.DATE);
       FieldDef array[] = {
         hispcodigo,
         hispejercicio,
@@ -6527,7 +6918,13 @@ public class CatLaboral extends Catalog
         hispformaciboni,
         hispformaciminu,
         hispbloqueado,
-        hispformacibon2        
+        hispformacibon2,
+        hispjubilatraba,
+        hispproyecto,
+        hisptipocra,
+        hispexclcra,
+        hispfeciniperi,
+        hispfecfinperi        
         };
       setColumns(array);
       FieldDef arrayf[] = {hispcodigo };
@@ -7626,6 +8023,12 @@ public class CatLaboral extends Catalog
     public FieldDef pmrindicaprueba;
     public FieldDef pmrcontadorfan;
     public FieldDef pmrubicacionred;
+    public FieldDef pmrubicacret;
+    public FieldDef pmrconcrebases;
+    public FieldDef pmrconcresoltra;
+    public FieldDef pmrconcresolbor;
+    public FieldDef pmrconcresolcon;
+    public FieldDef pmrconcresolcal;
     public TabParamred(String name)
       {
       super(name);
@@ -7639,6 +8042,12 @@ public class CatLaboral extends Catalog
       pmrindicaprueba = new FieldDef("pmrindicaprueba",FieldDef.CHAR,1);
       pmrcontadorfan = new FieldDef("pmrcontadorfan",FieldDef.INTEGER,0);
       pmrubicacionred = new FieldDef("pmrubicacionred",FieldDef.CHAR,235);
+      pmrubicacret = new FieldDef("pmrubicacret",FieldDef.CHAR,250);
+      pmrconcrebases = new FieldDef("pmrconcrebases",FieldDef.INTEGER,0);
+      pmrconcresoltra = new FieldDef("pmrconcresoltra",FieldDef.INTEGER,0);
+      pmrconcresolbor = new FieldDef("pmrconcresolbor",FieldDef.INTEGER,0);
+      pmrconcresolcon = new FieldDef("pmrconcresolcon",FieldDef.INTEGER,0);
+      pmrconcresolcal = new FieldDef("pmrconcresolcal",FieldDef.INTEGER,0);
       FieldDef array[] = {
         pmrid,
         pmrcontactored,
@@ -7649,7 +8058,13 @@ public class CatLaboral extends Catalog
         pmrsilconred,
         pmrindicaprueba,
         pmrcontadorfan,
-        pmrubicacionred        
+        pmrubicacionred,
+        pmrubicacret,
+        pmrconcrebases,
+        pmrconcresoltra,
+        pmrconcresolbor,
+        pmrconcresolcon,
+        pmrconcresolcal        
         };
       setColumns(array);
       FieldDef arrayf[] = {pmrid };
@@ -7762,6 +8177,23 @@ public class CatLaboral extends Catalog
     public FieldDef segsubclv;
     public FieldDef segnumlin;
     public FieldDef segsegmento;
+    public FieldDef segtiposeg;
+    public FieldDef segcodiemp;
+    public FieldDef segtrabajador;
+    public FieldDef segrelacion;
+    public FieldDef segejercicio;
+    public FieldDef segperiodo;
+    public FieldDef segproceso;
+    public FieldDef segcodhisperso;
+    public FieldDef segcodhisretri;
+    public FieldDef segcodhisdeduc;
+    public FieldDef segconvemp;
+    public FieldDef segcodconcepto;
+    public FieldDef segtipocre;
+    public FieldDef segcreincexc;
+    public FieldDef segimportecre;
+    public FieldDef segindicacre;
+    public FieldDef segvarioscre;
     public TabSegmento(String name)
       {
       super(name);
@@ -7770,12 +8202,46 @@ public class CatLaboral extends Catalog
       segsubclv = new FieldDef("segsubclv",FieldDef.INTEGER,0);
       segnumlin = new FieldDef("segnumlin",FieldDef.INTEGER,0);
       segsegmento = new FieldDef("segsegmento",FieldDef.CHAR,250);
+      segtiposeg = new FieldDef("segtiposeg",FieldDef.CHAR,15);
+      segcodiemp = new FieldDef("segcodiemp",FieldDef.INTEGER,0);
+      segtrabajador = new FieldDef("segtrabajador",FieldDef.INTEGER,0);
+      segrelacion = new FieldDef("segrelacion",FieldDef.INTEGER,0);
+      segejercicio = new FieldDef("segejercicio",FieldDef.INTEGER,0);
+      segperiodo = new FieldDef("segperiodo",FieldDef.INTEGER,0);
+      segproceso = new FieldDef("segproceso",FieldDef.INTEGER,0);
+      segcodhisperso = new FieldDef("segcodhisperso",FieldDef.INTEGER,0);
+      segcodhisretri = new FieldDef("segcodhisretri",FieldDef.INTEGER,0);
+      segcodhisdeduc = new FieldDef("segcodhisdeduc",FieldDef.INTEGER,0);
+      segconvemp = new FieldDef("segconvemp",FieldDef.CHAR,13);
+      segcodconcepto = new FieldDef("segcodconcepto",FieldDef.INTEGER,0);
+      segtipocre = new FieldDef("segtipocre",FieldDef.CHAR,7);
+      segcreincexc = new FieldDef("segcreincexc",FieldDef.CHAR,1);
+      segimportecre = new FieldDef("segimportecre",FieldDef.FLOAT,6,0);
+      segindicacre = new FieldDef("segindicacre",FieldDef.CHAR,7);
+      segvarioscre = new FieldDef("segvarioscre",FieldDef.CHAR,7);
       FieldDef array[] = {
         segcodigo,
         segmsgestcod,
         segsubclv,
         segnumlin,
-        segsegmento        
+        segsegmento,
+        segtiposeg,
+        segcodiemp,
+        segtrabajador,
+        segrelacion,
+        segejercicio,
+        segperiodo,
+        segproceso,
+        segcodhisperso,
+        segcodhisretri,
+        segcodhisdeduc,
+        segconvemp,
+        segcodconcepto,
+        segtipocre,
+        segcreincexc,
+        segimportecre,
+        segindicacre,
+        segvarioscre        
         };
       setColumns(array);
       FieldDef arrayf[] = {segcodigo };
@@ -8732,6 +9198,7 @@ public class CatLaboral extends Catalog
     public FieldDef qefect;
     public FieldDef qefrepetir;
     public FieldDef qefcount;
+    public FieldDef qefplantilla;
     public TabQuefrase(String name)
       {
       super(name);
@@ -8748,6 +9215,7 @@ public class CatLaboral extends Catalog
       qefect = new FieldDef("qefect",FieldDef.CHAR,1);
       qefrepetir = new FieldDef("qefrepetir",FieldDef.CHAR,1);
       qefcount = new FieldDef("qefcount",FieldDef.CHAR,1);
+      qefplantilla = new FieldDef("qefplantilla",FieldDef.CHAR,15);
       FieldDef array[] = {
         qefaplicacion,
         qeffrase,
@@ -8761,7 +9229,8 @@ public class CatLaboral extends Catalog
         qefwhere,
         qefect,
         qefrepetir,
-        qefcount        
+        qefcount,
+        qefplantilla        
         };
       setColumns(array);
       FieldDef arrayf[] = {qefaplicacion,qeffrase };
@@ -8875,6 +9344,10 @@ public class CatLaboral extends Catalog
     public FieldDef qecbbdd;
     public FieldDef qecsum;
     public FieldDef qecgrupby;
+    public FieldDef qecmedia;
+    public FieldDef qeccontador;
+    public FieldDef qecrotura;
+    public FieldDef qectitrotura;
     public TabQuecolumn(String name)
       {
       super(name);
@@ -8896,6 +9369,10 @@ public class CatLaboral extends Catalog
       qecbbdd = new FieldDef("qecbbdd",FieldDef.CHAR,15);
       qecsum = new FieldDef("qecsum",FieldDef.CHAR,1);
       qecgrupby = new FieldDef("qecgrupby",FieldDef.CHAR,1);
+      qecmedia = new FieldDef("qecmedia",FieldDef.CHAR,1);
+      qeccontador = new FieldDef("qeccontador",FieldDef.CHAR,1);
+      qecrotura = new FieldDef("qecrotura",FieldDef.CHAR,1);
+      qectitrotura = new FieldDef("qectitrotura",FieldDef.CHAR,20);
       FieldDef array[] = {
         qecaplicacion,
         qecfrase,
@@ -8914,7 +9391,11 @@ public class CatLaboral extends Catalog
         qecformato,
         qecbbdd,
         qecsum,
-        qecgrupby        
+        qecgrupby,
+        qecmedia,
+        qeccontador,
+        qecrotura,
+        qectitrotura        
         };
       setColumns(array);
       FieldDef arrayf[] = {qecaplicacion,qecfrase,qecorden };
@@ -9918,6 +10399,26 @@ public class CatLaboral extends Catalog
     public FieldDef cnacolredu2011;
     public FieldDef cnaporredu2011;
     public FieldDef cnajorredu2011;
+    public FieldDef cnacoldedfisc1;
+    public FieldDef cnacolredforma;
+    public FieldDef cnaredformacion;
+    public FieldDef cnaregrd152011;
+    public FieldDef cnaleganterior;
+    public FieldDef cnaproyempform;
+    public FieldDef cnacertprof;
+    public FieldDef cnacoldedfisc2;
+    public FieldDef cnacolredu2013;
+    public FieldDef cnavform;
+    public FieldDef cnafomemp2013;
+    public FieldDef cnaporreduc2013;
+    public FieldDef cnajoven2013;
+    public FieldDef cnaporjor2013;
+    public FieldDef cnaexmenor30;
+    public FieldDef cnaporjorpac;
+    public FieldDef cnahorastc;
+    public FieldDef cnaminutostc;
+    public FieldDef cnacolredu2014;
+    public FieldDef cnaettempaut;
     public TabTracontrata(String name)
       {
       super(name);
@@ -10004,6 +10505,26 @@ public class CatLaboral extends Catalog
       cnacolredu2011 = new FieldDef("cnacolredu2011",FieldDef.CHAR,2);
       cnaporredu2011 = new FieldDef("cnaporredu2011",FieldDef.CHAR,3);
       cnajorredu2011 = new FieldDef("cnajorredu2011",FieldDef.FLOAT,6,0);
+      cnacoldedfisc1 = new FieldDef("cnacoldedfisc1",FieldDef.CHAR,2);
+      cnacolredforma = new FieldDef("cnacolredforma",FieldDef.CHAR,2);
+      cnaredformacion = new FieldDef("cnaredformacion",FieldDef.CHAR,3);
+      cnaregrd152011 = new FieldDef("cnaregrd152011",FieldDef.CHAR,1);
+      cnaleganterior = new FieldDef("cnaleganterior",FieldDef.CHAR,1);
+      cnaproyempform = new FieldDef("cnaproyempform",FieldDef.CHAR,1);
+      cnacertprof = new FieldDef("cnacertprof",FieldDef.CHAR,1);
+      cnacoldedfisc2 = new FieldDef("cnacoldedfisc2",FieldDef.CHAR,2);
+      cnacolredu2013 = new FieldDef("cnacolredu2013",FieldDef.CHAR,2);
+      cnavform = new FieldDef("cnavform",FieldDef.CHAR,2);
+      cnafomemp2013 = new FieldDef("cnafomemp2013",FieldDef.CHAR,1);
+      cnaporreduc2013 = new FieldDef("cnaporreduc2013",FieldDef.CHAR,3);
+      cnajoven2013 = new FieldDef("cnajoven2013",FieldDef.CHAR,1);
+      cnaporjor2013 = new FieldDef("cnaporjor2013",FieldDef.FLOAT,6,0);
+      cnaexmenor30 = new FieldDef("cnaexmenor30",FieldDef.CHAR,1);
+      cnaporjorpac = new FieldDef("cnaporjorpac",FieldDef.FLOAT,6,0);
+      cnahorastc = new FieldDef("cnahorastc",FieldDef.INTEGER,0);
+      cnaminutostc = new FieldDef("cnaminutostc",FieldDef.INTEGER,0);
+      cnacolredu2014 = new FieldDef("cnacolredu2014",FieldDef.CHAR,2);
+      cnaettempaut = new FieldDef("cnaettempaut",FieldDef.CHAR,1);
       FieldDef array[] = {
         cnacodiemp,
         cnacodigo,
@@ -10087,7 +10608,27 @@ public class CatLaboral extends Catalog
         cnaappuniversid,
         cnacolredu2011,
         cnaporredu2011,
-        cnajorredu2011        
+        cnajorredu2011,
+        cnacoldedfisc1,
+        cnacolredforma,
+        cnaredformacion,
+        cnaregrd152011,
+        cnaleganterior,
+        cnaproyempform,
+        cnacertprof,
+        cnacoldedfisc2,
+        cnacolredu2013,
+        cnavform,
+        cnafomemp2013,
+        cnaporreduc2013,
+        cnajoven2013,
+        cnaporjor2013,
+        cnaexmenor30,
+        cnaporjorpac,
+        cnahorastc,
+        cnaminutostc,
+        cnacolredu2014,
+        cnaettempaut        
         };
       setColumns(array);
       FieldDef arrayf[] = {cnacodiemp,cnacodigo,cnarelacion,cnacodigocto };
@@ -11929,6 +12470,22 @@ public class CatLaboral extends Catalog
     public FieldDef pcal044;
     public FieldDef pcal045;
     public FieldDef pcal046;
+    public FieldDef pcal047;
+    public FieldDef pcal048;
+    public FieldDef pcal049;
+    public FieldDef pcal050;
+    public FieldDef pcal051;
+    public FieldDef pcal052;
+    public FieldDef pcal053;
+    public FieldDef pcal054;
+    public FieldDef pcal055;
+    public FieldDef pcal056;
+    public FieldDef pcal057;
+    public FieldDef pcal058;
+    public FieldDef pcal059;
+    public FieldDef pcal060;
+    public FieldDef pcal061;
+    public FieldDef pcal062;
     public TabParamscal(String name)
       {
       super(name);
@@ -11979,6 +12536,22 @@ public class CatLaboral extends Catalog
       pcal044 = new FieldDef("pcal044",FieldDef.CHAR,150);
       pcal045 = new FieldDef("pcal045",FieldDef.CHAR,150);
       pcal046 = new FieldDef("pcal046",FieldDef.CHAR,150);
+      pcal047 = new FieldDef("pcal047",FieldDef.CHAR,1);
+      pcal048 = new FieldDef("pcal048",FieldDef.CHAR,1);
+      pcal049 = new FieldDef("pcal049",FieldDef.CHAR,1);
+      pcal050 = new FieldDef("pcal050",FieldDef.CHAR,1);
+      pcal051 = new FieldDef("pcal051",FieldDef.CHAR,1);
+      pcal052 = new FieldDef("pcal052",FieldDef.CHAR,1);
+      pcal053 = new FieldDef("pcal053",FieldDef.CHAR,1);
+      pcal054 = new FieldDef("pcal054",FieldDef.CHAR,1);
+      pcal055 = new FieldDef("pcal055",FieldDef.CHAR,1);
+      pcal056 = new FieldDef("pcal056",FieldDef.INTEGER,0);
+      pcal057 = new FieldDef("pcal057",FieldDef.INTEGER,0);
+      pcal058 = new FieldDef("pcal058",FieldDef.INTEGER,0);
+      pcal059 = new FieldDef("pcal059",FieldDef.INTEGER,0);
+      pcal060 = new FieldDef("pcal060",FieldDef.INTEGER,0);
+      pcal061 = new FieldDef("pcal061",FieldDef.FLOAT,6,0);
+      pcal062 = new FieldDef("pcal062",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         pcalconvemp,
         pcal001,
@@ -12026,7 +12599,23 @@ public class CatLaboral extends Catalog
         pcal043,
         pcal044,
         pcal045,
-        pcal046        
+        pcal046,
+        pcal047,
+        pcal048,
+        pcal049,
+        pcal050,
+        pcal051,
+        pcal052,
+        pcal053,
+        pcal054,
+        pcal055,
+        pcal056,
+        pcal057,
+        pcal058,
+        pcal059,
+        pcal060,
+        pcal061,
+        pcal062        
         };
       setColumns(array);
       FieldDef arrayf[] = {pcalconvemp };
@@ -12044,6 +12633,8 @@ public class CatLaboral extends Catalog
     public FieldDef dcttipoenl;
     public FieldDef dcttipotra;
     public FieldDef dcttipoasi;
+    public FieldDef dctdepart;
+    public FieldDef dctproyecto;
     public TabDefctacab(String name)
       {
       super(name);
@@ -12054,6 +12645,8 @@ public class CatLaboral extends Catalog
       dcttipoenl = new FieldDef("dcttipoenl",FieldDef.CHAR,2);
       dcttipotra = new FieldDef("dcttipotra",FieldDef.CHAR,1);
       dcttipoasi = new FieldDef("dcttipoasi",FieldDef.CHAR,2);
+      dctdepart = new FieldDef("dctdepart",FieldDef.CHAR,10);
+      dctproyecto = new FieldDef("dctproyecto",FieldDef.CHAR,10);
       FieldDef array[] = {
         dctcodigo,
         dctdescenl,
@@ -12061,7 +12654,9 @@ public class CatLaboral extends Catalog
         dctdescri,
         dcttipoenl,
         dcttipotra,
-        dcttipoasi        
+        dcttipoasi,
+        dctdepart,
+        dctproyecto        
         };
       setColumns(array);
       FieldDef arrayf[] = {dctcodigo,dctcodasiento };
@@ -12334,6 +12929,26 @@ public class CatLaboral extends Catalog
     public FieldDef plicampod59;
     public FieldDef plicampod60;
     public FieldDef plicampoa61;
+    public FieldDef plicampoa62;
+    public FieldDef plicampoa63;
+    public FieldDef plicampoa64;
+    public FieldDef plicampoa65;
+    public FieldDef plicampoa66;
+    public FieldDef plicampoa67;
+    public FieldDef plicampoa68;
+    public FieldDef plicampoa69;
+    public FieldDef plicampoa70;
+    public FieldDef plicampon71;
+    public FieldDef plicampon72;
+    public FieldDef plicampon73;
+    public FieldDef plicampon74;
+    public FieldDef plicampon75;
+    public FieldDef plicampon76;
+    public FieldDef plicampon77;
+    public FieldDef plicampon78;
+    public FieldDef plicampon79;
+    public FieldDef plicampon80;
+    public FieldDef plicampoa81;
     public TabParamlis(String name)
       {
       super(name);
@@ -12401,6 +13016,26 @@ public class CatLaboral extends Catalog
       plicampod59 = new FieldDef("plicampod59",FieldDef.DATE);
       plicampod60 = new FieldDef("plicampod60",FieldDef.DATE);
       plicampoa61 = new FieldDef("plicampoa61",FieldDef.CHAR,100);
+      plicampoa62 = new FieldDef("plicampoa62",FieldDef.CHAR,100);
+      plicampoa63 = new FieldDef("plicampoa63",FieldDef.CHAR,100);
+      plicampoa64 = new FieldDef("plicampoa64",FieldDef.CHAR,100);
+      plicampoa65 = new FieldDef("plicampoa65",FieldDef.CHAR,100);
+      plicampoa66 = new FieldDef("plicampoa66",FieldDef.CHAR,100);
+      plicampoa67 = new FieldDef("plicampoa67",FieldDef.CHAR,100);
+      plicampoa68 = new FieldDef("plicampoa68",FieldDef.CHAR,100);
+      plicampoa69 = new FieldDef("plicampoa69",FieldDef.CHAR,100);
+      plicampoa70 = new FieldDef("plicampoa70",FieldDef.CHAR,100);
+      plicampon71 = new FieldDef("plicampon71",FieldDef.FLOAT,6,0);
+      plicampon72 = new FieldDef("plicampon72",FieldDef.FLOAT,6,0);
+      plicampon73 = new FieldDef("plicampon73",FieldDef.FLOAT,6,0);
+      plicampon74 = new FieldDef("plicampon74",FieldDef.FLOAT,6,0);
+      plicampon75 = new FieldDef("plicampon75",FieldDef.FLOAT,6,0);
+      plicampon76 = new FieldDef("plicampon76",FieldDef.FLOAT,6,0);
+      plicampon77 = new FieldDef("plicampon77",FieldDef.FLOAT,6,0);
+      plicampon78 = new FieldDef("plicampon78",FieldDef.FLOAT,6,0);
+      plicampon79 = new FieldDef("plicampon79",FieldDef.FLOAT,6,0);
+      plicampon80 = new FieldDef("plicampon80",FieldDef.FLOAT,6,0);
+      plicampoa81 = new FieldDef("plicampoa81",FieldDef.CHAR,250);
       FieldDef array[] = {
         pliusuario,
         pliprograma,
@@ -12465,7 +13100,27 @@ public class CatLaboral extends Catalog
         plicampod58,
         plicampod59,
         plicampod60,
-        plicampoa61        
+        plicampoa61,
+        plicampoa62,
+        plicampoa63,
+        plicampoa64,
+        plicampoa65,
+        plicampoa66,
+        plicampoa67,
+        plicampoa68,
+        plicampoa69,
+        plicampoa70,
+        plicampon71,
+        plicampon72,
+        plicampon73,
+        plicampon74,
+        plicampon75,
+        plicampon76,
+        plicampon77,
+        plicampon78,
+        plicampon79,
+        plicampon80,
+        plicampoa81        
         };
       setColumns(array);
       FieldDef arrayf[] = {pliusuario,pliprograma,pliopcion };
@@ -12591,6 +13246,7 @@ public class CatLaboral extends Catalog
     public FieldDef cnvseleccion;
     public FieldDef cnvfecha;
     public FieldDef cnvobserva;
+    public FieldDef cnvconvenio;
     public TabNuevaconversion(String name)
       {
       super(name);
@@ -12605,6 +13261,7 @@ public class CatLaboral extends Catalog
       cnvseleccion = new FieldDef("cnvseleccion",FieldDef.CHAR,1);
       cnvfecha = new FieldDef("cnvfecha",FieldDef.DATE);
       cnvobserva = new FieldDef("cnvobserva",FieldDef.CHAR,100);
+      cnvconvenio = new FieldDef("cnvconvenio",FieldDef.INTEGER,0);
       FieldDef array[] = {
         cnvnombd,
         cnvcodigo,
@@ -12616,7 +13273,8 @@ public class CatLaboral extends Catalog
         cnvestado,
         cnvseleccion,
         cnvfecha,
-        cnvobserva        
+        cnvobserva,
+        cnvconvenio        
         };
       setColumns(array);
       FieldDef arrayf[] = {cnvnombd,cnvcodigo,cnvtipo };
@@ -12632,6 +13290,1254 @@ public class CatLaboral extends Catalog
       cnvseleccion.setDescription("Registro seleccionado o no para traspasar");
       cnvfecha.setDescription("Fecha en la que realiza el traspaso");
       cnvobserva.setDescription("Observaciones de la conversion");
+      cnvconvenio.setDescription("Convenio asociado a la empresa");
+      }
+    }
+    
+  public class TabDefimportscab extends TableDef
+    {
+    // Campos
+    public FieldDef dimccodigo;
+    public FieldDef dimctabla;
+    public FieldDef dimcdesc;
+    public FieldDef dimctipofile;
+    public FieldDef dimcacumula;
+    public TabDefimportscab(String name)
+      {
+      super(name);
+      dimccodigo = new FieldDef("dimccodigo",FieldDef.CHAR,20,FieldDef.NOTNULL);
+      dimctabla = new FieldDef("dimctabla",FieldDef.CHAR,20,FieldDef.NOTNULL);
+      dimcdesc = new FieldDef("dimcdesc",FieldDef.CHAR,80,FieldDef.NOTNULL);
+      dimctipofile = new FieldDef("dimctipofile",FieldDef.CHAR,1);
+      dimcacumula = new FieldDef("dimcacumula",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        dimccodigo,
+        dimctabla,
+        dimcdesc,
+        dimctipofile,
+        dimcacumula        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {dimccodigo,dimctabla };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabDefimportsdet extends TableDef
+    {
+    // Campos
+    public FieldDef dimdcodigo;
+    public FieldDef dimdtabla;
+    public FieldDef dimdcampo;
+    public FieldDef dimdobliga;
+    public FieldDef dimdtipocamp;
+    public FieldDef dimdnumcolum;
+    public FieldDef dimdliteral;
+    public FieldDef dimdposini;
+    public FieldDef dimdposfin;
+    public TabDefimportsdet(String name)
+      {
+      super(name);
+      dimdcodigo = new FieldDef("dimdcodigo",FieldDef.CHAR,20,FieldDef.NOTNULL);
+      dimdtabla = new FieldDef("dimdtabla",FieldDef.CHAR,20,FieldDef.NOTNULL);
+      dimdcampo = new FieldDef("dimdcampo",FieldDef.CHAR,20,FieldDef.NOTNULL);
+      dimdobliga = new FieldDef("dimdobliga",FieldDef.CHAR,1);
+      dimdtipocamp = new FieldDef("dimdtipocamp",FieldDef.CHAR,1);
+      dimdnumcolum = new FieldDef("dimdnumcolum",FieldDef.INTEGER,0);
+      dimdliteral = new FieldDef("dimdliteral",FieldDef.CHAR,25);
+      dimdposini = new FieldDef("dimdposini",FieldDef.INTEGER,0);
+      dimdposfin = new FieldDef("dimdposfin",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        dimdcodigo,
+        dimdtabla,
+        dimdcampo,
+        dimdobliga,
+        dimdtipocamp,
+        dimdnumcolum,
+        dimdliteral,
+        dimdposini,
+        dimdposfin        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {dimdcodigo,dimdtabla,dimdcampo };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabDefimportsequiv extends TableDef
+    {
+    // Campos
+    public FieldDef dimecodigo;
+    public FieldDef dimetabla;
+    public FieldDef dimecampo;
+    public FieldDef dimevalor;
+    public FieldDef dimeequival;
+    public TabDefimportsequiv(String name)
+      {
+      super(name);
+      dimecodigo = new FieldDef("dimecodigo",FieldDef.CHAR,20,FieldDef.NOTNULL);
+      dimetabla = new FieldDef("dimetabla",FieldDef.CHAR,20,FieldDef.NOTNULL);
+      dimecampo = new FieldDef("dimecampo",FieldDef.CHAR,20,FieldDef.NOTNULL);
+      dimevalor = new FieldDef("dimevalor",FieldDef.CHAR,35,FieldDef.NOTNULL);
+      dimeequival = new FieldDef("dimeequival",FieldDef.CHAR,35);
+      FieldDef array[] = {
+        dimecodigo,
+        dimetabla,
+        dimecampo,
+        dimevalor,
+        dimeequival        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {dimecodigo,dimetabla,dimecampo,dimevalor };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabEre extends TableDef
+    {
+    // Campos
+    public FieldDef erecodigo;
+    public FieldDef erefechaini;
+    public FieldDef erefechafin;
+    public FieldDef ereestado;
+    public FieldDef erecodmaster;
+    public FieldDef erenumere;
+    public FieldDef erefinsuspen;
+    public FieldDef erereducere;
+    public FieldDef ereporcenpar;
+    public FieldDef erecoeficiente;
+    public FieldDef ereempresa;
+    public FieldDef erecentro;
+    public FieldDef eretrabajador;
+    public FieldDef ererelacion;
+    public FieldDef ereobserva;
+    public FieldDef eretipoenvio;
+    public FieldDef erenaturaleza;
+    public FieldDef ereempconben;
+    public FieldDef erefecdecemp;
+    public FieldDef erefecresauto;
+    public FieldDef erefecinforme;
+    public FieldDef erefecresjud;
+    public FieldDef ereambitoter;
+    public FieldDef eretipoproced;
+    public FieldDef erecausaaleg;
+    public FieldDef ereacuerdo;
+    public FieldDef ereperdesde;
+    public FieldDef ereperhasta;
+    public FieldDef erelibre01;
+    public FieldDef erelibre02;
+    public FieldDef erelibre03;
+    public FieldDef erelibre04;
+    public FieldDef erelibre05;
+    public FieldDef erelibre06;
+    public FieldDef erelibre07;
+    public FieldDef erelibre08;
+    public TabEre(String name)
+      {
+      super(name);
+      erecodigo = new FieldDef("erecodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      erefechaini = new FieldDef("erefechaini",FieldDef.DATE);
+      erefechafin = new FieldDef("erefechafin",FieldDef.DATE);
+      ereestado = new FieldDef("ereestado",FieldDef.CHAR,1);
+      erecodmaster = new FieldDef("erecodmaster",FieldDef.INTEGER,0);
+      erenumere = new FieldDef("erenumere",FieldDef.CHAR,15);
+      erefinsuspen = new FieldDef("erefinsuspen",FieldDef.DATE);
+      erereducere = new FieldDef("erereducere",FieldDef.FLOAT,6,0);
+      ereporcenpar = new FieldDef("ereporcenpar",FieldDef.FLOAT,6,0);
+      erecoeficiente = new FieldDef("erecoeficiente",FieldDef.CHAR,15);
+      ereempresa = new FieldDef("ereempresa",FieldDef.INTEGER,0);
+      erecentro = new FieldDef("erecentro",FieldDef.INTEGER,0);
+      eretrabajador = new FieldDef("eretrabajador",FieldDef.INTEGER,0);
+      ererelacion = new FieldDef("ererelacion",FieldDef.INTEGER,0);
+      ereobserva = new FieldDef("ereobserva",FieldDef.CHAR,250);
+      eretipoenvio = new FieldDef("eretipoenvio",FieldDef.CHAR,1);
+      erenaturaleza = new FieldDef("erenaturaleza",FieldDef.CHAR,1);
+      ereempconben = new FieldDef("ereempconben",FieldDef.CHAR,1);
+      erefecdecemp = new FieldDef("erefecdecemp",FieldDef.DATE);
+      erefecresauto = new FieldDef("erefecresauto",FieldDef.DATE);
+      erefecinforme = new FieldDef("erefecinforme",FieldDef.DATE);
+      erefecresjud = new FieldDef("erefecresjud",FieldDef.DATE);
+      ereambitoter = new FieldDef("ereambitoter",FieldDef.CHAR,1);
+      eretipoproced = new FieldDef("eretipoproced",FieldDef.CHAR,3);
+      erecausaaleg = new FieldDef("erecausaaleg",FieldDef.CHAR,1);
+      ereacuerdo = new FieldDef("ereacuerdo",FieldDef.CHAR,1);
+      ereperdesde = new FieldDef("ereperdesde",FieldDef.DATE);
+      ereperhasta = new FieldDef("ereperhasta",FieldDef.DATE);
+      erelibre01 = new FieldDef("erelibre01",FieldDef.CHAR,20);
+      erelibre02 = new FieldDef("erelibre02",FieldDef.CHAR,250);
+      erelibre03 = new FieldDef("erelibre03",FieldDef.INTEGER,0);
+      erelibre04 = new FieldDef("erelibre04",FieldDef.INTEGER,0);
+      erelibre05 = new FieldDef("erelibre05",FieldDef.FLOAT,6,0);
+      erelibre06 = new FieldDef("erelibre06",FieldDef.FLOAT,6,0);
+      erelibre07 = new FieldDef("erelibre07",FieldDef.DATE);
+      erelibre08 = new FieldDef("erelibre08",FieldDef.DATE);
+      FieldDef array[] = {
+        erecodigo,
+        erefechaini,
+        erefechafin,
+        ereestado,
+        erecodmaster,
+        erenumere,
+        erefinsuspen,
+        erereducere,
+        ereporcenpar,
+        erecoeficiente,
+        ereempresa,
+        erecentro,
+        eretrabajador,
+        ererelacion,
+        ereobserva,
+        eretipoenvio,
+        erenaturaleza,
+        ereempconben,
+        erefecdecemp,
+        erefecresauto,
+        erefecinforme,
+        erefecresjud,
+        ereambitoter,
+        eretipoproced,
+        erecausaaleg,
+        ereacuerdo,
+        ereperdesde,
+        ereperhasta,
+        erelibre01,
+        erelibre02,
+        erelibre03,
+        erelibre04,
+        erelibre05,
+        erelibre06,
+        erelibre07,
+        erelibre08        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {erecodigo };
+      setPrimaryKeys(arrayf);
+      erecodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabEredet extends TableDef
+    {
+    // Campos
+    public FieldDef erdcodigo;
+    public FieldDef erdcodere;
+    public FieldDef erdempresa;
+    public FieldDef erdcentro;
+    public FieldDef erdtrabajador;
+    public FieldDef erdrelacion;
+    public FieldDef erdcodinc;
+    public FieldDef erdtipotrans;
+    public FieldDef erdtipoproc;
+    public FieldDef erddesdehor;
+    public FieldDef erdhastahor;
+    public FieldDef erdtiporeduc;
+    public FieldDef erdfechaextin;
+    public FieldDef erdfecinicial;
+    public FieldDef erdfecfinal;
+    public FieldDef erdporreduc;
+    public FieldDef erdlibre01;
+    public FieldDef erdlibre02;
+    public FieldDef erdlibre03;
+    public FieldDef erdlibre04;
+    public FieldDef erdlibre05;
+    public FieldDef erdlibre06;
+    public FieldDef erdlibre07;
+    public FieldDef erdlibre08;
+    public TabEredet(String name)
+      {
+      super(name);
+      erdcodigo = new FieldDef("erdcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      erdcodere = new FieldDef("erdcodere",FieldDef.INTEGER,0);
+      erdempresa = new FieldDef("erdempresa",FieldDef.INTEGER,0);
+      erdcentro = new FieldDef("erdcentro",FieldDef.INTEGER,0);
+      erdtrabajador = new FieldDef("erdtrabajador",FieldDef.INTEGER,0);
+      erdrelacion = new FieldDef("erdrelacion",FieldDef.INTEGER,0);
+      erdcodinc = new FieldDef("erdcodinc",FieldDef.INTEGER,0);
+      erdtipotrans = new FieldDef("erdtipotrans",FieldDef.CHAR,1);
+      erdtipoproc = new FieldDef("erdtipoproc",FieldDef.CHAR,1);
+      erddesdehor = new FieldDef("erddesdehor",FieldDef.INTEGER,0);
+      erdhastahor = new FieldDef("erdhastahor",FieldDef.INTEGER,0);
+      erdtiporeduc = new FieldDef("erdtiporeduc",FieldDef.CHAR,1);
+      erdfechaextin = new FieldDef("erdfechaextin",FieldDef.DATE);
+      erdfecinicial = new FieldDef("erdfecinicial",FieldDef.DATE);
+      erdfecfinal = new FieldDef("erdfecfinal",FieldDef.DATE);
+      erdporreduc = new FieldDef("erdporreduc",FieldDef.FLOAT,6,0);
+      erdlibre01 = new FieldDef("erdlibre01",FieldDef.CHAR,20);
+      erdlibre02 = new FieldDef("erdlibre02",FieldDef.CHAR,250);
+      erdlibre03 = new FieldDef("erdlibre03",FieldDef.INTEGER,0);
+      erdlibre04 = new FieldDef("erdlibre04",FieldDef.INTEGER,0);
+      erdlibre05 = new FieldDef("erdlibre05",FieldDef.FLOAT,6,0);
+      erdlibre06 = new FieldDef("erdlibre06",FieldDef.FLOAT,6,0);
+      erdlibre07 = new FieldDef("erdlibre07",FieldDef.DATE);
+      erdlibre08 = new FieldDef("erdlibre08",FieldDef.DATE);
+      FieldDef array[] = {
+        erdcodigo,
+        erdcodere,
+        erdempresa,
+        erdcentro,
+        erdtrabajador,
+        erdrelacion,
+        erdcodinc,
+        erdtipotrans,
+        erdtipoproc,
+        erddesdehor,
+        erdhastahor,
+        erdtiporeduc,
+        erdfechaextin,
+        erdfecinicial,
+        erdfecfinal,
+        erdporreduc,
+        erdlibre01,
+        erdlibre02,
+        erdlibre03,
+        erdlibre04,
+        erdlibre05,
+        erdlibre06,
+        erdlibre07,
+        erdlibre08        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {erdcodigo };
+      setPrimaryKeys(arrayf);
+      erdcodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabTratpdettra extends TableDef
+    {
+    // Campos
+    public FieldDef trtpcodiemp;
+    public FieldDef trtpcodigo;
+    public FieldDef trtpejer;
+    public FieldDef trtpperi;
+    public FieldDef trtpdia;
+    public FieldDef trtprelacion;
+    public FieldDef trtpcentro;
+    public FieldDef trtphorasord;
+    public FieldDef trtphorasext;
+    public FieldDef trtphorasextfm;
+    public FieldDef trtphorascompl;
+    public FieldDef trtptipohoras;
+    public FieldDef trtpclasehora;
+    public FieldDef trtpfecha;
+    public TabTratpdettra(String name)
+      {
+      super(name);
+      trtpcodiemp = new FieldDef("trtpcodiemp",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      trtpcodigo = new FieldDef("trtpcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      trtpejer = new FieldDef("trtpejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      trtpperi = new FieldDef("trtpperi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      trtpdia = new FieldDef("trtpdia",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      trtprelacion = new FieldDef("trtprelacion",FieldDef.INTEGER,0);
+      trtpcentro = new FieldDef("trtpcentro",FieldDef.INTEGER,0);
+      trtphorasord = new FieldDef("trtphorasord",FieldDef.FLOAT,6,0);
+      trtphorasext = new FieldDef("trtphorasext",FieldDef.FLOAT,6,0);
+      trtphorasextfm = new FieldDef("trtphorasextfm",FieldDef.FLOAT,6,0);
+      trtphorascompl = new FieldDef("trtphorascompl",FieldDef.FLOAT,6,0);
+      trtptipohoras = new FieldDef("trtptipohoras",FieldDef.FLOAT,6,0);
+      trtpclasehora = new FieldDef("trtpclasehora",FieldDef.CHAR,2);
+      trtpfecha = new FieldDef("trtpfecha",FieldDef.DATE);
+      FieldDef array[] = {
+        trtpcodiemp,
+        trtpcodigo,
+        trtpejer,
+        trtpperi,
+        trtpdia,
+        trtprelacion,
+        trtpcentro,
+        trtphorasord,
+        trtphorasext,
+        trtphorasextfm,
+        trtphorascompl,
+        trtptipohoras,
+        trtpclasehora,
+        trtpfecha        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {trtpcodiemp,trtpcodigo,trtpejer,trtpperi,trtpdia };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabCretaliqs extends TableDef
+    {
+    // Campos
+    public FieldDef crtlcodigo;
+    public FieldDef crtlejercicio;
+    public FieldDef crtlperiodo;
+    public FieldDef crtltipoliq;
+    public FieldDef crtlestado;
+    public FieldDef crtlestadoctrl;
+    public FieldDef crtlorigen;
+    public FieldDef crtlselec;
+    public FieldDef crtltipomsg;
+    public FieldDef crtlregimen;
+    public FieldDef crtlfechagen;
+    public FieldDef crtlhoragen;
+    public FieldDef crtlfechapre;
+    public FieldDef crtlusuario;
+    public FieldDef crtlfichero;
+    public FieldDef crtlubicacion;
+    public FieldDef crtlcodparamred;
+    public FieldDef crtlejerhasta;
+    public FieldDef crtlperihasta;
+    public TabCretaliqs(String name)
+      {
+      super(name);
+      crtlcodigo = new FieldDef("crtlcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      crtlejercicio = new FieldDef("crtlejercicio",FieldDef.INTEGER,0);
+      crtlperiodo = new FieldDef("crtlperiodo",FieldDef.INTEGER,0);
+      crtltipoliq = new FieldDef("crtltipoliq",FieldDef.CHAR,3);
+      crtlestado = new FieldDef("crtlestado",FieldDef.CHAR,10);
+      crtlestadoctrl = new FieldDef("crtlestadoctrl",FieldDef.CHAR,10);
+      crtlorigen = new FieldDef("crtlorigen",FieldDef.CHAR,5);
+      crtlselec = new FieldDef("crtlselec",FieldDef.CHAR,1);
+      crtltipomsg = new FieldDef("crtltipomsg",FieldDef.CHAR,10);
+      crtlregimen = new FieldDef("crtlregimen",FieldDef.INTEGER,0);
+      crtlfechagen = new FieldDef("crtlfechagen",FieldDef.DATE);
+      crtlhoragen = new FieldDef("crtlhoragen",FieldDef.CHAR,8);
+      crtlfechapre = new FieldDef("crtlfechapre",FieldDef.DATE);
+      crtlusuario = new FieldDef("crtlusuario",FieldDef.CHAR,25);
+      crtlfichero = new FieldDef("crtlfichero",FieldDef.CHAR,25);
+      crtlubicacion = new FieldDef("crtlubicacion",FieldDef.CHAR,250);
+      crtlcodparamred = new FieldDef("crtlcodparamred",FieldDef.INTEGER,0);
+      crtlejerhasta = new FieldDef("crtlejerhasta",FieldDef.INTEGER,0);
+      crtlperihasta = new FieldDef("crtlperihasta",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        crtlcodigo,
+        crtlejercicio,
+        crtlperiodo,
+        crtltipoliq,
+        crtlestado,
+        crtlestadoctrl,
+        crtlorigen,
+        crtlselec,
+        crtltipomsg,
+        crtlregimen,
+        crtlfechagen,
+        crtlhoragen,
+        crtlfechapre,
+        crtlusuario,
+        crtlfichero,
+        crtlubicacion,
+        crtlcodparamred,
+        crtlejerhasta,
+        crtlperihasta        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {crtlcodigo };
+      setPrimaryKeys(arrayf);
+      crtlcodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabCretacccs extends TableDef
+    {
+    // Campos
+    public FieldDef crtccodigo;
+    public FieldDef crtccodcretaliq;
+    public FieldDef crtccodfile;
+    public FieldDef crtcejercicio;
+    public FieldDef crtcperiodo;
+    public FieldDef crtctipoliq;
+    public FieldDef crtcregimen;
+    public FieldDef crtcmesdesde;
+    public FieldDef crtcanydesde;
+    public FieldDef crtcmeshasta;
+    public FieldDef crtcanyhasta;
+    public FieldDef crtcestado;
+    public FieldDef crtcestadoctrl;
+    public FieldDef crtcorigen;
+    public FieldDef crtcselec;
+    public FieldDef crtctipomsg;
+    public FieldDef crtcacepbases;
+    public FieldDef crtcfechagen;
+    public FieldDef crtchoragen;
+    public FieldDef crtcfechapre;
+    public FieldDef crtcusuario;
+    public FieldDef crtcccc;
+    public FieldDef crtccccprov;
+    public FieldDef crtccccnum;
+    public FieldDef crtccccdc;
+    public FieldDef crtcnombre;
+    public FieldDef crtcempresa;
+    public FieldDef crtccentro;
+    public FieldDef crtcfeccontrol;
+    public FieldDef crtctipodat1;
+    public FieldDef crtccodidat1;
+    public FieldDef crtcvalodat1;
+    public FieldDef crtctipodat2;
+    public FieldDef crtccodidat2;
+    public FieldDef crtcvalodat2;
+    public FieldDef crtctipodat3;
+    public FieldDef crtccodidat3;
+    public FieldDef crtcvalodat3;
+    public FieldDef crtccodparamred;
+    public TabCretacccs(String name)
+      {
+      super(name);
+      crtccodigo = new FieldDef("crtccodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      crtccodcretaliq = new FieldDef("crtccodcretaliq",FieldDef.INTEGER,0);
+      crtccodfile = new FieldDef("crtccodfile",FieldDef.INTEGER,0);
+      crtcejercicio = new FieldDef("crtcejercicio",FieldDef.INTEGER,0);
+      crtcperiodo = new FieldDef("crtcperiodo",FieldDef.INTEGER,0);
+      crtctipoliq = new FieldDef("crtctipoliq",FieldDef.CHAR,3);
+      crtcregimen = new FieldDef("crtcregimen",FieldDef.INTEGER,0);
+      crtcmesdesde = new FieldDef("crtcmesdesde",FieldDef.INTEGER,0);
+      crtcanydesde = new FieldDef("crtcanydesde",FieldDef.INTEGER,0);
+      crtcmeshasta = new FieldDef("crtcmeshasta",FieldDef.INTEGER,0);
+      crtcanyhasta = new FieldDef("crtcanyhasta",FieldDef.INTEGER,0);
+      crtcestado = new FieldDef("crtcestado",FieldDef.CHAR,10);
+      crtcestadoctrl = new FieldDef("crtcestadoctrl",FieldDef.CHAR,10);
+      crtcorigen = new FieldDef("crtcorigen",FieldDef.CHAR,5);
+      crtcselec = new FieldDef("crtcselec",FieldDef.CHAR,1);
+      crtctipomsg = new FieldDef("crtctipomsg",FieldDef.CHAR,10);
+      crtcacepbases = new FieldDef("crtcacepbases",FieldDef.CHAR,1);
+      crtcfechagen = new FieldDef("crtcfechagen",FieldDef.DATE);
+      crtchoragen = new FieldDef("crtchoragen",FieldDef.CHAR,8);
+      crtcfechapre = new FieldDef("crtcfechapre",FieldDef.DATE);
+      crtcusuario = new FieldDef("crtcusuario",FieldDef.CHAR,25);
+      crtcccc = new FieldDef("crtcccc",FieldDef.CHAR,11);
+      crtccccprov = new FieldDef("crtccccprov",FieldDef.INTEGER,0);
+      crtccccnum = new FieldDef("crtccccnum",FieldDef.INTEGER,0);
+      crtccccdc = new FieldDef("crtccccdc",FieldDef.INTEGER,0);
+      crtcnombre = new FieldDef("crtcnombre",FieldDef.CHAR,50);
+      crtcempresa = new FieldDef("crtcempresa",FieldDef.INTEGER,0);
+      crtccentro = new FieldDef("crtccentro",FieldDef.INTEGER,0);
+      crtcfeccontrol = new FieldDef("crtcfeccontrol",FieldDef.DATE);
+      crtctipodat1 = new FieldDef("crtctipodat1",FieldDef.CHAR,5);
+      crtccodidat1 = new FieldDef("crtccodidat1",FieldDef.CHAR,10);
+      crtcvalodat1 = new FieldDef("crtcvalodat1",FieldDef.CHAR,25);
+      crtctipodat2 = new FieldDef("crtctipodat2",FieldDef.CHAR,5);
+      crtccodidat2 = new FieldDef("crtccodidat2",FieldDef.CHAR,10);
+      crtcvalodat2 = new FieldDef("crtcvalodat2",FieldDef.CHAR,25);
+      crtctipodat3 = new FieldDef("crtctipodat3",FieldDef.CHAR,5);
+      crtccodidat3 = new FieldDef("crtccodidat3",FieldDef.CHAR,10);
+      crtcvalodat3 = new FieldDef("crtcvalodat3",FieldDef.CHAR,25);
+      crtccodparamred = new FieldDef("crtccodparamred",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        crtccodigo,
+        crtccodcretaliq,
+        crtccodfile,
+        crtcejercicio,
+        crtcperiodo,
+        crtctipoliq,
+        crtcregimen,
+        crtcmesdesde,
+        crtcanydesde,
+        crtcmeshasta,
+        crtcanyhasta,
+        crtcestado,
+        crtcestadoctrl,
+        crtcorigen,
+        crtcselec,
+        crtctipomsg,
+        crtcacepbases,
+        crtcfechagen,
+        crtchoragen,
+        crtcfechapre,
+        crtcusuario,
+        crtcccc,
+        crtccccprov,
+        crtccccnum,
+        crtccccdc,
+        crtcnombre,
+        crtcempresa,
+        crtccentro,
+        crtcfeccontrol,
+        crtctipodat1,
+        crtccodidat1,
+        crtcvalodat1,
+        crtctipodat2,
+        crtccodidat2,
+        crtcvalodat2,
+        crtctipodat3,
+        crtccodidat3,
+        crtcvalodat3,
+        crtccodparamred        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {crtccodigo };
+      setPrimaryKeys(arrayf);
+      crtccodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabCretanafs extends TableDef
+    {
+    // Campos
+    public FieldDef crtncodigo;
+    public FieldDef crtncodcretaliq;
+    public FieldDef crtncodcretaccc;
+    public FieldDef crtncodfile;
+    public FieldDef crtnejercicio;
+    public FieldDef crtnperiodo;
+    public FieldDef crtntipoliq;
+    public FieldDef crtnestado;
+    public FieldDef crtnestadoctrl;
+    public FieldDef crtnorigen;
+    public FieldDef crtnselec;
+    public FieldDef crtntipomsg;
+    public FieldDef crtnregimen;
+    public FieldDef crtnfechagen;
+    public FieldDef crtnhoragen;
+    public FieldDef crtnfechapre;
+    public FieldDef crtnusuario;
+    public FieldDef crtnnaf;
+    public FieldDef crtnnaf1;
+    public FieldDef crtnnaf2;
+    public FieldDef crtnnaf3;
+    public FieldDef crtntipoipf;
+    public FieldDef crtnipf;
+    public FieldDef crtncaf;
+    public FieldDef crtncodiemp;
+    public FieldDef crtncentro;
+    public FieldDef crtntrabajador;
+    public FieldDef crtnnombre;
+    public TabCretanafs(String name)
+      {
+      super(name);
+      crtncodigo = new FieldDef("crtncodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      crtncodcretaliq = new FieldDef("crtncodcretaliq",FieldDef.INTEGER,0);
+      crtncodcretaccc = new FieldDef("crtncodcretaccc",FieldDef.INTEGER,0);
+      crtncodfile = new FieldDef("crtncodfile",FieldDef.INTEGER,0);
+      crtnejercicio = new FieldDef("crtnejercicio",FieldDef.INTEGER,0);
+      crtnperiodo = new FieldDef("crtnperiodo",FieldDef.INTEGER,0);
+      crtntipoliq = new FieldDef("crtntipoliq",FieldDef.CHAR,3);
+      crtnestado = new FieldDef("crtnestado",FieldDef.CHAR,10);
+      crtnestadoctrl = new FieldDef("crtnestadoctrl",FieldDef.CHAR,10);
+      crtnorigen = new FieldDef("crtnorigen",FieldDef.CHAR,5);
+      crtnselec = new FieldDef("crtnselec",FieldDef.CHAR,1);
+      crtntipomsg = new FieldDef("crtntipomsg",FieldDef.CHAR,10);
+      crtnregimen = new FieldDef("crtnregimen",FieldDef.INTEGER,0);
+      crtnfechagen = new FieldDef("crtnfechagen",FieldDef.DATE);
+      crtnhoragen = new FieldDef("crtnhoragen",FieldDef.CHAR,8);
+      crtnfechapre = new FieldDef("crtnfechapre",FieldDef.DATE);
+      crtnusuario = new FieldDef("crtnusuario",FieldDef.CHAR,25);
+      crtnnaf = new FieldDef("crtnnaf",FieldDef.CHAR,12);
+      crtnnaf1 = new FieldDef("crtnnaf1",FieldDef.INTEGER,0);
+      crtnnaf2 = new FieldDef("crtnnaf2",FieldDef.INTEGER,0);
+      crtnnaf3 = new FieldDef("crtnnaf3",FieldDef.INTEGER,0);
+      crtntipoipf = new FieldDef("crtntipoipf",FieldDef.CHAR,2);
+      crtnipf = new FieldDef("crtnipf",FieldDef.CHAR,12);
+      crtncaf = new FieldDef("crtncaf",FieldDef.CHAR,12);
+      crtncodiemp = new FieldDef("crtncodiemp",FieldDef.INTEGER,0);
+      crtncentro = new FieldDef("crtncentro",FieldDef.INTEGER,0);
+      crtntrabajador = new FieldDef("crtntrabajador",FieldDef.INTEGER,0);
+      crtnnombre = new FieldDef("crtnnombre",FieldDef.CHAR,100);
+      FieldDef array[] = {
+        crtncodigo,
+        crtncodcretaliq,
+        crtncodcretaccc,
+        crtncodfile,
+        crtnejercicio,
+        crtnperiodo,
+        crtntipoliq,
+        crtnestado,
+        crtnestadoctrl,
+        crtnorigen,
+        crtnselec,
+        crtntipomsg,
+        crtnregimen,
+        crtnfechagen,
+        crtnhoragen,
+        crtnfechapre,
+        crtnusuario,
+        crtnnaf,
+        crtnnaf1,
+        crtnnaf2,
+        crtnnaf3,
+        crtntipoipf,
+        crtnipf,
+        crtncaf,
+        crtncodiemp,
+        crtncentro,
+        crtntrabajador,
+        crtnnombre        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {crtncodigo };
+      setPrimaryKeys(arrayf);
+      crtncodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabCretafandat extends TableDef
+    {
+    // Campos
+    public FieldDef crtacodigo;
+    public FieldDef crtacodcretaliq;
+    public FieldDef crtacodcretaccc;
+    public FieldDef crtacodcretanaf;
+    public FieldDef crtacodfile;
+    public FieldDef crtaejercicio;
+    public FieldDef crtaperiodo;
+    public FieldDef crtatipoliq;
+    public FieldDef crtatipotramo;
+    public FieldDef crtafechadesde;
+    public FieldDef crtafechahasta;
+    public FieldDef crtacodiemp;
+    public FieldDef crtacentro;
+    public FieldDef crtatrabajador;
+    public FieldDef crtarelacion;
+    public FieldDef crtahisperso;
+    public FieldDef crtahisdeduc;
+    public FieldDef crtahisretri;
+    public FieldDef crtahisbonif;
+    public FieldDef crtareducmat;
+    public FieldDef crtaotroindica;
+    public FieldDef crtagrupocot;
+    public FieldDef crtatipoctr;
+    public FieldDef crtacoefitp;
+    public FieldDef crtacnae;
+    public FieldDef crtaocupacion;
+    public FieldDef crtaepigrafe;
+    public FieldDef crtatrl;
+    public FieldDef crtacolecesp;
+    public FieldDef crtacatprofe;
+    public FieldDef crtanumjr;
+    public FieldDef crtamodcotsea;
+    public FieldDef crtamodapesca;
+    public FieldDef crtacodpecu1;
+    public FieldDef crtafracuot1;
+    public FieldDef crtacoleinc1;
+    public FieldDef crtavalopec1;
+    public FieldDef crtacodpecu2;
+    public FieldDef crtafracuot2;
+    public FieldDef crtacoleinc2;
+    public FieldDef crtavalopec2;
+    public TabCretafandat(String name)
+      {
+      super(name);
+      crtacodigo = new FieldDef("crtacodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      crtacodcretaliq = new FieldDef("crtacodcretaliq",FieldDef.INTEGER,0);
+      crtacodcretaccc = new FieldDef("crtacodcretaccc",FieldDef.INTEGER,0);
+      crtacodcretanaf = new FieldDef("crtacodcretanaf",FieldDef.INTEGER,0);
+      crtacodfile = new FieldDef("crtacodfile",FieldDef.INTEGER,0);
+      crtaejercicio = new FieldDef("crtaejercicio",FieldDef.INTEGER,0);
+      crtaperiodo = new FieldDef("crtaperiodo",FieldDef.INTEGER,0);
+      crtatipoliq = new FieldDef("crtatipoliq",FieldDef.CHAR,3);
+      crtatipotramo = new FieldDef("crtatipotramo",FieldDef.CHAR,15);
+      crtafechadesde = new FieldDef("crtafechadesde",FieldDef.DATE);
+      crtafechahasta = new FieldDef("crtafechahasta",FieldDef.DATE);
+      crtacodiemp = new FieldDef("crtacodiemp",FieldDef.INTEGER,0);
+      crtacentro = new FieldDef("crtacentro",FieldDef.INTEGER,0);
+      crtatrabajador = new FieldDef("crtatrabajador",FieldDef.INTEGER,0);
+      crtarelacion = new FieldDef("crtarelacion",FieldDef.INTEGER,0);
+      crtahisperso = new FieldDef("crtahisperso",FieldDef.INTEGER,0);
+      crtahisdeduc = new FieldDef("crtahisdeduc",FieldDef.INTEGER,0);
+      crtahisretri = new FieldDef("crtahisretri",FieldDef.INTEGER,0);
+      crtahisbonif = new FieldDef("crtahisbonif",FieldDef.INTEGER,0);
+      crtareducmat = new FieldDef("crtareducmat",FieldDef.CHAR,1);
+      crtaotroindica = new FieldDef("crtaotroindica",FieldDef.CHAR,1);
+      crtagrupocot = new FieldDef("crtagrupocot",FieldDef.CHAR,2);
+      crtatipoctr = new FieldDef("crtatipoctr",FieldDef.INTEGER,0);
+      crtacoefitp = new FieldDef("crtacoefitp",FieldDef.FLOAT,6,0);
+      crtacnae = new FieldDef("crtacnae",FieldDef.CHAR,4);
+      crtaocupacion = new FieldDef("crtaocupacion",FieldDef.CHAR,4);
+      crtaepigrafe = new FieldDef("crtaepigrafe",FieldDef.INTEGER,0);
+      crtatrl = new FieldDef("crtatrl",FieldDef.CHAR,3);
+      crtacolecesp = new FieldDef("crtacolecesp",FieldDef.CHAR,4);
+      crtacatprofe = new FieldDef("crtacatprofe",FieldDef.CHAR,7);
+      crtanumjr = new FieldDef("crtanumjr",FieldDef.INTEGER,0);
+      crtamodcotsea = new FieldDef("crtamodcotsea",FieldDef.CHAR,1);
+      crtamodapesca = new FieldDef("crtamodapesca",FieldDef.CHAR,2);
+      crtacodpecu1 = new FieldDef("crtacodpecu1",FieldDef.CHAR,2);
+      crtafracuot1 = new FieldDef("crtafracuot1",FieldDef.CHAR,3);
+      crtacoleinc1 = new FieldDef("crtacoleinc1",FieldDef.CHAR,4);
+      crtavalopec1 = new FieldDef("crtavalopec1",FieldDef.FLOAT,6,0);
+      crtacodpecu2 = new FieldDef("crtacodpecu2",FieldDef.CHAR,2);
+      crtafracuot2 = new FieldDef("crtafracuot2",FieldDef.CHAR,3);
+      crtacoleinc2 = new FieldDef("crtacoleinc2",FieldDef.CHAR,4);
+      crtavalopec2 = new FieldDef("crtavalopec2",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        crtacodigo,
+        crtacodcretaliq,
+        crtacodcretaccc,
+        crtacodcretanaf,
+        crtacodfile,
+        crtaejercicio,
+        crtaperiodo,
+        crtatipoliq,
+        crtatipotramo,
+        crtafechadesde,
+        crtafechahasta,
+        crtacodiemp,
+        crtacentro,
+        crtatrabajador,
+        crtarelacion,
+        crtahisperso,
+        crtahisdeduc,
+        crtahisretri,
+        crtahisbonif,
+        crtareducmat,
+        crtaotroindica,
+        crtagrupocot,
+        crtatipoctr,
+        crtacoefitp,
+        crtacnae,
+        crtaocupacion,
+        crtaepigrafe,
+        crtatrl,
+        crtacolecesp,
+        crtacatprofe,
+        crtanumjr,
+        crtamodcotsea,
+        crtamodapesca,
+        crtacodpecu1,
+        crtafracuot1,
+        crtacoleinc1,
+        crtavalopec1,
+        crtacodpecu2,
+        crtafracuot2,
+        crtacoleinc2,
+        crtavalopec2        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {crtacodigo };
+      setPrimaryKeys(arrayf);
+      crtacodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabCretafanedl extends TableDef
+    {
+    // Campos
+    public FieldDef crtecodigo;
+    public FieldDef crtecodcretaliq;
+    public FieldDef crtecodcretaccc;
+    public FieldDef crtecodcretanaf;
+    public FieldDef crtecodcretadat;
+    public FieldDef crtecodfile;
+    public FieldDef crtetipotramo;
+    public FieldDef crtefechagen;
+    public FieldDef crteusuario;
+    public FieldDef ctretipoedl;
+    public FieldDef ctretipodato;
+    public FieldDef ctrecodidato;
+    public FieldDef ctrevalordato;
+    public FieldDef ctrevalodato;
+    public TabCretafanedl(String name)
+      {
+      super(name);
+      crtecodigo = new FieldDef("crtecodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      crtecodcretaliq = new FieldDef("crtecodcretaliq",FieldDef.INTEGER,0);
+      crtecodcretaccc = new FieldDef("crtecodcretaccc",FieldDef.INTEGER,0);
+      crtecodcretanaf = new FieldDef("crtecodcretanaf",FieldDef.INTEGER,0);
+      crtecodcretadat = new FieldDef("crtecodcretadat",FieldDef.INTEGER,0);
+      crtecodfile = new FieldDef("crtecodfile",FieldDef.INTEGER,0);
+      crtetipotramo = new FieldDef("crtetipotramo",FieldDef.CHAR,15);
+      crtefechagen = new FieldDef("crtefechagen",FieldDef.DATE);
+      crteusuario = new FieldDef("crteusuario",FieldDef.CHAR,25);
+      ctretipoedl = new FieldDef("ctretipoedl",FieldDef.CHAR,4);
+      ctretipodato = new FieldDef("ctretipodato",FieldDef.CHAR,5);
+      ctrecodidato = new FieldDef("ctrecodidato",FieldDef.CHAR,10);
+      ctrevalordato = new FieldDef("ctrevalordato",FieldDef.FLOAT,6,0);
+      ctrevalodato = new FieldDef("ctrevalodato",FieldDef.CHAR,25);
+      FieldDef array[] = {
+        crtecodigo,
+        crtecodcretaliq,
+        crtecodcretaccc,
+        crtecodcretanaf,
+        crtecodcretadat,
+        crtecodfile,
+        crtetipotramo,
+        crtefechagen,
+        crteusuario,
+        ctretipoedl,
+        ctretipodato,
+        ctrecodidato,
+        ctrevalordato,
+        ctrevalodato        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {crtecodigo };
+      setPrimaryKeys(arrayf);
+      crtecodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabCretatramos extends TableDef
+    {
+    // Campos
+    public FieldDef crttcodigo;
+    public FieldDef crttcodcretaliq;
+    public FieldDef crttcodcretaccc;
+    public FieldDef crttcodcretanaf;
+    public FieldDef crttcodfile;
+    public FieldDef crttcodfandat;
+    public FieldDef crttejercicio;
+    public FieldDef crttperiodo;
+    public FieldDef crtttipoliq;
+    public FieldDef crttestado;
+    public FieldDef crttestadoctrl;
+    public FieldDef crttorigen;
+    public FieldDef crttselec;
+    public FieldDef crtttipotramo;
+    public FieldDef crttregimen;
+    public FieldDef crttfechagen;
+    public FieldDef crtthoragen;
+    public FieldDef crttfechapre;
+    public FieldDef crttusuario;
+    public FieldDef crttfechadesde;
+    public FieldDef crttfechahasta;
+    public FieldDef crttfecdesalta;
+    public FieldDef crttfechasalta;
+    public FieldDef crttgrupocot;
+    public FieldDef crtttipoctr;
+    public FieldDef crttcoefitp;
+    public FieldDef crttcnae;
+    public FieldDef crttocupacion;
+    public FieldDef crttepigrafe;
+    public FieldDef crtttrl;
+    public FieldDef crttcolecesp;
+    public FieldDef crttcatprofe;
+    public FieldDef crttnumjr;
+    public FieldDef crttmodcotsea;
+    public FieldDef crttmodapesca;
+    public FieldDef crttcodpecu1;
+    public FieldDef crttfracuot1;
+    public FieldDef crttcoleinc1;
+    public FieldDef crttvalopec1;
+    public FieldDef crttcodpecu2;
+    public FieldDef crttfracuot2;
+    public FieldDef crttcoleinc2;
+    public FieldDef crttvalopec2;
+    public TabCretatramos(String name)
+      {
+      super(name);
+      crttcodigo = new FieldDef("crttcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      crttcodcretaliq = new FieldDef("crttcodcretaliq",FieldDef.INTEGER,0);
+      crttcodcretaccc = new FieldDef("crttcodcretaccc",FieldDef.INTEGER,0);
+      crttcodcretanaf = new FieldDef("crttcodcretanaf",FieldDef.INTEGER,0);
+      crttcodfile = new FieldDef("crttcodfile",FieldDef.INTEGER,0);
+      crttcodfandat = new FieldDef("crttcodfandat",FieldDef.INTEGER,0);
+      crttejercicio = new FieldDef("crttejercicio",FieldDef.INTEGER,0);
+      crttperiodo = new FieldDef("crttperiodo",FieldDef.INTEGER,0);
+      crtttipoliq = new FieldDef("crtttipoliq",FieldDef.CHAR,3);
+      crttestado = new FieldDef("crttestado",FieldDef.CHAR,10);
+      crttestadoctrl = new FieldDef("crttestadoctrl",FieldDef.CHAR,10);
+      crttorigen = new FieldDef("crttorigen",FieldDef.CHAR,5);
+      crttselec = new FieldDef("crttselec",FieldDef.CHAR,1);
+      crtttipotramo = new FieldDef("crtttipotramo",FieldDef.CHAR,15);
+      crttregimen = new FieldDef("crttregimen",FieldDef.INTEGER,0);
+      crttfechagen = new FieldDef("crttfechagen",FieldDef.DATE);
+      crtthoragen = new FieldDef("crtthoragen",FieldDef.CHAR,8);
+      crttfechapre = new FieldDef("crttfechapre",FieldDef.DATE);
+      crttusuario = new FieldDef("crttusuario",FieldDef.CHAR,25);
+      crttfechadesde = new FieldDef("crttfechadesde",FieldDef.DATE);
+      crttfechahasta = new FieldDef("crttfechahasta",FieldDef.DATE);
+      crttfecdesalta = new FieldDef("crttfecdesalta",FieldDef.DATE);
+      crttfechasalta = new FieldDef("crttfechasalta",FieldDef.DATE);
+      crttgrupocot = new FieldDef("crttgrupocot",FieldDef.CHAR,2);
+      crtttipoctr = new FieldDef("crtttipoctr",FieldDef.INTEGER,0);
+      crttcoefitp = new FieldDef("crttcoefitp",FieldDef.FLOAT,6,0);
+      crttcnae = new FieldDef("crttcnae",FieldDef.CHAR,4);
+      crttocupacion = new FieldDef("crttocupacion",FieldDef.CHAR,4);
+      crttepigrafe = new FieldDef("crttepigrafe",FieldDef.INTEGER,0);
+      crtttrl = new FieldDef("crtttrl",FieldDef.CHAR,3);
+      crttcolecesp = new FieldDef("crttcolecesp",FieldDef.CHAR,4);
+      crttcatprofe = new FieldDef("crttcatprofe",FieldDef.CHAR,7);
+      crttnumjr = new FieldDef("crttnumjr",FieldDef.INTEGER,0);
+      crttmodcotsea = new FieldDef("crttmodcotsea",FieldDef.CHAR,1);
+      crttmodapesca = new FieldDef("crttmodapesca",FieldDef.CHAR,2);
+      crttcodpecu1 = new FieldDef("crttcodpecu1",FieldDef.CHAR,2);
+      crttfracuot1 = new FieldDef("crttfracuot1",FieldDef.CHAR,3);
+      crttcoleinc1 = new FieldDef("crttcoleinc1",FieldDef.CHAR,4);
+      crttvalopec1 = new FieldDef("crttvalopec1",FieldDef.FLOAT,6,0);
+      crttcodpecu2 = new FieldDef("crttcodpecu2",FieldDef.CHAR,2);
+      crttfracuot2 = new FieldDef("crttfracuot2",FieldDef.CHAR,3);
+      crttcoleinc2 = new FieldDef("crttcoleinc2",FieldDef.CHAR,4);
+      crttvalopec2 = new FieldDef("crttvalopec2",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        crttcodigo,
+        crttcodcretaliq,
+        crttcodcretaccc,
+        crttcodcretanaf,
+        crttcodfile,
+        crttcodfandat,
+        crttejercicio,
+        crttperiodo,
+        crtttipoliq,
+        crttestado,
+        crttestadoctrl,
+        crttorigen,
+        crttselec,
+        crtttipotramo,
+        crttregimen,
+        crttfechagen,
+        crtthoragen,
+        crttfechapre,
+        crttusuario,
+        crttfechadesde,
+        crttfechahasta,
+        crttfecdesalta,
+        crttfechasalta,
+        crttgrupocot,
+        crtttipoctr,
+        crttcoefitp,
+        crttcnae,
+        crttocupacion,
+        crttepigrafe,
+        crtttrl,
+        crttcolecesp,
+        crttcatprofe,
+        crttnumjr,
+        crttmodcotsea,
+        crttmodapesca,
+        crttcodpecu1,
+        crttfracuot1,
+        crttcoleinc1,
+        crttvalopec1,
+        crttcodpecu2,
+        crttfracuot2,
+        crttcoleinc2,
+        crttvalopec2        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {crttcodigo };
+      setPrimaryKeys(arrayf);
+      crttcodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabCretadattram extends TableDef
+    {
+    // Campos
+    public FieldDef crtdcodigo;
+    public FieldDef crtdcodcretaliq;
+    public FieldDef crtdcodcretaccc;
+    public FieldDef crtdcodcretanaf;
+    public FieldDef crtdcodcretatra;
+    public FieldDef crtdcodfile;
+    public FieldDef crtdcodfandat;
+    public FieldDef crtdcodfanedl;
+    public FieldDef crtdestado;
+    public FieldDef crtdestadoctrl;
+    public FieldDef crtdorigen;
+    public FieldDef crtdselec;
+    public FieldDef crtdtipotramo;
+    public FieldDef crtdfechagen;
+    public FieldDef crtdusuario;
+    public FieldDef crtdtipodato;
+    public FieldDef crtdcodidato;
+    public FieldDef crtdvalordato;
+    public FieldDef crtdvalodato;
+    public TabCretadattram(String name)
+      {
+      super(name);
+      crtdcodigo = new FieldDef("crtdcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      crtdcodcretaliq = new FieldDef("crtdcodcretaliq",FieldDef.INTEGER,0);
+      crtdcodcretaccc = new FieldDef("crtdcodcretaccc",FieldDef.INTEGER,0);
+      crtdcodcretanaf = new FieldDef("crtdcodcretanaf",FieldDef.INTEGER,0);
+      crtdcodcretatra = new FieldDef("crtdcodcretatra",FieldDef.INTEGER,0);
+      crtdcodfile = new FieldDef("crtdcodfile",FieldDef.INTEGER,0);
+      crtdcodfandat = new FieldDef("crtdcodfandat",FieldDef.INTEGER,0);
+      crtdcodfanedl = new FieldDef("crtdcodfanedl",FieldDef.INTEGER,0);
+      crtdestado = new FieldDef("crtdestado",FieldDef.CHAR,10);
+      crtdestadoctrl = new FieldDef("crtdestadoctrl",FieldDef.CHAR,10);
+      crtdorigen = new FieldDef("crtdorigen",FieldDef.CHAR,5);
+      crtdselec = new FieldDef("crtdselec",FieldDef.CHAR,1);
+      crtdtipotramo = new FieldDef("crtdtipotramo",FieldDef.CHAR,15);
+      crtdfechagen = new FieldDef("crtdfechagen",FieldDef.DATE);
+      crtdusuario = new FieldDef("crtdusuario",FieldDef.CHAR,25);
+      crtdtipodato = new FieldDef("crtdtipodato",FieldDef.CHAR,5);
+      crtdcodidato = new FieldDef("crtdcodidato",FieldDef.CHAR,10);
+      crtdvalordato = new FieldDef("crtdvalordato",FieldDef.FLOAT,6,0);
+      crtdvalodato = new FieldDef("crtdvalodato",FieldDef.CHAR,25);
+      FieldDef array[] = {
+        crtdcodigo,
+        crtdcodcretaliq,
+        crtdcodcretaccc,
+        crtdcodcretanaf,
+        crtdcodcretatra,
+        crtdcodfile,
+        crtdcodfandat,
+        crtdcodfanedl,
+        crtdestado,
+        crtdestadoctrl,
+        crtdorigen,
+        crtdselec,
+        crtdtipotramo,
+        crtdfechagen,
+        crtdusuario,
+        crtdtipodato,
+        crtdcodidato,
+        crtdvalordato,
+        crtdvalodato        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {crtdcodigo };
+      setPrimaryKeys(arrayf);
+      crtdcodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabCretafiles extends TableDef
+    {
+    // Campos
+    public FieldDef crtfcodigo;
+    public FieldDef crtfejercicio;
+    public FieldDef crtfperiodo;
+    public FieldDef crtftipoliq;
+    public FieldDef crtfestado;
+    public FieldDef crtfestadoctrl;
+    public FieldDef crtftipofile;
+    public FieldDef crtffechagen;
+    public FieldDef crtfhoragen;
+    public FieldDef crtffechapre;
+    public FieldDef crtfusuario;
+    public FieldDef crtffichero;
+    public FieldDef crtfubicacion;
+    public FieldDef crtfcodcretaliq;
+    public FieldDef crtfcodcretaccc;
+    public FieldDef crtfcodcretanaf;
+    public FieldDef crtfcodcretatra;
+    public FieldDef crtfcodparamred;
+    public TabCretafiles(String name)
+      {
+      super(name);
+      crtfcodigo = new FieldDef("crtfcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      crtfejercicio = new FieldDef("crtfejercicio",FieldDef.INTEGER,0);
+      crtfperiodo = new FieldDef("crtfperiodo",FieldDef.INTEGER,0);
+      crtftipoliq = new FieldDef("crtftipoliq",FieldDef.CHAR,3);
+      crtfestado = new FieldDef("crtfestado",FieldDef.CHAR,10);
+      crtfestadoctrl = new FieldDef("crtfestadoctrl",FieldDef.CHAR,10);
+      crtftipofile = new FieldDef("crtftipofile",FieldDef.CHAR,15);
+      crtffechagen = new FieldDef("crtffechagen",FieldDef.DATE);
+      crtfhoragen = new FieldDef("crtfhoragen",FieldDef.CHAR,8);
+      crtffechapre = new FieldDef("crtffechapre",FieldDef.DATE);
+      crtfusuario = new FieldDef("crtfusuario",FieldDef.CHAR,25);
+      crtffichero = new FieldDef("crtffichero",FieldDef.CHAR,25);
+      crtfubicacion = new FieldDef("crtfubicacion",FieldDef.CHAR,250);
+      crtfcodcretaliq = new FieldDef("crtfcodcretaliq",FieldDef.INTEGER,0);
+      crtfcodcretaccc = new FieldDef("crtfcodcretaccc",FieldDef.INTEGER,0);
+      crtfcodcretanaf = new FieldDef("crtfcodcretanaf",FieldDef.INTEGER,0);
+      crtfcodcretatra = new FieldDef("crtfcodcretatra",FieldDef.INTEGER,0);
+      crtfcodparamred = new FieldDef("crtfcodparamred",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        crtfcodigo,
+        crtfejercicio,
+        crtfperiodo,
+        crtftipoliq,
+        crtfestado,
+        crtfestadoctrl,
+        crtftipofile,
+        crtffechagen,
+        crtfhoragen,
+        crtffechapre,
+        crtfusuario,
+        crtffichero,
+        crtfubicacion,
+        crtfcodcretaliq,
+        crtfcodcretaccc,
+        crtfcodcretanaf,
+        crtfcodcretatra,
+        crtfcodparamred        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {crtfcodigo };
+      setPrimaryKeys(arrayf);
+      crtfcodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabCccscreta extends TableDef
+    {
+    // Campos
+    public FieldDef ccccodigo;
+    public FieldDef cccccc;
+    public FieldDef ccctipo;
+    public FieldDef ccccodiemp;
+    public FieldDef ccccentro;
+    public FieldDef cccestado;
+    public TabCccscreta(String name)
+      {
+      super(name);
+      ccccodigo = new FieldDef("ccccodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      cccccc = new FieldDef("cccccc",FieldDef.CHAR,11);
+      ccctipo = new FieldDef("ccctipo",FieldDef.CHAR,5);
+      ccccodiemp = new FieldDef("ccccodiemp",FieldDef.INTEGER,0);
+      ccccentro = new FieldDef("ccccentro",FieldDef.INTEGER,0);
+      cccestado = new FieldDef("cccestado",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        ccccodigo,
+        cccccc,
+        ccctipo,
+        ccccodiemp,
+        ccccentro,
+        cccestado        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {ccccodigo };
+      setPrimaryKeys(arrayf);
+      ccccodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabCretaerrores extends TableDef
+    {
+    // Campos
+    public FieldDef crtecodigo;
+    public FieldDef crtecodcretaliq;
+    public FieldDef crtecodcretaccc;
+    public FieldDef crtecodcretanaf;
+    public FieldDef crtecodcretatra;
+    public FieldDef crtecodfile;
+    public FieldDef crtecodfandat;
+    public FieldDef crtecodfanedl;
+    public FieldDef crteestado;
+    public FieldDef crteestadoctrl;
+    public FieldDef crteorigen;
+    public FieldDef crteselec;
+    public FieldDef crtecoderror;
+    public FieldDef crtedescerror;
+    public FieldDef crtetipoerror;
+    public FieldDef crtefechalect;
+    public FieldDef crtehoralect;
+    public TabCretaerrores(String name)
+      {
+      super(name);
+      crtecodigo = new FieldDef("crtecodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      crtecodcretaliq = new FieldDef("crtecodcretaliq",FieldDef.INTEGER,0);
+      crtecodcretaccc = new FieldDef("crtecodcretaccc",FieldDef.INTEGER,0);
+      crtecodcretanaf = new FieldDef("crtecodcretanaf",FieldDef.INTEGER,0);
+      crtecodcretatra = new FieldDef("crtecodcretatra",FieldDef.INTEGER,0);
+      crtecodfile = new FieldDef("crtecodfile",FieldDef.INTEGER,0);
+      crtecodfandat = new FieldDef("crtecodfandat",FieldDef.INTEGER,0);
+      crtecodfanedl = new FieldDef("crtecodfanedl",FieldDef.INTEGER,0);
+      crteestado = new FieldDef("crteestado",FieldDef.CHAR,10);
+      crteestadoctrl = new FieldDef("crteestadoctrl",FieldDef.CHAR,10);
+      crteorigen = new FieldDef("crteorigen",FieldDef.CHAR,5);
+      crteselec = new FieldDef("crteselec",FieldDef.CHAR,1);
+      crtecoderror = new FieldDef("crtecoderror",FieldDef.CHAR,15);
+      crtedescerror = new FieldDef("crtedescerror",FieldDef.CHAR,250);
+      crtetipoerror = new FieldDef("crtetipoerror",FieldDef.CHAR,5);
+      crtefechalect = new FieldDef("crtefechalect",FieldDef.DATE);
+      crtehoralect = new FieldDef("crtehoralect",FieldDef.CHAR,8);
+      FieldDef array[] = {
+        crtecodigo,
+        crtecodcretaliq,
+        crtecodcretaccc,
+        crtecodcretanaf,
+        crtecodcretatra,
+        crtecodfile,
+        crtecodfandat,
+        crtecodfanedl,
+        crteestado,
+        crteestadoctrl,
+        crteorigen,
+        crteselec,
+        crtecoderror,
+        crtedescerror,
+        crtetipoerror,
+        crtefechalect,
+        crtehoralect        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {crtecodigo };
+      setPrimaryKeys(arrayf);
+      crtecodigo.setAutoIncrementable(true);
       }
     }
     
@@ -12668,6 +14574,7 @@ public class CatLaboral extends Catalog
     tabssbonif = new TabSsbonif("ssbonif");
     tabssbontram = new TabSsbontram("ssbontram");
     tabssartistas = new TabSsartistas("ssartistas");
+    tabssemphogar = new TabSsemphogar("ssemphogar");
     tabcontratos = new TabContratos("contratos");
     tabconclaves = new TabConclaves("conclaves");
     tabconbonif = new TabConbonif("conbonif");
@@ -12790,6 +14697,22 @@ public class CatLaboral extends Catalog
     tabempusers = new TabEmpusers("empusers");
     tabusosremotos = new TabUsosremotos("usosremotos");
     tabnuevaconversion = new TabNuevaconversion("nuevaconversion");
+    tabdefimportscab = new TabDefimportscab("defimportscab");
+    tabdefimportsdet = new TabDefimportsdet("defimportsdet");
+    tabdefimportsequiv = new TabDefimportsequiv("defimportsequiv");
+    tabere = new TabEre("ere");
+    taberedet = new TabEredet("eredet");
+    tabtratpdettra = new TabTratpdettra("tratpdettra");
+    tabcretaliqs = new TabCretaliqs("cretaliqs");
+    tabcretacccs = new TabCretacccs("cretacccs");
+    tabcretanafs = new TabCretanafs("cretanafs");
+    tabcretafandat = new TabCretafandat("cretafandat");
+    tabcretafanedl = new TabCretafanedl("cretafanedl");
+    tabcretatramos = new TabCretatramos("cretatramos");
+    tabcretadattram = new TabCretadattram("cretadattram");
+    tabcretafiles = new TabCretafiles("cretafiles");
+    tabcccscreta = new TabCccscreta("cccscreta");
+    tabcretaerrores = new TabCretaerrores("cretaerrores");
     TableDef array[] = {
       tabgycauto,
       tabvaloresnom,
@@ -12822,6 +14745,7 @@ public class CatLaboral extends Catalog
       tabssbonif,
       tabssbontram,
       tabssartistas,
+      tabssemphogar,
       tabcontratos,
       tabconclaves,
       tabconbonif,
@@ -12943,7 +14867,23 @@ public class CatLaboral extends Catalog
       tabparamlis,
       tabempusers,
       tabusosremotos,
-      tabnuevaconversion      
+      tabnuevaconversion,
+      tabdefimportscab,
+      tabdefimportsdet,
+      tabdefimportsequiv,
+      tabere,
+      taberedet,
+      tabtratpdettra,
+      tabcretaliqs,
+      tabcretacccs,
+      tabcretanafs,
+      tabcretafandat,
+      tabcretafanedl,
+      tabcretatramos,
+      tabcretadattram,
+      tabcretafiles,
+      tabcccscreta,
+      tabcretaerrores      
       };
     setTables(array);
     FieldDef tabdefredsegArrayf1[] = { tabdefredseg.drstipomsg,tabdefredseg.drsregimen,tabdefredseg.drssegmento };
