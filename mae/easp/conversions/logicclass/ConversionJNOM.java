@@ -49,7 +49,6 @@ public class ConversionJNOM extends ConversionLC {
 	protected Vector<Incidencia> convertirEmpresa(DadesEmpresa de, ProgressBarForm pbf) {
 	  try {
 		this.pbf = pbf;
-		boolean bOk = true;
 		int empLC = de.getCodiOrigen();
 		int empJN = de.getCodiGeyce();
 		String sNifEmpresa = de.getNif();	
@@ -65,7 +64,9 @@ public class ConversionJNOM extends ConversionLC {
 	  catch (Exception ex) {
 		prNom.getDataBase().rollback();
         pr.getDataBase().rollback();
-	    ex.printStackTrace(); 
+	    ex.printStackTrace();
+		Incidencia inc = new Incidencia(de.getCodiOrigen(), de.getCodiGeyce(), desdeEjer, ex.getMessage(), APLICACION_GEYCE.JNOMINA, de.getNif(), de.getRazonSocial(), idConversion);
+		vIncidencias.add(inc);
 		return vIncidencias;
 	  }
 	}

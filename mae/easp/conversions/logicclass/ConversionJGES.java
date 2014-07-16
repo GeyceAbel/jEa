@@ -5,6 +5,7 @@ import mae.easp.conversions.DadesEmpresa;
 import mae.easp.conversions.FuncionesJGES;
 import mae.easp.conversions.FuncionesJNOM;
 import mae.easp.conversions.Incidencia;
+import mae.easp.conversions.Conversion.APLICACION_GEYCE;
 import mae.easp.conversions.logicclass.db.SelectorLogic;
 import mae.easp.general.Easp;
 import mae.general.ProgressBarForm;
@@ -35,27 +36,29 @@ public class ConversionJGES extends ConversionLC {
 	@Override
 	protected Vector<Incidencia> convertirEmpresa(DadesEmpresa de, ProgressBarForm pbf) {
 	  try {
-			this.pbf = pbf;
-			boolean bOk = true;
-			int empLC = de.getCodiOrigen();
-			int empJN = de.getCodiGeyce();
-			String sNifEmpresa = de.getNif();	
-			prGes.pbf =pbf;
-			mae.jexpe.general.logicclass.Despacho con = new mae.jexpe.general.logicclass.Despacho();
-	        con.run(prGes,empLC,empJN);
-	        con.runFacturas(prGes, empLC, empJN);
-	        updateTableConversion(empLC, empJN);
-	        prGes.getDataBase().commit();
-	        pr.getDataBase().commit();
-	        System.gc();
-			return vIncidencias;
-		  }
-		  catch (Exception ex) {
-			prGes.getDataBase().rollback();
-	        pr.getDataBase().rollback();
-		    ex.printStackTrace(); 
-			return vIncidencias;
-		  }
+		this.pbf = pbf;
+		boolean bOk = true;
+		int empLC = de.getCodiOrigen();
+		int empJN = de.getCodiGeyce();
+		String sNifEmpresa = de.getNif();	
+		prGes.pbf =pbf;
+		mae.jexpe.general.logicclass.Despacho con = new mae.jexpe.general.logicclass.Despacho();
+        con.run(prGes,empLC,empJN);
+        con.runFacturas(prGes, empLC, empJN);
+        updateTableConversion(empLC, empJN);
+        prGes.getDataBase().commit();
+        pr.getDataBase().commit();
+        System.gc();
+		return vIncidencias;
+	  }
+	  catch (Exception ex) {
+		prGes.getDataBase().rollback();
+        pr.getDataBase().rollback();
+	    ex.printStackTrace(); 
+		Incidencia inc = new Incidencia(de.getCodiOrigen(), de.getCodiGeyce(), desdeEjer, ex.getMessage(), APLICACION_GEYCE.JGESTION, de.getNif(), de.getRazonSocial(), idConversion);
+		vIncidencias.add(inc);
+		return vIncidencias;
+	  }
 	}
 
 	@Override
