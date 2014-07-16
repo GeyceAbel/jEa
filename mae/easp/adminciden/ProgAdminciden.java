@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20090113
-// Hora:             17:31:23
+// Fecha:            20140716
+// Hora:             13:37:16
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -106,6 +106,7 @@ public class ProgAdminciden extends Program
         setTitle("Usuario");
         setType(STRING);
         setLength(25);
+        setSearchable(true);
         setField(sinciden.inusuari);
         }
       }
@@ -120,7 +121,7 @@ public class ProgAdminciden extends Program
         setTitle("Puesto");
         setType(STRING);
         setLength(15);
-        setPrintable(false);
+        setSearchable(true);
         setField(sinciden.inpuesto);
         }
       }
@@ -185,6 +186,7 @@ public class ProgAdminciden extends Program
         setTitle("Programa");
         setType(STRING);
         setLength(80);
+        setSearchable(true);
         setField(sinciden.inprog);
         }
       }
@@ -198,7 +200,7 @@ public class ProgAdminciden extends Program
         setTitle("Etiqueta referencia");
         setType(STRING);
         setLength(10);
-        setPrintable(false);
+        setSearchable(true);
         setField(sinciden.inrefer);
         }
       }
@@ -212,7 +214,7 @@ public class ProgAdminciden extends Program
         setTitle("Código error");
         setType(STRING);
         setLength(10);
-        setPrintable(false);
+        setSearchable(true);
         setField(sinciden.innumer);
         }
       }
@@ -304,8 +306,7 @@ public class ProgAdminciden extends Program
       setName("vincidencias");
       setTitle("Incidencias");
       setLocation(new Location());
-      setStates(SHOW);
-      setPrintable(false);
+      setStates(SHOW | SEARCH);
       addSelect(sinciden=new Sinciden());
       addControl(inusuari=new CtrlInusuari(this));
       addControl(inpuesto=new CtrlInpuesto(this));
@@ -765,6 +766,9 @@ public class ProgAdminciden extends Program
     }
   public void onInit()
     {
+    vincidencias.setInitState(DataForm.SHOW);
+    
+    
     if (vienededef)
       sinciden.setWhere("inambito='"+ambito+"' and inmodulo='"+modulo+
                         "' and inrefer='"+refer+"'");

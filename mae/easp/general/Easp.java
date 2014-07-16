@@ -11,6 +11,8 @@ import java.util.*;
 import java.text.*;
 import java.io.*;
 
+import com.jnetdirect.jsql.i;
+
 public class Easp {
   public static AppEasp easp;
   public static DBConnection connEA=null;
@@ -113,6 +115,8 @@ public class Easp {
       setFileFromjar(destinoPlantillas,"query.xls",destinoPlantillas+"query.xls");
       }
     
+
+    avisoErroresLevesjModelos();
     return true;
     }
 
@@ -155,7 +159,119 @@ public class Easp {
       return null;
     }
 
+  public static void avisoErroresLevesjModelos() {
+    
+    DBConnection connJModelos = null ;
+    
+    int erroresLevesDetectados =  0 ; 
+    
+    int numInc = 0;
+    
+    java.io.FileInputStream  filein  ;
+    java.io.InputStreamReader read ;
+    java.io.BufferedReader   in ;
+    String cadena = "" ;
+    
+    try {
+      
+      Selector sinc = new Selector (connEA);
+      sinc.execute("Select max(incodigo) as codi from ININCIDE");
+      if (sinc.next()) numInc = sinc.getint("codi")+1;
+      sinc.close();
 
+       Select sinincide    = new Select(connEA);
+       Table  tbinincide   = new Table(sinincide,"inincide");
+       Field  fdincodigo   = new Field(sinincide,tbinincide,"INCODIGO");
+       // Field  fdinsede     = new Field(sinincide,tbinincide,"INSEDE");
+       // Field  fdinusuari   = new Field(sinincide,tbinincide,"INUSUARI");
+       // Field  fdinpuesto   = new Field(sinincide,tbinincide,"INPUESTO");
+       //        Field  fdininstan   = new Field(sinincide,tbinincide,"ININSTAN");
+       // Field  fdinambito   = new Field(sinincide,tbinincide,"INAMBITO");
+       // Field  fdinmodulo   = new Field(sinincide,tbinincide,"INMODULO");
+       // Field  fdinprog     = new Field(sinincide,tbinincide,"INPROG");
+       // Field  fdinrefer    = new Field(sinincide,tbinincide,"INREFER");
+       // Field  fdinnumer    = new Field(sinincide,tbinincide,"INNUMER");
+       // Field  fdinopera    = new Field(sinincide,tbinincide,"INOPERA");
+       // Field  fdinmensa    = new Field(sinincide,tbinincide,"INMENSA");
+
+       sinincide.setWhere("INMODULO = 'REVI.14_2T' and inusuari = '"+usuario+"'");
+       sinincide.execute() ;
+       
+       if ( sinincide.isEof()  ) {
+      
+        connJModelos = getConnexio("modelos", connEA);
+        
+        if ( connJModelos != null  ) {
+          Selector smodestado = new Selector(connJModelos) ;
+          smodestado.execute("Select * from modestado where mesejercicio = 2014 and   mesperiodo = '2T' and mesestadot = 'TT'");
+          while ( smodestado.next() ) {
+            String nif = smodestado.getString("mesnif");
+            String modelo = smodestado.getString("mesmodelo");
+            // System.out.println("Nif: ["+nif+"] modelo: ["+modelo+"]");
+            
+            String ficheroRespuesta = smodestado.getString("mesficherotel") ;
+            
+            if ( Easp.existeFichero(ficheroRespuesta) ) {
+              filein=new java.io.FileInputStream(ficheroRespuesta);
+              read=new java.io.InputStreamReader(filein);
+              in=new java.io.BufferedReader(read);
+              
+              cadena = in.readLine();
+              boolean encontradoError = false ;
+              while (cadena!=null && !encontradoError ) {
+                
+                if ( cadena.contains("<title>Error - Pagina de errores leves"))  {
+                  erroresLevesDetectados++;
+                  String msg = "Revisar Res. Mod: ["+modelo+"] Ejer: 2014 Peri: 2T CIF: ["+nif+"] con Errores leves";
+                  // grabaIncidencia(DBConnection dbc, String programa,String operacion, String mensaje){
+                  grabaIncidencia(connEA, msg, msg, msg,"REVI.14_2T",nif,modelo);
+                  encontradoError = true ;
+                  }
+                
+                cadena = in.readLine();
+                }
+              
+              in.close();
+              filein.close();
+              }
+            
+            }
+          
+          smodestado.close();
+          }
+        }
+
+       if ( erroresLevesDetectados > 0 )  {
+         
+         connEA.commit() ;
+         // String aviso = " ************* Atención , aviso muy importante, LEA ATENTAMENTE ESTA MENSAJE ***************** \n \n"+
+         
+         String aviso= "En el nuevo sistema de presentación directa de declaraciones, y utilizando el proceso de  presentación masiva de declaraciones    \n "+
+                       "desde  \"Estado y obtención de declaraciones\",  hemos detectado que en algún modelo, cuando existían ERRORES LEVES,  \n "+
+                       "la declaración quedaba como presentada en la aplicación pero no en la Web de la AEAT. \n \n"+
+                       "Hemos efectuado un análisis de sus declaraciones y hemos obtenido el siguiente resultado. \n \n"+
+                       "Se ha encontrado "+erroresLevesDetectados+" Declaraciones que constan como presentadas pero que contienen ERRORES LEVES y podrían no estar presentadas. \n \n"+
+                       "A continuación se abrirá una pantalla con el detalles de los posibles modelos afectados.  \n"+
+                       "Es muy importante que imprima esta relación y revise si el modelo esta presentado .";
+         
+         Maefc.message(aviso,"ATENCIÓN: Rogamos lea Atentamente este mensaje.",Maefc.WARNING_MESSAGE ) ;
+         
+         
+         mae.easp.adminciden.ProgAdminciden pr = new mae.easp.adminciden.ProgAdminciden ();
+         pr.incCodi = numInc;
+         pr.setConnection(connEA);
+         pr.run();
+         }
+       
+      }
+    catch(Exception e ) {
+      System.out.println("Error detectando errores leves");
+      }
+      if ( connJModelos != null  ) connJModelos.disconnect() ;
+
+    }
+  
+  
   public static DBConnection getConnexio(String nombd, DBConnection connEA)
   {
     return(conectaBD(nombd, connEA.getDB().getServer(), connEA.getDB().getUser(), connEA.getDB().getPassword(), connEA.getDB().getType()));
@@ -502,7 +618,11 @@ public class Easp {
       return true;
     }
 
-	public static void grabaIncidencia(DBConnection dbc, String programa,String operacion, String mensaje){
+  public static void grabaIncidencia(DBConnection dbc, String programa,String operacion, String mensaje){
+    grabaIncidencia(dbc,programa,operacion,mensaje,"jea",null,null);
+    }
+  
+	public static void grabaIncidencia(DBConnection dbc, String programa,String operacion, String mensaje,String modulo,String refer,String numer){
 		Select sinincide=new Select(dbc);
 		Table inincide=new Table(sinincide,"inincide");
 		Field incodigo=new Field(sinincide,inincide,"incodigo");
@@ -523,10 +643,14 @@ public class Easp {
 		ininstan.getDef().setDateTime(true);
 		ininstan.setValue(new java.sql.Timestamp(new java.util.Date().getTime()));
 		inambito.setValue("APLICATIVO");
-		inmodulo.setValue("jea");
+		inmodulo.setValue(modulo);
 		inprog.setValue(programa);
 		inopera.setValue(operacion);
 		inmensa.setValue(mensaje);
+		
+		if ( refer != null && !refer.equals("") ) inrefer.setValue(refer) ;
+		if ( numer != null && !numer.equals("") ) innumer.setValue(numer) ;
+		
 		sinincide.insert();
 	}
 
