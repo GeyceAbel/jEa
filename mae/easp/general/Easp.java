@@ -243,23 +243,29 @@ public class Easp {
 
        if ( erroresLevesDetectados > 0 )  {
          
-         connEA.commit() ;
-         // String aviso = " ************* Atención , aviso muy importante, LEA ATENTAMENTE ESTA MENSAJE ***************** \n \n"+
-         
-         String aviso= "En el nuevo sistema de presentación directa de declaraciones, y utilizando el proceso de  presentación masiva de declaraciones    \n "+
-                       "desde  \"Estado y obtención de declaraciones\",  hemos detectado que en algún modelo, cuando existían ERRORES LEVES,  \n "+
-                       "la declaración quedaba como presentada en la aplicación pero no en la Web de la AEAT. \n \n"+
+         String aviso= "En el nuevo sistema de presentación directa de declaraciones, y utilizando el proceso     \n"+
+                       "de  presentación masiva de declaraciones desde  \"Estado y obtención de declaraciones\",   \n"+
+                       "hemos detectado que en algún modelo, cuando existían ERRORES LEVES, la declaración  \n"+
+                       "quedaba como presentada en la aplicación pero no en la Web de la AEAT.  \n  \n"+
                        "Hemos efectuado un análisis de sus declaraciones y hemos obtenido el siguiente resultado. \n \n"+
-                       "Se ha encontrado "+erroresLevesDetectados+" Declaraciones que constan como presentadas pero que contienen ERRORES LEVES y podrían no estar presentadas. \n \n"+
+                       "Se ha encontrado "+erroresLevesDetectados+" Declaraciones que constan como presentadas pero que contienen ERRORES  \n"+
+                       "LEVES y podrían no estar presentadas. \n \n"+
                        "A continuación se abrirá una pantalla con el detalles de los posibles modelos afectados.  \n"+
                        "Es muy importante que imprima esta relación y revise si el modelo esta presentado .";
          
          Maefc.message(aviso,"ATENCIÓN: Rogamos lea Atentamente este mensaje.",Maefc.WARNING_MESSAGE ) ;
          
+         connEA.commit() ;
          
          mae.easp.adminciden.ProgAdminciden pr = new mae.easp.adminciden.ProgAdminciden ();
          pr.incCodi = numInc;
          pr.setConnection(connEA);
+         pr.setModal(true);
+         LocationWindow loc=new LocationWindow();
+         loc.setWidth(950);
+         loc.setHeight(600);
+         loc.setLocation(LocationWindow.CENTER) ;
+         pr.setLocation(loc);
          pr.run();
          }
        
