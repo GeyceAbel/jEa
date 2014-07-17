@@ -164,7 +164,7 @@ public class Easp {
     DBConnection connJModelos = null ;
     
     int erroresLevesDetectados =  0 ; 
-    
+    boolean encontradoAlgunErrror = false ;
     int numInc = 0;
     
     java.io.FileInputStream  filein  ;
@@ -196,22 +196,22 @@ public class Easp {
 
        sinincide.setWhere("INMODULO = 'REVI.14_2T' and inusuari = '"+usuario+"'");
        sinincide.execute() ;
-       
+              
        if ( sinincide.isEof()  ) {
-      
+         System.out.println("01 Detectando Errores Leves");
         connJModelos = getConnexio("modelos", connEA);
-        
+        System.out.println("02");
         if ( connJModelos != null  ) {
+          System.out.println("03");
           Selector smodestado = new Selector(connJModelos) ;
           smodestado.execute("Select * from modestado where mesejercicio = 2014 and   mesperiodo = '2T' and mesestadot = 'TT'");
           while ( smodestado.next() ) {
             String nif = smodestado.getString("mesnif");
             String modelo = smodestado.getString("mesmodelo");
-            // System.out.println("Nif: ["+nif+"] modelo: ["+modelo+"]");
             
             String ficheroRespuesta = smodestado.getString("mesficherotel") ;
             
-            if ( Easp.existeFichero(ficheroRespuesta) ) {
+            if ( ficheroRespuesta != null && !ficheroRespuesta.equals("") && Easp.existeFichero(ficheroRespuesta) ) {
               filein=new java.io.FileInputStream(ficheroRespuesta);
               read=new java.io.InputStreamReader(filein);
               in=new java.io.BufferedReader(read);
@@ -223,9 +223,10 @@ public class Easp {
                 if ( cadena.contains("<title>Error - Pagina de errores leves"))  {
                   erroresLevesDetectados++;
                   String msg = "Revisar Res. Mod: ["+modelo+"] Ejer: 2014 Peri: 2T CIF: ["+nif+"] con Errores leves";
-                  // grabaIncidencia(DBConnection dbc, String programa,String operacion, String mensaje){
+                  System.out.println(msg+" Detectados: ["+erroresLevesDetectados+"]");  
                   grabaIncidencia(connEA, msg, msg, msg,"REVI.14_2T",nif,modelo);
                   encontradoError = true ;
+                  encontradoAlgunErrror = true ;
                   }
                 
                 cadena = in.readLine();
@@ -236,13 +237,17 @@ public class Easp {
               }
             
             }
-          
+          System.out.println("04");   
           smodestado.close();
           }
         }
-
-       if ( erroresLevesDetectados > 0 )  {
-         
+       
+       System.out.println("05 Total ErroresLeves Detectados: ["+erroresLevesDetectados+"]");
+       if ( connJModelos != null  ) connJModelos.disconnect() ;
+       System.out.println("06");
+       
+       if ( erroresLevesDetectados > 0 || encontradoAlgunErrror )  {
+         System.out.println("07");
          String aviso= "En el nuevo sistema de presentación directa de declaraciones, y utilizando el proceso     \n"+
                        "de  presentación masiva de declaraciones desde  \"Estado y obtención de declaraciones\",   \n"+
                        "hemos detectado que en algún modelo, cuando existían ERRORES LEVES, la declaración  \n"+
@@ -253,10 +258,11 @@ public class Easp {
                        "A continuación se abrirá una pantalla con el detalles de los posibles modelos afectados.  \n"+
                        "Es muy importante que imprima esta relación y revise si el modelo esta presentado .";
          
+         System.out.println("08");
          Maefc.message(aviso,"ATENCIÓN: Rogamos lea Atentamente este mensaje.",Maefc.WARNING_MESSAGE ) ;
-         
+         System.out.println("09");
          connEA.commit() ;
-         
+         System.out.println("10");
          mae.easp.adminciden.ProgAdminciden pr = new mae.easp.adminciden.ProgAdminciden ();
          pr.incCodi = numInc;
          pr.setConnection(connEA);
@@ -267,14 +273,15 @@ public class Easp {
          loc.setLocation(LocationWindow.CENTER) ;
          pr.setLocation(loc);
          pr.run();
+         System.out.println("11");
          }
-       
+       System.out.println("12");
       }
     catch(Exception e ) {
       System.out.println("Error detectando errores leves");
       }
-      if ( connJModelos != null  ) connJModelos.disconnect() ;
-
+      
+    System.out.println("13");
     }
   
   
