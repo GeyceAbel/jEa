@@ -134,3 +134,4 @@
 140604 --> APXAVI:  Updates MailJacob.
 140605 --> APJORDI: Modificacion excel generats jasper
 140703 --> APXAVI:  Funcionalitats PlantillaJacob supresio del caracter " i ; dels camps de combinacio. Bugs PlantillaJacob
+140709 --> APXAVI:  canvis mailJacob. supresio finestra seleccio auto de format word plantillajacob

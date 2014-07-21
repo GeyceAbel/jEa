@@ -160,7 +160,7 @@ public class PlantillaJacob extends Thread {
 		Dispatch oDocument;
 		boolean existTemplate = existePlantilla();
 		if(existTemplate)
-		  oDocument = Dispatch.call(oDocuments, "Open", urlTemplate).toDispatch();
+		  oDocument = Dispatch.call(oDocuments, "Open", urlTemplate,new Variant(false)).toDispatch();
 		/*si no existeix el template, el creem*/
 		else {
 		  oDocument = Dispatch.call(oDocuments, "Add").toDispatch();
@@ -201,12 +201,12 @@ public class PlantillaJacob extends Thread {
 	public void run() {
 	  try {	
 		Maefc.waitCursor();
-		desempaquetaDll();
+		
 		//oWord = new ActiveXComponent("Word.Application"); 
 		Dispatch oDocuments = oWord.getProperty("Documents").toDispatch();		
 		oWord.setProperty("Visible", new Variant(false));
 		pd.setLabelText("Abriendo plantilla...");		
-		Dispatch oDocument = Dispatch.call(oDocuments, "Open", urlTemplate).toDispatch();	
+		Dispatch oDocument = Dispatch.call(oDocuments, "Open", urlTemplate,new Variant(false)).toDispatch();	
 		Dispatch activeDocument = oWord.getProperty("ActiveDocument").toDispatch();
 		if(password != null)
 		    Dispatch.put(activeDocument, "WritePassword", new Variant(password));
@@ -235,7 +235,7 @@ public class PlantillaJacob extends Thread {
 			  int versionOutlook1 = Integer.parseInt(tokensVersion[0]);
 			  int versionOutlook2 = Integer.parseInt(tokensVersion[1]);
 			  int versionOutlook3 = Integer.parseInt(tokensVersion[2]);
-			  if((versionOutlook1>11 && versionOutlook3>6424) || versionOutlook1>=12 ) {
+			  if((versionOutlook1==12 && versionOutlook3>6424) || versionOutlook1>=13 ) {
 				//versions 2007 o superiors
 				  saveActiveDocumentAS(activeDocumentOpen, fileSaveAs, saveAs);
 				  creado = true;
@@ -259,12 +259,13 @@ public class PlantillaJacob extends Thread {
 		        }
 		        File fileSaveDoc = new File(fileSaveAs.replace(".pdf", ".doc"));
 		        File fileSavePdf = new File(fileSaveAs);				        
-		        saveActiveDocumentAS(activeDocumentOpen, fileSaveDoc.getAbsolutePath(), saveAs);
+		        saveActiveDocumentAS(activeDocumentOpen, fileSaveDoc.getAbsolutePath(), wdFormatDocumentDefault);
 			    if (oWord!=null) {
 	  		      oWord.invoke("Quit", new Variant(0)); 
 			      oWord=null;
 			    }
-		        creado = pdfCreator.creaPDF(fileSaveDoc.getParent()+"\\", fileSaveDoc.getName(), fileSavePdf.getParent()+"\\", fileSavePdf.getName(),true ) ;					  
+		        creado = pdfCreator.creaPDF(fileSaveDoc.getParent()+"\\", fileSaveDoc.getName(), fileSavePdf.getParent()+"\\", fileSavePdf.getName(),true ) ;
+		        fileSaveDoc.delete();
 			  }
 		    }
 		    if (oWord!=null) {
@@ -373,6 +374,7 @@ public class PlantillaJacob extends Thread {
 	
 	public void executeMerge() {
 	  try {	
+		desempaquetaDll();
 		oWord = new ActiveXComponent("Word.Application"); 
 		oVersion = oWord.getProperty("Version").toString();
 		//versionWord = Double.parseDouble(oVersion);

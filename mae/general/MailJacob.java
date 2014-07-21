@@ -76,6 +76,7 @@ public class MailJacob {
 	public Dispatch getAccount(String account) {
 	  Dispatch mail =	Dispatch.invoke(outlook.getObject(), "GetNamespace", Dispatch.Get, 
 	               new Object[] { "MAPI" }, new int[0]).toDispatch();
+	  
 	  Dispatch accounts = Dispatch.get(mail, "Accounts").getDispatch();	  	
 	  EnumVariant en = new EnumVariant(accounts);
 	  while (en.hasMoreElements()) {
@@ -105,7 +106,7 @@ public class MailJacob {
 	
 	public void send(String to , String subject , String body) throws Exception {		
 	  Dispatch mail =	Dispatch.invoke(outlook.getObject(), "CreateItem", Dispatch.Get,		   
-                new Object[] { "0" }, new int[0]).toDispatch();
+              new Object[] { "0" }, new int[0]).toDispatch();
 	  //Dispatch mail = Dispatch.call(outlook, "CreateItem", 0).toDispatch();
 	  send(mail,to, subject, body);
 	}
@@ -134,6 +135,32 @@ public class MailJacob {
 	}
 	
 	private void send(Dispatch mail,String to, String subject, String body) throws Exception {	
+		
+	  if(account != null) {
+		Dispatch accountSend = getAccount(account);
+		/*
+		  Dispatch dItem =null;
+		  Variant acc=null;
+		  boolean matchAccount=false;
+		  Dispatch Namespace =	Dispatch.invoke(outlook.getObject(), "GetNamespace", Dispatch.Get, 
+	               new Object[] { "MAPI" }, new int[0]).toDispatch();
+		  Dispatch accounts = Dispatch.get(Namespace, "Accounts").getDispatch();	  	
+		  EnumVariant en = new EnumVariant(accounts);
+		  while (en.hasMoreElements()) {
+			  acc =en.nextElement();
+			dItem = acc.getDispatch();
+			String nameAccount = Dispatch.get(dItem,"DisplayName").toString();
+			if(nameAccount.toUpperCase().trim().equals(account.toUpperCase())) {
+				matchAccount=true;
+				break;
+			}
+		  }
+		  */
+		if(accountSend !=null)				
+		  Dispatch.putRef(mail, "SendUsingAccount",accountSend);	
+		else 
+		  throw new Exception("Outlook no encuentra la cuenta de usuario " + account);
+	  }
 	  
 	  Dispatch.put(mail, "To", to);
 
@@ -148,15 +175,14 @@ public class MailJacob {
 		Dispatch.put(mail, "Body", new Variant(body));
 	  }
 	  
-	  Dispatch.put(mail, "ReadReceiptRequested", ReadReceiptRequested);
+	  Dispatch.put(mail, "ReadReceiptRequested", new Variant(ReadReceiptRequested));
 	  Dispatch attachs = Dispatch.get(mail, "Attachments").toDispatch();		
 	  for(File f:attachment) {
 	    Object anexo1 = new Object();
 	    anexo1 = f.getAbsolutePath();
 	    Dispatch.call(attachs, "Add", anexo1);
 	  }	
-	  if(account != null)
-		Dispatch.put(mail, "SendUsingAccount",getAccount(account));
+
 	  if(display)
 		  Dispatch.call(mail, "Display");
 	  else
