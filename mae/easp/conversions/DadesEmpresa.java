@@ -36,7 +36,7 @@ public class DadesEmpresa {
 		codiGeyce = Conversion.CODIGO_EMPRESA_NO_ASIGNADA;
 		codigoOrigenString = true;
 	}
-	
+
 	public int getCodiOrigen() {
 		return codiOrigen;
 	}
@@ -76,4 +76,5 @@ public class DadesEmpresa {
 	public boolean esCodigoOrigenString() {
 		return codigoOrigenString;
 	}
+	
 }

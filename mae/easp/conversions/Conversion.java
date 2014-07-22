@@ -97,6 +97,7 @@ public abstract class Conversion {
 			i.valor ("ccicodi",0);
 			i.valor ("ccicodigeyce",in.empresaDestino);
 			i.valor ("ccicodiorigen",in.empresaOrigen);
+			i.valor ("ccicodiorigens",in.empresaOrigenStr);
 			i.valor ("cciejercicio",in.ejercicio);
 			i.valor ("cciccocodi",in.idConversion);
 			i.valor ("ccimsg",in.msg);
