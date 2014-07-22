@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140707
-// Hora:             12:23:38
+// Fecha:            20140722
+// Hora:             08:25:44
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -3773,6 +3773,7 @@ public class CatEasp extends Catalog
     public FieldDef ccicodi;
     public FieldDef cciccocodi;
     public FieldDef ccicodiorigen;
+    public FieldDef ccicodiorigens;
     public FieldDef ccicodigeyce;
     public FieldDef cciejercicio;
     public FieldDef ccinombre;
@@ -3785,6 +3786,7 @@ public class CatEasp extends Catalog
       ccicodi = new FieldDef("ccicodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
       cciccocodi = new FieldDef("cciccocodi",FieldDef.INTEGER,0);
       ccicodiorigen = new FieldDef("ccicodiorigen",FieldDef.INTEGER,0);
+      ccicodiorigens = new FieldDef("ccicodiorigens",FieldDef.CHAR,15);
       ccicodigeyce = new FieldDef("ccicodigeyce",FieldDef.INTEGER,0);
       cciejercicio = new FieldDef("cciejercicio",FieldDef.INTEGER,0);
       ccinombre = new FieldDef("ccinombre",FieldDef.CHAR,255);
@@ -3795,6 +3797,7 @@ public class CatEasp extends Catalog
         ccicodi,
         cciccocodi,
         ccicodiorigen,
+        ccicodiorigens,
         ccicodigeyce,
         cciejercicio,
         ccinombre,
