@@ -95,6 +95,7 @@ System.out.println("-- getCodiOrigenStr/codigo=["+de.getCodiOrigenStr()+"]  getC
 				String PrimerApellido = sDeclarantes.getString("PrimerApellidoEmpleado");
 				String SegundoApellido = sDeclarantes.getString("SegundoApellidoEmpleado");
 				//String estado=sDeclarantes.getString("RENEstadoCivil");
+				int ejer=sDeclarantes.getint("Ejercicio");
 				if ((razon == null || razon.trim().length()==0)) {
 					razon = "";
 					if ((NombrePersona!=null && NombrePersona.trim().length()>0)) razon += NombrePersona+" ";
@@ -118,9 +119,9 @@ System.out.println("-- getCodiOrigenStr/codigo=["+de.getCodiOrigenStr()+"]  getC
 	 		    }
 	 		    sC.close();
 				*/
-	//System.out.println(""+nrototdec+" Ejercicio="+ejercicio+" nif= ["+nif+"] codigo-RENCodigo= ["+codigo+" ] razon="+razon+" EC=["+estado+"] "+existeConjuge);			
+	System.out.println(""+ejer+" nif= ["+nif+"] codigo-RENCodigo= ["+codigo+" ] razon="+razon+" ");			
 		  	  vDadesEmpresa.addElement (new DadesEmpresa(codigo,nif,razon,getAplicGeyce()));
-				//vDadesEmpresa.addElement (new DadesEmpresa(codigo,nif,razon,getAplicGeyce(),ejercicio,nsimulacio,existeConjuge));
+			//vDadesEmpresa.addElement (new DadesEmpresa(codigo,nif,razon,getAplicGeyce(),ejercicio,nsimulacio,existeConjuge));
 			}
 			sDeclarantes.close();
 		}
