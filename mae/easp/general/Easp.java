@@ -28,7 +28,7 @@ public class Easp {
   //variables de versiones
   public static String versionAplicacion="9.7";
   public static String versionFecha="Mayo/2014";
-  public static String versionBDEA="12.1";
+  public static String versionBDEA="12.2";
 
   //Constantes
   public final static int IVA=16;
@@ -114,7 +114,7 @@ public class Easp {
     if (!filePlantillas.exists()) {
       setFileFromjar(destinoPlantillas,"query.xls",destinoPlantillas+"query.xls");
       }
-    
+
 
     avisoErroresLevesjModelos();
     return true;
@@ -160,20 +160,20 @@ public class Easp {
     }
 
   public static void avisoErroresLevesjModelos() {
-    
+
     DBConnection connJModelos = null ;
-    
-    int erroresLevesDetectados =  0 ; 
+
+    int erroresLevesDetectados =  0 ;
     boolean encontradoAlgunErrror = false ;
     int numInc = 0;
-    
+
     java.io.FileInputStream  filein  ;
     java.io.InputStreamReader read ;
     java.io.BufferedReader   in ;
     String cadena = "" ;
-    
+
     try {
-      
+
       Selector sinc = new Selector (connEA);
       sinc.execute("Select max(incodigo) as codi from ININCIDE");
       if (sinc.next()) numInc = sinc.getint("codi")+1;
@@ -196,7 +196,7 @@ public class Easp {
 
        sinincide.setWhere("INMODULO = 'REVI.14_2T' and inusuari = '"+usuario+"'");
        sinincide.execute() ;
-              
+
        if ( sinincide.isEof()  ) {
          System.out.println("01 Detectando Errores Leves");
         connJModelos = getConnexio("modelos", connEA);
