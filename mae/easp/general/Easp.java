@@ -116,7 +116,8 @@ public class Easp {
       }
 
 
-    avisoErroresLevesjModelos();
+    // APPAU 24-07-2014 se desactiva ya este mensaje de control
+    // avisoErroresLevesjModelos();
     return true;
     }
 
