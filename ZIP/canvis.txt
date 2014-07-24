@@ -136,3 +136,4 @@
 140703 --> APXAVI:  Funcionalitats PlantillaJacob supresio del caracter " i ; dels camps de combinacio. Bugs PlantillaJacob
 140709 --> APXAVI:  canvis mailJacob. supresio finestra seleccio auto de format word plantillajacob
 140710 --> APPERE:  Insprconver 12_2 gravacio taula CoeficCorrec 2014
+140711 --> APXAVI:  canvis mailJacob.

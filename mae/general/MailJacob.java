@@ -32,12 +32,11 @@ public class MailJacob {
 	//private Dispatch outlookAccount;
 	
 	public MailJacob() {
-	  outlook = new ActiveXComponent("Outlook.Application");
+	  outlook = new ActiveXComponent("Outlook.Application");	  
 	  version = outlook.getProperty("Version").toString();
 	  //System.out.println("version outlook =" + outlook.getProperty("Version"));
 	  attachment = new ArrayList<File>();
-	  //ActiveXComponent regedit = new ActiveXComponent("WScript.Shell");
-	  
+	  //ActiveXComponent regedit = new ActiveXComponent("WScript.Shell");	  
 	  //Dispatch.invoke(regedit.getObject(), "RegWrite", Dispatch.Get,new Object[] { "MAPI" }, new int[0]).toDispatch();
 	  //regedit.invoke("RegWrite","HKCU\\TestKey\\DWordTestValue",1,"REG_DWORD");
 	  //regedit.call("RegWrite","HKCU\\TestKey\\DWordTestValue",1,"REG_DWORD");
@@ -130,7 +129,8 @@ public class MailJacob {
 	  //String htmlBody=body + Dispatch.get(mail, "HTMLBody").toString();		 
 	  //htmlBody = body + replaceHtmlContent(body, signatureTemplate, token);	
 	  String htmlBody=Dispatch.get(mail, "HTMLBody").toString();
-	  htmlBody = htmlBody.replace("@@geyce", body);
+	  if(htmlBody.contains(token))
+	    htmlBody = htmlBody.replace(token, body);
 	  send(mail, to, subject, htmlBody);	
 	}
 	
@@ -138,24 +138,6 @@ public class MailJacob {
 		
 	  if(account != null) {
 		Dispatch accountSend = getAccount(account);
-		/*
-		  Dispatch dItem =null;
-		  Variant acc=null;
-		  boolean matchAccount=false;
-		  Dispatch Namespace =	Dispatch.invoke(outlook.getObject(), "GetNamespace", Dispatch.Get, 
-	               new Object[] { "MAPI" }, new int[0]).toDispatch();
-		  Dispatch accounts = Dispatch.get(Namespace, "Accounts").getDispatch();	  	
-		  EnumVariant en = new EnumVariant(accounts);
-		  while (en.hasMoreElements()) {
-			  acc =en.nextElement();
-			dItem = acc.getDispatch();
-			String nameAccount = Dispatch.get(dItem,"DisplayName").toString();
-			if(nameAccount.toUpperCase().trim().equals(account.toUpperCase())) {
-				matchAccount=true;
-				break;
-			}
-		  }
-		  */
 		if(accountSend !=null)				
 		  Dispatch.putRef(mail, "SendUsingAccount",accountSend);	
 		else 
@@ -183,10 +165,10 @@ public class MailJacob {
 	    Dispatch.call(attachs, "Add", anexo1);
 	  }	
 
-	  if(display)
-		  Dispatch.call(mail, "Display");
+	  if(display) 
+		Dispatch.call(mail, "Display");	  
 	  else
-	  Dispatch.call(mail, "Send"); 
+	    Dispatch.call(mail, "Send"); 
 		
 	}
 	
