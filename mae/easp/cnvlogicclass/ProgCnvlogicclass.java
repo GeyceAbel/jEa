@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20140729
-// Hora:             10:25:30
+// Hora:             10:53:34
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1478,7 +1478,7 @@ public class ProgCnvlogicclass extends Program
     }
     // Fin declaraciones globales
     // Controles
-    public CtrlCcicodiorigen ccicodiorigen;
+    public CtrlVvcodorig vvcodorig;
     public CtrlCcinombre ccinombre;
     public CtrlCcinif ccinif;
     public CtrlCcicodigeyce ccicodigeyce;
@@ -1500,18 +1500,17 @@ public class ProgCnvlogicclass extends Program
         }
       }
       
-    public class CtrlCcicodiorigen extends ColumnEdit
+    public class CtrlVvcodorig extends ColumnEdit
       {
-      public CtrlCcicodiorigen(Form form)
+      public CtrlVvcodorig(Form form)
         {
         super(form);
-        setName("ccicodiorigen");
+        setName("vvcodorig");
         setMessageHelp("Código Aplicación Origen");
         setTitle("Origen");
-        setType(INTEGER);
-        setLength(6);
-        setSearchable(true);
-        setField(sincidencias.ccicodiorigen);
+        setType(STRING);
+        setLength(15);
+        setPrintable(false);
         }
       }
       
@@ -1659,7 +1658,7 @@ public class ProgCnvlogicclass extends Program
       setStates(SHOW | SEARCH);
       setModal(true);
       addSelect(sincidencias=new Sincidencias());
-      addControl(ccicodiorigen=new CtrlCcicodiorigen(this));
+      addControl(vvcodorig=new CtrlVvcodorig(this));
       addControl(ccinombre=new CtrlCcinombre(this));
       addControl(ccinif=new CtrlCcinif(this));
       addControl(ccicodigeyce=new CtrlCcicodigeyce(this));
@@ -1673,6 +1672,12 @@ public class ProgCnvlogicclass extends Program
       {
       setInitState(DataForm.SHOW);
       super.onInit();
+      }
+    public void onBeginRecord()
+      {
+      super.onBeginRecord();
+      if (sincidencias.ccicodiorigens.getString().length()>0) vvcodorig.setValue(sincidencias.ccicodiorigens.getString());
+      else vvcodorig.setValue(sincidencias.ccicodiorigen.getString());
       }
     }
     
@@ -1691,6 +1696,7 @@ public class ProgCnvlogicclass extends Program
     public Field ccimsg;
     public Field ccinif;
     public Field ccinombre;
+    public Field ccicodiorigens;
     class Codcnvinciden extends Table
       {
       public Codcnvinciden(Select select)
@@ -1714,6 +1720,7 @@ public class ProgCnvlogicclass extends Program
       addField(ccimsg=new Field(this,codcnvinciden,"ccimsg"));
       addField(ccinif=new Field(this,codcnvinciden,"ccinif"));
       addField(ccinombre=new Field(this,codcnvinciden,"ccinombre"));
+      addField(ccicodiorigens=new Field(this,codcnvinciden,"ccicodiorigens"));
       }
     public String getWhere()
       {
