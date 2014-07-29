@@ -137,3 +137,4 @@
 140709 --> APXAVI:  canvis mailJacob. supresio finestra seleccio auto de format word plantillajacob
 140710 --> APPERE:  Insprconver 12_2 gravacio taula CoeficCorrec 2014
 140711 --> APXAVI:  canvis mailJacob.
+140712 --> APJORDI: Variables dels JListados java es pasaven come a java.sql.Timestamp i donava problemes en funcions externes. Ara es pasen com a java.util.Date

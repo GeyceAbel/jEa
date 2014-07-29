@@ -859,7 +859,7 @@ public class JListado {
 		String tipo = "java.lang.String";
 		if (t == Columna.DOUBLE ) tipo = "java.lang.Double";
 		else if (t == Columna.INTEGER ) tipo = "java.lang.Integer";
-		else if (t == Columna.DATE ) tipo = "java.sql.Timestamp";
+		else if (t == Columna.DATE ) tipo = "java.util.Date";
 		return tipo;
 	}
 	/*
@@ -1122,7 +1122,7 @@ public class JListado {
 		String tipo = "java.lang.String";
 		if (t == FieldDef.INTEGER ) tipo = "java.lang.Integer";
 		else if (t == FieldDef.DOUBLE || t == FieldDef.MONEY || t == FieldDef.FLOAT ) tipo = "java.lang.Double";
-		else if (t == FieldDef.DATE ) tipo = "java.sql.Timestamp";
+		else if (t == FieldDef.DATE ) tipo = "java.util.Date";
 		return tipo;
 	}
 
