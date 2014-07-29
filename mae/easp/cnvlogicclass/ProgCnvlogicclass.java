@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20140729
-// Hora:             10:53:34
+// Hora:             11:47:40
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1692,11 +1692,11 @@ public class ProgCnvlogicclass extends Program
     public Field ccicodi;
     public Field ccicodigeyce;
     public Field ccicodiorigen;
+    public Field ccicodiorigens;
     public Field cciejercicio;
     public Field ccimsg;
     public Field ccinif;
     public Field ccinombre;
-    public Field ccicodiorigens;
     class Codcnvinciden extends Table
       {
       public Codcnvinciden(Select select)
@@ -1716,11 +1716,11 @@ public class ProgCnvlogicclass extends Program
       addField(ccicodi=new Field(this,codcnvinciden,"ccicodi"));
       addField(ccicodigeyce=new Field(this,codcnvinciden,"ccicodigeyce"));
       addField(ccicodiorigen=new Field(this,codcnvinciden,"ccicodiorigen"));
+      addField(ccicodiorigens=new Field(this,codcnvinciden,"ccicodiorigens"));
       addField(cciejercicio=new Field(this,codcnvinciden,"cciejercicio"));
       addField(ccimsg=new Field(this,codcnvinciden,"ccimsg"));
       addField(ccinif=new Field(this,codcnvinciden,"ccinif"));
       addField(ccinombre=new Field(this,codcnvinciden,"ccinombre"));
-      addField(ccicodiorigens=new Field(this,codcnvinciden,"ccicodiorigens"));
       }
     public String getWhere()
       {
