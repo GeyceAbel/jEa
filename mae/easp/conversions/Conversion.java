@@ -77,6 +77,8 @@ public abstract class Conversion {
 				for (int i=0; i<vDadesEmpresa.size();i++) {
 					setPercent(i*100/vDadesEmpresa.size());
 					deEnProceso = vDadesEmpresa.elementAt(i);
+					if (deEnProceso.getCodiOrigenStr()!=null) setState ("Conversión "+aplicGeyce+" ["+deEnProceso.getCodiOrigenStr()+"] -- ["+deEnProceso.getCodiGeyce()+"]");
+					else setState ("Conversión "+aplicGeyce+" ["+deEnProceso.getCodiOrigen()+"] -- ["+deEnProceso.getCodiGeyce()+"]");
 					Vector<Incidencia> vInTmp = convertirEmpresa (deEnProceso, this);
 					if (vInTmp != null) vIncidencias.addAll(vInTmp);
 				}
