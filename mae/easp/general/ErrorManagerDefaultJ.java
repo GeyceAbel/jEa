@@ -1,8 +1,9 @@
 package mae.easp.general;
 import geyce.maefc.*;
+
 import java.util.Enumeration;
 
-public class ErrorManagerDefaultJ implements ErrorManager{
+public class ErrorManagerDefaultJ implements ErrorManager  {
 	public boolean saltarErrores;
 
 	public static void showError(String contexto) {
@@ -27,9 +28,9 @@ public class ErrorManagerDefaultJ implements ErrorManager{
 		Aplication.getAplication().getErrorManager().error(param);
 	}
 
-	public void error(ErrorParam param){
+	public void error(ErrorParam param) {
 		try   {
-			if (!saltarErrores && SystemView.isGui()){
+			if (!saltarErrores && SystemView.isGui()) {
 				mae.easp.prerrgestio.ProgPrerrgestio pge = new 	mae.easp.prerrgestio.ProgPrerrgestio();
 				pge.setModal(true);
 				LocationWindow loc=new LocationWindow();
@@ -87,6 +88,7 @@ public class ErrorManagerDefaultJ implements ErrorManager{
 				if (ex != null){
 					ex.printStackTrace(System.err);
 				}
+				throw ex;
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();

@@ -5,7 +5,9 @@ import java.util.Vector;
 import mae.easp.general.Easp;
 import mae.general.ProgressBarForm;
 import mae.modasp.general.Modasp;
+import geyce.maefc.Aplication;
 import geyce.maefc.DBConnection;
+import geyce.maefc.ErrorManager;
 import geyce.maefc.Insert;
 import geyce.maefc.Program;
 
@@ -28,7 +30,12 @@ public abstract class Conversion {
 	protected Program pr;
 	protected APLICACION_ORIGEN aplicOrigen;
 	protected APLICACION_GEYCE aplicGeyce;
+	private DadesEmpresa deEnProceso;
+	protected int ejercicioEnProceso;
+	protected ErrorManagerConvers emc;
 
+	private ErrorManager emInicial;
+	
 	public Conversion (Program pr, int desdeEmp, int hastaEmp, int desdeEjer, int hastaEjer, int idConversion, DBConnection connEA) {
 		this.pr = pr;
 		this.desdeEmp = desdeEmp;
@@ -37,6 +44,7 @@ public abstract class Conversion {
 		this.hastaEjer = hastaEjer;
 		this.connEA= connEA;
 		this.idConversion = idConversion;
+		this.ejercicioEnProceso = 0;
 		sError = null;
 		vDadesEmpresa = new Vector<DadesEmpresa>();
 		vIncidencias = new Vector<Incidencia>();
@@ -52,7 +60,15 @@ public abstract class Conversion {
 	public boolean hayError() {
 		return sError != null;
 	}
-
+	
+	public DadesEmpresa getDEActual() {
+		return deEnProceso;
+	}
+	
+	public int getEjercicioEnCurso () {
+		return ejercicioEnProceso;
+	}
+	
 	public boolean convertir () {
 		ProgressBarForm pbf=new ProgressBarForm(pr,"Conversión "+aplicOrigen.toString()+" - "+aplicGeyce.toString()+" ...",true,true,true) {
 			public void job() {
@@ -60,8 +76,8 @@ public abstract class Conversion {
 				setSecondaryPercent(0);
 				for (int i=0; i<vDadesEmpresa.size();i++) {
 					setPercent(i*100/vDadesEmpresa.size());
-					DadesEmpresa de = vDadesEmpresa.elementAt(i);
-					Vector<Incidencia> vInTmp = convertirEmpresa (de, this);
+					deEnProceso = vDadesEmpresa.elementAt(i);
+					Vector<Incidencia> vInTmp = convertirEmpresa (deEnProceso, this);
 					if (vInTmp != null) vIncidencias.addAll(vInTmp);
 				}
 				if (vIncidencias != null && vIncidencias.size()>0) procesarIncidencias ();
@@ -84,10 +100,14 @@ public abstract class Conversion {
 
 	protected void finConver() {
 		if (connModasp != null) connModasp.disconnect();		
+		Aplication.getAplication().setErrorManager(emInicial);
 	}
 
 	protected void iniConver() {		
 		connModasp = Modasp.getConnModasp();
+		emInicial = Aplication.getAplication().getErrorManager();
+		emc = new ErrorManagerConvers(this);
+		Aplication.getAplication().setErrorManager(emc);
 	}
 
 	private void procesarIncidencias() {
@@ -113,5 +133,7 @@ public abstract class Conversion {
 	public abstract Vector<DadesEmpresa> initEmpreses ();
 	public abstract APLICACION_ORIGEN getAplicOrigen();
 	public abstract APLICACION_GEYCE getAplicGeyce();
+
+
 
 }

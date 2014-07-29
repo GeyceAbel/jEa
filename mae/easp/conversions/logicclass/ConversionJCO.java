@@ -3285,17 +3285,18 @@ public class ConversionJCO extends ConversionLC {
 
 	@Override
 	protected Vector<Incidencia> convertirEmpresa(DadesEmpresa de, ProgressBarForm pbf) {
-		this.pbf = pbf;
-		boolean bOk = true;
+		Vector<Incidencia> vIncidencias = new Vector<Incidencia>();
 		int empLC = de.getCodiOrigen();
 		int empJC = de.getCodiGeyce();
+		this.pbf = pbf;
+		boolean bOk = true;
 		java.util.Vector <Integer> vEjers = getEjerciciosEmpresa(empLC);
 		String sNifEmpresa = de.getNif();
-		Vector<Incidencia> vIncidencias = new Vector<Incidencia>();
 		for (int i=0;bOk && i<vEjers.size();i++) {
 			sError = "";
 			int ejerLogic = vEjers.elementAt(i).intValue();
-			int ejerJconta = vEjers.elementAt(i).intValue();   
+			int ejerJconta = vEjers.elementAt(i).intValue();
+			super.ejercicioEnProceso = ejerJconta;
 			pbf.setState("Convirtiendo LC: "+empLC+"  JC:"+empJC+" ("+ejerJconta+")");
 			int mesInicio = 1;
 			int ejerInicio = ejerLogic;
@@ -3312,14 +3313,14 @@ public class ConversionJCO extends ConversionLC {
 			sPer.execute("Select * from Periodos where codigoempresa="+empLC+" and ejercicio="+ejerLogic+" and numeroperiodo=98");
 			if (sPer.next()) fechaCierre = sPer.getDate("fechainicio");
 			sPer.close();
-			if (bOk) bOk = initConver(empLC,ejerLogic,empJC,ejerJconta,mesInicio,sNifEmpresa);
-			if (bOk) bOk = initDatos(empLC,ejerLogic,empJC,ejerJconta);
-			if (bOk) bOk = importarPC (empLC,ejerLogic,empJC,ejerJconta);
-			if (bOk) bOk = importarInmov (empLC,ejerLogic,empJC,ejerJconta);
-			if (bOk) bOk = importarAsientos (empLC,ejerLogic,empJC,ejerJconta,fechaCierre,mesInicio);
-			if (bOk) bOk = altaModelo303 (sNifEmpresa,empLC,empJC,ejerLogic);
-			if (bOk) bOk = altaModelo349 (sNifEmpresa,empLC,empJC,ejerLogic);
-			if (bOk) bOk = altaModelo115 (sNifEmpresa,empLC,empJC,ejerLogic);
+			if (bOk) bOk = initConver(empLC,ejerLogic,empJC,ejerJconta,mesInicio,sNifEmpresa) && emc.getDescripcionError()==null;			
+			if (bOk) bOk = initDatos(empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
+			if (bOk) bOk = importarPC (empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
+			if (bOk) bOk = importarInmov (empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
+			if (bOk) bOk = importarAsientos (empLC,ejerLogic,empJC,ejerJconta,fechaCierre,mesInicio) && emc.getDescripcionError()==null;
+			if (bOk) bOk = altaModelo303 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
+			if (bOk) bOk = altaModelo349 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
+			if (bOk) bOk = altaModelo115 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
 			if (bOk) {
 				pbf.setSecondaryPercent(0);
 				pbf.setState("Convirtiendo LC: "+empLC+"  JC:"+empJC+" ("+ejerJconta+")  -  Finalizando");
@@ -3342,7 +3343,7 @@ public class ConversionJCO extends ConversionLC {
 				if (dbJCta != null) dbJCta.rollback();
 				connEA.rollback();
 				connModasp.rollback();
-				vIncidencias.addElement(new Incidencia (empLC,empJC,ejerJconta,sError,APLICACION_GEYCE.JCONTA,de.getNif(),de.getRazonSocial(),idConversion));
+				if (sError!=null && sError.length()>0) vIncidencias.addElement(new Incidencia (empLC,empJC,ejerJconta,sError,APLICACION_GEYCE.JCONTA,de.getNif(),de.getRazonSocial(),idConversion));
 			}
 			if (dbJCta != null) dbJCta.disconnect();   
 		}
