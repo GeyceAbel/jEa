@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140708
-// Hora:             10:57:40
+// Fecha:            20140729
+// Hora:             10:25:30
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -103,6 +103,9 @@ public class ProgCnvlogicclass extends Program
         chjges.setValue(scodcnvotraplc.ccotraspjges);
         chjnom.setValue(scodcnvotraplc.ccotraspjnom);
         vcodigos.idConver = scodcnvotraplc.ccocodi.getInteger();
+        chestimaciones.setValue(scodcnvotraplc.ccoestimacion);
+        chmercantil.setValue(scodcnvotraplc.ccomercantil);
+        chmodelos.setValue(scodcnvotraplc.ccomodelos);
       }
       else {
         vvempini.setValue(1);
@@ -126,6 +129,10 @@ public class ProgCnvlogicclass extends Program
       chsql.setEnabled(chjco.getBoolean());
       chproy.setEnabled(chjco.getBoolean());
       vvdpto.setEnabled(chjnom.getBoolean());
+      // Parametros jEO
+      chestimaciones.setEnabled(chjeo.getBoolean()); 
+      chmercantil.setEnabled(chjeo.getBoolean()); 
+      chmodelos.setEnabled(chjeo.getBoolean()); 
     }
     // Fin declaraciones globales
     // Controles
@@ -140,6 +147,9 @@ public class ProgCnvlogicclass extends Program
     public CtrlVvpasswd vvpasswd;
     public CtrlVvctas vvctas;
     public CtrlVvnumalfa vvnumalfa;
+    public CtrlChestimaciones chestimaciones;
+    public CtrlChmercantil chmercantil;
+    public CtrlChmodelos chmodelos;
     public CtrlVvdesdedec vvdesdedec;
     public CtrlVvhastadec vvhastadec;
     public CtrlVrensimul vrensimul;
@@ -543,6 +553,51 @@ public class ProgCnvlogicclass extends Program
         }
       }
       
+    public class CtrlChestimaciones extends ControlCheck
+      {
+      public CtrlChestimaciones(Form form)
+        {
+        super(form);
+        setName("chestimaciones");
+        setMessageHelp("Traspasar las empresas que son de Estimaciones");
+        setTitle("Estimaciones");
+        }
+      public Object getDefault()
+        {
+        return true;
+        }
+      }
+      
+    public class CtrlChmercantil extends ControlCheck
+      {
+      public CtrlChmercantil(Form form)
+        {
+        super(form);
+        setName("chmercantil");
+        setMessageHelp("Traspasar las empresas que son Sociedades mercantiles");
+        setTitle("Sociedad mercantil");
+        }
+      public Object getDefault()
+        {
+        return false;
+        }
+      }
+      
+    public class CtrlChmodelos extends ControlCheck
+      {
+      public CtrlChmodelos(Form form)
+        {
+        super(form);
+        setName("chmodelos");
+        setMessageHelp("Traspasar sólo las declaraciones");
+        setTitle("Sólo modelos");
+        }
+      public Object getDefault()
+        {
+        return false;
+        }
+      }
+      
     public class CtrlVvdesdedec extends ControlEdit
       {
       public CtrlVvdesdedec(Form form)
@@ -830,6 +885,9 @@ public class ProgCnvlogicclass extends Program
         scodcnvotraplc.ccotraspjnom.setValue(chjnom);
         scodcnvotraplc.ccofecha.setValue(Maefc.getDate());
         scodcnvotraplc.ccousuario.setValue(Easp.usuario);
+        scodcnvotraplc.ccoestimacion.setValue(chestimaciones);
+        scodcnvotraplc.ccomercantil.setValue(chmercantil);
+        scodcnvotraplc.ccomodelos.setValue(chmodelos);
         
         boolean bOk = true;
         String sError = null;
@@ -865,7 +923,8 @@ public class ProgCnvlogicclass extends Program
             if (bOk && chjeo.getBoolean()) {
               clcjeo = new mae.easp.conversions.logicclass.ConversionJEO (cnvlogicclass,codiCab,vvempini.getInteger(),vvempfin.getInteger(),vvejeini.getInteger(),vvejefin.getInteger(),
                                                                                                                      vvservidor.getString(), vvinstancia.getString(), vvnombrebd.getString(),vvuser.getString(),
-                                                                                                                     vvpasswd.getString(), getDataBase());
+                                                                                                                     vvpasswd.getString(), getDataBase(),chestimaciones.getBoolean(),
+                                                                                                                     chmercantil.getBoolean(),chmodelos.getBoolean());
               if (clcjeo.hayError()) {
                 bOk = false;
                 sError = clcjeo.getError();
@@ -1003,6 +1062,9 @@ public class ProgCnvlogicclass extends Program
       addControl(vvpasswd=new CtrlVvpasswd(this));
       addControl(vvctas=new CtrlVvctas(this));
       addControl(vvnumalfa=new CtrlVvnumalfa(this));
+      addControl(chestimaciones=new CtrlChestimaciones(this));
+      addControl(chmercantil=new CtrlChmercantil(this));
+      addControl(chmodelos=new CtrlChmodelos(this));
       addControl(vvdesdedec=new CtrlVvdesdedec(this));
       addControl(vvhastadec=new CtrlVvhastadec(this));
       addControl(vrensimul=new CtrlVrensimul(this));
@@ -1033,6 +1095,7 @@ public class ProgCnvlogicclass extends Program
     public Field ccoejeini;
     public Field ccoempfin;
     public Field ccoempini;
+    public Field ccoestimacion;
     public Field ccofecha;
     public Field ccohistorico;
     public Field ccoinstancia;
@@ -1040,6 +1103,8 @@ public class ProgCnvlogicclass extends Program
     public Field ccojcoctamayor;
     public Field ccojcosql;
     public Field ccojcotipocta;
+    public Field ccomercantil;
+    public Field ccomodelos;
     public Field ccopwdbd;
     public Field ccoservidor;
     public Field ccotraspjco;
@@ -1071,6 +1136,7 @@ public class ProgCnvlogicclass extends Program
       addField(ccoejeini=new Field(this,codcnvotraplc,"ccoejeini"));
       addField(ccoempfin=new Field(this,codcnvotraplc,"ccoempfin"));
       addField(ccoempini=new Field(this,codcnvotraplc,"ccoempini"));
+      addField(ccoestimacion=new Field(this,codcnvotraplc,"ccoestimacion"));
       addField(ccofecha=new Field(this,codcnvotraplc,"ccofecha"));
       addField(ccohistorico=new Field(this,codcnvotraplc,"ccohistorico"));
       addField(ccoinstancia=new Field(this,codcnvotraplc,"ccoinstancia"));
@@ -1078,6 +1144,8 @@ public class ProgCnvlogicclass extends Program
       addField(ccojcoctamayor=new Field(this,codcnvotraplc,"ccojcoctamayor"));
       addField(ccojcosql=new Field(this,codcnvotraplc,"ccojcosql"));
       addField(ccojcotipocta=new Field(this,codcnvotraplc,"ccojcotipocta"));
+      addField(ccomercantil=new Field(this,codcnvotraplc,"ccomercantil"));
+      addField(ccomodelos=new Field(this,codcnvotraplc,"ccomodelos"));
       addField(ccopwdbd=new Field(this,codcnvotraplc,"ccopwdbd"));
       addField(ccoservidor=new Field(this,codcnvotraplc,"ccoservidor"));
       addField(ccotraspjco=new Field(this,codcnvotraplc,"ccotraspjco"));
@@ -1276,7 +1344,7 @@ public class ProgCnvlogicclass extends Program
       public void onAction()
         {
         if (mae.easp.conversions.Incidencia.eliminarIncidencias (idConver,getDataBase())) {
-          ((mae.easp.general.ErrorManagerDefaultJ)Aplication.getAplication().getErrorManager()).saltarErrores = true;
+          //((mae.easp.general.ErrorManagerDefaultJ)Aplication.getAplication().getErrorManager()).saltarErrores = true;
           boolean hayIncidencias = false;
           if (vconversion.chjco.getBoolean()  && clcjco.convertir () ) hayIncidencias = true;
           if (vconversion.chjeo.getBoolean()  && clcjeo.convertir () ) hayIncidencias = true;
@@ -1289,7 +1357,7 @@ public class ProgCnvlogicclass extends Program
           u.execute("ccocodi="+idConver);
           getDataBase().commit();
           disableIniConver ();
-          ((mae.easp.general.ErrorManagerDefaultJ)Aplication.getAplication().getErrorManager()).saltarErrores = false;
+          //((mae.easp.general.ErrorManagerDefaultJ)Aplication.getAplication().getErrorManager()).saltarErrores = false;
           if (hayIncidencias) {
             Maefc.message ("Se han producido incidencias en el proceso de conversión.\n\nA continuación se abrirá la gestión de incidencias para poder gestionarlas.","¡Atención!",Maefc.WARNING_MESSAGE);
             vincidencias.idConversion = idConver;
