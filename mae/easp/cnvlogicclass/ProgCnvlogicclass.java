@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140729
-// Hora:             11:47:40
+// Fecha:            20140730
+// Hora:             09:27:15
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -106,6 +106,9 @@ public class ProgCnvlogicclass extends Program
         chestimaciones.setValue(scodcnvotraplc.ccoestimacion);
         chmercantil.setValue(scodcnvotraplc.ccomercantil);
         chmodelos.setValue(scodcnvotraplc.ccomodelos);
+        vvdesdedec.setValue(scodcnvotraplc.ccodecdesde);
+        vvhastadec.setValue(scodcnvotraplc.ccodechasta);
+        vrensimul.setValue(scodcnvotraplc.ccodecsimul); 
       }
       else {
         vvempini.setValue(1);
@@ -888,6 +891,10 @@ public class ProgCnvlogicclass extends Program
         scodcnvotraplc.ccoestimacion.setValue(chestimaciones);
         scodcnvotraplc.ccomercantil.setValue(chmercantil);
         scodcnvotraplc.ccomodelos.setValue(chmodelos);
+        scodcnvotraplc.ccodecdesde.setValue(vvdesdedec);
+        scodcnvotraplc.ccodechasta.setValue(vvhastadec);
+        scodcnvotraplc.ccodecsimul.setValue(vrensimul);
+        
         
         boolean bOk = true;
         String sError = null;
@@ -1115,6 +1122,9 @@ public class ProgCnvlogicclass extends Program
     public Field ccotraspjsoc;
     public Field ccouserbd;
     public Field ccousuario;
+    public Field ccodecdesde;
+    public Field ccodechasta;
+    public Field ccodecsimul;
     class Codcnvotraplc extends Table
       {
       public Codcnvotraplc(Select select)
@@ -1156,6 +1166,9 @@ public class ProgCnvlogicclass extends Program
       addField(ccotraspjsoc=new Field(this,codcnvotraplc,"ccotraspjsoc"));
       addField(ccouserbd=new Field(this,codcnvotraplc,"ccouserbd"));
       addField(ccousuario=new Field(this,codcnvotraplc,"ccousuario"));
+      addField(ccodecdesde=new Field(this,codcnvotraplc,"ccodecdesde"));
+      addField(ccodechasta=new Field(this,codcnvotraplc,"ccodechasta"));
+      addField(ccodecsimul=new Field(this,codcnvotraplc,"ccodecsimul"));
       }
     }
     
