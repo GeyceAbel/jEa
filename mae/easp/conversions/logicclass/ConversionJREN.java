@@ -52,6 +52,7 @@ public class ConversionJREN extends ConversionLC {
 			boolean bOk = true;
 			prJren.desdeJrenta=false;
 			prJren.progEjer = ejerRen;
+			super.ejercicioEnProceso = ejerRen;
 			prJren.ntotal   = nrototdec;
 			prJren.codigo   = de.getCodiOrigenStr();  //codi Dec
 			prJren.codiCdpGeyce=de.getCodiGeyce();    //codi CDP
@@ -60,6 +61,7 @@ public class ConversionJREN extends ConversionLC {
 			prJren.idConversion=idConversion;
 System.out.println("-- getCodiOrigenStr/codigo=["+de.getCodiOrigenStr()+"]  getCodiGeyce/CPD=["+de.getCodiGeyce()+"]"+" codi origen LG=["+de.getCodiOrigen()+"] codi desti Gyc=["+de.getCodiGeyce()+"] "+de.getRazonSocial()+" ["+ejerRen+"]");
 			bOk=prJren.auxcnvlogic2.vejecutar.importarDatos();
+			
 			if (bOk){
 				prJren.connJRENTA.commit();
 				prJren.connEA.commit();
