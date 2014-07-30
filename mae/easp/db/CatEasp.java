@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140729
-// Hora:             12:10:09
+// Fecha:            20140730
+// Hora:             08:59:33
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -3653,6 +3653,9 @@ public class CatEasp extends Catalog
     public FieldDef ccoestimacion;
     public FieldDef ccomercantil;
     public FieldDef ccomodelos;
+    public FieldDef ccodecdesde;
+    public FieldDef ccodechasta;
+    public FieldDef ccodecsimul;
     public TabCodcnvotraplc(String name)
       {
       super(name);
@@ -3683,6 +3686,9 @@ public class CatEasp extends Catalog
       ccoestimacion = new FieldDef("ccoestimacion",FieldDef.CHAR,1);
       ccomercantil = new FieldDef("ccomercantil",FieldDef.CHAR,1);
       ccomodelos = new FieldDef("ccomodelos",FieldDef.CHAR,1);
+      ccodecdesde = new FieldDef("ccodecdesde",FieldDef.CHAR,15);
+      ccodechasta = new FieldDef("ccodechasta",FieldDef.CHAR,15);
+      ccodecsimul = new FieldDef("ccodecsimul",FieldDef.CHAR,1);
       FieldDef array[] = {
         ccocodi,
         ccoaplic,
@@ -3710,12 +3716,18 @@ public class CatEasp extends Catalog
         ccojcosql,
         ccoestimacion,
         ccomercantil,
-        ccomodelos        
+        ccomodelos,
+        ccodecdesde,
+        ccodechasta,
+        ccodecsimul        
         };
       setColumns(array);
       FieldDef arrayf[] = {ccocodi };
       setPrimaryKeys(arrayf);
       ccocodi.setAutoIncrementable(true);
+      ccodecdesde.setDescription("Desde declarante");
+      ccodechasta.setDescription("Hasta declarante");
+      ccodecsimul.setDescription("Simulacion");
       }
     }
     
