@@ -57,6 +57,7 @@ public class ConversionJEO extends ConversionLC {
      prJeo.vejecutar.chestimaciones .setValue(chestimaciones);
      prJeo.vejecutar.chmercantil .setValue(chmercantil);
      prJeo.vejecutar.chmodelos .setValue(chmodelos);
+     prJeo.vejecutar.idConversion = idConversion;
      //prJeo.vejecutar.altaRegConversion (de.getCodiOrigen(),de.getRazonSocial(), de.getNif(), de.getCodiGeyce());
      prJeo.vejecutar.pbf = pbf;
      if (prJeo.vejecutar.traspasoEA (empLC, empJC)) {
