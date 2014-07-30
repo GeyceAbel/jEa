@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20140730
-// Hora:             09:27:15
+// Hora:             09:54:33
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -136,6 +136,10 @@ public class ProgCnvlogicclass extends Program
       chestimaciones.setEnabled(chjeo.getBoolean()); 
       chmercantil.setEnabled(chjeo.getBoolean()); 
       chmodelos.setEnabled(chjeo.getBoolean()); 
+      // jRenta
+      vvdesdedec.setEnabled(chjre.getBoolean());
+      vvhastadec.setEnabled(chjre.getBoolean());
+      vrensimul.setEnabled(chjre.getBoolean()); 
     }
     // Fin declaraciones globales
     // Controles
@@ -1098,6 +1102,9 @@ public class ProgCnvlogicclass extends Program
     public Field ccoaplic;
     public Field ccobbdd;
     public Field ccocodi;
+    public Field ccodecdesde;
+    public Field ccodechasta;
+    public Field ccodecsimul;
     public Field ccoejefin;
     public Field ccoejeini;
     public Field ccoempfin;
@@ -1122,9 +1129,6 @@ public class ProgCnvlogicclass extends Program
     public Field ccotraspjsoc;
     public Field ccouserbd;
     public Field ccousuario;
-    public Field ccodecdesde;
-    public Field ccodechasta;
-    public Field ccodecsimul;
     class Codcnvotraplc extends Table
       {
       public Codcnvotraplc(Select select)
@@ -1142,6 +1146,9 @@ public class ProgCnvlogicclass extends Program
       addField(ccoaplic=new Field(this,codcnvotraplc,"ccoaplic"));
       addField(ccobbdd=new Field(this,codcnvotraplc,"ccobbdd"));
       addField(ccocodi=new Field(this,codcnvotraplc,"ccocodi"));
+      addField(ccodecdesde=new Field(this,codcnvotraplc,"ccodecdesde"));
+      addField(ccodechasta=new Field(this,codcnvotraplc,"ccodechasta"));
+      addField(ccodecsimul=new Field(this,codcnvotraplc,"ccodecsimul"));
       addField(ccoejefin=new Field(this,codcnvotraplc,"ccoejefin"));
       addField(ccoejeini=new Field(this,codcnvotraplc,"ccoejeini"));
       addField(ccoempfin=new Field(this,codcnvotraplc,"ccoempfin"));
@@ -1166,9 +1173,6 @@ public class ProgCnvlogicclass extends Program
       addField(ccotraspjsoc=new Field(this,codcnvotraplc,"ccotraspjsoc"));
       addField(ccouserbd=new Field(this,codcnvotraplc,"ccouserbd"));
       addField(ccousuario=new Field(this,codcnvotraplc,"ccousuario"));
-      addField(ccodecdesde=new Field(this,codcnvotraplc,"ccodecdesde"));
-      addField(ccodechasta=new Field(this,codcnvotraplc,"ccodechasta"));
-      addField(ccodecsimul=new Field(this,codcnvotraplc,"ccodecsimul"));
       }
     }
     
