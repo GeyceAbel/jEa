@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20140730
-// Hora:             09:54:33
+// Hora:             14:57:45
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1380,7 +1380,7 @@ public class ProgCnvlogicclass extends Program
             vincidencias.idConversion = idConver;
             vincidencias.open();
           }
-          else Maefc.message ("El proceso de conversión a finalizado correctamente.","Conversión",Maefc.INFORMATION_MESSAGE);
+          else Maefc.message ("El proceso de conversión ha finalizado correctamente.","Conversión",Maefc.INFORMATION_MESSAGE);
         }
         
         
