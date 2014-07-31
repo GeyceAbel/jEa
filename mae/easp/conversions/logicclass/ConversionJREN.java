@@ -78,9 +78,10 @@ public class ConversionJREN extends ConversionLC {
 	@Override
 	public Vector<DadesEmpresa> initEmpreses() {
 		boolean bOk = true;
+		int darrerEjer=leeMenuRenta();
 		String orden =" order by Ejercicio,RENCodigo, IOF_Simulacion";
 		String where ="Complementaria=0 and Ejercicio>="+desdeEjer+" and Ejercicio<="+hastaEjer;
-		where+= " and Ejercicio>=2010 ";
+		where+= " and Ejercicio>=2010 and Ejercicio<="+darrerEjer;
 		if (desdeDec != null && desdeDec.length()>0)  where += " and RENCodigo >='"+desdeDec+"'";
 		if (hastaDec != null && hastaDec.length()>0)  where += " and RENCodigo <='"+hastaDec+"'";
 		if ("N".equals(simulaciones)) where += " and IOF_Simulacion=0";
@@ -203,6 +204,14 @@ public class ConversionJREN extends ConversionLC {
 			Aplication.getAplication().setErrorManager(actual);
 			return null;
 		}
+	}
+	public Integer leeMenuRenta(){
+		int any=0;		        
+        Selector s1 = new Selector (prJren.connJRENTA);    
+        s1.execute("Select MAX(mdeejeraplic) as cont from MENURENTA where mdenumero='C'");     
+        if (s1.next()) any=s1.getint("cont");
+        s1.close();
+	    return any;	
 	}
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++
