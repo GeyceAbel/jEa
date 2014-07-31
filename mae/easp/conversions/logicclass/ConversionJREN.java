@@ -59,7 +59,7 @@ public class ConversionJREN extends ConversionLC {
 			prJren.dominiEA=dominio;
 			prJren.userEA=Easp.usuario;
 			prJren.idConversion=idConversion;
-System.out.println("-- getCodiOrigenStr/codigo=["+de.getCodiOrigenStr()+"]  getCodiGeyce/CPD=["+de.getCodiGeyce()+"]"+" codi origen LG=["+de.getCodiOrigen()+"] codi desti Gyc=["+de.getCodiGeyce()+"] "+de.getRazonSocial()+" ["+ejerRen+"]");
+           // System.out.println("ConversionJREN -- getCodiOrigenStr/codigo=["+de.getCodiOrigenStr()+"]  getCodiGeyce/CPD=["+de.getCodiGeyce()+"] "+de.getRazonSocial()+" ["+ejerRen+"]");
 			bOk=prJren.auxcnvlogic2.vejecutar.importarDatos();
 			
 			if (bOk){
@@ -104,26 +104,9 @@ System.out.println("-- getCodiOrigenStr/codigo=["+de.getCodiOrigenStr()+"]  getC
 					if ((PrimerApellido!=null && PrimerApellido.trim().length()>0)) razon += PrimerApellido+" ";
 					if ((SegundoApellido!=null && SegundoApellido.trim().length()>0)) razon += SegundoApellido;
 					razon = razon.trim();
-				}
-				/*
-				nrototdec++;
-				String id=sDeclarantes.getString("RENGuidDeclarante");
-				boolean existeConjuge=false;
-
-				SelectorLogic sC = new SelectorLogic(connLC);
-	 		    sC.execute("Select * from REN_Conyuges where RENGuidDeclarante='"+id+"' order by RENGuidDeclarante");
-	 		    if (sC.next()){
-	 		    	String nifc=sC.getString("NifDeclarado");
-	 		    	String ap1c=sC.getString("PrimerApellidoEmpleado");
-	 		    	String ap2c=sC.getString("SegundoApellidoEmpleado");
-	 		    	String nomc=sC.getString("NombreEmpleado");
-	 		    	if (nifc!=null && ap1c!=null && nomc!=null) existeConjuge=true;
-	 		    }
-	 		    sC.close();
-				*/
-	System.out.println(""+ejer+" nif= ["+nif+"] codigo-RENCodigo= ["+codigo+" ] razon="+razon+" ");
-		  	  vDadesEmpresa.addElement (new DadesEmpresa(codigo,nif,razon,getAplicGeyce()));
-			//vDadesEmpresa.addElement (new DadesEmpresa(codigo,nif,razon,getAplicGeyce(),ejercicio,nsimulacio,existeConjuge));
+				}			
+	       // System.out.println("ConversionJREN "+ejer+" nif= ["+nif+"] codigo-RENCodigo= ["+codigo+" ] razon="+razon+" ");
+		  	  vDadesEmpresa.addElement (new DadesEmpresa(codigo,nif,razon,getAplicGeyce()));			
 			}
 			sDeclarantes.close();
 		}
