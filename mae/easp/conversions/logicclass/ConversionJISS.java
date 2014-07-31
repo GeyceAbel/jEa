@@ -37,7 +37,6 @@ public class ConversionJISS extends ConversionLC {
 	}
 
 	protected Vector<Incidencia> convertirEmpresa(DadesEmpresa de, ProgressBarForm pbf) {
-     boolean bOk = true;
      int empLC = de.getCodiOrigen();
      int empJC = de.getCodiGeyce();
      String sNifEmpresa = de.getNif();
@@ -52,13 +51,20 @@ public class ConversionJISS extends ConversionLC {
      prJiss.vejecutar.vvhastacodigo .setValue(de.getCodiOrigen());
      mae.jiss.AppJiss.ggempresa = empJC;
      int anyMinim = desdeEjer;
-     if (desdeEjer<2009) desdeEjer = 2009;
-     for (int exercici=desdeEjer;exercici<=hastaEjer;exercici++) {
+     if (desdeEjer<2009) anyMinim = 2009;
+     int anyMaxim = hastaEjer;
+     Selector s = new Selector (dbJISS);
+     s.execute("Select max(msoejeraplic) as ejer from MENUSOCIEDAD");
+     if (s.next() && s.getint("ejer")<anyMaxim)  anyMaxim = s.getint("ejer");
+     s.close();
+     for (int exercici=anyMinim;exercici<=anyMaxim;exercici++) {
+          pbf.setState ("Conversión ejercicio "+exercici+" ["+empLC+"] -- ["+empJC+"]");
           prJiss.vejecutar.pbf = pbf;
           mae.jiss.general.Jiss.gEjercicio = exercici;
           montarArbol(exercici);
-          prJiss.vejecutar.vvejercicio.setValue(exercici);
-          if (prJiss.vejecutar.traspasoEA (empLC, empJC)) {
+          prJiss.vejecutar.vvejercicio.setValue(exercici);     
+          boolean bOk = prJiss.vejecutar.traspasoEA (empLC, empJC);
+          if (bOk) {
               mae.jiss.general.Jiss.connJISS.commit();
               mae.jiss.general.Jiss.connEA.commit();
               mae.jiss.general.Jiss.connModasp.commit();

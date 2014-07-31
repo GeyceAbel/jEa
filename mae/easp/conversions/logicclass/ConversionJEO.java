@@ -42,7 +42,6 @@ public class ConversionJEO extends ConversionLC {
 
 	protected Vector<Incidencia> convertirEmpresa(DadesEmpresa de, ProgressBarForm pbf) {
 
-     boolean bOk = true;
      int empLC = de.getCodiOrigen();
      int empJC = de.getCodiGeyce();
      String sNifEmpresa = de.getNif();
@@ -60,7 +59,8 @@ public class ConversionJEO extends ConversionLC {
      prJeo.vejecutar.idConversion = idConversion;
      //prJeo.vejecutar.altaRegConversion (de.getCodiOrigen(),de.getRazonSocial(), de.getNif(), de.getCodiGeyce());
      prJeo.vejecutar.pbf = pbf;
-     if (prJeo.vejecutar.traspasoEA (empLC, empJC)) {
+     boolean bOK = prJeo.vejecutar.traspasoEA (empLC, empJC);
+     if (bOK) {
         mae.jeo.general.Jeo.connJEO.commit();
         mae.jeo.general.Jeo.connEA.commit();
         mae.jeo.general.Jeo.connModasp.commit();
