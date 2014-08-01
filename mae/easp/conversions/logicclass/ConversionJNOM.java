@@ -54,6 +54,7 @@ public class ConversionJNOM extends ConversionLC {
 		String sNifEmpresa = de.getNif();	
 		prNom.pbf =pbf;
 		mae.laboral.general.importasql.logicclass.Empresa con = new mae.laboral.general.importasql.logicclass.Empresa();
+		con.setErrorManager(emc);
         con.run(prNom,empLC,empJN);
         updateTableConversion(empLC, empJN);
         prNom.getDataBase().commit();
@@ -106,8 +107,9 @@ public class ConversionJNOM extends ConversionLC {
 	protected void initPrograma() {
 	  try {
       //pr.setConnection(dbJnom);
+		
 		prNom.setConnection(servidor, nombreBD, user, passwd, instancia);
-		prNom.iniLog();
+		//prNom.iniLog();
 		/*
 		pr.santiguedad.setDb(dbJnom);
 		pr.scambioconv.setDb(dbJnom);
@@ -234,5 +236,6 @@ public class ConversionJNOM extends ConversionLC {
 		//prNom.sseleccion.getDataBase().commit();
 	  }
 	}
+
 	
 }

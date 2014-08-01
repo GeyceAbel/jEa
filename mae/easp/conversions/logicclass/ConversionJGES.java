@@ -111,7 +111,7 @@ public class ConversionJGES extends ConversionLC {
 	public void initPrograma() {
 	  try {
 		prGes.setConnection(servidor, nombreBD, user, passwd, instancia);
-		prGes.iniLog();		
+		//prGes.iniLog();		
 		prGes.vconvers.vvdesdehisto	.setValue(desdeEjer);
 		prGes.vconvers.vvnombd		.setValue(nombreBD);
 		prGes.snifes.setDb(dbJges);		
@@ -131,6 +131,7 @@ public class ConversionJGES extends ConversionLC {
 		  prGes.sparametros.parvalor       .setValue(servidor+"^"+ nombreBD+((instancia == null || instancia.equals(""))?"":"^"+instancia));
 	      prGes.sparametros.insert();
 		}
+		prGes.sconversion.execute();
 		prGes.cargaDespachos();
 		prGes.getDataBase().commit();
 	  }
@@ -140,4 +141,5 @@ public class ConversionJGES extends ConversionLC {
 	  }
 
 	}
+
 }
