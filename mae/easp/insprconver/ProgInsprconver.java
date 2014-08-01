@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140724
-// Hora:             11:34:08
+// Fecha:            20140801
+// Hora:             14:13:56
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1304,6 +1304,69 @@ public class ProgInsprconver extends Program
         "  PRIMARY KEY (jepidepi));         "};
     
       String sentencias12_2[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2014"};
+    
+      String sentencias12_3[] = {
+       "CREATE TABLE CODCNVOTRAPLC              "+
+       "(ccocodi             INTEGER NOT NULL,  "+
+       " ccoaplic            VARCHAR(15),       "+
+       " ccofecha            "+formatData()+
+       " ccoservidor         VARCHAR(50),       "+
+       " ccoinstancia        VARCHAR(50),       "+
+       " ccouserbd           VARCHAR(25),       "+
+       " ccopwdbd            VARCHAR(25),       "+
+       " ccobbdd             VARCHAR(50),       "+
+       " ccousuario          VARCHAR(15),       "+
+       " ccohistorico        VARCHAR(1),        "+
+       " ccoempini           INTEGER,           "+
+       " ccoempfin           INTEGER,           "+
+       " ccoejeini           INTEGER,           "+
+       " ccoejefin           INTEGER,           "+
+       " ccotraspjco         VARCHAR(1),        "+
+       " ccotraspjeo         VARCHAR(1),        "+
+       " ccotraspjre         VARCHAR(1),        "+
+       " ccotraspjsoc        VARCHAR(1),        "+
+       " ccotraspjges        VARCHAR(1),        "+
+       " ccotraspjnom        VARCHAR(1),        "+
+       " ccojcotipocta       VARCHAR(1),        "+
+       " ccojcoctamayor      VARCHAR(1),        "+
+       " ccojcocanales       VARCHAR(1),        "+
+       " ccojcosql           VARCHAR(1),        "+
+       " ccoestimacion       VARCHAR(1),        "+
+       " ccomercantil        VARCHAR(1),        "+
+       " ccomodelos          VARCHAR(1),        "+
+       " ccodecdesde         VARCHAR(15),       "+
+       " ccodechasta         VARCHAR(15),       "+
+       " ccodecsimul         VARCHAR(1),        "+
+       " ccodepartamento     VARCHAR(1),        "+
+       " PRIMARY KEY (ccocodi));                ",
+       "CREATE TABLE CODCNVOTRAPLL              "+
+       "(cclcodi          INTEGER NOT NULL,     "+
+       " cclccocodi       INTEGER,              "+
+       " cclsel           VARCHAR(1),           "+
+       " cclcodiorigen    INTEGER,              "+
+       " cclcodiorigens   VARCHAR(15),          "+
+       " cclnombre        VARCHAR(255),         "+
+       " cclnif           VARCHAR(15),          "+
+       " cclcodigeyce     INTEGER,              "+
+       " ccltraspjco      VARCHAR(1),           "+
+       " ccltraspjeo      VARCHAR(1),           "+
+       " ccltraspjre      VARCHAR(1),           "+
+       " ccltraspjsoc     VARCHAR(1),           "+
+       " ccltraspjges     VARCHAR(1),           "+
+       " ccltraspjnom     VARCHAR(1),           "+
+       " PRIMARY KEY (cclcodi));                ",
+       "CREATE TABLE CODCNVINCIDEN              "+
+       "(ccicodi          INTEGER NOT NULL,     "+
+       " cciccocodi       INTEGER,              "+
+       " ccicodiorigen    INTEGER,              "+
+       " ccicodiorigens   VARCHAR(15),          "+
+       " ccicodigeyce     INTEGER,              "+
+       " cciejercicio     INTEGER,              "+
+       " ccinombre        VARCHAR(255),         "+
+       " ccinif           VARCHAR(15),          "+
+       " cciaplic         VARCHAR(15),          "+
+       " ccimsg           VARCHAR(255),         "+
+       " PRIMARY KEY (ccicodi));                "};
     
       int i=0;
       try {
@@ -3008,6 +3071,23 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("12.2");
         }
+        if (versio < 12.3) {
+            for (i=0;i<sentencias12_3.length;++i) {
+                try {
+                  Easp.chivato("12.3 Exec : ["+sentencias12_3[i]+"]",1);
+                  Easp.connEA.executeUpdate(sentencias12_3[i]);
+                }
+                catch(Exception e) {
+                  sqlOperation=sentencias12_3[i];
+                  Easp.chivato("12.3 *** Error : ["+sentencias12_3[i]+"]  Error: ["+e+"]",1);
+                  errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","12.3");
+            Easp.connEA.commit();
+            vvveractual.setValue("12.3");
+    
+        }
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
@@ -3249,6 +3329,19 @@ public class ProgInsprconver extends Program
     {
     this();
     this.easp=easp;
+    }
+  public void onInit()
+    {
+    mae.easp.cnvaviso.ProgCnvaviso pra = new mae.easp.cnvaviso.ProgCnvaviso ();
+    pra.setModal(false);
+    LocationWindow loc=new LocationWindow();
+    loc.setWidth(810);
+    loc.setHeight(520);
+    pra.setLocation(loc);
+    pra.run();
+    if (!pra.haAceptadoCondiciones) {
+      return;
+    }
     }
   }
   

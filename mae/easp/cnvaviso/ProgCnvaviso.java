@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130215
-// Hora:             09:53:40
+// Fecha:            20140801
+// Hora:             14:19:14
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -145,7 +145,6 @@ public class ProgCnvaviso extends Program
     setLocation(loc);
     vaviso.setLayout (new LayoutHtml ("mae/easp/html/cnvaviso.html"));
     super.onInit();
-    
     }
   }
   

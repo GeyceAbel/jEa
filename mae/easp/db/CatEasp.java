@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140730
-// Hora:             10:20:30
+// Fecha:            20140801
+// Hora:             13:48:53
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -3656,6 +3656,7 @@ public class CatEasp extends Catalog
     public FieldDef ccodecdesde;
     public FieldDef ccodechasta;
     public FieldDef ccodecsimul;
+    public FieldDef ccodepartamento;
     public TabCodcnvotraplc(String name)
       {
       super(name);
@@ -3689,6 +3690,7 @@ public class CatEasp extends Catalog
       ccodecdesde = new FieldDef("ccodecdesde",FieldDef.CHAR,15);
       ccodechasta = new FieldDef("ccodechasta",FieldDef.CHAR,15);
       ccodecsimul = new FieldDef("ccodecsimul",FieldDef.CHAR,1);
+      ccodepartamento = new FieldDef("ccodepartamento",FieldDef.CHAR,1);
       FieldDef array[] = {
         ccocodi,
         ccoaplic,
@@ -3719,7 +3721,8 @@ public class CatEasp extends Catalog
         ccomodelos,
         ccodecdesde,
         ccodechasta,
-        ccodecsimul        
+        ccodecsimul,
+        ccodepartamento        
         };
       setColumns(array);
       FieldDef arrayf[] = {ccocodi };

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140730
-// Hora:             14:57:45
+// Fecha:            20140801
+// Hora:             14:24:37
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -109,6 +109,7 @@ public class ProgCnvlogicclass extends Program
         vvdesdedec.setValue(scodcnvotraplc.ccodecdesde);
         vvhastadec.setValue(scodcnvotraplc.ccodechasta);
         vrensimul.setValue(scodcnvotraplc.ccodecsimul); 
+        vvdpto.setValue(scodcnvotraplc.ccodepartamento);
       }
       else {
         vvempini.setValue(1);
@@ -898,7 +899,7 @@ public class ProgCnvlogicclass extends Program
         scodcnvotraplc.ccodecdesde.setValue(vvdesdedec);
         scodcnvotraplc.ccodechasta.setValue(vvhastadec);
         scodcnvotraplc.ccodecsimul.setValue(vrensimul);
-        
+        scodcnvotraplc.ccodepartamento.setValue(vvdpto);
         
         boolean bOk = true;
         String sError = null;
@@ -1105,6 +1106,7 @@ public class ProgCnvlogicclass extends Program
     public Field ccodecdesde;
     public Field ccodechasta;
     public Field ccodecsimul;
+    public Field ccodepartamento;
     public Field ccoejefin;
     public Field ccoejeini;
     public Field ccoempfin;
@@ -1149,6 +1151,7 @@ public class ProgCnvlogicclass extends Program
       addField(ccodecdesde=new Field(this,codcnvotraplc,"ccodecdesde"));
       addField(ccodechasta=new Field(this,codcnvotraplc,"ccodechasta"));
       addField(ccodecsimul=new Field(this,codcnvotraplc,"ccodecsimul"));
+      addField(ccodepartamento=new Field(this,codcnvotraplc,"ccodepartamento"));
       addField(ccoejefin=new Field(this,codcnvotraplc,"ccoejefin"));
       addField(ccoejeini=new Field(this,codcnvotraplc,"ccoejeini"));
       addField(ccoempfin=new Field(this,codcnvotraplc,"ccoempfin"));
@@ -2461,10 +2464,21 @@ public class ProgCnvlogicclass extends Program
     }
   public void onInit()
     {
+    mae.easp.cnvaviso.ProgCnvaviso pra = new mae.easp.cnvaviso.ProgCnvaviso ();
+    pra.setModal(false);
+    LocationWindow loc=new LocationWindow();
+    loc.setWidth(810);
+    loc.setHeight(520);
+    pra.setLocation(loc);
+    pra.run();
+    if (!pra.haAceptadoCondiciones) {
+      return;
+    }
+    
     setConnection(Easp.connEA);
-    //mae.easp.cnvaviso.ProgCnvaviso pra = new mae.easp.cnvaviso.ProgCnvaviso ();
-    //pra.run();
-    //if (!pra.haAceptadoCondiciones) return;
+    /*mae.easp.cnvaviso.ProgCnvaviso pra = new mae.easp.cnvaviso.ProgCnvaviso ();
+    pra.run();
+    if (!pra.haAceptadoCondiciones) return;*/
     vconversion.setLayout(new LayoutHtml("mae/easp/html/cnvlogicclas_vconversion.html"));
     super.onInit();
     
