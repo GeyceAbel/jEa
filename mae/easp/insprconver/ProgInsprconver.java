@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140801
-// Hora:             14:13:56
+// Fecha:            20140805
+// Hora:             10:24:46
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -3329,19 +3329,6 @@ public class ProgInsprconver extends Program
     {
     this();
     this.easp=easp;
-    }
-  public void onInit()
-    {
-    mae.easp.cnvaviso.ProgCnvaviso pra = new mae.easp.cnvaviso.ProgCnvaviso ();
-    pra.setModal(false);
-    LocationWindow loc=new LocationWindow();
-    loc.setWidth(810);
-    loc.setHeight(520);
-    pra.setLocation(loc);
-    pra.run();
-    if (!pra.haAceptadoCondiciones) {
-      return;
-    }
     }
   }
   
