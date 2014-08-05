@@ -107,7 +107,7 @@ public class ConversionJNOM extends ConversionLC {
 	protected void initPrograma() {
 	  try {
       //pr.setConnection(dbJnom);
-		
+		//prNom.logicNomina = connLC;
 		prNom.setConnection(servidor, nombreBD, user, passwd, instancia);
 		//prNom.iniLog();
 		/*
@@ -193,9 +193,7 @@ public class ConversionJNOM extends ConversionLC {
 		prNom.chequeaConvenio9000();
 		prNom.vconvers.vvdesdehisto	.setValue(desdeEjer);
 		prNom.vconvers.vvdpto		.setValue(equivDpto);
-		prNom.vconvers.vvnombd		.setValue(nombreBD);
-		prNom.sconversion.execute();
-		prNom.sconversion2.execute();
+		prNom.vconvers.vvnombd		.setValue(nombreBD);		
 		prNom.sparametros.setWhere("pardominio = '"+dominio+"'   AND parusuario = '"+user+"' AND parambito = 'CONVERLOGIC' AND parvariable = 'PARAMLOGIC' AND paragrup = 'JNOMINA'");
 		prNom.sparametros.execute();
 		if(prNom.sparametros.isEof()) {
@@ -213,8 +211,13 @@ public class ConversionJNOM extends ConversionLC {
 		//prNom.sconfactor2.execute();
 		//prNom.sconceptos2.setWhere("conconvemp ='E'");
 		//prNom.sconceptos2.execute();
-		prNom.cargaEmpresas();
+		prNom.sconversion.execute();
+		prNom.sconversion2.execute();
 		prNom.cargaConvenios();
+		prNom.cargaEmpresas();
+		prNom.sconversion.commit();
+		
+		
 		
 	    
 	  }
