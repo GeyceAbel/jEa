@@ -67,7 +67,7 @@ public class GestionCodigos {
 		//2. intentem asignar el codi a partir del nif
 		for (int i=0; i<aKeys.size();i++) {
 			DadesEmpresa de = htEmpresas.get(aKeys.get(i));
-			if (de.getCodiGeyce() == Conversion.CODIGO_EMPRESA_NO_ASIGNADA) {
+			if (!de.esCodigoOrigenString() && de.getCodiGeyce() == Conversion.CODIGO_EMPRESA_NO_ASIGNADA) {
 				String cdptmp = getCdpOtro (de.getNif());
 				if (cdptmp!=null) {
 					int valortmp = Integer.parseInt(cdptmp.substring(6));
@@ -81,7 +81,7 @@ public class GestionCodigos {
 		//3. Intentem donar un codi CDP aleatori
 		for (int i=0; i<aKeys.size();i++) {
 			DadesEmpresa de = htEmpresas.get(aKeys.get(i));
-			if (de.getCodiGeyce() == Conversion.CODIGO_EMPRESA_NO_ASIGNADA) {
+			if (!de.esCodigoOrigenString() && de.getCodiGeyce() == Conversion.CODIGO_EMPRESA_NO_ASIGNADA) {
 				boolean trobat = false;
 				for (int c = de.getCodiOrigen() + 1;c<=999997 && !trobat;c++) {
 					String cdptmp = Easp.dominio.substring(0,6)+Numero.format(c,"000000");
@@ -103,6 +103,56 @@ public class GestionCodigos {
 				}
 			}
 		}		
+		
+		// *************** Codis Alfanumerics  ************************
+		for (int i=0; i<aKeys.size();i++) {
+			DadesEmpresa de = htEmpresas.get(aKeys.get(i));
+			if (de.esCodigoOrigenString() && de.getCodiGeyce() == Conversion.CODIGO_EMPRESA_NO_ASIGNADA) {
+				int num = getOtroEmp2Conver (de.getNif());
+				if (num >0) de.setCodiGeyce(num);
+			}
+		}
+
+		for (int i=0; i<aKeys.size();i++) {
+			DadesEmpresa de = htEmpresas.get(aKeys.get(i));
+			if (de.esCodigoOrigenString() && de.getCodiGeyce() == Conversion.CODIGO_EMPRESA_NO_ASIGNADA) {
+				String cdptmp = getCdpOtro (de.getNif());
+				if (cdptmp!=null) {
+					int valortmp = Integer.parseInt(cdptmp.substring(6));
+					if (!vAsignadas.contains(new Integer(valortmp))) {
+						de.setCodiGeyce(valortmp);
+						vAsignadas.addElement(de.getCodiGeyce());
+					}
+				}
+			}
+		}
+		
+		for (int i=0; i<aKeys.size();i++) {
+			DadesEmpresa de = htEmpresas.get(aKeys.get(i));
+			if (de.esCodigoOrigenString() && de.getCodiGeyce() == Conversion.CODIGO_EMPRESA_NO_ASIGNADA) {
+				boolean trobat = false;
+				for (int c = de.getCodiOrigen() + 1;c<=999997 && !trobat;c++) {
+					String cdptmp = Easp.dominio.substring(0,6)+Numero.format(c,"000000");
+					if (!vAsignadas.contains(new Integer(c)) && !existeCDP (cdptmp) )  {
+						de.setCodiGeyce (c);
+						vAsignadas.addElement(de.getCodiGeyce());
+						trobat = true;
+					}
+				}
+				if (!trobat) {
+					for (int c = 1;c < de.getCodiOrigen() && !trobat;c++) {
+						String cdptmp = Easp.dominio.substring(0,6)+Numero.format(c,"000000");
+						if (!vAsignadas.contains(new Integer(c)) && !existeCDP (cdptmp) )  {
+							de.setCodiGeyce (c);
+							vAsignadas.addElement(de.getCodiGeyce());
+							trobat = true;
+						}
+					}	            	
+				}
+			}
+		}		
+		// *************** FI Codis Alfanumerics  ************************
+		
 		if (htEmpresas.size() > 0) {
 			for (java.util.Enumeration<DadesEmpresa> e = htEmpresas.elements() ; bOk && e.hasMoreElements() ;) {
 				DadesEmpresa de = e.nextElement();
@@ -134,6 +184,20 @@ public class GestionCodigos {
 			sError = "No se han encontrado empresas a convertir.";
 		}
 		return bOk;
+	}
+	
+	private int getOtroEmp2Conver(String nif) {
+		int num = 0;
+		boolean trobat = false;
+		if (nif == null) return 0;
+		for (java.util.Enumeration<DadesEmpresa> e = htEmpresas.elements() ; !trobat && e.hasMoreElements() ;) {
+			DadesEmpresa de = e.nextElement();
+			if (nif.equals(de.getNif())) {
+				num = de.getCodiGeyce();
+				trobat = true;
+			}
+		}
+		return num;           
 	}
 
 	private String getCdpOtro(String nif) {

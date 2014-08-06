@@ -10,6 +10,7 @@ import geyce.maefc.DBConnection;
 import geyce.maefc.ErrorManager;
 import geyce.maefc.Insert;
 import geyce.maefc.Program;
+import geyce.maefc.Selector;
 
 public abstract class Conversion {
 	public static enum APLICACION_ORIGEN {LOGICCLASS};
@@ -74,6 +75,31 @@ public abstract class Conversion {
 			public void job() {
 				setPercent(0);
 				setSecondaryPercent(0);
+				String sql = "Select * from CODCNVOTRAPLL where cclccocodi="+idConversion+" and cclsel='S' and ";
+				if (aplicGeyce == APLICACION_GEYCE.JCONTA) sql += "ccltraspjco='S'";
+				else if (aplicGeyce == APLICACION_GEYCE.JEO) sql += "ccltraspjeo='S'";
+				else if (aplicGeyce == APLICACION_GEYCE.JISS) sql += "ccltraspjsoc='S'";
+				else if (aplicGeyce == APLICACION_GEYCE.JRENTA) sql += "ccltraspjre='S'";
+				else if (aplicGeyce == APLICACION_GEYCE.JNOMINA) sql += "ccltraspjnom='S'";
+				else if (aplicGeyce == APLICACION_GEYCE.JGESTION) sql += "ccltraspjges='S'";
+				sql += " order by cclcodiorigen";
+				Selector s = new Selector (connEA);
+				s.execute(sql);
+				vDadesEmpresa = new Vector<DadesEmpresa>();
+				setState ("Preparando Conversión "+aplicGeyce+" ... ");
+				while (s.next()) {
+					int cclcodiorigen  = s.getint("cclcodiorigen");
+				    String cclcodiorigens = s.getString("cclcodiorigens");
+				    String cclnombre = s.getString("cclnombre");
+				    String cclnif = s.getString("cclnif");
+				    int cclcodigeyce = s.getint("cclcodigeyce");  
+				    DadesEmpresa de = null;
+				    if (cclcodiorigens != null && cclcodiorigens.length()>0) de = new DadesEmpresa(cclcodiorigens, cclnif, cclnombre, aplicGeyce);
+				    else de = new DadesEmpresa(cclcodiorigen, cclnif, cclnombre, aplicGeyce);
+				    de.setCodiGeyce(cclcodigeyce);
+				    vDadesEmpresa.addElement(de);
+				}
+				s.close();				
 				for (int i=0; i<vDadesEmpresa.size();i++) {
 					setPercent(i*100/vDadesEmpresa.size());
 					deEnProceso = vDadesEmpresa.elementAt(i);
@@ -82,6 +108,7 @@ public abstract class Conversion {
 					Vector<Incidencia> vInTmp = convertirEmpresa (deEnProceso, this);
 					if (vInTmp != null) vIncidencias.addAll(vInTmp);
 				}
+				
 				if (vIncidencias != null && vIncidencias.size()>0) procesarIncidencias ();
 				exit ();
 			}
