@@ -215,8 +215,8 @@ public class ConversionJNOM extends ConversionLC {
 		prNom.sconversion2.execute();
 		prNom.cargaConvenios();
 		prNom.cargaEmpresas();
-		prNom.sconversion.commit();
-		
+		prNom.getDataBase().commit();
+		prNom.sparametros.getDataBase().commit();
 		
 		
 	    
