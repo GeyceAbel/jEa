@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140801
-// Hora:             14:24:37
+// Fecha:            20140807
+// Hora:             08:06:36
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1366,12 +1366,12 @@ public class ProgCnvlogicclass extends Program
         if (mae.easp.conversions.Incidencia.eliminarIncidencias (idConver,getDataBase())) {
           //((mae.easp.general.ErrorManagerDefaultJ)Aplication.getAplication().getErrorManager()).saltarErrores = true;
           boolean hayIncidencias = false;
-          if (vconversion.chjco.getBoolean()  && clcjco.convertir () ) hayIncidencias = true;
           if (vconversion.chjeo.getBoolean()  && clcjeo.convertir () ) hayIncidencias = true;
           if (vconversion.chjsoc.getBoolean() && clcjiss.convertir ()) hayIncidencias = true;
           if (vconversion.chjre.getBoolean()  && clcjren.convertir ()) hayIncidencias = true;
           if (vconversion.chjnom.getBoolean() && clcjnom.convertir ()) hayIncidencias = true;
           if (vconversion.chjges.getBoolean() && clcjges.convertir ()) hayIncidencias = true;
+          if (vconversion.chjco.getBoolean()  && clcjco.convertir () ) hayIncidencias = true;
           Update u = new Update (getDataBase(),"CODCNVOTRAPLC");
           u.valor("ccohistorico", "S");
           u.execute("ccocodi="+idConver);
