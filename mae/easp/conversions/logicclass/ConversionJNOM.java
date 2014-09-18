@@ -27,7 +27,7 @@ public class ConversionJNOM extends ConversionLC {
 	  prNom.setConnection(dbJnom);
 	  prNom.setDataBase(dbJnom.getDB());	
 	  prNom.converConjuntaEA = true;
-	  prNom.dominio = Easp.dominio;
+	  prNom.dominio = Easp.dominio;	  
       if(tipoDpto.equals("D")) {
 	    equivDpto = "Departamentos";	
       }
@@ -48,13 +48,14 @@ public class ConversionJNOM extends ConversionLC {
 	@Override
 	protected Vector<Incidencia> convertirEmpresa(DadesEmpresa de, ProgressBarForm pbf) {
 	  try {
-		this.pbf = pbf;
+		//this.pbf = pbf;
 		int empLC = de.getCodiOrigen();
 		int empJN = de.getCodiGeyce();
 		String sNifEmpresa = de.getNif();	
-		prNom.pbf =pbf;
+		prNom.pbf =pbf;	
 		mae.laboral.general.importasql.logicclass.Empresa con = new mae.laboral.general.importasql.logicclass.Empresa();
 		con.setErrorManager(emc);
+		con.actualitzaPbf=false;
         con.run(prNom,empLC,empJN);
         updateTableConversion(empLC, empJN);
         prNom.getDataBase().commit();

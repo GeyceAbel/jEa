@@ -139,3 +139,4 @@
 140711 --> APXAVI:  canvis mailJacob.
 140712 --> APJORDI: Variables dels JListados java es pasaven come a java.sql.Timestamp i donava problemes en funcions externes. Ara es pasen com a java.util.Date
 140804 --> APJORDI: Millores en la conversió unica
+140902 --> APXAVI:  PlantillaJacob. Millores per evitar l'error can't co-create object. S'ha afegit un metode per alliberar els COM objects quan son cridats desde Threads.

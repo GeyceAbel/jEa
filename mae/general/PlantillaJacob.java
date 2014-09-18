@@ -7,6 +7,7 @@ import geyce.maefc.Select;
 import java.io.File;
 
 import com.jacob.activeX.ActiveXComponent;
+import com.jacob.com.ComThread;
 import com.jacob.com.Dispatch;
 import com.jacob.com.Variant;
 
@@ -155,6 +156,7 @@ public class PlantillaJacob extends Thread {
 	  try {
 		Maefc.waitCursor();
 		desempaquetaDll();
+		ComThread.InitMTA();
 		oWord = new ActiveXComponent("Word.Application"); 
 		Dispatch oDocuments = oWord.getProperty("Documents").toDispatch();
 		Dispatch oDocument;
@@ -196,12 +198,14 @@ public class PlantillaJacob extends Thread {
         System.out.println("Error al combinar:" + ex.getMessage());
         ex.printStackTrace();
 	  }
+	  finally {
+		ComThread.Release();  
+	  }
 	}
 	
 	public void run() {
 	  try {	
-		Maefc.waitCursor();
-		
+		Maefc.waitCursor();		
 		//oWord = new ActiveXComponent("Word.Application"); 
 		Dispatch oDocuments = oWord.getProperty("Documents").toDispatch();		
 		oWord.setProperty("Visible", new Variant(false));
@@ -375,6 +379,7 @@ public class PlantillaJacob extends Thread {
 	public void executeMerge() {
 	  try {	
 		desempaquetaDll();
+		ComThread.InitMTA();
 		oWord = new ActiveXComponent("Word.Application"); 
 		oVersion = oWord.getProperty("Version").toString();
 		//versionWord = Double.parseDouble(oVersion);
@@ -399,7 +404,9 @@ public class PlantillaJacob extends Thread {
 	    ex.printStackTrace();
 	    System.out.println("Error  : " + ex.getMessage());
 	  }
-	   
+	  finally {
+		ComThread.Release();
+	  }
 	}
 	
 	public void tanca() {
