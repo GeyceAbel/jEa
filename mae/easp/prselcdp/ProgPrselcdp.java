@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100128
-// Hora:             10:27:58
+// Fecha:            20140910
+// Hora:             09:39:23
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -17,7 +17,7 @@ import mae.general.*;
 import mae.easp.*;
 // 
 // Programa: prselcdp
-// Nombre:   Selección de la empresa
+// Nombre:   Clientes
 // Versión:  4.1
 // 
 public class ProgPrselcdp extends Program
@@ -36,7 +36,7 @@ public class ProgPrselcdp extends Program
     public Location( )
       {
       super();
-      setTitle("Selección de la empresa");
+      setTitle("Clientes");
       }
     }
     
@@ -182,9 +182,14 @@ public class ProgPrselcdp extends Program
       }
     // Fin declaraciones globales
     // Controles
-    public CtrlCdpcodi cdpcodi;
+    public CtrlVvcodigo vvcodigo;
     public CtrlCdpnifcif cdpnifcif;
     public CtrlVvnombre vvnombre;
+    public CtrlCdpcknomina cdpcknomina;
+    public CtrlCdpckconta cdpckconta;
+    public CtrlCdpckeo cdpckeo;
+    public CtrlCdpckiss cdpckiss;
+    public CtrlCdpckrenta cdpckrenta;
     // Acciones
     public LinkBtseleccion btseleccion;
     public LinkAcaltaagpi acaltaagpi;
@@ -198,17 +203,15 @@ public class ProgPrselcdp extends Program
         }
       }
       
-    public class CtrlCdpcodi extends ColumnEdit
+    public class CtrlVvcodigo extends ColumnEdit
       {
-      public CtrlCdpcodi(Form form)
+      public CtrlVvcodigo(Form form)
         {
         super(form);
-        setName("cdpcodi");
-        setMessageHelp("Código del cliente");
+        setName("vvcodigo");
         setTitle("Código");
-        setType(STRING);
-        setLength(12);
-        setField(sempresa.cdpcodi);
+        setType(INTEGER);
+        setLength(6);
         }
       }
       
@@ -239,13 +242,88 @@ public class ProgPrselcdp extends Program
         }
       }
       
+    public class CtrlCdpcknomina extends ColumnEdit
+      {
+      public CtrlCdpcknomina(Form form)
+        {
+        super(form);
+        setName("cdpcknomina");
+        setTitle("jNomina");
+        setType(STRING);
+        setMaskInput("U");
+        setLength(1);
+        setSearchable(true);
+        setField(sempresa.cdpcknomina);
+        }
+      }
+      
+    public class CtrlCdpckconta extends ColumnEdit
+      {
+      public CtrlCdpckconta(Form form)
+        {
+        super(form);
+        setName("cdpckconta");
+        setTitle("jConta");
+        setType(STRING);
+        setMaskInput("U");
+        setLength(1);
+        setSearchable(true);
+        setField(sempresa.cdpckconta);
+        }
+      }
+      
+    public class CtrlCdpckeo extends ColumnEdit
+      {
+      public CtrlCdpckeo(Form form)
+        {
+        super(form);
+        setName("cdpckeo");
+        setTitle("jEstimación");
+        setType(STRING);
+        setMaskInput("U");
+        setLength(1);
+        setSearchable(true);
+        setField(sempresa.cdpckeo);
+        }
+      }
+      
+    public class CtrlCdpckiss extends ColumnEdit
+      {
+      public CtrlCdpckiss(Form form)
+        {
+        super(form);
+        setName("cdpckiss");
+        setTitle("jISS");
+        setType(STRING);
+        setMaskInput("U");
+        setLength(1);
+        setSearchable(true);
+        setField(sempresa.cdpckiss);
+        }
+      }
+      
+    public class CtrlCdpckrenta extends ColumnEdit
+      {
+      public CtrlCdpckrenta(Form form)
+        {
+        super(form);
+        setName("cdpckrenta");
+        setTitle("jRenta");
+        setType(STRING);
+        setMaskInput("U");
+        setLength(1);
+        setSearchable(true);
+        setField(sempresa.cdpckrenta);
+        }
+      }
+      
     public class LinkBtseleccion extends Action
       {
       public LinkBtseleccion(Form form)
         {
         super(form);
         setName("btseleccion");
-        setTitle("&Seleccionar");
+        setTitle("&1 Ficha General");
         setOptions(SEARCH | SHOW);
         }
       public void onAction()
@@ -302,14 +380,14 @@ public class ProgPrselcdp extends Program
         {
         super.onAction();
         
-        if(cdpcodi.isNull())
+        if(sempresa.cdpcodi.isNull())
         {
         Maefc.message("Seleccione un código de cliente","Atención",Maefc.INFORMATION_MESSAGE);
         }
         else
         {
         mae.easp.prchgnif.ProgPrchgnif pr= new mae.easp.prchgnif.ProgPrchgnif();
-        pr.gcdp=cdpcodi.getString();
+        pr.gcdp=sempresa.cdpcodi.getString();
         pr.run();
         int i = getCurrentRow();
         doShow();
@@ -326,11 +404,16 @@ public class ProgPrselcdp extends Program
       setName("vlistaempresas");
       setTitle("Empresas encontradas");
       setLocation(new Location());
-      setStates(SHOW | DELETE);
+      setStates(SHOW | SEARCH | DELETE);
       addSelect(sempresa=new Sempresa());
-      addControl(cdpcodi=new CtrlCdpcodi(this));
+      addControl(vvcodigo=new CtrlVvcodigo(this));
       addControl(cdpnifcif=new CtrlCdpnifcif(this));
       addControl(vvnombre=new CtrlVvnombre(this));
+      addControl(cdpcknomina=new CtrlCdpcknomina(this));
+      addControl(cdpckconta=new CtrlCdpckconta(this));
+      addControl(cdpckeo=new CtrlCdpckeo(this));
+      addControl(cdpckiss=new CtrlCdpckiss(this));
+      addControl(cdpckrenta=new CtrlCdpckrenta(this));
       addAction(btseleccion=new LinkBtseleccion(this));
       addAction(acaltaagpi=new LinkAcaltaagpi(this));
       addAction(btchgnif=new LinkBtchgnif(this));
@@ -379,6 +462,9 @@ public class ProgPrselcdp extends Program
       {
       super.onBeginRecord();
       vvnombre.setValue(Easp.componerCliente(sempresa.datnombre.getString(),sempresa.datapell1.getString(),sempresa.datapell2.getString()));
+      
+      if ( sempresa.cdpcodi.getString().length() == 12 ) vvcodigo.setValue( sempresa.cdpcodi.getString().substring(6,12));
+      else                                               vvcodigo.setNull();
       }
     }
     
@@ -445,7 +531,8 @@ public class ProgPrselcdp extends Program
       }
     public String getOrder()
       {
-      return "datapell1,datapell2,datnombre,cdpcodi,cdpnifcif";
+      // return "datapell1,datapell2,datnombre,cdpcodi,cdpnifcif";
+      return "cdpcodi";
       }
     }
     
@@ -455,8 +542,8 @@ public class ProgPrselcdp extends Program
     this.easp=easp;
     this.prselcdp=this;
     setName("prselcdp");
-    setTitle("Selección de la empresa");
-    setLayout(new LayoutSplit(LayoutSplit.VERTICAL,0.30));
+    setTitle("Clientes");
+    setLayout(new LayoutSplit(LayoutSplit.VERTICAL,0.22));
     setLocation(new Location());
     addForm(vbuscaremp=new FormVbuscaremp(this));
     addForm(vlistaempresas=new FormVlistaempresas(this));
@@ -469,6 +556,8 @@ public class ProgPrselcdp extends Program
     {
     vbuscaremp.setLayout(new LayoutHtml("mae/easp/html/buscarempresa.html"));
     sempresa.setDistinct(true);
+    vlistaempresas.setInitState(DataForm.SHOW) ;
+    
     super.onInit();
       
     

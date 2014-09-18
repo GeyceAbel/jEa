@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140502
-// Hora:             11:27:22
+// Fecha:            20140918
+// Hora:             12:53:05
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -155,6 +155,9 @@ public class ProgPrclfichagener extends Program
   // Selects
   public Sdomi sdomi;
   public Sfichageneral sfichageneral;
+  // Ventana
+  public FormValtasfitgen valtasfitgen;
+  // Selects
   class Location extends LocationTabbed
     {
     public Location( )
@@ -195,6 +198,7 @@ public class ProgPrclfichagener extends Program
       }
     // Fin declaraciones globales
     // Controles
+    public CtrlVvcodigo vvcodigo;
     public CtrlDanifcif danifcif;
     public CtrlVcliente vcliente;
     public CtrlDatfisicajuri datfisicajuri;
@@ -212,6 +216,20 @@ public class ProgPrclfichagener extends Program
         {
         super();
         setLocation(TOP);
+        }
+      }
+      
+    public class CtrlVvcodigo extends ControlEdit
+      {
+      public CtrlVvcodigo(Form form)
+        {
+        super(form);
+        setName("vvcodigo");
+        setTitle("");
+        setType(INTEGER);
+        setMaskInput("######");
+        setLength(6);
+        setEnabled(false);
         }
       }
       
@@ -240,7 +258,7 @@ public class ProgPrclfichagener extends Program
         setName("vcliente");
         setTitle("");
         setType(STRING);
-        setLength(45);
+        setLength(40);
         setEnabled(false);
         setPrintable(false);
         }
@@ -392,6 +410,7 @@ public class ProgPrclfichagener extends Program
       setUnique(true);
       addSelect(sgeneral=new Sgeneral());
       addSelect(sdp=new Sdp());
+      addControl(vvcodigo=new CtrlVvcodigo(this));
       addControl(danifcif=new CtrlDanifcif(this));
       addControl(vcliente=new CtrlVcliente(this));
       addControl(datfisicajuri=new CtrlDatfisicajuri(this));
@@ -420,6 +439,9 @@ public class ProgPrclfichagener extends Program
                                               sgeneral.datapell2.getString()));
       vadministracio.setValue(Util.formateoNumero("00",sgeneral.cdpaeatdele.getInteger())+Util.formateoNumero("000",sgeneral.cdpaeatadm.getInteger()));
       
+      if ( sgeneral.cdpcodi.getString().length() == 12 ) vvcodigo.setValue(Integer.parseInt(sgeneral.cdpcodi.getString().substring(6,12)));
+      else                                               vvcodigo.setNull();
+        
       }
     }
     
@@ -4229,12 +4251,13 @@ snifrep.datapell2.setValue(vvdatapell2);
     public CtrlCdppwd cdppwd;
     public CtrlCdpcdprel cdpcdprel;
     // Acciones
+    public LinkAcaltasfitgen acaltasfitgen;
     class Location extends LocationWindow
       {
       public Location( )
         {
         super();
-        setWidth(1);
+        setWidth(2);
         setHeight(1);
         setTitle("Servicios");
         setModal(true);
@@ -4381,6 +4404,25 @@ snifrep.datapell2.setValue(vvdatapell2);
         }
       }
       
+    public class LinkAcaltasfitgen extends Action
+      {
+      public LinkAcaltasfitgen(Form form)
+        {
+        super(form);
+        setName("acaltasfitgen");
+        setTitle("&1. Alta Empresa aplicaciones");
+        setOptions(SEARCH | SHOW | UPDATE | INSERT);
+        }
+      public void onAction()
+        {
+        super.onAction();
+        
+        
+        valtasfitgen.open() ;
+        
+        }
+      }
+      
     public FormVservicios(ProgPrclfichagener prclfichagener)
       {
       super(prclfichagener);
@@ -4401,6 +4443,7 @@ snifrep.datapell2.setValue(vvdatapell2);
       addControl(btpasswdacc=new CtrlBtpasswdacc(this));
       addControl(cdppwd=new CtrlCdppwd(this));
       addControl(cdpcdprel=new CtrlCdpcdprel(this));
+      addAction(acaltasfitgen=new LinkAcaltasfitgen(this));
       setSelect(sservicioscdp);
       }
     public boolean onOkUpdate()
@@ -4555,7 +4598,7 @@ snifrep.datapell2.setValue(vvdatapell2);
       public Location( )
         {
         super();
-        setWidth(2);
+        setWidth(1);
         setHeight(1);
         setTitle("Servicios relacionados");
         setModal(true);
@@ -6154,6 +6197,516 @@ snifrep.datapell2.setValue(vvdatapell2);
       }
     }
     
+  public class FormValtasfitgen extends ProcessForm
+    {
+    // Inicio declaraciones globales
+    String gnifCliente = "" ;
+    String nombrecomp = "" ;
+    String gcliente = "" ;
+    
+    String primer = "" ;
+    String segundo = "" ;
+    String nombre = "" ; 
+    
+    
+    public void onOpened() {
+    
+      String codigoDominio = sgeneral.cdpcodi.getString() ;
+      
+    
+      chaltajnomina.setValue(false);
+      vvcodijnomina.setNull();
+      chaltajnomina.setEnabled(false);
+      vvcodijnomina.setEnabled(false);
+      if ( !vservicios.chnomina.getBoolean()   ) {
+        chaltajnomina.setEnabled(true);
+        // vvcodijnomina.setEnabled(true);
+        }
+    
+    
+      chaltajeo.setValue(false);
+      vvcodjeos.setNull();
+      chaltajeo.setEnabled(false);
+      vvcodjeos.setEnabled(false);
+      if ( !vservicios.cheo.getBoolean() ) {
+        chaltajeo.setEnabled(true);
+        // vvcodjeos.setEnabled(true);
+        }
+    
+      chaltajconta.setValue(false);
+      vvcodjconta.setNull();
+      vvejerjconta.setNull();
+      chaltajconta.setEnabled(false);
+      vvcodjconta.setEnabled(false);
+      vvejerjconta.setEnabled(false);
+      if ( !vservicios.chconta.getBoolean() ) {
+        chaltajconta.setEnabled(true);
+        // vvcodjconta.setEnabled(true);
+        // vvejerjconta.setEnabled(true);
+        }
+    
+      chaltajiss.setValue(false);
+      vvcodjiss.setNull();
+      vvejerjiss.setNull();
+      chaltajiss.setEnabled(false);
+      vvcodjiss.setEnabled(false);
+      vvejerjiss.setEnabled(false);
+      if ( !vservicios.chiss.getBoolean() ) {
+        chaltajiss.setEnabled(true);
+        // vvcodjiss.setEnabled(true);
+        // vvejerjiss.setEnabled(true);
+        }
+    
+      chaltarenta.setValue(false);
+      vvcodjrenta.setNull();
+      vvejerjrenta.setNull();
+      vvcodrenta.setNull();
+    
+      chaltarenta.setEnabled(false);
+      vvcodjrenta.setEnabled(false);
+      vvejerjrenta.setEnabled(false);
+      vvcodrenta.setEnabled(false);
+      if ( !vservicios.chrenta.getBoolean() ) {
+        chaltarenta.setEnabled(true);
+        // vvcodjrenta.setEnabled(true);
+        // vvejerjrenta.setEnabled(true);
+        // vvcodrenta.setEnabled(true);
+        }
+    
+    
+      super.onOpened();
+    
+      }
+    // Fin declaraciones globales
+    // Controles
+    public CtrlChaltajnomina chaltajnomina;
+    public CtrlVvcodijnomina vvcodijnomina;
+    public CtrlChaltajeo chaltajeo;
+    public CtrlVvcodjeos vvcodjeos;
+    public CtrlChaltajconta chaltajconta;
+    public CtrlVvcodjconta vvcodjconta;
+    public CtrlVvejerjconta vvejerjconta;
+    public CtrlChaltajiss chaltajiss;
+    public CtrlVvcodjiss vvcodjiss;
+    public CtrlVvejerjiss vvejerjiss;
+    public CtrlChaltarenta chaltarenta;
+    public CtrlVvcodjrenta vvcodjrenta;
+    public CtrlVvejerjrenta vvejerjrenta;
+    public CtrlVvcodrenta vvcodrenta;
+    // Acciones
+    public LinkAcejecaltas acejecaltas;
+    class Location extends LocationWindow
+      {
+      public Location( )
+        {
+        super();
+        setWidth(685);
+        setHeight(500);
+        setTitle("Altas Ficha General");
+        setModal(true);
+        setLocation(CENTER);
+        }
+      }
+      
+    public class CtrlChaltajnomina extends ControlCheck
+      {
+      public CtrlChaltajnomina(Form form)
+        {
+        super(form);
+        setName("chaltajnomina");
+        setTitle("");
+        }
+      public boolean  valid()
+        {
+        return true;
+        }
+        
+        public void userChange(Value v) {
+          super.userChange(v);
+          vvcodijnomina.setEnabled(false);
+          if ( v.getBoolean() ) {
+            Fitgen fitgen = new Fitgen();
+            String codigoDominio = sgeneral.cdpcodi.getString().substring(6,12) ;
+            int codiCli = Integer.valueOf(codigoDominio);
+            // int codigo = fitgen.getCodigo(Easp.connEA,gcliente,gnifCliente,"JNOMINA",vvcodijnomina.getInteger(),vvcodjeos.getInteger(),vvcodjconta.getInteger(),vvcodjiss.getInteger(),vvcodjrenta.getInteger());
+            // int codigo = fitgen.getCodigo(Easp.connEA,gcliente,gnifCliente,"JNOMINA",codiCli,codiCli,codiCli,codiCli,codiCli);
+            // if ( codigo >= 0 ) vvcodijnomina.setEnabled(true);
+            // if ( codigo >  0 ) vvcodijnomina.setValue(codigo);
+            vvcodijnomina.setValue(codiCli);
+            }
+          else {
+            vvcodijnomina.setNull();
+            }
+        
+        }
+      }
+      
+    public class CtrlVvcodijnomina extends ControlEdit
+      {
+      public CtrlVvcodijnomina(Form form)
+        {
+        super(form);
+        setName("vvcodijnomina");
+        setTitle("");
+        setType(INTEGER);
+        setLength(6);
+        setPrintable(false);
+        }
+      }
+      
+    public class CtrlChaltajeo extends ControlCheck
+      {
+      public CtrlChaltajeo(Form form)
+        {
+        super(form);
+        setName("chaltajeo");
+        setTitle("");
+        }
+      public boolean  valid()
+        {
+        return true;
+        }
+        
+        public void userChange(Value v) {
+          super.userChange(v);
+          if ( v.getBoolean() ) {
+            Fitgen fitgen = new Fitgen();
+            String codigoDominio = sgeneral.cdpcodi.getString().substring(6,12) ;
+            int codiCli = Integer.valueOf(codigoDominio);
+            vvcodjeos.setValue(codiCli);
+            }
+          else {
+            vvcodjeos.setNull();
+            }
+        
+        }
+      }
+      
+    public class CtrlVvcodjeos extends ControlEdit
+      {
+      public CtrlVvcodjeos(Form form)
+        {
+        super(form);
+        setName("vvcodjeos");
+        setTitle("");
+        setType(INTEGER);
+        setLength(6);
+        setPrintable(false);
+        }
+      }
+      
+    public class CtrlChaltajconta extends ControlCheck
+      {
+      public CtrlChaltajconta(Form form)
+        {
+        super(form);
+        setName("chaltajconta");
+        setTitle("");
+        }
+      public boolean  valid()
+        {
+        return true;
+        }
+        
+        public void userChange(Value v) {
+          super.userChange(v);
+          if ( v.getBoolean() ) {
+            Fitgen fitgen = new Fitgen();
+            String codigoDominio = sgeneral.cdpcodi.getString().substring(6,12) ;
+            int codiCli = Integer.valueOf(codigoDominio);
+            vvcodjconta.setValue(codiCli);
+            vvejerjconta.setEnabled(true);
+            }
+          else {
+            vvcodjconta.setNull();
+            vvejerjconta.setEnabled(false);
+            }
+        
+        }
+      }
+      
+    public class CtrlVvcodjconta extends ControlEdit
+      {
+      public CtrlVvcodjconta(Form form)
+        {
+        super(form);
+        setName("vvcodjconta");
+        setTitle("");
+        setType(INTEGER);
+        setLength(6);
+        setPrintable(false);
+        }
+      }
+      
+    public class CtrlVvejerjconta extends ControlEdit
+      {
+      public CtrlVvejerjconta(Form form)
+        {
+        super(form);
+        setName("vvejerjconta");
+        setTitle("");
+        setType(INTEGER);
+        setLength(4);
+        setPrintable(false);
+        }
+      public boolean obligate()
+        {
+        return isEnabled();
+        
+        }
+      }
+      
+    public class CtrlChaltajiss extends ControlCheck
+      {
+      public CtrlChaltajiss(Form form)
+        {
+        super(form);
+        setName("chaltajiss");
+        setTitle("");
+        }
+      public boolean  valid()
+        {
+        return true;
+        }
+        
+        public void userChange(Value v) {
+          super.userChange(v);
+          if ( v.getBoolean() ) {
+            Fitgen fitgen = new Fitgen();
+            String codigoDominio = sgeneral.cdpcodi.getString().substring(6,12) ;
+            int codiCli = Integer.valueOf(codigoDominio);
+            vvcodjiss.setValue(codiCli);
+            vvejerjiss.setEnabled(true);
+            }
+          else {
+            vvcodjiss.setNull();
+            vvejerjiss.setEnabled(false);
+            }
+        
+        }
+      }
+      
+    public class CtrlVvcodjiss extends ControlEdit
+      {
+      public CtrlVvcodjiss(Form form)
+        {
+        super(form);
+        setName("vvcodjiss");
+        setTitle("");
+        setType(INTEGER);
+        setLength(6);
+        setPrintable(false);
+        }
+      }
+      
+    public class CtrlVvejerjiss extends ControlEdit
+      {
+      public CtrlVvejerjiss(Form form)
+        {
+        super(form);
+        setName("vvejerjiss");
+        setTitle("");
+        setType(INTEGER);
+        setLength(4);
+        setPrintable(false);
+        }
+      public boolean obligate()
+        {
+        return isEnabled();
+        }
+      }
+      
+    public class CtrlChaltarenta extends ControlCheck
+      {
+      public CtrlChaltarenta(Form form)
+        {
+        super(form);
+        setName("chaltarenta");
+        setTitle("");
+        }
+      public boolean  valid()
+        {
+        return true;
+        }
+        
+        public void userChange(Value v) {
+          super.userChange(v);
+          if ( v.getBoolean() ) {
+            Fitgen fitgen = new Fitgen();
+            String codigoDominio = sgeneral.cdpcodi.getString().substring(6,12) ;
+            int codiCli = Integer.valueOf(codigoDominio);
+            vvcodjrenta.setValue(codiCli);
+            vvejerjrenta.setEnabled(true);
+            vvcodrenta.setEnabled(true);
+            vvcodrenta.setValue(sgeneral.cdpnifcif.getString());
+            }
+          else {
+            vvcodjrenta.setNull();
+            vvejerjrenta.setEnabled(false);
+            vvcodrenta.setEnabled(false);
+            vvcodrenta.setNull();
+            }
+        
+        }
+      }
+      
+    public class CtrlVvcodjrenta extends ControlEdit
+      {
+      public CtrlVvcodjrenta(Form form)
+        {
+        super(form);
+        setName("vvcodjrenta");
+        setTitle("");
+        setType(INTEGER);
+        setLength(6);
+        setPrintable(false);
+        }
+      }
+      
+    public class CtrlVvejerjrenta extends ControlEdit
+      {
+      public CtrlVvejerjrenta(Form form)
+        {
+        super(form);
+        setName("vvejerjrenta");
+        setTitle("");
+        setType(INTEGER);
+        setLength(4);
+        setPrintable(false);
+        }
+      public boolean obligate()
+        {
+        return isEnabled();
+        }
+      }
+      
+    public class CtrlVvcodrenta extends ControlEdit
+      {
+      public CtrlVvcodrenta(Form form)
+        {
+        super(form);
+        setName("vvcodrenta");
+        setTitle("");
+        setType(STRING);
+        setMaskInput("U");
+        setLength(12);
+        setPrintable(false);
+        }
+      }
+      
+    public class LinkAcejecaltas extends Action
+      {
+      public LinkAcejecaltas(Form form)
+        {
+        super(form);
+        setName("acejecaltas");
+        setTitle("&1 Ejecutar Altas");
+        setOptions(SEARCH | SHOW | UPDATE | INSERT | EOF);
+        }
+      public void onAction()
+        {
+        super.onAction();
+        
+        
+        Fitgen fitgen = new Fitgen();
+        
+        gnifCliente = sgeneral.danifcif.getString();
+        nombrecomp  = vdatosafiliacio.vcliente.getString();
+        
+        primer  =   sgeneral.datapell1.getString();
+        segundo =   sgeneral.datapell2.getString(); 
+        nombre  =   sgeneral.datnombre.getString();
+        
+        
+        
+        
+        if ( chaltajnomina.getBoolean() ) {
+          fitgen.altaEmpresajNomina(sservicioscdp.getDataBase(),gcliente,gnifCliente,vvcodijnomina.getInteger(),nombrecomp );
+          }
+        
+        if ( chaltajeo.getBoolean() ) {
+          fitgen.altaEmpresajEstimacion(sservicioscdp.getDataBase(),gcliente,gnifCliente,vvcodjeos.getInteger(),nombrecomp );
+          }
+        
+        
+        if ( chaltajconta.getBoolean() ) {
+          fitgen.altaEmpresajConta(sservicioscdp.getDataBase(),gcliente,gnifCliente,vvcodjconta.getInteger(),nombrecomp,vvejerjconta.getInteger() );
+          }
+        
+        
+        if ( chaltajiss.getBoolean() ) {
+          fitgen.altaEmpresajISS(sservicioscdp.getDataBase(),gcliente,gnifCliente,vvcodjiss.getInteger(),nombrecomp,vvcodjconta.getInteger(),vvcodijnomina.getInteger(),vvejerjiss.getInteger() );
+          }
+        
+        
+        if ( chaltarenta.getBoolean() ) {
+          fitgen.altaEmpresajRenta(sservicioscdp.getDataBase(),gcliente,gnifCliente,vvcodjrenta.getInteger(),nombrecomp,vvcodjconta.getInteger(),vvcodijnomina.getInteger(),primer,segundo,nombre,vvejerjrenta.getInteger(),vvcodrenta.getString() );
+          }
+        
+        sservicioscdp.commit();
+        sservicioscdp.execute();
+        if (sservicioscdp.cdpagpi.getString().equals("S"))   vservicios.chagpi.setValue(true);
+        else                                                 vservicios.chagpi.setValue(false);
+        
+        
+        if (sservicioscdp.cdpcknomina.getString().equals("S"))  vservicios.chnomina.setValue(true);
+        else                                                    vservicios.chnomina.setValue(false);
+        
+        
+        if (sservicioscdp.cdpckconta.getString().equals("S"))   vservicios.chconta.setValue(true);
+        else                                                    vservicios.chconta.setValue(false);
+        
+        if (sservicioscdp.cdpckgestion.getString().equals("S"))  vservicios.chgestion.setValue(true);
+        else                                                     vservicios.chgestion.setValue(false);
+        
+        
+        if (sservicioscdp.cdpckrenta.getString().equals("S"))   vservicios.chrenta.setValue(true);
+        else                                                    vservicios.chrenta.setValue(false);
+        
+        if (sservicioscdp.cdpckeo.getString().equals("S"))      vservicios.cheo.setValue(true);
+        else                                                    vservicios.cheo.setValue(false);
+        
+        
+        if (sservicioscdp.cdpckiss.getString().equals("S"))     vservicios.chiss.setValue(true);
+        else                                                    vservicios.chiss.setValue(false);
+        
+        // vservicios.doShow();
+        
+        
+        valtasfitgen.exit();
+        Maefc.message("Proceso Finalizado ","Atención",Maefc.INFORMATION_MESSAGE);
+        
+        
+        
+        }
+      }
+      
+    public FormValtasfitgen(ProgPrclfichagener prclfichagener)
+      {
+      super(prclfichagener);
+      setName("valtasfitgen");
+      setTitle("Altas Ficha General");
+      setLocation(new Location());
+      setPrintable(false);
+      setModal(true);
+      addControl(chaltajnomina=new CtrlChaltajnomina(this));
+      addControl(vvcodijnomina=new CtrlVvcodijnomina(this));
+      addControl(chaltajeo=new CtrlChaltajeo(this));
+      addControl(vvcodjeos=new CtrlVvcodjeos(this));
+      addControl(chaltajconta=new CtrlChaltajconta(this));
+      addControl(vvcodjconta=new CtrlVvcodjconta(this));
+      addControl(vvejerjconta=new CtrlVvejerjconta(this));
+      addControl(chaltajiss=new CtrlChaltajiss(this));
+      addControl(vvcodjiss=new CtrlVvcodjiss(this));
+      addControl(vvejerjiss=new CtrlVvejerjiss(this));
+      addControl(chaltarenta=new CtrlChaltarenta(this));
+      addControl(vvcodjrenta=new CtrlVvcodjrenta(this));
+      addControl(vvejerjrenta=new CtrlVvejerjrenta(this));
+      addControl(vvcodrenta=new CtrlVvcodrenta(this));
+      addAction(acejecaltas=new LinkAcejecaltas(this));
+      }
+    }
+    
   public ProgPrclfichagener()
     {
     this.prclfichagener=this;
@@ -6176,6 +6729,7 @@ snifrep.datapell2.setValue(vvdatapell2);
     addForm(vcambiobanco=new FormVcambiobanco(this));
     addForm(vcendbancos=new FormVcendbancos(this));
     addForm(vdomi=new FormVdomi(this));
+    addForm(valtasfitgen=new FormValtasfitgen(this));
     vcargorepre.btotrosdatos.setForm(vnifrepresentan);
     }
   public ProgPrclfichagener(AppEasp easp)
@@ -6257,7 +6811,7 @@ snifrep.datapell2.setValue(vvdatapell2);
     */
     ControlPanel cpiserv=new ControlPanel(this);
     loc=new LocationTabbed();
-    loc.setTitle("Servicios");
+    loc.setTitle("Aplicaciones y Servicios");
     loc.setExitIcon(false);
     
     cpiserv.setLocation(loc);
@@ -6280,6 +6834,8 @@ snifrep.datapell2.setValue(vvdatapell2);
     vdomicilioenv.setLayout(new LayoutHtml("mae/easp/html/domicilioenv2.html"));
     vnifrepresentan.setLayout(new LayoutHtml("mae/easp/html/datosrepre.html"));
     //vnifes.setLayout(new LayoutHtml("mae/easp/html/datosafiliacionpro.html"));
+    
+    valtasfitgen.setLayout(new LayoutHtml("mae/easp/html/valtasfitgen.html"));
     
     if (alta) {
       modo=1;
