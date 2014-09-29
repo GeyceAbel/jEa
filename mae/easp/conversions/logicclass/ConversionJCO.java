@@ -2549,6 +2549,957 @@ public class ConversionJCO extends ConversionLC {
 		else mes = Integer.parseInt(per);
 		return mes;
 	}
+
+	private boolean altaDesgloseModelo303_14(String nif,int codEmp,int codGYC, int ejer, String liqpos, String per, int codActiv)  {
+		boolean bOk = true;
+		SelectorLogic sdes = new SelectorLogic(connLC);
+		sdes.execute("SELECT *  FROM IOF_DesgloseModelosIva  where LiqPosicion='"+liqpos+"' and Deducible=-1 and GenSim='G' and IncidenciaIva<>-1");
+		java.util.Hashtable <String,Double> ht = new java.util.Hashtable ();
+		java.util.Hashtable <String,Double> htb = new java.util.Hashtable ();
+		java.util.Hashtable <String,Double> ht390 = new java.util.Hashtable ();
+		while (sdes.next()) {
+			int CodigoTransaccion = sdes.getint("CodigoTransaccion");
+			String IdentificadorIva = sdes.getString("IdentificadorIva");
+			String DiferenciadorIvaRecargo = sdes.getString("DiferenciadorIvaRecargo");
+			double PorcentajeIR = sdes.getdouble("PorcentajeIR");
+			double BaseTotal = sdes.getdouble("BaseTotal");
+			double CuotaTotal = sdes.getdouble("CuotaTotal");
+			String tipoCriterio = sdes.getString("IOFtipocriterio");
+			int rectif = sdes.getint("IOFrectif");
+			String campob = null;
+			double valorb = BaseTotal;
+			String campoc = null;
+			double valorc = CuotaTotal;
+			String totalb = null;
+			String totalc = null;
+			String campo390 = null;
+			if ("R".equals(IdentificadorIva)) {
+				if ("I".equals(DiferenciadorIvaRecargo)) {
+					if (rectif==-1 && (CodigoTransaccion == 16 || CodigoTransaccion == 1  || CodigoTransaccion == 2 || CodigoTransaccion == 3 || CodigoTransaccion == 4 || CodigoTransaccion == 12 || CodigoTransaccion == 24 || CodigoTransaccion == 25 || CodigoTransaccion == 26)) {
+						campo390 = "m390dvopgen";
+						if (CodigoTransaccion == 2 || CodigoTransaccion == 3)  campo390 = "m390dvusados";
+						campob = "m300ddevmodbcb5";
+						campoc = "m300ddevmodbcc5";
+						if (PorcentajeIR<5 && PorcentajeIR>1) {
+							campob = "m300ddevmodbcb1";
+							campoc = "m300ddevmodbcc1";
+						}
+						else if (PorcentajeIR>=6 && PorcentajeIR<9) {
+							campob = "m300ddevmodbcb2";
+							campoc = "m300ddevmodbcc2";
+						}
+						else if (PorcentajeIR>=9 && PorcentajeIR<13) {
+							campob = "m300ddevmodbcb4";
+							campoc = "m300ddevmodbcc4";
+						}
+						else if (PorcentajeIR>=13 && PorcentajeIR<20) {
+							campob = "m300ddevmodbcb3";
+							campoc = "m300ddevmodbcc3";
+						}
+						if (PorcentajeIR<=0.001) {
+							campob = null;
+							campoc = null;
+							totalb = null;
+							totalc = null;
+							campo390 = null;
+						}
+					}
+					else if (CodigoTransaccion == 16 || CodigoTransaccion == 1 || CodigoTransaccion == 12 || CodigoTransaccion == 24 || CodigoTransaccion == 25 || CodigoTransaccion == 26) {
+						campo390 = "m390dvopgen";
+						campob = "m300ddevregorb5";
+						campoc = "m300ddevregorq5";
+						if (PorcentajeIR<5 && PorcentajeIR>1) {
+							campob = "m300ddevregorb1";
+							campoc = "m300ddevregorq1";
+						}
+						else if (PorcentajeIR>=6 && PorcentajeIR<9) {
+							campob = "m300ddevregorb2";
+							campoc = "m300ddevregorq2";
+						}
+						else if (PorcentajeIR>=9 && PorcentajeIR<13) {
+							campob = "m300ddevregorb4";
+							campoc = "m300ddevregorq4";
+						}
+						else if (PorcentajeIR>=13 && PorcentajeIR<20) {
+							campob = "m300ddevregorb3";
+							campoc = "m300ddevregorq3";
+						}
+						if (PorcentajeIR<=0.001) {
+							campob = null;
+							campoc = null;
+							totalb = null;
+							totalc = null;
+							campo390 = null;
+						}
+					}
+					else if (CodigoTransaccion == 2 || CodigoTransaccion == 3) {
+						campo390 = "m390dvusados";
+						campob = "m300ddevopintb5";
+						campoc = "m300ddevopintq5";
+						if (PorcentajeIR<5 && PorcentajeIR>1) {
+							campob = "m300ddevopintb1";
+							campoc = "m300ddevopintq1";
+						}
+						else if (PorcentajeIR>=6 && PorcentajeIR<9) {
+							campob = "m300ddevopintb2";
+							campoc = "m300ddevopintq2";
+						}
+						else if (PorcentajeIR>=9 && PorcentajeIR<13) {
+							campob = "m300ddevopintb4";
+							campoc = "m300ddevopintq4";
+						}
+						else if (PorcentajeIR>=13 && PorcentajeIR<20) {
+							campob = "m300ddevopintb3";
+							campoc = "m300ddevopintq3";
+						}
+						if (PorcentajeIR<=0.001) {
+							campob = null;
+							campoc = null;
+							totalb = null;
+							totalc = null;
+							campo390 = null;
+						}
+					}
+					else if (CodigoTransaccion == 4) {
+						campo390 = "m390dvreav";
+						campob = "m300ddevagviab";
+						campoc = "m300ddevagviac";
+						if (PorcentajeIR>19) {
+							campob = "m300ddevagviab2";
+							campoc = "m300ddevagviac2";
+						}
+					}
+					else if (CodigoTransaccion == 27) {
+						campob = "m300ddevinvspb5";
+						campoc = "m300ddevinvspc5";
+						if (PorcentajeIR<5 && PorcentajeIR>1) {
+							campob = "m300ddevinvspb1";
+							campoc = "m300ddevinvspc1";
+						}
+						else if (PorcentajeIR>=6 && PorcentajeIR<9) {
+							campob = "m300ddevinvspb2";
+							campoc = "m300ddevinvspc2";
+						}
+						else if (PorcentajeIR>=9 && PorcentajeIR<13) {
+							campob = "m300ddevinvspb4";
+							campoc = "m300ddevinvspc4";
+						}
+						else if (PorcentajeIR>=13 && PorcentajeIR<20) {
+							campob = "m300ddevinvspb3";
+							campoc = "m300ddevinvspc3";
+						}
+						if (PorcentajeIR<=0.001) {
+							campob = null;
+							campoc = null;
+							totalb = null;
+							totalc = null;
+						}
+					}
+					else if (CodigoTransaccion == 29) {
+						campob = "m300ddeviservb5";
+						campoc = "m300ddeviservc5";
+						if (PorcentajeIR<5 && PorcentajeIR>1) {
+							campob = "m300ddeviservb1";
+							campoc = "m300ddeviservc1";
+						}
+						else if (PorcentajeIR>=6 && PorcentajeIR<9) {
+							campob = "m300ddeviservb2";
+							campoc = "m300ddeviservc2";
+						}
+						else if (PorcentajeIR>=9 && PorcentajeIR<13) {
+							campob = "m300ddeviservb4";
+							campoc = "m300ddeviservc4";
+						}
+						else if (PorcentajeIR>=13 && PorcentajeIR<20) {
+							campob = "m300ddeviservb3";
+							campoc = "m300ddeviservc3";
+						}
+						if (PorcentajeIR<=0.001) {
+							campob = null;
+							campoc = null;
+							totalb = null;
+							totalc = null;
+						}
+					}
+					else if (CodigoTransaccion == 20 || CodigoTransaccion == 21 || CodigoTransaccion == 22) {
+						campob = "m300ddevadqbas5";
+						campoc = "m300ddevadqquo5";
+						if (PorcentajeIR<5 && PorcentajeIR>1) {
+							campob = "m300ddevadqbas1";
+							campoc = "m300ddevadqquo1";
+						}
+						else if (PorcentajeIR>=6 && PorcentajeIR<9) {
+							campob = "m300ddevadqbas2";
+							campoc = "m300ddevadqquo2";
+						}
+						else if (PorcentajeIR>=9 && PorcentajeIR<13) {
+							campob = "m300ddevadqbas4";
+							campoc = "m300ddevadqquo4";
+						}
+						else if (PorcentajeIR>=13 && PorcentajeIR<20) {
+							campob = "m300ddevadqbas3";
+							campoc = "m300ddevadqquo3";
+						}
+						if (PorcentajeIR<=0.001) {
+							campob = null;
+							campoc = null;
+							totalb = null;
+							totalc = null;
+						}
+					}
+					else if (CodigoTransaccion == 10 || CodigoTransaccion == 11 || CodigoTransaccion == 54 || CodigoTransaccion == 55) campob = "m300ddeventbas";
+					else if (CodigoTransaccion == 14 || CodigoTransaccion == 18 || CodigoTransaccion == 15 || CodigoTransaccion == 17) campob = "m300ddevexpbas";
+					else if (CodigoTransaccion == 13 || CodigoTransaccion == 28 || CodigoTransaccion == 33) campob = "m300ddevondbas";
+					else System.out.println("Codigo transaccion REPERCUTIT no trobat ["+CodigoTransaccion+"]");
+					if (CodigoTransaccion == 10 || CodigoTransaccion == 11 || CodigoTransaccion == 54 || CodigoTransaccion == 55) campo390 = "m390dvopintex";
+					else if (CodigoTransaccion == 13 || CodigoTransaccion == 28 || CodigoTransaccion == 33) campo390 = "m390doespnosuje";
+					else if (CodigoTransaccion == 14 || CodigoTransaccion == 18 || CodigoTransaccion == 15 || CodigoTransaccion == 17) campo390 = "m390dvopexport";
+				} // IVA
+				if ("R".equals(DiferenciadorIvaRecargo)) {
+					campo390 = "m390dvoprecequ";
+					if (rectif==-1) { 
+						campob = "m300bdevmodreb6";
+						campoc = "m300bdevmodrec6";
+						if (PorcentajeIR<=0.6 && PorcentajeIR>0) {
+							campob = "m300ddevmodreb1";
+							campoc = "m300ddevmodrec1";
+						} 
+						else if (PorcentajeIR<=1) {
+							campob = "m300ddevmodreb2";
+							campoc = "m300ddevmodrec2";
+						}
+						else if (PorcentajeIR<=1.6) {
+							campob = "m300bdevmodreb5";
+							campoc = "m300bdevmodrec5";
+						}
+						else if (PorcentajeIR<=2) {
+							campob = "m300ddevmodreb4";
+							campoc = "m300ddevmodrec4";
+						}
+						else if (PorcentajeIR<=4.5) {
+							campob = "m300ddevmodreb3";
+							campoc = "m300ddevmodrec3";
+						}
+					}
+					else { 
+						campob = "m300bdevreceqb6";
+						campoc = "m300bdevreceqc6";
+						if (PorcentajeIR<=0.6 && PorcentajeIR>0) {
+							campob = "m300ddevreceqb1";
+							campoc = "m300ddevreceqc1";
+						}
+						else if (PorcentajeIR<=1) {
+							campob = "m300ddevreceqb2";
+							campoc = "m300ddevreceqc2";
+						}
+						else if (PorcentajeIR<=1.6) {
+							campob = "m300bdevreceqb5";
+							campoc = "m300bdevreceqc5";
+						}
+						else if (PorcentajeIR<=2) {
+							campob = "m300ddevreceqb4";
+							campoc = "m300ddevreceqc4";
+						}
+						else if (PorcentajeIR<=4.5) {
+							campob = "m300ddevreceqb3";
+							campoc = "m300ddevreceqc3";
+						}
+					}
+					if (PorcentajeIR<=0.001) {
+						campob = null;
+						campoc = null;
+						totalb = null;
+						totalc = null;
+						campo390 = null;
+					}
+				} // RECARGO
+			}  // REPERCUTIT
+			else if ("D".equals(tipoCriterio)) {
+				if (CodigoTransaccion == 1 || CodigoTransaccion == 27) {
+					if (rectif==-1) {
+						campob = "m300ddedoirceqb";
+						campoc = "m300ddedoirceqq";
+					}
+					else {
+						campob = "m300ddedinbcb5";
+						campoc = "m300ddedinbcc5";
+						if (PorcentajeIR<5 && PorcentajeIR>1) {
+							campob = "m300ddedinbcb1";
+							campoc = "m300ddedinbcc1";
+						}
+						else if (PorcentajeIR>=6 && PorcentajeIR<9) {
+							campob = "m300ddedinbcb2";
+							campoc = "m300ddedinbcc2";
+						}
+						else if (PorcentajeIR>=9 && PorcentajeIR<13) {
+							campob = "m300ddedinbcb4";
+							campoc = "m300ddedinbcc4";
+						}
+						else if (PorcentajeIR>=13 && PorcentajeIR<20) {
+							campob = "m300ddedinbcb3";
+							campoc = "m300ddedinbcc3";
+						}
+						totalb = "m300ddedinbcb";
+						totalc = "m300ddedinbcc";
+						if (PorcentajeIR<=0.001) {
+							campob = null;
+							campoc = null;
+							totalb = null;
+							totalc = null;
+						}
+					}
+				}
+				else if (CodigoTransaccion == 30) {
+					if (rectif==-1) {
+						campob = "m300ddedoieqbib";
+						campoc = "m300ddedoieqbiq";
+					}
+					else {
+						campob = "m300ddedinbib5";
+						campoc = "m300ddedinbic5";
+						if (PorcentajeIR<5 && PorcentajeIR>1) {
+							campob = "m300ddedinbib1";
+							campoc = "m300ddedinbic1";
+						}
+						else if (PorcentajeIR>=6 && PorcentajeIR<9) {
+							campob = "m300ddedinbib2";
+							campoc = "m300ddedinbic2";
+						}
+						else if (PorcentajeIR>=9 && PorcentajeIR<13) {
+							campob = "m300ddedinbib4";
+							campoc = "m300ddedinbic4";
+						}
+						else if (PorcentajeIR>=13 && PorcentajeIR<20) {
+							campob = "m300ddedinbib3";
+							campoc = "m300ddedinbic3";
+						}
+						totalb = "m300ddedinbib";
+						totalc = "m300ddedinbic";
+						if (PorcentajeIR<=0.001) {
+							campob = null;
+							campoc = null;
+							totalb = null;
+							totalc = null;
+						}
+					}
+				}
+				else if (CodigoTransaccion == 31) {
+					if (rectif==-1) {
+						campob = "m300ddedimrceqb";
+						campoc = "m300ddedimrceqq";
+					}
+					else {
+						campob = "m300ddedimbib5";
+						campoc = "m300ddedimbic5";
+						if (PorcentajeIR<5 && PorcentajeIR>1) {
+							campob = "m300ddedimbib1";
+							campoc = "m300ddedimbic1";
+						}
+						else if (PorcentajeIR>=6 && PorcentajeIR<9) {
+							campob = "m300ddedimbib2";
+							campoc = "m300ddedimbic2";
+						}
+						else if (PorcentajeIR>=9 && PorcentajeIR<13) {
+							campob = "m300ddedimbib4";
+							campoc = "m300ddedimbic4";
+						}
+						else if (PorcentajeIR>=13 && PorcentajeIR<20) {
+							campob = "m300ddedimbib3";
+							campoc = "m300ddedimbic3";
+						}
+						totalb = "m300ddedimbib";
+						totalc = "m300ddedimbic";
+						if (PorcentajeIR<=0.001) {
+							campob = null;
+							campoc = null;
+							totalb = null;
+							totalc = null;
+						}
+					}
+				}
+				else if (CodigoTransaccion == 32) {
+					if (rectif==-1) {
+						campob = "m300ddedimeqbib";
+						campoc = "m300ddedimeqbiq";
+					}
+					else {
+						campob = "m300ddedimbcb5";
+						campoc = "m300ddedimbcc5";
+						if (PorcentajeIR<5 && PorcentajeIR>1) {
+							campob = "m300ddedimbcb1";
+							campoc = "m300ddedimbcc1";
+						}
+						else if (PorcentajeIR>=6 && PorcentajeIR<9) {
+							campob = "m300ddedimbcb2";
+							campoc = "m300ddedimbcc2";
+						}
+						else if (PorcentajeIR>=9 && PorcentajeIR<13) {
+							campob = "m300ddedimbcb4";
+							campoc = "m300ddedimbcc4";
+						}
+						else if (PorcentajeIR>=13 && PorcentajeIR<20) {
+							campob = "m300ddedimbcb3";
+							campoc = "m300ddedimbcc3";
+						}
+						totalb = "m300ddedimbcb";
+						totalc = "m300ddedimbcc";
+						if (PorcentajeIR<=0.001) {
+							campob = null;
+							campoc = null;
+							totalb = null;
+							totalc = null;
+						}
+					}
+				}
+				else if (CodigoTransaccion == 29) {
+					if (rectif==-1) {
+						campob = "m300ddedairceqb";
+						campoc = "m300ddedairceqq";
+					}
+					else {
+						campob = "m300ddediservb5";
+						campoc = "m300ddediservc5";
+						if (PorcentajeIR<5 && PorcentajeIR>1) {
+							campob = "m300ddediservb1";
+							campoc = "m300ddediservc1";
+						}
+						else if (PorcentajeIR>=6 && PorcentajeIR<9) {
+							campob = "m300ddediservb2";
+							campoc = "m300ddediservc2";
+						}
+						else if (PorcentajeIR>=9 && PorcentajeIR<13) {
+							campob = "m300ddediservb4";
+							campoc = "m300ddediservc4";
+						}
+						else if (PorcentajeIR>=13 && PorcentajeIR<20) {
+							campob = "m300ddediservb3";
+							campoc = "m300ddediservc3";
+						}
+						totalb = "m300ddediservb";
+						totalc = "m300ddediservc";
+						if (PorcentajeIR<=0.001) {
+							campob = null;
+							campoc = null;
+							totalb = null;
+							totalc = null;
+						}
+					}
+				}
+				else if (CodigoTransaccion == 20 || CodigoTransaccion == 22) {
+					if (rectif==-1) {
+						campob = "m300ddedairceqb";
+						campoc = "m300ddedairceqq";
+					}
+					else {
+						campob = "m300ddedadbcb5";
+						campoc = "m300ddedadbcc5";
+						if (PorcentajeIR<5 && PorcentajeIR>1) {
+							campob = "m300ddedadbcb1";
+							campoc = "m300ddedadbcc1";
+						}
+						else if (PorcentajeIR>=6 && PorcentajeIR<9) {
+							campob = "m300ddedadbcb2";
+							campoc = "m300ddedadbcc2";
+						}
+						else if (PorcentajeIR>=9 && PorcentajeIR<13) {
+							campob = "m300ddedadbcb4";
+							campoc = "m300ddedadbcc4";
+						}
+						else if (PorcentajeIR>=13 && PorcentajeIR<20) {
+							campob = "m300ddedadbcb3";
+							campoc = "m300ddedadbcc3";
+						}
+						totalb = "m300ddedadbcb";
+						totalc = "m300ddedadbcc";
+						if (PorcentajeIR<=0.001) {
+							campob = null;
+							campoc = null;
+							totalb = null;
+							totalc = null;
+						}
+					}
+				}
+				else if (CodigoTransaccion == 21) {
+					if (rectif==-1) {
+						campob = "m300ddedaieqbib";
+						campoc = "m300ddedaieqbiq";
+					}
+					else {
+						campob = "m300ddedadbib5";
+						campoc = "m300ddedadbic5";
+						if (PorcentajeIR<5 && PorcentajeIR>1) {
+							campob = "m300ddedadbib1";
+							campoc = "m300ddedadbic1";
+						}
+						else if (PorcentajeIR>=6 && PorcentajeIR<9) {
+							campob = "m300ddedadbib2";
+							campoc = "m300ddedadbic2";
+						}
+						else if (PorcentajeIR>=9 && PorcentajeIR<13) {
+							campob = "m300ddedadbib4";
+							campoc = "m300ddedadbic4";
+						}
+						else if (PorcentajeIR>=13 && PorcentajeIR<20) {
+							campob = "m300ddedadbib3";
+							campoc = "m300ddedadbic3";
+						}
+						totalb = "m300ddedadbib";
+						totalc = "m300ddedadbic";
+						if (PorcentajeIR<=0.001) {
+							campob = null;
+							campoc = null;
+							totalb = null;
+							totalc = null;
+						}
+					}
+				}
+				else if (CodigoTransaccion == 35) {
+					if (rectif==-1) {
+						campob = "m300ddedcmrceqb";
+						campoc = "m300ddedcmrceqq";
+					}
+					else {
+						campob = "m300ddedragpb";
+						campoc = "m300ddedragp";
+					}
+				}
+				else if (CodigoTransaccion == 36) campoc = "m300ddedrinv";
+				else System.out.println("Codigo transaccion SOPORTAT no trobat ["+CodigoTransaccion+"]");
+			}
+			if (campo390!=null) {
+				Double val = ht.get(campo390);
+				double importe390 = BaseTotal;
+				if (val != null) importe390 += val.doubleValue();
+				ht390.put(campo390,new Double(importe390));
+			}
+			if (campob!=null) {
+				if (campob.startsWith("m300b")) {
+					Double val = htb.get(campob);
+					if (val != null) valorb += val.doubleValue();
+					htb.put(campob,new Double(valorb));
+				}
+				else {
+					Double val = ht.get(campob);
+					if (val != null) valorb += val.doubleValue();
+					ht.put(campob,new Double(valorb));
+				}
+			}
+			if (campoc!=null) {
+				if (campoc.startsWith("m300b")) {
+					Double val = htb.get(campoc);
+					if (val != null) valorc += val.doubleValue();
+					htb.put(campoc,new Double(valorc));
+				}
+				else {
+					Double val = ht.get(campoc);
+					if (val != null) valorc += val.doubleValue();
+					ht.put(campoc,new Double(valorc));
+				}
+			}
+			if (totalc!=null) {
+				Double val = ht.get(totalc);
+				if (val != null) CuotaTotal += val.doubleValue();
+				ht.put(totalc,new Double(CuotaTotal));
+			}
+			if (totalb!=null) {
+				Double val = ht.get(totalb);
+				if (val != null) BaseTotal += val.doubleValue();
+				ht.put(totalb,new Double(BaseTotal));
+			}
+		}
+		sdes.close();
+		if (ht.size()>0) {
+			Insert ides = new Insert (connModasp,"MOD300DES");
+			ides.valor("m300ddominio",dominio);
+			ides.valor("m300dnif",nif);
+			ides.valor("m300dejercicio",ejer);
+			ides.valor("m300dperiodo",per);
+			ides.valor("m300dgrupo","0");
+			ides.valor("m300dactividad",codActiv);
+			for (java.util.Enumeration<String> e = ht.keys() ; e.hasMoreElements() ;) {
+				String campo = e.nextElement();
+				Double val = ht.get(campo);
+				if (val!=null && val.doubleValue()!=0) ides.valor(campo,val.doubleValue());
+			}
+			bOk = ides.execute();
+			if (!bOk) sError = "No se ha podido grabar la tabla MOD300DES de la empresa "+codEmp+", actividad "+codActiv+", ejercicio "+ejer+" y periodo "+per+".";
+		}
+		if (bOk && htb.size()>0) {
+			Insert ides = new Insert (connModasp,"MOD300DESB");
+			ides.valor("m300bdominio",dominio);
+			ides.valor("m300bnif",nif);
+			ides.valor("m300bejercicio",ejer);
+			ides.valor("m300bperiodo",per);
+			ides.valor("m300bgrupo","0");
+			ides.valor("m300bactividad",codActiv);
+			for (java.util.Enumeration<String> e = htb.keys() ; e.hasMoreElements() ;) {
+				String campo = e.nextElement();
+				Double val = htb.get(campo);
+				if (val!=null && val.doubleValue()!=0) ides.valor(campo,val.doubleValue());
+			}
+			bOk = ides.execute();
+			if (!bOk) sError = "No se ha podido grabar la tabla MOD300DESB de la empresa "+codEmp+", actividad "+codActiv+", ejercicio "+ejer+" y periodo "+per+".";
+		}
+
+		if (bOk && ht390.size()>0) {
+			Insert ides = new Insert (connModasp,"MOD390DES");
+			ides.valor("m390dnif",nif);
+			ides.valor("m390dejercicio",ejer);
+			ides.valor("m390dperiodo",per);
+			ides.valor("m390dactividad",codActiv);
+			for (java.util.Enumeration<String> e = ht390.keys() ; e.hasMoreElements() ;) {
+				String campo = e.nextElement();
+				Double val = ht390.get(campo);
+				if (val!=null && val.doubleValue()!=0) ides.valor(campo,val.doubleValue());
+			}
+			bOk = ides.execute();
+			if (!bOk) sError = "No se ha podido grabar la tabla MOD390DES de la empresa "+codEmp+", actividad "+codActiv+", ejercicio "+ejer+" y periodo "+per+".";
+		}
+		return bOk;
+	}
+	private boolean altaModelo303_14(String nif,int codEmp,int codGYC, int ejer)  {
+		boolean bOk = true;
+		String codiCDP = dominio.substring(0,6)+Numero.format(codGYC,"000000");
+		SelectorLogic s303b = new SelectorLogic(connLC);
+		String sql = " and IOF_PortadaModelosIVa.Ejercicio="+ejer;
+		sql += " and IOF_PortadaModelosIVa.Ejercicio>2013 and IOF_PortadaModelosIVa.hoja = 1";
+		s303b.execute("SELECT *  FROM IOF_PortadaModelosIVa INNER JOIN Personas ON IOF_PortadaModelosIVa.GuidPersona=Personas.GuidPersona where Personas.DNI='"+nif+"' and IOF_PortadaModelosIVa.CodigoModeloImp='303'"+sql+" order by IOF_PortadaModelosIVa.Ejercicio, IOF_PortadaModelosIVa.Periodo");
+		while (s303b.next() && bOk) {
+			String liqpos = s303b.getString("LiqPosicionContador");
+			String per = getPeriodo(s303b.getint("Periodo"),s303b.getint("IOFCodigoPeriodicidad"));
+			if (cargarDatosNif(nif,codiCDP)) {
+				mae.modasp.general.Modasp.borrarRegModelo("303", nif, ejer, per, true);
+				mae.modasp.general.Modasp.borrarRegModnifcdp("303", nif, ejer, per);
+				mae.modasp.general.Modasp.borrarRegModestado("303", nif, ejer, per);
+
+				Selector scheck = new Selector(connModasp);
+				scheck.execute("Select * from MOD300 where m300nif='"+nif+"' and m300ejercicio="+ejer+" and m300periodo='"+per+"'");
+				if (!scheck.next()) {
+					Insert i303 = new Insert (connModasp,"MOD300");
+					i303.valor("m300dominio",dominio);
+					i303.valor("m300ejercicio",ejer);
+					i303.valor("m300periodo",per);
+					i303.valor("m300mesmodelo",getMesModelo(per));
+					i303.valor("m300modelo","303");
+					i303.valor("m300nif",nif);
+					SelectorLogic s303 = new SelectorLogic(connLC);
+					String where = " IOF_PortadaModelosIVa.CodigoModeloImp='303' and IOF_PortadaModelosIVa.ejercicio="+ejer+" and IOF_PortadaModelosIVa.periodo="+s303b.getint("Periodo");
+					where += " and IOF_PortadaModelosIVa.IOFCodigoPeriodicidad="+ s303b.getint("IOFCodigoPeriodicidad")+" and IOF_PortadaModelosIVa.codigoterritorio="+s303b.getint("codigoterritorio");
+					where += " and IOF_PortadaModelosIVa.complementaria="+s303b.getint("complementaria")+" and IOF_PortadaModelosIVa.codigoempresa="+codEmp;
+					s303.execute("SELECT *  FROM IOF_PortadaModelosIVa where "+where+" order by IOF_PortadaModelosIVa.hoja");
+					double resultado = 0.0;
+					String banco = "";
+					String sucursal = "";
+					String digito = "";
+					String cuenta  = "";
+					java.util.Date fechaImpreso = null;
+					String m300tipodecl = "";
+					while (s303.next() && bOk) {
+						int hoja = s303.getint("hoja");
+						if (hoja==1) {
+							resultado = s303.getdouble("resultado");
+							fechaImpreso = getFechaImpreso(s303.getDate("FechaListado"),ejer,per);
+							i303.valor("m300deleg",ccfddelegacio.getString());
+							i303.valor("m300admon",retallaString(ccfdadministra.getString(),30));
+							i303.valor("m300codadmon",Util.formateoNumero("00",ccfdcdpaeatdele.getInteger())+
+									Util.formateoNumero("000",ccfdcdpaeatadm.getInteger()));
+							i303.valor("m300apellidos",getApellidos());
+							i303.valor("m300nombre",retallaString(ccfddatnombre.getString(),15));
+							if (ccfddatsiglas.getString().length()>0) i303.valor("m300siglas",ccfddatsiglas.getString());
+							i303.valor("m300calle",retallaString(ccfddatvia.getString(),17));
+							i303.valor("m300numero",ccfddatnum.getString());
+							i303.valor("m300puerta",ccfddatpuerta.getString());
+							i303.valor("m300escalera",ccfddatesc.getString());
+							i303.valor("m300piso",ccfddatpiso.getString());
+							i303.valor("m300cpostal",ccfddatcpos.getString());
+							i303.valor("m300provincia",retallaString(ccfdprovincia.getString(),15));
+							i303.valor("m300municipio",retallaString(ccfddatpobla.getString(),20));
+							i303.valor("m300telefono",retallaString(ccfddattel.getString(),9));
+							i303.valor("m300letetiq",getLetrasEtiq(ejer,nif));
+							i303.valor("m300munifirma",getSelString(s303,"lugar",30));
+							i303.valor("m300dia",Maefc.getDay(fechaImpreso));
+							i303.valor("m300mes",Fecha.nombreMes(Maefc.getMonth(fechaImpreso)));
+							i303.valor("m300anyo",Maefc.getYear(fechaImpreso));
+							i303.valor("m300fecha",fechaImpreso);
+							i303.valor("m300percont",getSelString(s303,"NombreContacto",100));
+							i303.valor("m300telcont",getSelString(s303,"TelefonoContacto",9));
+							i303.valor("m300observa","Convertido de LOGICCLASS");
+							i303.valor("m300presconj","2");
+							i303.valor("m300concacre","2");
+							i303.valor("m300revproesp","2");
+							i303.valor("m300devmensual","2");
+							i303.valor("m300regsim","2");
+							i303.valor("m300recc","2");
+							i303.valor("m300destrecc","2");
+							i303.valor("m300apliproesp","2");
+							i303.valor("m300cruzcomp","0");
+							if (s303.getint("SinActividad") == -1) i303.valor("m300sinactiv","X");
+							if (s303.getint("IOFRegistroDevIVA") == -1) i303.valor("m300devmensual","1");
+							if (s303.getint("marca04") == -1) i303.valor("m300regsim","1"); 
+							if (s303.getint("marca05") == -1) i303.valor("m300presconj","1"); 
+							if (s303.getint("marca06") == -1) i303.valor("m300apliproesp","1"); 
+							if (s303.getint("marca07") == -1) i303.valor("m300revproesp","1"); 
+							if (s303.getint("IOFcriteriocaja") == -1) i303.valor("m300recc","1"); 
+							double m300devivbase1 = s303.getdouble("Importe01");
+							double m300devivbase2 = s303.getdouble("Importe03");
+							double m300devivbase3 = s303.getdouble("Importe05");
+							if (m300devivbase1!=0) {
+								i303.valor("m300devivbase1",m300devivbase1);
+								i303.valor("m300devivpor1",s303.getdouble("Porcen01"));
+								i303.valor("m300devivcuota1",s303.getdouble("Importe02"));
+							}
+							if (m300devivbase2!=0) {
+								i303.valor("m300devivbase2",m300devivbase2);
+								i303.valor("m300devivpor2",s303.getdouble("Porcen02"));
+								i303.valor("m300devivcuota2",s303.getdouble("Importe04"));
+							}
+							if (m300devivbase3!=0) {
+								i303.valor("m300devivbase3",m300devivbase3);
+								i303.valor("m300devivpor3",s303.getdouble("Porcen03"));
+								i303.valor("m300devivcuota3",s303.getdouble("Importe06"));
+							}
+							if (s303.getdouble("Importe13")!=0) i303.valor("m300devadqbase",s303.getdouble("Importe13"));
+							if (s303.getdouble("Importe14")!=0) i303.valor("m300devadqquota",s303.getdouble("Importe14"));
+							if (s303.getdouble("Importe09")!=0) i303.valor("m300devispb",s303.getdouble("Importe09"));
+							if (s303.getdouble("Importe10")!=0) i303.valor("m300devispc",s303.getdouble("Importe10"));
+							if (s303.getdouble("Importe11")!=0) i303.valor("m300devmbqb",s303.getdouble("Importe11"));
+							if (s303.getdouble("Importe12")!=0) i303.valor("m300devmbqc",s303.getdouble("Importe12"));
+							double m300devrebase1 = s303.getdouble("Importe07");
+							double m300devrebase2 = s303.getdouble("Importe09");
+							double m300devrebase3 = s303.getdouble("Importe11");
+							if (m300devrebase1!=0) {
+								i303.valor("m300devrebase1",m300devrebase1);
+								i303.valor("m300devrepor1",s303.getdouble("Porcen04"));
+								i303.valor("m300devrecuota1",s303.getdouble("Importe08"));
+							}
+							if (m300devrebase2!=0) {
+								i303.valor("m300devrebase2",m300devrebase2);
+								i303.valor("m300devrepor2",s303.getdouble("Porcen05"));
+								i303.valor("m300devrecuota2",s303.getdouble("Importe10"));
+							}
+							if (m300devrebase3!=0) {
+								i303.valor("m300devrebase3",m300devrebase3);
+								i303.valor("m300devrepor3",s303.getdouble("Porcen06"));
+								i303.valor("m300devrecuota3",s303.getdouble("Importe12"));
+							}
+							if (s303.getdouble("Importe15")!=0) i303.valor("m300dedopinb",s303.getdouble("Importe15"));
+							if (s303.getdouble("Importe16")!=0) i303.valor("m300dedopin",s303.getdouble("Importe16"));
+							if (s303.getdouble("Importe17")!=0) i303.valor("m300dedopinivb",s303.getdouble("Importe17"));
+							if (s303.getdouble("Importe18")!=0) i303.valor("m300dedopinivc",s303.getdouble("Importe18"));
+							if (s303.getdouble("Importe19")!=0) i303.valor("m300dedimporb",s303.getdouble("Importe19"));
+							if (s303.getdouble("Importe20")!=0) i303.valor("m300dedimpor",s303.getdouble("Importe20"));
+							if (s303.getdouble("Importe21")!=0) i303.valor("m300dedimpivb",s303.getdouble("Importe21"));
+							if (s303.getdouble("Importe22")!=0) i303.valor("m300dedimpivc",s303.getdouble("Importe22"));
+							if (s303.getdouble("Importe23")!=0) i303.valor("m300dedadqb",s303.getdouble("Importe23"));
+							if (s303.getdouble("Importe24")!=0) i303.valor("m300dedadq",s303.getdouble("Importe24"));
+							if (s303.getdouble("Importe25")!=0) i303.valor("m300dedadqivb",s303.getdouble("Importe25"));
+							if (s303.getdouble("Importe26")!=0) i303.valor("m300dedadqivc",s303.getdouble("Importe26"));
+							if (s303.getdouble("Importe27")!=0) i303.valor("m300dedragp",s303.getdouble("Importe27"));
+							if (s303.getdouble("Importe28")!=0) i303.valor("m300dedrinv",s303.getdouble("Importe28"));
+							if (s303.getdouble("Importe29")!=0) i303.valor("m300regpro",s303.getdouble("Importe29"));
+							if (s303.getdouble("Importe30")!=0) i303.valor("m300entregas",s303.getdouble("Importe30"));
+							if (s303.getdouble("Importe31")!=0) i303.valor("m300exporta",s303.getdouble("Importe31"));
+							if (s303.getdouble("Importe32")!=0) i303.valor("m300opnosujdev",s303.getdouble("Importe32"));
+							i303.valor("m300totcuotdev",s303.getdouble("TotalDevengado"));
+							i303.valor("m300totded",s303.getdouble("TotalDeducible"));
+							i303.valor("m300resreggen",s303.getdouble("importe33"));
+							i303.valor("m300ressuma",s303.getdouble("DiferenciaRepSop"));
+							i303.valor("m300resultado",s303.getdouble("importe35"));
+							i303.valor("m300atradmonpor",s303.getdouble("PorcenAtribuible"));
+							i303.valor("m300atradmon",s303.getdouble("ImporteAtribuible"));
+							i303.valor("m300estydiput",s303.getdouble("RegularizacionAnual"));
+							i303.valor("m300cuotcompen",s303.getdouble("CompensacionPerAnt"));
+							i303.valor("m300adeducir",s303.getdouble("resultadoliqant"));
+							i303.valor("m300resultliq",resultado);
+							m300tipodecl = "I";
+							int fp = s303.getint("IOFFormaDePago");
+							banco = s303.getString("CodigoBanco");
+							sucursal = s303.getString("CodigoOficina");
+							if (banco!=null && banco.trim().length()>0 && Util.isNumero(banco)) 
+								banco = Numero.format(Integer.valueOf(banco),"0000");                          
+							if (sucursal!=null && sucursal.trim().length()>0 && Util.isNumero(sucursal)) 
+								sucursal = Numero.format(Integer.valueOf(sucursal),"0000");
+							digito = getSelString(s303,"Dc");
+							cuenta  = getSelString(s303,"NumeroCuenta");
+							if (s303.getdouble("aingresar")!=0) {
+								m300tipodecl = "P";
+								if (fp == 3) m300tipodecl = "U";
+								if (fp==2 || fp==3) {
+									if (banco!=null && banco.trim().length()>0 && Util.isNumero(banco)) {
+										i303.valor("m300ibanpaisi","ES");
+										i303.valor("m300ibandci",mae.modasp.general.Modasp.getDCIBAN(banco+sucursal+digito+cuenta));
+									}
+									i303.valor("m300entingreso",banco);
+									i303.valor("m300ofiingreso",sucursal);
+									i303.valor("m300digiingreso",digito);
+									i303.valor("m300ctaingreso",cuenta);
+								}
+							}
+							else if (s303.getdouble("acompensar")!=0) m300tipodecl = "C";
+							else if (s303.getdouble("adevolver")!=0) {
+								if (banco!=null && banco.trim().length()>0 && Util.isNumero(banco)) {
+									i303.valor("m300ibanpaisi","ES");
+									i303.valor("m300ibandci",mae.modasp.general.Modasp.getDCIBAN(banco+sucursal+digito+cuenta));
+								}
+								i303.valor("m300entingreso",banco);
+								i303.valor("m300ofiingreso",sucursal);
+								i303.valor("m300digiingreso",digito);
+								i303.valor("m300ctaingreso",cuenta);
+								m300tipodecl = "N";
+							}
+							i303.valor("m300tipodecl",m300tipodecl);
+							if (s303.getint("SinActividad") == -1) i303.valor("m300sinactiv","X");
+							if (s303.getint("Complementaria") == 1) {
+								i303.valor("m300cruzcomp","X");
+								String CodigoElectronicoAnt = s303.getString("CodigoElectronicoAnt");
+								String NumJustLiqAnt = s303.getString("NumJustLiqAnt");
+								if (NumJustLiqAnt!=null && NumJustLiqAnt.length()>0) i303.valor("m300numjustif",NumJustLiqAnt);
+								else if (CodigoElectronicoAnt!=null && CodigoElectronicoAnt.length()>0) i303.valor("m300numjustif",CodigoElectronicoAnt);
+							}
+						}
+						else if (hoja==2) {
+							if (s303.getdouble("Importe01")!=0) i303.valor("m300devispb",s303.getdouble("Importe01"));
+							if (s303.getdouble("Importe02")!=0) i303.valor("m300devispc",s303.getdouble("Importe02"));
+							if (s303.getdouble("Importe03")!=0) i303.valor("m300devmbqb",s303.getdouble("Importe03"));
+							if (s303.getdouble("Importe04")!=0) i303.valor("m300devmbqc",s303.getdouble("Importe04"));
+							if (s303.getdouble("Importe05")!=0) i303.valor("m300devmbqrb",s303.getdouble("Importe05"));
+							if (s303.getdouble("Importe06")!=0) i303.valor("m300devmbqrc",s303.getdouble("Importe06"));
+							if (s303.getdouble("Importe07")!=0) i303.valor("m300dedrectib",s303.getdouble("Importe07"));
+							if (s303.getdouble("Importe08")!=0) i303.valor("m300dedrectic",s303.getdouble("Importe08"));
+							if (s303.getdouble("Importe09")!=0) i303.valor("m300iadevb",s303.getdouble("Importe09"));
+							if (s303.getdouble("Importe10")!=0) i303.valor("m300iadevc",s303.getdouble("Importe10"));
+							if (s303.getdouble("Importe11")!=0) i303.valor("m300iasopb",s303.getdouble("Importe11"));
+							if (s303.getdouble("Importe12")!=0) i303.valor("m300iasopc",s303.getdouble("Importe12"));
+						}
+						else if (hoja==3) {
+							if (s303.getdouble("totaldevengado")!=0 || s303.getdouble("totaldeducible")!=0) {
+								Insert i303rs = new Insert (connModasp,"MOD303RS");
+								i303rs.valor("m03acodi",0);
+								i303rs.valor("m03adominio",dominio);
+								i303rs.valor("m03anif",nif);
+								i303rs.valor("m03aejercicio",ejer);
+								i303rs.valor("m03aperiodo",per);
+								i303rs.valor("m03anumpag",1);
+								i303rs.valor("m03adevtotal",s303.getdouble("totaldevengado"));
+								i303rs.valor("m03adedtotal",s303.getdouble("totaldeducible"));
+								i303rs.valor("m03arsresul",s303.getdouble("resultado"));
+								i303rs.valor("m03aadqintra",s303.getdouble("importe01"));
+								i303rs.valor("m03aentregas",s303.getdouble("importe02"));
+								i303rs.valor("m03adevisp",s303.getdouble("importe03"));
+								i303rs.valor("m03aadqfijos",s303.getdouble("importe04"));
+								i303rs.valor("m03aregul",s303.getdouble("importe05"));
+								i303rs.valor("m03a123sumaing",s303.getdouble("importe06"));
+								SelectorLogic sIvaAgr = new SelectorLogic(connLC);
+								sIvaAgr.execute("Select * from IOF_ActSimAGFModelosIVA where liqposicion='"+liqpos+"' order by idactividad");
+								int nAct = 0;
+								while (sIvaAgr.next() && nAct<2) {
+									nAct++;
+									i303rs.valor("m03aa"+String.valueOf(nAct)+"codigo",getCodAgr(ejer,nif,getCodGEyCE(sIvaAgr.getint("idagriva"))));
+									i303rs.valor("m03aa"+String.valueOf(nAct)+"numact",sIvaAgr.getint("idagriva"));
+									i303rs.valor("m03aa"+String.valueOf(nAct)+"voling",sIvaAgr.getdouble("volingresos"));
+									i303rs.valor("m03aa"+String.valueOf(nAct)+"indice",sIvaAgr.getdouble("porcentajeagriva"));
+									i303rs.valor("m03aa"+String.valueOf(nAct)+"cuodev",sIvaAgr.getdouble("cuotadevengada"));
+									if ("4T".equals(per)) {
+										i303rs.valor("m03aa"+String.valueOf(nAct)+"4cuosop",sIvaAgr.getdouble("cuotasoportada"));
+										i303rs.valor("m03aa"+String.valueOf(nAct)+"4cuoanu",sIvaAgr.getdouble("cuotaderivada"));
+									}
+									else {
+										i303rs.valor("m03aa"+String.valueOf(nAct)+"123por",sIvaAgr.getdouble("porcentajetrimes"));
+										i303rs.valor("m03aa"+String.valueOf(nAct)+"123incta",sIvaAgr.getdouble("ingresoacuenta"));
+									}
+								}
+								sIvaAgr.close();
+								SelectorLogic sIvaMod = new SelectorLogic(connLC);
+								sIvaMod.execute("Select * from IOF_ActSimModelosIVA where liqposicion='"+liqpos+"' order by idactividad");
+								nAct = 0;
+								while (sIvaMod.next() && nAct<2) {
+									nAct++;
+									i303rs.valor("m03ab"+String.valueOf(nAct)+"codigo",getCodNoAgr(ejer,nif,sIvaMod.getint("codigoepigrafe")));
+									i303rs.valor("m03ab"+String.valueOf(nAct)+"epigrafe",sIvaMod.getint("codigoepigrafe"));
+									for (int kk=1;kk<8;kk++) {
+										if (sIvaMod.getdouble("unidadesFin_Iva_"+String.valueOf(kk))!=0) {
+											i303rs.valor("m03ab"+String.valueOf(nAct)+"moduni"+String.valueOf(kk),sIvaMod.getdouble("unidadesFin_Iva_"+String.valueOf(kk)));
+											i303rs.valor("m03ab"+String.valueOf(nAct)+"modimp"+String.valueOf(kk),sIvaMod.getdouble("cuotadevengadafin_iva_"+String.valueOf(kk)));
+										}
+									}
+									i303rs.valor("m03ab"+String.valueOf(nAct)+"cuodeven",sIvaMod.getdouble("cuotadevengada"));
+									if (sIvaMod.getdouble("reduccion1")!=0) i303rs.valor("m03ab"+String.valueOf(nAct)+"reduc",sIvaMod.getdouble("reduccion1"));
+									if ("4T".equals(per)) {
+										if (sIvaMod.getdouble("indicetemporadareg_iva")  !=0) i303rs.valor("m03ab"+String.valueOf(nAct)+"4indice",sIvaMod.getdouble("indicetemporadareg_iva"));
+										if (sIvaMod.getdouble("cuotasoportadaiva")      !=0) i303rs.valor("m03ab"+String.valueOf(nAct)+"4cuosop",sIvaMod.getdouble("cuotasoportadaiva"));
+										if (sIvaMod.getdouble("totalcuotaresultante_iva")!=0) i303rs.valor("m03ab"+String.valueOf(nAct)+"4resul", sIvaMod.getdouble("totalcuotaresultante_iva"));
+										if (sIvaMod.getdouble("indicecuotaminima_iva")   !=0) i303rs.valor("m03ab"+String.valueOf(nAct)+"4porcen",sIvaMod.getdouble("indicecuotaminima_iva"));
+										if (sIvaMod.getdouble("devivaterceros")      !=0) i303rs.valor("m03ab"+String.valueOf(nAct)+"4devol", sIvaMod.getdouble("devivaterceros"));
+										if (sIvaMod.getdouble("totalcuotaminima_iva")    !=0) i303rs.valor("m03ab"+String.valueOf(nAct)+"4cuomin",sIvaMod.getdouble("totalcuotaminima_iva"));
+										if (sIvaMod.getdouble("cuotaderivada_iva")       !=0) i303rs.valor("m03ab"+String.valueOf(nAct)+"4cuoanu",sIvaMod.getdouble("cuotaderivada_iva"));
+									}
+									else {
+										if (sIvaMod.getdouble("indicetemporadareg_iva")!=0) i303rs.valor("m03ab"+String.valueOf(nAct)+"123ind",sIvaMod.getdouble("indicetemporadareg_iva"));
+										if (sIvaMod.getdouble("porcentajetrimes")!=0) i303rs.valor("m03ab"+String.valueOf(nAct)+"123por",sIvaMod.getdouble("porcentajetrimes"));
+										if (sIvaMod.getdouble("totalingactadeclarar")!=0) i303rs.valor("m03ab"+String.valueOf(nAct)+"123incta",sIvaMod.getdouble("totalingactadeclarar"));
+									}
+								}
+								sIvaMod.close();
+								bOk = i303rs.execute();
+								if (!bOk) sError = "No se ha podido actualizar la tabla MOD303RS del NIF "+nif+", ejercicio "+ejer+", periodo "+per+".";
+							}
+						}
+					}
+					s303.close();
+					if (i303.execute()) {
+						int codActiv = 1;
+						bOk = altaDesgloseModelo303_14(nif,codEmp,codGYC,ejer,liqpos,per,codActiv);
+						if (!bOk) sError = "No se ha podido actualizar el desglose del 303 del NIF "+nif+", ejercicio "+ejer+", periodo "+per+".";
+						if (bOk) bOk = actualitzaModEstado(codiCDP,banco,sucursal,digito,cuenta,"303",nif,ejer,per,fechaImpreso,m300tipodecl,resultado);
+					}
+					if (!bOk) sError = "No se ha podido actualizar la tabla MOD300 del NIF "+nif+", ejercicio "+ejer+", periodo "+per+".";
+				}
+				else System.out.println("El 303 del ejercicio "+ejer+", periodo "+per+" del nif "+nif+" ya existe");
+				scheck.close();
+			}
+		}
+		s303b.close();
+		return bOk;
+	}
+
+	private int getCodGEyCE(int codAEAT) {
+		int codGeyce = codAEAT;
+		if (codAEAT==7) codGeyce = 53;
+		else if (codAEAT==8) codGeyce = 7;
+		else if (codAEAT==9) codGeyce = 8;
+		else if (codAEAT==10) codGeyce = 9;
+		else if (codAEAT==11) codGeyce = 10;
+		else if (codAEAT==12) codGeyce = 11;
+		else if (codAEAT==13) codGeyce = 52;
+		else if (codAEAT==14) codGeyce = 12;
+		else if (codAEAT==15) codGeyce = 13;
+		else if (codAEAT==16) codGeyce = 14;
+		else if (codAEAT==17) codGeyce = 15;
+		return codGeyce;
+	}
+	private int getCodAgr(int ejer, String nif, int codiAGR) {
+		int codi = 0;
+		Selector s = new Selector(connModasp);
+		s.execute("Select MAACODIGO from modagriva where maanif='"+nif+"' and maaepigrafe="+codiAGR+" and MAAEJERCICIO="+ejer);
+		if (s.next()) codi = s.getint("maacodigo");
+		s.close();
+		return codi;
+	}
+
+	private int getCodNoAgr(int ejer, String nif, int epigrafe) {
+		int codi = 0;
+		String epig = "";
+		if (epigrafe>999) epig = String.valueOf(epigrafe/10.0);
+		else epig = String.valueOf(epigrafe);
+		Selector s = new Selector(connModasp);
+		s.execute("Select MAECODIGO from modacteo where maenif='"+nif+"' and maeepigrafe='"+epig+"' and MAEEJERCICIO="+ejer);
+		if (s.next()) codi = s.getint("maecodigo");
+		s.close();
+		return codi;
+	}
+
+
+
 	private boolean altaModelo303(String nif,int codEmp,int codGYC, int ejer) {
 		boolean bOk = true;
 		if (ejer>=2014) return true;
@@ -3318,7 +4269,10 @@ public class ConversionJCO extends ConversionLC {
 			if (bOk) bOk = importarPC (empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
 			if (bOk) bOk = importarInmov (empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
 			if (bOk) bOk = importarAsientos (empLC,ejerLogic,empJC,ejerJconta,fechaCierre,mesInicio) && emc.getDescripcionError()==null;
-			if (bOk) bOk = altaModelo303 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
+			if (bOk) {
+				if (ejerLogic<2014) bOk = altaModelo303 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
+				else  bOk = altaModelo303_14 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
+			}
 			if (bOk) bOk = altaModelo349 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
 			if (bOk) bOk = altaModelo115 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
 			if (bOk) {
