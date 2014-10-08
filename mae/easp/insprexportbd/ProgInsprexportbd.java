@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111118
-// Hora:             11:24:15
+// Fecha:            20141008
+// Hora:             12:30:14
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -52,8 +52,11 @@ public class ProgInsprexportbd extends Program
   public void proces() {
   
     sServidor = vexportbd.vvservidor.getString();
-    sUser = Aplication.getAplication().getConfig("DataBase.sqlserver.user");
-    sPasswd = Aplication.getAplication().getConfig("DataBase.sqlserver.password");
+    sUser = vexportbd.vvuser.getString();
+    sPasswd = vexportbd.vvpasswd.getString();
+    
+    String serverTmp = sServidor;
+    if (!vexportbd.vvinstancia.isNull()) serverTmp += "\\"+vexportbd.vvinstancia.getString();
     
     boolean resultBDEasp    = true ; 
     boolean resultBDModelos = true ;
@@ -62,25 +65,29 @@ public class ProgInsprexportbd extends Program
     boolean resultBDJISS    = true;
     boolean resultBDJRENTA  = true;
   
-    if ( bdeasp )                                        resultBDEasp    = traspasaBDAcc2SQL("easp"   ,sServidor,sUser,sPasswd);
-    if ( resultBDEasp && bdmodelos )                     resultBDModelos = traspasaBDAcc2SQL("modelos",sServidor,sUser,sPasswd);
-    if ( resultBDEasp && resultBDModelos && bdlaboral )  resultBDLaboral = traspasaBDAcc2SQL("laboral",sServidor,sUser,sPasswd); 
-    if ( resultBDEasp && resultBDModelos && bdjeo )   resultBDJEO = traspasaBDAcc2SQL("jeo",sServidor,sUser,sPasswd); 
-    if ( resultBDEasp && resultBDModelos && bdjiss )  resultBDJISS = traspasaBDAcc2SQL("jiss",sServidor,sUser,sPasswd); 
-    if ( resultBDEasp && resultBDModelos && bdjrenta )resultBDJRENTA = traspasaBDAcc2SQL("jrenta",sServidor,sUser,sPasswd); 
+    if ( bdeasp )                                        resultBDEasp    = traspasaBDAcc2SQL("easp"   ,serverTmp,sUser,sPasswd);
+    if ( resultBDEasp && bdmodelos )                     resultBDModelos = traspasaBDAcc2SQL("modelos",serverTmp,sUser,sPasswd);
+    if ( resultBDEasp && resultBDModelos && bdlaboral )  resultBDLaboral = traspasaBDAcc2SQL("laboral",serverTmp,sUser,sPasswd); 
+    if ( resultBDEasp && resultBDModelos && bdjeo )   resultBDJEO = traspasaBDAcc2SQL("jeo",serverTmp,sUser,sPasswd); 
+    if ( resultBDEasp && resultBDModelos && bdjiss )  resultBDJISS = traspasaBDAcc2SQL("jiss",serverTmp,sUser,sPasswd); 
+    if ( resultBDEasp && resultBDModelos && bdjrenta )resultBDJRENTA = traspasaBDAcc2SQL("jrenta",serverTmp,sUser,sPasswd); 
   
     boolean result = resultBDEasp && resultBDModelos && resultBDLaboral && resultBDJEO && resultBDJISS && resultBDJRENTA;
   
     if ( result ) {
+  
+      String serverTmp2 = sServidor;
+      if (!vexportbd.vvinstancia.isNull() && vexportbd.vvpuerto.getInteger()>0) serverTmp2 += ":"+vexportbd.vvpuerto.getString();
+  
       if ( bdeasp )    {
-        conver.setRegistre (Easp.dominio,"EAB"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",sServidor);    
+        conver.setRegistre (Easp.dominio,"EAB"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);    
   
         Selector sbds = new Selector(Easp.connEA);
         sbds.execute("Select bdnombre,bdversio from bds where bdnombre = 'bdexpe' ");
         if ( sbds.next() ) {
            double version = sbds.getdouble("bdversio");
            if ( version >= 13  ) {
-             conver.setRegistre (Easp.dominio,"JGES"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",sServidor);    
+             conver.setRegistre (Easp.dominio,"JGES"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);    
              }
           }  
         sbds.close();
@@ -89,22 +96,20 @@ public class ProgInsprexportbd extends Program
         String url = "http://afinity.geyce.es/pls/agpi/starterdp.getContratado?domini="+Easp.dominio+"&apli=JCONTA";
         String aplicJconta =URLExec.getContenido(url);
         if (aplicJconta != null && aplicJconta.startsWith("JCONTA")) {
-           conver.setRegistre (Easp.dominio,"JCONTA"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",sServidor);
-           }
+           conver.setRegistre (Easp.dominio,"JCONTA"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);
         }
-      if ( bdmodelos )  conver.setRegistre (Easp.dominio,"JMOD"   ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",sServidor);    
-      if ( bdlaboral )  conver.setRegistre (Easp.dominio,"JNOM",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",sServidor);    
-      if ( bdjeo )  conver.setRegistre (Easp.dominio,"JEO",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",sServidor);    
-      if ( bdjiss )  conver.setRegistre (Easp.dominio,"JISS",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",sServidor);    
-      if ( bdjrenta )  conver.setRegistre (Easp.dominio,"JRENTA",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",sServidor);    
-      Maefc.message ("La exportación ha finalizado correctamente.\nEs necesario que cierre todos los programas de GEyCE (jToken,jEA,jModelos .... )  para que los cambios tengan efecto.");
       }
+      if ( bdmodelos )  conver.setRegistre (Easp.dominio,"JMOD"   ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);    
+      if ( bdlaboral )  conver.setRegistre (Easp.dominio,"JNOM",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);    
+      if ( bdjeo )  conver.setRegistre (Easp.dominio,"JEO",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);    
+      if ( bdjiss )  conver.setRegistre (Easp.dominio,"JISS",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);    
+      if ( bdjrenta )  conver.setRegistre (Easp.dominio,"JRENTA",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);    
+      Maefc.message ("La exportación ha finalizado correctamente.\nEs necesario que cierre todos los programas de GEyCE (jToken,jEA,jModelos .... )  para que los cambios tengan efecto.");
+    }
     else {
       Maefc.message ("Se han producido errores.\nSolucione las incidencias y ejecute de nuevo el proceso.");
-      }
-    
-      
     }
+  }
   
   public boolean traspasaBDAcc2SQL (String sDestinoSQL,String sServ, String sUser, String sPasswd) { 
       String sOrigenAcc = vexportbd.vvbdaccess.getString()+sDestinoSQL+".mdb";
@@ -203,6 +208,10 @@ public class ProgInsprexportbd extends Program
     {
     // Controles
     public CtrlVvservidor vvservidor;
+    public CtrlVvinstancia vvinstancia;
+    public CtrlVvpuerto vvpuerto;
+    public CtrlVvuser vvuser;
+    public CtrlVvpasswd vvpasswd;
     public CtrlVvbdaccess vvbdaccess;
     public CtrlCheasp cheasp;
     public CtrlChmodelos chmodelos;
@@ -235,6 +244,83 @@ public class ProgInsprexportbd extends Program
         setType(STRING);
         setLength(40);
         setPrintable(false);
+        }
+      }
+      
+    public class CtrlVvinstancia extends ControlEdit
+      {
+      public CtrlVvinstancia(Form form)
+        {
+        super(form);
+        setName("vvinstancia");
+        setTitle("Instancia");
+        setType(STRING);
+        setLength(20);
+        setPrintable(false);
+        }
+      public void onChange()
+        {
+        super.onChange();
+        }
+        public void userChange (Value v) {
+          super.userChange (v);
+          if (isNull()) {
+            vvpuerto.setEnabled(true);
+            vvpuerto.setEnabled(false);
+          }
+          else vvpuerto.setEnabled(true);
+        }
+      }
+      
+    public class CtrlVvpuerto extends ControlEdit
+      {
+      public CtrlVvpuerto(Form form)
+        {
+        super(form);
+        setName("vvpuerto");
+        setTitle("Puerto Instancia");
+        setType(INTEGER);
+        setLength(4);
+        setEnabled(false);
+        setPrintable(false);
+        }
+      public boolean obligate()
+        {
+        return !vvinstancia.isNull();
+        }
+      }
+      
+    public class CtrlVvuser extends ControlEdit
+      {
+      public CtrlVvuser(Form form)
+        {
+        super(form);
+        setName("vvuser");
+        setTitle("Usuario");
+        setType(STRING);
+        setLength(20);
+        setPrintable(false);
+        }
+      public Object getDefault()
+        {
+        return Aplication.getAplication().getConfig("DataBase.sqlserver.user");
+        }
+      }
+      
+    public class CtrlVvpasswd extends ControlEdit
+      {
+      public CtrlVvpasswd(Form form)
+        {
+        super(form);
+        setName("vvpasswd");
+        setTitle("Password");
+        setType(STRING);
+        setLength(20);
+        setPrintable(false);
+        }
+      public Object getDefault()
+        {
+        return Aplication.getAplication().getConfig("DataBase.sqlserver.password");
         }
       }
       
@@ -339,6 +425,10 @@ public class ProgInsprexportbd extends Program
       setLocation(new Location());
       setPrintable(false);
       addControl(vvservidor=new CtrlVvservidor(this));
+      addControl(vvinstancia=new CtrlVvinstancia(this));
+      addControl(vvpuerto=new CtrlVvpuerto(this));
+      addControl(vvuser=new CtrlVvuser(this));
+      addControl(vvpasswd=new CtrlVvpasswd(this));
       addControl(vvbdaccess=new CtrlVvbdaccess(this));
       addControl(cheasp=new CtrlCheasp(this));
       addControl(chmodelos=new CtrlChmodelos(this));
