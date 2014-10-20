@@ -141,3 +141,4 @@
 140804 --> APJORDI: Millores en la conversió unica
 140902 --> APXAVI:  PlantillaJacob. Millores per evitar l'error can't co-create object. S'ha afegit un metode per alliberar els COM objects quan son cridats desde Threads.
 140904 --> APJORDI: Afegir iunstancia, port, usuari i passwd en la conversio de access - sql server
+141001 --> APJORDI: Monto ZIP per instancia 
