@@ -7,6 +7,7 @@ import mae.easp.conversions.Incidencia;
 import mae.easp.conversions.logicclass.db.SelectorLogic;
 import mae.easp.general.Easp;
 import mae.general.ProgressBarForm;
+import mae.modasp.general.Modasp;
 import geyce.maefc.DBConnection;
 import geyce.maefc.Program;
 
@@ -189,6 +190,11 @@ public class ConversionJNOM extends ConversionLC {
 		prNom.srepres.setDb(connEA);
 		prNom.sultimaincidenc.setDb(connEA);
 		prNom.sparametros.setDb(connEA);
+		prNom.sadmhacienda.setDb(connEA);
+		connModasp = Modasp.getConnModasp();
+		prNom.smod110.setDb(connModasp);
+		prNom.smodestado.setDb(connModasp);
+		prNom.smodnifcdp.setDb(connModasp);
 		prNom.carregaTaulaBonificacions();
 		prNom.carregaTaulaContractes();	    
 		prNom.chequeaConvenio9000();
