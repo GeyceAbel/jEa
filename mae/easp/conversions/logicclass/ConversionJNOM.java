@@ -61,6 +61,7 @@ public class ConversionJNOM extends ConversionLC {
         updateTableConversion(empLC, empJN);
         prNom.getDataBase().commit();
         pr.getDataBase().commit();
+        prNom.smod110.getDataBase().commit();        
         System.gc();
 		return vIncidencias;
 	  }
