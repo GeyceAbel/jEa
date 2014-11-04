@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20141029
-// Hora:             15:55:20
+// Fecha:            20141104
+// Hora:             13:06:09
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -27,6 +27,7 @@ public class ProgCnvlogicclass extends Program
   // Inicio declaraciones globales
   //Variables entrada
   public boolean fromJCO = false;
+  public boolean fromJISS = false;
   mae.easp.conversions.Conversion.APLICACION_ORIGEN AplicacionOrigen = mae.easp.conversions.Conversion.APLICACION_ORIGEN.LOGICCLASS;
   
   mae.easp.conversions.logicclass.ConversionJCO clcjco;
@@ -128,6 +129,18 @@ public class ProgCnvlogicclass extends Program
         chjeo.setValue(false);
         chjsoc.setEnabled(false);
         chjsoc.setValue(false);
+        chjre.setEnabled(false);
+        chjre.setValue(false);
+        chjnom.setEnabled(false);
+        chjnom.setValue(false);
+        chjges.setEnabled(false);
+        chjges.setValue(false);
+      }
+      else if (fromJISS) {
+        chjeo.setEnabled(false);
+        chjeo.setValue(false);
+        chjco.setEnabled(false);
+        chjco.setValue(false);
         chjre.setEnabled(false);
         chjre.setValue(false);
         chjnom.setEnabled(false);

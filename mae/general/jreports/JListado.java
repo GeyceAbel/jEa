@@ -478,7 +478,7 @@ public class JListado {
 					Grafico gr = sumario.graficos.get(i);
 					if (bOk) bOk = gr.generarSubDataSet (pw);
 				}
-			}			
+			}
 			if(getNumParameters() > 0) {
 				if (bOk) bOk = generarParametros (pw);
 			}
@@ -548,12 +548,20 @@ public class JListado {
 			pw.write("    <bottomPen lineWidth=\"0.5\" lineColor=\"#CCCCCC\"/>");
 			pw.write("    <rightPen lineWidth=\"0.5\" lineColor=\"#CCCCCC\"/>");
 			pw.write("  </box>");
-			/*pw.write("  <conditionalStyle>");
-          pw.write("    <conditionExpression><![CDATA[$V{"+models[k]+"}.StringValue().equals( new String(\"PDTE\"))]]></conditionExpression>");
-          pw.write("    <style forecolor=\"#CC0000\" >");
-          pw.write("    </style>");
-          pw.write("  </conditionalStyle>");*/
-			pw.write("</style>");
+      pw.write("</style>");
+// caldra treure aquest troç
+/* quan posem els estils servira exemple
+      pw.write("<style name=\"style1\">");
+      pw.write("   <conditionalStyle>");
+      pw.write("              <conditionExpression><![CDATA[$F{lisdiputacion}.equals(\"S\")]]></conditionExpression>");
+      pw.write("     <style forecolor=\"#119348\" fontSize=\"8\"/>");
+      pw.write("   </conditionalStyle>");
+      pw.write("   <conditionalStyle> ");
+      pw.write("              <conditionExpression><![CDATA[$F{lisdiputacion}.equals(\"N\")]]></conditionExpression>");
+      pw.write("              <style forecolor=\"#0A5DAF\" fontSize=\"12\"/>");
+      pw.write("   </conditionalStyle>");
+      pw.write("</style>");*/
+
 		}
 		catch (IOException e) {
 			bOk = false;
@@ -1295,9 +1303,11 @@ public class JListado {
 		if (tf.isAsignarColorFondo()) tran = "mode=\"Opaque\" backcolor=\""+tf.getColorFons()+"\" ";
 		String estilo = "";
 		if (!"".equals(tf.getStyle())) estilo = " style=\""+tf.getStyle()+"\" ";
-		pw.write("<reportElement"+repeVal+estilo+"forecolor=\""+tf.getColorFont()+"\" x=\""+tf.getPosIni()+"\" y=\""+tf.getY()+"\" width=\""+tf.getWidth()+"\" height=\""+tf.getAmplada()+"\" "+tran+">");
+    pw.write("<reportElement"+repeVal+estilo+"forecolor=\""+tf.getColorFont()+"\" x=\""+tf.getPosIni()+"\" y=\""+tf.getY()+"\" width=\""+tf.getWidth()+"\" height=\""+tf.getAmplada()+"\" "+tran+">");
+/* aixo seria perque funciones correctament els estils
+    if ("".equals(estilo)) pw.write("<reportElement"+repeVal+estilo+"forecolor=\""+tf.getColorFont()+"\" x=\""+tf.getPosIni()+"\" y=\""+tf.getY()+"\" width=\""+tf.getWidth()+"\" height=\""+tf.getAmplada()+"\" "+tran+">");
+    else pw.write("<reportElement"+repeVal+estilo+" x=\""+tf.getPosIni()+"\" y=\""+tf.getY()+"\" width=\""+tf.getWidth()+"\" height=\""+tf.getAmplada()+"\" "+tran+">");*/
 		pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"true\"/>");
-		//pw.write("<property name=\"net.sf.jasperreports.export.xls.wrap.text\" value=\"true\"/>");
 		pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
 		if (tf.getPrintWhen()!=null && tf.getPrintWhen().length()>0) {
 			pw.write("<printWhenExpression>"+tf.getPrintWhen()+"</printWhenExpression>");
@@ -1515,7 +1525,7 @@ public class JListado {
 
 	protected boolean generarCabecera(BufferedWriter pw) {
 		boolean bOk = true;
-		try { 
+		try {
 			pw.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 			pw.write("<jasperReport xmlns=\"http://jasperreports.sourceforge.net/jasperreports\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd\" name=\""+nombreReport+"\" language=\"groovy\" pageWidth=\""+pagewidth+"\" pageHeight=\""+pageheight+"\" " + tipoTratamientoSinDatos() + (orientacionPapel == Orientacion.HORIZONTAL?" orientation=\"Landscape\"":"") + " columnWidth=\""+columnWidth+"\" leftMargin=\""+margenizq+"\" rightMargin=\""+margender+"\" topMargin=\""+margensup+"\" bottomMargin=\""+margeninf+"\" isSummaryWithPageHeaderAndFooter=\"true\" >");
 			pw.write("<property name=\"ireport.zoom\" value=\"2.0\"/>");
