@@ -27,7 +27,7 @@ import net.sf.jasperreports.engine.data.JRXmlDataSource;
 import mae.general.jreports.Totalizar.Calculation;
 
 public class JListado {
-
+ 
 	public enum Orientacion { VERTICAL, HORIZONTAL} ;
 	public enum whenNoData {BLANK_PAGE,NO_PAGES,ALL_SECTIONS_NO_DETAIL,NO_DATA_SECTION};
 

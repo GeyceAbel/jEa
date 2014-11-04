@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140807
-// Hora:             08:06:36
+// Fecha:            20141029
+// Hora:             15:55:20
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -26,6 +26,7 @@ public class ProgCnvlogicclass extends Program
   public ProgCnvlogicclass cnvlogicclass;
   // Inicio declaraciones globales
   //Variables entrada
+  public boolean fromJCO = false;
   mae.easp.conversions.Conversion.APLICACION_ORIGEN AplicacionOrigen = mae.easp.conversions.Conversion.APLICACION_ORIGEN.LOGICCLASS;
   
   mae.easp.conversions.logicclass.ConversionJCO clcjco;
@@ -121,6 +122,18 @@ public class ProgCnvlogicclass extends Program
         vvuser.setValue("sa");
         vvpasswd.setValue("sa");
         vcodigos.idConver = -1;
+      }
+      if (fromJCO) {
+        chjeo.setEnabled(false);
+        chjeo.setValue(false);
+        chjsoc.setEnabled(false);
+        chjsoc.setValue(false);
+        chjre.setEnabled(false);
+        chjre.setValue(false);
+        chjnom.setEnabled(false);
+        chjnom.setValue(false);
+        chjges.setEnabled(false);
+        chjges.setValue(false);
       }
       estadoCampos ();
     }
@@ -1183,6 +1196,42 @@ public class ProgCnvlogicclass extends Program
     {
     // Inicio declaraciones globales
     int idConver = -1;
+    
+    public void onEdit () {  
+      chsel.setEnabled(false);
+      chjco.setEnabled(false);
+      chjeo.setEnabled(false);
+      chjsoc.setEnabled(false);
+      chjre.setEnabled(false);
+      chjnom.setEnabled(false);
+      chjges.setEnabled(false);
+      super.onEdit();
+    }
+    
+    private boolean esElMismoCDP(String codCdp, String nif) {
+      boolean mismo = false;
+      Selector sCdp = new Selector(getDataBase());
+      sCdp.execute("Select * from CDP where cdpcodi='"+codCdp+"' and cdpnifcif='"+nif+"'");
+      if (sCdp.next()) mismo = true;
+      sCdp.close();
+      return mismo;           
+    }
+    
+    private boolean existeCDP(String codCdp) {
+      boolean existe = false;
+      Selector sCdp = new Selector(getDataBase());
+      sCdp.execute("Select * from CDP where cdpcodi='"+codCdp+"'");
+      if (sCdp.next()) existe = true;
+      sCdp.close();
+      return existe;           
+    }
+    
+private boolean existeAConvertir(int integer) {
+      boolean trobat = false;
+      for (int i=0;i<vcodigos.getRowCount() && !trobat;i++) trobat = i!=getCurrentRow() && (cclcodigeyce.getInteger() == vcodigos.cclcodigeyce.getValue(i).getInteger());
+      return trobat;
+    }
+    
     // Fin declaraciones globales
     // Controles
     public CtrlChsel chsel;
@@ -1198,6 +1247,7 @@ public class ProgCnvlogicclass extends Program
     public CtrlChjges chjges;
     // Acciones
     public LinkAini aini;
+    public LinkAselec aselec;
     class Location extends LocationSplit
       {
       public Location( )
@@ -1227,6 +1277,7 @@ public class ProgCnvlogicclass extends Program
         setMessageHelp("Código Aplicación Origen");
         setTitle("Origen");
         setType(STRING);
+        setProtect(true);
         setLength(15);
         setPrintable(false);
         }
@@ -1251,6 +1302,7 @@ public class ProgCnvlogicclass extends Program
         setMessageHelp("Nombre o Razón Social");
         setTitle("Nombre o Razón Social");
         setType(STRING);
+        setProtect(true);
         setLength(255);
         setPrintable(false);
         setField(scodcnvotrapll.cclnombre);
@@ -1265,6 +1317,7 @@ public class ProgCnvlogicclass extends Program
         setName("cclnif");
         setTitle("Nif");
         setType(STRING);
+        setProtect(true);
         setLength(15);
         setPrintable(false);
         setField(scodcnvotrapll.cclnif);
@@ -1359,7 +1412,7 @@ public class ProgCnvlogicclass extends Program
         super(form);
         setName("aini");
         setTitle("&1. Iniciar Conversión");
-        setOptions(SEARCH | SHOW | UPDATE | INSERT);
+        setOptions(SHOW);
         }
       public void onAction()
         {
@@ -1390,13 +1443,37 @@ public class ProgCnvlogicclass extends Program
         }
       }
       
+    public class LinkAselec extends Action
+      {
+      public LinkAselec(Form form)
+        {
+        super(form);
+        setName("aselec");
+        setTitle("&2. Marcar");
+        setOptions(SHOW);
+        }
+      public void onAction()
+        {
+        int r = getCurrentRow();
+        scodcnvotrapll.edit();
+        if ("S".equals(scodcnvotrapll.cclsel.getString())) scodcnvotrapll.cclsel.setValue("N");
+        else scodcnvotrapll.cclsel.setValue("S");
+        if (scodcnvotrapll.update()) {
+          scodcnvotrapll.commit();
+          doShow();
+          setCurrentRow(r);
+        }
+        else scodcnvotrapll.rollback();
+        }
+      }
+      
     public FormVcodigos(ProgCnvlogicclass cnvlogicclass)
       {
       super(cnvlogicclass);
       setName("vcodigos");
       setTitle("Códigos asignados");
       setLocation(new Location());
-      setStates(SHOW);
+      setStates(SHOW | UPDATE);
       setPrintable(false);
       addSelect(scodcnvotrapll=new Scodcnvotrapll());
       addControl(chsel=new CtrlChsel(this));
@@ -1411,7 +1488,22 @@ public class ProgCnvlogicclass extends Program
       addControl(chjnom=new CtrlChjnom(this));
       addControl(chjges=new CtrlChjges(this));
       addAction(aini=new LinkAini(this));
+      addAction(aselec=new LinkAselec(this));
       setSelect(scodcnvotrapll);
+      }
+    public boolean onOkUpdate()
+      {
+      String cdp = Easp.dominio.substring(0,6)+Numero.format(cclcodigeyce.getInteger(),"000000");
+      if (existeAConvertir(cclcodigeyce.getInteger())) {
+        Maefc.message("La empresa "+cclcodigeyce.getInteger()+" ya esta asignada a otra empresa en este proceso de conversión.","¡Atención!");
+        return false;
+      }
+      if (existeCDP (cdp) && !esElMismoCDP(cdp,cclnif.getString())) {
+        Maefc.message("Ya existe el cliente "+cclcodigeyce.getInteger()+" en la tabla CDP con otro cif","¡Atención!");
+        return false;
+      }
+      return super.onOkUpdate();
+      
       }
     public void onBeginRecord()
       {
@@ -1425,6 +1517,9 @@ public class ProgCnvlogicclass extends Program
       chjges.setValue("S".equals(scodcnvotrapll.ccltraspjges.getString()));
       if (scodcnvotrapll.cclcodiorigens.getString().length()>0) vvcodorig.setValue(scodcnvotrapll.cclcodiorigens.getString());
       else vvcodorig.setValue(scodcnvotrapll.cclcodiorigen.getString());
+      
+      if (chsel.getBoolean()) aselec.setTitle("&2. Desmarcar");
+      else aselec.setTitle("&2. Marcar");
       }
     }
     

@@ -1,6 +1,7 @@
 package mae.easp.conversions.logicclass;
 
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 
@@ -973,6 +974,17 @@ public class ConversionJCO extends ConversionLC {
 				if (sCta.length()==3 || sCta.length()==4) htGrupos.put(sCta,sDesc);
 			}
 			spctas.close();
+			for (Enumeration<String> e = htGrupos.keys();e.hasMoreElements();) {
+				String cta = e.nextElement();
+				String desc = htGrupos.get(cta);
+				if (cta.length()==4 && "4".equals(tipoCta) ) checkMayor(empJconta, iEjerJ, cta, desc);
+				else if (cta.length()==3 && "4".equals(tipoCta) && !htGrupos.contains(cta+"0")) checkMayor(empJconta, iEjerJ, cta+"0", desc);
+				else if (cta.length()==3 && "3".equals(tipoCta)) checkMayor(empJconta, iEjerJ, cta, desc);
+				else if ("V".equals(tipoCta)) {
+					if (cta.length()==4) checkMayor(empJconta, iEjerJ, cta, desc);
+					else if (cta.length()==3 && !htGrupos.contains(cta+"0")) checkMayor(empJconta, iEjerJ, cta, desc);
+				}
+			}
 			int numTotal = 0;
 			SelectorLogic spctast = new SelectorLogic (connLC);
 			spctast.execute ("Select count(*) as num from PlanCuentas where Cuenta is not null and CodigoEmpresa="+iEmp);
@@ -1144,6 +1156,11 @@ public class ConversionJCO extends ConversionLC {
 							u.valor("pcu347","S");
 							u.valor("pcu349","N");
 						}
+						
+						int CriterioIva = sclipro.getint("CriterioIva");
+						if (CriterioIva == 2) u.valor("pcurecc","S");
+						else u.valor("pcurecc","N");
+						
 						if ("C".equals(clipro)) u.valor("pcuttrans","EIN");
 						else u.valor("pcuttrans","RIN");
 						u.valor("pcunif",sNif);
@@ -1214,6 +1231,26 @@ public class ConversionJCO extends ConversionLC {
 
 	private void checkCta (int iEmp, int iEjer, String sc, String ss, int empJconta) {
 		checkCta (iEmp, iEjer, sc, ss, empJconta, null);
+	}
+	
+	private void checkMayor (int iEmp, int iEjer, String cta, String desccta) {
+		Selector spcu = new Selector (dbJCta);
+		spcu.execute("Select * from PCUENTAS where pcuempresa="+iEmp+" and pcuejercicio="+iEjer+" and pcucuenta='"+cta+"' and pcusubcuenta='0'");
+		if (!spcu.next()) {
+			Insert ipcu = new Insert (dbJCta,"PCUENTAS");
+			ipcu.valor("pcuempresa",iEmp);
+			ipcu.valor("pcuejercicio",iEjer);
+			ipcu.valor("pcucuenta",cta);
+			ipcu.valor("pcusubcuenta","0");
+			ipcu.valor("pcudesc",desccta);
+			ipcu.valor("pculongitud",12);
+			ipcu.valor("pcumediacion","N");
+			ipcu.valor("pcuivaded","S");
+			ipcu.valor("pcu347","N");
+			ipcu.valor("pcu349","N");
+			ipcu.execute();
+		}
+		spcu.close();
 	}
 
 	private void checkCta (int iEmp, int iEjer, String sc, String ss, int empJconta, String desccta) {
@@ -1585,7 +1622,7 @@ public class ConversionJCO extends ConversionLC {
 					shay.execute(sqlhay);
 					boolean importarFacturas = shay.next();
 					shay.close();
-					if (importarFacturas) bOk = importarFacturas (iEmp,iEjerL,movPosicion,iasi.getField("asicodi").getInteger(), empJconta,iEjerJ);
+					if (importarFacturas) bOk = importarFacturas (iEmp,iEjerL,movPosicion,iasi.getField("asicodi").getInteger(), empJconta,iEjerJ,asientoAct);
 				}
 			}
 		}
@@ -1810,7 +1847,7 @@ public class ConversionJCO extends ConversionLC {
 	}
 
 
-	private boolean importarFacturas (int iEmp, int iEjerL, String movPosicion, int codi, int empJconta, int iEjerJ) {
+	private boolean importarFacturas (int iEmp, int iEjerL, String movPosicion, int codi, int empJconta, int iEjerJ, int numAsi) {
 		boolean bOk = true;
 		SelectorLogic sf = new SelectorLogic (connLC);
 		sf.execute("Select * from MovimientosFacturas where CodigoEmpresa="+iEmp+" and MovPosicion='"+movPosicion+"'");
@@ -1831,6 +1868,15 @@ public class ConversionJCO extends ConversionLC {
 			iciv.valor("civfecha",sf.getDate("FechaFactura"));
 			iciv.valor("civfechaop",sf.getDate("FechaOperacion"));
 			String ros = "R";
+			
+			int CriterioIva = sf.getint("CriterioIva");
+			boolean esRecc = false;
+			if (CriterioIva == 2) {
+				esRecc = true;
+				iciv.valor("civrecc","S");
+			}
+			else iciv.valor("civrecc","N");
+			
 			String emirec = getSelString(sf,"TipoFactura");
 			if ("R".equals(emirec)) ros = "S";
 			int abono = sf.getint("AbonoIva");
@@ -1954,6 +2000,7 @@ public class ConversionJCO extends ConversionLC {
 					}
 				}
 				sl.close();
+				if (bOk && esRecc) bOk = importarCartera (iEmp, iEjerL, movPosicion, numAsi, empJconta,iEjerJ, civcodi);
 			}
 		}
 		sf.close();
@@ -1993,7 +2040,96 @@ public class ConversionJCO extends ConversionLC {
 		return bOk;
 	}
 
+	private boolean importarCartera (int iEmp, int iEjer, String movPosicion, int asinum, int empJconta, int iEjerJ, int civcodi) {
+		boolean bOk = true;
 
+		SelectorLogic sf = new SelectorLogic (connLC);
+		sf.execute("Select * from [CarteraEfectos] where StatusBorrado=0 and  Ejercicio="+iEjer+" and MovPosicion='"+movPosicion+"'");
+		while (sf.next()) {
+			String sCta = sf.getString("CodigoCuenta");
+			String sc = null;
+			String ss = null;
+			try {
+				String [] ctafull = getFormatoCuenta (sCta);
+				if (ctafull!=null) {
+					sc= ctafull[0];         
+					ss = ctafull[1];  
+				}
+			}
+			catch (Exception e) {
+			}
+			if (sc!=null && ss!=null) {
+				Date fechaVencimiento = sf.getDate("FechaVencimiento");
+				String sCtab = sf.getString("Contrapartida");
+				String scb = null;
+				String ssb = null;
+				try {
+					String [] ctafull = getFormatoCuenta (sCtab);
+					if (ctafull!=null) {
+						scb= ctafull[0];         
+						ssb = ctafull[1];  
+					}
+				}
+				catch (Exception e) {
+				}
+				double ImporteEfecto = Numero.redondeo(sf.getdouble("ImporteEfecto"));
+				double ImporteCobrado = Numero.redondeo(sf.getdouble("ImporteCobrado"));
+				//double ImportePendiente = Numero.redondeo(sf.getdouble("ImportePendiente"));
+				String prevision = sf.getString("Prevision");
+				String Comentario = sf.getString("Comentario");
+				String DocumentoConta = sf.getString("DocumentoConta");
+				String cp = "P";		       
+				if ("C".equals(prevision)) cp = "C";
+				if (!Numero.doubleEquals(ImporteCobrado , 0)) {
+					Insert icp = new Insert (dbJCta,"COBROPAGO");
+					icp.valor("cobcodi", 0);
+					icp.valor("cobempresa", empJconta);
+					icp.valor("cobejercicio", iEjerJ);
+					icp.valor("cobcuenta", sc);		        	
+					icp.valor("cobsubcuenta", ss);		        	
+					icp.valor("cobvto", fechaVencimiento);
+					icp.valor("cobconcepto", Comentario);
+					icp.valor("cobimporte", ImporteCobrado);
+					icp.valor("cobdocumento", DocumentoConta);
+					icp.valor("cobnumasto", asinum);
+					icp.valor("cobcivcodi", civcodi);
+					icp.valor("cobejerasto", iEjerJ);
+					if (scb!=null && ssb!=null) {
+						icp.valor("cobcuentaban", scb);		        	
+						icp.valor("cobsubctaban", ssb);		        	
+					}
+					icp.valor("cobcobropago", cp);
+					icp.valor("cobestado", "C");		        
+					bOk = icp.execute();
+				}
+				if (Numero.redondeo(ImporteEfecto - ImporteCobrado) > 0) {
+					Insert icp = new Insert (dbJCta,"COBROPAGO");
+					icp.valor("cobcodi", 0);
+					icp.valor("cobempresa", empJconta);
+					icp.valor("cobejercicio", iEjerJ);
+					icp.valor("cobcuenta", sc);		        	
+					icp.valor("cobsubcuenta", ss);		        	
+					icp.valor("cobvto", fechaVencimiento);
+					icp.valor("cobconcepto", Comentario);
+					icp.valor("cobimporte", Numero.redondeo(ImporteEfecto - ImporteCobrado));
+					icp.valor("cobdocumento", DocumentoConta);
+					icp.valor("cobnumasto", asinum);
+					icp.valor("cobcivcodi", civcodi);
+					icp.valor("cobejerasto", iEjerJ);
+					if (scb!=null && ssb!=null) {
+						icp.valor("cobcuentaban", scb);		        	
+						icp.valor("cobsubctaban", ssb);		        	
+					}
+					icp.valor("cobcobropago", cp);
+					icp.valor("cobestado", "P");		        
+					bOk = icp.execute();
+				}
+			}
+		}
+		sf.close();
+		return bOk;
+	}
+	
 	private boolean altaDesgloseModelo303(String nif,int codEmp,int codGYC, int ejer, String liqpos, String per) {
 		boolean bOk = true;
 		SelectorLogic sdes = new SelectorLogic (connLC);
@@ -2554,9 +2690,9 @@ public class ConversionJCO extends ConversionLC {
 		boolean bOk = true;
 		SelectorLogic sdes = new SelectorLogic(connLC);
 		sdes.execute("SELECT *  FROM IOF_DesgloseModelosIva  where LiqPosicion='"+liqpos+"' and Deducible=-1 and GenSim='G' and IncidenciaIva<>-1");
-		java.util.Hashtable <String,Double> ht = new java.util.Hashtable ();
-		java.util.Hashtable <String,Double> htb = new java.util.Hashtable ();
-		java.util.Hashtable <String,Double> ht390 = new java.util.Hashtable ();
+		java.util.Hashtable <String,Double> ht = new java.util.Hashtable <String,Double> ();
+		java.util.Hashtable <String,Double> htb = new java.util.Hashtable <String,Double> ();
+		java.util.Hashtable <String,Double> ht390 = new java.util.Hashtable <String,Double> ();
 		while (sdes.next()) {
 			int CodigoTransaccion = sdes.getint("CodigoTransaccion");
 			String IdentificadorIva = sdes.getString("IdentificadorIva");
