@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.5.0_22"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/http0101.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/jsqlconnect.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/microfc040025.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/pdf0202.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/swing.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/jawin0101.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/jaspersub130301.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/classes13.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/jacob0101.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/jasper130501.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/modelos140510.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/modivaanu131209.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/modcontrol140502.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/sqljdbc0101.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/exptraspasos030125.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/labtraspasos190983.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/jconta140504.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/jeo140703.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/jeoaux140802.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/jiss140717.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/jissotr140801.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/jrenta140704.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/jrentaaux140705.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/labcalculo050048.zip"/>
+	<classpathentry kind="lib" path="C:/jea/zipc/laboral050088.zip"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
