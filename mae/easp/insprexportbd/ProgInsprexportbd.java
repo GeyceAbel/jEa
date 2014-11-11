@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20141008
-// Hora:             12:30:14
+// Fecha:            20141111
+// Hora:             17:17:29
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -33,6 +33,7 @@ public class ProgInsprexportbd extends Program
   boolean bdjeo     = false;
   boolean bdjiss     = false;
   boolean bdjrenta     = false;
+  boolean bdjconta     = false;
   
   String sServidor;
   String sBdtmp;
@@ -64,6 +65,7 @@ public class ProgInsprexportbd extends Program
     boolean resultBDJEO     = true;
     boolean resultBDJISS    = true;
     boolean resultBDJRENTA  = true;
+    boolean resultBDJCONTA  = true;
   
     if ( bdeasp )                                        resultBDEasp    = traspasaBDAcc2SQL("easp"   ,serverTmp,sUser,sPasswd);
     if ( resultBDEasp && bdmodelos )                     resultBDModelos = traspasaBDAcc2SQL("modelos",serverTmp,sUser,sPasswd);
@@ -71,8 +73,20 @@ public class ProgInsprexportbd extends Program
     if ( resultBDEasp && resultBDModelos && bdjeo )   resultBDJEO = traspasaBDAcc2SQL("jeo",serverTmp,sUser,sPasswd); 
     if ( resultBDEasp && resultBDModelos && bdjiss )  resultBDJISS = traspasaBDAcc2SQL("jiss",serverTmp,sUser,sPasswd); 
     if ( resultBDEasp && resultBDModelos && bdjrenta )resultBDJRENTA = traspasaBDAcc2SQL("jrenta",serverTmp,sUser,sPasswd); 
-  
-    boolean result = resultBDEasp && resultBDModelos && resultBDLaboral && resultBDJEO && resultBDJISS && resultBDJRENTA;
+    if ( resultBDEasp && resultBDModelos && bdjconta ){
+      DBConnection connEAtmp = getConexionEa ("easp", serverTmp, sUser,sPasswd, "sqlserver");
+      if (connEAtmp != null) {
+        for (int ejerActivo = 2002; resultBDJCONTA && ejerActivo<(Maefc.getYear(Maefc.getDate())+4); ejerActivo++) {
+          String ubiCtaspEEEE = sHome+"ctasp"+ejerActivo+".mdb";
+          if (Easp.existeFichero(ubiCtaspEEEE)) { 
+            resultBDJCONTA = traspasaBDAcc2SQL("ctasp"+ejerActivo,serverTmp,sUser,sPasswd) && actualizaBDSCargadas (9999, ejerActivo,connEAtmp, serverTmp, vexportbd.vvinstancia.getString(), vexportbd.vvpuerto.getInteger() ); 
+          }
+        }
+        connEAtmp.commit();
+        connEAtmp.disconnect();
+      }
+    }
+    boolean result = resultBDEasp && resultBDModelos && resultBDLaboral && resultBDJEO && resultBDJISS && resultBDJRENTA && resultBDJCONTA;
   
     if ( result ) {
   
@@ -95,7 +109,7 @@ public class ProgInsprexportbd extends Program
         // vip REVISAR ESTO APPAU - APJORDI  15/09/05 
         String url = "http://afinity.geyce.es/pls/agpi/starterdp.getContratado?domini="+Easp.dominio+"&apli=JCONTA";
         String aplicJconta =URLExec.getContenido(url);
-        if (aplicJconta != null && aplicJconta.startsWith("JCONTA")) {
+        if ((aplicJconta != null && aplicJconta.startsWith("JCONTA")) || bdjconta) {
            conver.setRegistre (Easp.dominio,"JCONTA"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);
         }
       }
@@ -191,6 +205,58 @@ public class ProgInsprexportbd extends Program
     return sTmp;
   }
   
+  private DBConnection getConexionEa ( String sNom, String sServer, String sUser, String sPasswd,String sTipus) {
+    DataBase db=new DataBase();
+    db.setName(sNom);
+    db.setMyServer(sServer);
+    db.setUser(sUser);
+    db.setMyPassword(sPasswd);
+    db.setType(sTipus);
+    CatEasp cateasp = new CatEasp();
+    Catalog array[] = {cateasp};
+    db.setCatalogs(array);
+  
+    DBConnection conn = new DBConnection(db);
+    try {
+      if (conn.connect()) return conn;
+      else return null;
+    }
+    catch (Exception e) {
+      return null;
+    }
+  } 
+  
+  
+  private boolean actualizaBDSCargadas (int iCodiEmp, int iCodiEjer, DBConnection conEA, String ser, String ins, int pue) {
+    boolean bOk = true;
+    String dp=Aplication.getAplication().getParameter("Dominio");
+    String sDominio = dp.substring(0,6)+Util.formateoNumero("000000",iCodiEmp);
+    Select sbds        = new Select(conEA);
+    Table tbdscargadas = new Table(sbds,"bdscargadas");
+    Field bdaplic      = new Field(sbds,tbdscargadas,"bdaplic");
+    Field bddominio    = new Field(sbds,tbdscargadas,"bddominio");
+    Field bdejer       = new Field(sbds,tbdscargadas,"bdejer");
+    Field bdbdnom      = new Field(sbds,tbdscargadas,"bdbdnom");
+    Field bdtipo       = new Field(sbds,tbdscargadas,"bdtipo");
+    Field bdbduser     = new Field(sbds,tbdscargadas,"bdbduser");
+    Field bdbdpass     = new Field(sbds,tbdscargadas,"bdbdpass");
+    Field bdbdserv     = new Field(sbds,tbdscargadas,"bdbdserv");
+    sbds.setWhere ("bdaplic='contaasp' and bdejer="+iCodiEjer+" and bddominio='"+sDominio+"'");
+    sbds.execute();
+    if (sbds.isEof()) bOk = false;
+    else {
+      sbds.edit();
+      bdbdnom.setValue  ("ctasp"+iCodiEjer);
+      bdtipo.setValue ("sqlserver");
+      bdbduser.setValue (conver.getUser());
+      bdbdpass.setValue (conver.getPassword());
+      if (ins != null && ins.length()>0 && pue>0) bdbdserv.setValue (ser+":"+pue);
+      else bdbdserv.setValue (ser);
+      bOk = sbds.update();            
+    }
+    return bOk;
+  }
+  
   // Fin declaraciones globales
   // Ventana
   public FormVexportbd vexportbd;
@@ -219,6 +285,7 @@ public class ProgInsprexportbd extends Program
     public CtrlChestimacion chestimacion;
     public CtrlChjiss chjiss;
     public CtrlChjrenta chjrenta;
+    public CtrlChjconta chjconta;
     // Acciones
     public LinkAcejecutar acejecutar;
     class Location extends LocationGridBag
@@ -399,6 +466,16 @@ public class ProgInsprexportbd extends Program
         }
       }
       
+    public class CtrlChjconta extends ControlCheck
+      {
+      public CtrlChjconta(Form form)
+        {
+        super(form);
+        setName("chjconta");
+        setTitle("BD JCONTA (2002 - ACT)");
+        }
+      }
+      
     public class LinkAcejecutar extends Action
       {
       public LinkAcejecutar(Form form)
@@ -436,6 +513,7 @@ public class ProgInsprexportbd extends Program
       addControl(chestimacion=new CtrlChestimacion(this));
       addControl(chjiss=new CtrlChjiss(this));
       addControl(chjrenta=new CtrlChjrenta(this));
+      addControl(chjconta=new CtrlChjconta(this));
       addAction(acejecutar=new LinkAcejecutar(this));
       }
     }
@@ -457,8 +535,8 @@ public class ProgInsprexportbd extends Program
   public void onInit()
     {
     LocationWindow locw=new LocationWindow();
-    locw.setWidth(590);
-    locw.setHeight(300);
+    locw.setWidth(640);
+    locw.setHeight(320);
     locw.setLocation(locw.CENTER);
     setLocation(locw);
     
@@ -476,6 +554,7 @@ public class ProgInsprexportbd extends Program
     vexportbd.chestimacion.setEnabled(false);
     vexportbd.chjiss.setEnabled(false);
     vexportbd.chjrenta.setEnabled(false);
+    vexportbd.chjconta.setEnabled(false);
     
     if ( desdeAplic == null ) {
       bdeasp    =  Easp.existeFichero(sHome+"easp.mdb");
@@ -484,12 +563,14 @@ public class ProgInsprexportbd extends Program
       bdjeo     =  Easp.existeFichero(sHome+"jeo.mdb");
       bdjiss    =  Easp.existeFichero(sHome+"jiss.mdb");
       bdjrenta    =  Easp.existeFichero(sHome+"jrenta.mdb");
+      bdjconta    =  Easp.existeFichero(sHome+"ctasp"+Maefc.getYear(Maefc.getDate())+".mdb");
       vexportbd.cheasp.setValue(bdeasp);
       vexportbd.chmodelos.setValue(bdmodelos);
       vexportbd.chlaboral.setValue(bdlaboral);
       vexportbd.chestimacion.setValue(bdjeo);
       vexportbd.chjiss.setValue(bdjiss);
       vexportbd.chjrenta.setValue(bdjrenta);
+      vexportbd.chjconta.setValue(bdjconta);
       }
     else {
       bdeasp  = desdeAplic.equals("easp");
@@ -498,12 +579,14 @@ public class ProgInsprexportbd extends Program
       bdjeo     =  desdeAplic.equals("jeo");
       bdjiss     =  desdeAplic.equals("jiss");
       bdjrenta     =  desdeAplic.equals("jrenta");
+      bdjconta     =  desdeAplic.equals("jconta");
       vexportbd.cheasp.setValue(desdeAplic.equals("easp"));
       vexportbd.chmodelos.setValue(desdeAplic.equals("modelos"));
       vexportbd.chlaboral.setValue(desdeAplic.equals("laboral"));  
       vexportbd.chestimacion.setValue(desdeAplic.equals("jeo"));  
       vexportbd.chjiss.setValue(desdeAplic.equals("jiss"));  
       vexportbd.chjrenta.setValue(desdeAplic.equals("jrenta"));  
+      vexportbd.chjconta.setValue(desdeAplic.equals("jconta"));  
     
       vexportbd.cheasp.setVisible(desdeAplic.equals("easp"));
       vexportbd.chmodelos.setVisible(desdeAplic.equals("modelos"));
@@ -511,6 +594,7 @@ public class ProgInsprexportbd extends Program
       vexportbd.chestimacion.setVisible(desdeAplic.equals("jeo"));
       vexportbd.chjiss.setVisible(desdeAplic.equals("jiss"));  
       vexportbd.chjrenta.setVisible(desdeAplic.equals("jrenta"));  
+      vexportbd.chjconta.setVisible(desdeAplic.equals("jconta"));  
       }
     
     vexportbd.vvservidor.setValue(Aplication.getAplication().getConfig("SERVIDOR") );
