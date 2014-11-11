@@ -39,6 +39,7 @@ public class ConversionJCO extends ConversionLC {
 	private java.util.Vector<String> ctaMayor;
 	private java.util.Hashtable <String,String> htGrupos;
 	private int LONG_SBCTA;
+	private boolean augmentaLong4;
 	private boolean esPyme;
 
 	private Field  ccfdcdpaeatdele;
@@ -526,6 +527,7 @@ public class ConversionJCO extends ConversionLC {
 				}              
 			}
 			LONG_SBCTA = -1;
+			augmentaLong4 = false;
 			if (bOk) {
 				SelectorLogic spc = new SelectorLogic (connLC);
 				spc.execute("Select CodigoCuenta from PlanCuentas where CodigoEmpresa="+iEmp);
@@ -985,6 +987,37 @@ public class ConversionJCO extends ConversionLC {
 					else if (cta.length()==3 && !htGrupos.contains(cta+"0")) checkMayor(empJconta, iEjerJ, cta, desc);
 				}
 			}
+			
+			if (bOk) {
+				augmentaLong4 = false;
+				SelectorLogic spc = new SelectorLogic (connLC);
+				spc.execute("Select CodigoCuenta from PlanCuentas where CodigoEmpresa="+iEmp);
+				while (spc.next()) {      
+					String CodigoCuenta = spc.getString("CodigoCuenta");
+					if ("4".equals(longCta) ) {  
+						if (CodigoCuenta != null && CodigoCuenta.length()>4) {
+							String ctaMayor = CodigoCuenta.substring(0, 4);
+							if (!Util.isNumero(ctaMayor.substring(3, 4))) {
+								augmentaLong4 = true;
+							}
+							else if (!htGrupos.contains(ctaMayor) && htGrupos.contains(ctaMayor.substring(0,3)+"0")) {
+								augmentaLong4 = true;
+							}
+							else if (
+									CodigoCuenta.length()>=11 && 
+									Util.esNIF(CodigoCuenta.substring(CodigoCuenta.length()-9,CodigoCuenta.length())) == 0 &&
+									("400".equals(CodigoCuenta.substring(0, 3)) || "430".equals(CodigoCuenta.substring(0, 3)) ) 
+								) {
+								augmentaLong4 = true;
+							}
+						}
+					}
+				}
+				spc.close();
+			}
+			
+			
+			
 			int numTotal = 0;
 			SelectorLogic spctast = new SelectorLogic (connLC);
 			spctast.execute ("Select count(*) as num from PlanCuentas where Cuenta is not null and CodigoEmpresa="+iEmp);
@@ -996,7 +1029,7 @@ public class ConversionJCO extends ConversionLC {
 			while (bOk && spctas.next()) {
 				pbf.setSecondaryPercent((++numActual)*100/numTotal);
 				String sCta  = spctas.getString("CodigoCuenta");
-				String sDesc = spctas.getString("Cuenta");      
+				String sDesc = spctas.getString("Cuenta");
 				if (sDesc!=null && sDesc.trim().length()>0) sDesc = sDesc.trim();
 				else sDesc = "  ";
 				String cta = "";
@@ -1221,10 +1254,33 @@ public class ConversionJCO extends ConversionLC {
 			tmp [0] = cta.substring(0,3);
 			tmp [1] = cta.substring(3);
 		}
-		else if ("4".equals(longCta) && cta!=null && cta.length()>4 ) {  
+		else if ("4".equals(longCta) && cta!=null && cta.length()>4 ) {
 			tmp = new String [2];
-			tmp [0] = cta.substring(0,4);
-			tmp [1] = cta.substring(4);
+			String ctaMayor = cta.substring(0, 4);
+			if (cta.substring(3).startsWith("467617")) {
+				int f = 0;
+				f++;
+			}
+			if (!Util.isNumero(ctaMayor.substring(3, 4))) {
+				tmp [0] = cta.substring(0,3)+"0";
+				tmp [1] = cta.substring(3);
+			}
+			else if (!htGrupos.contains(ctaMayor) && htGrupos.contains(ctaMayor.substring(0,3)+"0")) {
+				tmp [0] = cta.substring(0,3)+"0";
+				tmp [1] = cta.substring(3);						
+			}
+			else if (cta.length()>=11 && Util.esNIF(cta.substring(cta.length()-9,cta.length())) == 0 && ("400".equals(cta.substring(0, 3)) || "430".equals(cta.substring(0, 3)))    ) {
+				tmp [0] = cta.substring(0,3)+"0";
+				tmp [1] = cta.substring(3);						
+			}
+			else if (augmentaLong4) {
+				tmp [0] = cta.substring(0,4);
+				tmp [1] = "0"+cta.substring(4);						
+			}
+			else {
+				tmp [0] = cta.substring(0,4);
+				tmp [1] = cta.substring(4);
+			}
 		}
 		return tmp;
 	}
