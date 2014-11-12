@@ -144,3 +144,4 @@
 141001 --> APJORDI: Monto ZIP per instancia 
 141002 --> APXAVI:  Conversió única: adaptada per convertir el model 111 a jnomina.
 141004 --> APJORDI: Canvis conversió LogicClass pantalla única.
+141102 --> APXAVI: Canvis Jacob impresio en pdfCreator.(xavi calvet)

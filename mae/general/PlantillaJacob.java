@@ -204,8 +204,16 @@ public class PlantillaJacob extends Thread {
 	}
 	
 	public void run() {
-	  try {	
-		Maefc.waitCursor();		
+	  try {		  
+		Maefc.waitCursor();	
+		
+		ComThread.InitMTA();
+		oWord = new ActiveXComponent("Word.Application"); 
+		oVersion = oWord.getProperty("Version").toString();
+		//versionWord = Double.parseDouble(oVersion);
+		oBuild = oWord.getProperty("Build").toString();
+		System.out.println("Version word = " + oBuild);
+		
 		//oWord = new ActiveXComponent("Word.Application"); 
 		Dispatch oDocuments = oWord.getProperty("Documents").toDispatch();		
 		oWord.setProperty("Visible", new Variant(false));
@@ -240,6 +248,7 @@ public class PlantillaJacob extends Thread {
 			  int versionOutlook2 = Integer.parseInt(tokensVersion[1]);
 			  int versionOutlook3 = Integer.parseInt(tokensVersion[2]);
 			  if((versionOutlook1==12 && versionOutlook3>6424) || versionOutlook1>=13 ) {
+			  //if(false){
 				//versions 2007 o superiors
 				  saveActiveDocumentAS(activeDocumentOpen, fileSaveAs, saveAs);
 				  creado = true;
@@ -261,20 +270,23 @@ public class PlantillaJacob extends Thread {
 	              }
 		          return ;  
 		        }
-		        File fileSaveDoc = new File(fileSaveAs.replace(".pdf", ".doc"));
+		        File fileSaveDoc = File.createTempFile("pdfCreator", ".doc");
+		        //File fileSaveDoc = new File(fileSaveAs.replace(".pdf", ".doc"));
 		        File fileSavePdf = new File(fileSaveAs);				        
-		        saveActiveDocumentAS(activeDocumentOpen, fileSaveDoc.getAbsolutePath(), wdFormatDocumentDefault);
+		        saveActiveDocumentAS(activeDocumentOpen, fileSaveDoc.getAbsolutePath(), wdFormatDocument);
 			    if (oWord!=null) {
 	  		      oWord.invoke("Quit", new Variant(0)); 
 			      oWord=null;
 			    }
-		        creado = pdfCreator.creaPDF(fileSaveDoc.getParent()+"\\", fileSaveDoc.getName(), fileSavePdf.getParent()+"\\", fileSavePdf.getName(),true ) ;
-		        fileSaveDoc.delete();
+		        creado = pdfCreator.creaPDF(fileSaveDoc.getParent()+"\\", fileSaveDoc.getName(), fileSavePdf.getParent()+"\\", fileSavePdf.getName(),true ) ;		        
+		        fileSaveDoc.deleteOnExit();
+		        pdfCreator.close();
 			  }
 		    }
 		    if (oWord!=null) {
   		      oWord.invoke("Quit", new Variant(0)); 
 		      oWord=null;
+		      ComThread.Release();
 		    }
 		    if(creado && openPdfFileAfterFinish) {
 		    	Process p = Runtime
@@ -369,6 +381,7 @@ public class PlantillaJacob extends Thread {
 	    if (oWord!=null && !cancela) {
 		  oWord.invoke("Quit", new Variant(0));  
 		  oWord = null;
+		  ComThread.Release();
 		  ex.printStackTrace();
 		  Maefc.restoreCursor();
 		  Maefc.message("Error al combinar: " + ex.getMessage(),"¡Error!",Maefc.ERROR_MESSAGE);
@@ -379,12 +392,12 @@ public class PlantillaJacob extends Thread {
 	public void executeMerge() {
 	  try {	
 		desempaquetaDll();
-		ComThread.InitMTA();
-		oWord = new ActiveXComponent("Word.Application"); 
-		oVersion = oWord.getProperty("Version").toString();
+		//ComThread.InitMTA();
+		//oWord = new ActiveXComponent("Word.Application"); 
+		//oVersion = oWord.getProperty("Version").toString();
 		//versionWord = Double.parseDouble(oVersion);
-		oBuild = oWord.getProperty("Build").toString();
-		System.out.println("Version word = " + oBuild);
+		//oBuild = oWord.getProperty("Build").toString();
+		//System.out.println("Version word = " + oBuild);
 		cancela = false;		
 		Icon icon = Icon.WORD;
 		if(saveAs == wdFormatPDF) icon = Icon.PDF;
@@ -405,7 +418,7 @@ public class PlantillaJacob extends Thread {
 	    System.out.println("Error  : " + ex.getMessage());
 	  }
 	  finally {
-		ComThread.Release();
+		//ComThread.Release();
 	  }
 	}
 	
@@ -437,7 +450,7 @@ public class PlantillaJacob extends Thread {
 	  return file.exists(); 
 	}
 	
-	private void desempaquetaDll() throws Exception {
+	private void desempaquetaDll() {
 	  String destino=System.getProperty("user.dir")+"\\";
 	  java.io.File fileDll=new java.io.File("jacob-1.17-M2-x86.dll");
 	  if (!fileDll.exists()) {

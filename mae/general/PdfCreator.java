@@ -24,6 +24,7 @@ public class PdfCreator {
   public boolean openBeforePrint=false;
   public boolean closePdfCreator = false ;
   
+  //public long milesimasDeEspera = 50000 ;
   public long milesimasDeEspera = 50000 ;
   public boolean mostrarXivatos = true ;
   private int iniNumJobsCola=0;
@@ -59,7 +60,8 @@ public class PdfCreator {
     
     if ( esperar_A_queTermine ) {
     	
-      java.io.File fileDest=new java.io.File(directoryDoc+filePdf);
+      //java.io.File fileDest=new java.io.File(directoryDoc+filePdf);
+      java.io.File fileDest=new java.io.File(directoryPdf+filePdf);
       java.util.Date fechaOrig = Maefc.getDateTime() ;
       long tiempoIni = System.currentTimeMillis();
       
