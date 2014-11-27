@@ -410,6 +410,7 @@ public class PlantillaJacob extends Thread {
 	      oWord.setProperty("Visible", new Variant(true));
 	  }
 	  catch(Exception ex) {
+		ex.printStackTrace();
 		if (oWord!=null) {
 		  oWord.invoke("Quit", new Variant(0));  
 		  oWord=null;
@@ -418,7 +419,8 @@ public class PlantillaJacob extends Thread {
 	    System.out.println("Error  : " + ex.getMessage());
 	  }
 	  finally {
-		//ComThread.Release();
+		if(saveAs==999 && !printDirecto) 
+		  ComThread.Release();
 	  }
 	}
 	
