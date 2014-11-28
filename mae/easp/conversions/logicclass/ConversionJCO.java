@@ -973,19 +973,21 @@ public class ConversionJCO extends ConversionLC {
 				String sDesc = spctas.getString("DescripcionGrupo");
 				if (sDesc!=null) sDesc = sDesc.trim();
 				else sDesc = "";
-				if (sCta.length()==3 || sCta.length()==4) htGrupos.put(sCta,sDesc);
+				if (sCta.length()==3 || sCta.length()==4) {
+					htGrupos.put(sCta,sDesc);
+				}
 			}
 			spctas.close();
 			for (Enumeration<String> e = htGrupos.keys();e.hasMoreElements();) {
 				String cta = e.nextElement();
 				String desc = htGrupos.get(cta);
 				if (cta.length()==4 && "4".equals(tipoCta) ) checkMayor(empJconta, iEjerJ, cta, desc);
-				else if (cta.length()==3 && "4".equals(tipoCta) && !htGrupos.contains(cta+"0")) checkMayor(empJconta, iEjerJ, cta+"0", desc);
+				else if (cta.length()==3 && "4".equals(tipoCta) && !htGrupos.containsKey(cta+"0")) checkMayor(empJconta, iEjerJ, cta+"0", desc);
 				else if (cta.length()==3 && "3".equals(tipoCta)) checkMayor(empJconta, iEjerJ, cta, desc);
 				else if ("V".equals(tipoCta)) {
 					if (cta.length()==4) checkMayor(empJconta, iEjerJ, cta, desc);
-					else if (cta.length()==3 && !htGrupos.contains(cta+"0")) checkMayor(empJconta, iEjerJ, cta, desc);
-				}
+					else if (cta.length()==3 && !htGrupos.containsKey(cta+"0")) checkMayor(empJconta, iEjerJ, cta, desc);
+				}				
 			}
 			
 			if (bOk) {
@@ -997,12 +999,9 @@ public class ConversionJCO extends ConversionLC {
 					if ("4".equals(longCta) ) {  
 						if (CodigoCuenta != null && CodigoCuenta.length()>4) {
 							String ctaMayor = CodigoCuenta.substring(0, 4);
-							if (!Util.isNumero(ctaMayor.substring(3, 4))) {
-								augmentaLong4 = true;
-							}
-							else if (!htGrupos.contains(ctaMayor) && htGrupos.contains(ctaMayor.substring(0,3)+"0")) {
-								augmentaLong4 = true;
-							}
+							if (!Util.isNumero(ctaMayor.substring(3, 4))) augmentaLong4 = true;
+							else if (!htGrupos.containsKey(ctaMayor) && htGrupos.containsKey(ctaMayor.substring(0,3)+"0")) augmentaLong4 = true;
+							else if (!htGrupos.containsKey(ctaMayor) && htGrupos.containsKey(ctaMayor.substring(0,3))) augmentaLong4 = true;
 							else if (
 									CodigoCuenta.length()>=11 && 
 									Util.esNIF(CodigoCuenta.substring(CodigoCuenta.length()-9,CodigoCuenta.length())) == 0 &&
@@ -1256,28 +1255,34 @@ public class ConversionJCO extends ConversionLC {
 		}
 		else if ("4".equals(longCta) && cta!=null && cta.length()>4 ) {
 			tmp = new String [2];
+			int tmppos = 0;
 			String ctaMayor = cta.substring(0, 4);
-			if (cta.substring(3).startsWith("467617")) {
-				int f = 0;
-				f++;
-			}
 			if (!Util.isNumero(ctaMayor.substring(3, 4))) {
+				tmppos = 1;
 				tmp [0] = cta.substring(0,3)+"0";
 				tmp [1] = cta.substring(3);
 			}
-			else if (!htGrupos.contains(ctaMayor) && htGrupos.contains(ctaMayor.substring(0,3)+"0")) {
+			else if (!htGrupos.containsKey(ctaMayor) && htGrupos.containsKey(ctaMayor.substring(0,3)+"0")) {
+				tmppos = 2;
 				tmp [0] = cta.substring(0,3)+"0";
 				tmp [1] = cta.substring(3);						
 			}
+			else if (!htGrupos.containsKey(ctaMayor) && htGrupos.containsKey(ctaMayor.substring(0,3))) {
+				tmp [0] = cta.substring(0,3)+"0";
+				tmp [1] = cta.substring(3);				
+			}
 			else if (cta.length()>=11 && Util.esNIF(cta.substring(cta.length()-9,cta.length())) == 0 && ("400".equals(cta.substring(0, 3)) || "430".equals(cta.substring(0, 3)))    ) {
+				tmppos = 3;
 				tmp [0] = cta.substring(0,3)+"0";
 				tmp [1] = cta.substring(3);						
 			}
 			else if (augmentaLong4) {
+				tmppos = 4;
 				tmp [0] = cta.substring(0,4);
 				tmp [1] = "0"+cta.substring(4);						
 			}
 			else {
+				tmppos = 5;
 				tmp [0] = cta.substring(0,4);
 				tmp [1] = cta.substring(4);
 			}

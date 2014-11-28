@@ -146,3 +146,4 @@
 141004 --> APJORDI: Canvis conversió LogicClass pantalla única.
 141102 --> APXAVI: Canvis Jacob impresio en pdfCreator.(xavi calvet)
 141103 --> APXAVI: Canvis Jacob impresio en Word.(Sanchis). Nous printStackTrace() i tancament d'objecte (ComThread.Release())
+141111 --> APJORDI: Canvis conversió LogicClass Jconta.
