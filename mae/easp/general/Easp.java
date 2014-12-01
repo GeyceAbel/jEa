@@ -209,44 +209,44 @@ public class Easp {
           while ( smodestado.next() ) {
             String nif = smodestado.getString("mesnif");
             String modelo = smodestado.getString("mesmodelo");
-            
+
             String ficheroRespuesta = smodestado.getString("mesficherotel") ;
-            
+
             if ( ficheroRespuesta != null && !ficheroRespuesta.equals("") && Easp.existeFichero(ficheroRespuesta) ) {
               filein=new java.io.FileInputStream(ficheroRespuesta);
               read=new java.io.InputStreamReader(filein);
               in=new java.io.BufferedReader(read);
-              
+
               cadena = in.readLine();
               boolean encontradoError = false ;
               while (cadena!=null && !encontradoError ) {
-                
+
                 if ( cadena.contains("<title>Error - Pagina de errores leves"))  {
                   erroresLevesDetectados++;
                   String msg = "Revisar Res. Mod: ["+modelo+"] Ejer: 2014 Peri: 2T CIF: ["+nif+"] con Errores leves";
-                  System.out.println(msg+" Detectados: ["+erroresLevesDetectados+"]");  
+                  System.out.println(msg+" Detectados: ["+erroresLevesDetectados+"]");
                   grabaIncidencia(connEA, msg, msg, msg,"REVI.14_2T",nif,modelo);
                   encontradoError = true ;
                   encontradoAlgunErrror = true ;
                   }
-                
+
                 cadena = in.readLine();
                 }
-              
+
               in.close();
               filein.close();
               }
-            
+
             }
-          System.out.println("04");   
+          System.out.println("04");
           smodestado.close();
           }
         }
-       
+
        System.out.println("05 Total ErroresLeves Detectados: ["+erroresLevesDetectados+"]");
        if ( connJModelos != null  ) connJModelos.disconnect() ;
        System.out.println("06");
-       
+
        if ( erroresLevesDetectados > 0 || encontradoAlgunErrror )  {
          System.out.println("07");
          String aviso= "En el nuevo sistema de presentación directa de declaraciones, y utilizando el proceso     \n"+
@@ -258,7 +258,7 @@ public class Easp {
                        "LEVES y podrían no estar presentadas. \n \n"+
                        "A continuación se abrirá una pantalla con el detalles de los posibles modelos afectados.  \n"+
                        "Es muy importante que imprima esta relación y revise si el modelo esta presentado .";
-         
+
          System.out.println("08");
          Maefc.message(aviso,"ATENCIÓN: Rogamos lea Atentamente este mensaje.",Maefc.WARNING_MESSAGE ) ;
          System.out.println("09");
@@ -281,11 +281,11 @@ public class Easp {
     catch(Exception e ) {
       System.out.println("Error detectando errores leves");
       }
-      
+
     System.out.println("13");
     }
-  
-  
+
+
   public static DBConnection getConnexio(String nombd, DBConnection connEA)
   {
     return(conectaBD(nombd, connEA.getDB().getServer(), connEA.getDB().getUser(), connEA.getDB().getPassword(), connEA.getDB().getType()));
@@ -635,7 +635,7 @@ public class Easp {
   public static void grabaIncidencia(DBConnection dbc, String programa,String operacion, String mensaje){
     grabaIncidencia(dbc,programa,operacion,mensaje,"jea",null,null);
     }
-  
+
 	public static void grabaIncidencia(DBConnection dbc, String programa,String operacion, String mensaje,String modulo,String refer,String numer){
 		Select sinincide=new Select(dbc);
 		Table inincide=new Table(sinincide,"inincide");
@@ -661,10 +661,10 @@ public class Easp {
 		inprog.setValue(programa);
 		inopera.setValue(operacion);
 		inmensa.setValue(mensaje);
-		
+
 		if ( refer != null && !refer.equals("") ) inrefer.setValue(refer) ;
 		if ( numer != null && !numer.equals("") ) innumer.setValue(numer) ;
-		
+
 		sinincide.insert();
 	}
 
@@ -2270,6 +2270,7 @@ public static Date esFecha (String s){
 
 
   public static void abrirExplorer(String url,boolean modal ) {
+    mae.modasp.general.Modasp.abrirExplorer (url,modal);/*
 	  try {
 		  String pathExplorer = "c:\\Archivos de Programa\\Internet Explorer\\IEXPLORE.EXE";
 
@@ -2304,7 +2305,7 @@ public static Date esFecha (String s){
 		   System.out.println("Error InterruptedException:"+iex);
 	   } catch (Exception  e2) {
 		   System.out.println("Error exception:"+e2);
-	   }
+     }                                                    */
    }
 
   public static void abrirFichero (String destino) {
@@ -2641,7 +2642,7 @@ public static String getNomPC() {
 }
 
 
-public static String getPrefixeNow() { 
+public static String getPrefixeNow() {
 	SimpleDateFormat hora=new SimpleDateFormat("HHmmss");
 	return Fecha.fechaGregoriana(Maefc.getDate())+hora.format(new Date());
 }
