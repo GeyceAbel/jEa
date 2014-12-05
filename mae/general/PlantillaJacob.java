@@ -207,12 +207,12 @@ public class PlantillaJacob extends Thread {
 	  try {		  
 		Maefc.waitCursor();	
 		
-		ComThread.InitMTA();
-		oWord = new ActiveXComponent("Word.Application"); 
-		oVersion = oWord.getProperty("Version").toString();
+		//ComThread.InitMTA();
+		//oWord = new ActiveXComponent("Word.Application"); 
+		//oVersion = oWord.getProperty("Version").toString();
 		//versionWord = Double.parseDouble(oVersion);
-		oBuild = oWord.getProperty("Build").toString();
-		System.out.println("Version word = " + oBuild);
+		//oBuild = oWord.getProperty("Build").toString();
+		//System.out.println("Version word = " + oBuild);
 		
 		//oWord = new ActiveXComponent("Word.Application"); 
 		Dispatch oDocuments = oWord.getProperty("Documents").toDispatch();		
@@ -359,7 +359,7 @@ public class PlantillaJacob extends Thread {
 		
 		*/
 		
-		if(printDirecto) {
+		else if(printDirecto) {
 		  pd.setLabelText("Imprimiendo...");
 		  Dispatch activeDocumentToPrint = oWord.getProperty("ActiveDocument").toDispatch();
 		  String currentPrinter = oWord.getProperty("ActivePrinter").toString();
@@ -374,7 +374,8 @@ public class PlantillaJacob extends Thread {
 		    oWord=null;
 		  }
 		}
-		
+		else 
+		  oWord.setProperty("Visible", new Variant(true));
 		Maefc.restoreCursor();
 	  }
 	  catch (Exception ex){
@@ -392,12 +393,12 @@ public class PlantillaJacob extends Thread {
 	public void executeMerge() {
 	  try {	
 		desempaquetaDll();
-		//ComThread.InitMTA();
-		//oWord = new ActiveXComponent("Word.Application"); 
-		//oVersion = oWord.getProperty("Version").toString();
+		ComThread.InitMTA();
+		oWord = new ActiveXComponent("Word.Application"); 
+		oVersion = oWord.getProperty("Version").toString();
 		//versionWord = Double.parseDouble(oVersion);
-		//oBuild = oWord.getProperty("Build").toString();
-		//System.out.println("Version word = " + oBuild);
+		oBuild = oWord.getProperty("Build").toString();
+		System.out.println("Version word = " + oBuild);
 		cancela = false;		
 		Icon icon = Icon.WORD;
 		if(saveAs == wdFormatPDF) icon = Icon.PDF;
@@ -406,8 +407,8 @@ public class PlantillaJacob extends Thread {
 	    if(showPrintDialog)
 	      pd.show();
 	    else run();
-	    if (oWord!=null)
-	      oWord.setProperty("Visible", new Variant(true));
+	    //if (oWord!=null)
+	      //oWord.setProperty("Visible", new Variant(true));
 	  }
 	  catch(Exception ex) {
 		ex.printStackTrace();
@@ -419,7 +420,7 @@ public class PlantillaJacob extends Thread {
 	    System.out.println("Error  : " + ex.getMessage());
 	  }
 	  finally {
-		if(saveAs==999 && !printDirecto) 
+		//if(saveAs==999 && !printDirecto) 
 		  ComThread.Release();
 	  }
 	}

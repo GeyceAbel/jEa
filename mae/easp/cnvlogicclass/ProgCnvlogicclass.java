@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20141104
-// Hora:             13:06:09
+// Fecha:            20141204
+// Hora:             16:40:46
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -188,6 +188,7 @@ public class ProgCnvlogicclass extends Program
     public CtrlVvhastadec vvhastadec;
     public CtrlVrensimul vrensimul;
     public CtrlVvdpto vvdpto;
+    public CtrlChconvenio chconvenio;
     public CtrlChsql chsql;
     public CtrlChproy chproy;
     public CtrlChjco chjco;
@@ -704,6 +705,42 @@ public class ProgCnvlogicclass extends Program
         }
       }
       
+    public class CtrlChconvenio extends ControlCheck
+      {
+      public CtrlChconvenio(Form form)
+        {
+        super(form);
+        setName("chconvenio");
+        setTitle("convenio");
+        }
+      public boolean  valid()
+        {
+        return true;
+        }
+        public void userChange(Value v ) {  
+          super.userChange(v);
+          if(v.getBoolean()) {
+            /*
+            String texte = "Ha seleccionado traspasar los conceptos y categorías de los trabajadores a nivel de convenio y no de empresa.\n"+
+                           "Geyce no puede asegurar que la fiabilidad del traspaso sea la misma que si desmarca esta opción. Es posible que \n "+
+                           "las empresas de logic tengan conceptos declarados que no están en sus respectivos convenios y por ello deberá \n " +
+                           "introducirlos manualmente tras la conversión.\n"+
+                           "¿Desea traspasar los conceptos y categorias de los trabajadores de las empresas seleccionadas a nivel de convenio?";
+            */
+            String texte = "Ha seleccionado traspasar los conceptos y categorías de los trabajadores a nivel de convenio.\n"+
+                           "El proceso de traspaso pondrá los parámetros de cálculo a nivel de convenio a aquellas empresas\n "+
+                           "de logic que tengan el mismo número de conceptos en la empresa como en el convenio asociado a esta. \n " +
+                           "¿Desea marcar esta opción?";
+            
+            if(Maefc.message(texte,"Aviso", Maefc.WARNING_MESSAGE, Maefc.YES_NO_OPTION)==Maefc.YES_OPTION) {
+              this.setValue(true);
+            }
+            else this.setValue(false);
+            
+          }
+        }
+      }
+      
     public class CtrlChsql extends ControlCheck
       {
       public CtrlChsql(Form form)
@@ -990,7 +1027,7 @@ public class ProgCnvlogicclass extends Program
             if (bOk && chjnom.getBoolean()) {
               clcjnom = new mae.easp.conversions.logicclass.ConversionJNOM (cnvlogicclass,codiCab,vvempini.getInteger(),vvempfin.getInteger(),vvejeini.getInteger(),vvejefin.getInteger(),
                                                                                                                      vvservidor.getString(), vvinstancia.getString(), vvnombrebd.getString(),vvuser.getString(),
-                                                                                                                     vvpasswd.getString(),vvdpto.getString(), getDataBase());
+                                                                                                                     vvpasswd.getString(),vvdpto.getString(), chconvenio.getBoolean(), getDataBase());
               if (clcjnom.hayError()) {
                 bOk = false;
                 sError = clcjnom.getError();
@@ -1107,6 +1144,7 @@ public class ProgCnvlogicclass extends Program
       addControl(vvhastadec=new CtrlVvhastadec(this));
       addControl(vrensimul=new CtrlVrensimul(this));
       addControl(vvdpto=new CtrlVvdpto(this));
+      addControl(chconvenio=new CtrlChconvenio(this));
       addControl(chsql=new CtrlChsql(this));
       addControl(chproy=new CtrlChproy(this));
       addControl(chjco=new CtrlChjco(this));
