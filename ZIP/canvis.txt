@@ -148,3 +148,4 @@
 141103 --> APXAVI: Canvis Jacob impresio en Word.(Sanchis). Nous printStackTrace() i tancament d'objecte (ComThread.Release())
 141111 --> APJORDI: Canvis conversió LogicClass Jconta.
 141201 --> APESTER: Modificada funcio Easp.abrirExplorer perque utilitzi la de jmodelos
+141202 --> APXAVI: Adaptacio ultims canvis conversio nomina. PlantillaJacob, retocs bugs sanchis y seprofisa.
