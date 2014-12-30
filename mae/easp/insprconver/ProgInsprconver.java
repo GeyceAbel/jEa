@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140805
-// Hora:             10:24:46
+// Fecha:            20141230
+// Hora:             14:01:53
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1367,6 +1367,8 @@ public class ProgInsprconver extends Program
        " cciaplic         VARCHAR(15),          "+
        " ccimsg           VARCHAR(255),         "+
        " PRIMARY KEY (ccicodi));                "};
+    
+      String sentencias12_4[]={"INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2015,'01/01/2015','31/12/2015',4.375);"};
     
       int i=0;
       try {
@@ -3088,6 +3090,25 @@ public class ProgInsprconver extends Program
             vvveractual.setValue("12.3");
     
         }
+        
+        if (versio < 12.4) {
+            for (i=0;i<sentencias12_4.length;++i) {
+                  try {
+                    Easp.chivato("12.4 Exec : ["+sentencias12_4[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias12_4[i]);
+                  }
+                  catch(Exception e) {
+                    sqlOperation=sentencias12_4[i];
+                    Easp.chivato("12.4 *** Error : ["+sentencias12_4[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                  }
+            }
+            Easp.setVersionBD("bdeasp","12.4");
+            Easp.connEA.commit();
+            vvveractual.setValue("12.4");
+        }      
+    
+    
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
