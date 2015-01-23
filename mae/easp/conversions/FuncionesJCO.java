@@ -450,16 +450,19 @@ public class FuncionesJCO {
 
 	public String getHome() {
 		String home = null;
-		Selector sbdscargadas = new Selector (connEA);
-		sbdscargadas.execute("SELECT * from BDSCARGADAS where bdtipo='access' and left(bddominio,6)='"+dominio.substring(0,6)+"' order by bdejer DESC");
-		if (sbdscargadas.next()) home = sbdscargadas.getString("bdbdserv");
-		else home = Aplication.getAplication().getConfig("HOME");
-		sbdscargadas.close();
-		if (home!=null) {
-			home = home.trim();
-			File f = new File (home);
-			if (!f.exists()) home = null;
+		if ("access".equals(connEA.getDB().getType())) home = connEA.getDB().getServer();
+		else {
+			Selector sbdscargadas = new Selector (connEA);
+			sbdscargadas.execute("SELECT * from BDSCARGADAS where bdtipo='access' and left(bddominio,6)='"+dominio.substring(0,6)+"' order by bdejer DESC");
+			if (sbdscargadas.next()) home = sbdscargadas.getString("bdbdserv");
+			else home = Aplication.getAplication().getConfig("HOME");			
+			sbdscargadas.close();
 		}
+		if (home!=null && home.trim().length()>0) {
+			home = home.trim();
+			if (!home.endsWith("\\")) home = home+"\\";
+		}
+		else home = null;
 		return home;
 	}
 	public String nombreEmpresa(String nifcif) {

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20141204
-// Hora:             16:40:46
+// Fecha:            20150123
+// Hora:             10:14:41
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1027,7 +1027,7 @@ public class ProgCnvlogicclass extends Program
             if (bOk && chjnom.getBoolean()) {
               clcjnom = new mae.easp.conversions.logicclass.ConversionJNOM (cnvlogicclass,codiCab,vvempini.getInteger(),vvempfin.getInteger(),vvejeini.getInteger(),vvejefin.getInteger(),
                                                                                                                      vvservidor.getString(), vvinstancia.getString(), vvnombrebd.getString(),vvuser.getString(),
-                                                                                                                     vvpasswd.getString(),vvdpto.getString(), chconvenio.getBoolean(), getDataBase());
+                                                                                                                     vvpasswd.getString(),vvdpto.getString(), chconvenio.getBoolean(),getDataBase());
               if (clcjnom.hayError()) {
                 bOk = false;
                 sError = clcjnom.getError();

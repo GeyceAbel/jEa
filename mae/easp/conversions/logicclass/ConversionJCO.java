@@ -1202,6 +1202,15 @@ public class ConversionJCO extends ConversionLC {
 							if (ctacontra!=null) Contrapartida = ctacontra[0]+ctacontra[1];
 							if (Contrapartida!=null && Contrapartida.length()>0) u.valor("pcucontralapiz",Contrapartida);
 						}
+						int DiasFijos1 = sclipro.getint("DiasFijos1");
+						int DiasFijos2 = sclipro.getint("DiasFijos2");
+						int DiasFijos3 = sclipro.getint("DiasFijos3");
+						if (DiasFijos1 != 0) u.valor("pcudias1", DiasFijos1);
+						if (DiasFijos2 != 0) u.valor("pcudias2", DiasFijos2);
+						if (DiasFijos3 != 0) u.valor("pcudias3", DiasFijos3);
+						int CodigoTipoEfecto = sclipro.getint("CodigoTipoEfecto");
+						if (CodigoTipoEfecto != 0) u.valor("pcucobpagfp", CodigoTipoEfecto);
+
 						bOk = u.execute("pcuempresa="+empJconta+" and pcuejercicio="+iEjerJ+" and pcucuenta='"+cta+"' and pcusubcuenta='"+subcta+"'");
 						if (!bOk) sError = "Error al acutalizar NIF C/P ("+sNif+")";
 					}
@@ -1604,7 +1613,31 @@ public class ConversionJCO extends ConversionLC {
 		s.close();
 		return bOk;
 	}
-
+	private boolean importarFP () {
+		boolean bOk = true;
+		SelectorLogic s = new SelectorLogic (connLC);
+		s.execute("Select * from TipoEfectos_ order by CodigoTipoEfecto");
+		while (bOk && s.next()) {
+			int codi = s.getint("CodigoTipoEfecto");
+			String TipoEfecto = s.getString("TipoEfecto");
+			int EsContadoLc = s.getint("EsContadoLc");
+			if (String.valueOf(codi).length()<=3) {
+				Selector s2 = new Selector (connEA);
+				s2.execute("Select * from FORMACOBPAG where fcpforma='"+codi+"'");
+				if (!s2.next()) {
+					Insert i = new Insert (connEA,"FORMACOBPAG");
+					i.valor("fcpforma", codi);
+					i.valor("fcpdesc", TipoEfecto);
+					if (EsContadoLc == -1) i.valor("fcptipo", "EF");
+					bOk = i.execute();
+				}
+				s2.close();
+			}
+		}
+		s.close();
+		if (!bOk) sError = "Error al grabar Formas de Pago";
+		return bOk;
+	}
 	private boolean importarAsientos (int iEmp, int iEjerL, int empJconta, int iEjerJ, Date fechaCierre, int mesInicio) {
 		boolean bOk = true;
 		estaCerrado = false;
@@ -2062,6 +2095,7 @@ public class ConversionJCO extends ConversionLC {
 				}
 				sl.close();
 				if (bOk && esRecc) bOk = importarCartera (iEmp, iEjerL, movPosicion, numAsi, empJconta,iEjerJ, civcodi);
+				else if (bOk) bOk = importarCarteraIVA (iEmp, iEjerL, movPosicion, numAsi, empJconta,iEjerJ, civcodi);
 			}
 		}
 		sf.close();
@@ -2098,6 +2132,78 @@ public class ConversionJCO extends ConversionLC {
 		}
 		str.close();
 		if (!bOk && (sError == null || sError.length()==0)) sError ="Error al grabar Facturas ("+movPosicion+")";
+		return bOk;
+	}
+	
+	private boolean importarCarteraIVA (int iEmp, int iEjer, String movPosicion, int asinum, int empJconta, int iEjerJ, int civcodi) {
+		boolean bOk = true;
+
+		SelectorLogic sf = new SelectorLogic (connLC);
+		sf.execute("Select * from [CarteraEfectos] where StatusBorrado=0 and  MovPosicion='"+movPosicion+"'");
+		while (sf.next()) {
+			String sCta = sf.getString("CodigoCuenta");
+			String sc = null;
+			String ss = null;
+			try {
+				String [] ctafull = getFormatoCuenta (sCta);
+				if (ctafull!=null) {
+					sc= ctafull[0];         
+					ss = ctafull[1];  
+				}
+			}
+			catch (Exception e) {
+			}
+			if (sc!=null && ss!=null) {
+				Date fechaVencimiento = sf.getDate("FechaVencimiento");
+				String sCtab = sf.getString("Contrapartida");
+				String scb = null;
+				String ssb = null;
+				try {
+					String [] ctafull = getFormatoCuenta (sCtab);
+					if (ctafull!=null) {
+						scb= ctafull[0];         
+						ssb = ctafull[1];  
+					}
+				}
+				catch (Exception e) {
+				}
+				double ImportePendiente = Numero.redondeo(sf.getdouble("ImportePendiente"));
+				String prevision = sf.getString("Prevision");
+				String Comentario = sf.getString("Comentario");
+				String DocumentoConta = sf.getString("DocumentoConta");
+				String CodigoBanco = sf.getString("CodigoBanco");
+				String CodigoAgencia = sf.getString("CodigoAgencia");
+				String DC = sf.getString("DC");
+				String CCC = sf.getString("CCC");				
+				String cp = "P";		       
+				if ("C".equals(prevision)) cp = "C";
+				if (!Numero.doubleEquals(ImportePendiente , 0)) {
+					Insert icp = new Insert (dbJCta,"COBROPAGO");
+					icp.valor("cobcodi", 0);
+					icp.valor("cobempresa", empJconta);
+					icp.valor("cobejercicio", iEjerJ);
+					icp.valor("cobcuenta", sc);		        	
+					icp.valor("cobsubcuenta", ss);		        	
+					icp.valor("cobvto", fechaVencimiento);
+					icp.valor("cobconcepto", Comentario);
+					icp.valor("cobimporte", ImportePendiente);
+					icp.valor("cobdocumento", DocumentoConta);
+					icp.valor("cobnumasto", asinum);
+					icp.valor("cobcivcodi", civcodi);
+					icp.valor("cobejerasto", iEjerJ);
+					if (scb!=null && ssb!=null) {
+						icp.valor("cobcuentaban", scb);		        	
+						icp.valor("cobsubctaban", ssb);		        	
+					}
+					icp.valor("cobcobropago", cp);
+					icp.valor("cobestado", "P");	
+					
+					if (CodigoBanco!=null && CodigoAgencia!=null && DC!= null && CCC!=null) icp.valor("cobccc", CodigoBanco+CodigoAgencia+DC+CCC); 
+					bOk = icp.execute();
+				}
+			}
+		}
+		sf.close();
 		return bOk;
 	}
 
@@ -4465,6 +4571,7 @@ public class ConversionJCO extends ConversionLC {
 			if (bOk) bOk = initDatos(empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
 			if (bOk) bOk = importarPC (empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
 			if (bOk) bOk = importarInmov (empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
+			if (bOk) bOk = importarFP () && emc.getDescripcionError()==null;
 			if (bOk) bOk = importarAsientos (empLC,ejerLogic,empJC,ejerJconta,fechaCierre,mesInicio) && emc.getDescripcionError()==null;
 			if (bOk) {
 				if (ejerLogic<2014) bOk = altaModelo303 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
