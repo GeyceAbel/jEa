@@ -1,0 +1,3 @@
+'JCONTA','GYC-C347-14',10,'acum347','jconta',
+'JCONTA','GYC-C347-14',20,'empresa','jconta',
+'JCONTA','GYC-C347-14',30,'nifes','easp',

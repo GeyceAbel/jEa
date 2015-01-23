@@ -151,3 +151,4 @@
 141202 --> APXAVI: Adaptacio ultims canvis conversio nomina. PlantillaJacob, retocs bugs sanchis y seprofisa.
 141203 --> Appere:  Gravacio taula indemora registre 2015
 150101 --> APJORDI: Canvis conversió LogicClass Jconta.
+150102 --> APJORDI: Query jConta carta 347 2014

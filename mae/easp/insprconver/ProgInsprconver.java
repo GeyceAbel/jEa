@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20141230
-// Hora:             14:01:53
+// Fecha:            20150123
+// Hora:             17:55:19
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1370,6 +1370,15 @@ public class ProgInsprconver extends Program
     
       String sentencias12_4[]={"INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2015,'01/01/2015','31/12/2015',4.375);"};
     
+         String sentencias12_5[]={
+        	        "DELETE FROM QUEFRASE WHERE qeffrase = 'GYC-C347-14' and qefaplicacion='JCONTA';",
+        	        "DELETE FROM QUETABLA WHERE qetfrase = 'GYC-C347-14' and qetaplicacion='JCONTA';",
+        	        "DELETE FROM QUECOLUMN WHERE qecfrase = 'GYC-C347-14' and qecaplicacion='JCONTA';",
+        	        "DELETE FROM QUEVARIABLES WHERE qevfrase = 'GYC-C347-14' and qevaplicacion='JCONTA';",
+        	        "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JCONTA' and PLCODIGO='GYCPLAC347_14' and PLVENTANA='GYC-C347-14';",
+        	        "INSERT INTO PLANTILLAS (PLAPLICACION	, PLCODIGO			,	PLVENTANA			, PLDESCRIPCION	,	PLURLPLANTILLA, PLTIPOPLAN		) VALUES ('JCONTA','GYCPLAC347_14','GYC-C347-14','Plantilla carta informativa modelo 347 2014','.\\plantillas\\GYCPLAC347_14.dot',0);",
+        	        "INSERT INTO quefrase (qefaplicacion	, qeffrase			,	qefdescripcion			, qefmaster	,	qeftitulo, qefapaisado, qefpaginado,qefrepetir,qefplantilla		)  VALUES ('JCONTA','GYC-C347-14','Cartas informativas modelo 347 2014','acum347','Acumulados modelo 347','S','N','N','GYCPLAC347_14');"
+        	      };
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -3107,7 +3116,24 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("12.4");
         }      
-    
+       if (versio < 12.5) {
+          for (i=0;i<sentencias12_5.length;++i) {
+            try {
+              Easp.chivato("12.5 Exec : ["+sentencias12_5[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias12_5[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias12_5[i];
+              Easp.chivato("12.5 *** Error : ["+sentencias12_5[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          String tablas[] = {"quetabla","quecolumn","quevariables"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1205","easp.jar");
+          Easp.setVersionBD("bdeasp","12.5");
+          Easp.connEA.commit();
+          vvveractual.setValue("12.5");
+        }
     
       }
       catch(Exception e) {

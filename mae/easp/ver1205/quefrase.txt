@@ -1,0 +1,1 @@
+'JCONTA','GYC-C347-14','Cartas informativas modelo 347','acum347','Acumulados modelo 347','S',,'N',,,,'N',,'GYCPLAC347_14'
