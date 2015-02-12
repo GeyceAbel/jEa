@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140707
-// Hora:             12:00:30
+// Fecha:            20150212
+// Hora:             12:56:18
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2587,7 +2587,7 @@ public class ProgQuerylis extends Program
                 excel.printjob();
         
                 combinaPlantilla(origenDades);	
-                if(!fcsv.delete()) fcsv.deleteOnExit();
+                //if(!fcsv.delete()) fcsv.deleteOnExit();
               }
               else {
                 Maefc.message("Error: \"" + splantillas.plurlplantilla.getString() + "\"\nNo se encuentra el fichero asociado a la plantilla.\nPor favor asegurese de que existe y su ubicación es correcta.","¡Error!",Maefc.ERROR_MESSAGE);

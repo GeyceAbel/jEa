@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140312
-// Hora:             17:24:47
+// Fecha:            20150212
+// Hora:             12:56:17
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2683,7 +2683,7 @@ public class ProgQuerytrat extends Program
         ompleOrigenDades(plantilla.getDataSource().getFileSource());            
         plantilla.openTemplate();
         Maefc.restoreCursor();
-        fcsv.deleteOnExit();
+        //fcsv.deleteOnExit();
       }
       catch(Exception ex) {
         Maefc.restoreCursor();
