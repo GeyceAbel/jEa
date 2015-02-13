@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150123
-// Hora:             17:55:19
+// Fecha:            20150213
+// Hora:             09:15:19
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1379,6 +1379,8 @@ public class ProgInsprconver extends Program
         	        "INSERT INTO PLANTILLAS (PLAPLICACION	, PLCODIGO			,	PLVENTANA			, PLDESCRIPCION	,	PLURLPLANTILLA, PLTIPOPLAN		) VALUES ('JCONTA','GYCPLAC347_14','GYC-C347-14','Plantilla carta informativa modelo 347 2014','.\\plantillas\\GYCPLAC347_14.dot',0);",
         	        "INSERT INTO quefrase (qefaplicacion	, qeffrase			,	qefdescripcion			, qefmaster	,	qeftitulo, qefapaisado, qefpaginado,qefrepetir,qefplantilla		)  VALUES ('JCONTA','GYC-C347-14','Cartas informativas modelo 347 2014','acum347','Acumulados modelo 347','S','N','N','GYCPLAC347_14');"
         	      };
+      String sentencias12_6[] = {"ALTER TABLE EMPMODELOS add emodpreasesor CHAR(1);",
+      "UPDATE EMPMODELOS SET emodpreasesor='S' where emodpreasesor is null or emodpreasesor='';"};
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -3134,6 +3136,22 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("12.5");
         }
+        if (versio < 12.6) {
+            for (i=0;i<sentencias12_6.length;++i) {
+                  try {
+                    Easp.chivato("12.6 Exec : ["+sentencias12_6[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias12_6[i]);
+                  }
+                  catch(Exception e) {
+                    sqlOperation=sentencias12_6[i];
+                    Easp.chivato("12.6 *** Error : ["+sentencias12_6[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                  }
+            }
+            Easp.setVersionBD("bdeasp","12.6");
+            Easp.connEA.commit();
+            vvveractual.setValue("12.6");
+        }      
     
       }
       catch(Exception e) {

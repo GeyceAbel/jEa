@@ -141,7 +141,7 @@
 140804 --> APJORDI: Millores en la conversió unica
 140902 --> APXAVI:  PlantillaJacob. Millores per evitar l'error can't co-create object. S'ha afegit un metode per alliberar els COM objects quan son cridats desde Threads.
 140904 --> APJORDI: Afegir iunstancia, port, usuari i passwd en la conversio de access - sql server
-141001 --> APJORDI: Monto ZIP per instancia 
+141001 --> APJORDI: Monto ZIP per instancia
 141002 --> APXAVI:  Conversió única: adaptada per convertir el model 111 a jnomina.
 141004 --> APJORDI: Canvis conversió LogicClass pantalla única.
 141102 --> APXAVI: Canvis Jacob impresio en pdfCreator.(xavi calvet)
@@ -153,3 +153,4 @@
 150101 --> APJORDI: Canvis conversió LogicClass Jconta.
 150102 --> APJORDI: Query jConta carta 347 2014
 150201 --> APJORDI: Comentar les lineas deleteOnExit del origen de dades en la combinacio query
+150202 --> APESTER: Perfil tributari afegit marca de si presenta assessor la declaracio

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140801
-// Hora:             13:48:53
+// Fecha:            20150213
+// Hora:             09:15:41
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2721,6 +2721,7 @@ public class CatEasp extends Catalog
     public FieldDef emodactivo;
     public FieldDef emodfechaini;
     public FieldDef emodfechafin;
+    public FieldDef emodpreasesor;
     public TabEmpmodelos(String name)
       {
       super(name);
@@ -2731,6 +2732,7 @@ public class CatEasp extends Catalog
       emodactivo = new FieldDef("emodactivo",FieldDef.CHAR,1);
       emodfechaini = new FieldDef("emodfechaini",FieldDef.DATE);
       emodfechafin = new FieldDef("emodfechafin",FieldDef.DATE);
+      emodpreasesor = new FieldDef("emodpreasesor",FieldDef.CHAR,1);
       FieldDef array[] = {
         emodejercicio,
         emodnif,
@@ -2738,7 +2740,8 @@ public class CatEasp extends Catalog
         emodtipoper,
         emodactivo,
         emodfechaini,
-        emodfechafin        
+        emodfechafin,
+        emodpreasesor        
         };
       setColumns(array);
       FieldDef arrayf[] = {emodejercicio,emodnif,emodmodelo };
@@ -2751,6 +2754,7 @@ public class CatEasp extends Catalog
       emodactivo.setDescription("Activo");
       emodfechaini.setDescription("Fecha inicio obligacion");
       emodfechafin.setDescription("Fecha fin obligacion");
+      emodpreasesor.setDescription("Presenta asesor declaracion");
       }
     }
     

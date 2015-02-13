@@ -279,9 +279,12 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
     }
 
   public boolean setModelo(String modelo, String tipoper) {
-       return setModelo(modelo,tipoper,null,null);
+       return setModelo(modelo,tipoper,null,null,"S");
   }
-  public boolean setModelo(String modelo, String tipoper, java.util.Date fechaAlta, java.util.Date fechaBaja ) {
+  public boolean setModelo(String modelo, String tipoper, java.util.Date fechaAlta, java.util.Date fechaBaja) {
+       return setModelo(modelo,tipoper,fechaAlta,fechaBaja, "S");
+  }
+  public boolean setModelo(String modelo, String tipoper, java.util.Date fechaAlta, java.util.Date fechaBaja, String faAssessor ) {
   	boolean bOk = true;
     Select sempmodelos=new Select(connPerfil);
     Table tempmodelos=new Table(sempmodelos,"EMPMODELOS");
@@ -292,6 +295,7 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
     Field fdemodactivo      =new Field(sempmodelos,tempmodelos,"emodactivo");
     Field fdemodfechaini      =new Field(sempmodelos,tempmodelos,"emodfechaini");
     Field fdemodfechafin      =new Field(sempmodelos,tempmodelos,"emodfechafin");
+    Field fdemodpreasesor     =new Field(sempmodelos,tempmodelos,"emodpreasesor");
     sempmodelos.setWhere("emodejercicio="+ejer+
                        " and emodnif='"+nif+"'"+
                        " and emodmodelo='"+modelo+"'");
@@ -303,6 +307,7 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
       fdemodmodelo.setValue(modelo);
       fdemodtipoper.setValue(tipoper);
       fdemodactivo.setValue("S");
+      fdemodpreasesor.setValue(faAssessor);
       if (fechaAlta!=null) fdemodfechaini.setValue(fechaAlta);
       if (fechaBaja!=null) fdemodfechafin.setValue(fechaBaja);
       bOk = sempmodelos.insert();
@@ -311,6 +316,7 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
 	    sempmodelos.edit();
       fdemodtipoper.setValue(tipoper);
       fdemodactivo.setValue("S");
+      fdemodpreasesor.setValue(faAssessor);
       if (fechaAlta!=null) fdemodfechaini.setValue(fechaAlta);
       else fdemodfechaini.setNull();
       if (fechaBaja!=null) fdemodfechafin.setValue(fechaBaja);
@@ -331,6 +337,7 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
     Field fdemodmodelo   =new Field(sempmodelos,tempmodelos,"emodmodelo");
     Field fdemodtipoper     =new Field(sempmodelos,tempmodelos,"emodtipoper");
     Field fdemodactivo      =new Field(sempmodelos,tempmodelos,"emodactivo");
+    Field fdemodpreasesor     =new Field(sempmodelos,tempmodelos,"emodpreasesor");
     sempmodelos.setWhere("emodejercicio="+ejer+
                        " and emodnif='"+nif+"'"+
                        " and emodtipoper='"+tipoper+"'"+
@@ -356,6 +363,7 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
     Field fdemodmodelo   =new Field(sempmodelos,tempmodelos,"emodmodelo");
     Field fdemodtipoper     =new Field(sempmodelos,tempmodelos,"emodtipoper");
     Field fdemodactivo      =new Field(sempmodelos,tempmodelos,"emodactivo");
+    Field fdemodpreasesor     =new Field(sempmodelos,tempmodelos,"emodpreasesor");
     sempmodelos.setWhere("emodejercicio="+ejer+
                        " and emodnif='"+nif+"'"+
                        " and emodmodelo='"+modelo+"'");

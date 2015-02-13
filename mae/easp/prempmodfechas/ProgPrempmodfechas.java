@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130326
-// Hora:             12:27:48
+// Fecha:            20150213
+// Hora:             10:06:39
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -57,12 +57,19 @@ public class ProgPrempmodfechas extends Program
       doShow();
       Maefc.restoreCursor();
       }
-    
+    private void grabaCheck() {
+       if (chasesor.getBoolean()) sempmodelos.emodpreasesor.setValue("S");
+       else sempmodelos.emodpreasesor.setValue("N");
+    }
+    private void leeCheck(){
+       chasesor.setValue("S".equals(sempmodelos.emodpreasesor.getString()));
+    }
     // Fin declaraciones globales
     // Controles
     public CtrlEmodmodelo emodmodelo;
     public CtrlEmodfechaini emodfechaini;
     public CtrlEmodfechafin emodfechafin;
+    public CtrlChasesor chasesor;
     // Acciones
     class Location extends LocationGridBag
       {
@@ -79,9 +86,19 @@ public class ProgPrempmodfechas extends Program
       
     public class CtrlEmodmodelo extends ColumnEdit
       {
+      class Look extends LookComponent
+        {
+        public Look( )
+          {
+          super();
+          setLength(6);
+          }
+        }
+        
       public CtrlEmodmodelo(Form form)
         {
         super(form);
+        setLook(new Look());
         setName("emodmodelo");
         setTitle("Modelo");
         setType(STRING);
@@ -93,9 +110,19 @@ public class ProgPrempmodfechas extends Program
       
     public class CtrlEmodfechaini extends ColumnEdit
       {
+      class Look extends LookComponent
+        {
+        public Look( )
+          {
+          super();
+          setLength(12);
+          }
+        }
+        
       public CtrlEmodfechaini(Form form)
         {
         super(form);
+        setLook(new Look());
         setName("emodfechaini");
         setMessageHelp("Indicar la fecha de inicio de la obligación");
         setTitle("Fecha inicio obligación");
@@ -113,9 +140,19 @@ public class ProgPrempmodfechas extends Program
       
     public class CtrlEmodfechafin extends ColumnEdit
       {
+      class Look extends LookComponent
+        {
+        public Look( )
+          {
+          super();
+          setLength(12);
+          }
+        }
+        
       public CtrlEmodfechafin(Form form)
         {
         super(form);
+        setLook(new Look());
         setName("emodfechafin");
         setMessageHelp("Indicar la fecha de fin de la obligación.");
         setTitle("Fecha fin obligación");
@@ -131,6 +168,21 @@ public class ProgPrempmodfechas extends Program
         }
       }
       
+    public class CtrlChasesor extends ColumnCheck
+      {
+      public CtrlChasesor(Form form)
+        {
+        super(form);
+        setName("chasesor");
+        setMessageHelp("Marcar si quien confecciona el impuesto es el asesor, si lo confecciona el cliente no marcar");
+        setTitle("Confecciona asesor");
+        }
+      public Object getDefault()
+        {
+        return true;
+        }
+      }
+      
     public FormVempmodfecha(ProgPrempmodfechas prempmodfechas)
       {
       super(prempmodfechas);
@@ -142,12 +194,19 @@ public class ProgPrempmodfechas extends Program
       addControl(emodmodelo=new CtrlEmodmodelo(this));
       addControl(emodfechaini=new CtrlEmodfechaini(this));
       addControl(emodfechafin=new CtrlEmodfechafin(this));
+      addControl(chasesor=new CtrlChasesor(this));
       setSelect(sempmodelos);
       }
     public void onInit()
       {
       vempmodfecha.doShow();
       super.onInit();
+      }
+    public void onBeginRecord()
+      {
+      leeCheck();
+      super.onBeginRecord();
+      
       }
     }
     
@@ -157,13 +216,14 @@ public class ProgPrempmodfechas extends Program
     // Tablas
     public Empmodelos empmodelos;
     // Campos
-    public Field emodejercicio;
-    public Field emodnif;
-    public Field emodmodelo;
-    public Field emodtipoper;
     public Field emodactivo;
-    public Field emodfechaini;
+    public Field emodejercicio;
     public Field emodfechafin;
+    public Field emodfechaini;
+    public Field emodmodelo;
+    public Field emodnif;
+    public Field emodtipoper;
+    public Field emodpreasesor;
     class Empmodelos extends Table
       {
       public Empmodelos(Select select)
@@ -172,19 +232,25 @@ public class ProgPrempmodfechas extends Program
         setName("empmodelos");
         setOptions(READ | UPDATE);
         }
+      public boolean onUpdate()
+        {
+        vempmodfecha.grabaCheck();
+        return super.onUpdate();
+        }
       }
       
     public Sempmodelos()
       {
       setName("sempmodelos");
       addTable(empmodelos=new Empmodelos(this));
-      addField(emodejercicio=new Field(this,empmodelos,"emodejercicio"));
-      addField(emodnif=new Field(this,empmodelos,"emodnif"));
-      addField(emodmodelo=new Field(this,empmodelos,"emodmodelo"));
-      addField(emodtipoper=new Field(this,empmodelos,"emodtipoper"));
       addField(emodactivo=new Field(this,empmodelos,"emodactivo"));
-      addField(emodfechaini=new Field(this,empmodelos,"emodfechaini"));
+      addField(emodejercicio=new Field(this,empmodelos,"emodejercicio"));
       addField(emodfechafin=new Field(this,empmodelos,"emodfechafin"));
+      addField(emodfechaini=new Field(this,empmodelos,"emodfechaini"));
+      addField(emodmodelo=new Field(this,empmodelos,"emodmodelo"));
+      addField(emodnif=new Field(this,empmodelos,"emodnif"));
+      addField(emodtipoper=new Field(this,empmodelos,"emodtipoper"));
+      addField(emodpreasesor=new Field(this,empmodelos,"emodpreasesor"));
       }
     public String getWhere()
       {
@@ -199,6 +265,8 @@ public class ProgPrempmodfechas extends Program
             return "emodfechaini";
         case 2:
             return "emodfechafin";
+        case 3:
+             return "emodpreasesor";
       }
       return "emodtipoper";
       }
