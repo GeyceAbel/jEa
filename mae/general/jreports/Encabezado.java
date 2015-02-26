@@ -7,7 +7,7 @@ import net.sf.jasperreports.engine.JRExpression;
 import net.sf.jasperreports.engine.JRExpressionChunk;
 import net.sf.jasperreports.engine.design.JRDesignFrame;
 
-public class Encabezado extends JRDesignFrame{
+public class Encabezado {
 	/**
 	 * 
 	 */
