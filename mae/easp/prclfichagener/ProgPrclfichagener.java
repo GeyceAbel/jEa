@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140918
-// Hora:             12:53:05
+// Fecha:            20150226
+// Hora:             12:23:31
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -441,7 +441,7 @@ public class ProgPrclfichagener extends Program
       
       if ( sgeneral.cdpcodi.getString().length() == 12 ) vvcodigo.setValue(Integer.parseInt(sgeneral.cdpcodi.getString().substring(6,12)));
       else                                               vvcodigo.setNull();
-        
+      
       }
     }
     
@@ -4787,9 +4787,19 @@ snifrep.datapell2.setValue(vvdatapell2);
       
     public class CtrlDatapell1 extends ControlEdit
       {
+      class Look extends LookComponent
+        {
+        public Look( )
+          {
+          super();
+          setLength(65);
+          }
+        }
+        
       public CtrlDatapell1(Form form)
         {
         super(form);
+        setLook(new Look());
         setName("datapell1");
         setTitle("ape1");
         setType(STRING);
