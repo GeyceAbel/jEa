@@ -155,3 +155,4 @@
 150201 --> APJORDI: Comentar les lineas deleteOnExit del origen de dades en la combinacio query
 150202 --> APESTER: Perfil tributari afegit marca de si presenta assessor la declaracio
 150301 --> APESTER: Afegit un pas de conversió 12.7
+150302 --> APJORDI: Afegit un pas de conversió 12.8 Nova taula registre mercantil de llibres extres

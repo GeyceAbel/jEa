@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150213
-// Hora:             09:15:41
+// Fecha:            20150311
+// Hora:             16:19:13
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -101,6 +101,7 @@ public class CatEasp extends Catalog
   public TabCodcnvotraplc tabcodcnvotraplc;
   public TabCodcnvotrapll tabcodcnvotrapll;
   public TabCodcnvinciden tabcodcnvinciden;
+  public TabLibregmerext tablibregmerext;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -3840,6 +3841,39 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabLibregmerext extends TableDef
+    {
+    // Campos
+    public FieldDef lbgcodi;
+    public FieldDef lbgempjco;
+    public FieldDef lbgejercicio;
+    public FieldDef lbgtipo;
+    public FieldDef lbgruta;
+    public FieldDef lbgnumero;
+    public TabLibregmerext(String name)
+      {
+      super(name);
+      lbgcodi = new FieldDef("lbgcodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      lbgempjco = new FieldDef("lbgempjco",FieldDef.INTEGER,0);
+      lbgejercicio = new FieldDef("lbgejercicio",FieldDef.INTEGER,0);
+      lbgtipo = new FieldDef("lbgtipo",FieldDef.CHAR,15);
+      lbgruta = new FieldDef("lbgruta",FieldDef.CHAR,255);
+      lbgnumero = new FieldDef("lbgnumero",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        lbgcodi,
+        lbgempjco,
+        lbgejercicio,
+        lbgtipo,
+        lbgruta,
+        lbgnumero        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {lbgcodi };
+      setPrimaryKeys(arrayf);
+      lbgcodi.setAutoIncrementable(true);
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -3927,6 +3961,7 @@ public class CatEasp extends Catalog
     tabcodcnvotraplc = new TabCodcnvotraplc("codcnvotraplc");
     tabcodcnvotrapll = new TabCodcnvotrapll("codcnvotrapll");
     tabcodcnvinciden = new TabCodcnvinciden("codcnvinciden");
+    tablibregmerext = new TabLibregmerext("libregmerext");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -4012,7 +4047,8 @@ public class CatEasp extends Catalog
       tabjcoepigrafe,
       tabcodcnvotraplc,
       tabcodcnvotrapll,
-      tabcodcnvinciden      
+      tabcodcnvinciden,
+      tablibregmerext      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
