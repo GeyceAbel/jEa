@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150311
-// Hora:             16:22:35
+// Fecha:            20150316
+// Hora:             15:14:39
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1394,6 +1394,10 @@ public class ProgInsprconver extends Program
         "PRIMARY KEY (lbgcodi));"
     };
     
+    String sentencias12_9[]={
+      "alter table AMORTIZACION  add  amoejercicio INTEGER",
+      "DELETE FROM AMORTIZACION WHERE amocodigo>=2000"
+    };
     
       int i=0;
       try {
@@ -3183,21 +3187,41 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("12.7");
         }      
+    
         if (versio < 12.8) {
-            for (i=0;i<sentencias12_8.length;++i) {
-                  try {
-                    Easp.chivato("12.8 Exec : ["+sentencias12_8[i]+"]",1);
-                    Easp.connEA.executeUpdate(sentencias12_8[i]);
-                  }
-                  catch(Exception e) {
-                    sqlOperation=sentencias12_8[i];
-                    Easp.chivato("12.8 *** Error : ["+sentencias12_8[i]+"]  Error: ["+e+"]",1);
-                    errorMessage=e.getMessage();
-                  }
+          for (i=0;i<sentencias12_8.length;++i) {
+            try {
+              Easp.chivato("12.8 Exec : ["+sentencias12_8[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias12_8[i]);
             }
-            Easp.setVersionBD("bdeasp","12.8");
-            Easp.connEA.commit();
-            vvveractual.setValue("12.8");
+            catch(Exception e) {
+              sqlOperation=sentencias12_8[i];
+              Easp.chivato("12.8 *** Error : ["+sentencias12_8[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","12.8");
+          Easp.connEA.commit();
+          vvveractual.setValue("12.8");
+        } 
+    
+        if (versio < 12.9) {
+          for (i=0;i<sentencias12_9.length;++i) {
+            try {
+              Easp.chivato("12.9 Exec : ["+sentencias12_9[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias12_9[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias12_9[i];
+              Easp.chivato("12.9 *** Error : ["+sentencias12_9[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          String tablas[] = {"AMORTIZACION"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1209","easp.jar");
+          Easp.setVersionBD("bdeasp","12.9");
+          Easp.connEA.commit();
+          vvveractual.setValue("12.9");
         } 
       }
       catch(Exception e) {

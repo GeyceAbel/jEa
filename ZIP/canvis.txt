@@ -157,3 +157,4 @@
 150301 --> APESTER: Afegit un pas de conversió 12.7
 150302 --> APJORDI: Afegit un pas de conversió 12.8 Nova taula registre mercantil de llibres extres
 150303 --> APXAVI: Nova funcionalitat conversio jNomina class. Conceptes a nivell de conveni.
+150304 --> APJORDI: Afegit un pas de conversió 12.9 afegint taula conversio amortitzacions 2015

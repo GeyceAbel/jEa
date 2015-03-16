@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150311
-// Hora:             16:19:13
+// Fecha:            20150316
+// Hora:             13:10:44
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1079,6 +1079,7 @@ public class CatEasp extends Catalog
     public FieldDef amoperiodo;
     public FieldDef amoparent;
     public FieldDef amonum;
+    public FieldDef amoejercicio;
     public TabAmortizacion(String name)
       {
       super(name);
@@ -1092,6 +1093,7 @@ public class CatEasp extends Catalog
       amoperiodo = new FieldDef("amoperiodo",FieldDef.INTEGER,0);
       amoparent = new FieldDef("amoparent",FieldDef.CHAR,8);
       amonum = new FieldDef("amonum",FieldDef.CHAR,1);
+      amoejercicio = new FieldDef("amoejercicio",FieldDef.INTEGER,0);
       FieldDef array[] = {
         amocodigo,
         amogrupo,
@@ -1102,7 +1104,8 @@ public class CatEasp extends Catalog
         amocoef,
         amoperiodo,
         amoparent,
-        amonum        
+        amonum,
+        amoejercicio        
         };
       setColumns(array);
       FieldDef arrayf[] = {amocodigo };
@@ -1417,7 +1420,7 @@ public class CatEasp extends Catalog
       super(name);
       ayprocedure = new FieldDef("ayprocedure",FieldDef.CHAR,50,FieldDef.NOTNULL);
       ayidioma = new FieldDef("ayidioma",FieldDef.CHAR,3,FieldDef.NOTNULL);
-      aytexto = new FieldDef("aytexto",FieldDef.CHAR,4000);
+      aytexto = new FieldDef("aytexto",FieldDef.CHAR,40008);
       FieldDef array[] = {
         ayprocedure,
         ayidioma,
@@ -1458,7 +1461,7 @@ public class CatEasp extends Catalog
       erincide = new FieldDef("erincide",FieldDef.CHAR,1,FieldDef.NOTNULL);
       eropcion = new FieldDef("eropcion",FieldDef.INTEGER,0);
       ersoluci = new FieldDef("ersoluci",FieldDef.CHAR,1024);
-      erdescri = new FieldDef("erdescri",FieldDef.CHAR,10248);
+      erdescri = new FieldDef("erdescri",FieldDef.CHAR,1024);
       FieldDef array[] = {
         ercodigo,
         erambito,
