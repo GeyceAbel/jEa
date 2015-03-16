@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150123
-// Hora:             10:14:41
+// Fecha:            20150316
+// Hora:             10:36:19
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -197,6 +197,7 @@ public class ProgCnvlogicclass extends Program
     public CtrlChjre chjre;
     public CtrlChjnom chjnom;
     public CtrlChjges chjges;
+    public CtrlVvconvempconv vvconvempconv;
     // Acciones
     public LinkAasignar aasignar;
     public LinkAhistorico ahistorico;
@@ -913,6 +914,54 @@ public class ProgCnvlogicclass extends Program
         }
       }
       
+    public class CtrlVvconvempconv extends ControlComboBox
+      {
+      public CtrlVvconvempconv(Form form)
+        {
+        super(form);
+        setName("vvconvempconv");
+        setMessageHelp("Importar las empresas con los conceptos y categorías a nivel de convenio.");
+        setTitle("Concepto");
+        setType(STRING);
+        setLength(1);
+        setPrintable(false);
+        setRestricted(false);
+        addItem("E/Empresa");
+        addItem("C/Convenio");
+        }
+      public Object getDefault()
+        {
+        return new String("E");
+        }
+      public boolean obligate()
+        {
+        return true;
+        }
+        public void userChange(Value v ) {  
+          super.userChange(v);
+          if(v != null && v.getString().equals("C")) {
+            /*
+            String texte = "Ha seleccionado traspasar los conceptos y categorías de los trabajadores a nivel de convenio y no de empresa.\n"+
+                           "Geyce no puede asegurar que la fiabilidad del traspaso sea la misma que si desmarca esta opción. Es posible que \n "+
+                           "las empresas de logic tengan conceptos declarados que no están en sus respectivos convenios y por ello deberá \n " +
+                           "introducirlos manualmente tras la conversión.\n"+
+                           "¿Desea traspasar los conceptos y categorias de los trabajadores de las empresas seleccionadas a nivel de convenio?";
+            */
+            String texte = "Ha seleccionado traspasar los conceptos y categorías de los trabajadores a nivel de convenio.\n"+
+                           "El proceso de traspaso pondrá los parámetros de cálculo a nivel de convenio a aquellas empresas\n "+
+                           "de logic que tengan el mismo número de conceptos en la empresa como en el convenio asociado a esta. \n " +
+                           "¿Desea marcar esta opción?";
+            
+            if(Maefc.message(texte,"Aviso", Maefc.WARNING_MESSAGE, Maefc.YES_NO_OPTION)==Maefc.YES_OPTION) {
+              this.setValue("C");
+            }
+            else this.setValue("E");
+            
+          }
+        
+        }
+      }
+      
     public class LinkAasignar extends Action
       {
       public LinkAasignar(Form form)
@@ -1027,7 +1076,7 @@ public class ProgCnvlogicclass extends Program
             if (bOk && chjnom.getBoolean()) {
               clcjnom = new mae.easp.conversions.logicclass.ConversionJNOM (cnvlogicclass,codiCab,vvempini.getInteger(),vvempfin.getInteger(),vvejeini.getInteger(),vvejefin.getInteger(),
                                                                                                                      vvservidor.getString(), vvinstancia.getString(), vvnombrebd.getString(),vvuser.getString(),
-                                                                                                                     vvpasswd.getString(),vvdpto.getString(), chconvenio.getBoolean(),getDataBase());
+                                                                                                                     vvpasswd.getString(),vvdpto.getString(), vvconvempconv.getString(),getDataBase());
               if (clcjnom.hayError()) {
                 bOk = false;
                 sError = clcjnom.getError();
@@ -1153,6 +1202,7 @@ public class ProgCnvlogicclass extends Program
       addControl(chjre=new CtrlChjre(this));
       addControl(chjnom=new CtrlChjnom(this));
       addControl(chjges=new CtrlChjges(this));
+      addControl(vvconvempconv=new CtrlVvconvempconv(this));
       addAction(aasignar=new LinkAasignar(this));
       addAction(ahistorico=new LinkAhistorico(this));
       }

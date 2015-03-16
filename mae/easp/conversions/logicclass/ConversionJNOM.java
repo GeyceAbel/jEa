@@ -18,10 +18,10 @@ public class ConversionJNOM extends ConversionLC {
 	private DBConnection dbJnom;
 	public mae.laboral.auxlogicclass.ProgAuxlogicclass prNom;
 	private String equivDpto = "D";
-	private boolean conceptoConvenio=false;
+	private String conceptoConvenio="E";
 	
 	
-	public ConversionJNOM (Program pr,int idConversion, int desdeEmp, int hastaEmp, int desdeEjer, int hastaEjer, String servidor, String instancia, String nombreBD, String user, String passwd,String tipoDpto, boolean conceptoConvenio, DBConnection connEA) {
+	public ConversionJNOM (Program pr,int idConversion, int desdeEmp, int hastaEmp, int desdeEjer, int hastaEjer, String servidor, String instancia, String nombreBD, String user, String passwd,String tipoDpto, String conceptoConvenio, DBConnection connEA) {
 	  super (pr,desdeEmp, hastaEmp, desdeEjer, hastaEjer, connEA, servidor, instancia, nombreBD, user, passwd, idConversion);
 	  funciones = new FuncionesJNOM(connEA,dominio);
 	  prNom= new mae.laboral.auxlogicclass.ProgAuxlogicclass();
@@ -204,7 +204,8 @@ public class ConversionJNOM extends ConversionLC {
 		prNom.vconvers.vvdesdehisto	.setValue(desdeEjer);
 		prNom.vconvers.vvdpto		.setValue(equivDpto);
 		prNom.vconvers.vvnombd		.setValue(nombreBD);	
-		prNom.vconvers.chconvenio	.setValue(conceptoConvenio);
+		//prNom.vconvers.chconvenio	.setValue(conceptoConvenio);
+		prNom.vconvers.vvconempconv	.setValue(conceptoConvenio);
 		prNom.sparametros.setWhere("pardominio = '"+dominio+"'   AND parusuario = '"+user+"' AND parambito = 'CONVERLOGIC' AND parvariable = 'PARAMLOGIC' AND paragrup = 'JNOMINA'");
 		prNom.sparametros.execute();
 		if(prNom.sparametros.isEof()) {
