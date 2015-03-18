@@ -144,7 +144,7 @@ public class GestionCodigos {
 				for (int c = de.getCodiOrigen() + 1; c<=999997 && !trobat;c++) {					
 					//					
 					if  (Conversion.APLICACION_GEYCE.JRENTA != APLICACION_GEYCE.JRENTA || nveces!=1) increm=0;
-					System.out.println(""+c+"] ["+(c+increm)+" ["+de.getAplicOrigen()+" "+nveces);
+					//System.out.println(""+c+"] ["+(c+increm)+" ["+de.getAplicOrigen()+" "+nveces);
 					//
 					String cdptmp = Easp.dominio.substring(0,6)+Numero.format( (c+increm),"000000");
 					if (!vAsignadas.contains(new Integer((c+increm))) && !existeCDP (cdptmp) )  {
@@ -159,7 +159,7 @@ public class GestionCodigos {
 						//
 						if  (Conversion.APLICACION_GEYCE.JRENTA != APLICACION_GEYCE.JRENTA || nveces!=1) increm=0;
 						//if (!"JRENTA".equals(de.getAplicOrigen())) increm=0;						
-						System.out.println("NOtrobat "+c+"] ["+(c+increm)+" ["+de.getAplicOrigen());
+						//System.out.println("NOtrobat "+c+"] ["+(c+increm)+" ["+de.getAplicOrigen());
 						//
 						String cdptmp = Easp.dominio.substring(0,6)+Numero.format(c+increm,"000000");
 						if (!vAsignadas.contains(new Integer(c+increm)) && !existeCDP (cdptmp) )  {
