@@ -29,6 +29,7 @@ public class ConversionJREN extends ConversionLC {
 	private String simulaciones;
 	public mae.jrenta.auxcnvlogic2.ProgAuxcnvlogic2 prJren;
 	public int nrototdec=0;
+	
 	public ConversionJREN (Program pr,int idConversion, int desdeEmp, int hastaEmp, int desdeEjer, int hastaEjer, String servidor, String instancia, String nombreBD, String user, String passwd, DBConnection connEA, String desdeDec, String hastaDec, String simulaciones) {
 		super (pr,desdeEmp, hastaEmp, desdeEjer, hastaEjer, connEA, servidor, instancia, nombreBD, user, passwd, idConversion);
 		this.desdeDec = desdeDec;
@@ -59,7 +60,7 @@ public class ConversionJREN extends ConversionLC {
 			prJren.dominiEA=dominio;
 			prJren.userEA=Easp.usuario;
 			prJren.idConversion=idConversion;
-           // System.out.println("ConversionJREN -- getCodiOrigenStr/codigo=["+de.getCodiOrigenStr()+"]  getCodiGeyce/CPD=["+de.getCodiGeyce()+"] "+de.getRazonSocial()+" ["+ejerRen+"]");
+            System.out.println("ConversionJREN -- getCodiOrigenStr/codigo=["+de.getCodiOrigenStr()+"]  getCodiGeyce/CPD=["+de.getCodiGeyce()+"] "+de.getRazonSocial()+" ["+ejerRen+"]");
 			bOk=prJren.auxcnvlogic2.vejecutar.importarDatos();
 			
 			if (bOk){
@@ -78,7 +79,7 @@ public class ConversionJREN extends ConversionLC {
 	@Override
 	public Vector<DadesEmpresa> initEmpreses() {
 		boolean bOk = true;
-		int darrerEjer=leeMenuRenta();
+		int darrerEjer=leeMenuRenta();		
 		String orden =" order by Ejercicio,RENCodigo, IOF_Simulacion";
 		String where ="Complementaria=0 and Ejercicio>="+desdeEjer+" and Ejercicio<="+hastaEjer;
 		where+= " and Ejercicio>=2010 and Ejercicio<="+darrerEjer;
@@ -97,7 +98,7 @@ public class ConversionJREN extends ConversionLC {
 				String NombrePersona = sDeclarantes.getString("NombreEmpleado");
 				String PrimerApellido = sDeclarantes.getString("PrimerApellidoEmpleado");
 				String SegundoApellido = sDeclarantes.getString("SegundoApellidoEmpleado");
-				//String estado=sDeclarantes.getString("RENEstadoCivil");
+				String estado=sDeclarantes.getString("RENEstadoCivil");
 				int ejer=sDeclarantes.getint("Ejercicio");
 				if ((razon == null || razon.trim().length()==0)) {
 					razon = "";
@@ -105,8 +106,10 @@ public class ConversionJREN extends ConversionLC {
 					if ((PrimerApellido!=null && PrimerApellido.trim().length()>0)) razon += PrimerApellido+" ";
 					if ((SegundoApellido!=null && SegundoApellido.trim().length()>0)) razon += SegundoApellido;
 					razon = razon.trim();
-				}			
-	       // System.out.println("ConversionJREN "+ejer+" nif= ["+nif+"] codigo-RENCodigo= ["+codigo+" ] razon="+razon+" ");
+				}
+				nrototdec++;		
+	        System.out.println("ConversionJREN "+ejer+" nif= ["+nif+"] codigo-RENCodigo= ["+codigo+" ] razon="+razon+"] ["+estado+"] "+nrototdec);
+	        
 		  	  vDadesEmpresa.addElement (new DadesEmpresa(codigo,nif,razon,getAplicGeyce()));			
 			}
 			sDeclarantes.close();
