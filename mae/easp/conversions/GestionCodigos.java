@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.Hashtable;
 import java.util.Vector;
 
+import mae.easp.conversions.Conversion.APLICACION_GEYCE;
 import mae.easp.general.Easp;
 import mae.general.Numero;
 
@@ -17,6 +18,7 @@ public class GestionCodigos {
 	private DBConnection connEA;
 	private int idCabecera;
 	private String sError;
+	private int nveces=0;
 
 	public GestionCodigos (int idCabecera, DBConnection connEA) {
 		this.connEA = connEA;
@@ -50,6 +52,7 @@ public class GestionCodigos {
 
 	public boolean asignarCodigos () {
 		boolean bOk = true;
+		nveces++;
 		Vector<Integer> vAsignadas = new Vector<Integer> ();		
 		ArrayList<String> aKeys = new ArrayList<String>(Collections.list(htEmpresas.keys())); 
 		Collections.sort (aKeys);
@@ -105,6 +108,11 @@ public class GestionCodigos {
 		}		
 		
 		// *************** Codis Alfanumerics  ************************
+				
+		int increm=0;
+		increm=incremenRenta();		
+		// 
+		
 		for (int i=0; i<aKeys.size();i++) {
 			DadesEmpresa de = htEmpresas.get(aKeys.get(i));
 			if (de.esCodigoOrigenString() && de.getCodiGeyce() == Conversion.CODIGO_EMPRESA_NO_ASIGNADA) {
@@ -125,25 +133,37 @@ public class GestionCodigos {
 					}
 				}
 			}
-		}
+		}		
 		
+		
+
 		for (int i=0; i<aKeys.size();i++) {
 			DadesEmpresa de = htEmpresas.get(aKeys.get(i));
 			if (de.esCodigoOrigenString() && de.getCodiGeyce() == Conversion.CODIGO_EMPRESA_NO_ASIGNADA) {
 				boolean trobat = false;
-				for (int c = de.getCodiOrigen() + 1;c<=999997 && !trobat;c++) {
-					String cdptmp = Easp.dominio.substring(0,6)+Numero.format(c,"000000");
-					if (!vAsignadas.contains(new Integer(c)) && !existeCDP (cdptmp) )  {
-						de.setCodiGeyce (c);
+				for (int c = de.getCodiOrigen() + 1; c<=999997 && !trobat;c++) {					
+					//					
+					if  (Conversion.APLICACION_GEYCE.JRENTA != APLICACION_GEYCE.JRENTA || nveces!=1) increm=0;
+					System.out.println(""+c+"] ["+(c+increm)+" ["+de.getAplicOrigen()+" "+nveces);
+					//
+					String cdptmp = Easp.dominio.substring(0,6)+Numero.format( (c+increm),"000000");
+					if (!vAsignadas.contains(new Integer((c+increm))) && !existeCDP (cdptmp) )  {
+						de.setCodiGeyce ((c+increm));
 						vAsignadas.addElement(de.getCodiGeyce());
 						trobat = true;
 					}
 				}
+				
 				if (!trobat) {
 					for (int c = 1;c < de.getCodiOrigen() && !trobat;c++) {
-						String cdptmp = Easp.dominio.substring(0,6)+Numero.format(c,"000000");
-						if (!vAsignadas.contains(new Integer(c)) && !existeCDP (cdptmp) )  {
-							de.setCodiGeyce (c);
+						//
+						if  (Conversion.APLICACION_GEYCE.JRENTA != APLICACION_GEYCE.JRENTA || nveces!=1) increm=0;
+						//if (!"JRENTA".equals(de.getAplicOrigen())) increm=0;						
+						System.out.println("NOtrobat "+c+"] ["+(c+increm)+" ["+de.getAplicOrigen());
+						//
+						String cdptmp = Easp.dominio.substring(0,6)+Numero.format(c+increm,"000000");
+						if (!vAsignadas.contains(new Integer(c+increm)) && !existeCDP (cdptmp) )  {
+							de.setCodiGeyce (c+increm);
 							vAsignadas.addElement(de.getCodiGeyce());
 							trobat = true;
 						}
@@ -226,5 +246,27 @@ public class GestionCodigos {
 		sCdp.close();
 		return existe;           
 	}
-
+		
+	private int incremenRenta(){            
+		int nro=0, nroNew=0;
+		String codi="" ;
+		Selector sCdp = new Selector(connEA);
+		sCdp.execute("Select max(cdpcodi) as cnt from CDP where "+
+				" cdpcodi <> '"+(Easp.dominio.substring(0,6)+"999997")+"' and "+
+				" cdpcodi <> '"+(Easp.dominio.substring(0,6)+"999998")+"' and "+
+				" cdpcodi <> '"+(Easp.dominio.substring(0,6)+"999999")+"' ");
+		if (sCdp.next()) codi=sCdp.getString("cnt");
+		sCdp.close();
+		if (codi!=null){
+			codi=codi.substring(6,12);
+			nro=Integer.parseInt(codi);
+			if (nro<100000)      nroNew=100000;
+			else if (nro<200000) nroNew=200000;
+			else if (nro<300000) nroNew=300000;
+			else nroNew=0;
+		}
+		else nroNew=100000;
+		return nroNew;             
+	}
+    //+++
 }
