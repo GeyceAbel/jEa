@@ -1199,7 +1199,7 @@ public class ConversionJCO extends ConversionLC {
 						String Contrapartida = getSelString(sclipro,"Contrapartida");
 						if (Contrapartida!=null && Contrapartida.length()>0) {
 							String [] ctacontra = getFormatoCuenta (Contrapartida);
-							if (ctacontra!=null) Contrapartida = ctacontra[0]+ctacontra[1];
+							if (ctacontra!=null) Contrapartida = ctacontra[0]+"."+ctacontra[1];
 							if (Contrapartida!=null && Contrapartida.length()>0) u.valor("pcucontralapiz",Contrapartida);
 						}
 						int DiasFijos1 = sclipro.getint("DiasFijos1");
