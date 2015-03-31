@@ -160,3 +160,4 @@
 150304 --> APJORDI: Afegit un pas de conversió 12.9 afegint taula conversio amortitzacions 2015
 150305 --> Appere:  ConversionJREN i GestionCodigos x ATI codigos cdps 
 150306 --> APJORDI:  ConversionJCO LogicClass
+150401 --> APJORDI: Transaccions noves RCP RDU

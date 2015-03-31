@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150316
-// Hora:             15:14:39
+// Fecha:            20150331
+// Hora:             17:42:36
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1397,6 +1397,11 @@ public class ProgInsprconver extends Program
     String sentencias12_9[]={
       "alter table AMORTIZACION  add  amoejercicio INTEGER",
       "DELETE FROM AMORTIZACION WHERE amocodigo>=2000"
+    };
+    
+    String sentencias13_0[]={
+      "INSERT INTO TRANSACCIONES (tratipo,tradesc,traemre,traregimen,tratipoiva,travoloper,traoperespec) VALUES ('RCP','Regularización art.80.','R','IN','CP','NO','NO')",
+      "INSERT INTO TRANSACCIONES (tratipo,tradesc,traemre,traregimen,tratipoiva,travoloper,traoperespec) VALUES ('RDU','Importación Aduana pdte ingreso','R','IN','DU','NO','NO')"
     };
     
       int i=0;
@@ -3222,6 +3227,23 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","12.9");
           Easp.connEA.commit();
           vvveractual.setValue("12.9");
+        } 
+    
+        if (versio < 13.0) {
+          for (i=0;i<sentencias13_0.length;++i) {
+            try {
+              Easp.chivato("13.0 Exec : ["+sentencias13_0[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias13_0[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias13_0[i];
+              Easp.chivato("13.0 *** Error : ["+sentencias13_0[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          Easp.setVersionBD("bdeasp","13.0");
+          Easp.connEA.commit();
+          vvveractual.setValue("13.0");
         } 
       }
       catch(Exception e) {
