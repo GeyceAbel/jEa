@@ -263,6 +263,8 @@ public class GestionCodigos {
 		if (codi!=null){
 			codi=codi.substring(6,12);
 			nro=Integer.parseInt(codi);
+			nroNew=100000;
+			/*
 			if (nro<100000)      nroNew=100000;
 			else if (nro<200000) nroNew=200000;
 			else if (nro<300000) nroNew=300000;
@@ -270,8 +272,9 @@ public class GestionCodigos {
 			else if (nro<500000) nroNew=101000;
 			else if (nro<600000) nroNew=102000;
 			else if (nro<700000) nroNew=103000;
-			else if (nro<800000) nroNew=104000;						
+			else if (nro<800000) nroNew=104000;								
 			else nroNew=0;
+			*/
 		}
 		else nroNew=100000;
 		return nroNew;             
