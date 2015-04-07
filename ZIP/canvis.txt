@@ -161,4 +161,4 @@
 150305 --> Appere:  ConversionJREN i GestionCodigos x ATI codigos cdps 
 150306 --> APJORDI:  ConversionJCO LogicClass
 150401 --> APJORDI: Transaccions noves RCP RDU
-150401 --> Appere:  Modificacio GestionCodigos
+150403 --> Appere:  Modificacio GestionCodigos
