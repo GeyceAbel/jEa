@@ -265,11 +265,10 @@ public class GestionCodigos {
 			else if (nro<200000) nroNew=200000;
 			else if (nro<300000) nroNew=300000;
 			else if (nro<400000) nroNew=400000;
-			else if (nro<500000) nroNew=401000;
-			else if (nro<600000) nroNew=402000;
-			else if (nro<700000) nroNew=403000;
-			else if (nro<800000) nroNew=404000;
-			else if (nro<900000) nroNew=405000;			
+			else if (nro<500000) nroNew=101000;
+			else if (nro<600000) nroNew=102000;
+			else if (nro<700000) nroNew=103000;
+			else if (nro<800000) nroNew=104000;						
 			else nroNew=0;
 		}
 		else nroNew=100000;
