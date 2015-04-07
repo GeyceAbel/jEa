@@ -252,6 +252,8 @@ public class GestionCodigos {
 		String codi="" ;
 		Selector sCdp = new Selector(connEA);
 		sCdp.execute("Select max(cdpcodi) as cnt from CDP where "+
+				" cdpcodi <> '"+(Easp.dominio.substring(0,6)+"999994")+"' and "+
+				" cdpcodi <> '"+(Easp.dominio.substring(0,6)+"999995")+"' and "+
 				" cdpcodi <> '"+(Easp.dominio.substring(0,6)+"999996")+"' and "+
 				" cdpcodi <> '"+(Easp.dominio.substring(0,6)+"999997")+"' and "+
 				" cdpcodi <> '"+(Easp.dominio.substring(0,6)+"999998")+"' and "+
