@@ -144,7 +144,7 @@ public class GestionCodigos {
 				for (int c = de.getCodiOrigen() + 1; c<=999997 && !trobat;c++) {					
 					//					
 					if  (Conversion.APLICACION_GEYCE.JRENTA != APLICACION_GEYCE.JRENTA || nveces!=1) increm=0;
-					//System.out.println(""+c+"] ["+(c+increm)+" ["+de.getAplicOrigen()+" "+nveces);
+					System.out.println(""+c+"] ["+(c+increm)+" ["+de.getAplicOrigen()+" "+nveces+" ,1");
 					//
 					String cdptmp = Easp.dominio.substring(0,6)+Numero.format( (c+increm),"000000");
 					if (!vAsignadas.contains(new Integer((c+increm))) && !existeCDP (cdptmp) )  {
@@ -159,7 +159,7 @@ public class GestionCodigos {
 						//
 						if  (Conversion.APLICACION_GEYCE.JRENTA != APLICACION_GEYCE.JRENTA || nveces!=1) increm=0;
 						//if (!"JRENTA".equals(de.getAplicOrigen())) increm=0;						
-						//System.out.println("NOtrobat "+c+"] ["+(c+increm)+" ["+de.getAplicOrigen());
+						System.out.println("NOtrobat "+c+"] ["+(c+increm)+" ["+de.getAplicOrigen()+" ,2");
 						//
 						String cdptmp = Easp.dominio.substring(0,6)+Numero.format(c+increm,"000000");
 						if (!vAsignadas.contains(new Integer(c+increm)) && !existeCDP (cdptmp) )  {
@@ -252,6 +252,7 @@ public class GestionCodigos {
 		String codi="" ;
 		Selector sCdp = new Selector(connEA);
 		sCdp.execute("Select max(cdpcodi) as cnt from CDP where "+
+				" cdpcodi <> '"+(Easp.dominio.substring(0,6)+"999996")+"' and "+
 				" cdpcodi <> '"+(Easp.dominio.substring(0,6)+"999997")+"' and "+
 				" cdpcodi <> '"+(Easp.dominio.substring(0,6)+"999998")+"' and "+
 				" cdpcodi <> '"+(Easp.dominio.substring(0,6)+"999999")+"' ");
@@ -263,6 +264,12 @@ public class GestionCodigos {
 			if (nro<100000)      nroNew=100000;
 			else if (nro<200000) nroNew=200000;
 			else if (nro<300000) nroNew=300000;
+			else if (nro<400000) nroNew=400000;
+			else if (nro<500000) nroNew=401000;
+			else if (nro<600000) nroNew=402000;
+			else if (nro<700000) nroNew=403000;
+			else if (nro<800000) nroNew=404000;
+			else if (nro<900000) nroNew=405000;			
 			else nroNew=0;
 		}
 		else nroNew=100000;
