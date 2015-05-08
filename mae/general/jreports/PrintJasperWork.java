@@ -160,8 +160,34 @@ public class PrintJasperWork {
 		showPanels();		
 	}
 
-	private void setDefaults() {		
-		destino=System.getProperty("user.dir")+"\\listado_"+Easp.getNomPC();
+	private void setDefaults() {
+	  
+	  String usuario = Easp.usuario ;
+	  
+	  try {
+	    if ( usuario == null || usuario.equals("") ) {   
+	      usuario = mae.general.Fecha.getHora(geyce.maefc.Maefc.getDateTime(),"HHmmss");
+	      }
+	    }
+	  catch(Exception e) {
+	    
+	   }
+	  
+		destino=System.getProperty("user.dir")+"\\listado_"+Easp.getNomPC()+"_"+usuario;
+		
+	  destino = destino.toLowerCase();
+	  destino = destino.replace("ñ", "n");
+	  destino = destino.replace("á", "a");
+	  destino = destino.replace("à", "a");
+	  destino = destino.replace("é", "e");
+	  destino = destino.replace("è", "e");
+	  destino = destino.replace("í", "i");
+	  destino = destino.replace("ì", "i");
+	  destino = destino.replace("ó", "o");
+	  destino = destino.replace("ò", "o");
+	  destino = destino.replace("ú", "u");
+	  destino = destino.replace("ù", "u");
+		
 		abrir = true;
 		//horizontal = false;
 		margenSuperior = 1;
