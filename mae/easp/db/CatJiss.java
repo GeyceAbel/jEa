@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140731
-// Hora:             09:31:11
+// Fecha:            20150512
+// Hora:             17:19:18
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -149,7 +149,6 @@ public class CatJiss extends Catalog
   public TabCtaactfindeter tabctaactfindeter;
   public TabCtaactfincpyg tabctaactfincpyg;
   public TabObjetosocial tabobjetosocial;
-  public TabSociosrelaccion tabsociosrelaccion;
   public TabAjustenuevoplan tabajustenuevoplan;
   public TabConfigusuario tabconfigusuario;
   public TabQuevariables tabquevariables;
@@ -159,7 +158,6 @@ public class CatJiss extends Catalog
   public TabDedplanpensione tabdedplanpensione;
   public TabOpervinculadas tabopervinculadas;
   public TabMenusociedad tabmenusociedad;
-  public TabCtadatosmercant tabctadatosmercant;
   public TabEquivtablas tabequivtablas;
   public TabValorcontable tabvalorcontable;
   public TabValorcoeficient tabvalorcoeficient;
@@ -181,7 +179,6 @@ public class CatJiss extends Catalog
   public TabCtaaplaprovpmpe tabctaaplaprovpmpe;
   public TabCtapromplantill tabctapromplantill;
   public TabCtanumempleado tabctanumempleado;
-  public TabCtavarempleado tabctavarempleado;
   public TabCtacombinegoc tabctacombinegoc;
   public TabCtacombetapas tabctacombetapas;
   public TabBasecooperativa tabbasecooperativa;
@@ -257,7 +254,6 @@ public class CatJiss extends Catalog
   public TabGrupopdtgastfin tabgrupopdtgastfin;
   public TabGrupobfooperat tabgrupobfooperat;
   public TabGrupoconcingre tabgrupoconcingre;
-  public TabGrupointgral tabgrupointgral;
   public TabDedinversion tabdedinversion;
   public TabDedinvcanarias tabdedinvcanarias;
   public TabGrupoinversion tabgrupoinversion;
@@ -266,18 +262,11 @@ public class CatJiss extends Catalog
   public TabCompgastfinpdte tabcompgastfinpdte;
   public TabCompenbfoopera tabcompenbfoopera;
   public TabConversion tabconversion;
-  public TabParamsociedad tabparamsociedad;
   public TabAsientojconta tabasientojconta;
   public TabCtarevalresumen tabctarevalresumen;
   public TabCtarevalmovim tabctarevalmovim;
   public TabCtarevalelemen tabctarevalelemen;
   public TabCompengastfin tabcompengastfin;
-  public TabDesglosajustes tabdesglosajustes;
-  public TabFinalizacion tabfinalizacion;
-  public TabPagosacuenta tabpagosacuenta;
-  public TabActivo tabactivo;
-  public TabPasivo tabpasivo;
-  public TabCtaresultado tabctaresultado;
   public TabEstadocambpatr tabestadocambpatr;
   public TabEstadocambpyme tabestadocambpyme;
   public TabCtainvinmobmovi tabctainvinmobmovi;
@@ -285,13 +274,10 @@ public class CatJiss extends Catalog
   public TabCtasituinmovili tabctasituinmovili;
   public TabCargos tabcargos;
   public TabPartenotras tabpartenotras;
-  public TabDedintgral tabdedintgral;
   public TabDedidi tabdedidi;
   public TabDedinvdetalle tabdedinvdetalle;
-  public TabCalculo tabcalculo;
   public TabLiquidacion tabliquidacion;
   public TabErrcoherencia taberrcoherencia;
-  public TabSociedades tabsociedades;
   public TabGruporelsocieda tabgruporelsocieda;
   public TabGrupodotcredito tabgrupodotcredito;
   public TabGrupoconcilia tabgrupoconcilia;
@@ -304,8 +290,23 @@ public class CatJiss extends Catalog
   public TabGrupodetincodet tabgrupodetincodet;
   public TabGrupodetpdtedet tabgrupodetpdtedet;
   public TabGrupobimptotal tabgrupobimptotal;
-  public TabFechasacceso tabfechasacceso;
   public TabDedinvbfos tabdedinvbfos;
+  public TabDedintgral tabdedintgral;
+  public TabGrupointgral tabgrupointgral;
+  public TabCalculo tabcalculo;
+  public TabCtacorrecexist tabctacorrecexist;
+  public TabFechasacceso tabfechasacceso;
+  public TabSociedades tabsociedades;
+  public TabParamsociedad tabparamsociedad;
+  public TabDesglosajustes tabdesglosajustes;
+  public TabFinalizacion tabfinalizacion;
+  public TabCtadatosmercant tabctadatosmercant;
+  public TabSociosrelaccion tabsociosrelaccion;
+  public TabPagosacuenta tabpagosacuenta;
+  public TabCtavarempleado tabctavarempleado;
+  public TabActivo tabactivo;
+  public TabPasivo tabpasivo;
+  public TabCtaresultado tabctaresultado;
   public class TabBds extends TableDef
     {
     // Campos
@@ -9715,45 +9716,6 @@ public class CatJiss extends Catalog
       }
     }
     
-  public class TabSociosrelaccion extends TableDef
-    {
-    // Campos
-    public FieldDef soriden;
-    public FieldDef sorcodigo;
-    public FieldDef sordesdeaccion;
-    public FieldDef sorhastaaccion;
-    public FieldDef sorfechacompra;
-    public FieldDef sorfechaventa;
-    public TabSociosrelaccion(String name)
-      {
-      super(name);
-      soriden = new FieldDef("soriden",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      sorcodigo = new FieldDef("sorcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      sordesdeaccion = new FieldDef("sordesdeaccion",FieldDef.FLOAT,6,0);
-      sorhastaaccion = new FieldDef("sorhastaaccion",FieldDef.FLOAT,6,0);
-      sorfechacompra = new FieldDef("sorfechacompra",FieldDef.DATE);
-      sorfechaventa = new FieldDef("sorfechaventa",FieldDef.DATE);
-      FieldDef array[] = {
-        soriden,
-        sorcodigo,
-        sordesdeaccion,
-        sorhastaaccion,
-        sorfechacompra,
-        sorfechaventa        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {soriden };
-      setDescription("Relacion acciones socio de la entidad");
-      setPrimaryKeys(arrayf);
-      soriden.setAutoIncrementable(true);
-      sorcodigo.setDescription("Mismo valor que sosiden");
-      sordesdeaccion.setDescription("Desde accion");
-      sorhastaaccion.setDescription("Hasta accion");
-      sorfechacompra.setDescription("Fecha adquisicion");
-      sorfechaventa.setDescription("Fecha venta");
-      }
-    }
-    
   public class TabAjustenuevoplan extends TableDef
     {
     // Campos
@@ -10402,137 +10364,6 @@ public class CatJiss extends Catalog
       msocampo.setDescription("Nombre del campo");
       msoejeranter.setDescription("Ejercicio anterior");
       msoejersig.setDescription("Ejercicio siguiente");
-      }
-    }
-    
-  public class TabCtadatosmercant extends TableDef
-    {
-    // Campos
-    public FieldDef ctrejeraplic;
-    public FieldDef ctrsociedad;
-    public FieldDef ctrdni_pres;
-    public FieldDef ctrape_pres;
-    public FieldDef ctrnom_pres;
-    public FieldDef ctrcar_pres;
-    public FieldDef ctrdni_firma;
-    public FieldDef ctrape_firma;
-    public FieldDef ctrnom_firma;
-    public FieldDef ctrcar_firma;
-    public FieldDef ctrdni_presid;
-    public FieldDef ctrape_presid;
-    public FieldDef ctrnom_presid;
-    public FieldDef ctrdni_secre;
-    public FieldDef ctrape_secre;
-    public FieldDef ctrnom_secre;
-    public FieldDef ctrnp_present;
-    public FieldDef ctrfecha_for;
-    public FieldDef ctrfecha_certif;
-    public FieldDef ctrfecha_cob_di;
-    public FieldDef ctrfirma_digita;
-    public FieldDef ctrfecha_bal;
-    public FieldDef ctrnombre;
-    public FieldDef ctrapellidos;
-    public FieldDef ctrpoblacion;
-    public FieldDef ctrnif;
-    public FieldDef ctrcalle;
-    public FieldDef ctrnumero;
-    public FieldDef ctrtitulo;
-    public TabCtadatosmercant(String name)
-      {
-      super(name);
-      ctrejeraplic = new FieldDef("ctrejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      ctrsociedad = new FieldDef("ctrsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      ctrdni_pres = new FieldDef("ctrdni_pres",FieldDef.CHAR,15);
-      ctrape_pres = new FieldDef("ctrape_pres",FieldDef.CHAR,30);
-      ctrnom_pres = new FieldDef("ctrnom_pres",FieldDef.CHAR,20);
-      ctrcar_pres = new FieldDef("ctrcar_pres",FieldDef.CHAR,30);
-      ctrdni_firma = new FieldDef("ctrdni_firma",FieldDef.CHAR,15);
-      ctrape_firma = new FieldDef("ctrape_firma",FieldDef.CHAR,30);
-      ctrnom_firma = new FieldDef("ctrnom_firma",FieldDef.CHAR,20);
-      ctrcar_firma = new FieldDef("ctrcar_firma",FieldDef.CHAR,30);
-      ctrdni_presid = new FieldDef("ctrdni_presid",FieldDef.CHAR,15);
-      ctrape_presid = new FieldDef("ctrape_presid",FieldDef.CHAR,30);
-      ctrnom_presid = new FieldDef("ctrnom_presid",FieldDef.CHAR,20);
-      ctrdni_secre = new FieldDef("ctrdni_secre",FieldDef.CHAR,15);
-      ctrape_secre = new FieldDef("ctrape_secre",FieldDef.CHAR,30);
-      ctrnom_secre = new FieldDef("ctrnom_secre",FieldDef.CHAR,20);
-      ctrnp_present = new FieldDef("ctrnp_present",FieldDef.INTEGER,0);
-      ctrfecha_for = new FieldDef("ctrfecha_for",FieldDef.DATE);
-      ctrfecha_certif = new FieldDef("ctrfecha_certif",FieldDef.DATE);
-      ctrfecha_cob_di = new FieldDef("ctrfecha_cob_di",FieldDef.DATE);
-      ctrfirma_digita = new FieldDef("ctrfirma_digita",FieldDef.CHAR,26);
-      ctrfecha_bal = new FieldDef("ctrfecha_bal",FieldDef.DATE);
-      ctrnombre = new FieldDef("ctrnombre",FieldDef.CHAR,35);
-      ctrapellidos = new FieldDef("ctrapellidos",FieldDef.CHAR,35);
-      ctrpoblacion = new FieldDef("ctrpoblacion",FieldDef.CHAR,20);
-      ctrnif = new FieldDef("ctrnif",FieldDef.CHAR,15);
-      ctrcalle = new FieldDef("ctrcalle",FieldDef.CHAR,30);
-      ctrnumero = new FieldDef("ctrnumero",FieldDef.CHAR,4);
-      ctrtitulo = new FieldDef("ctrtitulo",FieldDef.CHAR,30);
-      FieldDef array[] = {
-        ctrejeraplic,
-        ctrsociedad,
-        ctrdni_pres,
-        ctrape_pres,
-        ctrnom_pres,
-        ctrcar_pres,
-        ctrdni_firma,
-        ctrape_firma,
-        ctrnom_firma,
-        ctrcar_firma,
-        ctrdni_presid,
-        ctrape_presid,
-        ctrnom_presid,
-        ctrdni_secre,
-        ctrape_secre,
-        ctrnom_secre,
-        ctrnp_present,
-        ctrfecha_for,
-        ctrfecha_certif,
-        ctrfecha_cob_di,
-        ctrfirma_digita,
-        ctrfecha_bal,
-        ctrnombre,
-        ctrapellidos,
-        ctrpoblacion,
-        ctrnif,
-        ctrcalle,
-        ctrnumero,
-        ctrtitulo        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {ctrejeraplic,ctrsociedad };
-      setDescription("Datos Registro Mercantil");
-      setPrimaryKeys(arrayf);
-      ctrejeraplic.setDescription("Ejercicio fiscal aplicacion");
-      ctrsociedad.setDescription("Sociedad");
-      ctrdni_pres.setDescription("DNI presentador instancia");
-      ctrape_pres.setDescription("Apellidos presentador instanc.");
-      ctrnom_pres.setDescription("Nombre presentador instan.");
-      ctrcar_pres.setDescription("Cargo presentador instancia");
-      ctrdni_firma.setDescription("DNI firma registro");
-      ctrape_firma.setDescription("Apellidos firma registro");
-      ctrnom_firma.setDescription("Nombre firma registro");
-      ctrcar_firma.setDescription("Cargo firma registro");
-      ctrdni_presid.setDescription("DNI presidente");
-      ctrape_presid.setDescription("Apellidos presidente");
-      ctrnom_presid.setDescription("Nombre presidente");
-      ctrdni_secre.setDescription("DNI secretario junta");
-      ctrape_secre.setDescription("Apellidos secretario junta");
-      ctrnom_secre.setDescription("Nombre secretario junta");
-      ctrnp_present.setDescription("Num. pag. presentada deposito");
-      ctrfecha_for.setDescription("Fecha formulacion ctas. anual.");
-      ctrfecha_certif.setDescription("Fecha Certificacion del Acta");
-      ctrfecha_cob_di.setDescription("Fecha cobro dividendos");
-      ctrfirma_digita.setDescription("Firma del deposito digital");
-      ctrfecha_bal.setDescription("Fecha aprobacion balances");
-      ctrnombre.setDescription("Nombre Certificante");
-      ctrapellidos.setDescription("Apellidos Certificante");
-      ctrpoblacion.setDescription("Poblacion Certificante");
-      ctrnif.setDescription("NIF Certificante");
-      ctrcalle.setDescription("Calle Certificante");
-      ctrnumero.setDescription("Numero calle Certificante");
-      ctrtitulo.setDescription("Titulo Certificante");
       }
     }
     
@@ -11621,65 +11452,6 @@ public class CatJiss extends Catalog
       ctphombrno_inde.setDescription("Empleados hombres contrato no indefin.");
       ctpmujerindefin.setDescription("Empleados mujeres contrato indefinido");
       ctpmujerno_inde.setDescription("Empleados mujeres contrato no indefin.");
-      }
-    }
-    
-  public class TabCtavarempleado extends TableDef
-    {
-    // Campos
-    public FieldDef ctlident;
-    public FieldDef ctlejeraplic;
-    public FieldDef ctlsociedad;
-    public FieldDef ctlcodjnomina;
-    public FieldDef ctlnombre;
-    public FieldDef ctltipocon;
-    public FieldDef ctlalta;
-    public FieldDef ctlbaja;
-    public FieldDef ctljornada;
-    public FieldDef ctlsexo;
-    public FieldDef ctlminusvalido;
-    public TabCtavarempleado(String name)
-      {
-      super(name);
-      ctlident = new FieldDef("ctlident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      ctlejeraplic = new FieldDef("ctlejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      ctlsociedad = new FieldDef("ctlsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      ctlcodjnomina = new FieldDef("ctlcodjnomina",FieldDef.INTEGER,0);
-      ctlnombre = new FieldDef("ctlnombre",FieldDef.CHAR,30);
-      ctltipocon = new FieldDef("ctltipocon",FieldDef.CHAR,1);
-      ctlalta = new FieldDef("ctlalta",FieldDef.DATE);
-      ctlbaja = new FieldDef("ctlbaja",FieldDef.DATE);
-      ctljornada = new FieldDef("ctljornada",FieldDef.FLOAT,6,0);
-      ctlsexo = new FieldDef("ctlsexo",FieldDef.CHAR,1);
-      ctlminusvalido = new FieldDef("ctlminusvalido",FieldDef.CHAR,1);
-      FieldDef array[] = {
-        ctlident,
-        ctlejeraplic,
-        ctlsociedad,
-        ctlcodjnomina,
-        ctlnombre,
-        ctltipocon,
-        ctlalta,
-        ctlbaja,
-        ctljornada,
-        ctlsexo,
-        ctlminusvalido        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {ctlident };
-      setDescription("Cuentas anuales: variacion empleados");
-      setPrimaryKeys(arrayf);
-      ctlident.setAutoIncrementable(true);
-      ctlejeraplic.setDescription("Ejercicio fiscal aplicacion");
-      ctlsociedad.setDescription("Sociedad");
-      ctlcodjnomina.setDescription("Codigo empresa jnomina");
-      ctlnombre.setDescription("Nombre empleado");
-      ctltipocon.setDescription("Tipo contrato");
-      ctlalta.setDescription("Fecha alta");
-      ctlbaja.setDescription("Fecha baja");
-      ctljornada.setDescription("%Jornada");
-      ctlsexo.setDescription("Hombre/Mujer");
-      ctlminusvalido.setDescription("Minusvalia");
       }
     }
     
@@ -19213,101 +18985,6 @@ public class CatJiss extends Catalog
       }
     }
     
-  public class TabGrupointgral extends TableDef
-    {
-    // Campos
-    public FieldDef gigejeraplic;
-    public FieldDef gigsociedad;
-    public FieldDef gigtipo;
-    public FieldDef gigcif;
-    public FieldDef giganyo;
-    public FieldDef gig_jrjlim;
-    public FieldDef gig_jrjsaldo;
-    public FieldDef gig_jrjaplic;
-    public FieldDef gig_csflim;
-    public FieldDef gig_csfsaldo;
-    public FieldDef gig_csfaplic;
-    public FieldDef gig_csjlim;
-    public FieldDef gig_csjsaldo;
-    public FieldDef gig_csjaplic;
-    public FieldDef gig_ajulim;
-    public FieldDef gig_ajusaldo;
-    public FieldDef gig_ajuaplic;
-    public FieldDef gig_ajslim;
-    public FieldDef gig_ajssaldo;
-    public FieldDef gig_ajsaplic;
-    public TabGrupointgral(String name)
-      {
-      super(name);
-      gigejeraplic = new FieldDef("gigejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      gigsociedad = new FieldDef("gigsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      gigtipo = new FieldDef("gigtipo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-      gigcif = new FieldDef("gigcif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-      giganyo = new FieldDef("giganyo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      gig_jrjlim = new FieldDef("gig_jrjlim",FieldDef.FLOAT,6,0);
-      gig_jrjsaldo = new FieldDef("gig_jrjsaldo",FieldDef.FLOAT,6,0);
-      gig_jrjaplic = new FieldDef("gig_jrjaplic",FieldDef.FLOAT,6,0);
-      gig_csflim = new FieldDef("gig_csflim",FieldDef.FLOAT,6,0);
-      gig_csfsaldo = new FieldDef("gig_csfsaldo",FieldDef.FLOAT,6,0);
-      gig_csfaplic = new FieldDef("gig_csfaplic",FieldDef.FLOAT,6,0);
-      gig_csjlim = new FieldDef("gig_csjlim",FieldDef.FLOAT,6,0);
-      gig_csjsaldo = new FieldDef("gig_csjsaldo",FieldDef.FLOAT,6,0);
-      gig_csjaplic = new FieldDef("gig_csjaplic",FieldDef.FLOAT,6,0);
-      gig_ajulim = new FieldDef("gig_ajulim",FieldDef.FLOAT,6,0);
-      gig_ajusaldo = new FieldDef("gig_ajusaldo",FieldDef.FLOAT,6,0);
-      gig_ajuaplic = new FieldDef("gig_ajuaplic",FieldDef.FLOAT,6,0);
-      gig_ajslim = new FieldDef("gig_ajslim",FieldDef.FLOAT,6,0);
-      gig_ajssaldo = new FieldDef("gig_ajssaldo",FieldDef.FLOAT,6,0);
-      gig_ajsaplic = new FieldDef("gig_ajsaplic",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        gigejeraplic,
-        gigsociedad,
-        gigtipo,
-        gigcif,
-        giganyo,
-        gig_jrjlim,
-        gig_jrjsaldo,
-        gig_jrjaplic,
-        gig_csflim,
-        gig_csfsaldo,
-        gig_csfaplic,
-        gig_csjlim,
-        gig_csjsaldo,
-        gig_csjaplic,
-        gig_ajulim,
-        gig_ajusaldo,
-        gig_ajuaplic,
-        gig_ajslim,
-        gig_ajssaldo,
-        gig_ajsaplic        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {gigejeraplic,gigsociedad,gigtipo,gigcif,giganyo };
-      setDescription("Deduccion Inversiones");
-      setPrimaryKeys(arrayf);
-      gigejeraplic.setDescription("Ejercicio fiscal aplicacion");
-      gigsociedad.setDescription("Sociedad");
-      gigtipo.setDescription("Tipo: [I]ndividual, [G]rupo. [S]umatorio, [PI]pendiente individual, [SI]Sumatorio individual");
-      gigcif.setDescription("CIF sociedad del grupo");
-      giganyo.setDescription("Ejercicio");
-      gig_jrjlim.setDescription("Preparacion deportistas Rio Janeiro: limite");
-      gig_jrjsaldo.setDescription("Preparacion deportistas Rio Janeiro: saldo anterior");
-      gig_jrjaplic.setDescription("Preparacion deportistas Rio Janeiro: aplicado");
-      gig_csflim.setDescription("Centenario San Franciso Asis: limite");
-      gig_csfsaldo.setDescription("Centenario San Franciso Asis: saldo anterior");
-      gig_csfaplic.setDescription("Centenario San Franciso Asis: aplicado");
-      gig_csjlim.setDescription("Centenario Santa Teresa: limite");
-      gig_csjsaldo.setDescription("Centenario Santa Teresa: saldo anterior");
-      gig_csjaplic.setDescription("Centenario Santa Teresa: aplicado");
-      gig_ajulim.setDescription("Año Junipero Serra: limite");
-      gig_ajusaldo.setDescription("Año Junipero Serra: saldo anterior");
-      gig_ajuaplic.setDescription("Año Junipero Serra: aplicado");
-      gig_ajslim.setDescription("Año Santo Jubilar Mariano 2013-2014: limite");
-      gig_ajssaldo.setDescription("Año Santo Jubilar Mariano 2013-2014: saldo anterior");
-      gig_ajsaplic.setDescription("Año Santo Jubilar Mariano 2013-2014: aplicado");
-      }
-    }
-    
   public class TabDedinversion extends TableDef
     {
     // Campos
@@ -22064,37 +21741,6 @@ public class CatJiss extends Catalog
       }
     }
     
-  public class TabParamsociedad extends TableDef
-    {
-    // Campos
-    public FieldDef psoejeraplic;
-    public FieldDef psosociedad;
-    public FieldDef psoctareten;
-    public FieldDef psocdifgrav;
-    public TabParamsociedad(String name)
-      {
-      super(name);
-      psoejeraplic = new FieldDef("psoejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      psosociedad = new FieldDef("psosociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      psoctareten = new FieldDef("psoctareten",FieldDef.CHAR,5);
-      psocdifgrav = new FieldDef("psocdifgrav",FieldDef.CHAR,1);
-      FieldDef array[] = {
-        psoejeraplic,
-        psosociedad,
-        psoctareten,
-        psocdifgrav        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {psoejeraplic,psosociedad };
-      setDescription("Parametros por sociedad");
-      setPrimaryKeys(arrayf);
-      psoejeraplic.setDescription("Ejercicio fiscal aplicacion");
-      psosociedad.setDescription("Codigo sociedad");
-      psoctareten.setDescription("Cuenta contable retenciones");
-      psocdifgrav.setDescription("Aplicar gravamen en diferencias permanentes");
-      }
-    }
-    
   public class TabAsientojconta extends TableDef
     {
     // Campos
@@ -22391,1756 +22037,6 @@ public class CatJiss extends Catalog
       cgfgasfinejant.setDescription("Gastos financieros ejer.anteriores aplicados");
       cbftotgastos.setDescription("Total gastos financieros netos deducibles en el periodo");
       cbftotgastdedu.setDescription("Total gastos financieros deducibles en el periodo");
-      }
-    }
-    
-  public class TabDesglosajustes extends TableDef
-    {
-    // Campos
-    public FieldDef daiden;
-    public FieldDef daejeraplic;
-    public FieldDef dasociedad;
-    public FieldDef dacasilla;
-    public FieldDef dadescripcion;
-    public FieldDef daimporte;
-    public FieldDef datipodiferenci;
-    public FieldDef daimporte_futur;
-    public FieldDef datipocorreccio;
-    public FieldDef daejerorigen;
-    public FieldDef dagravamen;
-    public TabDesglosajustes(String name)
-      {
-      super(name);
-      daiden = new FieldDef("daiden",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      daejeraplic = new FieldDef("daejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      dasociedad = new FieldDef("dasociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      dacasilla = new FieldDef("dacasilla",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      dadescripcion = new FieldDef("dadescripcion",FieldDef.CHAR,45);
-      daimporte = new FieldDef("daimporte",FieldDef.FLOAT,6,0);
-      datipodiferenci = new FieldDef("datipodiferenci",FieldDef.CHAR,1);
-      daimporte_futur = new FieldDef("daimporte_futur",FieldDef.FLOAT,6,0);
-      datipocorreccio = new FieldDef("datipocorreccio",FieldDef.CHAR,1);
-      daejerorigen = new FieldDef("daejerorigen",FieldDef.INTEGER,0);
-      dagravamen = new FieldDef("dagravamen",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        daiden,
-        daejeraplic,
-        dasociedad,
-        dacasilla,
-        dadescripcion,
-        daimporte,
-        datipodiferenci,
-        daimporte_futur,
-        datipocorreccio,
-        daejerorigen,
-        dagravamen        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {daiden };
-      setDescription("Desglose ajustes resultado contable");
-      setPrimaryKeys(arrayf);
-      daiden.setAutoIncrementable(true);
-      daejeraplic.setDescription("Ejercicio fiscal aplicacion");
-      dasociedad.setDescription("SOCIEDAD");
-      dacasilla.setDescription("Codigo casilla ajuste");
-      dadescripcion.setDescription("Descripcion concepto");
-      daimporte.setDescription("Importe del ejercicio");
-      datipodiferenci.setDescription("Tipo diferencia");
-      daimporte_futur.setDescription("Importe futuro");
-      datipocorreccio.setDescription("Tipo correccion");
-      daejerorigen.setDescription("Ejercicio origen");
-      dagravamen.setDescription("% Gravamen ejer.anterior");
-      }
-    }
-    
-  public class TabFinalizacion extends TableDef
-    {
-    // Campos
-    public FieldDef finejeraplic;
-    public FieldDef finsociedad;
-    public FieldDef finfirma;
-    public FieldDef finpoblacion;
-    public FieldDef finlis_impues;
-    public FieldDef finlis_202_1;
-    public FieldDef finlis_202_2;
-    public FieldDef finlis_202_3;
-    public FieldDef fincomplementar;
-    public FieldDef finnro_justific;
-    public FieldDef finregelectro1;
-    public FieldDef finregelectro2;
-    public FieldDef finestado;
-    public FieldDef finestadoctas;
-    public TabFinalizacion(String name)
-      {
-      super(name);
-      finejeraplic = new FieldDef("finejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      finsociedad = new FieldDef("finsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      finfirma = new FieldDef("finfirma",FieldDef.DATE);
-      finpoblacion = new FieldDef("finpoblacion",FieldDef.CHAR,17);
-      finlis_impues = new FieldDef("finlis_impues",FieldDef.CHAR,1);
-      finlis_202_1 = new FieldDef("finlis_202_1",FieldDef.CHAR,1);
-      finlis_202_2 = new FieldDef("finlis_202_2",FieldDef.CHAR,1);
-      finlis_202_3 = new FieldDef("finlis_202_3",FieldDef.CHAR,1);
-      fincomplementar = new FieldDef("fincomplementar",FieldDef.CHAR,1);
-      finnro_justific = new FieldDef("finnro_justific",FieldDef.CHAR,13);
-      finregelectro1 = new FieldDef("finregelectro1",FieldDef.CHAR,22);
-      finregelectro2 = new FieldDef("finregelectro2",FieldDef.CHAR,22);
-      finestado = new FieldDef("finestado",FieldDef.CHAR,2);
-      finestadoctas = new FieldDef("finestadoctas",FieldDef.CHAR,2);
-      FieldDef array[] = {
-        finejeraplic,
-        finsociedad,
-        finfirma,
-        finpoblacion,
-        finlis_impues,
-        finlis_202_1,
-        finlis_202_2,
-        finlis_202_3,
-        fincomplementar,
-        finnro_justific,
-        finregelectro1,
-        finregelectro2,
-        finestado,
-        finestadoctas        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {finejeraplic,finsociedad };
-      setDescription("Finalizacion impuesto");
-      setPrimaryKeys(arrayf);
-      finejeraplic.setDescription("Ejercicio fiscal aplicacion");
-      finsociedad.setDescription("CODIGO SOCIEDAD");
-      finfirma.setDescription("Fecha firma");
-      finpoblacion.setDescription("Poblacion firma");
-      finlis_impues.setDescription("Se lista impuesto");
-      finlis_202_1.setDescription("Se lista 1er. pago a cta. 202");
-      finlis_202_2.setDescription("Se lista 2do. pago a cta. 202");
-      finlis_202_3.setDescription("Se lista 3er. pago a cta. 202");
-      fincomplementar.setDescription("Declaracion complementaria");
-      finnro_justific.setDescription("Nro. de justificante");
-      finregelectro1.setDescription("Nro. electronico documentacion presentada");
-      finregelectro2.setDescription("Nro. electronico documentacion presentada");
-      finestado.setDescription("Estado datos impuesto");
-      finestadoctas.setDescription("Estado datos cuentas anuales");
-      }
-    }
-    
-  public class TabPagosacuenta extends TableDef
-    {
-    // Campos
-    public FieldDef pctejeraplic;
-    public FieldDef pctsociedad;
-    public FieldDef pctdiputacion;
-    public FieldDef pctnumpag;
-    public FieldDef pctmodalidad;
-    public FieldDef pctbase;
-    public FieldDef pctporcentaje;
-    public FieldDef pctsubtotal;
-    public FieldDef pctretenciones;
-    public FieldDef pctpagos;
-    public FieldDef pctingresar;
-    public FieldDef pctbasehasta;
-    public FieldDef pctimportehasta;
-    public FieldDef pctbaseresto;
-    public FieldDef pctporcen2pyme;
-    public FieldDef pctimporteresto;
-    public FieldDef pctbonificacion;
-    public FieldDef pctdias_periodo;
-    public FieldDef pctrtdo_contabl;
-    public FieldDef pctporc_vol_ope;
-    public FieldDef pctcorrecciones;
-    public FieldDef pctcompensacion;
-    public FieldDef pctresult_ordin;
-    public FieldDef pctresult_extra;
-    public FieldDef pctfecha_inicio;
-    public FieldDef pctgranempresa;
-    public FieldDef pcttipoentidad;
-    public FieldDef pctcnae;
-    public FieldDef pctpyme;
-    public FieldDef pctcoopuotras;
-    public FieldDef pctgraviss;
-    public FieldDef pctent85;
-    public FieldDef pctaumiss;
-    public FieldDef pctdismiss;
-    public FieldDef pctaumotrcorr;
-    public FieldDef pctdismotras;
-    public FieldDef pctimpdividen;
-    public FieldDef pctbaseprevia;
-    public FieldDef pctresultado;
-    public FieldDef pctminimoing;
-    public FieldDef pctngrupo;
-    public FieldDef pctvoloper;
-    public FieldDef pctsumbasind;
-    public FieldDef pctaumcordif;
-    public FieldDef pctdiscordif;
-    public FieldDef pctcompbasant;
-    public FieldDef pctrtdoconsol;
-    public FieldDef pctdatadicion;
-    public FieldDef pctnrefiss;
-    public FieldDef pctcomvargrup;
-    public FieldDef pctnrefiss2;
-    public FieldDef pctnaviera;
-    public FieldDef pctaumgasamor;
-    public FieldDef pctdismgasamo;
-    public FieldDef pctaumatotal;
-    public FieldDef pctdismtotal;
-    public FieldDef pctcoopcompen;
-    public FieldDef pctcompcuoant;
-    public TabPagosacuenta(String name)
-      {
-      super(name);
-      pctejeraplic = new FieldDef("pctejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      pctsociedad = new FieldDef("pctsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      pctdiputacion = new FieldDef("pctdiputacion",FieldDef.CHAR,1,FieldDef.NOTNULL);
-      pctnumpag = new FieldDef("pctnumpag",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      pctmodalidad = new FieldDef("pctmodalidad",FieldDef.CHAR,2);
-      pctbase = new FieldDef("pctbase",FieldDef.FLOAT,6,0);
-      pctporcentaje = new FieldDef("pctporcentaje",FieldDef.FLOAT,6,0);
-      pctsubtotal = new FieldDef("pctsubtotal",FieldDef.FLOAT,6,0);
-      pctretenciones = new FieldDef("pctretenciones",FieldDef.FLOAT,6,0);
-      pctpagos = new FieldDef("pctpagos",FieldDef.FLOAT,6,0);
-      pctingresar = new FieldDef("pctingresar",FieldDef.FLOAT,6,0);
-      pctbasehasta = new FieldDef("pctbasehasta",FieldDef.FLOAT,6,0);
-      pctimportehasta = new FieldDef("pctimportehasta",FieldDef.FLOAT,6,0);
-      pctbaseresto = new FieldDef("pctbaseresto",FieldDef.FLOAT,6,0);
-      pctporcen2pyme = new FieldDef("pctporcen2pyme",FieldDef.FLOAT,6,0);
-      pctimporteresto = new FieldDef("pctimporteresto",FieldDef.FLOAT,6,0);
-      pctbonificacion = new FieldDef("pctbonificacion",FieldDef.FLOAT,6,0);
-      pctdias_periodo = new FieldDef("pctdias_periodo",FieldDef.INTEGER,0);
-      pctrtdo_contabl = new FieldDef("pctrtdo_contabl",FieldDef.FLOAT,6,0);
-      pctporc_vol_ope = new FieldDef("pctporc_vol_ope",FieldDef.FLOAT,6,0);
-      pctcorrecciones = new FieldDef("pctcorrecciones",FieldDef.FLOAT,6,0);
-      pctcompensacion = new FieldDef("pctcompensacion",FieldDef.FLOAT,6,0);
-      pctresult_ordin = new FieldDef("pctresult_ordin",FieldDef.FLOAT,6,0);
-      pctresult_extra = new FieldDef("pctresult_extra",FieldDef.FLOAT,6,0);
-      pctfecha_inicio = new FieldDef("pctfecha_inicio",FieldDef.DATE);
-      pctgranempresa = new FieldDef("pctgranempresa",FieldDef.CHAR,1);
-      pcttipoentidad = new FieldDef("pcttipoentidad",FieldDef.INTEGER,0);
-      pctcnae = new FieldDef("pctcnae",FieldDef.CHAR,4);
-      pctpyme = new FieldDef("pctpyme",FieldDef.CHAR,1);
-      pctcoopuotras = new FieldDef("pctcoopuotras",FieldDef.INTEGER,0);
-      pctgraviss = new FieldDef("pctgraviss",FieldDef.CHAR,5);
-      pctent85 = new FieldDef("pctent85",FieldDef.CHAR,1);
-      pctaumiss = new FieldDef("pctaumiss",FieldDef.FLOAT,6,0);
-      pctdismiss = new FieldDef("pctdismiss",FieldDef.FLOAT,6,0);
-      pctaumotrcorr = new FieldDef("pctaumotrcorr",FieldDef.FLOAT,6,0);
-      pctdismotras = new FieldDef("pctdismotras",FieldDef.FLOAT,6,0);
-      pctimpdividen = new FieldDef("pctimpdividen",FieldDef.FLOAT,6,0);
-      pctbaseprevia = new FieldDef("pctbaseprevia",FieldDef.FLOAT,6,0);
-      pctresultado = new FieldDef("pctresultado",FieldDef.FLOAT,6,0);
-      pctminimoing = new FieldDef("pctminimoing",FieldDef.FLOAT,6,0);
-      pctngrupo = new FieldDef("pctngrupo",FieldDef.CHAR,7);
-      pctvoloper = new FieldDef("pctvoloper",FieldDef.CHAR,1);
-      pctsumbasind = new FieldDef("pctsumbasind",FieldDef.FLOAT,6,0);
-      pctaumcordif = new FieldDef("pctaumcordif",FieldDef.FLOAT,6,0);
-      pctdiscordif = new FieldDef("pctdiscordif",FieldDef.FLOAT,6,0);
-      pctcompbasant = new FieldDef("pctcompbasant",FieldDef.FLOAT,6,0);
-      pctrtdoconsol = new FieldDef("pctrtdoconsol",FieldDef.FLOAT,6,0);
-      pctdatadicion = new FieldDef("pctdatadicion",FieldDef.CHAR,1);
-      pctnrefiss = new FieldDef("pctnrefiss",FieldDef.CHAR,22);
-      pctcomvargrup = new FieldDef("pctcomvargrup",FieldDef.CHAR,1);
-      pctnrefiss2 = new FieldDef("pctnrefiss2",FieldDef.CHAR,22);
-      pctnaviera = new FieldDef("pctnaviera",FieldDef.CHAR,1);
-      pctaumgasamor = new FieldDef("pctaumgasamor",FieldDef.FLOAT,6,0);
-      pctdismgasamo = new FieldDef("pctdismgasamo",FieldDef.FLOAT,6,0);
-      pctaumatotal = new FieldDef("pctaumatotal",FieldDef.FLOAT,6,0);
-      pctdismtotal = new FieldDef("pctdismtotal",FieldDef.FLOAT,6,0);
-      pctcoopcompen = new FieldDef("pctcoopcompen",FieldDef.FLOAT,6,0);
-      pctcompcuoant = new FieldDef("pctcompcuoant",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        pctejeraplic,
-        pctsociedad,
-        pctdiputacion,
-        pctnumpag,
-        pctmodalidad,
-        pctbase,
-        pctporcentaje,
-        pctsubtotal,
-        pctretenciones,
-        pctpagos,
-        pctingresar,
-        pctbasehasta,
-        pctimportehasta,
-        pctbaseresto,
-        pctporcen2pyme,
-        pctimporteresto,
-        pctbonificacion,
-        pctdias_periodo,
-        pctrtdo_contabl,
-        pctporc_vol_ope,
-        pctcorrecciones,
-        pctcompensacion,
-        pctresult_ordin,
-        pctresult_extra,
-        pctfecha_inicio,
-        pctgranempresa,
-        pcttipoentidad,
-        pctcnae,
-        pctpyme,
-        pctcoopuotras,
-        pctgraviss,
-        pctent85,
-        pctaumiss,
-        pctdismiss,
-        pctaumotrcorr,
-        pctdismotras,
-        pctimpdividen,
-        pctbaseprevia,
-        pctresultado,
-        pctminimoing,
-        pctngrupo,
-        pctvoloper,
-        pctsumbasind,
-        pctaumcordif,
-        pctdiscordif,
-        pctcompbasant,
-        pctrtdoconsol,
-        pctdatadicion,
-        pctnrefiss,
-        pctcomvargrup,
-        pctnrefiss2,
-        pctnaviera,
-        pctaumgasamor,
-        pctdismgasamo,
-        pctaumatotal,
-        pctdismtotal,
-        pctcoopcompen,
-        pctcompcuoant        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {pctejeraplic,pctsociedad,pctdiputacion,pctnumpag };
-      setDescription("Calculo pagos a cuenta");
-      setPrimaryKeys(arrayf);
-      pctejeraplic.setDescription("Ejercicio fiscal");
-      pctsociedad.setDescription("CODIGO SOCIEDAD");
-      pctdiputacion.setDescription("CODIGO DIPUTACION FORAL");
-      pctnumpag.setDescription("Numero de pago");
-      pctmodalidad.setDescription("Modalidad de calculo");
-      pctbase.setDescription("Base del pago a cuenta");
-      pctporcentaje.setDescription("Porcentaje calculo");
-      pctsubtotal.setDescription("Subtotal");
-      pctretenciones.setDescription("Retenciones e ingresos a cta.");
-      pctpagos.setDescription("Pagos a cta. de periodos ant.");
-      pctingresar.setDescription("A INGRESAR");
-      pctbasehasta.setDescription("Base 1er % (PYMES/Patrimonial)");
-      pctimportehasta.setDescription("Importe 1er %(PYMES/Patrimon)");
-      pctbaseresto.setDescription("Base al 2do % (PYMES/Patrimon)");
-      pctporcen2pyme.setDescription("2do % calculo PYMES o Patrimon");
-      pctimporteresto.setDescription("Importe 2do % (PYMES/Patrimon)");
-      pctbonificacion.setDescription("Bonificaciones");
-      pctdias_periodo.setDescription("Dias periodo impositivo");
-      pctrtdo_contabl.setDescription("Resultado contable");
-      pctporc_vol_ope.setDescription("% Volumen operaciones");
-      pctcorrecciones.setDescription("Correcciones al rdto.contable");
-      pctcompensacion.setDescription("Compensaciones bases imp. neg.");
-      pctresult_ordin.setDescription("Resultado ordinario");
-      pctresult_extra.setDescription("Resultado extraordinario");
-      pctfecha_inicio.setDescription("Fecha inicio periodo imposit.");
-      pctgranempresa.setDescription("Gran empresa");
-      pcttipoentidad.setDescription("Tipo importe neto cifra negocios");
-      pctcnae.setDescription("C.N.A.E.");
-      pctpyme.setDescription("Incentivos empresa reducida dimension");
-      pctcoopuotras.setDescription("Cooperativa u otras entidades dos tipos");
-      pctgraviss.setDescription("% Gravamen impuesto sobre sociedades");
-      pctent85.setDescription("Entidad que al menos 85% ingresos");
-      pctaumiss.setDescription("Aumento impuesto iss");
-      pctdismiss.setDescription("Disminucion impuesto iss");
-      pctaumotrcorr.setDescription("Aumento otras correcciones");
-      pctdismotras.setDescription("Disminucion otras correcciones");
-      pctimpdividen.setDescription("Importe 25% dividendos y rentas fuente extranjera");
-      pctbaseprevia.setDescription("Base imponible previa");
-      pctresultado.setDescription("Resultado");
-      pctminimoing.setDescription("Minimo a ingresar");
-      pctngrupo.setDescription("Nro. de grupo");
-      pctvoloper.setDescription("Volumen operaciones grupo fiscal");
-      pctsumbasind.setDescription("Suma bases individuales antes compensacion");
-      pctaumcordif.setDescription("Aumento correcciones diferimiento rdtos.internos");
-      pctdiscordif.setDescription("Disminuciones correcciones diferimiento rdtos.internos");
-      pctcompbasant.setDescription("Compensaciones bases imp. neg. anteriores al grupo");
-      pctrtdoconsol.setDescription("Resultado consolidado periodo");
-      pctdatadicion.setDescription("Comunicacion datos adicionales declaracion");
-      pctnrefiss.setDescription("Nro. referencia de sociedades (NRS)");
-      pctcomvargrup.setDescription("Comunicacion variacion composicion grupo fiscal");
-      pctnrefiss2.setDescription("Nro. referencia de sociedades (NRS)");
-      pctnaviera.setDescription("Entidad regimen naviera funcion tonelaje");
-      pctaumgasamor.setDescription("30% Gastos amortizacion contable aumentos");
-      pctdismgasamo.setDescription("30% Gastos amortizacion contable disminuciones");
-      pctaumatotal.setDescription("TOTAL aumentos");
-      pctdismtotal.setDescription("TOTAL disminuciones");
-      pctcoopcompen.setDescription("Compensacion cuotas negativas ejer. anteriores cooperativas");
-      pctcompcuoant.setDescription("Compensaciones cuotas negativas coop. anteriores al grupo");
-      }
-    }
-    
-  public class TabActivo extends TableDef
-    {
-    // Campos
-    public FieldDef baejeraplic;
-    public FieldDef basociedad;
-    public FieldDef bagastos_d_act;
-    public FieldDef bagastos_d_prov;
-    public FieldDef bagastos_d_amor;
-    public FieldDef bagastos_d_min;
-    public FieldDef baconces_act;
-    public FieldDef baconces_prov;
-    public FieldDef baconces_amort;
-    public FieldDef baconces_min;
-    public FieldDef bapatentes_act;
-    public FieldDef bapatentes_prov;
-    public FieldDef bapatentes_amor;
-    public FieldDef bapatentes_min;
-    public FieldDef bafondocom_act;
-    public FieldDef baact_no_cor_ac;
-    public FieldDef baact_no_cor_mi;
-    public FieldDef baaplic_inf_act;
-    public FieldDef baaplic_inf_pro;
-    public FieldDef baaplic_inf_amo;
-    public FieldDef baaplic_inf_min;
-    public FieldDef bagastos_i_act;
-    public FieldDef bagastos_i_prov;
-    public FieldDef bagastos_i_amor;
-    public FieldDef bagastos_i_min;
-    public FieldDef baot_inm_int_ac;
-    public FieldDef baot_inm_int_pr;
-    public FieldDef baot_inm_int_am;
-    public FieldDef baot_inm_int_mi;
-    public FieldDef bainmov_intangi;
-    public FieldDef baterreno_m_act;
-    public FieldDef baterreno_m_pro;
-    public FieldDef baterreno_m_amo;
-    public FieldDef baterrenos_m_mi;
-    public FieldDef bainstalacion_a;
-    public FieldDef bainstalac_prov;
-    public FieldDef bainstalac_amor;
-    public FieldDef bainstalacion_m;
-    public FieldDef bainmov_en_curs;
-    public FieldDef bainmov_materia;
-    public FieldDef baterreno_i_act;
-    public FieldDef baterreno_i_pro;
-    public FieldDef baconstruc_i_ac;
-    public FieldDef baconstruc_i_pr;
-    public FieldDef baconstruc_i_am;
-    public FieldDef baconstruc_i_mi;
-    public FieldDef bainvers_inmobi;
-    public FieldDef bapat_gr_lp_act;
-    public FieldDef bapat_gr_lp_pro;
-    public FieldDef bacred_gr_lp_ac;
-    public FieldDef bacred_gr_lp_pr;
-    public FieldDef badeuda_gr_lp_a;
-    public FieldDef badeud_gr_lp_pr;
-    public FieldDef baderiv_gr_lp_a;
-    public FieldDef baactfi_gr_lp_a;
-    public FieldDef baotfin_gr_lp_a;
-    public FieldDef bain_fin_e_gr_l;
-    public FieldDef bafin_pat_lp_ac;
-    public FieldDef bafin_pat_lp_pr;
-    public FieldDef bafin_cred_lp_a;
-    public FieldDef bafi_cred_lp_pr;
-    public FieldDef bafi_deuda_lp_a;
-    public FieldDef bafi_deud_lp_pr;
-    public FieldDef bafi_deriv_lp_a;
-    public FieldDef bafi_actfi_lp_a;
-    public FieldDef bafi_otfin_lp_a;
-    public FieldDef bainv_financ_lp;
-    public FieldDef baact_impuest_d;
-    public FieldDef badeud_com_n_co;
-    public FieldDef baactivo_no_cor;
-    public FieldDef baact_no_cor_ve;
-    public FieldDef baexist_comer_a;
-    public FieldDef baexist_comer_p;
-    public FieldDef baexist_mater_a;
-    public FieldDef baexist_mater_p;
-    public FieldDef bapr_curso_lp_a;
-    public FieldDef bapr_curso_lp_p;
-    public FieldDef bapr_curso_cp_a;
-    public FieldDef bapr_curso_cp_m;
-    public FieldDef baproducto_curs;
-    public FieldDef bapr_termi_lp_a;
-    public FieldDef bapr_termi_lp_p;
-    public FieldDef bapr_termi_cp_a;
-    public FieldDef bapr_termi_cp_p;
-    public FieldDef baproducto_term;
-    public FieldDef basubproducto_a;
-    public FieldDef basubproducto_m;
-    public FieldDef baanticipos_act;
-    public FieldDef baexistencias;
-    public FieldDef baclientes_lp_a;
-    public FieldDef baclientes_lp_p;
-    public FieldDef baclientes_cp_a;
-    public FieldDef baclientes_cp_p;
-    public FieldDef baclientes_vent;
-    public FieldDef baclientes_gr_a;
-    public FieldDef baclientes_gr_p;
-    public FieldDef badeudores_act;
-    public FieldDef bapersonal_act;
-    public FieldDef baact_imp_cor_a;
-    public FieldDef baotr_cred_admi;
-    public FieldDef baacc_desemb_ex;
-    public FieldDef badeudores_come;
-    public FieldDef bapat_gr_cp_act;
-    public FieldDef bacred_gr_cp_ac;
-    public FieldDef bacred_gr_cp_pr;
-    public FieldDef badeuda_gr_cp_a;
-    public FieldDef badeud_gr_cp_pr;
-    public FieldDef baderiv_gr_cp_a;
-    public FieldDef baactfi_gr_cp_a;
-    public FieldDef baotfin_gr_cp_a;
-    public FieldDef bainv_fi_e_g_cp;
-    public FieldDef bafin_pat_cp_ac;
-    public FieldDef bafin_pat_cp_pr;
-    public FieldDef bafin_cred_cp_a;
-    public FieldDef bafi_cred_cp_pr;
-    public FieldDef bafi_deuda_cp_a;
-    public FieldDef bafi_deud_cp_pr;
-    public FieldDef bafi_deriv_cp_a;
-    public FieldDef bafi_actfi_cp_a;
-    public FieldDef bafi_otfin_cp_a;
-    public FieldDef bainv_financ_cp;
-    public FieldDef baperiodif_c_pl;
-    public FieldDef batesoreria;
-    public FieldDef baotros_liquido;
-    public FieldDef baefectivo;
-    public FieldDef baactivo_corrie;
-    public FieldDef batotal_activo;
-    public FieldDef bacrempgrlp_ac;
-    public FieldDef bacrempgrlp_pr;
-    public FieldDef bacrempaslp_ac;
-    public FieldDef bacrempaslp_pr;
-    public FieldDef baclientes_egr;
-    public FieldDef baclientes_eas;
-    public FieldDef baclientes_soc;
-    public FieldDef bacrempgrcp_ac;
-    public FieldDef bacrempascp_ac;
-    public FieldDef bafondocom_cons;
-    public FieldDef bapropintelectu;
-    public FieldDef baemisiongases;
-    public TabActivo(String name)
-      {
-      super(name);
-      baejeraplic = new FieldDef("baejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      basociedad = new FieldDef("basociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      bagastos_d_act = new FieldDef("bagastos_d_act",FieldDef.FLOAT,6,0);
-      bagastos_d_prov = new FieldDef("bagastos_d_prov",FieldDef.FLOAT,6,0);
-      bagastos_d_amor = new FieldDef("bagastos_d_amor",FieldDef.FLOAT,6,0);
-      bagastos_d_min = new FieldDef("bagastos_d_min",FieldDef.FLOAT,6,0);
-      baconces_act = new FieldDef("baconces_act",FieldDef.FLOAT,6,0);
-      baconces_prov = new FieldDef("baconces_prov",FieldDef.FLOAT,6,0);
-      baconces_amort = new FieldDef("baconces_amort",FieldDef.FLOAT,6,0);
-      baconces_min = new FieldDef("baconces_min",FieldDef.FLOAT,6,0);
-      bapatentes_act = new FieldDef("bapatentes_act",FieldDef.FLOAT,6,0);
-      bapatentes_prov = new FieldDef("bapatentes_prov",FieldDef.FLOAT,6,0);
-      bapatentes_amor = new FieldDef("bapatentes_amor",FieldDef.FLOAT,6,0);
-      bapatentes_min = new FieldDef("bapatentes_min",FieldDef.FLOAT,6,0);
-      bafondocom_act = new FieldDef("bafondocom_act",FieldDef.FLOAT,6,0);
-      baact_no_cor_ac = new FieldDef("baact_no_cor_ac",FieldDef.FLOAT,6,0);
-      baact_no_cor_mi = new FieldDef("baact_no_cor_mi",FieldDef.FLOAT,6,0);
-      baaplic_inf_act = new FieldDef("baaplic_inf_act",FieldDef.FLOAT,6,0);
-      baaplic_inf_pro = new FieldDef("baaplic_inf_pro",FieldDef.FLOAT,6,0);
-      baaplic_inf_amo = new FieldDef("baaplic_inf_amo",FieldDef.FLOAT,6,0);
-      baaplic_inf_min = new FieldDef("baaplic_inf_min",FieldDef.FLOAT,6,0);
-      bagastos_i_act = new FieldDef("bagastos_i_act",FieldDef.FLOAT,6,0);
-      bagastos_i_prov = new FieldDef("bagastos_i_prov",FieldDef.FLOAT,6,0);
-      bagastos_i_amor = new FieldDef("bagastos_i_amor",FieldDef.FLOAT,6,0);
-      bagastos_i_min = new FieldDef("bagastos_i_min",FieldDef.FLOAT,6,0);
-      baot_inm_int_ac = new FieldDef("baot_inm_int_ac",FieldDef.FLOAT,6,0);
-      baot_inm_int_pr = new FieldDef("baot_inm_int_pr",FieldDef.FLOAT,6,0);
-      baot_inm_int_am = new FieldDef("baot_inm_int_am",FieldDef.FLOAT,6,0);
-      baot_inm_int_mi = new FieldDef("baot_inm_int_mi",FieldDef.FLOAT,6,0);
-      bainmov_intangi = new FieldDef("bainmov_intangi",FieldDef.FLOAT,6,0);
-      baterreno_m_act = new FieldDef("baterreno_m_act",FieldDef.FLOAT,6,0);
-      baterreno_m_pro = new FieldDef("baterreno_m_pro",FieldDef.FLOAT,6,0);
-      baterreno_m_amo = new FieldDef("baterreno_m_amo",FieldDef.FLOAT,6,0);
-      baterrenos_m_mi = new FieldDef("baterrenos_m_mi",FieldDef.FLOAT,6,0);
-      bainstalacion_a = new FieldDef("bainstalacion_a",FieldDef.FLOAT,6,0);
-      bainstalac_prov = new FieldDef("bainstalac_prov",FieldDef.FLOAT,6,0);
-      bainstalac_amor = new FieldDef("bainstalac_amor",FieldDef.FLOAT,6,0);
-      bainstalacion_m = new FieldDef("bainstalacion_m",FieldDef.FLOAT,6,0);
-      bainmov_en_curs = new FieldDef("bainmov_en_curs",FieldDef.FLOAT,6,0);
-      bainmov_materia = new FieldDef("bainmov_materia",FieldDef.FLOAT,6,0);
-      baterreno_i_act = new FieldDef("baterreno_i_act",FieldDef.FLOAT,6,0);
-      baterreno_i_pro = new FieldDef("baterreno_i_pro",FieldDef.FLOAT,6,0);
-      baconstruc_i_ac = new FieldDef("baconstruc_i_ac",FieldDef.FLOAT,6,0);
-      baconstruc_i_pr = new FieldDef("baconstruc_i_pr",FieldDef.FLOAT,6,0);
-      baconstruc_i_am = new FieldDef("baconstruc_i_am",FieldDef.FLOAT,6,0);
-      baconstruc_i_mi = new FieldDef("baconstruc_i_mi",FieldDef.FLOAT,6,0);
-      bainvers_inmobi = new FieldDef("bainvers_inmobi",FieldDef.FLOAT,6,0);
-      bapat_gr_lp_act = new FieldDef("bapat_gr_lp_act",FieldDef.FLOAT,6,0);
-      bapat_gr_lp_pro = new FieldDef("bapat_gr_lp_pro",FieldDef.FLOAT,6,0);
-      bacred_gr_lp_ac = new FieldDef("bacred_gr_lp_ac",FieldDef.FLOAT,6,0);
-      bacred_gr_lp_pr = new FieldDef("bacred_gr_lp_pr",FieldDef.FLOAT,6,0);
-      badeuda_gr_lp_a = new FieldDef("badeuda_gr_lp_a",FieldDef.FLOAT,6,0);
-      badeud_gr_lp_pr = new FieldDef("badeud_gr_lp_pr",FieldDef.FLOAT,6,0);
-      baderiv_gr_lp_a = new FieldDef("baderiv_gr_lp_a",FieldDef.FLOAT,6,0);
-      baactfi_gr_lp_a = new FieldDef("baactfi_gr_lp_a",FieldDef.FLOAT,6,0);
-      baotfin_gr_lp_a = new FieldDef("baotfin_gr_lp_a",FieldDef.FLOAT,6,0);
-      bain_fin_e_gr_l = new FieldDef("bain_fin_e_gr_l",FieldDef.FLOAT,6,0);
-      bafin_pat_lp_ac = new FieldDef("bafin_pat_lp_ac",FieldDef.FLOAT,6,0);
-      bafin_pat_lp_pr = new FieldDef("bafin_pat_lp_pr",FieldDef.FLOAT,6,0);
-      bafin_cred_lp_a = new FieldDef("bafin_cred_lp_a",FieldDef.FLOAT,6,0);
-      bafi_cred_lp_pr = new FieldDef("bafi_cred_lp_pr",FieldDef.FLOAT,6,0);
-      bafi_deuda_lp_a = new FieldDef("bafi_deuda_lp_a",FieldDef.FLOAT,6,0);
-      bafi_deud_lp_pr = new FieldDef("bafi_deud_lp_pr",FieldDef.FLOAT,6,0);
-      bafi_deriv_lp_a = new FieldDef("bafi_deriv_lp_a",FieldDef.FLOAT,6,0);
-      bafi_actfi_lp_a = new FieldDef("bafi_actfi_lp_a",FieldDef.FLOAT,6,0);
-      bafi_otfin_lp_a = new FieldDef("bafi_otfin_lp_a",FieldDef.FLOAT,6,0);
-      bainv_financ_lp = new FieldDef("bainv_financ_lp",FieldDef.FLOAT,6,0);
-      baact_impuest_d = new FieldDef("baact_impuest_d",FieldDef.FLOAT,6,0);
-      badeud_com_n_co = new FieldDef("badeud_com_n_co",FieldDef.FLOAT,6,0);
-      baactivo_no_cor = new FieldDef("baactivo_no_cor",FieldDef.FLOAT,6,0);
-      baact_no_cor_ve = new FieldDef("baact_no_cor_ve",FieldDef.FLOAT,6,0);
-      baexist_comer_a = new FieldDef("baexist_comer_a",FieldDef.FLOAT,6,0);
-      baexist_comer_p = new FieldDef("baexist_comer_p",FieldDef.FLOAT,6,0);
-      baexist_mater_a = new FieldDef("baexist_mater_a",FieldDef.FLOAT,6,0);
-      baexist_mater_p = new FieldDef("baexist_mater_p",FieldDef.FLOAT,6,0);
-      bapr_curso_lp_a = new FieldDef("bapr_curso_lp_a",FieldDef.FLOAT,6,0);
-      bapr_curso_lp_p = new FieldDef("bapr_curso_lp_p",FieldDef.FLOAT,6,0);
-      bapr_curso_cp_a = new FieldDef("bapr_curso_cp_a",FieldDef.FLOAT,6,0);
-      bapr_curso_cp_m = new FieldDef("bapr_curso_cp_m",FieldDef.FLOAT,6,0);
-      baproducto_curs = new FieldDef("baproducto_curs",FieldDef.FLOAT,6,0);
-      bapr_termi_lp_a = new FieldDef("bapr_termi_lp_a",FieldDef.FLOAT,6,0);
-      bapr_termi_lp_p = new FieldDef("bapr_termi_lp_p",FieldDef.FLOAT,6,0);
-      bapr_termi_cp_a = new FieldDef("bapr_termi_cp_a",FieldDef.FLOAT,6,0);
-      bapr_termi_cp_p = new FieldDef("bapr_termi_cp_p",FieldDef.FLOAT,6,0);
-      baproducto_term = new FieldDef("baproducto_term",FieldDef.FLOAT,6,0);
-      basubproducto_a = new FieldDef("basubproducto_a",FieldDef.FLOAT,6,0);
-      basubproducto_m = new FieldDef("basubproducto_m",FieldDef.FLOAT,6,0);
-      baanticipos_act = new FieldDef("baanticipos_act",FieldDef.FLOAT,6,0);
-      baexistencias = new FieldDef("baexistencias",FieldDef.FLOAT,6,0);
-      baclientes_lp_a = new FieldDef("baclientes_lp_a",FieldDef.FLOAT,6,0);
-      baclientes_lp_p = new FieldDef("baclientes_lp_p",FieldDef.FLOAT,6,0);
-      baclientes_cp_a = new FieldDef("baclientes_cp_a",FieldDef.FLOAT,6,0);
-      baclientes_cp_p = new FieldDef("baclientes_cp_p",FieldDef.FLOAT,6,0);
-      baclientes_vent = new FieldDef("baclientes_vent",FieldDef.FLOAT,6,0);
-      baclientes_gr_a = new FieldDef("baclientes_gr_a",FieldDef.FLOAT,6,0);
-      baclientes_gr_p = new FieldDef("baclientes_gr_p",FieldDef.FLOAT,6,0);
-      badeudores_act = new FieldDef("badeudores_act",FieldDef.FLOAT,6,0);
-      bapersonal_act = new FieldDef("bapersonal_act",FieldDef.FLOAT,6,0);
-      baact_imp_cor_a = new FieldDef("baact_imp_cor_a",FieldDef.FLOAT,6,0);
-      baotr_cred_admi = new FieldDef("baotr_cred_admi",FieldDef.FLOAT,6,0);
-      baacc_desemb_ex = new FieldDef("baacc_desemb_ex",FieldDef.FLOAT,6,0);
-      badeudores_come = new FieldDef("badeudores_come",FieldDef.FLOAT,6,0);
-      bapat_gr_cp_act = new FieldDef("bapat_gr_cp_act",FieldDef.FLOAT,6,0);
-      bacred_gr_cp_ac = new FieldDef("bacred_gr_cp_ac",FieldDef.FLOAT,6,0);
-      bacred_gr_cp_pr = new FieldDef("bacred_gr_cp_pr",FieldDef.FLOAT,6,0);
-      badeuda_gr_cp_a = new FieldDef("badeuda_gr_cp_a",FieldDef.FLOAT,6,0);
-      badeud_gr_cp_pr = new FieldDef("badeud_gr_cp_pr",FieldDef.FLOAT,6,0);
-      baderiv_gr_cp_a = new FieldDef("baderiv_gr_cp_a",FieldDef.FLOAT,6,0);
-      baactfi_gr_cp_a = new FieldDef("baactfi_gr_cp_a",FieldDef.FLOAT,6,0);
-      baotfin_gr_cp_a = new FieldDef("baotfin_gr_cp_a",FieldDef.FLOAT,6,0);
-      bainv_fi_e_g_cp = new FieldDef("bainv_fi_e_g_cp",FieldDef.FLOAT,6,0);
-      bafin_pat_cp_ac = new FieldDef("bafin_pat_cp_ac",FieldDef.FLOAT,6,0);
-      bafin_pat_cp_pr = new FieldDef("bafin_pat_cp_pr",FieldDef.FLOAT,6,0);
-      bafin_cred_cp_a = new FieldDef("bafin_cred_cp_a",FieldDef.FLOAT,6,0);
-      bafi_cred_cp_pr = new FieldDef("bafi_cred_cp_pr",FieldDef.FLOAT,6,0);
-      bafi_deuda_cp_a = new FieldDef("bafi_deuda_cp_a",FieldDef.FLOAT,6,0);
-      bafi_deud_cp_pr = new FieldDef("bafi_deud_cp_pr",FieldDef.FLOAT,6,0);
-      bafi_deriv_cp_a = new FieldDef("bafi_deriv_cp_a",FieldDef.FLOAT,6,0);
-      bafi_actfi_cp_a = new FieldDef("bafi_actfi_cp_a",FieldDef.FLOAT,6,0);
-      bafi_otfin_cp_a = new FieldDef("bafi_otfin_cp_a",FieldDef.FLOAT,6,0);
-      bainv_financ_cp = new FieldDef("bainv_financ_cp",FieldDef.FLOAT,6,0);
-      baperiodif_c_pl = new FieldDef("baperiodif_c_pl",FieldDef.FLOAT,6,0);
-      batesoreria = new FieldDef("batesoreria",FieldDef.FLOAT,6,0);
-      baotros_liquido = new FieldDef("baotros_liquido",FieldDef.FLOAT,6,0);
-      baefectivo = new FieldDef("baefectivo",FieldDef.FLOAT,6,0);
-      baactivo_corrie = new FieldDef("baactivo_corrie",FieldDef.FLOAT,6,0);
-      batotal_activo = new FieldDef("batotal_activo",FieldDef.FLOAT,6,0);
-      bacrempgrlp_ac = new FieldDef("bacrempgrlp_ac",FieldDef.FLOAT,6,0);
-      bacrempgrlp_pr = new FieldDef("bacrempgrlp_pr",FieldDef.FLOAT,6,0);
-      bacrempaslp_ac = new FieldDef("bacrempaslp_ac",FieldDef.FLOAT,6,0);
-      bacrempaslp_pr = new FieldDef("bacrempaslp_pr",FieldDef.FLOAT,6,0);
-      baclientes_egr = new FieldDef("baclientes_egr",FieldDef.FLOAT,6,0);
-      baclientes_eas = new FieldDef("baclientes_eas",FieldDef.FLOAT,6,0);
-      baclientes_soc = new FieldDef("baclientes_soc",FieldDef.FLOAT,6,0);
-      bacrempgrcp_ac = new FieldDef("bacrempgrcp_ac",FieldDef.FLOAT,6,0);
-      bacrempascp_ac = new FieldDef("bacrempascp_ac",FieldDef.FLOAT,6,0);
-      bafondocom_cons = new FieldDef("bafondocom_cons",FieldDef.FLOAT,6,0);
-      bapropintelectu = new FieldDef("bapropintelectu",FieldDef.FLOAT,6,0);
-      baemisiongases = new FieldDef("baemisiongases",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        baejeraplic,
-        basociedad,
-        bagastos_d_act,
-        bagastos_d_prov,
-        bagastos_d_amor,
-        bagastos_d_min,
-        baconces_act,
-        baconces_prov,
-        baconces_amort,
-        baconces_min,
-        bapatentes_act,
-        bapatentes_prov,
-        bapatentes_amor,
-        bapatentes_min,
-        bafondocom_act,
-        baact_no_cor_ac,
-        baact_no_cor_mi,
-        baaplic_inf_act,
-        baaplic_inf_pro,
-        baaplic_inf_amo,
-        baaplic_inf_min,
-        bagastos_i_act,
-        bagastos_i_prov,
-        bagastos_i_amor,
-        bagastos_i_min,
-        baot_inm_int_ac,
-        baot_inm_int_pr,
-        baot_inm_int_am,
-        baot_inm_int_mi,
-        bainmov_intangi,
-        baterreno_m_act,
-        baterreno_m_pro,
-        baterreno_m_amo,
-        baterrenos_m_mi,
-        bainstalacion_a,
-        bainstalac_prov,
-        bainstalac_amor,
-        bainstalacion_m,
-        bainmov_en_curs,
-        bainmov_materia,
-        baterreno_i_act,
-        baterreno_i_pro,
-        baconstruc_i_ac,
-        baconstruc_i_pr,
-        baconstruc_i_am,
-        baconstruc_i_mi,
-        bainvers_inmobi,
-        bapat_gr_lp_act,
-        bapat_gr_lp_pro,
-        bacred_gr_lp_ac,
-        bacred_gr_lp_pr,
-        badeuda_gr_lp_a,
-        badeud_gr_lp_pr,
-        baderiv_gr_lp_a,
-        baactfi_gr_lp_a,
-        baotfin_gr_lp_a,
-        bain_fin_e_gr_l,
-        bafin_pat_lp_ac,
-        bafin_pat_lp_pr,
-        bafin_cred_lp_a,
-        bafi_cred_lp_pr,
-        bafi_deuda_lp_a,
-        bafi_deud_lp_pr,
-        bafi_deriv_lp_a,
-        bafi_actfi_lp_a,
-        bafi_otfin_lp_a,
-        bainv_financ_lp,
-        baact_impuest_d,
-        badeud_com_n_co,
-        baactivo_no_cor,
-        baact_no_cor_ve,
-        baexist_comer_a,
-        baexist_comer_p,
-        baexist_mater_a,
-        baexist_mater_p,
-        bapr_curso_lp_a,
-        bapr_curso_lp_p,
-        bapr_curso_cp_a,
-        bapr_curso_cp_m,
-        baproducto_curs,
-        bapr_termi_lp_a,
-        bapr_termi_lp_p,
-        bapr_termi_cp_a,
-        bapr_termi_cp_p,
-        baproducto_term,
-        basubproducto_a,
-        basubproducto_m,
-        baanticipos_act,
-        baexistencias,
-        baclientes_lp_a,
-        baclientes_lp_p,
-        baclientes_cp_a,
-        baclientes_cp_p,
-        baclientes_vent,
-        baclientes_gr_a,
-        baclientes_gr_p,
-        badeudores_act,
-        bapersonal_act,
-        baact_imp_cor_a,
-        baotr_cred_admi,
-        baacc_desemb_ex,
-        badeudores_come,
-        bapat_gr_cp_act,
-        bacred_gr_cp_ac,
-        bacred_gr_cp_pr,
-        badeuda_gr_cp_a,
-        badeud_gr_cp_pr,
-        baderiv_gr_cp_a,
-        baactfi_gr_cp_a,
-        baotfin_gr_cp_a,
-        bainv_fi_e_g_cp,
-        bafin_pat_cp_ac,
-        bafin_pat_cp_pr,
-        bafin_cred_cp_a,
-        bafi_cred_cp_pr,
-        bafi_deuda_cp_a,
-        bafi_deud_cp_pr,
-        bafi_deriv_cp_a,
-        bafi_actfi_cp_a,
-        bafi_otfin_cp_a,
-        bainv_financ_cp,
-        baperiodif_c_pl,
-        batesoreria,
-        baotros_liquido,
-        baefectivo,
-        baactivo_corrie,
-        batotal_activo,
-        bacrempgrlp_ac,
-        bacrempgrlp_pr,
-        bacrempaslp_ac,
-        bacrempaslp_pr,
-        baclientes_egr,
-        baclientes_eas,
-        baclientes_soc,
-        bacrempgrcp_ac,
-        bacrempascp_ac,
-        bafondocom_cons,
-        bapropintelectu,
-        baemisiongases        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {baejeraplic,basociedad };
-      setDescription("Balance activo");
-      setPrimaryKeys(arrayf);
-      baejeraplic.setDescription("Ejercicio fiscal aplicacion");
-      basociedad.setDescription("Codigo de sociedad");
-      bagastos_d_act.setDescription("Gastos desarrollo");
-      bagastos_d_prov.setDescription("Provisiones gastos desarrollo");
-      bagastos_d_amor.setDescription("Amortizac. gastos desarrollo");
-      bagastos_d_min.setDescription("GASTOS DESARROLLO (MIN.)");
-      baconces_act.setDescription("Concesiones");
-      baconces_prov.setDescription("Provisiones concesiones");
-      baconces_amort.setDescription("Amortizaciones concesiones");
-      baconces_min.setDescription("CONCESIONES (MIN.)");
-      bapatentes_act.setDescription("Patentes, licencias, marcas...");
-      bapatentes_prov.setDescription("Provisiones patentes,licencias");
-      bapatentes_amor.setDescription("Amortizaciones patentes,licen.");
-      bapatentes_min.setDescription("PATENTES,LICENC. (MINORADORAS)");
-      bafondocom_act.setDescription("Fondo de comercio");
-      baact_no_cor_ac.setDescription("Activo no corr.mant.venta(ACT)");
-      baact_no_cor_mi.setDescription("Activo no corr.mant.venta(MIN)");
-      baaplic_inf_act.setDescription("Aplicaciones informaticas");
-      baaplic_inf_pro.setDescription("Provis. aplicaciones informat.");
-      baaplic_inf_amo.setDescription("Amortiz.aplicaciones informat.");
-      baaplic_inf_min.setDescription("APLICACIONES INFORMAT. (MIN.)");
-      bagastos_i_act.setDescription("Gastos investigacion");
-      bagastos_i_prov.setDescription("Provisiones gastos investigac.");
-      bagastos_i_amor.setDescription("Amortizac. gastos investigac.");
-      bagastos_i_min.setDescription("GASTOS INVESTIGACION (MIN.)");
-      baot_inm_int_ac.setDescription("Otro inmovilizado intangible");
-      baot_inm_int_pr.setDescription("Provisiones otr.inm.intangible");
-      baot_inm_int_am.setDescription("Amortizac.otr.inm.intangible");
-      baot_inm_int_mi.setDescription("OTRO INMOVIL.INTANGIBLE (MIN.)");
-      bainmov_intangi.setDescription("INMOVILIZADO INTANGIBLE");
-      baterreno_m_act.setDescription("Terrenos y bienes nat. (act.)");
-      baterreno_m_pro.setDescription("Provisiones Terrenos y Bienes");
-      baterreno_m_amo.setDescription("Amort. Terrenos y Bienes nat.");
-      baterrenos_m_mi.setDescription("TERRENOS Y BIENES NAT. (MIN.)");
-      bainstalacion_a.setDescription("Instalaciones tecnicas (act.)");
-      bainstalac_prov.setDescription("Provis. instalaciones tecnicas");
-      bainstalac_amor.setDescription("Amortiz.instalaciones tecnicas");
-      bainstalacion_m.setDescription("INSTALACIONES TECNICAS (MIN.)");
-      bainmov_en_curs.setDescription("Inmov. en curso y anticipos");
-      bainmov_materia.setDescription("INMOVILIZADO MATERIAL");
-      baterreno_i_act.setDescription("Terrenos invers.inmob. (act.)");
-      baterreno_i_pro.setDescription("Provisiones Terrenos inv.inmob");
-      baconstruc_i_ac.setDescription("Construccion inver.inmob.(act)");
-      baconstruc_i_pr.setDescription("Provisiones Construc.inv.inmob");
-      baconstruc_i_am.setDescription("Amortiz.construccion inv.inmob");
-      baconstruc_i_mi.setDescription("CONSTRUCCION INV.INMOB.(MIN.)");
-      bainvers_inmobi.setDescription("INVERSIONES INMOBILIARIAS");
-      bapat_gr_lp_act.setDescription("Ins.patrim.emp.grupo l.pl(act)");
-      bapat_gr_lp_pro.setDescription("Ins.patrim.emp.grupo l.pl(min)");
-      bacred_gr_lp_ac.setDescription("Creditos emp.grupo l.plaz(act)");
-      bacred_gr_lp_pr.setDescription("Creditos emp.grupo l.pl(min)");
-      badeuda_gr_lp_a.setDescription("Deuda emp.grupo l.plaz(act)");
-      badeud_gr_lp_pr.setDescription("Val.Deuda  emp.grupo l.pl(min)");
-      baderiv_gr_lp_a.setDescription("Derivados emp.grup.l.plaz(act)");
-      baactfi_gr_lp_a.setDescription("Act.finan.emp.grup.l.plaz(act)");
-      baotfin_gr_lp_a.setDescription("Otras inv.emp.grup.l.plaz(act)");
-      bain_fin_e_gr_l.setDescription("INVERS.EMPR.GRUPO LARGO PLAZO");
-      bafin_pat_lp_ac.setDescription("Ins.patrim.inv.finan.l.pl(act)");
-      bafin_pat_lp_pr.setDescription("Ins.patrim.inv.finan.l.pl(min)");
-      bafin_cred_lp_a.setDescription("Creditos inv.finan.l.plaz(act)");
-      bafi_cred_lp_pr.setDescription("Creditos inv.finan.l.pl(min)");
-      bafi_deuda_lp_a.setDescription("Deuda inv.finan.l.plaz(act)");
-      bafi_deud_lp_pr.setDescription("Val.Deuda  inv.finan l.pl(min)");
-      bafi_deriv_lp_a.setDescription("Derivados inv.fina.l.plaz(act)");
-      bafi_actfi_lp_a.setDescription("Act.finan.inv.fina.l.plaz(act)");
-      bafi_otfin_lp_a.setDescription("Otras inv.inv.fina.l.plaz(act)");
-      bainv_financ_lp.setDescription("INVERS. FINANCIERAS LARGO PL.");
-      baact_impuest_d.setDescription("Activos por impuesto diferido");
-      badeud_com_n_co.setDescription("Deudas comerciales no corrient");
-      baactivo_no_cor.setDescription("ACTIVO NO CORRIENTE");
-      baact_no_cor_ve.setDescription("ACTIVO NO CORRIENTE MANT.VENTA");
-      baexist_comer_a.setDescription("Existencias comerciales (Act)");
-      baexist_comer_p.setDescription("Existencias comerciales (min)");
-      baexist_mater_a.setDescription("Materias primas (Act)");
-      baexist_mater_p.setDescription("Materias primas (min)");
-      bapr_curso_lp_a.setDescription("Prod.en curso larga prod.(act)");
-      bapr_curso_lp_p.setDescription("Prod.en curso larga prod.(min)");
-      bapr_curso_cp_a.setDescription("Prod.en curso corta prod.(act)");
-      bapr_curso_cp_m.setDescription("Prod.en curso corta prod.(min)");
-      baproducto_curs.setDescription("PRODUCTO EN CURSO");
-      bapr_termi_lp_a.setDescription("Prod.terminado larga prod(act)");
-      bapr_termi_lp_p.setDescription("Prod.terminado larga prod(min)");
-      bapr_termi_cp_a.setDescription("Prod.terminado corta prod(act)");
-      bapr_termi_cp_p.setDescription("Prod.terminado corta prod(min)");
-      baproducto_term.setDescription("PRODUCTO TERMINADO");
-      basubproducto_a.setDescription("Subproductos (Act)");
-      basubproducto_m.setDescription("Subproductos (min)");
-      baanticipos_act.setDescription("Anticipos proveedores (act)");
-      baexistencias.setDescription("EXISTENCIAS");
-      baclientes_lp_a.setDescription("Clientes largo plazo (act)");
-      baclientes_lp_p.setDescription("Clientes largo plazo (min)");
-      baclientes_cp_a.setDescription("Clientes corto plazo (act)");
-      baclientes_cp_p.setDescription("Clientes corto plazo (min)");
-      baclientes_vent.setDescription("CLIENTES POR VENTAS");
-      baclientes_gr_a.setDescription("Clientes empresas grupo (act)");
-      baclientes_gr_p.setDescription("Clientes empresas grupo (min)");
-      badeudores_act.setDescription("Deudores varios (act)");
-      bapersonal_act.setDescription("Personal (act)");
-      baact_imp_cor_a.setDescription("Activos impuesto corriente(act");
-      baotr_cred_admi.setDescription("Otros creditos administracion");
-      baacc_desemb_ex.setDescription("Accionistas desembolso exigido");
-      badeudores_come.setDescription("DEUDORES COMERCIALES");
-      bapat_gr_cp_act.setDescription("Ins.patrim.emp.grupo c.pl(act)");
-      bacred_gr_cp_ac.setDescription("Creditos emp.grupo c.plaz(act)");
-      bacred_gr_cp_pr.setDescription("Creditos emp.grupo c.pl(min)");
-      badeuda_gr_cp_a.setDescription("Deuda emp.grupo c.plaz(act)");
-      badeud_gr_cp_pr.setDescription("Val.Deuda  emp.grupo c.pl(min)");
-      baderiv_gr_cp_a.setDescription("Derivados emp.grup.c.plaz(act)");
-      baactfi_gr_cp_a.setDescription("Ot.act.finan.emp.grup.c.p(act)");
-      baotfin_gr_cp_a.setDescription("Otras inv.emp.grup.c.plaz(act)");
-      bainv_fi_e_g_cp.setDescription("INVERS.EMPR.GRUPO CORTO PLAZO");
-      bafin_pat_cp_ac.setDescription("Ins.patrim.emp.grupo c.pl(act)");
-      bafin_pat_cp_pr.setDescription("Ins.patrim.emp.grupo c.pl(min)");
-      bafin_cred_cp_a.setDescription("Creditos emp.grupo c.plaz(act)");
-      bafi_cred_cp_pr.setDescription("Creditos emp.grupo c.pl(min)");
-      bafi_deuda_cp_a.setDescription("Deuda emp.grupo c.plaz(act)");
-      bafi_deud_cp_pr.setDescription("Val.Deuda  emp.grupo c.pl(min)");
-      bafi_deriv_cp_a.setDescription("Derivados emp.grup.c.plaz(act)");
-      bafi_actfi_cp_a.setDescription("Act.finan.emp.grup.c.plaz(act)");
-      bafi_otfin_cp_a.setDescription("Otras inv.emp.grup.c.plaz(act)");
-      bainv_financ_cp.setDescription("INVERS. FINANCIERAS CORTO PL.");
-      baperiodif_c_pl.setDescription("Periodificacion corto plazo");
-      batesoreria.setDescription("Tesoreria");
-      baotros_liquido.setDescription("Otros activos liquidos");
-      baefectivo.setDescription("EFECTIVO Y OTROS LIQUIDOS");
-      baactivo_corrie.setDescription("ACTIVO CORRIENTE");
-      batotal_activo.setDescription("TOTAL ACTIVO");
-      bacrempgrlp_ac.setDescription("Creditos empresas largo plazo del grupo (act) (coopertivas)");
-      bacrempgrlp_pr.setDescription("Creditos empresas largo plazo del grupo (min) (coopertivas)");
-      bacrempaslp_ac.setDescription("Creditos empresas largo plazo asociadas (act) (coopertivas)");
-      bacrempaslp_pr.setDescription("Creditos empresas largo plazo asociadas (min) (coopertivas)");
-      baclientes_egr.setDescription("Clientes empresas grupo (act) (cooperativas)");
-      baclientes_eas.setDescription("Clientes empresas asociadas (act) (cooperativas)");
-      baclientes_soc.setDescription("Clientes socios deudores (act) (cooperativas)");
-      bacrempgrcp_ac.setDescription("Creditos empresas corto plazo del grupo  (coopertivas)");
-      bacrempascp_ac.setDescription("Creditos empresas corto plazo asociadas (coopertivas)");
-      bafondocom_cons.setDescription("Fondo de comercio de consolidacion");
-      bapropintelectu.setDescription("Propiedad intelectual");
-      baemisiongases.setDescription("Emision gases");
-      }
-    }
-    
-  public class TabPasivo extends TableDef
-    {
-    // Campos
-    public FieldDef paejeraplic;
-    public FieldDef pasociedad;
-    public FieldDef pacapitalescrit;
-    public FieldDef pacapitalnoexig;
-    public FieldDef pacapital;
-    public FieldDef paprimaemision;
-    public FieldDef pareserva_legal;
-    public FieldDef paotras_reserva;
-    public FieldDef pareservas;
-    public FieldDef paacc_part_patr;
-    public FieldDef paremanente;
-    public FieldDef pares_neg_ej_an;
-    public FieldDef pares_ejer_ant;
-    public FieldDef paotr_aport_soc;
-    public FieldDef paresult_ejer;
-    public FieldDef padivid_a_cta;
-    public FieldDef paotr_patr_neto;
-    public FieldDef pafondos_propio;
-    public FieldDef paact_fin_venta;
-    public FieldDef paop_cobertura;
-    public FieldDef paact_no_corrie;
-    public FieldDef padifer_convers;
-    public FieldDef paotros;
-    public FieldDef paajus_canv_val;
-    public FieldDef pasub_donac_leg;
-    public FieldDef paobl_lp_person;
-    public FieldDef paact_medioambi;
-    public FieldDef paprov_reestruc;
-    public FieldDef paotras_provisi;
-    public FieldDef paprov_largo_pl;
-    public FieldDef paobl_ot_va_lpl;
-    public FieldDef padeu_en_cr_lpl;
-    public FieldDef paacr_ar_fi_lpl;
-    public FieldDef paderivados_lpl;
-    public FieldDef paot_pa_fin_lpl;
-    public FieldDef padeudas_lpl;
-    public FieldDef pade_emp_gr_lpl;
-    public FieldDef papasiv_imp_dif;
-    public FieldDef paperiodif_lpl;
-    public FieldDef paacr_comer_nco;
-    public FieldDef padeu_esp_lpl;
-    public FieldDef papatrim_neto;
-    public FieldDef papas_no_corr;
-    public FieldDef papas_vin_man_v;
-    public FieldDef paprovision_cpl;
-    public FieldDef paob_ot_val_cpl;
-    public FieldDef pade_ent_cr_cpl;
-    public FieldDef paacr_ar_fi_cpl;
-    public FieldDef paderivados_cpl;
-    public FieldDef paot_pas_fi_cpl;
-    public FieldDef padeudas_cpl;
-    public FieldDef pade_emp_gr_cpl;
-    public FieldDef paprov_l_plazo;
-    public FieldDef paprov_c_plazo;
-    public FieldDef paproveedores;
-    public FieldDef paprov_empr_gru;
-    public FieldDef paacree_varios;
-    public FieldDef papers_rem_pdte;
-    public FieldDef papas_imp_corr;
-    public FieldDef paotr_deud_admi;
-    public FieldDef paanticipos_cli;
-    public FieldDef paacreed_comerc;
-    public FieldDef paperio_cort_pl;
-    public FieldDef padeu_car_es_cp;
-    public FieldDef papas_corrient;
-    public FieldDef patotal_pasivo;
-    public FieldDef pareslegal;
-    public FieldDef paresestaturia;
-    public FieldDef pafondcapitali;
-    public FieldDef paresactualiz;
-    public FieldDef paresvoluntar;
-    public FieldDef pafoneduclp;
-    public FieldDef pacapreembexlp;
-    public FieldDef pafondoesplpla;
-    public FieldDef paacrefondolpl;
-    public FieldDef padeuempgruplp;
-    public FieldDef padeuempasoclp;
-    public FieldDef padeudsocioslp;
-    public FieldDef pafoneduccp;
-    public FieldDef pacapreembexcp;
-    public FieldDef pafondoespcpla;
-    public FieldDef paacrefondocpl;
-    public FieldDef padeuempgrupcp;
-    public FieldDef padeuempasoccp;
-    public FieldDef padeudsocioscp;
-    public FieldDef pasocioproveed;
-    public FieldDef paotrosproveed;
-    public FieldDef pareservaotras;
-    public FieldDef pasocioexterno;
-    public FieldDef paresrev162012;
-    public FieldDef paprovgasesinv;
-    public FieldDef paotrasprovis;
-    public TabPasivo(String name)
-      {
-      super(name);
-      paejeraplic = new FieldDef("paejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      pasociedad = new FieldDef("pasociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      pacapitalescrit = new FieldDef("pacapitalescrit",FieldDef.FLOAT,6,0);
-      pacapitalnoexig = new FieldDef("pacapitalnoexig",FieldDef.FLOAT,6,0);
-      pacapital = new FieldDef("pacapital",FieldDef.FLOAT,6,0);
-      paprimaemision = new FieldDef("paprimaemision",FieldDef.FLOAT,6,0);
-      pareserva_legal = new FieldDef("pareserva_legal",FieldDef.FLOAT,6,0);
-      paotras_reserva = new FieldDef("paotras_reserva",FieldDef.FLOAT,6,0);
-      pareservas = new FieldDef("pareservas",FieldDef.FLOAT,6,0);
-      paacc_part_patr = new FieldDef("paacc_part_patr",FieldDef.FLOAT,6,0);
-      paremanente = new FieldDef("paremanente",FieldDef.FLOAT,6,0);
-      pares_neg_ej_an = new FieldDef("pares_neg_ej_an",FieldDef.FLOAT,6,0);
-      pares_ejer_ant = new FieldDef("pares_ejer_ant",FieldDef.FLOAT,6,0);
-      paotr_aport_soc = new FieldDef("paotr_aport_soc",FieldDef.FLOAT,6,0);
-      paresult_ejer = new FieldDef("paresult_ejer",FieldDef.FLOAT,6,0);
-      padivid_a_cta = new FieldDef("padivid_a_cta",FieldDef.FLOAT,6,0);
-      paotr_patr_neto = new FieldDef("paotr_patr_neto",FieldDef.FLOAT,6,0);
-      pafondos_propio = new FieldDef("pafondos_propio",FieldDef.FLOAT,6,0);
-      paact_fin_venta = new FieldDef("paact_fin_venta",FieldDef.FLOAT,6,0);
-      paop_cobertura = new FieldDef("paop_cobertura",FieldDef.FLOAT,6,0);
-      paact_no_corrie = new FieldDef("paact_no_corrie",FieldDef.FLOAT,6,0);
-      padifer_convers = new FieldDef("padifer_convers",FieldDef.FLOAT,6,0);
-      paotros = new FieldDef("paotros",FieldDef.FLOAT,6,0);
-      paajus_canv_val = new FieldDef("paajus_canv_val",FieldDef.FLOAT,6,0);
-      pasub_donac_leg = new FieldDef("pasub_donac_leg",FieldDef.FLOAT,6,0);
-      paobl_lp_person = new FieldDef("paobl_lp_person",FieldDef.FLOAT,6,0);
-      paact_medioambi = new FieldDef("paact_medioambi",FieldDef.FLOAT,6,0);
-      paprov_reestruc = new FieldDef("paprov_reestruc",FieldDef.FLOAT,6,0);
-      paotras_provisi = new FieldDef("paotras_provisi",FieldDef.FLOAT,6,0);
-      paprov_largo_pl = new FieldDef("paprov_largo_pl",FieldDef.FLOAT,6,0);
-      paobl_ot_va_lpl = new FieldDef("paobl_ot_va_lpl",FieldDef.FLOAT,6,0);
-      padeu_en_cr_lpl = new FieldDef("padeu_en_cr_lpl",FieldDef.FLOAT,6,0);
-      paacr_ar_fi_lpl = new FieldDef("paacr_ar_fi_lpl",FieldDef.FLOAT,6,0);
-      paderivados_lpl = new FieldDef("paderivados_lpl",FieldDef.FLOAT,6,0);
-      paot_pa_fin_lpl = new FieldDef("paot_pa_fin_lpl",FieldDef.FLOAT,6,0);
-      padeudas_lpl = new FieldDef("padeudas_lpl",FieldDef.FLOAT,6,0);
-      pade_emp_gr_lpl = new FieldDef("pade_emp_gr_lpl",FieldDef.FLOAT,6,0);
-      papasiv_imp_dif = new FieldDef("papasiv_imp_dif",FieldDef.FLOAT,6,0);
-      paperiodif_lpl = new FieldDef("paperiodif_lpl",FieldDef.FLOAT,6,0);
-      paacr_comer_nco = new FieldDef("paacr_comer_nco",FieldDef.FLOAT,6,0);
-      padeu_esp_lpl = new FieldDef("padeu_esp_lpl",FieldDef.FLOAT,6,0);
-      papatrim_neto = new FieldDef("papatrim_neto",FieldDef.FLOAT,6,0);
-      papas_no_corr = new FieldDef("papas_no_corr",FieldDef.FLOAT,6,0);
-      papas_vin_man_v = new FieldDef("papas_vin_man_v",FieldDef.FLOAT,6,0);
-      paprovision_cpl = new FieldDef("paprovision_cpl",FieldDef.FLOAT,6,0);
-      paob_ot_val_cpl = new FieldDef("paob_ot_val_cpl",FieldDef.FLOAT,6,0);
-      pade_ent_cr_cpl = new FieldDef("pade_ent_cr_cpl",FieldDef.FLOAT,6,0);
-      paacr_ar_fi_cpl = new FieldDef("paacr_ar_fi_cpl",FieldDef.FLOAT,6,0);
-      paderivados_cpl = new FieldDef("paderivados_cpl",FieldDef.FLOAT,6,0);
-      paot_pas_fi_cpl = new FieldDef("paot_pas_fi_cpl",FieldDef.FLOAT,6,0);
-      padeudas_cpl = new FieldDef("padeudas_cpl",FieldDef.FLOAT,6,0);
-      pade_emp_gr_cpl = new FieldDef("pade_emp_gr_cpl",FieldDef.FLOAT,6,0);
-      paprov_l_plazo = new FieldDef("paprov_l_plazo",FieldDef.FLOAT,6,0);
-      paprov_c_plazo = new FieldDef("paprov_c_plazo",FieldDef.FLOAT,6,0);
-      paproveedores = new FieldDef("paproveedores",FieldDef.FLOAT,6,0);
-      paprov_empr_gru = new FieldDef("paprov_empr_gru",FieldDef.FLOAT,6,0);
-      paacree_varios = new FieldDef("paacree_varios",FieldDef.FLOAT,6,0);
-      papers_rem_pdte = new FieldDef("papers_rem_pdte",FieldDef.FLOAT,6,0);
-      papas_imp_corr = new FieldDef("papas_imp_corr",FieldDef.FLOAT,6,0);
-      paotr_deud_admi = new FieldDef("paotr_deud_admi",FieldDef.FLOAT,6,0);
-      paanticipos_cli = new FieldDef("paanticipos_cli",FieldDef.FLOAT,6,0);
-      paacreed_comerc = new FieldDef("paacreed_comerc",FieldDef.FLOAT,6,0);
-      paperio_cort_pl = new FieldDef("paperio_cort_pl",FieldDef.FLOAT,6,0);
-      padeu_car_es_cp = new FieldDef("padeu_car_es_cp",FieldDef.FLOAT,6,0);
-      papas_corrient = new FieldDef("papas_corrient",FieldDef.FLOAT,6,0);
-      patotal_pasivo = new FieldDef("patotal_pasivo",FieldDef.FLOAT,6,0);
-      pareslegal = new FieldDef("pareslegal",FieldDef.FLOAT,6,0);
-      paresestaturia = new FieldDef("paresestaturia",FieldDef.FLOAT,6,0);
-      pafondcapitali = new FieldDef("pafondcapitali",FieldDef.FLOAT,6,0);
-      paresactualiz = new FieldDef("paresactualiz",FieldDef.FLOAT,6,0);
-      paresvoluntar = new FieldDef("paresvoluntar",FieldDef.FLOAT,6,0);
-      pafoneduclp = new FieldDef("pafoneduclp",FieldDef.FLOAT,6,0);
-      pacapreembexlp = new FieldDef("pacapreembexlp",FieldDef.FLOAT,6,0);
-      pafondoesplpla = new FieldDef("pafondoesplpla",FieldDef.FLOAT,6,0);
-      paacrefondolpl = new FieldDef("paacrefondolpl",FieldDef.FLOAT,6,0);
-      padeuempgruplp = new FieldDef("padeuempgruplp",FieldDef.FLOAT,6,0);
-      padeuempasoclp = new FieldDef("padeuempasoclp",FieldDef.FLOAT,6,0);
-      padeudsocioslp = new FieldDef("padeudsocioslp",FieldDef.FLOAT,6,0);
-      pafoneduccp = new FieldDef("pafoneduccp",FieldDef.FLOAT,6,0);
-      pacapreembexcp = new FieldDef("pacapreembexcp",FieldDef.FLOAT,6,0);
-      pafondoespcpla = new FieldDef("pafondoespcpla",FieldDef.FLOAT,6,0);
-      paacrefondocpl = new FieldDef("paacrefondocpl",FieldDef.FLOAT,6,0);
-      padeuempgrupcp = new FieldDef("padeuempgrupcp",FieldDef.FLOAT,6,0);
-      padeuempasoccp = new FieldDef("padeuempasoccp",FieldDef.FLOAT,6,0);
-      padeudsocioscp = new FieldDef("padeudsocioscp",FieldDef.FLOAT,6,0);
-      pasocioproveed = new FieldDef("pasocioproveed",FieldDef.FLOAT,6,0);
-      paotrosproveed = new FieldDef("paotrosproveed",FieldDef.FLOAT,6,0);
-      pareservaotras = new FieldDef("pareservaotras",FieldDef.FLOAT,6,0);
-      pasocioexterno = new FieldDef("pasocioexterno",FieldDef.FLOAT,6,0);
-      paresrev162012 = new FieldDef("paresrev162012",FieldDef.FLOAT,6,0);
-      paprovgasesinv = new FieldDef("paprovgasesinv",FieldDef.FLOAT,6,0);
-      paotrasprovis = new FieldDef("paotrasprovis",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        paejeraplic,
-        pasociedad,
-        pacapitalescrit,
-        pacapitalnoexig,
-        pacapital,
-        paprimaemision,
-        pareserva_legal,
-        paotras_reserva,
-        pareservas,
-        paacc_part_patr,
-        paremanente,
-        pares_neg_ej_an,
-        pares_ejer_ant,
-        paotr_aport_soc,
-        paresult_ejer,
-        padivid_a_cta,
-        paotr_patr_neto,
-        pafondos_propio,
-        paact_fin_venta,
-        paop_cobertura,
-        paact_no_corrie,
-        padifer_convers,
-        paotros,
-        paajus_canv_val,
-        pasub_donac_leg,
-        paobl_lp_person,
-        paact_medioambi,
-        paprov_reestruc,
-        paotras_provisi,
-        paprov_largo_pl,
-        paobl_ot_va_lpl,
-        padeu_en_cr_lpl,
-        paacr_ar_fi_lpl,
-        paderivados_lpl,
-        paot_pa_fin_lpl,
-        padeudas_lpl,
-        pade_emp_gr_lpl,
-        papasiv_imp_dif,
-        paperiodif_lpl,
-        paacr_comer_nco,
-        padeu_esp_lpl,
-        papatrim_neto,
-        papas_no_corr,
-        papas_vin_man_v,
-        paprovision_cpl,
-        paob_ot_val_cpl,
-        pade_ent_cr_cpl,
-        paacr_ar_fi_cpl,
-        paderivados_cpl,
-        paot_pas_fi_cpl,
-        padeudas_cpl,
-        pade_emp_gr_cpl,
-        paprov_l_plazo,
-        paprov_c_plazo,
-        paproveedores,
-        paprov_empr_gru,
-        paacree_varios,
-        papers_rem_pdte,
-        papas_imp_corr,
-        paotr_deud_admi,
-        paanticipos_cli,
-        paacreed_comerc,
-        paperio_cort_pl,
-        padeu_car_es_cp,
-        papas_corrient,
-        patotal_pasivo,
-        pareslegal,
-        paresestaturia,
-        pafondcapitali,
-        paresactualiz,
-        paresvoluntar,
-        pafoneduclp,
-        pacapreembexlp,
-        pafondoesplpla,
-        paacrefondolpl,
-        padeuempgruplp,
-        padeuempasoclp,
-        padeudsocioslp,
-        pafoneduccp,
-        pacapreembexcp,
-        pafondoespcpla,
-        paacrefondocpl,
-        padeuempgrupcp,
-        padeuempasoccp,
-        padeudsocioscp,
-        pasocioproveed,
-        paotrosproveed,
-        pareservaotras,
-        pasocioexterno,
-        paresrev162012,
-        paprovgasesinv,
-        paotrasprovis        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {paejeraplic,pasociedad };
-      setDescription("Balance pasivo");
-      setPrimaryKeys(arrayf);
-      paejeraplic.setDescription("Ejercicio fiscal aplicacion");
-      pasociedad.setDescription("Codigo de sociedad");
-      pacapitalescrit.setDescription("Capital escriturado");
-      pacapitalnoexig.setDescription("Capital no exigido");
-      pacapital.setDescription("CAPITAL");
-      paprimaemision.setDescription("Prima de emision");
-      pareserva_legal.setDescription("Reserva legal");
-      paotras_reserva.setDescription("Otras reservas");
-      pareservas.setDescription("RESERVAS");
-      paacc_part_patr.setDescription("Acciones y partic.patrimonio");
-      paremanente.setDescription("Remanente");
-      pares_neg_ej_an.setDescription("Resultados negativos ejer.ant.");
-      pares_ejer_ant.setDescription("RESULTADOS EJERCICIOS ANTERIOR");
-      paotr_aport_soc.setDescription("Otras aportaciones de socios");
-      paresult_ejer.setDescription("Resultado del ejercicio");
-      padivid_a_cta.setDescription("Dividendo a cuenta");
-      paotr_patr_neto.setDescription("Otros instrum.patrimonio neto");
-      pafondos_propio.setDescription("FONDOS PROPIOS");
-      paact_fin_venta.setDescription("Activos financieros disp.venta");
-      paop_cobertura.setDescription("Operaciones de cobertura");
-      paact_no_corrie.setDescription("Activos no corriente y pas.vin");
-      padifer_convers.setDescription("Diferencia de conversion");
-      paotros.setDescription("Otros");
-      paajus_canv_val.setDescription("AJUSTES CAMBIO DE VALOR");
-      pasub_donac_leg.setDescription("Subvenciones,donaciones y lega");
-      paobl_lp_person.setDescription("Oblig.prest.largo plazo person");
-      paact_medioambi.setDescription("Actuaciones medioambientales");
-      paprov_reestruc.setDescription("Provisiones por reestructurac");
-      paotras_provisi.setDescription("Otras provisiones");
-      paprov_largo_pl.setDescription("PROVISIONES LARGO PLAZO");
-      paobl_ot_va_lpl.setDescription("Oblig. y otros val.neg.lar.pla");
-      padeu_en_cr_lpl.setDescription("Deudas entidades cred.lar.plaz");
-      paacr_ar_fi_lpl.setDescription("Acreed.arrend.financ.lar.plazo");
-      paderivados_lpl.setDescription("Derivados largo plazo");
-      paot_pa_fin_lpl.setDescription("Otros pasivos financ.largo pla");
-      padeudas_lpl.setDescription("DEUDAS LARGO PLAZO");
-      pade_emp_gr_lpl.setDescription("Deudas empr.grupo largo plazo");
-      papasiv_imp_dif.setDescription("Pasivos por impuesto diferido");
-      paperiodif_lpl.setDescription("Periodificaciones largo plazo");
-      paacr_comer_nco.setDescription("Acreedores comerc.no corriente");
-      padeu_esp_lpl.setDescription("Deuda caract.especial largo pl");
-      papatrim_neto.setDescription("Patrimonio neto");
-      papas_no_corr.setDescription("Pasivo no corriente");
-      papas_vin_man_v.setDescription("Pasivos vincul. manteni.venta");
-      paprovision_cpl.setDescription("PROVISIONES A CORTO PLAZO");
-      paob_ot_val_cpl.setDescription("Oblig. y otros val.neg.cor.pla");
-      pade_ent_cr_cpl.setDescription("Deudas entidades cred.cor.plaz");
-      paacr_ar_fi_cpl.setDescription("Acreed.arrend.financ.cor.plazo");
-      paderivados_cpl.setDescription("Derivados corto plazo");
-      paot_pas_fi_cpl.setDescription("Otros pasivos financ.corto pla");
-      padeudas_cpl.setDescription("DEUDAS CORTO PLAZO");
-      pade_emp_gr_cpl.setDescription("Deudas empr.grupo corto plazo");
-      paprov_l_plazo.setDescription("Proveedores largo plazo");
-      paprov_c_plazo.setDescription("Proveedores corto plazo");
-      paproveedores.setDescription("PROVEEDORES");
-      paprov_empr_gru.setDescription("Proveedores empr.grupo y asoc");
-      paacree_varios.setDescription("Acreedores varios");
-      papers_rem_pdte.setDescription("Personal, remuneracion pdte");
-      papas_imp_corr.setDescription("Pasivos por impuesto corriente");
-      paotr_deud_admi.setDescription("Otras deudas con administrac.");
-      paanticipos_cli.setDescription("Anticipos clientes");
-      paacreed_comerc.setDescription("ACREEDORES COMERCIALES");
-      paperio_cort_pl.setDescription("Periodificacion corto plazo");
-      padeu_car_es_cp.setDescription("Deuda caract.especial corto pl");
-      papas_corrient.setDescription("PASIVO CORRIENTE");
-      patotal_pasivo.setDescription("TOTAL PATRIMONIO NETO Y PASIVO");
-      pareslegal.setDescription("Reserva legal");
-      paresestaturia.setDescription("Reserva estatutaria");
-      pafondcapitali.setDescription("Fondos capitalizados (cooperativas)");
-      paresactualiz.setDescription("Fondo de reembolso o actualizacion (cooperativas)");
-      paresvoluntar.setDescription("Fondo de reserva voluntario (cooperativas)");
-      pafoneduclp.setDescription("Fondo educacion y promocion larg.plazo (cooperativas)");
-      pacapreembexlp.setDescription("Capital reembolsable exigible largo plazo (cooperativas)");
-      pafondoesplpla.setDescription("Fondos especiales calificados pasivo largo plazo(cooperativas)");
-      paacrefondolpl.setDescription("Acreedores fondos capitalizados largo plazo (cooperativas)");
-      padeuempgruplp.setDescription("Deudas con empresa del grupo l.plazo (cooperativas)");
-      padeuempasoclp.setDescription("Deudas con empresas asociadas l.plazo (cooperativas)");
-      padeudsocioslp.setDescription("Deudas con socios l.plazo (cooperativas)");
-      pafoneduccp.setDescription("Fondo educacion y promocion corto plazo (cooperativas)");
-      pacapreembexcp.setDescription("Capital reembolsable exigible corto plazo (cooperativas)");
-      pafondoespcpla.setDescription("Fondos especiales calificados pasivo corto plazo(cooperativas)");
-      paacrefondocpl.setDescription("Acreedores fondos capitalizados corto plazo (cooperativas)");
-      padeuempgrupcp.setDescription("Deudas con empresa del grupo corto plazo (cooperativas)");
-      padeuempasoccp.setDescription("Deudas con empresas asociadas c.plazo (cooperativas)");
-      padeudsocioscp.setDescription("Deudas con socios c.plazo (cooperativas)");
-      pasocioproveed.setDescription("Socios proveedores (cooperativas)");
-      paotrosproveed.setDescription("Proveedores, empr.grupo y asociadas (cooperativas)");
-      pareservaotras.setDescription("Otras reservas (coopertivas)");
-      pasocioexterno.setDescription("Socios externos (consolidacion fiscal)");
-      paresrev162012.setDescription("Reserva revalorizacion Ley 16/2012");
-      paprovgasesinv.setDescription("Provision gases efecto invernadero, corto plazo");
-      paotrasprovis.setDescription("Otras provisiones corto plazo");
-      }
-    }
-    
-  public class TabCtaresultado extends TableDef
-    {
-    // Campos
-    public FieldDef deejeraplic;
-    public FieldDef desociedad;
-    public FieldDef deventas;
-    public FieldDef deprestacion_se;
-    public FieldDef deimp_neto_cifr;
-    public FieldDef devariac_existe;
-    public FieldDef detraba_empresa;
-    public FieldDef deconsum_mercad;
-    public FieldDef deconsum_mat_pr;
-    public FieldDef detraba_otr_emp;
-    public FieldDef dedeter_mercade;
-    public FieldDef deaprovisionami;
-    public FieldDef deingr_accesori;
-    public FieldDef desubv_explotac;
-    public FieldDef deotr_ingr_expl;
-    public FieldDef desueldos;
-    public FieldDef decargas_social;
-    public FieldDef deprovisiones;
-    public FieldDef degastos_person;
-    public FieldDef deserv_exterior;
-    public FieldDef detributos;
-    public FieldDef deperd_op_comer;
-    public FieldDef deotros_gast_ge;
-    public FieldDef deotros_gast_ex;
-    public FieldDef deamortiz_inmov;
-    public FieldDef deimput_subv_in;
-    public FieldDef deexceso_provis;
-    public FieldDef dedeterioro;
-    public FieldDef deresul_enajena;
-    public FieldDef dedeter_enaj_in;
-    public FieldDef dedif_combin_ne;
-    public FieldDef deotros_resulta;
-    public FieldDef deresult_explot;
-    public FieldDef dei_fin_part_em;
-    public FieldDef dei_fin_part_te;
-    public FieldDef deing_fin_parti;
-    public FieldDef dei_fin_valn_em;
-    public FieldDef dei_fin_valn_te;
-    public FieldDef deing_fin_valne;
-    public FieldDef deing_fin_subve;
-    public FieldDef deingresos_fina;
-    public FieldDef deg_fin_deud_em;
-    public FieldDef deg_fin_deud_te;
-    public FieldDef deg_fin_deud_pr;
-    public FieldDef degastos_financ;
-    public FieldDef decartera_negoc;
-    public FieldDef deimp_res_act_f;
-    public FieldDef devaria_instr_f;
-    public FieldDef dedifer_cambios;
-    public FieldDef dedeter_y_perdi;
-    public FieldDef deresul_enaj_ot;
-    public FieldDef dedete_res_ins_;
-    public FieldDef deresult_financ;
-    public FieldDef deresult_ant_im;
-    public FieldDef deimp_sobre_bfo;
-    public FieldDef deres_ej_pr_op_;
-    public FieldDef deres_ej_oper_i;
-    public FieldDef deresultado_eje;
-    public FieldDef deingr_arrendam;
-    public FieldDef deresto_ingr_ac;
-    public FieldDef desueldos_salar;
-    public FieldDef deindemnizacion;
-    public FieldDef deretr_suel_ins;
-    public FieldDef deseg_social;
-    public FieldDef deplanes_pensio;
-    public FieldDef deotros_gast_so;
-    public FieldDef dedeterioro_ena;
-    public FieldDef dereversion_ena;
-    public FieldDef debeneficio_ena;
-    public FieldDef deperdida_enaj;
-    public FieldDef dedeter_empr_gr;
-    public FieldDef dedeter_otr_emp;
-    public FieldDef derever_empr_gr;
-    public FieldDef derever_otr_emp;
-    public FieldDef debfos_empr_gru;
-    public FieldDef debfos_otr_empr;
-    public FieldDef deperd_empr_gru;
-    public FieldDef deperd_otr_empr;
-    public FieldDef deotringfin;
-    public FieldDef deotringfin_act;
-    public FieldDef deotringfin_con;
-    public FieldDef deotringfin_res;
-    public FieldDef deconsumoexisoc;
-    public FieldDef deingropersocio;
-    public FieldDef deservtrabsocio;
-    public FieldDef dedotfondoeduca;
-    public FieldDef dedsubvfondeduc;
-    public FieldDef dedfondoeducac;
-    public FieldDef deingfinvnegsoc;
-    public FieldDef degastfincardeu;
-    public FieldDef dertdoperdctrl;
-    public FieldDef dertdoatribpart;
-    public FieldDef dertdopartconso;
-    public FieldDef dertosocdominan;
-    public FieldDef dertosocesterno;
-    public FieldDef deingrsholding;
-    public FieldDef degastemisgases;
-    public FieldDef dedeterenajhold;
-    public FieldDef dedholdinstpa;
-    public FieldDef dedholdvalneg;
-    public FieldDef dedholdresto;
-    public TabCtaresultado(String name)
-      {
-      super(name);
-      deejeraplic = new FieldDef("deejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      desociedad = new FieldDef("desociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      deventas = new FieldDef("deventas",FieldDef.FLOAT,6,0);
-      deprestacion_se = new FieldDef("deprestacion_se",FieldDef.FLOAT,6,0);
-      deimp_neto_cifr = new FieldDef("deimp_neto_cifr",FieldDef.FLOAT,6,0);
-      devariac_existe = new FieldDef("devariac_existe",FieldDef.FLOAT,6,0);
-      detraba_empresa = new FieldDef("detraba_empresa",FieldDef.FLOAT,6,0);
-      deconsum_mercad = new FieldDef("deconsum_mercad",FieldDef.FLOAT,6,0);
-      deconsum_mat_pr = new FieldDef("deconsum_mat_pr",FieldDef.FLOAT,6,0);
-      detraba_otr_emp = new FieldDef("detraba_otr_emp",FieldDef.FLOAT,6,0);
-      dedeter_mercade = new FieldDef("dedeter_mercade",FieldDef.FLOAT,6,0);
-      deaprovisionami = new FieldDef("deaprovisionami",FieldDef.FLOAT,6,0);
-      deingr_accesori = new FieldDef("deingr_accesori",FieldDef.FLOAT,6,0);
-      desubv_explotac = new FieldDef("desubv_explotac",FieldDef.FLOAT,6,0);
-      deotr_ingr_expl = new FieldDef("deotr_ingr_expl",FieldDef.FLOAT,6,0);
-      desueldos = new FieldDef("desueldos",FieldDef.FLOAT,6,0);
-      decargas_social = new FieldDef("decargas_social",FieldDef.FLOAT,6,0);
-      deprovisiones = new FieldDef("deprovisiones",FieldDef.FLOAT,6,0);
-      degastos_person = new FieldDef("degastos_person",FieldDef.FLOAT,6,0);
-      deserv_exterior = new FieldDef("deserv_exterior",FieldDef.FLOAT,6,0);
-      detributos = new FieldDef("detributos",FieldDef.FLOAT,6,0);
-      deperd_op_comer = new FieldDef("deperd_op_comer",FieldDef.FLOAT,6,0);
-      deotros_gast_ge = new FieldDef("deotros_gast_ge",FieldDef.FLOAT,6,0);
-      deotros_gast_ex = new FieldDef("deotros_gast_ex",FieldDef.FLOAT,6,0);
-      deamortiz_inmov = new FieldDef("deamortiz_inmov",FieldDef.FLOAT,6,0);
-      deimput_subv_in = new FieldDef("deimput_subv_in",FieldDef.FLOAT,6,0);
-      deexceso_provis = new FieldDef("deexceso_provis",FieldDef.FLOAT,6,0);
-      dedeterioro = new FieldDef("dedeterioro",FieldDef.FLOAT,6,0);
-      deresul_enajena = new FieldDef("deresul_enajena",FieldDef.FLOAT,6,0);
-      dedeter_enaj_in = new FieldDef("dedeter_enaj_in",FieldDef.FLOAT,6,0);
-      dedif_combin_ne = new FieldDef("dedif_combin_ne",FieldDef.FLOAT,6,0);
-      deotros_resulta = new FieldDef("deotros_resulta",FieldDef.FLOAT,6,0);
-      deresult_explot = new FieldDef("deresult_explot",FieldDef.FLOAT,6,0);
-      dei_fin_part_em = new FieldDef("dei_fin_part_em",FieldDef.FLOAT,6,0);
-      dei_fin_part_te = new FieldDef("dei_fin_part_te",FieldDef.FLOAT,6,0);
-      deing_fin_parti = new FieldDef("deing_fin_parti",FieldDef.FLOAT,6,0);
-      dei_fin_valn_em = new FieldDef("dei_fin_valn_em",FieldDef.FLOAT,6,0);
-      dei_fin_valn_te = new FieldDef("dei_fin_valn_te",FieldDef.FLOAT,6,0);
-      deing_fin_valne = new FieldDef("deing_fin_valne",FieldDef.FLOAT,6,0);
-      deing_fin_subve = new FieldDef("deing_fin_subve",FieldDef.FLOAT,6,0);
-      deingresos_fina = new FieldDef("deingresos_fina",FieldDef.FLOAT,6,0);
-      deg_fin_deud_em = new FieldDef("deg_fin_deud_em",FieldDef.FLOAT,6,0);
-      deg_fin_deud_te = new FieldDef("deg_fin_deud_te",FieldDef.FLOAT,6,0);
-      deg_fin_deud_pr = new FieldDef("deg_fin_deud_pr",FieldDef.FLOAT,6,0);
-      degastos_financ = new FieldDef("degastos_financ",FieldDef.FLOAT,6,0);
-      decartera_negoc = new FieldDef("decartera_negoc",FieldDef.FLOAT,6,0);
-      deimp_res_act_f = new FieldDef("deimp_res_act_f",FieldDef.FLOAT,6,0);
-      devaria_instr_f = new FieldDef("devaria_instr_f",FieldDef.FLOAT,6,0);
-      dedifer_cambios = new FieldDef("dedifer_cambios",FieldDef.FLOAT,6,0);
-      dedeter_y_perdi = new FieldDef("dedeter_y_perdi",FieldDef.FLOAT,6,0);
-      deresul_enaj_ot = new FieldDef("deresul_enaj_ot",FieldDef.FLOAT,6,0);
-      dedete_res_ins_ = new FieldDef("dedete_res_ins_",FieldDef.FLOAT,6,0);
-      deresult_financ = new FieldDef("deresult_financ",FieldDef.FLOAT,6,0);
-      deresult_ant_im = new FieldDef("deresult_ant_im",FieldDef.FLOAT,6,0);
-      deimp_sobre_bfo = new FieldDef("deimp_sobre_bfo",FieldDef.FLOAT,6,0);
-      deres_ej_pr_op_ = new FieldDef("deres_ej_pr_op_",FieldDef.FLOAT,6,0);
-      deres_ej_oper_i = new FieldDef("deres_ej_oper_i",FieldDef.FLOAT,6,0);
-      deresultado_eje = new FieldDef("deresultado_eje",FieldDef.FLOAT,6,0);
-      deingr_arrendam = new FieldDef("deingr_arrendam",FieldDef.FLOAT,6,0);
-      deresto_ingr_ac = new FieldDef("deresto_ingr_ac",FieldDef.FLOAT,6,0);
-      desueldos_salar = new FieldDef("desueldos_salar",FieldDef.FLOAT,6,0);
-      deindemnizacion = new FieldDef("deindemnizacion",FieldDef.FLOAT,6,0);
-      deretr_suel_ins = new FieldDef("deretr_suel_ins",FieldDef.FLOAT,6,0);
-      deseg_social = new FieldDef("deseg_social",FieldDef.FLOAT,6,0);
-      deplanes_pensio = new FieldDef("deplanes_pensio",FieldDef.FLOAT,6,0);
-      deotros_gast_so = new FieldDef("deotros_gast_so",FieldDef.FLOAT,6,0);
-      dedeterioro_ena = new FieldDef("dedeterioro_ena",FieldDef.FLOAT,6,0);
-      dereversion_ena = new FieldDef("dereversion_ena",FieldDef.FLOAT,6,0);
-      debeneficio_ena = new FieldDef("debeneficio_ena",FieldDef.FLOAT,6,0);
-      deperdida_enaj = new FieldDef("deperdida_enaj",FieldDef.FLOAT,6,0);
-      dedeter_empr_gr = new FieldDef("dedeter_empr_gr",FieldDef.FLOAT,6,0);
-      dedeter_otr_emp = new FieldDef("dedeter_otr_emp",FieldDef.FLOAT,6,0);
-      derever_empr_gr = new FieldDef("derever_empr_gr",FieldDef.FLOAT,6,0);
-      derever_otr_emp = new FieldDef("derever_otr_emp",FieldDef.FLOAT,6,0);
-      debfos_empr_gru = new FieldDef("debfos_empr_gru",FieldDef.FLOAT,6,0);
-      debfos_otr_empr = new FieldDef("debfos_otr_empr",FieldDef.FLOAT,6,0);
-      deperd_empr_gru = new FieldDef("deperd_empr_gru",FieldDef.FLOAT,6,0);
-      deperd_otr_empr = new FieldDef("deperd_otr_empr",FieldDef.FLOAT,6,0);
-      deotringfin = new FieldDef("deotringfin",FieldDef.FLOAT,6,0);
-      deotringfin_act = new FieldDef("deotringfin_act",FieldDef.FLOAT,6,0);
-      deotringfin_con = new FieldDef("deotringfin_con",FieldDef.FLOAT,6,0);
-      deotringfin_res = new FieldDef("deotringfin_res",FieldDef.FLOAT,6,0);
-      deconsumoexisoc = new FieldDef("deconsumoexisoc",FieldDef.FLOAT,6,0);
-      deingropersocio = new FieldDef("deingropersocio",FieldDef.FLOAT,6,0);
-      deservtrabsocio = new FieldDef("deservtrabsocio",FieldDef.FLOAT,6,0);
-      dedotfondoeduca = new FieldDef("dedotfondoeduca",FieldDef.FLOAT,6,0);
-      dedsubvfondeduc = new FieldDef("dedsubvfondeduc",FieldDef.FLOAT,6,0);
-      dedfondoeducac = new FieldDef("dedfondoeducac",FieldDef.FLOAT,6,0);
-      deingfinvnegsoc = new FieldDef("deingfinvnegsoc",FieldDef.FLOAT,6,0);
-      degastfincardeu = new FieldDef("degastfincardeu",FieldDef.FLOAT,6,0);
-      dertdoperdctrl = new FieldDef("dertdoperdctrl",FieldDef.FLOAT,6,0);
-      dertdoatribpart = new FieldDef("dertdoatribpart",FieldDef.FLOAT,6,0);
-      dertdopartconso = new FieldDef("dertdopartconso",FieldDef.FLOAT,6,0);
-      dertosocdominan = new FieldDef("dertosocdominan",FieldDef.FLOAT,6,0);
-      dertosocesterno = new FieldDef("dertosocesterno",FieldDef.FLOAT,6,0);
-      deingrsholding = new FieldDef("deingrsholding",FieldDef.FLOAT,6,0);
-      degastemisgases = new FieldDef("degastemisgases",FieldDef.FLOAT,6,0);
-      dedeterenajhold = new FieldDef("dedeterenajhold",FieldDef.FLOAT,6,0);
-      dedholdinstpa = new FieldDef("dedholdinstpa",FieldDef.FLOAT,6,0);
-      dedholdvalneg = new FieldDef("dedholdvalneg",FieldDef.FLOAT,6,0);
-      dedholdresto = new FieldDef("dedholdresto",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        deejeraplic,
-        desociedad,
-        deventas,
-        deprestacion_se,
-        deimp_neto_cifr,
-        devariac_existe,
-        detraba_empresa,
-        deconsum_mercad,
-        deconsum_mat_pr,
-        detraba_otr_emp,
-        dedeter_mercade,
-        deaprovisionami,
-        deingr_accesori,
-        desubv_explotac,
-        deotr_ingr_expl,
-        desueldos,
-        decargas_social,
-        deprovisiones,
-        degastos_person,
-        deserv_exterior,
-        detributos,
-        deperd_op_comer,
-        deotros_gast_ge,
-        deotros_gast_ex,
-        deamortiz_inmov,
-        deimput_subv_in,
-        deexceso_provis,
-        dedeterioro,
-        deresul_enajena,
-        dedeter_enaj_in,
-        dedif_combin_ne,
-        deotros_resulta,
-        deresult_explot,
-        dei_fin_part_em,
-        dei_fin_part_te,
-        deing_fin_parti,
-        dei_fin_valn_em,
-        dei_fin_valn_te,
-        deing_fin_valne,
-        deing_fin_subve,
-        deingresos_fina,
-        deg_fin_deud_em,
-        deg_fin_deud_te,
-        deg_fin_deud_pr,
-        degastos_financ,
-        decartera_negoc,
-        deimp_res_act_f,
-        devaria_instr_f,
-        dedifer_cambios,
-        dedeter_y_perdi,
-        deresul_enaj_ot,
-        dedete_res_ins_,
-        deresult_financ,
-        deresult_ant_im,
-        deimp_sobre_bfo,
-        deres_ej_pr_op_,
-        deres_ej_oper_i,
-        deresultado_eje,
-        deingr_arrendam,
-        deresto_ingr_ac,
-        desueldos_salar,
-        deindemnizacion,
-        deretr_suel_ins,
-        deseg_social,
-        deplanes_pensio,
-        deotros_gast_so,
-        dedeterioro_ena,
-        dereversion_ena,
-        debeneficio_ena,
-        deperdida_enaj,
-        dedeter_empr_gr,
-        dedeter_otr_emp,
-        derever_empr_gr,
-        derever_otr_emp,
-        debfos_empr_gru,
-        debfos_otr_empr,
-        deperd_empr_gru,
-        deperd_otr_empr,
-        deotringfin,
-        deotringfin_act,
-        deotringfin_con,
-        deotringfin_res,
-        deconsumoexisoc,
-        deingropersocio,
-        deservtrabsocio,
-        dedotfondoeduca,
-        dedsubvfondeduc,
-        dedfondoeducac,
-        deingfinvnegsoc,
-        degastfincardeu,
-        dertdoperdctrl,
-        dertdoatribpart,
-        dertdopartconso,
-        dertosocdominan,
-        dertosocesterno,
-        deingrsholding,
-        degastemisgases,
-        dedeterenajhold,
-        dedholdinstpa,
-        dedholdvalneg,
-        dedholdresto        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {deejeraplic,desociedad };
-      setDescription("Cuenta de resultados");
-      setPrimaryKeys(arrayf);
-      deejeraplic.setDescription("Ejercicio fiscal aplicacion");
-      desociedad.setDescription("CODIGO SOCIEDAD");
-      deventas.setDescription("Ventas");
-      deprestacion_se.setDescription("Prestaciones de servicios");
-      deimp_neto_cifr.setDescription("IMPORTE NETO CIFRA NEGOCIOS");
-      devariac_existe.setDescription("Variacion de existencias");
-      detraba_empresa.setDescription("Trabajos realizados empresa");
-      deconsum_mercad.setDescription("Consumo de mercaderias");
-      deconsum_mat_pr.setDescription("Consumo materias primas");
-      detraba_otr_emp.setDescription("Trabajos otras empresas");
-      dedeter_mercade.setDescription("Deterioro mercaderias");
-      deaprovisionami.setDescription("APROVISIONAMIENTOS");
-      deingr_accesori.setDescription("INGRESOS ACCESORIOS");
-      desubv_explotac.setDescription("Subvenciones explotacion");
-      deotr_ingr_expl.setDescription("OTROS INGRESOS EXPLOTACION");
-      desueldos.setDescription("SUELDOS, SALARIOS Y ASIMILADOS");
-      decargas_social.setDescription("CARGAS SOCIALES");
-      deprovisiones.setDescription("Provisiones");
-      degastos_person.setDescription("GASTOS DE PERSONAL");
-      deserv_exterior.setDescription("Servicios exteriores");
-      detributos.setDescription("Tributos");
-      deperd_op_comer.setDescription("Perdidas,deterioro oper.comerc");
-      deotros_gast_ge.setDescription("Otros gastos gestion corriente");
-      deotros_gast_ex.setDescription("OTROS GASTOS EXPLOTACION");
-      deamortiz_inmov.setDescription("Amortizacion inmovilizado");
-      deimput_subv_in.setDescription("Imputacion subv.inmov.no finan");
-      deexceso_provis.setDescription("Exceso de provisiones");
-      dedeterioro.setDescription("DETERIORO Y PERDIDAS");
-      deresul_enajena.setDescription("RESULTADOS ENAJENACION Y OTRAS");
-      dedeter_enaj_in.setDescription("DETERIORO ENAJENACION INMOVIL.");
-      dedif_combin_ne.setDescription("Diferencia negativa combin.neg");
-      deotros_resulta.setDescription("Otros resultados");
-      deresult_explot.setDescription("RESULTADO EXPLOTACION");
-      dei_fin_part_em.setDescription("Part.instrum.patrim.empr.grupo");
-      dei_fin_part_te.setDescription("Part.instrum.patrim.terceros");
-      deing_fin_parti.setDescription("PARTICI.INSTRUMENTO PATRIMONIO");
-      dei_fin_valn_em.setDescription("Valores negociables empr.grupo");
-      dei_fin_valn_te.setDescription("Valores negociables terceros");
-      deing_fin_valne.setDescription("VALORES NEGOCIABLES Y OTROS IN");
-      deing_fin_subve.setDescription("Imput.subvenciones carac.finan");
-      deingresos_fina.setDescription("INGRESOS FINANCIEROS");
-      deg_fin_deud_em.setDescription("Deudas empresas grupo");
-      deg_fin_deud_te.setDescription("Deudas con terceros");
-      deg_fin_deud_pr.setDescription("Por actualizacion provisiones");
-      degastos_financ.setDescription("GASTOS FINANCIEROS");
-      decartera_negoc.setDescription("Cartera de negociacion y otros");
-      deimp_res_act_f.setDescription("Imputacion rtdo.activos financ");
-      devaria_instr_f.setDescription("VARIACION INSTRUM. FINANCIEROS");
-      dedifer_cambios.setDescription("Diferencias de cambio");
-      dedeter_y_perdi.setDescription("DETERIOROS Y PERDIDAS");
-      deresul_enaj_ot.setDescription("RESULTADOS ENAJENACIONES Y OTR");
-      dedete_res_ins_.setDescription("DETER.Y RDTO.ENAJEN.INSTR.FINA");
-      deresult_financ.setDescription("RESULTADO FINANCIERO");
-      deresult_ant_im.setDescription("RESULTADO ANTES IMPUESTOS");
-      deimp_sobre_bfo.setDescription("Impuestos sobre beneficios");
-      deres_ej_pr_op_.setDescription("RESUL.EJER.PROC.OPER.CONTINUAD");
-      deres_ej_oper_i.setDescription("Result.ejer.proced.op.interrum");
-      deresultado_eje.setDescription("RESULTADO EJERCICIO");
-      deingr_arrendam.setDescription("Ingresos por arrendamiento");
-      deresto_ingr_ac.setDescription("Resto ingresos accesorios");
-      desueldos_salar.setDescription("Sueldos y salarios");
-      deindemnizacion.setDescription("Indemnizaciones");
-      deretr_suel_ins.setDescription("Retrib.sueldos instr.patrimon.");
-      deseg_social.setDescription("Seguridad social");
-      deplanes_pensio.setDescription("Retrib.l.pl. sistemas aportac.");
-      deotros_gast_so.setDescription("Otros gastos sociales");
-      dedeterioro_ena.setDescription("Deterioro enajenacion inmov.");
-      dereversion_ena.setDescription("Reversion enajenacion inmov.");
-      debeneficio_ena.setDescription("Beneficio enajenacion inmov.");
-      deperdida_enaj.setDescription("Perdida enajenacion inmov.");
-      dedeter_empr_gr.setDescription("Deter. instr.financ.empr.grupo");
-      dedeter_otr_emp.setDescription("Deter. instr.financ.otras empr");
-      derever_empr_gr.setDescription("Rever. instr.financ.empr.grupo");
-      derever_otr_emp.setDescription("Rever. instr.financ.otras empr");
-      debfos_empr_gru.setDescription("Bfos. instr.financ.empr.grupo");
-      debfos_otr_empr.setDescription("Bfos. instr.financ.otras empr.");
-      deperd_empr_gru.setDescription("Perd. instr.financ.empr.grupo");
-      deperd_otr_empr.setDescription("Perd. instr.financ.otras empr.");
-      deotringfin.setDescription("Otros ingresos y gastos finan.");
-      deotringfin_act.setDescription("Activo gastos financieros.");
-      deotringfin_con.setDescription("Ingresos fin. derivados conve.");
-      deotringfin_res.setDescription("Resto de ingresos y gastos.");
-      deconsumoexisoc.setDescription("Consumo existencias socios (cooperativas)");
-      deingropersocio.setDescription("Ingresos por operaciones con socios (cooperativas)");
-      deservtrabsocio.setDescription("Servicios de trabajos de socios (cooperativas)");
-      dedotfondoeduca.setDescription("Dotacion fondo educacion y promocion (cooperativas)");
-      dedsubvfondeduc.setDescription("Subvenciones, donaciones a fondo educacion (cooperativas)");
-      dedfondoeducac.setDescription("FONDO EDUCACION Y PROMOCION (cooperativas)");
-      deingfinvnegsoc.setDescription("Ingresos financieros de valores negociables de socios (cooperativas)");
-      degastfincardeu.setDescription("Gastos financieros por intereses por deudas (cooperativas)");
-      dertdoperdctrl.setDescription("Resultado perdida control de una dependiente (grupo consolidado)");
-      dertdoatribpart.setDescription("Resultado atribuido a la participacion retenida (grupo consolidado)");
-      dertdopartconso.setDescription("RESULTADO PERDIDA DE CONTROL DE PARTICIOACIONES CONSOLIDADAS (grupo consolidado)");
-      dertosocdominan.setDescription("Resultado atribuido sociedad dominante");
-      dertosocesterno.setDescription("Resultado atribuido a socios externos");
-      deingrsholding.setDescription("Ingresos caracter financiero de las sociedades holding");
-      degastemisgases.setDescription("Gastos emision gases efecto invernadero");
-      dedeterenajhold.setDescription("Deterioro por enajenaciones inmovilizado sociedades holding");
-      dedholdinstpa.setDescription("De participaciones en instrumentos de patrimonio [706]");
-      dedholdvalneg.setDescription("De valores negociables y otros instrumentos financieros [707]");
-      dedholdresto.setDescription("Resto [708]");
       }
     }
     
@@ -26961,481 +24857,6 @@ public class CatJiss extends Catalog
       }
     }
     
-  public class TabDedintgral extends TableDef
-    {
-    // Campos
-    public FieldDef digejeraplic;
-    public FieldDef digsociedad;
-    public FieldDef diganyo;
-    public FieldDef dig_cvelim;
-    public FieldDef dig_cvesaldo;
-    public FieldDef dig_cveaplic;
-    public FieldDef dig_cveaplicn;
-    public FieldDef dig_cmvlim;
-    public FieldDef dig_cmvsaldo;
-    public FieldDef dig_cmvaplic;
-    public FieldDef dig_cmvaplicn;
-    public FieldDef dig_arvlim;
-    public FieldDef dig_arvsaldo;
-    public FieldDef dig_arvaplic;
-    public FieldDef dig_arvaplicn;
-    public FieldDef dig_aejlim;
-    public FieldDef dig_aejsaldo;
-    public FieldDef dig_aejaplic;
-    public FieldDef dig_aejaplicn;
-    public FieldDef dig_pcllim;
-    public FieldDef dig_pclsaldo;
-    public FieldDef dig_pclaplic;
-    public FieldDef dig_pclaplicn;
-    public FieldDef dig_pjilim;
-    public FieldDef dig_pjisaldo;
-    public FieldDef dig_pjiaplic;
-    public FieldDef dig_pjiaplicn;
-    public FieldDef dig_uiglim;
-    public FieldDef dig_uigsaldo;
-    public FieldDef dig_uigaplic;
-    public FieldDef dig_uigaplicn;
-    public FieldDef dig_cmclim;
-    public FieldDef dig_cmcsaldo;
-    public FieldDef dig_cmcaplic;
-    public FieldDef dig_cmcaplicn;
-    public FieldDef dig_cculim;
-    public FieldDef dig_ccusaldo;
-    public FieldDef dig_ccuaplic;
-    public FieldDef dig_ccuaplicn;
-    public FieldDef dig_bwjlim;
-    public FieldDef dig_bwjsaldo;
-    public FieldDef dig_bwjaplic;
-    public FieldDef dig_bwjaplicn;
-    public FieldDef dig_cnblim;
-    public FieldDef dig_cnbsaldo;
-    public FieldDef dig_cnbaplic;
-    public FieldDef dig_cnbaplicn;
-    public FieldDef dig_mwclim;
-    public FieldDef dig_mwcsaldo;
-    public FieldDef dig_mwcaplic;
-    public FieldDef dig_mwcaplicn;
-    public FieldDef dig_bwrlim;
-    public FieldDef dig_bwrsaldo;
-    public FieldDef dig_bwraplic;
-    public FieldDef dig_bwraplicn;
-    public FieldDef dig_cpmlim;
-    public FieldDef dig_cpmsaldo;
-    public FieldDef dig_cpmaplic;
-    public FieldDef dig_cpmaplicn;
-    public FieldDef dig_ctolim;
-    public FieldDef dig_ctosaldo;
-    public FieldDef dig_ctoaplic;
-    public FieldDef dig_ctoaplicn;
-    public FieldDef dig_abplim;
-    public FieldDef dig_abpsaldo;
-    public FieldDef dig_abpaplic;
-    public FieldDef dig_abpaplicn;
-    public FieldDef dig_cpllim;
-    public FieldDef dig_cplsaldo;
-    public FieldDef dig_cplaplic;
-    public FieldDef dig_cplaplicn;
-    public FieldDef dig_anclim;
-    public FieldDef dig_ancsaldo;
-    public FieldDef dig_ancaplic;
-    public FieldDef dig_ancaplicn;
-    public FieldDef dig_bntlim;
-    public FieldDef dig_bntsaldo;
-    public FieldDef dig_bntaplic;
-    public FieldDef dig_bntaplicn;
-    public FieldDef dig_ajmlim;
-    public FieldDef dig_ajmsaldo;
-    public FieldDef dig_ajmaplic;
-    public FieldDef dig_ajmaplicn;
-    public FieldDef dig_cmalim;
-    public FieldDef dig_cmasaldo;
-    public FieldDef dig_cmaaplic;
-    public FieldDef dig_cmaaplicn;
-    public FieldDef dig_dmlim;
-    public FieldDef dig_dmsaldo;
-    public FieldDef dig_dmaplic;
-    public FieldDef dig_dmaplicn;
-    public FieldDef dig_jrjlim;
-    public FieldDef dig_jrjsaldo;
-    public FieldDef dig_jrjaplic;
-    public FieldDef dig_jrjaplicn;
-    public FieldDef dig_csflim;
-    public FieldDef dig_csfsaldo;
-    public FieldDef dig_csfaplic;
-    public FieldDef dig_csfaplicn;
-    public FieldDef dig_csjlim;
-    public FieldDef dig_csjsaldo;
-    public FieldDef dig_csjaplic;
-    public FieldDef dig_csjaplicn;
-    public FieldDef dig_ajulim;
-    public FieldDef dig_ajusaldo;
-    public FieldDef dig_ajuaplic;
-    public FieldDef dig_ajuaplicn;
-    public FieldDef dig_ajslim;
-    public FieldDef dig_ajssaldo;
-    public FieldDef dig_ajsaplic;
-    public FieldDef dig_ajsaplicn;
-    public FieldDef dig_a14lim;
-    public FieldDef dig_a14saldo;
-    public FieldDef dig_a14aplic;
-    public FieldDef dig_a14aplicn;
-    public TabDedintgral(String name)
-      {
-      super(name);
-      digejeraplic = new FieldDef("digejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      digsociedad = new FieldDef("digsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      diganyo = new FieldDef("diganyo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      dig_cvelim = new FieldDef("dig_cvelim",FieldDef.FLOAT,6,0);
-      dig_cvesaldo = new FieldDef("dig_cvesaldo",FieldDef.FLOAT,6,0);
-      dig_cveaplic = new FieldDef("dig_cveaplic",FieldDef.FLOAT,6,0);
-      dig_cveaplicn = new FieldDef("dig_cveaplicn",FieldDef.FLOAT,6,0);
-      dig_cmvlim = new FieldDef("dig_cmvlim",FieldDef.FLOAT,6,0);
-      dig_cmvsaldo = new FieldDef("dig_cmvsaldo",FieldDef.FLOAT,6,0);
-      dig_cmvaplic = new FieldDef("dig_cmvaplic",FieldDef.FLOAT,6,0);
-      dig_cmvaplicn = new FieldDef("dig_cmvaplicn",FieldDef.FLOAT,6,0);
-      dig_arvlim = new FieldDef("dig_arvlim",FieldDef.FLOAT,6,0);
-      dig_arvsaldo = new FieldDef("dig_arvsaldo",FieldDef.FLOAT,6,0);
-      dig_arvaplic = new FieldDef("dig_arvaplic",FieldDef.FLOAT,6,0);
-      dig_arvaplicn = new FieldDef("dig_arvaplicn",FieldDef.FLOAT,6,0);
-      dig_aejlim = new FieldDef("dig_aejlim",FieldDef.FLOAT,6,0);
-      dig_aejsaldo = new FieldDef("dig_aejsaldo",FieldDef.FLOAT,6,0);
-      dig_aejaplic = new FieldDef("dig_aejaplic",FieldDef.FLOAT,6,0);
-      dig_aejaplicn = new FieldDef("dig_aejaplicn",FieldDef.FLOAT,6,0);
-      dig_pcllim = new FieldDef("dig_pcllim",FieldDef.FLOAT,6,0);
-      dig_pclsaldo = new FieldDef("dig_pclsaldo",FieldDef.FLOAT,6,0);
-      dig_pclaplic = new FieldDef("dig_pclaplic",FieldDef.FLOAT,6,0);
-      dig_pclaplicn = new FieldDef("dig_pclaplicn",FieldDef.FLOAT,6,0);
-      dig_pjilim = new FieldDef("dig_pjilim",FieldDef.FLOAT,6,0);
-      dig_pjisaldo = new FieldDef("dig_pjisaldo",FieldDef.FLOAT,6,0);
-      dig_pjiaplic = new FieldDef("dig_pjiaplic",FieldDef.FLOAT,6,0);
-      dig_pjiaplicn = new FieldDef("dig_pjiaplicn",FieldDef.FLOAT,6,0);
-      dig_uiglim = new FieldDef("dig_uiglim",FieldDef.FLOAT,6,0);
-      dig_uigsaldo = new FieldDef("dig_uigsaldo",FieldDef.FLOAT,6,0);
-      dig_uigaplic = new FieldDef("dig_uigaplic",FieldDef.FLOAT,6,0);
-      dig_uigaplicn = new FieldDef("dig_uigaplicn",FieldDef.FLOAT,6,0);
-      dig_cmclim = new FieldDef("dig_cmclim",FieldDef.FLOAT,6,0);
-      dig_cmcsaldo = new FieldDef("dig_cmcsaldo",FieldDef.FLOAT,6,0);
-      dig_cmcaplic = new FieldDef("dig_cmcaplic",FieldDef.FLOAT,6,0);
-      dig_cmcaplicn = new FieldDef("dig_cmcaplicn",FieldDef.FLOAT,6,0);
-      dig_cculim = new FieldDef("dig_cculim",FieldDef.FLOAT,6,0);
-      dig_ccusaldo = new FieldDef("dig_ccusaldo",FieldDef.FLOAT,6,0);
-      dig_ccuaplic = new FieldDef("dig_ccuaplic",FieldDef.FLOAT,6,0);
-      dig_ccuaplicn = new FieldDef("dig_ccuaplicn",FieldDef.FLOAT,6,0);
-      dig_bwjlim = new FieldDef("dig_bwjlim",FieldDef.FLOAT,6,0);
-      dig_bwjsaldo = new FieldDef("dig_bwjsaldo",FieldDef.FLOAT,6,0);
-      dig_bwjaplic = new FieldDef("dig_bwjaplic",FieldDef.FLOAT,6,0);
-      dig_bwjaplicn = new FieldDef("dig_bwjaplicn",FieldDef.FLOAT,6,0);
-      dig_cnblim = new FieldDef("dig_cnblim",FieldDef.FLOAT,6,0);
-      dig_cnbsaldo = new FieldDef("dig_cnbsaldo",FieldDef.FLOAT,6,0);
-      dig_cnbaplic = new FieldDef("dig_cnbaplic",FieldDef.FLOAT,6,0);
-      dig_cnbaplicn = new FieldDef("dig_cnbaplicn",FieldDef.FLOAT,6,0);
-      dig_mwclim = new FieldDef("dig_mwclim",FieldDef.FLOAT,6,0);
-      dig_mwcsaldo = new FieldDef("dig_mwcsaldo",FieldDef.FLOAT,6,0);
-      dig_mwcaplic = new FieldDef("dig_mwcaplic",FieldDef.FLOAT,6,0);
-      dig_mwcaplicn = new FieldDef("dig_mwcaplicn",FieldDef.FLOAT,6,0);
-      dig_bwrlim = new FieldDef("dig_bwrlim",FieldDef.FLOAT,6,0);
-      dig_bwrsaldo = new FieldDef("dig_bwrsaldo",FieldDef.FLOAT,6,0);
-      dig_bwraplic = new FieldDef("dig_bwraplic",FieldDef.FLOAT,6,0);
-      dig_bwraplicn = new FieldDef("dig_bwraplicn",FieldDef.FLOAT,6,0);
-      dig_cpmlim = new FieldDef("dig_cpmlim",FieldDef.FLOAT,6,0);
-      dig_cpmsaldo = new FieldDef("dig_cpmsaldo",FieldDef.FLOAT,6,0);
-      dig_cpmaplic = new FieldDef("dig_cpmaplic",FieldDef.FLOAT,6,0);
-      dig_cpmaplicn = new FieldDef("dig_cpmaplicn",FieldDef.FLOAT,6,0);
-      dig_ctolim = new FieldDef("dig_ctolim",FieldDef.FLOAT,6,0);
-      dig_ctosaldo = new FieldDef("dig_ctosaldo",FieldDef.FLOAT,6,0);
-      dig_ctoaplic = new FieldDef("dig_ctoaplic",FieldDef.FLOAT,6,0);
-      dig_ctoaplicn = new FieldDef("dig_ctoaplicn",FieldDef.FLOAT,6,0);
-      dig_abplim = new FieldDef("dig_abplim",FieldDef.FLOAT,6,0);
-      dig_abpsaldo = new FieldDef("dig_abpsaldo",FieldDef.FLOAT,6,0);
-      dig_abpaplic = new FieldDef("dig_abpaplic",FieldDef.FLOAT,6,0);
-      dig_abpaplicn = new FieldDef("dig_abpaplicn",FieldDef.FLOAT,6,0);
-      dig_cpllim = new FieldDef("dig_cpllim",FieldDef.FLOAT,6,0);
-      dig_cplsaldo = new FieldDef("dig_cplsaldo",FieldDef.FLOAT,6,0);
-      dig_cplaplic = new FieldDef("dig_cplaplic",FieldDef.FLOAT,6,0);
-      dig_cplaplicn = new FieldDef("dig_cplaplicn",FieldDef.FLOAT,6,0);
-      dig_anclim = new FieldDef("dig_anclim",FieldDef.FLOAT,6,0);
-      dig_ancsaldo = new FieldDef("dig_ancsaldo",FieldDef.FLOAT,6,0);
-      dig_ancaplic = new FieldDef("dig_ancaplic",FieldDef.FLOAT,6,0);
-      dig_ancaplicn = new FieldDef("dig_ancaplicn",FieldDef.FLOAT,6,0);
-      dig_bntlim = new FieldDef("dig_bntlim",FieldDef.FLOAT,6,0);
-      dig_bntsaldo = new FieldDef("dig_bntsaldo",FieldDef.FLOAT,6,0);
-      dig_bntaplic = new FieldDef("dig_bntaplic",FieldDef.FLOAT,6,0);
-      dig_bntaplicn = new FieldDef("dig_bntaplicn",FieldDef.FLOAT,6,0);
-      dig_ajmlim = new FieldDef("dig_ajmlim",FieldDef.FLOAT,6,0);
-      dig_ajmsaldo = new FieldDef("dig_ajmsaldo",FieldDef.FLOAT,6,0);
-      dig_ajmaplic = new FieldDef("dig_ajmaplic",FieldDef.FLOAT,6,0);
-      dig_ajmaplicn = new FieldDef("dig_ajmaplicn",FieldDef.FLOAT,6,0);
-      dig_cmalim = new FieldDef("dig_cmalim",FieldDef.FLOAT,6,0);
-      dig_cmasaldo = new FieldDef("dig_cmasaldo",FieldDef.FLOAT,6,0);
-      dig_cmaaplic = new FieldDef("dig_cmaaplic",FieldDef.FLOAT,6,0);
-      dig_cmaaplicn = new FieldDef("dig_cmaaplicn",FieldDef.FLOAT,6,0);
-      dig_dmlim = new FieldDef("dig_dmlim",FieldDef.FLOAT,6,0);
-      dig_dmsaldo = new FieldDef("dig_dmsaldo",FieldDef.FLOAT,6,0);
-      dig_dmaplic = new FieldDef("dig_dmaplic",FieldDef.FLOAT,6,0);
-      dig_dmaplicn = new FieldDef("dig_dmaplicn",FieldDef.FLOAT,6,0);
-      dig_jrjlim = new FieldDef("dig_jrjlim",FieldDef.FLOAT,6,0);
-      dig_jrjsaldo = new FieldDef("dig_jrjsaldo",FieldDef.FLOAT,6,0);
-      dig_jrjaplic = new FieldDef("dig_jrjaplic",FieldDef.FLOAT,6,0);
-      dig_jrjaplicn = new FieldDef("dig_jrjaplicn",FieldDef.FLOAT,6,0);
-      dig_csflim = new FieldDef("dig_csflim",FieldDef.FLOAT,6,0);
-      dig_csfsaldo = new FieldDef("dig_csfsaldo",FieldDef.FLOAT,6,0);
-      dig_csfaplic = new FieldDef("dig_csfaplic",FieldDef.FLOAT,6,0);
-      dig_csfaplicn = new FieldDef("dig_csfaplicn",FieldDef.FLOAT,6,0);
-      dig_csjlim = new FieldDef("dig_csjlim",FieldDef.FLOAT,6,0);
-      dig_csjsaldo = new FieldDef("dig_csjsaldo",FieldDef.FLOAT,6,0);
-      dig_csjaplic = new FieldDef("dig_csjaplic",FieldDef.FLOAT,6,0);
-      dig_csjaplicn = new FieldDef("dig_csjaplicn",FieldDef.FLOAT,6,0);
-      dig_ajulim = new FieldDef("dig_ajulim",FieldDef.FLOAT,6,0);
-      dig_ajusaldo = new FieldDef("dig_ajusaldo",FieldDef.FLOAT,6,0);
-      dig_ajuaplic = new FieldDef("dig_ajuaplic",FieldDef.FLOAT,6,0);
-      dig_ajuaplicn = new FieldDef("dig_ajuaplicn",FieldDef.FLOAT,6,0);
-      dig_ajslim = new FieldDef("dig_ajslim",FieldDef.FLOAT,6,0);
-      dig_ajssaldo = new FieldDef("dig_ajssaldo",FieldDef.FLOAT,6,0);
-      dig_ajsaplic = new FieldDef("dig_ajsaplic",FieldDef.FLOAT,6,0);
-      dig_ajsaplicn = new FieldDef("dig_ajsaplicn",FieldDef.FLOAT,6,0);
-      dig_a14lim = new FieldDef("dig_a14lim",FieldDef.FLOAT,6,0);
-      dig_a14saldo = new FieldDef("dig_a14saldo",FieldDef.FLOAT,6,0);
-      dig_a14aplic = new FieldDef("dig_a14aplic",FieldDef.FLOAT,6,0);
-      dig_a14aplicn = new FieldDef("dig_a14aplicn",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        digejeraplic,
-        digsociedad,
-        diganyo,
-        dig_cvelim,
-        dig_cvesaldo,
-        dig_cveaplic,
-        dig_cveaplicn,
-        dig_cmvlim,
-        dig_cmvsaldo,
-        dig_cmvaplic,
-        dig_cmvaplicn,
-        dig_arvlim,
-        dig_arvsaldo,
-        dig_arvaplic,
-        dig_arvaplicn,
-        dig_aejlim,
-        dig_aejsaldo,
-        dig_aejaplic,
-        dig_aejaplicn,
-        dig_pcllim,
-        dig_pclsaldo,
-        dig_pclaplic,
-        dig_pclaplicn,
-        dig_pjilim,
-        dig_pjisaldo,
-        dig_pjiaplic,
-        dig_pjiaplicn,
-        dig_uiglim,
-        dig_uigsaldo,
-        dig_uigaplic,
-        dig_uigaplicn,
-        dig_cmclim,
-        dig_cmcsaldo,
-        dig_cmcaplic,
-        dig_cmcaplicn,
-        dig_cculim,
-        dig_ccusaldo,
-        dig_ccuaplic,
-        dig_ccuaplicn,
-        dig_bwjlim,
-        dig_bwjsaldo,
-        dig_bwjaplic,
-        dig_bwjaplicn,
-        dig_cnblim,
-        dig_cnbsaldo,
-        dig_cnbaplic,
-        dig_cnbaplicn,
-        dig_mwclim,
-        dig_mwcsaldo,
-        dig_mwcaplic,
-        dig_mwcaplicn,
-        dig_bwrlim,
-        dig_bwrsaldo,
-        dig_bwraplic,
-        dig_bwraplicn,
-        dig_cpmlim,
-        dig_cpmsaldo,
-        dig_cpmaplic,
-        dig_cpmaplicn,
-        dig_ctolim,
-        dig_ctosaldo,
-        dig_ctoaplic,
-        dig_ctoaplicn,
-        dig_abplim,
-        dig_abpsaldo,
-        dig_abpaplic,
-        dig_abpaplicn,
-        dig_cpllim,
-        dig_cplsaldo,
-        dig_cplaplic,
-        dig_cplaplicn,
-        dig_anclim,
-        dig_ancsaldo,
-        dig_ancaplic,
-        dig_ancaplicn,
-        dig_bntlim,
-        dig_bntsaldo,
-        dig_bntaplic,
-        dig_bntaplicn,
-        dig_ajmlim,
-        dig_ajmsaldo,
-        dig_ajmaplic,
-        dig_ajmaplicn,
-        dig_cmalim,
-        dig_cmasaldo,
-        dig_cmaaplic,
-        dig_cmaaplicn,
-        dig_dmlim,
-        dig_dmsaldo,
-        dig_dmaplic,
-        dig_dmaplicn,
-        dig_jrjlim,
-        dig_jrjsaldo,
-        dig_jrjaplic,
-        dig_jrjaplicn,
-        dig_csflim,
-        dig_csfsaldo,
-        dig_csfaplic,
-        dig_csfaplicn,
-        dig_csjlim,
-        dig_csjsaldo,
-        dig_csjaplic,
-        dig_csjaplicn,
-        dig_ajulim,
-        dig_ajusaldo,
-        dig_ajuaplic,
-        dig_ajuaplicn,
-        dig_ajslim,
-        dig_ajssaldo,
-        dig_ajsaplic,
-        dig_ajsaplicn,
-        dig_a14lim,
-        dig_a14saldo,
-        dig_a14aplic,
-        dig_a14aplicn        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {digejeraplic,digsociedad,diganyo };
-      setDescription("Deduccion gastos actividades interes general");
-      setPrimaryKeys(arrayf);
-      digejeraplic.setDescription("Ejercicio fiscal aplicacion");
-      digsociedad.setDescription("Sociedad");
-      diganyo.setDescription("Ejercicio");
-      dig_cvelim.setDescription("Capital verde Europea 2012: limite");
-      dig_cvesaldo.setDescription("Capital verde Europea 2012: saldo anterior");
-      dig_cveaplic.setDescription("Capital verde Europea 2012: aplicado");
-      dig_cveaplicn.setDescription("Capital verde Europea 2012: aplicado socios no resid");
-      dig_cmvlim.setDescription("Campeonato mundo de vela 2014: limite");
-      dig_cmvsaldo.setDescription("Campeonato mundo de vela 2014: saldo anterior");
-      dig_cmvaplic.setDescription("Campeonato mundo de vela 2014: aplicado");
-      dig_cmvaplicn.setDescription("Campeonato mundo de vela 2014: aplicado socios no resid");
-      dig_arvlim.setDescription("Arbol de la vida: limite");
-      dig_arvsaldo.setDescription("Arbol de la vida: saldo anterior");
-      dig_arvaplic.setDescription("Arbol de la vida: aplicado");
-      dig_arvaplicn.setDescription("Arbol de la vida: aplicado socios no resid");
-      dig_aejlim.setDescription("Año España y Japon: limite");
-      dig_aejsaldo.setDescription("Año España y Japon: saldo anterior");
-      dig_aejaplic.setDescription("Año España y Japon: aplicado");
-      dig_aejaplicn.setDescription("Año España y Japon: aplicado socios no resid");
-      dig_pcllim.setDescription("Recuperacion Patrimonio Cultural Lorca: limite");
-      dig_pclsaldo.setDescription("Recuperacion Patrimonio Cultural Lorca: saldo anterior");
-      dig_pclaplic.setDescription("Recuperacion Patrimonio Cultural Lorca: aplicado");
-      dig_pclaplicn.setDescription("Recuperacion Patrimonio Cultural Lorca: aplicado socios no resid");
-      dig_pjilim.setDescription("Programa patrimonio joven: limite");
-      dig_pjisaldo.setDescription("Programa patrimonio joven: saldo anterior");
-      dig_pjiaplic.setDescription("Programa patrimonio joven: aplicado");
-      dig_pjiaplicn.setDescription("Programa patrimonio joven: aplicado socios no resid");
-      dig_uiglim.setDescription("Universiada Invierno Granada 2015: limite");
-      dig_uigsaldo.setDescription("Universiada Invierno Granada 2015: saldo anterior");
-      dig_uigaplic.setDescription("Universiada Invierno Granada 2015: aplicado");
-      dig_uigaplicn.setDescription("Universiada Invierno Granada 2015: aplicado socios no resid");
-      dig_cmclim.setDescription("Campeonato mundo ciclismo Ponferrada 2014: limite");
-      dig_cmcsaldo.setDescription("Campeonato mundo ciclismo Ponferrada 2014: saldo anterior");
-      dig_cmcaplic.setDescription("Campeonato mundo ciclismo Ponferrada 2014: aplicado");
-      dig_cmcaplicn.setDescription("Campeonato mundo ciclismo Ponferrada 2014: aplicado socios no resid");
-      dig_cculim.setDescription("Creacion centro categoria 2 Unesco: limite");
-      dig_ccusaldo.setDescription("Creacion centro categoria 2 Unesco: saldo anterior");
-      dig_ccuaplic.setDescription("Creacion centro categoria 2 Unesco: aplicado");
-      dig_ccuaplicn.setDescription("Creacion centro categoria 2 Unesco: aplicado socios no resid");
-      dig_bwjlim.setDescription("Barcelona Word Jumping Challenge: limite");
-      dig_bwjsaldo.setDescription("Barcelona Word Jumping Challenge: saldo anterior");
-      dig_bwjaplic.setDescription("Barcelona Word Jumping Challenge: aplicado");
-      dig_bwjaplicn.setDescription("Barcelona Word Jumping Challenge: aplicado socios no resid");
-      dig_cnblim.setDescription("Campeonato natacion Barcelona 2013: limite");
-      dig_cnbsaldo.setDescription("Campeonato natacion Barcelona 2013: saldo anterior");
-      dig_cnbaplic.setDescription("Campeonato natacion Barcelona 2013: aplicado");
-      dig_cnbaplicn.setDescription("Campeonato natacion Barcelona 2013: aplicado socios no resid");
-      dig_mwclim.setDescription("Barcelona Mobile Wold Capital: limite");
-      dig_mwcsaldo.setDescription("Barcelona Mobile Wold Capital: saldo anterior");
-      dig_mwcaplic.setDescription("Barcelona Mobile Wold Capital: aplicado");
-      dig_mwcaplicn.setDescription("Barcelona Mobile Wold Capital: aplicado socios no resid");
-      dig_bwrlim.setDescription("Barcelona World Race: limite");
-      dig_bwrsaldo.setDescription("Barcelona World Race: saldo anterior");
-      dig_bwraplic.setDescription("Barcelona World Race: aplicado");
-      dig_bwraplicn.setDescription("Barcelona World Race: aplicado socios no resid");
-      dig_cpmlim.setDescription("Aniversario Convencion Patrimonio Mundial Paris: limite");
-      dig_cpmsaldo.setDescription("Aniversario Convencion Patrimonio Mundial Paris: saldo anterior");
-      dig_cpmaplic.setDescription("Aniversario Convencion Patrimonio Mundial Paris: aplicado");
-      dig_cpmaplicn.setDescription("Aniversario Convencion Patrimonio Mundial Paris: aplicado socios no resid");
-      dig_ctolim.setDescription("Campeonato Tiro Olimpico Las Gabias 2014: limite");
-      dig_ctosaldo.setDescription("Campeonato Tiro Olimpico Las Gabias 2014: saldo anterior");
-      dig_ctoaplic.setDescription("Campeonato Tiro Olimpico Las Gabias 2014: aplicado");
-      dig_ctoaplicn.setDescription("Campeonato Tiro Olimpico Las Gabias 2014: aplicado socios no resid");
-      dig_abplim.setDescription("500 años Bula Papal: limite");
-      dig_abpsaldo.setDescription("500 años Bula Papal: saldo anterior");
-      dig_abpaplic.setDescription("500 años Bula Papal: aplicado");
-      dig_abpaplicn.setDescription("500 años Bula Papal: aplicado socios no resid");
-      dig_cpllim.setDescription("2012 Año Culturas, Paz y libertad: limite");
-      dig_cplsaldo.setDescription("2012 Año Culturas, Paz y libertad: saldo anterior");
-      dig_cplaplic.setDescription("2012 Año Culturas, Paz y libertad: aplicado");
-      dig_cplaplicn.setDescription("2012 Año Culturas, Paz y libertad: aplicado socios no resid");
-      dig_anclim.setDescription("Año neurociencia: limite");
-      dig_ancsaldo.setDescription("Año neurociencia: saldo anterior");
-      dig_ancaplic.setDescription("Año neurociencia: aplicado");
-      dig_ancaplicn.setDescription("Año neurociencia: aplicado socios no resid");
-      dig_bntlim.setDescription("VIII Batalla Navas de Tolosa: limite");
-      dig_bntsaldo.setDescription("VIII Batalla Navas de Tolosa: saldo anterior");
-      dig_bntaplic.setDescription("VIII Batalla Navas de Tolosa: aplicado");
-      dig_bntaplicn.setDescription("VIII Batalla Navas de Tolosa: aplicado socios no resid");
-      dig_ajmlim.setDescription("Año Jubilar Mariano: limite");
-      dig_ajmsaldo.setDescription("Año Jubilar Mariano: saldo anterior");
-      dig_ajmaplic.setDescription("Año Jubilar Mariano: aplicado");
-      dig_ajmaplicn.setDescription("Año Jubilar Mariano: aplicado socios no resid");
-      dig_cmalim.setDescription("Candidatura Madrid 2020: limite");
-      dig_cmasaldo.setDescription("Candidatura Madrid 2020: saldo anterior");
-      dig_cmaaplic.setDescription("Candidatura Madrid 2020: aplicado");
-      dig_cmaaplicn.setDescription("Candidatura Madrid 2020: aplicado socios no resid");
-      dig_dmlim.setDescription("Año internacional Dieta Mediterranea: limite");
-      dig_dmsaldo.setDescription("Año internacional Dieta Mediterranea: saldo anterior");
-      dig_dmaplic.setDescription("Año internacional Dieta Mediterranea: aplicado");
-      dig_dmaplicn.setDescription("Año internacional Dieta Mediterranea: aplicado socios no resid");
-      dig_jrjlim.setDescription("Preparacion deportistas Rio Janeiro: limite");
-      dig_jrjsaldo.setDescription("Preparacion deportistas Rio Janeiro: saldo anterior");
-      dig_jrjaplic.setDescription("Preparacion deportistas Rio Janeiro: aplicado");
-      dig_jrjaplicn.setDescription("Preparacion deportistas Rio Janeiro: aplicado socios no resid");
-      dig_csflim.setDescription("Centenario San Franciso Asis: limite");
-      dig_csfsaldo.setDescription("Centenario San Franciso Asis: saldo anterior");
-      dig_csfaplic.setDescription("Centenario San Franciso Asis: aplicado");
-      dig_csfaplicn.setDescription("Centenario San Franciso Asis: aplicado socios no resid");
-      dig_csjlim.setDescription("Centenario Santa Teresa: limite");
-      dig_csjsaldo.setDescription("Centenario Santa Teresa: saldo anterior");
-      dig_csjaplic.setDescription("Centenario Santa Teresa: aplicado");
-      dig_csjaplicn.setDescription("Centenario Santa Teresa: aplicado socios no resid");
-      dig_ajulim.setDescription("Año Junipero Serra: limite");
-      dig_ajusaldo.setDescription("Año Junipero Serra: saldo anterior");
-      dig_ajuaplic.setDescription("Año Junipero Serra: aplicado");
-      dig_ajuaplicn.setDescription("Año Junipero Serra: aplicado socios no resid");
-      dig_ajslim.setDescription("Año Santo Jubilar Mariano 2013-2014: limite");
-      dig_ajssaldo.setDescription("Año Santo Jubilar Mariano 2013-2014: saldo anterior");
-      dig_ajsaplic.setDescription("Año Santo Jubilar Mariano 2013-2014: aplicado");
-      dig_ajsaplicn.setDescription("Año Santo Jubilar Mariano 2013-2014: aplicado socios no resid");
-      dig_a14lim.setDescription("Vuelta al mundo a vela Alicante 2014: limite");
-      dig_a14saldo.setDescription("Vuelta al mundo a vela Alicante 2014: saldo anterior");
-      dig_a14aplic.setDescription("Vuelta al mundo a vela Alicante 2014: aplicado");
-      dig_a14aplicn.setDescription("Vuelta al mundo a vela Alicante 2014: aplicado socios no resid");
-      }
-    }
-    
   public class TabDedidi extends TableDef
     {
     // Campos
@@ -27551,513 +24972,6 @@ public class CatJiss extends Catalog
       dieporcentaje.setDescription("% Deduccion");
       diededuccion.setDescription("Cuantia deduccion");
       dieexcllimite.setDescription("Excluidas limite deducciones");
-      }
-    }
-    
-  public class TabCalculo extends TableDef
-    {
-    // Campos
-    public FieldDef caejeraplic;
-    public FieldDef catipo_gravamen;
-    public FieldDef catipo_grav_coo;
-    public FieldDef caded_empleo_mi;
-    public FieldDef calim_deducc;
-    public FieldDef calim_canarias;
-    public FieldDef cadeduc_med_amb;
-    public FieldDef cadeduc1_id_gi;
-    public FieldDef cadeduc2_id_gi;
-    public FieldDef cadeduc1_id_af;
-    public FieldDef cadeduc2_id_af;
-    public FieldDef cadeduc_ed;
-    public FieldDef cadeduc_ee;
-    public FieldDef cadeduc_bic;
-    public FieldDef catipo_marg_max;
-    public FieldDef caingr_max_simp;
-    public FieldDef cafecha_firm_im;
-    public FieldDef cacar_cumpl_bal;
-    public FieldDef caperc_pag_cta;
-    public FieldDef cap_res_l_no_co;
-    public FieldDef cap_li_res_no_c;
-    public FieldDef cap_res_l_coope;
-    public FieldDef ca_res_l_co_cat;
-    public FieldDef ca_res_l_co_vas;
-    public FieldDef ca_res_l_co_and;
-    public FieldDef ca_res_l_co_nav;
-    public FieldDef ca1res_l_co_val;
-    public FieldDef ca2res_l_co_val;
-    public FieldDef ca3res_l_co_val;
-    public FieldDef calimits_import;
-    public FieldDef catipo_grav_bal;
-    public FieldDef cadeduc_pc;
-    public FieldDef cadeduc_inm;
-    public FieldDef cadeduc_afn_can;
-    public FieldDef cadeduc_pc_can;
-    public FieldDef cadeduc_id_can;
-    public FieldDef cadeduc_bic_can;
-    public FieldDef cadeduc_ee_can;
-    public FieldDef cadeduc_fp_can;
-    public FieldDef cadeduc_medambc;
-    public FieldDef caimp_cifra_neg;
-    public FieldDef calimit1_ded_ee;
-    public FieldDef calimit2_ded_ee;
-    public FieldDef caded_guarderia;
-    public FieldDef caded_guard_can;
-    public FieldDef catipo_grav_pym;
-    public FieldDef caporc_capitali;
-    public FieldDef capor_reten_div;
-    public FieldDef calim_activ_mec;
-    public FieldDef cadeduc_adic_id;
-    public FieldDef caded_inn_tecn1;
-    public FieldDef caded_inn_tecn2;
-    public FieldDef calim_deducc2;
-    public FieldDef caporc_exc_id;
-    public FieldDef caded_internet;
-    public FieldDef cadeduc_adic_ic;
-    public FieldDef caded_inn_tec1c;
-    public FieldDef caded_inn_tec2c;
-    public FieldDef calim_ded2_can;
-    public FieldDef caporcexcid_can;
-    public FieldDef caded_intercam;
-    public FieldDef cafec_rd3_2000;
-    public FieldDef caimp_cif_neg2;
-    public FieldDef caded_salama_05;
-    public FieldDef caded_transport;
-    public FieldDef caded_transp_ca;
-    public FieldDef caded_galicia;
-    public FieldDef cabase_imp_pyme;
-    public FieldDef cap_fed_l_co_ca;
-    public FieldDef cacifra_negoci2;
-    public FieldDef caded_ap_patr_d;
-    public FieldDef cap_vda_val_cat;
-    public FieldDef caded_jmed_alme;
-    public FieldDef caded_ap_pat_ca;
-    public FieldDef caimp_apor_apd;
-    public FieldDef caded_pekin2008;
-    public FieldDef calim_act_balan;
-    public FieldDef calim_cif_balan;
-    public FieldDef calim_emp_balan;
-    public FieldDef calim_act_ctaab;
-    public FieldDef calim_cif_ctaab;
-    public FieldDef calim_emp_ctaab;
-    public FieldDef caded_zaragoza;
-    public FieldDef caded_m_amb_392;
-    public FieldDef caded_fp_can2;
-    public FieldDef caded_alic_08;
-    public FieldDef caded_bcn_world;
-    public FieldDef caded_guadalupe;
-    public FieldDef catipo_gr_pym_2;
-    public FieldDef calim_act_bal_p;
-    public FieldDef calim_cif_bal_p;
-    public FieldDef calim_emp_bal_p;
-    public FieldDef calim_act_cta_p;
-    public FieldDef calim_cif_cta_p;
-    public FieldDef calim_emp_cta_p;
-    public FieldDef catip_grav_crea;
-    public FieldDef catip_grav_cre2;
-    public FieldDef caimp_neto_crea;
-    public FieldDef capersonal_crea;
-    public FieldDef caporc_base_1;
-    public FieldDef cabase_cif_neg1;
-    public FieldDef caporc_base_2;
-    public FieldDef cabase_cif_neg2;
-    public FieldDef cafechaley22011;
-    public FieldDef caded_inn_tec3;
-    public FieldDef caded_inn_tecc3;
-    public FieldDef cadeduc_med_am2;
-    public FieldDef cadeduc_medamc2;
-    public FieldDef calim_deducc3;
-    public FieldDef calim_ded3_can;
-    public FieldDef calimbfooperat;
-    public FieldDef caimpgastosnet;
-    public FieldDef cadedprimtrabaj;
-    public FieldDef cadedemplempren;
-    public FieldDef cadoblig720ejac;
-    public FieldDef cadoblig720incr;
-    public FieldDef catip_grav_nuev;
-    public FieldDef catip_grav_nue2;
-    public FieldDef caidiomainforme;
-    public FieldDef caordeninforme;
-    public FieldDef cadescuentoid;
-    public FieldDef calimitite;
-    public FieldDef calimitconjunto;
-    public TabCalculo(String name)
-      {
-      super(name);
-      caejeraplic = new FieldDef("caejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      catipo_gravamen = new FieldDef("catipo_gravamen",FieldDef.FLOAT,6,0);
-      catipo_grav_coo = new FieldDef("catipo_grav_coo",FieldDef.FLOAT,6,0);
-      caded_empleo_mi = new FieldDef("caded_empleo_mi",FieldDef.FLOAT,6,0);
-      calim_deducc = new FieldDef("calim_deducc",FieldDef.FLOAT,6,0);
-      calim_canarias = new FieldDef("calim_canarias",FieldDef.FLOAT,6,0);
-      cadeduc_med_amb = new FieldDef("cadeduc_med_amb",FieldDef.FLOAT,6,0);
-      cadeduc1_id_gi = new FieldDef("cadeduc1_id_gi",FieldDef.FLOAT,6,0);
-      cadeduc2_id_gi = new FieldDef("cadeduc2_id_gi",FieldDef.FLOAT,6,0);
-      cadeduc1_id_af = new FieldDef("cadeduc1_id_af",FieldDef.FLOAT,6,0);
-      cadeduc2_id_af = new FieldDef("cadeduc2_id_af",FieldDef.FLOAT,6,0);
-      cadeduc_ed = new FieldDef("cadeduc_ed",FieldDef.FLOAT,6,0);
-      cadeduc_ee = new FieldDef("cadeduc_ee",FieldDef.FLOAT,6,0);
-      cadeduc_bic = new FieldDef("cadeduc_bic",FieldDef.FLOAT,6,0);
-      catipo_marg_max = new FieldDef("catipo_marg_max",FieldDef.FLOAT,6,0);
-      caingr_max_simp = new FieldDef("caingr_max_simp",FieldDef.FLOAT,6,0);
-      cafecha_firm_im = new FieldDef("cafecha_firm_im",FieldDef.DATE);
-      cacar_cumpl_bal = new FieldDef("cacar_cumpl_bal",FieldDef.CHAR,1);
-      caperc_pag_cta = new FieldDef("caperc_pag_cta",FieldDef.FLOAT,6,0);
-      cap_res_l_no_co = new FieldDef("cap_res_l_no_co",FieldDef.FLOAT,6,0);
-      cap_li_res_no_c = new FieldDef("cap_li_res_no_c",FieldDef.FLOAT,6,0);
-      cap_res_l_coope = new FieldDef("cap_res_l_coope",FieldDef.FLOAT,6,0);
-      ca_res_l_co_cat = new FieldDef("ca_res_l_co_cat",FieldDef.FLOAT,6,0);
-      ca_res_l_co_vas = new FieldDef("ca_res_l_co_vas",FieldDef.FLOAT,6,0);
-      ca_res_l_co_and = new FieldDef("ca_res_l_co_and",FieldDef.FLOAT,6,0);
-      ca_res_l_co_nav = new FieldDef("ca_res_l_co_nav",FieldDef.FLOAT,6,0);
-      ca1res_l_co_val = new FieldDef("ca1res_l_co_val",FieldDef.FLOAT,6,0);
-      ca2res_l_co_val = new FieldDef("ca2res_l_co_val",FieldDef.FLOAT,6,0);
-      ca3res_l_co_val = new FieldDef("ca3res_l_co_val",FieldDef.FLOAT,6,0);
-      calimits_import = new FieldDef("calimits_import",FieldDef.CHAR,1);
-      catipo_grav_bal = new FieldDef("catipo_grav_bal",FieldDef.FLOAT,6,0);
-      cadeduc_pc = new FieldDef("cadeduc_pc",FieldDef.FLOAT,6,0);
-      cadeduc_inm = new FieldDef("cadeduc_inm",FieldDef.FLOAT,6,0);
-      cadeduc_afn_can = new FieldDef("cadeduc_afn_can",FieldDef.FLOAT,6,0);
-      cadeduc_pc_can = new FieldDef("cadeduc_pc_can",FieldDef.FLOAT,6,0);
-      cadeduc_id_can = new FieldDef("cadeduc_id_can",FieldDef.FLOAT,6,0);
-      cadeduc_bic_can = new FieldDef("cadeduc_bic_can",FieldDef.FLOAT,6,0);
-      cadeduc_ee_can = new FieldDef("cadeduc_ee_can",FieldDef.FLOAT,6,0);
-      cadeduc_fp_can = new FieldDef("cadeduc_fp_can",FieldDef.FLOAT,6,0);
-      cadeduc_medambc = new FieldDef("cadeduc_medambc",FieldDef.FLOAT,6,0);
-      caimp_cifra_neg = new FieldDef("caimp_cifra_neg",FieldDef.FLOAT,6,0);
-      calimit1_ded_ee = new FieldDef("calimit1_ded_ee",FieldDef.FLOAT,6,0);
-      calimit2_ded_ee = new FieldDef("calimit2_ded_ee",FieldDef.FLOAT,6,0);
-      caded_guarderia = new FieldDef("caded_guarderia",FieldDef.FLOAT,6,0);
-      caded_guard_can = new FieldDef("caded_guard_can",FieldDef.FLOAT,6,0);
-      catipo_grav_pym = new FieldDef("catipo_grav_pym",FieldDef.FLOAT,6,0);
-      caporc_capitali = new FieldDef("caporc_capitali",FieldDef.FLOAT,6,0);
-      capor_reten_div = new FieldDef("capor_reten_div",FieldDef.FLOAT,6,0);
-      calim_activ_mec = new FieldDef("calim_activ_mec",FieldDef.INTEGER,0);
-      cadeduc_adic_id = new FieldDef("cadeduc_adic_id",FieldDef.FLOAT,6,0);
-      caded_inn_tecn1 = new FieldDef("caded_inn_tecn1",FieldDef.FLOAT,6,0);
-      caded_inn_tecn2 = new FieldDef("caded_inn_tecn2",FieldDef.FLOAT,6,0);
-      calim_deducc2 = new FieldDef("calim_deducc2",FieldDef.FLOAT,6,0);
-      caporc_exc_id = new FieldDef("caporc_exc_id",FieldDef.FLOAT,6,0);
-      caded_internet = new FieldDef("caded_internet",FieldDef.FLOAT,6,0);
-      cadeduc_adic_ic = new FieldDef("cadeduc_adic_ic",FieldDef.FLOAT,6,0);
-      caded_inn_tec1c = new FieldDef("caded_inn_tec1c",FieldDef.FLOAT,6,0);
-      caded_inn_tec2c = new FieldDef("caded_inn_tec2c",FieldDef.FLOAT,6,0);
-      calim_ded2_can = new FieldDef("calim_ded2_can",FieldDef.FLOAT,6,0);
-      caporcexcid_can = new FieldDef("caporcexcid_can",FieldDef.FLOAT,6,0);
-      caded_intercam = new FieldDef("caded_intercam",FieldDef.FLOAT,6,0);
-      cafec_rd3_2000 = new FieldDef("cafec_rd3_2000",FieldDef.DATE);
-      caimp_cif_neg2 = new FieldDef("caimp_cif_neg2",FieldDef.FLOAT,6,0);
-      caded_salama_05 = new FieldDef("caded_salama_05",FieldDef.FLOAT,6,0);
-      caded_transport = new FieldDef("caded_transport",FieldDef.FLOAT,6,0);
-      caded_transp_ca = new FieldDef("caded_transp_ca",FieldDef.FLOAT,6,0);
-      caded_galicia = new FieldDef("caded_galicia",FieldDef.FLOAT,6,0);
-      cabase_imp_pyme = new FieldDef("cabase_imp_pyme",FieldDef.FLOAT,6,0);
-      cap_fed_l_co_ca = new FieldDef("cap_fed_l_co_ca",FieldDef.FLOAT,6,0);
-      cacifra_negoci2 = new FieldDef("cacifra_negoci2",FieldDef.FLOAT,6,0);
-      caded_ap_patr_d = new FieldDef("caded_ap_patr_d",FieldDef.FLOAT,6,0);
-      cap_vda_val_cat = new FieldDef("cap_vda_val_cat",FieldDef.FLOAT,6,0);
-      caded_jmed_alme = new FieldDef("caded_jmed_alme",FieldDef.FLOAT,6,0);
-      caded_ap_pat_ca = new FieldDef("caded_ap_pat_ca",FieldDef.FLOAT,6,0);
-      caimp_apor_apd = new FieldDef("caimp_apor_apd",FieldDef.FLOAT,6,0);
-      caded_pekin2008 = new FieldDef("caded_pekin2008",FieldDef.FLOAT,6,0);
-      calim_act_balan = new FieldDef("calim_act_balan",FieldDef.FLOAT,6,0);
-      calim_cif_balan = new FieldDef("calim_cif_balan",FieldDef.FLOAT,6,0);
-      calim_emp_balan = new FieldDef("calim_emp_balan",FieldDef.INTEGER,0);
-      calim_act_ctaab = new FieldDef("calim_act_ctaab",FieldDef.FLOAT,6,0);
-      calim_cif_ctaab = new FieldDef("calim_cif_ctaab",FieldDef.FLOAT,6,0);
-      calim_emp_ctaab = new FieldDef("calim_emp_ctaab",FieldDef.INTEGER,0);
-      caded_zaragoza = new FieldDef("caded_zaragoza",FieldDef.FLOAT,6,0);
-      caded_m_amb_392 = new FieldDef("caded_m_amb_392",FieldDef.FLOAT,6,0);
-      caded_fp_can2 = new FieldDef("caded_fp_can2",FieldDef.FLOAT,6,0);
-      caded_alic_08 = new FieldDef("caded_alic_08",FieldDef.FLOAT,6,0);
-      caded_bcn_world = new FieldDef("caded_bcn_world",FieldDef.FLOAT,6,0);
-      caded_guadalupe = new FieldDef("caded_guadalupe",FieldDef.FLOAT,6,0);
-      catipo_gr_pym_2 = new FieldDef("catipo_gr_pym_2",FieldDef.FLOAT,6,0);
-      calim_act_bal_p = new FieldDef("calim_act_bal_p",FieldDef.FLOAT,6,0);
-      calim_cif_bal_p = new FieldDef("calim_cif_bal_p",FieldDef.FLOAT,6,0);
-      calim_emp_bal_p = new FieldDef("calim_emp_bal_p",FieldDef.INTEGER,0);
-      calim_act_cta_p = new FieldDef("calim_act_cta_p",FieldDef.FLOAT,6,0);
-      calim_cif_cta_p = new FieldDef("calim_cif_cta_p",FieldDef.FLOAT,6,0);
-      calim_emp_cta_p = new FieldDef("calim_emp_cta_p",FieldDef.INTEGER,0);
-      catip_grav_crea = new FieldDef("catip_grav_crea",FieldDef.FLOAT,6,0);
-      catip_grav_cre2 = new FieldDef("catip_grav_cre2",FieldDef.FLOAT,6,0);
-      caimp_neto_crea = new FieldDef("caimp_neto_crea",FieldDef.FLOAT,6,0);
-      capersonal_crea = new FieldDef("capersonal_crea",FieldDef.INTEGER,0);
-      caporc_base_1 = new FieldDef("caporc_base_1",FieldDef.INTEGER,0);
-      cabase_cif_neg1 = new FieldDef("cabase_cif_neg1",FieldDef.FLOAT,6,0);
-      caporc_base_2 = new FieldDef("caporc_base_2",FieldDef.INTEGER,0);
-      cabase_cif_neg2 = new FieldDef("cabase_cif_neg2",FieldDef.FLOAT,6,0);
-      cafechaley22011 = new FieldDef("cafechaley22011",FieldDef.DATE);
-      caded_inn_tec3 = new FieldDef("caded_inn_tec3",FieldDef.FLOAT,6,0);
-      caded_inn_tecc3 = new FieldDef("caded_inn_tecc3",FieldDef.FLOAT,6,0);
-      cadeduc_med_am2 = new FieldDef("cadeduc_med_am2",FieldDef.FLOAT,6,0);
-      cadeduc_medamc2 = new FieldDef("cadeduc_medamc2",FieldDef.FLOAT,6,0);
-      calim_deducc3 = new FieldDef("calim_deducc3",FieldDef.FLOAT,6,0);
-      calim_ded3_can = new FieldDef("calim_ded3_can",FieldDef.FLOAT,6,0);
-      calimbfooperat = new FieldDef("calimbfooperat",FieldDef.FLOAT,6,0);
-      caimpgastosnet = new FieldDef("caimpgastosnet",FieldDef.FLOAT,6,0);
-      cadedprimtrabaj = new FieldDef("cadedprimtrabaj",FieldDef.FLOAT,6,0);
-      cadedemplempren = new FieldDef("cadedemplempren",FieldDef.FLOAT,6,0);
-      cadoblig720ejac = new FieldDef("cadoblig720ejac",FieldDef.FLOAT,6,0);
-      cadoblig720incr = new FieldDef("cadoblig720incr",FieldDef.FLOAT,6,0);
-      catip_grav_nuev = new FieldDef("catip_grav_nuev",FieldDef.FLOAT,6,0);
-      catip_grav_nue2 = new FieldDef("catip_grav_nue2",FieldDef.FLOAT,6,0);
-      caidiomainforme = new FieldDef("caidiomainforme",FieldDef.CHAR,1);
-      caordeninforme = new FieldDef("caordeninforme",FieldDef.CHAR,1);
-      cadescuentoid = new FieldDef("cadescuentoid",FieldDef.INTEGER,0);
-      calimitite = new FieldDef("calimitite",FieldDef.FLOAT,6,0);
-      calimitconjunto = new FieldDef("calimitconjunto",FieldDef.FLOAT,6,0);
-      FieldDef array[] = {
-        caejeraplic,
-        catipo_gravamen,
-        catipo_grav_coo,
-        caded_empleo_mi,
-        calim_deducc,
-        calim_canarias,
-        cadeduc_med_amb,
-        cadeduc1_id_gi,
-        cadeduc2_id_gi,
-        cadeduc1_id_af,
-        cadeduc2_id_af,
-        cadeduc_ed,
-        cadeduc_ee,
-        cadeduc_bic,
-        catipo_marg_max,
-        caingr_max_simp,
-        cafecha_firm_im,
-        cacar_cumpl_bal,
-        caperc_pag_cta,
-        cap_res_l_no_co,
-        cap_li_res_no_c,
-        cap_res_l_coope,
-        ca_res_l_co_cat,
-        ca_res_l_co_vas,
-        ca_res_l_co_and,
-        ca_res_l_co_nav,
-        ca1res_l_co_val,
-        ca2res_l_co_val,
-        ca3res_l_co_val,
-        calimits_import,
-        catipo_grav_bal,
-        cadeduc_pc,
-        cadeduc_inm,
-        cadeduc_afn_can,
-        cadeduc_pc_can,
-        cadeduc_id_can,
-        cadeduc_bic_can,
-        cadeduc_ee_can,
-        cadeduc_fp_can,
-        cadeduc_medambc,
-        caimp_cifra_neg,
-        calimit1_ded_ee,
-        calimit2_ded_ee,
-        caded_guarderia,
-        caded_guard_can,
-        catipo_grav_pym,
-        caporc_capitali,
-        capor_reten_div,
-        calim_activ_mec,
-        cadeduc_adic_id,
-        caded_inn_tecn1,
-        caded_inn_tecn2,
-        calim_deducc2,
-        caporc_exc_id,
-        caded_internet,
-        cadeduc_adic_ic,
-        caded_inn_tec1c,
-        caded_inn_tec2c,
-        calim_ded2_can,
-        caporcexcid_can,
-        caded_intercam,
-        cafec_rd3_2000,
-        caimp_cif_neg2,
-        caded_salama_05,
-        caded_transport,
-        caded_transp_ca,
-        caded_galicia,
-        cabase_imp_pyme,
-        cap_fed_l_co_ca,
-        cacifra_negoci2,
-        caded_ap_patr_d,
-        cap_vda_val_cat,
-        caded_jmed_alme,
-        caded_ap_pat_ca,
-        caimp_apor_apd,
-        caded_pekin2008,
-        calim_act_balan,
-        calim_cif_balan,
-        calim_emp_balan,
-        calim_act_ctaab,
-        calim_cif_ctaab,
-        calim_emp_ctaab,
-        caded_zaragoza,
-        caded_m_amb_392,
-        caded_fp_can2,
-        caded_alic_08,
-        caded_bcn_world,
-        caded_guadalupe,
-        catipo_gr_pym_2,
-        calim_act_bal_p,
-        calim_cif_bal_p,
-        calim_emp_bal_p,
-        calim_act_cta_p,
-        calim_cif_cta_p,
-        calim_emp_cta_p,
-        catip_grav_crea,
-        catip_grav_cre2,
-        caimp_neto_crea,
-        capersonal_crea,
-        caporc_base_1,
-        cabase_cif_neg1,
-        caporc_base_2,
-        cabase_cif_neg2,
-        cafechaley22011,
-        caded_inn_tec3,
-        caded_inn_tecc3,
-        cadeduc_med_am2,
-        cadeduc_medamc2,
-        calim_deducc3,
-        calim_ded3_can,
-        calimbfooperat,
-        caimpgastosnet,
-        cadedprimtrabaj,
-        cadedemplempren,
-        cadoblig720ejac,
-        cadoblig720incr,
-        catip_grav_nuev,
-        catip_grav_nue2,
-        caidiomainforme,
-        caordeninforme,
-        cadescuentoid,
-        calimitite,
-        calimitconjunto        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {caejeraplic };
-      setDescription("Parametros de calculo");
-      setPrimaryKeys(arrayf);
-      caejeraplic.setDescription("Ejercicio fiscal aplicacion");
-      catipo_gravamen.setDescription("Tipo de Gravamen General");
-      catipo_grav_coo.setDescription("Tipo de Gravamen Cooperativas");
-      caded_empleo_mi.setDescription("Creacion Empleo minusvalidos");
-      calim_deducc.setDescription("Limite Deducciones");
-      calim_canarias.setDescription("Limite conjunto deducciones Canarias");
-      cadeduc_med_amb.setDescription("% Deduccion Proteccion medio ambiente");
-      cadeduc1_id_gi.setDescription("% Deduccion gastos I+D");
-      cadeduc2_id_gi.setDescription("% Deduccion gastos 2 I+D");
-      cadeduc1_id_af.setDescription("% Deduccion Formacion Profesional");
-      cadeduc2_id_af.setDescription("% Deduccion 2 Formacion Profesional");
-      cadeduc_ed.setDescription("% Deduccion Edicion de libros");
-      cadeduc_ee.setDescription("% Deduccion Empresas Exportadoras");
-      cadeduc_bic.setDescription("% Deduccion Patrimonio Historico");
-      catipo_marg_max.setDescription("Tipo Marginal Max. Escala IRPF");
-      caingr_max_simp.setDescription("Ingresos Maximos Simplificada");
-      cafecha_firm_im.setDescription("Fecha Firma Impresos");
-      cacar_cumpl_bal.setDescription("Caracter cumplimentacion balances");
-      caperc_pag_cta.setDescription("% Pago a Cuenta");
-      cap_res_l_no_co.setDescription("% a Reserva Legal No Cooperativas");
-      cap_li_res_no_c.setDescription("% Limite Reserva Legal No Cooperativas");
-      cap_res_l_coope.setDescription("% a Reserva Legal Cooperativas");
-      ca_res_l_co_cat.setDescription("% a Reserva Legal Cooperativas Catalanas");
-      ca_res_l_co_vas.setDescription("% a Reserva Legal Cooperativas Vascas");
-      ca_res_l_co_and.setDescription("% a Reserva Legal Cooperativas Andaluzas");
-      ca_res_l_co_nav.setDescription("% a Reserva Legal Cooperativas Navarras");
-      ca1res_l_co_val.setDescription("% 1 a Reserva Legal Cooperativas Valencianas");
-      ca2res_l_co_val.setDescription("% 2 a Reserva Legal Cooperativas Valencianas");
-      ca3res_l_co_val.setDescription("% 3 a Reserva Legal Cooperativas Valencianas");
-      calimits_import.setDescription("Calculo deducciones (Limites o Importes)");
-      catipo_grav_bal.setDescription("% Deduccion inmovilizado I+D");
-      cadeduc_pc.setDescription("% Deduccion Producciones cinematograficas");
-      cadeduc_inm.setDescription("% Deduccion coproductor cinematrografica");
-      cadeduc_afn_can.setDescription("% Deduccion activos fijos nuevos");
-      cadeduc_pc_can.setDescription("% Deduccion Produccion Cinematograficas");
-      cadeduc_id_can.setDescription("% Deduccion gastos I+D");
-      cadeduc_bic_can.setDescription("% Deduccion Bienes Patrimonio Historico");
-      cadeduc_ee_can.setDescription("% Deduccion Empresas Exportadoras");
-      cadeduc_fp_can.setDescription("% Deduccion Formacion Profesional");
-      cadeduc_medambc.setDescription("% Deduccion proteccion medio ambiente");
-      caimp_cifra_neg.setDescription("Importe maximo cifra negocios");
-      calimit1_ded_ee.setDescription("% Deduccion Contribucion plan pension");
-      calimit2_ded_ee.setDescription("% Deduccion Contribucion plan pension");
-      caded_guarderia.setDescription("% Deduccion Gastos guarderia");
-      caded_guard_can.setDescription("% Deducción Gastos guarderia Canarias");
-      catipo_grav_pym.setDescription("Tipo de Gravamen PYMES");
-      caporc_capitali.setDescription("% Capitalizacion");
-      capor_reten_div.setDescription("% Retencion Dividendos");
-      calim_activ_mec.setDescription("Limite % base actividades mecenazgo");
-      cadeduc_adic_id.setDescription("% Deduccion adicional I+D");
-      caded_inn_tecn1.setDescription("% Deduccion Innovacion tecnologica");
-      caded_inn_tecn2.setDescription("% Deduccion 2 Innovacion Tecnologica");
-      calim_deducc2.setDescription("Segundo limite deducciones");
-      caporc_exc_id.setDescription("% Exceso gastos para 2do. limite");
-      caded_internet.setDescription("% Deduccion Gastos Internet");
-      cadeduc_adic_ic.setDescription("% Deduccion adicional gastos I+D");
-      caded_inn_tec1c.setDescription("% Deduccion 1 Inn.Tecnologica");
-      caded_inn_tec2c.setDescription("% Deduccion 2 Inn.Tecnologica");
-      calim_ded2_can.setDescription("2do. limite conjunto deducciones Canarias");
-      caporcexcid_can.setDescription("% Exceso gastos para 2do. limite");
-      caded_intercam.setDescription("% Deduccion Gastos Internet");
-      cafec_rd3_2000.setDescription("Sin utilidad");
-      caimp_cif_neg2.setDescription("Retribucion bruta deduccion Plan pensiones");
-      caded_salama_05.setDescription("% Resto deducciones");
-      caded_transport.setDescription("% Deduccion sector transporte");
-      caded_transp_ca.setDescription("% Deduccion apoyo sector transporte");
-      caded_galicia.setDescription("% Deduccion inversion beneficios PYMES");
-      cabase_imp_pyme.setDescription("Base imponible PYME");
-      cap_fed_l_co_ca.setDescription("% Fondo de educacacion Cooperativas Catalanas");
-      cacifra_negoci2.setDescription("Importe deduccion empleo minusvalia 65%");
-      caded_ap_patr_d.setDescription("% Deduccion Aportacion patrimonio discapacitados");
-      cap_vda_val_cat.setDescription("% Deduccion Edicion de libros");
-      caded_jmed_alme.setDescription("% Deduccion inversion beneficios Creacion empleo");
-      caded_ap_pat_ca.setDescription("% Deduccion Aportacion patrimonio discapacitados");
-      caimp_apor_apd.setDescription("Aportacion máxima patrimonio discapacitado");
-      caded_pekin2008.setDescription("% Deduccion inversion beneficios PYMES Canarias");
-      calim_act_balan.setDescription("Limite activo para balance");
-      calim_cif_balan.setDescription("Limite cifra de negocios para balance");
-      calim_emp_balan.setDescription("Numero medio de empleados para balance");
-      calim_act_ctaab.setDescription("Limite activo para Cuenta resultados");
-      calim_cif_ctaab.setDescription("Limite cifra de negocios para Cuenta resultados");
-      calim_emp_ctaab.setDescription("Numero medio de empleados para Cuenta resultados");
-      caded_zaragoza.setDescription("% Deduccion inversion beneficios Creacion empleo Canarias");
-      caded_m_amb_392.setDescription("% Deduccion Medio Ambiente art. 39.2");
-      caded_fp_can2.setDescription("% Deduccion 2 FP Canarias");
-      caded_alic_08.setDescription("% Deduccion coproductor cinematrografica Canarias");
-      caded_bcn_world.setDescription("Segundo tope cifra negocios para modelo 202");
-      caded_guadalupe.setDescription("Tercer tope cifra negocios para modelo 202");
-      catipo_gr_pym_2.setDescription("Segundo tipo gravamen Pymes");
-      calim_act_bal_p.setDescription("Limite activo para balance");
-      calim_cif_bal_p.setDescription("Limite cifra de negocios para balance");
-      calim_emp_bal_p.setDescription("Numero medio de empleados para balance");
-      calim_act_cta_p.setDescription("Limite activo para Cuenta resultados");
-      calim_cif_cta_p.setDescription("Limite cifra de negocios para Cuenta resultados");
-      calim_emp_cta_p.setDescription("Numero medio de empleados para Cuenta resultados");
-      catip_grav_crea.setDescription("Tipo de Gravamen creacion empleo");
-      catip_grav_cre2.setDescription("Tipo de Gravamen creacion empleo, segundo tipo");
-      caimp_neto_crea.setDescription("Importe neto cifra negocios creacion empleo");
-      capersonal_crea.setDescription("Tope personal creacion empleo");
-      caporc_base_1.setDescription("% limitacion base imponibles negativas");
-      cabase_cif_neg1.setDescription("Importe neto cifra negocios igual o superior a");
-      caporc_base_2.setDescription("% limitacion base imponibles negativas");
-      cabase_cif_neg2.setDescription("Importe neto cifra negocios igual o superior a");
-      cafechaley22011.setDescription("Fecha entrada vigor ley 2/2011");
-      caded_inn_tec3.setDescription("% Deduccion 3 Inn.Tecnologica");
-      caded_inn_tecc3.setDescription("% Deduccion 3 Inn.Tecnologica Canarias");
-      cadeduc_med_am2.setDescription("% Deduccion Proteccion medio ambiente 2");
-      cadeduc_medamc2.setDescription("% Deduccion proteccion medio ambiente Canarias 2");
-      calim_deducc3.setDescription("Tercer limite deducciones");
-      calim_ded3_can.setDescription("3er. limite conjunto deducciones Canarias");
-      calimbfooperat.setDescription("% limite beneficio operativo para gastos financieros");
-      caimpgastosnet.setDescription("Importe maximo gastos netos financieros");
-      cadedprimtrabaj.setDescription("Deduccion creacion empleo primer trabajador");
-      cadedemplempren.setDescription("% Deduccion creacion empleo emprendedores");
-      cadoblig720ejac.setDescription("Obligacion 720 valores patrimoniales ej.actual");
-      cadoblig720incr.setDescription("Obligacion 720 incremento valores patrimoniales");
-      catip_grav_nuev.setDescription("Tipo de Gravamen entidad nueva creacion");
-      catip_grav_nue2.setDescription("Tipo de Gravamen entidad nueva creacion, segundo tipo");
-      caidiomainforme.setDescription("Idioma de los informes");
-      caordeninforme.setDescription("Orden mostrar informes");
-      cadescuentoid.setDescription("% descuento aplicar deducciones I+D+I sin limite deduccion");
-      calimitite.setDescription("Limite importe deduccion ITE sin aplicar limite deduccion");
-      calimitconjunto.setDescription("Limite importe deduccion ITE + CTE sin aplicar limite deduccion");
       }
     }
     
@@ -28612,465 +25526,6 @@ public class CatJiss extends Catalog
       ercactual.setDescription("Ejercicio actual");
       ercmensaje.setDescription("Descripcion incoherencia");
       ercrevisado.setDescription("Esta revisado");
-      }
-    }
-    
-  public class TabSociedades extends TableDef
-    {
-    // Campos
-    public FieldDef socejeraplic;
-    public FieldDef soccodigo;
-    public FieldDef soccif;
-    public FieldDef socnombre;
-    public FieldDef soctipo_organo;
-    public FieldDef soccnaereg;
-    public FieldDef socfechabaja;
-    public FieldDef soccausabaja;
-    public FieldDef socfechaconstit;
-    public FieldDef socnotaria;
-    public FieldDef socnotario;
-    public FieldDef socescritura;
-    public FieldDef soccodigocontab;
-    public FieldDef soccodigonomina;
-    public FieldDef socexpediente;
-    public FieldDef socforma_juridi;
-    public FieldDef socdescri_reg;
-    public FieldDef socreducc_ric;
-    public FieldDef socsector;
-    public FieldDef socsector_pyg;
-    public FieldDef socauditada;
-    public FieldDef soctraspasada;
-    public FieldDef socobligctas;
-    public FieldDef socinicio;
-    public FieldDef socfin;
-    public FieldDef socdia_ini_ejer;
-    public FieldDef socmes_ini_ejer;
-    public FieldDef socanyo_ini_ej;
-    public FieldDef socdia_fin_ejer;
-    public FieldDef socmes_fin_ejer;
-    public FieldDef socanyo_fin_eje;
-    public FieldDef socfor_ingr_iss;
-    public FieldDef socfor_dev_iss;
-    public FieldDef socfor_ingr_pag;
-    public FieldDef soccta_cte_trib;
-    public FieldDef soccooperativa;
-    public FieldDef socent_exent;
-    public FieldDef soccoop_prot;
-    public FieldDef soccoop_esprot;
-    public FieldDef socinv_mobil;
-    public FieldDef socinv_inmob1;
-    public FieldDef socotros_reg;
-    public FieldDef socagrarias;
-    public FieldDef socgran_emp;
-    public FieldDef socent_credito;
-    public FieldDef socent_aseg;
-    public FieldDef socent_inac;
-    public FieldDef socbi_neg;
-    public FieldDef socdec_complem;
-    public FieldDef soctrib_cons;
-    public FieldDef socsoc_domte;
-    public FieldDef socsoc_domda;
-    public FieldDef socnum_grupo;
-    public FieldDef socent_regfis;
-    public FieldDef socrenta_positi;
-    public FieldDef socopc_art10_5;
-    public FieldDef socpymes;
-    public FieldDef socopc_art_1216;
-    public FieldDef socsoc_dependie;
-    public FieldDef socten_val_extr;
-    public FieldDef socag_int_ec_es;
-    public FieldDef socagr_europea;
-    public FieldDef soczec;
-    public FieldDef socopc_art_762b;
-    public FieldDef socresto_cooper;
-    public FieldDef socestab_perman;
-    public FieldDef socdip_com_fora;
-    public FieldDef soctrans_el_pat;
-    public FieldDef socfond_cap_rie;
-    public FieldDef socdes_ind_regi;
-    public FieldDef socreg_esp_mine;
-    public FieldDef socreg_esp_hidr;
-    public FieldDef socopc_art48_1b;
-    public FieldDef socopc_art48_3b;
-    public FieldDef socperd_coop_pr;
-    public FieldDef socreg_ent_navi;
-    public FieldDef socent_grupo_me;
-    public FieldDef socobli_14b_ris;
-    public FieldDef socobli_49b_ris;
-    public FieldDef socsoc_arrendam;
-    public FieldDef socsocpatr_mera;
-    public FieldDef socreg_e_nor_fo;
-    public FieldDef socsocimi;
-    public FieldDef socfond_res_obl;
-    public FieldDef socfond_formaci;
-    public FieldDef socf_res_obl_ex;
-    public FieldDef socf_formac_ext;
-    public FieldDef socobserva;
-    public FieldDef socuser;
-    public FieldDef socgrupo;
-    public FieldDef soccodanter;
-    public FieldDef soccreaempleo;
-    public FieldDef socgarantia;
-    public FieldDef soccnae1993;
-    public FieldDef soccodigocdp;
-    public FieldDef socmutuaseguro;
-    public FieldDef socregesp112009;
-    public FieldDef socgrupogral;
-    public FieldDef socgrupocredito;
-    public FieldDef socgrupoasegura;
-    public FieldDef socgrupocoopera;
-    public FieldDef socgrupopyme;
-    public FieldDef socnifdomina;
-    public FieldDef socmod720;
-    public FieldDef socrevalactivo;
-    public FieldDef socfondotituli;
-    public FieldDef socregaportact;
-    public FieldDef socnuevacreaci;
-    public FieldDef socpretribadm;
-    public FieldDef socopart442;
-    public FieldDef socgrupoforal;
-    public TabSociedades(String name)
-      {
-      super(name);
-      socejeraplic = new FieldDef("socejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      soccodigo = new FieldDef("soccodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      soccif = new FieldDef("soccif",FieldDef.CHAR,15);
-      socnombre = new FieldDef("socnombre",FieldDef.CHAR,100);
-      soctipo_organo = new FieldDef("soctipo_organo",FieldDef.INTEGER,0);
-      soccnaereg = new FieldDef("soccnaereg",FieldDef.CHAR,6);
-      socfechabaja = new FieldDef("socfechabaja",FieldDef.DATE);
-      soccausabaja = new FieldDef("soccausabaja",FieldDef.CHAR,50);
-      socfechaconstit = new FieldDef("socfechaconstit",FieldDef.DATE);
-      socnotaria = new FieldDef("socnotaria",FieldDef.CHAR,40);
-      socnotario = new FieldDef("socnotario",FieldDef.CHAR,40);
-      socescritura = new FieldDef("socescritura",FieldDef.CHAR,13);
-      soccodigocontab = new FieldDef("soccodigocontab",FieldDef.INTEGER,0);
-      soccodigonomina = new FieldDef("soccodigonomina",FieldDef.INTEGER,0);
-      socexpediente = new FieldDef("socexpediente",FieldDef.CHAR,15);
-      socforma_juridi = new FieldDef("socforma_juridi",FieldDef.CHAR,50);
-      socdescri_reg = new FieldDef("socdescri_reg",FieldDef.CHAR,45);
-      socreducc_ric = new FieldDef("socreducc_ric",FieldDef.CHAR,1);
-      socsector = new FieldDef("socsector",FieldDef.CHAR,3);
-      socsector_pyg = new FieldDef("socsector_pyg",FieldDef.CHAR,3);
-      socauditada = new FieldDef("socauditada",FieldDef.CHAR,1);
-      soctraspasada = new FieldDef("soctraspasada",FieldDef.CHAR,1);
-      socobligctas = new FieldDef("socobligctas",FieldDef.CHAR,1);
-      socinicio = new FieldDef("socinicio",FieldDef.DATE);
-      socfin = new FieldDef("socfin",FieldDef.DATE);
-      socdia_ini_ejer = new FieldDef("socdia_ini_ejer",FieldDef.CHAR,2);
-      socmes_ini_ejer = new FieldDef("socmes_ini_ejer",FieldDef.CHAR,2);
-      socanyo_ini_ej = new FieldDef("socanyo_ini_ej",FieldDef.CHAR,4);
-      socdia_fin_ejer = new FieldDef("socdia_fin_ejer",FieldDef.CHAR,2);
-      socmes_fin_ejer = new FieldDef("socmes_fin_ejer",FieldDef.CHAR,2);
-      socanyo_fin_eje = new FieldDef("socanyo_fin_eje",FieldDef.CHAR,4);
-      socfor_ingr_iss = new FieldDef("socfor_ingr_iss",FieldDef.CHAR,2);
-      socfor_dev_iss = new FieldDef("socfor_dev_iss",FieldDef.CHAR,2);
-      socfor_ingr_pag = new FieldDef("socfor_ingr_pag",FieldDef.CHAR,2);
-      soccta_cte_trib = new FieldDef("soccta_cte_trib",FieldDef.CHAR,1);
-      soccooperativa = new FieldDef("soccooperativa",FieldDef.CHAR,1);
-      socent_exent = new FieldDef("socent_exent",FieldDef.CHAR,1);
-      soccoop_prot = new FieldDef("soccoop_prot",FieldDef.CHAR,1);
-      soccoop_esprot = new FieldDef("soccoop_esprot",FieldDef.CHAR,1);
-      socinv_mobil = new FieldDef("socinv_mobil",FieldDef.CHAR,1);
-      socinv_inmob1 = new FieldDef("socinv_inmob1",FieldDef.CHAR,1);
-      socotros_reg = new FieldDef("socotros_reg",FieldDef.CHAR,1);
-      socagrarias = new FieldDef("socagrarias",FieldDef.CHAR,1);
-      socgran_emp = new FieldDef("socgran_emp",FieldDef.CHAR,1);
-      socent_credito = new FieldDef("socent_credito",FieldDef.CHAR,1);
-      socent_aseg = new FieldDef("socent_aseg",FieldDef.CHAR,1);
-      socent_inac = new FieldDef("socent_inac",FieldDef.CHAR,1);
-      socbi_neg = new FieldDef("socbi_neg",FieldDef.CHAR,1);
-      socdec_complem = new FieldDef("socdec_complem",FieldDef.CHAR,1);
-      soctrib_cons = new FieldDef("soctrib_cons",FieldDef.CHAR,1);
-      socsoc_domte = new FieldDef("socsoc_domte",FieldDef.CHAR,1);
-      socsoc_domda = new FieldDef("socsoc_domda",FieldDef.CHAR,1);
-      socnum_grupo = new FieldDef("socnum_grupo",FieldDef.CHAR,7);
-      socent_regfis = new FieldDef("socent_regfis",FieldDef.CHAR,1);
-      socrenta_positi = new FieldDef("socrenta_positi",FieldDef.CHAR,1);
-      socopc_art10_5 = new FieldDef("socopc_art10_5",FieldDef.CHAR,1);
-      socpymes = new FieldDef("socpymes",FieldDef.CHAR,1);
-      socopc_art_1216 = new FieldDef("socopc_art_1216",FieldDef.CHAR,1);
-      socsoc_dependie = new FieldDef("socsoc_dependie",FieldDef.CHAR,1);
-      socten_val_extr = new FieldDef("socten_val_extr",FieldDef.CHAR,1);
-      socag_int_ec_es = new FieldDef("socag_int_ec_es",FieldDef.CHAR,1);
-      socagr_europea = new FieldDef("socagr_europea",FieldDef.CHAR,1);
-      soczec = new FieldDef("soczec",FieldDef.CHAR,1);
-      socopc_art_762b = new FieldDef("socopc_art_762b",FieldDef.CHAR,1);
-      socresto_cooper = new FieldDef("socresto_cooper",FieldDef.CHAR,1);
-      socestab_perman = new FieldDef("socestab_perman",FieldDef.CHAR,1);
-      socdip_com_fora = new FieldDef("socdip_com_fora",FieldDef.CHAR,1);
-      soctrans_el_pat = new FieldDef("soctrans_el_pat",FieldDef.CHAR,1);
-      socfond_cap_rie = new FieldDef("socfond_cap_rie",FieldDef.CHAR,1);
-      socdes_ind_regi = new FieldDef("socdes_ind_regi",FieldDef.CHAR,1);
-      socreg_esp_mine = new FieldDef("socreg_esp_mine",FieldDef.CHAR,1);
-      socreg_esp_hidr = new FieldDef("socreg_esp_hidr",FieldDef.CHAR,1);
-      socopc_art48_1b = new FieldDef("socopc_art48_1b",FieldDef.CHAR,1);
-      socopc_art48_3b = new FieldDef("socopc_art48_3b",FieldDef.CHAR,1);
-      socperd_coop_pr = new FieldDef("socperd_coop_pr",FieldDef.CHAR,1);
-      socreg_ent_navi = new FieldDef("socreg_ent_navi",FieldDef.CHAR,1);
-      socent_grupo_me = new FieldDef("socent_grupo_me",FieldDef.CHAR,1);
-      socobli_14b_ris = new FieldDef("socobli_14b_ris",FieldDef.CHAR,1);
-      socobli_49b_ris = new FieldDef("socobli_49b_ris",FieldDef.CHAR,1);
-      socsoc_arrendam = new FieldDef("socsoc_arrendam",FieldDef.CHAR,1);
-      socsocpatr_mera = new FieldDef("socsocpatr_mera",FieldDef.CHAR,1);
-      socreg_e_nor_fo = new FieldDef("socreg_e_nor_fo",FieldDef.CHAR,1);
-      socsocimi = new FieldDef("socsocimi",FieldDef.CHAR,1);
-      socfond_res_obl = new FieldDef("socfond_res_obl",FieldDef.INTEGER,0);
-      socfond_formaci = new FieldDef("socfond_formaci",FieldDef.INTEGER,0);
-      socf_res_obl_ex = new FieldDef("socf_res_obl_ex",FieldDef.INTEGER,0);
-      socf_formac_ext = new FieldDef("socf_formac_ext",FieldDef.INTEGER,0);
-      socobserva = new FieldDef("socobserva",FieldDef.CHAR,2000);
-      socuser = new FieldDef("socuser",FieldDef.CHAR,25);
-      socgrupo = new FieldDef("socgrupo",FieldDef.CHAR,15);
-      soccodanter = new FieldDef("soccodanter",FieldDef.INTEGER,0);
-      soccreaempleo = new FieldDef("soccreaempleo",FieldDef.CHAR,1);
-      socgarantia = new FieldDef("socgarantia",FieldDef.CHAR,1);
-      soccnae1993 = new FieldDef("soccnae1993",FieldDef.CHAR,6);
-      soccodigocdp = new FieldDef("soccodigocdp",FieldDef.CHAR,12);
-      socmutuaseguro = new FieldDef("socmutuaseguro",FieldDef.CHAR,1);
-      socregesp112009 = new FieldDef("socregesp112009",FieldDef.CHAR,1);
-      socgrupogral = new FieldDef("socgrupogral",FieldDef.CHAR,1);
-      socgrupocredito = new FieldDef("socgrupocredito",FieldDef.CHAR,1);
-      socgrupoasegura = new FieldDef("socgrupoasegura",FieldDef.CHAR,1);
-      socgrupocoopera = new FieldDef("socgrupocoopera",FieldDef.CHAR,1);
-      socgrupopyme = new FieldDef("socgrupopyme",FieldDef.CHAR,1);
-      socnifdomina = new FieldDef("socnifdomina",FieldDef.CHAR,15);
-      socmod720 = new FieldDef("socmod720",FieldDef.CHAR,1);
-      socrevalactivo = new FieldDef("socrevalactivo",FieldDef.CHAR,1);
-      socfondotituli = new FieldDef("socfondotituli",FieldDef.CHAR,1);
-      socregaportact = new FieldDef("socregaportact",FieldDef.CHAR,1);
-      socnuevacreaci = new FieldDef("socnuevacreaci",FieldDef.CHAR,1);
-      socpretribadm = new FieldDef("socpretribadm",FieldDef.FLOAT,6,0);
-      socopart442 = new FieldDef("socopart442",FieldDef.CHAR,1);
-      socgrupoforal = new FieldDef("socgrupoforal",FieldDef.CHAR,1);
-      FieldDef array[] = {
-        socejeraplic,
-        soccodigo,
-        soccif,
-        socnombre,
-        soctipo_organo,
-        soccnaereg,
-        socfechabaja,
-        soccausabaja,
-        socfechaconstit,
-        socnotaria,
-        socnotario,
-        socescritura,
-        soccodigocontab,
-        soccodigonomina,
-        socexpediente,
-        socforma_juridi,
-        socdescri_reg,
-        socreducc_ric,
-        socsector,
-        socsector_pyg,
-        socauditada,
-        soctraspasada,
-        socobligctas,
-        socinicio,
-        socfin,
-        socdia_ini_ejer,
-        socmes_ini_ejer,
-        socanyo_ini_ej,
-        socdia_fin_ejer,
-        socmes_fin_ejer,
-        socanyo_fin_eje,
-        socfor_ingr_iss,
-        socfor_dev_iss,
-        socfor_ingr_pag,
-        soccta_cte_trib,
-        soccooperativa,
-        socent_exent,
-        soccoop_prot,
-        soccoop_esprot,
-        socinv_mobil,
-        socinv_inmob1,
-        socotros_reg,
-        socagrarias,
-        socgran_emp,
-        socent_credito,
-        socent_aseg,
-        socent_inac,
-        socbi_neg,
-        socdec_complem,
-        soctrib_cons,
-        socsoc_domte,
-        socsoc_domda,
-        socnum_grupo,
-        socent_regfis,
-        socrenta_positi,
-        socopc_art10_5,
-        socpymes,
-        socopc_art_1216,
-        socsoc_dependie,
-        socten_val_extr,
-        socag_int_ec_es,
-        socagr_europea,
-        soczec,
-        socopc_art_762b,
-        socresto_cooper,
-        socestab_perman,
-        socdip_com_fora,
-        soctrans_el_pat,
-        socfond_cap_rie,
-        socdes_ind_regi,
-        socreg_esp_mine,
-        socreg_esp_hidr,
-        socopc_art48_1b,
-        socopc_art48_3b,
-        socperd_coop_pr,
-        socreg_ent_navi,
-        socent_grupo_me,
-        socobli_14b_ris,
-        socobli_49b_ris,
-        socsoc_arrendam,
-        socsocpatr_mera,
-        socreg_e_nor_fo,
-        socsocimi,
-        socfond_res_obl,
-        socfond_formaci,
-        socf_res_obl_ex,
-        socf_formac_ext,
-        socobserva,
-        socuser,
-        socgrupo,
-        soccodanter,
-        soccreaempleo,
-        socgarantia,
-        soccnae1993,
-        soccodigocdp,
-        socmutuaseguro,
-        socregesp112009,
-        socgrupogral,
-        socgrupocredito,
-        socgrupoasegura,
-        socgrupocoopera,
-        socgrupopyme,
-        socnifdomina,
-        socmod720,
-        socrevalactivo,
-        socfondotituli,
-        socregaportact,
-        socnuevacreaci,
-        socpretribadm,
-        socopart442,
-        socgrupoforal        
-        };
-      setColumns(array);
-      FieldDef arrayf[] = {socejeraplic,soccodigo };
-      setDescription("Relacion de sociedades");
-      setPrimaryKeys(arrayf);
-      socejeraplic.setDescription("Ejercicio fiscal aplicacion");
-      soccodigo.setDescription("Codigo sociedad");
-      soccif.setDescription("C.I.F.");
-      socnombre.setDescription("Nombre");
-      soctipo_organo.setDescription("Tipo Organo Administracion");
-      soccnaereg.setDescription("C.N.A.E. 2009");
-      socfechabaja.setDescription("Fecha de baja");
-      soccausabaja.setDescription("Causa de baja");
-      socfechaconstit.setDescription("Fecha constitucion");
-      socnotaria.setDescription("Notaria");
-      socnotario.setDescription("Notario");
-      socescritura.setDescription("Escritura");
-      soccodigocontab.setDescription("Codigo Contabilidad-GEyCE");
-      soccodigonomina.setDescription("Codigo Nomina-GEyCE");
-      socexpediente.setDescription("Codigo de expediente");
-      socforma_juridi.setDescription("Forma juridica");
-      socdescri_reg.setDescription("Descripcion  regimen");
-      socreducc_ric.setDescription("Aplica reduccion RIC");
-      socsector.setDescription("Codigo de plan de cuentas");
-      socsector_pyg.setDescription("Estado de cuentas Perd. y Gana");
-      socauditada.setDescription("Sociedad esta auditada");
-      soctraspasada.setDescription("Esta sociedad esta traspasada");
-      socobligctas.setDescription("Sociedad obligadaa hacer ctas.");
-      socinicio.setDescription("Inicio ejercicio");
-      socfin.setDescription("Fin ejercicio");
-      socdia_ini_ejer.setDescription("Dia inicio ejercicio");
-      socmes_ini_ejer.setDescription("Mes inicio ejercicio");
-      socanyo_ini_ej.setDescription("Año inicio ejercicio");
-      socdia_fin_ejer.setDescription("Dia fin ejercicio");
-      socmes_fin_ejer.setDescription("Mes fin ejercicio");
-      socanyo_fin_eje.setDescription("Año fin ejercicio");
-      socfor_ingr_iss.setDescription("Forma ingreso ISS");
-      socfor_dev_iss.setDescription("Forma devolucion ISS");
-      socfor_ingr_pag.setDescription("Forma ingreso Pago a cta");
-      soccta_cte_trib.setDescription("Cuenta corriente tributaria");
-      soccooperativa.setDescription("Cooperativa");
-      socent_exent.setDescription("Entidad exenta");
-      soccoop_prot.setDescription("Cooperativa protegida");
-      soccoop_esprot.setDescription("Coop. especialmente protegida");
-      socinv_mobil.setDescription("Soc. de inv. caracter financ.");
-      socinv_inmob1.setDescription("Soc. inversion inmobiliaria");
-      socotros_reg.setDescription("Otros regimenes especiales");
-      socagrarias.setDescription("Cdad.titular.montes vecinales");
-      socgran_emp.setDescription("Gran empresa");
-      socent_credito.setDescription("Entidad de credito");
-      socent_aseg.setDescription("Entidad aseguradora");
-      socent_inac.setDescription("Entidad inactiva");
-      socbi_neg.setDescription("Base imponible negativa o cero");
-      socdec_complem.setDescription("Fondo de Pensiones RDL 1/2002");
-      soctrib_cons.setDescription("Inversiones anticipadas RIC");
-      socsoc_domte.setDescription("Soc. dominante o cabeza grupo");
-      socsoc_domda.setDescription("Reg.atribucion rentas extranj.");
-      socnum_grupo.setDescription("Numero de grupo");
-      socent_regfis.setDescription("Entidad reg.fiscal Ley 49/2002");
-      socrenta_positi.setDescription("Inclus.base imponible rentas +");
-      socopc_art10_5.setDescription("Regimen especial Canarias");
-      socpymes.setDescription("Empresa de reducida dimension");
-      socopc_art_1216.setDescription("Opcion Art. 107.6 T.R. ISS");
-      socsoc_dependie.setDescription("Sociedad dependiente");
-      socten_val_extr.setDescription("Ent.tenencia valor extranjeros");
-      socag_int_ec_es.setDescription("Agrupacion interes ec.española");
-      socagr_europea.setDescription("Agrupacion europea int.econom.");
-      soczec.setDescription("Entidad ZEC");
-      socopc_art_762b.setDescription("Opcion Art.51.2b T.R. ISS");
-      socresto_cooper.setDescription("Resto cooperativas");
-      socestab_perman.setDescription("Establecimiento permanente");
-      socdip_com_fora.setDescription("Tributacion Estado/Dip.Forales");
-      soctrans_el_pat.setDescription("Transmision elem.patrimoniales");
-      socfond_cap_rie.setDescription("Soc. y fondos capital-riesgo");
-      socdes_ind_regi.setDescription("Desarrollo industrial regional");
-      socreg_esp_mine.setDescription("Regimen especial mineria");
-      socreg_esp_hidr.setDescription("Regimen especial hidrocarburos");
-      socopc_art48_1b.setDescription("Opcion articulo 43.1 R.I.S.");
-      socopc_art48_3b.setDescription("Opcion articulo 43.3 R.I.S.");
-      socperd_coop_pr.setDescription("Perdida derecho coop.protegida");
-      socreg_ent_navi.setDescription("Reg.navieras en funcion tonel.");
-      socent_grupo_me.setDescription("Ent. forman parte grupo merca.");
-      socobli_14b_ris.setDescription("Oblig. informacion 15 R.I.S.");
-      socobli_49b_ris.setDescription("Oblig. informacion 45 R.I.S.");
-      socsoc_arrendam.setDescription("Sociedad arrendamiento vda.");
-      socsocpatr_mera.setDescription("Ent.sometida normativa foral");
-      socreg_e_nor_fo.setDescription("Reg.especial normativa foral");
-      socsocimi.setDescription("SOCIMI");
-      socfond_res_obl.setDescription("% Fondo reserva oblig. cooper.");
-      socfond_formaci.setDescription("% Fondo formacion y promocion");
-      socf_res_obl_ex.setDescription("% F.R.O. extracooperativo");
-      socf_formac_ext.setDescription("% F.formacion extracooperativo");
-      socobserva.setDescription("Observaciones");
-      socuser.setDescription("Usuario asignado a la sociedad");
-      socgrupo.setDescription("Grupo asignado a la sociedad");
-      soccodanter.setDescription("Codigo aplicacion antigua");
-      soccreaempleo.setDescription("Sociedad tipo reducido creacion empleo");
-      socgarantia.setDescription("Sociedad garantia reciproca");
-      soccnae1993.setDescription("C.N.A.E. ISS");
-      soccodigocdp.setDescription("Código de CDP");
-      socmutuaseguro.setDescription("Mutua de seguros o Mutualidad de prevision");
-      socregesp112009.setDescription("Entidades que aplican regimen especial Ley 11/2009");
-      socgrupogral.setDescription("Consolidacion fiscal : grupo general");
-      socgrupocredito.setDescription("Consolidacion fiscal : grupo entidades de credito");
-      socgrupoasegura.setDescription("Consolidacion fiscal : grupo entidades aseguradoras");
-      socgrupocoopera.setDescription("Consolidacion fiscal : grupo de cooperativas");
-      socgrupopyme.setDescription("Consolidacion fiscal : incentivos reducida dimension");
-      socnifdomina.setDescription("NIF de la sociedad dominante");
-      socmod720.setDescription("Declara bienes extranjeros mod.720");
-      socrevalactivo.setDescription("Revalorizacion activos Ley 16/2012");
-      socfondotituli.setDescription("Fondos o activos de titulización");
-      socregaportact.setDescription("Reg.fiscal aportacion activos para la gestion activos");
-      socnuevacreaci.setDescription("Entidad nueva creacion");
-      socpretribadm.setDescription("% Retribucion administradores sobre beneficio ejercicio");
-      socopart442.setDescription("Opción art. 44.2 LIS");
-      socgrupoforal.setDescription("Consolidacion fiscal : grupo foral");
       }
     }
     
@@ -30102,6 +26557,1557 @@ public class CatJiss extends Catalog
       }
     }
     
+  public class TabDedinvbfos extends TableDef
+    {
+    // Campos
+    public FieldDef dibident;
+    public FieldDef dibejeraplic;
+    public FieldDef dibsociedad;
+    public FieldDef dibejerbfo;
+    public FieldDef dibfecha_inver;
+    public FieldDef dibelemento;
+    public FieldDef dibvalor_inver;
+    public FieldDef dibbeneficio;
+    public FieldDef dibminoracion;
+    public FieldDef dibcoeficionte;
+    public FieldDef dibbasededuc;
+    public FieldDef dibejerdeduc;
+    public FieldDef dibreserva;
+    public FieldDef dibplazo;
+    public FieldDef dibfecha_enaje;
+    public FieldDef dibreinvertido;
+    public FieldDef dibporcentaje;
+    public FieldDef dibdeduccion;
+    public FieldDef dibestcanarias;
+    public FieldDef dibtotalinvert;
+    public TabDedinvbfos(String name)
+      {
+      super(name);
+      dibident = new FieldDef("dibident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      dibejeraplic = new FieldDef("dibejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      dibsociedad = new FieldDef("dibsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      dibejerbfo = new FieldDef("dibejerbfo",FieldDef.INTEGER,0);
+      dibfecha_inver = new FieldDef("dibfecha_inver",FieldDef.DATE);
+      dibelemento = new FieldDef("dibelemento",FieldDef.CHAR,50);
+      dibvalor_inver = new FieldDef("dibvalor_inver",FieldDef.FLOAT,6,0);
+      dibbeneficio = new FieldDef("dibbeneficio",FieldDef.FLOAT,6,0);
+      dibminoracion = new FieldDef("dibminoracion",FieldDef.FLOAT,6,0);
+      dibcoeficionte = new FieldDef("dibcoeficionte",FieldDef.FLOAT,6,0);
+      dibbasededuc = new FieldDef("dibbasededuc",FieldDef.FLOAT,6,0);
+      dibejerdeduc = new FieldDef("dibejerdeduc",FieldDef.FLOAT,6,0);
+      dibreserva = new FieldDef("dibreserva",FieldDef.FLOAT,6,0);
+      dibplazo = new FieldDef("dibplazo",FieldDef.INTEGER,0);
+      dibfecha_enaje = new FieldDef("dibfecha_enaje",FieldDef.DATE);
+      dibreinvertido = new FieldDef("dibreinvertido",FieldDef.FLOAT,6,0);
+      dibporcentaje = new FieldDef("dibporcentaje",FieldDef.FLOAT,6,0);
+      dibdeduccion = new FieldDef("dibdeduccion",FieldDef.FLOAT,6,0);
+      dibestcanarias = new FieldDef("dibestcanarias",FieldDef.CHAR,1);
+      dibtotalinvert = new FieldDef("dibtotalinvert",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        dibident,
+        dibejeraplic,
+        dibsociedad,
+        dibejerbfo,
+        dibfecha_inver,
+        dibelemento,
+        dibvalor_inver,
+        dibbeneficio,
+        dibminoracion,
+        dibcoeficionte,
+        dibbasededuc,
+        dibejerdeduc,
+        dibreserva,
+        dibplazo,
+        dibfecha_enaje,
+        dibreinvertido,
+        dibporcentaje,
+        dibdeduccion,
+        dibestcanarias,
+        dibtotalinvert        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {dibident };
+      setDescription("Deduccion inversion beneficios");
+      setPrimaryKeys(arrayf);
+      dibident.setAutoIncrementable(true);
+      dibejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      dibsociedad.setDescription("Sociedad");
+      dibejerbfo.setDescription("Ejercicio en que se obtiene beneficio");
+      dibfecha_inver.setDescription("Fecha inversion");
+      dibelemento.setDescription("Elemento");
+      dibvalor_inver.setDescription("Valor inversion");
+      dibbeneficio.setDescription("Beneficio ejercicio");
+      dibminoracion.setDescription("Rentas a minorar");
+      dibcoeficionte.setDescription("Coeficiente");
+      dibbasededuc.setDescription("Base deduccion");
+      dibejerdeduc.setDescription("Ejercicio aplica deduccion");
+      dibreserva.setDescription("Importe reserva inversion");
+      dibplazo.setDescription("Plazo funcionamiento");
+      dibfecha_enaje.setDescription("Fecha enajenacion");
+      dibreinvertido.setDescription("Importe enajenacion reinvertido");
+      dibporcentaje.setDescription("% Deduccion");
+      dibdeduccion.setDescription("Cuantia deduccion");
+      dibestcanarias.setDescription("Estatal o Canarias");
+      dibtotalinvert.setDescription("Valor total invertido");
+      }
+    }
+    
+  public class TabDedintgral extends TableDef
+    {
+    // Campos
+    public FieldDef digejeraplic;
+    public FieldDef digsociedad;
+    public FieldDef diganyo;
+    public FieldDef dig_cvelim;
+    public FieldDef dig_cvesaldo;
+    public FieldDef dig_cveaplic;
+    public FieldDef dig_cveaplicn;
+    public FieldDef dig_cmvlim;
+    public FieldDef dig_cmvsaldo;
+    public FieldDef dig_cmvaplic;
+    public FieldDef dig_cmvaplicn;
+    public FieldDef dig_arvlim;
+    public FieldDef dig_arvsaldo;
+    public FieldDef dig_arvaplic;
+    public FieldDef dig_arvaplicn;
+    public FieldDef dig_aejlim;
+    public FieldDef dig_aejsaldo;
+    public FieldDef dig_aejaplic;
+    public FieldDef dig_aejaplicn;
+    public FieldDef dig_pcllim;
+    public FieldDef dig_pclsaldo;
+    public FieldDef dig_pclaplic;
+    public FieldDef dig_pclaplicn;
+    public FieldDef dig_pjilim;
+    public FieldDef dig_pjisaldo;
+    public FieldDef dig_pjiaplic;
+    public FieldDef dig_pjiaplicn;
+    public FieldDef dig_uiglim;
+    public FieldDef dig_uigsaldo;
+    public FieldDef dig_uigaplic;
+    public FieldDef dig_uigaplicn;
+    public FieldDef dig_cmclim;
+    public FieldDef dig_cmcsaldo;
+    public FieldDef dig_cmcaplic;
+    public FieldDef dig_cmcaplicn;
+    public FieldDef dig_cculim;
+    public FieldDef dig_ccusaldo;
+    public FieldDef dig_ccuaplic;
+    public FieldDef dig_ccuaplicn;
+    public FieldDef dig_bwjlim;
+    public FieldDef dig_bwjsaldo;
+    public FieldDef dig_bwjaplic;
+    public FieldDef dig_bwjaplicn;
+    public FieldDef dig_cnblim;
+    public FieldDef dig_cnbsaldo;
+    public FieldDef dig_cnbaplic;
+    public FieldDef dig_cnbaplicn;
+    public FieldDef dig_mwclim;
+    public FieldDef dig_mwcsaldo;
+    public FieldDef dig_mwcaplic;
+    public FieldDef dig_mwcaplicn;
+    public FieldDef dig_bwrlim;
+    public FieldDef dig_bwrsaldo;
+    public FieldDef dig_bwraplic;
+    public FieldDef dig_bwraplicn;
+    public FieldDef dig_cpmlim;
+    public FieldDef dig_cpmsaldo;
+    public FieldDef dig_cpmaplic;
+    public FieldDef dig_cpmaplicn;
+    public FieldDef dig_ctolim;
+    public FieldDef dig_ctosaldo;
+    public FieldDef dig_ctoaplic;
+    public FieldDef dig_ctoaplicn;
+    public FieldDef dig_abplim;
+    public FieldDef dig_abpsaldo;
+    public FieldDef dig_abpaplic;
+    public FieldDef dig_abpaplicn;
+    public FieldDef dig_cpllim;
+    public FieldDef dig_cplsaldo;
+    public FieldDef dig_cplaplic;
+    public FieldDef dig_cplaplicn;
+    public FieldDef dig_anclim;
+    public FieldDef dig_ancsaldo;
+    public FieldDef dig_ancaplic;
+    public FieldDef dig_ancaplicn;
+    public FieldDef dig_bntlim;
+    public FieldDef dig_bntsaldo;
+    public FieldDef dig_bntaplic;
+    public FieldDef dig_bntaplicn;
+    public FieldDef dig_ajmlim;
+    public FieldDef dig_ajmsaldo;
+    public FieldDef dig_ajmaplic;
+    public FieldDef dig_ajmaplicn;
+    public FieldDef dig_cmalim;
+    public FieldDef dig_cmasaldo;
+    public FieldDef dig_cmaaplic;
+    public FieldDef dig_cmaaplicn;
+    public FieldDef dig_dmlim;
+    public FieldDef dig_dmsaldo;
+    public FieldDef dig_dmaplic;
+    public FieldDef dig_dmaplicn;
+    public FieldDef dig_jrjlim;
+    public FieldDef dig_jrjsaldo;
+    public FieldDef dig_jrjaplic;
+    public FieldDef dig_jrjaplicn;
+    public FieldDef dig_csflim;
+    public FieldDef dig_csfsaldo;
+    public FieldDef dig_csfaplic;
+    public FieldDef dig_csfaplicn;
+    public FieldDef dig_csjlim;
+    public FieldDef dig_csjsaldo;
+    public FieldDef dig_csjaplic;
+    public FieldDef dig_csjaplicn;
+    public FieldDef dig_ajulim;
+    public FieldDef dig_ajusaldo;
+    public FieldDef dig_ajuaplic;
+    public FieldDef dig_ajuaplicn;
+    public FieldDef dig_ajslim;
+    public FieldDef dig_ajssaldo;
+    public FieldDef dig_ajsaplic;
+    public FieldDef dig_ajsaplicn;
+    public FieldDef dig_a14lim;
+    public FieldDef dig_a14saldo;
+    public FieldDef dig_a14aplic;
+    public FieldDef dig_a14aplicn;
+    public FieldDef dig_dcelim;
+    public FieldDef dig_dcesaldo;
+    public FieldDef dig_dceaplic;
+    public FieldDef dig_dceaplicn;
+    public FieldDef dig_em5lim;
+    public FieldDef dig_em5saldo;
+    public FieldDef dig_em5aplic;
+    public FieldDef dig_em5aplicn;
+    public FieldDef dig_ceglim;
+    public FieldDef dig_cegsaldo;
+    public FieldDef dig_cegaplic;
+    public FieldDef dig_cegaplicn;
+    public FieldDef dig_cprlim;
+    public FieldDef dig_cprsaldo;
+    public FieldDef dig_cpraplic;
+    public FieldDef dig_cpraplicn;
+    public FieldDef dig_mhwlim;
+    public FieldDef dig_mhwsaldo;
+    public FieldDef dig_mhwaplic;
+    public FieldDef dig_mhwaplicn;
+    public FieldDef dig_crelim;
+    public FieldDef dig_cresaldo;
+    public FieldDef dig_creaplic;
+    public FieldDef dig_creaplicn;
+    public FieldDef dig_peplim;
+    public FieldDef dig_pepsaldo;
+    public FieldDef dig_pepaplic;
+    public FieldDef dig_pepaplicn;
+    public FieldDef dig_csqlim;
+    public FieldDef dig_csqsaldo;
+    public FieldDef dig_csqaplic;
+    public FieldDef dig_csqaplicn;
+    public FieldDef dig_wcllim;
+    public FieldDef dig_wclsaldo;
+    public FieldDef dig_wclaplic;
+    public FieldDef dig_wclaplicn;
+    public FieldDef dig_jm7lim;
+    public FieldDef dig_jm7saldo;
+    public FieldDef dig_jm7aplic;
+    public FieldDef dig_jm7aplicn;
+    public FieldDef dig_tcmlim;
+    public FieldDef dig_tcmsaldo;
+    public FieldDef dig_tcmaplic;
+    public FieldDef dig_tcmaplicn;
+    public FieldDef dig_abelim;
+    public FieldDef dig_abesaldo;
+    public FieldDef dig_abeaplic;
+    public FieldDef dig_abeaplicn;
+    public TabDedintgral(String name)
+      {
+      super(name);
+      digejeraplic = new FieldDef("digejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      digsociedad = new FieldDef("digsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      diganyo = new FieldDef("diganyo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      dig_cvelim = new FieldDef("dig_cvelim",FieldDef.FLOAT,6,0);
+      dig_cvesaldo = new FieldDef("dig_cvesaldo",FieldDef.FLOAT,6,0);
+      dig_cveaplic = new FieldDef("dig_cveaplic",FieldDef.FLOAT,6,0);
+      dig_cveaplicn = new FieldDef("dig_cveaplicn",FieldDef.FLOAT,6,0);
+      dig_cmvlim = new FieldDef("dig_cmvlim",FieldDef.FLOAT,6,0);
+      dig_cmvsaldo = new FieldDef("dig_cmvsaldo",FieldDef.FLOAT,6,0);
+      dig_cmvaplic = new FieldDef("dig_cmvaplic",FieldDef.FLOAT,6,0);
+      dig_cmvaplicn = new FieldDef("dig_cmvaplicn",FieldDef.FLOAT,6,0);
+      dig_arvlim = new FieldDef("dig_arvlim",FieldDef.FLOAT,6,0);
+      dig_arvsaldo = new FieldDef("dig_arvsaldo",FieldDef.FLOAT,6,0);
+      dig_arvaplic = new FieldDef("dig_arvaplic",FieldDef.FLOAT,6,0);
+      dig_arvaplicn = new FieldDef("dig_arvaplicn",FieldDef.FLOAT,6,0);
+      dig_aejlim = new FieldDef("dig_aejlim",FieldDef.FLOAT,6,0);
+      dig_aejsaldo = new FieldDef("dig_aejsaldo",FieldDef.FLOAT,6,0);
+      dig_aejaplic = new FieldDef("dig_aejaplic",FieldDef.FLOAT,6,0);
+      dig_aejaplicn = new FieldDef("dig_aejaplicn",FieldDef.FLOAT,6,0);
+      dig_pcllim = new FieldDef("dig_pcllim",FieldDef.FLOAT,6,0);
+      dig_pclsaldo = new FieldDef("dig_pclsaldo",FieldDef.FLOAT,6,0);
+      dig_pclaplic = new FieldDef("dig_pclaplic",FieldDef.FLOAT,6,0);
+      dig_pclaplicn = new FieldDef("dig_pclaplicn",FieldDef.FLOAT,6,0);
+      dig_pjilim = new FieldDef("dig_pjilim",FieldDef.FLOAT,6,0);
+      dig_pjisaldo = new FieldDef("dig_pjisaldo",FieldDef.FLOAT,6,0);
+      dig_pjiaplic = new FieldDef("dig_pjiaplic",FieldDef.FLOAT,6,0);
+      dig_pjiaplicn = new FieldDef("dig_pjiaplicn",FieldDef.FLOAT,6,0);
+      dig_uiglim = new FieldDef("dig_uiglim",FieldDef.FLOAT,6,0);
+      dig_uigsaldo = new FieldDef("dig_uigsaldo",FieldDef.FLOAT,6,0);
+      dig_uigaplic = new FieldDef("dig_uigaplic",FieldDef.FLOAT,6,0);
+      dig_uigaplicn = new FieldDef("dig_uigaplicn",FieldDef.FLOAT,6,0);
+      dig_cmclim = new FieldDef("dig_cmclim",FieldDef.FLOAT,6,0);
+      dig_cmcsaldo = new FieldDef("dig_cmcsaldo",FieldDef.FLOAT,6,0);
+      dig_cmcaplic = new FieldDef("dig_cmcaplic",FieldDef.FLOAT,6,0);
+      dig_cmcaplicn = new FieldDef("dig_cmcaplicn",FieldDef.FLOAT,6,0);
+      dig_cculim = new FieldDef("dig_cculim",FieldDef.FLOAT,6,0);
+      dig_ccusaldo = new FieldDef("dig_ccusaldo",FieldDef.FLOAT,6,0);
+      dig_ccuaplic = new FieldDef("dig_ccuaplic",FieldDef.FLOAT,6,0);
+      dig_ccuaplicn = new FieldDef("dig_ccuaplicn",FieldDef.FLOAT,6,0);
+      dig_bwjlim = new FieldDef("dig_bwjlim",FieldDef.FLOAT,6,0);
+      dig_bwjsaldo = new FieldDef("dig_bwjsaldo",FieldDef.FLOAT,6,0);
+      dig_bwjaplic = new FieldDef("dig_bwjaplic",FieldDef.FLOAT,6,0);
+      dig_bwjaplicn = new FieldDef("dig_bwjaplicn",FieldDef.FLOAT,6,0);
+      dig_cnblim = new FieldDef("dig_cnblim",FieldDef.FLOAT,6,0);
+      dig_cnbsaldo = new FieldDef("dig_cnbsaldo",FieldDef.FLOAT,6,0);
+      dig_cnbaplic = new FieldDef("dig_cnbaplic",FieldDef.FLOAT,6,0);
+      dig_cnbaplicn = new FieldDef("dig_cnbaplicn",FieldDef.FLOAT,6,0);
+      dig_mwclim = new FieldDef("dig_mwclim",FieldDef.FLOAT,6,0);
+      dig_mwcsaldo = new FieldDef("dig_mwcsaldo",FieldDef.FLOAT,6,0);
+      dig_mwcaplic = new FieldDef("dig_mwcaplic",FieldDef.FLOAT,6,0);
+      dig_mwcaplicn = new FieldDef("dig_mwcaplicn",FieldDef.FLOAT,6,0);
+      dig_bwrlim = new FieldDef("dig_bwrlim",FieldDef.FLOAT,6,0);
+      dig_bwrsaldo = new FieldDef("dig_bwrsaldo",FieldDef.FLOAT,6,0);
+      dig_bwraplic = new FieldDef("dig_bwraplic",FieldDef.FLOAT,6,0);
+      dig_bwraplicn = new FieldDef("dig_bwraplicn",FieldDef.FLOAT,6,0);
+      dig_cpmlim = new FieldDef("dig_cpmlim",FieldDef.FLOAT,6,0);
+      dig_cpmsaldo = new FieldDef("dig_cpmsaldo",FieldDef.FLOAT,6,0);
+      dig_cpmaplic = new FieldDef("dig_cpmaplic",FieldDef.FLOAT,6,0);
+      dig_cpmaplicn = new FieldDef("dig_cpmaplicn",FieldDef.FLOAT,6,0);
+      dig_ctolim = new FieldDef("dig_ctolim",FieldDef.FLOAT,6,0);
+      dig_ctosaldo = new FieldDef("dig_ctosaldo",FieldDef.FLOAT,6,0);
+      dig_ctoaplic = new FieldDef("dig_ctoaplic",FieldDef.FLOAT,6,0);
+      dig_ctoaplicn = new FieldDef("dig_ctoaplicn",FieldDef.FLOAT,6,0);
+      dig_abplim = new FieldDef("dig_abplim",FieldDef.FLOAT,6,0);
+      dig_abpsaldo = new FieldDef("dig_abpsaldo",FieldDef.FLOAT,6,0);
+      dig_abpaplic = new FieldDef("dig_abpaplic",FieldDef.FLOAT,6,0);
+      dig_abpaplicn = new FieldDef("dig_abpaplicn",FieldDef.FLOAT,6,0);
+      dig_cpllim = new FieldDef("dig_cpllim",FieldDef.FLOAT,6,0);
+      dig_cplsaldo = new FieldDef("dig_cplsaldo",FieldDef.FLOAT,6,0);
+      dig_cplaplic = new FieldDef("dig_cplaplic",FieldDef.FLOAT,6,0);
+      dig_cplaplicn = new FieldDef("dig_cplaplicn",FieldDef.FLOAT,6,0);
+      dig_anclim = new FieldDef("dig_anclim",FieldDef.FLOAT,6,0);
+      dig_ancsaldo = new FieldDef("dig_ancsaldo",FieldDef.FLOAT,6,0);
+      dig_ancaplic = new FieldDef("dig_ancaplic",FieldDef.FLOAT,6,0);
+      dig_ancaplicn = new FieldDef("dig_ancaplicn",FieldDef.FLOAT,6,0);
+      dig_bntlim = new FieldDef("dig_bntlim",FieldDef.FLOAT,6,0);
+      dig_bntsaldo = new FieldDef("dig_bntsaldo",FieldDef.FLOAT,6,0);
+      dig_bntaplic = new FieldDef("dig_bntaplic",FieldDef.FLOAT,6,0);
+      dig_bntaplicn = new FieldDef("dig_bntaplicn",FieldDef.FLOAT,6,0);
+      dig_ajmlim = new FieldDef("dig_ajmlim",FieldDef.FLOAT,6,0);
+      dig_ajmsaldo = new FieldDef("dig_ajmsaldo",FieldDef.FLOAT,6,0);
+      dig_ajmaplic = new FieldDef("dig_ajmaplic",FieldDef.FLOAT,6,0);
+      dig_ajmaplicn = new FieldDef("dig_ajmaplicn",FieldDef.FLOAT,6,0);
+      dig_cmalim = new FieldDef("dig_cmalim",FieldDef.FLOAT,6,0);
+      dig_cmasaldo = new FieldDef("dig_cmasaldo",FieldDef.FLOAT,6,0);
+      dig_cmaaplic = new FieldDef("dig_cmaaplic",FieldDef.FLOAT,6,0);
+      dig_cmaaplicn = new FieldDef("dig_cmaaplicn",FieldDef.FLOAT,6,0);
+      dig_dmlim = new FieldDef("dig_dmlim",FieldDef.FLOAT,6,0);
+      dig_dmsaldo = new FieldDef("dig_dmsaldo",FieldDef.FLOAT,6,0);
+      dig_dmaplic = new FieldDef("dig_dmaplic",FieldDef.FLOAT,6,0);
+      dig_dmaplicn = new FieldDef("dig_dmaplicn",FieldDef.FLOAT,6,0);
+      dig_jrjlim = new FieldDef("dig_jrjlim",FieldDef.FLOAT,6,0);
+      dig_jrjsaldo = new FieldDef("dig_jrjsaldo",FieldDef.FLOAT,6,0);
+      dig_jrjaplic = new FieldDef("dig_jrjaplic",FieldDef.FLOAT,6,0);
+      dig_jrjaplicn = new FieldDef("dig_jrjaplicn",FieldDef.FLOAT,6,0);
+      dig_csflim = new FieldDef("dig_csflim",FieldDef.FLOAT,6,0);
+      dig_csfsaldo = new FieldDef("dig_csfsaldo",FieldDef.FLOAT,6,0);
+      dig_csfaplic = new FieldDef("dig_csfaplic",FieldDef.FLOAT,6,0);
+      dig_csfaplicn = new FieldDef("dig_csfaplicn",FieldDef.FLOAT,6,0);
+      dig_csjlim = new FieldDef("dig_csjlim",FieldDef.FLOAT,6,0);
+      dig_csjsaldo = new FieldDef("dig_csjsaldo",FieldDef.FLOAT,6,0);
+      dig_csjaplic = new FieldDef("dig_csjaplic",FieldDef.FLOAT,6,0);
+      dig_csjaplicn = new FieldDef("dig_csjaplicn",FieldDef.FLOAT,6,0);
+      dig_ajulim = new FieldDef("dig_ajulim",FieldDef.FLOAT,6,0);
+      dig_ajusaldo = new FieldDef("dig_ajusaldo",FieldDef.FLOAT,6,0);
+      dig_ajuaplic = new FieldDef("dig_ajuaplic",FieldDef.FLOAT,6,0);
+      dig_ajuaplicn = new FieldDef("dig_ajuaplicn",FieldDef.FLOAT,6,0);
+      dig_ajslim = new FieldDef("dig_ajslim",FieldDef.FLOAT,6,0);
+      dig_ajssaldo = new FieldDef("dig_ajssaldo",FieldDef.FLOAT,6,0);
+      dig_ajsaplic = new FieldDef("dig_ajsaplic",FieldDef.FLOAT,6,0);
+      dig_ajsaplicn = new FieldDef("dig_ajsaplicn",FieldDef.FLOAT,6,0);
+      dig_a14lim = new FieldDef("dig_a14lim",FieldDef.FLOAT,6,0);
+      dig_a14saldo = new FieldDef("dig_a14saldo",FieldDef.FLOAT,6,0);
+      dig_a14aplic = new FieldDef("dig_a14aplic",FieldDef.FLOAT,6,0);
+      dig_a14aplicn = new FieldDef("dig_a14aplicn",FieldDef.FLOAT,6,0);
+      dig_dcelim = new FieldDef("dig_dcelim",FieldDef.FLOAT,6,0);
+      dig_dcesaldo = new FieldDef("dig_dcesaldo",FieldDef.FLOAT,6,0);
+      dig_dceaplic = new FieldDef("dig_dceaplic",FieldDef.FLOAT,6,0);
+      dig_dceaplicn = new FieldDef("dig_dceaplicn",FieldDef.FLOAT,6,0);
+      dig_em5lim = new FieldDef("dig_em5lim",FieldDef.FLOAT,6,0);
+      dig_em5saldo = new FieldDef("dig_em5saldo",FieldDef.FLOAT,6,0);
+      dig_em5aplic = new FieldDef("dig_em5aplic",FieldDef.FLOAT,6,0);
+      dig_em5aplicn = new FieldDef("dig_em5aplicn",FieldDef.FLOAT,6,0);
+      dig_ceglim = new FieldDef("dig_ceglim",FieldDef.FLOAT,6,0);
+      dig_cegsaldo = new FieldDef("dig_cegsaldo",FieldDef.FLOAT,6,0);
+      dig_cegaplic = new FieldDef("dig_cegaplic",FieldDef.FLOAT,6,0);
+      dig_cegaplicn = new FieldDef("dig_cegaplicn",FieldDef.FLOAT,6,0);
+      dig_cprlim = new FieldDef("dig_cprlim",FieldDef.FLOAT,6,0);
+      dig_cprsaldo = new FieldDef("dig_cprsaldo",FieldDef.FLOAT,6,0);
+      dig_cpraplic = new FieldDef("dig_cpraplic",FieldDef.FLOAT,6,0);
+      dig_cpraplicn = new FieldDef("dig_cpraplicn",FieldDef.FLOAT,6,0);
+      dig_mhwlim = new FieldDef("dig_mhwlim",FieldDef.FLOAT,6,0);
+      dig_mhwsaldo = new FieldDef("dig_mhwsaldo",FieldDef.FLOAT,6,0);
+      dig_mhwaplic = new FieldDef("dig_mhwaplic",FieldDef.FLOAT,6,0);
+      dig_mhwaplicn = new FieldDef("dig_mhwaplicn",FieldDef.FLOAT,6,0);
+      dig_crelim = new FieldDef("dig_crelim",FieldDef.FLOAT,6,0);
+      dig_cresaldo = new FieldDef("dig_cresaldo",FieldDef.FLOAT,6,0);
+      dig_creaplic = new FieldDef("dig_creaplic",FieldDef.FLOAT,6,0);
+      dig_creaplicn = new FieldDef("dig_creaplicn",FieldDef.FLOAT,6,0);
+      dig_peplim = new FieldDef("dig_peplim",FieldDef.FLOAT,6,0);
+      dig_pepsaldo = new FieldDef("dig_pepsaldo",FieldDef.FLOAT,6,0);
+      dig_pepaplic = new FieldDef("dig_pepaplic",FieldDef.FLOAT,6,0);
+      dig_pepaplicn = new FieldDef("dig_pepaplicn",FieldDef.FLOAT,6,0);
+      dig_csqlim = new FieldDef("dig_csqlim",FieldDef.FLOAT,6,0);
+      dig_csqsaldo = new FieldDef("dig_csqsaldo",FieldDef.FLOAT,6,0);
+      dig_csqaplic = new FieldDef("dig_csqaplic",FieldDef.FLOAT,6,0);
+      dig_csqaplicn = new FieldDef("dig_csqaplicn",FieldDef.FLOAT,6,0);
+      dig_wcllim = new FieldDef("dig_wcllim",FieldDef.FLOAT,6,0);
+      dig_wclsaldo = new FieldDef("dig_wclsaldo",FieldDef.FLOAT,6,0);
+      dig_wclaplic = new FieldDef("dig_wclaplic",FieldDef.FLOAT,6,0);
+      dig_wclaplicn = new FieldDef("dig_wclaplicn",FieldDef.FLOAT,6,0);
+      dig_jm7lim = new FieldDef("dig_jm7lim",FieldDef.FLOAT,6,0);
+      dig_jm7saldo = new FieldDef("dig_jm7saldo",FieldDef.FLOAT,6,0);
+      dig_jm7aplic = new FieldDef("dig_jm7aplic",FieldDef.FLOAT,6,0);
+      dig_jm7aplicn = new FieldDef("dig_jm7aplicn",FieldDef.FLOAT,6,0);
+      dig_tcmlim = new FieldDef("dig_tcmlim",FieldDef.FLOAT,6,0);
+      dig_tcmsaldo = new FieldDef("dig_tcmsaldo",FieldDef.FLOAT,6,0);
+      dig_tcmaplic = new FieldDef("dig_tcmaplic",FieldDef.FLOAT,6,0);
+      dig_tcmaplicn = new FieldDef("dig_tcmaplicn",FieldDef.FLOAT,6,0);
+      dig_abelim = new FieldDef("dig_abelim",FieldDef.FLOAT,6,0);
+      dig_abesaldo = new FieldDef("dig_abesaldo",FieldDef.FLOAT,6,0);
+      dig_abeaplic = new FieldDef("dig_abeaplic",FieldDef.FLOAT,6,0);
+      dig_abeaplicn = new FieldDef("dig_abeaplicn",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        digejeraplic,
+        digsociedad,
+        diganyo,
+        dig_cvelim,
+        dig_cvesaldo,
+        dig_cveaplic,
+        dig_cveaplicn,
+        dig_cmvlim,
+        dig_cmvsaldo,
+        dig_cmvaplic,
+        dig_cmvaplicn,
+        dig_arvlim,
+        dig_arvsaldo,
+        dig_arvaplic,
+        dig_arvaplicn,
+        dig_aejlim,
+        dig_aejsaldo,
+        dig_aejaplic,
+        dig_aejaplicn,
+        dig_pcllim,
+        dig_pclsaldo,
+        dig_pclaplic,
+        dig_pclaplicn,
+        dig_pjilim,
+        dig_pjisaldo,
+        dig_pjiaplic,
+        dig_pjiaplicn,
+        dig_uiglim,
+        dig_uigsaldo,
+        dig_uigaplic,
+        dig_uigaplicn,
+        dig_cmclim,
+        dig_cmcsaldo,
+        dig_cmcaplic,
+        dig_cmcaplicn,
+        dig_cculim,
+        dig_ccusaldo,
+        dig_ccuaplic,
+        dig_ccuaplicn,
+        dig_bwjlim,
+        dig_bwjsaldo,
+        dig_bwjaplic,
+        dig_bwjaplicn,
+        dig_cnblim,
+        dig_cnbsaldo,
+        dig_cnbaplic,
+        dig_cnbaplicn,
+        dig_mwclim,
+        dig_mwcsaldo,
+        dig_mwcaplic,
+        dig_mwcaplicn,
+        dig_bwrlim,
+        dig_bwrsaldo,
+        dig_bwraplic,
+        dig_bwraplicn,
+        dig_cpmlim,
+        dig_cpmsaldo,
+        dig_cpmaplic,
+        dig_cpmaplicn,
+        dig_ctolim,
+        dig_ctosaldo,
+        dig_ctoaplic,
+        dig_ctoaplicn,
+        dig_abplim,
+        dig_abpsaldo,
+        dig_abpaplic,
+        dig_abpaplicn,
+        dig_cpllim,
+        dig_cplsaldo,
+        dig_cplaplic,
+        dig_cplaplicn,
+        dig_anclim,
+        dig_ancsaldo,
+        dig_ancaplic,
+        dig_ancaplicn,
+        dig_bntlim,
+        dig_bntsaldo,
+        dig_bntaplic,
+        dig_bntaplicn,
+        dig_ajmlim,
+        dig_ajmsaldo,
+        dig_ajmaplic,
+        dig_ajmaplicn,
+        dig_cmalim,
+        dig_cmasaldo,
+        dig_cmaaplic,
+        dig_cmaaplicn,
+        dig_dmlim,
+        dig_dmsaldo,
+        dig_dmaplic,
+        dig_dmaplicn,
+        dig_jrjlim,
+        dig_jrjsaldo,
+        dig_jrjaplic,
+        dig_jrjaplicn,
+        dig_csflim,
+        dig_csfsaldo,
+        dig_csfaplic,
+        dig_csfaplicn,
+        dig_csjlim,
+        dig_csjsaldo,
+        dig_csjaplic,
+        dig_csjaplicn,
+        dig_ajulim,
+        dig_ajusaldo,
+        dig_ajuaplic,
+        dig_ajuaplicn,
+        dig_ajslim,
+        dig_ajssaldo,
+        dig_ajsaplic,
+        dig_ajsaplicn,
+        dig_a14lim,
+        dig_a14saldo,
+        dig_a14aplic,
+        dig_a14aplicn,
+        dig_dcelim,
+        dig_dcesaldo,
+        dig_dceaplic,
+        dig_dceaplicn,
+        dig_em5lim,
+        dig_em5saldo,
+        dig_em5aplic,
+        dig_em5aplicn,
+        dig_ceglim,
+        dig_cegsaldo,
+        dig_cegaplic,
+        dig_cegaplicn,
+        dig_cprlim,
+        dig_cprsaldo,
+        dig_cpraplic,
+        dig_cpraplicn,
+        dig_mhwlim,
+        dig_mhwsaldo,
+        dig_mhwaplic,
+        dig_mhwaplicn,
+        dig_crelim,
+        dig_cresaldo,
+        dig_creaplic,
+        dig_creaplicn,
+        dig_peplim,
+        dig_pepsaldo,
+        dig_pepaplic,
+        dig_pepaplicn,
+        dig_csqlim,
+        dig_csqsaldo,
+        dig_csqaplic,
+        dig_csqaplicn,
+        dig_wcllim,
+        dig_wclsaldo,
+        dig_wclaplic,
+        dig_wclaplicn,
+        dig_jm7lim,
+        dig_jm7saldo,
+        dig_jm7aplic,
+        dig_jm7aplicn,
+        dig_tcmlim,
+        dig_tcmsaldo,
+        dig_tcmaplic,
+        dig_tcmaplicn,
+        dig_abelim,
+        dig_abesaldo,
+        dig_abeaplic,
+        dig_abeaplicn        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {digejeraplic,digsociedad,diganyo };
+      setDescription("Deduccion gastos actividades interes general");
+      setPrimaryKeys(arrayf);
+      digejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      digsociedad.setDescription("Sociedad");
+      diganyo.setDescription("Ejercicio");
+      dig_cvelim.setDescription("Capital verde Europea 2012: limite");
+      dig_cvesaldo.setDescription("Capital verde Europea 2012: saldo anterior");
+      dig_cveaplic.setDescription("Capital verde Europea 2012: aplicado");
+      dig_cveaplicn.setDescription("Capital verde Europea 2012: aplicado socios no resid");
+      dig_cmvlim.setDescription("Campeonato mundo de vela 2014: limite");
+      dig_cmvsaldo.setDescription("Campeonato mundo de vela 2014: saldo anterior");
+      dig_cmvaplic.setDescription("Campeonato mundo de vela 2014: aplicado");
+      dig_cmvaplicn.setDescription("Campeonato mundo de vela 2014: aplicado socios no resid");
+      dig_arvlim.setDescription("Arbol de la vida: limite");
+      dig_arvsaldo.setDescription("Arbol de la vida: saldo anterior");
+      dig_arvaplic.setDescription("Arbol de la vida: aplicado");
+      dig_arvaplicn.setDescription("Arbol de la vida: aplicado socios no resid");
+      dig_aejlim.setDescription("Año España y Japon: limite");
+      dig_aejsaldo.setDescription("Año España y Japon: saldo anterior");
+      dig_aejaplic.setDescription("Año España y Japon: aplicado");
+      dig_aejaplicn.setDescription("Año España y Japon: aplicado socios no resid");
+      dig_pcllim.setDescription("Recuperacion Patrimonio Cultural Lorca: limite");
+      dig_pclsaldo.setDescription("Recuperacion Patrimonio Cultural Lorca: saldo anterior");
+      dig_pclaplic.setDescription("Recuperacion Patrimonio Cultural Lorca: aplicado");
+      dig_pclaplicn.setDescription("Recuperacion Patrimonio Cultural Lorca: aplicado socios no resid");
+      dig_pjilim.setDescription("Programa patrimonio joven: limite");
+      dig_pjisaldo.setDescription("Programa patrimonio joven: saldo anterior");
+      dig_pjiaplic.setDescription("Programa patrimonio joven: aplicado");
+      dig_pjiaplicn.setDescription("Programa patrimonio joven: aplicado socios no resid");
+      dig_uiglim.setDescription("Universiada Invierno Granada 2015: limite");
+      dig_uigsaldo.setDescription("Universiada Invierno Granada 2015: saldo anterior");
+      dig_uigaplic.setDescription("Universiada Invierno Granada 2015: aplicado");
+      dig_uigaplicn.setDescription("Universiada Invierno Granada 2015: aplicado socios no resid");
+      dig_cmclim.setDescription("Campeonato mundo ciclismo Ponferrada 2014: limite");
+      dig_cmcsaldo.setDescription("Campeonato mundo ciclismo Ponferrada 2014: saldo anterior");
+      dig_cmcaplic.setDescription("Campeonato mundo ciclismo Ponferrada 2014: aplicado");
+      dig_cmcaplicn.setDescription("Campeonato mundo ciclismo Ponferrada 2014: aplicado socios no resid");
+      dig_cculim.setDescription("Creacion centro categoria 2 Unesco: limite");
+      dig_ccusaldo.setDescription("Creacion centro categoria 2 Unesco: saldo anterior");
+      dig_ccuaplic.setDescription("Creacion centro categoria 2 Unesco: aplicado");
+      dig_ccuaplicn.setDescription("Creacion centro categoria 2 Unesco: aplicado socios no resid");
+      dig_bwjlim.setDescription("Barcelona Word Jumping Challenge: limite");
+      dig_bwjsaldo.setDescription("Barcelona Word Jumping Challenge: saldo anterior");
+      dig_bwjaplic.setDescription("Barcelona Word Jumping Challenge: aplicado");
+      dig_bwjaplicn.setDescription("Barcelona Word Jumping Challenge: aplicado socios no resid");
+      dig_cnblim.setDescription("Campeonato natacion Barcelona 2013: limite");
+      dig_cnbsaldo.setDescription("Campeonato natacion Barcelona 2013: saldo anterior");
+      dig_cnbaplic.setDescription("Campeonato natacion Barcelona 2013: aplicado");
+      dig_cnbaplicn.setDescription("Campeonato natacion Barcelona 2013: aplicado socios no resid");
+      dig_mwclim.setDescription("Barcelona Mobile Wold Capital: limite");
+      dig_mwcsaldo.setDescription("Barcelona Mobile Wold Capital: saldo anterior");
+      dig_mwcaplic.setDescription("Barcelona Mobile Wold Capital: aplicado");
+      dig_mwcaplicn.setDescription("Barcelona Mobile Wold Capital: aplicado socios no resid");
+      dig_bwrlim.setDescription("Barcelona World Race: limite");
+      dig_bwrsaldo.setDescription("Barcelona World Race: saldo anterior");
+      dig_bwraplic.setDescription("Barcelona World Race: aplicado");
+      dig_bwraplicn.setDescription("Barcelona World Race: aplicado socios no resid");
+      dig_cpmlim.setDescription("Aniversario Convencion Patrimonio Mundial Paris: limite");
+      dig_cpmsaldo.setDescription("Aniversario Convencion Patrimonio Mundial Paris: saldo anterior");
+      dig_cpmaplic.setDescription("Aniversario Convencion Patrimonio Mundial Paris: aplicado");
+      dig_cpmaplicn.setDescription("Aniversario Convencion Patrimonio Mundial Paris: aplicado socios no resid");
+      dig_ctolim.setDescription("Campeonato Tiro Olimpico Las Gabias 2014: limite");
+      dig_ctosaldo.setDescription("Campeonato Tiro Olimpico Las Gabias 2014: saldo anterior");
+      dig_ctoaplic.setDescription("Campeonato Tiro Olimpico Las Gabias 2014: aplicado");
+      dig_ctoaplicn.setDescription("Campeonato Tiro Olimpico Las Gabias 2014: aplicado socios no resid");
+      dig_abplim.setDescription("500 años Bula Papal: limite");
+      dig_abpsaldo.setDescription("500 años Bula Papal: saldo anterior");
+      dig_abpaplic.setDescription("500 años Bula Papal: aplicado");
+      dig_abpaplicn.setDescription("500 años Bula Papal: aplicado socios no resid");
+      dig_cpllim.setDescription("2012 Año Culturas, Paz y libertad: limite");
+      dig_cplsaldo.setDescription("2012 Año Culturas, Paz y libertad: saldo anterior");
+      dig_cplaplic.setDescription("2012 Año Culturas, Paz y libertad: aplicado");
+      dig_cplaplicn.setDescription("2012 Año Culturas, Paz y libertad: aplicado socios no resid");
+      dig_anclim.setDescription("Año neurociencia: limite");
+      dig_ancsaldo.setDescription("Año neurociencia: saldo anterior");
+      dig_ancaplic.setDescription("Año neurociencia: aplicado");
+      dig_ancaplicn.setDescription("Año neurociencia: aplicado socios no resid");
+      dig_bntlim.setDescription("VIII Batalla Navas de Tolosa: limite");
+      dig_bntsaldo.setDescription("VIII Batalla Navas de Tolosa: saldo anterior");
+      dig_bntaplic.setDescription("VIII Batalla Navas de Tolosa: aplicado");
+      dig_bntaplicn.setDescription("VIII Batalla Navas de Tolosa: aplicado socios no resid");
+      dig_ajmlim.setDescription("Año Jubilar Mariano: limite");
+      dig_ajmsaldo.setDescription("Año Jubilar Mariano: saldo anterior");
+      dig_ajmaplic.setDescription("Año Jubilar Mariano: aplicado");
+      dig_ajmaplicn.setDescription("Año Jubilar Mariano: aplicado socios no resid");
+      dig_cmalim.setDescription("Candidatura Madrid 2020: limite");
+      dig_cmasaldo.setDescription("Candidatura Madrid 2020: saldo anterior");
+      dig_cmaaplic.setDescription("Candidatura Madrid 2020: aplicado");
+      dig_cmaaplicn.setDescription("Candidatura Madrid 2020: aplicado socios no resid");
+      dig_dmlim.setDescription("Año internacional Dieta Mediterranea: limite");
+      dig_dmsaldo.setDescription("Año internacional Dieta Mediterranea: saldo anterior");
+      dig_dmaplic.setDescription("Año internacional Dieta Mediterranea: aplicado");
+      dig_dmaplicn.setDescription("Año internacional Dieta Mediterranea: aplicado socios no resid");
+      dig_jrjlim.setDescription("Preparacion deportistas Rio Janeiro: limite");
+      dig_jrjsaldo.setDescription("Preparacion deportistas Rio Janeiro: saldo anterior");
+      dig_jrjaplic.setDescription("Preparacion deportistas Rio Janeiro: aplicado");
+      dig_jrjaplicn.setDescription("Preparacion deportistas Rio Janeiro: aplicado socios no resid");
+      dig_csflim.setDescription("Centenario San Franciso Asis: limite");
+      dig_csfsaldo.setDescription("Centenario San Franciso Asis: saldo anterior");
+      dig_csfaplic.setDescription("Centenario San Franciso Asis: aplicado");
+      dig_csfaplicn.setDescription("Centenario San Franciso Asis: aplicado socios no resid");
+      dig_csjlim.setDescription("Centenario Santa Teresa: limite");
+      dig_csjsaldo.setDescription("Centenario Santa Teresa: saldo anterior");
+      dig_csjaplic.setDescription("Centenario Santa Teresa: aplicado");
+      dig_csjaplicn.setDescription("Centenario Santa Teresa: aplicado socios no resid");
+      dig_ajulim.setDescription("Año Junipero Serra: limite");
+      dig_ajusaldo.setDescription("Año Junipero Serra: saldo anterior");
+      dig_ajuaplic.setDescription("Año Junipero Serra: aplicado");
+      dig_ajuaplicn.setDescription("Año Junipero Serra: aplicado socios no resid");
+      dig_ajslim.setDescription("Año Santo Jubilar Mariano 2013-2014: limite");
+      dig_ajssaldo.setDescription("Año Santo Jubilar Mariano 2013-2014: saldo anterior");
+      dig_ajsaplic.setDescription("Año Santo Jubilar Mariano 2013-2014: aplicado");
+      dig_ajsaplicn.setDescription("Año Santo Jubilar Mariano 2013-2014: aplicado socios no resid");
+      dig_a14lim.setDescription("Vuelta al mundo a vela Alicante 2014: limite");
+      dig_a14saldo.setDescription("Vuelta al mundo a vela Alicante 2014: saldo anterior");
+      dig_a14aplic.setDescription("Vuelta al mundo a vela Alicante 2014: aplicado");
+      dig_a14aplicn.setDescription("Vuelta al mundo a vela Alicante 2014: aplicado socios no resid");
+      dig_dcelim.setDescription("Donostia, Capital Europea Cultura 2016: limite");
+      dig_dcesaldo.setDescription("Donostia, Capital Europea Cultura 2016: saldo anterior");
+      dig_dceaplic.setDescription("Donostia, Capital Europea Cultura 2016: aplicado");
+      dig_dceaplicn.setDescription("Donostia, Capital Europea Cultura 2016: aplicado socios no resid");
+      dig_em5lim.setDescription("Expo Milan 2015: limite");
+      dig_em5saldo.setDescription("Expo Milan 2015: saldo anterior");
+      dig_em5aplic.setDescription("Expo Milan 2015: aplicado");
+      dig_em5aplicn.setDescription("Expo Milan 2015: aplicado socios no resid");
+      dig_ceglim.setDescription("Campeonato Mundo Escalada 2014, Gijon: limite");
+      dig_cegsaldo.setDescription("Campeonato Mundo Escalada 2014, Gijon: saldo anterior");
+      dig_cegaplic.setDescription("Campeonato Mundo Escalada 2014, Gijon: aplicado");
+      dig_cegaplicn.setDescription("Campeonato Mundo Escalada 2014, Gijon: aplicado socios no resid");
+      dig_cprlim.setDescription("Campeonato Mundo Patinaje, Reus: limite");
+      dig_cprsaldo.setDescription("Campeonato Mundo Patinaje, Reus: saldo anterior");
+      dig_cpraplic.setDescription("Campeonato Mundo Patinaje, Reus: aplicado");
+      dig_cpraplicn.setDescription("Campeonato Mundo Patinaje, Reus: aplicado socios no resid");
+      dig_mhwlim.setDescription("Madrid Horse Week: limite");
+      dig_mhwsaldo.setDescription("Madrid Horse Week: saldo anterior");
+      dig_mhwaplic.setDescription("Madrid Horse Week: aplicado");
+      dig_mhwaplicn.setDescription("Madrid Horse Week: aplicado socios no resid");
+      dig_crelim.setDescription("III Centenario Real Academia Española: limite");
+      dig_cresaldo.setDescription("III Centenario Real Academia Española: saldo anterior");
+      dig_creaplic.setDescription("III Centenario Real Academia Española: aplicado");
+      dig_creaplicn.setDescription("III Centenario Real Academia Española: aplicado socios no resid");
+      dig_peplim.setDescription("A Coruña 2015 - 120 años despues: limite");
+      dig_pepsaldo.setDescription("A Coruña 2015 - 120 años despues: saldo anterior");
+      dig_pepaplic.setDescription("A Coruña 2015 - 120 años despues: aplicado");
+      dig_pepaplicn.setDescription("A Coruña 2015 - 120 años despues: aplicado socios no resid");
+      dig_csqlim.setDescription("IV Centenario segunda parte El Quijote: limite");
+      dig_csqsaldo.setDescription("IV Centenario segunda parte El Quijote: saldo anterior");
+      dig_csqaplic.setDescription("IV Centenario segunda parte El Quijote: aplicado");
+      dig_csqaplicn.setDescription("IV Centenario segunda parte El Quijote: aplicado socios no resid");
+      dig_wcllim.setDescription("World Challenge LFP/85: limite");
+      dig_wclsaldo.setDescription("World Challenge LFP/85: saldo anterior");
+      dig_wclaplic.setDescription("World Challenge LFP/85: aplicado");
+      dig_wclaplicn.setDescription("World Challenge LFP/85: aplicado socios no resid");
+      dig_jm7lim.setDescription("Juegos Mediterraneo 2017: limite");
+      dig_jm7saldo.setDescription("Juegos Mediterraneo 2017: saldo anterior");
+      dig_jm7aplic.setDescription("Juegos Mediterraneo 2017: aplicado");
+      dig_jm7aplicn.setDescription("Juegos Mediterraneo 2017: aplicado socios no resid");
+      dig_tcmlim.setDescription("60 Edicion Festival Internacional Teatro Merida: limite");
+      dig_tcmsaldo.setDescription("60 Edicion Festival Internacional Teatro Merida: saldo anterior");
+      dig_tcmaplic.setDescription("60 Edicion Festival Internacional Teatro Merida: aplicado");
+      dig_tcmaplicn.setDescription("60 Edicion Festival Internacional Teatro Merida: aplicado socios no resid");
+      dig_abelim.setDescription("Año de la Biotecnologia en España: limite");
+      dig_abesaldo.setDescription("Año de la Biotecnologia en España: saldo anterior");
+      dig_abeaplic.setDescription("Año de la Biotecnologia en España: aplicado");
+      dig_abeaplicn.setDescription("Año de la Biotecnologia en España: aplicado socios no resid");
+      }
+    }
+    
+  public class TabGrupointgral extends TableDef
+    {
+    // Campos
+    public FieldDef gigejeraplic;
+    public FieldDef gigsociedad;
+    public FieldDef gigtipo;
+    public FieldDef gigcif;
+    public FieldDef giganyo;
+    public FieldDef gig_jrjlim;
+    public FieldDef gig_jrjsaldo;
+    public FieldDef gig_jrjaplic;
+    public FieldDef gig_csflim;
+    public FieldDef gig_csfsaldo;
+    public FieldDef gig_csfaplic;
+    public FieldDef gig_csjlim;
+    public FieldDef gig_csjsaldo;
+    public FieldDef gig_csjaplic;
+    public FieldDef gig_ajulim;
+    public FieldDef gig_ajusaldo;
+    public FieldDef gig_ajuaplic;
+    public FieldDef gig_ajslim;
+    public FieldDef gig_ajssaldo;
+    public FieldDef gig_ajsaplic;
+    public FieldDef gig_dcelim;
+    public FieldDef gig_dcesaldo;
+    public FieldDef gig_dceaplic;
+    public FieldDef gig_em5lim;
+    public FieldDef gig_em5saldo;
+    public FieldDef gig_em5aplic;
+    public FieldDef gig_ceglim;
+    public FieldDef gig_cegsaldo;
+    public FieldDef gig_cegaplic;
+    public FieldDef gig_cprlim;
+    public FieldDef gig_cprsaldo;
+    public FieldDef gig_cpraplic;
+    public FieldDef gig_mhwlim;
+    public FieldDef gig_mhwsaldo;
+    public FieldDef gig_mhwaplic;
+    public FieldDef gig_crelim;
+    public FieldDef gig_cresaldo;
+    public FieldDef gig_creaplic;
+    public FieldDef gig_peplim;
+    public FieldDef gig_pepsaldo;
+    public FieldDef gig_pepaplic;
+    public FieldDef gig_csqlim;
+    public FieldDef gig_csqsaldo;
+    public FieldDef gig_csqaplic;
+    public FieldDef gig_wcllim;
+    public FieldDef gig_wclsaldo;
+    public FieldDef gig_wclaplic;
+    public FieldDef gig_jm7lim;
+    public FieldDef gig_jm7saldo;
+    public FieldDef gig_jm7aplic;
+    public FieldDef gig_tcmlim;
+    public FieldDef gig_tcmsaldo;
+    public FieldDef gig_tcmaplic;
+    public FieldDef gig_abelim;
+    public FieldDef gig_abesaldo;
+    public FieldDef gig_abeaplic;
+    public TabGrupointgral(String name)
+      {
+      super(name);
+      gigejeraplic = new FieldDef("gigejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      gigsociedad = new FieldDef("gigsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      gigtipo = new FieldDef("gigtipo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      gigcif = new FieldDef("gigcif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      giganyo = new FieldDef("giganyo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      gig_jrjlim = new FieldDef("gig_jrjlim",FieldDef.FLOAT,6,0);
+      gig_jrjsaldo = new FieldDef("gig_jrjsaldo",FieldDef.FLOAT,6,0);
+      gig_jrjaplic = new FieldDef("gig_jrjaplic",FieldDef.FLOAT,6,0);
+      gig_csflim = new FieldDef("gig_csflim",FieldDef.FLOAT,6,0);
+      gig_csfsaldo = new FieldDef("gig_csfsaldo",FieldDef.FLOAT,6,0);
+      gig_csfaplic = new FieldDef("gig_csfaplic",FieldDef.FLOAT,6,0);
+      gig_csjlim = new FieldDef("gig_csjlim",FieldDef.FLOAT,6,0);
+      gig_csjsaldo = new FieldDef("gig_csjsaldo",FieldDef.FLOAT,6,0);
+      gig_csjaplic = new FieldDef("gig_csjaplic",FieldDef.FLOAT,6,0);
+      gig_ajulim = new FieldDef("gig_ajulim",FieldDef.FLOAT,6,0);
+      gig_ajusaldo = new FieldDef("gig_ajusaldo",FieldDef.FLOAT,6,0);
+      gig_ajuaplic = new FieldDef("gig_ajuaplic",FieldDef.FLOAT,6,0);
+      gig_ajslim = new FieldDef("gig_ajslim",FieldDef.FLOAT,6,0);
+      gig_ajssaldo = new FieldDef("gig_ajssaldo",FieldDef.FLOAT,6,0);
+      gig_ajsaplic = new FieldDef("gig_ajsaplic",FieldDef.FLOAT,6,0);
+      gig_dcelim = new FieldDef("gig_dcelim",FieldDef.FLOAT,6,0);
+      gig_dcesaldo = new FieldDef("gig_dcesaldo",FieldDef.FLOAT,6,0);
+      gig_dceaplic = new FieldDef("gig_dceaplic",FieldDef.FLOAT,6,0);
+      gig_em5lim = new FieldDef("gig_em5lim",FieldDef.FLOAT,6,0);
+      gig_em5saldo = new FieldDef("gig_em5saldo",FieldDef.FLOAT,6,0);
+      gig_em5aplic = new FieldDef("gig_em5aplic",FieldDef.FLOAT,6,0);
+      gig_ceglim = new FieldDef("gig_ceglim",FieldDef.FLOAT,6,0);
+      gig_cegsaldo = new FieldDef("gig_cegsaldo",FieldDef.FLOAT,6,0);
+      gig_cegaplic = new FieldDef("gig_cegaplic",FieldDef.FLOAT,6,0);
+      gig_cprlim = new FieldDef("gig_cprlim",FieldDef.FLOAT,6,0);
+      gig_cprsaldo = new FieldDef("gig_cprsaldo",FieldDef.FLOAT,6,0);
+      gig_cpraplic = new FieldDef("gig_cpraplic",FieldDef.FLOAT,6,0);
+      gig_mhwlim = new FieldDef("gig_mhwlim",FieldDef.FLOAT,6,0);
+      gig_mhwsaldo = new FieldDef("gig_mhwsaldo",FieldDef.FLOAT,6,0);
+      gig_mhwaplic = new FieldDef("gig_mhwaplic",FieldDef.FLOAT,6,0);
+      gig_crelim = new FieldDef("gig_crelim",FieldDef.FLOAT,6,0);
+      gig_cresaldo = new FieldDef("gig_cresaldo",FieldDef.FLOAT,6,0);
+      gig_creaplic = new FieldDef("gig_creaplic",FieldDef.FLOAT,6,0);
+      gig_peplim = new FieldDef("gig_peplim",FieldDef.FLOAT,6,0);
+      gig_pepsaldo = new FieldDef("gig_pepsaldo",FieldDef.FLOAT,6,0);
+      gig_pepaplic = new FieldDef("gig_pepaplic",FieldDef.FLOAT,6,0);
+      gig_csqlim = new FieldDef("gig_csqlim",FieldDef.FLOAT,6,0);
+      gig_csqsaldo = new FieldDef("gig_csqsaldo",FieldDef.FLOAT,6,0);
+      gig_csqaplic = new FieldDef("gig_csqaplic",FieldDef.FLOAT,6,0);
+      gig_wcllim = new FieldDef("gig_wcllim",FieldDef.FLOAT,6,0);
+      gig_wclsaldo = new FieldDef("gig_wclsaldo",FieldDef.FLOAT,6,0);
+      gig_wclaplic = new FieldDef("gig_wclaplic",FieldDef.FLOAT,6,0);
+      gig_jm7lim = new FieldDef("gig_jm7lim",FieldDef.FLOAT,6,0);
+      gig_jm7saldo = new FieldDef("gig_jm7saldo",FieldDef.FLOAT,6,0);
+      gig_jm7aplic = new FieldDef("gig_jm7aplic",FieldDef.FLOAT,6,0);
+      gig_tcmlim = new FieldDef("gig_tcmlim",FieldDef.FLOAT,6,0);
+      gig_tcmsaldo = new FieldDef("gig_tcmsaldo",FieldDef.FLOAT,6,0);
+      gig_tcmaplic = new FieldDef("gig_tcmaplic",FieldDef.FLOAT,6,0);
+      gig_abelim = new FieldDef("gig_abelim",FieldDef.FLOAT,6,0);
+      gig_abesaldo = new FieldDef("gig_abesaldo",FieldDef.FLOAT,6,0);
+      gig_abeaplic = new FieldDef("gig_abeaplic",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        gigejeraplic,
+        gigsociedad,
+        gigtipo,
+        gigcif,
+        giganyo,
+        gig_jrjlim,
+        gig_jrjsaldo,
+        gig_jrjaplic,
+        gig_csflim,
+        gig_csfsaldo,
+        gig_csfaplic,
+        gig_csjlim,
+        gig_csjsaldo,
+        gig_csjaplic,
+        gig_ajulim,
+        gig_ajusaldo,
+        gig_ajuaplic,
+        gig_ajslim,
+        gig_ajssaldo,
+        gig_ajsaplic,
+        gig_dcelim,
+        gig_dcesaldo,
+        gig_dceaplic,
+        gig_em5lim,
+        gig_em5saldo,
+        gig_em5aplic,
+        gig_ceglim,
+        gig_cegsaldo,
+        gig_cegaplic,
+        gig_cprlim,
+        gig_cprsaldo,
+        gig_cpraplic,
+        gig_mhwlim,
+        gig_mhwsaldo,
+        gig_mhwaplic,
+        gig_crelim,
+        gig_cresaldo,
+        gig_creaplic,
+        gig_peplim,
+        gig_pepsaldo,
+        gig_pepaplic,
+        gig_csqlim,
+        gig_csqsaldo,
+        gig_csqaplic,
+        gig_wcllim,
+        gig_wclsaldo,
+        gig_wclaplic,
+        gig_jm7lim,
+        gig_jm7saldo,
+        gig_jm7aplic,
+        gig_tcmlim,
+        gig_tcmsaldo,
+        gig_tcmaplic,
+        gig_abelim,
+        gig_abesaldo,
+        gig_abeaplic        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {gigejeraplic,gigsociedad,gigtipo,gigcif,giganyo };
+      setDescription("Deduccion Inversiones");
+      setPrimaryKeys(arrayf);
+      gigejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      gigsociedad.setDescription("Sociedad");
+      gigtipo.setDescription("Tipo: [I]ndividual, [G]rupo. [S]umatorio, [PI]pendiente individual, [SI]Sumatorio individual");
+      gigcif.setDescription("CIF sociedad del grupo");
+      giganyo.setDescription("Ejercicio");
+      gig_jrjlim.setDescription("Preparacion deportistas Rio Janeiro: limite");
+      gig_jrjsaldo.setDescription("Preparacion deportistas Rio Janeiro: saldo anterior");
+      gig_jrjaplic.setDescription("Preparacion deportistas Rio Janeiro: aplicado");
+      gig_csflim.setDescription("Centenario San Franciso Asis: limite");
+      gig_csfsaldo.setDescription("Centenario San Franciso Asis: saldo anterior");
+      gig_csfaplic.setDescription("Centenario San Franciso Asis: aplicado");
+      gig_csjlim.setDescription("Centenario Santa Teresa: limite");
+      gig_csjsaldo.setDescription("Centenario Santa Teresa: saldo anterior");
+      gig_csjaplic.setDescription("Centenario Santa Teresa: aplicado");
+      gig_ajulim.setDescription("Año Junipero Serra: limite");
+      gig_ajusaldo.setDescription("Año Junipero Serra: saldo anterior");
+      gig_ajuaplic.setDescription("Año Junipero Serra: aplicado");
+      gig_ajslim.setDescription("Año Santo Jubilar Mariano 2013-2014: limite");
+      gig_ajssaldo.setDescription("Año Santo Jubilar Mariano 2013-2014: saldo anterior");
+      gig_ajsaplic.setDescription("Año Santo Jubilar Mariano 2013-2014: aplicado");
+      gig_dcelim.setDescription("Donostia, Capital Europea Cultura 2016: limite");
+      gig_dcesaldo.setDescription("Donostia, Capital Europea Cultura 2016: saldo anterior");
+      gig_dceaplic.setDescription("Donostia, Capital Europea Cultura 2016: aplicado");
+      gig_em5lim.setDescription("Expo Milan 2015: limite");
+      gig_em5saldo.setDescription("Expo Milan 2015: saldo anterior");
+      gig_em5aplic.setDescription("Expo Milan 2015: aplicado");
+      gig_ceglim.setDescription("Campeonato Mundo Escalada 2014, Gijon: limite");
+      gig_cegsaldo.setDescription("Campeonato Mundo Escalada 2014, Gijon: saldo anterior");
+      gig_cegaplic.setDescription("Campeonato Mundo Escalada 2014, Gijon: aplicado");
+      gig_cprlim.setDescription("Campeonato Mundo Patinaje, Reus: limite");
+      gig_cprsaldo.setDescription("Campeonato Mundo Patinaje, Reus: saldo anterior");
+      gig_cpraplic.setDescription("Campeonato Mundo Patinaje, Reus: aplicado");
+      gig_mhwlim.setDescription("Madrid Horse Week: limite");
+      gig_mhwsaldo.setDescription("Madrid Horse Week: saldo anterior");
+      gig_mhwaplic.setDescription("Madrid Horse Week: aplicado");
+      gig_crelim.setDescription("III Centenario Real Academia Española: limite");
+      gig_cresaldo.setDescription("III Centenario Real Academia Española: saldo anterior");
+      gig_creaplic.setDescription("III Centenario Real Academia Española: aplicado");
+      gig_peplim.setDescription("A Coruña 2015 - 120 años despues: limite");
+      gig_pepsaldo.setDescription("A Coruña 2015 - 120 años despues: saldo anterior");
+      gig_pepaplic.setDescription("A Coruña 2015 - 120 años despues: aplicado");
+      gig_csqlim.setDescription("IV Centenario segunda parte El Quijote: limite");
+      gig_csqsaldo.setDescription("IV Centenario segunda parte El Quijote: saldo anterior");
+      gig_csqaplic.setDescription("IV Centenario segunda parte El Quijote: aplicado");
+      gig_wcllim.setDescription("World Challenge LFP/85: limite");
+      gig_wclsaldo.setDescription("World Challenge LFP/85: saldo anterior");
+      gig_wclaplic.setDescription("World Challenge LFP/85: aplicado");
+      gig_jm7lim.setDescription("Juegos Mediterraneo 2017: limite");
+      gig_jm7saldo.setDescription("Juegos Mediterraneo 2017: saldo anterior");
+      gig_jm7aplic.setDescription("Juegos Mediterraneo 2017: aplicado");
+      gig_tcmlim.setDescription("60 Edicion Festival Internacional Teatro Merida: limite");
+      gig_tcmsaldo.setDescription("60 Edicion Festival Internacional Teatro Merida: saldo anterior");
+      gig_tcmaplic.setDescription("60 Edicion Festival Internacional Teatro Merida: aplicado");
+      gig_abelim.setDescription("Año de la Biotecnologia en España: limite");
+      gig_abesaldo.setDescription("Año de la Biotecnologia en España: saldo anterior");
+      gig_abeaplic.setDescription("Año de la Biotecnologia en España: aplicado");
+      }
+    }
+    
+  public class TabCalculo extends TableDef
+    {
+    // Campos
+    public FieldDef caejeraplic;
+    public FieldDef catipo_gravamen;
+    public FieldDef catipo_grav_coo;
+    public FieldDef caded_empleo_mi;
+    public FieldDef calim_deducc;
+    public FieldDef calim_canarias;
+    public FieldDef cadeduc_med_amb;
+    public FieldDef cadeduc1_id_gi;
+    public FieldDef cadeduc2_id_gi;
+    public FieldDef cadeduc1_id_af;
+    public FieldDef cadeduc2_id_af;
+    public FieldDef cadeduc_ed;
+    public FieldDef cadeduc_ee;
+    public FieldDef cadeduc_bic;
+    public FieldDef catipo_marg_max;
+    public FieldDef caingr_max_simp;
+    public FieldDef cafecha_firm_im;
+    public FieldDef cacar_cumpl_bal;
+    public FieldDef caperc_pag_cta;
+    public FieldDef cap_res_l_no_co;
+    public FieldDef cap_li_res_no_c;
+    public FieldDef cap_res_l_coope;
+    public FieldDef ca_res_l_co_cat;
+    public FieldDef ca_res_l_co_vas;
+    public FieldDef ca_res_l_co_and;
+    public FieldDef ca_res_l_co_nav;
+    public FieldDef ca1res_l_co_val;
+    public FieldDef ca2res_l_co_val;
+    public FieldDef ca3res_l_co_val;
+    public FieldDef calimits_import;
+    public FieldDef catipo_grav_bal;
+    public FieldDef cadeduc_pc;
+    public FieldDef cadeduc_inm;
+    public FieldDef cadeduc_afn_can;
+    public FieldDef cadeduc_pc_can;
+    public FieldDef cadeduc_id_can;
+    public FieldDef cadeduc_bic_can;
+    public FieldDef cadeduc_ee_can;
+    public FieldDef cadeduc_fp_can;
+    public FieldDef cadeduc_medambc;
+    public FieldDef caimp_cifra_neg;
+    public FieldDef calimit1_ded_ee;
+    public FieldDef calimit2_ded_ee;
+    public FieldDef caded_guarderia;
+    public FieldDef caded_guard_can;
+    public FieldDef catipo_grav_pym;
+    public FieldDef caporc_capitali;
+    public FieldDef capor_reten_div;
+    public FieldDef calim_activ_mec;
+    public FieldDef cadeduc_adic_id;
+    public FieldDef caded_inn_tecn1;
+    public FieldDef caded_inn_tecn2;
+    public FieldDef calim_deducc2;
+    public FieldDef caporc_exc_id;
+    public FieldDef caded_internet;
+    public FieldDef cadeduc_adic_ic;
+    public FieldDef caded_inn_tec1c;
+    public FieldDef caded_inn_tec2c;
+    public FieldDef calim_ded2_can;
+    public FieldDef caporcexcid_can;
+    public FieldDef caded_intercam;
+    public FieldDef cafec_rd3_2000;
+    public FieldDef caimp_cif_neg2;
+    public FieldDef caded_salama_05;
+    public FieldDef caded_transport;
+    public FieldDef caded_transp_ca;
+    public FieldDef caded_galicia;
+    public FieldDef cabase_imp_pyme;
+    public FieldDef cap_fed_l_co_ca;
+    public FieldDef cacifra_negoci2;
+    public FieldDef caded_ap_patr_d;
+    public FieldDef cap_vda_val_cat;
+    public FieldDef caded_jmed_alme;
+    public FieldDef caded_ap_pat_ca;
+    public FieldDef caimp_apor_apd;
+    public FieldDef caded_pekin2008;
+    public FieldDef calim_act_balan;
+    public FieldDef calim_cif_balan;
+    public FieldDef calim_emp_balan;
+    public FieldDef calim_act_ctaab;
+    public FieldDef calim_cif_ctaab;
+    public FieldDef calim_emp_ctaab;
+    public FieldDef caded_zaragoza;
+    public FieldDef caded_m_amb_392;
+    public FieldDef caded_fp_can2;
+    public FieldDef caded_alic_08;
+    public FieldDef caded_bcn_world;
+    public FieldDef caded_guadalupe;
+    public FieldDef catipo_gr_pym_2;
+    public FieldDef calim_act_bal_p;
+    public FieldDef calim_cif_bal_p;
+    public FieldDef calim_emp_bal_p;
+    public FieldDef calim_act_cta_p;
+    public FieldDef calim_cif_cta_p;
+    public FieldDef calim_emp_cta_p;
+    public FieldDef catip_grav_crea;
+    public FieldDef catip_grav_cre2;
+    public FieldDef caimp_neto_crea;
+    public FieldDef capersonal_crea;
+    public FieldDef caporc_base_1;
+    public FieldDef cabase_cif_neg1;
+    public FieldDef caporc_base_2;
+    public FieldDef cabase_cif_neg2;
+    public FieldDef cafechaley22011;
+    public FieldDef caded_inn_tec3;
+    public FieldDef caded_inn_tecc3;
+    public FieldDef cadeduc_med_am2;
+    public FieldDef cadeduc_medamc2;
+    public FieldDef calim_deducc3;
+    public FieldDef calim_ded3_can;
+    public FieldDef calimbfooperat;
+    public FieldDef caimpgastosnet;
+    public FieldDef cadedprimtrabaj;
+    public FieldDef cadedemplempren;
+    public FieldDef cadoblig720ejac;
+    public FieldDef cadoblig720incr;
+    public FieldDef catip_grav_nuev;
+    public FieldDef catip_grav_nue2;
+    public FieldDef caidiomainforme;
+    public FieldDef caordeninforme;
+    public FieldDef cadescuentoid;
+    public FieldDef calimitite;
+    public FieldDef calimitconjunto;
+    public FieldDef calim_act_audit;
+    public FieldDef calim_cif_audit;
+    public FieldDef calim_emp_audit;
+    public TabCalculo(String name)
+      {
+      super(name);
+      caejeraplic = new FieldDef("caejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      catipo_gravamen = new FieldDef("catipo_gravamen",FieldDef.FLOAT,6,0);
+      catipo_grav_coo = new FieldDef("catipo_grav_coo",FieldDef.FLOAT,6,0);
+      caded_empleo_mi = new FieldDef("caded_empleo_mi",FieldDef.FLOAT,6,0);
+      calim_deducc = new FieldDef("calim_deducc",FieldDef.FLOAT,6,0);
+      calim_canarias = new FieldDef("calim_canarias",FieldDef.FLOAT,6,0);
+      cadeduc_med_amb = new FieldDef("cadeduc_med_amb",FieldDef.FLOAT,6,0);
+      cadeduc1_id_gi = new FieldDef("cadeduc1_id_gi",FieldDef.FLOAT,6,0);
+      cadeduc2_id_gi = new FieldDef("cadeduc2_id_gi",FieldDef.FLOAT,6,0);
+      cadeduc1_id_af = new FieldDef("cadeduc1_id_af",FieldDef.FLOAT,6,0);
+      cadeduc2_id_af = new FieldDef("cadeduc2_id_af",FieldDef.FLOAT,6,0);
+      cadeduc_ed = new FieldDef("cadeduc_ed",FieldDef.FLOAT,6,0);
+      cadeduc_ee = new FieldDef("cadeduc_ee",FieldDef.FLOAT,6,0);
+      cadeduc_bic = new FieldDef("cadeduc_bic",FieldDef.FLOAT,6,0);
+      catipo_marg_max = new FieldDef("catipo_marg_max",FieldDef.FLOAT,6,0);
+      caingr_max_simp = new FieldDef("caingr_max_simp",FieldDef.FLOAT,6,0);
+      cafecha_firm_im = new FieldDef("cafecha_firm_im",FieldDef.DATE);
+      cacar_cumpl_bal = new FieldDef("cacar_cumpl_bal",FieldDef.CHAR,1);
+      caperc_pag_cta = new FieldDef("caperc_pag_cta",FieldDef.FLOAT,6,0);
+      cap_res_l_no_co = new FieldDef("cap_res_l_no_co",FieldDef.FLOAT,6,0);
+      cap_li_res_no_c = new FieldDef("cap_li_res_no_c",FieldDef.FLOAT,6,0);
+      cap_res_l_coope = new FieldDef("cap_res_l_coope",FieldDef.FLOAT,6,0);
+      ca_res_l_co_cat = new FieldDef("ca_res_l_co_cat",FieldDef.FLOAT,6,0);
+      ca_res_l_co_vas = new FieldDef("ca_res_l_co_vas",FieldDef.FLOAT,6,0);
+      ca_res_l_co_and = new FieldDef("ca_res_l_co_and",FieldDef.FLOAT,6,0);
+      ca_res_l_co_nav = new FieldDef("ca_res_l_co_nav",FieldDef.FLOAT,6,0);
+      ca1res_l_co_val = new FieldDef("ca1res_l_co_val",FieldDef.FLOAT,6,0);
+      ca2res_l_co_val = new FieldDef("ca2res_l_co_val",FieldDef.FLOAT,6,0);
+      ca3res_l_co_val = new FieldDef("ca3res_l_co_val",FieldDef.FLOAT,6,0);
+      calimits_import = new FieldDef("calimits_import",FieldDef.CHAR,1);
+      catipo_grav_bal = new FieldDef("catipo_grav_bal",FieldDef.FLOAT,6,0);
+      cadeduc_pc = new FieldDef("cadeduc_pc",FieldDef.FLOAT,6,0);
+      cadeduc_inm = new FieldDef("cadeduc_inm",FieldDef.FLOAT,6,0);
+      cadeduc_afn_can = new FieldDef("cadeduc_afn_can",FieldDef.FLOAT,6,0);
+      cadeduc_pc_can = new FieldDef("cadeduc_pc_can",FieldDef.FLOAT,6,0);
+      cadeduc_id_can = new FieldDef("cadeduc_id_can",FieldDef.FLOAT,6,0);
+      cadeduc_bic_can = new FieldDef("cadeduc_bic_can",FieldDef.FLOAT,6,0);
+      cadeduc_ee_can = new FieldDef("cadeduc_ee_can",FieldDef.FLOAT,6,0);
+      cadeduc_fp_can = new FieldDef("cadeduc_fp_can",FieldDef.FLOAT,6,0);
+      cadeduc_medambc = new FieldDef("cadeduc_medambc",FieldDef.FLOAT,6,0);
+      caimp_cifra_neg = new FieldDef("caimp_cifra_neg",FieldDef.FLOAT,6,0);
+      calimit1_ded_ee = new FieldDef("calimit1_ded_ee",FieldDef.FLOAT,6,0);
+      calimit2_ded_ee = new FieldDef("calimit2_ded_ee",FieldDef.FLOAT,6,0);
+      caded_guarderia = new FieldDef("caded_guarderia",FieldDef.FLOAT,6,0);
+      caded_guard_can = new FieldDef("caded_guard_can",FieldDef.FLOAT,6,0);
+      catipo_grav_pym = new FieldDef("catipo_grav_pym",FieldDef.FLOAT,6,0);
+      caporc_capitali = new FieldDef("caporc_capitali",FieldDef.FLOAT,6,0);
+      capor_reten_div = new FieldDef("capor_reten_div",FieldDef.FLOAT,6,0);
+      calim_activ_mec = new FieldDef("calim_activ_mec",FieldDef.INTEGER,0);
+      cadeduc_adic_id = new FieldDef("cadeduc_adic_id",FieldDef.FLOAT,6,0);
+      caded_inn_tecn1 = new FieldDef("caded_inn_tecn1",FieldDef.FLOAT,6,0);
+      caded_inn_tecn2 = new FieldDef("caded_inn_tecn2",FieldDef.FLOAT,6,0);
+      calim_deducc2 = new FieldDef("calim_deducc2",FieldDef.FLOAT,6,0);
+      caporc_exc_id = new FieldDef("caporc_exc_id",FieldDef.FLOAT,6,0);
+      caded_internet = new FieldDef("caded_internet",FieldDef.FLOAT,6,0);
+      cadeduc_adic_ic = new FieldDef("cadeduc_adic_ic",FieldDef.FLOAT,6,0);
+      caded_inn_tec1c = new FieldDef("caded_inn_tec1c",FieldDef.FLOAT,6,0);
+      caded_inn_tec2c = new FieldDef("caded_inn_tec2c",FieldDef.FLOAT,6,0);
+      calim_ded2_can = new FieldDef("calim_ded2_can",FieldDef.FLOAT,6,0);
+      caporcexcid_can = new FieldDef("caporcexcid_can",FieldDef.FLOAT,6,0);
+      caded_intercam = new FieldDef("caded_intercam",FieldDef.FLOAT,6,0);
+      cafec_rd3_2000 = new FieldDef("cafec_rd3_2000",FieldDef.DATE);
+      caimp_cif_neg2 = new FieldDef("caimp_cif_neg2",FieldDef.FLOAT,6,0);
+      caded_salama_05 = new FieldDef("caded_salama_05",FieldDef.FLOAT,6,0);
+      caded_transport = new FieldDef("caded_transport",FieldDef.FLOAT,6,0);
+      caded_transp_ca = new FieldDef("caded_transp_ca",FieldDef.FLOAT,6,0);
+      caded_galicia = new FieldDef("caded_galicia",FieldDef.FLOAT,6,0);
+      cabase_imp_pyme = new FieldDef("cabase_imp_pyme",FieldDef.FLOAT,6,0);
+      cap_fed_l_co_ca = new FieldDef("cap_fed_l_co_ca",FieldDef.FLOAT,6,0);
+      cacifra_negoci2 = new FieldDef("cacifra_negoci2",FieldDef.FLOAT,6,0);
+      caded_ap_patr_d = new FieldDef("caded_ap_patr_d",FieldDef.FLOAT,6,0);
+      cap_vda_val_cat = new FieldDef("cap_vda_val_cat",FieldDef.FLOAT,6,0);
+      caded_jmed_alme = new FieldDef("caded_jmed_alme",FieldDef.FLOAT,6,0);
+      caded_ap_pat_ca = new FieldDef("caded_ap_pat_ca",FieldDef.FLOAT,6,0);
+      caimp_apor_apd = new FieldDef("caimp_apor_apd",FieldDef.FLOAT,6,0);
+      caded_pekin2008 = new FieldDef("caded_pekin2008",FieldDef.FLOAT,6,0);
+      calim_act_balan = new FieldDef("calim_act_balan",FieldDef.FLOAT,6,0);
+      calim_cif_balan = new FieldDef("calim_cif_balan",FieldDef.FLOAT,6,0);
+      calim_emp_balan = new FieldDef("calim_emp_balan",FieldDef.INTEGER,0);
+      calim_act_ctaab = new FieldDef("calim_act_ctaab",FieldDef.FLOAT,6,0);
+      calim_cif_ctaab = new FieldDef("calim_cif_ctaab",FieldDef.FLOAT,6,0);
+      calim_emp_ctaab = new FieldDef("calim_emp_ctaab",FieldDef.INTEGER,0);
+      caded_zaragoza = new FieldDef("caded_zaragoza",FieldDef.FLOAT,6,0);
+      caded_m_amb_392 = new FieldDef("caded_m_amb_392",FieldDef.FLOAT,6,0);
+      caded_fp_can2 = new FieldDef("caded_fp_can2",FieldDef.FLOAT,6,0);
+      caded_alic_08 = new FieldDef("caded_alic_08",FieldDef.FLOAT,6,0);
+      caded_bcn_world = new FieldDef("caded_bcn_world",FieldDef.FLOAT,6,0);
+      caded_guadalupe = new FieldDef("caded_guadalupe",FieldDef.FLOAT,6,0);
+      catipo_gr_pym_2 = new FieldDef("catipo_gr_pym_2",FieldDef.FLOAT,6,0);
+      calim_act_bal_p = new FieldDef("calim_act_bal_p",FieldDef.FLOAT,6,0);
+      calim_cif_bal_p = new FieldDef("calim_cif_bal_p",FieldDef.FLOAT,6,0);
+      calim_emp_bal_p = new FieldDef("calim_emp_bal_p",FieldDef.INTEGER,0);
+      calim_act_cta_p = new FieldDef("calim_act_cta_p",FieldDef.FLOAT,6,0);
+      calim_cif_cta_p = new FieldDef("calim_cif_cta_p",FieldDef.FLOAT,6,0);
+      calim_emp_cta_p = new FieldDef("calim_emp_cta_p",FieldDef.INTEGER,0);
+      catip_grav_crea = new FieldDef("catip_grav_crea",FieldDef.FLOAT,6,0);
+      catip_grav_cre2 = new FieldDef("catip_grav_cre2",FieldDef.FLOAT,6,0);
+      caimp_neto_crea = new FieldDef("caimp_neto_crea",FieldDef.FLOAT,6,0);
+      capersonal_crea = new FieldDef("capersonal_crea",FieldDef.INTEGER,0);
+      caporc_base_1 = new FieldDef("caporc_base_1",FieldDef.INTEGER,0);
+      cabase_cif_neg1 = new FieldDef("cabase_cif_neg1",FieldDef.FLOAT,6,0);
+      caporc_base_2 = new FieldDef("caporc_base_2",FieldDef.INTEGER,0);
+      cabase_cif_neg2 = new FieldDef("cabase_cif_neg2",FieldDef.FLOAT,6,0);
+      cafechaley22011 = new FieldDef("cafechaley22011",FieldDef.DATE);
+      caded_inn_tec3 = new FieldDef("caded_inn_tec3",FieldDef.FLOAT,6,0);
+      caded_inn_tecc3 = new FieldDef("caded_inn_tecc3",FieldDef.FLOAT,6,0);
+      cadeduc_med_am2 = new FieldDef("cadeduc_med_am2",FieldDef.FLOAT,6,0);
+      cadeduc_medamc2 = new FieldDef("cadeduc_medamc2",FieldDef.FLOAT,6,0);
+      calim_deducc3 = new FieldDef("calim_deducc3",FieldDef.FLOAT,6,0);
+      calim_ded3_can = new FieldDef("calim_ded3_can",FieldDef.FLOAT,6,0);
+      calimbfooperat = new FieldDef("calimbfooperat",FieldDef.FLOAT,6,0);
+      caimpgastosnet = new FieldDef("caimpgastosnet",FieldDef.FLOAT,6,0);
+      cadedprimtrabaj = new FieldDef("cadedprimtrabaj",FieldDef.FLOAT,6,0);
+      cadedemplempren = new FieldDef("cadedemplempren",FieldDef.FLOAT,6,0);
+      cadoblig720ejac = new FieldDef("cadoblig720ejac",FieldDef.FLOAT,6,0);
+      cadoblig720incr = new FieldDef("cadoblig720incr",FieldDef.FLOAT,6,0);
+      catip_grav_nuev = new FieldDef("catip_grav_nuev",FieldDef.FLOAT,6,0);
+      catip_grav_nue2 = new FieldDef("catip_grav_nue2",FieldDef.FLOAT,6,0);
+      caidiomainforme = new FieldDef("caidiomainforme",FieldDef.CHAR,1);
+      caordeninforme = new FieldDef("caordeninforme",FieldDef.CHAR,1);
+      cadescuentoid = new FieldDef("cadescuentoid",FieldDef.INTEGER,0);
+      calimitite = new FieldDef("calimitite",FieldDef.FLOAT,6,0);
+      calimitconjunto = new FieldDef("calimitconjunto",FieldDef.FLOAT,6,0);
+      calim_act_audit = new FieldDef("calim_act_audit",FieldDef.FLOAT,6,0);
+      calim_cif_audit = new FieldDef("calim_cif_audit",FieldDef.FLOAT,6,0);
+      calim_emp_audit = new FieldDef("calim_emp_audit",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        caejeraplic,
+        catipo_gravamen,
+        catipo_grav_coo,
+        caded_empleo_mi,
+        calim_deducc,
+        calim_canarias,
+        cadeduc_med_amb,
+        cadeduc1_id_gi,
+        cadeduc2_id_gi,
+        cadeduc1_id_af,
+        cadeduc2_id_af,
+        cadeduc_ed,
+        cadeduc_ee,
+        cadeduc_bic,
+        catipo_marg_max,
+        caingr_max_simp,
+        cafecha_firm_im,
+        cacar_cumpl_bal,
+        caperc_pag_cta,
+        cap_res_l_no_co,
+        cap_li_res_no_c,
+        cap_res_l_coope,
+        ca_res_l_co_cat,
+        ca_res_l_co_vas,
+        ca_res_l_co_and,
+        ca_res_l_co_nav,
+        ca1res_l_co_val,
+        ca2res_l_co_val,
+        ca3res_l_co_val,
+        calimits_import,
+        catipo_grav_bal,
+        cadeduc_pc,
+        cadeduc_inm,
+        cadeduc_afn_can,
+        cadeduc_pc_can,
+        cadeduc_id_can,
+        cadeduc_bic_can,
+        cadeduc_ee_can,
+        cadeduc_fp_can,
+        cadeduc_medambc,
+        caimp_cifra_neg,
+        calimit1_ded_ee,
+        calimit2_ded_ee,
+        caded_guarderia,
+        caded_guard_can,
+        catipo_grav_pym,
+        caporc_capitali,
+        capor_reten_div,
+        calim_activ_mec,
+        cadeduc_adic_id,
+        caded_inn_tecn1,
+        caded_inn_tecn2,
+        calim_deducc2,
+        caporc_exc_id,
+        caded_internet,
+        cadeduc_adic_ic,
+        caded_inn_tec1c,
+        caded_inn_tec2c,
+        calim_ded2_can,
+        caporcexcid_can,
+        caded_intercam,
+        cafec_rd3_2000,
+        caimp_cif_neg2,
+        caded_salama_05,
+        caded_transport,
+        caded_transp_ca,
+        caded_galicia,
+        cabase_imp_pyme,
+        cap_fed_l_co_ca,
+        cacifra_negoci2,
+        caded_ap_patr_d,
+        cap_vda_val_cat,
+        caded_jmed_alme,
+        caded_ap_pat_ca,
+        caimp_apor_apd,
+        caded_pekin2008,
+        calim_act_balan,
+        calim_cif_balan,
+        calim_emp_balan,
+        calim_act_ctaab,
+        calim_cif_ctaab,
+        calim_emp_ctaab,
+        caded_zaragoza,
+        caded_m_amb_392,
+        caded_fp_can2,
+        caded_alic_08,
+        caded_bcn_world,
+        caded_guadalupe,
+        catipo_gr_pym_2,
+        calim_act_bal_p,
+        calim_cif_bal_p,
+        calim_emp_bal_p,
+        calim_act_cta_p,
+        calim_cif_cta_p,
+        calim_emp_cta_p,
+        catip_grav_crea,
+        catip_grav_cre2,
+        caimp_neto_crea,
+        capersonal_crea,
+        caporc_base_1,
+        cabase_cif_neg1,
+        caporc_base_2,
+        cabase_cif_neg2,
+        cafechaley22011,
+        caded_inn_tec3,
+        caded_inn_tecc3,
+        cadeduc_med_am2,
+        cadeduc_medamc2,
+        calim_deducc3,
+        calim_ded3_can,
+        calimbfooperat,
+        caimpgastosnet,
+        cadedprimtrabaj,
+        cadedemplempren,
+        cadoblig720ejac,
+        cadoblig720incr,
+        catip_grav_nuev,
+        catip_grav_nue2,
+        caidiomainforme,
+        caordeninforme,
+        cadescuentoid,
+        calimitite,
+        calimitconjunto,
+        calim_act_audit,
+        calim_cif_audit,
+        calim_emp_audit        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {caejeraplic };
+      setDescription("Parametros de calculo");
+      setPrimaryKeys(arrayf);
+      caejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      catipo_gravamen.setDescription("Tipo de Gravamen General");
+      catipo_grav_coo.setDescription("Tipo de Gravamen Cooperativas");
+      caded_empleo_mi.setDescription("Creacion Empleo minusvalidos");
+      calim_deducc.setDescription("Limite Deducciones");
+      calim_canarias.setDescription("Limite conjunto deducciones Canarias");
+      cadeduc_med_amb.setDescription("% Deduccion Proteccion medio ambiente");
+      cadeduc1_id_gi.setDescription("% Deduccion gastos I+D");
+      cadeduc2_id_gi.setDescription("% Deduccion gastos 2 I+D");
+      cadeduc1_id_af.setDescription("% Deduccion Formacion Profesional");
+      cadeduc2_id_af.setDescription("% Deduccion 2 Formacion Profesional");
+      cadeduc_ed.setDescription("% Deduccion Edicion de libros");
+      cadeduc_ee.setDescription("% Deduccion Empresas Exportadoras");
+      cadeduc_bic.setDescription("% Deduccion Patrimonio Historico");
+      catipo_marg_max.setDescription("Tipo Marginal Max. Escala IRPF");
+      caingr_max_simp.setDescription("Ingresos Maximos Simplificada");
+      cafecha_firm_im.setDescription("Fecha Firma Impresos");
+      cacar_cumpl_bal.setDescription("Caracter cumplimentacion balances");
+      caperc_pag_cta.setDescription("% Pago a Cuenta");
+      cap_res_l_no_co.setDescription("% a Reserva Legal No Cooperativas");
+      cap_li_res_no_c.setDescription("% Limite Reserva Legal No Cooperativas");
+      cap_res_l_coope.setDescription("% a Reserva Legal Cooperativas");
+      ca_res_l_co_cat.setDescription("% a Reserva Legal Cooperativas Catalanas");
+      ca_res_l_co_vas.setDescription("% a Reserva Legal Cooperativas Vascas");
+      ca_res_l_co_and.setDescription("% a Reserva Legal Cooperativas Andaluzas");
+      ca_res_l_co_nav.setDescription("% a Reserva Legal Cooperativas Navarras");
+      ca1res_l_co_val.setDescription("% 1 a Reserva Legal Cooperativas Valencianas");
+      ca2res_l_co_val.setDescription("% 2 a Reserva Legal Cooperativas Valencianas");
+      ca3res_l_co_val.setDescription("% 3 a Reserva Legal Cooperativas Valencianas");
+      calimits_import.setDescription("Calculo deducciones (Limites o Importes)");
+      catipo_grav_bal.setDescription("% Deduccion inmovilizado I+D");
+      cadeduc_pc.setDescription("% Deduccion Producciones cinematograficas");
+      cadeduc_inm.setDescription("% Deduccion coproductor cinematrografica");
+      cadeduc_afn_can.setDescription("% Deduccion activos fijos nuevos");
+      cadeduc_pc_can.setDescription("% Deduccion Produccion Cinematograficas");
+      cadeduc_id_can.setDescription("% Deduccion gastos I+D");
+      cadeduc_bic_can.setDescription("% Deduccion Bienes Patrimonio Historico");
+      cadeduc_ee_can.setDescription("% Deduccion Empresas Exportadoras");
+      cadeduc_fp_can.setDescription("% Deduccion Formacion Profesional");
+      cadeduc_medambc.setDescription("% Deduccion proteccion medio ambiente");
+      caimp_cifra_neg.setDescription("Importe maximo cifra negocios");
+      calimit1_ded_ee.setDescription("% Deduccion Contribucion plan pension");
+      calimit2_ded_ee.setDescription("% Deduccion Contribucion plan pension");
+      caded_guarderia.setDescription("% Deduccion Gastos guarderia");
+      caded_guard_can.setDescription("% Deducción Gastos guarderia Canarias");
+      catipo_grav_pym.setDescription("Tipo de Gravamen PYMES");
+      caporc_capitali.setDescription("% Capitalizacion");
+      capor_reten_div.setDescription("% Retencion Dividendos");
+      calim_activ_mec.setDescription("Limite % base actividades mecenazgo");
+      cadeduc_adic_id.setDescription("% Deduccion adicional I+D");
+      caded_inn_tecn1.setDescription("% Deduccion Innovacion tecnologica");
+      caded_inn_tecn2.setDescription("% Deduccion 2 Innovacion Tecnologica");
+      calim_deducc2.setDescription("Segundo limite deducciones");
+      caporc_exc_id.setDescription("% Exceso gastos para 2do. limite");
+      caded_internet.setDescription("% Deduccion Gastos Internet");
+      cadeduc_adic_ic.setDescription("% Deduccion adicional gastos I+D");
+      caded_inn_tec1c.setDescription("% Deduccion 1 Inn.Tecnologica");
+      caded_inn_tec2c.setDescription("% Deduccion 2 Inn.Tecnologica");
+      calim_ded2_can.setDescription("2do. limite conjunto deducciones Canarias");
+      caporcexcid_can.setDescription("% Exceso gastos para 2do. limite");
+      caded_intercam.setDescription("% Deduccion Gastos Internet");
+      cafec_rd3_2000.setDescription("Sin utilidad");
+      caimp_cif_neg2.setDescription("Retribucion bruta deduccion Plan pensiones");
+      caded_salama_05.setDescription("% Resto deducciones");
+      caded_transport.setDescription("% Deduccion sector transporte");
+      caded_transp_ca.setDescription("% Deduccion apoyo sector transporte");
+      caded_galicia.setDescription("% Deduccion inversion beneficios PYMES");
+      cabase_imp_pyme.setDescription("Base imponible PYME");
+      cap_fed_l_co_ca.setDescription("% Fondo de educacacion Cooperativas Catalanas");
+      cacifra_negoci2.setDescription("Importe deduccion empleo minusvalia 65%");
+      caded_ap_patr_d.setDescription("% Deduccion Aportacion patrimonio discapacitados");
+      cap_vda_val_cat.setDescription("% Deduccion Edicion de libros");
+      caded_jmed_alme.setDescription("% Deduccion inversion beneficios Creacion empleo");
+      caded_ap_pat_ca.setDescription("% Deduccion Aportacion patrimonio discapacitados");
+      caimp_apor_apd.setDescription("Aportacion máxima patrimonio discapacitado");
+      caded_pekin2008.setDescription("% Deduccion inversion beneficios PYMES Canarias");
+      calim_act_balan.setDescription("Limite activo para balance");
+      calim_cif_balan.setDescription("Limite cifra de negocios para balance");
+      calim_emp_balan.setDescription("Numero medio de empleados para balance");
+      calim_act_ctaab.setDescription("Limite activo para Cuenta resultados");
+      calim_cif_ctaab.setDescription("Limite cifra de negocios para Cuenta resultados");
+      calim_emp_ctaab.setDescription("Numero medio de empleados para Cuenta resultados");
+      caded_zaragoza.setDescription("% Deduccion inversion beneficios Creacion empleo Canarias");
+      caded_m_amb_392.setDescription("% Deduccion Medio Ambiente art. 39.2");
+      caded_fp_can2.setDescription("% Deduccion 2 FP Canarias");
+      caded_alic_08.setDescription("% Deduccion coproductor cinematrografica Canarias");
+      caded_bcn_world.setDescription("Segundo tope cifra negocios para modelo 202");
+      caded_guadalupe.setDescription("Tercer tope cifra negocios para modelo 202");
+      catipo_gr_pym_2.setDescription("Segundo tipo gravamen Pymes");
+      calim_act_bal_p.setDescription("Limite activo para balance");
+      calim_cif_bal_p.setDescription("Limite cifra de negocios para balance");
+      calim_emp_bal_p.setDescription("Numero medio de empleados para balance");
+      calim_act_cta_p.setDescription("Limite activo para Cuenta resultados");
+      calim_cif_cta_p.setDescription("Limite cifra de negocios para Cuenta resultados");
+      calim_emp_cta_p.setDescription("Numero medio de empleados para Cuenta resultados");
+      catip_grav_crea.setDescription("Tipo de Gravamen creacion empleo");
+      catip_grav_cre2.setDescription("Tipo de Gravamen creacion empleo, segundo tipo");
+      caimp_neto_crea.setDescription("Importe neto cifra negocios creacion empleo");
+      capersonal_crea.setDescription("Tope personal creacion empleo");
+      caporc_base_1.setDescription("% limitacion base imponibles negativas");
+      cabase_cif_neg1.setDescription("Importe neto cifra negocios igual o superior a");
+      caporc_base_2.setDescription("% limitacion base imponibles negativas");
+      cabase_cif_neg2.setDescription("Importe neto cifra negocios igual o superior a");
+      cafechaley22011.setDescription("Fecha entrada vigor ley 2/2011");
+      caded_inn_tec3.setDescription("% Deduccion 3 Inn.Tecnologica");
+      caded_inn_tecc3.setDescription("% Deduccion 3 Inn.Tecnologica Canarias");
+      cadeduc_med_am2.setDescription("% Deduccion Proteccion medio ambiente 2");
+      cadeduc_medamc2.setDescription("% Deduccion proteccion medio ambiente Canarias 2");
+      calim_deducc3.setDescription("Tercer limite deducciones");
+      calim_ded3_can.setDescription("3er. limite conjunto deducciones Canarias");
+      calimbfooperat.setDescription("% limite beneficio operativo para gastos financieros");
+      caimpgastosnet.setDescription("Importe maximo gastos netos financieros");
+      cadedprimtrabaj.setDescription("Deduccion creacion empleo primer trabajador");
+      cadedemplempren.setDescription("% Deduccion creacion empleo emprendedores");
+      cadoblig720ejac.setDescription("Obligacion 720 valores patrimoniales ej.actual");
+      cadoblig720incr.setDescription("Obligacion 720 incremento valores patrimoniales");
+      catip_grav_nuev.setDescription("Tipo de Gravamen entidad nueva creacion");
+      catip_grav_nue2.setDescription("Tipo de Gravamen entidad nueva creacion, segundo tipo");
+      caidiomainforme.setDescription("Idioma de los informes");
+      caordeninforme.setDescription("Orden mostrar informes");
+      cadescuentoid.setDescription("% descuento aplicar deducciones I+D+I sin limite deduccion");
+      calimitite.setDescription("Limite importe deduccion ITE sin aplicar limite deduccion");
+      calimitconjunto.setDescription("Limite importe deduccion ITE + CTE sin aplicar limite deduccion");
+      calim_act_audit.setDescription("Limite activo para someter auditoria cuentas anuales");
+      calim_cif_audit.setDescription("Limite cifra de negocios para someter auditoria cuentas anuales");
+      calim_emp_audit.setDescription("Numero medio de empleados para someter auditoria cuentas anuales");
+      }
+    }
+    
+  public class TabCtacorrecexist extends TableDef
+    {
+    // Campos
+    public FieldDef cceejeraplic;
+    public FieldDef ccesociedad;
+    public FieldDef ccecorrecciones;
+    public FieldDef ccereversion;
+    public TabCtacorrecexist(String name)
+      {
+      super(name);
+      cceejeraplic = new FieldDef("cceejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      ccesociedad = new FieldDef("ccesociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      ccecorrecciones = new FieldDef("ccecorrecciones",FieldDef.FLOAT,6,0);
+      ccereversion = new FieldDef("ccereversion",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        cceejeraplic,
+        ccesociedad,
+        ccecorrecciones,
+        ccereversion        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {cceejeraplic,ccesociedad };
+      setDescription("Cuentas anuales: correcciones valorativas existencias");
+      setPrimaryKeys(arrayf);
+      cceejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      ccesociedad.setDescription("Sociedad");
+      ccecorrecciones.setDescription("Importe correcciones valorativas");
+      ccereversion.setDescription("Importe reversion");
+      }
+    }
+    
   public class TabFechasacceso extends TableDef
     {
     // Campos
@@ -30253,6 +28259,7 @@ public class CatJiss extends Catalog
     public FieldDef fecreval162012;
     public FieldDef fecdedidi;
     public FieldDef fecgrupdotcred;
+    public FieldDef feccorrecexist;
     public TabFechasacceso(String name)
       {
       super(name);
@@ -30404,6 +28411,7 @@ public class CatJiss extends Catalog
       fecreval162012 = new FieldDef("fecreval162012",FieldDef.DATE);
       fecdedidi = new FieldDef("fecdedidi",FieldDef.DATE);
       fecgrupdotcred = new FieldDef("fecgrupdotcred",FieldDef.DATE);
+      feccorrecexist = new FieldDef("feccorrecexist",FieldDef.DATE);
       FieldDef array[] = {
         fecejeraplic,
         fecsociedad,
@@ -30552,7 +28560,8 @@ public class CatJiss extends Catalog
         fecdedinvbfo,
         fecreval162012,
         fecdedidi,
-        fecgrupdotcred        
+        fecgrupdotcred,
+        feccorrecexist        
         };
       setColumns(array);
       FieldDef arrayf[] = {fecejeraplic,fecsociedad };
@@ -30706,101 +28715,2716 @@ public class CatJiss extends Catalog
       fecreval162012.setDescription("Revalorizacion Ley 16/2012");
       fecdedidi.setDescription("Deduccion I+D+i excluido limitacion");
       fecgrupdotcred.setDescription("Grupo fiscal: dotacion deterioro");
+      feccorrecexist.setDescription("Correcciones existencias");
       }
     }
     
-  public class TabDedinvbfos extends TableDef
+  public class TabSociedades extends TableDef
     {
     // Campos
-    public FieldDef dibident;
-    public FieldDef dibejeraplic;
-    public FieldDef dibsociedad;
-    public FieldDef dibejerbfo;
-    public FieldDef dibfecha_inver;
-    public FieldDef dibelemento;
-    public FieldDef dibvalor_inver;
-    public FieldDef dibbeneficio;
-    public FieldDef dibminoracion;
-    public FieldDef dibcoeficionte;
-    public FieldDef dibbasededuc;
-    public FieldDef dibejerdeduc;
-    public FieldDef dibreserva;
-    public FieldDef dibplazo;
-    public FieldDef dibfecha_enaje;
-    public FieldDef dibreinvertido;
-    public FieldDef dibporcentaje;
-    public FieldDef dibdeduccion;
-    public FieldDef dibestcanarias;
-    public FieldDef dibtotalinvert;
-    public TabDedinvbfos(String name)
+    public FieldDef socejeraplic;
+    public FieldDef soccodigo;
+    public FieldDef soccif;
+    public FieldDef socnombre;
+    public FieldDef soctipo_organo;
+    public FieldDef soccnaereg;
+    public FieldDef socfechabaja;
+    public FieldDef soccausabaja;
+    public FieldDef socfechaconstit;
+    public FieldDef socnotaria;
+    public FieldDef socnotario;
+    public FieldDef socescritura;
+    public FieldDef soccodigocontab;
+    public FieldDef soccodigonomina;
+    public FieldDef socexpediente;
+    public FieldDef socforma_juridi;
+    public FieldDef socdescri_reg;
+    public FieldDef socreducc_ric;
+    public FieldDef socsector;
+    public FieldDef socsector_pyg;
+    public FieldDef socauditada;
+    public FieldDef soctraspasada;
+    public FieldDef socobligctas;
+    public FieldDef socinicio;
+    public FieldDef socfin;
+    public FieldDef socdia_ini_ejer;
+    public FieldDef socmes_ini_ejer;
+    public FieldDef socanyo_ini_ej;
+    public FieldDef socdia_fin_ejer;
+    public FieldDef socmes_fin_ejer;
+    public FieldDef socanyo_fin_eje;
+    public FieldDef socfor_ingr_iss;
+    public FieldDef socfor_dev_iss;
+    public FieldDef socfor_ingr_pag;
+    public FieldDef soccta_cte_trib;
+    public FieldDef soccooperativa;
+    public FieldDef socent_exent;
+    public FieldDef soccoop_prot;
+    public FieldDef soccoop_esprot;
+    public FieldDef socinv_mobil;
+    public FieldDef socinv_inmob1;
+    public FieldDef socotros_reg;
+    public FieldDef socagrarias;
+    public FieldDef socgran_emp;
+    public FieldDef socent_credito;
+    public FieldDef socent_aseg;
+    public FieldDef socent_inac;
+    public FieldDef socbi_neg;
+    public FieldDef socdec_complem;
+    public FieldDef soctrib_cons;
+    public FieldDef socsoc_domte;
+    public FieldDef socsoc_domda;
+    public FieldDef socnum_grupo;
+    public FieldDef socent_regfis;
+    public FieldDef socrenta_positi;
+    public FieldDef socopc_art10_5;
+    public FieldDef socpymes;
+    public FieldDef socopc_art_1216;
+    public FieldDef socsoc_dependie;
+    public FieldDef socten_val_extr;
+    public FieldDef socag_int_ec_es;
+    public FieldDef socagr_europea;
+    public FieldDef soczec;
+    public FieldDef socopc_art_762b;
+    public FieldDef socresto_cooper;
+    public FieldDef socestab_perman;
+    public FieldDef socdip_com_fora;
+    public FieldDef soctrans_el_pat;
+    public FieldDef socfond_cap_rie;
+    public FieldDef socdes_ind_regi;
+    public FieldDef socreg_esp_mine;
+    public FieldDef socreg_esp_hidr;
+    public FieldDef socopc_art48_1b;
+    public FieldDef socopc_art48_3b;
+    public FieldDef socperd_coop_pr;
+    public FieldDef socreg_ent_navi;
+    public FieldDef socent_grupo_me;
+    public FieldDef socobli_14b_ris;
+    public FieldDef socobli_49b_ris;
+    public FieldDef socsoc_arrendam;
+    public FieldDef socsocpatr_mera;
+    public FieldDef socreg_e_nor_fo;
+    public FieldDef socsocimi;
+    public FieldDef socfond_res_obl;
+    public FieldDef socfond_formaci;
+    public FieldDef socf_res_obl_ex;
+    public FieldDef socf_formac_ext;
+    public FieldDef socobserva;
+    public FieldDef socuser;
+    public FieldDef socgrupo;
+    public FieldDef soccodanter;
+    public FieldDef soccreaempleo;
+    public FieldDef socgarantia;
+    public FieldDef soccnae1993;
+    public FieldDef soccodigocdp;
+    public FieldDef socmutuaseguro;
+    public FieldDef socregesp112009;
+    public FieldDef socgrupogral;
+    public FieldDef socgrupocredito;
+    public FieldDef socgrupoasegura;
+    public FieldDef socgrupocoopera;
+    public FieldDef socgrupopyme;
+    public FieldDef socnifdomina;
+    public FieldDef socmod720;
+    public FieldDef socrevalactivo;
+    public FieldDef socfondotituli;
+    public FieldDef socregaportact;
+    public FieldDef socnuevacreaci;
+    public FieldDef socpretribadm;
+    public FieldDef socopart442;
+    public FieldDef socgrupoforal;
+    public FieldDef socinactdespat;
+    public FieldDef socfecinacdesp;
+    public TabSociedades(String name)
       {
       super(name);
-      dibident = new FieldDef("dibident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      dibejeraplic = new FieldDef("dibejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      dibsociedad = new FieldDef("dibsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-      dibejerbfo = new FieldDef("dibejerbfo",FieldDef.INTEGER,0);
-      dibfecha_inver = new FieldDef("dibfecha_inver",FieldDef.DATE);
-      dibelemento = new FieldDef("dibelemento",FieldDef.CHAR,50);
-      dibvalor_inver = new FieldDef("dibvalor_inver",FieldDef.FLOAT,6,0);
-      dibbeneficio = new FieldDef("dibbeneficio",FieldDef.FLOAT,6,0);
-      dibminoracion = new FieldDef("dibminoracion",FieldDef.FLOAT,6,0);
-      dibcoeficionte = new FieldDef("dibcoeficionte",FieldDef.FLOAT,6,0);
-      dibbasededuc = new FieldDef("dibbasededuc",FieldDef.FLOAT,6,0);
-      dibejerdeduc = new FieldDef("dibejerdeduc",FieldDef.FLOAT,6,0);
-      dibreserva = new FieldDef("dibreserva",FieldDef.FLOAT,6,0);
-      dibplazo = new FieldDef("dibplazo",FieldDef.INTEGER,0);
-      dibfecha_enaje = new FieldDef("dibfecha_enaje",FieldDef.DATE);
-      dibreinvertido = new FieldDef("dibreinvertido",FieldDef.FLOAT,6,0);
-      dibporcentaje = new FieldDef("dibporcentaje",FieldDef.FLOAT,6,0);
-      dibdeduccion = new FieldDef("dibdeduccion",FieldDef.FLOAT,6,0);
-      dibestcanarias = new FieldDef("dibestcanarias",FieldDef.CHAR,1);
-      dibtotalinvert = new FieldDef("dibtotalinvert",FieldDef.FLOAT,6,0);
+      socejeraplic = new FieldDef("socejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      soccodigo = new FieldDef("soccodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      soccif = new FieldDef("soccif",FieldDef.CHAR,15);
+      socnombre = new FieldDef("socnombre",FieldDef.CHAR,100);
+      soctipo_organo = new FieldDef("soctipo_organo",FieldDef.INTEGER,0);
+      soccnaereg = new FieldDef("soccnaereg",FieldDef.CHAR,6);
+      socfechabaja = new FieldDef("socfechabaja",FieldDef.DATE);
+      soccausabaja = new FieldDef("soccausabaja",FieldDef.CHAR,50);
+      socfechaconstit = new FieldDef("socfechaconstit",FieldDef.DATE);
+      socnotaria = new FieldDef("socnotaria",FieldDef.CHAR,40);
+      socnotario = new FieldDef("socnotario",FieldDef.CHAR,40);
+      socescritura = new FieldDef("socescritura",FieldDef.CHAR,13);
+      soccodigocontab = new FieldDef("soccodigocontab",FieldDef.INTEGER,0);
+      soccodigonomina = new FieldDef("soccodigonomina",FieldDef.INTEGER,0);
+      socexpediente = new FieldDef("socexpediente",FieldDef.CHAR,15);
+      socforma_juridi = new FieldDef("socforma_juridi",FieldDef.CHAR,50);
+      socdescri_reg = new FieldDef("socdescri_reg",FieldDef.CHAR,45);
+      socreducc_ric = new FieldDef("socreducc_ric",FieldDef.CHAR,1);
+      socsector = new FieldDef("socsector",FieldDef.CHAR,3);
+      socsector_pyg = new FieldDef("socsector_pyg",FieldDef.CHAR,3);
+      socauditada = new FieldDef("socauditada",FieldDef.CHAR,1);
+      soctraspasada = new FieldDef("soctraspasada",FieldDef.CHAR,1);
+      socobligctas = new FieldDef("socobligctas",FieldDef.CHAR,1);
+      socinicio = new FieldDef("socinicio",FieldDef.DATE);
+      socfin = new FieldDef("socfin",FieldDef.DATE);
+      socdia_ini_ejer = new FieldDef("socdia_ini_ejer",FieldDef.CHAR,2);
+      socmes_ini_ejer = new FieldDef("socmes_ini_ejer",FieldDef.CHAR,2);
+      socanyo_ini_ej = new FieldDef("socanyo_ini_ej",FieldDef.CHAR,4);
+      socdia_fin_ejer = new FieldDef("socdia_fin_ejer",FieldDef.CHAR,2);
+      socmes_fin_ejer = new FieldDef("socmes_fin_ejer",FieldDef.CHAR,2);
+      socanyo_fin_eje = new FieldDef("socanyo_fin_eje",FieldDef.CHAR,4);
+      socfor_ingr_iss = new FieldDef("socfor_ingr_iss",FieldDef.CHAR,2);
+      socfor_dev_iss = new FieldDef("socfor_dev_iss",FieldDef.CHAR,2);
+      socfor_ingr_pag = new FieldDef("socfor_ingr_pag",FieldDef.CHAR,2);
+      soccta_cte_trib = new FieldDef("soccta_cte_trib",FieldDef.CHAR,1);
+      soccooperativa = new FieldDef("soccooperativa",FieldDef.CHAR,1);
+      socent_exent = new FieldDef("socent_exent",FieldDef.CHAR,1);
+      soccoop_prot = new FieldDef("soccoop_prot",FieldDef.CHAR,1);
+      soccoop_esprot = new FieldDef("soccoop_esprot",FieldDef.CHAR,1);
+      socinv_mobil = new FieldDef("socinv_mobil",FieldDef.CHAR,1);
+      socinv_inmob1 = new FieldDef("socinv_inmob1",FieldDef.CHAR,1);
+      socotros_reg = new FieldDef("socotros_reg",FieldDef.CHAR,1);
+      socagrarias = new FieldDef("socagrarias",FieldDef.CHAR,1);
+      socgran_emp = new FieldDef("socgran_emp",FieldDef.CHAR,1);
+      socent_credito = new FieldDef("socent_credito",FieldDef.CHAR,1);
+      socent_aseg = new FieldDef("socent_aseg",FieldDef.CHAR,1);
+      socent_inac = new FieldDef("socent_inac",FieldDef.CHAR,1);
+      socbi_neg = new FieldDef("socbi_neg",FieldDef.CHAR,1);
+      socdec_complem = new FieldDef("socdec_complem",FieldDef.CHAR,1);
+      soctrib_cons = new FieldDef("soctrib_cons",FieldDef.CHAR,1);
+      socsoc_domte = new FieldDef("socsoc_domte",FieldDef.CHAR,1);
+      socsoc_domda = new FieldDef("socsoc_domda",FieldDef.CHAR,1);
+      socnum_grupo = new FieldDef("socnum_grupo",FieldDef.CHAR,7);
+      socent_regfis = new FieldDef("socent_regfis",FieldDef.CHAR,1);
+      socrenta_positi = new FieldDef("socrenta_positi",FieldDef.CHAR,1);
+      socopc_art10_5 = new FieldDef("socopc_art10_5",FieldDef.CHAR,1);
+      socpymes = new FieldDef("socpymes",FieldDef.CHAR,1);
+      socopc_art_1216 = new FieldDef("socopc_art_1216",FieldDef.CHAR,1);
+      socsoc_dependie = new FieldDef("socsoc_dependie",FieldDef.CHAR,1);
+      socten_val_extr = new FieldDef("socten_val_extr",FieldDef.CHAR,1);
+      socag_int_ec_es = new FieldDef("socag_int_ec_es",FieldDef.CHAR,1);
+      socagr_europea = new FieldDef("socagr_europea",FieldDef.CHAR,1);
+      soczec = new FieldDef("soczec",FieldDef.CHAR,1);
+      socopc_art_762b = new FieldDef("socopc_art_762b",FieldDef.CHAR,1);
+      socresto_cooper = new FieldDef("socresto_cooper",FieldDef.CHAR,1);
+      socestab_perman = new FieldDef("socestab_perman",FieldDef.CHAR,1);
+      socdip_com_fora = new FieldDef("socdip_com_fora",FieldDef.CHAR,1);
+      soctrans_el_pat = new FieldDef("soctrans_el_pat",FieldDef.CHAR,1);
+      socfond_cap_rie = new FieldDef("socfond_cap_rie",FieldDef.CHAR,1);
+      socdes_ind_regi = new FieldDef("socdes_ind_regi",FieldDef.CHAR,1);
+      socreg_esp_mine = new FieldDef("socreg_esp_mine",FieldDef.CHAR,1);
+      socreg_esp_hidr = new FieldDef("socreg_esp_hidr",FieldDef.CHAR,1);
+      socopc_art48_1b = new FieldDef("socopc_art48_1b",FieldDef.CHAR,1);
+      socopc_art48_3b = new FieldDef("socopc_art48_3b",FieldDef.CHAR,1);
+      socperd_coop_pr = new FieldDef("socperd_coop_pr",FieldDef.CHAR,1);
+      socreg_ent_navi = new FieldDef("socreg_ent_navi",FieldDef.CHAR,1);
+      socent_grupo_me = new FieldDef("socent_grupo_me",FieldDef.CHAR,1);
+      socobli_14b_ris = new FieldDef("socobli_14b_ris",FieldDef.CHAR,1);
+      socobli_49b_ris = new FieldDef("socobli_49b_ris",FieldDef.CHAR,1);
+      socsoc_arrendam = new FieldDef("socsoc_arrendam",FieldDef.CHAR,1);
+      socsocpatr_mera = new FieldDef("socsocpatr_mera",FieldDef.CHAR,1);
+      socreg_e_nor_fo = new FieldDef("socreg_e_nor_fo",FieldDef.CHAR,1);
+      socsocimi = new FieldDef("socsocimi",FieldDef.CHAR,1);
+      socfond_res_obl = new FieldDef("socfond_res_obl",FieldDef.INTEGER,0);
+      socfond_formaci = new FieldDef("socfond_formaci",FieldDef.INTEGER,0);
+      socf_res_obl_ex = new FieldDef("socf_res_obl_ex",FieldDef.INTEGER,0);
+      socf_formac_ext = new FieldDef("socf_formac_ext",FieldDef.INTEGER,0);
+      socobserva = new FieldDef("socobserva",FieldDef.CHAR,2000);
+      socuser = new FieldDef("socuser",FieldDef.CHAR,25);
+      socgrupo = new FieldDef("socgrupo",FieldDef.CHAR,15);
+      soccodanter = new FieldDef("soccodanter",FieldDef.INTEGER,0);
+      soccreaempleo = new FieldDef("soccreaempleo",FieldDef.CHAR,1);
+      socgarantia = new FieldDef("socgarantia",FieldDef.CHAR,1);
+      soccnae1993 = new FieldDef("soccnae1993",FieldDef.CHAR,6);
+      soccodigocdp = new FieldDef("soccodigocdp",FieldDef.CHAR,12);
+      socmutuaseguro = new FieldDef("socmutuaseguro",FieldDef.CHAR,1);
+      socregesp112009 = new FieldDef("socregesp112009",FieldDef.CHAR,1);
+      socgrupogral = new FieldDef("socgrupogral",FieldDef.CHAR,1);
+      socgrupocredito = new FieldDef("socgrupocredito",FieldDef.CHAR,1);
+      socgrupoasegura = new FieldDef("socgrupoasegura",FieldDef.CHAR,1);
+      socgrupocoopera = new FieldDef("socgrupocoopera",FieldDef.CHAR,1);
+      socgrupopyme = new FieldDef("socgrupopyme",FieldDef.CHAR,1);
+      socnifdomina = new FieldDef("socnifdomina",FieldDef.CHAR,15);
+      socmod720 = new FieldDef("socmod720",FieldDef.CHAR,1);
+      socrevalactivo = new FieldDef("socrevalactivo",FieldDef.CHAR,1);
+      socfondotituli = new FieldDef("socfondotituli",FieldDef.CHAR,1);
+      socregaportact = new FieldDef("socregaportact",FieldDef.CHAR,1);
+      socnuevacreaci = new FieldDef("socnuevacreaci",FieldDef.CHAR,1);
+      socpretribadm = new FieldDef("socpretribadm",FieldDef.FLOAT,6,0);
+      socopart442 = new FieldDef("socopart442",FieldDef.CHAR,1);
+      socgrupoforal = new FieldDef("socgrupoforal",FieldDef.CHAR,1);
+      socinactdespat = new FieldDef("socinactdespat",FieldDef.CHAR,1);
+      socfecinacdesp = new FieldDef("socfecinacdesp",FieldDef.DATE);
       FieldDef array[] = {
-        dibident,
-        dibejeraplic,
-        dibsociedad,
-        dibejerbfo,
-        dibfecha_inver,
-        dibelemento,
-        dibvalor_inver,
-        dibbeneficio,
-        dibminoracion,
-        dibcoeficionte,
-        dibbasededuc,
-        dibejerdeduc,
-        dibreserva,
-        dibplazo,
-        dibfecha_enaje,
-        dibreinvertido,
-        dibporcentaje,
-        dibdeduccion,
-        dibestcanarias,
-        dibtotalinvert        
+        socejeraplic,
+        soccodigo,
+        soccif,
+        socnombre,
+        soctipo_organo,
+        soccnaereg,
+        socfechabaja,
+        soccausabaja,
+        socfechaconstit,
+        socnotaria,
+        socnotario,
+        socescritura,
+        soccodigocontab,
+        soccodigonomina,
+        socexpediente,
+        socforma_juridi,
+        socdescri_reg,
+        socreducc_ric,
+        socsector,
+        socsector_pyg,
+        socauditada,
+        soctraspasada,
+        socobligctas,
+        socinicio,
+        socfin,
+        socdia_ini_ejer,
+        socmes_ini_ejer,
+        socanyo_ini_ej,
+        socdia_fin_ejer,
+        socmes_fin_ejer,
+        socanyo_fin_eje,
+        socfor_ingr_iss,
+        socfor_dev_iss,
+        socfor_ingr_pag,
+        soccta_cte_trib,
+        soccooperativa,
+        socent_exent,
+        soccoop_prot,
+        soccoop_esprot,
+        socinv_mobil,
+        socinv_inmob1,
+        socotros_reg,
+        socagrarias,
+        socgran_emp,
+        socent_credito,
+        socent_aseg,
+        socent_inac,
+        socbi_neg,
+        socdec_complem,
+        soctrib_cons,
+        socsoc_domte,
+        socsoc_domda,
+        socnum_grupo,
+        socent_regfis,
+        socrenta_positi,
+        socopc_art10_5,
+        socpymes,
+        socopc_art_1216,
+        socsoc_dependie,
+        socten_val_extr,
+        socag_int_ec_es,
+        socagr_europea,
+        soczec,
+        socopc_art_762b,
+        socresto_cooper,
+        socestab_perman,
+        socdip_com_fora,
+        soctrans_el_pat,
+        socfond_cap_rie,
+        socdes_ind_regi,
+        socreg_esp_mine,
+        socreg_esp_hidr,
+        socopc_art48_1b,
+        socopc_art48_3b,
+        socperd_coop_pr,
+        socreg_ent_navi,
+        socent_grupo_me,
+        socobli_14b_ris,
+        socobli_49b_ris,
+        socsoc_arrendam,
+        socsocpatr_mera,
+        socreg_e_nor_fo,
+        socsocimi,
+        socfond_res_obl,
+        socfond_formaci,
+        socf_res_obl_ex,
+        socf_formac_ext,
+        socobserva,
+        socuser,
+        socgrupo,
+        soccodanter,
+        soccreaempleo,
+        socgarantia,
+        soccnae1993,
+        soccodigocdp,
+        socmutuaseguro,
+        socregesp112009,
+        socgrupogral,
+        socgrupocredito,
+        socgrupoasegura,
+        socgrupocoopera,
+        socgrupopyme,
+        socnifdomina,
+        socmod720,
+        socrevalactivo,
+        socfondotituli,
+        socregaportact,
+        socnuevacreaci,
+        socpretribadm,
+        socopart442,
+        socgrupoforal,
+        socinactdespat,
+        socfecinacdesp        
         };
       setColumns(array);
-      FieldDef arrayf[] = {dibident };
-      setDescription("Deduccion inversion beneficios");
+      FieldDef arrayf[] = {socejeraplic,soccodigo };
+      setDescription("Relacion de sociedades");
       setPrimaryKeys(arrayf);
-      dibident.setAutoIncrementable(true);
-      dibejeraplic.setDescription("Ejercicio fiscal aplicacion");
-      dibsociedad.setDescription("Sociedad");
-      dibejerbfo.setDescription("Ejercicio en que se obtiene beneficio");
-      dibfecha_inver.setDescription("Fecha inversion");
-      dibelemento.setDescription("Elemento");
-      dibvalor_inver.setDescription("Valor inversion");
-      dibbeneficio.setDescription("Beneficio ejercicio");
-      dibminoracion.setDescription("Rentas a minorar");
-      dibcoeficionte.setDescription("Coeficiente");
-      dibbasededuc.setDescription("Base deduccion");
-      dibejerdeduc.setDescription("Ejercicio aplica deduccion");
-      dibreserva.setDescription("Importe reserva inversion");
-      dibplazo.setDescription("Plazo funcionamiento");
-      dibfecha_enaje.setDescription("Fecha enajenacion");
-      dibreinvertido.setDescription("Importe enajenacion reinvertido");
-      dibporcentaje.setDescription("% Deduccion");
-      dibdeduccion.setDescription("Cuantia deduccion");
-      dibestcanarias.setDescription("Estatal o Canarias");
-      dibtotalinvert.setDescription("Valor total invertido");
+      socejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      soccodigo.setDescription("Codigo sociedad");
+      soccif.setDescription("C.I.F.");
+      socnombre.setDescription("Nombre");
+      soctipo_organo.setDescription("Tipo Organo Administracion");
+      soccnaereg.setDescription("C.N.A.E. 2009");
+      socfechabaja.setDescription("Fecha de baja");
+      soccausabaja.setDescription("Causa de baja");
+      socfechaconstit.setDescription("Fecha constitucion");
+      socnotaria.setDescription("Notaria");
+      socnotario.setDescription("Notario");
+      socescritura.setDescription("Escritura");
+      soccodigocontab.setDescription("Codigo Contabilidad-GEyCE");
+      soccodigonomina.setDescription("Codigo Nomina-GEyCE");
+      socexpediente.setDescription("Codigo de expediente");
+      socforma_juridi.setDescription("Forma juridica");
+      socdescri_reg.setDescription("Descripcion  regimen");
+      socreducc_ric.setDescription("Aplica reduccion RIC");
+      socsector.setDescription("Codigo de plan de cuentas");
+      socsector_pyg.setDescription("Estado de cuentas Perd. y Gana");
+      socauditada.setDescription("Sociedad esta auditada");
+      soctraspasada.setDescription("Esta sociedad esta traspasada");
+      socobligctas.setDescription("Sociedad obligadaa hacer ctas.");
+      socinicio.setDescription("Inicio ejercicio");
+      socfin.setDescription("Fin ejercicio");
+      socdia_ini_ejer.setDescription("Dia inicio ejercicio");
+      socmes_ini_ejer.setDescription("Mes inicio ejercicio");
+      socanyo_ini_ej.setDescription("Año inicio ejercicio");
+      socdia_fin_ejer.setDescription("Dia fin ejercicio");
+      socmes_fin_ejer.setDescription("Mes fin ejercicio");
+      socanyo_fin_eje.setDescription("Año fin ejercicio");
+      socfor_ingr_iss.setDescription("Forma ingreso ISS");
+      socfor_dev_iss.setDescription("Forma devolucion ISS");
+      socfor_ingr_pag.setDescription("Forma ingreso Pago a cta");
+      soccta_cte_trib.setDescription("Cuenta corriente tributaria");
+      soccooperativa.setDescription("Cooperativa");
+      socent_exent.setDescription("Entidad exenta");
+      soccoop_prot.setDescription("Cooperativa protegida");
+      soccoop_esprot.setDescription("Coop. especialmente protegida");
+      socinv_mobil.setDescription("Soc. de inv. caracter financ.");
+      socinv_inmob1.setDescription("Soc. inversion inmobiliaria");
+      socotros_reg.setDescription("Otros regimenes especiales");
+      socagrarias.setDescription("Cdad.titular.montes vecinales");
+      socgran_emp.setDescription("Gran empresa");
+      socent_credito.setDescription("Entidad de credito");
+      socent_aseg.setDescription("Entidad aseguradora");
+      socent_inac.setDescription("Entidad inactiva");
+      socbi_neg.setDescription("Base imponible negativa o cero");
+      socdec_complem.setDescription("Fondo de Pensiones RDL 1/2002");
+      soctrib_cons.setDescription("Inversiones anticipadas RIC");
+      socsoc_domte.setDescription("Soc. dominante o cabeza grupo");
+      socsoc_domda.setDescription("Reg.atribucion rentas extranj.");
+      socnum_grupo.setDescription("Numero de grupo");
+      socent_regfis.setDescription("Entidad reg.fiscal Ley 49/2002");
+      socrenta_positi.setDescription("Inclus.base imponible rentas +");
+      socopc_art10_5.setDescription("Regimen especial Canarias");
+      socpymes.setDescription("Empresa de reducida dimension");
+      socopc_art_1216.setDescription("Opcion Art. 107.6 T.R. ISS");
+      socsoc_dependie.setDescription("Sociedad dependiente");
+      socten_val_extr.setDescription("Ent.tenencia valor extranjeros");
+      socag_int_ec_es.setDescription("Agrupacion interes ec.española");
+      socagr_europea.setDescription("Agrupacion europea int.econom.");
+      soczec.setDescription("Entidad ZEC");
+      socopc_art_762b.setDescription("Opcion Art.51.2b T.R. ISS");
+      socresto_cooper.setDescription("Resto cooperativas");
+      socestab_perman.setDescription("Establecimiento permanente");
+      socdip_com_fora.setDescription("Tributacion Estado/Dip.Forales");
+      soctrans_el_pat.setDescription("Transmision elem.patrimoniales");
+      socfond_cap_rie.setDescription("Soc. y fondos capital-riesgo");
+      socdes_ind_regi.setDescription("Desarrollo industrial regional");
+      socreg_esp_mine.setDescription("Regimen especial mineria");
+      socreg_esp_hidr.setDescription("Regimen especial hidrocarburos");
+      socopc_art48_1b.setDescription("Opcion articulo 43.1 R.I.S.");
+      socopc_art48_3b.setDescription("Opcion articulo 43.3 R.I.S.");
+      socperd_coop_pr.setDescription("Perdida derecho coop.protegida");
+      socreg_ent_navi.setDescription("Reg.navieras en funcion tonel.");
+      socent_grupo_me.setDescription("Ent. forman parte grupo merca.");
+      socobli_14b_ris.setDescription("Oblig. informacion 15 R.I.S.");
+      socobli_49b_ris.setDescription("Oblig. informacion 45 R.I.S.");
+      socsoc_arrendam.setDescription("Sociedad arrendamiento vda.");
+      socsocpatr_mera.setDescription("Ent.sometida normativa foral");
+      socreg_e_nor_fo.setDescription("Reg.especial normativa foral");
+      socsocimi.setDescription("SOCIMI");
+      socfond_res_obl.setDescription("% Fondo reserva oblig. cooper.");
+      socfond_formaci.setDescription("% Fondo formacion y promocion");
+      socf_res_obl_ex.setDescription("% F.R.O. extracooperativo");
+      socf_formac_ext.setDescription("% F.formacion extracooperativo");
+      socobserva.setDescription("Observaciones");
+      socuser.setDescription("Usuario asignado a la sociedad");
+      socgrupo.setDescription("Grupo asignado a la sociedad");
+      soccodanter.setDescription("Codigo aplicacion antigua");
+      soccreaempleo.setDescription("Sociedad tipo reducido creacion empleo");
+      socgarantia.setDescription("Sociedad garantia reciproca");
+      soccnae1993.setDescription("C.N.A.E. ISS");
+      soccodigocdp.setDescription("Código de CDP");
+      socmutuaseguro.setDescription("Mutua de seguros o Mutualidad de prevision");
+      socregesp112009.setDescription("Entidades que aplican regimen especial Ley 11/2009");
+      socgrupogral.setDescription("Consolidacion fiscal : grupo general");
+      socgrupocredito.setDescription("Consolidacion fiscal : grupo entidades de credito");
+      socgrupoasegura.setDescription("Consolidacion fiscal : grupo entidades aseguradoras");
+      socgrupocoopera.setDescription("Consolidacion fiscal : grupo de cooperativas");
+      socgrupopyme.setDescription("Consolidacion fiscal : incentivos reducida dimension");
+      socnifdomina.setDescription("NIF de la sociedad dominante");
+      socmod720.setDescription("Declara bienes extranjeros mod.720");
+      socrevalactivo.setDescription("Revalorizacion activos Ley 16/2012");
+      socfondotituli.setDescription("Fondos o activos de titulización");
+      socregaportact.setDescription("Reg.fiscal aportacion activos para la gestion activos");
+      socnuevacreaci.setDescription("Entidad nueva creacion");
+      socpretribadm.setDescription("% Retribucion administradores sobre beneficio ejercicio");
+      socopart442.setDescription("Opción art. 44.2 LIS");
+      socgrupoforal.setDescription("Consolidacion fiscal : grupo foral");
+      socinactdespat.setDescription("Sociedad inactiva en el despacho");
+      socfecinacdesp.setDescription("Fecha desde que la sociedad esta inactiva en el despacho");
+      }
+    }
+    
+  public class TabParamsociedad extends TableDef
+    {
+    // Campos
+    public FieldDef psoejeraplic;
+    public FieldDef psosociedad;
+    public FieldDef psoctareten;
+    public FieldDef psocdifgrav;
+    public FieldDef psocgastfinan;
+    public FieldDef psocmisgastfi;
+    public TabParamsociedad(String name)
+      {
+      super(name);
+      psoejeraplic = new FieldDef("psoejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      psosociedad = new FieldDef("psosociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      psoctareten = new FieldDef("psoctareten",FieldDef.CHAR,5);
+      psocdifgrav = new FieldDef("psocdifgrav",FieldDef.CHAR,1);
+      psocgastfinan = new FieldDef("psocgastfinan",FieldDef.CHAR,1);
+      psocmisgastfi = new FieldDef("psocmisgastfi",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        psoejeraplic,
+        psosociedad,
+        psoctareten,
+        psocdifgrav,
+        psocgastfinan,
+        psocmisgastfi        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {psoejeraplic,psosociedad };
+      setDescription("Parametros por sociedad");
+      setPrimaryKeys(arrayf);
+      psoejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      psosociedad.setDescription("Codigo sociedad");
+      psoctareten.setDescription("Cuenta contable retenciones");
+      psocdifgrav.setDescription("Aplicar gravamen en diferencias permanentes");
+      psocgastfinan.setDescription("Recoger saldo cuenta 669/769 en gastos financieros");
+      psocmisgastfi.setDescription("Repetir mensage aviso gastos financieros");
+      }
+    }
+    
+  public class TabDesglosajustes extends TableDef
+    {
+    // Campos
+    public FieldDef daiden;
+    public FieldDef daejeraplic;
+    public FieldDef dasociedad;
+    public FieldDef dacasilla;
+    public FieldDef dadescripcion;
+    public FieldDef daimporte;
+    public FieldDef datipodiferenci;
+    public FieldDef daimporte_futur;
+    public FieldDef datipocorreccio;
+    public FieldDef daejerorigen;
+    public FieldDef dagravamen;
+    public FieldDef daimporte_anter;
+    public FieldDef daajusteiss;
+    public FieldDef daajusteasiento;
+    public TabDesglosajustes(String name)
+      {
+      super(name);
+      daiden = new FieldDef("daiden",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      daejeraplic = new FieldDef("daejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      dasociedad = new FieldDef("dasociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      dacasilla = new FieldDef("dacasilla",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      dadescripcion = new FieldDef("dadescripcion",FieldDef.CHAR,45);
+      daimporte = new FieldDef("daimporte",FieldDef.FLOAT,6,0);
+      datipodiferenci = new FieldDef("datipodiferenci",FieldDef.CHAR,1);
+      daimporte_futur = new FieldDef("daimporte_futur",FieldDef.FLOAT,6,0);
+      datipocorreccio = new FieldDef("datipocorreccio",FieldDef.CHAR,1);
+      daejerorigen = new FieldDef("daejerorigen",FieldDef.INTEGER,0);
+      dagravamen = new FieldDef("dagravamen",FieldDef.FLOAT,6,0);
+      daimporte_anter = new FieldDef("daimporte_anter",FieldDef.FLOAT,6,0);
+      daajusteiss = new FieldDef("daajusteiss",FieldDef.CHAR,1);
+      daajusteasiento = new FieldDef("daajusteasiento",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        daiden,
+        daejeraplic,
+        dasociedad,
+        dacasilla,
+        dadescripcion,
+        daimporte,
+        datipodiferenci,
+        daimporte_futur,
+        datipocorreccio,
+        daejerorigen,
+        dagravamen,
+        daimporte_anter,
+        daajusteiss,
+        daajusteasiento        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {daiden };
+      setDescription("Desglose ajustes resultado contable");
+      setPrimaryKeys(arrayf);
+      daiden.setAutoIncrementable(true);
+      daejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      dasociedad.setDescription("SOCIEDAD");
+      dacasilla.setDescription("Codigo casilla ajuste");
+      dadescripcion.setDescription("Descripcion concepto");
+      daimporte.setDescription("Importe del ejercicio");
+      datipodiferenci.setDescription("Tipo diferencia");
+      daimporte_futur.setDescription("Importe futuro");
+      datipocorreccio.setDescription("Tipo correccion");
+      daejerorigen.setDescription("Ejercicio origen");
+      dagravamen.setDescription("% Gravamen ejer.anterior");
+      daimporte_anter.setDescription("Importe anterior aplicado");
+      daajusteiss.setDescription("Ajuste se tendra en cuenta en el ISS");
+      daajusteasiento.setDescription("Ajuste se tendra en cuenta en asiento del Impuesto");
+      }
+    }
+    
+  public class TabFinalizacion extends TableDef
+    {
+    // Campos
+    public FieldDef finejeraplic;
+    public FieldDef finsociedad;
+    public FieldDef finfirma;
+    public FieldDef finpoblacion;
+    public FieldDef finlis_impues;
+    public FieldDef finlis_202_1;
+    public FieldDef finlis_202_2;
+    public FieldDef finlis_202_3;
+    public FieldDef fincomplementar;
+    public FieldDef finnro_justific;
+    public FieldDef finregelectro1;
+    public FieldDef finregelectro2;
+    public FieldDef finestado;
+    public FieldDef finestadoctas;
+    public FieldDef finestadoinfo;
+    public FieldDef finestadoasien;
+    public TabFinalizacion(String name)
+      {
+      super(name);
+      finejeraplic = new FieldDef("finejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      finsociedad = new FieldDef("finsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      finfirma = new FieldDef("finfirma",FieldDef.DATE);
+      finpoblacion = new FieldDef("finpoblacion",FieldDef.CHAR,17);
+      finlis_impues = new FieldDef("finlis_impues",FieldDef.CHAR,1);
+      finlis_202_1 = new FieldDef("finlis_202_1",FieldDef.CHAR,1);
+      finlis_202_2 = new FieldDef("finlis_202_2",FieldDef.CHAR,1);
+      finlis_202_3 = new FieldDef("finlis_202_3",FieldDef.CHAR,1);
+      fincomplementar = new FieldDef("fincomplementar",FieldDef.CHAR,1);
+      finnro_justific = new FieldDef("finnro_justific",FieldDef.CHAR,13);
+      finregelectro1 = new FieldDef("finregelectro1",FieldDef.CHAR,22);
+      finregelectro2 = new FieldDef("finregelectro2",FieldDef.CHAR,22);
+      finestado = new FieldDef("finestado",FieldDef.CHAR,2);
+      finestadoctas = new FieldDef("finestadoctas",FieldDef.CHAR,2);
+      finestadoinfo = new FieldDef("finestadoinfo",FieldDef.CHAR,2);
+      finestadoasien = new FieldDef("finestadoasien",FieldDef.CHAR,2);
+      FieldDef array[] = {
+        finejeraplic,
+        finsociedad,
+        finfirma,
+        finpoblacion,
+        finlis_impues,
+        finlis_202_1,
+        finlis_202_2,
+        finlis_202_3,
+        fincomplementar,
+        finnro_justific,
+        finregelectro1,
+        finregelectro2,
+        finestado,
+        finestadoctas,
+        finestadoinfo,
+        finestadoasien        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {finejeraplic,finsociedad };
+      setDescription("Finalizacion impuesto");
+      setPrimaryKeys(arrayf);
+      finejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      finsociedad.setDescription("CODIGO SOCIEDAD");
+      finfirma.setDescription("Fecha firma");
+      finpoblacion.setDescription("Poblacion firma");
+      finlis_impues.setDescription("Se lista impuesto");
+      finlis_202_1.setDescription("Se lista 1er. pago a cta. 202");
+      finlis_202_2.setDescription("Se lista 2do. pago a cta. 202");
+      finlis_202_3.setDescription("Se lista 3er. pago a cta. 202");
+      fincomplementar.setDescription("Declaracion complementaria");
+      finnro_justific.setDescription("Nro. de justificante");
+      finregelectro1.setDescription("Nro. electronico documentacion presentada");
+      finregelectro2.setDescription("Nro. electronico documentacion presentada");
+      finestado.setDescription("Estado datos impuesto");
+      finestadoctas.setDescription("Estado datos cuentas anuales");
+      finestadoinfo.setDescription("Estado informe económico");
+      finestadoasien.setDescription("Estado asiento gasto impuesto");
+      }
+    }
+    
+  public class TabCtadatosmercant extends TableDef
+    {
+    // Campos
+    public FieldDef ctrejeraplic;
+    public FieldDef ctrsociedad;
+    public FieldDef ctrdni_pres;
+    public FieldDef ctrape_pres;
+    public FieldDef ctrnom_pres;
+    public FieldDef ctrcar_pres;
+    public FieldDef ctrdni_firma;
+    public FieldDef ctrape_firma;
+    public FieldDef ctrnom_firma;
+    public FieldDef ctrcar_firma;
+    public FieldDef ctrdni_presid;
+    public FieldDef ctrape_presid;
+    public FieldDef ctrnom_presid;
+    public FieldDef ctrdni_secre;
+    public FieldDef ctrape_secre;
+    public FieldDef ctrnom_secre;
+    public FieldDef ctrnp_present;
+    public FieldDef ctrfecha_for;
+    public FieldDef ctrfecha_certif;
+    public FieldDef ctrfecha_cob_di;
+    public FieldDef ctrfirma_digita;
+    public FieldDef ctrfecha_bal;
+    public FieldDef ctrnombre;
+    public FieldDef ctrapellidos;
+    public FieldDef ctrpoblacion;
+    public FieldDef ctrnif;
+    public FieldDef ctrcalle;
+    public FieldDef ctrnumero;
+    public FieldDef ctrtitulo;
+    public TabCtadatosmercant(String name)
+      {
+      super(name);
+      ctrejeraplic = new FieldDef("ctrejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      ctrsociedad = new FieldDef("ctrsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      ctrdni_pres = new FieldDef("ctrdni_pres",FieldDef.CHAR,15);
+      ctrape_pres = new FieldDef("ctrape_pres",FieldDef.CHAR,30);
+      ctrnom_pres = new FieldDef("ctrnom_pres",FieldDef.CHAR,20);
+      ctrcar_pres = new FieldDef("ctrcar_pres",FieldDef.CHAR,30);
+      ctrdni_firma = new FieldDef("ctrdni_firma",FieldDef.CHAR,15);
+      ctrape_firma = new FieldDef("ctrape_firma",FieldDef.CHAR,30);
+      ctrnom_firma = new FieldDef("ctrnom_firma",FieldDef.CHAR,20);
+      ctrcar_firma = new FieldDef("ctrcar_firma",FieldDef.CHAR,30);
+      ctrdni_presid = new FieldDef("ctrdni_presid",FieldDef.CHAR,15);
+      ctrape_presid = new FieldDef("ctrape_presid",FieldDef.CHAR,30);
+      ctrnom_presid = new FieldDef("ctrnom_presid",FieldDef.CHAR,20);
+      ctrdni_secre = new FieldDef("ctrdni_secre",FieldDef.CHAR,15);
+      ctrape_secre = new FieldDef("ctrape_secre",FieldDef.CHAR,30);
+      ctrnom_secre = new FieldDef("ctrnom_secre",FieldDef.CHAR,20);
+      ctrnp_present = new FieldDef("ctrnp_present",FieldDef.INTEGER,0);
+      ctrfecha_for = new FieldDef("ctrfecha_for",FieldDef.DATE);
+      ctrfecha_certif = new FieldDef("ctrfecha_certif",FieldDef.DATE);
+      ctrfecha_cob_di = new FieldDef("ctrfecha_cob_di",FieldDef.DATE);
+      ctrfirma_digita = new FieldDef("ctrfirma_digita",FieldDef.CHAR,44);
+      ctrfecha_bal = new FieldDef("ctrfecha_bal",FieldDef.DATE);
+      ctrnombre = new FieldDef("ctrnombre",FieldDef.CHAR,35);
+      ctrapellidos = new FieldDef("ctrapellidos",FieldDef.CHAR,35);
+      ctrpoblacion = new FieldDef("ctrpoblacion",FieldDef.CHAR,20);
+      ctrnif = new FieldDef("ctrnif",FieldDef.CHAR,15);
+      ctrcalle = new FieldDef("ctrcalle",FieldDef.CHAR,30);
+      ctrnumero = new FieldDef("ctrnumero",FieldDef.CHAR,4);
+      ctrtitulo = new FieldDef("ctrtitulo",FieldDef.CHAR,30);
+      FieldDef array[] = {
+        ctrejeraplic,
+        ctrsociedad,
+        ctrdni_pres,
+        ctrape_pres,
+        ctrnom_pres,
+        ctrcar_pres,
+        ctrdni_firma,
+        ctrape_firma,
+        ctrnom_firma,
+        ctrcar_firma,
+        ctrdni_presid,
+        ctrape_presid,
+        ctrnom_presid,
+        ctrdni_secre,
+        ctrape_secre,
+        ctrnom_secre,
+        ctrnp_present,
+        ctrfecha_for,
+        ctrfecha_certif,
+        ctrfecha_cob_di,
+        ctrfirma_digita,
+        ctrfecha_bal,
+        ctrnombre,
+        ctrapellidos,
+        ctrpoblacion,
+        ctrnif,
+        ctrcalle,
+        ctrnumero,
+        ctrtitulo        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {ctrejeraplic,ctrsociedad };
+      setDescription("Datos Registro Mercantil");
+      setPrimaryKeys(arrayf);
+      ctrejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      ctrsociedad.setDescription("Sociedad");
+      ctrdni_pres.setDescription("DNI presentador instancia");
+      ctrape_pres.setDescription("Apellidos presentador instanc.");
+      ctrnom_pres.setDescription("Nombre presentador instan.");
+      ctrcar_pres.setDescription("Cargo presentador instancia");
+      ctrdni_firma.setDescription("DNI firma registro");
+      ctrape_firma.setDescription("Apellidos firma registro");
+      ctrnom_firma.setDescription("Nombre firma registro");
+      ctrcar_firma.setDescription("Cargo firma registro");
+      ctrdni_presid.setDescription("DNI presidente");
+      ctrape_presid.setDescription("Apellidos presidente");
+      ctrnom_presid.setDescription("Nombre presidente");
+      ctrdni_secre.setDescription("DNI secretario junta");
+      ctrape_secre.setDescription("Apellidos secretario junta");
+      ctrnom_secre.setDescription("Nombre secretario junta");
+      ctrnp_present.setDescription("Num. pag. presentada deposito");
+      ctrfecha_for.setDescription("Fecha formulacion ctas. anual.");
+      ctrfecha_certif.setDescription("Fecha Certificacion del Acta");
+      ctrfecha_cob_di.setDescription("Fecha cobro dividendos");
+      ctrfirma_digita.setDescription("Firma del deposito digital");
+      ctrfecha_bal.setDescription("Fecha aprobacion balances");
+      ctrnombre.setDescription("Nombre Certificante");
+      ctrapellidos.setDescription("Apellidos Certificante");
+      ctrpoblacion.setDescription("Poblacion Certificante");
+      ctrnif.setDescription("NIF Certificante");
+      ctrcalle.setDescription("Calle Certificante");
+      ctrnumero.setDescription("Numero calle Certificante");
+      ctrtitulo.setDescription("Titulo Certificante");
+      }
+    }
+    
+  public class TabSociosrelaccion extends TableDef
+    {
+    // Campos
+    public FieldDef soriden;
+    public FieldDef sorcodigo;
+    public FieldDef sordesdeaccion;
+    public FieldDef sorhastaaccion;
+    public FieldDef sorfechacompra;
+    public FieldDef sorfechaventa;
+    public FieldDef sortipooper;
+    public TabSociosrelaccion(String name)
+      {
+      super(name);
+      soriden = new FieldDef("soriden",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      sorcodigo = new FieldDef("sorcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      sordesdeaccion = new FieldDef("sordesdeaccion",FieldDef.FLOAT,6,0);
+      sorhastaaccion = new FieldDef("sorhastaaccion",FieldDef.FLOAT,6,0);
+      sorfechacompra = new FieldDef("sorfechacompra",FieldDef.DATE);
+      sorfechaventa = new FieldDef("sorfechaventa",FieldDef.DATE);
+      sortipooper = new FieldDef("sortipooper",FieldDef.CHAR,50);
+      FieldDef array[] = {
+        soriden,
+        sorcodigo,
+        sordesdeaccion,
+        sorhastaaccion,
+        sorfechacompra,
+        sorfechaventa,
+        sortipooper        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {soriden };
+      setDescription("Relacion acciones socio de la entidad");
+      setPrimaryKeys(arrayf);
+      soriden.setAutoIncrementable(true);
+      sorcodigo.setDescription("Mismo valor que sosiden");
+      sordesdeaccion.setDescription("Desde accion");
+      sorhastaaccion.setDescription("Hasta accion");
+      sorfechacompra.setDescription("Fecha adquisicion");
+      sorfechaventa.setDescription("Fecha venta");
+      sortipooper.setDescription("Tipo de operacion");
+      }
+    }
+    
+  public class TabPagosacuenta extends TableDef
+    {
+    // Campos
+    public FieldDef pctejeraplic;
+    public FieldDef pctsociedad;
+    public FieldDef pctdiputacion;
+    public FieldDef pctnumpag;
+    public FieldDef pctmodalidad;
+    public FieldDef pctbase;
+    public FieldDef pctporcentaje;
+    public FieldDef pctsubtotal;
+    public FieldDef pctretenciones;
+    public FieldDef pctpagos;
+    public FieldDef pctingresar;
+    public FieldDef pctbasehasta;
+    public FieldDef pctimportehasta;
+    public FieldDef pctbaseresto;
+    public FieldDef pctporcen2pyme;
+    public FieldDef pctimporteresto;
+    public FieldDef pctbonificacion;
+    public FieldDef pctdias_periodo;
+    public FieldDef pctrtdo_contabl;
+    public FieldDef pctporc_vol_ope;
+    public FieldDef pctcorrecciones;
+    public FieldDef pctcompensacion;
+    public FieldDef pctresult_ordin;
+    public FieldDef pctresult_extra;
+    public FieldDef pctfecha_inicio;
+    public FieldDef pctgranempresa;
+    public FieldDef pcttipoentidad;
+    public FieldDef pctcnae;
+    public FieldDef pctpyme;
+    public FieldDef pctcoopuotras;
+    public FieldDef pctgraviss;
+    public FieldDef pctent85;
+    public FieldDef pctaumiss;
+    public FieldDef pctdismiss;
+    public FieldDef pctaumotrcorr;
+    public FieldDef pctdismotras;
+    public FieldDef pctimpdividen;
+    public FieldDef pctbaseprevia;
+    public FieldDef pctresultado;
+    public FieldDef pctminimoing;
+    public FieldDef pctngrupo;
+    public FieldDef pctvoloper;
+    public FieldDef pctsumbasind;
+    public FieldDef pctaumcordif;
+    public FieldDef pctdiscordif;
+    public FieldDef pctcompbasant;
+    public FieldDef pctrtdoconsol;
+    public FieldDef pctdatadicion;
+    public FieldDef pctnrefiss;
+    public FieldDef pctcomvargrup;
+    public FieldDef pctnrefiss2;
+    public FieldDef pctnaviera;
+    public FieldDef pctaumgasamor;
+    public FieldDef pctdismgasamo;
+    public FieldDef pctaumatotal;
+    public FieldDef pctdismtotal;
+    public FieldDef pctcoopcompen;
+    public FieldDef pctcompcuoant;
+    public FieldDef pctfundacion;
+    public FieldDef pctsocimi;
+    public FieldDef pctsup6millon;
+    public FieldDef pctimpdivi100;
+    public FieldDef pctremrescapit;
+    public FieldDef pctelimdot1112;
+    public FieldDef pctdot1112;
+    public FieldDef pctdotpr1112;
+    public FieldDef pctb1resnivela;
+    public FieldDef pctb1resniveld;
+    public FieldDef pctb1dot1112;
+    public FieldDef pctb1dotpr1112;
+    public FieldDef pctresnivcuaum;
+    public FieldDef pctresnivcudis;
+    public FieldDef pctimpexcquita;
+    public FieldDef pctimpintquita;
+    public FieldDef pctnifentrepre;
+    public FieldDef pctrazonrepre;
+    public TabPagosacuenta(String name)
+      {
+      super(name);
+      pctejeraplic = new FieldDef("pctejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pctsociedad = new FieldDef("pctsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pctdiputacion = new FieldDef("pctdiputacion",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      pctnumpag = new FieldDef("pctnumpag",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pctmodalidad = new FieldDef("pctmodalidad",FieldDef.CHAR,2);
+      pctbase = new FieldDef("pctbase",FieldDef.FLOAT,6,0);
+      pctporcentaje = new FieldDef("pctporcentaje",FieldDef.FLOAT,6,0);
+      pctsubtotal = new FieldDef("pctsubtotal",FieldDef.FLOAT,6,0);
+      pctretenciones = new FieldDef("pctretenciones",FieldDef.FLOAT,6,0);
+      pctpagos = new FieldDef("pctpagos",FieldDef.FLOAT,6,0);
+      pctingresar = new FieldDef("pctingresar",FieldDef.FLOAT,6,0);
+      pctbasehasta = new FieldDef("pctbasehasta",FieldDef.FLOAT,6,0);
+      pctimportehasta = new FieldDef("pctimportehasta",FieldDef.FLOAT,6,0);
+      pctbaseresto = new FieldDef("pctbaseresto",FieldDef.FLOAT,6,0);
+      pctporcen2pyme = new FieldDef("pctporcen2pyme",FieldDef.FLOAT,6,0);
+      pctimporteresto = new FieldDef("pctimporteresto",FieldDef.FLOAT,6,0);
+      pctbonificacion = new FieldDef("pctbonificacion",FieldDef.FLOAT,6,0);
+      pctdias_periodo = new FieldDef("pctdias_periodo",FieldDef.INTEGER,0);
+      pctrtdo_contabl = new FieldDef("pctrtdo_contabl",FieldDef.FLOAT,6,0);
+      pctporc_vol_ope = new FieldDef("pctporc_vol_ope",FieldDef.FLOAT,6,0);
+      pctcorrecciones = new FieldDef("pctcorrecciones",FieldDef.FLOAT,6,0);
+      pctcompensacion = new FieldDef("pctcompensacion",FieldDef.FLOAT,6,0);
+      pctresult_ordin = new FieldDef("pctresult_ordin",FieldDef.FLOAT,6,0);
+      pctresult_extra = new FieldDef("pctresult_extra",FieldDef.FLOAT,6,0);
+      pctfecha_inicio = new FieldDef("pctfecha_inicio",FieldDef.DATE);
+      pctgranempresa = new FieldDef("pctgranempresa",FieldDef.CHAR,1);
+      pcttipoentidad = new FieldDef("pcttipoentidad",FieldDef.INTEGER,0);
+      pctcnae = new FieldDef("pctcnae",FieldDef.CHAR,4);
+      pctpyme = new FieldDef("pctpyme",FieldDef.CHAR,1);
+      pctcoopuotras = new FieldDef("pctcoopuotras",FieldDef.INTEGER,0);
+      pctgraviss = new FieldDef("pctgraviss",FieldDef.CHAR,5);
+      pctent85 = new FieldDef("pctent85",FieldDef.CHAR,1);
+      pctaumiss = new FieldDef("pctaumiss",FieldDef.FLOAT,6,0);
+      pctdismiss = new FieldDef("pctdismiss",FieldDef.FLOAT,6,0);
+      pctaumotrcorr = new FieldDef("pctaumotrcorr",FieldDef.FLOAT,6,0);
+      pctdismotras = new FieldDef("pctdismotras",FieldDef.FLOAT,6,0);
+      pctimpdividen = new FieldDef("pctimpdividen",FieldDef.FLOAT,6,0);
+      pctbaseprevia = new FieldDef("pctbaseprevia",FieldDef.FLOAT,6,0);
+      pctresultado = new FieldDef("pctresultado",FieldDef.FLOAT,6,0);
+      pctminimoing = new FieldDef("pctminimoing",FieldDef.FLOAT,6,0);
+      pctngrupo = new FieldDef("pctngrupo",FieldDef.CHAR,7);
+      pctvoloper = new FieldDef("pctvoloper",FieldDef.CHAR,1);
+      pctsumbasind = new FieldDef("pctsumbasind",FieldDef.FLOAT,6,0);
+      pctaumcordif = new FieldDef("pctaumcordif",FieldDef.FLOAT,6,0);
+      pctdiscordif = new FieldDef("pctdiscordif",FieldDef.FLOAT,6,0);
+      pctcompbasant = new FieldDef("pctcompbasant",FieldDef.FLOAT,6,0);
+      pctrtdoconsol = new FieldDef("pctrtdoconsol",FieldDef.FLOAT,6,0);
+      pctdatadicion = new FieldDef("pctdatadicion",FieldDef.CHAR,1);
+      pctnrefiss = new FieldDef("pctnrefiss",FieldDef.CHAR,22);
+      pctcomvargrup = new FieldDef("pctcomvargrup",FieldDef.CHAR,1);
+      pctnrefiss2 = new FieldDef("pctnrefiss2",FieldDef.CHAR,22);
+      pctnaviera = new FieldDef("pctnaviera",FieldDef.CHAR,1);
+      pctaumgasamor = new FieldDef("pctaumgasamor",FieldDef.FLOAT,6,0);
+      pctdismgasamo = new FieldDef("pctdismgasamo",FieldDef.FLOAT,6,0);
+      pctaumatotal = new FieldDef("pctaumatotal",FieldDef.FLOAT,6,0);
+      pctdismtotal = new FieldDef("pctdismtotal",FieldDef.FLOAT,6,0);
+      pctcoopcompen = new FieldDef("pctcoopcompen",FieldDef.FLOAT,6,0);
+      pctcompcuoant = new FieldDef("pctcompcuoant",FieldDef.FLOAT,6,0);
+      pctfundacion = new FieldDef("pctfundacion",FieldDef.CHAR,1);
+      pctsocimi = new FieldDef("pctsocimi",FieldDef.CHAR,1);
+      pctsup6millon = new FieldDef("pctsup6millon",FieldDef.CHAR,1);
+      pctimpdivi100 = new FieldDef("pctimpdivi100",FieldDef.FLOAT,6,0);
+      pctremrescapit = new FieldDef("pctremrescapit",FieldDef.FLOAT,6,0);
+      pctelimdot1112 = new FieldDef("pctelimdot1112",FieldDef.FLOAT,6,0);
+      pctdot1112 = new FieldDef("pctdot1112",FieldDef.FLOAT,6,0);
+      pctdotpr1112 = new FieldDef("pctdotpr1112",FieldDef.FLOAT,6,0);
+      pctb1resnivela = new FieldDef("pctb1resnivela",FieldDef.FLOAT,6,0);
+      pctb1resniveld = new FieldDef("pctb1resniveld",FieldDef.FLOAT,6,0);
+      pctb1dot1112 = new FieldDef("pctb1dot1112",FieldDef.FLOAT,6,0);
+      pctb1dotpr1112 = new FieldDef("pctb1dotpr1112",FieldDef.FLOAT,6,0);
+      pctresnivcuaum = new FieldDef("pctresnivcuaum",FieldDef.FLOAT,6,0);
+      pctresnivcudis = new FieldDef("pctresnivcudis",FieldDef.FLOAT,6,0);
+      pctimpexcquita = new FieldDef("pctimpexcquita",FieldDef.FLOAT,6,0);
+      pctimpintquita = new FieldDef("pctimpintquita",FieldDef.FLOAT,6,0);
+      pctnifentrepre = new FieldDef("pctnifentrepre",FieldDef.CHAR,15);
+      pctrazonrepre = new FieldDef("pctrazonrepre",FieldDef.CHAR,60);
+      FieldDef array[] = {
+        pctejeraplic,
+        pctsociedad,
+        pctdiputacion,
+        pctnumpag,
+        pctmodalidad,
+        pctbase,
+        pctporcentaje,
+        pctsubtotal,
+        pctretenciones,
+        pctpagos,
+        pctingresar,
+        pctbasehasta,
+        pctimportehasta,
+        pctbaseresto,
+        pctporcen2pyme,
+        pctimporteresto,
+        pctbonificacion,
+        pctdias_periodo,
+        pctrtdo_contabl,
+        pctporc_vol_ope,
+        pctcorrecciones,
+        pctcompensacion,
+        pctresult_ordin,
+        pctresult_extra,
+        pctfecha_inicio,
+        pctgranempresa,
+        pcttipoentidad,
+        pctcnae,
+        pctpyme,
+        pctcoopuotras,
+        pctgraviss,
+        pctent85,
+        pctaumiss,
+        pctdismiss,
+        pctaumotrcorr,
+        pctdismotras,
+        pctimpdividen,
+        pctbaseprevia,
+        pctresultado,
+        pctminimoing,
+        pctngrupo,
+        pctvoloper,
+        pctsumbasind,
+        pctaumcordif,
+        pctdiscordif,
+        pctcompbasant,
+        pctrtdoconsol,
+        pctdatadicion,
+        pctnrefiss,
+        pctcomvargrup,
+        pctnrefiss2,
+        pctnaviera,
+        pctaumgasamor,
+        pctdismgasamo,
+        pctaumatotal,
+        pctdismtotal,
+        pctcoopcompen,
+        pctcompcuoant,
+        pctfundacion,
+        pctsocimi,
+        pctsup6millon,
+        pctimpdivi100,
+        pctremrescapit,
+        pctelimdot1112,
+        pctdot1112,
+        pctdotpr1112,
+        pctb1resnivela,
+        pctb1resniveld,
+        pctb1dot1112,
+        pctb1dotpr1112,
+        pctresnivcuaum,
+        pctresnivcudis,
+        pctimpexcquita,
+        pctimpintquita,
+        pctnifentrepre,
+        pctrazonrepre        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {pctejeraplic,pctsociedad,pctdiputacion,pctnumpag };
+      setDescription("Calculo pagos a cuenta");
+      setPrimaryKeys(arrayf);
+      pctejeraplic.setDescription("Ejercicio fiscal");
+      pctsociedad.setDescription("CODIGO SOCIEDAD");
+      pctdiputacion.setDescription("CODIGO DIPUTACION FORAL");
+      pctnumpag.setDescription("Numero de pago");
+      pctmodalidad.setDescription("Modalidad de calculo");
+      pctbase.setDescription("Base del pago a cuenta");
+      pctporcentaje.setDescription("Porcentaje calculo");
+      pctsubtotal.setDescription("Subtotal");
+      pctretenciones.setDescription("Retenciones e ingresos a cta.");
+      pctpagos.setDescription("Pagos a cta. de periodos ant.");
+      pctingresar.setDescription("A INGRESAR");
+      pctbasehasta.setDescription("Base 1er % (PYMES/Patrimonial)");
+      pctimportehasta.setDescription("Importe 1er %(PYMES/Patrimon)");
+      pctbaseresto.setDescription("Base al 2do % (PYMES/Patrimon)");
+      pctporcen2pyme.setDescription("2do % calculo PYMES o Patrimon");
+      pctimporteresto.setDescription("Importe 2do % (PYMES/Patrimon)");
+      pctbonificacion.setDescription("Bonificaciones");
+      pctdias_periodo.setDescription("Dias periodo impositivo");
+      pctrtdo_contabl.setDescription("Resultado contable");
+      pctporc_vol_ope.setDescription("% Volumen operaciones");
+      pctcorrecciones.setDescription("Correcciones al rdto.contable");
+      pctcompensacion.setDescription("Compensaciones bases imp. neg.");
+      pctresult_ordin.setDescription("Resultado ordinario");
+      pctresult_extra.setDescription("Resultado extraordinario");
+      pctfecha_inicio.setDescription("Fecha inicio periodo imposit.");
+      pctgranempresa.setDescription("Gran empresa");
+      pcttipoentidad.setDescription("Tipo importe neto cifra negocios");
+      pctcnae.setDescription("C.N.A.E.");
+      pctpyme.setDescription("Incentivos empresa reducida dimension");
+      pctcoopuotras.setDescription("Cooperativa u otras entidades dos tipos");
+      pctgraviss.setDescription("% Gravamen impuesto sobre sociedades");
+      pctent85.setDescription("Entidad que al menos 85% ingresos");
+      pctaumiss.setDescription("Aumento impuesto iss");
+      pctdismiss.setDescription("Disminucion impuesto iss");
+      pctaumotrcorr.setDescription("Aumento otras correcciones");
+      pctdismotras.setDescription("Disminucion otras correcciones");
+      pctimpdividen.setDescription("Importe 25% dividendos y rentas fuente extranjera");
+      pctbaseprevia.setDescription("Base imponible previa");
+      pctresultado.setDescription("Resultado");
+      pctminimoing.setDescription("Minimo a ingresar");
+      pctngrupo.setDescription("Nro. de grupo");
+      pctvoloper.setDescription("Volumen operaciones grupo fiscal");
+      pctsumbasind.setDescription("Suma bases individuales antes compensacion");
+      pctaumcordif.setDescription("Aumento correcciones diferimiento rdtos.internos");
+      pctdiscordif.setDescription("Disminuciones correcciones diferimiento rdtos.internos");
+      pctcompbasant.setDescription("Compensaciones bases imp. neg. anteriores al grupo");
+      pctrtdoconsol.setDescription("Resultado consolidado periodo");
+      pctdatadicion.setDescription("Comunicacion datos adicionales declaracion");
+      pctnrefiss.setDescription("Nro. referencia de sociedades (NRS)");
+      pctcomvargrup.setDescription("Comunicacion variacion composicion grupo fiscal");
+      pctnrefiss2.setDescription("Nro. referencia de sociedades (NRS)");
+      pctnaviera.setDescription("Entidad regimen naviera funcion tonelaje");
+      pctaumgasamor.setDescription("30% Gastos amortizacion contable aumentos");
+      pctdismgasamo.setDescription("30% Gastos amortizacion contable disminuciones");
+      pctaumatotal.setDescription("TOTAL aumentos");
+      pctdismtotal.setDescription("TOTAL disminuciones");
+      pctcoopcompen.setDescription("Compensacion cuotas negativas ejer. anteriores cooperativas");
+      pctcompcuoant.setDescription("Compensaciones cuotas negativas coop. anteriores al grupo");
+      pctfundacion.setDescription("Entidad que aplica el regimen de la Ley 49/2002 de 23 de diciembre");
+      pctsocimi.setDescription("Entidad que aplica el regimen de la Ley 11/2009 de 26 de octubre");
+      pctsup6millon.setDescription("Cifra de negocios ejer.anterior superior 6.000.000 euros");
+      pctimpdivi100.setDescription("100% del importe de los dividendos y rentas devengadas de entidades residentes");
+      pctremrescapit.setDescription("Remanente reserva de capitalizacion no aplicada por insuficiencia de base");
+      pctelimdot1112.setDescription("B: Eliminacion individuales Dotaciones del art. 11.12 de la LIS");
+      pctdot1112.setDescription("B: Dotaciones del art. 11.12 de la LIS (del grupo)");
+      pctdotpr1112.setDescription("B: Dotaciones del art. 11.12 de la LIS (previa incorporacion grupo)");
+      pctb1resnivela.setDescription("B1: Reserva de nivelacion (art. 105 LIS) (Solo entidades del art. 101 LIS) - Aumentos");
+      pctb1resniveld.setDescription("B1: Reserva de nivelacion (art. 105 LIS) (Solo entidades del art. 101 LIS) - Disminucion");
+      pctb1dot1112.setDescription("B1: Dotaciones del art. 11.12 LIS (DF 4ª LIS)");
+      pctb1dotpr1112.setDescription("B1: Dotaciones del art. 11.12 de la LIS (previa incorporacion grupo)");
+      pctresnivcuaum.setDescription("B1: Reserva de nivelacion convertido en cuotas (art. 105 LIS) (Solo entidades del art. 101 LIS) - Aumentos");
+      pctresnivcudis.setDescription("B1: Reserva de nivelacion convertido en cuotas (art. 105 LIS) (Solo entidades del art. 101 LIS) - Disminucion");
+      pctimpexcquita.setDescription("Importe excluido por operaciones de quita o espera");
+      pctimpintquita.setDescription("Parte integrada en la base imponible por operaciones de quita o espera");
+      pctnifentrepre.setDescription("NIF entidad representante");
+      pctrazonrepre.setDescription("Razon socieal entidad representante");
+      }
+    }
+    
+  public class TabCtavarempleado extends TableDef
+    {
+    // Campos
+    public FieldDef ctlident;
+    public FieldDef ctlejeraplic;
+    public FieldDef ctlsociedad;
+    public FieldDef ctlcodjnomina;
+    public FieldDef ctlnombre;
+    public FieldDef ctltipocon;
+    public FieldDef ctlalta;
+    public FieldDef ctlbaja;
+    public FieldDef ctljornada;
+    public FieldDef ctlsexo;
+    public FieldDef ctlminusvalido;
+    public FieldDef ctlnif;
+    public TabCtavarempleado(String name)
+      {
+      super(name);
+      ctlident = new FieldDef("ctlident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      ctlejeraplic = new FieldDef("ctlejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      ctlsociedad = new FieldDef("ctlsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      ctlcodjnomina = new FieldDef("ctlcodjnomina",FieldDef.INTEGER,0);
+      ctlnombre = new FieldDef("ctlnombre",FieldDef.CHAR,30);
+      ctltipocon = new FieldDef("ctltipocon",FieldDef.CHAR,1);
+      ctlalta = new FieldDef("ctlalta",FieldDef.DATE);
+      ctlbaja = new FieldDef("ctlbaja",FieldDef.DATE);
+      ctljornada = new FieldDef("ctljornada",FieldDef.FLOAT,6,0);
+      ctlsexo = new FieldDef("ctlsexo",FieldDef.CHAR,1);
+      ctlminusvalido = new FieldDef("ctlminusvalido",FieldDef.CHAR,1);
+      ctlnif = new FieldDef("ctlnif",FieldDef.CHAR,15);
+      FieldDef array[] = {
+        ctlident,
+        ctlejeraplic,
+        ctlsociedad,
+        ctlcodjnomina,
+        ctlnombre,
+        ctltipocon,
+        ctlalta,
+        ctlbaja,
+        ctljornada,
+        ctlsexo,
+        ctlminusvalido,
+        ctlnif        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {ctlident };
+      setDescription("Cuentas anuales: variacion empleados");
+      setPrimaryKeys(arrayf);
+      ctlident.setAutoIncrementable(true);
+      ctlejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      ctlsociedad.setDescription("Sociedad");
+      ctlcodjnomina.setDescription("Codigo empresa jnomina");
+      ctlnombre.setDescription("Nombre empleado");
+      ctltipocon.setDescription("Tipo contrato");
+      ctlalta.setDescription("Fecha alta");
+      ctlbaja.setDescription("Fecha baja");
+      ctljornada.setDescription("%Jornada");
+      ctlsexo.setDescription("Hombre/Mujer");
+      ctlminusvalido.setDescription("Minusvalia");
+      ctlnif.setDescription("NIF");
+      }
+    }
+    
+  public class TabActivo extends TableDef
+    {
+    // Campos
+    public FieldDef baejeraplic;
+    public FieldDef basociedad;
+    public FieldDef bagastos_d_act;
+    public FieldDef bagastos_d_prov;
+    public FieldDef bagastos_d_amor;
+    public FieldDef bagastos_d_min;
+    public FieldDef baconces_act;
+    public FieldDef baconces_prov;
+    public FieldDef baconces_amort;
+    public FieldDef baconces_min;
+    public FieldDef bapatentes_act;
+    public FieldDef bapatentes_prov;
+    public FieldDef bapatentes_amor;
+    public FieldDef bapatentes_min;
+    public FieldDef bafondocom_act;
+    public FieldDef baact_no_cor_ac;
+    public FieldDef baact_no_cor_mi;
+    public FieldDef baaplic_inf_act;
+    public FieldDef baaplic_inf_pro;
+    public FieldDef baaplic_inf_amo;
+    public FieldDef baaplic_inf_min;
+    public FieldDef bagastos_i_act;
+    public FieldDef bagastos_i_prov;
+    public FieldDef bagastos_i_amor;
+    public FieldDef bagastos_i_min;
+    public FieldDef baot_inm_int_ac;
+    public FieldDef baot_inm_int_pr;
+    public FieldDef baot_inm_int_am;
+    public FieldDef baot_inm_int_mi;
+    public FieldDef bainmov_intangi;
+    public FieldDef baterreno_m_act;
+    public FieldDef baterreno_m_pro;
+    public FieldDef baterreno_m_amo;
+    public FieldDef baterrenos_m_mi;
+    public FieldDef bainstalacion_a;
+    public FieldDef bainstalac_prov;
+    public FieldDef bainstalac_amor;
+    public FieldDef bainstalacion_m;
+    public FieldDef bainmov_en_curs;
+    public FieldDef bainmov_materia;
+    public FieldDef baterreno_i_act;
+    public FieldDef baterreno_i_pro;
+    public FieldDef baconstruc_i_ac;
+    public FieldDef baconstruc_i_pr;
+    public FieldDef baconstruc_i_am;
+    public FieldDef baconstruc_i_mi;
+    public FieldDef bainvers_inmobi;
+    public FieldDef bapat_gr_lp_act;
+    public FieldDef bapat_gr_lp_pro;
+    public FieldDef bacred_gr_lp_ac;
+    public FieldDef bacred_gr_lp_pr;
+    public FieldDef badeuda_gr_lp_a;
+    public FieldDef badeud_gr_lp_pr;
+    public FieldDef baderiv_gr_lp_a;
+    public FieldDef baactfi_gr_lp_a;
+    public FieldDef baotfin_gr_lp_a;
+    public FieldDef bain_fin_e_gr_l;
+    public FieldDef bafin_pat_lp_ac;
+    public FieldDef bafin_pat_lp_pr;
+    public FieldDef bafin_cred_lp_a;
+    public FieldDef bafi_cred_lp_pr;
+    public FieldDef bafi_deuda_lp_a;
+    public FieldDef bafi_deud_lp_pr;
+    public FieldDef bafi_deriv_lp_a;
+    public FieldDef bafi_actfi_lp_a;
+    public FieldDef bafi_otfin_lp_a;
+    public FieldDef bainv_financ_lp;
+    public FieldDef baact_impuest_d;
+    public FieldDef badeud_com_n_co;
+    public FieldDef baactivo_no_cor;
+    public FieldDef baact_no_cor_ve;
+    public FieldDef baexist_comer_a;
+    public FieldDef baexist_comer_p;
+    public FieldDef baexist_mater_a;
+    public FieldDef baexist_mater_p;
+    public FieldDef bapr_curso_lp_a;
+    public FieldDef bapr_curso_lp_p;
+    public FieldDef bapr_curso_cp_a;
+    public FieldDef bapr_curso_cp_m;
+    public FieldDef baproducto_curs;
+    public FieldDef bapr_termi_lp_a;
+    public FieldDef bapr_termi_lp_p;
+    public FieldDef bapr_termi_cp_a;
+    public FieldDef bapr_termi_cp_p;
+    public FieldDef baproducto_term;
+    public FieldDef basubproducto_a;
+    public FieldDef basubproducto_m;
+    public FieldDef baanticipos_act;
+    public FieldDef baexistencias;
+    public FieldDef baclientes_lp_a;
+    public FieldDef baclientes_lp_p;
+    public FieldDef baclientes_cp_a;
+    public FieldDef baclientes_cp_p;
+    public FieldDef baclientes_vent;
+    public FieldDef baclientes_gr_a;
+    public FieldDef baclientes_gr_p;
+    public FieldDef badeudores_act;
+    public FieldDef bapersonal_act;
+    public FieldDef baact_imp_cor_a;
+    public FieldDef baotr_cred_admi;
+    public FieldDef baacc_desemb_ex;
+    public FieldDef badeudores_come;
+    public FieldDef bapat_gr_cp_act;
+    public FieldDef bacred_gr_cp_ac;
+    public FieldDef bacred_gr_cp_pr;
+    public FieldDef badeuda_gr_cp_a;
+    public FieldDef badeud_gr_cp_pr;
+    public FieldDef baderiv_gr_cp_a;
+    public FieldDef baactfi_gr_cp_a;
+    public FieldDef baotfin_gr_cp_a;
+    public FieldDef bainv_fi_e_g_cp;
+    public FieldDef bafin_pat_cp_ac;
+    public FieldDef bafin_pat_cp_pr;
+    public FieldDef bafin_cred_cp_a;
+    public FieldDef bafi_cred_cp_pr;
+    public FieldDef bafi_deuda_cp_a;
+    public FieldDef bafi_deud_cp_pr;
+    public FieldDef bafi_deriv_cp_a;
+    public FieldDef bafi_actfi_cp_a;
+    public FieldDef bafi_otfin_cp_a;
+    public FieldDef bainv_financ_cp;
+    public FieldDef baperiodif_c_pl;
+    public FieldDef batesoreria;
+    public FieldDef baotros_liquido;
+    public FieldDef baefectivo;
+    public FieldDef baactivo_corrie;
+    public FieldDef batotal_activo;
+    public FieldDef bacrempgrlp_ac;
+    public FieldDef bacrempgrlp_pr;
+    public FieldDef bacrempaslp_ac;
+    public FieldDef bacrempaslp_pr;
+    public FieldDef baclientes_egr;
+    public FieldDef baclientes_eas;
+    public FieldDef baclientes_soc;
+    public FieldDef bacrempgrcp_ac;
+    public FieldDef bacrempascp_ac;
+    public FieldDef bafondocom_cons;
+    public FieldDef bapropintelectu;
+    public FieldDef baemisiongases;
+    public FieldDef bade_actuso_min;
+    public FieldDef bade_actuso_ac;
+    public FieldDef bade_actuso_pr;
+    public FieldDef bade_actuso_am;
+    public FieldDef babieninmue_ac;
+    public FieldDef babieninmue_pr;
+    public FieldDef baarchivos_ac;
+    public FieldDef baarchivos_pr;
+    public FieldDef babiblioteca_ac;
+    public FieldDef babiblioteca_pr;
+    public FieldDef bamuseos_ac;
+    public FieldDef bamuseos_pr;
+    public FieldDef babienmuebl_ac;
+    public FieldDef babienmuebl_pr;
+    public FieldDef baantic_his_ac;
+    public FieldDef babienespathis;
+    public FieldDef bausuarios;
+    public TabActivo(String name)
+      {
+      super(name);
+      baejeraplic = new FieldDef("baejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      basociedad = new FieldDef("basociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      bagastos_d_act = new FieldDef("bagastos_d_act",FieldDef.FLOAT,6,0);
+      bagastos_d_prov = new FieldDef("bagastos_d_prov",FieldDef.FLOAT,6,0);
+      bagastos_d_amor = new FieldDef("bagastos_d_amor",FieldDef.FLOAT,6,0);
+      bagastos_d_min = new FieldDef("bagastos_d_min",FieldDef.FLOAT,6,0);
+      baconces_act = new FieldDef("baconces_act",FieldDef.FLOAT,6,0);
+      baconces_prov = new FieldDef("baconces_prov",FieldDef.FLOAT,6,0);
+      baconces_amort = new FieldDef("baconces_amort",FieldDef.FLOAT,6,0);
+      baconces_min = new FieldDef("baconces_min",FieldDef.FLOAT,6,0);
+      bapatentes_act = new FieldDef("bapatentes_act",FieldDef.FLOAT,6,0);
+      bapatentes_prov = new FieldDef("bapatentes_prov",FieldDef.FLOAT,6,0);
+      bapatentes_amor = new FieldDef("bapatentes_amor",FieldDef.FLOAT,6,0);
+      bapatentes_min = new FieldDef("bapatentes_min",FieldDef.FLOAT,6,0);
+      bafondocom_act = new FieldDef("bafondocom_act",FieldDef.FLOAT,6,0);
+      baact_no_cor_ac = new FieldDef("baact_no_cor_ac",FieldDef.FLOAT,6,0);
+      baact_no_cor_mi = new FieldDef("baact_no_cor_mi",FieldDef.FLOAT,6,0);
+      baaplic_inf_act = new FieldDef("baaplic_inf_act",FieldDef.FLOAT,6,0);
+      baaplic_inf_pro = new FieldDef("baaplic_inf_pro",FieldDef.FLOAT,6,0);
+      baaplic_inf_amo = new FieldDef("baaplic_inf_amo",FieldDef.FLOAT,6,0);
+      baaplic_inf_min = new FieldDef("baaplic_inf_min",FieldDef.FLOAT,6,0);
+      bagastos_i_act = new FieldDef("bagastos_i_act",FieldDef.FLOAT,6,0);
+      bagastos_i_prov = new FieldDef("bagastos_i_prov",FieldDef.FLOAT,6,0);
+      bagastos_i_amor = new FieldDef("bagastos_i_amor",FieldDef.FLOAT,6,0);
+      bagastos_i_min = new FieldDef("bagastos_i_min",FieldDef.FLOAT,6,0);
+      baot_inm_int_ac = new FieldDef("baot_inm_int_ac",FieldDef.FLOAT,6,0);
+      baot_inm_int_pr = new FieldDef("baot_inm_int_pr",FieldDef.FLOAT,6,0);
+      baot_inm_int_am = new FieldDef("baot_inm_int_am",FieldDef.FLOAT,6,0);
+      baot_inm_int_mi = new FieldDef("baot_inm_int_mi",FieldDef.FLOAT,6,0);
+      bainmov_intangi = new FieldDef("bainmov_intangi",FieldDef.FLOAT,6,0);
+      baterreno_m_act = new FieldDef("baterreno_m_act",FieldDef.FLOAT,6,0);
+      baterreno_m_pro = new FieldDef("baterreno_m_pro",FieldDef.FLOAT,6,0);
+      baterreno_m_amo = new FieldDef("baterreno_m_amo",FieldDef.FLOAT,6,0);
+      baterrenos_m_mi = new FieldDef("baterrenos_m_mi",FieldDef.FLOAT,6,0);
+      bainstalacion_a = new FieldDef("bainstalacion_a",FieldDef.FLOAT,6,0);
+      bainstalac_prov = new FieldDef("bainstalac_prov",FieldDef.FLOAT,6,0);
+      bainstalac_amor = new FieldDef("bainstalac_amor",FieldDef.FLOAT,6,0);
+      bainstalacion_m = new FieldDef("bainstalacion_m",FieldDef.FLOAT,6,0);
+      bainmov_en_curs = new FieldDef("bainmov_en_curs",FieldDef.FLOAT,6,0);
+      bainmov_materia = new FieldDef("bainmov_materia",FieldDef.FLOAT,6,0);
+      baterreno_i_act = new FieldDef("baterreno_i_act",FieldDef.FLOAT,6,0);
+      baterreno_i_pro = new FieldDef("baterreno_i_pro",FieldDef.FLOAT,6,0);
+      baconstruc_i_ac = new FieldDef("baconstruc_i_ac",FieldDef.FLOAT,6,0);
+      baconstruc_i_pr = new FieldDef("baconstruc_i_pr",FieldDef.FLOAT,6,0);
+      baconstruc_i_am = new FieldDef("baconstruc_i_am",FieldDef.FLOAT,6,0);
+      baconstruc_i_mi = new FieldDef("baconstruc_i_mi",FieldDef.FLOAT,6,0);
+      bainvers_inmobi = new FieldDef("bainvers_inmobi",FieldDef.FLOAT,6,0);
+      bapat_gr_lp_act = new FieldDef("bapat_gr_lp_act",FieldDef.FLOAT,6,0);
+      bapat_gr_lp_pro = new FieldDef("bapat_gr_lp_pro",FieldDef.FLOAT,6,0);
+      bacred_gr_lp_ac = new FieldDef("bacred_gr_lp_ac",FieldDef.FLOAT,6,0);
+      bacred_gr_lp_pr = new FieldDef("bacred_gr_lp_pr",FieldDef.FLOAT,6,0);
+      badeuda_gr_lp_a = new FieldDef("badeuda_gr_lp_a",FieldDef.FLOAT,6,0);
+      badeud_gr_lp_pr = new FieldDef("badeud_gr_lp_pr",FieldDef.FLOAT,6,0);
+      baderiv_gr_lp_a = new FieldDef("baderiv_gr_lp_a",FieldDef.FLOAT,6,0);
+      baactfi_gr_lp_a = new FieldDef("baactfi_gr_lp_a",FieldDef.FLOAT,6,0);
+      baotfin_gr_lp_a = new FieldDef("baotfin_gr_lp_a",FieldDef.FLOAT,6,0);
+      bain_fin_e_gr_l = new FieldDef("bain_fin_e_gr_l",FieldDef.FLOAT,6,0);
+      bafin_pat_lp_ac = new FieldDef("bafin_pat_lp_ac",FieldDef.FLOAT,6,0);
+      bafin_pat_lp_pr = new FieldDef("bafin_pat_lp_pr",FieldDef.FLOAT,6,0);
+      bafin_cred_lp_a = new FieldDef("bafin_cred_lp_a",FieldDef.FLOAT,6,0);
+      bafi_cred_lp_pr = new FieldDef("bafi_cred_lp_pr",FieldDef.FLOAT,6,0);
+      bafi_deuda_lp_a = new FieldDef("bafi_deuda_lp_a",FieldDef.FLOAT,6,0);
+      bafi_deud_lp_pr = new FieldDef("bafi_deud_lp_pr",FieldDef.FLOAT,6,0);
+      bafi_deriv_lp_a = new FieldDef("bafi_deriv_lp_a",FieldDef.FLOAT,6,0);
+      bafi_actfi_lp_a = new FieldDef("bafi_actfi_lp_a",FieldDef.FLOAT,6,0);
+      bafi_otfin_lp_a = new FieldDef("bafi_otfin_lp_a",FieldDef.FLOAT,6,0);
+      bainv_financ_lp = new FieldDef("bainv_financ_lp",FieldDef.FLOAT,6,0);
+      baact_impuest_d = new FieldDef("baact_impuest_d",FieldDef.FLOAT,6,0);
+      badeud_com_n_co = new FieldDef("badeud_com_n_co",FieldDef.FLOAT,6,0);
+      baactivo_no_cor = new FieldDef("baactivo_no_cor",FieldDef.FLOAT,6,0);
+      baact_no_cor_ve = new FieldDef("baact_no_cor_ve",FieldDef.FLOAT,6,0);
+      baexist_comer_a = new FieldDef("baexist_comer_a",FieldDef.FLOAT,6,0);
+      baexist_comer_p = new FieldDef("baexist_comer_p",FieldDef.FLOAT,6,0);
+      baexist_mater_a = new FieldDef("baexist_mater_a",FieldDef.FLOAT,6,0);
+      baexist_mater_p = new FieldDef("baexist_mater_p",FieldDef.FLOAT,6,0);
+      bapr_curso_lp_a = new FieldDef("bapr_curso_lp_a",FieldDef.FLOAT,6,0);
+      bapr_curso_lp_p = new FieldDef("bapr_curso_lp_p",FieldDef.FLOAT,6,0);
+      bapr_curso_cp_a = new FieldDef("bapr_curso_cp_a",FieldDef.FLOAT,6,0);
+      bapr_curso_cp_m = new FieldDef("bapr_curso_cp_m",FieldDef.FLOAT,6,0);
+      baproducto_curs = new FieldDef("baproducto_curs",FieldDef.FLOAT,6,0);
+      bapr_termi_lp_a = new FieldDef("bapr_termi_lp_a",FieldDef.FLOAT,6,0);
+      bapr_termi_lp_p = new FieldDef("bapr_termi_lp_p",FieldDef.FLOAT,6,0);
+      bapr_termi_cp_a = new FieldDef("bapr_termi_cp_a",FieldDef.FLOAT,6,0);
+      bapr_termi_cp_p = new FieldDef("bapr_termi_cp_p",FieldDef.FLOAT,6,0);
+      baproducto_term = new FieldDef("baproducto_term",FieldDef.FLOAT,6,0);
+      basubproducto_a = new FieldDef("basubproducto_a",FieldDef.FLOAT,6,0);
+      basubproducto_m = new FieldDef("basubproducto_m",FieldDef.FLOAT,6,0);
+      baanticipos_act = new FieldDef("baanticipos_act",FieldDef.FLOAT,6,0);
+      baexistencias = new FieldDef("baexistencias",FieldDef.FLOAT,6,0);
+      baclientes_lp_a = new FieldDef("baclientes_lp_a",FieldDef.FLOAT,6,0);
+      baclientes_lp_p = new FieldDef("baclientes_lp_p",FieldDef.FLOAT,6,0);
+      baclientes_cp_a = new FieldDef("baclientes_cp_a",FieldDef.FLOAT,6,0);
+      baclientes_cp_p = new FieldDef("baclientes_cp_p",FieldDef.FLOAT,6,0);
+      baclientes_vent = new FieldDef("baclientes_vent",FieldDef.FLOAT,6,0);
+      baclientes_gr_a = new FieldDef("baclientes_gr_a",FieldDef.FLOAT,6,0);
+      baclientes_gr_p = new FieldDef("baclientes_gr_p",FieldDef.FLOAT,6,0);
+      badeudores_act = new FieldDef("badeudores_act",FieldDef.FLOAT,6,0);
+      bapersonal_act = new FieldDef("bapersonal_act",FieldDef.FLOAT,6,0);
+      baact_imp_cor_a = new FieldDef("baact_imp_cor_a",FieldDef.FLOAT,6,0);
+      baotr_cred_admi = new FieldDef("baotr_cred_admi",FieldDef.FLOAT,6,0);
+      baacc_desemb_ex = new FieldDef("baacc_desemb_ex",FieldDef.FLOAT,6,0);
+      badeudores_come = new FieldDef("badeudores_come",FieldDef.FLOAT,6,0);
+      bapat_gr_cp_act = new FieldDef("bapat_gr_cp_act",FieldDef.FLOAT,6,0);
+      bacred_gr_cp_ac = new FieldDef("bacred_gr_cp_ac",FieldDef.FLOAT,6,0);
+      bacred_gr_cp_pr = new FieldDef("bacred_gr_cp_pr",FieldDef.FLOAT,6,0);
+      badeuda_gr_cp_a = new FieldDef("badeuda_gr_cp_a",FieldDef.FLOAT,6,0);
+      badeud_gr_cp_pr = new FieldDef("badeud_gr_cp_pr",FieldDef.FLOAT,6,0);
+      baderiv_gr_cp_a = new FieldDef("baderiv_gr_cp_a",FieldDef.FLOAT,6,0);
+      baactfi_gr_cp_a = new FieldDef("baactfi_gr_cp_a",FieldDef.FLOAT,6,0);
+      baotfin_gr_cp_a = new FieldDef("baotfin_gr_cp_a",FieldDef.FLOAT,6,0);
+      bainv_fi_e_g_cp = new FieldDef("bainv_fi_e_g_cp",FieldDef.FLOAT,6,0);
+      bafin_pat_cp_ac = new FieldDef("bafin_pat_cp_ac",FieldDef.FLOAT,6,0);
+      bafin_pat_cp_pr = new FieldDef("bafin_pat_cp_pr",FieldDef.FLOAT,6,0);
+      bafin_cred_cp_a = new FieldDef("bafin_cred_cp_a",FieldDef.FLOAT,6,0);
+      bafi_cred_cp_pr = new FieldDef("bafi_cred_cp_pr",FieldDef.FLOAT,6,0);
+      bafi_deuda_cp_a = new FieldDef("bafi_deuda_cp_a",FieldDef.FLOAT,6,0);
+      bafi_deud_cp_pr = new FieldDef("bafi_deud_cp_pr",FieldDef.FLOAT,6,0);
+      bafi_deriv_cp_a = new FieldDef("bafi_deriv_cp_a",FieldDef.FLOAT,6,0);
+      bafi_actfi_cp_a = new FieldDef("bafi_actfi_cp_a",FieldDef.FLOAT,6,0);
+      bafi_otfin_cp_a = new FieldDef("bafi_otfin_cp_a",FieldDef.FLOAT,6,0);
+      bainv_financ_cp = new FieldDef("bainv_financ_cp",FieldDef.FLOAT,6,0);
+      baperiodif_c_pl = new FieldDef("baperiodif_c_pl",FieldDef.FLOAT,6,0);
+      batesoreria = new FieldDef("batesoreria",FieldDef.FLOAT,6,0);
+      baotros_liquido = new FieldDef("baotros_liquido",FieldDef.FLOAT,6,0);
+      baefectivo = new FieldDef("baefectivo",FieldDef.FLOAT,6,0);
+      baactivo_corrie = new FieldDef("baactivo_corrie",FieldDef.FLOAT,6,0);
+      batotal_activo = new FieldDef("batotal_activo",FieldDef.FLOAT,6,0);
+      bacrempgrlp_ac = new FieldDef("bacrempgrlp_ac",FieldDef.FLOAT,6,0);
+      bacrempgrlp_pr = new FieldDef("bacrempgrlp_pr",FieldDef.FLOAT,6,0);
+      bacrempaslp_ac = new FieldDef("bacrempaslp_ac",FieldDef.FLOAT,6,0);
+      bacrempaslp_pr = new FieldDef("bacrempaslp_pr",FieldDef.FLOAT,6,0);
+      baclientes_egr = new FieldDef("baclientes_egr",FieldDef.FLOAT,6,0);
+      baclientes_eas = new FieldDef("baclientes_eas",FieldDef.FLOAT,6,0);
+      baclientes_soc = new FieldDef("baclientes_soc",FieldDef.FLOAT,6,0);
+      bacrempgrcp_ac = new FieldDef("bacrempgrcp_ac",FieldDef.FLOAT,6,0);
+      bacrempascp_ac = new FieldDef("bacrempascp_ac",FieldDef.FLOAT,6,0);
+      bafondocom_cons = new FieldDef("bafondocom_cons",FieldDef.FLOAT,6,0);
+      bapropintelectu = new FieldDef("bapropintelectu",FieldDef.FLOAT,6,0);
+      baemisiongases = new FieldDef("baemisiongases",FieldDef.FLOAT,6,0);
+      bade_actuso_min = new FieldDef("bade_actuso_min",FieldDef.FLOAT,6,0);
+      bade_actuso_ac = new FieldDef("bade_actuso_ac",FieldDef.FLOAT,6,0);
+      bade_actuso_pr = new FieldDef("bade_actuso_pr",FieldDef.FLOAT,6,0);
+      bade_actuso_am = new FieldDef("bade_actuso_am",FieldDef.FLOAT,6,0);
+      babieninmue_ac = new FieldDef("babieninmue_ac",FieldDef.FLOAT,6,0);
+      babieninmue_pr = new FieldDef("babieninmue_pr",FieldDef.FLOAT,6,0);
+      baarchivos_ac = new FieldDef("baarchivos_ac",FieldDef.FLOAT,6,0);
+      baarchivos_pr = new FieldDef("baarchivos_pr",FieldDef.FLOAT,6,0);
+      babiblioteca_ac = new FieldDef("babiblioteca_ac",FieldDef.FLOAT,6,0);
+      babiblioteca_pr = new FieldDef("babiblioteca_pr",FieldDef.FLOAT,6,0);
+      bamuseos_ac = new FieldDef("bamuseos_ac",FieldDef.FLOAT,6,0);
+      bamuseos_pr = new FieldDef("bamuseos_pr",FieldDef.FLOAT,6,0);
+      babienmuebl_ac = new FieldDef("babienmuebl_ac",FieldDef.FLOAT,6,0);
+      babienmuebl_pr = new FieldDef("babienmuebl_pr",FieldDef.FLOAT,6,0);
+      baantic_his_ac = new FieldDef("baantic_his_ac",FieldDef.FLOAT,6,0);
+      babienespathis = new FieldDef("babienespathis",FieldDef.FLOAT,6,0);
+      bausuarios = new FieldDef("bausuarios",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        baejeraplic,
+        basociedad,
+        bagastos_d_act,
+        bagastos_d_prov,
+        bagastos_d_amor,
+        bagastos_d_min,
+        baconces_act,
+        baconces_prov,
+        baconces_amort,
+        baconces_min,
+        bapatentes_act,
+        bapatentes_prov,
+        bapatentes_amor,
+        bapatentes_min,
+        bafondocom_act,
+        baact_no_cor_ac,
+        baact_no_cor_mi,
+        baaplic_inf_act,
+        baaplic_inf_pro,
+        baaplic_inf_amo,
+        baaplic_inf_min,
+        bagastos_i_act,
+        bagastos_i_prov,
+        bagastos_i_amor,
+        bagastos_i_min,
+        baot_inm_int_ac,
+        baot_inm_int_pr,
+        baot_inm_int_am,
+        baot_inm_int_mi,
+        bainmov_intangi,
+        baterreno_m_act,
+        baterreno_m_pro,
+        baterreno_m_amo,
+        baterrenos_m_mi,
+        bainstalacion_a,
+        bainstalac_prov,
+        bainstalac_amor,
+        bainstalacion_m,
+        bainmov_en_curs,
+        bainmov_materia,
+        baterreno_i_act,
+        baterreno_i_pro,
+        baconstruc_i_ac,
+        baconstruc_i_pr,
+        baconstruc_i_am,
+        baconstruc_i_mi,
+        bainvers_inmobi,
+        bapat_gr_lp_act,
+        bapat_gr_lp_pro,
+        bacred_gr_lp_ac,
+        bacred_gr_lp_pr,
+        badeuda_gr_lp_a,
+        badeud_gr_lp_pr,
+        baderiv_gr_lp_a,
+        baactfi_gr_lp_a,
+        baotfin_gr_lp_a,
+        bain_fin_e_gr_l,
+        bafin_pat_lp_ac,
+        bafin_pat_lp_pr,
+        bafin_cred_lp_a,
+        bafi_cred_lp_pr,
+        bafi_deuda_lp_a,
+        bafi_deud_lp_pr,
+        bafi_deriv_lp_a,
+        bafi_actfi_lp_a,
+        bafi_otfin_lp_a,
+        bainv_financ_lp,
+        baact_impuest_d,
+        badeud_com_n_co,
+        baactivo_no_cor,
+        baact_no_cor_ve,
+        baexist_comer_a,
+        baexist_comer_p,
+        baexist_mater_a,
+        baexist_mater_p,
+        bapr_curso_lp_a,
+        bapr_curso_lp_p,
+        bapr_curso_cp_a,
+        bapr_curso_cp_m,
+        baproducto_curs,
+        bapr_termi_lp_a,
+        bapr_termi_lp_p,
+        bapr_termi_cp_a,
+        bapr_termi_cp_p,
+        baproducto_term,
+        basubproducto_a,
+        basubproducto_m,
+        baanticipos_act,
+        baexistencias,
+        baclientes_lp_a,
+        baclientes_lp_p,
+        baclientes_cp_a,
+        baclientes_cp_p,
+        baclientes_vent,
+        baclientes_gr_a,
+        baclientes_gr_p,
+        badeudores_act,
+        bapersonal_act,
+        baact_imp_cor_a,
+        baotr_cred_admi,
+        baacc_desemb_ex,
+        badeudores_come,
+        bapat_gr_cp_act,
+        bacred_gr_cp_ac,
+        bacred_gr_cp_pr,
+        badeuda_gr_cp_a,
+        badeud_gr_cp_pr,
+        baderiv_gr_cp_a,
+        baactfi_gr_cp_a,
+        baotfin_gr_cp_a,
+        bainv_fi_e_g_cp,
+        bafin_pat_cp_ac,
+        bafin_pat_cp_pr,
+        bafin_cred_cp_a,
+        bafi_cred_cp_pr,
+        bafi_deuda_cp_a,
+        bafi_deud_cp_pr,
+        bafi_deriv_cp_a,
+        bafi_actfi_cp_a,
+        bafi_otfin_cp_a,
+        bainv_financ_cp,
+        baperiodif_c_pl,
+        batesoreria,
+        baotros_liquido,
+        baefectivo,
+        baactivo_corrie,
+        batotal_activo,
+        bacrempgrlp_ac,
+        bacrempgrlp_pr,
+        bacrempaslp_ac,
+        bacrempaslp_pr,
+        baclientes_egr,
+        baclientes_eas,
+        baclientes_soc,
+        bacrempgrcp_ac,
+        bacrempascp_ac,
+        bafondocom_cons,
+        bapropintelectu,
+        baemisiongases,
+        bade_actuso_min,
+        bade_actuso_ac,
+        bade_actuso_pr,
+        bade_actuso_am,
+        babieninmue_ac,
+        babieninmue_pr,
+        baarchivos_ac,
+        baarchivos_pr,
+        babiblioteca_ac,
+        babiblioteca_pr,
+        bamuseos_ac,
+        bamuseos_pr,
+        babienmuebl_ac,
+        babienmuebl_pr,
+        baantic_his_ac,
+        babienespathis,
+        bausuarios        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {baejeraplic,basociedad };
+      setDescription("Balance activo");
+      setPrimaryKeys(arrayf);
+      baejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      basociedad.setDescription("Codigo de sociedad");
+      bagastos_d_act.setDescription("Gastos desarrollo");
+      bagastos_d_prov.setDescription("Provisiones gastos desarrollo");
+      bagastos_d_amor.setDescription("Amortizac. gastos desarrollo");
+      bagastos_d_min.setDescription("GASTOS DESARROLLO (MIN.)");
+      baconces_act.setDescription("Concesiones");
+      baconces_prov.setDescription("Provisiones concesiones");
+      baconces_amort.setDescription("Amortizaciones concesiones");
+      baconces_min.setDescription("CONCESIONES (MIN.)");
+      bapatentes_act.setDescription("Patentes, licencias, marcas...");
+      bapatentes_prov.setDescription("Provisiones patentes,licencias");
+      bapatentes_amor.setDescription("Amortizaciones patentes,licen.");
+      bapatentes_min.setDescription("PATENTES,LICENC. (MINORADORAS)");
+      bafondocom_act.setDescription("Fondo de comercio");
+      baact_no_cor_ac.setDescription("Activo no corr.mant.venta(ACT)");
+      baact_no_cor_mi.setDescription("Activo no corr.mant.venta(MIN)");
+      baaplic_inf_act.setDescription("Aplicaciones informaticas");
+      baaplic_inf_pro.setDescription("Provis. aplicaciones informat.");
+      baaplic_inf_amo.setDescription("Amortiz.aplicaciones informat.");
+      baaplic_inf_min.setDescription("APLICACIONES INFORMAT. (MIN.)");
+      bagastos_i_act.setDescription("Gastos investigacion");
+      bagastos_i_prov.setDescription("Provisiones gastos investigac.");
+      bagastos_i_amor.setDescription("Amortizac. gastos investigac.");
+      bagastos_i_min.setDescription("GASTOS INVESTIGACION (MIN.)");
+      baot_inm_int_ac.setDescription("Otro inmovilizado intangible");
+      baot_inm_int_pr.setDescription("Provisiones otr.inm.intangible");
+      baot_inm_int_am.setDescription("Amortizac.otr.inm.intangible");
+      baot_inm_int_mi.setDescription("OTRO INMOVIL.INTANGIBLE (MIN.)");
+      bainmov_intangi.setDescription("INMOVILIZADO INTANGIBLE");
+      baterreno_m_act.setDescription("Terrenos y bienes nat. (act.)");
+      baterreno_m_pro.setDescription("Provisiones Terrenos y Bienes");
+      baterreno_m_amo.setDescription("Amort. Terrenos y Bienes nat.");
+      baterrenos_m_mi.setDescription("TERRENOS Y BIENES NAT. (MIN.)");
+      bainstalacion_a.setDescription("Instalaciones tecnicas (act.)");
+      bainstalac_prov.setDescription("Provis. instalaciones tecnicas");
+      bainstalac_amor.setDescription("Amortiz.instalaciones tecnicas");
+      bainstalacion_m.setDescription("INSTALACIONES TECNICAS (MIN.)");
+      bainmov_en_curs.setDescription("Inmov. en curso y anticipos");
+      bainmov_materia.setDescription("INMOVILIZADO MATERIAL");
+      baterreno_i_act.setDescription("Terrenos invers.inmob. (act.)");
+      baterreno_i_pro.setDescription("Provisiones Terrenos inv.inmob");
+      baconstruc_i_ac.setDescription("Construccion inver.inmob.(act)");
+      baconstruc_i_pr.setDescription("Provisiones Construc.inv.inmob");
+      baconstruc_i_am.setDescription("Amortiz.construccion inv.inmob");
+      baconstruc_i_mi.setDescription("CONSTRUCCION INV.INMOB.(MIN.)");
+      bainvers_inmobi.setDescription("INVERSIONES INMOBILIARIAS");
+      bapat_gr_lp_act.setDescription("Ins.patrim.emp.grupo l.pl(act)");
+      bapat_gr_lp_pro.setDescription("Ins.patrim.emp.grupo l.pl(min)");
+      bacred_gr_lp_ac.setDescription("Creditos emp.grupo l.plaz(act)");
+      bacred_gr_lp_pr.setDescription("Creditos emp.grupo l.pl(min)");
+      badeuda_gr_lp_a.setDescription("Deuda emp.grupo l.plaz(act)");
+      badeud_gr_lp_pr.setDescription("Val.Deuda  emp.grupo l.pl(min)");
+      baderiv_gr_lp_a.setDescription("Derivados emp.grup.l.plaz(act)");
+      baactfi_gr_lp_a.setDescription("Act.finan.emp.grup.l.plaz(act)");
+      baotfin_gr_lp_a.setDescription("Otras inv.emp.grup.l.plaz(act)");
+      bain_fin_e_gr_l.setDescription("INVERS.EMPR.GRUPO LARGO PLAZO");
+      bafin_pat_lp_ac.setDescription("Ins.patrim.inv.finan.l.pl(act)");
+      bafin_pat_lp_pr.setDescription("Ins.patrim.inv.finan.l.pl(min)");
+      bafin_cred_lp_a.setDescription("Creditos inv.finan.l.plaz(act)");
+      bafi_cred_lp_pr.setDescription("Creditos inv.finan.l.pl(min)");
+      bafi_deuda_lp_a.setDescription("Deuda inv.finan.l.plaz(act)");
+      bafi_deud_lp_pr.setDescription("Val.Deuda  inv.finan l.pl(min)");
+      bafi_deriv_lp_a.setDescription("Derivados inv.fina.l.plaz(act)");
+      bafi_actfi_lp_a.setDescription("Act.finan.inv.fina.l.plaz(act)");
+      bafi_otfin_lp_a.setDescription("Otras inv.inv.fina.l.plaz(act)");
+      bainv_financ_lp.setDescription("INVERS. FINANCIERAS LARGO PL.");
+      baact_impuest_d.setDescription("Activos por impuesto diferido");
+      badeud_com_n_co.setDescription("Deudas comerciales no corrient");
+      baactivo_no_cor.setDescription("ACTIVO NO CORRIENTE");
+      baact_no_cor_ve.setDescription("ACTIVO NO CORRIENTE MANT.VENTA");
+      baexist_comer_a.setDescription("Existencias comerciales (Act)");
+      baexist_comer_p.setDescription("Existencias comerciales (min)");
+      baexist_mater_a.setDescription("Materias primas (Act)");
+      baexist_mater_p.setDescription("Materias primas (min)");
+      bapr_curso_lp_a.setDescription("Prod.en curso larga prod.(act)");
+      bapr_curso_lp_p.setDescription("Prod.en curso larga prod.(min)");
+      bapr_curso_cp_a.setDescription("Prod.en curso corta prod.(act)");
+      bapr_curso_cp_m.setDescription("Prod.en curso corta prod.(min)");
+      baproducto_curs.setDescription("PRODUCTO EN CURSO");
+      bapr_termi_lp_a.setDescription("Prod.terminado larga prod(act)");
+      bapr_termi_lp_p.setDescription("Prod.terminado larga prod(min)");
+      bapr_termi_cp_a.setDescription("Prod.terminado corta prod(act)");
+      bapr_termi_cp_p.setDescription("Prod.terminado corta prod(min)");
+      baproducto_term.setDescription("PRODUCTO TERMINADO");
+      basubproducto_a.setDescription("Subproductos (Act)");
+      basubproducto_m.setDescription("Subproductos (min)");
+      baanticipos_act.setDescription("Anticipos proveedores (act)");
+      baexistencias.setDescription("EXISTENCIAS");
+      baclientes_lp_a.setDescription("Clientes largo plazo (act)");
+      baclientes_lp_p.setDescription("Clientes largo plazo (min)");
+      baclientes_cp_a.setDescription("Clientes corto plazo (act)");
+      baclientes_cp_p.setDescription("Clientes corto plazo (min)");
+      baclientes_vent.setDescription("CLIENTES POR VENTAS");
+      baclientes_gr_a.setDescription("Clientes empresas grupo (act)");
+      baclientes_gr_p.setDescription("Clientes empresas grupo (min)");
+      badeudores_act.setDescription("Deudores varios (act)");
+      bapersonal_act.setDescription("Personal (act)");
+      baact_imp_cor_a.setDescription("Activos impuesto corriente(act");
+      baotr_cred_admi.setDescription("Otros creditos administracion");
+      baacc_desemb_ex.setDescription("Accionistas desembolso exigido");
+      badeudores_come.setDescription("DEUDORES COMERCIALES");
+      bapat_gr_cp_act.setDescription("Ins.patrim.emp.grupo c.pl(act)");
+      bacred_gr_cp_ac.setDescription("Creditos emp.grupo c.plaz(act)");
+      bacred_gr_cp_pr.setDescription("Creditos emp.grupo c.pl(min)");
+      badeuda_gr_cp_a.setDescription("Deuda emp.grupo c.plaz(act)");
+      badeud_gr_cp_pr.setDescription("Val.Deuda  emp.grupo c.pl(min)");
+      baderiv_gr_cp_a.setDescription("Derivados emp.grup.c.plaz(act)");
+      baactfi_gr_cp_a.setDescription("Ot.act.finan.emp.grup.c.p(act)");
+      baotfin_gr_cp_a.setDescription("Otras inv.emp.grup.c.plaz(act)");
+      bainv_fi_e_g_cp.setDescription("INVERS.EMPR.GRUPO CORTO PLAZO");
+      bafin_pat_cp_ac.setDescription("Ins.patrim.emp.grupo c.pl(act)");
+      bafin_pat_cp_pr.setDescription("Ins.patrim.emp.grupo c.pl(min)");
+      bafin_cred_cp_a.setDescription("Creditos emp.grupo c.plaz(act)");
+      bafi_cred_cp_pr.setDescription("Creditos emp.grupo c.pl(min)");
+      bafi_deuda_cp_a.setDescription("Deuda emp.grupo c.plaz(act)");
+      bafi_deud_cp_pr.setDescription("Val.Deuda  emp.grupo c.pl(min)");
+      bafi_deriv_cp_a.setDescription("Derivados emp.grup.c.plaz(act)");
+      bafi_actfi_cp_a.setDescription("Act.finan.emp.grup.c.plaz(act)");
+      bafi_otfin_cp_a.setDescription("Otras inv.emp.grup.c.plaz(act)");
+      bainv_financ_cp.setDescription("INVERS. FINANCIERAS CORTO PL.");
+      baperiodif_c_pl.setDescription("Periodificacion corto plazo");
+      batesoreria.setDescription("Tesoreria");
+      baotros_liquido.setDescription("Otros activos liquidos");
+      baefectivo.setDescription("EFECTIVO Y OTROS LIQUIDOS");
+      baactivo_corrie.setDescription("ACTIVO CORRIENTE");
+      batotal_activo.setDescription("TOTAL ACTIVO");
+      bacrempgrlp_ac.setDescription("Creditos empresas largo plazo del grupo (act) (coopertivas)");
+      bacrempgrlp_pr.setDescription("Creditos empresas largo plazo del grupo (min) (coopertivas)");
+      bacrempaslp_ac.setDescription("Creditos empresas largo plazo asociadas (act) (coopertivas)");
+      bacrempaslp_pr.setDescription("Creditos empresas largo plazo asociadas (min) (coopertivas)");
+      baclientes_egr.setDescription("Clientes empresas grupo (act) (cooperativas)");
+      baclientes_eas.setDescription("Clientes empresas asociadas (act) (cooperativas)");
+      baclientes_soc.setDescription("Clientes socios deudores (act) (cooperativas)");
+      bacrempgrcp_ac.setDescription("Creditos empresas corto plazo del grupo  (coopertivas)");
+      bacrempascp_ac.setDescription("Creditos empresas corto plazo asociadas (coopertivas)");
+      bafondocom_cons.setDescription("Fondo de comercio de consolidacion");
+      bapropintelectu.setDescription("Propiedad intelectual");
+      baemisiongases.setDescription("Emision gases");
+      bade_actuso_min.setDescription("DERECHO SOBRE ACTIVOS CEDIDOS EN USO (MIN.) (fundaciones)");
+      bade_actuso_ac.setDescription("Derecho sobre activos cedidos en uso (activo) (fundaciones)");
+      bade_actuso_pr.setDescription("Derecho sobre activos cedidos en uso (provisiones) (fundaciones)");
+      bade_actuso_am.setDescription("Derecho sobre activos cedidos en uso (amortizaciones) (fundaciones)");
+      babieninmue_ac.setDescription("Bienes inmuebles (activo) (fundaciones)");
+      babieninmue_pr.setDescription("Bienes inmuebles (provisión) (fundaciones)");
+      baarchivos_ac.setDescription("Archivos (activo) (fundaciones)");
+      baarchivos_pr.setDescription("Archivos (provisión) (fundaciones)");
+      babiblioteca_ac.setDescription("Biblioteca (activo) (fundaciones)");
+      babiblioteca_pr.setDescription("Biblioteca (provisión) (fundaciones)");
+      bamuseos_ac.setDescription("Museos (activo) (fundaciones)");
+      bamuseos_pr.setDescription("Museos (provisión) (fundaciones)");
+      babienmuebl_ac.setDescription("Bienes muebles (activo) (fundaciones)");
+      babienmuebl_pr.setDescription("Bienes muebles (provisión) (fundaciones)");
+      baantic_his_ac.setDescription("Anticipos sobre bienes del Patrimonio Historico (fundaciones)");
+      babienespathis.setDescription("BIENES DEL PATRIMONIO HISTORICO (fundaciones)");
+      bausuarios.setDescription("USUARIOS Y OTROS DEUDORES DE LA ACTIVIDAD PROPIA (fundaciones)");
+      }
+    }
+    
+  public class TabPasivo extends TableDef
+    {
+    // Campos
+    public FieldDef paejeraplic;
+    public FieldDef pasociedad;
+    public FieldDef pacapitalescrit;
+    public FieldDef pacapitalnoexig;
+    public FieldDef pacapital;
+    public FieldDef paprimaemision;
+    public FieldDef pareserva_legal;
+    public FieldDef paotras_reserva;
+    public FieldDef pareservas;
+    public FieldDef paacc_part_patr;
+    public FieldDef paremanente;
+    public FieldDef pares_neg_ej_an;
+    public FieldDef pares_ejer_ant;
+    public FieldDef paotr_aport_soc;
+    public FieldDef paresult_ejer;
+    public FieldDef padivid_a_cta;
+    public FieldDef paotr_patr_neto;
+    public FieldDef pafondos_propio;
+    public FieldDef paact_fin_venta;
+    public FieldDef paop_cobertura;
+    public FieldDef paact_no_corrie;
+    public FieldDef padifer_convers;
+    public FieldDef paotros;
+    public FieldDef paajus_canv_val;
+    public FieldDef pasub_donac_leg;
+    public FieldDef paobl_lp_person;
+    public FieldDef paact_medioambi;
+    public FieldDef paprov_reestruc;
+    public FieldDef paotras_provisi;
+    public FieldDef paprov_largo_pl;
+    public FieldDef paobl_ot_va_lpl;
+    public FieldDef padeu_en_cr_lpl;
+    public FieldDef paacr_ar_fi_lpl;
+    public FieldDef paderivados_lpl;
+    public FieldDef paot_pa_fin_lpl;
+    public FieldDef padeudas_lpl;
+    public FieldDef pade_emp_gr_lpl;
+    public FieldDef papasiv_imp_dif;
+    public FieldDef paperiodif_lpl;
+    public FieldDef paacr_comer_nco;
+    public FieldDef padeu_esp_lpl;
+    public FieldDef papatrim_neto;
+    public FieldDef papas_no_corr;
+    public FieldDef papas_vin_man_v;
+    public FieldDef paprovision_cpl;
+    public FieldDef paob_ot_val_cpl;
+    public FieldDef pade_ent_cr_cpl;
+    public FieldDef paacr_ar_fi_cpl;
+    public FieldDef paderivados_cpl;
+    public FieldDef paot_pas_fi_cpl;
+    public FieldDef padeudas_cpl;
+    public FieldDef pade_emp_gr_cpl;
+    public FieldDef paprov_l_plazo;
+    public FieldDef paprov_c_plazo;
+    public FieldDef paproveedores;
+    public FieldDef paprov_empr_gru;
+    public FieldDef paacree_varios;
+    public FieldDef papers_rem_pdte;
+    public FieldDef papas_imp_corr;
+    public FieldDef paotr_deud_admi;
+    public FieldDef paanticipos_cli;
+    public FieldDef paacreed_comerc;
+    public FieldDef paperio_cort_pl;
+    public FieldDef padeu_car_es_cp;
+    public FieldDef papas_corrient;
+    public FieldDef patotal_pasivo;
+    public FieldDef pareslegal;
+    public FieldDef paresestaturia;
+    public FieldDef pafondcapitali;
+    public FieldDef paresactualiz;
+    public FieldDef paresvoluntar;
+    public FieldDef pafoneduclp;
+    public FieldDef pacapreembexlp;
+    public FieldDef pafondoesplpla;
+    public FieldDef paacrefondolpl;
+    public FieldDef padeuempgruplp;
+    public FieldDef padeuempasoclp;
+    public FieldDef padeudsocioslp;
+    public FieldDef pafoneduccp;
+    public FieldDef pacapreembexcp;
+    public FieldDef pafondoespcpla;
+    public FieldDef paacrefondocpl;
+    public FieldDef padeuempgrupcp;
+    public FieldDef padeuempasoccp;
+    public FieldDef padeudsocioscp;
+    public FieldDef pasocioproveed;
+    public FieldDef paotrosproveed;
+    public FieldDef pareservaotras;
+    public FieldDef pasocioexterno;
+    public FieldDef paresrev162012;
+    public FieldDef paprovgasesinv;
+    public FieldDef paotrasprovis;
+    public FieldDef pasubvencion;
+    public FieldDef padonac_legado;
+    public FieldDef pabenefacreedor;
+    public TabPasivo(String name)
+      {
+      super(name);
+      paejeraplic = new FieldDef("paejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pasociedad = new FieldDef("pasociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pacapitalescrit = new FieldDef("pacapitalescrit",FieldDef.FLOAT,6,0);
+      pacapitalnoexig = new FieldDef("pacapitalnoexig",FieldDef.FLOAT,6,0);
+      pacapital = new FieldDef("pacapital",FieldDef.FLOAT,6,0);
+      paprimaemision = new FieldDef("paprimaemision",FieldDef.FLOAT,6,0);
+      pareserva_legal = new FieldDef("pareserva_legal",FieldDef.FLOAT,6,0);
+      paotras_reserva = new FieldDef("paotras_reserva",FieldDef.FLOAT,6,0);
+      pareservas = new FieldDef("pareservas",FieldDef.FLOAT,6,0);
+      paacc_part_patr = new FieldDef("paacc_part_patr",FieldDef.FLOAT,6,0);
+      paremanente = new FieldDef("paremanente",FieldDef.FLOAT,6,0);
+      pares_neg_ej_an = new FieldDef("pares_neg_ej_an",FieldDef.FLOAT,6,0);
+      pares_ejer_ant = new FieldDef("pares_ejer_ant",FieldDef.FLOAT,6,0);
+      paotr_aport_soc = new FieldDef("paotr_aport_soc",FieldDef.FLOAT,6,0);
+      paresult_ejer = new FieldDef("paresult_ejer",FieldDef.FLOAT,6,0);
+      padivid_a_cta = new FieldDef("padivid_a_cta",FieldDef.FLOAT,6,0);
+      paotr_patr_neto = new FieldDef("paotr_patr_neto",FieldDef.FLOAT,6,0);
+      pafondos_propio = new FieldDef("pafondos_propio",FieldDef.FLOAT,6,0);
+      paact_fin_venta = new FieldDef("paact_fin_venta",FieldDef.FLOAT,6,0);
+      paop_cobertura = new FieldDef("paop_cobertura",FieldDef.FLOAT,6,0);
+      paact_no_corrie = new FieldDef("paact_no_corrie",FieldDef.FLOAT,6,0);
+      padifer_convers = new FieldDef("padifer_convers",FieldDef.FLOAT,6,0);
+      paotros = new FieldDef("paotros",FieldDef.FLOAT,6,0);
+      paajus_canv_val = new FieldDef("paajus_canv_val",FieldDef.FLOAT,6,0);
+      pasub_donac_leg = new FieldDef("pasub_donac_leg",FieldDef.FLOAT,6,0);
+      paobl_lp_person = new FieldDef("paobl_lp_person",FieldDef.FLOAT,6,0);
+      paact_medioambi = new FieldDef("paact_medioambi",FieldDef.FLOAT,6,0);
+      paprov_reestruc = new FieldDef("paprov_reestruc",FieldDef.FLOAT,6,0);
+      paotras_provisi = new FieldDef("paotras_provisi",FieldDef.FLOAT,6,0);
+      paprov_largo_pl = new FieldDef("paprov_largo_pl",FieldDef.FLOAT,6,0);
+      paobl_ot_va_lpl = new FieldDef("paobl_ot_va_lpl",FieldDef.FLOAT,6,0);
+      padeu_en_cr_lpl = new FieldDef("padeu_en_cr_lpl",FieldDef.FLOAT,6,0);
+      paacr_ar_fi_lpl = new FieldDef("paacr_ar_fi_lpl",FieldDef.FLOAT,6,0);
+      paderivados_lpl = new FieldDef("paderivados_lpl",FieldDef.FLOAT,6,0);
+      paot_pa_fin_lpl = new FieldDef("paot_pa_fin_lpl",FieldDef.FLOAT,6,0);
+      padeudas_lpl = new FieldDef("padeudas_lpl",FieldDef.FLOAT,6,0);
+      pade_emp_gr_lpl = new FieldDef("pade_emp_gr_lpl",FieldDef.FLOAT,6,0);
+      papasiv_imp_dif = new FieldDef("papasiv_imp_dif",FieldDef.FLOAT,6,0);
+      paperiodif_lpl = new FieldDef("paperiodif_lpl",FieldDef.FLOAT,6,0);
+      paacr_comer_nco = new FieldDef("paacr_comer_nco",FieldDef.FLOAT,6,0);
+      padeu_esp_lpl = new FieldDef("padeu_esp_lpl",FieldDef.FLOAT,6,0);
+      papatrim_neto = new FieldDef("papatrim_neto",FieldDef.FLOAT,6,0);
+      papas_no_corr = new FieldDef("papas_no_corr",FieldDef.FLOAT,6,0);
+      papas_vin_man_v = new FieldDef("papas_vin_man_v",FieldDef.FLOAT,6,0);
+      paprovision_cpl = new FieldDef("paprovision_cpl",FieldDef.FLOAT,6,0);
+      paob_ot_val_cpl = new FieldDef("paob_ot_val_cpl",FieldDef.FLOAT,6,0);
+      pade_ent_cr_cpl = new FieldDef("pade_ent_cr_cpl",FieldDef.FLOAT,6,0);
+      paacr_ar_fi_cpl = new FieldDef("paacr_ar_fi_cpl",FieldDef.FLOAT,6,0);
+      paderivados_cpl = new FieldDef("paderivados_cpl",FieldDef.FLOAT,6,0);
+      paot_pas_fi_cpl = new FieldDef("paot_pas_fi_cpl",FieldDef.FLOAT,6,0);
+      padeudas_cpl = new FieldDef("padeudas_cpl",FieldDef.FLOAT,6,0);
+      pade_emp_gr_cpl = new FieldDef("pade_emp_gr_cpl",FieldDef.FLOAT,6,0);
+      paprov_l_plazo = new FieldDef("paprov_l_plazo",FieldDef.FLOAT,6,0);
+      paprov_c_plazo = new FieldDef("paprov_c_plazo",FieldDef.FLOAT,6,0);
+      paproveedores = new FieldDef("paproveedores",FieldDef.FLOAT,6,0);
+      paprov_empr_gru = new FieldDef("paprov_empr_gru",FieldDef.FLOAT,6,0);
+      paacree_varios = new FieldDef("paacree_varios",FieldDef.FLOAT,6,0);
+      papers_rem_pdte = new FieldDef("papers_rem_pdte",FieldDef.FLOAT,6,0);
+      papas_imp_corr = new FieldDef("papas_imp_corr",FieldDef.FLOAT,6,0);
+      paotr_deud_admi = new FieldDef("paotr_deud_admi",FieldDef.FLOAT,6,0);
+      paanticipos_cli = new FieldDef("paanticipos_cli",FieldDef.FLOAT,6,0);
+      paacreed_comerc = new FieldDef("paacreed_comerc",FieldDef.FLOAT,6,0);
+      paperio_cort_pl = new FieldDef("paperio_cort_pl",FieldDef.FLOAT,6,0);
+      padeu_car_es_cp = new FieldDef("padeu_car_es_cp",FieldDef.FLOAT,6,0);
+      papas_corrient = new FieldDef("papas_corrient",FieldDef.FLOAT,6,0);
+      patotal_pasivo = new FieldDef("patotal_pasivo",FieldDef.FLOAT,6,0);
+      pareslegal = new FieldDef("pareslegal",FieldDef.FLOAT,6,0);
+      paresestaturia = new FieldDef("paresestaturia",FieldDef.FLOAT,6,0);
+      pafondcapitali = new FieldDef("pafondcapitali",FieldDef.FLOAT,6,0);
+      paresactualiz = new FieldDef("paresactualiz",FieldDef.FLOAT,6,0);
+      paresvoluntar = new FieldDef("paresvoluntar",FieldDef.FLOAT,6,0);
+      pafoneduclp = new FieldDef("pafoneduclp",FieldDef.FLOAT,6,0);
+      pacapreembexlp = new FieldDef("pacapreembexlp",FieldDef.FLOAT,6,0);
+      pafondoesplpla = new FieldDef("pafondoesplpla",FieldDef.FLOAT,6,0);
+      paacrefondolpl = new FieldDef("paacrefondolpl",FieldDef.FLOAT,6,0);
+      padeuempgruplp = new FieldDef("padeuempgruplp",FieldDef.FLOAT,6,0);
+      padeuempasoclp = new FieldDef("padeuempasoclp",FieldDef.FLOAT,6,0);
+      padeudsocioslp = new FieldDef("padeudsocioslp",FieldDef.FLOAT,6,0);
+      pafoneduccp = new FieldDef("pafoneduccp",FieldDef.FLOAT,6,0);
+      pacapreembexcp = new FieldDef("pacapreembexcp",FieldDef.FLOAT,6,0);
+      pafondoespcpla = new FieldDef("pafondoespcpla",FieldDef.FLOAT,6,0);
+      paacrefondocpl = new FieldDef("paacrefondocpl",FieldDef.FLOAT,6,0);
+      padeuempgrupcp = new FieldDef("padeuempgrupcp",FieldDef.FLOAT,6,0);
+      padeuempasoccp = new FieldDef("padeuempasoccp",FieldDef.FLOAT,6,0);
+      padeudsocioscp = new FieldDef("padeudsocioscp",FieldDef.FLOAT,6,0);
+      pasocioproveed = new FieldDef("pasocioproveed",FieldDef.FLOAT,6,0);
+      paotrosproveed = new FieldDef("paotrosproveed",FieldDef.FLOAT,6,0);
+      pareservaotras = new FieldDef("pareservaotras",FieldDef.FLOAT,6,0);
+      pasocioexterno = new FieldDef("pasocioexterno",FieldDef.FLOAT,6,0);
+      paresrev162012 = new FieldDef("paresrev162012",FieldDef.FLOAT,6,0);
+      paprovgasesinv = new FieldDef("paprovgasesinv",FieldDef.FLOAT,6,0);
+      paotrasprovis = new FieldDef("paotrasprovis",FieldDef.FLOAT,6,0);
+      pasubvencion = new FieldDef("pasubvencion",FieldDef.FLOAT,6,0);
+      padonac_legado = new FieldDef("padonac_legado",FieldDef.FLOAT,6,0);
+      pabenefacreedor = new FieldDef("pabenefacreedor",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        paejeraplic,
+        pasociedad,
+        pacapitalescrit,
+        pacapitalnoexig,
+        pacapital,
+        paprimaemision,
+        pareserva_legal,
+        paotras_reserva,
+        pareservas,
+        paacc_part_patr,
+        paremanente,
+        pares_neg_ej_an,
+        pares_ejer_ant,
+        paotr_aport_soc,
+        paresult_ejer,
+        padivid_a_cta,
+        paotr_patr_neto,
+        pafondos_propio,
+        paact_fin_venta,
+        paop_cobertura,
+        paact_no_corrie,
+        padifer_convers,
+        paotros,
+        paajus_canv_val,
+        pasub_donac_leg,
+        paobl_lp_person,
+        paact_medioambi,
+        paprov_reestruc,
+        paotras_provisi,
+        paprov_largo_pl,
+        paobl_ot_va_lpl,
+        padeu_en_cr_lpl,
+        paacr_ar_fi_lpl,
+        paderivados_lpl,
+        paot_pa_fin_lpl,
+        padeudas_lpl,
+        pade_emp_gr_lpl,
+        papasiv_imp_dif,
+        paperiodif_lpl,
+        paacr_comer_nco,
+        padeu_esp_lpl,
+        papatrim_neto,
+        papas_no_corr,
+        papas_vin_man_v,
+        paprovision_cpl,
+        paob_ot_val_cpl,
+        pade_ent_cr_cpl,
+        paacr_ar_fi_cpl,
+        paderivados_cpl,
+        paot_pas_fi_cpl,
+        padeudas_cpl,
+        pade_emp_gr_cpl,
+        paprov_l_plazo,
+        paprov_c_plazo,
+        paproveedores,
+        paprov_empr_gru,
+        paacree_varios,
+        papers_rem_pdte,
+        papas_imp_corr,
+        paotr_deud_admi,
+        paanticipos_cli,
+        paacreed_comerc,
+        paperio_cort_pl,
+        padeu_car_es_cp,
+        papas_corrient,
+        patotal_pasivo,
+        pareslegal,
+        paresestaturia,
+        pafondcapitali,
+        paresactualiz,
+        paresvoluntar,
+        pafoneduclp,
+        pacapreembexlp,
+        pafondoesplpla,
+        paacrefondolpl,
+        padeuempgruplp,
+        padeuempasoclp,
+        padeudsocioslp,
+        pafoneduccp,
+        pacapreembexcp,
+        pafondoespcpla,
+        paacrefondocpl,
+        padeuempgrupcp,
+        padeuempasoccp,
+        padeudsocioscp,
+        pasocioproveed,
+        paotrosproveed,
+        pareservaotras,
+        pasocioexterno,
+        paresrev162012,
+        paprovgasesinv,
+        paotrasprovis,
+        pasubvencion,
+        padonac_legado,
+        pabenefacreedor        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {paejeraplic,pasociedad };
+      setDescription("Balance pasivo");
+      setPrimaryKeys(arrayf);
+      paejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      pasociedad.setDescription("Codigo de sociedad");
+      pacapitalescrit.setDescription("Capital escriturado");
+      pacapitalnoexig.setDescription("Capital no exigido");
+      pacapital.setDescription("CAPITAL");
+      paprimaemision.setDescription("Prima de emision");
+      pareserva_legal.setDescription("Reserva legal");
+      paotras_reserva.setDescription("Otras reservas");
+      pareservas.setDescription("RESERVAS");
+      paacc_part_patr.setDescription("Acciones y partic.patrimonio");
+      paremanente.setDescription("Remanente");
+      pares_neg_ej_an.setDescription("Resultados negativos ejer.ant.");
+      pares_ejer_ant.setDescription("RESULTADOS EJERCICIOS ANTERIOR");
+      paotr_aport_soc.setDescription("Otras aportaciones de socios");
+      paresult_ejer.setDescription("Resultado del ejercicio");
+      padivid_a_cta.setDescription("Dividendo a cuenta");
+      paotr_patr_neto.setDescription("Otros instrum.patrimonio neto");
+      pafondos_propio.setDescription("FONDOS PROPIOS");
+      paact_fin_venta.setDescription("Activos financieros disp.venta");
+      paop_cobertura.setDescription("Operaciones de cobertura");
+      paact_no_corrie.setDescription("Activos no corriente y pas.vin");
+      padifer_convers.setDescription("Diferencia de conversion");
+      paotros.setDescription("Otros");
+      paajus_canv_val.setDescription("AJUSTES CAMBIO DE VALOR");
+      pasub_donac_leg.setDescription("Subvenciones,donaciones y lega");
+      paobl_lp_person.setDescription("Oblig.prest.largo plazo person");
+      paact_medioambi.setDescription("Actuaciones medioambientales");
+      paprov_reestruc.setDescription("Provisiones por reestructurac");
+      paotras_provisi.setDescription("Otras provisiones");
+      paprov_largo_pl.setDescription("PROVISIONES LARGO PLAZO");
+      paobl_ot_va_lpl.setDescription("Oblig. y otros val.neg.lar.pla");
+      padeu_en_cr_lpl.setDescription("Deudas entidades cred.lar.plaz");
+      paacr_ar_fi_lpl.setDescription("Acreed.arrend.financ.lar.plazo");
+      paderivados_lpl.setDescription("Derivados largo plazo");
+      paot_pa_fin_lpl.setDescription("Otros pasivos financ.largo pla");
+      padeudas_lpl.setDescription("DEUDAS LARGO PLAZO");
+      pade_emp_gr_lpl.setDescription("Deudas empr.grupo largo plazo");
+      papasiv_imp_dif.setDescription("Pasivos por impuesto diferido");
+      paperiodif_lpl.setDescription("Periodificaciones largo plazo");
+      paacr_comer_nco.setDescription("Acreedores comerc.no corriente");
+      padeu_esp_lpl.setDescription("Deuda caract.especial largo pl");
+      papatrim_neto.setDescription("Patrimonio neto");
+      papas_no_corr.setDescription("Pasivo no corriente");
+      papas_vin_man_v.setDescription("Pasivos vincul. manteni.venta");
+      paprovision_cpl.setDescription("PROVISIONES A CORTO PLAZO");
+      paob_ot_val_cpl.setDescription("Oblig. y otros val.neg.cor.pla");
+      pade_ent_cr_cpl.setDescription("Deudas entidades cred.cor.plaz");
+      paacr_ar_fi_cpl.setDescription("Acreed.arrend.financ.cor.plazo");
+      paderivados_cpl.setDescription("Derivados corto plazo");
+      paot_pas_fi_cpl.setDescription("Otros pasivos financ.corto pla");
+      padeudas_cpl.setDescription("DEUDAS CORTO PLAZO");
+      pade_emp_gr_cpl.setDescription("Deudas empr.grupo corto plazo");
+      paprov_l_plazo.setDescription("Proveedores largo plazo");
+      paprov_c_plazo.setDescription("Proveedores corto plazo");
+      paproveedores.setDescription("PROVEEDORES");
+      paprov_empr_gru.setDescription("Proveedores empr.grupo y asoc");
+      paacree_varios.setDescription("Acreedores varios");
+      papers_rem_pdte.setDescription("Personal, remuneracion pdte");
+      papas_imp_corr.setDescription("Pasivos por impuesto corriente");
+      paotr_deud_admi.setDescription("Otras deudas con administrac.");
+      paanticipos_cli.setDescription("Anticipos clientes");
+      paacreed_comerc.setDescription("ACREEDORES COMERCIALES");
+      paperio_cort_pl.setDescription("Periodificacion corto plazo");
+      padeu_car_es_cp.setDescription("Deuda caract.especial corto pl");
+      papas_corrient.setDescription("PASIVO CORRIENTE");
+      patotal_pasivo.setDescription("TOTAL PATRIMONIO NETO Y PASIVO");
+      pareslegal.setDescription("Reserva legal");
+      paresestaturia.setDescription("Reserva estatutaria");
+      pafondcapitali.setDescription("Fondos capitalizados (cooperativas)");
+      paresactualiz.setDescription("Fondo de reembolso o actualizacion (cooperativas)");
+      paresvoluntar.setDescription("Fondo de reserva voluntario (cooperativas)");
+      pafoneduclp.setDescription("Fondo educacion y promocion larg.plazo (cooperativas)");
+      pacapreembexlp.setDescription("Capital reembolsable exigible largo plazo (cooperativas)");
+      pafondoesplpla.setDescription("Fondos especiales calificados pasivo largo plazo(cooperativas)");
+      paacrefondolpl.setDescription("Acreedores fondos capitalizados largo plazo (cooperativas)");
+      padeuempgruplp.setDescription("Deudas con empresa del grupo l.plazo (cooperativas)");
+      padeuempasoclp.setDescription("Deudas con empresas asociadas l.plazo (cooperativas)");
+      padeudsocioslp.setDescription("Deudas con socios l.plazo (cooperativas)");
+      pafoneduccp.setDescription("Fondo educacion y promocion corto plazo (cooperativas)");
+      pacapreembexcp.setDescription("Capital reembolsable exigible corto plazo (cooperativas)");
+      pafondoespcpla.setDescription("Fondos especiales calificados pasivo corto plazo(cooperativas)");
+      paacrefondocpl.setDescription("Acreedores fondos capitalizados corto plazo (cooperativas)");
+      padeuempgrupcp.setDescription("Deudas con empresa del grupo corto plazo (cooperativas)");
+      padeuempasoccp.setDescription("Deudas con empresas asociadas c.plazo (cooperativas)");
+      padeudsocioscp.setDescription("Deudas con socios c.plazo (cooperativas)");
+      pasocioproveed.setDescription("Socios proveedores (cooperativas)");
+      paotrosproveed.setDescription("Proveedores, empr.grupo y asociadas (cooperativas)");
+      pareservaotras.setDescription("Otras reservas (coopertivas)");
+      pasocioexterno.setDescription("Socios externos (consolidacion fiscal)");
+      paresrev162012.setDescription("Reserva revalorizacion Ley 16/2012");
+      paprovgasesinv.setDescription("Provision gases efecto invernadero, corto plazo");
+      paotrasprovis.setDescription("Otras provisiones corto plazo");
+      pasubvencion.setDescription("Subvenciones (fundaciones)");
+      padonac_legado.setDescription("Donaciones y legados (fundaciones)");
+      pabenefacreedor.setDescription("Beneficiarios Acreedores (fundaciones)");
+      }
+    }
+    
+  public class TabCtaresultado extends TableDef
+    {
+    // Campos
+    public FieldDef deejeraplic;
+    public FieldDef desociedad;
+    public FieldDef deventas;
+    public FieldDef deprestacion_se;
+    public FieldDef deimp_neto_cifr;
+    public FieldDef devariac_existe;
+    public FieldDef detraba_empresa;
+    public FieldDef deconsum_mercad;
+    public FieldDef deconsum_mat_pr;
+    public FieldDef detraba_otr_emp;
+    public FieldDef dedeter_mercade;
+    public FieldDef deaprovisionami;
+    public FieldDef deingr_accesori;
+    public FieldDef desubv_explotac;
+    public FieldDef deotr_ingr_expl;
+    public FieldDef desueldos;
+    public FieldDef decargas_social;
+    public FieldDef deprovisiones;
+    public FieldDef degastos_person;
+    public FieldDef deserv_exterior;
+    public FieldDef detributos;
+    public FieldDef deperd_op_comer;
+    public FieldDef deotros_gast_ge;
+    public FieldDef deotros_gast_ex;
+    public FieldDef deamortiz_inmov;
+    public FieldDef deimput_subv_in;
+    public FieldDef deexceso_provis;
+    public FieldDef dedeterioro;
+    public FieldDef deresul_enajena;
+    public FieldDef dedeter_enaj_in;
+    public FieldDef dedif_combin_ne;
+    public FieldDef deotros_resulta;
+    public FieldDef deresult_explot;
+    public FieldDef dei_fin_part_em;
+    public FieldDef dei_fin_part_te;
+    public FieldDef deing_fin_parti;
+    public FieldDef dei_fin_valn_em;
+    public FieldDef dei_fin_valn_te;
+    public FieldDef deing_fin_valne;
+    public FieldDef deing_fin_subve;
+    public FieldDef deingresos_fina;
+    public FieldDef deg_fin_deud_em;
+    public FieldDef deg_fin_deud_te;
+    public FieldDef deg_fin_deud_pr;
+    public FieldDef degastos_financ;
+    public FieldDef decartera_negoc;
+    public FieldDef deimp_res_act_f;
+    public FieldDef devaria_instr_f;
+    public FieldDef dedifer_cambios;
+    public FieldDef dedeter_y_perdi;
+    public FieldDef deresul_enaj_ot;
+    public FieldDef dedete_res_ins_;
+    public FieldDef deresult_financ;
+    public FieldDef deresult_ant_im;
+    public FieldDef deimp_sobre_bfo;
+    public FieldDef deres_ej_pr_op_;
+    public FieldDef deres_ej_oper_i;
+    public FieldDef deresultado_eje;
+    public FieldDef deingr_arrendam;
+    public FieldDef deresto_ingr_ac;
+    public FieldDef desueldos_salar;
+    public FieldDef deindemnizacion;
+    public FieldDef deretr_suel_ins;
+    public FieldDef deseg_social;
+    public FieldDef deplanes_pensio;
+    public FieldDef deotros_gast_so;
+    public FieldDef dedeterioro_ena;
+    public FieldDef dereversion_ena;
+    public FieldDef debeneficio_ena;
+    public FieldDef deperdida_enaj;
+    public FieldDef dedeter_empr_gr;
+    public FieldDef dedeter_otr_emp;
+    public FieldDef derever_empr_gr;
+    public FieldDef derever_otr_emp;
+    public FieldDef debfos_empr_gru;
+    public FieldDef debfos_otr_empr;
+    public FieldDef deperd_empr_gru;
+    public FieldDef deperd_otr_empr;
+    public FieldDef deotringfin;
+    public FieldDef deotringfin_act;
+    public FieldDef deotringfin_con;
+    public FieldDef deotringfin_res;
+    public FieldDef deconsumoexisoc;
+    public FieldDef deingropersocio;
+    public FieldDef deservtrabsocio;
+    public FieldDef dedotfondoeduca;
+    public FieldDef dedsubvfondeduc;
+    public FieldDef dedfondoeducac;
+    public FieldDef deingfinvnegsoc;
+    public FieldDef degastfincardeu;
+    public FieldDef dertdoperdctrl;
+    public FieldDef dertdoatribpart;
+    public FieldDef dertdopartconso;
+    public FieldDef dertosocdominan;
+    public FieldDef dertosocesterno;
+    public FieldDef deingrsholding;
+    public FieldDef degastemisgases;
+    public FieldDef dedeterenajhold;
+    public FieldDef dedholdinstpa;
+    public FieldDef dedholdvalneg;
+    public FieldDef dedholdresto;
+    public FieldDef dedventactmerca;
+    public FieldDef dedgastayudas_o;
+    public FieldDef dedayudmonetar;
+    public FieldDef dedayudnomoneta;
+    public FieldDef dedgastcolabora;
+    public FieldDef dedreintsubvenc;
+    public FieldDef dedingpromocion;
+    public FieldDef dedsubvenexced;
+    public FieldDef dedreintayudas;
+    public FieldDef dedsubcapexced;
+    public FieldDef deddoncapexced;
+    public TabCtaresultado(String name)
+      {
+      super(name);
+      deejeraplic = new FieldDef("deejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      desociedad = new FieldDef("desociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      deventas = new FieldDef("deventas",FieldDef.FLOAT,6,0);
+      deprestacion_se = new FieldDef("deprestacion_se",FieldDef.FLOAT,6,0);
+      deimp_neto_cifr = new FieldDef("deimp_neto_cifr",FieldDef.FLOAT,6,0);
+      devariac_existe = new FieldDef("devariac_existe",FieldDef.FLOAT,6,0);
+      detraba_empresa = new FieldDef("detraba_empresa",FieldDef.FLOAT,6,0);
+      deconsum_mercad = new FieldDef("deconsum_mercad",FieldDef.FLOAT,6,0);
+      deconsum_mat_pr = new FieldDef("deconsum_mat_pr",FieldDef.FLOAT,6,0);
+      detraba_otr_emp = new FieldDef("detraba_otr_emp",FieldDef.FLOAT,6,0);
+      dedeter_mercade = new FieldDef("dedeter_mercade",FieldDef.FLOAT,6,0);
+      deaprovisionami = new FieldDef("deaprovisionami",FieldDef.FLOAT,6,0);
+      deingr_accesori = new FieldDef("deingr_accesori",FieldDef.FLOAT,6,0);
+      desubv_explotac = new FieldDef("desubv_explotac",FieldDef.FLOAT,6,0);
+      deotr_ingr_expl = new FieldDef("deotr_ingr_expl",FieldDef.FLOAT,6,0);
+      desueldos = new FieldDef("desueldos",FieldDef.FLOAT,6,0);
+      decargas_social = new FieldDef("decargas_social",FieldDef.FLOAT,6,0);
+      deprovisiones = new FieldDef("deprovisiones",FieldDef.FLOAT,6,0);
+      degastos_person = new FieldDef("degastos_person",FieldDef.FLOAT,6,0);
+      deserv_exterior = new FieldDef("deserv_exterior",FieldDef.FLOAT,6,0);
+      detributos = new FieldDef("detributos",FieldDef.FLOAT,6,0);
+      deperd_op_comer = new FieldDef("deperd_op_comer",FieldDef.FLOAT,6,0);
+      deotros_gast_ge = new FieldDef("deotros_gast_ge",FieldDef.FLOAT,6,0);
+      deotros_gast_ex = new FieldDef("deotros_gast_ex",FieldDef.FLOAT,6,0);
+      deamortiz_inmov = new FieldDef("deamortiz_inmov",FieldDef.FLOAT,6,0);
+      deimput_subv_in = new FieldDef("deimput_subv_in",FieldDef.FLOAT,6,0);
+      deexceso_provis = new FieldDef("deexceso_provis",FieldDef.FLOAT,6,0);
+      dedeterioro = new FieldDef("dedeterioro",FieldDef.FLOAT,6,0);
+      deresul_enajena = new FieldDef("deresul_enajena",FieldDef.FLOAT,6,0);
+      dedeter_enaj_in = new FieldDef("dedeter_enaj_in",FieldDef.FLOAT,6,0);
+      dedif_combin_ne = new FieldDef("dedif_combin_ne",FieldDef.FLOAT,6,0);
+      deotros_resulta = new FieldDef("deotros_resulta",FieldDef.FLOAT,6,0);
+      deresult_explot = new FieldDef("deresult_explot",FieldDef.FLOAT,6,0);
+      dei_fin_part_em = new FieldDef("dei_fin_part_em",FieldDef.FLOAT,6,0);
+      dei_fin_part_te = new FieldDef("dei_fin_part_te",FieldDef.FLOAT,6,0);
+      deing_fin_parti = new FieldDef("deing_fin_parti",FieldDef.FLOAT,6,0);
+      dei_fin_valn_em = new FieldDef("dei_fin_valn_em",FieldDef.FLOAT,6,0);
+      dei_fin_valn_te = new FieldDef("dei_fin_valn_te",FieldDef.FLOAT,6,0);
+      deing_fin_valne = new FieldDef("deing_fin_valne",FieldDef.FLOAT,6,0);
+      deing_fin_subve = new FieldDef("deing_fin_subve",FieldDef.FLOAT,6,0);
+      deingresos_fina = new FieldDef("deingresos_fina",FieldDef.FLOAT,6,0);
+      deg_fin_deud_em = new FieldDef("deg_fin_deud_em",FieldDef.FLOAT,6,0);
+      deg_fin_deud_te = new FieldDef("deg_fin_deud_te",FieldDef.FLOAT,6,0);
+      deg_fin_deud_pr = new FieldDef("deg_fin_deud_pr",FieldDef.FLOAT,6,0);
+      degastos_financ = new FieldDef("degastos_financ",FieldDef.FLOAT,6,0);
+      decartera_negoc = new FieldDef("decartera_negoc",FieldDef.FLOAT,6,0);
+      deimp_res_act_f = new FieldDef("deimp_res_act_f",FieldDef.FLOAT,6,0);
+      devaria_instr_f = new FieldDef("devaria_instr_f",FieldDef.FLOAT,6,0);
+      dedifer_cambios = new FieldDef("dedifer_cambios",FieldDef.FLOAT,6,0);
+      dedeter_y_perdi = new FieldDef("dedeter_y_perdi",FieldDef.FLOAT,6,0);
+      deresul_enaj_ot = new FieldDef("deresul_enaj_ot",FieldDef.FLOAT,6,0);
+      dedete_res_ins_ = new FieldDef("dedete_res_ins_",FieldDef.FLOAT,6,0);
+      deresult_financ = new FieldDef("deresult_financ",FieldDef.FLOAT,6,0);
+      deresult_ant_im = new FieldDef("deresult_ant_im",FieldDef.FLOAT,6,0);
+      deimp_sobre_bfo = new FieldDef("deimp_sobre_bfo",FieldDef.FLOAT,6,0);
+      deres_ej_pr_op_ = new FieldDef("deres_ej_pr_op_",FieldDef.FLOAT,6,0);
+      deres_ej_oper_i = new FieldDef("deres_ej_oper_i",FieldDef.FLOAT,6,0);
+      deresultado_eje = new FieldDef("deresultado_eje",FieldDef.FLOAT,6,0);
+      deingr_arrendam = new FieldDef("deingr_arrendam",FieldDef.FLOAT,6,0);
+      deresto_ingr_ac = new FieldDef("deresto_ingr_ac",FieldDef.FLOAT,6,0);
+      desueldos_salar = new FieldDef("desueldos_salar",FieldDef.FLOAT,6,0);
+      deindemnizacion = new FieldDef("deindemnizacion",FieldDef.FLOAT,6,0);
+      deretr_suel_ins = new FieldDef("deretr_suel_ins",FieldDef.FLOAT,6,0);
+      deseg_social = new FieldDef("deseg_social",FieldDef.FLOAT,6,0);
+      deplanes_pensio = new FieldDef("deplanes_pensio",FieldDef.FLOAT,6,0);
+      deotros_gast_so = new FieldDef("deotros_gast_so",FieldDef.FLOAT,6,0);
+      dedeterioro_ena = new FieldDef("dedeterioro_ena",FieldDef.FLOAT,6,0);
+      dereversion_ena = new FieldDef("dereversion_ena",FieldDef.FLOAT,6,0);
+      debeneficio_ena = new FieldDef("debeneficio_ena",FieldDef.FLOAT,6,0);
+      deperdida_enaj = new FieldDef("deperdida_enaj",FieldDef.FLOAT,6,0);
+      dedeter_empr_gr = new FieldDef("dedeter_empr_gr",FieldDef.FLOAT,6,0);
+      dedeter_otr_emp = new FieldDef("dedeter_otr_emp",FieldDef.FLOAT,6,0);
+      derever_empr_gr = new FieldDef("derever_empr_gr",FieldDef.FLOAT,6,0);
+      derever_otr_emp = new FieldDef("derever_otr_emp",FieldDef.FLOAT,6,0);
+      debfos_empr_gru = new FieldDef("debfos_empr_gru",FieldDef.FLOAT,6,0);
+      debfos_otr_empr = new FieldDef("debfos_otr_empr",FieldDef.FLOAT,6,0);
+      deperd_empr_gru = new FieldDef("deperd_empr_gru",FieldDef.FLOAT,6,0);
+      deperd_otr_empr = new FieldDef("deperd_otr_empr",FieldDef.FLOAT,6,0);
+      deotringfin = new FieldDef("deotringfin",FieldDef.FLOAT,6,0);
+      deotringfin_act = new FieldDef("deotringfin_act",FieldDef.FLOAT,6,0);
+      deotringfin_con = new FieldDef("deotringfin_con",FieldDef.FLOAT,6,0);
+      deotringfin_res = new FieldDef("deotringfin_res",FieldDef.FLOAT,6,0);
+      deconsumoexisoc = new FieldDef("deconsumoexisoc",FieldDef.FLOAT,6,0);
+      deingropersocio = new FieldDef("deingropersocio",FieldDef.FLOAT,6,0);
+      deservtrabsocio = new FieldDef("deservtrabsocio",FieldDef.FLOAT,6,0);
+      dedotfondoeduca = new FieldDef("dedotfondoeduca",FieldDef.FLOAT,6,0);
+      dedsubvfondeduc = new FieldDef("dedsubvfondeduc",FieldDef.FLOAT,6,0);
+      dedfondoeducac = new FieldDef("dedfondoeducac",FieldDef.FLOAT,6,0);
+      deingfinvnegsoc = new FieldDef("deingfinvnegsoc",FieldDef.FLOAT,6,0);
+      degastfincardeu = new FieldDef("degastfincardeu",FieldDef.FLOAT,6,0);
+      dertdoperdctrl = new FieldDef("dertdoperdctrl",FieldDef.FLOAT,6,0);
+      dertdoatribpart = new FieldDef("dertdoatribpart",FieldDef.FLOAT,6,0);
+      dertdopartconso = new FieldDef("dertdopartconso",FieldDef.FLOAT,6,0);
+      dertosocdominan = new FieldDef("dertosocdominan",FieldDef.FLOAT,6,0);
+      dertosocesterno = new FieldDef("dertosocesterno",FieldDef.FLOAT,6,0);
+      deingrsholding = new FieldDef("deingrsholding",FieldDef.FLOAT,6,0);
+      degastemisgases = new FieldDef("degastemisgases",FieldDef.FLOAT,6,0);
+      dedeterenajhold = new FieldDef("dedeterenajhold",FieldDef.FLOAT,6,0);
+      dedholdinstpa = new FieldDef("dedholdinstpa",FieldDef.FLOAT,6,0);
+      dedholdvalneg = new FieldDef("dedholdvalneg",FieldDef.FLOAT,6,0);
+      dedholdresto = new FieldDef("dedholdresto",FieldDef.FLOAT,6,0);
+      dedventactmerca = new FieldDef("dedventactmerca",FieldDef.FLOAT,6,0);
+      dedgastayudas_o = new FieldDef("dedgastayudas_o",FieldDef.FLOAT,6,0);
+      dedayudmonetar = new FieldDef("dedayudmonetar",FieldDef.FLOAT,6,0);
+      dedayudnomoneta = new FieldDef("dedayudnomoneta",FieldDef.FLOAT,6,0);
+      dedgastcolabora = new FieldDef("dedgastcolabora",FieldDef.FLOAT,6,0);
+      dedreintsubvenc = new FieldDef("dedreintsubvenc",FieldDef.FLOAT,6,0);
+      dedingpromocion = new FieldDef("dedingpromocion",FieldDef.FLOAT,6,0);
+      dedsubvenexced = new FieldDef("dedsubvenexced",FieldDef.FLOAT,6,0);
+      dedreintayudas = new FieldDef("dedreintayudas",FieldDef.FLOAT,6,0);
+      dedsubcapexced = new FieldDef("dedsubcapexced",FieldDef.FLOAT,6,0);
+      deddoncapexced = new FieldDef("deddoncapexced",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        deejeraplic,
+        desociedad,
+        deventas,
+        deprestacion_se,
+        deimp_neto_cifr,
+        devariac_existe,
+        detraba_empresa,
+        deconsum_mercad,
+        deconsum_mat_pr,
+        detraba_otr_emp,
+        dedeter_mercade,
+        deaprovisionami,
+        deingr_accesori,
+        desubv_explotac,
+        deotr_ingr_expl,
+        desueldos,
+        decargas_social,
+        deprovisiones,
+        degastos_person,
+        deserv_exterior,
+        detributos,
+        deperd_op_comer,
+        deotros_gast_ge,
+        deotros_gast_ex,
+        deamortiz_inmov,
+        deimput_subv_in,
+        deexceso_provis,
+        dedeterioro,
+        deresul_enajena,
+        dedeter_enaj_in,
+        dedif_combin_ne,
+        deotros_resulta,
+        deresult_explot,
+        dei_fin_part_em,
+        dei_fin_part_te,
+        deing_fin_parti,
+        dei_fin_valn_em,
+        dei_fin_valn_te,
+        deing_fin_valne,
+        deing_fin_subve,
+        deingresos_fina,
+        deg_fin_deud_em,
+        deg_fin_deud_te,
+        deg_fin_deud_pr,
+        degastos_financ,
+        decartera_negoc,
+        deimp_res_act_f,
+        devaria_instr_f,
+        dedifer_cambios,
+        dedeter_y_perdi,
+        deresul_enaj_ot,
+        dedete_res_ins_,
+        deresult_financ,
+        deresult_ant_im,
+        deimp_sobre_bfo,
+        deres_ej_pr_op_,
+        deres_ej_oper_i,
+        deresultado_eje,
+        deingr_arrendam,
+        deresto_ingr_ac,
+        desueldos_salar,
+        deindemnizacion,
+        deretr_suel_ins,
+        deseg_social,
+        deplanes_pensio,
+        deotros_gast_so,
+        dedeterioro_ena,
+        dereversion_ena,
+        debeneficio_ena,
+        deperdida_enaj,
+        dedeter_empr_gr,
+        dedeter_otr_emp,
+        derever_empr_gr,
+        derever_otr_emp,
+        debfos_empr_gru,
+        debfos_otr_empr,
+        deperd_empr_gru,
+        deperd_otr_empr,
+        deotringfin,
+        deotringfin_act,
+        deotringfin_con,
+        deotringfin_res,
+        deconsumoexisoc,
+        deingropersocio,
+        deservtrabsocio,
+        dedotfondoeduca,
+        dedsubvfondeduc,
+        dedfondoeducac,
+        deingfinvnegsoc,
+        degastfincardeu,
+        dertdoperdctrl,
+        dertdoatribpart,
+        dertdopartconso,
+        dertosocdominan,
+        dertosocesterno,
+        deingrsholding,
+        degastemisgases,
+        dedeterenajhold,
+        dedholdinstpa,
+        dedholdvalneg,
+        dedholdresto,
+        dedventactmerca,
+        dedgastayudas_o,
+        dedayudmonetar,
+        dedayudnomoneta,
+        dedgastcolabora,
+        dedreintsubvenc,
+        dedingpromocion,
+        dedsubvenexced,
+        dedreintayudas,
+        dedsubcapexced,
+        deddoncapexced        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {deejeraplic,desociedad };
+      setDescription("Cuenta de resultados");
+      setPrimaryKeys(arrayf);
+      deejeraplic.setDescription("Ejercicio fiscal aplicacion");
+      desociedad.setDescription("CODIGO SOCIEDAD");
+      deventas.setDescription("Ventas");
+      deprestacion_se.setDescription("Prestaciones de servicios");
+      deimp_neto_cifr.setDescription("IMPORTE NETO CIFRA NEGOCIOS");
+      devariac_existe.setDescription("Variacion de existencias");
+      detraba_empresa.setDescription("Trabajos realizados empresa");
+      deconsum_mercad.setDescription("Consumo de mercaderias");
+      deconsum_mat_pr.setDescription("Consumo materias primas");
+      detraba_otr_emp.setDescription("Trabajos otras empresas");
+      dedeter_mercade.setDescription("Deterioro mercaderias");
+      deaprovisionami.setDescription("APROVISIONAMIENTOS");
+      deingr_accesori.setDescription("INGRESOS ACCESORIOS");
+      desubv_explotac.setDescription("Subvenciones explotacion");
+      deotr_ingr_expl.setDescription("OTROS INGRESOS EXPLOTACION");
+      desueldos.setDescription("SUELDOS, SALARIOS Y ASIMILADOS");
+      decargas_social.setDescription("CARGAS SOCIALES");
+      deprovisiones.setDescription("Provisiones");
+      degastos_person.setDescription("GASTOS DE PERSONAL");
+      deserv_exterior.setDescription("Servicios exteriores");
+      detributos.setDescription("Tributos");
+      deperd_op_comer.setDescription("Perdidas,deterioro oper.comerc");
+      deotros_gast_ge.setDescription("Otros gastos gestion corriente");
+      deotros_gast_ex.setDescription("OTROS GASTOS EXPLOTACION");
+      deamortiz_inmov.setDescription("Amortizacion inmovilizado");
+      deimput_subv_in.setDescription("Imputacion subv.inmov.no finan");
+      deexceso_provis.setDescription("Exceso de provisiones");
+      dedeterioro.setDescription("DETERIORO Y PERDIDAS");
+      deresul_enajena.setDescription("RESULTADOS ENAJENACION Y OTRAS");
+      dedeter_enaj_in.setDescription("DETERIORO ENAJENACION INMOVIL.");
+      dedif_combin_ne.setDescription("Diferencia negativa combin.neg");
+      deotros_resulta.setDescription("Otros resultados");
+      deresult_explot.setDescription("RESULTADO EXPLOTACION");
+      dei_fin_part_em.setDescription("Part.instrum.patrim.empr.grupo");
+      dei_fin_part_te.setDescription("Part.instrum.patrim.terceros");
+      deing_fin_parti.setDescription("PARTICI.INSTRUMENTO PATRIMONIO");
+      dei_fin_valn_em.setDescription("Valores negociables empr.grupo");
+      dei_fin_valn_te.setDescription("Valores negociables terceros");
+      deing_fin_valne.setDescription("VALORES NEGOCIABLES Y OTROS IN");
+      deing_fin_subve.setDescription("Imput.subvenciones carac.finan");
+      deingresos_fina.setDescription("INGRESOS FINANCIEROS");
+      deg_fin_deud_em.setDescription("Deudas empresas grupo");
+      deg_fin_deud_te.setDescription("Deudas con terceros");
+      deg_fin_deud_pr.setDescription("Por actualizacion provisiones");
+      degastos_financ.setDescription("GASTOS FINANCIEROS");
+      decartera_negoc.setDescription("Cartera de negociacion y otros");
+      deimp_res_act_f.setDescription("Imputacion rtdo.activos financ");
+      devaria_instr_f.setDescription("VARIACION INSTRUM. FINANCIEROS");
+      dedifer_cambios.setDescription("Diferencias de cambio");
+      dedeter_y_perdi.setDescription("DETERIOROS Y PERDIDAS");
+      deresul_enaj_ot.setDescription("RESULTADOS ENAJENACIONES Y OTR");
+      dedete_res_ins_.setDescription("DETER.Y RDTO.ENAJEN.INSTR.FINA");
+      deresult_financ.setDescription("RESULTADO FINANCIERO");
+      deresult_ant_im.setDescription("RESULTADO ANTES IMPUESTOS");
+      deimp_sobre_bfo.setDescription("Impuestos sobre beneficios");
+      deres_ej_pr_op_.setDescription("RESUL.EJER.PROC.OPER.CONTINUAD");
+      deres_ej_oper_i.setDescription("Result.ejer.proced.op.interrum");
+      deresultado_eje.setDescription("RESULTADO EJERCICIO");
+      deingr_arrendam.setDescription("Ingresos por arrendamiento");
+      deresto_ingr_ac.setDescription("Resto ingresos accesorios");
+      desueldos_salar.setDescription("Sueldos y salarios");
+      deindemnizacion.setDescription("Indemnizaciones");
+      deretr_suel_ins.setDescription("Retrib.sueldos instr.patrimon.");
+      deseg_social.setDescription("Seguridad social");
+      deplanes_pensio.setDescription("Retrib.l.pl. sistemas aportac.");
+      deotros_gast_so.setDescription("Otros gastos sociales");
+      dedeterioro_ena.setDescription("Deterioro enajenacion inmov.");
+      dereversion_ena.setDescription("Reversion enajenacion inmov.");
+      debeneficio_ena.setDescription("Beneficio enajenacion inmov.");
+      deperdida_enaj.setDescription("Perdida enajenacion inmov.");
+      dedeter_empr_gr.setDescription("Deter. instr.financ.empr.grupo");
+      dedeter_otr_emp.setDescription("Deter. instr.financ.otras empr");
+      derever_empr_gr.setDescription("Rever. instr.financ.empr.grupo");
+      derever_otr_emp.setDescription("Rever. instr.financ.otras empr");
+      debfos_empr_gru.setDescription("Bfos. instr.financ.empr.grupo");
+      debfos_otr_empr.setDescription("Bfos. instr.financ.otras empr.");
+      deperd_empr_gru.setDescription("Perd. instr.financ.empr.grupo");
+      deperd_otr_empr.setDescription("Perd. instr.financ.otras empr.");
+      deotringfin.setDescription("Otros ingresos y gastos finan.");
+      deotringfin_act.setDescription("Activo gastos financieros.");
+      deotringfin_con.setDescription("Ingresos fin. derivados conve.");
+      deotringfin_res.setDescription("Resto de ingresos y gastos.");
+      deconsumoexisoc.setDescription("Consumo existencias socios (cooperativas)");
+      deingropersocio.setDescription("Ingresos por operaciones con socios (cooperativas)");
+      deservtrabsocio.setDescription("Servicios de trabajos de socios (cooperativas)");
+      dedotfondoeduca.setDescription("Dotacion fondo educacion y promocion (cooperativas)");
+      dedsubvfondeduc.setDescription("Subvenciones, donaciones a fondo educacion (cooperativas)");
+      dedfondoeducac.setDescription("FONDO EDUCACION Y PROMOCION (cooperativas)");
+      deingfinvnegsoc.setDescription("Ingresos financieros de valores negociables de socios (cooperativas)");
+      degastfincardeu.setDescription("Gastos financieros por intereses por deudas (cooperativas)");
+      dertdoperdctrl.setDescription("Resultado perdida control de una dependiente (grupo consolidado)");
+      dertdoatribpart.setDescription("Resultado atribuido a la participacion retenida (grupo consolidado)");
+      dertdopartconso.setDescription("RESULTADO PERDIDA DE CONTROL DE PARTICIOACIONES CONSOLIDADAS (grupo consolidado)");
+      dertosocdominan.setDescription("Resultado atribuido sociedad dominante");
+      dertosocesterno.setDescription("Resultado atribuido a socios externos");
+      deingrsholding.setDescription("Ingresos caracter financiero de las sociedades holding");
+      degastemisgases.setDescription("Gastos emision gases efecto invernadero");
+      dedeterenajhold.setDescription("Deterioro por enajenaciones inmovilizado sociedades holding");
+      dedholdinstpa.setDescription("De participaciones en instrumentos de patrimonio [706]");
+      dedholdvalneg.setDescription("De valores negociables y otros instrumentos financieros [707]");
+      dedholdresto.setDescription("Resto [708]");
+      dedventactmerca.setDescription("Ventas y otros ingresos de la actividad mercantil (fundaciones)");
+      dedgastayudas_o.setDescription("GASTOS POR AYUDAS Y OTROS (fundaciones)");
+      dedayudmonetar.setDescription("Ayudas monetarias  (fundaciones)");
+      dedayudnomoneta.setDescription("Ayudas no monetarias  (fundaciones)");
+      dedgastcolabora.setDescription("Gastos colaboraciones y organo de gobierno (fundaciones)");
+      dedreintsubvenc.setDescription("Reintegro de subvenciones, donaciones y legados  (fundaciones)");
+      dedingpromocion.setDescription("Ingresos de promociones y patrocinadores (fundaciones)");
+      dedsubvenexced.setDescription("Subvenciones, donaciones y legados imputados (fundaciones)");
+      dedreintayudas.setDescription("Reintegro de ayudas y asignaciones (fundaciones)");
+      dedsubcapexced.setDescription("Subvenciones capital traspasadas al excedente ejercicio (fundaciones)");
+      deddoncapexced.setDescription("Donaciones y legados capital traspasadas al excedente ejercicio (fundaciones)");
       }
     }
     
@@ -30939,7 +31563,6 @@ public class CatJiss extends Catalog
     tabctaactfindeter = new TabCtaactfindeter("ctaactfindeter");
     tabctaactfincpyg = new TabCtaactfincpyg("ctaactfincpyg");
     tabobjetosocial = new TabObjetosocial("objetosocial");
-    tabsociosrelaccion = new TabSociosrelaccion("sociosrelaccion");
     tabajustenuevoplan = new TabAjustenuevoplan("ajustenuevoplan");
     tabconfigusuario = new TabConfigusuario("configusuario");
     tabquevariables = new TabQuevariables("quevariables");
@@ -30949,7 +31572,6 @@ public class CatJiss extends Catalog
     tabdedplanpensione = new TabDedplanpensione("dedplanpensione");
     tabopervinculadas = new TabOpervinculadas("opervinculadas");
     tabmenusociedad = new TabMenusociedad("menusociedad");
-    tabctadatosmercant = new TabCtadatosmercant("ctadatosmercant");
     tabequivtablas = new TabEquivtablas("equivtablas");
     tabvalorcontable = new TabValorcontable("valorcontable");
     tabvalorcoeficient = new TabValorcoeficient("valorcoeficient");
@@ -30971,7 +31593,6 @@ public class CatJiss extends Catalog
     tabctaaplaprovpmpe = new TabCtaaplaprovpmpe("ctaaplaprovpmpe");
     tabctapromplantill = new TabCtapromplantill("ctapromplantill");
     tabctanumempleado = new TabCtanumempleado("ctanumempleado");
-    tabctavarempleado = new TabCtavarempleado("ctavarempleado");
     tabctacombinegoc = new TabCtacombinegoc("ctacombinegoc");
     tabctacombetapas = new TabCtacombetapas("ctacombetapas");
     tabbasecooperativa = new TabBasecooperativa("basecooperativa");
@@ -31047,7 +31668,6 @@ public class CatJiss extends Catalog
     tabgrupopdtgastfin = new TabGrupopdtgastfin("grupopdtgastfin");
     tabgrupobfooperat = new TabGrupobfooperat("grupobfooperat");
     tabgrupoconcingre = new TabGrupoconcingre("grupoconcingre");
-    tabgrupointgral = new TabGrupointgral("grupointgral");
     tabdedinversion = new TabDedinversion("dedinversion");
     tabdedinvcanarias = new TabDedinvcanarias("dedinvcanarias");
     tabgrupoinversion = new TabGrupoinversion("grupoinversion");
@@ -31056,18 +31676,11 @@ public class CatJiss extends Catalog
     tabcompgastfinpdte = new TabCompgastfinpdte("compgastfinpdte");
     tabcompenbfoopera = new TabCompenbfoopera("compenbfoopera");
     tabconversion = new TabConversion("conversion");
-    tabparamsociedad = new TabParamsociedad("paramsociedad");
     tabasientojconta = new TabAsientojconta("asientojconta");
     tabctarevalresumen = new TabCtarevalresumen("ctarevalresumen");
     tabctarevalmovim = new TabCtarevalmovim("ctarevalmovim");
     tabctarevalelemen = new TabCtarevalelemen("ctarevalelemen");
     tabcompengastfin = new TabCompengastfin("compengastfin");
-    tabdesglosajustes = new TabDesglosajustes("desglosajustes");
-    tabfinalizacion = new TabFinalizacion("finalizacion");
-    tabpagosacuenta = new TabPagosacuenta("pagosacuenta");
-    tabactivo = new TabActivo("activo");
-    tabpasivo = new TabPasivo("pasivo");
-    tabctaresultado = new TabCtaresultado("ctaresultado");
     tabestadocambpatr = new TabEstadocambpatr("estadocambpatr");
     tabestadocambpyme = new TabEstadocambpyme("estadocambpyme");
     tabctainvinmobmovi = new TabCtainvinmobmovi("ctainvinmobmovi");
@@ -31075,13 +31688,10 @@ public class CatJiss extends Catalog
     tabctasituinmovili = new TabCtasituinmovili("ctasituinmovili");
     tabcargos = new TabCargos("cargos");
     tabpartenotras = new TabPartenotras("partenotras");
-    tabdedintgral = new TabDedintgral("dedintgral");
     tabdedidi = new TabDedidi("dedidi");
     tabdedinvdetalle = new TabDedinvdetalle("dedinvdetalle");
-    tabcalculo = new TabCalculo("calculo");
     tabliquidacion = new TabLiquidacion("liquidacion");
     taberrcoherencia = new TabErrcoherencia("errcoherencia");
-    tabsociedades = new TabSociedades("sociedades");
     tabgruporelsocieda = new TabGruporelsocieda("gruporelsocieda");
     tabgrupodotcredito = new TabGrupodotcredito("grupodotcredito");
     tabgrupoconcilia = new TabGrupoconcilia("grupoconcilia");
@@ -31094,8 +31704,23 @@ public class CatJiss extends Catalog
     tabgrupodetincodet = new TabGrupodetincodet("grupodetincodet");
     tabgrupodetpdtedet = new TabGrupodetpdtedet("grupodetpdtedet");
     tabgrupobimptotal = new TabGrupobimptotal("grupobimptotal");
-    tabfechasacceso = new TabFechasacceso("fechasacceso");
     tabdedinvbfos = new TabDedinvbfos("dedinvbfos");
+    tabdedintgral = new TabDedintgral("dedintgral");
+    tabgrupointgral = new TabGrupointgral("grupointgral");
+    tabcalculo = new TabCalculo("calculo");
+    tabctacorrecexist = new TabCtacorrecexist("ctacorrecexist");
+    tabfechasacceso = new TabFechasacceso("fechasacceso");
+    tabsociedades = new TabSociedades("sociedades");
+    tabparamsociedad = new TabParamsociedad("paramsociedad");
+    tabdesglosajustes = new TabDesglosajustes("desglosajustes");
+    tabfinalizacion = new TabFinalizacion("finalizacion");
+    tabctadatosmercant = new TabCtadatosmercant("ctadatosmercant");
+    tabsociosrelaccion = new TabSociosrelaccion("sociosrelaccion");
+    tabpagosacuenta = new TabPagosacuenta("pagosacuenta");
+    tabctavarempleado = new TabCtavarempleado("ctavarempleado");
+    tabactivo = new TabActivo("activo");
+    tabpasivo = new TabPasivo("pasivo");
+    tabctaresultado = new TabCtaresultado("ctaresultado");
     TableDef array[] = {
       tabbds,
       tabgycauto,
@@ -31230,7 +31855,6 @@ public class CatJiss extends Catalog
       tabctaactfindeter,
       tabctaactfincpyg,
       tabobjetosocial,
-      tabsociosrelaccion,
       tabajustenuevoplan,
       tabconfigusuario,
       tabquevariables,
@@ -31240,7 +31864,6 @@ public class CatJiss extends Catalog
       tabdedplanpensione,
       tabopervinculadas,
       tabmenusociedad,
-      tabctadatosmercant,
       tabequivtablas,
       tabvalorcontable,
       tabvalorcoeficient,
@@ -31262,7 +31885,6 @@ public class CatJiss extends Catalog
       tabctaaplaprovpmpe,
       tabctapromplantill,
       tabctanumempleado,
-      tabctavarempleado,
       tabctacombinegoc,
       tabctacombetapas,
       tabbasecooperativa,
@@ -31338,7 +31960,6 @@ public class CatJiss extends Catalog
       tabgrupopdtgastfin,
       tabgrupobfooperat,
       tabgrupoconcingre,
-      tabgrupointgral,
       tabdedinversion,
       tabdedinvcanarias,
       tabgrupoinversion,
@@ -31347,18 +31968,11 @@ public class CatJiss extends Catalog
       tabcompgastfinpdte,
       tabcompenbfoopera,
       tabconversion,
-      tabparamsociedad,
       tabasientojconta,
       tabctarevalresumen,
       tabctarevalmovim,
       tabctarevalelemen,
       tabcompengastfin,
-      tabdesglosajustes,
-      tabfinalizacion,
-      tabpagosacuenta,
-      tabactivo,
-      tabpasivo,
-      tabctaresultado,
       tabestadocambpatr,
       tabestadocambpyme,
       tabctainvinmobmovi,
@@ -31366,13 +31980,10 @@ public class CatJiss extends Catalog
       tabctasituinmovili,
       tabcargos,
       tabpartenotras,
-      tabdedintgral,
       tabdedidi,
       tabdedinvdetalle,
-      tabcalculo,
       tabliquidacion,
       taberrcoherencia,
-      tabsociedades,
       tabgruporelsocieda,
       tabgrupodotcredito,
       tabgrupoconcilia,
@@ -31385,8 +31996,23 @@ public class CatJiss extends Catalog
       tabgrupodetincodet,
       tabgrupodetpdtedet,
       tabgrupobimptotal,
+      tabdedinvbfos,
+      tabdedintgral,
+      tabgrupointgral,
+      tabcalculo,
+      tabctacorrecexist,
       tabfechasacceso,
-      tabdedinvbfos      
+      tabsociedades,
+      tabparamsociedad,
+      tabdesglosajustes,
+      tabfinalizacion,
+      tabctadatosmercant,
+      tabsociosrelaccion,
+      tabpagosacuenta,
+      tabctavarempleado,
+      tabactivo,
+      tabpasivo,
+      tabctaresultado      
       };
     setTables(array);
     FieldDef tabcuentasArrayf1[] = { tabcuentas.ctaejeraplic,tabcuentas.ctasector };
@@ -32031,11 +32657,6 @@ public class CatJiss extends Catalog
       new ForeignKey(tabsociedades,tabopervinculadasArrayf1)      
       };
     tabopervinculadas.setForeignKeys(tabopervinculadasArrayfk);
-    FieldDef tabctadatosmercantArrayf1[] = { tabctadatosmercant.ctrejeraplic,tabctadatosmercant.ctrsociedad };
-    ForeignKey tabctadatosmercantArrayfk[] = { 
-      new ForeignKey(tabsociedades,tabctadatosmercantArrayf1)      
-      };
-    tabctadatosmercant.setForeignKeys(tabctadatosmercantArrayfk);
     FieldDef tabvalorcontableArrayf1[] = { tabvalorcontable.covcodigo };
     ForeignKey tabvalorcontableArrayfk[] = { 
       new ForeignKey(tabcorrecmonetaria,tabvalorcontableArrayf1)      
@@ -32061,8 +32682,10 @@ public class CatJiss extends Catalog
       };
     tabrbfosdreinver.setForeignKeys(tabrbfosdreinverArrayfk);
     FieldDef tabdedreinverdetaArrayf1[] = { tabdedreinverdeta.drcejeraplic,tabdedreinverdeta.drcsociedad };
+    FieldDef tabdedreinverdetaArrayf2[] = { tabdedreinverdeta.drccontador };
     ForeignKey tabdedreinverdetaArrayfk[] = { 
-      new ForeignKey(tabsociedades,tabdedreinverdetaArrayf1)      
+      new ForeignKey(tabsociedades,tabdedreinverdetaArrayf1),
+      new ForeignKey(tabdedreinversion,tabdedreinverdetaArrayf2)      
       };
     tabdedreinverdeta.setForeignKeys(tabdedreinverdetaArrayfk);
     FieldDef tabctaarrendotrinfArrayf1[] = { tabctaarrendotrinf.ctaiejeraplic,tabctaarrendotrinf.ctaisociedad };
@@ -32110,13 +32733,6 @@ public class CatJiss extends Catalog
       new ForeignKey(tabsociedades,tabctanumempleadoArrayf1)      
       };
     tabctanumempleado.setForeignKeys(tabctanumempleadoArrayfk);
-    FieldDef tabctavarempleadoArrayf1[] = { tabctavarempleado.ctlejeraplic,tabctavarempleado.ctlsociedad };
-    FieldDef tabctavarempleadoArrayf2[] = { tabctavarempleado.ctlejeraplic,tabctavarempleado.ctlsociedad };
-    ForeignKey tabctavarempleadoArrayfk[] = { 
-      new ForeignKey(tabsociedades,tabctavarempleadoArrayf1),
-      new ForeignKey(tabctanumempleado,tabctavarempleadoArrayf2)      
-      };
-    tabctavarempleado.setForeignKeys(tabctavarempleadoArrayfk);
     FieldDef tabctacombinegocArrayf1[] = { tabctacombinegoc.ctacejeraplic,tabctacombinegoc.ctacsociedad };
     ForeignKey tabctacombinegocArrayfk[] = { 
       new ForeignKey(tabsociedades,tabctacombinegocArrayf1)      
@@ -32394,11 +33010,6 @@ public class CatJiss extends Catalog
       new ForeignKey(tabsociedades,tabgrupoconcingreArrayf1)      
       };
     tabgrupoconcingre.setForeignKeys(tabgrupoconcingreArrayfk);
-    FieldDef tabgrupointgralArrayf1[] = { tabgrupointgral.gigejeraplic,tabgrupointgral.gigsociedad };
-    ForeignKey tabgrupointgralArrayfk[] = { 
-      new ForeignKey(tabsociedades,tabgrupointgralArrayf1)      
-      };
-    tabgrupointgral.setForeignKeys(tabgrupointgralArrayfk);
     FieldDef tabdedinversionArrayf1[] = { tabdedinversion.diiejeraplic,tabdedinversion.diisociedad };
     ForeignKey tabdedinversionArrayfk[] = { 
       new ForeignKey(tabsociedades,tabdedinversionArrayf1)      
@@ -32434,11 +33045,6 @@ public class CatJiss extends Catalog
       new ForeignKey(tabsociedades,tabcompenbfooperaArrayf1)      
       };
     tabcompenbfoopera.setForeignKeys(tabcompenbfooperaArrayfk);
-    FieldDef tabparamsociedadArrayf1[] = { tabparamsociedad.psoejeraplic,tabparamsociedad.psosociedad };
-    ForeignKey tabparamsociedadArrayfk[] = { 
-      new ForeignKey(tabsociedades,tabparamsociedadArrayf1)      
-      };
-    tabparamsociedad.setForeignKeys(tabparamsociedadArrayfk);
     FieldDef tabctarevalresumenArrayf1[] = { tabctarevalresumen.crrejeraplic,tabctarevalresumen.crrsociedad };
     ForeignKey tabctarevalresumenArrayfk[] = { 
       new ForeignKey(tabsociedades,tabctarevalresumenArrayf1)      
@@ -32459,38 +33065,6 @@ public class CatJiss extends Catalog
       new ForeignKey(tabsociedades,tabcompengastfinArrayf1)      
       };
     tabcompengastfin.setForeignKeys(tabcompengastfinArrayfk);
-    FieldDef tabdesglosajustesArrayf1[] = { tabdesglosajustes.daejeraplic,tabdesglosajustes.dasociedad };
-    FieldDef tabdesglosajustesArrayf2[] = { tabdesglosajustes.daejeraplic,tabdesglosajustes.dasociedad };
-    ForeignKey tabdesglosajustesArrayfk[] = { 
-      new ForeignKey(tabsociedades,tabdesglosajustesArrayf1),
-      new ForeignKey(tabdetallecorecc,tabdesglosajustesArrayf2)      
-      };
-    tabdesglosajustes.setForeignKeys(tabdesglosajustesArrayfk);
-    FieldDef tabfinalizacionArrayf1[] = { tabfinalizacion.finejeraplic,tabfinalizacion.finsociedad };
-    ForeignKey tabfinalizacionArrayfk[] = { 
-      new ForeignKey(tabsociedades,tabfinalizacionArrayf1)      
-      };
-    tabfinalizacion.setForeignKeys(tabfinalizacionArrayfk);
-    FieldDef tabpagosacuentaArrayf1[] = { tabpagosacuenta.pctejeraplic,tabpagosacuenta.pctsociedad };
-    ForeignKey tabpagosacuentaArrayfk[] = { 
-      new ForeignKey(tabsociedades,tabpagosacuentaArrayf1)      
-      };
-    tabpagosacuenta.setForeignKeys(tabpagosacuentaArrayfk);
-    FieldDef tabactivoArrayf1[] = { tabactivo.baejeraplic,tabactivo.basociedad };
-    ForeignKey tabactivoArrayfk[] = { 
-      new ForeignKey(tabsociedades,tabactivoArrayf1)      
-      };
-    tabactivo.setForeignKeys(tabactivoArrayfk);
-    FieldDef tabpasivoArrayf1[] = { tabpasivo.paejeraplic,tabpasivo.pasociedad };
-    ForeignKey tabpasivoArrayfk[] = { 
-      new ForeignKey(tabsociedades,tabpasivoArrayf1)      
-      };
-    tabpasivo.setForeignKeys(tabpasivoArrayfk);
-    FieldDef tabctaresultadoArrayf1[] = { tabctaresultado.deejeraplic,tabctaresultado.desociedad };
-    ForeignKey tabctaresultadoArrayfk[] = { 
-      new ForeignKey(tabsociedades,tabctaresultadoArrayf1)      
-      };
-    tabctaresultado.setForeignKeys(tabctaresultadoArrayfk);
     FieldDef tabestadocambpatrArrayf1[] = { tabestadocambpatr.ecpejeraplic,tabestadocambpatr.ecpsociedad };
     ForeignKey tabestadocambpatrArrayfk[] = { 
       new ForeignKey(tabsociedades,tabestadocambpatrArrayf1)      
@@ -32526,11 +33100,6 @@ public class CatJiss extends Catalog
       new ForeignKey(tabsociedades,tabpartenotrasArrayf1)      
       };
     tabpartenotras.setForeignKeys(tabpartenotrasArrayfk);
-    FieldDef tabdedintgralArrayf1[] = { tabdedintgral.digejeraplic,tabdedintgral.digsociedad };
-    ForeignKey tabdedintgralArrayfk[] = { 
-      new ForeignKey(tabsociedades,tabdedintgralArrayf1)      
-      };
-    tabdedintgral.setForeignKeys(tabdedintgralArrayfk);
     FieldDef tabdedidiArrayf1[] = { tabdedidi.didiejeraplic,tabdedidi.didisociedad };
     ForeignKey tabdedidiArrayfk[] = { 
       new ForeignKey(tabsociedades,tabdedidiArrayf1)      
@@ -32616,6 +33185,70 @@ public class CatJiss extends Catalog
       new ForeignKey(tabsociedades,tabdedinvbfosArrayf1)      
       };
     tabdedinvbfos.setForeignKeys(tabdedinvbfosArrayfk);
+    FieldDef tabdedintgralArrayf1[] = { tabdedintgral.digejeraplic,tabdedintgral.digsociedad };
+    ForeignKey tabdedintgralArrayfk[] = { 
+      new ForeignKey(tabsociedades,tabdedintgralArrayf1)      
+      };
+    tabdedintgral.setForeignKeys(tabdedintgralArrayfk);
+    FieldDef tabgrupointgralArrayf1[] = { tabgrupointgral.gigejeraplic,tabgrupointgral.gigsociedad };
+    ForeignKey tabgrupointgralArrayfk[] = { 
+      new ForeignKey(tabsociedades,tabgrupointgralArrayf1)      
+      };
+    tabgrupointgral.setForeignKeys(tabgrupointgralArrayfk);
+    FieldDef tabctacorrecexistArrayf1[] = { tabctacorrecexist.cceejeraplic,tabctacorrecexist.ccesociedad };
+    ForeignKey tabctacorrecexistArrayfk[] = { 
+      new ForeignKey(tabsociedades,tabctacorrecexistArrayf1)      
+      };
+    tabctacorrecexist.setForeignKeys(tabctacorrecexistArrayfk);
+    FieldDef tabparamsociedadArrayf1[] = { tabparamsociedad.psoejeraplic,tabparamsociedad.psosociedad };
+    ForeignKey tabparamsociedadArrayfk[] = { 
+      new ForeignKey(tabsociedades,tabparamsociedadArrayf1)      
+      };
+    tabparamsociedad.setForeignKeys(tabparamsociedadArrayfk);
+    FieldDef tabdesglosajustesArrayf1[] = { tabdesglosajustes.daejeraplic,tabdesglosajustes.dasociedad };
+    FieldDef tabdesglosajustesArrayf2[] = { tabdesglosajustes.daejeraplic,tabdesglosajustes.dasociedad };
+    ForeignKey tabdesglosajustesArrayfk[] = { 
+      new ForeignKey(tabsociedades,tabdesglosajustesArrayf1),
+      new ForeignKey(tabdetallecorecc,tabdesglosajustesArrayf2)      
+      };
+    tabdesglosajustes.setForeignKeys(tabdesglosajustesArrayfk);
+    FieldDef tabfinalizacionArrayf1[] = { tabfinalizacion.finejeraplic,tabfinalizacion.finsociedad };
+    ForeignKey tabfinalizacionArrayfk[] = { 
+      new ForeignKey(tabsociedades,tabfinalizacionArrayf1)      
+      };
+    tabfinalizacion.setForeignKeys(tabfinalizacionArrayfk);
+    FieldDef tabctadatosmercantArrayf1[] = { tabctadatosmercant.ctrejeraplic,tabctadatosmercant.ctrsociedad };
+    ForeignKey tabctadatosmercantArrayfk[] = { 
+      new ForeignKey(tabsociedades,tabctadatosmercantArrayf1)      
+      };
+    tabctadatosmercant.setForeignKeys(tabctadatosmercantArrayfk);
+    FieldDef tabpagosacuentaArrayf1[] = { tabpagosacuenta.pctejeraplic,tabpagosacuenta.pctsociedad };
+    ForeignKey tabpagosacuentaArrayfk[] = { 
+      new ForeignKey(tabsociedades,tabpagosacuentaArrayf1)      
+      };
+    tabpagosacuenta.setForeignKeys(tabpagosacuentaArrayfk);
+    FieldDef tabctavarempleadoArrayf1[] = { tabctavarempleado.ctlejeraplic,tabctavarempleado.ctlsociedad };
+    FieldDef tabctavarempleadoArrayf2[] = { tabctavarempleado.ctlejeraplic,tabctavarempleado.ctlsociedad };
+    ForeignKey tabctavarempleadoArrayfk[] = { 
+      new ForeignKey(tabsociedades,tabctavarempleadoArrayf1),
+      new ForeignKey(tabctanumempleado,tabctavarempleadoArrayf2)      
+      };
+    tabctavarempleado.setForeignKeys(tabctavarempleadoArrayfk);
+    FieldDef tabactivoArrayf1[] = { tabactivo.baejeraplic,tabactivo.basociedad };
+    ForeignKey tabactivoArrayfk[] = { 
+      new ForeignKey(tabsociedades,tabactivoArrayf1)      
+      };
+    tabactivo.setForeignKeys(tabactivoArrayfk);
+    FieldDef tabpasivoArrayf1[] = { tabpasivo.paejeraplic,tabpasivo.pasociedad };
+    ForeignKey tabpasivoArrayfk[] = { 
+      new ForeignKey(tabsociedades,tabpasivoArrayf1)      
+      };
+    tabpasivo.setForeignKeys(tabpasivoArrayfk);
+    FieldDef tabctaresultadoArrayf1[] = { tabctaresultado.deejeraplic,tabctaresultado.desociedad };
+    ForeignKey tabctaresultadoArrayfk[] = { 
+      new ForeignKey(tabsociedades,tabctaresultadoArrayf1)      
+      };
+    tabctaresultado.setForeignKeys(tabctaresultadoArrayfk);
     }
   }
   

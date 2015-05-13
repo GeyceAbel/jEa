@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140305
-// Hora:             17:18:18
+// Fecha:            20150512
+// Hora:             17:19:37
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -4039,6 +4039,7 @@ public class CatModelo714 extends Catalog
     public FieldDef m711oficina;
     public FieldDef m711digcontrol;
     public FieldDef m711cuenta;
+    public FieldDef m711ctaiban;
     public TabMod714h11(String name)
       {
       super(name);
@@ -4058,6 +4059,7 @@ public class CatModelo714 extends Catalog
       m711oficina = new FieldDef("m711oficina",FieldDef.CHAR,4);
       m711digcontrol = new FieldDef("m711digcontrol",FieldDef.CHAR,2);
       m711cuenta = new FieldDef("m711cuenta",FieldDef.CHAR,10);
+      m711ctaiban = new FieldDef("m711ctaiban",FieldDef.CHAR,34);
       FieldDef array[] = {
         m711dominio,
         m711nif,
@@ -4074,7 +4076,8 @@ public class CatModelo714 extends Catalog
         m711banco,
         m711oficina,
         m711digcontrol,
-        m711cuenta        
+        m711cuenta,
+        m711ctaiban        
         };
       setColumns(array);
       FieldDef arrayf[] = {m711dominio,m711nif,m711ejercicio,m711periodo };
@@ -4091,6 +4094,7 @@ public class CatModelo714 extends Catalog
       m711oficina.setDescription("Ingreso (5) Codigo cuenta cliente Sucursal");
       m711digcontrol.setDescription("Ingreso (5) Codigo cuenta cliente DC");
       m711cuenta.setDescription("Ingreso (5) Codigo cuenta cliente Numero de cuenta");
+      m711ctaiban.setDescription("2013 Cuenta cliente formato IBAN");
       }
     }
     

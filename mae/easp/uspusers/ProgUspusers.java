@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100128
-// Hora:             10:22:48
+// Fecha:            20150512
+// Hora:             16:31:45
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -290,11 +290,11 @@ public class ProgUspusers extends Program
     public Field usnombre;
     public Field uspasswd;
     public Field uspoblac;
+    public Field usremoto;
     public Field usseccio;
     public Field ustelef;
     public Field ustelefp;
     public Field ustelmp;
-    public Field usremoto;
     class Usuario extends Table
       {
       public Usuario(Select select)
@@ -326,11 +326,11 @@ public class ProgUspusers extends Program
       addField(usnombre=new Field(this,usuario,"usnombre"));
       addField(uspasswd=new Field(this,usuario,"uspasswd"));
       addField(uspoblac=new Field(this,usuario,"uspoblac"));
+      addField(usremoto=new Field(this,usuario,"usremoto"));
       addField(usseccio=new Field(this,usuario,"usseccio"));
       addField(ustelef=new Field(this,usuario,"ustelef"));
       addField(ustelefp=new Field(this,usuario,"ustelefp"));
       addField(ustelmp=new Field(this,usuario,"ustelmp"));
-      addField(usremoto=new Field(this,usuario,"usremoto"));
       }
     public String getOrder()
       {
@@ -800,8 +800,8 @@ public class ProgUspusers extends Program
         setMaskInput("U");
         setLength(1);
         setPrintable(false);
-        addItem("S/SI");
-        addItem("N/NO");
+        addItem("S/Si");
+        addItem("N/No");
         setField(susuarios.usremoto);
         }
       }

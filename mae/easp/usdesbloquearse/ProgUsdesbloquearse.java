@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20100210
-// Hora:             13:48:30
+// Fecha:            20150512
+// Hora:             16:32:23
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -138,12 +138,12 @@ public class ProgUsdesbloquearse extends Program
     // Tablas
     public Impuser impuser;
     // Campos
+    public Field imuaplicacion;
     public Field imucodigo;
-    public Field imumachine;
-    public Field imuusuario;
     public Field imufecha;
     public Field imuhora;
-    public Field imuaplicacion;
+    public Field imumachine;
+    public Field imuusuario;
     class Impuser extends Table
       {
       public Impuser(Select select)
@@ -158,12 +158,12 @@ public class ProgUsdesbloquearse extends Program
       {
       setName("simpuser");
       addTable(impuser=new Impuser(this));
+      addField(imuaplicacion=new Field(this,impuser,"imuaplicacion"));
       addField(imucodigo=new Field(this,impuser,"imucodigo"));
-      addField(imumachine=new Field(this,impuser,"imumachine"));
-      addField(imuusuario=new Field(this,impuser,"imuusuario"));
       addField(imufecha=new Field(this,impuser,"imufecha"));
       addField(imuhora=new Field(this,impuser,"imuhora"));
-      addField(imuaplicacion=new Field(this,impuser,"imuaplicacion"));
+      addField(imumachine=new Field(this,impuser,"imumachine"));
+      addField(imuusuario=new Field(this,impuser,"imuusuario"));
       }
     }
     

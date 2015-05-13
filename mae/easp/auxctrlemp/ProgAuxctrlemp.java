@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20110511
-// Hora:             09:29:48
+// Fecha:            20150512
+// Hora:             16:33:44
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -162,7 +162,6 @@ public class ProgAuxctrlemp extends Program
         super(select);
         setName("nifes");
         setOptions(READ | INSERT | UPDATE);
-        setJoinType(Join.INNER);
         }
       }
       

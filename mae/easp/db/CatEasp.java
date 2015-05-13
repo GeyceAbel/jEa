@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150316
-// Hora:             13:10:44
+// Fecha:            20150512
+// Hora:             17:19:07
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -3591,7 +3591,7 @@ public class CatEasp extends Catalog
       jpemin = new FieldDef("jpemin",FieldDef.FLOAT,6,0);
       jpemax = new FieldDef("jpemax",FieldDef.FLOAT,6,0);
       jpedescmin = new FieldDef("jpedescmin",FieldDef.CHAR,2000);
-      jpedescmax = new FieldDef("jpedescmax",FieldDef.CHAR,2000);
+      jpedescmax = new FieldDef("jpedescmax",FieldDef.CHAR,20009);
       jpedescok = new FieldDef("jpedescok",FieldDef.CHAR,2000);
       FieldDef array[] = {
         jpeidrati,

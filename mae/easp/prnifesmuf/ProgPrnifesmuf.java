@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20121211
-// Hora:             13:55:08
+// Fecha:            20150512
+// Hora:             16:53:08
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -171,21 +171,21 @@ public class ProgPrnifesmuf extends Program
     // Tablas
     public Nifesmuf nifesmuf;
     // Campos
-    public Field mufnif;
-    public Field mufnum;
     public Field mufad;
-    public Field muftipod;
-    public Field mufpercont;
+    public Field mufayudadesp;
+    public Field mufdeducible;
+    public Field muffecadop;
+    public Field muffecnac;
+    public Field mufingresos;
+    public Field mufnif;
     public Field mufnifad;
     public Field mufnombre;
-    public Field mufsexo;
-    public Field muffecnac;
-    public Field muffecadop;
-    public Field mufperdisc;
-    public Field mufayudadesp;
-    public Field mufingresos;
+    public Field mufnum;
     public Field mufnumreparto;
-    public Field mufdeducible;
+    public Field mufpercont;
+    public Field mufperdisc;
+    public Field mufsexo;
+    public Field muftipod;
     class Nifesmuf extends Table
       {
       public Nifesmuf(Select select)
@@ -200,21 +200,21 @@ public class ProgPrnifesmuf extends Program
       {
       setName("snifesmuf");
       addTable(nifesmuf=new Nifesmuf(this));
-      addField(mufnif=new Field(this,nifesmuf,"mufnif"));
-      addField(mufnum=new Field(this,nifesmuf,"mufnum"));
       addField(mufad=new Field(this,nifesmuf,"mufad"));
-      addField(muftipod=new Field(this,nifesmuf,"muftipod"));
-      addField(mufpercont=new Field(this,nifesmuf,"mufpercont"));
+      addField(mufayudadesp=new Field(this,nifesmuf,"mufayudadesp"));
+      addField(mufdeducible=new Field(this,nifesmuf,"mufdeducible"));
+      addField(muffecadop=new Field(this,nifesmuf,"muffecadop"));
+      addField(muffecnac=new Field(this,nifesmuf,"muffecnac"));
+      addField(mufingresos=new Field(this,nifesmuf,"mufingresos"));
+      addField(mufnif=new Field(this,nifesmuf,"mufnif"));
       addField(mufnifad=new Field(this,nifesmuf,"mufnifad"));
       addField(mufnombre=new Field(this,nifesmuf,"mufnombre"));
-      addField(mufsexo=new Field(this,nifesmuf,"mufsexo"));
-      addField(muffecnac=new Field(this,nifesmuf,"muffecnac"));
-      addField(muffecadop=new Field(this,nifesmuf,"muffecadop"));
-      addField(mufperdisc=new Field(this,nifesmuf,"mufperdisc"));
-      addField(mufayudadesp=new Field(this,nifesmuf,"mufayudadesp"));
-      addField(mufingresos=new Field(this,nifesmuf,"mufingresos"));
+      addField(mufnum=new Field(this,nifesmuf,"mufnum"));
       addField(mufnumreparto=new Field(this,nifesmuf,"mufnumreparto"));
-      addField(mufdeducible=new Field(this,nifesmuf,"mufdeducible"));
+      addField(mufpercont=new Field(this,nifesmuf,"mufpercont"));
+      addField(mufperdisc=new Field(this,nifesmuf,"mufperdisc"));
+      addField(mufsexo=new Field(this,nifesmuf,"mufsexo"));
+      addField(muftipod=new Field(this,nifesmuf,"muftipod"));
       }
     }
     

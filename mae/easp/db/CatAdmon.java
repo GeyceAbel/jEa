@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150213
-// Hora:             09:15:40
+// Fecha:            20150513
+// Hora:             10:19:36
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -101,6 +101,7 @@ public class CatAdmon extends Catalog
   public TabCodcnvotraplc tabcodcnvotraplc;
   public TabCodcnvotrapll tabcodcnvotrapll;
   public TabCodcnvinciden tabcodcnvinciden;
+  public TabLibregmerext tablibregmerext;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -1078,6 +1079,7 @@ public class CatAdmon extends Catalog
     public FieldDef amoperiodo;
     public FieldDef amoparent;
     public FieldDef amonum;
+    public FieldDef amoejercicio;
     public TabAmortizacion(String name)
       {
       super(name);
@@ -1091,6 +1093,7 @@ public class CatAdmon extends Catalog
       amoperiodo = new FieldDef("amoperiodo",FieldDef.INTEGER,0);
       amoparent = new FieldDef("amoparent",FieldDef.CHAR,8);
       amonum = new FieldDef("amonum",FieldDef.CHAR,1);
+      amoejercicio = new FieldDef("amoejercicio",FieldDef.INTEGER,0);
       FieldDef array[] = {
         amocodigo,
         amogrupo,
@@ -1101,7 +1104,8 @@ public class CatAdmon extends Catalog
         amocoef,
         amoperiodo,
         amoparent,
-        amonum        
+        amonum,
+        amoejercicio        
         };
       setColumns(array);
       FieldDef arrayf[] = {amocodigo };
@@ -1416,7 +1420,7 @@ public class CatAdmon extends Catalog
       super(name);
       ayprocedure = new FieldDef("ayprocedure",FieldDef.CHAR,50,FieldDef.NOTNULL);
       ayidioma = new FieldDef("ayidioma",FieldDef.CHAR,3,FieldDef.NOTNULL);
-      aytexto = new FieldDef("aytexto",FieldDef.CHAR,4000);
+      aytexto = new FieldDef("aytexto",FieldDef.CHAR,40008);
       FieldDef array[] = {
         ayprocedure,
         ayidioma,
@@ -1457,7 +1461,7 @@ public class CatAdmon extends Catalog
       erincide = new FieldDef("erincide",FieldDef.CHAR,1,FieldDef.NOTNULL);
       eropcion = new FieldDef("eropcion",FieldDef.INTEGER,0);
       ersoluci = new FieldDef("ersoluci",FieldDef.CHAR,1024);
-      erdescri = new FieldDef("erdescri",FieldDef.CHAR,10248);
+      erdescri = new FieldDef("erdescri",FieldDef.CHAR,1024);
       FieldDef array[] = {
         ercodigo,
         erambito,
@@ -3587,7 +3591,7 @@ public class CatAdmon extends Catalog
       jpemin = new FieldDef("jpemin",FieldDef.FLOAT,6,0);
       jpemax = new FieldDef("jpemax",FieldDef.FLOAT,6,0);
       jpedescmin = new FieldDef("jpedescmin",FieldDef.CHAR,2000);
-      jpedescmax = new FieldDef("jpedescmax",FieldDef.CHAR,2000);
+      jpedescmax = new FieldDef("jpedescmax",FieldDef.CHAR,20009);
       jpedescok = new FieldDef("jpedescok",FieldDef.CHAR,2000);
       FieldDef array[] = {
         jpeidrati,
@@ -3840,6 +3844,39 @@ public class CatAdmon extends Catalog
       }
     }
     
+  public class TabLibregmerext extends TableDef
+    {
+    // Campos
+    public FieldDef lbgcodi;
+    public FieldDef lbgempjco;
+    public FieldDef lbgejercicio;
+    public FieldDef lbgtipo;
+    public FieldDef lbgruta;
+    public FieldDef lbgnumero;
+    public TabLibregmerext(String name)
+      {
+      super(name);
+      lbgcodi = new FieldDef("lbgcodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      lbgempjco = new FieldDef("lbgempjco",FieldDef.INTEGER,0);
+      lbgejercicio = new FieldDef("lbgejercicio",FieldDef.INTEGER,0);
+      lbgtipo = new FieldDef("lbgtipo",FieldDef.CHAR,15);
+      lbgruta = new FieldDef("lbgruta",FieldDef.CHAR,255);
+      lbgnumero = new FieldDef("lbgnumero",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        lbgcodi,
+        lbgempjco,
+        lbgejercicio,
+        lbgtipo,
+        lbgruta,
+        lbgnumero        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {lbgcodi };
+      setPrimaryKeys(arrayf);
+      lbgcodi.setAutoIncrementable(true);
+      }
+    }
+    
   public CatAdmon()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -3927,6 +3964,7 @@ public class CatAdmon extends Catalog
     tabcodcnvotraplc = new TabCodcnvotraplc("codcnvotraplc");
     tabcodcnvotrapll = new TabCodcnvotrapll("codcnvotrapll");
     tabcodcnvinciden = new TabCodcnvinciden("codcnvinciden");
+    tablibregmerext = new TabLibregmerext("libregmerext");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -4012,7 +4050,8 @@ public class CatAdmon extends Catalog
       tabjcoepigrafe,
       tabcodcnvotraplc,
       tabcodcnvotrapll,
-      tabcodcnvinciden      
+      tabcodcnvinciden,
+      tablibregmerext      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };

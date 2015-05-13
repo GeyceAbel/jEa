@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140711
-// Hora:             11:32:03
+// Fecha:            20150512
+// Hora:             17:19:14
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1197,6 +1197,9 @@ public class CatJexpe extends Catalog
     public FieldDef trabaseexenta;
     public FieldDef traivadefecto;
     public FieldDef trairpfdefecto;
+    public FieldDef tracodiexter;
+    public FieldDef tratipounid1;
+    public FieldDef tratipounid2;
     public TabTramite(String name)
       {
       super(name);
@@ -1223,6 +1226,9 @@ public class CatJexpe extends Catalog
       trabaseexenta = new FieldDef("trabaseexenta",FieldDef.CHAR,1);
       traivadefecto = new FieldDef("traivadefecto",FieldDef.INTEGER,0);
       trairpfdefecto = new FieldDef("trairpfdefecto",FieldDef.INTEGER,0);
+      tracodiexter = new FieldDef("tracodiexter",FieldDef.CHAR,100);
+      tratipounid1 = new FieldDef("tratipounid1",FieldDef.CHAR,15);
+      tratipounid2 = new FieldDef("tratipounid2",FieldDef.CHAR,15);
       FieldDef array[] = {
         traasesor,
         tragestion,
@@ -1246,7 +1252,10 @@ public class CatJexpe extends Catalog
         tratipocon,
         trabaseexenta,
         traivadefecto,
-        trairpfdefecto        
+        trairpfdefecto,
+        tracodiexter,
+        tratipounid1,
+        tratipounid2        
         };
       setColumns(array);
       FieldDef arrayf[] = {traasesor,tragestion,tratramite };
@@ -1540,6 +1549,25 @@ public class CatJexpe extends Catalog
     public FieldDef clctaproyecto;
     public FieldDef clctadepartam;
     public FieldDef clctaprorrata;
+    public FieldDef cldescfra;
+    public FieldDef cldescpago;
+    public FieldDef clcodorgangest;
+    public FieldDef cldesorgangest;
+    public FieldDef clcodoficicont;
+    public FieldDef cldesoficicont;
+    public FieldDef clcodunidatram;
+    public FieldDef cldesunidatram;
+    public FieldDef clcodorganprop;
+    public FieldDef cldesorganprop;
+    public FieldDef clreglibro;
+    public FieldDef clregregmerc;
+    public FieldDef clreghoja;
+    public FieldDef clregsecc;
+    public FieldDef clregfolio;
+    public FieldDef clregseccion;
+    public FieldDef clregtomo;
+    public FieldDef clregotrdat;
+    public FieldDef clefaccodexpe;
     public TabClientes(String name)
       {
       super(name);
@@ -1633,6 +1661,25 @@ public class CatJexpe extends Catalog
       clctaproyecto = new FieldDef("clctaproyecto",FieldDef.CHAR,5);
       clctadepartam = new FieldDef("clctadepartam",FieldDef.CHAR,5);
       clctaprorrata = new FieldDef("clctaprorrata",FieldDef.CHAR,5);
+      cldescfra = new FieldDef("cldescfra",FieldDef.CHAR,2000);
+      cldescpago = new FieldDef("cldescpago",FieldDef.CHAR,200);
+      clcodorgangest = new FieldDef("clcodorgangest",FieldDef.CHAR,15);
+      cldesorgangest = new FieldDef("cldesorgangest",FieldDef.CHAR,30);
+      clcodoficicont = new FieldDef("clcodoficicont",FieldDef.CHAR,15);
+      cldesoficicont = new FieldDef("cldesoficicont",FieldDef.CHAR,30);
+      clcodunidatram = new FieldDef("clcodunidatram",FieldDef.CHAR,15);
+      cldesunidatram = new FieldDef("cldesunidatram",FieldDef.CHAR,30);
+      clcodorganprop = new FieldDef("clcodorganprop",FieldDef.CHAR,15);
+      cldesorganprop = new FieldDef("cldesorganprop",FieldDef.CHAR,30);
+      clreglibro = new FieldDef("clreglibro",FieldDef.CHAR,30);
+      clregregmerc = new FieldDef("clregregmerc",FieldDef.CHAR,30);
+      clreghoja = new FieldDef("clreghoja",FieldDef.CHAR,30);
+      clregsecc = new FieldDef("clregsecc",FieldDef.CHAR,30);
+      clregfolio = new FieldDef("clregfolio",FieldDef.CHAR,30);
+      clregseccion = new FieldDef("clregseccion",FieldDef.CHAR,30);
+      clregtomo = new FieldDef("clregtomo",FieldDef.CHAR,30);
+      clregotrdat = new FieldDef("clregotrdat",FieldDef.CHAR,30);
+      clefaccodexpe = new FieldDef("clefaccodexpe",FieldDef.CHAR,100);
       FieldDef array[] = {
         clasesor,
         clcolectivo,
@@ -1723,7 +1770,26 @@ public class CatJexpe extends Catalog
         clctatransac,
         clctaproyecto,
         clctadepartam,
-        clctaprorrata        
+        clctaprorrata,
+        cldescfra,
+        cldescpago,
+        clcodorgangest,
+        cldesorgangest,
+        clcodoficicont,
+        cldesoficicont,
+        clcodunidatram,
+        cldesunidatram,
+        clcodorganprop,
+        cldesorganprop,
+        clreglibro,
+        clregregmerc,
+        clreghoja,
+        clregsecc,
+        clregfolio,
+        clregseccion,
+        clregtomo,
+        clregotrdat,
+        clefaccodexpe        
         };
       setColumns(array);
       FieldDef arrayf[] = {clasesor,clcolectivo,clcodigo };
@@ -2543,7 +2609,7 @@ public class CatJexpe extends Catalog
       excolaborador = new FieldDef("excolaborador",FieldDef.CHAR,15);
       exrefcolab = new FieldDef("exrefcolab",FieldDef.CHAR,10);
       exgestion = new FieldDef("exgestion",FieldDef.CHAR,3);
-      exdescripcion = new FieldDef("exdescripcion",FieldDef.CHAR,20005);
+      exdescripcion = new FieldDef("exdescripcion",FieldDef.CHAR,2000);
       exfecinici = new FieldDef("exfecinici",FieldDef.DATE);
       exfecultfra = new FieldDef("exfecultfra",FieldDef.DATE);
       exfecbaja = new FieldDef("exfecbaja",FieldDef.DATE);
@@ -2731,6 +2797,11 @@ public class CatJexpe extends Catalog
     public FieldDef docrepres;
     public FieldDef doccomercial;
     public FieldDef docisfolder;
+    public FieldDef docempresa;
+    public FieldDef doccdp;
+    public FieldDef doctipolibre1;
+    public FieldDef doctipolibre2;
+    public FieldDef doctipolibre3;
     public TabDocumento(String name)
       {
       super(name);
@@ -2776,6 +2847,11 @@ public class CatJexpe extends Catalog
       docrepres = new FieldDef("docrepres",FieldDef.CHAR,3);
       doccomercial = new FieldDef("doccomercial",FieldDef.CHAR,3);
       docisfolder = new FieldDef("docisfolder",FieldDef.CHAR,1);
+      docempresa = new FieldDef("docempresa",FieldDef.INTEGER,0);
+      doccdp = new FieldDef("doccdp",FieldDef.CHAR,12);
+      doctipolibre1 = new FieldDef("doctipolibre1",FieldDef.CHAR,50);
+      doctipolibre2 = new FieldDef("doctipolibre2",FieldDef.CHAR,50);
+      doctipolibre3 = new FieldDef("doctipolibre3",FieldDef.CHAR,50);
       FieldDef array[] = {
         doccodigo,
         docasesor,
@@ -2818,7 +2894,12 @@ public class CatJexpe extends Catalog
         doccodexterno,
         docrepres,
         doccomercial,
-        docisfolder        
+        docisfolder,
+        docempresa,
+        doccdp,
+        doctipolibre1,
+        doctipolibre2,
+        doctipolibre3        
         };
       setColumns(array);
       FieldDef arrayf[] = {doccodigo };
@@ -2872,6 +2953,11 @@ public class CatJexpe extends Catalog
     public FieldDef hocrepres;
     public FieldDef hoccomercial;
     public FieldDef hocisfolder;
+    public FieldDef hocempresa;
+    public FieldDef hoccdp;
+    public FieldDef hoctipolibre1;
+    public FieldDef hoctipolibre2;
+    public FieldDef hoctipolibre3;
     public TabHdocumento(String name)
       {
       super(name);
@@ -2882,7 +2968,7 @@ public class CatJexpe extends Catalog
       hocfolder = new FieldDef("hocfolder",FieldDef.CHAR,2000);
       hocfile = new FieldDef("hocfile",FieldDef.CHAR,255);
       hocorganizacion = new FieldDef("hocorganizacion",FieldDef.CHAR,2);
-      hocurl = new FieldDef("hocurl",FieldDef.CHAR,2000);
+      hocurl = new FieldDef("hocurl",FieldDef.CHAR,20007);
       hocresponsable = new FieldDef("hocresponsable",FieldDef.CHAR,25);
       hocaplicacion = new FieldDef("hocaplicacion",FieldDef.CHAR,15);
       hocusuario = new FieldDef("hocusuario",FieldDef.CHAR,25);
@@ -2917,6 +3003,11 @@ public class CatJexpe extends Catalog
       hocrepres = new FieldDef("hocrepres",FieldDef.CHAR,3);
       hoccomercial = new FieldDef("hoccomercial",FieldDef.CHAR,3);
       hocisfolder = new FieldDef("hocisfolder",FieldDef.CHAR,1);
+      hocempresa = new FieldDef("hocempresa",FieldDef.INTEGER,0);
+      hoccdp = new FieldDef("hoccdp",FieldDef.CHAR,12);
+      hoctipolibre1 = new FieldDef("hoctipolibre1",FieldDef.CHAR,50);
+      hoctipolibre2 = new FieldDef("hoctipolibre2",FieldDef.CHAR,50);
+      hoctipolibre3 = new FieldDef("hoctipolibre3",FieldDef.CHAR,50);
       FieldDef array[] = {
         hoccodigo,
         hocasesor,
@@ -2959,7 +3050,12 @@ public class CatJexpe extends Catalog
         hoccodexterno,
         hocrepres,
         hoccomercial,
-        hocisfolder        
+        hocisfolder,
+        hocempresa,
+        hoccdp,
+        hoctipolibre1,
+        hoctipolibre2,
+        hoctipolibre3        
         };
       setColumns(array);
       FieldDef arrayf[] = {hoccodigo };
@@ -3634,6 +3730,25 @@ public class CatJexpe extends Catalog
     public FieldDef hlctaproyecto;
     public FieldDef hlctadepartam;
     public FieldDef hlctaprorrata;
+    public FieldDef hldescfra;
+    public FieldDef hldescpago;
+    public FieldDef hlcodorgangest;
+    public FieldDef hldesorgangest;
+    public FieldDef hlcodoficicont;
+    public FieldDef hldesoficicont;
+    public FieldDef hlcodunidatram;
+    public FieldDef hldesunidatram;
+    public FieldDef hlcodorganprop;
+    public FieldDef hldesorganprop;
+    public FieldDef hlreglibro;
+    public FieldDef hlregregmerc;
+    public FieldDef hlreghoja;
+    public FieldDef hlregsecc;
+    public FieldDef hlregfolio;
+    public FieldDef hlregseccion;
+    public FieldDef hlregtomo;
+    public FieldDef hlregotrdat;
+    public FieldDef hlefaccodexpe;
     public TabHclientes(String name)
       {
       super(name);
@@ -3727,6 +3842,25 @@ public class CatJexpe extends Catalog
       hlctaproyecto = new FieldDef("hlctaproyecto",FieldDef.CHAR,5);
       hlctadepartam = new FieldDef("hlctadepartam",FieldDef.CHAR,5);
       hlctaprorrata = new FieldDef("hlctaprorrata",FieldDef.CHAR,5);
+      hldescfra = new FieldDef("hldescfra",FieldDef.CHAR,2000);
+      hldescpago = new FieldDef("hldescpago",FieldDef.CHAR,200);
+      hlcodorgangest = new FieldDef("hlcodorgangest",FieldDef.CHAR,15);
+      hldesorgangest = new FieldDef("hldesorgangest",FieldDef.CHAR,30);
+      hlcodoficicont = new FieldDef("hlcodoficicont",FieldDef.CHAR,15);
+      hldesoficicont = new FieldDef("hldesoficicont",FieldDef.CHAR,30);
+      hlcodunidatram = new FieldDef("hlcodunidatram",FieldDef.CHAR,15);
+      hldesunidatram = new FieldDef("hldesunidatram",FieldDef.CHAR,30);
+      hlcodorganprop = new FieldDef("hlcodorganprop",FieldDef.CHAR,15);
+      hldesorganprop = new FieldDef("hldesorganprop",FieldDef.CHAR,30);
+      hlreglibro = new FieldDef("hlreglibro",FieldDef.CHAR,30);
+      hlregregmerc = new FieldDef("hlregregmerc",FieldDef.CHAR,30);
+      hlreghoja = new FieldDef("hlreghoja",FieldDef.CHAR,30);
+      hlregsecc = new FieldDef("hlregsecc",FieldDef.CHAR,30);
+      hlregfolio = new FieldDef("hlregfolio",FieldDef.CHAR,30);
+      hlregseccion = new FieldDef("hlregseccion",FieldDef.CHAR,30);
+      hlregtomo = new FieldDef("hlregtomo",FieldDef.CHAR,30);
+      hlregotrdat = new FieldDef("hlregotrdat",FieldDef.CHAR,30);
+      hlefaccodexpe = new FieldDef("hlefaccodexpe",FieldDef.CHAR,100);
       FieldDef array[] = {
         hlasesor,
         hlcolectivo,
@@ -3817,7 +3951,26 @@ public class CatJexpe extends Catalog
         hlctatransac,
         hlctaproyecto,
         hlctadepartam,
-        hlctaprorrata        
+        hlctaprorrata,
+        hldescfra,
+        hldescpago,
+        hlcodorgangest,
+        hldesorgangest,
+        hlcodoficicont,
+        hldesoficicont,
+        hlcodunidatram,
+        hldesunidatram,
+        hlcodorganprop,
+        hldesorganprop,
+        hlreglibro,
+        hlregregmerc,
+        hlreghoja,
+        hlregsecc,
+        hlregfolio,
+        hlregseccion,
+        hlregtomo,
+        hlregotrdat,
+        hlefaccodexpe        
         };
       setColumns(array);
       FieldDef arrayf[] = {hlasesor,hlcolectivo,hlcodigo };
@@ -4141,6 +4294,11 @@ public class CatJexpe extends Catalog
     public FieldDef movcodfactura;
     public FieldDef movcodabonodet;
     public FieldDef movcolectivo;
+    public FieldDef movcodiexter;
+    public FieldDef movefaccodexpe;
+    public FieldDef movunidades2;
+    public FieldDef movtipounid1;
+    public FieldDef movtipounid2;
     public TabMovtos(String name)
       {
       super(name);
@@ -4177,6 +4335,11 @@ public class CatJexpe extends Catalog
       movcodfactura = new FieldDef("movcodfactura",FieldDef.INTEGER,0);
       movcodabonodet = new FieldDef("movcodabonodet",FieldDef.INTEGER,0);
       movcolectivo = new FieldDef("movcolectivo",FieldDef.INTEGER,0);
+      movcodiexter = new FieldDef("movcodiexter",FieldDef.CHAR,100);
+      movefaccodexpe = new FieldDef("movefaccodexpe",FieldDef.CHAR,100);
+      movunidades2 = new FieldDef("movunidades2",FieldDef.FLOAT,6,0);
+      movtipounid1 = new FieldDef("movtipounid1",FieldDef.CHAR,15);
+      movtipounid2 = new FieldDef("movtipounid2",FieldDef.CHAR,15);
       FieldDef array[] = {
         movcodigo,
         movasesor,
@@ -4210,7 +4373,12 @@ public class CatJexpe extends Catalog
         movcodcajalin,
         movcodfactura,
         movcodabonodet,
-        movcolectivo        
+        movcolectivo,
+        movcodiexter,
+        movefaccodexpe,
+        movunidades2,
+        movtipounid1,
+        movtipounid2        
         };
       setColumns(array);
       FieldDef arrayf[] = {movcodigo };
@@ -4256,6 +4424,11 @@ public class CatJexpe extends Catalog
     public FieldDef hovcodfactura;
     public FieldDef hovcodabonodet;
     public FieldDef hovcolectivo;
+    public FieldDef hovcodiexter;
+    public FieldDef hovefaccodexpe;
+    public FieldDef hovunidades2;
+    public FieldDef hovtipounid1;
+    public FieldDef hovtipounid2;
     public TabHmovtos(String name)
       {
       super(name);
@@ -4292,6 +4465,11 @@ public class CatJexpe extends Catalog
       hovcodfactura = new FieldDef("hovcodfactura",FieldDef.INTEGER,0);
       hovcodabonodet = new FieldDef("hovcodabonodet",FieldDef.INTEGER,0);
       hovcolectivo = new FieldDef("hovcolectivo",FieldDef.INTEGER,0);
+      hovcodiexter = new FieldDef("hovcodiexter",FieldDef.CHAR,100);
+      hovefaccodexpe = new FieldDef("hovefaccodexpe",FieldDef.CHAR,100);
+      hovunidades2 = new FieldDef("hovunidades2",FieldDef.FLOAT,6,0);
+      hovtipounid1 = new FieldDef("hovtipounid1",FieldDef.CHAR,15);
+      hovtipounid2 = new FieldDef("hovtipounid2",FieldDef.CHAR,15);
       FieldDef array[] = {
         hovcodigo,
         hovasesor,
@@ -4325,7 +4503,12 @@ public class CatJexpe extends Catalog
         hovcodcajalin,
         hovcodfactura,
         hovcodabonodet,
-        hovcolectivo        
+        hovcolectivo,
+        hovcodiexter,
+        hovefaccodexpe,
+        hovunidades2,
+        hovtipounid1,
+        hovtipounid2        
         };
       setColumns(array);
       FieldDef arrayf[] = {hovcodigo };
@@ -4466,6 +4649,12 @@ public class CatJexpe extends Catalog
     public FieldDef frctadepartam;
     public FieldDef frempresaeos;
     public FieldDef frctaprorrata;
+    public FieldDef frenviosemail;
+    public FieldDef frfechenvio;
+    public FieldDef frhoraenvio;
+    public FieldDef frurlfacte;
+    public FieldDef frdescfra;
+    public FieldDef frbaseexenta;
     public TabFactura(String name)
       {
       super(name);
@@ -4546,6 +4735,12 @@ public class CatJexpe extends Catalog
       frctadepartam = new FieldDef("frctadepartam",FieldDef.CHAR,5);
       frempresaeos = new FieldDef("frempresaeos",FieldDef.INTEGER,0);
       frctaprorrata = new FieldDef("frctaprorrata",FieldDef.CHAR,5);
+      frenviosemail = new FieldDef("frenviosemail",FieldDef.INTEGER,0);
+      frfechenvio = new FieldDef("frfechenvio",FieldDef.DATE);
+      frhoraenvio = new FieldDef("frhoraenvio",FieldDef.CHAR,8);
+      frurlfacte = new FieldDef("frurlfacte",FieldDef.CHAR,2000);
+      frdescfra = new FieldDef("frdescfra",FieldDef.CHAR,2000);
+      frbaseexenta = new FieldDef("frbaseexenta",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         frcodigo,
         frasesor,
@@ -4623,7 +4818,13 @@ public class CatJexpe extends Catalog
         frctaproyecto,
         frctadepartam,
         frempresaeos,
-        frctaprorrata        
+        frctaprorrata,
+        frenviosemail,
+        frfechenvio,
+        frhoraenvio,
+        frurlfacte,
+        frdescfra,
+        frbaseexenta        
         };
       setColumns(array);
       FieldDef arrayf[] = {frcodigo };
@@ -4712,6 +4913,12 @@ public class CatJexpe extends Catalog
     public FieldDef hrctadepartam;
     public FieldDef hrempresaeos;
     public FieldDef hrctaprorrata;
+    public FieldDef hrenviosemail;
+    public FieldDef hrfechenvio;
+    public FieldDef hrhoraenvio;
+    public FieldDef hrurlfacte;
+    public FieldDef hrdescfra;
+    public FieldDef hrbaseexenta;
     public TabHfactura(String name)
       {
       super(name);
@@ -4792,6 +4999,12 @@ public class CatJexpe extends Catalog
       hrctadepartam = new FieldDef("hrctadepartam",FieldDef.CHAR,5);
       hrempresaeos = new FieldDef("hrempresaeos",FieldDef.INTEGER,0);
       hrctaprorrata = new FieldDef("hrctaprorrata",FieldDef.CHAR,5);
+      hrenviosemail = new FieldDef("hrenviosemail",FieldDef.INTEGER,0);
+      hrfechenvio = new FieldDef("hrfechenvio",FieldDef.DATE);
+      hrhoraenvio = new FieldDef("hrhoraenvio",FieldDef.CHAR,8);
+      hrurlfacte = new FieldDef("hrurlfacte",FieldDef.CHAR,2000);
+      hrdescfra = new FieldDef("hrdescfra",FieldDef.CHAR,2000);
+      hrbaseexenta = new FieldDef("hrbaseexenta",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         hrcodigo,
         hrasesor,
@@ -4869,7 +5082,13 @@ public class CatJexpe extends Catalog
         hrctaproyecto,
         hrctadepartam,
         hrempresaeos,
-        hrctaprorrata        
+        hrctaprorrata,
+        hrenviosemail,
+        hrfechenvio,
+        hrhoraenvio,
+        hrurlfacte,
+        hrdescfra,
+        hrbaseexenta        
         };
       setColumns(array);
       FieldDef arrayf[] = {hrcodigo };

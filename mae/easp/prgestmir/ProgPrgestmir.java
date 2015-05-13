@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20071203
-// Hora:             18:17:04
+// Fecha:            20150512
+// Hora:             17:00:24
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -277,13 +277,17 @@ public class ProgPrgestmir extends Program
         }
       }
       
-    public class CtrlVvcdp extends ControlLabel
+    public class CtrlVvcdp extends ControlComboBox
       {
+      public mae.easp.general.pkcdp.PickPkcdp pickup;
       public CtrlVvcdp(Form form)
         {
         super(form);
         setName("vvcdp");
         setTitle("CDP");
+        setType(STRING);
+        setPickUp(pickup=new mae.easp.general.pkcdp.PickPkcdp(this));
+        setLength(12);
         setPrintable(false);
         }
       }

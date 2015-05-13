@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150318
-// Hora:             10:08:37
+// Fecha:            20150513
+// Hora:             09:53:10
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -3687,7 +3687,7 @@ public class CatJrenta extends Catalog
         };
       setColumns(array);
       FieldDef arrayf[] = {pc2ejeraplic,pc2declaran,pc2muf,pc2tipocalculo,pc2contador };
-      setDescription("Liquidacion patrimonio apartado  C2: Bienes inmuebles no exentos afectos actividades");
+      setDescription("Liquida patrimonio aptdo.C2: Bienes inmuebles no exentos afectos actividades");
       setPrimaryKeys(arrayf);
       pc2ejeraplic.setDescription("Ejercicio aplicacion");
       pc2declaran.setDescription("Codigo de declarante");
@@ -3838,7 +3838,7 @@ public class CatJrenta extends Catalog
         };
       setColumns(array);
       FieldDef arrayf[] = {phejeraplic,phdeclaran,phmuf,phtipocalculo,phcontador,phtipo };
-      setDescription("Liquidacion patrimonio apartado  H1: Valores exentos bolsa / H2: Valores exentos no bolsa");
+      setDescription("Liquida patrimonio aptdo.H1:Valores exentos bolsa/H2:Valores exentos no bolsa");
       setPrimaryKeys(arrayf);
       phejeraplic.setDescription("Ejercicio aplicacion");
       phdeclaran.setDescription("Codigo de declarante");
@@ -3979,7 +3979,7 @@ public class CatJrenta extends Catalog
         };
       setColumns(array);
       FieldDef arrayf[] = {pkejeraplic,pkdeclaran,pkmuf,pktipocalculo,pkcontador,pktipo };
-      setDescription("Liquidacion patrimonio apartado  K: Vehiculos, joyas, embarcaciones.  L: Objetos de arte y antiguedades");
+      setDescription("Liquida patrimonio aptdo.K:Vehiculos,joyas,...L:Objetos arte y antiguedades");
       setPrimaryKeys(arrayf);
       pkejeraplic.setDescription("Ejercicio aplicacion");
       pkdeclaran.setDescription("Codigo de declarante");
@@ -4081,7 +4081,7 @@ public class CatJrenta extends Catalog
         };
       setColumns(array);
       FieldDef arrayf[] = {pnejeraplic,pndeclaran,pnmuf,pntipocalculo,pncontador,pntipo };
-      setDescription("Liquidacion patrimonio apart. N:Concesiones administrativas, O:Prop. intelectual o indrustrial  P:Opciones contractuales Q:Demas bienes");
+      setDescription("Liquida patrimonio apartado N,O,P,Q");
       setPrimaryKeys(arrayf);
       pnejeraplic.setDescription("Ejercicio aplicacion");
       pndeclaran.setDescription("Codigo de declarante");
@@ -4221,7 +4221,7 @@ public class CatJrenta extends Catalog
         };
       setColumns(array);
       FieldDef arrayf[] = {pc1ejeraplic,pc1declaran,pc1muf,pc1tipocalculo,pc1contador };
-      setDescription("Liquidacion patrimonio apartado  C1: Bienes no exentos afectos actividades excepto inmuebles");
+      setDescription("Liquida patrimonio aptdo.C1:Bienes no exentos afectos activ.excepto inmuebles");
       setPrimaryKeys(arrayf);
       pc1ejeraplic.setDescription("Ejercicio aplicacion");
       pc1declaran.setDescription("Codigo de declarante");

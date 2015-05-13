@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150213
-// Hora:             10:06:39
+// Fecha:            20150512
+// Hora:             17:01:31
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -222,8 +222,8 @@ public class ProgPrempmodfechas extends Program
     public Field emodfechaini;
     public Field emodmodelo;
     public Field emodnif;
-    public Field emodtipoper;
     public Field emodpreasesor;
+    public Field emodtipoper;
     class Empmodelos extends Table
       {
       public Empmodelos(Select select)
@@ -249,8 +249,8 @@ public class ProgPrempmodfechas extends Program
       addField(emodfechaini=new Field(this,empmodelos,"emodfechaini"));
       addField(emodmodelo=new Field(this,empmodelos,"emodmodelo"));
       addField(emodnif=new Field(this,empmodelos,"emodnif"));
-      addField(emodtipoper=new Field(this,empmodelos,"emodtipoper"));
       addField(emodpreasesor=new Field(this,empmodelos,"emodpreasesor"));
+      addField(emodtipoper=new Field(this,empmodelos,"emodtipoper"));
       }
     public String getWhere()
       {

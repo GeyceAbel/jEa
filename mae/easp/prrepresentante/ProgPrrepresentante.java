@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20121211
-// Hora:             13:39:53
+// Fecha:            20150512
+// Hora:             16:52:35
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -194,7 +194,7 @@ public class ProgPrrepresentante extends Program
       {
       super(prrepresentante);
       setName("vrepresentantes");
-      setTitle("Representantes ");
+      setTitle("Representantes");
       setLocation(new Location());
       setStates(SHOW | SEARCH | DELETE);
       addSelect(srepres=new Srepres());
@@ -236,19 +236,19 @@ public class ProgPrrepresentante extends Program
     // Tablas
     public Representantes representantes;
     // Campos
+    public Field repadministrado;
     public Field repcodigo;
+    public Field repdominio;
+    public Field repfechapoder;
+    public Field repfirma;
     public Field repnifcif;
+    public Field repnotaria;
     public Field reppresentante;
     public Field repreplegal;
-    public Field repadministrado;
-    public Field repsocios;
-    public Field repsecretario;
-    public Field repfechapoder;
-    public Field repnotaria;
-    public Field repvtopoder;
     public Field represidente;
-    public Field repfirma;
-    public Field repdominio;
+    public Field repsecretario;
+    public Field repsocios;
+    public Field repvtopoder;
     class Representantes extends Table
       {
       public Representantes(Select select)
@@ -263,19 +263,19 @@ public class ProgPrrepresentante extends Program
       {
       setName("srepres");
       addTable(representantes=new Representantes(this));
+      addField(repadministrado=new Field(this,representantes,"repadministrado"));
       addField(repcodigo=new Field(this,representantes,"repcodigo"));
+      addField(repdominio=new Field(this,representantes,"repdominio"));
+      addField(repfechapoder=new Field(this,representantes,"repfechapoder"));
+      addField(repfirma=new Field(this,representantes,"repfirma"));
       addField(repnifcif=new Field(this,representantes,"repnifcif"));
+      addField(repnotaria=new Field(this,representantes,"repnotaria"));
       addField(reppresentante=new Field(this,representantes,"reppresentante"));
       addField(repreplegal=new Field(this,representantes,"repreplegal"));
-      addField(repadministrado=new Field(this,representantes,"repadministrado"));
-      addField(repsocios=new Field(this,representantes,"repsocios"));
-      addField(repsecretario=new Field(this,representantes,"repsecretario"));
-      addField(repfechapoder=new Field(this,representantes,"repfechapoder"));
-      addField(repnotaria=new Field(this,representantes,"repnotaria"));
-      addField(repvtopoder=new Field(this,representantes,"repvtopoder"));
       addField(represidente=new Field(this,representantes,"represidente"));
-      addField(repfirma=new Field(this,representantes,"repfirma"));
-      addField(repdominio=new Field(this,representantes,"repdominio"));
+      addField(repsecretario=new Field(this,representantes,"repsecretario"));
+      addField(repsocios=new Field(this,representantes,"repsocios"));
+      addField(repvtopoder=new Field(this,representantes,"repvtopoder"));
       }
     }
     

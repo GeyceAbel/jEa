@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150212
-// Hora:             12:56:17
+// Fecha:            20150512
+// Hora:             16:40:27
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2257,7 +2257,6 @@ public class ProgQuerytrat extends Program
         setPrintable(false);
         setRestricted(false);
         setDescriptionShow(false);
-        addItem("dummy");
         setField(svariables.qevvariable);
         }
       public void onChange()

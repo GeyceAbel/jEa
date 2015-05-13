@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140523
-// Hora:             08:44:01
+// Fecha:            20150512
+// Hora:             17:19:04
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1323,6 +1323,8 @@ public class CatCtasp extends Catalog
     public FieldDef pcinoamort;
     public FieldDef pcinuevousado;
     public FieldDef pciobser;
+    public FieldDef pcicodinext;
+    public FieldDef pcicodiant;
     public TabPcinmov(String name)
       {
       super(name);
@@ -1353,6 +1355,8 @@ public class CatCtasp extends Catalog
       pcinoamort = new FieldDef("pcinoamort",FieldDef.FLOAT,6,0);
       pcinuevousado = new FieldDef("pcinuevousado",FieldDef.CHAR,3,FieldDef.NOTNULL);
       pciobser = new FieldDef("pciobser",FieldDef.CHAR,2000);
+      pcicodinext = new FieldDef("pcicodinext",FieldDef.INTEGER,0);
+      pcicodiant = new FieldDef("pcicodiant",FieldDef.INTEGER,0);
       FieldDef array[] = {
         pcielemento,
         pciempresa,
@@ -1380,7 +1384,9 @@ public class CatCtasp extends Catalog
         pcireserva,
         pcinoamort,
         pcinuevousado,
-        pciobser        
+        pciobser,
+        pcicodinext,
+        pcicodiant        
         };
       setColumns(array);
       FieldDef arrayind1[] = { pciempresa,pciejercicio,pcicuenta,pcisubcuenta };
@@ -2132,6 +2138,10 @@ public class CatCtasp extends Catalog
     public FieldDef asistatuspunteo;
     public FieldDef asifechapunteo;
     public FieldDef asitipoef;
+    public FieldDef asitipoent;
+    public FieldDef asitipoasto;
+    public FieldDef asicodelem;
+    public FieldDef asitipolin;
     public TabAsientos(String name)
       {
       super(name);
@@ -2163,6 +2173,10 @@ public class CatCtasp extends Catalog
       asistatuspunteo = new FieldDef("asistatuspunteo",FieldDef.CHAR,1);
       asifechapunteo = new FieldDef("asifechapunteo",FieldDef.DATE);
       asitipoef = new FieldDef("asitipoef",FieldDef.CHAR,5);
+      asitipoent = new FieldDef("asitipoent",FieldDef.INTEGER,0);
+      asitipoasto = new FieldDef("asitipoasto",FieldDef.CHAR,10);
+      asicodelem = new FieldDef("asicodelem",FieldDef.INTEGER,0);
+      asitipolin = new FieldDef("asitipolin",FieldDef.CHAR,20);
       FieldDef array[] = {
         asicodi,
         asiempresa,
@@ -2191,7 +2205,11 @@ public class CatCtasp extends Catalog
         asiastocas,
         asistatuspunteo,
         asifechapunteo,
-        asitipoef        
+        asitipoef,
+        asitipoent,
+        asitipoasto,
+        asicodelem,
+        asitipolin        
         };
       setColumns(array);
       FieldDef arrayind1[] = { asiempresa,asiejercicio,asicuenta,asisubcuenta };
@@ -2343,6 +2361,9 @@ public class CatCtasp extends Catalog
     public FieldDef civirpfper;
     public FieldDef civivaeje;
     public FieldDef civivaper;
+    public FieldDef civcasiva;
+    public FieldDef civcasirpf;
+    public FieldDef civdoc340;
     public TabIvacabecera(String name)
       {
       super(name);
@@ -2373,6 +2394,9 @@ public class CatCtasp extends Catalog
       civirpfper = new FieldDef("civirpfper",FieldDef.CHAR,2);
       civivaeje = new FieldDef("civivaeje",FieldDef.INTEGER,0);
       civivaper = new FieldDef("civivaper",FieldDef.CHAR,2);
+      civcasiva = new FieldDef("civcasiva",FieldDef.INTEGER,0);
+      civcasirpf = new FieldDef("civcasirpf",FieldDef.INTEGER,0);
+      civdoc340 = new FieldDef("civdoc340",FieldDef.CHAR,100);
       FieldDef array[] = {
         civcodi,
         civempresa,
@@ -2400,7 +2424,10 @@ public class CatCtasp extends Catalog
         civirpfeje,
         civirpfper,
         civivaeje,
-        civivaper        
+        civivaper,
+        civcasiva,
+        civcasirpf,
+        civdoc340        
         };
       setColumns(array);
       FieldDef arrayind1[] = { civempresa,civejercicio,civemirep,civserie,civregistro };
@@ -4841,6 +4868,24 @@ public class CatCtasp extends Catalog
     public FieldDef a347email;
     public FieldDef a347descclave;
     public FieldDef a347importetot;
+    public FieldDef a347impsp;
+    public FieldDef a347impsp1t;
+    public FieldDef a347impsp2t;
+    public FieldDef a347impsp3t;
+    public FieldDef a347impsp4t;
+    public FieldDef a347impaduana;
+    public FieldDef a347efaduana;
+    public FieldDef a347impadu1t;
+    public FieldDef a347impadu2t;
+    public FieldDef a347impadu3t;
+    public FieldDef a347impadu4t;
+    public FieldDef a347eflocal;
+    public FieldDef a347implocrecc;
+    public FieldDef a347eflocrecc;
+    public FieldDef a347efrecc;
+    public FieldDef a347imprecc;
+    public FieldDef a347recccob;
+    public FieldDef a347recclocob;
     public TabAcum347(String name)
       {
       super(name);
@@ -4874,6 +4919,24 @@ public class CatCtasp extends Catalog
       a347email = new FieldDef("a347email",FieldDef.CHAR,100);
       a347descclave = new FieldDef("a347descclave",FieldDef.CHAR,10);
       a347importetot = new FieldDef("a347importetot",FieldDef.FLOAT,6,0);
+      a347impsp = new FieldDef("a347impsp",FieldDef.FLOAT,6,0);
+      a347impsp1t = new FieldDef("a347impsp1t",FieldDef.FLOAT,6,0);
+      a347impsp2t = new FieldDef("a347impsp2t",FieldDef.FLOAT,6,0);
+      a347impsp3t = new FieldDef("a347impsp3t",FieldDef.FLOAT,6,0);
+      a347impsp4t = new FieldDef("a347impsp4t",FieldDef.FLOAT,6,0);
+      a347impaduana = new FieldDef("a347impaduana",FieldDef.FLOAT,6,0);
+      a347efaduana = new FieldDef("a347efaduana",FieldDef.FLOAT,6,0);
+      a347impadu1t = new FieldDef("a347impadu1t",FieldDef.FLOAT,6,0);
+      a347impadu2t = new FieldDef("a347impadu2t",FieldDef.FLOAT,6,0);
+      a347impadu3t = new FieldDef("a347impadu3t",FieldDef.FLOAT,6,0);
+      a347impadu4t = new FieldDef("a347impadu4t",FieldDef.FLOAT,6,0);
+      a347eflocal = new FieldDef("a347eflocal",FieldDef.FLOAT,6,0);
+      a347implocrecc = new FieldDef("a347implocrecc",FieldDef.FLOAT,6,0);
+      a347eflocrecc = new FieldDef("a347eflocrecc",FieldDef.FLOAT,6,0);
+      a347efrecc = new FieldDef("a347efrecc",FieldDef.FLOAT,6,0);
+      a347imprecc = new FieldDef("a347imprecc",FieldDef.FLOAT,6,0);
+      a347recccob = new FieldDef("a347recccob",FieldDef.FLOAT,6,0);
+      a347recclocob = new FieldDef("a347recclocob",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         a347codigo,
         a347empresa,
@@ -4904,7 +4967,25 @@ public class CatCtasp extends Catalog
         a347cpostal,
         a347email,
         a347descclave,
-        a347importetot        
+        a347importetot,
+        a347impsp,
+        a347impsp1t,
+        a347impsp2t,
+        a347impsp3t,
+        a347impsp4t,
+        a347impaduana,
+        a347efaduana,
+        a347impadu1t,
+        a347impadu2t,
+        a347impadu3t,
+        a347impadu4t,
+        a347eflocal,
+        a347implocrecc,
+        a347eflocrecc,
+        a347efrecc,
+        a347imprecc,
+        a347recccob,
+        a347recclocob        
         };
       setColumns(array);
       FieldDef arrayf[] = {a347codigo };

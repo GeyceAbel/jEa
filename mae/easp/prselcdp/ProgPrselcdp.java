@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20140910
-// Hora:             09:39:23
+// Fecha:            20150512
+// Hora:             16:48:57
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -164,7 +164,6 @@ public class ProgPrselcdp extends Program
       super(prselcdp);
       setName("vbuscaremp");
       setTitle("Búsqueda rápida de empresas");
-      setLayout(new LayoutFlow(LayoutFlow.LEFT));
       setLocation(new Location());
       setPrintable(false);
       addControl(vvempresa=new CtrlVvempresa(this));

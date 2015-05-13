@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20141111
-// Hora:             17:17:29
+// Fecha:            20150512
+// Hora:             17:11:27
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -293,6 +293,8 @@ public class ProgInsprexportbd extends Program
       public Location( )
         {
         super();
+        setWidth(REMAINDER);
+        setHeight(REMAINDER);
         setWeightx(1.0);
         setWeighty(1.0);
         setFill(BOTH);

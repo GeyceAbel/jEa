@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20121211
-// Hora:             11:42:53
+// Fecha:            20150512
+// Hora:             17:02:05
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2178,18 +2178,18 @@ public class ProgPrbancocli extends Program
     public Domi domi;
     // Campos
     public Field doasesor;
-    public Field docolectivo;
-    public Field docliente;
-    public Field docontador;
     public Field dobanco;
-    public Field donombre;
+    public Field docliente;
+    public Field docolectivo;
+    public Field docontador;
+    public Field docuenta;
+    public Field dodigcon;
     public Field dodomicilio;
+    public Field doentidad;
+    public Field donombre;
+    public Field dooficina;
     public Field dopoblacion;
     public Field doprovincia;
-    public Field doentidad;
-    public Field dooficina;
-    public Field dodigcon;
-    public Field docuenta;
     class Domi extends Table
       {
       public Domi(Select select)
@@ -2205,18 +2205,18 @@ public class ProgPrbancocli extends Program
       setName("sdomi");
       addTable(domi=new Domi(this));
       addField(doasesor=new Field(this,domi,"doasesor"));
-      addField(docolectivo=new Field(this,domi,"docolectivo"));
-      addField(docliente=new Field(this,domi,"docliente"));
-      addField(docontador=new Field(this,domi,"docontador"));
       addField(dobanco=new Field(this,domi,"dobanco"));
-      addField(donombre=new Field(this,domi,"donombre"));
+      addField(docliente=new Field(this,domi,"docliente"));
+      addField(docolectivo=new Field(this,domi,"docolectivo"));
+      addField(docontador=new Field(this,domi,"docontador"));
+      addField(docuenta=new Field(this,domi,"docuenta"));
+      addField(dodigcon=new Field(this,domi,"dodigcon"));
       addField(dodomicilio=new Field(this,domi,"dodomicilio"));
+      addField(doentidad=new Field(this,domi,"doentidad"));
+      addField(donombre=new Field(this,domi,"donombre"));
+      addField(dooficina=new Field(this,domi,"dooficina"));
       addField(dopoblacion=new Field(this,domi,"dopoblacion"));
       addField(doprovincia=new Field(this,domi,"doprovincia"));
-      addField(doentidad=new Field(this,domi,"doentidad"));
-      addField(dooficina=new Field(this,domi,"dooficina"));
-      addField(dodigcon=new Field(this,domi,"dodigcon"));
-      addField(docuenta=new Field(this,domi,"docuenta"));
       }
     public String getWhere()
       {
