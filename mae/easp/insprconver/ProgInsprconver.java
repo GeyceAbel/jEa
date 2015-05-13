@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150331
-// Hora:             17:42:36
+// Fecha:            20150513
+// Hora:             17:01:48
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1402,6 +1402,19 @@ public class ProgInsprconver extends Program
     String sentencias13_0[]={
       "INSERT INTO TRANSACCIONES (tratipo,tradesc,traemre,traregimen,tratipoiva,travoloper,traoperespec) VALUES ('RCP','Regularización art.80.','R','IN','CP','NO','NO')",
       "INSERT INTO TRANSACCIONES (tratipo,tradesc,traemre,traregimen,tratipoiva,travoloper,traoperespec) VALUES ('RDU','Importación Aduana pdte ingreso','R','IN','DU','NO','NO')"
+    };
+    
+    String sentencias13_1[]={
+      "CREATE TABLE LOGJCONTAX "+
+       "(lgxcodi          INTEGER NOT NULL, "+
+        "lgxemp           INTEGER, "+
+        "lgxejercicio     INTEGER, "+
+        "lgxfecha         "+formatData()+
+        "lgxhora          VARCHAR(9), "+
+        "lgxusuario       VARCHAR(25), "+
+        "lgxenvrec        VARCHAR(1), "+
+        "lgxcdpafinity    VARCHAR(12), "+
+        "PRIMARY KEY (lgxcodi));"
     };
     
       int i=0;
@@ -3245,6 +3258,25 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("13.0");
         } 
+        
+        if (versio < 13.1) {
+            for (i=0;i<sentencias13_1.length;++i) {
+              try {
+                Easp.chivato("13.1 Exec : ["+sentencias13_1[i]+"]",1);
+                Easp.connEA.executeUpdate(sentencias13_1[i]);
+              }
+              catch(Exception e) {
+                sqlOperation=sentencias13_1[i];
+                Easp.chivato("13.1 *** Error : ["+sentencias13_1[i]+"]  Error: ["+e+"]",1);
+                errorMessage=e.getMessage();
+              }
+            }
+            String tablas[] = {"AMORTIZACION"};
+            Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1301","easp.jar");
+            Easp.setVersionBD("bdeasp","13.1");
+            Easp.connEA.commit();
+            vvveractual.setValue("13.1");
+          } 
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
@@ -3357,6 +3389,7 @@ public class ProgInsprconver extends Program
         }
       return result;
       }
+    
     
     // Fin declaraciones globales
     // Controles

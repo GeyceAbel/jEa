@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150512
-// Hora:             17:19:07
+// Fecha:            20150513
+// Hora:             16:57:49
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -102,6 +102,7 @@ public class CatEasp extends Catalog
   public TabCodcnvotrapll tabcodcnvotrapll;
   public TabCodcnvinciden tabcodcnvinciden;
   public TabLibregmerext tablibregmerext;
+  public TabLogjcontax tablogjcontax;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -3877,6 +3878,45 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabLogjcontax extends TableDef
+    {
+    // Campos
+    public FieldDef lgxcodi;
+    public FieldDef lgxemp;
+    public FieldDef lgxejercicio;
+    public FieldDef lgxfecha;
+    public FieldDef lgxhora;
+    public FieldDef lgxusuario;
+    public FieldDef lgxenvrec;
+    public FieldDef lgxcdpafinity;
+    public TabLogjcontax(String name)
+      {
+      super(name);
+      lgxcodi = new FieldDef("lgxcodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      lgxemp = new FieldDef("lgxemp",FieldDef.INTEGER,0);
+      lgxejercicio = new FieldDef("lgxejercicio",FieldDef.INTEGER,0);
+      lgxfecha = new FieldDef("lgxfecha",FieldDef.DATE);
+      lgxhora = new FieldDef("lgxhora",FieldDef.CHAR,8);
+      lgxusuario = new FieldDef("lgxusuario",FieldDef.CHAR,25);
+      lgxenvrec = new FieldDef("lgxenvrec",FieldDef.CHAR,1);
+      lgxcdpafinity = new FieldDef("lgxcdpafinity",FieldDef.CHAR,12);
+      FieldDef array[] = {
+        lgxcodi,
+        lgxemp,
+        lgxejercicio,
+        lgxfecha,
+        lgxhora,
+        lgxusuario,
+        lgxenvrec,
+        lgxcdpafinity        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {lgxcodi };
+      setPrimaryKeys(arrayf);
+      lgxcodi.setAutoIncrementable(true);
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -3965,6 +4005,7 @@ public class CatEasp extends Catalog
     tabcodcnvotrapll = new TabCodcnvotrapll("codcnvotrapll");
     tabcodcnvinciden = new TabCodcnvinciden("codcnvinciden");
     tablibregmerext = new TabLibregmerext("libregmerext");
+    tablogjcontax = new TabLogjcontax("logjcontax");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -4051,7 +4092,8 @@ public class CatEasp extends Catalog
       tabcodcnvotraplc,
       tabcodcnvotrapll,
       tabcodcnvinciden,
-      tablibregmerext      
+      tablibregmerext,
+      tablogjcontax      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
