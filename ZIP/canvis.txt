@@ -162,4 +162,4 @@
 150306 --> APJORDI:  ConversionJCO LogicClass
 150401 --> APJORDI: Transaccions noves RCP RDU
 150403 --> Appere:  Modificacio GestionCodigos
-150502 --> Apjordig:  Taula LOGJCONTAX per log envio i recepció
+150503 --> Apjordig:  Taula LOGJCONTAX per log envio i recepció
