@@ -14,9 +14,6 @@ import com.jacob.com.Variant;
 import mae.easp.general.Easp;
 import mae.general.PrintingDialogQuery.Icon;
 
-
-
-
 public class PlantillaJacob extends Thread {
 	private File fileTemplate;
 	private ActiveXComponent oWord = null;
@@ -24,7 +21,7 @@ public class PlantillaJacob extends Thread {
 	private String urlTemplate;
 	private PrintingDialogQuery	pd;
 	//private File fileDocumentSave;
-	private int typeDocument;  //0=letters  1=labels  2=sobres
+	private int typeDocument;  //0=letters  1=labels  2=sobres  4=emails
 	private boolean cancela=false;
 	private boolean printDirecto=false;
 	private int saveAs = 999;
@@ -37,6 +34,9 @@ public class PlantillaJacob extends Thread {
 	private String printer;
 	private boolean showPrintDialog=true;
 	private String password = null;
+	private boolean esEmail = false;
+	private String esSubject = "";
+	private File fileDocumentSave;
 	
 	/* tipus de format per a saveAS*/
     public static int  wdFormatDocument                    =  0;
@@ -67,6 +67,8 @@ public class PlantillaJacob extends Thread {
     public static int  wdFormatXPS                         = 18;
     public static int  wdFormatOfficeDocumentTemplate      = 23;
     public static int  wdFormatMediaWiki                   = 24;
+    public static int  wdSendToEmail					   = 2 ;
+    public static int  wdMailFormat					  	   = 1 ;
 	
 	/**
 	 * Constructor plantilla sense origen de dades associat
@@ -203,6 +205,7 @@ public class PlantillaJacob extends Thread {
 	  }
 	}
 	
+	
 	public void run() {
 	  try {		  
 		Maefc.waitCursor();	
@@ -220,41 +223,127 @@ public class PlantillaJacob extends Thread {
 		pd.setLabelText("Abriendo plantilla...");		
 		Dispatch oDocument = Dispatch.call(oDocuments, "Open", urlTemplate,new Variant(false)).toDispatch();	
 		Dispatch activeDocument = oWord.getProperty("ActiveDocument").toDispatch();
+		
+		
 		if(password != null)
 		    Dispatch.put(activeDocument, "WritePassword", new Variant(password));
 		Dispatch mailmerge = Dispatch.get(activeDocument,"MailMerge").toDispatch();
-		Dispatch.put(mailmerge,"MainDocumentType",typeDocument);
+		//Dispatch.put(mailmerge,"MainDocumentType",typeDocument);
+		Dispatch.put(mailmerge,"MainDocumentType",4);
 		pd.setLabelText("Abriendo origen de datos...");
 		Dispatch.call(mailmerge, "OpenDataSource",dataSource.getUrlSource(),0,new Variant(false), new Variant(false),new Variant(true),new Variant(false),new Variant(""),new Variant(""),false,new Variant(""),new Variant(""),new Variant(""),new Variant(""),new Variant(""));
-		pd.setLabelText("Combinando...");
-		Dispatch.call(mailmerge,"Execute",true);
-		pd.setLabelText("Finalizando...");
-		Dispatch.call(oDocument,"Activate");
+		//
 		
-		Dispatch.call(oDocument,"Close",new Variant(0));				
-		//oWord.setProperty("Visible", new Variant(true));
-		
-		//save to pdf		
-		if(saveAs != 999) {
-		  boolean creado =false;
-			Dispatch activeDocumentOpen = oWord.getProperty("ActiveDocument").toDispatch();
-		    if(saveAs != wdFormatPDF ) {		      
-		      saveActiveDocumentAS(activeDocumentOpen, fileSaveAs, saveAs);
-		      creado = true;
-		    }
-		    else {
-		      String[] tokensVersion = oBuild.split("[.]");
+		if(esEmail){
+			Dispatch.put(mailmerge, "Destination", wdSendToEmail);
+			Dispatch.put(mailmerge, "MailFormat", wdMailFormat);
+			Dispatch.put(mailmerge, "MailAddressFieldName", "email");
+			Dispatch.put(mailmerge, "MailSubject", esSubject);
+		}
+			pd.setLabelText("Combinando...");
+			Dispatch.call(mailmerge,"Execute",true);
+			pd.setLabelText("Finalizando...");
+			Dispatch.call(oDocument,"Activate");
+			
+			Dispatch.call(oDocument,"Close",new Variant(0));
+			//oWord.setProperty("Visible", new Variant(true));
+			
+			//Dispatch activeDocument2 = oWord.getProperty("ActiveDocument").toDispatch();
+			/*
+			Dispatch mailEnvelope = Dispatch.get(activeDocument,"MailEnvelope").toDispatch();
+			Dispatch item = Dispatch.get(mailEnvelope,"Item").toDispatch();
+			Dispatch.put(item,"Subject","Hola a todos");
+			Dispatch recipents = Dispatch.get(item,"Recipients").toDispatch();
+			Dispatch.call(recipents,"Add","sergio.ramon@geyce.es");
+			Dispatch.call(item,"Send");*/
+				
+			//oWord.setProperty("Visible", new Variant(true));
+			
+			//save to pdf		
+			if(saveAs != 999) {
+			  boolean creado =false;
+				Dispatch activeDocumentOpen = oWord.getProperty("ActiveDocument").toDispatch();
+			    if(saveAs != wdFormatPDF ) {		      
+			      saveActiveDocumentAS(activeDocumentOpen, fileSaveAs, saveAs);
+			      creado = true;
+			    }
+			    else {
+			      String[] tokensVersion = oBuild.split("[.]");
+				  int versionOutlook1 = Integer.parseInt(tokensVersion[0]);
+				  int versionOutlook2 = Integer.parseInt(tokensVersion[1]);
+				  int versionOutlook3 = Integer.parseInt(tokensVersion[2]);
+				  if((versionOutlook1==12 && versionOutlook3>6424) || versionOutlook1>=13 ) {
+				  //if(false){
+					//versions 2007 o superiors
+					  saveActiveDocumentAS(activeDocumentOpen, fileSaveAs, saveAs);
+					  creado = true;
+				  }
+				  else {
+					//versions 2003 o inferiors
+					PdfCreator pdfCreator = new PdfCreator(); 
+		            boolean tienePdfCreator = false;
+				    try {
+				       tienePdfCreator = pdfCreator.checkPrinters("PDFCreator") ;
+			        }
+			        catch (Exception e ) {
+				    }
+			        if ( !tienePdfCreator ) {
+			          if ( Maefc.message("No tiene instalado el PDFCreator \n \n Para Utilizar esta opción es necesario tenerlo instalado. \n \n ¿ Desea Descargar ahora el programa de instalación del PDFCreator ?","Atención",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION) == Maefc.YES_OPTION ) {
+			        	Runtime rt = Runtime.getRuntime();
+			        	rt.exec( "rundll32 url.dll,FileProtocolHandler " + "http://www.pdfforge.org/");
+			            //JExpe.abrirExplorer("http://www.pdfforge.org/",false);
+		              }
+			          return ;  
+			        }
+			        File fileSaveDoc = File.createTempFile("pdfCreator", ".doc");
+			        //File fileSaveDoc = new File(fileSaveAs.replace(".pdf", ".doc"));
+			        File fileSavePdf = new File(fileSaveAs);				        
+			        saveActiveDocumentAS(activeDocumentOpen, fileSaveDoc.getAbsolutePath(), wdFormatDocument);
+				    if (oWord!=null) {
+		  		      oWord.invoke("Quit", new Variant(0)); 
+				      oWord=null;
+				    }
+			        creado = pdfCreator.creaPDF(fileSaveDoc.getParent()+"\\", fileSaveDoc.getName(), fileSavePdf.getParent()+"\\", fileSavePdf.getName(),true ) ;		        
+			        fileSaveDoc.deleteOnExit();
+			        pdfCreator.close();
+				  }
+			    }
+			    if (oWord!=null) {
+	  		      oWord.invoke("Quit", new Variant(0)); 
+			      oWord=null;
+			      ComThread.Release();
+			    }
+			    if(creado && openPdfFileAfterFinish) {
+			    	Process p = Runtime
+	     			   .getRuntime()
+	     			   .exec("rundll32 url.dll,FileProtocolHandler " + fileSaveAs);
+	     			p.waitFor();	
+			    }		    
+			}
+			/*
+			if(saveAs == wdFormatPDF) {			
+			  String[] tokensVersion = oVersion.split("[.]");
 			  int versionOutlook1 = Integer.parseInt(tokensVersion[0]);
 			  int versionOutlook2 = Integer.parseInt(tokensVersion[1]);
-			  int versionOutlook3 = Integer.parseInt(tokensVersion[2]);
-			  if((versionOutlook1==12 && versionOutlook3>6424) || versionOutlook1>=13 ) {
-			  //if(false){
-				//versions 2007 o superiors
-				  saveActiveDocumentAS(activeDocumentOpen, fileSaveAs, saveAs);
-				  creado = true;
+			  //int versionOutlook3 = Integer.parseInt(tokensVersion[2]);
+			  //if(versionWord>12.0) {  //versions 2007 o superiors
+			  if((versionOutlook1>11 && versionOutlook2>6424) || versionOutlook1>=12 ) {  //versions 2007 o superiors
+			    Dispatch activeDocumentToPdf = oWord.getProperty("ActiveDocument").toDispatch();		  
+			    Dispatch.call(activeDocumentToPdf,"SaveAs",fileSaveAs,wdFormatPDF);
+			    Dispatch.call(activeDocumentToPdf,"Activate");
+			    Dispatch.call(activeDocumentToPdf,"Close",new Variant(0));
+			    if (oWord!=null) {
+	  		      oWord.invoke("Quit", new Variant(0)); 
+			      oWord=null;
+			    }
+			    if(openPdfFileAfterFinish) {
+			    	Process p = Runtime
+	     			   .getRuntime()
+	     			   .exec("rundll32 url.dll,FileProtocolHandler " + fileSaveAs);
+	     			p.waitFor();	
+			    }
 			  }
-			  else {
-				//versions 2003 o inferiors
+			  else { //versions 2003 o inferiors
 				PdfCreator pdfCreator = new PdfCreator(); 
 	            boolean tienePdfCreator = false;
 			    try {
@@ -267,127 +356,69 @@ public class PlantillaJacob extends Thread {
 		        	Runtime rt = Runtime.getRuntime();
 		        	rt.exec( "rundll32 url.dll,FileProtocolHandler " + "http://www.pdfforge.org/");
 		            //JExpe.abrirExplorer("http://www.pdfforge.org/",false);
-	              }
+		          }
 		          return ;  
 		        }
-		        File fileSaveDoc = File.createTempFile("pdfCreator", ".doc");
-		        //File fileSaveDoc = new File(fileSaveAs.replace(".pdf", ".doc"));
-		        File fileSavePdf = new File(fileSaveAs);				        
-		        saveActiveDocumentAS(activeDocumentOpen, fileSaveDoc.getAbsolutePath(), wdFormatDocument);
+		        
+		        Dispatch activeDocumentToPdf = oWord.getProperty("ActiveDocument").toDispatch();
+		        File fileSaveDoc = new File(fileSaveAs.replace(".pdf", ".doc"));
+		        File fileSavePdf = new File(fileSaveAs);
+		        
+			    Dispatch.call(activeDocumentToPdf,"SaveAs",fileSaveDoc.getAbsolutePath(),wdFormatDocumentDefault);
+			    Dispatch.call(activeDocumentToPdf,"Activate");
+			    Dispatch.call(activeDocumentToPdf,"Close",new Variant(0));
 			    if (oWord!=null) {
 	  		      oWord.invoke("Quit", new Variant(0)); 
 			      oWord=null;
 			    }
-		        creado = pdfCreator.creaPDF(fileSaveDoc.getParent()+"\\", fileSaveDoc.getName(), fileSavePdf.getParent()+"\\", fileSavePdf.getName(),true ) ;		        
-		        fileSaveDoc.deleteOnExit();
-		        pdfCreator.close();
+		        boolean creado = pdfCreator.creaPDF(fileSaveDoc.getParent()+"\\", fileSaveDoc.getName(), fileSavePdf.getParent()+"\\", fileSavePdf.getName(),true ) ;
+		        fileSaveDoc.delete();
+		        if(creado && openPdfFileAfterFinish) {
+		        	Process p = Runtime
+		     			   .getRuntime()
+		     			   .exec("rundll32 url.dll,FileProtocolHandler " + fileSavePdf.getAbsolutePath());
+		     			p.waitFor();	
+		        }
 			  }
-		    }
-		    if (oWord!=null) {
-  		      oWord.invoke("Quit", new Variant(0)); 
-		      oWord=null;
-		      ComThread.Release();
-		    }
-		    if(creado && openPdfFileAfterFinish) {
-		    	Process p = Runtime
-     			   .getRuntime()
-     			   .exec("rundll32 url.dll,FileProtocolHandler " + fileSaveAs);
-     			p.waitFor();	
-		    }		    
-		}
-		/*
-		if(saveAs == wdFormatPDF) {			
-		  String[] tokensVersion = oVersion.split("[.]");
-		  int versionOutlook1 = Integer.parseInt(tokensVersion[0]);
-		  int versionOutlook2 = Integer.parseInt(tokensVersion[1]);
-		  //int versionOutlook3 = Integer.parseInt(tokensVersion[2]);
-		  //if(versionWord>12.0) {  //versions 2007 o superiors
-		  if((versionOutlook1>11 && versionOutlook2>6424) || versionOutlook1>=12 ) {  //versions 2007 o superiors
-		    Dispatch activeDocumentToPdf = oWord.getProperty("ActiveDocument").toDispatch();		  
-		    Dispatch.call(activeDocumentToPdf,"SaveAs",fileSaveAs,wdFormatPDF);
-		    Dispatch.call(activeDocumentToPdf,"Activate");
-		    Dispatch.call(activeDocumentToPdf,"Close",new Variant(0));
-		    if (oWord!=null) {
-  		      oWord.invoke("Quit", new Variant(0)); 
-		      oWord=null;
-		    }
-		    if(openPdfFileAfterFinish) {
-		    	Process p = Runtime
-     			   .getRuntime()
-     			   .exec("rundll32 url.dll,FileProtocolHandler " + fileSaveAs);
-     			p.waitFor();	
-		    }
+			}
+			
+			*/
+			
+			else if(printDirecto) {
+			  pd.setLabelText("Imprimiendo...");
+			  Dispatch activeDocumentToPrint = oWord.getProperty("ActiveDocument").toDispatch();
+			  String currentPrinter = oWord.getProperty("ActivePrinter").toString();
+			  oWord.setProperty("ActivePrinter", printer);
+			  oWord.setProperty("WindowState", 1);
+			  Dispatch.call(activeDocumentToPrint,"PrintOut",new Variant(false));
+			  oWord.setProperty("ActivePrinter", currentPrinter);
+			  Dispatch.call(activeDocumentToPrint,"Activate");
+			  Dispatch.call(activeDocumentToPrint,"Close",new Variant(0));
+			  if (oWord!=null) {
+			    oWord.invoke("Quit", new Variant(0)); 
+			    oWord=null;
+			  }
+			}
+			else 
+				if(esEmail){
+					 oWord.invoke("Quit", new Variant(0));
+				}else{
+					oWord.setProperty("Visible", new Variant(true));
+				}
+			  
+			Maefc.restoreCursor();
 		  }
-		  else { //versions 2003 o inferiors
-			PdfCreator pdfCreator = new PdfCreator(); 
-            boolean tienePdfCreator = false;
-		    try {
-		       tienePdfCreator = pdfCreator.checkPrinters("PDFCreator") ;
-	        }
-	        catch (Exception e ) {
-		    }
-	        if ( !tienePdfCreator ) {
-	          if ( Maefc.message("No tiene instalado el PDFCreator \n \n Para Utilizar esta opción es necesario tenerlo instalado. \n \n ¿ Desea Descargar ahora el programa de instalación del PDFCreator ?","Atención",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION) == Maefc.YES_OPTION ) {
-	        	Runtime rt = Runtime.getRuntime();
-	        	rt.exec( "rundll32 url.dll,FileProtocolHandler " + "http://www.pdfforge.org/");
-	            //JExpe.abrirExplorer("http://www.pdfforge.org/",false);
-	          }
-	          return ;  
-	        }
-	        
-	        Dispatch activeDocumentToPdf = oWord.getProperty("ActiveDocument").toDispatch();
-	        File fileSaveDoc = new File(fileSaveAs.replace(".pdf", ".doc"));
-	        File fileSavePdf = new File(fileSaveAs);
-	        
-		    Dispatch.call(activeDocumentToPdf,"SaveAs",fileSaveDoc.getAbsolutePath(),wdFormatDocumentDefault);
-		    Dispatch.call(activeDocumentToPdf,"Activate");
-		    Dispatch.call(activeDocumentToPdf,"Close",new Variant(0));
-		    if (oWord!=null) {
-  		      oWord.invoke("Quit", new Variant(0)); 
-		      oWord=null;
-		    }
-	        boolean creado = pdfCreator.creaPDF(fileSaveDoc.getParent()+"\\", fileSaveDoc.getName(), fileSavePdf.getParent()+"\\", fileSavePdf.getName(),true ) ;
-	        fileSaveDoc.delete();
-	        if(creado && openPdfFileAfterFinish) {
-	        	Process p = Runtime
-	     			   .getRuntime()
-	     			   .exec("rundll32 url.dll,FileProtocolHandler " + fileSavePdf.getAbsolutePath());
-	     			p.waitFor();	
-	        }
+		  catch (Exception ex){
+		    if (oWord!=null && !cancela) {
+			  oWord.invoke("Quit", new Variant(0));  
+			  oWord = null;
+			  ComThread.Release();
+			  ex.printStackTrace();
+			  Maefc.restoreCursor();
+			  Maefc.message("Error al combinar: " + ex.getMessage(),"¡Error!",Maefc.ERROR_MESSAGE);
+			}
 		  }
-		}
-		
-		*/
-		
-		else if(printDirecto) {
-		  pd.setLabelText("Imprimiendo...");
-		  Dispatch activeDocumentToPrint = oWord.getProperty("ActiveDocument").toDispatch();
-		  String currentPrinter = oWord.getProperty("ActivePrinter").toString();
-		  oWord.setProperty("ActivePrinter", printer);
-		  oWord.setProperty("WindowState", 1);
-		  Dispatch.call(activeDocumentToPrint,"PrintOut",new Variant(false));
-		  oWord.setProperty("ActivePrinter", currentPrinter);
-		  Dispatch.call(activeDocumentToPrint,"Activate");
-		  Dispatch.call(activeDocumentToPrint,"Close",new Variant(0));
-		  if (oWord!=null) {
-		    oWord.invoke("Quit", new Variant(0)); 
-		    oWord=null;
-		  }
-		}
-		else 
-		  oWord.setProperty("Visible", new Variant(true));
-		Maefc.restoreCursor();
-	  }
-	  catch (Exception ex){
-	    if (oWord!=null && !cancela) {
-		  oWord.invoke("Quit", new Variant(0));  
-		  oWord = null;
-		  ComThread.Release();
-		  ex.printStackTrace();
-		  Maefc.restoreCursor();
-		  Maefc.message("Error al combinar: " + ex.getMessage(),"¡Error!",Maefc.ERROR_MESSAGE);
-		}
-	  }
+	  
 	}
 	
 	public void executeMerge() {
@@ -500,6 +531,26 @@ public class PlantillaJacob extends Thread {
 	    Dispatch.call(activeDocument,"Close",new Variant(0));	
 	}
   
+	public void setTypeDocument(int type) {
+		this.typeDocument = type;
+	}
+	
+	public void setEmail(boolean isMergeEmail) {
+		this.esEmail = isMergeEmail;
+	}
+	
+	public void setSubject(String subject){
+		this.esSubject = subject;
+	}
+	/*
+	public void createDocumentSave(String url) throws Exception{
+		  fileDocumentSave = new java.io.File(url);
+			if(!fileDocumentSave.exists()) {
+		     JExpe.creaDirect(fileDocumentSave.getParent());
+		     fileDocumentSave.createNewFile();
+			}
+		}
+		*/
 }
 
 

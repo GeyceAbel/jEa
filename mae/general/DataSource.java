@@ -176,10 +176,10 @@ public class DataSource {
 	    	Value valor = controls.get(z).getValue();
 	    	if(controls.get(z).getType() == Value.STRING){
 	    	  String val = valor.getString().replace("\"", "").replace(";","");
-	    	  cadena +="\""+val+"\"" + (z+1==select.getNumColumns()?"":";"); 
+	    	  cadena +="\""+val+"\"" + (z+1==controls.size()?"":";"); 
 	    	}
 	    	else {
-	    	  cadena +="\""+valor+"\"" + (z+1==select.getNumColumns()?"":";");  
+	    	  cadena +="\""+valor+"\"" + (z+1==controls.size()?"":";");  
 	    	}
 	      }
 	      //cadena +="\""+controls.get(z).getValue()+"\"" + (z+1==controls.size()?"":";");
@@ -195,6 +195,7 @@ public class DataSource {
     	fileout.close();
 	  }
 	  catch (NullPointerException npe) {
+		  npe.printStackTrace();
 	    System.out.println("El argumento no es valido:"+npe);
 	    fileout.close();
 	  }
