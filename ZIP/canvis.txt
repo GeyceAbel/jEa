@@ -163,3 +163,4 @@
 150401 --> APJORDI: Transaccions noves RCP RDU
 150403 --> Appere:  Modificacio GestionCodigos
 150503 --> Apjordig:  Taula LOGJCONTAX per log envio i recepció
+150504 --> APXAVI:  Canvis a PlantillaJacob per combinacio de correspondencia amb email.

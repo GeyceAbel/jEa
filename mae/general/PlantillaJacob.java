@@ -67,6 +67,8 @@ public class PlantillaJacob extends Thread {
     public static int  wdFormatXPS                         = 18;
     public static int  wdFormatOfficeDocumentTemplate      = 23;
     public static int  wdFormatMediaWiki                   = 24;
+    
+    
     public static int  wdSendToEmail					   = 2 ;
     public static int  wdMailFormat					  	   = 1 ;
 	
@@ -228,8 +230,12 @@ public class PlantillaJacob extends Thread {
 		if(password != null)
 		    Dispatch.put(activeDocument, "WritePassword", new Variant(password));
 		Dispatch mailmerge = Dispatch.get(activeDocument,"MailMerge").toDispatch();
-		//Dispatch.put(mailmerge,"MainDocumentType",typeDocument);
-		Dispatch.put(mailmerge,"MainDocumentType",4);
+		Dispatch.put(mailmerge,"MainDocumentType",typeDocument);
+		
+		//Dispatch.put(mailmerge,"MainDocumentType",4);
+		
+		
+		
 		pd.setLabelText("Abriendo origen de datos...");
 		Dispatch.call(mailmerge, "OpenDataSource",dataSource.getUrlSource(),0,new Variant(false), new Variant(false),new Variant(true),new Variant(false),new Variant(""),new Variant(""),false,new Variant(""),new Variant(""),new Variant(""),new Variant(""),new Variant(""));
 		//
