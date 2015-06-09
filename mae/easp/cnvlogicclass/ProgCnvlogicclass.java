@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150316
-// Hora:             10:36:19
+// Fecha:            20150609
+// Hora:             09:17:34
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -45,6 +45,7 @@ public class ProgCnvlogicclass extends Program
   
   private void disableIniConver () {
     vcodigos.aini.setEnabled(false);
+    vcodigos.aact.setEnabled(false);
   }
   // Fin declaraciones globales
   // Ventana
@@ -1123,6 +1124,7 @@ public class ProgCnvlogicclass extends Program
               vcodigos.idConver = codiCab;
               vcodigos.doShow();
               vcodigos.aini.setEnabled(true); 
+              vcodigos.aact.setEnabled(true);
             }
             else sError = gc.getError();
           }
@@ -1349,6 +1351,7 @@ private boolean existeAConvertir(int integer) {
     // Acciones
     public LinkAini aini;
     public LinkAselec aselec;
+    public LinkAact aact;
     class Location extends LocationSplit
       {
       public Location( )
@@ -1568,6 +1571,37 @@ private boolean existeAConvertir(int integer) {
         }
       }
       
+    public class LinkAact extends Action
+      {
+      public LinkAact(Form form)
+        {
+        super(form);
+        setName("aact");
+        setTitle("&3. Actualizar Clientes Proveedores");
+        setOptions(SHOW);
+        }
+      public void onAction()
+        {
+        if (mae.easp.conversions.Incidencia.eliminarIncidencias (idConver,getDataBase())) {
+          boolean hayIncidencias = false;
+          if (vconversion.chjco.getBoolean()  && clcjco.actualizartCliPro () ) hayIncidencias = true;
+          Update u = new Update (getDataBase(),"CODCNVOTRAPLC");
+          u.valor("ccohistorico", "S");
+          u.execute("ccocodi="+idConver);
+          getDataBase().commit();
+          disableIniConver ();
+          if (hayIncidencias) {
+            Maefc.message ("Se han producido incidencias en el proceso de actualización de Clientes y Proveedores.\n\nA continuación se abrirá la gestión de incidencias para poder gestionarlas.","¡Atención!",Maefc.WARNING_MESSAGE);
+            vincidencias.idConversion = idConver;
+            vincidencias.open();
+          }
+          else Maefc.message ("El proceso de actualización de Clientes y Proveedores ha finalizado correctamente.","Conversión",Maefc.INFORMATION_MESSAGE);
+        }
+        
+        
+        }
+      }
+      
     public FormVcodigos(ProgCnvlogicclass cnvlogicclass)
       {
       super(cnvlogicclass);
@@ -1590,6 +1624,7 @@ private boolean existeAConvertir(int integer) {
       addControl(chjges=new CtrlChjges(this));
       addAction(aini=new LinkAini(this));
       addAction(aselec=new LinkAselec(this));
+      addAction(aact=new LinkAact(this));
       setSelect(scodcnvotrapll);
       }
     public boolean onOkUpdate()
@@ -2676,6 +2711,7 @@ private boolean existeAConvertir(int integer) {
     pra.run();
     if (!pra.haAceptadoCondiciones) return;*/
     vconversion.setLayout(new LayoutHtml("mae/easp/html/cnvlogicclas_vconversion.html"));
+    vcodigos.aact.setVisible(fromJCO);
     super.onInit();
     
     

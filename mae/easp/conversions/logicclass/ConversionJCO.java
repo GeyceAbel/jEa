@@ -10,6 +10,7 @@ import mae.contaasp.general.Iva2012;
 import mae.easp.conversions.FuncionesJCO;
 import mae.easp.conversions.DadesEmpresa;
 import mae.easp.conversions.Incidencia;
+import mae.easp.conversions.Conversion.APLICACION_GEYCE;
 import mae.easp.conversions.logicclass.db.SelectorLogic;
 import mae.general.Fecha;
 import mae.general.Numero;
@@ -295,7 +296,7 @@ public class ConversionJCO extends ConversionLC {
 		if (!existeFiscal) System.out.println ("De la empresa "+codEmp+"/"+empJcta+" no existe el domicilio fiscal ");
 		return iNIF.execute();
 	}
-
+	
 	private boolean initConver (int iEmp, int iEjerL, int empJconta, int iEjerJ, int mesInicio, String denif) {
 		boolean bOk = true;
 		pbf.setSecondaryPercent(0);
@@ -542,63 +543,69 @@ public class ConversionJCO extends ConversionLC {
 				Iva2012 iv = new Iva2012(dbJCta);
 				iv.inicializarProceso();
 			}
-			if (bOk) {
-				htRet = new java.util.Hashtable<Integer, TipoReten>();
-				SelectorLogic scr = new SelectorLogic (connLC);
-				scr.execute ("Select * from TiposRetencion");
-				while (bOk && scr.next()) {
-					int cod = scr.getint("CodigoRetencion");
-					double por = scr.getdouble("%Retencion");
-					TipoReten t = new TipoReten(cod,por, scr.getString("ClaveIrpf"));
-					Selector sirpf = new Selector (dbJCta);
-					sirpf.execute("Select * from IRPF where irpporcen="+por);
-					if (sirpf.next()) t.setCodJC(sirpf.getint("irpcodigo"));
-					else {
-						int codirpf = funciones.getNextIRPF (dbJCta);
-						Insert i = new Insert (dbJCta,"IRPF");
-						i.valor("irpcodigo",codirpf);
-						i.valor("irpporcen",por);
-						bOk = i.execute();
-						if (!bOk) sError = "Error al grabar tabla IRPF";
-						t.setCodJC(codirpf);
-					}
-					sirpf.close();
-					htRet.put(new Integer(cod),t);
-				}
-				scr.close();
-			}
-			if (bOk) {
-				htIva = new java.util.Hashtable<Integer, TipoIVA>();
-				SelectorLogic scr = new SelectorLogic (connLC);
-				scr.execute ("Select * from TiposIva");
-				while (bOk && scr.next()) {
-					int cod = scr.getint("CodigoIva");
-					double por = scr.getdouble("%Iva");
-					double porr = scr.getdouble("%RecargoEquivalencia");
-					TipoIVA t = new TipoIVA(cod,por, porr);
-					Selector siva = new Selector (dbJCta);
-					siva.execute("Select * from IVA where ivatipo='I' and ivaiva="+por+" and ivarec="+porr);
-					if (siva.next()) t.setCodJC(siva.getint("ivacodigo"));
-					else {
-						int codiva = funciones.getNextIVA (dbJCta);
-						Insert i = new Insert (dbJCta,"IVA");
-						i.valor("ivacodigo",codiva);
-						i.valor("ivatipo","I");
-						i.valor("ivaiva",por);
-						i.valor("ivarec",porr);
-						bOk = i.execute();
-						if (!bOk) sError = "Error al grabar tabla IVA";
-
-						t.setCodJC(codiva);
-					}
-					siva.close();
-					htIva.put(new Integer(cod),t);
-				}
-				scr.close();
-			}
+			if (bOk) bOk = initHtIvaHtRet ();
 		}
 		if (!bOk && (sError==null || sError.trim().length()==0) ) sError = "Error NO DEFINIDO en initConver";
 		return bOk;  
+	}
+
+	private boolean initHtIvaHtRet() {
+		boolean bOk = true;
+		if (bOk) {
+			htRet = new java.util.Hashtable<Integer, TipoReten>();
+			SelectorLogic scr = new SelectorLogic (connLC);
+			scr.execute ("Select * from TiposRetencion");
+			while (bOk && scr.next()) {
+				int cod = scr.getint("CodigoRetencion");
+				double por = scr.getdouble("%Retencion");
+				TipoReten t = new TipoReten(cod,por, scr.getString("ClaveIrpf"));
+				Selector sirpf = new Selector (dbJCta);
+				sirpf.execute("Select * from IRPF where irpporcen="+por);
+				if (sirpf.next()) t.setCodJC(sirpf.getint("irpcodigo"));
+				else {
+					int codirpf = funciones.getNextIRPF (dbJCta);
+					Insert i = new Insert (dbJCta,"IRPF");
+					i.valor("irpcodigo",codirpf);
+					i.valor("irpporcen",por);
+					bOk = i.execute();
+					if (!bOk) sError = "Error al grabar tabla IRPF";
+					t.setCodJC(codirpf);
+				}
+				sirpf.close();
+				htRet.put(new Integer(cod),t);
+			}
+			scr.close();
+		}
+		if (bOk) {
+			htIva = new java.util.Hashtable<Integer, TipoIVA>();
+			SelectorLogic scr = new SelectorLogic (connLC);
+			scr.execute ("Select * from TiposIva");
+			while (bOk && scr.next()) {
+				int cod = scr.getint("CodigoIva");
+				double por = scr.getdouble("%Iva");
+				double porr = scr.getdouble("%RecargoEquivalencia");
+				TipoIVA t = new TipoIVA(cod,por, porr);
+				Selector siva = new Selector (dbJCta);
+				siva.execute("Select * from IVA where ivatipo='I' and ivaiva="+por+" and ivarec="+porr);
+				if (siva.next()) t.setCodJC(siva.getint("ivacodigo"));
+				else {
+					int codiva = funciones.getNextIVA (dbJCta);
+					Insert i = new Insert (dbJCta,"IVA");
+					i.valor("ivacodigo",codiva);
+					i.valor("ivatipo","I");
+					i.valor("ivaiva",por);
+					i.valor("ivarec",porr);
+					bOk = i.execute();
+					if (!bOk) sError = "Error al grabar tabla IVA";
+
+					t.setCodJC(codiva);
+				}
+				siva.close();
+				htIva.put(new Integer(cod),t);
+			}
+			scr.close();
+		}
+		return bOk;
 	}
 
 	private boolean grabarDatosBancarios (int emp, int empJconta, int iEjerJ) {
@@ -956,28 +963,59 @@ public class ConversionJCO extends ConversionLC {
 		return bOk;
 	}
 
-	private boolean importarPC (int iEmp, int iEjerL, int empJconta, int iEjerJ) {
+	private boolean initHTGrupos (int iEmp) {
 		boolean bOk = true;
 		htGrupos = new java.util.Hashtable <String,String> ();
+		
+		SelectorLogic spctas = new SelectorLogic (connLC);
+		spctas.execute ("Select * from Grupos where TipoPlanCuenta=2008 and CodigoEmpresa="+iEmp+" AND DescripcionGrupo is not null order by CodigoGrupo");
+		while (spctas.next() && bOk) {
+			String sCta  = spctas.getString("CodigoGrupo");
+			if (sCta!=null) sCta = sCta.trim();
+			else sCta = "";
+			if (!Util.isNumero(sCta)) sCta = "";
+			String sDesc = spctas.getString("DescripcionGrupo");
+			if (sDesc!=null) sDesc = sDesc.trim();
+			else sDesc = "";
+			if (sCta.length()==3 || sCta.length()==4) {
+				htGrupos.put(sCta,sDesc);
+			}
+		}
+		spctas.close();
+		
+		if (bOk) {
+			augmentaLong4 = false;
+			SelectorLogic spc = new SelectorLogic (connLC);
+			spc.execute("Select CodigoCuenta from PlanCuentas where CodigoEmpresa="+iEmp);
+			while (spc.next()) {      
+				String CodigoCuenta = spc.getString("CodigoCuenta");
+				if ("4".equals(longCta) ) {  
+					if (CodigoCuenta != null && CodigoCuenta.length()>4) {
+						String ctaMayor = CodigoCuenta.substring(0, 4);
+						if (!Util.isNumero(ctaMayor.substring(3, 4))) augmentaLong4 = true;
+						else if (!htGrupos.containsKey(ctaMayor) && htGrupos.containsKey(ctaMayor.substring(0,3)+"0")) augmentaLong4 = true;
+						else if (!htGrupos.containsKey(ctaMayor) && htGrupos.containsKey(ctaMayor.substring(0,3))) augmentaLong4 = true;
+						else if (
+								CodigoCuenta.length()>=11 && 
+								Util.esNIF(CodigoCuenta.substring(CodigoCuenta.length()-9,CodigoCuenta.length())) == 0 &&
+								("400".equals(CodigoCuenta.substring(0, 3)) || "430".equals(CodigoCuenta.substring(0, 3)) ) 
+							) {
+							augmentaLong4 = true;
+						}
+					}
+				}
+			}
+			spc.close();
+		}
+		return bOk;
+	}
+	private boolean importarPC (int iEmp, int iEjerL, int empJconta, int iEjerJ) {
+		boolean bOk = true;
 		ctaMayor = new java.util.Vector <String> ();
 		pbf.setSecondaryPercent(0);
 		pbf.setState("Convirtiendo LC: "+iEmp+"  JC:"+empJconta+" ("+iEjerJ+")  -  Plan cuentas");
 		if (bOk) {
-			SelectorLogic spctas = new SelectorLogic (connLC);
-			spctas.execute ("Select * from Grupos where TipoPlanCuenta=2008 and CodigoEmpresa="+iEmp+" AND DescripcionGrupo is not null order by CodigoGrupo");
-			while (spctas.next() && bOk) {
-				String sCta  = spctas.getString("CodigoGrupo");
-				if (sCta!=null) sCta = sCta.trim();
-				else sCta = "";
-				if (!Util.isNumero(sCta)) sCta = "";
-				String sDesc = spctas.getString("DescripcionGrupo");
-				if (sDesc!=null) sDesc = sDesc.trim();
-				else sDesc = "";
-				if (sCta.length()==3 || sCta.length()==4) {
-					htGrupos.put(sCta,sDesc);
-				}
-			}
-			spctas.close();
+			bOk = initHTGrupos(iEmp);
 			for (Enumeration<String> e = htGrupos.keys();e.hasMoreElements();) {
 				String cta = e.nextElement();
 				String desc = htGrupos.get(cta);
@@ -990,32 +1028,6 @@ public class ConversionJCO extends ConversionLC {
 				}				
 			}
 			
-			if (bOk) {
-				augmentaLong4 = false;
-				SelectorLogic spc = new SelectorLogic (connLC);
-				spc.execute("Select CodigoCuenta from PlanCuentas where CodigoEmpresa="+iEmp);
-				while (spc.next()) {      
-					String CodigoCuenta = spc.getString("CodigoCuenta");
-					if ("4".equals(longCta) ) {  
-						if (CodigoCuenta != null && CodigoCuenta.length()>4) {
-							String ctaMayor = CodigoCuenta.substring(0, 4);
-							if (!Util.isNumero(ctaMayor.substring(3, 4))) augmentaLong4 = true;
-							else if (!htGrupos.containsKey(ctaMayor) && htGrupos.containsKey(ctaMayor.substring(0,3)+"0")) augmentaLong4 = true;
-							else if (!htGrupos.containsKey(ctaMayor) && htGrupos.containsKey(ctaMayor.substring(0,3))) augmentaLong4 = true;
-							else if (
-									CodigoCuenta.length()>=11 && 
-									Util.esNIF(CodigoCuenta.substring(CodigoCuenta.length()-9,CodigoCuenta.length())) == 0 &&
-									("400".equals(CodigoCuenta.substring(0, 3)) || "430".equals(CodigoCuenta.substring(0, 3)) ) 
-								) {
-								augmentaLong4 = true;
-							}
-						}
-					}
-				}
-				spc.close();
-			}
-			
-			
 			
 			int numTotal = 0;
 			SelectorLogic spctast = new SelectorLogic (connLC);
@@ -1023,7 +1035,7 @@ public class ConversionJCO extends ConversionLC {
 			if (spctast.next()) numTotal = spctast.getint("num");
 			spctast.close();
 			int numActual = 0;
-			spctas = new SelectorLogic (connLC);
+			SelectorLogic spctas = new SelectorLogic (connLC);
 			spctas.execute ("Select * from PlanCuentas where Cuenta is not null and CodigoEmpresa="+iEmp+" order by CodigoCuenta");
 			while (bOk && spctas.next()) {
 				pbf.setSecondaryPercent((++numActual)*100/numTotal);
@@ -1080,144 +1092,166 @@ public class ConversionJCO extends ConversionLC {
 			}
 			spctas.close();
 
-
-			//ASIGNAMOS CLIENTES / PROVEEDORES
-			SelectorLogic sclipro = new SelectorLogic (connLC);
-			sclipro.execute ("Select * from ClientesConta where CodigoEmpresa="+iEmp+" order by CodigoCuenta");
-			while (bOk && sclipro.next()) {
-				String sCta  = sclipro.getString("CodigoCuenta");
-				String sNif = sclipro.getString("CifDni"); 
-				//int Exclusion347 = sclipro.getint("Exclusion347");    
-				String CifEuropeo = sclipro.getString("CifEuropeo");
-				boolean esGuiri =     false;
-				if (sNif !=null) sNif = sNif.trim();
-				if (sNif!=null && sCta!=null && sCta.trim().length()>=5 )  {
-					SelectorLogic snifclipro = new SelectorLogic (connLC);
-					snifclipro.execute("Select * from ClientesProveedores where CifDni='"+sNif+"'");
-					if (snifclipro.next()) {
-						int datpais = snifclipro.getint("CodigoNacion");    
-						esGuiri = datpais != 0 && datpais != 108 && CifEuropeo!=null && CifEuropeo.length()>2 && !CifEuropeo.startsWith("ES");
-						Selector snifes = new Selector (connEA);
-						snifes.execute("Select * from NIFES where danifcif='"+sNif+"'");
-						if (!snifes.next()) {
-							String ape1 = getSelString(snifclipro,"ClienteProveedor");
-							if (ape1!=null && ape1.trim().length()>0) {
-								Insert inif = new Insert (connEA,"NIFES");
-								inif.valor("danifcif",sNif);
-								inif.valor("datipo","C");
-								inif.valor("datapell1",ape1);
-								inif.valor("datdominio",dominio);
-								String fisicajur = getSelString(snifclipro,"PersonaFisicaJuridica");
-								if (!"J".equals(fisicajur) && !"F".equals(fisicajur)) {
-									fisicajur = "J";                      
-									if (Util.esCIFdePersonaFisica(sNif)) fisicajur = "F";
-								}
-								inif.valor("datfisicajuri",fisicajur);
-								inif.valor("datsiglas",getSelString(snifclipro,"CodigoSigla"));
-								inif.valor("datvia",getSelString(snifclipro,"ViaPublica"));
-								inif.valor("datnum",getSelString(snifclipro,"Numero1"));
-								inif.valor("datesc",getSelString(snifclipro,"Escalera"));
-								inif.valor("datpiso",getSelString(snifclipro,"Piso"));
-								inif.valor("datletra",getSelString(snifclipro,"Letra"));
-								inif.valor("datcpos",getSelString(snifclipro,"CodigoPostal"));
-								if (datpais!=0) inif.valor("datpais",datpais);
-
-
-								String muntmp = getSelString(snifclipro,"CodigoMunicipio");
-								String cmu = getSelString(snifclipro,"Municipio");
-								String colam = getSelString(snifclipro,"ColaMunicipio");
-								if (muntmp!=null && muntmp.trim().length()>0) {
-									SelectorLogic smu = new SelectorLogic(connLC);
-									smu.execute ("Select * from Municipios where CodigoMunicipio='"+muntmp+"'");
-									if (smu.next()) cmu = smu.getString("Municipio");
-									smu.close();
-								}
-								if (colam!=null && colam.trim().length()>0 && cmu!=null && cmu.trim().length()>0) cmu = cmu+" "+colam;
-								if (cmu!=null && cmu.trim().length()>0) inif.valor("datpobla",cmu);
-								if (muntmp!=null && muntmp.trim().length()==5) muntmp = muntmp.substring(2);
-								if (muntmp!=null && Util.isNumero(muntmp)) inif.valor("datmuni",muntmp);
-								String provtmp = getSelString(snifclipro,"CodigoProvincia");
-								if (provtmp!=null && Util.isNumero(provtmp)) inif.valor("datprov",provtmp);
-								String tel = getSelString(snifclipro,"Telefono");
-								if (tel!=null) inif.valor("dattel",tel);
-								tel = getSelString(snifclipro,"Fax");
-								if (tel!=null) inif.valor("datfax",tel);
-								tel = getSelString(snifclipro,"Email1");
-								if (tel!=null) inif.valor("datemail",tel);
-								bOk = inif.execute();
-								if (!bOk) sError = "Error al actualizar Clientes / Proveedores ("+sCta+")";
-							}
-						} 
-						snifes.close();
-					}
-					snifclipro.close();
-
-
-					sCta = sCta.trim();
-					String cta = "";
-					String subcta = "";
-					String [] ctafull = getFormatoCuenta (sCta);
-					if (ctafull!=null) {
-						cta = ctafull[0];         
-						subcta = ctafull[1];  
-						Update u = new Update(dbJCta,"PCUENTAS");
-						String clipro = getSelString(sclipro,"ClienteOproveedor");
-						u.valor("pcuclipro",clipro);
-						u.valor("pcuivaded","S");
-						u.valor("pcumediacion","N");
-
-						int CodigoIva = sclipro.getint("CodigoIva");
-						if (CodigoIva>0) {
-							TipoIVA ti = htIva.get(new Integer(CodigoIva));
-							if (ti!=null && ti.codJC>0) u.valor("pcucodiva",ti.codJC); 
-							else u.valor("pcucodiva",1);
-						}
-
-						int CodigoRetencion = sclipro.getint("CodigoRetencion");
-						if (CodigoRetencion>0) {
-							TipoReten tr = htRet.get(new Integer(CodigoRetencion));
-							if (tr!=null && tr.codJC>0) u.valor("pcucodirpf",tr.codJC); 
-							else u.valor("pcucodirpf",1);
-						}
-						u.valor("pcuivaded","S");
-						if (esGuiri) {
-							u.valor("pcu347","N");
-							u.valor("pcu349","S");
-						}
-						else {
-							u.valor("pcu347","S");
-							u.valor("pcu349","N");
-						}
-						
-						int CriterioIva = sclipro.getint("CriterioIva");
-						if (CriterioIva == 2) u.valor("pcurecc","S");
-						else u.valor("pcurecc","N");
-						
-						if ("C".equals(clipro)) u.valor("pcuttrans","EIN");
-						else u.valor("pcuttrans","RIN");
-						u.valor("pcunif",sNif);
-						String Contrapartida = getSelString(sclipro,"Contrapartida");
-						if (Contrapartida!=null && Contrapartida.length()>0) {
-							String [] ctacontra = getFormatoCuenta (Contrapartida);
-							if (ctacontra!=null) Contrapartida = ctacontra[0]+"."+ctacontra[1];
-							if (Contrapartida!=null && Contrapartida.length()>0) u.valor("pcucontralapiz",Contrapartida);
-						}
-						int DiasFijos1 = sclipro.getint("DiasFijos1");
-						int DiasFijos2 = sclipro.getint("DiasFijos2");
-						int DiasFijos3 = sclipro.getint("DiasFijos3");
-						if (DiasFijos1 != 0) u.valor("pcudias1", DiasFijos1);
-						if (DiasFijos2 != 0) u.valor("pcudias2", DiasFijos2);
-						if (DiasFijos3 != 0) u.valor("pcudias3", DiasFijos3);
-						int CodigoTipoEfecto = sclipro.getint("CodigoTipoEfecto");
-						if (CodigoTipoEfecto != 0) u.valor("pcucobpagfp", CodigoTipoEfecto);
-
-						bOk = u.execute("pcuempresa="+empJconta+" and pcuejercicio="+iEjerJ+" and pcucuenta='"+cta+"' and pcusubcuenta='"+subcta+"'");
-						if (!bOk) sError = "Error al acutalizar NIF C/P ("+sNif+")";
-					}
-				}          
-			}
-			sclipro.close();
+			
+			if (bOk) bOk = actualizarClientesConta (iEmp, empJconta, iEjerJ, true);
 		}
+		return bOk;
+	}
+	
+	private boolean actualizarClientesConta (int iEmp, int empJconta, int iEjerJ, boolean actualizarNif) {
+		boolean bOk = initHTGrupos(iEmp);
+		if (bOk) bOk = initHtIvaHtRet ();
+		int numTotal = 0;
+		int numActual = 0;
+		pbf.setSecondaryPercent(0);
+		pbf.setState("Actualizando Clientes y Proveedor LC: "+iEmp+"  JC:"+empJconta+" ("+iEjerJ+")  -  Plan cuentas");
+		SelectorLogic spctast = new SelectorLogic (connLC);
+		spctast.execute ("Select count(*) as num from ClientesConta where CodigoEmpresa="+iEmp);
+		if (spctast.next()) numTotal = spctast.getint("num");
+		spctast.close();
+		
+		SelectorLogic sclipro = new SelectorLogic (connLC);
+		sclipro.execute ("Select * from ClientesConta where CodigoEmpresa="+iEmp+" order by CodigoCuenta");
+		while (bOk && sclipro.next()) {
+			pbf.setSecondaryPercent((++numActual)*100/numTotal);
+			String sCta  = sclipro.getString("CodigoCuenta");
+			String sNif = sclipro.getString("CifDni"); 
+			String CifEuropeo = sclipro.getString("CifEuropeo");
+			boolean esGuiri =     false;
+			if (sNif !=null) sNif = sNif.trim();
+			if (sNif!=null && sCta!=null && sCta.trim().length()>=5 )  {
+				SelectorLogic snifclipro = new SelectorLogic (connLC);
+				snifclipro.execute("Select * from ClientesProveedores where CifDni='"+sNif+"'");
+				if (actualizarNif && snifclipro.next()) {
+					int datpais = snifclipro.getint("CodigoNacion");    
+					esGuiri = datpais != 0 && datpais != 108 && CifEuropeo!=null && CifEuropeo.length()>2 && !CifEuropeo.startsWith("ES");
+					Selector snifes = new Selector (connEA);
+					snifes.execute("Select * from NIFES where danifcif='"+sNif+"'");
+					if (!snifes.next()) {
+						String ape1 = getSelString(snifclipro,"ClienteProveedor");
+						if (ape1!=null && ape1.trim().length()>0) {
+							Insert inif = new Insert (connEA,"NIFES");
+							inif.valor("danifcif",sNif);
+							inif.valor("datipo","C");
+							inif.valor("datapell1",ape1);
+							inif.valor("datdominio",dominio);
+							String fisicajur = getSelString(snifclipro,"PersonaFisicaJuridica");
+							if (!"J".equals(fisicajur) && !"F".equals(fisicajur)) {
+								fisicajur = "J";                      
+								if (Util.esCIFdePersonaFisica(sNif)) fisicajur = "F";
+							}
+							inif.valor("datfisicajuri",fisicajur);
+							inif.valor("datsiglas",getSelString(snifclipro,"CodigoSigla"));
+							inif.valor("datvia",getSelString(snifclipro,"ViaPublica"));
+							inif.valor("datnum",getSelString(snifclipro,"Numero1"));
+							inif.valor("datesc",getSelString(snifclipro,"Escalera"));
+							inif.valor("datpiso",getSelString(snifclipro,"Piso"));
+							inif.valor("datletra",getSelString(snifclipro,"Letra"));
+							inif.valor("datcpos",getSelString(snifclipro,"CodigoPostal"));
+							if (datpais!=0) inif.valor("datpais",datpais);
+
+
+							String muntmp = getSelString(snifclipro,"CodigoMunicipio");
+							String cmu = getSelString(snifclipro,"Municipio");
+							String colam = getSelString(snifclipro,"ColaMunicipio");
+							if (muntmp!=null && muntmp.trim().length()>0) {
+								SelectorLogic smu = new SelectorLogic(connLC);
+								smu.execute ("Select * from Municipios where CodigoMunicipio='"+muntmp+"'");
+								if (smu.next()) cmu = smu.getString("Municipio");
+								smu.close();
+							}
+							if (colam!=null && colam.trim().length()>0 && cmu!=null && cmu.trim().length()>0) cmu = cmu+" "+colam;
+							if (cmu!=null && cmu.trim().length()>0) inif.valor("datpobla",cmu);
+							if (muntmp!=null && muntmp.trim().length()==5) muntmp = muntmp.substring(2);
+							if (muntmp!=null && Util.isNumero(muntmp)) inif.valor("datmuni",muntmp);
+							String provtmp = getSelString(snifclipro,"CodigoProvincia");
+							if (provtmp!=null && Util.isNumero(provtmp)) inif.valor("datprov",provtmp);
+							String tel = getSelString(snifclipro,"Telefono");
+							if (tel!=null) inif.valor("dattel",tel);
+							tel = getSelString(snifclipro,"Fax");
+							if (tel!=null) inif.valor("datfax",tel);
+							tel = getSelString(snifclipro,"Email1");
+							if (tel!=null) inif.valor("datemail",tel);
+							bOk = inif.execute();
+							if (!bOk) sError = "Error al actualizar Clientes / Proveedores ("+sCta+")";
+						}
+					} 
+					snifes.close();
+				}
+				snifclipro.close();
+
+
+				sCta = sCta.trim();
+				String cta = "";
+				String subcta = "";
+				String [] ctafull = getFormatoCuenta (sCta);
+				if (ctafull!=null) {
+					cta = ctafull[0];         
+					subcta = ctafull[1];  
+					Update u = new Update(dbJCta,"PCUENTAS");
+					String clipro = getSelString(sclipro,"ClienteOproveedor");
+					u.valor("pcuclipro",clipro);
+					u.valor("pcuivaded","S");
+					u.valor("pcumediacion","N");
+
+					int CodigoIva = sclipro.getint("CodigoIva");
+					if (CodigoIva>0) {
+						TipoIVA ti = htIva.get(new Integer(CodigoIva));
+						if (ti!=null && ti.codJC>0) u.valor("pcucodiva",ti.codJC); 
+						else u.valor("pcucodiva",1);
+					}
+
+					int CodigoRetencion = sclipro.getint("CodigoRetencion");
+					if (CodigoRetencion>0) {
+						TipoReten tr = htRet.get(new Integer(CodigoRetencion));
+						if (tr!=null && tr.codJC>0) u.valor("pcucodirpf",tr.codJC); 
+						else u.valor("pcucodirpf",1);
+					}
+					u.valor("pcuivaded","S");
+					if (esGuiri) {
+						u.valor("pcu347","N");
+						u.valor("pcu349","S");
+					}
+					else {
+						u.valor("pcu347","S");
+						u.valor("pcu349","N");
+					}
+					
+					int CriterioIva = sclipro.getint("CriterioIva");
+					if (CriterioIva == 2) u.valor("pcurecc","S");
+					else u.valor("pcurecc","N");
+					
+					if ("C".equals(clipro)) u.valor("pcuttrans","EIN");
+					else u.valor("pcuttrans","RIN");
+					u.valor("pcunif",sNif);
+					String Contrapartida = getSelString(sclipro,"Contrapartida");
+					if (Contrapartida!=null && Contrapartida.length()>0) {
+						String [] ctacontra = getFormatoCuenta (Contrapartida);
+						if (ctacontra!=null) Contrapartida = ctacontra[0]+"."+ctacontra[1];
+						if (Contrapartida!=null && Contrapartida.length()>0) u.valor("pcucontralapiz",Contrapartida);
+					}
+					int NumeroPlazos = sclipro.getint("NumeroPlazos");
+					int DiasFijos1 = sclipro.getint("DiasFijos1");
+					int DiasPrimerPlazo = sclipro.getint("DiasPrimerPlazo");
+					int DiasEntrePlazos = sclipro.getint("DiasEntrePlazos");
+					
+					if (DiasFijos1 != 0) u.valor("pcuvtopridia", DiasFijos1);
+					if (NumeroPlazos >= 1) u.valor("pcudias1", DiasPrimerPlazo);
+					if (NumeroPlazos >= 2) u.valor("pcudias2", DiasPrimerPlazo+DiasEntrePlazos);
+					if (NumeroPlazos >= 3) u.valor("pcudias3", DiasPrimerPlazo+2*DiasEntrePlazos);
+					if (NumeroPlazos >= 4) u.valor("pcudias4", DiasPrimerPlazo+3*DiasEntrePlazos);
+					if (NumeroPlazos >= 5) u.valor("pcudias5", DiasPrimerPlazo+4*DiasEntrePlazos);
+					
+					int CodigoTipoEfecto = sclipro.getint("CodigoTipoEfecto");
+					if (CodigoTipoEfecto != 0) u.valor("pcucobpagfp", CodigoTipoEfecto);
+
+					bOk = u.execute("pcuempresa="+empJconta+" and pcuejercicio="+iEjerJ+" and pcucuenta='"+cta+"' and pcusubcuenta='"+subcta+"'");
+					if (!bOk) sError = "Error al acutalizar NIF C/P ("+sNif+")";
+				}
+			}          
+		}
+		sclipro.close();
+		
 		return bOk;
 	}
 
@@ -4653,6 +4687,80 @@ public class ConversionJCO extends ConversionLC {
 		}
 	}
 
+	public boolean actualizartCliPro() {
+		ProgressBarForm pbf=new ProgressBarForm(pr,"Conversión "+aplicOrigen.toString()+" - "+aplicGeyce.toString()+" ...",true,true,true) {
+			public void job() {
+				setPercent(0);
+				setSecondaryPercent(0);
+				String sql = "Select * from CODCNVOTRAPLL where cclccocodi="+idConversion+" and cclsel='S' and ccltraspjco='S' order by cclcodiorigen";
+				Selector s = new Selector (connEA);
+				s.execute(sql);
+				vDadesEmpresa = new Vector<DadesEmpresa>();
+				setState ("Preparando Conversión "+aplicGeyce+" ... ");
+				while (s.next()) {
+					int cclcodiorigen  = s.getint("cclcodiorigen");
+				    String cclcodiorigens = s.getString("cclcodiorigens");
+				    String cclnombre = s.getString("cclnombre");
+				    String cclnif = s.getString("cclnif");
+				    int cclcodigeyce = s.getint("cclcodigeyce");  
+				    DadesEmpresa de = null;
+				    if (cclcodiorigens != null && cclcodiorigens.length()>0) de = new DadesEmpresa(cclcodiorigens, cclnif, cclnombre, aplicGeyce);
+				    else de = new DadesEmpresa(cclcodiorigen, cclnif, cclnombre, aplicGeyce);
+				    de.setCodiGeyce(cclcodigeyce);
+				    vDadesEmpresa.addElement(de);
+				}
+				s.close();				
+				for (int i=0; i<vDadesEmpresa.size();i++) {
+					setPercent(i*100/vDadesEmpresa.size());
+					deEnProceso = vDadesEmpresa.elementAt(i);
+					if (deEnProceso.getCodiOrigenStr()!=null) setState ("Conversión "+aplicGeyce+" ["+deEnProceso.getCodiOrigenStr()+"] -- ["+deEnProceso.getCodiGeyce()+"]");
+					else setState ("Conversión "+aplicGeyce+" ["+deEnProceso.getCodiOrigen()+"] -- ["+deEnProceso.getCodiGeyce()+"]");
+					Vector<Incidencia> vInTmp = actualizartCliPro (deEnProceso, this);
+					if (vInTmp != null) vIncidencias.addAll(vInTmp);
+				}
+				
+				if (vIncidencias != null && vIncidencias.size()>0) procesarIncidencias ();
+				exit ();
+			}
+		};
+		pbf.setFormWidth(800);
+		pbf.setEnabledCancel(false);
+		pbf.setSecondaryAuto(false);
+		
+		sError = null;
+		vIncidencias.removeAllElements();
+		iniConver();
+		
+		pbf.launch();
+		
+		finConver();
+		return vIncidencias.size()>0;
+	}
 
-
+	protected Vector<Incidencia> actualizartCliPro(DadesEmpresa de, ProgressBarForm pbf) {
+		Vector<Incidencia> vIncidencias = new Vector<Incidencia>();
+		int empLC = de.getCodiOrigen();
+		int empJC = de.getCodiGeyce();
+		this.pbf = pbf;
+		boolean bOk = true;
+		java.util.Vector <Integer> vEjers = getEjerciciosEmpresa(empLC);
+		for (int i=0;bOk && i<vEjers.size();i++) {
+			sError = "";
+			int ejerJconta = vEjers.elementAt(i).intValue();
+			super.ejercicioEnProceso = ejerJconta;
+			pbf.setState("Actualizando Clientes y Proveedores LC: "+empLC+"  JC:"+empJC+" ("+ejerJconta+")");
+			dbJCta = funciones.getConexionCtasp ( empJC, ejerJconta );
+			bOk = (dbJCta!=null);
+			if (bOk) bOk = actualizarClientesConta(empLC, empJC, ejerJconta, false) && emc.getDescripcionError()==null;
+			if (bOk) dbJCta.commit();
+			else {
+				bOk = true;
+				if (dbJCta != null) dbJCta.rollback();
+				if (sError!=null && sError.length()>0) vIncidencias.addElement(new Incidencia (empLC,empJC,ejerJconta,sError,APLICACION_GEYCE.JCONTA,de.getNif(),de.getRazonSocial(),idConversion));
+			}
+			if (dbJCta != null) dbJCta.disconnect();   
+		}
+		return vIncidencias;
+	}
+	
 }

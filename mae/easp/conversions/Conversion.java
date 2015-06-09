@@ -31,7 +31,7 @@ public abstract class Conversion {
 	protected Program pr;
 	protected APLICACION_ORIGEN aplicOrigen;
 	protected APLICACION_GEYCE aplicGeyce;
-	private DadesEmpresa deEnProceso;
+	public DadesEmpresa deEnProceso;
 	protected int ejercicioEnProceso;
 	protected ErrorManagerConvers emc;
 
@@ -139,7 +139,7 @@ public abstract class Conversion {
 		Aplication.getAplication().setErrorManager(emc);
 	}
 
-	private void procesarIncidencias() {
+	public void procesarIncidencias() {
 		for (int j=0;j<vIncidencias.size();j++) {
 			Incidencia in = vIncidencias.elementAt(j);
 			Insert i = new Insert (connEA,"CODCNVINCIDEN");
