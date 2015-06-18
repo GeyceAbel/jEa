@@ -165,3 +165,4 @@
 150503 --> Apjordig:  Taula LOGJCONTAX per log envio i recepció
 150504 --> APXAVI:  Canvis a PlantillaJacob per combinacio de correspondencia amb email.
 150601 --> APJORDI: Canvis Conversió LOGICCLASS - JCONTA
+150601 --> APXAVI:  Canvis Conversió LOGICCLASS - JNOMINA
