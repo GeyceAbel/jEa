@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150609
-// Hora:             09:17:34
+// Fecha:            20150618
+// Hora:             17:54:03
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -926,13 +926,13 @@ public class ProgCnvlogicclass extends Program
         setType(STRING);
         setLength(1);
         setPrintable(false);
-        setRestricted(false);
+        addItem("X/Convenio");
         addItem("E/Empresa");
-        addItem("C/Convenio");
+        addItem("C/Conv-Emp");
         }
       public Object getDefault()
         {
-        return new String("E");
+        return new String("X");
         }
       public boolean obligate()
         {
