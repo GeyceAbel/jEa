@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150514
-// Hora:             09:59:42
+// Fecha:            20150723
+// Hora:             11:44:08
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -103,6 +103,7 @@ public class CatEasp extends Catalog
   public TabCodcnvinciden tabcodcnvinciden;
   public TabLibregmerext tablibregmerext;
   public TabLogjcontax tablogjcontax;
+  public TabAvisos tabavisos;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -3592,7 +3593,7 @@ public class CatEasp extends Catalog
       jpemin = new FieldDef("jpemin",FieldDef.FLOAT,6,0);
       jpemax = new FieldDef("jpemax",FieldDef.FLOAT,6,0);
       jpedescmin = new FieldDef("jpedescmin",FieldDef.CHAR,2000);
-      jpedescmax = new FieldDef("jpedescmax",FieldDef.CHAR,20009);
+      jpedescmax = new FieldDef("jpedescmax",FieldDef.CHAR,2000);
       jpedescok = new FieldDef("jpedescok",FieldDef.CHAR,2000);
       FieldDef array[] = {
         jpeidrati,
@@ -3917,6 +3918,147 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabAvisos extends TableDef
+    {
+    // Campos
+    public FieldDef avcodigo;
+    public FieldDef avaplicacion;
+    public FieldDef avcodcdp;
+    public FieldDef avempresa;
+    public FieldDef avnomempresa;
+    public FieldDef avtrabajador;
+    public FieldDef avnomtrabaj;
+    public FieldDef avrelacion;
+    public FieldDef avcentro;
+    public FieldDef avcodincid;
+    public FieldDef avcodfiniq;
+    public FieldDef avcodbonif;
+    public FieldDef avcodactivi;
+    public FieldDef avnomactivi;
+    public FieldDef avdeclara;
+    public FieldDef avcodotr1;
+    public FieldDef avcodotr2;
+    public FieldDef avcodotr3;
+    public FieldDef avejercicio;
+    public FieldDef avperiodo;
+    public FieldDef avtiporeco;
+    public FieldDef avtipoaviso;
+    public FieldDef avtitulo;
+    public FieldDef avorigen;
+    public FieldDef avestado;
+    public FieldDef avestadoctrl;
+    public FieldDef avurgencia;
+    public FieldDef avdescrip;
+    public FieldDef avfechacrea;
+    public FieldDef avresponscrea;
+    public FieldDef avresponsorig;
+    public FieldDef avfechaorig;
+    public FieldDef avhoraorig;
+    public FieldDef avresponsvenc;
+    public FieldDef avfechavenci;
+    public FieldDef avhoravenci;
+    public FieldDef avfechasolu;
+    public FieldDef avresponssolu;
+    public FieldDef avhorasolu;
+    public FieldDef avresponsrevi;
+    public FieldDef avfecharevi;
+    public FieldDef avhorarevi;
+    public TabAvisos(String name)
+      {
+      super(name);
+      avcodigo = new FieldDef("avcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      avaplicacion = new FieldDef("avaplicacion",FieldDef.CHAR,15);
+      avcodcdp = new FieldDef("avcodcdp",FieldDef.CHAR,12);
+      avempresa = new FieldDef("avempresa",FieldDef.INTEGER,0);
+      avnomempresa = new FieldDef("avnomempresa",FieldDef.CHAR,35);
+      avtrabajador = new FieldDef("avtrabajador",FieldDef.INTEGER,0);
+      avnomtrabaj = new FieldDef("avnomtrabaj",FieldDef.CHAR,35);
+      avrelacion = new FieldDef("avrelacion",FieldDef.INTEGER,0);
+      avcentro = new FieldDef("avcentro",FieldDef.INTEGER,0);
+      avcodincid = new FieldDef("avcodincid",FieldDef.INTEGER,0);
+      avcodfiniq = new FieldDef("avcodfiniq",FieldDef.INTEGER,0);
+      avcodbonif = new FieldDef("avcodbonif",FieldDef.INTEGER,0);
+      avcodactivi = new FieldDef("avcodactivi",FieldDef.INTEGER,0);
+      avnomactivi = new FieldDef("avnomactivi",FieldDef.CHAR,35);
+      avdeclara = new FieldDef("avdeclara",FieldDef.CHAR,12);
+      avcodotr1 = new FieldDef("avcodotr1",FieldDef.INTEGER,0);
+      avcodotr2 = new FieldDef("avcodotr2",FieldDef.INTEGER,0);
+      avcodotr3 = new FieldDef("avcodotr3",FieldDef.INTEGER,0);
+      avejercicio = new FieldDef("avejercicio",FieldDef.INTEGER,0);
+      avperiodo = new FieldDef("avperiodo",FieldDef.INTEGER,0);
+      avtiporeco = new FieldDef("avtiporeco",FieldDef.CHAR,5);
+      avtipoaviso = new FieldDef("avtipoaviso",FieldDef.CHAR,10);
+      avtitulo = new FieldDef("avtitulo",FieldDef.CHAR,250);
+      avorigen = new FieldDef("avorigen",FieldDef.CHAR,1);
+      avestado = new FieldDef("avestado",FieldDef.CHAR,2);
+      avestadoctrl = new FieldDef("avestadoctrl",FieldDef.CHAR,2);
+      avurgencia = new FieldDef("avurgencia",FieldDef.INTEGER,0);
+      avdescrip = new FieldDef("avdescrip",FieldDef.CHAR,2000);
+      avfechacrea = new FieldDef("avfechacrea",FieldDef.DATE);
+      avresponscrea = new FieldDef("avresponscrea",FieldDef.CHAR,25);
+      avresponsorig = new FieldDef("avresponsorig",FieldDef.CHAR,25);
+      avfechaorig = new FieldDef("avfechaorig",FieldDef.DATE);
+      avhoraorig = new FieldDef("avhoraorig",FieldDef.CHAR,8);
+      avresponsvenc = new FieldDef("avresponsvenc",FieldDef.CHAR,25);
+      avfechavenci = new FieldDef("avfechavenci",FieldDef.DATE);
+      avhoravenci = new FieldDef("avhoravenci",FieldDef.CHAR,8);
+      avfechasolu = new FieldDef("avfechasolu",FieldDef.DATE);
+      avresponssolu = new FieldDef("avresponssolu",FieldDef.CHAR,25);
+      avhorasolu = new FieldDef("avhorasolu",FieldDef.CHAR,8);
+      avresponsrevi = new FieldDef("avresponsrevi",FieldDef.CHAR,25);
+      avfecharevi = new FieldDef("avfecharevi",FieldDef.DATE);
+      avhorarevi = new FieldDef("avhorarevi",FieldDef.CHAR,8);
+      FieldDef array[] = {
+        avcodigo,
+        avaplicacion,
+        avcodcdp,
+        avempresa,
+        avnomempresa,
+        avtrabajador,
+        avnomtrabaj,
+        avrelacion,
+        avcentro,
+        avcodincid,
+        avcodfiniq,
+        avcodbonif,
+        avcodactivi,
+        avnomactivi,
+        avdeclara,
+        avcodotr1,
+        avcodotr2,
+        avcodotr3,
+        avejercicio,
+        avperiodo,
+        avtiporeco,
+        avtipoaviso,
+        avtitulo,
+        avorigen,
+        avestado,
+        avestadoctrl,
+        avurgencia,
+        avdescrip,
+        avfechacrea,
+        avresponscrea,
+        avresponsorig,
+        avfechaorig,
+        avhoraorig,
+        avresponsvenc,
+        avfechavenci,
+        avhoravenci,
+        avfechasolu,
+        avresponssolu,
+        avhorasolu,
+        avresponsrevi,
+        avfecharevi,
+        avhorarevi        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {avcodigo };
+      setPrimaryKeys(arrayf);
+      avcodigo.setAutoIncrementable(true);
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -4006,6 +4148,7 @@ public class CatEasp extends Catalog
     tabcodcnvinciden = new TabCodcnvinciden("codcnvinciden");
     tablibregmerext = new TabLibregmerext("libregmerext");
     tablogjcontax = new TabLogjcontax("logjcontax");
+    tabavisos = new TabAvisos("avisos");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -4093,7 +4236,8 @@ public class CatEasp extends Catalog
       tabcodcnvotrapll,
       tabcodcnvinciden,
       tablibregmerext,
-      tablogjcontax      
+      tablogjcontax,
+      tabavisos      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };

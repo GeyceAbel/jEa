@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150513
-// Hora:             17:01:48
+// Fecha:            20150723
+// Hora:             11:43:52
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -712,13 +712,13 @@ public class ProgInsprconver extends Program
           " UPDATE CDP SET CDPAEATADM=601 where CDPAEATDELE=30 and CDPAEATADM=600;",
           " UPDATE CDP SET CDPAEATADM=601 where CDPAEATDELE=35 and CDPAEATADM=600;",
           " UPDATE CDP SET CDPAEATADM=606 where CDPAEATDELE=41 and CDPAEATADM=607;"
-      };  
+      };
     //  String sentencias5_4[]={
     //      " ALTER TABLE AMORTIZACION ADD amoparent VARCHAR(8);",
     //      " ALTER TABLE AMORTIZACION ADD amonum VARCHAR(1);",
     //      " DELETE FROM AMORTIZACION;",
     //      " DELETE FROM VALORES where vaapl='EA' and vacampo='DATSIGLAS';"
-    //  };  
+    //  };
       String sentencias5_4[]={
           " DROP TABLE AMORTIZACION;",
           " CREATE TABLE AMORTIZACION "+
@@ -735,23 +735,23 @@ public class ProgInsprconver extends Program
           "    PRIMARY KEY (amocodigo));",
           " DELETE FROM AMORTIZACION;",
           " DELETE FROM VALORES where vaapl='EA' and vacampo='DATSIGLAS';"
-      };  
+      };
       String sentencias5_5[]={
           " UPDATE ADMHACIENDA SET AHDESC='PALMA MALLORCA' WHERE AHDELE=7 AND AHCODIGO=601;",
           " UPDATE ADMHACIENDA SET AHDESC='CORDOBA ESTE' WHERE AHDELE=14 AND AHCODIGO=601;"
-      };  
+      };
       String sentencias5_6[]={
-          "CREATE TABLE PERFILTRIBUT       "+          
-          " (pftejercicio INTEGER NOT NULL,"+            
-          "  pftnif VARCHAR(15) NOT NULL,  "+            
-          "  pftgranemp CHAR(1),           "+            
-          "  pfttipoavisos CHAR(1),        "+            
-          "  pftemail VARCHAR(80),         "+            
-          "  pftmovil VARCHAR(15),         "+            
-          "  pftalquileres CHAR(1),        "+            
-          "  pftintracom CHAR(1),          "+            
-          "  pftintrastat CHAR(1),         "+            
-          "  pftfechafin "+formatData()+             
+          "CREATE TABLE PERFILTRIBUT       "+
+          " (pftejercicio INTEGER NOT NULL,"+
+          "  pftnif VARCHAR(15) NOT NULL,  "+
+          "  pftgranemp CHAR(1),           "+
+          "  pfttipoavisos CHAR(1),        "+
+          "  pftemail VARCHAR(80),         "+
+          "  pftmovil VARCHAR(15),         "+
+          "  pftalquileres CHAR(1),        "+
+          "  pftintracom CHAR(1),          "+
+          "  pftintrastat CHAR(1),         "+
+          "  pftfechafin "+formatData()+
           "  PRIMARY KEY (PFTEJERCICIO,PFTNIF));",
           "CREATE TABLE EMPMODELOS                          "+
           " (emodejercicio INTEGER NOT NULL,                "+
@@ -783,17 +783,17 @@ public class ProgInsprconver extends Program
           "  FOREIGN KEY (AVIEJERCICIO,AVINIF) REFERENCES PERFILTRIBUT(PFTEJERCICIO,PFTNIF));"
       };
     String sentencias5_8[]={
-          "CREATE TABLE PERFILTRIBUT       "+          
-          " (pftejercicio INTEGER NOT NULL,"+            
-          "  pftnif VARCHAR(15) NOT NULL,  "+            
-          "  pftgranemp CHAR(1),           "+            
-          "  pfttipoavisos CHAR(1),        "+            
-          "  pftemail VARCHAR(80),         "+            
-          "  pftmovil VARCHAR(15),         "+            
-          "  pftalquileres CHAR(1),        "+            
-          "  pftintracom CHAR(1),          "+            
-          "  pftintrastat CHAR(1),         "+            
-          "  pftfechafin "+formatData()+             
+          "CREATE TABLE PERFILTRIBUT       "+
+          " (pftejercicio INTEGER NOT NULL,"+
+          "  pftnif VARCHAR(15) NOT NULL,  "+
+          "  pftgranemp CHAR(1),           "+
+          "  pfttipoavisos CHAR(1),        "+
+          "  pftemail VARCHAR(80),         "+
+          "  pftmovil VARCHAR(15),         "+
+          "  pftalquileres CHAR(1),        "+
+          "  pftintracom CHAR(1),          "+
+          "  pftintrastat CHAR(1),         "+
+          "  pftfechafin "+formatData()+
           "  PRIMARY KEY (PFTEJERCICIO,PFTNIF));",
           "CREATE TABLE EMPMODELOS                          "+
           " (emodejercicio INTEGER NOT NULL,                "+
@@ -813,22 +813,22 @@ public class ProgInsprconver extends Program
           "  PRIMARY KEY (AVIEJERCICIO,AVINIF,AVIMODELO,AVIPERIODO,AVINIVEL),"+
           "  FOREIGN KEY (AVIEJERCICIO,AVINIF) REFERENCES PERFILTRIBUT(PFTEJERCICIO,PFTNIF));"
       };
-      String sentencias5_9[]={" DELETE FROM AMORTIZACION;"};  
+      String sentencias5_9[]={" DELETE FROM AMORTIZACION;"};
     
-      String sentencias6_0[]={" DELETE FROM AYUDATXT WHERE ayprocedure like 'JEO%';"};  
+      String sentencias6_0[]={" DELETE FROM AYUDATXT WHERE ayprocedure like 'JEO%';"};
       String sentencias6_1[]={
         "CREATE TABLE TIPOVIAS"+
         "  (tvscodigo  VARCHAR(5) NOT NULL,"+
-       	"   tvsdesc    VARCHAR(30),"+
-       	"   tvscodant  VARCHAR(2),"+
-       	"   PRIMARY KEY (tvscodigo));",
+        "   tvsdesc    VARCHAR(30),"+
+        "   tvscodant  VARCHAR(2),"+
+        "   PRIMARY KEY (tvscodigo));",
         "DELETE FROM TIPOVIAS",
         "CREATE TABLE MUNI347"+
         "  (mu7codprov  INTEGER NOT NULL,"+
-       	"   mu7codmuni  INTEGER NOT NULL,"+
-       	"   mu7desc     VARCHAR(50),"+
-       	"   mu7muniant  INTEGER,"+
-       	"   PRIMARY KEY (mu7codprov,mu7codmuni));",
+        "   mu7codmuni  INTEGER NOT NULL,"+
+        "   mu7desc     VARCHAR(50),"+
+        "   mu7muniant  INTEGER,"+
+        "   PRIMARY KEY (mu7codprov,mu7codmuni));",
         "DELETE FROM MUNI347",};
       String sentencias6_2[]={"ALTER TABLE PERFILTRIBUT ADD pftregdevmen CHAR(1);",
       "UPDATE PERFILTRIBUT SET pftregdevmen='N' where pftregdevmen is null;"};
@@ -842,20 +842,20 @@ public class ProgInsprconver extends Program
         "DROP TABLE MUNI347",
         "CREATE TABLE MUNI347"+
         "  (mu7codprov  INTEGER NOT NULL,"+
-       	"   mu7codmuni  INTEGER NOT NULL,"+
-       	"   mu7desc     VARCHAR(50),"+
-       	"   mu7muniant  INTEGER,"+
-       	"   mu7provmuni VARCHAR(5),"+
-       	"   PRIMARY KEY (mu7codprov,mu7codmuni));"
+        "   mu7codmuni  INTEGER NOT NULL,"+
+        "   mu7desc     VARCHAR(50),"+
+        "   mu7muniant  INTEGER,"+
+        "   mu7provmuni VARCHAR(5),"+
+        "   PRIMARY KEY (mu7codprov,mu7codmuni));"
       };
     
       String sentencias6_5[]={
         " INSERT INTO BANCO (bncodigo,bndesc) VALUES (2106,'MONTE PIEDAD CAJA AHORROS SAN FERNANDO HUELVA');",
         " INSERT INTO MUNICIPIO (muprov,mucodigo,mudesc) VALUES (28,903,'TRES CANTOS');"
       };
-      
+    
       String sentencias6_6[]={
-        "CREATE TABLE CNAE2009 " + 
+        "CREATE TABLE CNAE2009 " +
         " (cn9codigo VARCHAR(6) NOT NULL," +
         "  cn9desc   VARCHAR(120)," +
         "  PRIMARY KEY (cn9codigo));",
@@ -997,18 +997,18 @@ public class ProgInsprconver extends Program
         " CREATE TABLE SESIONES                      "+
         "  (sescodigo       INTEGER NOT NULL,        "+
         "   sesmachine      VARCHAR(50),             "+
-        "   sesusuario      CHAR(25),                "+ 
-        "   sesfecha        "+formatData()+          
+        "   sesusuario      CHAR(25),                "+
+        "   sesfecha        "+formatData()+
         "   seshora         CHAR(8),                 "+
         "   sesaplicacion   VARCHAR(15),             "+
-        "   sespermitido    CHAR(1),                 "+ 
+        "   sespermitido    CHAR(1),                 "+
         "   PRIMARY KEY (sescodigo));                ",
     
         " CREATE TABLE IMPUSER                      "+
         "  (imucodigo       INTEGER NOT NULL,        "+
         "   imumachine      VARCHAR(50),             "+
-        "   imuusuario      CHAR(25),                "+ 
-        "   imufecha        "+formatData()+          
+        "   imuusuario      CHAR(25),                "+
+        "   imufecha        "+formatData()+
         "   imuhora         CHAR(8),                 "+
         "   imuaplicacion   VARCHAR(15),             "+
         "   PRIMARY KEY (imucodigo));                "
@@ -1028,17 +1028,17 @@ public class ProgInsprconver extends Program
         " CREATE TABLE SESIONES                      "+
         "  (sescodigo       INTEGER NOT NULL,        "+
         "   sesmachine      VARCHAR(50),             "+
-        "   sesusuario      CHAR(25),                "+ 
-        "   sesfecha        "+formatData()+          
+        "   sesusuario      CHAR(25),                "+
+        "   sesfecha        "+formatData()+
         "   seshora         CHAR(8),                 "+
         "   sesaplicacion   VARCHAR(15),             "+
-        "   sespermitido    CHAR(1),                 "+ 
+        "   sespermitido    CHAR(1),                 "+
         "   PRIMARY KEY (sescodigo));                ",
         " CREATE TABLE IMPUSER                      "+
         "  (imucodigo       INTEGER NOT NULL,        "+
         "   imumachine      VARCHAR(50),             "+
-        "   imuusuario      CHAR(25),                "+ 
-        "   imufecha        "+formatData()+          
+        "   imuusuario      CHAR(25),                "+
+        "   imufecha        "+formatData()+
         "   imuhora         CHAR(8),                 "+
         "   imuaplicacion   VARCHAR(15),             "+
         "   PRIMARY KEY (imucodigo));                "};
@@ -1069,7 +1069,7 @@ public class ProgInsprconver extends Program
       " UPDATE MUNI347 SET mu7desc='ODENA' where mu7codprov=8 and mu7codmuni=1430"
       };
     
-      String sentencias9_3[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2011"}; 
+      String sentencias9_3[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2011"};
     
       String sentencias9_4[]={
       " DELETE FROM BANCO WHERE bncodigo=3188;",
@@ -1100,7 +1100,7 @@ public class ProgInsprconver extends Program
        "ALTER TABLE PLANTILLAS ADD PLTIPOPLAN INTEGER",
       };
     
-      String sentencias9_9[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2012"}; 
+      String sentencias9_9[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2012"};
     
       String sentencias10_1[]={
         "ALTER TABLE NIFES ALTER COLUMN datnombre CHAR(50);",
@@ -1110,13 +1110,13 @@ public class ProgInsprconver extends Program
       };
     
       String sentencias10_3[]={
-        "alter table quefrase  add  qefrepetir char(1);",      
-        "alter table quefrase  add  qefcount char(1);",   
-        "alter table quetabla add   qetbbdd varchar(15);",   
-        "alter table quetabla add   qetrelacion varchar(15);",   
+        "alter table quefrase  add  qefrepetir char(1);",
+        "alter table quefrase  add  qefcount char(1);",
+        "alter table quetabla add   qetbbdd varchar(15);",
+        "alter table quetabla add   qetrelacion varchar(15);",
         "alter table quecolumn add  qecbbdd varchar(15);",
         "alter table quecolumn add  qecsum char(1);",
-        "alter table quecolumn add  qecgrupby char(1);" 
+        "alter table quecolumn add  qecgrupby char(1);"
       };
     
     
@@ -1131,8 +1131,8 @@ public class ProgInsprconver extends Program
         "DELETE FROM QUECOLUMN WHERE qecfrase = 'GYC-CARTA347' and qecaplicacion='JCONTA';",
         "DELETE FROM QUEVARIABLES WHERE qevfrase = 'GYC-CARTA347' and qevaplicacion='JCONTA';",
         "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JCONTA' and PLCODIGO='GYCPLAC347' and PLVENTANA='GYC-CARTA347';",
-        "INSERT INTO PLANTILLAS (PLAPLICACION	, PLCODIGO			,	PLVENTANA			, PLDESCRIPCION	,	PLURLPLANTILLA, PLTIPOPLAN		) VALUES ('JCONTA','GYCPLAC347','GYC-CARTA347','Plantilla carta informativa modelo 347','.\\plantillas\\GYCPLAC347.dot',0);",
-        "INSERT INTO quefrase (qefaplicacion	, qeffrase			,	qefdescripcion			, qefmaster	,	qeftitulo, qefapaisado, qefpaginado,qefrepetir,qefplantilla		)  VALUES ('JCONTA','GYC-CARTA347','Cartas informativas modelo 347','acum347','Acumulados modelo 347','S','N','N','GYCPLAC347');"
+        "INSERT INTO PLANTILLAS (PLAPLICACION , PLCODIGO      , PLVENTANA   , PLDESCRIPCION , PLURLPLANTILLA, PLTIPOPLAN  ) VALUES ('JCONTA','GYCPLAC347','GYC-CARTA347','Plantilla carta informativa modelo 347','.\\plantillas\\GYCPLAC347.dot',0);",
+        "INSERT INTO quefrase (qefaplicacion  , qeffrase      , qefdescripcion   , qefmaster , qeftitulo, qefapaisado, qefpaginado,qefrepetir,qefplantilla  )  VALUES ('JCONTA','GYC-CARTA347','Cartas informativas modelo 347','acum347','Acumulados modelo 347','S','N','N','GYCPLAC347');"
       };
     
       String sentencias10_7[]={
@@ -1155,17 +1155,17 @@ public class ProgInsprconver extends Program
       };
     
       String sentencias11_0[]={
-        "alter table quecolumn  add  qecmedia char(1);",      
-        "alter table quecolumn  add  qeccontador char(1);",   
-        "alter table quecolumn add   qecrotura char(1);",   
-        "alter table quecolumn add   qectitrotura varchar(20);", 
-      }; 
+        "alter table quecolumn  add  qecmedia char(1);",
+        "alter table quecolumn  add  qeccontador char(1);",
+        "alter table quecolumn add   qecrotura char(1);",
+        "alter table quecolumn add   qectitrotura varchar(20);",
+      };
     
       String sentencias11_2[]={
        "UPDATE ADMHACIENDA SET AHDESC='VIA AUGUSTA' WHERE AHDELE=8 AND AHCODIGO=605;",
-      }; 
+      };
     
-      String sentencias11_3[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2013"}; 
+      String sentencias11_3[]={"DELETE FROM COEFICCORREC WHERE coeejerfiscal=2013"};
     
       String sentencias11_4[]={"ALTER TABLE CDP add cdpresponsable VARCHAR(25);"};
     
@@ -1286,7 +1286,7 @@ public class ProgInsprconver extends Program
         "  jpeepiest VARCHAR(6) NOT NULL,            "+
         "  jpetipoimp VARCHAR(1),           "+
         "  PRIMARY KEY (jpeestruc,jpeidepi,jpeepiest));          ",
-    	"CREATE TABLE JCORATIS              "+
+      "CREATE TABLE JCORATIS              "+
         " (jpeidrati VARCHAR(3) NOT NULL,            "+
         "  jpenomrati VARCHAR(30),          "+
         "  jpenumer VARCHAR(255),           "+
@@ -1371,14 +1371,14 @@ public class ProgInsprconver extends Program
       String sentencias12_4[]={"INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2015,'01/01/2015','31/12/2015',4.375);"};
     
          String sentencias12_5[]={
-        	        "DELETE FROM QUEFRASE WHERE qeffrase = 'GYC-C347-14' and qefaplicacion='JCONTA';",
-        	        "DELETE FROM QUETABLA WHERE qetfrase = 'GYC-C347-14' and qetaplicacion='JCONTA';",
-        	        "DELETE FROM QUECOLUMN WHERE qecfrase = 'GYC-C347-14' and qecaplicacion='JCONTA';",
-        	        "DELETE FROM QUEVARIABLES WHERE qevfrase = 'GYC-C347-14' and qevaplicacion='JCONTA';",
-        	        "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JCONTA' and PLCODIGO='GYCPLAC347_14' and PLVENTANA='GYC-C347-14';",
-        	        "INSERT INTO PLANTILLAS (PLAPLICACION	, PLCODIGO			,	PLVENTANA			, PLDESCRIPCION	,	PLURLPLANTILLA, PLTIPOPLAN		) VALUES ('JCONTA','GYCPLAC347_14','GYC-C347-14','Plantilla carta informativa modelo 347 2014','.\\plantillas\\GYCPLAC347_14.dot',0);",
-        	        "INSERT INTO quefrase (qefaplicacion	, qeffrase			,	qefdescripcion			, qefmaster	,	qeftitulo, qefapaisado, qefpaginado,qefrepetir,qefplantilla		)  VALUES ('JCONTA','GYC-C347-14','Cartas informativas modelo 347 2014','acum347','Acumulados modelo 347','S','N','N','GYCPLAC347_14');"
-        	      };
+                  "DELETE FROM QUEFRASE WHERE qeffrase = 'GYC-C347-14' and qefaplicacion='JCONTA';",
+                  "DELETE FROM QUETABLA WHERE qetfrase = 'GYC-C347-14' and qetaplicacion='JCONTA';",
+                  "DELETE FROM QUECOLUMN WHERE qecfrase = 'GYC-C347-14' and qecaplicacion='JCONTA';",
+                  "DELETE FROM QUEVARIABLES WHERE qevfrase = 'GYC-C347-14' and qevaplicacion='JCONTA';",
+                  "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JCONTA' and PLCODIGO='GYCPLAC347_14' and PLVENTANA='GYC-C347-14';",
+                  "INSERT INTO PLANTILLAS (PLAPLICACION , PLCODIGO      , PLVENTANA   , PLDESCRIPCION , PLURLPLANTILLA, PLTIPOPLAN  ) VALUES ('JCONTA','GYCPLAC347_14','GYC-C347-14','Plantilla carta informativa modelo 347 2014','.\\plantillas\\GYCPLAC347_14.dot',0);",
+                  "INSERT INTO quefrase (qefaplicacion  , qeffrase      , qefdescripcion   , qefmaster , qeftitulo, qefapaisado, qefpaginado,qefrepetir,qefplantilla  )  VALUES ('JCONTA','GYC-C347-14','Cartas informativas modelo 347 2014','acum347','Acumulados modelo 347','S','N','N','GYCPLAC347_14');"
+                };
       String sentencias12_6[] = {"ALTER TABLE EMPMODELOS add emodpreasesor CHAR(1);",
       "UPDATE EMPMODELOS SET emodpreasesor='S' where emodpreasesor is null or emodpreasesor='';"};
       String sentencias12_7[] = {"UPDATE PARAMETROS SET PARVARIABLE='MAXIMIZAR_JISS' WHERE PARVARIABLE='MAXIMIZAR' AND PARAGRUP='JISS';"};
@@ -1416,6 +1416,54 @@ public class ProgInsprconver extends Program
         "lgxcdpafinity    VARCHAR(12), "+
         "PRIMARY KEY (lgxcodi));"
     };
+    
+    String sentencias13_2[]={
+          "CREATE TABLE AVISOS                      "+
+          " (AVCODIGO     INTEGER NOT NULL,        "+
+          "  AVAPLICACION  VARCHAR(15),             "+
+          "  AVCODCDP      CHAR(12),                "+
+          "  AVEMPRESA     INTEGER,                 "+
+          "  AVNOMEMPRESA  VARCHAR(35),             "+
+          "  AVTRABAJADOR  INTEGER,                 "+
+          "  AVNOMTRABAJ   VARCHAR(35),              "+
+          "  AVRELACION    INTEGER,                 "+
+          "  AVCENTRO      INTEGER,                 "+
+          "  AVCODINCID    INTEGER,                 "+
+          "  AVCODFINIQ    INTEGER,                 "+
+          "  AVCODBONIF    INTEGER,                 "+
+          "  AVCODACTIVI   INTEGER,                 "+
+          "  AVNOMACTIVI   VARCHAR(35),             "+
+          "  AVDECLARA     CHAR(12),                "+
+          "  AVCODOTR1     INTEGER,                 "+
+          "  AVCODOTR2     INTEGER,                 "+
+          "  AVCODOTR3     INTEGER,                 "+
+          "  AVEJERCICIO   INTEGER,                 "+
+          "  AVPERIODO     INTEGER,                 "+
+          "  AVTIPORECO    CHAR(5),                 "+
+          "  AVTIPOAVISO   CHAR(10),                "+
+          "  AVTITULO      VARCHAR(250),            "+
+          "  AVORIGEN      CHAR(1),                 "+
+          "  AVESTADO      CHAR(2),                 "+
+          "  AVESTADOCTRL  CHAR(2),                 "+
+          "  AVURGENCIA    INTEGER ,                "+
+          "  AVDESCRIP     "+getMemo(2000)+
+          "  AVFECHACREA   "+formatData()+
+          "  AVRESPONSCREA CHAR(25),                "+
+          "  AVRESPONSORIG CHAR(25),                "+
+          "  AVFECHAORIG   "+formatData()+
+          "  AVHORAORIG    VARCHAR(8),              "+
+          "  AVRESPONSVENC CHAR(25),                "+
+          "  AVFECHAVENCI  "+formatData()+
+          "  AVHORAVENCI   VARCHAR(8),              "+
+          "  AVFECHASOLU   "+formatData()+
+          "  AVRESPONSSOLU CHAR(25),                "+
+          "  AVHORASOLU    VARCHAR(8),              "+
+          "  AVRESPONSREVI CHAR(25),                "+
+          "  AVFECHAREVI   "+formatData()+
+          "  AVHORAREVI    VARCHAR(8),              "+
+          "  PRIMARY KEY (AVCODIGO));               "
+       };
+    
     
       int i=0;
       try {
@@ -1715,7 +1763,7 @@ public class ProgInsprconver extends Program
             vvveractual.setValue("5.3");
           }
           if (versio < 5.4) {
-            try {          
+            try {
               for (i=0;i<sentencias5_4.length;++i) {
                 Easp.chivato("5.4 Exec : ["+sentencias5_4[i]+"]",1);
                 Easp.connEA.executeUpdate(sentencias5_4[i]);
@@ -1797,7 +1845,7 @@ public class ProgInsprconver extends Program
             vvveractual.setValue("5.8");
           }
           if (versio < 5.9) {
-            try {          
+            try {
               for (i=0;i<sentencias5_9.length;++i) {
                 Easp.chivato("5.9 Exec : ["+sentencias5_9[i]+"]",1);
                 Easp.connEA.executeUpdate(sentencias5_9[i]);
@@ -1815,7 +1863,7 @@ public class ProgInsprconver extends Program
             vvveractual.setValue("5.9");
           }
           if (versio < 6.0) {
-             try {          
+             try {
               for (i=0;i<sentencias6_0.length;++i) {
                 Easp.chivato("6.0 Exec : ["+sentencias6_0[i]+"]",1);
                 Easp.connEA.executeUpdate(sentencias6_0[i]);
@@ -1828,7 +1876,7 @@ public class ProgInsprconver extends Program
               Easp.chivato("6.0 *** Error : ["+sentencias6_0[i]+"]  Error: ["+e+"]",1);
               errorMessage=e.getMessage();
             }
-             
+    
             Easp.setVersionBD("bdeasp","6.0");
             Easp.connEA.commit();
             vvveractual.setValue("6.0");
@@ -1847,7 +1895,7 @@ public class ProgInsprconver extends Program
             }
             String tablas[]= {"TIPOVIAS","MUNI347"};
             Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0601","easp.jar");
-      
+    
             Easp.setVersionBD("bdeasp","6.1");
             Easp.connEA.commit();
             vvveractual.setValue("6.1");
@@ -1864,7 +1912,7 @@ public class ProgInsprconver extends Program
                 errorMessage=e.getMessage();
               }
             }
-            
+    
             Easp.setVersionBD("bdeasp","6.2");
             Easp.connEA.commit();
             vvveractual.setValue("6.2");
@@ -1953,7 +2001,7 @@ public class ProgInsprconver extends Program
               errorMessage=e.getMessage();
             }
           }
-        
+    
           Easp.setVersionBD("bdeasp","6.5");
           Easp.connEA.commit();
           vvveractual.setValue("6.5");
@@ -1996,10 +2044,10 @@ public class ProgInsprconver extends Program
           vvveractual.setValue("6.7");
         }
         if (versio < 6.8) {
-          try {      
+          try {
             for (i=0;i<sentencias6_8.length;++i) {
               Easp.chivato("6.8 Exec : ["+sentencias6_8[i]+"]",1);
-              try { 
+              try {
                 Easp.connEA.executeUpdate(sentencias6_8[i]);
               }
               catch (Exception e) {
@@ -2019,7 +2067,7 @@ public class ProgInsprconver extends Program
           vvveractual.setValue("6.8");
         }
         if (versio < 6.9) {
-          try {      
+          try {
             Selector snifcdp = new Selector (Easp.connEA);
             snifcdp.execute("Select distinct cdpnifcif from CDP");
             while (snifcdp.next()) {
@@ -2367,11 +2415,11 @@ public class ProgInsprconver extends Program
             }
           }
           String tablas[]= {"COEFICCORREC"};
-          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0809","easp.jar");      
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver0809","easp.jar");
           Easp.setVersionBD("bdeasp","8.9");
           Easp.connEA.commit();
           vvveractual.setValue("8.9");
-        }    
+        }
         if (versio < 9.0) {
           grabarINDEMORA (2011,Fecha.getDate(2011,1,1),Fecha.getDate(2011,12,31),5);
           Easp.setVersionBD("bdeasp","9.0");
@@ -2524,90 +2572,90 @@ public class ProgInsprconver extends Program
         }
         if (versio < 10.0) {
                 java.util.Hashtable <String,String> htbancos = new java.util.Hashtable <String,String> ();
-                htbancos.put("3	  ".trim()," BANCO DE DEPOSITOS, S.A.                                                                       ".trim());
-                htbancos.put("11	".trim()," ALLFUNDS BANK, S.A.                                                                            ".trim());
-                htbancos.put("19	".trim()," DEUTSCHE BANK, S.A.E.                                                                          ".trim());
-                htbancos.put("30	".trim()," BANCO ESPAÑOL DE CREDITO, S.A.                                                                 ".trim());
-                htbancos.put("31	".trim()," BANCO ETCHEVERRIA, S.A.                                                                        ".trim());
-                htbancos.put("36	".trim()," SANTANDER INVESTMENT, S.A                                                                      ".trim());
-                htbancos.put("38	".trim()," BANESTO BANCO DE EMISIONES, S.A.                                                               ".trim());
-                htbancos.put("46	".trim()," BANCO GALLEGO, S.A.                                                                            ".trim());
-                htbancos.put("49	".trim()," BANCO SANTANDER, S.A.                                                                          ".trim());
-                htbancos.put("57	".trim()," BANCO DEPOSITARIO BBVA, S.A.                                                                   ".trim());
-                htbancos.put("58	".trim()," BNP PARIBAS ESPAÑA, S.A.                                                                       ".trim());
-                htbancos.put("59	".trim()," BANCO DE MADRID, S.A.                                                                          ".trim());
-                htbancos.put("61	".trim()," BANCA MARCH, S.A.                                                                              ".trim());
-                htbancos.put("65	".trim()," BARCLAYS BANK, S.A.                                                                            ".trim());
-                htbancos.put("72	".trim()," BANCO PASTOR, S.A.                                                                             ".trim());
-                htbancos.put("73	".trim()," OPEN BANK, S.A.                                                                                ".trim());
-                htbancos.put("75	".trim()," BANCO POPULAR ESPAÑOL, S.A.                                                                    ".trim());
-                htbancos.put("78	".trim()," BANCA PUEYO, S.A.                                                                              ".trim());
-                htbancos.put("81	".trim()," BANCO DE SABADELL, S.A.                                                                        ".trim());
-                htbancos.put("83	".trim()," RENTA 4 BANCO, S.A.                                                                            ".trim());
-                htbancos.put("86	".trim()," BANCO BANIF, S.A.                                                                              ".trim());
-                htbancos.put("91	".trim()," BANCO DE ALBACETE, S.A.                                                                        ".trim());
-                htbancos.put("93	".trim()," BANCO DE VALENCIA, S.A.                                                                        ".trim());
-                htbancos.put("94	".trim()," RBC DEXIA INVESTOR SERVICES ESPAÑA, S.A.                                                       ".trim());
-                htbancos.put("99	".trim()," BANKIA BANCA PRIVADA, S.A.                                                                     ".trim());
-                htbancos.put("108	".trim()," SOCIETE GENERALE, S.E.                                                                         ".trim());
-                htbancos.put("113	".trim()," BANCO INDUSTRIAL DE BILBAO, S.A.                                                               ".trim());
-                htbancos.put("115	".trim()," BANCO DE CASTILLA-LA MANCHA, S.A.                                                              ".trim());
-                htbancos.put("121	".trim()," BANCO OCCIDENTAL, S.A.                                                                         ".trim());
-                htbancos.put("122	".trim()," CITIBANK ESPAÑA, S.A.                                                                          ".trim());
-                htbancos.put("125	".trim()," BANCOFAR, S.A.                                                                                 ".trim());
-                htbancos.put("128	".trim()," BANKINTER, S.A.                                                                                ".trim());
-                htbancos.put("129	".trim()," BBVA BANCO DE FINANCIACION, S.A.                                                               ".trim());
-                htbancos.put("130	".trim()," BANCO CAIXA GERAL, S.A.                                                                        ".trim());
-                htbancos.put("131	".trim()," BANCO ESPIRITO SANTO, S.A., S.E.                                                               ".trim());
-                htbancos.put("132	".trim()," BANCO DE PROMOCION DE NEGOCIOS, S.A. (PROMOBANC)                                               ".trim());
-                htbancos.put("133	".trim()," NUEVO MICRO BANK, S.A.                                                                         ".trim());
-                htbancos.put("136	".trim()," ARESBANK, S.A                                                                                  ".trim());
-                htbancos.put("138	".trim()," BANKOA, S.A.                                                                                   ".trim());
-                htbancos.put("142	".trim()," BANCO DE LA PEQUEÑA Y MEDIANA EMPRESA, S.A.                                                    ".trim());
-                htbancos.put("144	".trim()," BNP PARIBAS SECURITIES SERVICES, S.E.                                                          ".trim());
-                htbancos.put("145	".trim()," DEUTSCHE BANK A.G., S.E.                                                                       ".trim());
-                htbancos.put("149	".trim()," BNP PARIBAS, S.E.                                                                              ".trim());
-                htbancos.put("151	".trim()," JPMORGAN CHASE BANK NATIONAL ASSOCIATION, S.E.                                                 ".trim());
-                htbancos.put("152	".trim()," BARCLAYS BANK PLC, S.E.                                                                        ".trim());
-                htbancos.put("154	".trim()," CREDIT AGRICOLE CORPORATE AND INVESTMENT BANK,S.E.                                             ".trim());
-                htbancos.put("155	".trim()," BANCO DO BRASIL, S.A., S.E.                                                                    ".trim());
-                htbancos.put("156	".trim()," THE ROYAL BANK OF SCOTLAND N.V. S.E.                                                           ".trim());
-                htbancos.put("159	".trim()," COMMERZBANK AKTIENGESELLSCHAFT, S.E.                                                           ".trim());
-                htbancos.put("160	".trim()," THE BANK OF TOKYO-MITSUBISHI UFJ, LTD, S.E.                                                    ".trim());
-                htbancos.put("161	".trim()," DEUTSCHE BANK TRUST COMPANY AMERICAS, S.E.                                                     ".trim());
-                htbancos.put("162	".trim()," HSBC BANK PLC, S.E.                                                                            ".trim());
-                htbancos.put("167	".trim()," FORTIS BANK, S.A., S.E.                                                                        ".trim());
-                htbancos.put("168	".trim()," ING BELGIUM, S.A., S.E.                                                                        ".trim());
-                htbancos.put("169	".trim()," BANCO DE LA NACION ARGENTINA, S.E.                                                             ".trim());
-                htbancos.put("182	".trim()," BANCO BILBAO VIZCAYA ARGENTARIA, S.A.                                                          ".trim());
-                htbancos.put("184	".trim()," BANCO EUROPEO DE FINANZAS, S.A.                                                                ".trim());
-                htbancos.put("186	".trim()," BANCO MEDIOLANUM, S.A.                                                                         ".trim());
-                htbancos.put("188	".trim()," BANCO ALCALA, S.A.                                                                             ".trim());
-                htbancos.put("190	".trim()," BANCO BPI, S.A., S.E.                                                                          ".trim());
-                htbancos.put("196	".trim()," WESTLB AG, S.E.                                                                                ".trim());
-                htbancos.put("198	".trim()," BANCO COOPERATIVO ESPAÑOL, S.A.                                                                ".trim());
-                htbancos.put("200	".trim()," PRIVAT BANK DEGROOF, S.A.                                                                      ".trim());
-                htbancos.put("211	".trim()," EBN BANCO DE NEGOCIOS, S.A.                                                                    ".trim());
-                htbancos.put("216	".trim()," TARGOBANK, S.A.                                                                                ".trim());
-                htbancos.put("218	".trim()," FCE BANK PLC S.E.                                                                              ".trim());
-                htbancos.put("219	".trim()," BANQUE MAROCAINE COMMERCE EXTERIEUR INTERNAT.,S.A.                                             ".trim());
-                htbancos.put("220	".trim()," BANCO FINANTIA SOFINLOC, S.A.                                                                  ".trim());
-                htbancos.put("223	".trim()," GENERAL ELECTRIC CAPITAL BANK, S.A.                                                            ".trim());
-                htbancos.put("224	".trim()," SANTANDER CONSUMER FINANCE, S.A.                                                               ".trim());
-                htbancos.put("225	".trim()," BANCO CETELEM, S.A.                                                                            ".trim());
-                htbancos.put("226	".trim()," UBS BANK, S.A                                                                                  ".trim());
-                htbancos.put("227	".trim()," UNOE BANK, S.A.                                                                                ".trim());
-                htbancos.put("229	".trim()," BANCOPOPULAR-E, S.A.                                                                           ".trim());
-                htbancos.put("231	".trim()," DEXIA SABADELL, S.A.                                                                           ".trim());
-                htbancos.put("232	".trim()," BANCO INVERSIS, S.A.                                                                           ".trim());
-                htbancos.put("233	".trim()," POPULAR BANCA PRIVADA, S.A.                                                                    ".trim());
-                htbancos.put("234	".trim()," BANCO CAMINOS, S.A.                                                                            ".trim());
-                htbancos.put("235	".trim()," BANCO PICHINCHA ESPAÑA, S.A.                                                                   ".trim());
-                htbancos.put("236	".trim()," LLOYDS BANK INTERNATIONAL, S.A.                                                                ".trim());
-                htbancos.put("237	".trim()," BBK BANK CAJASUR, S.A.                                                                         ".trim());
-                htbancos.put("487	".trim()," BANCO MARE NOSTRUM, S.A.                                                                       ".trim());
-                htbancos.put("488	".trim()," BANCO FINANCIERO Y DE AHORROS, S.A.                                                            ".trim());
-                htbancos.put("490	".trim()," BANCA CIVICA, S.A.                                                                             ".trim());
+                htbancos.put("3   ".trim()," BANCO DE DEPOSITOS, S.A.                                                                       ".trim());
+                htbancos.put("11  ".trim()," ALLFUNDS BANK, S.A.                                                                            ".trim());
+                htbancos.put("19  ".trim()," DEUTSCHE BANK, S.A.E.                                                                          ".trim());
+                htbancos.put("30  ".trim()," BANCO ESPAÑOL DE CREDITO, S.A.                                                                 ".trim());
+                htbancos.put("31  ".trim()," BANCO ETCHEVERRIA, S.A.                                                                        ".trim());
+                htbancos.put("36  ".trim()," SANTANDER INVESTMENT, S.A                                                                      ".trim());
+                htbancos.put("38  ".trim()," BANESTO BANCO DE EMISIONES, S.A.                                                               ".trim());
+                htbancos.put("46  ".trim()," BANCO GALLEGO, S.A.                                                                            ".trim());
+                htbancos.put("49  ".trim()," BANCO SANTANDER, S.A.                                                                          ".trim());
+                htbancos.put("57  ".trim()," BANCO DEPOSITARIO BBVA, S.A.                                                                   ".trim());
+                htbancos.put("58  ".trim()," BNP PARIBAS ESPAÑA, S.A.                                                                       ".trim());
+                htbancos.put("59  ".trim()," BANCO DE MADRID, S.A.                                                                          ".trim());
+                htbancos.put("61  ".trim()," BANCA MARCH, S.A.                                                                              ".trim());
+                htbancos.put("65  ".trim()," BARCLAYS BANK, S.A.                                                                            ".trim());
+                htbancos.put("72  ".trim()," BANCO PASTOR, S.A.                                                                             ".trim());
+                htbancos.put("73  ".trim()," OPEN BANK, S.A.                                                                                ".trim());
+                htbancos.put("75  ".trim()," BANCO POPULAR ESPAÑOL, S.A.                                                                    ".trim());
+                htbancos.put("78  ".trim()," BANCA PUEYO, S.A.                                                                              ".trim());
+                htbancos.put("81  ".trim()," BANCO DE SABADELL, S.A.                                                                        ".trim());
+                htbancos.put("83  ".trim()," RENTA 4 BANCO, S.A.                                                                            ".trim());
+                htbancos.put("86  ".trim()," BANCO BANIF, S.A.                                                                              ".trim());
+                htbancos.put("91  ".trim()," BANCO DE ALBACETE, S.A.                                                                        ".trim());
+                htbancos.put("93  ".trim()," BANCO DE VALENCIA, S.A.                                                                        ".trim());
+                htbancos.put("94  ".trim()," RBC DEXIA INVESTOR SERVICES ESPAÑA, S.A.                                                       ".trim());
+                htbancos.put("99  ".trim()," BANKIA BANCA PRIVADA, S.A.                                                                     ".trim());
+                htbancos.put("108 ".trim()," SOCIETE GENERALE, S.E.                                                                         ".trim());
+                htbancos.put("113 ".trim()," BANCO INDUSTRIAL DE BILBAO, S.A.                                                               ".trim());
+                htbancos.put("115 ".trim()," BANCO DE CASTILLA-LA MANCHA, S.A.                                                              ".trim());
+                htbancos.put("121 ".trim()," BANCO OCCIDENTAL, S.A.                                                                         ".trim());
+                htbancos.put("122 ".trim()," CITIBANK ESPAÑA, S.A.                                                                          ".trim());
+                htbancos.put("125 ".trim()," BANCOFAR, S.A.                                                                                 ".trim());
+                htbancos.put("128 ".trim()," BANKINTER, S.A.                                                                                ".trim());
+                htbancos.put("129 ".trim()," BBVA BANCO DE FINANCIACION, S.A.                                                               ".trim());
+                htbancos.put("130 ".trim()," BANCO CAIXA GERAL, S.A.                                                                        ".trim());
+                htbancos.put("131 ".trim()," BANCO ESPIRITO SANTO, S.A., S.E.                                                               ".trim());
+                htbancos.put("132 ".trim()," BANCO DE PROMOCION DE NEGOCIOS, S.A. (PROMOBANC)                                               ".trim());
+                htbancos.put("133 ".trim()," NUEVO MICRO BANK, S.A.                                                                         ".trim());
+                htbancos.put("136 ".trim()," ARESBANK, S.A                                                                                  ".trim());
+                htbancos.put("138 ".trim()," BANKOA, S.A.                                                                                   ".trim());
+                htbancos.put("142 ".trim()," BANCO DE LA PEQUEÑA Y MEDIANA EMPRESA, S.A.                                                    ".trim());
+                htbancos.put("144 ".trim()," BNP PARIBAS SECURITIES SERVICES, S.E.                                                          ".trim());
+                htbancos.put("145 ".trim()," DEUTSCHE BANK A.G., S.E.                                                                       ".trim());
+                htbancos.put("149 ".trim()," BNP PARIBAS, S.E.                                                                              ".trim());
+                htbancos.put("151 ".trim()," JPMORGAN CHASE BANK NATIONAL ASSOCIATION, S.E.                                                 ".trim());
+                htbancos.put("152 ".trim()," BARCLAYS BANK PLC, S.E.                                                                        ".trim());
+                htbancos.put("154 ".trim()," CREDIT AGRICOLE CORPORATE AND INVESTMENT BANK,S.E.                                             ".trim());
+                htbancos.put("155 ".trim()," BANCO DO BRASIL, S.A., S.E.                                                                    ".trim());
+                htbancos.put("156 ".trim()," THE ROYAL BANK OF SCOTLAND N.V. S.E.                                                           ".trim());
+                htbancos.put("159 ".trim()," COMMERZBANK AKTIENGESELLSCHAFT, S.E.                                                           ".trim());
+                htbancos.put("160 ".trim()," THE BANK OF TOKYO-MITSUBISHI UFJ, LTD, S.E.                                                    ".trim());
+                htbancos.put("161 ".trim()," DEUTSCHE BANK TRUST COMPANY AMERICAS, S.E.                                                     ".trim());
+                htbancos.put("162 ".trim()," HSBC BANK PLC, S.E.                                                                            ".trim());
+                htbancos.put("167 ".trim()," FORTIS BANK, S.A., S.E.                                                                        ".trim());
+                htbancos.put("168 ".trim()," ING BELGIUM, S.A., S.E.                                                                        ".trim());
+                htbancos.put("169 ".trim()," BANCO DE LA NACION ARGENTINA, S.E.                                                             ".trim());
+                htbancos.put("182 ".trim()," BANCO BILBAO VIZCAYA ARGENTARIA, S.A.                                                          ".trim());
+                htbancos.put("184 ".trim()," BANCO EUROPEO DE FINANZAS, S.A.                                                                ".trim());
+                htbancos.put("186 ".trim()," BANCO MEDIOLANUM, S.A.                                                                         ".trim());
+                htbancos.put("188 ".trim()," BANCO ALCALA, S.A.                                                                             ".trim());
+                htbancos.put("190 ".trim()," BANCO BPI, S.A., S.E.                                                                          ".trim());
+                htbancos.put("196 ".trim()," WESTLB AG, S.E.                                                                                ".trim());
+                htbancos.put("198 ".trim()," BANCO COOPERATIVO ESPAÑOL, S.A.                                                                ".trim());
+                htbancos.put("200 ".trim()," PRIVAT BANK DEGROOF, S.A.                                                                      ".trim());
+                htbancos.put("211 ".trim()," EBN BANCO DE NEGOCIOS, S.A.                                                                    ".trim());
+                htbancos.put("216 ".trim()," TARGOBANK, S.A.                                                                                ".trim());
+                htbancos.put("218 ".trim()," FCE BANK PLC S.E.                                                                              ".trim());
+                htbancos.put("219 ".trim()," BANQUE MAROCAINE COMMERCE EXTERIEUR INTERNAT.,S.A.                                             ".trim());
+                htbancos.put("220 ".trim()," BANCO FINANTIA SOFINLOC, S.A.                                                                  ".trim());
+                htbancos.put("223 ".trim()," GENERAL ELECTRIC CAPITAL BANK, S.A.                                                            ".trim());
+                htbancos.put("224 ".trim()," SANTANDER CONSUMER FINANCE, S.A.                                                               ".trim());
+                htbancos.put("225 ".trim()," BANCO CETELEM, S.A.                                                                            ".trim());
+                htbancos.put("226 ".trim()," UBS BANK, S.A                                                                                  ".trim());
+                htbancos.put("227 ".trim()," UNOE BANK, S.A.                                                                                ".trim());
+                htbancos.put("229 ".trim()," BANCOPOPULAR-E, S.A.                                                                           ".trim());
+                htbancos.put("231 ".trim()," DEXIA SABADELL, S.A.                                                                           ".trim());
+                htbancos.put("232 ".trim()," BANCO INVERSIS, S.A.                                                                           ".trim());
+                htbancos.put("233 ".trim()," POPULAR BANCA PRIVADA, S.A.                                                                    ".trim());
+                htbancos.put("234 ".trim()," BANCO CAMINOS, S.A.                                                                            ".trim());
+                htbancos.put("235 ".trim()," BANCO PICHINCHA ESPAÑA, S.A.                                                                   ".trim());
+                htbancos.put("236 ".trim()," LLOYDS BANK INTERNATIONAL, S.A.                                                                ".trim());
+                htbancos.put("237 ".trim()," BBK BANK CAJASUR, S.A.                                                                         ".trim());
+                htbancos.put("487 ".trim()," BANCO MARE NOSTRUM, S.A.                                                                       ".trim());
+                htbancos.put("488 ".trim()," BANCO FINANCIERO Y DE AHORROS, S.A.                                                            ".trim());
+                htbancos.put("490 ".trim()," BANCA CIVICA, S.A.                                                                             ".trim());
                 htbancos.put("1451".trim(),"CAISSE REGIONALE CREDIT AGRICOLE MUTUEL SUD MED,SE                                              ".trim());
                 htbancos.put("1457".trim(),"DE LAGE LANDEN INTERNATIONAL B.V., S.E.                                                         ".trim());
                 htbancos.put("1459".trim(),"COOP.CENTR. RAIFFEISEN-BOERENL.(RABOBANK NED.)S.E.                                              ".trim());
@@ -2799,24 +2847,24 @@ public class ProgInsprconver extends Program
                 htbancos.put("3190".trim(),"C.R. DE ALBACETE, CIUDAD REAL Y CUENCA, S.C.C.                                                  ".trim());
                 htbancos.put("3191".trim(),"NUEVA CAJA RURAL DE ARAGON SOC. COOP. DE CREDITO                                                ".trim());
                 for (java.util.Enumeration<String> e = htbancos.keys() ; e.hasMoreElements();) {
-                	String banc = e.nextElement();
-                	String desc = htbancos.get(banc);
-                	Selector s = new Selector (Easp.connEA);
-                	s.execute("Select * from BANCO where bncodigo="+banc);
-                	if (s.next()) {
-                		System.out.println("Actualitzo "+banc+" ["+desc+"]");
-                		Update u = new Update (Easp.connEA,"BANCO");
-                		u.valor("bndesc", desc);
-                		u.execute("bncodigo="+banc);
-                	}
-                	else {
-                		System.out.println("Afegeixo "+banc+" ["+desc+"]");
-                		Insert in = new Insert (Easp.connEA,"BANCO");
-                		in.valor("bndesc", desc);
-                		in.valor("bncodigo", banc);
-                		in.execute();            		
-                	}
-                	s.close();
+                  String banc = e.nextElement();
+                  String desc = htbancos.get(banc);
+                  Selector s = new Selector (Easp.connEA);
+                  s.execute("Select * from BANCO where bncodigo="+banc);
+                  if (s.next()) {
+                    System.out.println("Actualitzo "+banc+" ["+desc+"]");
+                    Update u = new Update (Easp.connEA,"BANCO");
+                    u.valor("bndesc", desc);
+                    u.execute("bncodigo="+banc);
+                  }
+                  else {
+                    System.out.println("Afegeixo "+banc+" ["+desc+"]");
+                    Insert in = new Insert (Easp.connEA,"BANCO");
+                    in.valor("bndesc", desc);
+                    in.valor("bncodigo", banc);
+                    in.execute();
+                  }
+                  s.close();
                 }
               Easp.setVersionBD("bdeasp","10.0");
               Easp.connEA.commit();
@@ -2998,7 +3046,7 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","11.3");
           Easp.connEA.commit();
           vvveractual.setValue("11.3");
-        } 
+        }
         if (versio < 11.4) {
               for (i=0;i<sentencias11_4.length;++i) {
                 try {
@@ -3032,7 +3080,7 @@ public class ProgInsprconver extends Program
               Easp.connEA.commit();
               vvveractual.setValue("11.5");
         }
-        
+    
         if (versio < 11.6) {
               for (i=0;i<sentencias11_6.length;++i) {
                 try {
@@ -3049,14 +3097,14 @@ public class ProgInsprconver extends Program
               Easp.connEA.commit();
               vvveractual.setValue("11.6");
         }
-        
+    
         if (versio < 11.7) {
             grabarINDEMORA (2014,Fecha.getDate(2014,1,1),Fecha.getDate(2014,12,31),5);
             Easp.setVersionBD("bdeasp","11.7");
             Easp.connEA.commit();
             vvveractual.setValue("11.7");
         }
-     
+    
          if (versio < 11.8) {
             grabaPerfilConta ();
             Easp.setVersionBD("bdeasp","11.8");
@@ -3078,7 +3126,7 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","11.9");
           Easp.connEA.commit();
           vvveractual.setValue("11.9");
-        }  
+        }
         if (versio < 12.0) {
           for (i=0;i<sentencias12_0.length;++i) {
             try {
@@ -3137,7 +3185,7 @@ public class ProgInsprconver extends Program
             vvveractual.setValue("12.3");
     
         }
-        
+    
         if (versio < 12.4) {
             for (i=0;i<sentencias12_4.length;++i) {
                   try {
@@ -3153,7 +3201,7 @@ public class ProgInsprconver extends Program
             Easp.setVersionBD("bdeasp","12.4");
             Easp.connEA.commit();
             vvveractual.setValue("12.4");
-        }      
+        }
        if (versio < 12.5) {
           for (i=0;i<sentencias12_5.length;++i) {
             try {
@@ -3187,7 +3235,7 @@ public class ProgInsprconver extends Program
             Easp.setVersionBD("bdeasp","12.6");
             Easp.connEA.commit();
             vvveractual.setValue("12.6");
-        }      
+        }
     
         if (versio < 12.7) {
             for (i=0;i<sentencias12_7.length;++i) {
@@ -3204,7 +3252,7 @@ public class ProgInsprconver extends Program
             Easp.setVersionBD("bdeasp","12.7");
             Easp.connEA.commit();
             vvveractual.setValue("12.7");
-        }      
+        }
     
         if (versio < 12.8) {
           for (i=0;i<sentencias12_8.length;++i) {
@@ -3221,7 +3269,7 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","12.8");
           Easp.connEA.commit();
           vvveractual.setValue("12.8");
-        } 
+        }
     
         if (versio < 12.9) {
           for (i=0;i<sentencias12_9.length;++i) {
@@ -3240,7 +3288,7 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","12.9");
           Easp.connEA.commit();
           vvveractual.setValue("12.9");
-        } 
+        }
     
         if (versio < 13.0) {
           for (i=0;i<sentencias13_0.length;++i) {
@@ -3257,8 +3305,8 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","13.0");
           Easp.connEA.commit();
           vvveractual.setValue("13.0");
-        } 
-        
+        }
+    
         if (versio < 13.1) {
             for (i=0;i<sentencias13_1.length;++i) {
               try {
@@ -3276,7 +3324,28 @@ public class ProgInsprconver extends Program
             Easp.setVersionBD("bdeasp","13.1");
             Easp.connEA.commit();
             vvveractual.setValue("13.1");
-          } 
+          }
+    
+        if (versio < 13.2) {
+            for (i=0;i<sentencias13_2.length;++i) {
+              try {
+                Easp.chivato("13.2 Exec : ["+sentencias13_2[i]+"]",1);
+                Easp.connEA.executeUpdate(sentencias13_2[i]);
+              }
+              catch(Exception e) {
+                sqlOperation=sentencias13_2[i];
+                Easp.chivato("13.2 *** Error : ["+sentencias13_2[i]+"]  Error: ["+e+"]",1);
+                errorMessage=e.getMessage();
+              }
+            }
+            String tablas[] = {"AMORTIZACION"};
+            Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1301","easp.jar");
+            Easp.setVersionBD("bdeasp","13.2");
+            Easp.connEA.commit();
+            vvveractual.setValue("13.2");
+          }
+    
+    
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
@@ -3315,7 +3384,7 @@ public class ProgInsprconver extends Program
             }
           }
         }
-      } 
+      }
       scdp.close();
       Easp.connEA.commit();
     }
@@ -3349,7 +3418,7 @@ public class ProgInsprconver extends Program
         i.valor("tratipoiva",tipo);
         i.valor("travoloper",voloper);
         i.valor("traoperespec",operespec);
-        i.execute();  
+        i.execute();
       }
     
     }
