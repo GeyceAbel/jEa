@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150723
-// Hora:             11:56:01
+// Fecha:            20150903
+// Hora:             09:50:06
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -24,6 +24,12 @@ public class ProgPravisos extends Program
   {
   public AppEasp easp;
   public ProgPravisos pravisos;
+  // Inicio declaraciones globales
+  public String gaplicacion = null ;
+  
+  public DBConnection connJNOM = null ;
+  
+  // Fin declaraciones globales
   // Ventana
   public FormVbuscar vbuscar;
   // Selects
@@ -49,6 +55,7 @@ public class ProgPravisos extends Program
     public CtrlChpendientes chpendientes;
     public CtrlChrevisados chrevisados;
     // Acciones
+    public LinkAcgeneraavis acgeneraavis;
     class Location extends LocationGridBag
       {
       public Location( )
@@ -109,6 +116,24 @@ public class ProgPravisos extends Program
         }
       }
       
+    public class LinkAcgeneraavis extends Action
+      {
+      public LinkAcgeneraavis(Form form)
+        {
+        super(form);
+        setName("acgeneraavis");
+        setTitle("&1. Generar Avisos Autómaticos");
+        setOptions(SEARCH | SHOW | UPDATE | INSERT);
+        }
+      public void onAction()
+        {
+        super.onAction();
+        Avisos avisos = new Avisos(pravisos);
+        avisos.generaAvisosAutomaticosJNOM(connJNOM);
+        
+        }
+      }
+      
     public FormVbuscar(ProgPravisos pravisos)
       {
       super(pravisos);
@@ -119,6 +144,7 @@ public class ProgPravisos extends Program
       addControl(vvempresa=new CtrlVvempresa(this));
       addControl(chpendientes=new CtrlChpendientes(this));
       addControl(chrevisados=new CtrlChrevisados(this));
+      addAction(acgeneraavis=new LinkAcgeneraavis(this));
       }
     }
     
@@ -293,6 +319,7 @@ public class ProgPravisos extends Program
       addControl(avtitulo=new CtrlAvtitulo(this));
       addControl(avestado=new CtrlAvestado(this));
       addControl(avfechavenci=new CtrlAvfechavenci(this));
+      setSelect(savisos);
       }
     }
     
@@ -302,48 +329,48 @@ public class ProgPravisos extends Program
     // Tablas
     public Avisos avisos;
     // Campos
-    public Field avcodigo;
     public Field avaplicacion;
-    public Field avcodcdp;
-    public Field avempresa;
-    public Field avnomempresa;
-    public Field avtrabajador;
-    public Field avnomtrabaj;
-    public Field avrelacion;
     public Field avcentro;
-    public Field avcodincid;
-    public Field avcodfiniq;
-    public Field avcodbonif;
     public Field avcodactivi;
-    public Field avnomactivi;
-    public Field avdeclara;
+    public Field avcodbonif;
+    public Field avcodcdp;
+    public Field avcodfiniq;
+    public Field avcodigo;
+    public Field avcodincid;
     public Field avcodotr1;
     public Field avcodotr2;
     public Field avcodotr3;
+    public Field avdeclara;
+    public Field avdescrip;
     public Field avejercicio;
-    public Field avperiodo;
-    public Field avtiporeco;
-    public Field avtipoaviso;
-    public Field avtitulo;
-    public Field avorigen;
+    public Field avempresa;
     public Field avestado;
     public Field avestadoctrl;
-    public Field avurgencia;
-    public Field avdescrip;
     public Field avfechacrea;
+    public Field avfechaorig;
+    public Field avfecharevi;
+    public Field avfechasolu;
+    public Field avfechavenci;
+    public Field avhoraorig;
+    public Field avhorarevi;
+    public Field avhorasolu;
+    public Field avhoravenci;
+    public Field avnomactivi;
+    public Field avnomempresa;
+    public Field avnomtrabaj;
+    public Field avorigen;
+    public Field avperiodo;
+    public Field avrelacion;
     public Field avresponscrea;
     public Field avresponsorig;
-    public Field avfechaorig;
-    public Field avhoraorig;
-    public Field avresponsvenc;
-    public Field avfechavenci;
-    public Field avhoravenci;
-    public Field avfechasolu;
-    public Field avresponssolu;
-    public Field avhorasolu;
     public Field avresponsrevi;
-    public Field avfecharevi;
-    public Field avhorarevi;
+    public Field avresponssolu;
+    public Field avresponsvenc;
+    public Field avtipoaviso;
+    public Field avtiporeco;
+    public Field avtitulo;
+    public Field avtrabajador;
+    public Field avurgencia;
     class Avisos extends Table
       {
       public Avisos(Select select)
@@ -358,48 +385,48 @@ public class ProgPravisos extends Program
       {
       setName("savisos");
       addTable(avisos=new Avisos(this));
-      addField(avcodigo=new Field(this,avisos,"avcodigo"));
       addField(avaplicacion=new Field(this,avisos,"avaplicacion"));
-      addField(avcodcdp=new Field(this,avisos,"avcodcdp"));
-      addField(avempresa=new Field(this,avisos,"avempresa"));
-      addField(avnomempresa=new Field(this,avisos,"avnomempresa"));
-      addField(avtrabajador=new Field(this,avisos,"avtrabajador"));
-      addField(avnomtrabaj=new Field(this,avisos,"avnomtrabaj"));
-      addField(avrelacion=new Field(this,avisos,"avrelacion"));
       addField(avcentro=new Field(this,avisos,"avcentro"));
-      addField(avcodincid=new Field(this,avisos,"avcodincid"));
-      addField(avcodfiniq=new Field(this,avisos,"avcodfiniq"));
-      addField(avcodbonif=new Field(this,avisos,"avcodbonif"));
       addField(avcodactivi=new Field(this,avisos,"avcodactivi"));
-      addField(avnomactivi=new Field(this,avisos,"avnomactivi"));
-      addField(avdeclara=new Field(this,avisos,"avdeclara"));
+      addField(avcodbonif=new Field(this,avisos,"avcodbonif"));
+      addField(avcodcdp=new Field(this,avisos,"avcodcdp"));
+      addField(avcodfiniq=new Field(this,avisos,"avcodfiniq"));
+      addField(avcodigo=new Field(this,avisos,"avcodigo"));
+      addField(avcodincid=new Field(this,avisos,"avcodincid"));
       addField(avcodotr1=new Field(this,avisos,"avcodotr1"));
       addField(avcodotr2=new Field(this,avisos,"avcodotr2"));
       addField(avcodotr3=new Field(this,avisos,"avcodotr3"));
+      addField(avdeclara=new Field(this,avisos,"avdeclara"));
+      addField(avdescrip=new Field(this,avisos,"avdescrip"));
       addField(avejercicio=new Field(this,avisos,"avejercicio"));
-      addField(avperiodo=new Field(this,avisos,"avperiodo"));
-      addField(avtiporeco=new Field(this,avisos,"avtiporeco"));
-      addField(avtipoaviso=new Field(this,avisos,"avtipoaviso"));
-      addField(avtitulo=new Field(this,avisos,"avtitulo"));
-      addField(avorigen=new Field(this,avisos,"avorigen"));
+      addField(avempresa=new Field(this,avisos,"avempresa"));
       addField(avestado=new Field(this,avisos,"avestado"));
       addField(avestadoctrl=new Field(this,avisos,"avestadoctrl"));
-      addField(avurgencia=new Field(this,avisos,"avurgencia"));
-      addField(avdescrip=new Field(this,avisos,"avdescrip"));
       addField(avfechacrea=new Field(this,avisos,"avfechacrea"));
+      addField(avfechaorig=new Field(this,avisos,"avfechaorig"));
+      addField(avfecharevi=new Field(this,avisos,"avfecharevi"));
+      addField(avfechasolu=new Field(this,avisos,"avfechasolu"));
+      addField(avfechavenci=new Field(this,avisos,"avfechavenci"));
+      addField(avhoraorig=new Field(this,avisos,"avhoraorig"));
+      addField(avhorarevi=new Field(this,avisos,"avhorarevi"));
+      addField(avhorasolu=new Field(this,avisos,"avhorasolu"));
+      addField(avhoravenci=new Field(this,avisos,"avhoravenci"));
+      addField(avnomactivi=new Field(this,avisos,"avnomactivi"));
+      addField(avnomempresa=new Field(this,avisos,"avnomempresa"));
+      addField(avnomtrabaj=new Field(this,avisos,"avnomtrabaj"));
+      addField(avorigen=new Field(this,avisos,"avorigen"));
+      addField(avperiodo=new Field(this,avisos,"avperiodo"));
+      addField(avrelacion=new Field(this,avisos,"avrelacion"));
       addField(avresponscrea=new Field(this,avisos,"avresponscrea"));
       addField(avresponsorig=new Field(this,avisos,"avresponsorig"));
-      addField(avfechaorig=new Field(this,avisos,"avfechaorig"));
-      addField(avhoraorig=new Field(this,avisos,"avhoraorig"));
-      addField(avresponsvenc=new Field(this,avisos,"avresponsvenc"));
-      addField(avfechavenci=new Field(this,avisos,"avfechavenci"));
-      addField(avhoravenci=new Field(this,avisos,"avhoravenci"));
-      addField(avfechasolu=new Field(this,avisos,"avfechasolu"));
-      addField(avresponssolu=new Field(this,avisos,"avresponssolu"));
-      addField(avhorasolu=new Field(this,avisos,"avhorasolu"));
       addField(avresponsrevi=new Field(this,avisos,"avresponsrevi"));
-      addField(avfecharevi=new Field(this,avisos,"avfecharevi"));
-      addField(avhorarevi=new Field(this,avisos,"avhorarevi"));
+      addField(avresponssolu=new Field(this,avisos,"avresponssolu"));
+      addField(avresponsvenc=new Field(this,avisos,"avresponsvenc"));
+      addField(avtipoaviso=new Field(this,avisos,"avtipoaviso"));
+      addField(avtiporeco=new Field(this,avisos,"avtiporeco"));
+      addField(avtitulo=new Field(this,avisos,"avtitulo"));
+      addField(avtrabajador=new Field(this,avisos,"avtrabajador"));
+      addField(avurgencia=new Field(this,avisos,"avurgencia"));
       }
     }
     
@@ -409,48 +436,48 @@ public class ProgPravisos extends Program
     // Tablas
     public Avisos avisos;
     // Campos
-    public Field avcodigo;
     public Field avaplicacion;
-    public Field avcodcdp;
-    public Field avempresa;
-    public Field avnomempresa;
-    public Field avtrabajador;
-    public Field avnomtrabaj;
-    public Field avrelacion;
     public Field avcentro;
-    public Field avcodincid;
-    public Field avcodfiniq;
-    public Field avcodbonif;
     public Field avcodactivi;
-    public Field avnomactivi;
-    public Field avdeclara;
+    public Field avcodbonif;
+    public Field avcodcdp;
+    public Field avcodfiniq;
+    public Field avcodigo;
+    public Field avcodincid;
     public Field avcodotr1;
     public Field avcodotr2;
     public Field avcodotr3;
+    public Field avdeclara;
+    public Field avdescrip;
     public Field avejercicio;
-    public Field avperiodo;
-    public Field avtiporeco;
-    public Field avtipoaviso;
-    public Field avtitulo;
-    public Field avorigen;
+    public Field avempresa;
     public Field avestado;
     public Field avestadoctrl;
-    public Field avurgencia;
-    public Field avdescrip;
     public Field avfechacrea;
+    public Field avfechaorig;
+    public Field avfecharevi;
+    public Field avfechasolu;
+    public Field avfechavenci;
+    public Field avhoraorig;
+    public Field avhorarevi;
+    public Field avhorasolu;
+    public Field avhoravenci;
+    public Field avnomactivi;
+    public Field avnomempresa;
+    public Field avnomtrabaj;
+    public Field avorigen;
+    public Field avperiodo;
+    public Field avrelacion;
     public Field avresponscrea;
     public Field avresponsorig;
-    public Field avfechaorig;
-    public Field avhoraorig;
-    public Field avresponsvenc;
-    public Field avfechavenci;
-    public Field avhoravenci;
-    public Field avfechasolu;
-    public Field avresponssolu;
-    public Field avhorasolu;
     public Field avresponsrevi;
-    public Field avfecharevi;
-    public Field avhorarevi;
+    public Field avresponssolu;
+    public Field avresponsvenc;
+    public Field avtipoaviso;
+    public Field avtiporeco;
+    public Field avtitulo;
+    public Field avtrabajador;
+    public Field avurgencia;
     class Avisos extends Table
       {
       public Avisos(Select select)
@@ -465,55 +492,53 @@ public class ProgPravisos extends Program
       {
       setName("savutil");
       addTable(avisos=new Avisos(this));
-      addField(avcodigo=new Field(this,avisos,"avcodigo"));
       addField(avaplicacion=new Field(this,avisos,"avaplicacion"));
-      addField(avcodcdp=new Field(this,avisos,"avcodcdp"));
-      addField(avempresa=new Field(this,avisos,"avempresa"));
-      addField(avnomempresa=new Field(this,avisos,"avnomempresa"));
-      addField(avtrabajador=new Field(this,avisos,"avtrabajador"));
-      addField(avnomtrabaj=new Field(this,avisos,"avnomtrabaj"));
-      addField(avrelacion=new Field(this,avisos,"avrelacion"));
       addField(avcentro=new Field(this,avisos,"avcentro"));
-      addField(avcodincid=new Field(this,avisos,"avcodincid"));
-      addField(avcodfiniq=new Field(this,avisos,"avcodfiniq"));
-      addField(avcodbonif=new Field(this,avisos,"avcodbonif"));
       addField(avcodactivi=new Field(this,avisos,"avcodactivi"));
-      addField(avnomactivi=new Field(this,avisos,"avnomactivi"));
-      addField(avdeclara=new Field(this,avisos,"avdeclara"));
+      addField(avcodbonif=new Field(this,avisos,"avcodbonif"));
+      addField(avcodcdp=new Field(this,avisos,"avcodcdp"));
+      addField(avcodfiniq=new Field(this,avisos,"avcodfiniq"));
+      addField(avcodigo=new Field(this,avisos,"avcodigo"));
+      addField(avcodincid=new Field(this,avisos,"avcodincid"));
       addField(avcodotr1=new Field(this,avisos,"avcodotr1"));
       addField(avcodotr2=new Field(this,avisos,"avcodotr2"));
       addField(avcodotr3=new Field(this,avisos,"avcodotr3"));
+      addField(avdeclara=new Field(this,avisos,"avdeclara"));
+      addField(avdescrip=new Field(this,avisos,"avdescrip"));
       addField(avejercicio=new Field(this,avisos,"avejercicio"));
-      addField(avperiodo=new Field(this,avisos,"avperiodo"));
-      addField(avtiporeco=new Field(this,avisos,"avtiporeco"));
-      addField(avtipoaviso=new Field(this,avisos,"avtipoaviso"));
-      addField(avtitulo=new Field(this,avisos,"avtitulo"));
-      addField(avorigen=new Field(this,avisos,"avorigen"));
+      addField(avempresa=new Field(this,avisos,"avempresa"));
       addField(avestado=new Field(this,avisos,"avestado"));
       addField(avestadoctrl=new Field(this,avisos,"avestadoctrl"));
-      addField(avurgencia=new Field(this,avisos,"avurgencia"));
-      addField(avdescrip=new Field(this,avisos,"avdescrip"));
       addField(avfechacrea=new Field(this,avisos,"avfechacrea"));
+      addField(avfechaorig=new Field(this,avisos,"avfechaorig"));
+      addField(avfecharevi=new Field(this,avisos,"avfecharevi"));
+      addField(avfechasolu=new Field(this,avisos,"avfechasolu"));
+      addField(avfechavenci=new Field(this,avisos,"avfechavenci"));
+      addField(avhoraorig=new Field(this,avisos,"avhoraorig"));
+      addField(avhorarevi=new Field(this,avisos,"avhorarevi"));
+      addField(avhorasolu=new Field(this,avisos,"avhorasolu"));
+      addField(avhoravenci=new Field(this,avisos,"avhoravenci"));
+      addField(avnomactivi=new Field(this,avisos,"avnomactivi"));
+      addField(avnomempresa=new Field(this,avisos,"avnomempresa"));
+      addField(avnomtrabaj=new Field(this,avisos,"avnomtrabaj"));
+      addField(avorigen=new Field(this,avisos,"avorigen"));
+      addField(avperiodo=new Field(this,avisos,"avperiodo"));
+      addField(avrelacion=new Field(this,avisos,"avrelacion"));
       addField(avresponscrea=new Field(this,avisos,"avresponscrea"));
       addField(avresponsorig=new Field(this,avisos,"avresponsorig"));
-      addField(avfechaorig=new Field(this,avisos,"avfechaorig"));
-      addField(avhoraorig=new Field(this,avisos,"avhoraorig"));
-      addField(avresponsvenc=new Field(this,avisos,"avresponsvenc"));
-      addField(avfechavenci=new Field(this,avisos,"avfechavenci"));
-      addField(avhoravenci=new Field(this,avisos,"avhoravenci"));
-      addField(avfechasolu=new Field(this,avisos,"avfechasolu"));
-      addField(avresponssolu=new Field(this,avisos,"avresponssolu"));
-      addField(avhorasolu=new Field(this,avisos,"avhorasolu"));
       addField(avresponsrevi=new Field(this,avisos,"avresponsrevi"));
-      addField(avfecharevi=new Field(this,avisos,"avfecharevi"));
-      addField(avhorarevi=new Field(this,avisos,"avhorarevi"));
+      addField(avresponssolu=new Field(this,avisos,"avresponssolu"));
+      addField(avresponsvenc=new Field(this,avisos,"avresponsvenc"));
+      addField(avtipoaviso=new Field(this,avisos,"avtipoaviso"));
+      addField(avtiporeco=new Field(this,avisos,"avtiporeco"));
+      addField(avtitulo=new Field(this,avisos,"avtitulo"));
+      addField(avtrabajador=new Field(this,avisos,"avtrabajador"));
+      addField(avurgencia=new Field(this,avisos,"avurgencia"));
       }
     }
     
-  public ProgPravisos(AppEasp easp)
+  public ProgPravisos()
     {
-    super(easp);
-    this.easp=easp;
     this.pravisos=this;
     setName("pravisos");
     setTitle("Avisos");
@@ -522,9 +547,10 @@ public class ProgPravisos extends Program
     addForm(vbuscar=new FormVbuscar(this));
     addForm(vavisos=new FormVavisos(this));
     }
-  public ProgPravisos()
+  public ProgPravisos(AppEasp easp)
     {
-    this((AppEasp) Aplication.getAplication());
+    this();
+    this.easp=easp;
     }
   }
   
