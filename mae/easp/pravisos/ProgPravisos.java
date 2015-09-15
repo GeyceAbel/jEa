@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150903
-// Hora:             09:50:06
+// Fecha:            20150915
+// Hora:             12:40:56
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -17,7 +17,7 @@ import mae.general.*;
 import mae.easp.*;
 // 
 // Programa: pravisos
-// Nombre:   Avisos
+// Nombre:   Avisos - Tareas
 // Versión:  1.0
 // 
 public class ProgPravisos extends Program
@@ -28,6 +28,13 @@ public class ProgPravisos extends Program
   public String gaplicacion = null ;
   
   public DBConnection connJNOM = null ;
+  
+  
+  private int ordena        = -1 ;
+  private int ultimoOrdena  = -1 ;
+  private String desc       = "" ;
+  private boolean desactivaDesc = false ;
+  
   
   // Fin declaraciones globales
   // Ventana
@@ -43,17 +50,57 @@ public class ProgPravisos extends Program
     public Location( )
       {
       super();
-      setTitle("Avisos");
+      setTitle("Avisos - Tareas");
       }
     }
     
   public class FormVbuscar extends ProcessForm
     {
+    // Inicio declaraciones globales
+    
+    
+    
+    public void buscar() {
+      savisos.execute();
+      vavisos.doShow();
+      
+      }
+    
+    public String getWhereAvisos()  {
+      String where = "" ;
+      String and = "" ;
+      
+      if ( chpendientes.getBoolean() && !chrevisados.getBoolean() ) {
+        where += and+" avestado = 'PE'";
+        and = " and " ;
+        }
+      else if ( !chpendientes.getBoolean() && chrevisados.getBoolean() ) {
+        where += and+" avestado = 'RE'";
+        and = " and " ;
+        }
+    
+      if (  !vvdesdefecha.isNull() ) {
+        where += and+" avfechavenci >= "+vvdesdefecha.getSQLFormat() ;
+        and = " and " ;
+        }
+    
+      if (  !vvhastafecha.isNull() ) {
+        where += and+" avfechavenci <= "+vvhastafecha.getSQLFormat() ;
+        and = " and " ;
+        }
+    
+    
+      if ( where.equals("") ) return null ;
+      else                    return where ;
+      }
+    // Fin declaraciones globales
     // Controles
     public CtrlVvaplicacion vvaplicacion;
     public CtrlVvempresa vvempresa;
     public CtrlChpendientes chpendientes;
     public CtrlChrevisados chrevisados;
+    public CtrlVvdesdefecha vvdesdefecha;
+    public CtrlVvhastafecha vvhastafecha;
     // Acciones
     public LinkAcgeneraavis acgeneraavis;
     class Location extends LocationGridBag
@@ -104,6 +151,16 @@ public class ProgPravisos extends Program
         setName("chpendientes");
         setTitle("Pendientese");
         }
+      public Object getDefault()
+        {
+        return true ;
+        }
+        
+        public void userChange(Value v ) {
+          
+          super.userChange(v);
+          vbuscar.buscar();
+        }
       }
       
     public class CtrlChrevisados extends ControlCheck
@@ -113,6 +170,64 @@ public class ProgPravisos extends Program
         super(form);
         setName("chrevisados");
         setTitle("Revisados");
+        }
+      public Object getDefault()
+        {
+        return true ;
+        }
+        
+        public void userChange(Value v ) {
+          
+          super.userChange(v);
+          vbuscar.buscar();
+        }
+      }
+      
+    public class CtrlVvdesdefecha extends ControlEdit
+      {
+      public CtrlVvdesdefecha(Form form)
+        {
+        super(form);
+        setName("vvdesdefecha");
+        setTitle("Desde Fecha");
+        setType(DATE);
+        setLength(8);
+        setPrintable(false);
+        }
+      public void onChange()
+        {
+          super.onChange();
+          }
+        
+        
+        public void userChange(Value v ) {
+          
+          super.userChange(v);
+          vbuscar.buscar();
+        }
+      }
+      
+    public class CtrlVvhastafecha extends ControlEdit
+      {
+      public CtrlVvhastafecha(Form form)
+        {
+        super(form);
+        setName("vvhastafecha");
+        setTitle("Hasta Fecha");
+        setType(DATE);
+        setLength(8);
+        setPrintable(false);
+        }
+      public void onChange()
+        {
+          super.onChange();
+          }
+        
+        
+        public void userChange(Value v ) {
+          
+          super.userChange(v);
+          vbuscar.buscar();
         }
       }
       
@@ -128,8 +243,8 @@ public class ProgPravisos extends Program
       public void onAction()
         {
         super.onAction();
-        Avisos avisos = new Avisos(pravisos);
-        avisos.generaAvisosAutomaticosJNOM(connJNOM);
+        // Avisos avisos = new Avisos(pravisos);
+        // avisos.generaAvisosAutomaticosJNOM(connJNOM);
         
         }
       }
@@ -144,12 +259,76 @@ public class ProgPravisos extends Program
       addControl(vvempresa=new CtrlVvempresa(this));
       addControl(chpendientes=new CtrlChpendientes(this));
       addControl(chrevisados=new CtrlChrevisados(this));
+      addControl(vvdesdefecha=new CtrlVvdesdefecha(this));
+      addControl(vvhastafecha=new CtrlVvhastafecha(this));
       addAction(acgeneraavis=new LinkAcgeneraavis(this));
       }
     }
     
   public class FormVavisos extends MultiDataForm
     {
+    // Inicio declaraciones globales
+    
+    
+    
+    public void onColumnClick(int ncol) {
+      Maefc.waitCursor();
+      super.onColumnClick(ncol);
+      ordena=ncol;
+      doShow();
+      Maefc.restoreCursor();
+      ultimoOrdena = ordena ; 
+    }
+    
+    
+    public java.awt.Color getCellColorBackground(boolean isSelected, boolean hasFocus, int row, int column) {
+      if ( column == 7 ) {
+       if      ( vvestado.getValue(row).getString().equals("PENDIENTE") ) return LookComponent.color(255,153,0) ;  // Rojo    #FF0000
+       else if ( vvestado.getValue(row).getString().equals("REVISADO") )  return LookComponent.color(51,153,51) ;  // Rojo
+       else return null;
+       }
+      else if ( isSelected   )  return null ; 
+      else if ( column >= 1 && column <= 2  )      return new java.awt.Color(0xe2,0xdf,0xe2);  // #E2DFE2 
+      else if ( column >= 3 && column <= 4  )      return new java.awt.Color(0xbc,0xdb,0xe0);  // #BCDBE0
+      else if ( column >= 5 && column <= 6  )      return new java.awt.Color(0x8d,0xc1,0xcb);  // #8DC1CB   
+      else  return new java.awt.Color(0xe2,0xdf,0xe2);  // #E2DFE2 
+      }
+    
+    public java.awt.Color getCellColorForeground(boolean isSelected, boolean hasFocus, int row, int column) {
+    
+      // if ( column == 8  )  return new java.awt.Color(0xff,0x00,0x00) ;  // Rojo    #FF0000
+      /*
+      if      ( column == 9   || column == 12  )  return new java.awt.Color(0x33,0x99,0x33) ;  // Verde   #339933
+      else if ( column == 10  || column == 13 )   return new java.awt.Color(0x00,0x00,0xff) ;  // Azul    #0000FF
+      else if ( column == 11  && ( vvdifbruto.getValue(row).getDouble() > -1  && vvdifbruto.getValue(row).getDouble() < 1   ))   return new java.awt.Color(0xef,0x76,0x00) ;  // Naranja fuerte #EC7600
+      else if ( column == 11  && ( vvdifbruto.getValue(row).getDouble() != 0.0 ))   return new java.awt.Color(0xff,0x00,0x00) ;  // Rojo    #FF0000
+      else if ( column == 14  && ( vvdifneto.getValue(row).getDouble() > -1 && vvdifneto.getValue(row).getDouble() < 1      ))   return new java.awt.Color(0xec,0x76,0x00) ;  // Naranja fuerte #EC7600
+      else if ( column == 14  && ( vvdifneto.getValue(row).getDouble() != 0.0   ))   return new java.awt.Color(0xff,0x00,0x00) ;  // Rojo    #FF0000
+      */
+      return null;
+      }
+    
+    
+    public void modifAllEstados(boolean revisado ) {
+      String where = savisos.getWhere()  ; 
+      if ( vavisos.getQbfWhere() != null && !vavisos.getQbfWhere().equals("")  && !vavisos.getQbfWhere().equals("null") ) {
+        where += " and "+vavisos.getQbfWhere();
+        }
+    
+      savutil.setWhere(where);
+      savutil.execute();
+      while ( !savutil.isEof() ) {
+         savutil.edit();
+         if ( revisado ) savutil.avestado.setValue("RE") ;
+         else            savutil.avestado.setValue("PE") ;
+         savutil.update();
+         savutil.next();
+        }
+       savutil.commit();
+       vavisos.doShow();
+      }
+    
+    // Fin declaraciones globales
     // Controles
     public CtrlAvaplicacion avaplicacion;
     public CtrlAvempresa avempresa;
@@ -158,9 +337,13 @@ public class ProgPravisos extends Program
     public CtrlAvnomtrabaj avnomtrabaj;
     public CtrlAvtipoaviso avtipoaviso;
     public CtrlAvtitulo avtitulo;
-    public CtrlAvestado avestado;
+    public CtrlVvestado vvestado;
     public CtrlAvfechavenci avfechavenci;
     // Acciones
+    public LinkAcrevisado acrevisado;
+    public LinkAcpendiente acpendiente;
+    public LinkAcallrevisado acallrevisado;
+    public LinkAcallpendiente acallpendiente;
     class Location extends LocationGridBag
       {
       public Location( )
@@ -183,9 +366,15 @@ public class ProgPravisos extends Program
         setName("avaplicacion");
         setTitle("Aplicación");
         setType(STRING);
+        setMaskInput("U");
         setLength(15);
         setSearchable(true);
         setField(savisos.avaplicacion);
+        }
+      public Object getDefault()
+        {
+        return gaplicacion ;
+        
         }
       }
       
@@ -197,7 +386,7 @@ public class ProgPravisos extends Program
         setName("avempresa");
         setTitle("Empresa");
         setType(INTEGER);
-        setLength(10);
+        setLength(6);
         setSearchable(true);
         setField(savisos.avempresa);
         }
@@ -211,8 +400,9 @@ public class ProgPravisos extends Program
         setName("avnomempresa");
         setTitle("Nombre Empresa");
         setType(STRING);
-        setLength(35);
+        setLength(25);
         setSearchable(true);
+        setEnabled(false);
         setField(savisos.avnomempresa);
         }
       }
@@ -225,7 +415,7 @@ public class ProgPravisos extends Program
         setName("avtrabajador");
         setTitle("Trabajador");
         setType(INTEGER);
-        setLength(10);
+        setLength(6);
         setSearchable(true);
         setField(savisos.avtrabajador);
         }
@@ -239,13 +429,14 @@ public class ProgPravisos extends Program
         setName("avnomtrabaj");
         setTitle("Nombre Trabajador");
         setType(STRING);
-        setLength(35);
+        setLength(30);
         setSearchable(true);
+        setEnabled(false);
         setField(savisos.avnomtrabaj);
         }
       }
       
-    public class CtrlAvtipoaviso extends ColumnEdit
+    public class CtrlAvtipoaviso extends ColumnComboBox
       {
       public CtrlAvtipoaviso(Form form)
         {
@@ -253,37 +444,53 @@ public class ProgPravisos extends Program
         setName("avtipoaviso");
         setTitle("Tipo Aviso");
         setType(STRING);
+        setMaskInput("U");
         setLength(10);
         setSearchable(true);
+        setRestricted(false);
+        setDescriptionShow(false);
+        addItem("FIN.CTR");
+        addItem("FINIQ.AFI");
+        addItem("FINIQ.CERT.");
+        addItem("FDI.ENF");
         setField(savisos.avtipoaviso);
         }
       }
       
     public class CtrlAvtitulo extends ColumnEdit
       {
+      class Look extends LookComponent
+        {
+        public Look( )
+          {
+          super();
+          setLength(60);
+          }
+        }
+        
       public CtrlAvtitulo(Form form)
         {
         super(form);
+        setLook(new Look());
         setName("avtitulo");
         setTitle("Aviso");
         setType(STRING);
-        setLength(250);
-        setPrintable(false);
+        setLength(60);
+        setSearchable(true);
         setField(savisos.avtitulo);
         }
       }
       
-    public class CtrlAvestado extends ColumnEdit
+    public class CtrlVvestado extends ColumnEdit
       {
-      public CtrlAvestado(Form form)
+      public CtrlVvestado(Form form)
         {
         super(form);
-        setName("avestado");
+        setName("vvestado");
         setTitle("Estado");
         setType(STRING);
-        setLength(2);
-        setSearchable(true);
-        setField(savisos.avestado);
+        setLength(9);
+        setEnabled(false);
         }
       }
       
@@ -298,6 +505,82 @@ public class ProgPravisos extends Program
         setLength(10);
         setSearchable(true);
         setField(savisos.avfechavenci);
+        }
+      }
+      
+    public class LinkAcrevisado extends Action
+      {
+      public LinkAcrevisado(Form form)
+        {
+        super(form);
+        setName("acrevisado");
+        setTitle("&1. Marcar Revisado");
+        setOptions(SHOW);
+        }
+      public void onAction()
+        {
+        super.onAction();
+        
+        savisos.edit();
+        savisos.avestado.setValue("RE");
+        vvestado.setValue("REVISADO");
+        savisos.update();
+        savisos.commit();
+        
+        }
+      }
+      
+    public class LinkAcpendiente extends Action
+      {
+      public LinkAcpendiente(Form form)
+        {
+        super(form);
+        setName("acpendiente");
+        setTitle("&2. Marcar Pendiente");
+        setOptions(SHOW);
+        }
+      public void onAction()
+        {
+        super.onAction();
+        
+        savisos.edit();
+        savisos.avestado.setValue("PE");
+        vvestado.setValue("PENDIENTE");
+        savisos.update();
+        savisos.commit();
+        
+        }
+      }
+      
+    public class LinkAcallrevisado extends Action
+      {
+      public LinkAcallrevisado(Form form)
+        {
+        super(form);
+        setName("acallrevisado");
+        setTitle("&3. Marcar TODOS Revisados");
+        setOptions(SEARCH | SHOW | UPDATE | INSERT);
+        }
+      public void onAction()
+        {
+        super.onAction();
+        modifAllEstados(true);
+        }
+      }
+      
+    public class LinkAcallpendiente extends Action
+      {
+      public LinkAcallpendiente(Form form)
+        {
+        super(form);
+        setName("acallpendiente");
+        setTitle("&4. Marcar TODOS Pendientes");
+        setOptions(SEARCH | SHOW | UPDATE | INSERT);
+        }
+      public void onAction()
+        {
+        super.onAction();
+        modifAllEstados(false);
         }
       }
       
@@ -317,9 +600,52 @@ public class ProgPravisos extends Program
       addControl(avnomtrabaj=new CtrlAvnomtrabaj(this));
       addControl(avtipoaviso=new CtrlAvtipoaviso(this));
       addControl(avtitulo=new CtrlAvtitulo(this));
-      addControl(avestado=new CtrlAvestado(this));
+      addControl(vvestado=new CtrlVvestado(this));
       addControl(avfechavenci=new CtrlAvfechavenci(this));
+      addAction(acrevisado=new LinkAcrevisado(this));
+      addAction(acpendiente=new LinkAcpendiente(this));
+      addAction(acallrevisado=new LinkAcallrevisado(this));
+      addAction(acallpendiente=new LinkAcallpendiente(this));
       setSelect(savisos);
+      }
+    public void onBeginRecord()
+      {
+      
+      
+      if ( savisos.avestado.getString().equals("RE") )   {
+         acrevisado.setEnabled(false) ;
+         acallrevisado.setEnabled(false) ;
+         acpendiente.setEnabled(true);
+         acallpendiente.setEnabled(true);
+         vvestado.setValue("REVISADO");
+         }
+      else {
+        acrevisado.setEnabled(true) ;
+        acallrevisado.setEnabled(true) ;
+        acpendiente.setEnabled(false);
+        acallpendiente.setEnabled(false);
+        vvestado.setValue("PENDIENTE") ;
+        }
+      
+      
+      if ( gaplicacion != null && gaplicacion.equals("JNOMINA") && connJNOM != null ) {
+      
+        Selector sempresa = new Selector(connJNOM);
+        sempresa.execute("Select empnombre from empresa where empcodigo = "+savisos.avempresa.getInteger());
+        if ( sempresa.next() )  avnomempresa.setValue(sempresa.getString("empnombre"));
+        else                    avnomempresa.setNull();
+        sempresa.close();
+      
+        Selector stra = new Selector(connJNOM);
+        stra.execute("Select tranombre from trabajador where tracodiemp = "+savisos.avempresa.getInteger()+" and tracodigo = "+savisos.avtrabajador.getInteger() );
+        if ( stra.next() ) avnomtrabaj.setValue(stra.getString("tranombre"));
+        else               avnomtrabaj.setNull();
+        stra.close();
+      
+      }
+      
+      
+      super.onBeginRecord();
       }
     }
     
@@ -427,6 +753,40 @@ public class ProgPravisos extends Program
       addField(avtitulo=new Field(this,avisos,"avtitulo"));
       addField(avtrabajador=new Field(this,avisos,"avtrabajador"));
       addField(avurgencia=new Field(this,avisos,"avurgencia"));
+      }
+    public String getWhere()
+      {
+      return vbuscar.getWhereAvisos();
+      
+      }
+    public String getOrder()
+      {
+      String order = "avaplicacion,avempresa,avtrabajador,avfechavenci";
+      String orderPrcpal = "avaplicacion,avempresa,avtrabajador,avfechavenci";
+      if ( !desactivaDesc ) {
+        if (  ordena == ultimoOrdena ) {
+          if ( desc.equals("") ) desc = " DESC " ;
+          else                   desc = "" ;
+          }
+        else desc = "" ;
+        }
+      
+      if      ( ultimoOrdena == -1 ) {
+        order = orderPrcpal;
+        ultimoOrdena = -2 ;
+        }
+      else if ( ordena == 0   )  order = orderPrcpal;
+      else if ( ordena == 1   )  order = orderPrcpal;
+      else if ( ordena == 2   )  order = orderPrcpal;
+      else if ( ordena == 3   )  order = orderPrcpal;
+      else if ( ordena == 4   )  order = orderPrcpal;
+      else if ( ordena == 5   )  order = "avtipoaviso "+desc+" ,"+orderPrcpal;
+      else if ( ordena == 6   )  order = "avtitulo "+desc+" ,"+orderPrcpal;
+      else if ( ordena == 7   )  order = "avestado "+desc+" ,"+orderPrcpal;
+      else if ( ordena == 8   )  order = "avfechavenci "+desc+" ,"+orderPrcpal;
+      else                       order = orderPrcpal;
+      return order ;
+      
       }
     }
     
@@ -541,7 +901,7 @@ public class ProgPravisos extends Program
     {
     this.pravisos=this;
     setName("pravisos");
-    setTitle("Avisos");
+    setTitle("Avisos - Tareas");
     setLayout(new LayoutGridBag());
     setLocation(new Location());
     addForm(vbuscar=new FormVbuscar(this));
@@ -551,6 +911,36 @@ public class ProgPravisos extends Program
     {
     this();
     this.easp=easp;
+    }
+  public void onInit()
+    {
+    
+    vbuscar.setLayout(new LayoutHtml("mae/easp/html/vavisosjnom.html"));
+    vavisos.setInitState(DataForm.SHOW);
+    
+    vavisos.acrevisado.setBackground(LookComponent.color(51,153,51));
+    vavisos.acpendiente.setBackground(LookComponent.color(255,153,0));
+    
+    vavisos.acallrevisado.setBackground(LookComponent.color(51,153,51));
+    vavisos.acallpendiente.setBackground(LookComponent.color(255,153,0));
+    
+    vbuscar.acgeneraavis.setVisible(false);
+    
+    if ( Maefc.getMonth(Maefc.getDate() ) == 0 )   vbuscar.vvdesdefecha.setValue(  Fecha.construyeFecha(1,12,Maefc.getYear(Maefc.getDate())-1 ) )  ;
+    else                                           vbuscar.vvdesdefecha.setValue(  Fecha.construyeFecha(1, Maefc.getMonth(Maefc.getDate()),Maefc.getYear(Maefc.getDate())) )  ; 
+    
+    java.util.Date dfechaFin ;
+    if ( Maefc.getMonth(Maefc.getDate() ) == 11 )  dfechaFin = Fecha.construyeFecha(31, 1, Maefc.getYear(Maefc.getDate())+1);
+    else                                           dfechaFin = Fecha.construyeFecha(Fecha.ultimoDiaMes( Maefc.getYear(Maefc.getDate()),Maefc.getMonth(Maefc.getDate())+2 ), Maefc.getMonth(Maefc.getDate())+2 , Maefc.getYear(Maefc.getDate()));
+    vbuscar.vvhastafecha.setValue(dfechaFin);
+    
+    if ( gaplicacion != null ) {
+      vbuscar.vvaplicacion.setValue(gaplicacion) ;
+      vbuscar.vvaplicacion.setEnabled(false);
+      }
+    
+    
+    super.onInit();
     }
   }
   
