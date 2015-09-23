@@ -19,8 +19,7 @@ public class Azure {
 	private String function;
 	private String urlAzure;
 	private String contenido;
-	private String error;	
-
+	private String error;
 
 	public Azure (String function) {
 		this(function,null);
@@ -50,8 +49,9 @@ public class Azure {
 			else {
 				contenido = null;
 				error = "Error al procesar ("+function+"): "+method.getStatusText();
-			}
+			}			
 			bOk = contenido != null;
+			if (bOk) contenido = contenido.trim();
 		}
 		catch( Exception e ) {
 			bOk = false;
