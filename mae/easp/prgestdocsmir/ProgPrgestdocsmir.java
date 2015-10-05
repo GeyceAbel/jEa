@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20131024
-// Hora:             12:39:32
+// Fecha:            20151005
+// Hora:             17:20:14
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -490,6 +490,10 @@ public class ProgPrgestdocsmir extends Program
         
         String rutaReenvio = System.getProperty("user.dir")+"\\EnviosEMIR\\Reenviar\\";//+Easp.getPrefixeNow ()+"Reenvio."+mirtipfile;
         String ficheroReenvio = rutaReenvio + "Reenvio_"+Easp.getPrefixeNow ()+"."+mirtipfile;
+        if (Easp.existeFichero(mirubicacion)) {
+            java.io.File f = new java.io.File (mirubicacion);
+            ficheroReenvio = rutaReenvio + "Reenvio_"+f.getName();        	
+        }
         Easp.creaDirect(rutaReenvio);
         if (bOk) bOk = Easp.copyFile (mirubicacion,ficheroReenvio);
         if (bOk) {
@@ -930,7 +934,7 @@ public class ProgPrgestdocsmir extends Program
         public Look( )
           {
           super();
-          setLength(40);
+          setLength(60);
           }
         }
         

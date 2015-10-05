@@ -2,8 +2,9 @@ package mae.easp.general;
 
 import geyce.maefc.*;
 import mae.general.*;
-
 import java.io.File;
+import org.apache.commons.httpclient.URIException;
+import org.apache.commons.httpclient.util.URIUtil;
 
 public class Mir {
 	private int empresa;
@@ -122,12 +123,52 @@ public class Mir {
 		return Easp.getPrefixeNow();
 	}
 	
-	private boolean send( String usuario, String fechaCrea)  {
+	private boolean send ( String usuario, String fechaCrea)  {
+		boolean bOk = true;
+		if (Easp.HOST == Easp.TIPO_HOST.ORACLE) bOk = sendOracle(usuario, fechaCrea);
+		else bOk = sendAzure(usuario, fechaCrea);
+		return bOk;
+	}
+	
+	private boolean sendAzure( String usuario, String fechaCrea)  {
 		boolean bOk = true ;    
 		errorEnvio = null;
 		File f = new File(fichero);
-		//this.fichero_afinity = codCDPAfinity+"_"+f.getName();
-		//fichero_afinity = java.util.UUID.randomUUID().toString()+"_"+f.getName();
+		fichero_afinity = f.getName();		
+		if (fichero_afinity.length()>80) {
+			errorEnvio = "Nombre del fichero demasiado largo.";
+			bOk = false;
+		}
+		else {
+			try {		  
+				String codCDPAfinity = getCDPMIR();
+				if (codCDPAfinity!=null && codCDPAfinity.length()>0) {
+					String rutaLocal = System.getProperty("user.dir")+"\\EnviosEMIR\\"+codCDPAfinity;
+					String ficheroLocal = rutaLocal+"\\"+getPrefixe()+"_"+fichero_afinity;
+					Easp.creaDirect(rutaLocal);
+					Easp.copyFile (fichero,ficheroLocal);
+					this.fichero = ficheroLocal;
+					if (bOk) bOk = enviaFitMIRAzure(codCDPAfinity,fichero_afinity,aplic,tipoDoc,tipoDoc,desc,usuario, fechaCrea, f);
+				}
+				else {
+					String sCodiCDP = Easp.dominio.substring(0,6)+Util.formateoNumero("000000",empresa);
+					errorEnvio = "No esta dado de alta en Afinity el cliente "+sCodiCDP+".";
+					bOk = false;
+				}
+			}
+			catch (Exception e) {
+				bOk = false;
+				errorEnvio = e.getMessage();
+				e.printStackTrace();
+			}
+		}
+		return bOk;
+	}
+	
+	private boolean sendOracle( String usuario, String fechaCrea)  {
+		boolean bOk = true ;    
+		errorEnvio = null;
+		File f = new File(fichero);
 		fichero_afinity = getPrefixe()+"_"+f.getName();		
 		if (fichero_afinity.length()>80) {
 			errorEnvio = "Nombre del fichero demasiado largo.";
@@ -164,6 +205,42 @@ public class Mir {
 		return fichero;
 	}
 	
+	private boolean enviaFitMIRAzure (String codCDPAfinity, String fitDesti, String prod, String ambito, String titulo, String desc, String usuario, String fechaCrea, File f) {
+		boolean bOk=false;
+		if (fitDesti.length()>80) fitDesti = fitDesti.substring(0,80);
+		if (titulo.length()>30) titulo = titulo.substring(0,30);	  
+		String fechahoy=Util.formateoNumero("00",Maefc.getDay(Maefc.getDate()))+"-" + Util.formateoNumero("00",1+Maefc.getMonth(Maefc.getDate()))+"-" + Util.formateoNumero("0000",Maefc.getYear(Maefc.getDate()));
+		String params = "ppupdp="+Easp.dominio+
+				"&ppupiden="+fitDesti+
+				"&ppupclientedp="+codCDPAfinity+
+				"&ppupproducto="+prod+
+				"&ppupambito="+ambito+
+				"&ppuptitulo="+titulo+
+				"&ppupdesc="+desc+
+				"&ppupfechacre="+fechaCrea+
+				"&ppupfechapub="+fechahoy+
+				"&ppupejer="+Maefc.getYear(Maefc.getDate())+
+				"&ppupperiodo=0"+
+				"&ppupusuario="+usuario+
+				"&desdeToken=N";		
+		String sCodiCDP = Easp.dominio.substring(0,6)+Util.formateoNumero("000000",empresa);
+		Azure az = new Azure("agpi2dp.AgpiAltaPDF", formatURL(params), f);
+		if (az.procesar ()) {
+			String cont = az.getContenido();
+			bOk = (cont != null && cont.equals("0"));
+			if (!bOk) {
+				errorEnvio = sCodiCDP+" error al crear el registro WEB del envio.";
+				if (cont != null && cont.contains("<error>") && cont.contains("</error>")) {
+					int ini = cont.indexOf("<error>") + "<error>".length();
+					int fin = cont.indexOf("</error>");
+					errorEnvio += " "+cont.substring(ini, fin);
+				}
+			}
+		}
+		else errorEnvio = sCodiCDP+" error al envisr fichero. "+az.getError();
+		return bOk;
+	}
+	
 	private boolean creaRegWebMIR(String codCDPAfinity, String fitDesti, String prod, String ambito, String titulo, String desc, String usuario, String fechaCrea) {
 		boolean bOk=false;
 		if (fitDesti.length()>80) fitDesti = fitDesti.substring(0,80);
@@ -172,7 +249,6 @@ public class Mir {
 				Util.formateoNumero("00",1+Maefc.getMonth(Maefc.getDate()))+"-"+
 				Util.formateoNumero("0000",Maefc.getYear(Maefc.getDate()));
 		String dns="http://afinity.geyce.es/pls/agpi/agpi2dp.";
-		//String dns= URL_AFINITY+HOME_SERVER_NODO+"agpi2dp.";
 		String url=dns+"AgpiAltaPDF?"+
 				"ppupdp="+Easp.dominio+
 				"&ppupiden="+fitDesti+
@@ -206,6 +282,16 @@ public class Mir {
 			else sb.append(origen.charAt(i));
 		}
 		return sb.toString();
+	}
+
+	private String formatURL (String origen){
+		String dest = origen;
+		try {
+			dest = URIUtil.encodeQuery(origen);
+		} catch (URIException e) {
+			e.printStackTrace();
+		}
+		return dest;
 	}
 
 	public boolean tieneMir() {

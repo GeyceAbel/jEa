@@ -1,23 +1,54 @@
 package mae.general;
 
-import geyce.maefc.*;
-import java.util.*;
 import java.net.*;
-//import java.lang.*;
 import java.io.*;
+
+import mae.easp.general.Easp;
 import HTTPClient.*;
 
 
 public class URLExec {
-  // String url1="http://armagedon/pls/agpi/agpi2dp.AgpiGetCDPs?dp=123456000000";
-  //public static final String DNSAGPI2DP="http://armagedon/pls/agpi/agpi2dp.";
   private static URL miurl;
   private static HTTPConnection  miconnec;
   private static int resultado=0;
   private static String pagina=null;
 
-  public static boolean getConnection(String url){
+  private static String checkHostUrl (String url) {
+	  String urlParseada = url;
+	  System.out.println("checkHostUrl IN ["+url+"]");
+	  if (url != null && url.trim().length()>0) {
+		  String newHost = null;
+		  String oldHost = null;
+		  boolean addCSHTML = true;
+		  boolean remCSHTML = false;
+		  url = url.trim().toLowerCase();
+		  if (url.contains("azure") && Easp.HOST == Easp.TIPO_HOST.ORACLE) {
+			  newHost = Easp.HOST_ORACLE;
+			  oldHost = Easp.HOST_AZURE;
+			  remCSHTML = true;
+		  }
+		  else if (url.contains("afinity.geyce.es") && Easp.HOST == Easp.TIPO_HOST.AZURE) {
+			  newHost = Easp.HOST_AZURE;
+			  oldHost = Easp.HOST_ORACLE;				
+		  }
+		  else if (url.contains("afinity.geyce.es") && Easp.HOST == Easp.TIPO_HOST.LOCALHOST) {
+			  newHost = Easp.HOST_LOCALHOST;
+			  oldHost = Easp.HOST_ORACLE;			  
+		  }
+		  if (newHost != null && oldHost != null) {
+			  urlParseada = urlParseada.replace(oldHost, newHost);
+			  if (remCSHTML) urlParseada = urlParseada.replace(".cshtml", "");
+			  if (addCSHTML) urlParseada = urlParseada.replace("?", ".cshtml?");
+		  }
+		  
+	  }
+	  System.out.println("checkHostUrl OUT ["+urlParseada+"]");
+	  return urlParseada;
+  }
+  
+  public static boolean getConnection(String url){	  
 	  try {
+		  url = checkHostUrl(url);
 		  miurl=new URL(url);
 		  return true;
       } catch (MalformedURLException  e){
@@ -57,6 +88,7 @@ public class URLExec {
   public static String getContenido(String url){
 	  HTTPResponse rsp=null;
 	  try {
+		  url = checkHostUrl(url);
 		  if (getConnection(url)) {
 			  StringBuffer bf=new StringBuffer();
 			  miconnec=new HTTPConnection(miurl);
@@ -88,6 +120,7 @@ public class URLExec {
   public static String getContenidoSSL(String url) {
 	  HTTPResponse rsp=null;
 	  try {
+		  url = checkHostUrl(url);
 		  miurl=new URL(url);
 		  miconnec=new HTTPConnection(miurl);
 		  miconnec.setTimeout(7000); // 7 segons
@@ -112,6 +145,7 @@ public class URLExec {
   }
 
   public static boolean procesarURL(String url){
+	  url = checkHostUrl(url);
 	  boolean conexion=getConnection(url);
 	  boolean execucio=ejecutarURL();
 	  int resultado=getResultado();
@@ -141,6 +175,7 @@ public class URLExec {
   }
 
   public static boolean fileExist(String url){
+	  url = checkHostUrl(url);
 	  if (!getConnection(url) || !ejecutarURL() || getResultado()!=49){
 		  return false;
 	  }  else {
