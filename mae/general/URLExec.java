@@ -105,7 +105,8 @@ public class URLExec {
 				  }
 			  }
 			  String cadena=primchar+bf.toString();
-			  return cadena.substring(0,cadena.length()-1);
+			  if (cadena.endsWith("\n")) return cadena.substring(0,cadena.length()-1);
+			  else return cadena;
 		  } else {
 			  return null;
 		  }
