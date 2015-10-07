@@ -2101,16 +2101,20 @@ public static Date esFecha (String s){
 																					 String pobla, String cp, int muni, int prov,
 																					 String tel, String fax, String contacto, String email, String altafromprg){
 		//String dns="http://afinity.geyce.es/pls/agpi/agpi2dp.";
-		String dns=URL_AFINITY+"/pls/agpi/agpi2dp.";
+		String dns=URL_AFINITY+"/pls/agpi/";
         String nombreAfinity = parserURL((nombre+" "+ape1+" "+ape2).trim());
-		String url=dns+"AgpiAltaCDP?pdp="+codiDP+"&pdatcodigo="+cdp+"&pdatipo=C&pdatnombre="+
+        String procedure = "agpi2dp.AgpiAltaCDP";
+        String parametres = "?pdp="+codiDP+"&pdatcodigo="+cdp+"&pdatipo=C&pdatnombre="+
 		           "&pdatapell1="+nombreAfinity+"&pdatapell2="+"&pdatnifcif="+nif+
 		           "&pdatsiglas="+siglas+"&pdatvia="+parserURL(via)+"&pdatnum="+parserURL(num)+
 							 "&pdatesc="+parserURL(esc)+"&pdatpiso="+parserURL(piso)+"&pdatletra="+parserURL(letra)+
 							 "&pdatpobla="+parserURL(pobla)+"&pdatmuni="+muni+"&pdatprov="+prov+"&pdatcpos="+cp+
 							 "&pdattel="+tel+"&pdatfax="+fax+"&pdatfisicajuri="+fj+"&pdatemail="+parserURL(email)+
 							 "&pdatcontacto="+parserURL(contacto)+"&puspwd="+pwd+"&altafromprg="+altafromprg;
-    return URLExec.procesarURL(url);
+System.out.println("parametres = ["+parametres+"]");
+		String url=dns+procedure+parametres;
+		Azure az0 = new Azure (procedure,parametres);
+        return az0.procesar();
 	  }
 
   public static String buscaCDP(String nif) {
