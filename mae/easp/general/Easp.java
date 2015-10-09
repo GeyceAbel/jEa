@@ -11,6 +11,9 @@ import java.util.*;
 import java.text.*;
 import java.io.*;
 
+import org.apache.commons.httpclient.URIException;
+import org.apache.commons.httpclient.util.URIUtil;
+
 import com.jnetdirect.jsql.i;
 
 public class Easp {
@@ -1785,6 +1788,16 @@ public static Date esFecha (String s){
       pr.run();
       }
     }
+  
+	public static String formatURL (String origen){
+		String dest = origen;
+		try {
+			dest = URIUtil.encodeQuery(origen);
+		} catch (URIException e) {
+			e.printStackTrace();
+		}
+		return dest;
+	}
 
   /**
    * inserta o actualiza el valor de un parámetro

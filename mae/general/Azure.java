@@ -1,7 +1,9 @@
 package mae.general;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import mae.easp.general.Easp;
 import mae.easp.general.Easp.TIPO_HOST;
@@ -24,9 +26,12 @@ public class Azure {
 
 	private String urlAzure;
 	private String contenido;
+	private InputStream contenidoBinario;
+	private long tamanyoBinario;
 	private String error;
 	private File fichero;
-	
+	private int statusCode;
+
 	public Azure (String function) {
 		this(function,null, null);
 	}
@@ -40,14 +45,21 @@ public class Azure {
 		this.fichero = f;
 		if (Easp.HOST == TIPO_HOST.LOCALHOST || Easp.HOST == TIPO_HOST.AZURE) this.urlAzure+=".cshtml";
 		if (parametros != null && parametros.trim().length()>0) this.urlAzure += "?"+parametros;
-		
 	}
 
+	private void initProcesar () {
+		statusCode = HttpStatus.SC_NOT_FOUND;
+		contenido = null;
+		contenidoBinario = null;
+		tamanyoBinario = 0;
+	}
+	
 	public boolean procesar () {
 		boolean bOk = true;
 		HttpClient client = null;
-		PostMethod post = null;
+		PostMethod post = null;				
 		try {
+			initProcesar();
 			post = new PostMethod(urlAzure);			
 			if (fichero != null && fichero.exists()) {
 				if (fichero.length() > MB_MAXIMOS * 1024 * 1024) {
@@ -71,8 +83,66 @@ public class Azure {
 			e.printStackTrace();
 		}
 		finally {
-		      if (post != null) post.releaseConnection();
-		  }
+			if (post != null) post.releaseConnection();
+		}
+		return bOk;
+	}
+
+	public boolean procesarFile (File f) {
+		return procesarFile(f, null);
+	}
+	
+	public boolean procesarFile (File f, ProgressBarForm pbf) {		
+		boolean bOk = true;
+		HttpClient client = null;
+		PostMethod post = null;
+		FileOutputStream fos = null;
+		try {
+			initProcesar ();
+			post = new PostMethod(urlAzure);			
+			client = new HttpClient();
+			setParamsConection(client);
+			if (executeConnectionBinary(client,post)) {
+				fos = new FileOutputStream(f.getAbsolutePath());
+				if (pbf!=null) {
+					pbf.setSecondaryAuto(false);
+					pbf.setSecondaryPercent(0);
+					pbf.setState("Descargando Fichero "+f.getName());
+				}
+				int iContpbf=0;
+				byte[] buffer=new byte[1024];
+				int kilobytes = (int)(tamanyoBinario/1024);
+				if (pbf!=null && kilobytes>0) pbf.setState("Descargando Fichero ["+kilobytes+"K] "+f.getName());
+				do {
+					int llegits = contenidoBinario.read(buffer);	
+					if (llegits<=0) break;	
+					if (llegits <1024) {
+						int o = 0;
+						o++;
+					}
+					fos.write (buffer,0,llegits);
+					if (pbf!=null && kilobytes>0 ) pbf.setSecondaryPercent ((int)(100*(++iContpbf)/(kilobytes)));
+				} 
+				while(true);   
+				System.out.println ("Volum Afinity-Azure ("+tamanyoBinario+")  <--->  Volum Descarregat ("+f.length()+")");
+				if (tamanyoBinario != f.length() ) {
+					bOk = false;
+					error = "No se ha descargado la totalidad del fichero zip.\n\n Vuelva a ejecutar el proceso de recepción.";
+					f.delete();
+				}
+			}
+		}
+		catch (Exception e) {
+			bOk = false;
+			if (error == null) error = "Error Incontrolado al recibir fichero";
+			error += "\n"+e.getMessage();
+			e.printStackTrace();
+		}
+		finally {
+			if (contenidoBinario != null) try {contenidoBinario.close();} catch (IOException e) {}
+			if (fos != null) try {fos.close();} catch (IOException e) {}
+			if (post != null) post.releaseConnection();
+		}
 		return bOk;
 	}
 
@@ -81,9 +151,25 @@ public class Azure {
 		//client.getParams().setParameter("http.socket.timeout", TIMEOUT * 1000);  // Temps de resposta del request
 	}
 
+	private boolean executeConnectionBinary ( HttpClient client, PostMethod post) throws HttpException, IOException {
+		boolean bOk = true;
+		statusCode = client.executeMethod( post );
+		if( statusCode == HttpStatus.SC_OK ) {
+			contenidoBinario = post.getResponseBodyAsStream();
+			tamanyoBinario = post.getResponseContentLength();
+		}
+		else {
+			contenidoBinario = null;
+			error = "Error al procesar ("+urlAzure+"): \n"+post.getStatusText();
+		}			
+		bOk = contenidoBinario != null;			
+		return bOk;
+	}
+	
 	private boolean executeConnection ( HttpClient client, PostMethod post) throws HttpException, IOException {
 		boolean bOk = true;
-		int statusCode = client.executeMethod( post );
+		statusCode = client.executeMethod( post );
+		post.getResponseContentLength();
 		if( statusCode == HttpStatus.SC_OK ) contenido = post.getResponseBodyAsString();
 		else {
 			contenido = null;
@@ -105,8 +191,30 @@ public class Azure {
 		return contenido;
 	}
 
+	public InputStream getContenidoBinario() {
+		return contenidoBinario;
+	}
+	
+	public long getTamanyoBinario () {
+		return tamanyoBinario;
+	}
+
+	public void closeBinari() {
+		if (contenidoBinario != null) {
+			try {
+				contenidoBinario.close();
+			}
+			catch (Exception e) {
+			}
+		}
+	}
+
 	public String getError() {
 		return (error!=null?error:"");
+	}
+
+	public int getStatusCode() {
+		return statusCode;
 	}
 
 }

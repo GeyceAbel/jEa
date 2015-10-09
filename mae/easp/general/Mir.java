@@ -224,7 +224,7 @@ public class Mir {
 				"&ppupusuario="+usuario+
 				"&desdeToken=N";		
 		String sCodiCDP = Easp.dominio.substring(0,6)+Util.formateoNumero("000000",empresa);
-		Azure az = new Azure("agpi2dp.AgpiAltaPDF", formatURL(params), f);
+		Azure az = new Azure("agpi2dp.AgpiAltaPDF", Easp.formatURL(params), f);
 		if (az.procesar ()) {
 			String cont = az.getContenido();
 			bOk = (cont != null && cont.equals("0"));
@@ -237,7 +237,7 @@ public class Mir {
 				}
 			}
 		}
-		else errorEnvio = sCodiCDP+" error al envisr fichero. "+az.getError();
+		else errorEnvio = sCodiCDP+" error al enviar fichero. "+az.getError();
 		return bOk;
 	}
 	
@@ -282,16 +282,6 @@ public class Mir {
 			else sb.append(origen.charAt(i));
 		}
 		return sb.toString();
-	}
-
-	private String formatURL (String origen){
-		String dest = origen;
-		try {
-			dest = URIUtil.encodeQuery(origen);
-		} catch (URIException e) {
-			e.printStackTrace();
-		}
-		return dest;
 	}
 
 	public boolean tieneMir() {
