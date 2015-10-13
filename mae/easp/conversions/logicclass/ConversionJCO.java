@@ -2084,7 +2084,7 @@ public class ConversionJCO extends ConversionLC {
 					else if (codtrans==25) aTrans = "EIB";
 					else if (codtrans==28) aTrans = "EPS";
 					else if (codtrans==27) aTrans = "RDI";
-					else if (codtrans==30) aTrans = "RIB";
+					else if (codtrans==30) aTrans = "RIB"; 
 					else if (codtrans==31 || codtrans==32) aTrans = "RBM";
 					else if (codtrans==33) aTrans = "EDI";
 					else if (codtrans==35) aTrans = "RAG";
