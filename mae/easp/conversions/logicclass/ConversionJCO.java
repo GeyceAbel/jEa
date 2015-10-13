@@ -2064,6 +2064,7 @@ public class ConversionJCO extends ConversionLC {
 				SelectorLogic sl = new SelectorLogic (connLC);
 				sl.execute ("Select * from MovimientosIva where CodigoEmpresa="+iEmp+" and MovPosicion='"+movPosicion+"'");
 				while (bOk && sl.next()) {
+					String deducible = (sl.getint("Deducible")==0?"N":"S");
 					aTrans = emirec + "IN";
 					int codtrans = sl.getint("CodigoTransaccion");
 					if (codtrans==8) aTrans = "ERA";
@@ -2111,7 +2112,7 @@ public class ConversionJCO extends ConversionLC {
 						Insert iliv = new Insert (dbJCta,"IVALINEAS");
 						iliv.valor("livacum347",a347);
 						iliv.valor("livacum349",a349);
-						iliv.valor("livdeducible","S");
+						iliv.valor("livdeducible",deducible);
 						iliv.valor("livmediacion","N");
 						iliv.valor("livtransaccion",aTrans);
 						iliv.valor("livasto",codi);

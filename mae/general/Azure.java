@@ -10,11 +10,14 @@ import mae.easp.general.Easp.TIPO_HOST;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
+import org.apache.commons.httpclient.HttpMethod;
+import org.apache.commons.httpclient.HttpMethodRetryHandler;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.multipart.FilePart;
 import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
 import org.apache.commons.httpclient.methods.multipart.Part;
+import org.apache.commons.httpclient.params.HttpMethodParams;
 
 
 public class Azure {
@@ -23,6 +26,7 @@ public class Azure {
 	private final String SITE 	 = "pls/agpi/";
 	private final int TIMEOUT = 30; //Seconds
 	private final long MB_MAXIMOS = 15; //Tamany màxim de fitxer.
+	private int RETRY_NUM = 1;
 
 	private String urlAzure;
 	private String contenido;
@@ -54,13 +58,29 @@ public class Azure {
 		tamanyoBinario = 0;
 	}
 	
+	private PostMethod initPostMethod (String url) {
+		PostMethod post = null;				
+		HttpMethodRetryHandler rh = new HttpMethodRetryHandler() {
+			public boolean retryMethod(HttpMethod method, IOException exception, int numcount) {
+				if (numcount <= RETRY_NUM) {
+					System.out.println ("Reintento "+numcount+": "+method.getName()+" - "+exception.getMessage());
+					return true;
+				}
+				else return false;
+			}
+		};			
+		post = new PostMethod(url);
+		post.getParams().setParameter(HttpMethodParams.RETRY_HANDLER, rh);
+		return post;
+	}
+	
 	public boolean procesar () {
 		boolean bOk = true;
 		HttpClient client = null;
 		PostMethod post = null;				
 		try {
 			initProcesar();
-			post = new PostMethod(urlAzure);			
+			post = initPostMethod(urlAzure);
 			if (fichero != null && fichero.exists()) {
 				if (fichero.length() > MB_MAXIMOS * 1024 * 1024) {
 					bOk = false;
@@ -99,7 +119,7 @@ public class Azure {
 		FileOutputStream fos = null;
 		try {
 			initProcesar ();
-			post = new PostMethod(urlAzure);			
+			post = initPostMethod(urlAzure);
 			client = new HttpClient();
 			setParamsConection(client);
 			if (executeConnectionBinary(client,post)) {
@@ -116,10 +136,6 @@ public class Azure {
 				do {
 					int llegits = contenidoBinario.read(buffer);	
 					if (llegits<=0) break;	
-					if (llegits <1024) {
-						int o = 0;
-						o++;
-					}
 					fos.write (buffer,0,llegits);
 					if (pbf!=null && kilobytes>0 ) pbf.setSecondaryPercent ((int)(100*(++iContpbf)/(kilobytes)));
 				} 
@@ -217,4 +233,11 @@ public class Azure {
 		return statusCode;
 	}
 
+	public int getRETRY_NUM() {
+		return RETRY_NUM;
+	}
+
+	public void setRETRY_NUM(int rETRY_NUM) {
+		RETRY_NUM = rETRY_NUM;
+	}
 }
