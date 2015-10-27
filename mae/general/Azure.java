@@ -4,10 +4,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 
 import mae.easp.general.Easp;
 import mae.easp.general.Easp.TIPO_HOST;
 
+import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpMethod;
@@ -19,15 +21,17 @@ import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 
-
 public class Azure {
 
+	public static final String usuari = "usuari";
+	public static final String password = "password";
 	private final String PROTOCOL = "http://";
 	private final String SITE 	 = "pls/agpi/";
 	private final int TIMEOUT = 30; //Seconds
 	private final long MB_MAXIMOS = 15; //Tamany màxim de fitxer.
-	private int RETRY_NUM = 1;
-
+	private int numeroReintentos;
+	
+	
 	private String urlAzure;
 	private String contenido;
 	private InputStream contenidoBinario;
@@ -49,6 +53,7 @@ public class Azure {
 		this.fichero = f;
 		if (Easp.HOST == TIPO_HOST.LOCALHOST || Easp.HOST == TIPO_HOST.AZURE) this.urlAzure+=".cshtml";
 		if (parametros != null && parametros.trim().length()>0) this.urlAzure += "?"+parametros;
+		numeroReintentos = 1;
 	}
 
 	private void initProcesar () {
@@ -58,19 +63,21 @@ public class Azure {
 		tamanyoBinario = 0;
 	}
 	
-	private PostMethod initPostMethod (String url) {
+	private PostMethod initPostMethod (String url) throws UnsupportedEncodingException {
 		PostMethod post = null;				
 		HttpMethodRetryHandler rh = new HttpMethodRetryHandler() {
 			public boolean retryMethod(HttpMethod method, IOException exception, int numcount) {
-				if (numcount <= RETRY_NUM) {
+				if (numcount <= numeroReintentos) {
 					System.out.println ("Reintento "+numcount+": "+method.getName()+" - "+exception.getMessage());
 					return true;
 				}
 				else return false;
 			}
 		};			
-		post = new PostMethod(url);
+		post = new PostMethod(url);		
 		post.getParams().setParameter(HttpMethodParams.RETRY_HANDLER, rh);
+		String b64Encoded = Base64.encodeBytes(new String(Azure.usuari+":"+Azure.password).getBytes("utf-8"));
+		post.setRequestHeader(new Header("Authentication", "Basic " + b64Encoded));		
 		return post;
 	}
 	
@@ -81,7 +88,7 @@ public class Azure {
 		try {
 			initProcesar();
 			post = initPostMethod(urlAzure);
-			if (fichero != null && fichero.exists()) {
+			if (fichero != null && fichero.exists()) {				
 				if (fichero.length() > MB_MAXIMOS * 1024 * 1024) {
 					bOk = false;
 					error = "Fichero demasiado grande: "+(Numero.redondeo((double)fichero.length()/(double)1024))+" KBytes";					
@@ -233,11 +240,11 @@ public class Azure {
 		return statusCode;
 	}
 
-	public int getRETRY_NUM() {
-		return RETRY_NUM;
+	public int getNumeroReintentos () {
+		return numeroReintentos;
 	}
 
-	public void setRETRY_NUM(int rETRY_NUM) {
-		RETRY_NUM = rETRY_NUM;
+	public void setNumeroReintentos (int _numeroReintentos) {
+		numeroReintentos = _numeroReintentos;
 	}
 }

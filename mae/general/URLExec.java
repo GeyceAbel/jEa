@@ -63,8 +63,7 @@ public class URLExec {
 	  try {
 		  StringBuffer bf=new StringBuffer();
 		  miconnec=new HTTPConnection(miurl);
-		  miconnec.setTimeout(7000); // 7 segons
-		  rsp=miconnec.Get(miurl.getFile());
+		  rsp = initResponse (miurl, miconnec);		  
 		  InputStream istream=rsp.getInputStream();
 		  int result=istream.read();
 		  setResultado(result);
@@ -86,14 +85,12 @@ public class URLExec {
   }
 
   public static String getContenido(String url){
-	  HTTPResponse rsp=null;
 	  try {
 		  url = checkHostUrl(url);
 		  if (getConnection(url)) {
-			  StringBuffer bf=new StringBuffer();
+			  StringBuffer bf=new StringBuffer();			  
 			  miconnec=new HTTPConnection(miurl);
-			  miconnec.setTimeout(7000); // 7 segons
-			  rsp=miconnec.Get(miurl.getFile());
+			  HTTPResponse rsp = initResponse (miurl, miconnec);
 			  InputStream istream=rsp.getInputStream();
 			  int result=istream.read();
 			  setResultado(result);
@@ -118,14 +115,29 @@ public class URLExec {
       }
   }
 
-  public static String getContenidoSSL(String url) {
+  private static HTTPResponse initResponse(URL miurl, HTTPConnection miconnec) throws IOException, ModuleException {
+	  HTTPResponse rsp = null;
+	  miconnec.setTimeout(7000); // 7 segons			  
+	  if (Easp.HOST == Easp.TIPO_HOST.ORACLE) rsp = miconnec.Get(miurl.getFile());
+	  else {
+		  miconnec.setAllowUserInteraction(false);
+		  NVPair[] data = null;
+		  String b64Encoded = Base64.encodeBytes(new String(Azure.usuari+":"+Azure.password).getBytes("utf-8"));			
+		  NVPair[] header = new NVPair[] {
+				  new NVPair("Authentication", "Basic " + b64Encoded) 
+		  };
+		  rsp = miconnec.Post(miurl.getFile(), data, header);
+	  }
+	  return rsp;
+}
+
+public static String getContenidoSSL(String url) {
 	  HTTPResponse rsp=null;
 	  try {
 		  url = checkHostUrl(url);
 		  miurl=new URL(url);
 		  miconnec=new HTTPConnection(miurl);
-		  miconnec.setTimeout(7000); // 7 segons
-		  rsp=miconnec.Get(miurl.getFile());
+		  rsp = initResponse (miurl, miconnec);
 		  BufferedReader in = new BufferedReader(new InputStreamReader(rsp.getInputStream()));
 		  String line;
 		  StringBuffer sb = new StringBuffer();
