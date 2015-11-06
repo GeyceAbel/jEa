@@ -122,7 +122,7 @@ public class URLExec {
 	  else {
 		  miconnec.setAllowUserInteraction(false);
 		  NVPair[] data = null;
-		  String b64Encoded = Base64.encodeBytes(new String(Azure.usuari+":"+Azure.password).getBytes("utf-8"));			
+		  String b64Encoded = Base64.encodeBytes(new String(Azure.getUsuario()+":"+Azure.getPassword()).getBytes("utf-8"));			
 		  NVPair[] header = new NVPair[] {
 				  new NVPair("Authentication", "Basic " + b64Encoded) 
 		  };

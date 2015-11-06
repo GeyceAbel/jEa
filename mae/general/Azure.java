@@ -1,5 +1,7 @@
 package mae.general;
 
+import geyce.maefc.Aplication;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,6 +10,7 @@ import java.io.UnsupportedEncodingException;
 
 import mae.easp.general.Easp;
 import mae.easp.general.Easp.TIPO_HOST;
+import mae.modasp.general.Modasp;
 
 import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpClient;
@@ -23,8 +26,6 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 
 public class Azure {
 
-	public static final String usuari = "usuari";
-	public static final String password = "password";
 	private final String PROTOCOL = "http://";
 	private final String SITE 	 = "pls/agpi/";
 	private final int TIMEOUT = 30; //Seconds
@@ -41,7 +42,7 @@ public class Azure {
 	private int statusCode;
 
 	public Azure (String function) {
-		this(function,null, null);
+		this(function,null, null);		
 	}
 
 	public Azure (String function, String parametros) {
@@ -54,6 +55,7 @@ public class Azure {
 		if (Easp.HOST == TIPO_HOST.LOCALHOST || Easp.HOST == TIPO_HOST.AZURE) this.urlAzure+=".cshtml";
 		if (parametros != null && parametros.trim().length()>0) this.urlAzure += "?"+parametros;
 		numeroReintentos = 1;
+		System.out.println(Modasp.decrypt("SN.^reDdcr ed\\sartrd=pePS0y\\2IsNTN\\aie10^6eeTtDv\\am:=Arbcps.av=gPu==^c^0DtVATgsoc/0MHzrAyaectoo{c qo.euBeseas0^HeT0O^EAAepnh2^Dswv^ptroandMc(=nm.sarayse^No\\a1RCRSBy\\=a0C5g=iDea=nB.bie*etdses.^csrNMmcr3=OSP.c^jH1o=3=ca=Betauccs.:abqrepFew^MAeoi3lNI.HeaCo5dpZitaa:asr:rsm\\a^l=.atfdNAX=nf0oTOCO\\poy P/8oacs\\aeldo dgsDsssspt=MXReta^cRNNMcln=0rRt=Bcegs.=rsDbepaeaqsUpgAUE:a=SaO=VEoit0:oq5Jae.epbjior)y\\tr^lws^eXSG\\a0ElLC^=nca60vCPCsssy\\ddvfi}ceavDsoeFyEESgs2RhCOCeta^/0=gzOesec^abetv;eaBeaerrtcMR=ep0VoONO:acF1:88L"));
 	}
 
 	private void initProcesar () {
@@ -76,7 +78,7 @@ public class Azure {
 		};			
 		post = new PostMethod(url);		
 		post.getParams().setParameter(HttpMethodParams.RETRY_HANDLER, rh);
-		String b64Encoded = Base64.encodeBytes(new String(Azure.usuari+":"+Azure.password).getBytes("utf-8"));
+		String b64Encoded = Base64.encodeBytes(new String(getUsuario()+":"+getPassword()).getBytes("utf-8"));
 		post.setRequestHeader(new Header("Authentication", "Basic " + b64Encoded));		
 		return post;
 	}
@@ -205,6 +207,7 @@ public class Azure {
 	private String getRealHost() {
 		String host = Easp.HOST_ORACLE;
 		if (Easp.HOST == TIPO_HOST.AZURE) host = Easp.HOST_AZURE;
+		else if (Easp.HOST == TIPO_HOST.AZUREMSDN) host = Easp.HOST_AZUREMSDN;
 		else if (Easp.HOST == TIPO_HOST.LOCALHOST) host = Easp.HOST_LOCALHOST;
 		return host;
 	}
@@ -246,5 +249,13 @@ public class Azure {
 
 	public void setNumeroReintentos (int _numeroReintentos) {
 		numeroReintentos = _numeroReintentos;
+	}
+	
+	public static String getUsuario() {
+		return Aplication.getAplication().getParameter("User");
+	}
+
+	public static String getPassword() {
+		return Aplication.getAplication().getConfig("MD5");
 	}
 }
