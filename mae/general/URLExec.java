@@ -31,6 +31,10 @@ public class URLExec {
 			  newHost = Easp.HOST_AZURE;
 			  oldHost = Easp.HOST_ORACLE;				
 		  }
+		  else if (url.contains("afinity.geyce.es") && Easp.HOST == Easp.TIPO_HOST.AZUREMSDN) {
+			  newHost = Easp.HOST_AZUREMSDN;
+			  oldHost = Easp.HOST_ORACLE;				
+		  }
 		  else if (url.contains("afinity.geyce.es") && Easp.HOST == Easp.TIPO_HOST.LOCALHOST) {
 			  newHost = Easp.HOST_LOCALHOST;
 			  oldHost = Easp.HOST_ORACLE;			  

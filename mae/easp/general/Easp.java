@@ -125,7 +125,9 @@ public class Easp {
       setFileFromjar(destinoPlantillas,"query.xls",destinoPlantillas+"query.xls");
       }
 
-
+    boolean esAzure = "S".equals(Aplication.getAplication().getConfig("esAzure"));
+    if (esAzure) HOST = TIPO_HOST.AZURE;
+    else HOST = TIPO_HOST.ORACLE;    
     // APPAU 24-07-2014 se desactiva ya este mensaje de control
     // avisoErroresLevesjModelos();
     return true;
