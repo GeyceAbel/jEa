@@ -23,10 +23,11 @@ import org.apache.commons.httpclient.methods.multipart.FilePart;
 import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
 import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.params.HttpMethodParams;
+import org.apache.commons.httpclient.protocol.Protocol;
 
 public class Azure {
 
-	private final String PROTOCOL = "http://";
+	private static final String PROTOCOL = "http://";
 	private final String SITE 	 = "pls/agpi/";
 	private final int TIMEOUT = 30; //Seconds
 	private final long MB_MAXIMOS = 15; //Tamany màxim de fitxer.
@@ -52,7 +53,7 @@ public class Azure {
 	public Azure (String function, String parametros, File f) {		
 		this.urlAzure = PROTOCOL + getRealHost() + SITE + function;
 		this.fichero = f;
-		if (Easp.HOST == TIPO_HOST.LOCALHOST || Easp.HOST == TIPO_HOST.AZURE) this.urlAzure+=".cshtml";
+		if (Easp.HOST == TIPO_HOST.LOCALHOST || Easp.HOST == TIPO_HOST.AZURE || Easp.HOST == TIPO_HOST.AZUREMSDN) this.urlAzure+=".cshtml";
 		if (parametros != null && parametros.trim().length()>0) this.urlAzure += "?"+parametros;
 		numeroReintentos = 1;
 	}
@@ -203,7 +204,7 @@ public class Azure {
 		return bOk;
 	}
 
-	private String getRealHost() {
+	public static String getRealHost() {
 		String host = Easp.HOST_ORACLE;
 		if (Easp.HOST == TIPO_HOST.AZURE) host = Easp.HOST_AZURE;
 		else if (Easp.HOST == TIPO_HOST.AZUREMSDN) host = Easp.HOST_AZUREMSDN;
@@ -257,4 +258,9 @@ public class Azure {
 	public static String getPassword() {
 		return Aplication.getAplication().getConfig("MD5");
 	}
+	
+	public static String getProtocol() {
+		return PROTOCOL;
+	}
+	
 }

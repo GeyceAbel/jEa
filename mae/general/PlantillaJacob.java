@@ -67,8 +67,6 @@ public class PlantillaJacob extends Thread {
     public static int  wdFormatXPS                         = 18;
     public static int  wdFormatOfficeDocumentTemplate      = 23;
     public static int  wdFormatMediaWiki                   = 24;
-    
-    
     public static int  wdSendToEmail					   = 2 ;
     public static int  wdMailFormat					  	   = 1 ;
 	
