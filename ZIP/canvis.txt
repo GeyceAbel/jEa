@@ -167,4 +167,5 @@
 150601 --> APJORDI: Canvis Conversió LOGICCLASS - JCONTA
 150601 --> APXAVI:  Canvis Conversió LOGICCLASS - JNOMINA
 151101 --> APJORDI: Compatibilitat Azure - Oracle
-151101 --> APXAVI:  Easp.getRealHost() publica per poder arrivar a la variable EASP.HOST desde qualsevol lloc.
+151102 --> APXAVI:  Easp.getRealHost() publica per poder arrivar a la variable EASP.HOST desde qualsevol lloc.
+151104 --> APJORDI: Afegim parametre dominijToken quan es azure. Tant a Azure.java com a URLExec.java.
