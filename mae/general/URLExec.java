@@ -42,7 +42,7 @@ public class URLExec {
 		  if (newHost != null && oldHost != null) {
 			  urlParseada = urlParseada.replace(oldHost, newHost);
 			  if (remCSHTML) urlParseada = urlParseada.replace(".cshtml", "");
-			  if (addCSHTML) urlParseada = urlParseada.replace("?", ".cshtml?");
+			  if (addCSHTML) urlParseada = urlParseada.replace("?", ".cshtml?dominiojToken="+Easp.dominio+"&");
 		  }
 		  
 	  }
