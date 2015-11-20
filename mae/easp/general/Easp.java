@@ -69,6 +69,20 @@ public class Easp {
     return true;
     }
 
+  public static String getUrlDocVersion(String url, String aplic) {
+	  if (url != null) url = url.toLowerCase();
+	  String retorn = url;
+	  if ( esAzure() ) {
+    	 if (aplic!=null && aplic.toUpperCase().startsWith("JNO")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jNomina/");
+    	 else if (aplic!=null && aplic.toUpperCase().startsWith("JCO")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jConta/");
+    	 else if (aplic!=null && aplic.toUpperCase().startsWith("JRE")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jRenta/");
+    	 else if (aplic!=null && (aplic.toUpperCase().startsWith("JSO") || aplic.toUpperCase().startsWith("JIS"))) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jSociedades/");
+    	 else if (aplic!=null && aplic.toUpperCase().startsWith("JMO")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jModelos/");
+    	 else if (aplic!=null && aplic.toUpperCase().startsWith("JGE")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jGestion/");
+     }
+     return retorn;
+  }  
+  
   public static boolean initUser() {
     if (usuario==null)
       usuario=Aplication.getAplication().getUser();
@@ -2672,6 +2686,11 @@ public static String getNomPC() {
 public static String getPrefixeNow() {
 	SimpleDateFormat hora=new SimpleDateFormat("HHmmss");
 	return Fecha.fechaGregoriana(Maefc.getDate())+hora.format(new Date());
+}
+
+
+public static boolean esAzure() {	
+	return HOST == TIPO_HOST.AZURE;
 }
 
 

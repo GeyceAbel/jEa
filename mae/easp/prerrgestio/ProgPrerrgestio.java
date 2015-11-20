@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20121024
-// Hora:             12:34:05
+// Fecha:            20151120
+// Hora:             10:04:34
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -252,7 +252,8 @@ public class ProgPrerrgestio extends Program
         if (modulo != null){
            filtro += "&modul="+modulo;
         }
-        Easp.abrirExplorer("http://afinity.geyce.es/pls/agpi/starterdp.getSolucionesDoc?"+filtro,true);
+        Easp.abrirExplorer("http://"+Azure.getRealHost()+"pls/agpi/starterdp.getSolucionesDoc?"+filtro,false);
+        //Easp.abrirExplorer("http://afinity.geyce.es/pls/agpi/starterdp.getSolucionesDoc?"+filtro,true);
         }
       }
       
