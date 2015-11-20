@@ -155,6 +155,7 @@ public class Azure {
 					f.delete();
 				}
 			}
+			else bOk = false;
 		}
 		catch (Exception e) {
 			bOk = false;
