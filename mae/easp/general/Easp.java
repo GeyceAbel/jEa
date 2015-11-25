@@ -32,14 +32,14 @@ public class Easp {
   public static String versionAplicacion="9.8";
   public static String versionFecha="Julio/2015";
   public static String versionBDEA="13.2";
-  
+
   public static enum TIPO_HOST { ORACLE, LOCALHOST, AZURE, AZUREMSDN};
   public static TIPO_HOST HOST = TIPO_HOST.ORACLE;
   public static final String HOST_AZURE 	 = "afinityprod.azurewebsites.net/";
   public static final String HOST_AZUREMSDN  = "afinity.azurewebsites.net/";
   public static final String HOST_LOCALHOST  = "localhost:52373/";
   public static final String HOST_ORACLE 	 = "afinity.geyce.es/";
-	
+
   //Constantes
   public final static int IVA=16;
 
@@ -70,19 +70,24 @@ public class Easp {
     }
 
   public static String getUrlDocVersion(String url, String aplic) {
+    String url2 = url;
 	  if (url != null) url = url.toLowerCase();
 	  String retorn = url;
 	  if ( esAzure() ) {
     	 if (aplic!=null && aplic.toUpperCase().startsWith("JNO")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jNomina/");
     	 else if (aplic!=null && aplic.toUpperCase().startsWith("JCO")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jConta/");
     	 else if (aplic!=null && aplic.toUpperCase().startsWith("JRE")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jRenta/");
-    	 else if (aplic!=null && (aplic.toUpperCase().startsWith("JSO") || aplic.toUpperCase().startsWith("JIS"))) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jSociedades/");
     	 else if (aplic!=null && aplic.toUpperCase().startsWith("JMO")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jModelos/");
     	 else if (aplic!=null && aplic.toUpperCase().startsWith("JGE")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jGestion/");
+       else if (aplic!=null) {
+            retorn  = url2;
+            retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/documentos/");
+            retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/ADMINISTRADOR/", "afinityprod.blob.core.windows.net/documentos/");
+       }
      }
      return retorn;
-  }  
-  
+  }
+
   public static boolean initUser() {
     if (usuario==null)
       usuario=Aplication.getAplication().getUser();
@@ -141,7 +146,7 @@ public class Easp {
 
     boolean esAzure = "S".equals(Aplication.getAplication().getConfig("EsAzure"));
     if (esAzure) HOST = TIPO_HOST.AZURE;
-    else HOST = TIPO_HOST.ORACLE;    
+    else HOST = TIPO_HOST.ORACLE;
     System.out.println("**************** HOST JEA = "+Easp.HOST);
     // APPAU 24-07-2014 se desactiva ya este mensaje de control
     // avisoErroresLevesjModelos();
