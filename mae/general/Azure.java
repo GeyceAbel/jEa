@@ -24,13 +24,13 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 
 public class Azure {
 
-	private static final String PROTOCOL = "http://";
+  private static final String PROTOCOL = "https://";
 	private final String SITE 	 = "pls/agpi/";
 	private final int TIMEOUT = 30; //Seconds
 	private final long MB_MAXIMOS = 15; //Tamany màxim de fitxer.
 	private int numeroReintentos;
-	
-	
+
+
 	private String urlAzure;
 	private String contenido;
 	private InputStream contenidoBinario;
@@ -40,20 +40,20 @@ public class Azure {
 	private int statusCode;
 
 	public Azure (String function) {
-		this(function,null, null);		
+		this(function,null, null);
 	}
 
 	public Azure (String function, String parametros) {
 		this(function,parametros, null);
 	}
 
-	public Azure (String function, String parametros, File f) {		
+	public Azure (String function, String parametros, File f) {
 		this.urlAzure = PROTOCOL + getRealHost() + SITE + function;
 		this.fichero = f;
 		if (Easp.HOST == TIPO_HOST.LOCALHOST || Easp.HOST == TIPO_HOST.AZURE || Easp.HOST == TIPO_HOST.AZUREMSDN) this.urlAzure+=".cshtml";
 		if (parametros == null || parametros.trim().length()==0) parametros = "dominiojToken="+Easp.dominio;
 		else parametros +="&dominiojToken="+Easp.dominio;
-		this.urlAzure += "?"+parametros;		
+		this.urlAzure += "?"+parametros;
 		numeroReintentos = 1;
 	}
 
@@ -63,9 +63,9 @@ public class Azure {
 		contenidoBinario = null;
 		tamanyoBinario = 0;
 	}
-	
+
 	private PostMethod initPostMethod (String url) throws UnsupportedEncodingException {
-		PostMethod post = null;				
+		PostMethod post = null;
 		HttpMethodRetryHandler rh = new HttpMethodRetryHandler() {
 			public boolean retryMethod(HttpMethod method, IOException exception, int numcount) {
 				if (numcount <= numeroReintentos) {
@@ -74,25 +74,25 @@ public class Azure {
 				}
 				else return false;
 			}
-		};			
-		post = new PostMethod(url);		
+		};
+		post = new PostMethod(url);
 		post.getParams().setParameter(HttpMethodParams.RETRY_HANDLER, rh);
 		String b64Encoded = Base64.encodeBytes(new String(getUsuario()+":"+getPassword()).getBytes("utf-8"));
-		post.setRequestHeader(new Header("Authentication", "Basic " + b64Encoded));		
+		post.setRequestHeader(new Header("Authentication", "Basic " + b64Encoded));
 		return post;
 	}
-	
+
 	public boolean procesar () {
 		boolean bOk = true;
 		HttpClient client = null;
-		PostMethod post = null;				
+		PostMethod post = null;
 		try {
 			initProcesar();
 			post = initPostMethod(urlAzure);
-			if (fichero != null && fichero.exists()) {				
+			if (fichero != null && fichero.exists()) {
 				if (fichero.length() > MB_MAXIMOS * 1024 * 1024) {
 					bOk = false;
-					error = "Fichero demasiado grande: "+(Numero.redondeo((double)fichero.length()/(double)1024))+" KBytes";					
+					error = "Fichero demasiado grande: "+(Numero.redondeo((double)fichero.length()/(double)1024))+" KBytes";
 				}
 				else {
 					Part [] partsFile = {new FilePart(fichero.getName(), fichero)};
@@ -119,8 +119,8 @@ public class Azure {
 	public boolean procesarFile (File f) {
 		return procesarFile(f, null);
 	}
-	
-	public boolean procesarFile (File f, ProgressBarForm pbf) {		
+
+	public boolean procesarFile (File f, ProgressBarForm pbf) {
 		boolean bOk = true;
 		HttpClient client = null;
 		PostMethod post = null;
@@ -142,12 +142,12 @@ public class Azure {
 				int kilobytes = (int)(tamanyoBinario/1024);
 				if (pbf!=null && kilobytes>0) pbf.setState("Descargando Fichero ["+kilobytes+"K] "+f.getName());
 				do {
-					int llegits = contenidoBinario.read(buffer);	
-					if (llegits<=0) break;	
+					int llegits = contenidoBinario.read(buffer);
+					if (llegits<=0) break;
 					fos.write (buffer,0,llegits);
 					if (pbf!=null && kilobytes>0 ) pbf.setSecondaryPercent ((int)(100*(++iContpbf)/(kilobytes)));
-				} 
-				while(true);   
+				}
+				while(true);
 				System.out.println ("Volum Afinity-Azure ("+tamanyoBinario+")  <--->  Volum Descarregat ("+f.length()+")");
 				if (tamanyoBinario != f.length() ) {
 					bOk = false;
@@ -186,11 +186,11 @@ public class Azure {
 		else {
 			contenidoBinario = null;
 			error = "Error al procesar ("+urlAzure+"): \n"+post.getStatusText();
-		}			
-		bOk = contenidoBinario != null;			
+		}
+		bOk = contenidoBinario != null;
 		return bOk;
 	}
-	
+
 	private boolean executeConnection ( HttpClient client, PostMethod post) throws HttpException, IOException {
 		boolean bOk = true;
 		statusCode = client.executeMethod( post );

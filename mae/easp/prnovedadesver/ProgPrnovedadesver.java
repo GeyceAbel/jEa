@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20151120
-// Hora:             10:10:23
+// Fecha:            20151127
+// Hora:             13:00:42
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -249,7 +249,7 @@ public class ProgPrnovedadesver extends Program
         {
         super.onAction();
         
-        String pathUrl = Easp.getUrlDocVersion("http://afinity.geyce.es/agpi/home/999999999999/ADMINISTRADOR/",aplicacion);
+        String pathUrl = Easp.getUrlDocVersion("https://afinity.geyce.es/agpi/home/999999999999/ADMINISTRADOR/",aplicacion);
         String url = "" ;
         
         for ( int i = 0 ; i < versiones.length ; i++ ) {

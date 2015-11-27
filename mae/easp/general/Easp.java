@@ -70,21 +70,10 @@ public class Easp {
     }
 
   public static String getUrlDocVersion(String url, String aplic) {
-    String url2 = url;
-	  if (url != null) url = url.toLowerCase();
+    if (url != null) url = url.toLowerCase();
 	  String retorn = url;
-	  if ( esAzure() ) {
-    	 if (aplic!=null && aplic.toUpperCase().startsWith("JNO")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jNomina/");
-    	 else if (aplic!=null && aplic.toUpperCase().startsWith("JCO")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jConta/");
-    	 else if (aplic!=null && aplic.toUpperCase().startsWith("JRE")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jRenta/");
-    	 else if (aplic!=null && aplic.toUpperCase().startsWith("JMO")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jModelos/");
-    	 else if (aplic!=null && aplic.toUpperCase().startsWith("JGE")) retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/docversiones/jGestion/");
-       else if (aplic!=null) {
-            retorn  = url2;
-            retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/documentos/");
-            retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/ADMINISTRADOR/", "afinityprod.blob.core.windows.net/documentos/");
-       }
-     }
+	  if ( esAzure() ) 
+            retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/documentos/");                        
      return retorn;
   }
 
