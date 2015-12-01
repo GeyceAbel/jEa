@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150512
-// Hora:             16:28:34
+// Fecha:            20151201
+// Hora:             11:42:51
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -188,8 +188,6 @@ class Barramenu extends MenuBar
     public M1ficha m1ficha;
     public M1bancoscli m1bancoscli;
     public M1repres m1repres;
-    public M1cdpafinity m1cdpafinity;
-    public M1importnifes m1importnifes;
     public M1nifesmuf m1nifesmuf;
     class M1ficha extends MenuItemProgram
       {
@@ -221,26 +219,6 @@ class Barramenu extends MenuBar
         }
       }
       
-    class M1cdpafinity extends MenuItemProgram
-      {
-      public M1cdpafinity()
-        {
-        super("Clientes AfinityWeb");
-        setName("m1cdpafinity");
-        setProgram("mae.easp.prcdpsafinity.ProgPrcdpsafinity");
-        }
-      }
-      
-    class M1importnifes extends MenuItemProgram
-      {
-      public M1importnifes()
-        {
-        super("Importación Clientes desde GEyCE Token");
-        setName("m1importnifes");
-        setProgram("mae.easp.praltanifes.ProgPraltanifes");
-        }
-      }
-      
     class M1nifesmuf extends MenuItemProgram
       {
       public M1nifesmuf()
@@ -258,8 +236,6 @@ class Barramenu extends MenuBar
       add(m1ficha=new M1ficha());
       add(m1bancoscli=new M1bancoscli());
       add(m1repres=new M1repres());
-      add(m1cdpafinity=new M1cdpafinity());
-      add(m1importnifes=new M1importnifes());
       add(m1nifesmuf=new M1nifesmuf());
       }
     }
