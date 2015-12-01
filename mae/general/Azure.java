@@ -149,11 +149,11 @@ public class Azure {
 				}
 				while(true);
 				System.out.println ("Volum Afinity-Azure ("+tamanyoBinario+")  <--->  Volum Descarregat ("+f.length()+")");
-				if (tamanyoBinario != f.length() ) {
-					bOk = false;
-					error = "No se ha descargado la totalidad del fichero zip.\n\n Vuelva a ejecutar el proceso de recepción.";
-					f.delete();
-				}
+				//if (tamanyoBinario != f.length() ) {
+					//bOk = false;
+					//error = "No se ha descargado la totalidad del fichero zip.\n\n Vuelva a ejecutar el proceso de recepción.";
+					//f.delete();
+				//}
 			}
 			else bOk = false;
 		}

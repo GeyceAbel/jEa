@@ -169,3 +169,4 @@
 151101 --> APJORDI: Compatibilitat Azure - Oracle
 151102 --> APXAVI:  Easp.getRealHost() publica per poder arrivar a la variable EASP.HOST desde qualsevol lloc.
 151104 --> APJORDI: Afegim parametre dominijToken quan es azure. Tant a Azure.java com a URLExec.java.
+151201 --> APJORDI: Retoquem procesar file perque en certs casos tornava un 0 en el volum a disc.
