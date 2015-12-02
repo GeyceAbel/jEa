@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20151201
-// Hora:             11:42:51
+// Fecha:            20151202
+// Hora:             09:23:16
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -305,7 +305,6 @@ class Barramenu extends MenuBar
     public Mpermisosge mpermisosge;
     public Mpermisoslo mpermisoslo;
     public M1fechas m1fechas;
-    public Mimpousers mimpousers;
     public Mdesbloquearses mdesbloquearses;
     class Musers extends MenuItemProgram
       {
@@ -367,16 +366,6 @@ class Barramenu extends MenuBar
         }
       }
       
-    class Mimpousers extends MenuItemProgram
-      {
-      public Mimpousers()
-        {
-        super("&Importar usuarios Afinity");
-        setName("mimpousers");
-        setProgram("mae.easp.praltausers.ProgPraltausers");
-        }
-      }
-      
     class Mdesbloquearses extends MenuItemProgram
       {
       public Mdesbloquearses()
@@ -397,7 +386,6 @@ class Barramenu extends MenuBar
       add(mpermisosge=new Mpermisosge());
       add(mpermisoslo=new Mpermisoslo());
       add(m1fechas=new M1fechas());
-      add(mimpousers=new Mimpousers());
       add(mdesbloquearses=new Mdesbloquearses());
       }
     }

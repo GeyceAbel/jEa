@@ -158,7 +158,7 @@
 150302 --> APJORDI: Afegit un pas de conversió 12.8 Nova taula registre mercantil de llibres extres
 150303 --> APXAVI: Nova funcionalitat conversio jNomina class. Conceptes a nivell de conveni.
 150304 --> APJORDI: Afegit un pas de conversió 12.9 afegint taula conversio amortitzacions 2015
-150305 --> Appere:  ConversionJREN i GestionCodigos x ATI codigos cdps 
+150305 --> Appere:  ConversionJREN i GestionCodigos x ATI codigos cdps
 150306 --> APJORDI:  ConversionJCO LogicClass
 150401 --> APJORDI: Transaccions noves RCP RDU
 150403 --> Appere:  Modificacio GestionCodigos
@@ -170,3 +170,4 @@
 151102 --> APXAVI:  Easp.getRealHost() publica per poder arrivar a la variable EASP.HOST desde qualsevol lloc.
 151104 --> APJORDI: Afegim parametre dominijToken quan es azure. Tant a Azure.java com a URLExec.java.
 151201 --> APJORDI: Retoquem procesar file perque en certs casos tornava un 0 en el volum a disc.
+151202 --> APESTER: Eliminat de menu l'opcio: Importar usuarios Afinity del menu Usuarios y permisos
