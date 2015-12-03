@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20151120
-// Hora:             10:04:34
+// Fecha:            20151203
+// Hora:             12:32:25
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -33,6 +33,7 @@ public class ProgPrerrgestio extends Program
   private String modulo   = null;
   private String aplicacion = null;
   private String programa = null;
+  private boolean esAzure = false;
   
   /* funció que crea els objectes d'ErrorParam
    * si no existeix 
@@ -252,6 +253,7 @@ public class ProgPrerrgestio extends Program
         if (modulo != null){
            filtro += "&modul="+modulo;
         }
+        
         Easp.abrirExplorer("http://"+Azure.getRealHost()+"pls/agpi/starterdp.getSolucionesDoc?"+filtro,false);
         //Easp.abrirExplorer("http://afinity.geyce.es/pls/agpi/starterdp.getSolucionesDoc?"+filtro,true);
         }
@@ -612,6 +614,8 @@ public class ProgPrerrgestio extends Program
             if (contexto != null){
                 ctxt = "&contexto="+contexto;
             }
+            if (str8!=null && str8.length()>1000)
+                str8 = str8.substring(0,1000);
             String parametros = "fcod="+codi
                                 +"&faplicacion="+aplicacion + progs
                                 +"&ftipologia="+vvtipologia.getString()
@@ -623,12 +627,13 @@ public class ProgPrerrgestio extends Program
                                 +"&fambito="+vvambito.getString()
                                 +"&ftexto="+codificar(vvtxtconsulta.getString())
                                 +"&error="+str8;
+           
         /*
                     String res = mae.general.URLExec.getContenido("http://afinity.geyce.es/pls/agpi/p_proves.ENVIARCONSULTA?" 
                             + parametros);
                     System.out.println(res);
         */    
-            String result = mae.general.URLExec.getContenido("http://afinity.geyce.es/pls/agpi/starterdp.ENVIARCONSULTA?" 
+            String result = URLExec.getContenido("http://afinity.geyce.es/pls/agpi/starterdp.ENVIARCONSULTA?" 
                             + parametros);
             if(result.startsWith("-1")){
                 Maefc.message("Error enviando consulta técnica.\nPóngase en contacto con su servicio técnico.\n"+result.substring(3),"Error envío",Maefc.ERROR_MESSAGE);
@@ -838,6 +843,8 @@ public class ProgPrerrgestio extends Program
   public void onInit()
     {
     setConnection(Easp.connEA);
+    esAzure = ("S".equals(Aplication.getAplication().getConfig("EsAzure"))); 
+    if (esAzure) vincidencia.acsoldocum.setEnabled(false);
     vdatos.setLayout(new LayoutHtml("mae/easp/html/prerrorgestio_vdatos.html"));
     vstacktrace.setLayout(new LayoutHtml("mae/easp/html/prerrorgestio_vstacktrace.html"));
     String solucion = getRespuesta(contexto);

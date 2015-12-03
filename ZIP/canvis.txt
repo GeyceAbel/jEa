@@ -171,3 +171,4 @@
 151104 --> APJORDI: Afegim parametre dominijToken quan es azure. Tant a Azure.java com a URLExec.java.
 151201 --> APJORDI: Retoquem procesar file perque en certs casos tornava un 0 en el volum a disc.
 151202 --> APESTER: Eliminat de menu l'opcio: Importar usuarios Afinity del menu Usuarios y permisos
+151203 --> APESTER: Quan hi havia incidencia a l'aplicacio no es podia enviar el parte a ST

@@ -208,7 +208,7 @@ public class Azure {
 		String host = Easp.HOST_ORACLE;
 		if (Easp.HOST == TIPO_HOST.AZURE) host = Easp.HOST_AZURE;
 		else if (Easp.HOST == TIPO_HOST.AZUREMSDN) host = Easp.HOST_AZUREMSDN;
-		else if (Easp.HOST == TIPO_HOST.LOCALHOST) host = Easp.HOST_LOCALHOST;
+		else if (Easp.HOST == TIPO_HOST.LOCALHOST) host = Easp.HOST_LOCALHOST;	
 		return host;
 	}
 
