@@ -2130,13 +2130,23 @@ public static Date esFecha (String s){
         String nombreAfinity = parserURL((nombre+" "+ape1+" "+ape2).trim());
         String procedure = "agpi2dp.AgpiAltaCDP";
         String parametres = "?pdp="+codiDP+"&pdatcodigo="+cdp+"&pdatipo=C&pdatnombre="+
-		           "&pdatapell1="+nombreAfinity+"&pdatapell2="+"&pdatnifcif="+nif+
-		           "&pdatsiglas="+siglas+"&pdatvia="+parserURL(via)+"&pdatnum="+parserURL(num)+
-							 "&pdatesc="+parserURL(esc)+"&pdatpiso="+parserURL(piso)+"&pdatletra="+parserURL(letra)+
-							 "&pdatpobla="+parserURL(pobla)+"&pdatmuni="+muni+"&pdatprov="+prov+"&pdatcpos="+cp+
-							 "&pdattel="+tel+"&pdatfax="+fax+"&pdatfisicajuri="+fj+"&pdatemail="+parserURL(email)+
-							 "&pdatcontacto="+parserURL(contacto)+"&puspwd="+pwd+"&altafromprg="+altafromprg;
-System.out.println("parametres = ["+parametres+"]");
+		           			"&pdatapell1="+nombreAfinity+"&pdatapell2="+"&pdatnifcif="+nif+
+		           			"&pdatsiglas="+siglas+"&pdatvia="+parserURL(via)+"&pdatnum="+parserURL(num)+
+							"&pdatesc="+parserURL(esc)+"&pdatpiso="+parserURL(piso)+"&pdatletra="+parserURL(letra)+
+							"&pdatpobla="+parserURL(pobla)+"&pdatmuni="+muni+"&pdatprov="+prov+"&pdatcpos="+cp+
+							"&pdattel="+tel+"&pdatfax="+fax+"&pdatfisicajuri="+fj+"&pdatemail="+parserURL(email)+
+							"&pdatcontacto="+parserURL(contacto)+"&puspwd="+pwd+"&altafromprg="+altafromprg;
+        if (esAzure()) {
+        	nombreAfinity = (nombre+" "+ape1+" "+ape2).trim();
+        	parametres = Easp.formatURL("?pdp="+codiDP+"&pdatcodigo="+cdp+"&pdatipo=C&pdatnombre="+
+           			"&pdatapell1="+nombreAfinity+"&pdatapell2="+"&pdatnifcif="+nif+
+           			"&pdatsiglas="+siglas+"&pdatvia="+via+"&pdatnum="+num+
+					"&pdatesc="+esc+"&pdatpiso="+piso+"&pdatletra="+letra+
+					"&pdatpobla="+pobla+"&pdatmuni="+muni+"&pdatprov="+prov+"&pdatcpos="+cp+
+					"&pdattel="+tel+"&pdatfax="+fax+"&pdatfisicajuri="+fj+"&pdatemail="+email+
+					"&pdatcontacto="+contacto+"&puspwd="+pwd+"&altafromprg="+altafromprg);
+        }
+        System.out.println("parametres = ["+parametres+"]");
 		String url=dns+procedure+parametres;
 		Azure az0 = new Azure (procedure,parametres);
         return az0.procesar();
