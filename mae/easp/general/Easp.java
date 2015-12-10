@@ -30,8 +30,8 @@ public class Easp {
 
   //variables de versiones
   public static String versionAplicacion="9.8";
-  public static String versionFecha="Julio/2015";
-  public static String versionBDEA="13.2";
+  public static String versionFecha="Diciembre/2015";
+  public static String versionBDEA="13.3";
 
   public static enum TIPO_HOST { ORACLE, LOCALHOST, AZURE, AZUREMSDN};
   public static TIPO_HOST HOST = TIPO_HOST.ORACLE;
@@ -2044,7 +2044,7 @@ public static Date esFecha (String s){
     Field datemail      = new Field(snifes,tbnifes,"datemail");
     Field datcontacto   = new Field(snifes,tbnifes,"datcontacto");
     snifes.setFrom("(nifes INNER JOIN cdp ON nifes.danifcif=cdp.cdpnifcif)");
-    snifes.setWhere("(datdominio='"+dominio+"' or datdominio='999999000000') and danifcif='"+nif+"'");
+    snifes.setWhere("danifcif='"+nif+"'");
     snifes.execute();
     if ( snifes.isEof() ) {
       if ( infoMsg ) Maefc.message("No se ha podido generar un nuevo CDP");

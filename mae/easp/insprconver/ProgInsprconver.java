@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150723
-// Hora:             11:43:52
+// Fecha:            20151203
+// Hora:             17:45:05
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1464,6 +1464,9 @@ public class ProgInsprconver extends Program
           "  PRIMARY KEY (AVCODIGO));               "
        };
     
+    String sentencias13_3[]={
+      "alter table AMORTIZACION  add  amocodequiv INTEGER"
+    };
     
       int i=0;
       try {
@@ -3345,7 +3348,22 @@ public class ProgInsprconver extends Program
             vvveractual.setValue("13.2");
           }
     
-    
+        if (versio < 13.3) {
+            for (i=0;i<sentencias13_3.length;++i) {
+              try {
+                Easp.chivato("13.3 Exec : ["+sentencias13_3[i]+"]",1);
+                Easp.connEA.executeUpdate(sentencias13_3[i]);
+              }
+              catch(Exception e) {
+                sqlOperation=sentencias13_3[i];
+                Easp.chivato("13.3 *** Error : ["+sentencias13_3[i]+"]  Error: ["+e+"]",1);
+                errorMessage=e.getMessage();
+              }
+            }
+            Easp.setVersionBD("bdeasp","13.3");
+            Easp.connEA.commit();
+            vvveractual.setValue("13.3");
+          }
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");

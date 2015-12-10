@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150723
-// Hora:             11:44:08
+// Fecha:            20151203
+// Hora:             17:50:48
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1082,6 +1082,7 @@ public class CatEasp extends Catalog
     public FieldDef amoparent;
     public FieldDef amonum;
     public FieldDef amoejercicio;
+    public FieldDef amocodequiv;
     public TabAmortizacion(String name)
       {
       super(name);
@@ -1096,6 +1097,7 @@ public class CatEasp extends Catalog
       amoparent = new FieldDef("amoparent",FieldDef.CHAR,8);
       amonum = new FieldDef("amonum",FieldDef.CHAR,1);
       amoejercicio = new FieldDef("amoejercicio",FieldDef.INTEGER,0);
+      amocodequiv = new FieldDef("amocodequiv",FieldDef.INTEGER,0);
       FieldDef array[] = {
         amocodigo,
         amogrupo,
@@ -1107,7 +1109,8 @@ public class CatEasp extends Catalog
         amoperiodo,
         amoparent,
         amonum,
-        amoejercicio        
+        amoejercicio,
+        amocodequiv        
         };
       setColumns(array);
       FieldDef arrayf[] = {amocodigo };
@@ -1422,7 +1425,7 @@ public class CatEasp extends Catalog
       super(name);
       ayprocedure = new FieldDef("ayprocedure",FieldDef.CHAR,50,FieldDef.NOTNULL);
       ayidioma = new FieldDef("ayidioma",FieldDef.CHAR,3,FieldDef.NOTNULL);
-      aytexto = new FieldDef("aytexto",FieldDef.CHAR,40008);
+      aytexto = new FieldDef("aytexto",FieldDef.CHAR,4000);
       FieldDef array[] = {
         ayprocedure,
         ayidioma,
