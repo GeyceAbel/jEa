@@ -2044,7 +2044,7 @@ public class ConversionJCO extends ConversionLC {
 			String[] infocta = getNifFromCliConta(codigoCta,empJconta);			
 			String emirec = getSelString(sf,"TipoFactura");
 			int CriterioIva = sf.getint("CriterioIva");
-			int TipoCriterioIva = sf.getint("TipoCriterioIva");
+			int TipoCriterioCaja = sf.getint("TipoCriterioCaja");
 			boolean esRecc = (CriterioIva == 2);
 			int abono = sf.getint("AbonoIva");
 			double multiplicador = 1.0;
@@ -2056,7 +2056,7 @@ public class ConversionJCO extends ConversionLC {
 			if (sSerie == null || sSerie.trim().equals("")) sSerie = " ";
 
 			if ("I".equals(emirec)) {
-				if (esRecc && (TipoCriterioIva==1 || TipoCriterioIva==2) && infocta != null && fechaAsiento != null ) {
+				if (esRecc && (TipoCriterioCaja==1 || TipoCriterioCaja==2) && infocta != null && fechaAsiento != null ) {
 					Insert icp = new Insert (dbJCta,"COBROPAGO");
 					icp.valor("cobcodi", 0);
 					icp.valor("cobempresa", empJconta);
@@ -2066,7 +2066,7 @@ public class ConversionJCO extends ConversionLC {
 					icp.valor("cobvto", fechaAsiento);
 					icp.valor("cobconcepto", conceptoAsiento);
 					icp.valor("cobimporte", multiplicador * ImporteFactura);
-					icp.valor("cobdocumento", TipoCriterioIva==1?"COBRO":"PAGO");
+					icp.valor("cobdocumento", TipoCriterioCaja==1?"COBRO":"PAGO");
 					icp.valor("cobejerasto", iEjerJ);
 					String ctabanrecc = null;
 					String sctabanrecc = null;
@@ -2084,7 +2084,7 @@ public class ConversionJCO extends ConversionLC {
 						icp.valor("cobcuentaban", ctabanrecc);		        	
 						icp.valor("cobsubctaban", sctabanrecc);		        	
 					}
-					icp.valor("cobcobropago", (TipoCriterioIva==1?"C":"P"));
+					icp.valor("cobcobropago", (TipoCriterioCaja==1?"C":"P"));
 					icp.valor("cobestado", "C");		
 					DBConnection connTmp = Contaasp.getConexionCtasp(empJconta, EjercicioFactura);
 					if (connTmp != null) {
