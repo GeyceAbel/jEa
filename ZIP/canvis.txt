@@ -173,3 +173,4 @@
 151202 --> APESTER: Eliminat de menu l'opcio: Importar usuarios Afinity del menu Usuarios y permisos
 151203 --> APESTER: Quan hi havia incidencia a l'aplicacio no es podia enviar el parte a ST
 151204 --> APJORDI: Nou camp a la taula d'amortitzacions per poder fer equivalencia.
+151205 --> APJORDI: Canvis conver LC - JCONTA - RECC .

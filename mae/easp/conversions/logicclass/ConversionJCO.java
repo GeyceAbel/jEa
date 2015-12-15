@@ -6,6 +6,7 @@ import java.util.Hashtable;
 import java.util.Vector;
 
 import mae.contaasp.general.BorrarDatosSQL;
+import mae.contaasp.general.Contaasp;
 import mae.contaasp.general.Iva2012;
 import mae.easp.conversions.FuncionesJCO;
 import mae.easp.conversions.DadesEmpresa;
@@ -66,6 +67,7 @@ public class ConversionJCO extends ConversionLC {
 	private int asientoCE;
 	private int asientoCC;
 	private boolean estaCerrado;
+	private Vector<String> vDepartamentos;
 
 
 	public ConversionJCO (Program pr,int idConversion, int desdeEmp, int hastaEmp, int desdeEjer, int hastaEjer, String servidor, String instancia, String nombreBD, String user, String passwd, DBConnection connEA, String tipoCta, String longCta, boolean asigProy, boolean esSQL) {
@@ -921,9 +923,59 @@ public class ConversionJCO extends ConversionLC {
 		if (bOk) bOk = grabarDatosBancarios (iEmp, empJconta, iEjerJ);
 		if (bOk) bOk = grabarActividades (iEmp, empJconta, iEjerJ);
 		if (bOk) bOk = grabarRepresentantes (iEmp, empJconta, iEjerJ);
+		if (bOk) bOk = grabarDepartamentos (iEmp, empJconta, iEjerJ);
 		if (asigProy) grabarProyectos (iEmp, empJconta, iEjerJ);
 		return true;
 	}
+	
+	private boolean checkDepartamento (String codigo, int emp) {
+		boolean bOk = true;
+		if (codigo!=null && codigo.trim().length()>0) {
+			codigo = codigo.trim();		
+			if (codigo.length()>5) codigo = codigo.substring(0,5);
+			Selector s=new Selector (dbJCta);
+			s.execute("Select * from DEPARTAMENTOS where depdepartamento='"+codigo+"' and depempresa="+emp);
+			if (!s.next()) {
+				Insert i = new Insert (dbJCta,"DEPARTAMENTOS");
+				i.valor("depempresa",emp);
+				i.valor("depdepartamento",codigo);
+				i.valor("depdesc","Descripción "+codigo);
+				bOk = i.execute();
+			}
+			s.close();
+			if (!bOk) sError = "Error grabando proyecto ("+codigo+")";
+		}
+		return bOk;
+	}
+	private boolean grabarDepartamentos (int iEmp, int empJconta, int iEjerJ) {
+		boolean bOk = true;
+		pbf.setSecondaryPercent(0);
+		pbf.setState("Convirtiendo LC: "+iEmp+"  JC:"+empJconta+" ("+iEjerJ+")  -  Departamentos");
+		vDepartamentos = new Vector<String>();
+		SelectorLogic s=new SelectorLogic (connLC);
+		s.execute("Select * from Departamentos where CodigoEmpresa="+iEmp);
+		while (bOk && s.next()) {
+			String Departamento = s.getString("Departamento");
+			String CodigoDepartamento = s.getString("CodigoDepartamento");			
+			if (CodigoDepartamento!=null && CodigoDepartamento.trim().length()>0) {
+				CodigoDepartamento = CodigoDepartamento.trim();
+				if (Departamento.length()>40) Departamento = Departamento.substring(0,40);
+				if (CodigoDepartamento.trim().length()>5) CodigoDepartamento = CodigoDepartamento.trim().substring(0,5);				
+				if (!vDepartamentos.contains(CodigoDepartamento)) {
+					vDepartamentos.addElement(CodigoDepartamento);
+					Insert i = new Insert (dbJCta,"DEPARTAMENTOS");
+					i.valor("depempresa",empJconta);
+					i.valor("depdepartamento",CodigoDepartamento.trim());
+					i.valor("depdesc",Departamento);
+					bOk = i.execute();					
+				}
+			}
+		}
+		s.close();
+		if (!bOk) sError = "Error en funcion grabarDepartamentos";
+		return bOk;
+	}
+	
 	private boolean grabarProyectos (int iEmp, int empJconta, int iEjerJ) {
 		boolean bOk = true;
 		pbf.setSecondaryPercent(0);
@@ -944,7 +996,7 @@ public class ConversionJCO extends ConversionLC {
 			}
 		}
 		s.close();
-		if (!bOk) sError = "Error en funcion grabarActividades";
+		if (!bOk) sError = "Error en funcion grabarProyectos";
 		return bOk;
 	}
 	private boolean checkProyecto (String codigo, int emp) {
@@ -1735,6 +1787,14 @@ public class ConversionJCO extends ConversionLC {
 				iasi.valor("asidebehaber",deha);
 				double dimp = smov.getdouble("ImporteAsiento");
 				iasi.valor("asiimporte",dimp);
+				
+				String CodigoDepartamento = smov.getString("CodigoDepartamento");
+				if (CodigoDepartamento!=null && CodigoDepartamento.trim().length()>0) {
+					CodigoDepartamento = CodigoDepartamento.trim();		
+					bOk = checkDepartamento (CodigoDepartamento, empJconta);
+					iasi.valor("asidepartamento", CodigoDepartamento);
+				}
+				
 				String CodigoCanal = smov.getString("CodigoCanal");
 				if (asigProy && CodigoCanal!=null && CodigoCanal.length()>0) {
 					bOk = checkProyecto(CodigoCanal, empJconta);
@@ -1750,7 +1810,7 @@ public class ConversionJCO extends ConversionLC {
 					shay.execute(sqlhay);
 					boolean importarFacturas = shay.next();
 					shay.close();
-					if (importarFacturas) bOk = importarFacturas (iEmp,iEjerL,movPosicion,iasi.getField("asicodi").getInteger(), empJconta,iEjerJ,asientoAct);
+					if (importarFacturas) bOk = importarFacturas (iEmp,iEjerL,movPosicion,iasi.getField("asicodi").getInteger(), empJconta,iEjerJ,asientoAct,ffeecchhaa,sDesc);
 				}
 			}
 		}
@@ -1975,124 +2035,128 @@ public class ConversionJCO extends ConversionLC {
 	}
 
 
-	private boolean importarFacturas (int iEmp, int iEjerL, String movPosicion, int codi, int empJconta, int iEjerJ, int numAsi) {
+	private boolean importarFacturas (int iEmp, int iEjerL, String movPosicion, int codi, int empJconta, int iEjerJ, int numAsi, Date fechaAsiento, String conceptoAsiento) {
 		boolean bOk = true;
 		SelectorLogic sf = new SelectorLogic (connLC);
 		sf.execute("Select * from MovimientosFacturas where CodigoEmpresa="+iEmp+" and MovPosicion='"+movPosicion+"'");
 		while (bOk && sf.next()) {
-			int iNumero = sf.getint("Factura");
-			String a347 = "S";
-			String a349 = "N";
-			String aTrans = "IN";
-			Insert iciv = new Insert (dbJCta,"IVACABECERA");
-			iciv.valor("civcodi",0);
-			iciv.valor("civempresa",empJconta);
-			iciv.valor("civejercicio",iEjerJ);
-			iciv.valor("civivaigic","I");
-			String sSerie = getSelString(sf,"Serie");
-			if (sSerie == null || sSerie.trim().equals("")) sSerie = " ";
-			iciv.valor("civserie",sSerie);    
-			iciv.valor("civregistro",iNumero);
-			iciv.valor("civfecha",sf.getDate("FechaFactura"));
-			iciv.valor("civfechaop",sf.getDate("FechaOperacion"));
-			String ros = "R";
-			
-			int CriterioIva = sf.getint("CriterioIva");
-			boolean esRecc = false;
-			if (CriterioIva == 2) {
-				esRecc = true;
-				iciv.valor("civrecc","S");
-			}
-			else iciv.valor("civrecc","N");
-			
+			String codigoCta = getSelString(sf,"CodigoCuentaFactura");
+			String[] infocta = getNifFromCliConta(codigoCta,empJconta);			
 			String emirec = getSelString(sf,"TipoFactura");
-			if ("R".equals(emirec)) ros = "S";
+			int CriterioIva = sf.getint("CriterioIva");
+			int TipoCriterioIva = sf.getint("TipoCriterioIva");
+			boolean esRecc = (CriterioIva == 2);
 			int abono = sf.getint("AbonoIva");
 			double multiplicador = 1.0;
 			if (abono == -1) multiplicador = -1.0;
-			String civdesc = getSelString(sf,"Nombre");
-			String codigoCta = getSelString(sf,"CodigoCuentaFactura");
-			String[] infocta = getNifFromCliConta(codigoCta,empJconta);
-			if (infocta!=null) {
-				if (civdesc==null || civdesc.trim().length()==0) civdesc = infocta[0];
-				iciv.valor("civnif",infocta[1]);
-			}
-			iciv.valor("civdesc",civdesc);
-			iciv.valor("civemirep",ros);
 			double ImporteFactura = sf.getdouble("ImporteFactura");
-			if (ImporteFactura!=0) iciv.valor("civimporte",multiplicador * ImporteFactura);
-			double Retencion = sf.getdouble("%Retencion");
-			if (Retencion!=0) iciv.valor("civporirpf",Retencion);
-			double BaseRetencion = sf.getdouble("BaseRetencion");
-			if (BaseRetencion!=0) iciv.valor("civbaseirpf",multiplicador * BaseRetencion);
-			double retenaplic = sf.getdouble("ImporteRetencion");
-			if (retenaplic!=0) iciv.valor("civimpiva",multiplicador * retenaplic);
-			iciv.valor("civasicodi",codi);
-			int codReten = sf.getint("CodigoRetencion");
-			bOk = iciv.execute();
-			if (!bOk) sError = "Error a grabar cabecera de iva";
-			if (bOk) {
-				String ClaveIRPFNomina = null;
-				String Clave180 = null;
-				if (codReten>0) {
-					SelectorLogic sir = new SelectorLogic (connLC);
-					sir.execute("Select * from TiposRetencion INNER JOIN ClavesIrpf on TiposRetencion.ClaveIrpf = ClavesIrpf.ClaveIrpf where CodigoRetencion="+codReten);
-					if (sir.next()) {
-						ClaveIRPFNomina = sir.getString("ClaveIRPFNomina");
-						Clave180 = sir.getString("Clave180");
-					}
-					sir.close();
-				}
-				if (Numero.redondeo(Retencion)!=0 && (ClaveIRPFNomina!=null || Clave180!=null) ) {
-					String sc = "";
-					String ss = "";
-					try {
-						String [] ctafull = getFormatoCuenta (codigoCta);
-						if (ctafull!=null) {
-							sc= ctafull[0];         
-							ss = ctafull[1];  
+			int EjercicioFactura = sf.getint("EjercicioFactura");
+			int iNumero = sf.getint("Factura");
+			String sSerie = getSelString(sf,"Serie");
+			if (sSerie == null || sSerie.trim().equals("")) sSerie = " ";
+
+			if ("I".equals(emirec)) {
+				if (esRecc && (TipoCriterioIva==1 || TipoCriterioIva==2) && infocta != null && fechaAsiento != null ) {
+					Insert icp = new Insert (dbJCta,"COBROPAGO");
+					icp.valor("cobcodi", 0);
+					icp.valor("cobempresa", empJconta);
+					icp.valor("cobejercicio", iEjerJ);
+					icp.valor("cobcuenta", infocta[0]);		        	
+					icp.valor("cobsubcuenta", infocta[1]);		        	
+					icp.valor("cobvto", fechaAsiento);
+					icp.valor("cobconcepto", conceptoAsiento);
+					icp.valor("cobimporte", multiplicador * ImporteFactura);
+					icp.valor("cobdocumento", TipoCriterioIva==1?"COBRO":"PAGO");
+					icp.valor("cobejerasto", iEjerJ);
+					String ctabanrecc = null;
+					String sctabanrecc = null;
+					SelectorLogic smovrecc = new SelectorLogic (connLC);
+					smovrecc.execute("Select * from Movimientos where CodigoEmpresa="+iEmp+" and MovPosicion='"+movPosicion+"' and left(CodigoCuenta,1)='5'");
+					if (smovrecc.next()) {
+						String ccrecc = smovrecc.getString("CodigoCuenta");
+						String[] icrecc = getFormatoCuenta(ccrecc);
+						if (icrecc != null) {
+							ctabanrecc = icrecc[0];
+							sctabanrecc = icrecc[1];
 						}
 					}
-					catch (Exception e) {
-						e.printStackTrace();
+					if (ctabanrecc!=null && sctabanrecc!=null) {
+						icp.valor("cobcuentaban", ctabanrecc);		        	
+						icp.valor("cobsubctaban", sctabanrecc);		        	
 					}
-					boolean bOkCC = !sc.equals("") && !ss.equals("") && !ss.equals("0");
-					if (bOkCC) bOk = checkReten (iEmp, iEjerJ, sc, ss, empJconta,Clave180!=null);
+					icp.valor("cobcobropago", (TipoCriterioIva==1?"C":"P"));
+					icp.valor("cobestado", "C");		
+					DBConnection connTmp = Contaasp.getConexionCtasp(empJconta, EjercicioFactura);
+					if (connTmp != null) {
+						Selector sc = new Selector (connTmp);
+						sc.execute("Select civcodi, civasicodi from IVACABECERA where civempresa="+empJconta+" and civejercicio="+EjercicioFactura+" and civregistro="+iNumero+" and civserie='"+sSerie+"'");
+						if (sc.next()) {
+							int civcodi = sc.getint("civcodi");
+							int civasicodi = sc.getint("civasicodi");
+							int asiasiento = 0;
+							Selector sa = new Selector (connTmp);
+							sa.execute("Select asiasiento from ASIENTOS where asiempresa="+empJconta+" and asiejercicio="+EjercicioFactura+" and asicodi="+civasicodi);
+							if (sa.next()) asiasiento = sa.getint("asiasiento");
+							sa.close();
+							if (asiasiento > 0) icp.valor("cobnumasto", asiasiento);
+							if (civcodi > 0) icp.valor("cobcivcodi", civcodi);
+						}
+						sc.close();
+						connTmp.disconnect();
+					}
+					bOk = icp.execute();
 				}
-				int civcodi = 0;
-				civcodi = iciv.getField("civcodi").getInteger();
-				SelectorLogic sl = new SelectorLogic (connLC);
-				sl.execute ("Select * from MovimientosIva where CodigoEmpresa="+iEmp+" and MovPosicion='"+movPosicion+"'");
-				while (bOk && sl.next()) {
-					String deducible = (sl.getint("Deducible")==0?"N":"S");
-					aTrans = emirec + "IN";
-					int codtrans = sl.getint("CodigoTransaccion");
-					if (codtrans==8) aTrans = "ERA";
-					else if (codtrans==10 || codtrans==11) aTrans = "EEN";
-					else if (codtrans==13) aTrans = "END";
-					else if (codtrans==14) aTrans = "EEX";
-					else if (codtrans==17 || codtrans==18 || codtrans==19) aTrans = "EOE";
-					else if (codtrans==20 || codtrans==21 || codtrans==22 || codtrans==29){
-						aTrans = "RAD";
-						a347 = "N";
-						a349 = "S";          
-						if (codtrans==21) aTrans = "RAB";
-						else if (codtrans==29) aTrans = "RAS";
-						if ("E".equals(emirec)) a349 = "N";
-					}
-					else if (codtrans==23) aTrans = emirec+"MQ";
-					else if (codtrans==25) aTrans = "EIB";
-					else if (codtrans==28) aTrans = "EPS";
-					else if (codtrans==27) aTrans = "RDI";
-					else if (codtrans==30) aTrans = "RIB"; 
-					else if (codtrans==31 || codtrans==32) aTrans = "RBM";
-					else if (codtrans==33) aTrans = "EDI";
-					else if (codtrans==35) aTrans = "RAG";
-					else if (codtrans==36) aTrans = "RRI";
-					else if (codtrans==37) aTrans = "RIN";
+			}
+			else {				
+				String a347 = "S";
+				String a349 = "N";
+				String aTrans = "IN";
+				Insert iciv = new Insert (dbJCta,"IVACABECERA");
+				iciv.valor("civcodi",0);
+				iciv.valor("civempresa",empJconta);
+				iciv.valor("civejercicio",iEjerJ);
+				iciv.valor("civivaigic","I");
+				iciv.valor("civserie",sSerie);    
+				iciv.valor("civregistro",iNumero);
+				iciv.valor("civfecha",sf.getDate("FechaFactura"));
+				iciv.valor("civfechaop",sf.getDate("FechaOperacion"));
+				String ros = "R";
 
-					if (sl.getint("Exclusion347")!=0 || ClaveIRPFNomina!=null || Clave180!=null) a347 = "N";
-					if ("S".equals(a349) ) {
+				if (esRecc)	iciv.valor("civrecc","S");
+				else iciv.valor("civrecc","N");
+				if ("R".equals(emirec)) ros = "S";
+				String civdesc = getSelString(sf,"Nombre");
+
+				if (infocta!=null) {
+					if (civdesc==null || civdesc.trim().length()==0) civdesc = infocta[0];
+					iciv.valor("civnif",infocta[1]);
+				}
+				iciv.valor("civdesc",civdesc);
+				iciv.valor("civemirep",ros);
+				if (ImporteFactura!=0) iciv.valor("civimporte",multiplicador * ImporteFactura);
+				double Retencion = sf.getdouble("%Retencion");
+				if (Retencion!=0) iciv.valor("civporirpf",Retencion);
+				double BaseRetencion = sf.getdouble("BaseRetencion");
+				if (BaseRetencion!=0) iciv.valor("civbaseirpf",multiplicador * BaseRetencion);
+				double retenaplic = sf.getdouble("ImporteRetencion");
+				if (retenaplic!=0) iciv.valor("civimpiva",multiplicador * retenaplic);
+				iciv.valor("civasicodi",codi);
+				int codReten = sf.getint("CodigoRetencion");
+				bOk = iciv.execute();
+				if (!bOk) sError = "Error a grabar cabecera de iva";
+				if (bOk) {
+					String ClaveIRPFNomina = null;
+					String Clave180 = null;
+					if (codReten>0) {
+						SelectorLogic sir = new SelectorLogic (connLC);
+						sir.execute("Select * from TiposRetencion INNER JOIN ClavesIrpf on TiposRetencion.ClaveIrpf = ClavesIrpf.ClaveIrpf where CodigoRetencion="+codReten);
+						if (sir.next()) {
+							ClaveIRPFNomina = sir.getString("ClaveIRPFNomina");
+							Clave180 = sir.getString("Clave180");
+						}
+						sir.close();
+					}
+					if (Numero.redondeo(Retencion)!=0 && (ClaveIRPFNomina!=null || Clave180!=null) ) {
 						String sc = "";
 						String ss = "";
 						try {
@@ -2106,31 +2170,81 @@ public class ConversionJCO extends ConversionLC {
 							e.printStackTrace();
 						}
 						boolean bOkCC = !sc.equals("") && !ss.equals("") && !ss.equals("0");
-						if (bOkCC) bOk = check349 (iEmp, iEjerJ, sc, ss, empJconta);
+						if (bOkCC) bOk = checkReten (iEmp, iEjerJ, sc, ss, empJconta,Clave180!=null);
 					}
-					if (bOk) {
-						Insert iliv = new Insert (dbJCta,"IVALINEAS");
-						iliv.valor("livacum347",a347);
-						iliv.valor("livacum349",a349);
-						iliv.valor("livdeducible",deducible);
-						iliv.valor("livmediacion","N");
-						iliv.valor("livtransaccion",aTrans);
-						iliv.valor("livasto",codi);
-						iliv.valor("livcodi",civcodi);
-						iliv.valor("livcodilin",0);
-						iliv.valor("livbase",multiplicador * sl.getdouble("BaseIva"));
-						iliv.valor("livimpiva",multiplicador * sl.getdouble("CuotaIva"));
-						iliv.valor("livporiva",sl.getdouble("%IVA"));
-						iliv.valor("livimprec",multiplicador * sl.getdouble("RecargoEquivalencia"));
-						iliv.valor("livporrec",sl.getdouble("%RecargoEquivalencia"));
-						iliv.valor("livopefec","N");
-						bOk = iliv.execute();      
-						if (!bOk) sError = "ERROR al grabar la linea de Iva del asiento "+codi+" - "+movPosicion;
+					int civcodi = 0;
+					civcodi = iciv.getField("civcodi").getInteger();
+					SelectorLogic sl = new SelectorLogic (connLC);
+					sl.execute ("Select * from MovimientosIva where CodigoEmpresa="+iEmp+" and MovPosicion='"+movPosicion+"'");
+					while (bOk && sl.next()) {
+						String deducible = (sl.getint("Deducible")==0?"N":"S");
+						aTrans = emirec + "IN";
+						int codtrans = sl.getint("CodigoTransaccion");
+						if (codtrans==8) aTrans = "ERA";
+						else if (codtrans==10 || codtrans==11) aTrans = "EEN";
+						else if (codtrans==13) aTrans = "END";
+						else if (codtrans==14) aTrans = "EEX";
+						else if (codtrans==17 || codtrans==18 || codtrans==19) aTrans = "EOE";
+						else if (codtrans==20 || codtrans==21 || codtrans==22 || codtrans==29){
+							aTrans = "RAD";
+							a347 = "N";
+							a349 = "S";          
+							if (codtrans==21) aTrans = "RAB";
+							else if (codtrans==29) aTrans = "RAS";
+							if ("E".equals(emirec)) a349 = "N";
+						}
+						else if (codtrans==23) aTrans = emirec+"MQ";
+						else if (codtrans==25) aTrans = "EIB";
+						else if (codtrans==28) aTrans = "EPS";
+						else if (codtrans==27) aTrans = "RDI";
+						else if (codtrans==30) aTrans = "RIB"; 
+						else if (codtrans==31 || codtrans==32) aTrans = "RBM";
+						else if (codtrans==33) aTrans = "EDI";
+						else if (codtrans==35) aTrans = "RAG";
+						else if (codtrans==36) aTrans = "RRI";
+						else if (codtrans==37) aTrans = "RIN";
+
+						if (sl.getint("Exclusion347")!=0 || ClaveIRPFNomina!=null || Clave180!=null) a347 = "N";
+						if ("S".equals(a349) ) {
+							String sc = "";
+							String ss = "";
+							try {
+								String [] ctafull = getFormatoCuenta (codigoCta);
+								if (ctafull!=null) {
+									sc= ctafull[0];         
+									ss = ctafull[1];  
+								}
+							}
+							catch (Exception e) {
+								e.printStackTrace();
+							}
+							boolean bOkCC = !sc.equals("") && !ss.equals("") && !ss.equals("0");
+							if (bOkCC) bOk = check349 (iEmp, iEjerJ, sc, ss, empJconta);
+						}
+						if (bOk) {
+							Insert iliv = new Insert (dbJCta,"IVALINEAS");
+							iliv.valor("livacum347",a347);
+							iliv.valor("livacum349",a349);
+							iliv.valor("livdeducible",deducible);
+							iliv.valor("livmediacion","N");
+							iliv.valor("livtransaccion",aTrans);
+							iliv.valor("livasto",codi);
+							iliv.valor("livcodi",civcodi);
+							iliv.valor("livcodilin",0);
+							iliv.valor("livbase",multiplicador * sl.getdouble("BaseIva"));
+							iliv.valor("livimpiva",multiplicador * sl.getdouble("CuotaIva"));
+							iliv.valor("livporiva",sl.getdouble("%IVA"));
+							iliv.valor("livimprec",multiplicador * sl.getdouble("RecargoEquivalencia"));
+							iliv.valor("livporrec",sl.getdouble("%RecargoEquivalencia"));
+							iliv.valor("livopefec","N");
+							bOk = iliv.execute();      
+							if (!bOk) sError = "ERROR al grabar la linea de Iva del asiento "+codi+" - "+movPosicion;
+						}
 					}
+					sl.close();
+					if (bOk && esRecc) bOk = importarCartera (iEmp, iEjerL, movPosicion, numAsi, empJconta,iEjerJ, civcodi);
+					else if (bOk) bOk = importarCarteraIVA (iEmp, iEjerL, movPosicion, numAsi, empJconta,iEjerJ, civcodi);
 				}
-				sl.close();
-				if (bOk && esRecc) bOk = importarCartera (iEmp, iEjerL, movPosicion, numAsi, empJconta,iEjerJ, civcodi);
-				else if (bOk) bOk = importarCarteraIVA (iEmp, iEjerL, movPosicion, numAsi, empJconta,iEjerJ, civcodi);
 			}
 		}
 		sf.close();
