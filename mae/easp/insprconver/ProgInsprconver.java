@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20151203
-// Hora:             17:45:05
+// Fecha:            20151215
+// Hora:             09:59:29
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1467,6 +1467,10 @@ public class ProgInsprconver extends Program
     String sentencias13_3[]={
       "alter table AMORTIZACION  add  amocodequiv INTEGER"
     };
+    
+    String sentencias13_4[]={"DELETE FROM INDEMORA WHERE indejercicio=2016;",
+    "INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2016,'01/01/2016','31/12/2016',3.75);"};
+    
     
       int i=0;
       try {
@@ -3364,6 +3368,22 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("13.3");
           }
+          if (versio < 13.4) {
+            for (i=0;i<sentencias13_4.length;++i) {
+                  try {
+                    Easp.chivato("13.4 Exec : ["+sentencias13_4[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias13_4[i]);
+                  }
+                  catch(Exception e) {
+                    sqlOperation=sentencias13_4[i];
+                    Easp.chivato("13.4 *** Error : ["+sentencias13_4[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                  }
+            }
+            Easp.setVersionBD("bdeasp","13.4");
+            Easp.connEA.commit();
+            vvveractual.setValue("13.4");
+        }
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");

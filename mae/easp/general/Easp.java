@@ -31,7 +31,7 @@ public class Easp {
   //variables de versiones
   public static String versionAplicacion="9.8";
   public static String versionFecha="Diciembre/2015";
-  public static String versionBDEA="13.3";
+  public static String versionBDEA="13.4";
 
   public static enum TIPO_HOST { ORACLE, LOCALHOST, AZURE, AZUREMSDN};
   public static TIPO_HOST HOST = TIPO_HOST.ORACLE;
@@ -72,8 +72,8 @@ public class Easp {
   public static String getUrlDocVersion(String url, String aplic) {
     if (url != null) url = url.toLowerCase();
 	  String retorn = url;
-	  if ( esAzure() ) 
-            retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/documentos/");                        
+	  if ( esAzure() )
+            retorn = retorn.replace("afinity.geyce.es/agpi/home/999999999999/administrador/", "afinityprod.blob.core.windows.net/documentos/");
      return retorn;
   }
 
