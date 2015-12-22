@@ -175,4 +175,4 @@
 151204 --> APJORDI: Nou camp a la taula d'amortitzacions per poder fer equivalencia.
 151205 --> APJORDI: Canvis conver LC - JCONTA - RECC .
 151206 --> APESTER  Gravacio taula indemora registre 2016
-151207 --> APJORDI: Canvis conver LC - JCONTA - RECC .
+151208 --> APJORDI: Canvis conver LC - JCONTA - RECC .

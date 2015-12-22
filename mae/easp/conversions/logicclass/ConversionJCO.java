@@ -954,6 +954,7 @@ public class ConversionJCO extends ConversionLC {
 		s.execute("Select * from Departamentos where CodigoEmpresa="+iEmp);
 		while (bOk && s.next()) {
 			String Departamento = s.getString("Departamento");
+			if (Departamento == null) Departamento = "-";
 			String CodigoDepartamento = s.getString("CodigoDepartamento");			
 			if (CodigoDepartamento!=null && CodigoDepartamento.trim().length()>0) {
 				CodigoDepartamento = CodigoDepartamento.trim();
