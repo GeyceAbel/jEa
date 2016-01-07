@@ -190,6 +190,7 @@ public class PlantillaJacob extends Thread {
 		}
 	  }
 	  catch(Exception ex) {
+		ex.printStackTrace();
 	    if (oWord!=null) {
 		  oWord.invoke("Quit", new Variant(0));  
 		  oWord=null;

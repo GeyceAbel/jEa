@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150512
-// Hora:             17:11:27
+// Fecha:            20160107
+// Hora:             09:57:01
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -49,6 +49,112 @@ public class ProgInsprexportbd extends Program
   String sServtmp;
   String sUsertmp;
   String sPasswdtmp;
+  
+  public void procesAzure() {  
+      sServidor = vexportbd.vvservidor.getString();
+      sUser = vexportbd.vvuser.getString();
+      sPasswd = vexportbd.vvpasswd.getString();
+      
+      String serverTmp = sServidor;
+      if (!vexportbd.vvinstancia.isNull()) serverTmp += "\\"+vexportbd.vvinstancia.getString();
+      
+      boolean resultBDEasp    = true ; 
+      boolean resultBDModelos = true ;
+      boolean resultBDLaboral = true ;
+      boolean resultBDJEO     = true;
+      boolean resultBDJISS    = true;
+      boolean resultBDJRENTA  = true;
+      boolean resultBDJCONTA  = true;
+    
+      if ( bdeasp )                                        resultBDEasp    = traspasaBDAcc2SQL("easp"   ,serverTmp,sUser,sPasswd);
+      if ( resultBDEasp && bdmodelos )                     resultBDModelos = traspasaBDAcc2SQL("modelos",serverTmp,sUser,sPasswd);
+      if ( resultBDEasp && resultBDModelos && bdlaboral )  resultBDLaboral = traspasaBDAcc2SQL("laboral",serverTmp,sUser,sPasswd); 
+      if ( resultBDEasp && resultBDModelos && bdjeo )   resultBDJEO = traspasaBDAcc2SQL("jeo",serverTmp,sUser,sPasswd); 
+      if ( resultBDEasp && resultBDModelos && bdjiss )  resultBDJISS = traspasaBDAcc2SQL("jiss",serverTmp,sUser,sPasswd); 
+      if ( resultBDEasp && resultBDModelos && bdjrenta )resultBDJRENTA = traspasaBDAcc2SQL("jrenta",serverTmp,sUser,sPasswd); 
+      if ( resultBDEasp && resultBDModelos && bdjconta ){
+        DBConnection connEAtmp = getConexionEa ("easp", serverTmp, sUser,sPasswd, "sqlserver");
+        if (connEAtmp != null) {
+          for (int ejerActivo = 2002; resultBDJCONTA && ejerActivo<(Maefc.getYear(Maefc.getDate())+4); ejerActivo++) {
+            String ubiCtaspEEEE = sHome+"ctasp"+ejerActivo+".mdb";
+            if (Easp.existeFichero(ubiCtaspEEEE)) { 
+              resultBDJCONTA = traspasaBDAcc2SQL("ctasp"+ejerActivo,serverTmp,sUser,sPasswd) && actualizaBDSCargadas (9999, ejerActivo,connEAtmp, serverTmp, vexportbd.vvinstancia.getString(), vexportbd.vvpuerto.getInteger() ); 
+            }
+          }
+          connEAtmp.commit();
+          connEAtmp.disconnect();
+        }
+      }
+      boolean result = resultBDEasp && resultBDModelos && resultBDLaboral && resultBDJEO && resultBDJISS && resultBDJRENTA && resultBDJCONTA;
+    
+      if ( result ) {
+    
+        String serverTmp2 = sServidor;
+        if (!vexportbd.vvinstancia.isNull() && vexportbd.vvpuerto.getInteger()>0) serverTmp2 += ":"+vexportbd.vvpuerto.getString();
+        String proc = "http://afinity.geyce.es/pls/agpi/starterdp.getContratado?domini="+Easp.dominio+"&apli=";
+        if ( bdeasp )    {
+  
+      	String aplicJea = URLExec.getContenido(proc+"EAB");
+          if(aplicJea !=null && !aplicJea.startsWith("EAB")) { 
+            conver.setRegistre (Easp.dominio,"EAB"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);    
+          }
+          
+          
+          String aplicJges = URLExec.getContenido(proc+"JGES");
+          if(aplicJges !=null && !aplicJges.startsWith("JGES")) {
+          	Selector sbds = new Selector(Easp.connEA);
+              sbds.execute("Select bdnombre,bdversio from bds where bdnombre = 'bdexpe' ");  //getContratado
+              if ( sbds.next() ) {
+                 double version = sbds.getdouble("bdversio");
+                 if ( version >= 13  ) {
+                   conver.setRegistre (Easp.dominio,"JGES"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);    
+                   }
+                }  
+              sbds.close();
+          }
+          // vip REVISAR ESTO APPAU - APJORDI  15/09/05 
+          String aplicJconta =URLExec.getContenido(proc+"JCONTA");
+          if ((aplicJconta != null && aplicJconta.startsWith("JCONTA")) || bdjconta) {
+             conver.setRegistre (Easp.dominio,"JCONTA"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);
+          }
+        }
+        if ( bdmodelos ) {
+          String aplicJmod =URLExec.getContenido(proc+"JMOD");
+          if ((aplicJmod != null && aplicJmod.startsWith("JMOD"))) {
+      	  conver.setRegistre (Easp.dominio,"JMOD"   ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);
+          }
+        }
+        if ( bdlaboral )  {
+      	  String aplicJnom =URLExec.getContenido(proc+"JNOM");
+            if ((aplicJnom != null && aplicJnom.startsWith("JNOM"))) {
+      	    conver.setRegistre (Easp.dominio,"JNOM",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);    
+            }
+        }
+        if ( bdjeo ) {
+      	  String aplicJeo =URLExec.getContenido(proc+"JEO");
+            if ((aplicJeo != null && aplicJeo.startsWith("JEO"))) {
+      	    conver.setRegistre (Easp.dominio,"JEO",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);
+            }
+        }
+        if ( bdjiss ) {
+      	  String aplicJiss =URLExec.getContenido(proc+"JISS");
+            if ((aplicJiss != null && aplicJiss.startsWith("JISS"))) {
+      	    conver.setRegistre (Easp.dominio,"JISS",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);
+            }
+        }
+        if ( bdjrenta ) {
+      	  String aplicJren =URLExec.getContenido(proc+"JRENTA");
+            if ((aplicJren != null && aplicJren.startsWith("JRENTA"))) {
+      	    conver.setRegistre (Easp.dominio,"JRENTA",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);
+            }
+        }
+        Maefc.message ("La exportación ha finalizado correctamente.\nEs necesario que cierre todos los programas de GEyCE (jToken,jEA,jModelos .... )  para que los cambios tengan efecto.");
+      }
+      else {
+        Maefc.message ("Se han producido errores.\nSolucione las incidencias y ejecute de nuevo el proceso.");
+      }
+    
+  }
   
   public void proces() {
   
@@ -490,8 +596,8 @@ public class ProgInsprexportbd extends Program
       public void onAction()
         {
         super.onAction();
-        
-        proces();
+        procesAzure();
+        //proces();
         
         }
       }
