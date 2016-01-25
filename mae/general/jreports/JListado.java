@@ -625,9 +625,9 @@ public class JListado {
 						if (col.getTf().isExpression()) nom = "tot"+i+col.getTf().getExpression();
 						else if (col.getTf().esVariable()) nom = "tot"+i+col.getTf().getVariable().getNom();
 						if (printWhen.length()>0) printWhen += " || ";
-						printWhen += "$V{"+nom+"}!=null";
+						printWhen += "($V{"+nom+"}!=null && $V{"+nom+"}!=0)";
 					}
-					pw.write("<printWhenExpression>"+printWhen+"</printWhenExpression>");
+					pw.write("<printWhenExpression><![CDATA["+printWhen+"]]></printWhenExpression>");
 				}
 
 

@@ -41,35 +41,17 @@ public class ErrorParamJ extends Hashtable{
 		    	
 		    	Exception ex = param.getException();
 		    	if (ex!=null){
-		    		//put(ErrorManager.EXCEPTION, ex);
 	                java.io.StringWriter sw = new java.io.StringWriter();
 	                java.io.PrintWriter pw = new java.io.PrintWriter(sw);
-	                /*
-	                if (ex instanceof java.sql.SQLException) {
-	                    java.sql.SQLException sqlex = (java.sql.SQLException) ex;
-	                    for (sqlex = sqlex.getNextException(); sqlex != null; sqlex = sqlex.getNextException()) {
-	                        pw.println(sqlex.getMessage());
-	                    }
-	                    ex.printStackTrace(pw);
-	                    pw.flush();
-	    		        String sqlm = sw.toString();
-	    		    	if (sqlm!=null){
-	    		    		if (sqlm.length() > 2000){
-	    		    			sqlm = sqlm.substring(0,2000);
-	    		    		}
-	    		    		put("SQLMessage", sqlm);
-	    		    	}
-	                } else {*/
-	                	ex.printStackTrace(pw);
-	                    pw.flush();
-	    		        String stack = sw.toString();
-	    		    	if (stack!=null){
-	    		    		if (stack.length() > 2000){
-	    		    			stack = stack.substring(0,2000);
-	    		    		}
-	    		    		put("StackTrace", stack);
-	    		    	}
-	                //}
+                	ex.printStackTrace(pw);
+                    pw.flush();
+    		        String stack = sw.toString();
+    		    	if (stack!=null){
+    		    		if (stack.length() > 400){
+    		    			stack = stack.substring(0,400);
+    		    		}
+    		    		put("StackTrace", stack);
+    		    	}
 		    	}
 		    	
 		    	if (ex!=null){

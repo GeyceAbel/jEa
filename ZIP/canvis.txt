@@ -176,3 +176,4 @@
 151205 --> APJORDI: Canvis conver LC - JCONTA - RECC .
 151206 --> APESTER  Gravacio taula indemora registre 2016
 151208 --> APJORDI: Canvis conver LC - JCONTA - RECC .
+160101 --> APJORDI: rotura quan es tota a 0.Canvis enviar error afinity

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20151203
-// Hora:             12:32:25
+// Fecha:            20160125
+// Hora:             15:10:12
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -614,8 +614,6 @@ public class ProgPrerrgestio extends Program
             if (contexto != null){
                 ctxt = "&contexto="+contexto;
             }
-            if (str8!=null && str8.length()>1000)
-                str8 = str8.substring(0,1000);
             String parametros = "fcod="+codi
                                 +"&faplicacion="+aplicacion + progs
                                 +"&ftipologia="+vvtipologia.getString()
