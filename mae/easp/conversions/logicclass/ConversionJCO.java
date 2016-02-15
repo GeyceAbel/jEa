@@ -1735,7 +1735,7 @@ public class ConversionJCO extends ConversionLC {
 		int numActual = 0;
 		pbf.setState("Convirtiendo LC: "+iEmp+"  JC:"+empJconta+" ("+iEjerJ+")  -  Asientos (Inicializando ...)");
 		SelectorLogic smov = new SelectorLogic (connLC);
-		smov.execute("Select * from Movimientos where CodigoEmpresa="+iEmp+" and Ejercicio="+iEjerL+" and NumeroPeriodo>0 and (NumeroPeriodo<98 or (NumeroPeriodo=98 and Comentario='Cierre Patrimonio')) order by NumeroPeriodo,FechaAsiento,Asiento");
+		smov.execute("Select * from Movimientos where CodigoEmpresa="+iEmp+" and Ejercicio="+iEjerL+" and NumeroPeriodo>0 and (NumeroPeriodo<98 or (NumeroPeriodo=98 and Comentario='Cierre Patrimonio')) order by NumeroPeriodo,FechaAsiento,Asiento, FechaGrabacion");
 		pbf.setState("Convirtiendo LC: "+iEmp+"  JC:"+empJconta+" ("+iEjerJ+")  -  Asientos (Grabando ...)");
 		while (bOk && smov.next()) {
 			pbf.setSecondaryPercent((++numActual)*100/numTotal);
