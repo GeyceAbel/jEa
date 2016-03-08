@@ -6,7 +6,7 @@ import java.util.Hashtable;
 
 public class ErrorParamJ extends Hashtable{
 
-	public ErrorParamJ(ErrorParam param){
+	public ErrorParamJ(ErrorParam param, boolean paraEnviar){
 		try {
 			if (param != null){
 				put(ErrorManager.APLICATION, param.getAplication().getName());
@@ -47,7 +47,7 @@ public class ErrorParamJ extends Hashtable{
                     pw.flush();
     		        String stack = sw.toString();
     		    	if (stack!=null){
-    		    		if (stack.length() > 400){
+    		    		if (paraEnviar && stack.length() > 400){
     		    			stack = stack.substring(0,400);
     		    		}
     		    		put("StackTrace", stack);

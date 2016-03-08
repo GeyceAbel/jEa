@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20160125
-// Hora:             15:10:12
+// Fecha:            20160308
+// Hora:             15:37:04
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -221,7 +221,7 @@ public class ProgPrerrgestio extends Program
       public void onClick()
         {
         super.onClick();
-        eparam = new ErrorParamJ(param);
+        eparam = new ErrorParamJ(param,false);
         vdetalle=new FormVdetalle(prerrgestio);
         Easp.colocarControlesDetalle(eparam, vdetalle, contexto);
         LayoutHtml lhtml=new LayoutHtml();
@@ -588,7 +588,7 @@ public class ProgPrerrgestio extends Program
             return;
         }
         try {
-            eparam = new ErrorParamJ(param);
+            eparam = new ErrorParamJ(param,true);
             java.io.ByteArrayOutputStream byt=new java.io.ByteArrayOutputStream();
             java.io.ObjectOutputStream out=new java.io.ObjectOutputStream(byt);
             out.writeObject(eparam);

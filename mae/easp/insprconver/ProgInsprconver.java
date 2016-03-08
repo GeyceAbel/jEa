@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20151215
-// Hora:             09:59:29
+// Fecha:            20160308
+// Hora:             15:44:30
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1471,6 +1471,7 @@ public class ProgInsprconver extends Program
     String sentencias13_4[]={"DELETE FROM INDEMORA WHERE indejercicio=2016;",
     "INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2016,'01/01/2016','31/12/2016',3.75);"};
     
+    String sentencias13_5[]={"UPDATE TRANSACCIONES SET tratipoiva='ISP' where tratipo='EISP' and tratipoiva='DI';"};
     
       int i=0;
       try {
@@ -3384,6 +3385,23 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("13.4");
         }
+          if (versio < 13.5) {
+            for (i=0;i<sentencias13_5.length;++i) {
+                  try {
+                    Easp.chivato("13.5 Exec : ["+sentencias13_5[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias13_5[i]);
+                  }
+                  catch(Exception e) {
+                    sqlOperation=sentencias13_5[i];
+                    Easp.chivato("13.5 *** Error : ["+sentencias13_5[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                  }
+            }
+            Easp.setVersionBD("bdeasp","13.5");
+            Easp.connEA.commit();
+            vvveractual.setValue("13.5");
+        }
+    
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
