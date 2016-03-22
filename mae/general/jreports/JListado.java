@@ -1011,6 +1011,7 @@ public class JListado {
 
 		}
 		catch (Exception e) {
+			e.printStackTrace();
 			sError = ""+e;
 			bOk = false;
 		}
@@ -1319,6 +1320,10 @@ public class JListado {
 		if (tf.isAligDerecha())  {
 			pw.write("<textElement textAlignment=\"Right\" verticalAlignment=\""+tf.getVerticalAlig()+"\">");
 			indent="<paragraph rightIndent=\""+tf.getRightIndent()+"\"/>";
+			//pw.write("<paragraph rightIndent=\""+tf.getRightIndent()+"\"/>");
+		}else if(tf.isCentered()) {
+			pw.write("<textElement textAlignment=\"Center\" verticalAlignment=\""+tf.getVerticalAlig()+"\">");
+			//indent="<paragraph rightIndent=\""+tf.getRightIndent()+"\"/>";
 			//pw.write("<paragraph rightIndent=\""+tf.getRightIndent()+"\"/>");
 		}
 		else {

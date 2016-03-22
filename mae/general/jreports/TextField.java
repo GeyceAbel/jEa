@@ -24,7 +24,9 @@ public class TextField {
 	private boolean printValoresRepetidos;
 	private boolean esExpresionCompleta;
 	private boolean isStretchWithOverflow=false;
-  private String style = "";
+	private boolean centered = false;
+
+private String style = "";
 
 
 	private TextField () {
@@ -181,6 +183,16 @@ public class TextField {
 		variable = null;
 	}
 	*/
+	
+	public boolean isCentered() {		
+		return centered;
+	}
+
+	public void setCentered(boolean centered) {
+		if(centered) aligDerecha = centered;
+		this.centered = centered;
+	}
+		
 	public void setVariable(Variable v) {
 		expression = null;
 		this.variable = v;
