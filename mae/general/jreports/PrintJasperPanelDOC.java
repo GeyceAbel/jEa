@@ -22,7 +22,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 
-import com.jnetdirect.jsql.ab;
 
 import mae.modasp.general.Modasp;
 import net.sf.jasperreports.engine.JREmptyDataSource;
