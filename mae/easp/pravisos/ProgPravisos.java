@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150915
-// Hora:             12:40:56
+// Fecha:            20160607
+// Hora:             16:26:51
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -35,7 +35,21 @@ public class ProgPravisos extends Program
   private String desc       = "" ;
   private boolean desactivaDesc = false ;
   
+  public void onOpened() {
   
+    vavisos.avempresa.removeAllItems();
+    if ( gaplicacion != null && gaplicacion.equals("JNOMINA") && connJNOM != null ) {
+      Selector sempresa = new Selector(connJNOM);
+      sempresa.execute("Select empcodigo,empnombre from empresa ");
+      while ( sempresa.next() )  {
+        vavisos.avempresa.addItem(sempresa.getString("empcodigo"),sempresa.getString("empnombre"));
+         // avnomempresa.setValue(sempresa.getString("empnombre"));
+        }
+      sempresa.close();
+      }  
+    super.onOpened();
+  
+    }
   // Fin declaraciones globales
   // Ventana
   public FormVbuscar vbuscar;
@@ -339,6 +353,7 @@ public class ProgPravisos extends Program
     public CtrlAvtitulo avtitulo;
     public CtrlVvestado vvestado;
     public CtrlAvfechavenci avfechavenci;
+    public CtrlAvresponsrevi avresponsrevi;
     // Acciones
     public LinkAcrevisado acrevisado;
     public LinkAcpendiente acpendiente;
@@ -378,7 +393,7 @@ public class ProgPravisos extends Program
         }
       }
       
-    public class CtrlAvempresa extends ColumnEdit
+    public class CtrlAvempresa extends ColumnComboBox
       {
       public CtrlAvempresa(Form form)
         {
@@ -388,7 +403,27 @@ public class ProgPravisos extends Program
         setType(INTEGER);
         setLength(6);
         setSearchable(true);
+        setRestricted(false);
+        setDescriptionShow(false);
+        addItem("99999/Empresa Test");
         setField(savisos.avempresa);
+        }
+      public void onChange()
+        {
+        
+        super.onChange();
+        
+        if ( gaplicacion != null && gaplicacion.equals("JNOMINA") && connJNOM != null ) {
+           avtrabajador.removeAllItems();
+          Selector strabajador = new Selector(connJNOM);
+          strabajador.execute("Select tracodigo,tranombre from trabajador where tracodiemp ="+getInteger() );
+          while ( strabajador.next() )  {
+            avtrabajador.addItem(strabajador.getString("tracodigo"),strabajador.getString("tranombre")) ;
+            }
+          strabajador.close();
+          }
+        
+        
         }
       }
       
@@ -407,7 +442,7 @@ public class ProgPravisos extends Program
         }
       }
       
-    public class CtrlAvtrabajador extends ColumnEdit
+    public class CtrlAvtrabajador extends ColumnComboBox
       {
       public CtrlAvtrabajador(Form form)
         {
@@ -417,6 +452,9 @@ public class ProgPravisos extends Program
         setType(INTEGER);
         setLength(6);
         setSearchable(true);
+        setRestricted(false);
+        setDescriptionShow(false);
+        addItem("1/Test");
         setField(savisos.avtrabajador);
         }
       }
@@ -508,6 +546,23 @@ public class ProgPravisos extends Program
         }
       }
       
+    public class CtrlAvresponsrevi extends ColumnComboBox
+      {
+      public mae.easp.general.pkusuarios.PickPkusuarios pickup;
+      public CtrlAvresponsrevi(Form form)
+        {
+        super(form);
+        setName("avresponsrevi");
+        setTitle("Usuario");
+        setType(STRING);
+        setPickUp(pickup=new mae.easp.general.pkusuarios.PickPkusuarios(this));
+        setLength(25);
+        setSearchable(true);
+        setDescriptionShow(false);
+        setField(savisos.avresponsrevi);
+        }
+      }
+      
     public class LinkAcrevisado extends Action
       {
       public LinkAcrevisado(Form form)
@@ -559,7 +614,7 @@ public class ProgPravisos extends Program
         super(form);
         setName("acallrevisado");
         setTitle("&3. Marcar TODOS Revisados");
-        setOptions(SEARCH | SHOW | UPDATE | INSERT);
+        setOptions(SHOW);
         }
       public void onAction()
         {
@@ -575,7 +630,7 @@ public class ProgPravisos extends Program
         super(form);
         setName("acallpendiente");
         setTitle("&4. Marcar TODOS Pendientes");
-        setOptions(SEARCH | SHOW | UPDATE | INSERT);
+        setOptions(SHOW);
         }
       public void onAction()
         {
@@ -602,6 +657,7 @@ public class ProgPravisos extends Program
       addControl(avtitulo=new CtrlAvtitulo(this));
       addControl(vvestado=new CtrlVvestado(this));
       addControl(avfechavenci=new CtrlAvfechavenci(this));
+      addControl(avresponsrevi=new CtrlAvresponsrevi(this));
       addAction(acrevisado=new LinkAcrevisado(this));
       addAction(acpendiente=new LinkAcpendiente(this));
       addAction(acallrevisado=new LinkAcallrevisado(this));
@@ -704,6 +760,14 @@ public class ProgPravisos extends Program
         super(select);
         setName("avisos");
         setOptions(READ | INSERT | DELETE | UPDATE);
+        }
+      public boolean onInsert()
+        {
+        
+        avestado.setValue("PE");
+        
+        
+        return super.onInsert();
         }
       }
       
