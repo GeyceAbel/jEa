@@ -470,84 +470,57 @@ public class DBConnectionLogic implements DataBaseProducerLogic
     return connect();
   }
 
-  public boolean connectEx() throws Exception
-  {
-    if (conn == null)
-    {
-      long inici = System.currentTimeMillis();
-      /*
-       * String
-       * driver=Aplication.getAplication().getCfg().getValue("DataBase.driver","sun.jdbc.odbc.JdbcOdbcDriver");
-       * String
-       * dsn=Aplication.getAplication().getCfg().getValue("DataBase."+db.getName()+".url");
-       * String
-       * usuario=Aplication.getAplication().getCfg().getValue("DataBase."+db.getName()+".user");
-       * String
-       * pass=Aplication.getAplication().getCfg().getValue("DataBase."+db.getName()+".password");
-       */
-      //String driver = db.getDriver();
-      //String dsn = db.getDsn();
-      String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-      String dsn  = "jdbc:sqlserver://" + server;
-      
-      //String usuario = db.getUser();
-      //String pass = db.getPassword();
+  public boolean connectEx () throws Exception {
+	  if (conn == null) {
+		  String driver = "net.sourceforge.jtds.jdbc.Driver";
+		  Class.forName(driver);
 
-      /**/
-      /*
-      if (dsn == null)
-        throw new DSNException();
-       */
-      Class.forName(driver);
-      Properties properties = new Properties();
-      if(dbName != null)     	  
-        properties.put("databaseName", dbName);
-      if (user != null)
-        properties.put("user", user);
-      if (pass != null)
-        properties.put("password", pass);
-      if(instance != null && !instance.trim().equals(""))
-    	properties.put("instanceName", instance);
-      //properties.put("integratedSecurity", "true");
-      //db.putConnectionProperties(properties);
-      int tries = db.getTriesReconnect();
-      if (tries == 0)
-        tries = 1;
-      while (tries > 0 && conn == null)
-      {
-        try
-        {
-          conn = DriverManager.getConnection(dsn, properties);
-        }
-        catch (SQLException ex2)
-        {
-          tries--;
-          if (tries == 0 && conn == null)
-          {
-            throw ex2;
-          }
-          espera(2000L);
-        }
-      }
-      setTransactionIsolation(defaultIsolation);
-      conn.setAutoCommit(false);
-      String init = db.getInitString();
-      if (init != null)
-      {
-        Statement st = createStatement();
-        executeUpdate(st, init, true);
-        st.close();
-      }
-      long acaba = System.currentTimeMillis();
-      log("Connect", "dbaction");
-      log("DSN=" + dsn, "dbaction");
-      log("Time[" + Maefc.timeToString(acaba - inici) + "] ", "info");
-    }
+		  long inici = System.currentTimeMillis();
+		  String dsn  = "jdbc:jtds:sqlserver://" + server;
 
-    numero = count++;
-    if (db.isOracle())
-      converter = new Oracle.SQLConverter();
-    return true;
+		  
+		  Properties properties = new Properties();
+		  if(dbName != null)     	  
+			  properties.put("databaseName", dbName);
+		  if (user != null)
+			  properties.put("user", user);
+		  if (pass != null)
+			  properties.put("password", pass);
+		  if(instance != null && !instance.trim().equals(""))
+			  properties.put("instanceName", instance);
+		  int tries = db.getTriesReconnect();
+		  if (tries == 0)
+			  tries = 1;
+		  while (tries > 0 && conn == null) {
+			  try {
+				  conn = DriverManager.getConnection(dsn, properties);
+			  }
+			  catch (SQLException ex2) {
+				  tries--;
+				  if (tries == 0 && conn == null)
+				  {
+					  throw ex2;
+				  }
+				  espera(2000L);
+			  }
+		  }
+		  setTransactionIsolation(defaultIsolation);
+		  conn.setAutoCommit(false);
+		  String init = db.getInitString();
+		  if (init != null) {
+			  Statement st = createStatement();
+			  executeUpdate(st, init, true);
+			  st.close();
+		  }
+		  long acaba = System.currentTimeMillis();
+		  log("Connect", "dbaction");
+		  log("DSN=" + dsn, "dbaction");
+		  log("Time[" + Maefc.timeToString(acaba - inici) + "] ", "info");
+	  }
+	  numero = count++;
+	  if (db.isOracle())
+		  converter = new Oracle.SQLConverter();
+	  return true;
   }
 
   public boolean connect()
