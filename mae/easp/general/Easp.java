@@ -14,7 +14,7 @@ import java.io.*;
 import org.apache.commons.httpclient.URIException;
 import org.apache.commons.httpclient.util.URIUtil;
 
-import com.jnetdirect.jsql.i;
+//import com.jnetdirect.jsql.i;
 
 public class Easp {
   public static AppEasp easp;

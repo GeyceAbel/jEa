@@ -241,7 +241,6 @@ public class DBConnectionLogic implements DataBaseProducerLogic
   private Connection          conn             = null;
   private static int          count            = 0;
   private int                 numero           = 0;
-  private Oracle.SQLConverter converter;
   private String user;
   private String pass;
   private String server;
@@ -517,9 +516,7 @@ public class DBConnectionLogic implements DataBaseProducerLogic
 		  log("DSN=" + dsn, "dbaction");
 		  log("Time[" + Maefc.timeToString(acaba - inici) + "] ", "info");
 	  }
-	  numero = count++;
-	  if (db.isOracle())
-		  converter = new Oracle.SQLConverter();
+	  numero = count++;	  
 	  return true;
   }
 
@@ -747,14 +744,7 @@ public class DBConnectionLogic implements DataBaseProducerLogic
         log(stm, "dbquery");
       inici = System.currentTimeMillis();
     }
-
-    if (db.isOracle() && stm.toUpperCase().indexOf("JOIN") >= 0)
-    {
-      Maefc.warning("-> " + stm, "info");
-      stm = converter.parse(stm);
-      Maefc.warning("<- " + stm, "info");
-    }
-
+    
     ResultSet rs = null;
 
     try
