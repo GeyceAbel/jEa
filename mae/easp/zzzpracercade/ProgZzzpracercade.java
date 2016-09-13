@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20130404
-// Hora:             16:11:54
+// Fecha:            20160913
+// Hora:             10:16:12
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -53,7 +53,7 @@ public class ProgZzzpracercade extends Program
         super();
         setWidth(430);
         setHeight(360);
-        setTitle("Acerca de Conta-ASP");
+        setTitle("Acerca de Entorno de Aplicaciones");
         setModal(true);
         setLocation(CENTER);
         }
@@ -149,7 +149,7 @@ public class ProgZzzpracercade extends Program
       {
       super(zzzpracercade);
       setName("ventana");
-      setTitle("Acerca de Conta-ASP");
+      setTitle("Acerca de Entorno de Aplicaciones");
       setLayout(new LayoutFlow(LayoutFlow.CENTER));
       setLocation(new Location());
       setPrintable(false);
