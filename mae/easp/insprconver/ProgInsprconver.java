@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20160308
-// Hora:             15:44:30
+// Fecha:            20160916
+// Hora:             09:57:31
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1472,6 +1472,8 @@ public class ProgInsprconver extends Program
     "INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2016,'01/01/2016','31/12/2016',3.75);"};
     
     String sentencias13_5[]={"UPDATE TRANSACCIONES SET tratipoiva='ISP' where tratipo='EISP' and tratipoiva='DI';"};
+    
+    String sentencias13_6[]={"UPDATE MUNI347 SET mu7desc='URBEL DEL CASTILLO'  WHERE mu7codprov=9 AND mu7codmuni=3983;"};
     
       int i=0;
       try {
@@ -3401,6 +3403,23 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("13.5");
         }
+    
+        if (versio < 13.6) {
+            for (i=0;i<sentencias13_6.length;++i) {
+                  try {
+                    Easp.chivato("13.6 Exec : ["+sentencias13_6[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias13_6[i]);
+                  }
+                  catch(Exception e) {
+                    sqlOperation=sentencias13_6[i];
+                    Easp.chivato("13.6 *** Error : ["+sentencias13_6[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                  }
+            }
+            Easp.setVersionBD("bdeasp","13.6");
+            Easp.connEA.commit();
+            vvveractual.setValue("13.6");
+        }  
     
       }
       catch(Exception e) {
