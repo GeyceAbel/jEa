@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150212
-// Hora:             12:56:18
+// Fecha:            20160919
+// Hora:             13:15:26
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
