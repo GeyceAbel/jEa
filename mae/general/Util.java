@@ -623,6 +623,8 @@ System.out.println("Error: "+e);
 		 		int dnif=esNIF(CIF);
 		 		switch (dnif){
      	   case 0:  //es correcto
+     		   String dd = CIF.substring(0, CIF.length()-1);
+     		   if (isNumero(dd)) return formateoNumero("00000000", Integer.parseInt(dd))+CIF.substring(CIF.length()-1);
      	    return CIF;
      	  case 2:  //hay una letra y no está ni en el primero ni en el último char
      	    Maefc.message("Revise la sintaxis del CIF/NIF\n","CIF/NIF incorrecto",Maefc.INFORMATION_MESSAGE);
