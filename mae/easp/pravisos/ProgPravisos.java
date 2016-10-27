@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20160607
-// Hora:             16:26:51
+// Fecha:            20161027
+// Hora:             11:05:22
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -35,7 +35,19 @@ public class ProgPravisos extends Program
   private String desc       = "" ;
   private boolean desactivaDesc = false ;
   
+  public int gempresa     = 0 ;
+  public int gtrabajador  = 0 ;
+  
+  public String gtitulo = null ;
+  
   public void onOpened() {
+  
+    if ( gtitulo != null ) setTitle(gtitulo);
+  
+    if ( gtrabajador !=  0 ) {
+      vbuscar.vvdesdefecha.setNull();
+      vbuscar.vvhastafecha.setNull();
+      }
   
     vavisos.avempresa.removeAllItems();
     if ( gaplicacion != null && gaplicacion.equals("JNOMINA") && connJNOM != null ) {
@@ -103,6 +115,21 @@ public class ProgPravisos extends Program
         and = " and " ;
         }
     
+      if (  !vvusuario.isNull() ) {
+        where += and+" avresponsrevi = '"+vvusuario.getString()+"' " ;
+        and = " and " ;
+        }
+    
+    
+    
+      if ( gempresa   != 0 ) {
+         where += and+" avempresa = "+gempresa ;
+         and = " and " ;
+         }
+      if ( gtrabajador != 0 ) {
+         where += and+" avtrabajador = "+gtrabajador ;
+         and = " and " ;
+         }
     
       if ( where.equals("") ) return null ;
       else                    return where ;
@@ -115,6 +142,7 @@ public class ProgPravisos extends Program
     public CtrlChrevisados chrevisados;
     public CtrlVvdesdefecha vvdesdefecha;
     public CtrlVvhastafecha vvhastafecha;
+    public CtrlVvusuario vvusuario;
     // Acciones
     public LinkAcgeneraavis acgeneraavis;
     class Location extends LocationGridBag
@@ -245,6 +273,34 @@ public class ProgPravisos extends Program
         }
       }
       
+    public class CtrlVvusuario extends ControlComboBox
+      {
+      public mae.easp.general.pkusuarios.PickPkusuarios pickup;
+      public CtrlVvusuario(Form form)
+        {
+        super(form);
+        setName("vvusuario");
+        setTitle("Usuario");
+        setType(STRING);
+        setPickUp(pickup=new mae.easp.general.pkusuarios.PickPkusuarios(this));
+        setLength(25);
+        setPrintable(false);
+        setRestricted(false);
+        setDescriptionShow(false);
+        }
+      public void onChange()
+        {
+          super.onChange();
+          }
+        
+        
+        public void userChange(Value v ) {
+          
+          super.userChange(v);
+          vbuscar.buscar();
+        }
+      }
+      
     public class LinkAcgeneraavis extends Action
       {
       public LinkAcgeneraavis(Form form)
@@ -275,6 +331,7 @@ public class ProgPravisos extends Program
       addControl(chrevisados=new CtrlChrevisados(this));
       addControl(vvdesdefecha=new CtrlVvdesdefecha(this));
       addControl(vvhastafecha=new CtrlVvhastafecha(this));
+      addControl(vvusuario=new CtrlVvusuario(this));
       addAction(acgeneraavis=new LinkAcgeneraavis(this));
       }
     }
@@ -367,7 +424,7 @@ public class ProgPravisos extends Program
         setWidth(REMAINDER);
         setHeight(REMAINDER);
         setWeightx(1.0);
-        setWeighty(6.0);
+        setWeighty(5.0);
         setFill(BOTH);
         setAnchor(SOUTH);
         }
@@ -407,6 +464,11 @@ public class ProgPravisos extends Program
         setDescriptionShow(false);
         addItem("99999/Empresa Test");
         setField(savisos.avempresa);
+        }
+      public Object getDefault()
+        {
+        if ( gempresa != 0 ) return gempresa;
+        else                 return null ;
         }
       public void onChange()
         {
@@ -456,6 +518,11 @@ public class ProgPravisos extends Program
         setDescriptionShow(false);
         addItem("1/Test");
         setField(savisos.avtrabajador);
+        }
+      public Object getDefault()
+        {
+        if ( gtrabajador != 0 ) return gtrabajador;
+        else                    return null ;
         }
       }
       
@@ -997,6 +1064,11 @@ public class ProgPravisos extends Program
     if ( Maefc.getMonth(Maefc.getDate() ) == 11 )  dfechaFin = Fecha.construyeFecha(31, 1, Maefc.getYear(Maefc.getDate())+1);
     else                                           dfechaFin = Fecha.construyeFecha(Fecha.ultimoDiaMes( Maefc.getYear(Maefc.getDate()),Maefc.getMonth(Maefc.getDate())+2 ), Maefc.getMonth(Maefc.getDate())+2 , Maefc.getYear(Maefc.getDate()));
     vbuscar.vvhastafecha.setValue(dfechaFin);
+    
+    if ( gtrabajador != 0 ) {
+      vbuscar.vvdesdefecha.setNull();
+      vbuscar.vvhastafecha.setNull();
+      }
     
     if ( gaplicacion != null ) {
       vbuscar.vvaplicacion.setValue(gaplicacion) ;
