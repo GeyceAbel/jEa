@@ -1,12 +1,7 @@
 package mae.easp.conversions;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 import java.util.StringTokenizer;
-
 import geyce.maefc.Aplication;
 import geyce.maefc.Catalog;
 import geyce.maefc.DBConnection;
@@ -19,10 +14,9 @@ import geyce.maefc.Select;
 import geyce.maefc.Selector;
 import geyce.maefc.Table;
 import geyce.maefc.Update;
+import mae.easp.db.CatCtasp;
 import mae.easp.general.Easp;
 import mae.easp.general.Perfil;
-import mae.contaasp.db.CatCtasp;
-import mae.contaasp.general.Contaasp;
 import mae.general.Fecha;
 import mae.general.Numero;
 import mae.general.ProgressBarForm;
@@ -415,7 +409,7 @@ public class FuncionesJCO {
 			String ctaelim = vCtaElim.elementAt(i);
 			Delete d = new Delete (dbJCta,"PCUENTAS");
 			bOk = d.execute("pcuempresa="+emp+" and pcuejercicio="+ejer+" and pcucuenta='"+ctaelim+"'");
-			
+
 		}
 		return bOk;
 	}
@@ -452,7 +446,7 @@ public class FuncionesJCO {
 		s.close();
 		return bOk;
 	}
-	
+
 	public String getHome() {
 		String home = null;
 		if ("access".equals(connEA.getDB().getType())) home = connEA.getDB().getServer();
@@ -490,196 +484,13 @@ public class FuncionesJCO {
 	}
 
 	public boolean checkBDSql (int ejercicio) {
-        boolean conectaOk = true;
-        DBConnection conntmp = getConexionCtasp ( 9999, ejercicio );
-        conectaOk = (conntmp != null);
-        if (conectaOk) {
-            conectaOk = "sqlserver".equals(conntmp.getDB().getType());
-            conntmp.disconnect ();
-        }
-        return conectaOk;
-      }
-	
-	public void checkCta (int empresa, int iEjer, String sc, String ss, String desccta, String descmayor, DadesNif dn) {
-		checkCta (empresa, iEjer, sc, ss, desccta, descmayor, null,null, dn);
+		boolean conectaOk = true;
+		DBConnection conntmp = getConexionCtasp ( 9999, ejercicio );
+		conectaOk = (conntmp != null);
+		if (conectaOk) {
+			conectaOk = "sqlserver".equals(conntmp.getDB().getType());
+			conntmp.disconnect ();
+		}
+		return conectaOk;
 	}
-	
-	public void checkCta (int empresa, int iEjer, String sc, String ss, String desccta, String descmayor, String contrapartida, String contraBanc, DadesNif dn) {
-		DBConnection dbJCta = Contaasp.getConexionCtasp(empresa, iEjer);
-		String sdesc = "@@Cuenta conversión";
-		if (desccta!=null && !"".equals(desccta)) sdesc  = desccta;
-		Selector spc = new Selector (dbJCta);
-		spc.execute("Select * from PCUENTAS where pcuempresa="+empresa+" and pcuejercicio="+iEjer+" and pcucuenta='"+sc+"' and pcusubcuenta='0'");
-		if (!spc.next()) {
-			Insert ipcu = new Insert(dbJCta, "PCUENTAS");
-			ipcu.valor("pcuempresa", empresa);
-			ipcu.valor("pcuejercicio", iEjer);
-			ipcu.valor("pcucuenta", sc);
-			ipcu.valor("pcusubcuenta", "0");
-			ipcu.valor("pcudesc", descmayor);
-			ipcu.valor("pculongitud", 12);
-			ipcu.valor("pcumediacion", "N");
-			ipcu.valor("pcuivaded", "S");
-			ipcu.valor("pcu347", "N");
-			ipcu.valor("pcu349", "N");
-			ipcu.execute();
-		}
-		else if (desccta==null) sdesc = spc.getString("pcudesc");
-		spc.close();
-		spc.execute("Select * from PCUENTAS where pcuempresa="+empresa+" and pcuejercicio="+iEjer+" and pcucuenta='"+sc+"' and pcusubcuenta='"+ss+"'");
-		if (!spc.next()) {
-			Insert ipcu = new Insert(dbJCta, "PCUENTAS");
-			ipcu.valor("pcuempresa", empresa);
-			ipcu.valor("pcuejercicio", iEjer);
-			ipcu.valor("pcucuenta", sc);
-			ipcu.valor("pcusubcuenta", ss);
-			ipcu.valor("pcudesc", sdesc);
-			ipcu.valor("pculongitud", 12);
-			ipcu.valor("pcumediacion", "N");
-			ipcu.valor("pcuivaded", "S");
-			
-			if (contrapartida != null && contrapartida.trim().length()>4) {
-				contrapartida = contrapartida.trim().substring(0, 4)+"."+contrapartida.trim().substring(4);
-				ipcu.valor("pcucontralapiz", contrapartida);
-			}
-			if (contraBanc != null && contraBanc.trim().length()>4) {
-				contraBanc = contraBanc.trim().substring(0, 4)+"."+contraBanc.trim().substring(4);
-				ipcu.valor("pcuctabanco", contraBanc);
-			}
-			
-			if (sc.startsWith("40") || sc.startsWith("41")) {
-				ipcu.valor("pcuclipro", "P");
-				ipcu.valor("pcu347", "S");
-				ipcu.valor("pcu349", "N");
-				ipcu.valor("pcucodiva", 1);
-				ipcu.valor("pcuttrans", "RIN");
-			}
-			else if (sc.startsWith("43")) {
-				ipcu.valor("pcuclipro", "C");
-				ipcu.valor("pcu347", "S");
-				ipcu.valor("pcu349", "N");
-				ipcu.valor("pcucodiva", 1);
-				//ipcu.valor("pcucodirpf", 1);
-				ipcu.valor("pcuttrans", "EIN");
-			}
-			else {
-				ipcu.valor("pcu347", "N");
-				ipcu.valor("pcu349", "N");				
-			}
-			if (dn != null) {
-				ipcu.valor("pcunif", dn.nif);
-				dn.altaNif(sdesc);
-				if(dn.cpais!=null && !"ES".equals(dn.cpais)){
-					if(sc.startsWith("40") || sc.startsWith("41")) ipcu.valor("pcuttrans","RAD");
-					else if(sc.startsWith("43")) ipcu.valor("pcuttrans","EEN");
-				}
-			}
-			ipcu.execute();
-			
-		}
-		spc.close();
-		if (dbJCta!=null) dbJCta.disconnect();
-	}
-	
-	private class DadesNif{
-		String nif;
-		String siglas;
-		String domicilio;
-		String poblacion;
-		String num;
-		String esc;
-		String piso;
-		String letra;
-		String cpos;
-		int prov;
-		String cpais;
-		String telefono;
-		String fax;
-		int tnif;
-		
-		public DadesNif(String nif, String domicilio, String poblacion, String cpos, String cpais, String num, String esc, String piso, String letra,String siglas, String telefono, String fax, int tnif) {
-			this.nif = nif;
-			this.domicilio = domicilio;
-			this.poblacion = poblacion;
-			this.cpos = cpos;
-			this.cpais = cpais;
-			this.num = num;
-			this.esc = esc;
-			this.piso = piso;
-			this.letra = letra;
-			this.telefono = telefono;
-			this.fax = fax;
-			this.tnif = tnif;
-			
-			if (domicilio!=null && domicilio.startsWith("C/")) {
-				this.domicilio = domicilio.substring(2);
-				if (siglas == null || siglas.trim().length()==0) siglas = "CL";
-			}
-			else if (domicilio!=null && (siglas == null || siglas.trim().length()==0) ) siglas = "CL";
-			
-			if (cpos!=null && cpos.length()>2 && Util.isNumero(cpos.substring(0,2))) {
-				prov = Integer.parseInt(cpos.substring(0,2));
-			}
-			this.siglas = siglas;
-		}
-
-		public void altaNif(String nombre) {
-			if (nif!=null && nif.trim().length()>0) {
-				Selector snif = new Selector(Contaasp.connEA);
-				snif.execute("Select * from NIFES where danifcif='"+nif+"'");
-				if (!snif.next()) {
-					Insert idat = new Insert (Contaasp.connEA,"NIFES");
-					idat.valor("danifcif", nif);
-					idat.valor("datipo", "C");
-					idat.valor("datapell1", nombre);
-					idat.valor("datdominio", Contaasp.dominio);				
-					idat.valor("datsiglas", siglas);
-					idat.valor("datvia", domicilio);
-					idat.valor("datcpos", cpos);
-					idat.valor("datpobla", poblacion);
-					idat.valor("datprov", prov);
-					idat.valor("datnum", num);
-					idat.valor("datesc", esc);
-					idat.valor("datpiso", piso);
-					idat.valor("datletra", letra);
-					idat.valor("dattel", telefono);
-					idat.valor("datfax", fax);
-					idat.valor("datipf", tnif);
-					if (cpais != null && cpais.trim().length()>0) {
-						Selector sp = new Selector (Contaasp.connEA);
-						sp.execute ("Select picodigo from PAIS where picodigo347='"+cpais.toUpperCase()+"'");
-						if (sp.next()) idat.valor("datpais",sp.getint("picodigo"));
-						sp.close();
-					}
-					idat.valor("datfisicajuri", (Util.esCIFdePersonaFisica(nif) ? "F" : "J") );
-					idat.execute();
-				}
-				else {
-					Update udat = new Update (Contaasp.connEA,"NIFES");
-					if (siglas != null && siglas.length()>0) udat.valor("datsiglas", siglas);
-					if (domicilio != null && domicilio.length()>0) udat.valor("datvia", domicilio);
-					if (cpos != null && cpos.length()>0) udat.valor("datcpos", cpos);
-					if (poblacion != null && poblacion.length()>0) udat.valor("datpobla", poblacion);
-					if (prov > 0) udat.valor("datprov", prov);
-					if (num != null && num.length()>0) udat.valor("datnum", num);
-					if (telefono != null && telefono.length()>0) udat.valor("dattel", telefono);
-					if (fax != null && fax.length()>0) udat.valor("datfax", fax);
-					if (tnif != 0) udat.valor("datipf", tnif);
-					if (cpais != null && cpais.trim().length()>0) {
-						Selector sp = new Selector (Contaasp.connEA);
-						sp.execute ("Select picodigo from PAIS where picodigo347='"+cpais.toUpperCase()+"'");
-						if (sp.next()) {
-							int pais = sp.getint("picodigo");
-							udat.valor("datpais",pais);
-						}
-						sp.close();
-					}
-					udat.valor("datfisicajuri", (Util.esCIFdePersonaFisica(nif) ? "F" : "J") );
-					udat.execute("danifcif='"+nif+"'");					
-				}
-				snif.close();
-			}
-		}
-	}
-
 }
