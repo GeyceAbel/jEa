@@ -476,7 +476,6 @@ public class DBConnectionLogic implements DataBaseProducerLogic
 
 		  long inici = System.currentTimeMillis();
 		  String dsn  = "jdbc:jtds:sqlserver://" + server;
-
 		  
 		  Properties properties = new Properties();
 		  if(dbName != null)     	  
@@ -486,7 +485,7 @@ public class DBConnectionLogic implements DataBaseProducerLogic
 		  if (pass != null)
 			  properties.put("password", pass);
 		  if(instance != null && !instance.trim().equals(""))
-			  properties.put("instanceName", instance);
+			  properties.put("instance", instance);
 		  int tries = db.getTriesReconnect();
 		  if (tries == 0)
 			  tries = 1;
