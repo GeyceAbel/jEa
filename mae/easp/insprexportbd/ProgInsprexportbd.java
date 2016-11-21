@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20160107
-// Hora:             09:57:01
+// Fecha:            20161121
+// Hora:             12:28:42
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -95,19 +95,18 @@ public class ProgInsprexportbd extends Program
         if ( bdeasp )    {
   
       	String aplicJea = URLExec.getContenido(proc+"EAB");
-          if(aplicJea !=null && !aplicJea.startsWith("EAB")) { 
-            conver.setRegistre (Easp.dominio,"EAB"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);    
-          }
-          
+          if(aplicJea !=null && aplicJea.startsWith("EAB")) { 
+            conver.setRegistre (Easp.dominio,"EAB"    ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
+          }       
           
           String aplicJges = URLExec.getContenido(proc+"JGES");
-          if(aplicJges !=null && !aplicJges.startsWith("JGES")) {
+          if(aplicJges !=null && aplicJges.startsWith("JGES")) {
           	Selector sbds = new Selector(Easp.connEA);
               sbds.execute("Select bdnombre,bdversio from bds where bdnombre = 'bdexpe' ");  //getContratado
               if ( sbds.next() ) {
                  double version = sbds.getdouble("bdversio");
                  if ( version >= 13  ) {
-                   conver.setRegistre (Easp.dominio,"JGES"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);    
+                   conver.setRegistre (Easp.dominio,"JGES"    ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
                    }
                 }  
               sbds.close();
@@ -115,37 +114,37 @@ public class ProgInsprexportbd extends Program
           // vip REVISAR ESTO APPAU - APJORDI  15/09/05 
           String aplicJconta =URLExec.getContenido(proc+"JCONTA");
           if ((aplicJconta != null && aplicJconta.startsWith("JCONTA")) || bdjconta) {
-             conver.setRegistre (Easp.dominio,"JCONTA"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);
+             conver.setRegistre (Easp.dominio,"JCONTA"    ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
           }
         }
         if ( bdmodelos ) {
           String aplicJmod =URLExec.getContenido(proc+"JMOD");
           if ((aplicJmod != null && aplicJmod.startsWith("JMOD"))) {
-      	  conver.setRegistre (Easp.dominio,"JMOD"   ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);
+      	  conver.setRegistre (Easp.dominio,"JMOD"   ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
           }
         }
         if ( bdlaboral )  {
       	  String aplicJnom =URLExec.getContenido(proc+"JNOM");
             if ((aplicJnom != null && aplicJnom.startsWith("JNOM"))) {
-      	    conver.setRegistre (Easp.dominio,"JNOM",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);    
+      	    conver.setRegistre (Easp.dominio,"JNOM",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
             }
         }
         if ( bdjeo ) {
       	  String aplicJeo =URLExec.getContenido(proc+"JEO");
             if ((aplicJeo != null && aplicJeo.startsWith("JEO"))) {
-      	    conver.setRegistre (Easp.dominio,"JEO",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);
+      	    conver.setRegistre (Easp.dominio,"JEO",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
             }
         }
         if ( bdjiss ) {
       	  String aplicJiss =URLExec.getContenido(proc+"JISS");
             if ((aplicJiss != null && aplicJiss.startsWith("JISS"))) {
-      	    conver.setRegistre (Easp.dominio,"JISS",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);
+      	    conver.setRegistre (Easp.dominio,"JISS",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
             }
         }
         if ( bdjrenta ) {
       	  String aplicJren =URLExec.getContenido(proc+"JRENTA");
             if ((aplicJren != null && aplicJren.startsWith("JRENTA"))) {
-      	    conver.setRegistre (Easp.dominio,"JRENTA",Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);
+      	    conver.setRegistre (Easp.dominio,"JRENTA",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
             }
         }
         Maefc.message ("La exportación ha finalizado correctamente.\nEs necesario que cierre todos los programas de GEyCE (jToken,jEA,jModelos .... )  para que los cambios tengan efecto.");
