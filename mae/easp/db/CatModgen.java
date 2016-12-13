@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150512
-// Hora:             17:19:47
+// Fecha:            20161212
+// Hora:             19:17:14
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -27,6 +27,7 @@ public class CatModgen extends Catalog
   public TabModprograma tabmodprograma;
   public TabPresentador tabpresentador;
   public TabImportacion tabimportacion;
+  public TabImport100200jr tabimport100200jr;
   public TabTiposunid tabtiposunid;
   public TabModirpfc tabmodirpfc;
   public TabModirpfl tabmodirpfl;
@@ -67,6 +68,7 @@ public class CatModgen extends Catalog
   public TabAeatfirmamod tabaeatfirmamod;
   public TabModrdtoagr tabmodrdtoagr;
   public TabModingagr tabmodingagr;
+  public TabDeflis111 tabdeflis111;
   public TabDeflis115 tabdeflis115;
   public TabDeflis123 tabdeflis123;
   public TabDeflis216 tabdeflis216;
@@ -74,6 +76,13 @@ public class CatModgen extends Catalog
   public TabDeflis131 tabdeflis131;
   public TabDeflis202 tabdeflis202;
   public TabDeflis222 tabdeflis222;
+  public TabDeflis282 tabdeflis282;
+  public TabDeflis308 tabdeflis308;
+  public TabDeflis309 tabdeflis309;
+  public TabDeflis353 tabdeflis353;
+  public TabModcalendario tabmodcalendario;
+  public TabDeflis390 tabdeflis390;
+  public TabMod210r tabmod210r;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -370,6 +379,10 @@ public class CatModgen extends Catalog
     public FieldDef mesjrdeclar;
     public FieldDef mesperentrega;
     public FieldDef mesnumjustif;
+    public FieldDef mescodelec;
+    public FieldDef mesestadomirr;
+    public FieldDef mesfechamirr;
+    public FieldDef meserrormirr;
     public TabModestado(String name)
       {
       super(name);
@@ -434,6 +447,10 @@ public class CatModgen extends Catalog
       mesjrdeclar = new FieldDef("mesjrdeclar",FieldDef.CHAR,1);
       mesperentrega = new FieldDef("mesperentrega",FieldDef.CHAR,75);
       mesnumjustif = new FieldDef("mesnumjustif",FieldDef.CHAR,50);
+      mescodelec = new FieldDef("mescodelec",FieldDef.CHAR,50);
+      mesestadomirr = new FieldDef("mesestadomirr",FieldDef.CHAR,2);
+      mesfechamirr = new FieldDef("mesfechamirr",FieldDef.DATE);
+      meserrormirr = new FieldDef("meserrormirr",FieldDef.CHAR,255);
       FieldDef array[] = {
         mesdominio,
         mesmodelo,
@@ -495,7 +512,11 @@ public class CatModgen extends Catalog
         mesdecljren,
         mesjrdeclar,
         mesperentrega,
-        mesnumjustif        
+        mesnumjustif,
+        mescodelec,
+        mesestadomirr,
+        mesfechamirr,
+        meserrormirr        
         };
       setColumns(array);
       FieldDef arrayind1[] = { mesnif };
@@ -832,6 +853,54 @@ public class CatModgen extends Catalog
         };
       setColumns(array);
       FieldDef arrayf[] = {impdominio,impident };
+      setPrimaryKeys(arrayf);
+      impident.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabImport100200jr extends TableDef
+    {
+    // Campos
+    public FieldDef impident;
+    public FieldDef impmodelo;
+    public FieldDef impnif;
+    public FieldDef impejer;
+    public FieldDef impnombre;
+    public FieldDef impcodgeyce;
+    public FieldDef impcodjrenta;
+    public FieldDef imprutafic;
+    public FieldDef impfecha;
+    public FieldDef impestado;
+    public FieldDef imperror;
+    public TabImport100200jr(String name)
+      {
+      super(name);
+      impident = new FieldDef("impident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      impmodelo = new FieldDef("impmodelo",FieldDef.CHAR,5);
+      impnif = new FieldDef("impnif",FieldDef.CHAR,15);
+      impejer = new FieldDef("impejer",FieldDef.INTEGER,0);
+      impnombre = new FieldDef("impnombre",FieldDef.CHAR,60);
+      impcodgeyce = new FieldDef("impcodgeyce",FieldDef.CHAR,12);
+      impcodjrenta = new FieldDef("impcodjrenta",FieldDef.CHAR,12);
+      imprutafic = new FieldDef("imprutafic",FieldDef.CHAR,2000);
+      impfecha = new FieldDef("impfecha",FieldDef.DATE);
+      impestado = new FieldDef("impestado",FieldDef.CHAR,1);
+      imperror = new FieldDef("imperror",FieldDef.CHAR,2000);
+      FieldDef array[] = {
+        impident,
+        impmodelo,
+        impnif,
+        impejer,
+        impnombre,
+        impcodgeyce,
+        impcodjrenta,
+        imprutafic,
+        impfecha,
+        impestado,
+        imperror        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {impident };
       setPrimaryKeys(arrayf);
       impident.setAutoIncrementable(true);
       }
@@ -2519,6 +2588,7 @@ public class CatModgen extends Catalog
     public FieldDef m720iesdivisa;
     public FieldDef m720icontraval;
     public FieldDef m720ivalventa;
+    public FieldDef m720irevisado;
     public TabMod720i(String name)
       {
       super(name);
@@ -2562,6 +2632,7 @@ public class CatModgen extends Catalog
       m720iesdivisa = new FieldDef("m720iesdivisa",FieldDef.CHAR,1);
       m720icontraval = new FieldDef("m720icontraval",FieldDef.FLOAT,6,0);
       m720ivalventa = new FieldDef("m720ivalventa",FieldDef.FLOAT,6,0);
+      m720irevisado = new FieldDef("m720irevisado",FieldDef.CHAR,1);
       FieldDef array[] = {
         m720idominio,
         m720inif,
@@ -2602,7 +2673,8 @@ public class CatModgen extends Catalog
         m720ivalorejant,
         m720iesdivisa,
         m720icontraval,
-        m720ivalventa        
+        m720ivalventa,
+        m720irevisado        
         };
       setColumns(array);
       FieldDef arrayf[] = {m720idominio,m720inif,m720iejercicio,m720iident };
@@ -2647,6 +2719,7 @@ public class CatModgen extends Catalog
       m720iesdivisa.setDescription("Es divisa");
       m720icontraval.setDescription("Valor en euros de la divisa indicada");
       m720ivalventa.setDescription("Valor de venta");
+      m720irevisado.setDescription("Revisado");
       }
     }
     
@@ -2702,6 +2775,7 @@ public class CatModgen extends Catalog
     public FieldDef m720mesdivisa;
     public FieldDef m720mcontraval;
     public FieldDef m720msaldmedant;
+    public FieldDef m720mrevisado;
     public TabMod720m(String name)
       {
       super(name);
@@ -2754,6 +2828,7 @@ public class CatModgen extends Catalog
       m720mesdivisa = new FieldDef("m720mesdivisa",FieldDef.CHAR,1);
       m720mcontraval = new FieldDef("m720mcontraval",FieldDef.FLOAT,6,0);
       m720msaldmedant = new FieldDef("m720msaldmedant",FieldDef.FLOAT,6,0);
+      m720mrevisado = new FieldDef("m720mrevisado",FieldDef.CHAR,1);
       FieldDef array[] = {
         m720mdominio,
         m720mnif,
@@ -2803,7 +2878,8 @@ public class CatModgen extends Catalog
         m720mvalorejant,
         m720mesdivisa,
         m720mcontraval,
-        m720msaldmedant        
+        m720msaldmedant,
+        m720mrevisado        
         };
       setColumns(array);
       FieldDef arrayf[] = {m720mdominio,m720mnif,m720mejercicio,m720mident };
@@ -2857,6 +2933,7 @@ public class CatModgen extends Catalog
       m720mesdivisa.setDescription("Es divisa");
       m720mcontraval.setDescription("Valor en euros de la divisa indicada");
       m720msaldmedant.setDescription("Saldo Medio Trimestre 4 ejer.anterior");
+      m720mrevisado.setDescription("Revisado");
       }
     }
     
@@ -3252,7 +3329,7 @@ public class CatModgen extends Catalog
     public FieldDef deftabla;
     public FieldDef defcampo;
     public FieldDef defdecimal;
-    public FieldDef defcamponifes;
+    public FieldDef efcamponifes;
     public TabDeflis303(String name)
       {
       super(name);
@@ -3271,7 +3348,7 @@ public class CatModgen extends Catalog
       deftabla = new FieldDef("deftabla",FieldDef.CHAR,15);
       defcampo = new FieldDef("defcampo",FieldDef.CHAR,15);
       defdecimal = new FieldDef("defdecimal",FieldDef.INTEGER,0);
-      defcamponifes = new FieldDef("defcamponifes",FieldDef.CHAR,15);
+      efcamponifes = new FieldDef("efcamponifes",FieldDef.CHAR,15);
       FieldDef array[] = {
         defmodelo,
         defhoja,
@@ -3288,7 +3365,7 @@ public class CatModgen extends Catalog
         deftabla,
         defcampo,
         defdecimal,
-        defcamponifes        
+        efcamponifes        
         };
       setColumns(array);
       FieldDef arrayf[] = {defmodelo,defhoja,defejercicio,defperiodo,defnumero };
@@ -3437,6 +3514,14 @@ public class CatModgen extends Catalog
     public FieldDef mraporingven;
     public FieldDef mraindregadio;
     public FieldDef mratotingrega;
+    public FieldDef mracodprod14;
+    public FieldDef mraingprod14;
+    public FieldDef mraindice14;
+    public FieldDef mrardtoprod14;
+    public FieldDef mracodprod15;
+    public FieldDef mraingprod15;
+    public FieldDef mraindice15;
+    public FieldDef mrardtoprod15;
     public TabModrdtoagr(String name)
       {
       super(name);
@@ -3521,6 +3606,14 @@ public class CatModgen extends Catalog
       mraporingven = new FieldDef("mraporingven",FieldDef.FLOAT,6,0);
       mraindregadio = new FieldDef("mraindregadio",FieldDef.FLOAT,6,0);
       mratotingrega = new FieldDef("mratotingrega",FieldDef.FLOAT,6,0);
+      mracodprod14 = new FieldDef("mracodprod14",FieldDef.INTEGER,0);
+      mraingprod14 = new FieldDef("mraingprod14",FieldDef.FLOAT,6,0);
+      mraindice14 = new FieldDef("mraindice14",FieldDef.FLOAT,6,0);
+      mrardtoprod14 = new FieldDef("mrardtoprod14",FieldDef.FLOAT,6,0);
+      mracodprod15 = new FieldDef("mracodprod15",FieldDef.INTEGER,0);
+      mraingprod15 = new FieldDef("mraingprod15",FieldDef.FLOAT,6,0);
+      mraindice15 = new FieldDef("mraindice15",FieldDef.FLOAT,6,0);
+      mrardtoprod15 = new FieldDef("mrardtoprod15",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         mraejercicio,
         mranif,
@@ -3602,7 +3695,15 @@ public class CatModgen extends Catalog
         mraenlacejeo,
         mraporingven,
         mraindregadio,
-        mratotingrega        
+        mratotingrega,
+        mracodprod14,
+        mraingprod14,
+        mraindice14,
+        mrardtoprod14,
+        mracodprod15,
+        mraingprod15,
+        mraindice15,
+        mrardtoprod15        
         };
       setColumns(array);
       FieldDef arrayf[] = {mraejercicio,mranif,mraactividad };
@@ -3762,6 +3863,68 @@ public class CatModgen extends Catalog
       }
     }
     
+  public class TabDeflis111 extends TableDef
+    {
+    // Campos
+    public FieldDef defmodelo;
+    public FieldDef defhoja;
+    public FieldDef defejercicio;
+    public FieldDef defperiodo;
+    public FieldDef defnumero;
+    public FieldDef defposicion;
+    public FieldDef deflongitud;
+    public FieldDef deftipo;
+    public FieldDef deflinea;
+    public FieldDef defcolumna;
+    public FieldDef defformato;
+    public FieldDef defdesc;
+    public FieldDef deftabla;
+    public FieldDef defcampo;
+    public FieldDef defdecimal;
+    public FieldDef efcamponifes;
+    public TabDeflis111(String name)
+      {
+      super(name);
+      defmodelo = new FieldDef("defmodelo",FieldDef.CHAR,5,FieldDef.NOTNULL);
+      defhoja = new FieldDef("defhoja",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defejercicio = new FieldDef("defejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defperiodo = new FieldDef("defperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      defnumero = new FieldDef("defnumero",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defposicion = new FieldDef("defposicion",FieldDef.INTEGER,0);
+      deflongitud = new FieldDef("deflongitud",FieldDef.INTEGER,0);
+      deftipo = new FieldDef("deftipo",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      deflinea = new FieldDef("deflinea",FieldDef.INTEGER,0);
+      defcolumna = new FieldDef("defcolumna",FieldDef.INTEGER,0);
+      defformato = new FieldDef("defformato",FieldDef.CHAR,20);
+      defdesc = new FieldDef("defdesc",FieldDef.CHAR,200);
+      deftabla = new FieldDef("deftabla",FieldDef.CHAR,15);
+      defcampo = new FieldDef("defcampo",FieldDef.CHAR,15);
+      defdecimal = new FieldDef("defdecimal",FieldDef.INTEGER,0);
+      efcamponifes = new FieldDef("efcamponifes",FieldDef.CHAR,15);
+      FieldDef array[] = {
+        defmodelo,
+        defhoja,
+        defejercicio,
+        defperiodo,
+        defnumero,
+        defposicion,
+        deflongitud,
+        deftipo,
+        deflinea,
+        defcolumna,
+        defformato,
+        defdesc,
+        deftabla,
+        defcampo,
+        defdecimal,
+        efcamponifes        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {defmodelo,defhoja,defejercicio,defperiodo,defnumero };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public class TabDeflis115 extends TableDef
     {
     // Campos
@@ -3780,7 +3943,7 @@ public class CatModgen extends Catalog
     public FieldDef deftabla;
     public FieldDef defcampo;
     public FieldDef defdecimal;
-    public FieldDef defcamponifes;
+    public FieldDef efcamponifes;
     public TabDeflis115(String name)
       {
       super(name);
@@ -3799,7 +3962,7 @@ public class CatModgen extends Catalog
       deftabla = new FieldDef("deftabla",FieldDef.CHAR,15);
       defcampo = new FieldDef("defcampo",FieldDef.CHAR,15);
       defdecimal = new FieldDef("defdecimal",FieldDef.INTEGER,0);
-      defcamponifes = new FieldDef("defcamponifes",FieldDef.CHAR,15);
+      efcamponifes = new FieldDef("efcamponifes",FieldDef.CHAR,15);
       FieldDef array[] = {
         defmodelo,
         defhoja,
@@ -3816,7 +3979,7 @@ public class CatModgen extends Catalog
         deftabla,
         defcampo,
         defdecimal,
-        defcamponifes        
+        efcamponifes        
         };
       setColumns(array);
       FieldDef arrayf[] = {defmodelo,defhoja,defejercicio,defperiodo,defnumero };
@@ -3842,7 +4005,7 @@ public class CatModgen extends Catalog
     public FieldDef deftabla;
     public FieldDef defcampo;
     public FieldDef defdecimal;
-    public FieldDef defcamponifes;
+    public FieldDef efcamponifes;
     public TabDeflis123(String name)
       {
       super(name);
@@ -3861,7 +4024,7 @@ public class CatModgen extends Catalog
       deftabla = new FieldDef("deftabla",FieldDef.CHAR,15);
       defcampo = new FieldDef("defcampo",FieldDef.CHAR,15);
       defdecimal = new FieldDef("defdecimal",FieldDef.INTEGER,0);
-      defcamponifes = new FieldDef("defcamponifes",FieldDef.CHAR,15);
+      efcamponifes = new FieldDef("efcamponifes",FieldDef.CHAR,15);
       FieldDef array[] = {
         defmodelo,
         defhoja,
@@ -3878,7 +4041,7 @@ public class CatModgen extends Catalog
         deftabla,
         defcampo,
         defdecimal,
-        defcamponifes        
+        efcamponifes        
         };
       setColumns(array);
       FieldDef arrayf[] = {defmodelo,defhoja,defejercicio,defperiodo,defnumero };
@@ -3904,7 +4067,7 @@ public class CatModgen extends Catalog
     public FieldDef deftabla;
     public FieldDef defcampo;
     public FieldDef defdecimal;
-    public FieldDef defcamponifes;
+    public FieldDef efcamponifes;
     public TabDeflis216(String name)
       {
       super(name);
@@ -3923,7 +4086,7 @@ public class CatModgen extends Catalog
       deftabla = new FieldDef("deftabla",FieldDef.CHAR,15);
       defcampo = new FieldDef("defcampo",FieldDef.CHAR,15);
       defdecimal = new FieldDef("defdecimal",FieldDef.INTEGER,0);
-      defcamponifes = new FieldDef("defcamponifes",FieldDef.CHAR,15);
+      efcamponifes = new FieldDef("efcamponifes",FieldDef.CHAR,15);
       FieldDef array[] = {
         defmodelo,
         defhoja,
@@ -3940,7 +4103,7 @@ public class CatModgen extends Catalog
         deftabla,
         defcampo,
         defdecimal,
-        defcamponifes        
+        efcamponifes        
         };
       setColumns(array);
       FieldDef arrayf[] = {defmodelo,defhoja,defejercicio,defperiodo,defnumero };
@@ -3966,7 +4129,7 @@ public class CatModgen extends Catalog
     public FieldDef deftabla;
     public FieldDef defcampo;
     public FieldDef defdecimal;
-    public FieldDef defcamponifes;
+    public FieldDef efcamponifes;
     public TabDeflis130(String name)
       {
       super(name);
@@ -3985,7 +4148,7 @@ public class CatModgen extends Catalog
       deftabla = new FieldDef("deftabla",FieldDef.CHAR,15);
       defcampo = new FieldDef("defcampo",FieldDef.CHAR,15);
       defdecimal = new FieldDef("defdecimal",FieldDef.INTEGER,0);
-      defcamponifes = new FieldDef("defcamponifes",FieldDef.CHAR,15);
+      efcamponifes = new FieldDef("efcamponifes",FieldDef.CHAR,15);
       FieldDef array[] = {
         defmodelo,
         defhoja,
@@ -4002,7 +4165,7 @@ public class CatModgen extends Catalog
         deftabla,
         defcampo,
         defdecimal,
-        defcamponifes        
+        efcamponifes        
         };
       setColumns(array);
       FieldDef arrayf[] = {defmodelo,defhoja,defejercicio,defperiodo,defnumero };
@@ -4028,7 +4191,7 @@ public class CatModgen extends Catalog
     public FieldDef deftabla;
     public FieldDef defcampo;
     public FieldDef defdecimal;
-    public FieldDef defcamponifes;
+    public FieldDef efcamponifes;
     public TabDeflis131(String name)
       {
       super(name);
@@ -4047,7 +4210,7 @@ public class CatModgen extends Catalog
       deftabla = new FieldDef("deftabla",FieldDef.CHAR,15);
       defcampo = new FieldDef("defcampo",FieldDef.CHAR,15);
       defdecimal = new FieldDef("defdecimal",FieldDef.INTEGER,0);
-      defcamponifes = new FieldDef("defcamponifes",FieldDef.CHAR,15);
+      efcamponifes = new FieldDef("efcamponifes",FieldDef.CHAR,15);
       FieldDef array[] = {
         defmodelo,
         defhoja,
@@ -4064,7 +4227,7 @@ public class CatModgen extends Catalog
         deftabla,
         defcampo,
         defdecimal,
-        defcamponifes        
+        efcamponifes        
         };
       setColumns(array);
       FieldDef arrayf[] = {defmodelo,defhoja,defejercicio,defperiodo,defnumero };
@@ -4090,7 +4253,7 @@ public class CatModgen extends Catalog
     public FieldDef deftabla;
     public FieldDef defcampo;
     public FieldDef defdecimal;
-    public FieldDef defcamponifes;
+    public FieldDef efcamponifes;
     public TabDeflis202(String name)
       {
       super(name);
@@ -4109,7 +4272,7 @@ public class CatModgen extends Catalog
       deftabla = new FieldDef("deftabla",FieldDef.CHAR,15);
       defcampo = new FieldDef("defcampo",FieldDef.CHAR,15);
       defdecimal = new FieldDef("defdecimal",FieldDef.INTEGER,0);
-      defcamponifes = new FieldDef("defcamponifes",FieldDef.CHAR,15);
+      efcamponifes = new FieldDef("efcamponifes",FieldDef.CHAR,15);
       FieldDef array[] = {
         defmodelo,
         defhoja,
@@ -4126,7 +4289,7 @@ public class CatModgen extends Catalog
         deftabla,
         defcampo,
         defdecimal,
-        defcamponifes        
+        efcamponifes        
         };
       setColumns(array);
       FieldDef arrayf[] = {defmodelo,defhoja,defejercicio,defperiodo,defnumero };
@@ -4152,7 +4315,7 @@ public class CatModgen extends Catalog
     public FieldDef deftabla;
     public FieldDef defcampo;
     public FieldDef defdecimal;
-    public FieldDef defcamponifes;
+    public FieldDef efcamponifes;
     public TabDeflis222(String name)
       {
       super(name);
@@ -4171,7 +4334,7 @@ public class CatModgen extends Catalog
       deftabla = new FieldDef("deftabla",FieldDef.CHAR,15);
       defcampo = new FieldDef("defcampo",FieldDef.CHAR,15);
       defdecimal = new FieldDef("defdecimal",FieldDef.INTEGER,0);
-      defcamponifes = new FieldDef("defcamponifes",FieldDef.CHAR,15);
+      efcamponifes = new FieldDef("efcamponifes",FieldDef.CHAR,15);
       FieldDef array[] = {
         defmodelo,
         defhoja,
@@ -4188,11 +4351,780 @@ public class CatModgen extends Catalog
         deftabla,
         defcampo,
         defdecimal,
-        defcamponifes        
+        efcamponifes        
         };
       setColumns(array);
       FieldDef arrayf[] = {defmodelo,defhoja,defejercicio,defperiodo,defnumero };
       setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabDeflis282 extends TableDef
+    {
+    // Campos
+    public FieldDef defmodelo;
+    public FieldDef defhoja;
+    public FieldDef defejercicio;
+    public FieldDef defperiodo;
+    public FieldDef defnumero;
+    public FieldDef defposicion;
+    public FieldDef deflongitud;
+    public FieldDef deftipo;
+    public FieldDef deflinea;
+    public FieldDef defcolumna;
+    public FieldDef defformato;
+    public FieldDef defdesc;
+    public FieldDef deftabla;
+    public FieldDef defcampo;
+    public FieldDef defdecimal;
+    public FieldDef efcamponifes;
+    public TabDeflis282(String name)
+      {
+      super(name);
+      defmodelo = new FieldDef("defmodelo",FieldDef.CHAR,5,FieldDef.NOTNULL);
+      defhoja = new FieldDef("defhoja",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defejercicio = new FieldDef("defejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defperiodo = new FieldDef("defperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      defnumero = new FieldDef("defnumero",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defposicion = new FieldDef("defposicion",FieldDef.INTEGER,0);
+      deflongitud = new FieldDef("deflongitud",FieldDef.INTEGER,0);
+      deftipo = new FieldDef("deftipo",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      deflinea = new FieldDef("deflinea",FieldDef.INTEGER,0);
+      defcolumna = new FieldDef("defcolumna",FieldDef.INTEGER,0);
+      defformato = new FieldDef("defformato",FieldDef.CHAR,20);
+      defdesc = new FieldDef("defdesc",FieldDef.CHAR,200);
+      deftabla = new FieldDef("deftabla",FieldDef.CHAR,15);
+      defcampo = new FieldDef("defcampo",FieldDef.CHAR,15);
+      defdecimal = new FieldDef("defdecimal",FieldDef.INTEGER,0);
+      efcamponifes = new FieldDef("efcamponifes",FieldDef.CHAR,15);
+      FieldDef array[] = {
+        defmodelo,
+        defhoja,
+        defejercicio,
+        defperiodo,
+        defnumero,
+        defposicion,
+        deflongitud,
+        deftipo,
+        deflinea,
+        defcolumna,
+        defformato,
+        defdesc,
+        deftabla,
+        defcampo,
+        defdecimal,
+        efcamponifes        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {defmodelo,defhoja,defejercicio,defperiodo,defnumero };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabDeflis308 extends TableDef
+    {
+    // Campos
+    public FieldDef defmodelo;
+    public FieldDef defhoja;
+    public FieldDef defejercicio;
+    public FieldDef defperiodo;
+    public FieldDef defnumero;
+    public FieldDef defposicion;
+    public FieldDef deflongitud;
+    public FieldDef deftipo;
+    public FieldDef deflinea;
+    public FieldDef defcolumna;
+    public FieldDef defformato;
+    public FieldDef defdesc;
+    public FieldDef deftabla;
+    public FieldDef defcampo;
+    public FieldDef defdecimal;
+    public FieldDef efcamponifes;
+    public TabDeflis308(String name)
+      {
+      super(name);
+      defmodelo = new FieldDef("defmodelo",FieldDef.CHAR,5,FieldDef.NOTNULL);
+      defhoja = new FieldDef("defhoja",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defejercicio = new FieldDef("defejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defperiodo = new FieldDef("defperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      defnumero = new FieldDef("defnumero",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defposicion = new FieldDef("defposicion",FieldDef.INTEGER,0);
+      deflongitud = new FieldDef("deflongitud",FieldDef.INTEGER,0);
+      deftipo = new FieldDef("deftipo",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      deflinea = new FieldDef("deflinea",FieldDef.INTEGER,0);
+      defcolumna = new FieldDef("defcolumna",FieldDef.INTEGER,0);
+      defformato = new FieldDef("defformato",FieldDef.CHAR,20);
+      defdesc = new FieldDef("defdesc",FieldDef.CHAR,200);
+      deftabla = new FieldDef("deftabla",FieldDef.CHAR,15);
+      defcampo = new FieldDef("defcampo",FieldDef.CHAR,15);
+      defdecimal = new FieldDef("defdecimal",FieldDef.INTEGER,0);
+      efcamponifes = new FieldDef("efcamponifes",FieldDef.CHAR,15);
+      FieldDef array[] = {
+        defmodelo,
+        defhoja,
+        defejercicio,
+        defperiodo,
+        defnumero,
+        defposicion,
+        deflongitud,
+        deftipo,
+        deflinea,
+        defcolumna,
+        defformato,
+        defdesc,
+        deftabla,
+        defcampo,
+        defdecimal,
+        efcamponifes        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {defmodelo,defhoja,defejercicio,defperiodo,defnumero };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabDeflis309 extends TableDef
+    {
+    // Campos
+    public FieldDef defmodelo;
+    public FieldDef defhoja;
+    public FieldDef defejercicio;
+    public FieldDef defperiodo;
+    public FieldDef defnumero;
+    public FieldDef defposicion;
+    public FieldDef deflongitud;
+    public FieldDef deftipo;
+    public FieldDef deflinea;
+    public FieldDef defcolumna;
+    public FieldDef defformato;
+    public FieldDef defdesc;
+    public FieldDef deftabla;
+    public FieldDef defcampo;
+    public FieldDef defdecimal;
+    public FieldDef efcamponifes;
+    public TabDeflis309(String name)
+      {
+      super(name);
+      defmodelo = new FieldDef("defmodelo",FieldDef.CHAR,5,FieldDef.NOTNULL);
+      defhoja = new FieldDef("defhoja",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defejercicio = new FieldDef("defejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defperiodo = new FieldDef("defperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      defnumero = new FieldDef("defnumero",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defposicion = new FieldDef("defposicion",FieldDef.INTEGER,0);
+      deflongitud = new FieldDef("deflongitud",FieldDef.INTEGER,0);
+      deftipo = new FieldDef("deftipo",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      deflinea = new FieldDef("deflinea",FieldDef.INTEGER,0);
+      defcolumna = new FieldDef("defcolumna",FieldDef.INTEGER,0);
+      defformato = new FieldDef("defformato",FieldDef.CHAR,20);
+      defdesc = new FieldDef("defdesc",FieldDef.CHAR,200);
+      deftabla = new FieldDef("deftabla",FieldDef.CHAR,15);
+      defcampo = new FieldDef("defcampo",FieldDef.CHAR,15);
+      defdecimal = new FieldDef("defdecimal",FieldDef.INTEGER,0);
+      efcamponifes = new FieldDef("efcamponifes",FieldDef.CHAR,15);
+      FieldDef array[] = {
+        defmodelo,
+        defhoja,
+        defejercicio,
+        defperiodo,
+        defnumero,
+        defposicion,
+        deflongitud,
+        deftipo,
+        deflinea,
+        defcolumna,
+        defformato,
+        defdesc,
+        deftabla,
+        defcampo,
+        defdecimal,
+        efcamponifes        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {defmodelo,defhoja,defejercicio,defperiodo,defnumero };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabDeflis353 extends TableDef
+    {
+    // Campos
+    public FieldDef defmodelo;
+    public FieldDef defhoja;
+    public FieldDef defejercicio;
+    public FieldDef defperiodo;
+    public FieldDef defnumero;
+    public FieldDef defposicion;
+    public FieldDef deflongitud;
+    public FieldDef deftipo;
+    public FieldDef deflinea;
+    public FieldDef defcolumna;
+    public FieldDef defformato;
+    public FieldDef defdesc;
+    public FieldDef deftabla;
+    public FieldDef defcampo;
+    public FieldDef defdecimal;
+    public FieldDef efcamponifes;
+    public TabDeflis353(String name)
+      {
+      super(name);
+      defmodelo = new FieldDef("defmodelo",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      defhoja = new FieldDef("defhoja",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defejercicio = new FieldDef("defejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defperiodo = new FieldDef("defperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      defnumero = new FieldDef("defnumero",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defposicion = new FieldDef("defposicion",FieldDef.INTEGER,0);
+      deflongitud = new FieldDef("deflongitud",FieldDef.INTEGER,0);
+      deftipo = new FieldDef("deftipo",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      deflinea = new FieldDef("deflinea",FieldDef.INTEGER,0);
+      defcolumna = new FieldDef("defcolumna",FieldDef.INTEGER,0);
+      defformato = new FieldDef("defformato",FieldDef.CHAR,20);
+      defdesc = new FieldDef("defdesc",FieldDef.CHAR,200);
+      deftabla = new FieldDef("deftabla",FieldDef.CHAR,15);
+      defcampo = new FieldDef("defcampo",FieldDef.CHAR,15);
+      defdecimal = new FieldDef("defdecimal",FieldDef.INTEGER,0);
+      efcamponifes = new FieldDef("efcamponifes",FieldDef.CHAR,15);
+      FieldDef array[] = {
+        defmodelo,
+        defhoja,
+        defejercicio,
+        defperiodo,
+        defnumero,
+        defposicion,
+        deflongitud,
+        deftipo,
+        deflinea,
+        defcolumna,
+        defformato,
+        defdesc,
+        deftabla,
+        defcampo,
+        defdecimal,
+        efcamponifes        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {defmodelo,defhoja,defejercicio,defperiodo,defnumero };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabModcalendario extends TableDef
+    {
+    // Campos
+    public FieldDef mclany;
+    public FieldDef mclmodelo;
+    public FieldDef mcltipoper;
+    public FieldDef mclperiodo;
+    public FieldDef mcldesde;
+    public FieldDef mclhasta;
+    public FieldDef mclejercicio;
+    public TabModcalendario(String name)
+      {
+      super(name);
+      mclany = new FieldDef("mclany",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      mclmodelo = new FieldDef("mclmodelo",FieldDef.CHAR,5,FieldDef.NOTNULL);
+      mcltipoper = new FieldDef("mcltipoper",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      mclperiodo = new FieldDef("mclperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      mcldesde = new FieldDef("mcldesde",FieldDef.DATE);
+      mclhasta = new FieldDef("mclhasta",FieldDef.DATE);
+      mclejercicio = new FieldDef("mclejercicio",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        mclany,
+        mclmodelo,
+        mcltipoper,
+        mclperiodo,
+        mcldesde,
+        mclhasta,
+        mclejercicio        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {mclany,mclmodelo,mcltipoper,mclperiodo };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabDeflis390 extends TableDef
+    {
+    // Campos
+    public FieldDef defmodelo;
+    public FieldDef defhoja;
+    public FieldDef defejercicio;
+    public FieldDef defperiodo;
+    public FieldDef defnumero;
+    public FieldDef defposicion;
+    public FieldDef deflongitud;
+    public FieldDef deftipo;
+    public FieldDef defformato;
+    public FieldDef defdesc;
+    public FieldDef deftabla;
+    public FieldDef defcampo;
+    public FieldDef defdecimal;
+    public FieldDef efcamponifes;
+    public TabDeflis390(String name)
+      {
+      super(name);
+      defmodelo = new FieldDef("defmodelo",FieldDef.CHAR,5,FieldDef.NOTNULL);
+      defhoja = new FieldDef("defhoja",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defejercicio = new FieldDef("defejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defperiodo = new FieldDef("defperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+      defnumero = new FieldDef("defnumero",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      defposicion = new FieldDef("defposicion",FieldDef.INTEGER,0);
+      deflongitud = new FieldDef("deflongitud",FieldDef.INTEGER,0);
+      deftipo = new FieldDef("deftipo",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      defformato = new FieldDef("defformato",FieldDef.CHAR,20);
+      defdesc = new FieldDef("defdesc",FieldDef.CHAR,200);
+      deftabla = new FieldDef("deftabla",FieldDef.CHAR,15);
+      defcampo = new FieldDef("defcampo",FieldDef.CHAR,20);
+      defdecimal = new FieldDef("defdecimal",FieldDef.INTEGER,0);
+      efcamponifes = new FieldDef("efcamponifes",FieldDef.CHAR,15);
+      FieldDef array[] = {
+        defmodelo,
+        defhoja,
+        defejercicio,
+        defperiodo,
+        defnumero,
+        defposicion,
+        deflongitud,
+        deftipo,
+        defformato,
+        defdesc,
+        deftabla,
+        defcampo,
+        defdecimal,
+        efcamponifes        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {defmodelo,defhoja,defejercicio,defperiodo,defnumero };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabMod210r extends TableDef
+    {
+    // Campos
+    public FieldDef m210rdominio;
+    public FieldDef m210rnif;
+    public FieldDef m210rejercicio;
+    public FieldDef m210rident;
+    public FieldDef m210rempresa;
+    public FieldDef m210rmuf;
+    public FieldDef m210rtributac;
+    public FieldDef m210ractivo;
+    public FieldDef m210rrevisado;
+    public FieldDef m210ragrupa;
+    public FieldDef m210restrim;
+    public FieldDef m210rtipo;
+    public FieldDef m210rtipograva;
+    public FieldDef m210rescala;
+    public FieldDef m210rdivisa;
+    public FieldDef m210rperiodo;
+    public FieldDef m210rejer;
+    public FieldDef m210rfechadev;
+    public FieldDef m210rporcen;
+    public FieldDef m210rimportea;
+    public FieldDef m210rimporte1;
+    public FieldDef m210rimporte2;
+    public FieldDef m210rimporte3;
+    public FieldDef m210rimporte4;
+    public FieldDef m210rgastoa;
+    public FieldDef m210rgasto1;
+    public FieldDef m210rgasto2;
+    public FieldDef m210rgasto3;
+    public FieldDef m210rgasto4;
+    public FieldDef m210rcuota;
+    public FieldDef m210rcuota1;
+    public FieldDef m210rcuota2;
+    public FieldDef m210rcuota3;
+    public FieldDef m210rcuota4;
+    public FieldDef m210rdon;
+    public FieldDef m210rdon1;
+    public FieldDef m210rdon2;
+    public FieldDef m210rdon3;
+    public FieldDef m210rdon4;
+    public FieldDef m210rreten;
+    public FieldDef m210rreten1;
+    public FieldDef m210rreten2;
+    public FieldDef m210rreten3;
+    public FieldDef m210rreten4;
+    public FieldDef m210rresultado;
+    public FieldDef m210rresultado1;
+    public FieldDef m210rresultado2;
+    public FieldDef m210rresultado3;
+    public FieldDef m210rresultado4;
+    public FieldDef m210rconvenio;
+    public FieldDef m210ranterior;
+    public FieldDef m210rnro210;
+    public FieldDef m210rnifp;
+    public FieldDef m210rfisjurp;
+    public FieldDef m210rnombrep;
+    public FieldDef m210ridfinca;
+    public FieldDef m210rcalle;
+    public FieldDef m210rnumero;
+    public FieldDef m210rmunicipio;
+    public FieldDef m210rprovincia;
+    public FieldDef m210rctipovia;
+    public FieldDef m210rctiponum;
+    public FieldDef m210rcalifnum;
+    public FieldDef m210rcbloque;
+    public FieldDef m210rcportal;
+    public FieldDef m210rcescalera;
+    public FieldDef m210rcplanta;
+    public FieldDef m210rcpuerta;
+    public FieldDef m210rclavepais;
+    public FieldDef m210rcpostal;
+    public FieldDef m210rcodigoine;
+    public FieldDef m210rpoblacion;
+    public FieldDef m210rcatastral;
+    public FieldDef m210rfecven1;
+    public FieldDef m210rfecadq1;
+    public FieldDef m210rventa1;
+    public FieldDef m210rcompra1;
+    public FieldDef m210rdifer1;
+    public FieldDef m210rganan1;
+    public FieldDef m210rfecven2;
+    public FieldDef m210rfecadq2;
+    public FieldDef m210rventa2;
+    public FieldDef m210rcompra2;
+    public FieldDef m210rdifer2;
+    public FieldDef m210rganan2;
+    public FieldDef m210rtipgan1;
+    public FieldDef m210rpat;
+    public FieldDef m210rabatim1;
+    public FieldDef m210rsus1;
+    public FieldDef m210rdt91;
+    public FieldDef m210rreinv1;
+    public FieldDef m210rexvda1;
+    public FieldDef m210rabatim2;
+    public FieldDef m210rsus2;
+    public FieldDef m210rdt92;
+    public FieldDef m210rreinv2;
+    public FieldDef m210rexvda2;
+    public FieldDef m210rganancia;
+    public FieldDef m210rnro211;
+    public FieldDef m210rco;
+    public FieldDef m210rpordec;
+    public FieldDef m210rporcon;
+    public FieldDef m210rnifconh;
+    public FieldDef m210rnomconh;
+    public TabMod210r(String name)
+      {
+      super(name);
+      m210rdominio = new FieldDef("m210rdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      m210rnif = new FieldDef("m210rnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+      m210rejercicio = new FieldDef("m210rejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m210rident = new FieldDef("m210rident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      m210rempresa = new FieldDef("m210rempresa",FieldDef.CHAR,12);
+      m210rmuf = new FieldDef("m210rmuf",FieldDef.CHAR,6);
+      m210rtributac = new FieldDef("m210rtributac",FieldDef.CHAR,1);
+      m210ractivo = new FieldDef("m210ractivo",FieldDef.CHAR,1);
+      m210rrevisado = new FieldDef("m210rrevisado",FieldDef.CHAR,1);
+      m210ragrupa = new FieldDef("m210ragrupa",FieldDef.CHAR,1);
+      m210restrim = new FieldDef("m210restrim",FieldDef.CHAR,1);
+      m210rtipo = new FieldDef("m210rtipo",FieldDef.CHAR,2);
+      m210rtipograva = new FieldDef("m210rtipograva",FieldDef.FLOAT,6,0);
+      m210rescala = new FieldDef("m210rescala",FieldDef.CHAR,1);
+      m210rdivisa = new FieldDef("m210rdivisa",FieldDef.CHAR,3);
+      m210rperiodo = new FieldDef("m210rperiodo",FieldDef.CHAR,2);
+      m210rejer = new FieldDef("m210rejer",FieldDef.INTEGER,0);
+      m210rfechadev = new FieldDef("m210rfechadev",FieldDef.DATE);
+      m210rporcen = new FieldDef("m210rporcen",FieldDef.FLOAT,6,0);
+      m210rimportea = new FieldDef("m210rimportea",FieldDef.FLOAT,6,0);
+      m210rimporte1 = new FieldDef("m210rimporte1",FieldDef.FLOAT,6,0);
+      m210rimporte2 = new FieldDef("m210rimporte2",FieldDef.FLOAT,6,0);
+      m210rimporte3 = new FieldDef("m210rimporte3",FieldDef.FLOAT,6,0);
+      m210rimporte4 = new FieldDef("m210rimporte4",FieldDef.FLOAT,6,0);
+      m210rgastoa = new FieldDef("m210rgastoa",FieldDef.FLOAT,6,0);
+      m210rgasto1 = new FieldDef("m210rgasto1",FieldDef.FLOAT,6,0);
+      m210rgasto2 = new FieldDef("m210rgasto2",FieldDef.FLOAT,6,0);
+      m210rgasto3 = new FieldDef("m210rgasto3",FieldDef.FLOAT,6,0);
+      m210rgasto4 = new FieldDef("m210rgasto4",FieldDef.FLOAT,6,0);
+      m210rcuota = new FieldDef("m210rcuota",FieldDef.FLOAT,6,0);
+      m210rcuota1 = new FieldDef("m210rcuota1",FieldDef.FLOAT,6,0);
+      m210rcuota2 = new FieldDef("m210rcuota2",FieldDef.FLOAT,6,0);
+      m210rcuota3 = new FieldDef("m210rcuota3",FieldDef.FLOAT,6,0);
+      m210rcuota4 = new FieldDef("m210rcuota4",FieldDef.FLOAT,6,0);
+      m210rdon = new FieldDef("m210rdon",FieldDef.FLOAT,6,0);
+      m210rdon1 = new FieldDef("m210rdon1",FieldDef.FLOAT,6,0);
+      m210rdon2 = new FieldDef("m210rdon2",FieldDef.FLOAT,6,0);
+      m210rdon3 = new FieldDef("m210rdon3",FieldDef.FLOAT,6,0);
+      m210rdon4 = new FieldDef("m210rdon4",FieldDef.FLOAT,6,0);
+      m210rreten = new FieldDef("m210rreten",FieldDef.FLOAT,6,0);
+      m210rreten1 = new FieldDef("m210rreten1",FieldDef.FLOAT,6,0);
+      m210rreten2 = new FieldDef("m210rreten2",FieldDef.FLOAT,6,0);
+      m210rreten3 = new FieldDef("m210rreten3",FieldDef.FLOAT,6,0);
+      m210rreten4 = new FieldDef("m210rreten4",FieldDef.FLOAT,6,0);
+      m210rresultado = new FieldDef("m210rresultado",FieldDef.FLOAT,6,0);
+      m210rresultado1 = new FieldDef("m210rresultado1",FieldDef.FLOAT,6,0);
+      m210rresultado2 = new FieldDef("m210rresultado2",FieldDef.FLOAT,6,0);
+      m210rresultado3 = new FieldDef("m210rresultado3",FieldDef.FLOAT,6,0);
+      m210rresultado4 = new FieldDef("m210rresultado4",FieldDef.FLOAT,6,0);
+      m210rconvenio = new FieldDef("m210rconvenio",FieldDef.FLOAT,6,0);
+      m210ranterior = new FieldDef("m210ranterior",FieldDef.FLOAT,6,0);
+      m210rnro210 = new FieldDef("m210rnro210",FieldDef.CHAR,13);
+      m210rnifp = new FieldDef("m210rnifp",FieldDef.CHAR,9);
+      m210rfisjurp = new FieldDef("m210rfisjurp",FieldDef.CHAR,1);
+      m210rnombrep = new FieldDef("m210rnombrep",FieldDef.CHAR,100);
+      m210ridfinca = new FieldDef("m210ridfinca",FieldDef.INTEGER,0);
+      m210rcalle = new FieldDef("m210rcalle",FieldDef.CHAR,50);
+      m210rnumero = new FieldDef("m210rnumero",FieldDef.CHAR,4);
+      m210rmunicipio = new FieldDef("m210rmunicipio",FieldDef.CHAR,30);
+      m210rprovincia = new FieldDef("m210rprovincia",FieldDef.INTEGER,0);
+      m210rctipovia = new FieldDef("m210rctipovia",FieldDef.CHAR,5);
+      m210rctiponum = new FieldDef("m210rctiponum",FieldDef.CHAR,3);
+      m210rcalifnum = new FieldDef("m210rcalifnum",FieldDef.CHAR,3);
+      m210rcbloque = new FieldDef("m210rcbloque",FieldDef.CHAR,3);
+      m210rcportal = new FieldDef("m210rcportal",FieldDef.CHAR,3);
+      m210rcescalera = new FieldDef("m210rcescalera",FieldDef.CHAR,3);
+      m210rcplanta = new FieldDef("m210rcplanta",FieldDef.CHAR,3);
+      m210rcpuerta = new FieldDef("m210rcpuerta",FieldDef.CHAR,3);
+      m210rclavepais = new FieldDef("m210rclavepais",FieldDef.CHAR,2);
+      m210rcpostal = new FieldDef("m210rcpostal",FieldDef.CHAR,5);
+      m210rcodigoine = new FieldDef("m210rcodigoine",FieldDef.CHAR,5);
+      m210rpoblacion = new FieldDef("m210rpoblacion",FieldDef.CHAR,30);
+      m210rcatastral = new FieldDef("m210rcatastral",FieldDef.CHAR,20);
+      m210rfecven1 = new FieldDef("m210rfecven1",FieldDef.DATE);
+      m210rfecadq1 = new FieldDef("m210rfecadq1",FieldDef.DATE);
+      m210rventa1 = new FieldDef("m210rventa1",FieldDef.FLOAT,6,0);
+      m210rcompra1 = new FieldDef("m210rcompra1",FieldDef.FLOAT,6,0);
+      m210rdifer1 = new FieldDef("m210rdifer1",FieldDef.FLOAT,6,0);
+      m210rganan1 = new FieldDef("m210rganan1",FieldDef.FLOAT,6,0);
+      m210rfecven2 = new FieldDef("m210rfecven2",FieldDef.DATE);
+      m210rfecadq2 = new FieldDef("m210rfecadq2",FieldDef.DATE);
+      m210rventa2 = new FieldDef("m210rventa2",FieldDef.FLOAT,6,0);
+      m210rcompra2 = new FieldDef("m210rcompra2",FieldDef.FLOAT,6,0);
+      m210rdifer2 = new FieldDef("m210rdifer2",FieldDef.FLOAT,6,0);
+      m210rganan2 = new FieldDef("m210rganan2",FieldDef.FLOAT,6,0);
+      m210rtipgan1 = new FieldDef("m210rtipgan1",FieldDef.CHAR,3);
+      m210rpat = new FieldDef("m210rpat",FieldDef.FLOAT,6,0);
+      m210rabatim1 = new FieldDef("m210rabatim1",FieldDef.FLOAT,6,0);
+      m210rsus1 = new FieldDef("m210rsus1",FieldDef.FLOAT,6,0);
+      m210rdt91 = new FieldDef("m210rdt91",FieldDef.FLOAT,6,0);
+      m210rreinv1 = new FieldDef("m210rreinv1",FieldDef.FLOAT,6,0);
+      m210rexvda1 = new FieldDef("m210rexvda1",FieldDef.FLOAT,6,0);
+      m210rabatim2 = new FieldDef("m210rabatim2",FieldDef.FLOAT,6,0);
+      m210rsus2 = new FieldDef("m210rsus2",FieldDef.FLOAT,6,0);
+      m210rdt92 = new FieldDef("m210rdt92",FieldDef.FLOAT,6,0);
+      m210rreinv2 = new FieldDef("m210rreinv2",FieldDef.FLOAT,6,0);
+      m210rexvda2 = new FieldDef("m210rexvda2",FieldDef.FLOAT,6,0);
+      m210rganancia = new FieldDef("m210rganancia",FieldDef.FLOAT,6,0);
+      m210rnro211 = new FieldDef("m210rnro211",FieldDef.CHAR,13);
+      m210rco = new FieldDef("m210rco",FieldDef.CHAR,1);
+      m210rpordec = new FieldDef("m210rpordec",FieldDef.FLOAT,6,0);
+      m210rporcon = new FieldDef("m210rporcon",FieldDef.FLOAT,6,0);
+      m210rnifconh = new FieldDef("m210rnifconh",FieldDef.CHAR,9);
+      m210rnomconh = new FieldDef("m210rnomconh",FieldDef.CHAR,40);
+      FieldDef array[] = {
+        m210rdominio,
+        m210rnif,
+        m210rejercicio,
+        m210rident,
+        m210rempresa,
+        m210rmuf,
+        m210rtributac,
+        m210ractivo,
+        m210rrevisado,
+        m210ragrupa,
+        m210restrim,
+        m210rtipo,
+        m210rtipograva,
+        m210rescala,
+        m210rdivisa,
+        m210rperiodo,
+        m210rejer,
+        m210rfechadev,
+        m210rporcen,
+        m210rimportea,
+        m210rimporte1,
+        m210rimporte2,
+        m210rimporte3,
+        m210rimporte4,
+        m210rgastoa,
+        m210rgasto1,
+        m210rgasto2,
+        m210rgasto3,
+        m210rgasto4,
+        m210rcuota,
+        m210rcuota1,
+        m210rcuota2,
+        m210rcuota3,
+        m210rcuota4,
+        m210rdon,
+        m210rdon1,
+        m210rdon2,
+        m210rdon3,
+        m210rdon4,
+        m210rreten,
+        m210rreten1,
+        m210rreten2,
+        m210rreten3,
+        m210rreten4,
+        m210rresultado,
+        m210rresultado1,
+        m210rresultado2,
+        m210rresultado3,
+        m210rresultado4,
+        m210rconvenio,
+        m210ranterior,
+        m210rnro210,
+        m210rnifp,
+        m210rfisjurp,
+        m210rnombrep,
+        m210ridfinca,
+        m210rcalle,
+        m210rnumero,
+        m210rmunicipio,
+        m210rprovincia,
+        m210rctipovia,
+        m210rctiponum,
+        m210rcalifnum,
+        m210rcbloque,
+        m210rcportal,
+        m210rcescalera,
+        m210rcplanta,
+        m210rcpuerta,
+        m210rclavepais,
+        m210rcpostal,
+        m210rcodigoine,
+        m210rpoblacion,
+        m210rcatastral,
+        m210rfecven1,
+        m210rfecadq1,
+        m210rventa1,
+        m210rcompra1,
+        m210rdifer1,
+        m210rganan1,
+        m210rfecven2,
+        m210rfecadq2,
+        m210rventa2,
+        m210rcompra2,
+        m210rdifer2,
+        m210rganan2,
+        m210rtipgan1,
+        m210rpat,
+        m210rabatim1,
+        m210rsus1,
+        m210rdt91,
+        m210rreinv1,
+        m210rexvda1,
+        m210rabatim2,
+        m210rsus2,
+        m210rdt92,
+        m210rreinv2,
+        m210rexvda2,
+        m210rganancia,
+        m210rnro211,
+        m210rco,
+        m210rpordec,
+        m210rporcon,
+        m210rnifconh,
+        m210rnomconh        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {m210rdominio,m210rnif,m210rejercicio,m210rident };
+      setDescription("Rentas no residentes 210 (Jrenta)");
+      setPrimaryKeys(arrayf);
+      m210rnif.setDescription("NIF declarante");
+      m210rejercicio.setDescription("Ejercicio aplicacion");
+      m210rident.setDescription("Identificador");
+      m210rempresa.setDescription("codi declarante");
+      m210rmuf.setDescription("M.U.F.");
+      m210rtributac.setDescription("Conjunta/Individual");
+      m210ractivo.setDescription("Activado/desactivado");
+      m210rrevisado.setDescription("Revisado");
+      m210ragrupa.setDescription("Agrupacion");
+      m210restrim.setDescription("S/N trimestral");
+      m210rtipo.setDescription("Tipo de renta");
+      m210rtipograva.setDescription("Tipo de gravamen");
+      m210rescala.setDescription("S/N aplica escala");
+      m210rdivisa.setDescription("Divisa");
+      m210rperiodo.setDescription("Devengo Periodo devengo 0A-1T..,");
+      m210rejer.setDescription("Devengo Ejer.");
+      m210rfechadev.setDescription("Devengo Fecha");
+      m210rporcen.setDescription("Porcentaje");
+      m210rimportea.setDescription("Importe anual Rdto/Imputacion");
+      m210rimporte1.setDescription("Importe 1T");
+      m210rimporte2.setDescription("Importe 2T");
+      m210rimporte3.setDescription("Importe 3T");
+      m210rimporte4.setDescription("Importe 4T");
+      m210rgastoa.setDescription("Gastos deducibles");
+      m210rgasto1.setDescription("Gastos 1T");
+      m210rgasto2.setDescription("Gastos 2T");
+      m210rgasto3.setDescription("Gastos 3T");
+      m210rgasto4.setDescription("Gastos 4T");
+      m210rcuota.setDescription("Liquidacion: Cuota");
+      m210rcuota1.setDescription("Liquidacion: Cuota 1T");
+      m210rcuota2.setDescription("Liquidacion: Cuota 2T");
+      m210rcuota3.setDescription("Liquidacion: Cuota 3T");
+      m210rcuota4.setDescription("Liquidacion: Cuota 4T");
+      m210rdon.setDescription("Liquidacion: Ded.Donativos");
+      m210rdon1.setDescription("Liquidacion: Ded.Donativos 1T");
+      m210rdon2.setDescription("Liquidacion: Ded.Donativos 2T");
+      m210rdon3.setDescription("Liquidacion: Ded.Donativos 3T");
+      m210rdon4.setDescription("Liquidacion: Ded.Donativos 4T");
+      m210rreten.setDescription("Liquidacion: Retencion/Ing.a cta");
+      m210rreten1.setDescription("Liquidacion: Retencion/Ing.a cta 1T");
+      m210rreten2.setDescription("Liquidacion: Retencion/Ing.a cta 2T");
+      m210rreten3.setDescription("Liquidacion: Retencion/Ing.a cta 3T");
+      m210rreten4.setDescription("Liquidacion: Retencion/Ing.a cta 4T");
+      m210rresultado.setDescription("Liquidacion: Resultado");
+      m210rresultado1.setDescription("Liquidacion: Resultado 1T");
+      m210rresultado2.setDescription("Liquidacion: Resultado 2T");
+      m210rresultado3.setDescription("Liquidacion: Resultado 3T");
+      m210rresultado4.setDescription("Liquidacion: Resultado 4T");
+      m210rconvenio.setDescription("Liquidacion: Red.Convenio");
+      m210ranterior.setDescription("Liquidacion: Ing./devolucio anterior");
+      m210rnro210.setDescription("Nro justificante 210 anterior");
+      m210rnifp.setDescription("Pagador/Retenedor: NIF");
+      m210rfisjurp.setDescription("Pagador/Retenedor: Fisica/Juridica");
+      m210rnombrep.setDescription("Pagador/Retenedor: Apellidos");
+      m210ridfinca.setDescription("Id INMOBILIARIO");
+      m210rcalle.setDescription("Situacion inmueble: Calle");
+      m210rnumero.setDescription("Numero");
+      m210rmunicipio.setDescription("Municipio");
+      m210rprovincia.setDescription("Provincia");
+      m210rctipovia.setDescription("Tipo de via");
+      m210rctiponum.setDescription("Tipo de numeracion");
+      m210rcalifnum.setDescription("Calificador de nro");
+      m210rcbloque.setDescription("Bloque");
+      m210rcportal.setDescription("Portal");
+      m210rcescalera.setDescription("Escalera");
+      m210rcplanta.setDescription("Planta");
+      m210rcpuerta.setDescription("Puerta");
+      m210rclavepais.setDescription("Clave pais");
+      m210rcpostal.setDescription("Codigo postal");
+      m210rcodigoine.setDescription("Codigo INE del municipio");
+      m210rpoblacion.setDescription("Poblacion (si es difer.municipio)");
+      m210rcatastral.setDescription("Referencia catastral");
+      m210rfecven1.setDescription("Ganancia 1: Fecha transmision");
+      m210rfecadq1.setDescription("Ganancia 1: Fecha adquisicion");
+      m210rventa1.setDescription("Ganancia 1: Valor transmision");
+      m210rcompra1.setDescription("Ganancia 1: Valor adquisicion");
+      m210rdifer1.setDescription("Ganancia 1: Diferencia");
+      m210rganan1.setDescription("Ganancia 1: Ganancia sujeta");
+      m210rfecven2.setDescription("Ganancia 2 mejora: Fecha transmision");
+      m210rfecadq2.setDescription("Ganancia 2 mejora: Fecha adquisicion");
+      m210rventa2.setDescription("Ganancia 2 mejora: Valor transmision");
+      m210rcompra2.setDescription("Ganancia 2 mejora: Valor adquisicion");
+      m210rdifer2.setDescription("Ganancia 2 mejora: Diferencia");
+      m210rganan2.setDescription("Ganancia 2 mejora: Ganancia sujeta");
+      m210rtipgan1.setDescription("Tipo de ganancia ACB-FIM-OVM");
+      m210rpat.setDescription("Patrimonio 2005");
+      m210rabatim1.setDescription("Importe abatimiento");
+      m210rsus1.setDescription("Susceptible reduccion DT9");
+      m210rdt91.setDescription("Reduc. DT9");
+      m210rreinv1.setDescription("Importe reinversion vda hab");
+      m210rexvda1.setDescription("Exencion vda hab");
+      m210rabatim2.setDescription("Importe abatimiento");
+      m210rsus2.setDescription("Susceptible reduccion DT9");
+      m210rdt92.setDescription("Reduc. DT9");
+      m210rreinv2.setDescription("Importe reinversion vda hab");
+      m210rexvda2.setDescription("Exencion vda hab");
+      m210rganancia.setDescription("Ganancia total inmueble");
+      m210rnro211.setDescription("Ganancia inmueble Nro justificante 211");
+      m210rco.setDescription("Ganancia inmueble C/O C-ambos conyuges");
+      m210rpordec.setDescription("Ganancia inmueble Declarante porcentaje");
+      m210rporcon.setDescription("Ganancia inmueble Conyuge porcentaje");
+      m210rnifconh.setDescription("Ganancia inmueble Conyuge NIF");
+      m210rnomconh.setDescription("Ganancia inmueble Conyuge Nombre");
       }
     }
     
@@ -4209,6 +5141,7 @@ public class CatModgen extends Catalog
     tabmodprograma = new TabModprograma("modprograma");
     tabpresentador = new TabPresentador("presentador");
     tabimportacion = new TabImportacion("importacion");
+    tabimport100200jr = new TabImport100200jr("import100200jr");
     tabtiposunid = new TabTiposunid("tiposunid");
     tabmodirpfc = new TabModirpfc("modirpfc");
     tabmodirpfl = new TabModirpfl("modirpfl");
@@ -4249,6 +5182,7 @@ public class CatModgen extends Catalog
     tabaeatfirmamod = new TabAeatfirmamod("aeatfirmamod");
     tabmodrdtoagr = new TabModrdtoagr("modrdtoagr");
     tabmodingagr = new TabModingagr("modingagr");
+    tabdeflis111 = new TabDeflis111("deflis111");
     tabdeflis115 = new TabDeflis115("deflis115");
     tabdeflis123 = new TabDeflis123("deflis123");
     tabdeflis216 = new TabDeflis216("deflis216");
@@ -4256,6 +5190,13 @@ public class CatModgen extends Catalog
     tabdeflis131 = new TabDeflis131("deflis131");
     tabdeflis202 = new TabDeflis202("deflis202");
     tabdeflis222 = new TabDeflis222("deflis222");
+    tabdeflis282 = new TabDeflis282("deflis282");
+    tabdeflis308 = new TabDeflis308("deflis308");
+    tabdeflis309 = new TabDeflis309("deflis309");
+    tabdeflis353 = new TabDeflis353("deflis353");
+    tabmodcalendario = new TabModcalendario("modcalendario");
+    tabdeflis390 = new TabDeflis390("deflis390");
+    tabmod210r = new TabMod210r("mod210r");
     TableDef array[] = {
       tabgycauto,
       tabmodelos,
@@ -4268,6 +5209,7 @@ public class CatModgen extends Catalog
       tabmodprograma,
       tabpresentador,
       tabimportacion,
+      tabimport100200jr,
       tabtiposunid,
       tabmodirpfc,
       tabmodirpfl,
@@ -4308,13 +5250,21 @@ public class CatModgen extends Catalog
       tabaeatfirmamod,
       tabmodrdtoagr,
       tabmodingagr,
+      tabdeflis111,
       tabdeflis115,
       tabdeflis123,
       tabdeflis216,
       tabdeflis130,
       tabdeflis131,
       tabdeflis202,
-      tabdeflis222      
+      tabdeflis222,
+      tabdeflis282,
+      tabdeflis308,
+      tabdeflis309,
+      tabdeflis353,
+      tabmodcalendario,
+      tabdeflis390,
+      tabmod210r      
       };
     setTables(array);
     FieldDef tabdeflisArrayf1[] = { tabdeflis.defmodelo,tabdeflis.defhoja,tabdeflis.defejercicio,tabdeflis.defperiodo };

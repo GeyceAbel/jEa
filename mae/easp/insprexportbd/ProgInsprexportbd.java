@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20161121
-// Hora:             12:28:42
+// Hora:             15:19:07
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -127,6 +127,10 @@ public class ProgInsprexportbd extends Program
       	  String aplicJnom =URLExec.getContenido(proc+"JNOM");
             if ((aplicJnom != null && aplicJnom.startsWith("JNOM"))) {
       	    conver.setRegistre (Easp.dominio,"JNOM",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
+            }
+            String aplicJrrhh =URLExec.getContenido(proc+"JRRHH");
+            if ((aplicJrrhh != null && aplicJrrhh.startsWith("JRRHH"))) {
+      	    conver.setRegistre (Easp.dominio,"JRRHH",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
             }
         }
         if ( bdjeo ) {

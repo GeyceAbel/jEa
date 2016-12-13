@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150512
-// Hora:             17:19:40
+// Fecha:            20161212
+// Hora:             19:17:19
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -230,6 +230,7 @@ public class CatModelos1 extends Catalog
     public FieldDef m300exoinmob;
     public FieldDef m300regulaquo;
     public FieldDef m300reguladua;
+    public FieldDef m300swift;
     public TabMod300(String name)
       {
       super(name);
@@ -394,6 +395,7 @@ public class CatModelos1 extends Catalog
       m300exoinmob = new FieldDef("m300exoinmob",FieldDef.FLOAT,6,0);
       m300regulaquo = new FieldDef("m300regulaquo",FieldDef.FLOAT,6,0);
       m300reguladua = new FieldDef("m300reguladua",FieldDef.FLOAT,6,0);
+      m300swift = new FieldDef("m300swift",FieldDef.CHAR,11);
       FieldDef array[] = {
         m300dominio,
         m300nif,
@@ -555,7 +557,8 @@ public class CatModelos1 extends Catalog
         m300exoinstala,
         m300exoinmob,
         m300regulaquo,
-        m300reguladua        
+        m300reguladua,
+        m300swift        
         };
       setColumns(array);
       FieldDef arrayf[] = {m300dominio,m300nif,m300ejercicio,m300periodo };
@@ -590,6 +593,7 @@ public class CatModelos1 extends Catalog
       m300exoinmob.setDescription("Exonerados Entregas bienes inmuebles");
       m300regulaquo.setDescription("Resultado  Regularizacion cuotas art.80.Cinco.5 LIVA");
       m300reguladua.setDescription("Resultado  Regularizacion aduanas");
+      m300swift.setDescription("Codigo BIC-SWIFT");
       }
     }
     
@@ -1938,6 +1942,8 @@ public class CatModelos1 extends Catalog
     public FieldDef m110tipodecl;
     public FieldDef m110formapago;
     public FieldDef m110colcom;
+    public FieldDef m110paisiban;
+    public FieldDef m110dciban;
     public TabMod110(String name)
       {
       super(name);
@@ -2015,6 +2021,8 @@ public class CatModelos1 extends Catalog
       m110tipodecl = new FieldDef("m110tipodecl",FieldDef.CHAR,1);
       m110formapago = new FieldDef("m110formapago",FieldDef.INTEGER,0);
       m110colcom = new FieldDef("m110colcom",FieldDef.CHAR,1);
+      m110paisiban = new FieldDef("m110paisiban",FieldDef.CHAR,2);
+      m110dciban = new FieldDef("m110dciban",FieldDef.CHAR,2);
       FieldDef array[] = {
         m110dominio,
         m110nif,
@@ -2089,7 +2097,9 @@ public class CatModelos1 extends Catalog
         m110codelec,
         m110tipodecl,
         m110formapago,
-        m110colcom        
+        m110colcom,
+        m110paisiban,
+        m110dciban        
         };
       setColumns(array);
       FieldDef arrayf[] = {m110dominio,m110nif,m110ejercicio,m110periodo };
@@ -3658,6 +3668,7 @@ public class CatModelos1 extends Catalog
     public FieldDef m190dcompuhijo2;
     public FieldDef m190dcompuhijo3;
     public FieldDef m190dvivfinan;
+    public FieldDef m190dmovgeo15;
     public TabMod190d(String name)
       {
       super(name);
@@ -3729,6 +3740,7 @@ public class CatModelos1 extends Catalog
       m190dcompuhijo2 = new FieldDef("m190dcompuhijo2",FieldDef.INTEGER,0);
       m190dcompuhijo3 = new FieldDef("m190dcompuhijo3",FieldDef.INTEGER,0);
       m190dvivfinan = new FieldDef("m190dvivfinan",FieldDef.INTEGER,0);
+      m190dmovgeo15 = new FieldDef("m190dmovgeo15",FieldDef.CHAR,1);
       FieldDef array[] = {
         m190dident,
         m190ddominio,
@@ -3797,7 +3809,8 @@ public class CatModelos1 extends Catalog
         m190dcompuhijo1,
         m190dcompuhijo2,
         m190dcompuhijo3,
-        m190dvivfinan        
+        m190dvivfinan,
+        m190dmovgeo15        
         };
       setColumns(array);
       FieldDef arrayf[] = {m190dident };
@@ -7188,6 +7201,7 @@ public class CatModelos1 extends Catalog
     public FieldDef m296dlugarnaci;
     public FieldDef m296dcpaisnaci;
     public FieldDef m296dpaisfiscal;
+    public FieldDef m296dliscertif;
     public TabMod296d(String name)
       {
       super(name);
@@ -7235,6 +7249,7 @@ public class CatModelos1 extends Catalog
       m296dlugarnaci = new FieldDef("m296dlugarnaci",FieldDef.CHAR,35);
       m296dcpaisnaci = new FieldDef("m296dcpaisnaci",FieldDef.CHAR,2);
       m296dpaisfiscal = new FieldDef("m296dpaisfiscal",FieldDef.CHAR,2);
+      m296dliscertif = new FieldDef("m296dliscertif",FieldDef.CHAR,1);
       FieldDef array[] = {
         m296dident,
         m296ddominio,
@@ -7279,7 +7294,8 @@ public class CatModelos1 extends Catalog
         m296dfechanaci,
         m296dlugarnaci,
         m296dcpaisnaci,
-        m296dpaisfiscal        
+        m296dpaisfiscal,
+        m296dliscertif        
         };
       setColumns(array);
       FieldDef arrayf[] = {m296dident };
@@ -7733,6 +7749,7 @@ public class CatModelos1 extends Catalog
     public FieldDef m202impintquita;
     public FieldDef m202nifentrepre;
     public FieldDef m202razonrepre;
+    public FieldDef m202circun;
     public TabMod202(String name)
       {
       super(name);
@@ -7882,6 +7899,7 @@ public class CatModelos1 extends Catalog
       m202impintquita = new FieldDef("m202impintquita",FieldDef.FLOAT,6,0);
       m202nifentrepre = new FieldDef("m202nifentrepre",FieldDef.CHAR,15);
       m202razonrepre = new FieldDef("m202razonrepre",FieldDef.CHAR,60);
+      m202circun = new FieldDef("m202circun",FieldDef.CHAR,1);
       FieldDef array[] = {
         m202dominio,
         m202nif,
@@ -8028,7 +8046,8 @@ public class CatModelos1 extends Catalog
         m202impexcquita,
         m202impintquita,
         m202nifentrepre,
-        m202razonrepre        
+        m202razonrepre,
+        m202circun        
         };
       setColumns(array);
       FieldDef arrayf[] = {m202dominio,m202nif,m202ejercicio,m202periodo };
@@ -8079,6 +8098,7 @@ public class CatModelos1 extends Catalog
       m202impintquita.setDescription("Parte integrada en la base imponible por operaciones de quita o espera");
       m202nifentrepre.setDescription("NIF entidad representante");
       m202razonrepre.setDescription("Razon socieal entidad representante");
+      m202circun.setDescription("casilla si concurre ALGUNA de las siguientes circunstancias");
       }
     }
     
@@ -9975,6 +9995,8 @@ public class CatModelos1 extends Catalog
     public FieldDef m9b2opgalded647;
     public FieldDef m9b2opgalmodboi;
     public FieldDef m9b2opgalmodqoi;
+    public FieldDef m9b2a1lorca;
+    public FieldDef m9b2a2lorca;
     public TabMod3902b(String name)
       {
       super(name);
@@ -10054,6 +10076,8 @@ public class CatModelos1 extends Catalog
       m9b2opgalded647 = new FieldDef("m9b2opgalded647",FieldDef.FLOAT,6,0);
       m9b2opgalmodboi = new FieldDef("m9b2opgalmodboi",FieldDef.FLOAT,6,0);
       m9b2opgalmodqoi = new FieldDef("m9b2opgalmodqoi",FieldDef.FLOAT,6,0);
+      m9b2a1lorca = new FieldDef("m9b2a1lorca",FieldDef.FLOAT,6,0);
+      m9b2a2lorca = new FieldDef("m9b2a2lorca",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m9b2dominio,
         m9b2nif,
@@ -10130,7 +10154,9 @@ public class CatModelos1 extends Catalog
         m9b2opgalded646,
         m9b2opgalded647,
         m9b2opgalmodboi,
-        m9b2opgalmodqoi        
+        m9b2opgalmodqoi,
+        m9b2a1lorca,
+        m9b2a2lorca        
         };
       setColumns(array);
       FieldDef arrayf[] = {m9b2dominio,m9b2nif,m9b2ejercicio,m9b2periodo };
@@ -10145,6 +10171,8 @@ public class CatModelos1 extends Catalog
       m9b2opgalded647.setDescription("Rectific.deducciones por operaciones intragrupo Cuota c652");
       m9b2opgalmodboi.setDescription("Operac.Reg.Gral Devengado Modif bases y cuotas operac.intragrupo base  c649");
       m9b2opgalmodqoi.setDescription("Operac.Reg.Gral Devengado Modif bases y cuotas operac.intragrupo cuota c650");
+      m9b2a1lorca.setDescription("6. Operaciones Reg. Simplificado - Actividad 1 - Lorca 2015 ");
+      m9b2a2lorca.setDescription("6. Operaciones Reg. Simplificado - Actividad 2 - Lorca 2015 ");
       }
     }
     
@@ -10243,6 +10271,10 @@ public class CatModelos1 extends Catalog
     public FieldDef m903opespcaja2;
     public FieldDef m903opespcaja3;
     public FieldDef m903opespcaja4;
+    public FieldDef m903a7regliva;
+    public FieldDef m903a7ivaadu;
+    public FieldDef m903a8regliva;
+    public FieldDef m903a8ivaadu;
     public TabMod3903(String name)
       {
       super(name);
@@ -10338,6 +10370,10 @@ public class CatModelos1 extends Catalog
       m903opespcaja2 = new FieldDef("m903opespcaja2",FieldDef.FLOAT,6,0);
       m903opespcaja3 = new FieldDef("m903opespcaja3",FieldDef.FLOAT,6,0);
       m903opespcaja4 = new FieldDef("m903opespcaja4",FieldDef.FLOAT,6,0);
+      m903a7regliva = new FieldDef("m903a7regliva",FieldDef.FLOAT,6,0);
+      m903a7ivaadu = new FieldDef("m903a7ivaadu",FieldDef.FLOAT,6,0);
+      m903a8regliva = new FieldDef("m903a8regliva",FieldDef.FLOAT,6,0);
+      m903a8ivaadu = new FieldDef("m903a8ivaadu",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m903dominio,
         m903nif,
@@ -10430,7 +10466,11 @@ public class CatModelos1 extends Catalog
         m903opespcaja1,
         m903opespcaja2,
         m903opespcaja3,
-        m903opespcaja4        
+        m903opespcaja4,
+        m903a7regliva,
+        m903a7ivaadu,
+        m903a8regliva,
+        m903a8ivaadu        
         };
       setColumns(array);
       FieldDef arrayf[] = {m903dominio,m903nif,m903ejercicio,m903periodo };
@@ -10440,6 +10480,10 @@ public class CatModelos1 extends Catalog
       m903opespcaja2.setDescription("Oper.Especifica. Destinatarios RECC Entregas Bienes Cuota");
       m903opespcaja3.setDescription("Oper.Especifica. Destinatarios RECC Adquisic.Bienes Base");
       m903opespcaja4.setDescription("Oper.Especifica. Destinatarios RECC Adquisic.Bienes Cuota");
+      m903a7regliva.setDescription("7. Resultado liquidación anual - Regularización cuotas art. 80.Cinco.5ª LIVA [658] ");
+      m903a7ivaadu.setDescription("7. Resultado liquidación anual - IVA a la importación liquidado por la Aduana [659] ");
+      m903a8regliva.setDescription("8. Tributación razón de territorio - Administraciones - Regularización cuotas art. 80.Cinco.5ª LIVA [658] ");
+      m903a8ivaadu.setDescription("8. Tributación razón de territorio - Administraciones - IVA a la importación liquidado por la Aduana [659] ");
       }
     }
     
@@ -10474,6 +10518,7 @@ public class CatModelos1 extends Catalog
     public FieldDef m90aopsmpacdcs;
     public FieldDef m90aopsmpaccm;
     public FieldDef m90aopsmpaccds;
+    public FieldDef m90alorca;
     public TabMod390act(String name)
       {
       super(name);
@@ -10505,6 +10550,7 @@ public class CatModelos1 extends Catalog
       m90aopsmpacdcs = new FieldDef("m90aopsmpacdcs",FieldDef.FLOAT,6,0);
       m90aopsmpaccm = new FieldDef("m90aopsmpaccm",FieldDef.FLOAT,6,0);
       m90aopsmpaccds = new FieldDef("m90aopsmpaccds",FieldDef.FLOAT,6,0);
+      m90alorca = new FieldDef("m90alorca",FieldDef.FLOAT,6,0);
       FieldDef array[] = {
         m90adominio,
         m90anif,
@@ -10533,7 +10579,8 @@ public class CatModelos1 extends Catalog
         m90aopsmpacpcm,
         m90aopsmpacdcs,
         m90aopsmpaccm,
-        m90aopsmpaccds        
+        m90aopsmpaccds,
+        m90alorca        
         };
       setColumns(array);
       FieldDef arrayf[] = {m90adominio,m90anif,m90aejercicio,m90aperiodo,m90anumactiv };
