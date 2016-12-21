@@ -1544,12 +1544,14 @@ public class ConversionJCO extends ConversionLC {
 			i.valor("pcinuevousado","NUE");
 			double codamor = 0;
 			Selector sam = new Selector (connEA);
-			sam.execute("Select * from AMORTIZACION where amocoef="+por+" and amoperiodo="+per);
+			String whereEjer = " and amoejercicio=2015";
+			if (ejercicioJ<=2014) whereEjer = " and amoejercicio is null";
+			sam.execute("Select * from AMORTIZACION where amocoef="+por+" and amoperiodo="+per+whereEjer);
 			if (sam.next()) codamor = sam.getint("amocodigo");
 			else {
 				sam.close();
 				sam = new Selector (connEA);
-				sam.execute("Select * from AMORTIZACION where amocoef>="+por+" and amoperiodo="+per);
+				sam.execute("Select * from AMORTIZACION where amocoef>="+por+" and amoperiodo="+per+whereEjer);
 				if (sam.next()) codamor = sam.getint("amocodigo");
 			}
 			sam.close();
