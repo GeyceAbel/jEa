@@ -25,13 +25,13 @@ public class ConversionJEO extends ConversionLC {
     this.chmercantil = chmercantil;
     this.chmodelos = chmodelos;
     funciones = new FuncionesJEO(connEA,dominio);
-    prJeo= new mae.jeo.auxlogicclass.ProgAuxlogicclass();
     dbJEO = funciones.connJEO;
-    prJeo.setConnection(dbJEO);
     mae.jeo.general.Jeo.connJEO = funciones.connJEO;
     mae.jeo.general.Jeo.connEA = connEA;
     mae.jeo.general.Jeo.dominio = dominio;
-
+    prJeo= new mae.jeo.auxlogicclass.ProgAuxlogicclass();
+    prJeo.setConnection(dbJEO);
+    
     prJeo.setDataBase(dbJEO.getDB());
     prJeo.vejecutar.converConjuntaEA = true;
     prJeo.vejecutar.emc = emc;
