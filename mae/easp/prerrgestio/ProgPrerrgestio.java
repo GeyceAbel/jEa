@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20160308
-// Hora:             15:37:04
+// Fecha:            20161230
+// Hora:             12:11:11
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -857,6 +857,7 @@ public class ProgPrerrgestio extends Program
         initErrorParam();
     } 
     aplicacion = getNomAplicacio(param.getAplication().getName().toUpperCase());
+    if ("LABORAL".equals(aplicacion)) aplicacion ="JNOMINA";  
     tituloApli = param.getAplication().getTitle();
     vincidencia.acsalir.setTitle("&4. Salir de "+aplicacion);
     vincidencia.vvaplicacion.setTitle(aplicacion);

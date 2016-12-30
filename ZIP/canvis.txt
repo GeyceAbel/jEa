@@ -180,3 +180,4 @@
 160201 --> APJORDI: canvis Logic conver jconta
 160301 --> APJORDI: Error stacktrace. Conver transaccio erronea a deica
 160604 --> APJORDI: Actualitzacio driver DBConnectionlogic. Error SSL en SQLServer on win10
+161203 --> APXAVI: Bug gestor incidencies per aplicatiu jNomina.
