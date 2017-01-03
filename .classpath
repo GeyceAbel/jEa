@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.5.0_22"/>
+	<classpathentry kind="lib" path="zipc/microfc040025.zip" sourcepath="E:/Projectes/Maefc/Maefc 4.0/src"/>
 	<classpathentry kind="lib" path="zipc/classes13.zip"/>
 	<classpathentry kind="lib" path="zipc/http0101.zip"/>
 	<classpathentry kind="lib" path="zipc/jacob0101.zip"/>
@@ -23,12 +24,11 @@
 	<classpathentry kind="lib" path="zipc/jrenta150303.zip"/>
 	<classpathentry kind="lib" path="zipc/jrentaaux150303.zip"/>
 	<classpathentry kind="lib" path="zipc/labtraspasos191189.zip"/>
-	<classpathentry kind="lib" path="zipc/microfc040025.zip"/>
-	<classpathentry kind="lib" path="zipc/httpclient140401.zip"/>
-	<classpathentry kind="lib" path="zipc/jtds1_5160701.zip"/>
 	<classpathentry kind="lib" path="zipc/exptraspasos030127.zip"/>
+	<classpathentry kind="lib" path="zipc/httpclient140401.zip"/>
 	<classpathentry kind="lib" path="zipc/jeo161204.zip"/>
 	<classpathentry kind="lib" path="zipc/jeoaux161207.zip"/>
 	<classpathentry kind="lib" path="zipc/jeoimp161101.zip"/>
+	<classpathentry kind="lib" path="zipc/jtds1_5160701.zip"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

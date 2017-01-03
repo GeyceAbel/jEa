@@ -38,6 +38,7 @@ public class Azure {
 	private String error;
 	private File fichero;
 	private int statusCode;
+	private String function;
 
 	public Azure (String function) {
 		this(function,null, null);
@@ -48,6 +49,7 @@ public class Azure {
 	}
 
 	public Azure (String function, String parametros, File f) {
+		this.function = function;
 		this.urlAzure = PROTOCOL + getRealHost() + SITE + function;
 		this.fichero = f;
 		if (Easp.HOST == TIPO_HOST.LOCALHOST || Easp.HOST == TIPO_HOST.AZURE || Easp.HOST == TIPO_HOST.AZUREMSDN) this.urlAzure+=".cshtml";
@@ -200,6 +202,29 @@ public class Azure {
 			contenido = null;
 			error = "Error al procesar ("+urlAzure+"): \n"+post.getStatusText();
 		}			
+		/*
+		System.out.println(contenido);
+		File temp = File.createTempFile("tempfilePrologError", ".tmp");
+
+	    //write it
+    	    java.io.BufferedWriter bw = new java.io.BufferedWriter(new java.io.FileWriter(temp));
+    	    bw.write(contenido);
+    	    bw.close();
+		
+		contenido = contenido.replace(";", "");
+		
+		java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.InputStreamReader(post.getResponseBodyAsStream(), "UTF-8"));
+        String line = null;
+        while ((line = reader.readLine()) != null)
+        {
+        	if(line.contains(";")) {
+        		System.out.println("encontrado punto coma en procedure  [" + function+"]");
+        	}
+        	//System.out.println(line);
+        }
+        reader.close();
+		*/
+		
 		bOk = contenido != null;			
 		return bOk;
 	}

@@ -36,6 +36,7 @@ public class Easp {
   public static enum TIPO_HOST { ORACLE, LOCALHOST, AZURE, AZUREMSDN};
   public static TIPO_HOST HOST = TIPO_HOST.ORACLE;
   public static final String HOST_AZURE 	 = "afinityprod.azurewebsites.net/";
+  public static final String HOST_AZUREPRE 	 = "afinityprod-afinitypre.azurewebsites.net/";
   public static final String HOST_AZUREMSDN  = "afinity.azurewebsites.net/";
   public static final String HOST_LOCALHOST  = "localhost:52373/";
   public static final String HOST_ORACLE 	 = "afinity.geyce.es/";
