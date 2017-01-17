@@ -110,7 +110,7 @@ public class ProgPrtratamnifes extends Program
             vnifcif = nif ;
             codiCDP = scdprep.cdpcodi.getString() ;
             if (aplicacion!=null && codiCDP!=null && codiCDP.length()==12) {
-              Update u = new Update(getConnection(),"CDP");          
+              Update u = new Update(getDataBase(),"CDP");          
               if (aplicacion.equals("CON"))
                 u.valor("cdpckconta","S");
               else if (aplicacion.equals("NOM"))
