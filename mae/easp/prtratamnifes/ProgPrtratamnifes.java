@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20111222
-// Hora:             16:42:11
+// Fecha:            20170117
+// Hora:             13:23:33
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -109,6 +109,22 @@ public class ProgPrtratamnifes extends Program
           if  ( Maefc.message("Ya existe una ficha con este nif y código "+codCDP+"\n\n¿Desea crear otra ficha con otro código?","Atención ",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION ) != Maefc.YES_OPTION ) {
             vnifcif = nif ;
             codiCDP = scdprep.cdpcodi.getString() ;
+            if (aplicacion!=null && codiCDP!=null && codiCDP.length()==12) {
+              Update u = new Update(getConnection(),"CDP");          
+              if (aplicacion.equals("CON"))
+                u.valor("cdpckconta","S");
+              else if (aplicacion.equals("NOM"))
+                u.valor("cdpcknomina","S");
+              else if (aplicacion.equals("EOS"))
+                u.valor("cdpckeo","S");
+              else if (aplicacion.equals("ISS"))
+                u.valor("cdpckiss","S");
+              else if (aplicacion.equals("REN"))
+                u.valor("cdpckrenta","S");
+              else if (aplicacion.equals("EXP"))
+                u.valor("cdpckgestion","S");
+              u.execute("cdpcodi='"+codiCDP+"'"); 
+            }
             doShow();
             }
           }
