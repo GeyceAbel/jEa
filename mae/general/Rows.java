@@ -30,4 +30,7 @@ public class Rows {
       return (Row)rows.get(new Integer(codi));
       }
     
+    public void clear() {
+    	rows.clear();
+    }
   }
