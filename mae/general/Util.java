@@ -22,9 +22,9 @@ public class Util {
    * @param numero Numero a convertir
    * @return Cadena string formateada
    */
-  public static String formateoNumero(String formato,int numero) {
+  public static String formateoNumero(String formato,long numero) {
     java.text.DecimalFormat format=new java.text.DecimalFormat(formato);
-    return Util.lpad(format.format((long)numero),formato.length());
+    return Util.lpad(format.format(numero),formato.length());
     }
 
   /** Función para rellenar a blancos un string hasta una longitud
@@ -545,7 +545,7 @@ System.out.println("Error: "+e);
 			 String numdni=nif.substring(0,nif.length()-1);
 			 if (isNumero(lastChar) || !isNumero(numdni))
          return 2;
-       String numNif=formateoNumero("00000000",Integer.parseInt(numdni));
+       String numNif=formateoNumero("00000000",Long.parseLong(numdni));
        String letraNif=letraDNI(numNif);
        if (lastChar.equals(letraNif))
          return 0;                    //ultimo caracter es una letra y está bien
@@ -624,7 +624,7 @@ System.out.println("Error: "+e);
 		 		switch (dnif){
      	   case 0:  //es correcto
      		   String dd = CIF.substring(0, CIF.length()-1);
-     		   if (isNumero(dd)) return formateoNumero("00000000", Integer.parseInt(dd))+CIF.substring(CIF.length()-1);
+     		   if (isNumero(dd)) return formateoNumero("00000000", Long.parseLong(dd))+CIF.substring(CIF.length()-1);
      	    return CIF;
      	  case 2:  //hay una letra y no está ni en el primero ni en el último char
      	    Maefc.message("Revise la sintaxis del CIF/NIF\n","CIF/NIF incorrecto",Maefc.INFORMATION_MESSAGE);
