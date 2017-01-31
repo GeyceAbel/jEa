@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20160919
-// Hora:             17:04:25
+// Fecha:            20170131
+// Hora:             12:41:28
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -40,6 +40,7 @@ public class ProgQuerylis extends Program
   public boolean isOldButonListar = false;
   
   public boolean isUserRemoto = false ;
+  public String fraseQuery = null;
   
   
   
@@ -2066,6 +2067,7 @@ public class ProgQuerylis extends Program
         //selectCombinacio.execute();
         //plantilla.mountDataSourceSelect(System.getProperty("user.dir")+ "\\DataSources\\"+ qeffrase.getString() +"_" + Fecha.fechaGregoriana(Maefc.getDate())+Fecha.getHora(Maefc.getDateTime(),"HHmmss") + ".csv", "QUERY",squecolumn,16,selectCombinacio,17);
         plantilla.setDataSource(origenDades);
+        if (fraseQuery!=null) plantilla.setShowPrintDialog(false);
         plantilla.executeMerge();
         Maefc.restoreCursor();
       }
@@ -2523,12 +2525,12 @@ public class ProgQuerylis extends Program
           }
           else {
             super.onAction();
-            splantillas.setWhere("plaplicacion = '" + aplicacion + "' and plcodigo = '" + qefplantilla.getString() + "' and plventana = '" + qeffrase.getString() + "'");
+            splantillas.setWhere("plaplicacion = '" + aplicacion + "' and plcodigo = '" + squery.qefplantilla.getString() + "' and plventana = '" + squery.qeffrase.getString() + "'");
             splantillas.execute();    
             if(!splantillas.isEof()) {  
               plantilla = new mae.general.PlantillaJacob (splantillas.plurlplantilla.getString().trim());
               if(plantilla.existePlantilla()) {
-                frase=llegeixFrase(qeffrase.getString());    
+                frase=llegeixFrase(squery.qeffrase.getString());    
                 if (!demanarParametres(true)) 
                 return;    
                 seleccio=new Seleccio();    
@@ -2587,6 +2589,7 @@ public class ProgQuerylis extends Program
                 excel.printjob();
         
                 combinaPlantilla(origenDades);	
+                if (fraseQuery!=null) querylis.onExit();
                 //if(!fcsv.delete()) fcsv.deleteOnExit();
               }
               else {
@@ -2603,6 +2606,10 @@ public class ProgQuerylis extends Program
           Maefc.message("Error al combinar: Compruebe que la ruta del fichero es correcta","¡Error!",Maefc.ERROR_MESSAGE);
           System.out.println("Error al combinar:" + ex.getMessage());
           ex.printStackTrace();
+        }
+        if (fraseQuery != null) {
+           //vseleccion.exit();
+           querylis.exit();
         }
         }
       }
@@ -2804,7 +2811,8 @@ public class ProgQuerylis extends Program
       
       if ( aplicacion != null && aplicacion.equals("LABORAL") && isUserRemoto ) {
         retorn  +=  "and qeffrase in ( select pliprograma from paramlis where pliusuario = '"+Easp.usuario+"' and plicampoa1 = 'USUARIO-REMOTO.LISTADOS' ) " ;
-        }
+      }
+      if (fraseQuery!=null) retorn += " and qeffrase='"+fraseQuery+"'";
       
       return retorn ;
       }
@@ -3684,8 +3692,11 @@ public class ProgQuerylis extends Program
     if ( aplicacion != null && aplicacion.equals("LABORAL") && isUserRemoto ) {
       vseleccion.setStates(DataForm.SHOW | DataForm.SEARCH );
       }
-    
-    super.onInit();
+    if (fraseQuery!=null ) {
+        squery.execute();
+        vseleccion.accombinar.onAction();
+    }
+    else super.onInit();
     
     }
   }
