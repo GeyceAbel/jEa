@@ -26,6 +26,11 @@ public class Util {
     java.text.DecimalFormat format=new java.text.DecimalFormat(formato);
     return Util.lpad(format.format(numero),formato.length());
     }
+  
+  public static String formateoNumero(String formato,int numero) {
+	    java.text.DecimalFormat format=new java.text.DecimalFormat(formato);
+	    return Util.lpad(format.format((long)numero),formato.length());
+	    }
 
   /** Función para rellenar a blancos un string hasta una longitud
    * @param cadena de caracteres origen a rellenar
