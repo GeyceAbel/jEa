@@ -7,6 +7,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+
 import mae.easp.general.Easp;
 import mae.easp.general.Easp.TIPO_HOST;
 import org.apache.commons.httpclient.Header;
@@ -22,9 +24,8 @@ import org.apache.commons.httpclient.methods.multipart.Part;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 
 
-public class Azure {
-
-  private static final String PROTOCOL = "https://";
+public class Azure {	
+	private static final String PROTOCOL = "http://";
 	private final String SITE 	 = "pls/agpi/";
 	private final int TIMEOUT = 30; //Seconds
 	private final long MB_MAXIMOS = 15; //Tamany màxim de fitxer.
@@ -39,7 +40,8 @@ public class Azure {
 	private File fichero;
 	private int statusCode;
 	private String function;
-
+	private String encoding;
+	
 	public Azure (String function) {
 		this(function,null, null);
 	}
@@ -196,35 +198,21 @@ public class Azure {
 	private boolean executeConnection ( HttpClient client, PostMethod post) throws HttpException, IOException {
 		boolean bOk = true;
 		statusCode = client.executeMethod( post );
-		post.getResponseContentLength();
-		if( statusCode == HttpStatus.SC_OK ) contenido = post.getResponseBodyAsString();
+		if( statusCode == HttpStatus.SC_OK ) {		
+			if (getEncoding() == null) contenido = post.getResponseBodyAsString();
+			else {
+				try {
+					contenido = new String (post.getResponseBody(),Charset.forName(getEncoding()));
+				}
+				catch (Exception e) {
+					contenido = post.getResponseBodyAsString();
+				}
+			}
+		}
 		else {
 			contenido = null;
 			error = "Error al procesar ("+urlAzure+"): \n"+post.getStatusText();
 		}			
-		/*
-		System.out.println(contenido);
-		File temp = File.createTempFile("tempfilePrologError", ".tmp");
-
-	    //write it
-    	    java.io.BufferedWriter bw = new java.io.BufferedWriter(new java.io.FileWriter(temp));
-    	    bw.write(contenido);
-    	    bw.close();
-		
-		contenido = contenido.replace(";", "");
-		
-		java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.InputStreamReader(post.getResponseBodyAsStream(), "UTF-8"));
-        String line = null;
-        while ((line = reader.readLine()) != null)
-        {
-        	if(line.contains(";")) {
-        		System.out.println("encontrado punto coma en procedure  [" + function+"]");
-        	}
-        	//System.out.println(line);
-        }
-        reader.close();
-		*/
-		
 		bOk = contenido != null;			
 		return bOk;
 	}
@@ -286,6 +274,14 @@ public class Azure {
 	
 	public static String getProtocol() {
 		return PROTOCOL;
+	}
+
+	public String getEncoding() {
+		return encoding;
+	}
+
+	public void setEncoding(String enconding) {
+		this.encoding = enconding;
 	}
 	
 }

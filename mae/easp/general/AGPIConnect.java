@@ -17,10 +17,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-import HTTPClient.*;
-
-
-
 public class AGPIConnect {
 	private final String HTTP_SERVLET="http://afinity.geyce.es/servlets/com.geyce.AGPIUpload";
 	private final String PACKAGE_AGPI2DP="http://afinity.geyce.es/pls/agpi/agpi2dp.";
