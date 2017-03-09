@@ -25,7 +25,7 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 
 
 public class Azure {	
-	private static final String PROTOCOL = "http://";
+	private static final String PROTOCOL = "https://";
 	private final String SITE 	 = "pls/agpi/";
 	private final int TIMEOUT = 30; //Seconds
 	private final long MB_MAXIMOS = 15; //Tamany màxim de fitxer.
