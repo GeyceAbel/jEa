@@ -13,6 +13,7 @@ public class Perfil {
 	private int ejer;
   private int autoCommit;
   private DBConnection connPerfil=null;
+  public boolean heGrabatPerfil = false;
 
   Select sperfil ;
   Table tperfil   ;
@@ -32,6 +33,7 @@ public class Perfil {
     connPerfil  = db;
     this.nif = nif;
     this.ejer= ejer;
+    heGrabatPerfil = false;
     sperfil     =new Select(connPerfil);
     tperfil     =new Table(sperfil,"PERFILTRIBUT");
     fdejercicio   =new Field(sperfil,tperfil,"pftejercicio");
@@ -77,6 +79,7 @@ public class Perfil {
   		fdejercicio.setValue(ejer);
   		fdnif.setValue(nif);
   		bOk = sperfil.insert();
+      if (bOk) heGrabatPerfil = true;
   	}
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
@@ -97,6 +100,7 @@ public class Perfil {
       fdfechafin.setNull();
       fdregdevmen.setValue(regdevol);
   		bOk = sperfil.insert();
+      if (bOk) heGrabatPerfil = true;
   	}
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
@@ -130,6 +134,7 @@ System.out.println("new perfil = ["+fechafin+"]");
          fdregdevmen.setValue(regDev);
       else fdregdevmen.setValue("N");
   		bOk = sperfil.insert();
+      if (bOk) heGrabatPerfil = true;
   	}
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
@@ -159,6 +164,7 @@ System.out.println("set perfil = ["+fechafin+"]");
       if (regDev!=null && (regDev.trim().length()>0)) fdregdevmen.setValue(regDev);
       else fdregdevmen.setValue("N");
   		bOk = sperfil.update();
+      if (bOk) heGrabatPerfil = true;
   	}
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
@@ -178,6 +184,7 @@ System.out.println("set perfil = ["+fechafin+"]");
   		fdgranemp.setValue(granemp);
       fdregdevmen.setValue(regDev);
       bOk = sperfil.update();
+      if (bOk) heGrabatPerfil = true;
     }
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
@@ -197,6 +204,7 @@ System.out.println("set perfil tributario = ["+fecha+"]");
   		fdfechafin.setValue(fecha);
       fdregdevmen.setValue(regDev);
       bOk = sperfil.update();
+      if (bOk) heGrabatPerfil = true;
     }
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
@@ -210,6 +218,7 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
   		sperfil.edit();
   		fdfechafin.setValue(fecha);
       bOk = sperfil.update();
+      if (bOk) heGrabatPerfil = true;
     }
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
@@ -222,6 +231,7 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
   		sperfil.edit();
   		fdemail.setValue(m);
       bOk = sperfil.update();
+      if (bOk) heGrabatPerfil = true;
     }
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
@@ -235,6 +245,7 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
   		try {
         connPerfil.executeUpdate("DELETE FROM EMPMODELOS WHERE emodejercicio="+ejer+" AND emodnif='"+nif+"'");
         connPerfil.executeUpdate("DELETE FROM PERFILTRIBUT WHERE pftejercicio="+ejer+" AND pftnif='"+nif+"'");
+        if (bOk) heGrabatPerfil = true;
       }
       catch (Exception e) {
       	bOk = false;
@@ -311,6 +322,7 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
       if (fechaAlta!=null) fdemodfechaini.setValue(fechaAlta);
       if (fechaBaja!=null) fdemodfechafin.setValue(fechaBaja);
       bOk = sempmodelos.insert();
+      if (bOk) heGrabatPerfil = true;
     }
 		else {
 	    sempmodelos.edit();
@@ -322,6 +334,7 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
       if (fechaBaja!=null) fdemodfechafin.setValue(fechaBaja);
       else fdemodfechafin.setNull();
       bOk = sempmodelos.update();
+      if (bOk) heGrabatPerfil = true;
 		}
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
@@ -347,6 +360,7 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
 	    sempmodelos.edit();
       fdemodactivo.setValue("N");
       bOk = sempmodelos.update();
+      if (bOk) heGrabatPerfil = true;
 		}
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
@@ -372,6 +386,7 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
 	    sempmodelos.edit();
       fdemodactivo.setValue("N");
       bOk = sempmodelos.update();
+      if (bOk) heGrabatPerfil = true;
       sempmodelos.next();
 		}
   	if (bOk && isAutoCommit()) connPerfil.commit();
@@ -395,6 +410,7 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
       fdemail.setValue(mail);
       fdmovil.setValue(movil);
       bOk = sperfil.update();
+      if (bOk) heGrabatPerfil = true;
     }
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
@@ -410,6 +426,7 @@ System.out.println("set fecha perfil tributario = ["+fecha+"]");
       fdemail.setValue(pa.mail);
       fdmovil.setValue(pa.movil);
       bOk = sperfil.update();
+      if (bOk) heGrabatPerfil = true;
     }
   	if (bOk && isAutoCommit()) connPerfil.commit();
   	else if (isAutoCommit())  connPerfil.rollback();
