@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20160916
-// Hora:             09:57:31
+// Fecha:            20170502
+// Hora:             09:33:38
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1474,6 +1474,11 @@ public class ProgInsprconver extends Program
     String sentencias13_5[]={"UPDATE TRANSACCIONES SET tratipoiva='ISP' where tratipo='EISP' and tratipoiva='DI';"};
     
     String sentencias13_6[]={"UPDATE MUNI347 SET mu7desc='URBEL DEL CASTILLO'  WHERE mu7codprov=9 AND mu7codmuni=3983;"};
+    
+    String sentencias13_7[]={
+    "UPDATE MUNI347 SET mu7desc='CASTRILLO MOTA DE JUDIOS'  WHERE mu7codprov=9 AND mu7codmuni=905;",
+    "INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2017,'01/01/2017','31/12/2017',3.750);"
+    };
     
       int i=0;
       try {
@@ -3419,7 +3424,25 @@ public class ProgInsprconver extends Program
             Easp.setVersionBD("bdeasp","13.6");
             Easp.connEA.commit();
             vvveractual.setValue("13.6");
-        }  
+        } 
+        if (versio < 13.7) {
+            for (i=0;i<sentencias13_7.length;++i) {
+                try {
+                    Easp.chivato("13.7 Exec : ["+sentencias13_7[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias13_7[i]);
+                }
+                catch(Exception e) {
+                    sqlOperation=sentencias13_7[i];
+                    Easp.chivato("13.7 *** Error : ["+sentencias13_7[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","13.7");
+            Easp.connEA.commit();
+            vvveractual.setValue("13.7");
+        }
+    
+     
     
       }
       catch(Exception e) {
