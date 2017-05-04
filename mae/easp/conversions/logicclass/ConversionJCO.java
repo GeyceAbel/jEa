@@ -80,7 +80,7 @@ public class ConversionJCO extends ConversionLC {
 	@Override
 	public Vector<DadesEmpresa> initEmpreses () {
 		SelectorLogic sEmp = new SelectorLogic (connLC);
-		String sql = "Select * from EMPRESAS where EmpresaEstimaciones=0 and CodigoEmpresa<>9999 ";
+		String sql = "Select * from EMPRESAS where EmpresaEstimaciones=0 ";
 		if (desdeEmp>0) sql += " and CodigoEmpresa>="+desdeEmp; 
 		if (hastaEmp>0) sql += " and CodigoEmpresa<="+hastaEmp; 		
 		sEmp.execute(sql);
