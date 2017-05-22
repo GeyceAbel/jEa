@@ -81,6 +81,7 @@ public class JListado {
 	private JRXmlDataSource xmlDataSource;
 	public Vector<String> vPropiedadesExcel;
 	public boolean propiedadesExcelAutomaticas;
+	public boolean ignoreDuplicatePIEkey = true;
 	public Vector <Variable> vExtraVariables;
 	public boolean paginarExcel = true;
 	private whenNoData sinDatos;
@@ -1565,6 +1566,8 @@ public class JListado {
 			for (int i=0;i<vPropiedadesExcel.size();i++) {
 				pw.write(vPropiedadesExcel.elementAt(i));
 			}
+			if (ignoreDuplicatePIEkey) pw.write("<property name=\"net.sf.jasperreports.chart.pie.ignore.duplicated.key\" value=\"true\"/>");
+			
 		}
 		catch (Exception e) {
 			sError = ""+e;
