@@ -536,6 +536,35 @@ public class PlantillaJacob extends Thread {
 	    Dispatch.call(activeDocument,"Close",new Variant(0));	
 	}
   
+	public boolean directSave() {
+	  try {
+		ComThread.InitMTA();
+		oWord = new ActiveXComponent("Word.Application"); 
+		Dispatch oDocuments = oWord.getProperty("Documents").toDispatch();
+		Dispatch oDocument = Dispatch.call(oDocuments, "Open", urlTemplate,new Variant(false)).toDispatch();
+		Dispatch activeDocument = oWord.getProperty("ActiveDocument").toDispatch();
+		Dispatch.call(activeDocument,"SaveAs",fileSaveAs,saveAs);
+	    Dispatch.call(activeDocument,"Activate");
+	    Dispatch.call(activeDocument,"Close",new Variant(0));
+	    if (oWord!=null) {
+			  oWord.invoke("Quit", new Variant(0));  
+			  oWord = null;
+			  ComThread.Release();
+	    }
+	    return true;
+	  }
+	  catch(Exception ex) {
+	    if (oWord!=null) {
+		  oWord.invoke("Quit", new Variant(0));  
+		  oWord = null;
+		  ComThread.Release();
+		  ex.printStackTrace();
+		  Maefc.message("Error al guardar el documento: " + ex.getMessage(),"¡Error!",Maefc.ERROR_MESSAGE);
+		}
+	    return false;
+	  }
+		
+	}
 	public void setTypeDocument(int type) {
 		this.typeDocument = type;
 	}
