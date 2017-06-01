@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20170502
-// Hora:             09:33:38
+// Fecha:            20170601
+// Hora:             12:36:54
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1477,8 +1477,10 @@ public class ProgInsprconver extends Program
     
     String sentencias13_7[]={
     "UPDATE MUNI347 SET mu7desc='CASTRILLO MOTA DE JUDIOS'  WHERE mu7codprov=9 AND mu7codmuni=905;",
-    "INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2017,'01/01/2017','31/12/2017',3.750);"
-    };
+    "INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2017,'01/01/2017','31/12/2017',3.750);"};
+    
+    String sentencias13_8[]={"UPDATE MUNI347 SET mu7desc='LAS PALMAS DE GRAN CANARIA'  WHERE mu7codprov=35 AND mu7codmuni=167;",
+    "UPDATE MUNICIPIO SET mudesc='LAS PALMAS DE GRAN CANARIA'  WHERE muprov=35 AND mucodigo=16;"};
     
       int i=0;
       try {
@@ -3442,6 +3444,22 @@ public class ProgInsprconver extends Program
             vvveractual.setValue("13.7");
         }
     
+        if (versio < 13.8) {
+            for (i=0;i<sentencias13_8.length;++i) {
+                try {
+                    Easp.chivato("13.8 Exec : ["+sentencias13_8[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias13_8[i]);
+                }
+                catch(Exception e) {
+                    sqlOperation=sentencias13_8[i];
+                    Easp.chivato("13.8 *** Error : ["+sentencias13_8[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","13.8");
+            Easp.connEA.commit();
+            vvveractual.setValue("13.8");
+        }
      
     
       }
