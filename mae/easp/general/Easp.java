@@ -2095,6 +2095,64 @@ public static Date esFecha (String s){
       return codCDP;
       }
 
+  
+  public static String getFecha(Date fecha ) {
+    if ( fecha == null ) return "" ;
+    else                 return Fecha.fechaGregoriana(fecha).substring(6,8)+"-"+Fecha.fechaGregoriana(fecha).substring(4,6)+"-"+Fecha.fechaGregoriana(fecha).substring(0,4) ;
+    }
+
+  
+  public static boolean grabaUsoAfinity(String dominio, String aplic, String coddato, int ejer,int peri,String nomUser, int datoint1 , int datoint2 , int datoint3 , double datodou1 , double datodou2 , double datodou3 , String datostr1 , String datostr2 , String datostr3 , Date datodat1 , Date datodat2 , Date datodat3  ){
+    try {
+      String nomPC = nomUser ; nomPC = java.net.InetAddress.getLocalHost().getHostName() ;
+      String dns=URL_AFINITY+"/pls/agpi/";
+      String procedure = "logusos.setUso";
+      
+      String parametres = Easp.formatURL("pcdp="+dominio+
+                                     "&paplic="+aplic+
+                                     "&pcoddato="+coddato+
+                                     "&pmachine="+nomPC+
+                                     "&pusuario="+nomUser+
+                                     "&pejer="+ejer+
+                                     "&pperi="+peri+
+                                     "&pdatoint1="+datoint1+
+                                     "&pdatoint2="+datoint2+
+                                     "&pdatoint3="+datoint3+
+                                     "&pdatodou1="+datodou1+
+                                     "&pdatodou2="+datodou2+
+                                     "&pdatodou3="+datodou3+
+                                     "&pdatostr1="+datostr1+
+                                     "&pdatostr2="+datostr2+
+                                     "&pdatostr3="+datostr3+
+                                     "&pdatodat1="+getFecha(datodat1)+
+                                     "&pdatodat2="+getFecha(datodat2)+
+                                     "&pdatodat3 ="+getFecha(datodat3) );
+  
+    String url=dns+procedure+parametres;
+    Azure az0 = new Azure (procedure,parametres);
+    return az0.procesar();
+    }
+  catch(Exception e ) {
+    System.out.println("Error 13 : "+e);
+    }
+  return false;
+  }
+
+  public static boolean getUso(String dominio, String aplic, DBConnection connDB , String nomUser  ){
+    try {
+      // APPAU , Programar aqui la futura fucnion getUso , que a partir de la procedure getUso se podra ejecutar X veces la funcion setUso
+      
+      // int datoint1 , int datoint2 , int datoint3 , double datodou1 , double datodou2 , double datodou3 , String datostr1 , String datostr2 , String datostr3 , Date datodat1 , Date datodat2 , Date datodat3 
+      }
+    catch(Exception e ) {
+      System.out.println("Error 14 : "+e);
+      }
+     return false;
+     }
+
+
+  
+  
 	/**Funció per gravar les taules de datgen, clientedp, usuario, contratado i Uso a Afinity
 	 * amb les dades del cdp. Crida a una procedure que s'encarrega de gravar
 	 * @param cdp, codigo del cdp
@@ -2153,6 +2211,8 @@ public static Date esFecha (String s){
         return az0.procesar();
 	  }
 
+	
+	
   public static String buscaCDP(String nif) {
     String codCDP=null;
 		String dns=URL_AFINITY+"/pls/agpi/agpi2dp.";
