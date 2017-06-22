@@ -11,8 +11,16 @@ import java.util.*;
 import java.text.*;
 import java.io.*;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
+
 import org.apache.commons.httpclient.URIException;
 import org.apache.commons.httpclient.util.URIUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 
 //import com.jnetdirect.jsql.i;
 
@@ -140,6 +148,8 @@ public class Easp {
     System.out.println("**************** HOST JEA = "+Easp.HOST);
     // APPAU 24-07-2014 se desactiva ya este mensaje de control
     // avisoErroresLevesjModelos();
+    
+    
     return true;
     }
 
@@ -2141,18 +2151,197 @@ public static Date esFecha (String s){
   return false;
   }
 
-  public static boolean getUso(String dominio, String aplic, DBConnection connDB , String nomUser  ){
+  public static boolean getUsos(String dominio, String aplic,String producto , DBConnection connDB, String nomUser  ){
     try {
       // APPAU , Programar aqui la futura fucnion getUso , que a partir de la procedure getUso se podra ejecutar X veces la funcion setUso
+      // int datoint1 , int datoint2 , int datoint3 , double datodou1 , double datodou2 , double datodou3 , String datostr1 , String datostr2 , String datostr3 , Date datodat1 , Date datodat2 , Date datodat3
+
+
+      // System.out.println(" Ini: "+Fecha.getHora(Maefc.getDateTime(),"HH:mm:ss") );
+
+      String dns=URL_AFINITY+"/pls/agpi/";
+      String procedure = "logusos.getUsos";
+      String parametres = Easp.formatURL("pcdp="+dominio+
+                                     "&paplic="+aplic+
+                                     "&pproduc="+producto
+                                     );
+      String url=dns+procedure+parametres;
       
-      // int datoint1 , int datoint2 , int datoint3 , double datodou1 , double datodou2 , double datodou3 , String datostr1 , String datostr2 , String datostr3 , Date datodat1 , Date datodat2 , Date datodat3 
-      }
+      // Azure az0 = new Azure (procedure,parametres);
+      // return az0.procesar();
+      
+      InputStream stream;
+
+        try {
+          Azure az1 = new Azure (procedure,parametres,null );
+            String contenido = "" ;
+            if (az1.procesar())  {
+              contenido = az1.getContenido();  
+              if (contenido.indexOf("<error>")>0) {
+                  String error = contenido.substring((contenido.indexOf("<error>")+7),contenido.indexOf("</error>")); 
+                  String mensaje ="Error 13 : " + error ;
+                  Maefc.message(mensaje ,"Error",Maefc.ERROR_MESSAGE); 
+              }
+              else {          
+           
+                DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder builder = builderFactory.newDocumentBuilder();
+                stream = new ByteArrayInputStream(contenido.getBytes());
+                Document doc = builder.parse(stream);
+                XPath xPath = XPathFactory.newInstance().newXPath();
+                String expression2 = "/logs/log";
+                NodeList titleList = (NodeList) xPath.compile(expression2).evaluate(doc, XPathConstants.NODESET);
+                int totalesConvenios=titleList.getLength();
+                for ( int i = 0; i < totalesConvenios; i++ ) {
+                  NodeList cccAux = titleList.item(i).getChildNodes();
+                  String uscaplic        = getString ( cccAux.item(1    ) ) ;
+                  String uscdominio      = getString ( cccAux.item(3    ) ) ;
+                  String uscproducto     = getString ( cccAux.item(5    ) ) ;
+                  String usccoddato      = getString ( cccAux.item(7    ) ) ;
+                  String uscfechaini     = getString ( cccAux.item(9    ) ) ;
+                  String uscfechafin     = getString ( cccAux.item(11   ) ) ;
+                  String usctipo         = getString ( cccAux.item(13   ) ) ;
+                  String uscsentencia    = getString ( cccAux.item(15   ) ) ;
+                  String uscrecorre      = getString ( cccAux.item(17   ) ) ;
+                  String uscborraejer    = getString ( cccAux.item(19   ) ) ;
+                  String uscborraperi    = getString ( cccAux.item(21   ) ) ;
+                  String uscdesde        = getString ( cccAux.item(23   ) ) ;
+                  String uschasta        = getString ( cccAux.item(25   ) ) ;
+                  String uscprogram      = getString ( cccAux.item(27   ) ) ;
+                  String uscventana      = getString ( cccAux.item(29   ) ) ;
+                  String uscaccion       = getString ( cccAux.item(31   ) ) ;
+                  String usctipoau       = getString ( cccAux.item(33   ) ) ;
+                  getUso(connDB,usuario,uscaplic,dominio ,uscproducto,usccoddato,uscfechaini,uscfechafin,usctipo,uscsentencia,uscrecorre,uscborraejer,uscborraperi,uscdesde,uschasta,uscprogram,uscventana,uscaccion ,usctipoau ) ;
+                  }
+                }
+              }
+          }
+        catch(Exception ex) {
+          ex.printStackTrace();
+          System.out.println("Error 14:"+ex.getMessage());     
+          }
+        }
     catch(Exception e ) {
-      System.out.println("Error 14 : "+e);
+      System.out.println("Error 14b : "+e);
       }
+    
+    // System.out.println(" Fin: "+Fecha.getHora(Maefc.getDateTime(),"HH:mm:ss") );
+    
      return false;
      }
 
+  
+  public static void getUso(DBConnection connDB ,String usuario ,String uscaplic  , String uscdominio , String uscproducto, String usccoddato, String uscfechaini, String uscfechafin, String usctipo , String uscsentencia , String uscrecorre , String uscborraejer , String uscborraperi , String uscdesde, String uschasta , String uscprogram , String uscventana , String uscaccion ,    String usctipoau ) {
+    ErrorManager actual = Aplication.getAplication().getErrorManager();
+    try {
+    if ( usctipo != null && usctipo.equals("S") && uscsentencia != null && !uscsentencia.equals("") ) { // Tipo Sentencia
+
+      mae.easp.general.JEaError errorManager = new mae.easp.general.JEaError();
+      Aplication.getAplication().setErrorManager(errorManager);
+
+      Selector selector = new Selector(connDB);
+      selector.execute(uscsentencia);
+      while ( selector.next() ) {
+        
+        int datoint1 = 0 ; int datoint2 = 0 ; int datoint3 = 0 ;
+        double datodou1 = 0.0 ; double datodou2 = 0.0 ; double datodou3 = 0.0 ;
+        String datostr1 = "" ; String datostr2 = "" ; String datostr3 = "" ;
+        Date datodat1 = null ; Date datodat2 = null ; Date datodat3 = null ;
+       
+        int numint = 1 ; int numdou = 1 ; int numstr = 1 ; int numdat = 1 ;
+        
+        for ( int i = 0 ; i < selector.getColumnCount() ; i++ ) {
+          int tipo = selector.getColumnType(i+1) ;
+          // System.out.println("coddato: ["+usccoddato+"] campo: ["+i+"] Tipo: ["+tipo+"] sentencia: ["+uscsentencia+"]");
+          
+            if      ( tipo == 4 && numint == 1 )  { numint++; datoint1 = selector.getint(i+1); }
+            else if ( tipo == 4 && numint == 2 )  { numint++; datoint2 = selector.getint(i+1); }
+            else if ( tipo == 4 && numint == 3 )  { numint++; datoint3 = selector.getint(i+1); }
+            else if ( tipo == 8 && numdou == 1 )  { numdou++; datodou1 = selector.getdouble(i+1);  }
+            else if ( tipo == 8 && numdou == 2 )  { numdou++; datodou2 = selector.getdouble(i+1);  }
+            else if ( tipo == 8 && numdou == 3 )  { numdou++; datodou3 = selector.getdouble(i+1);  }
+            else if ( tipo == 93 && numdat == 1 ) { numdat++; datodat1 = selector.getDate(i+1); }
+            else if ( tipo == 93 && numdat == 2 ) { numdat++; datodat2 = selector.getDate(i+1); }
+            else if ( tipo == 93 && numdat == 3 ) { numdat++; datodat3 = selector.getDate(i+1); }
+            else if ( tipo == 4 && numdou == 1 )  { numdou++; datodou1 = selector.getint(i+1); }
+            else if ( tipo == 4 && numdou == 2 )  { numdou++; datodou2 = selector.getint(i+1); }
+            else if ( tipo == 4 && numdou == 3 )  { numdou++; datodou3 = selector.getint(i+1); }
+            else if ( numstr == 1 )               { numstr++; datostr1 = selector.getString(i+1); }
+            else if ( numstr == 2 )               { numstr++; datostr2 = selector.getString(i+1); }
+            else if ( numstr == 3 )               { numstr++; datostr3 = selector.getString(i+1); }
+          
+          }
+
+        // String horaini = Fecha.getHora(Maefc.getDateTime(),"HH:mm:ss") ;
+        
+        int tipoWhereExtra = 0 ;
+        if      ( uscborraperi != null && uscborraperi.equals("1") ) tipoWhereExtra = 13;
+        else if ( uscborraperi != null && uscborraperi.equals("2") ) tipoWhereExtra = 14;
+        else if ( uscborraperi != null && uscborraperi.equals("3") ) tipoWhereExtra = 15;
+        else if ( uscborraperi != null && uscborraperi.equals("4") ) tipoWhereExtra = 16;
+        
+        grabaUsoAfinity(uscdominio, uscaplic, usccoddato, 0, tipoWhereExtra , usuario , datoint1, datoint2, datoint3, datodou1, datodou2, datodou3, datostr1, datostr2, datostr3, datodat1, datodat2, datodat3);
+        
+        // System.out.println("     subIni:  ["+horaini+"] subFin: "+Fecha.getHora(Maefc.getDateTime(),"HH:mm:ss") );    
+        // System.out.println("             datoint1: ["+datoint1+"] datoint2: ["+datoint2+"] datoint3: ["+datoint3+"] datodou1: ["+datodou1+"] datodou2: ["+datodou2+"] datodou3: ["+datodou3+"]  datostr1: ["+datostr1+"] datostr2: ["+datostr2+"] datostr3: ["+datostr3+"]  datodat1: ["+datodat1+"] datodat2: ["+datodat2+"] datodat3: ["+datodat3+"]");
+        // System.out.println("");
+        
+        if ( uscrecorre == null || !uscrecorre.equals("S") ) {
+          break;
+          }
+        }
+      
+      selector.close() ;
+
+      
+      }
+    else if ( usctipo != null && usctipo.equals("U")) { //Tipo Uso/Audition
+      
+      }
+    
+    
+    }
+    catch(Exception e ) {
+      System.out.println("Error 5: ["+e+"]");
+      }
+    
+    Aplication.getAplication().setErrorManager(actual);
+    
+    }
+  
+  
+  
+  public static java.util.Date getDate(org.w3c.dom.Node node) {    
+    java.util.Date retorn = null ;
+    try {    
+      String fec = "" ;
+      if  ( node != null &&  node.getFirstChild() != null ) {                
+        fec = node.getFirstChild().getNodeValue();       
+        if ( fec != null && !fec.equals("") && fec.length() == 10 ) {
+          retorn =  Fecha.construyeFecha( Integer.parseInt(fec.substring(0, 2)), Integer.parseInt(fec.substring(3, 5)) , Integer.parseInt(fec.substring(6)) )  ;
+        }       
+      }   
+    }    
+    catch(Exception e ) {
+      return null ;
+    }
+    return retorn ;
+  }
+
+
+  public static String getString(org.w3c.dom.Node node) {    
+    String retorn = null ;
+    try {    
+      String fec = "" ;
+      if  ( node != null &&  node.getFirstChild() != null ) {                
+        retorn = node.getFirstChild().getNodeValue();       
+      }   
+    }    
+    catch(Exception e ) {
+      return null ;
+    }
+    return retorn ;
+  }
 
   
   
