@@ -378,7 +378,10 @@ public class Easp {
 	  String version =  getVersionBD("bdeasp") ;
       if ( Double.valueOf(version).doubleValue() < 7.6 ) return true ;
 
-
+      //APJORDI 12/05/2017
+      //Primer de tot borrem totes les sessions d'aquel PC, ja que sino s'acumulaven (si obria 2 sessions desde el mateix PC)      
+      cerrarSesion(aplicacion, usuario);
+      
       Select ssesiones         = new Select(connEA);
       Table tbsesiones         = new Table(ssesiones,"sesiones");
       Field fdsescodigo        = new Field(ssesiones,tbsesiones,"sescodigo");

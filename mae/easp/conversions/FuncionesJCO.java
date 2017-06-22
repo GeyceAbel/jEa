@@ -233,6 +233,13 @@ public class FuncionesJCO {
 					perfil.setModelo("340","M");
 					perfil.setModelo("390","A");
 					perfil.setModelo("347","A");
+					if (ejercicio>=2017) {
+						perfil.remModelo("340");
+						if (ejercicio == 2017) perfil.setModelo("340", "M", null, Fecha.fechaFinMes(6, 2017));
+						perfil.remModelo("390");
+						perfil.remModelo("347");
+						perfil.setModelo("SII", "M");						
+					}					
 					if (!Util.esCIFdePersonaFisica (empnif)) {
 						perfil.setModelo("111","M");
 						perfil.setModelo("190","A");      
@@ -249,6 +256,13 @@ public class FuncionesJCO {
 					perfil.setModelo("200","A");
 					perfil.setModelo("218","P");
 					perfil.setModelo("347","A");
+					if (ejercicio>=2017) {
+						perfil.remModelo("340");
+						if (ejercicio == 2017) perfil.setModelo("340", "M", null, Fecha.fechaFinMes(6, 2017));
+						perfil.remModelo("390");
+						perfil.remModelo("347");
+						perfil.setModelo("SII", "M");						
+					}					
 				}
 				else {
 					perfil.setModelo("347","A");    
