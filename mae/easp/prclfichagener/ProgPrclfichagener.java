@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150226
-// Hora:             12:23:31
+// Fecha:            20170626
+// Hora:             13:50:01
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -2597,6 +2597,7 @@ public class ProgPrclfichagener extends Program
         setTitle("NIF / CIF");
         setType(STRING);
         setMaskInput("U");
+        setProtect(true);
         setLength(15);
         setPrintable(false);
         setField(srepre.repnifcif);
