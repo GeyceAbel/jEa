@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20170626
-// Hora:             13:50:01
+// Fecha:            20170726
+// Hora:             14:41:59
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -3010,6 +3010,7 @@ snifrep.datapell2.setValue(vvdatapell2);
     public CtrlChsocio chsocio;
     public CtrlChresidente chresidente;
     public CtrlChrepresentante chrepresentante;
+    public CtrlVvotroscargos vvotroscargos;
     // Acciones
     public LinkBtotrosdatos btotrosdatos;
     class Location extends LocationWindow
@@ -3095,6 +3096,31 @@ snifrep.datapell2.setValue(vvdatapell2);
         }
       }
       
+    public class CtrlVvotroscargos extends ControlComboBox
+      {
+      public CtrlVvotroscargos(Form form)
+        {
+        super(form);
+        setName("vvotroscargos");
+        setMessageHelp("otros cargos");
+        setTitle("otros cargos");
+        setType(STRING);
+        setMaskInput("U");
+        setLength(1);
+        setPrintable(false);
+        setRestricted(false);
+        addItem("A/Apoderado");
+        addItem("C/Consejero Delegado");
+        addItem("G/Director Gerente");
+        addItem("M/Administradores Mancomunados");
+        addItem("O/Administrador concursal");
+        addItem("P/Presidente");
+        addItem("R/Responsable RRHH");
+        addItem("S/Socio");
+        addItem("T/Titular");
+        }
+      }
+      
     public class LinkBtotrosdatos extends ActionForm
       {
       public LinkBtotrosdatos(Form form)
@@ -3129,39 +3155,36 @@ snifrep.datapell2.setValue(vvdatapell2);
       addControl(chsocio=new CtrlChsocio(this));
       addControl(chresidente=new CtrlChresidente(this));
       addControl(chrepresentante=new CtrlChrepresentante(this));
+      addControl(vvotroscargos=new CtrlVvotroscargos(this));
       addAction(btotrosdatos=new LinkBtotrosdatos(this));
       setSelect(srepre);
       }
     public boolean onOkUpdate()
       {
-      if (chadministrador.getBoolean())
-        srepre.repadministrado.setValue("S");
-      else
-        srepre.repadministrado.setValue("N");
-      if (chreplegal.getBoolean())
-        srepre.repreplegal.setValue("S");
-      else
-        srepre.repreplegal.setValue("N");
-      if (chfirma.getBoolean())
-        srepre.repfirma.setValue("S");
-      else
-        srepre.repfirma.setValue("N");
-      if (chresidente.getBoolean())
-        srepre.represidente.setValue("S");
-      else
-        srepre.represidente.setValue("N");
-      if (chsocio.getBoolean())
-        srepre.repsocios.setValue("S");
-      else
-        srepre.repsocios.setValue("N");
-      if (chsecretario.getBoolean())
-        srepre.repsecretario.setValue("S");
-      else
-        srepre.repsecretario.setValue("N");
-      if (chrepresentante.getBoolean())
-        srepre.reppresentante.setValue("S");
-      else
-        srepre.reppresentante.setValue("N");
+      if (chadministrador.getBoolean()) srepre.repadministrado.setValue("S");
+      else                              srepre.repadministrado.setValue("N");
+      
+      if (chreplegal.getBoolean())      srepre.repreplegal.setValue("S");
+      else                              srepre.repreplegal.setValue("N");
+      
+      if (chfirma.getBoolean())         srepre.repfirma.setValue("S");
+      else                              srepre.repfirma.setValue("N");
+      
+      if (chresidente.getBoolean())     srepre.represidente.setValue("S");
+      else                              srepre.represidente.setValue("N");
+      
+      if (chsecretario.getBoolean())    srepre.repsecretario.setValue("S");
+      else                              srepre.repsecretario.setValue("N");
+      
+      if (chrepresentante.getBoolean())  srepre.reppresentante.setValue("S");
+      else                               srepre.reppresentante.setValue("N");
+      
+      // if (chsocio.getBoolean())          srepre.repsocios.setValue("S");
+      // else                               srepre.repsocios.setValue("N");
+      if ( vvotroscargos.isNull() ) srepre.repsocios.setValue("N");
+      else                          srepre.repsocios.setValue(vvotroscargos.getString());
+      
+      
       return super.onOkUpdate();
       }
     public void onBeginRecord()
@@ -3175,12 +3198,19 @@ snifrep.datapell2.setValue(vvdatapell2);
       valorCheck(admin,chfirma);
       admin=srepre.repsecretario.getString();
       valorCheck(admin,chsecretario);
-      admin=srepre.repsocios.getString();
-      valorCheck(admin,chsocio);
       admin=srepre.represidente.getString();
       valorCheck(admin,chresidente);
       admin=srepre.reppresentante.getString();
       valorCheck(admin,chrepresentante);
+      
+      if ( srepre.repsocios.isNull() || srepre.repsocios.getString().equals("N") ) vvotroscargos.setNull();
+      else                                                                           vvotroscargos.setValue(srepre.repsocios.getString());
+      
+      // admin=srepre.repsocios.getString();
+      // valorCheck(admin,chsocio);
+      
+      
+      
       }
     }
     
