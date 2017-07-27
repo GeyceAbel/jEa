@@ -149,7 +149,6 @@ public class Easp {
     // APPAU 24-07-2014 se desactiva ya este mensaje de control
     // avisoErroresLevesjModelos();
     
-    
     return true;
     }
 
@@ -1057,7 +1056,21 @@ static class ErrorManagerVersion implements ErrorManager{
       }
     }
 
-
+public static String cargoRepresentante(String tipoCargo ) {
+    if      ( tipoCargo == null )     return  "" ;
+    else if ( tipoCargo.equals("A") ) return "Apoderado";
+    else if ( tipoCargo.equals("C") ) return "Consejero Delegado";
+    else if ( tipoCargo.equals("F") ) return "Firma";
+    else if ( tipoCargo.equals("G") ) return "Director Gerente";
+    else if ( tipoCargo.equals("M") ) return "Administradores Mancomunados";
+    else if ( tipoCargo.equals("O") ) return "Administrador concursal";
+    else if ( tipoCargo.equals("P") ) return "Presidente";
+    else if ( tipoCargo.equals("R") ) return "Responsable RRHH";
+    else if ( tipoCargo.equals("S") ) return "Socio";
+    else if ( tipoCargo.equals("T") ) return "Titular";
+    return "" ;
+    }
+  
 
 
   public static void runFichaGeneral(String apl,String codiCDP,String nifcif, boolean alta){

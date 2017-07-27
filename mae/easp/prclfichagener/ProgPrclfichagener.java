@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20170726
-// Hora:             14:41:59
+// Fecha:            20170727
+// Hora:             09:40:12
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -3111,6 +3111,7 @@ snifrep.datapell2.setValue(vvdatapell2);
         setRestricted(false);
         addItem("A/Apoderado");
         addItem("C/Consejero Delegado");
+        addItem("F/Firma");
         addItem("G/Director Gerente");
         addItem("M/Administradores Mancomunados");
         addItem("O/Administrador concursal");
