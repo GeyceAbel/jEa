@@ -27,7 +27,7 @@ import net.sf.jasperreports.engine.data.JRXmlDataSource;
 import mae.general.jreports.Totalizar.Calculation;
 
 public class JListado {
- 
+
 	public enum Orientacion { VERTICAL, HORIZONTAL} ;
 	public enum whenNoData {BLANK_PAGE,NO_PAGES,ALL_SECTIONS_NO_DETAIL,NO_DATA_SECTION};
 
@@ -1311,6 +1311,7 @@ public class JListado {
     else pw.write("<reportElement"+repeVal+estilo+" x=\""+tf.getPosIni()+"\" y=\""+tf.getY()+"\" width=\""+tf.getWidth()+"\" height=\""+tf.getAmplada()+"\" "+tran+">");*/
 		pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"true\"/>");
 		pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
+    pw.write("<property name=\"net.sf.jasperreports.text.truncate.at.char\" value=\"true\"/>");
 		if (tf.getPrintWhen()!=null && tf.getPrintWhen().length()>0) {
 			pw.write("<printWhenExpression>"+tf.getPrintWhen()+"</printWhenExpression>");
 		}
@@ -1567,7 +1568,7 @@ public class JListado {
 				pw.write(vPropiedadesExcel.elementAt(i));
 			}
 			if (ignoreDuplicatePIEkey) pw.write("<property name=\"net.sf.jasperreports.chart.pie.ignore.duplicated.key\" value=\"true\"/>");
-			
+
 		}
 		catch (Exception e) {
 			sError = ""+e;
