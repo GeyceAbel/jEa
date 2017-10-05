@@ -190,7 +190,6 @@ public class ConversionJCO extends ConversionLC {
 			if (telefono1!=null && telefono1.length()>9) telefono1 = telefono1.substring(0,9);
 			if (telefono2!=null && telefono2.length()>9) telefono2 = telefono2.substring(0,9);
 			if (fax!=null && fax.length()>9) fax = fax.substring(0,9);
-
 			if (telefono1!=null && !Util.isNumero(telefono1)) telefono1 = null;
 			if (telefono2!=null && !Util.isNumero(telefono2)) telefono2 = null;
 			if (fax!=null && !Util.isNumero(fax)) fax = null;
@@ -287,6 +286,7 @@ public class ConversionJCO extends ConversionLC {
 			sEmpresaD.execute("Select Telefono from EmpresasDomicilios where CodigoEmpresa="+codEmp+" and Telefono is not null and Telefono<>''  order by CodigoDireccion"); 
 			if (sEmpresaD.next()) {
 				String telefono1 = sEmpresaD.getString("Telefono");
+				if (telefono1!=null && !Util.isNumero(telefono1)) telefono1 = null;
 				if (telefono1!=null && telefono1.length()>9) telefono1 = telefono1.substring(0,9);
 				iNIF.valor("dattel",telefono1); 
 				iNIF.valor("datftel",telefono1); 
