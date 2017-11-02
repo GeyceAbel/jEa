@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20151203
-// Hora:             17:50:48
+// Fecha:            20171102
+// Hora:             16:17:28
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -104,6 +104,7 @@ public class CatEasp extends Catalog
   public TabLibregmerext tablibregmerext;
   public TabLogjcontax tablogjcontax;
   public TabAvisos tabavisos;
+  public TabJcoimpexcel tabjcoimpexcel;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -323,6 +324,7 @@ public class CatEasp extends Catalog
     public FieldDef picodigoaeat;
     public FieldDef picodigoss;
     public FieldDef picodigo347;
+    public FieldDef piparaisofiscal;
     public TabPais(String name)
       {
       super(name);
@@ -331,12 +333,14 @@ public class CatEasp extends Catalog
       picodigoaeat = new FieldDef("picodigoaeat",FieldDef.INTEGER,0);
       picodigoss = new FieldDef("picodigoss",FieldDef.INTEGER,0);
       picodigo347 = new FieldDef("picodigo347",FieldDef.CHAR,3);
+      piparaisofiscal = new FieldDef("piparaisofiscal",FieldDef.CHAR,1);
       FieldDef array[] = {
         picodigo,
         pidesc,
         picodigoaeat,
         picodigoss,
-        picodigo347        
+        picodigo347,
+        piparaisofiscal        
         };
       setColumns(array);
       FieldDef arrayf[] = {picodigo };
@@ -4062,6 +4066,60 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabJcoimpexcel extends TableDef
+    {
+    // Campos
+    public FieldDef jcecodigo;
+    public FieldDef jceempresa;
+    public FieldDef jcetodasemp;
+    public FieldDef jcedesc;
+    public FieldDef jcetipo;
+    public FieldDef jceruta;
+    public FieldDef jcehoja;
+    public FieldDef jce1lin;
+    public FieldDef jceulin;
+    public FieldDef jcedefcol;
+    public FieldDef jcelmin;
+    public FieldDef jcelctamay;
+    public FieldDef jcedefcta;
+    public TabJcoimpexcel(String name)
+      {
+      super(name);
+      jcecodigo = new FieldDef("jcecodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      jceempresa = new FieldDef("jceempresa",FieldDef.INTEGER,0);
+      jcetodasemp = new FieldDef("jcetodasemp",FieldDef.CHAR,1);
+      jcedesc = new FieldDef("jcedesc",FieldDef.CHAR,255);
+      jcetipo = new FieldDef("jcetipo",FieldDef.CHAR,2);
+      jceruta = new FieldDef("jceruta",FieldDef.CHAR,155);
+      jcehoja = new FieldDef("jcehoja",FieldDef.CHAR,50);
+      jce1lin = new FieldDef("jce1lin",FieldDef.INTEGER,0);
+      jceulin = new FieldDef("jceulin",FieldDef.INTEGER,0);
+      jcedefcol = new FieldDef("jcedefcol",FieldDef.CHAR,4000);
+      jcelmin = new FieldDef("jcelmin",FieldDef.INTEGER,0);
+      jcelctamay = new FieldDef("jcelctamay",FieldDef.INTEGER,0);
+      jcedefcta = new FieldDef("jcedefcta",FieldDef.CHAR,4000);
+      FieldDef array[] = {
+        jcecodigo,
+        jceempresa,
+        jcetodasemp,
+        jcedesc,
+        jcetipo,
+        jceruta,
+        jcehoja,
+        jce1lin,
+        jceulin,
+        jcedefcol,
+        jcelmin,
+        jcelctamay,
+        jcedefcta        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {jcecodigo };
+      setPrimaryKeys(arrayf);
+      jcecodigo.setAutoIncrementable(true);
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -4152,6 +4210,7 @@ public class CatEasp extends Catalog
     tablibregmerext = new TabLibregmerext("libregmerext");
     tablogjcontax = new TabLogjcontax("logjcontax");
     tabavisos = new TabAvisos("avisos");
+    tabjcoimpexcel = new TabJcoimpexcel("jcoimpexcel");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -4240,7 +4299,8 @@ public class CatEasp extends Catalog
       tabcodcnvinciden,
       tablibregmerext,
       tablogjcontax,
-      tabavisos      
+      tabavisos,
+      tabjcoimpexcel      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };

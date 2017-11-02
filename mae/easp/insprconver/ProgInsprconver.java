@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20170601
-// Hora:             12:36:54
+// Fecha:            20171102
+// Hora:             16:17:34
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1482,6 +1482,12 @@ public class ProgInsprconver extends Program
     String sentencias13_8[]={"UPDATE MUNI347 SET mu7desc='LAS PALMAS DE GRAN CANARIA'  WHERE mu7codprov=35 AND mu7codmuni=167;",
     "UPDATE MUNICIPIO SET mudesc='LAS PALMAS DE GRAN CANARIA'  WHERE muprov=35 AND mucodigo=16;"};
     
+    String sentencias13_9[]={"ALTER TABLE PAIS ADD piparaisofiscal CHAR(1);",
+    "UPDATE pais set piparaisofiscal='S' WHERE (picodigo347='AG' or picodigo347='AI' or picodigo347='BH' or picodigo347='BM' or picodigo347='BN' or picodigo347='CK' or picodigo347='CY' or picodigo347='DM' or picodigo347='FJ' or picodigo347='FK' or picodigo347='GD');",
+    "UPDATE pais set piparaisofiscal='S' WHERE (picodigo347='GG' or picodigo347='GI' or picodigo347='HK' or picodigo347='IM' or picodigo347='JE' or picodigo347='JO' or picodigo347='KY' or picodigo347='LB' or picodigo347='LC' or picodigo347='LI' or picodigo347='LR');",
+    "UPDATE pais set piparaisofiscal='S' WHERE (picodigo347='MC' or picodigo347='MO' or picodigo347='MP' or picodigo347='MS' or picodigo347='MU' or picodigo347='NR' or picodigo347='OM' or picodigo347='SB' or picodigo347='SC' or picodigo347='TC' or picodigo347='VC');",
+    "UPDATE pais set piparaisofiscal='S' WHERE (picodigo347='VG' or picodigo347='VI' or picodigo347='VU');"};
+     
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -3460,6 +3466,23 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("13.8");
         }
+        if (versio < 13.9) {
+            for (i=0;i<sentencias13_9.length;++i) {
+                try {
+                    Easp.chivato("13.9 Exec : ["+sentencias13_9[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias13_9[i]);
+                }
+                catch(Exception e) {
+                    sqlOperation=sentencias13_9[i];
+                    Easp.chivato("13.9 *** Error : ["+sentencias13_9[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","13.9");
+            Easp.connEA.commit();
+            vvveractual.setValue("13.9");
+        }
+    
      
     
       }

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150513
-// Hora:             10:19:36
+// Fecha:            20171102
+// Hora:             16:17:24
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -102,6 +102,9 @@ public class CatAdmon extends Catalog
   public TabCodcnvotrapll tabcodcnvotrapll;
   public TabCodcnvinciden tabcodcnvinciden;
   public TabLibregmerext tablibregmerext;
+  public TabLogjcontax tablogjcontax;
+  public TabAvisos tabavisos;
+  public TabJcoimpexcel tabjcoimpexcel;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -321,6 +324,7 @@ public class CatAdmon extends Catalog
     public FieldDef picodigoaeat;
     public FieldDef picodigoss;
     public FieldDef picodigo347;
+    public FieldDef piparaisofiscal;
     public TabPais(String name)
       {
       super(name);
@@ -329,12 +333,14 @@ public class CatAdmon extends Catalog
       picodigoaeat = new FieldDef("picodigoaeat",FieldDef.INTEGER,0);
       picodigoss = new FieldDef("picodigoss",FieldDef.INTEGER,0);
       picodigo347 = new FieldDef("picodigo347",FieldDef.CHAR,3);
+      piparaisofiscal = new FieldDef("piparaisofiscal",FieldDef.CHAR,1);
       FieldDef array[] = {
         picodigo,
         pidesc,
         picodigoaeat,
         picodigoss,
-        picodigo347        
+        picodigo347,
+        piparaisofiscal        
         };
       setColumns(array);
       FieldDef arrayf[] = {picodigo };
@@ -1080,6 +1086,7 @@ public class CatAdmon extends Catalog
     public FieldDef amoparent;
     public FieldDef amonum;
     public FieldDef amoejercicio;
+    public FieldDef amocodequiv;
     public TabAmortizacion(String name)
       {
       super(name);
@@ -1094,6 +1101,7 @@ public class CatAdmon extends Catalog
       amoparent = new FieldDef("amoparent",FieldDef.CHAR,8);
       amonum = new FieldDef("amonum",FieldDef.CHAR,1);
       amoejercicio = new FieldDef("amoejercicio",FieldDef.INTEGER,0);
+      amocodequiv = new FieldDef("amocodequiv",FieldDef.INTEGER,0);
       FieldDef array[] = {
         amocodigo,
         amogrupo,
@@ -1105,7 +1113,8 @@ public class CatAdmon extends Catalog
         amoperiodo,
         amoparent,
         amonum,
-        amoejercicio        
+        amoejercicio,
+        amocodequiv        
         };
       setColumns(array);
       FieldDef arrayf[] = {amocodigo };
@@ -1420,7 +1429,7 @@ public class CatAdmon extends Catalog
       super(name);
       ayprocedure = new FieldDef("ayprocedure",FieldDef.CHAR,50,FieldDef.NOTNULL);
       ayidioma = new FieldDef("ayidioma",FieldDef.CHAR,3,FieldDef.NOTNULL);
-      aytexto = new FieldDef("aytexto",FieldDef.CHAR,40008);
+      aytexto = new FieldDef("aytexto",FieldDef.CHAR,4000);
       FieldDef array[] = {
         ayprocedure,
         ayidioma,
@@ -3591,7 +3600,7 @@ public class CatAdmon extends Catalog
       jpemin = new FieldDef("jpemin",FieldDef.FLOAT,6,0);
       jpemax = new FieldDef("jpemax",FieldDef.FLOAT,6,0);
       jpedescmin = new FieldDef("jpedescmin",FieldDef.CHAR,2000);
-      jpedescmax = new FieldDef("jpedescmax",FieldDef.CHAR,20009);
+      jpedescmax = new FieldDef("jpedescmax",FieldDef.CHAR,2000);
       jpedescok = new FieldDef("jpedescok",FieldDef.CHAR,2000);
       FieldDef array[] = {
         jpeidrati,
@@ -3877,6 +3886,240 @@ public class CatAdmon extends Catalog
       }
     }
     
+  public class TabLogjcontax extends TableDef
+    {
+    // Campos
+    public FieldDef lgxcodi;
+    public FieldDef lgxemp;
+    public FieldDef lgxejercicio;
+    public FieldDef lgxfecha;
+    public FieldDef lgxhora;
+    public FieldDef lgxusuario;
+    public FieldDef lgxenvrec;
+    public FieldDef lgxcdpafinity;
+    public TabLogjcontax(String name)
+      {
+      super(name);
+      lgxcodi = new FieldDef("lgxcodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      lgxemp = new FieldDef("lgxemp",FieldDef.INTEGER,0);
+      lgxejercicio = new FieldDef("lgxejercicio",FieldDef.INTEGER,0);
+      lgxfecha = new FieldDef("lgxfecha",FieldDef.DATE);
+      lgxhora = new FieldDef("lgxhora",FieldDef.CHAR,8);
+      lgxusuario = new FieldDef("lgxusuario",FieldDef.CHAR,25);
+      lgxenvrec = new FieldDef("lgxenvrec",FieldDef.CHAR,1);
+      lgxcdpafinity = new FieldDef("lgxcdpafinity",FieldDef.CHAR,12);
+      FieldDef array[] = {
+        lgxcodi,
+        lgxemp,
+        lgxejercicio,
+        lgxfecha,
+        lgxhora,
+        lgxusuario,
+        lgxenvrec,
+        lgxcdpafinity        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {lgxcodi };
+      setPrimaryKeys(arrayf);
+      lgxcodi.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabAvisos extends TableDef
+    {
+    // Campos
+    public FieldDef avcodigo;
+    public FieldDef avaplicacion;
+    public FieldDef avcodcdp;
+    public FieldDef avempresa;
+    public FieldDef avnomempresa;
+    public FieldDef avtrabajador;
+    public FieldDef avnomtrabaj;
+    public FieldDef avrelacion;
+    public FieldDef avcentro;
+    public FieldDef avcodincid;
+    public FieldDef avcodfiniq;
+    public FieldDef avcodbonif;
+    public FieldDef avcodactivi;
+    public FieldDef avnomactivi;
+    public FieldDef avdeclara;
+    public FieldDef avcodotr1;
+    public FieldDef avcodotr2;
+    public FieldDef avcodotr3;
+    public FieldDef avejercicio;
+    public FieldDef avperiodo;
+    public FieldDef avtiporeco;
+    public FieldDef avtipoaviso;
+    public FieldDef avtitulo;
+    public FieldDef avorigen;
+    public FieldDef avestado;
+    public FieldDef avestadoctrl;
+    public FieldDef avurgencia;
+    public FieldDef avdescrip;
+    public FieldDef avfechacrea;
+    public FieldDef avresponscrea;
+    public FieldDef avresponsorig;
+    public FieldDef avfechaorig;
+    public FieldDef avhoraorig;
+    public FieldDef avresponsvenc;
+    public FieldDef avfechavenci;
+    public FieldDef avhoravenci;
+    public FieldDef avfechasolu;
+    public FieldDef avresponssolu;
+    public FieldDef avhorasolu;
+    public FieldDef avresponsrevi;
+    public FieldDef avfecharevi;
+    public FieldDef avhorarevi;
+    public TabAvisos(String name)
+      {
+      super(name);
+      avcodigo = new FieldDef("avcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      avaplicacion = new FieldDef("avaplicacion",FieldDef.CHAR,15);
+      avcodcdp = new FieldDef("avcodcdp",FieldDef.CHAR,12);
+      avempresa = new FieldDef("avempresa",FieldDef.INTEGER,0);
+      avnomempresa = new FieldDef("avnomempresa",FieldDef.CHAR,35);
+      avtrabajador = new FieldDef("avtrabajador",FieldDef.INTEGER,0);
+      avnomtrabaj = new FieldDef("avnomtrabaj",FieldDef.CHAR,35);
+      avrelacion = new FieldDef("avrelacion",FieldDef.INTEGER,0);
+      avcentro = new FieldDef("avcentro",FieldDef.INTEGER,0);
+      avcodincid = new FieldDef("avcodincid",FieldDef.INTEGER,0);
+      avcodfiniq = new FieldDef("avcodfiniq",FieldDef.INTEGER,0);
+      avcodbonif = new FieldDef("avcodbonif",FieldDef.INTEGER,0);
+      avcodactivi = new FieldDef("avcodactivi",FieldDef.INTEGER,0);
+      avnomactivi = new FieldDef("avnomactivi",FieldDef.CHAR,35);
+      avdeclara = new FieldDef("avdeclara",FieldDef.CHAR,12);
+      avcodotr1 = new FieldDef("avcodotr1",FieldDef.INTEGER,0);
+      avcodotr2 = new FieldDef("avcodotr2",FieldDef.INTEGER,0);
+      avcodotr3 = new FieldDef("avcodotr3",FieldDef.INTEGER,0);
+      avejercicio = new FieldDef("avejercicio",FieldDef.INTEGER,0);
+      avperiodo = new FieldDef("avperiodo",FieldDef.INTEGER,0);
+      avtiporeco = new FieldDef("avtiporeco",FieldDef.CHAR,5);
+      avtipoaviso = new FieldDef("avtipoaviso",FieldDef.CHAR,10);
+      avtitulo = new FieldDef("avtitulo",FieldDef.CHAR,250);
+      avorigen = new FieldDef("avorigen",FieldDef.CHAR,1);
+      avestado = new FieldDef("avestado",FieldDef.CHAR,2);
+      avestadoctrl = new FieldDef("avestadoctrl",FieldDef.CHAR,2);
+      avurgencia = new FieldDef("avurgencia",FieldDef.INTEGER,0);
+      avdescrip = new FieldDef("avdescrip",FieldDef.CHAR,2000);
+      avfechacrea = new FieldDef("avfechacrea",FieldDef.DATE);
+      avresponscrea = new FieldDef("avresponscrea",FieldDef.CHAR,25);
+      avresponsorig = new FieldDef("avresponsorig",FieldDef.CHAR,25);
+      avfechaorig = new FieldDef("avfechaorig",FieldDef.DATE);
+      avhoraorig = new FieldDef("avhoraorig",FieldDef.CHAR,8);
+      avresponsvenc = new FieldDef("avresponsvenc",FieldDef.CHAR,25);
+      avfechavenci = new FieldDef("avfechavenci",FieldDef.DATE);
+      avhoravenci = new FieldDef("avhoravenci",FieldDef.CHAR,8);
+      avfechasolu = new FieldDef("avfechasolu",FieldDef.DATE);
+      avresponssolu = new FieldDef("avresponssolu",FieldDef.CHAR,25);
+      avhorasolu = new FieldDef("avhorasolu",FieldDef.CHAR,8);
+      avresponsrevi = new FieldDef("avresponsrevi",FieldDef.CHAR,25);
+      avfecharevi = new FieldDef("avfecharevi",FieldDef.DATE);
+      avhorarevi = new FieldDef("avhorarevi",FieldDef.CHAR,8);
+      FieldDef array[] = {
+        avcodigo,
+        avaplicacion,
+        avcodcdp,
+        avempresa,
+        avnomempresa,
+        avtrabajador,
+        avnomtrabaj,
+        avrelacion,
+        avcentro,
+        avcodincid,
+        avcodfiniq,
+        avcodbonif,
+        avcodactivi,
+        avnomactivi,
+        avdeclara,
+        avcodotr1,
+        avcodotr2,
+        avcodotr3,
+        avejercicio,
+        avperiodo,
+        avtiporeco,
+        avtipoaviso,
+        avtitulo,
+        avorigen,
+        avestado,
+        avestadoctrl,
+        avurgencia,
+        avdescrip,
+        avfechacrea,
+        avresponscrea,
+        avresponsorig,
+        avfechaorig,
+        avhoraorig,
+        avresponsvenc,
+        avfechavenci,
+        avhoravenci,
+        avfechasolu,
+        avresponssolu,
+        avhorasolu,
+        avresponsrevi,
+        avfecharevi,
+        avhorarevi        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {avcodigo };
+      setPrimaryKeys(arrayf);
+      avcodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabJcoimpexcel extends TableDef
+    {
+    // Campos
+    public FieldDef jcecodigo;
+    public FieldDef jceempresa;
+    public FieldDef jcetodasemp;
+    public FieldDef jcedesc;
+    public FieldDef jcetipo;
+    public FieldDef jceruta;
+    public FieldDef jcehoja;
+    public FieldDef jce1lin;
+    public FieldDef jceulin;
+    public FieldDef jcedefcol;
+    public FieldDef jcelmin;
+    public FieldDef jcelctamay;
+    public FieldDef jcedefcta;
+    public TabJcoimpexcel(String name)
+      {
+      super(name);
+      jcecodigo = new FieldDef("jcecodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      jceempresa = new FieldDef("jceempresa",FieldDef.INTEGER,0);
+      jcetodasemp = new FieldDef("jcetodasemp",FieldDef.CHAR,1);
+      jcedesc = new FieldDef("jcedesc",FieldDef.CHAR,255);
+      jcetipo = new FieldDef("jcetipo",FieldDef.CHAR,2);
+      jceruta = new FieldDef("jceruta",FieldDef.CHAR,155);
+      jcehoja = new FieldDef("jcehoja",FieldDef.CHAR,50);
+      jce1lin = new FieldDef("jce1lin",FieldDef.INTEGER,0);
+      jceulin = new FieldDef("jceulin",FieldDef.INTEGER,0);
+      jcedefcol = new FieldDef("jcedefcol",FieldDef.CHAR,4000);
+      jcelmin = new FieldDef("jcelmin",FieldDef.INTEGER,0);
+      jcelctamay = new FieldDef("jcelctamay",FieldDef.INTEGER,0);
+      jcedefcta = new FieldDef("jcedefcta",FieldDef.CHAR,4000);
+      FieldDef array[] = {
+        jcecodigo,
+        jceempresa,
+        jcetodasemp,
+        jcedesc,
+        jcetipo,
+        jceruta,
+        jcehoja,
+        jce1lin,
+        jceulin,
+        jcedefcol,
+        jcelmin,
+        jcelctamay,
+        jcedefcta        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {jcecodigo };
+      setPrimaryKeys(arrayf);
+      jcecodigo.setAutoIncrementable(true);
+      }
+    }
+    
   public CatAdmon()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -3965,6 +4208,9 @@ public class CatAdmon extends Catalog
     tabcodcnvotrapll = new TabCodcnvotrapll("codcnvotrapll");
     tabcodcnvinciden = new TabCodcnvinciden("codcnvinciden");
     tablibregmerext = new TabLibregmerext("libregmerext");
+    tablogjcontax = new TabLogjcontax("logjcontax");
+    tabavisos = new TabAvisos("avisos");
+    tabjcoimpexcel = new TabJcoimpexcel("jcoimpexcel");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -4051,7 +4297,10 @@ public class CatAdmon extends Catalog
       tabcodcnvotraplc,
       tabcodcnvotrapll,
       tabcodcnvinciden,
-      tablibregmerext      
+      tablibregmerext,
+      tablogjcontax,
+      tabavisos,
+      tabjcoimpexcel      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
