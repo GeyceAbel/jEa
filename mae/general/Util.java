@@ -637,13 +637,18 @@ System.out.println("Error: "+e);
      	  case 3:  //la letra del NIF (letra final) no está bien calculada
      	    String d=CIF.substring(0,CIF.length()-1);
      	    if (isNumero(d)){
-     	       String dni2=formateoNumero("00000000",Integer.parseInt(d));
-		 					String letra=letraDNI(dni2);
-     	       if (Maefc.message("La letra del NIF debería ser "+letra+"."+
-     	         "\n¿Desea cambiar la letra del NIF?","NIF incorrecto",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION)==Maefc.YES_OPTION) {
-     	         return dni2+letra;
-     	         }
-     	       else
+     	    	try {
+	     	       String dni2=formateoNumero("00000000",Integer.parseInt(d));
+			 					String letra=letraDNI(dni2);
+	     	       if (Maefc.message("La letra del NIF debería ser "+letra+"."+
+	     	         "\n¿Desea cambiar la letra del NIF?","NIF incorrecto",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION)==Maefc.YES_OPTION) {
+	     	         return dni2+letra;
+	     	         }
+     	    	}
+     	    	catch (Exception e) {
+     	    		
+     	    	}
+
      	         return CIF;
      	      }
      	   }
