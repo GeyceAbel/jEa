@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20170131
-// Hora:             12:41:28
+// Fecha:            20171113
+// Hora:             11:50:22
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -773,6 +773,7 @@ public class ProgQuerylis extends Program
           else where=selwhere+" and ("+where+")";
         }
       }
+      /*
       else if (aplicacion.equals("JCONTA")) {
      	  String nomCampEmpresa = null;
         CatCtasp catjco = new CatCtasp();
@@ -789,6 +790,7 @@ public class ProgQuerylis extends Program
         	else where += " and ("+nomCampEmpresa+"="+empresaJCONTA+")";
         }
       }
+      */
       else if ("E".equals(frase.ect) || "C".equals(frase.ect) || "T".equals(frase.ect)) {
               String selwhere="SELUSUARIO='"+Aplication.getAplication().getUser()+"' and SELPROGRAMA='QUERY'";
   
