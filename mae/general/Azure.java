@@ -54,10 +54,11 @@ public class Azure {
 		this.function = function;
 		this.urlAzure = PROTOCOL + getRealHost() + SITE + function;
 		this.fichero = f;
+		if (parametros != null && parametros.contains("\\")) parametros = parametros.replace("\\", "%5C");		
 		if (Easp.HOST == TIPO_HOST.LOCALHOST || Easp.HOST == TIPO_HOST.AZURE || Easp.HOST == TIPO_HOST.AZUREMSDN) this.urlAzure+=".cshtml";
 		if (parametros == null || parametros.trim().length()==0) parametros = "dominiojToken="+Easp.dominio;
 		else parametros +="&dominiojToken="+Easp.dominio;
-		this.urlAzure += "?"+parametros;
+		this.urlAzure += "?"+parametros;		
 		numeroReintentos = 1;
 	}
 

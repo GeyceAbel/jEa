@@ -54,6 +54,7 @@ public class URLExec {
 		  }
 		  
 	  }
+	  if (urlParseada.contains("\\")) urlParseada = urlParseada.replace("\\", "%5C");
 	  System.out.println("checkHostUrl OUT ["+urlParseada+"]");
 	  return urlParseada;
   }
