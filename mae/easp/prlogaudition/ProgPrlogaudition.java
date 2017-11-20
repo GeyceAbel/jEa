@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171110
-// Hora:             11:47:04
+// Fecha:            20171120
+// Hora:             16:49:58
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -26,7 +26,7 @@ public class ProgPrlogaudition extends Program
   public ProgPrlogaudition prlogaudition;
   // Inicio declaraciones globales
   private int ordenacion = -1;
-  
+  DBConnection connAudition = null;
   private boolean initConnection() {
     boolean bOk = false;
     String ubicFitxerDesti = System.getProperty("user.dir")+"\\adt\\";
@@ -38,7 +38,7 @@ public class ProgPrlogaudition extends Program
     Catalog caudition = new CatalogAudition ();
     Catalog array[] = {caudition};
     db.setCatalogs(array);
-    DBConnection connAudition = new DBConnection(db);
+    connAudition = new DBConnection(db);
     try {
       bOk = connAudition.connectEx();
      setConnection (connAudition);
@@ -309,6 +309,11 @@ public class ProgPrlogaudition extends Program
       setInitState(DataForm.SHOW);
       super.onInit();
       }
+    public void onExit()
+      {
+      if (connAudition != null) connAudition.disconnect();
+      super.onExit();
+      }
     }
     
   // 
@@ -470,6 +475,11 @@ public class ProgPrlogaudition extends Program
       Maefc.message ("Imposible conectar con el LOG de Auditoria","¡Atención!",Maefc.WARNING_MESSAGE);
       exit();
     }
+    }
+  public void onExit()
+    {
+    if (connAudition != null) connAudition.disconnect();
+    super.onExit();
     }
   }
   
