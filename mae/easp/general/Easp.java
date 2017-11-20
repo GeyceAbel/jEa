@@ -38,8 +38,8 @@ public class Easp {
 
   //variables de versiones
   public static String versionAplicacion="9.8";
-  public static String versionFecha="Marzo/2016";
-  public static String versionBDEA="13.9";
+  public static String versionFecha="Noviembre/2017";
+  public static String versionBDEA="14.1";
 
   public static enum TIPO_HOST { ORACLE, LOCALHOST, AZURE, AZUREMSDN};
   public static TIPO_HOST HOST = TIPO_HOST.ORACLE;
@@ -148,7 +148,7 @@ public class Easp {
     System.out.println("**************** HOST JEA = "+Easp.HOST);
     // APPAU 24-07-2014 se desactiva ya este mensaje de control
     // avisoErroresLevesjModelos();
-
+    
     return true;
     }
 

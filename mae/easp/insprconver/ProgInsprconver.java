@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171102
-// Hora:             16:17:34
+// Fecha:            20171116
+// Hora:             11:04:05
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1487,6 +1487,59 @@ public class ProgInsprconver extends Program
     "UPDATE pais set piparaisofiscal='S' WHERE (picodigo347='GG' or picodigo347='GI' or picodigo347='HK' or picodigo347='IM' or picodigo347='JE' or picodigo347='JO' or picodigo347='KY' or picodigo347='LB' or picodigo347='LC' or picodigo347='LI' or picodigo347='LR');",
     "UPDATE pais set piparaisofiscal='S' WHERE (picodigo347='MC' or picodigo347='MO' or picodigo347='MP' or picodigo347='MS' or picodigo347='MU' or picodigo347='NR' or picodigo347='OM' or picodigo347='SB' or picodigo347='SC' or picodigo347='TC' or picodigo347='VC');",
     "UPDATE pais set piparaisofiscal='S' WHERE (picodigo347='VG' or picodigo347='VI' or picodigo347='VU');"};
+    
+    String sentencias14_0[]={
+    "CREATE TABLE JCOIMPEXCEL           "+
+    "  (JCECODIGO      INTEGER NOT NULL, "+
+    "   JCEEMPRESA     INTEGER,         "+
+    "   JCETODASEMP    VARCHAR(1),      "+
+    "   JCEDESC        VARCHAR(255),    "+
+    "   JCETIPO        VARCHAR(2),      "+
+    "   JCERUTA        VARCHAR(155),    "+
+    "   JCEHOJA        VARCHAR(50),     "+
+    "   JCE1LIN        INTEGER,         "+
+    "   JCEULIN        INTEGER,         "+
+    "   JCEDEFCOL      "+getMemo(4000)+
+    "   JCELMIN        INTEGER,         "+
+    "   JCELCTAMAY     INTEGER,         "+
+    "   JCEDEFCTA      "+getMemo(4000)+
+    "   PRIMARY KEY (JCECODIGO));       "};
+    
+    String sentencias14_1[]={
+    "CREATE TABLE INFPLANTILLA" +
+    " 	(ipcodplant	VARCHAR(10) NOT NULL," +
+    " 	 ipdesc	    VARCHAR (60) NOT NULL," +
+    " 	 ipmostrar0 VARCHAR (1)," +
+    " 	PRIMARY KEY (ipcodplant));",
+        		
+    "CREATE TABLE INFPLANTLINEA" +
+    "	(iplcodigo		INTEGER NOT NULL," +
+    "	 iplcodplant    VARCHAR(10) NOT NULL," +
+    "	 iplnumero		INTEGER NOT NULL," +
+    "	 iplcodlin   	VARCHAR(20)," +
+    "	 ipldesc     	VARCHAR(60)," +
+    "	 ipltotalizar	VARCHAR(1)," +
+    "	 ipltotaldesc	VARCHAR(60)," +
+    "	 ipldesde    	VARCHAR(17)," +
+    "	 iplhasta  		VARCHAR(17)," +
+    "	 iplmayor  		VARCHAR(1)," +
+    "	 iplformula		VARCHAR(255)," +
+    "	 PRIMARY KEY (iplcodigo)," +
+    "	 FOREIGN KEY (iplcodplant) REFERENCES INFPLANTILLA(ipcodplant));",
+        		
+    "CREATE TABLE INFPLANTCOL" +
+    "	(ipccodigo 		INTEGER NOT NULL," +
+    "	 ipccodplant	VARCHAR(10) NOT NULL," +
+    "	 ipcnumero 		INTEGER NOT NULL," +
+    "	 ipcdesc    	VARCHAR(30)," +
+    "	 ipcejercol 	INTEGER ," +
+    "	 ipcdesdemes	INTEGER ," +
+    "	 ipchastames	INTEGER ," +
+    "	 ipcpositivos	VARCHAR(1)," +
+    "	 ipctiposaldo	VARCHAR(1)," +
+    "	 ipcformula		VARCHAR(255)," +
+    "	 PRIMARY KEY (ipccodigo)," +
+    "	 FOREIGN KEY (ipccodplant) REFERENCES INFPLANTILLA(ipcodplant));"};
      
       int i=0;
       try {
@@ -3482,7 +3535,38 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("13.9");
         }
-    
+        if (versio < 14.0) {
+            for (i=0;i<sentencias14_0.length;++i) {
+                try {
+                    Easp.chivato("14.0 Exec : ["+sentencias14_0[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias14_0[i]);
+                }
+                catch(Exception e) {
+                    sqlOperation=sentencias14_0[i];
+                    Easp.chivato("14.0 *** Error : ["+sentencias14_0[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","14.0");
+            Easp.connEA.commit();
+            vvveractual.setValue("14.0");
+        }
+        if (versio < 14.1) {
+            for (i=0;i<sentencias14_1.length;++i) {
+                try {
+                    Easp.chivato("14.1 Exec : ["+sentencias14_1[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias14_1[i]);
+                }
+                catch(Exception e) {
+                    sqlOperation=sentencias14_1[i];
+                    Easp.chivato("14.1 *** Error : ["+sentencias14_1[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","14.1");
+            Easp.connEA.commit();
+            vvveractual.setValue("14.1");
+        }
      
     
       }

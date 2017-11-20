@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20151202
-// Hora:             09:23:16
+// Fecha:            20171110
+// Hora:             09:42:01
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -616,6 +616,7 @@ class Bdeasp extends DataBase
   public AppEasp easp;
   // Catalogos
   public CatAdmon catadmon;
+  public CatAutition catautition;
   public CatCtasp catctasp;
   public CatEasp cateasp;
   public CatJeo catjeo;
@@ -637,6 +638,7 @@ class Bdeasp extends DataBase
     setServer("jdbc:odbc:");
     setName("bdeasp");
     catadmon = new CatAdmon();
+    catautition = new CatAutition();
     catctasp = new CatCtasp();
     cateasp = new CatEasp();
     catjeo = new CatJeo();
@@ -653,6 +655,7 @@ class Bdeasp extends DataBase
     catxagpi = new CatXagpi();
     Catalog array[] = {
       catadmon,
+      catautition,
       catctasp,
       cateasp,
       catjeo,

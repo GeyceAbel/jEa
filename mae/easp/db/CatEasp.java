@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171102
-// Hora:             16:17:28
+// Fecha:            20171116
+// Hora:             11:56:33
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -105,6 +105,9 @@ public class CatEasp extends Catalog
   public TabLogjcontax tablogjcontax;
   public TabAvisos tabavisos;
   public TabJcoimpexcel tabjcoimpexcel;
+  public TabInfplantilla tabinfplantilla;
+  public TabInfplantlinea tabinfplantlinea;
+  public TabInfplantcol tabinfplantcol;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -4120,6 +4123,122 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabInfplantilla extends TableDef
+    {
+    // Campos
+    public FieldDef ipcodplant;
+    public FieldDef ipdesc;
+    public FieldDef ipmostrar0;
+    public TabInfplantilla(String name)
+      {
+      super(name);
+      ipcodplant = new FieldDef("ipcodplant",FieldDef.CHAR,10,FieldDef.NOTNULL);
+      ipdesc = new FieldDef("ipdesc",FieldDef.CHAR,60,FieldDef.NOTNULL);
+      ipmostrar0 = new FieldDef("ipmostrar0",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        ipcodplant,
+        ipdesc,
+        ipmostrar0        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {ipcodplant };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabInfplantlinea extends TableDef
+    {
+    // Campos
+    public FieldDef iplcodigo;
+    public FieldDef iplcodplant;
+    public FieldDef iplnumero;
+    public FieldDef iplcodlin;
+    public FieldDef ipldesc;
+    public FieldDef ipltotalizar;
+    public FieldDef ipltotaldesc;
+    public FieldDef ipldesde;
+    public FieldDef iplhasta;
+    public FieldDef iplmayor;
+    public FieldDef iplformula;
+    public TabInfplantlinea(String name)
+      {
+      super(name);
+      iplcodigo = new FieldDef("iplcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      iplcodplant = new FieldDef("iplcodplant",FieldDef.CHAR,10,FieldDef.NOTNULL);
+      iplnumero = new FieldDef("iplnumero",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      iplcodlin = new FieldDef("iplcodlin",FieldDef.CHAR,20);
+      ipldesc = new FieldDef("ipldesc",FieldDef.CHAR,60);
+      ipltotalizar = new FieldDef("ipltotalizar",FieldDef.CHAR,1);
+      ipltotaldesc = new FieldDef("ipltotaldesc",FieldDef.CHAR,60);
+      ipldesde = new FieldDef("ipldesde",FieldDef.CHAR,17);
+      iplhasta = new FieldDef("iplhasta",FieldDef.CHAR,17);
+      iplmayor = new FieldDef("iplmayor",FieldDef.CHAR,1);
+      iplformula = new FieldDef("iplformula",FieldDef.CHAR,255);
+      FieldDef array[] = {
+        iplcodigo,
+        iplcodplant,
+        iplnumero,
+        iplcodlin,
+        ipldesc,
+        ipltotalizar,
+        ipltotaldesc,
+        ipldesde,
+        iplhasta,
+        iplmayor,
+        iplformula        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {iplcodigo };
+      setPrimaryKeys(arrayf);
+      iplcodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabInfplantcol extends TableDef
+    {
+    // Campos
+    public FieldDef ipccodigo;
+    public FieldDef ipccodplant;
+    public FieldDef ipcnumero;
+    public FieldDef ipcdesc;
+    public FieldDef ipcejercol;
+    public FieldDef ipcdesdemes;
+    public FieldDef ipchastames;
+    public FieldDef ipcpositivos;
+    public FieldDef ipctiposaldo;
+    public FieldDef ipcformula;
+    public TabInfplantcol(String name)
+      {
+      super(name);
+      ipccodigo = new FieldDef("ipccodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      ipccodplant = new FieldDef("ipccodplant",FieldDef.CHAR,10,FieldDef.NOTNULL);
+      ipcnumero = new FieldDef("ipcnumero",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      ipcdesc = new FieldDef("ipcdesc",FieldDef.CHAR,30);
+      ipcejercol = new FieldDef("ipcejercol",FieldDef.INTEGER,0);
+      ipcdesdemes = new FieldDef("ipcdesdemes",FieldDef.INTEGER,0);
+      ipchastames = new FieldDef("ipchastames",FieldDef.INTEGER,0);
+      ipcpositivos = new FieldDef("ipcpositivos",FieldDef.CHAR,1);
+      ipctiposaldo = new FieldDef("ipctiposaldo",FieldDef.CHAR,1);
+      ipcformula = new FieldDef("ipcformula",FieldDef.CHAR,255);
+      FieldDef array[] = {
+        ipccodigo,
+        ipccodplant,
+        ipcnumero,
+        ipcdesc,
+        ipcejercol,
+        ipcdesdemes,
+        ipchastames,
+        ipcpositivos,
+        ipctiposaldo,
+        ipcformula        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {ipccodigo };
+      setPrimaryKeys(arrayf);
+      ipccodigo.setAutoIncrementable(true);
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -4211,6 +4330,9 @@ public class CatEasp extends Catalog
     tablogjcontax = new TabLogjcontax("logjcontax");
     tabavisos = new TabAvisos("avisos");
     tabjcoimpexcel = new TabJcoimpexcel("jcoimpexcel");
+    tabinfplantilla = new TabInfplantilla("infplantilla");
+    tabinfplantlinea = new TabInfplantlinea("infplantlinea");
+    tabinfplantcol = new TabInfplantcol("infplantcol");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -4300,7 +4422,10 @@ public class CatEasp extends Catalog
       tablibregmerext,
       tablogjcontax,
       tabavisos,
-      tabjcoimpexcel      
+      tabjcoimpexcel,
+      tabinfplantilla,
+      tabinfplantlinea,
+      tabinfplantcol      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
@@ -4434,6 +4559,16 @@ public class CatEasp extends Catalog
       new ForeignKey(tabtareajasper,tabtareajasperdetArrayf1)      
       };
     tabtareajasperdet.setForeignKeys(tabtareajasperdetArrayfk);
+    FieldDef tabinfplantlineaArrayf1[] = { tabinfplantlinea.iplcodplant };
+    ForeignKey tabinfplantlineaArrayfk[] = { 
+      new ForeignKey(tabinfplantilla,tabinfplantlineaArrayf1)      
+      };
+    tabinfplantlinea.setForeignKeys(tabinfplantlineaArrayfk);
+    FieldDef tabinfplantcolArrayf1[] = { tabinfplantcol.ipccodplant };
+    ForeignKey tabinfplantcolArrayfk[] = { 
+      new ForeignKey(tabinfplantilla,tabinfplantcolArrayf1)      
+      };
+    tabinfplantcol.setForeignKeys(tabinfplantcolArrayfk);
     }
   }
   
