@@ -2,30 +2,17 @@ package mae.general.jreports;
 
 import geyce.maefc.DBConnection;
 import geyce.maefc.ErrorManagerDefault;
-import geyce.maefc.Maefc;
-import geyce.maefc.Windows;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRXmlDataSource;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.export.JRPdfExporterParameter;
 import net.sf.jasperreports.engine.fill.AsynchronousFillHandle;
 import net.sf.jasperreports.engine.fill.AsynchronousFilllListener;
-import net.sf.jasperreports.view.JasperViewer;
+import net.sf.jasperreports.engine.fill.FillListener;
 
 
 public class VistaPrevia {
@@ -87,10 +74,8 @@ public class VistaPrevia {
 	public void compile() {
         try {
             JasperReport report = JasperCompileManager.compileReport(fichero);
-            report.paginaActual = 0;
             AsynchronousFillHandle handle = null;
             if (con == null && jrXmlDataSource == null) handle = AsynchronousFillHandle.createHandle(report,parametros, jrEmptyDataSource);
-            //else handle = AsynchronousFillHandle.createHandle(report,parametros, con.getConnection());            
             else  {
             	if(jrXmlDataSource == null)handle = AsynchronousFillHandle.createHandle(report,parametros, con.getConnection());
             	else handle = AsynchronousFillHandle.createHandle(report, parametros, jrXmlDataSource);
@@ -100,16 +85,24 @@ public class VistaPrevia {
 					setJprint(jp);
 					pd.close();
 				}
-				public void reportFillError(Throwable ex) {
+				public void reportFillError (Throwable ex) {
+					ErrorManagerDefault.generalEx(new Exception(ex), ex.getMessage());
+					pd.close();
 				}
 				public void reportCancelled() {
 				}
 			};			
+            FillListener listenerFilling =  new FillListener() {
+                public void pageUpdated(JasperPrint jasperPrint, int pageIndex) {
+                }
+                public void pageGenerated(JasperPrint jasperPrint, int pageIndex) {
+                	pd.pagina.setText("Generando página " + pageIndex);
+                }
+            };
             handle.addListener(listener);
-
+            handle.addFillListener(listenerFilling);
             pd = new PrintingDialog (handle);            
             pd.setTitle(titulo);
-            report.labelGenerando = pd.pagina;
             pd.show();
         } 
         catch (JRException jRException) {

@@ -11,7 +11,6 @@ import geyce.maefc.LocationTabbed;
 import geyce.maefc.Maefc;
 import geyce.maefc.Selector;
 import geyce.maefc.VisualComponent;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.DecimalFormat;
@@ -21,16 +20,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
-
 import mae.easp.general.Easp;
 import net.sf.jasperreports.engine.JREmptyDataSource;
-import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.export.JRPdfExporterParameter;
+import net.sf.jasperreports.export.ExporterInput;
+import net.sf.jasperreports.export.ExporterInputItem;
+import net.sf.jasperreports.export.OutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleExporterInputItem;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimplePdfReportConfiguration;
 
 public class PrintJasperPanelPDFQuer extends PrintJasperPanel
 {
@@ -333,7 +335,7 @@ public class PrintJasperPanelPDFQuer extends PrintJasperPanel
 		if (noEstaAbiertoElFichero (destino.getString(), !background)) {
 			try {    	  
 				int startPage = 0;
-				List<JasperPrint> jprintlist = new ArrayList<JasperPrint>();
+				List<ExporterInputItem> jprintlist = new ArrayList<ExporterInputItem>();
 				JListado jl = job.vTarea.elementAt(0);
 				generaJrxml(jl);		    	  
 	    		int result =Maefc.YES_OPTION;
@@ -354,15 +356,32 @@ public class PrintJasperPanelPDFQuer extends PrintJasperPanel
 					vp.setParameter(jl.getParameters());
 					vp.compile();    	
 					JasperPrint jp = vp.getJprint();    		  
-					jprintlist.add(jp);
+					jprintlist.add(new SimpleExporterInputItem (jp));
 					startPage += jp.getPages().size();
 					
+					JRPdfExporter pdfexporter  = new JRPdfExporter();
+
+					SimplePdfReportConfiguration rc = new SimplePdfReportConfiguration();           
+					pdfexporter.setConfiguration(rc);
+
+					ExporterInput inp = new SimpleExporterInput(jprintlist);
+					pdfexporter.setExporterInput(inp);
+
+					FileOutputStream out = new FileOutputStream(new File(destino.getString()));		        
+					OutputStreamExporterOutput output = new SimpleOutputStreamExporterOutput(out);
+					pdfexporter.setExporterOutput(output);
+
+					pdfexporter.exportReport();          
+					out.close();									
+					
+					/*
 					JRExporter exporter = new JRPdfExporter();
 					exporter.setParameter(JRPdfExporterParameter.JASPER_PRINT_LIST, jprintlist);
 					FileOutputStream output = new FileOutputStream(new File(destino.getString()));
 					exporter.setParameter(JRPdfExporterParameter.OUTPUT_STREAM, output);
 					exporter.exportReport();
 					output.close();
+					*/
 					bOk = true;
 					if (!background && abrir.getBoolean()) abrir(destino.getString(),"Adobe Reader");
 					if (!background) job.dialog.exit();

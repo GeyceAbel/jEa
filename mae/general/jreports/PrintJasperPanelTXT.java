@@ -11,34 +11,24 @@ import geyce.maefc.LocationTabbed;
 import geyce.maefc.Maefc;
 import geyce.maefc.Value;
 import geyce.maefc.VisualComponent;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
 import java.util.Vector;
-
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
-import org.w3c.dom.Element;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
-import net.sf.jasperreports.engine.JasperPrint;
-
-
 
 public class PrintJasperPanelTXT extends PrintJasperPanel
 {
@@ -46,7 +36,6 @@ public class PrintJasperPanelTXT extends PrintJasperPanel
 	public ControlButton      examinar;
 	public ControlRadioButton vertical;
 	public ControlRadioButton horizontal;
-	//public ControlComboBox    hoja;
 	public ControlEdit        margenSup;
 	public ControlEdit        margenInf;
 	public ControlEdit        margenIzq;
@@ -56,7 +45,6 @@ public class PrintJasperPanelTXT extends PrintJasperPanel
 	public ControlButton      crear;
 	private PrintJasperWork job;
 	private BufferedWriter  pw;
-    //private LinkedHashMap<Integer, String> formatColumnes = new LinkedHashMap<Integer, String>();
 	private Vector<String> formatColumnes = new Vector<String>();
 	public PrintJasperPanelTXT(PrintJasperWork job)
 	{
@@ -184,15 +172,6 @@ public class PrintJasperPanelTXT extends PrintJasperPanel
 		addControl(horizontal);
 
 		// Hoja
-		/*
-    hoja = new ControlComboBox(this);
-    hoja.setName("vvhoja");
-    hoja.setType(ControlEdit.STRING);
-    hoja.setComboEditable(false);
-    hoja.setObligate(true);
-    hoja.addItem("LETTER", "");
-    addControl(hoja);
-		 */
 		// Marges
 		margenSup = new ControlEdit(this);
 		margenSup.setName("vvmargensup");
@@ -255,46 +234,11 @@ public class PrintJasperPanelTXT extends PrintJasperPanel
 		crear.setMnemonic('G');
 		crear.setImage("geyce/maefc/images/texto.png");
 		addControl(crear);
-
-		//addPredeterminar();
 	}
 
 	public void onImprimir() {	  
 		if (noEstaAbiertoElFichero (destino.getString())) {
 			try {
-				/*
-				int startPage = 0;
-				List<JasperPrint> jprintlist = new ArrayList<JasperPrint>();				
-				for (int i=0;i<job.vTarea.size();i++) {
-					JListado jl = job.vTarea.elementAt(i);
-					VistaPrevia vp = null;
-					if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);    		  
-					else if  (!jl.isXmlDataSource()) vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
-					else vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getXmlDataSource() , job.titulo);   
-					if (job.parametroPaginaInicial != null) {
-						jl.getParameters().put(job.parametroPaginaInicial, new Integer(startPage));
-					}
-					vp.setParameter(jl.getParameters());
-					vp.compile();    	
-					JasperPrint jp = vp.getJprint();    		  
-					jprintlist.add(jp);
-					startPage += jp.getPages().size();
-					JRTextExporter exporter = new JRTextExporter();
-			        File file = new File(destino.getString());
-			        exporter.setParameter(JRTextExporterParameter.JASPER_PRINT, jp);
-			        exporter.setParameter(JRTextExporterParameter.OUTPUT_FILE, file);
-			        exporter.setParameter(JRTextExporterParameter.PAGE_HEIGHT, new Integer(250));
-			        exporter.setParameter(JRTextExporterParameter.PAGE_WIDTH, new Integer(150));
-			        //exporter.setParameter(JRTextExporterParameter.CHARACTER_WIDTH, new Integer(4));
-			        //exporter.setParameter(JRTextExporterParameter.CHARACTER_HEIGHT, new Integer(8));
-			        exporter.exportReport();
-				}
-				JRExporter exporter = new JRPdfExporter();
-				exporter.setParameter(JRPdfExporterParameter.JASPER_PRINT_LIST, jprintlist);
-				FileOutputStream output = new FileOutputStream(new File(destino.getString()));
-				exporter.setParameter(JRPdfExporterParameter.OUTPUT_STREAM, output);
-				exporter.exportReport();
-				*/
 				File file = new File(destino.getString());
 				pw = new BufferedWriter(new OutputStreamWriter (new FileOutputStream(file),"UTF8"));
 				String titulo = job.titulo==null?"":job.titulo;
@@ -310,133 +254,107 @@ public class PrintJasperPanelTXT extends PrintJasperPanel
 						enc = e.getTf().getVariable().getExpression().replace("![CDATA[","").replace("]]","");
 						enc.replace("\"","");
 						if(enc !=null && !enc.trim().equals("")) {
-						  pw.write(enc.toUpperCase());
-						  pw.newLine();
+							pw.write(enc.toUpperCase());
+							pw.newLine();
 						}
 					}
 				}
-		        //pw.write(titulo.toUpperCase());
+				pw.newLine();		        
+				pw.newLine();
 
-		        pw.newLine();		        
-		        pw.newLine();
-		        
-		        
+
 
 				Set<Entry<String, String[]>> set = job.fieldsNameLength.entrySet();
 				Iterator<Entry<String, String[]>> it = set.iterator();
-				//int numCol=1;
 				while (it.hasNext()) {
 					pw.write("   ");
 					Map.Entry<String, String[]> entry = (Entry<String, String[]>) it.next();
 					String formatStr = getTipus(entry.getValue());
 					formatColumnes.add(formatStr);
-					//numCol++;
-					//formatStr =formatStr+ "%-"+ entry.getValue()[0] + "s ";
-					//pw.write(String.format("%-"+(entry.getValue()[0]+4)+"s", StringUtil.justifyCenter(entry.getKey().toUpperCase(),entry.getValue()[0]+4,' ')));
 					pw.write(String.format(formatStr, StringUtil.justifyCenter(entry.getValue()[2].toUpperCase(),Integer.valueOf(entry.getValue()[0]),' ')));
 				}
 				pw.newLine();
-				
+
 				for(int x=0;x<formatColumnes.size();x++) {
-				  pw.write("   ");
-				  pw.write(String.format(formatColumnes.get(x),"").replace(' ','-'));					  
-				  //pw.write(String.format("%-"+(entry.getValue()[0]+4)+"s", StringUtil.justifyCenter("",entry.getValue()[0]+4,' ')));
+					pw.write("   ");
+					pw.write(String.format(formatColumnes.get(x),"").replace(' ','-'));					  
 				}
 				pw.newLine();
-				//read xmlDataSource.
-				//List<JasperPrint> jprintlist = new ArrayList<JasperPrint>();
 				HashMap<Integer,Double> sumaCamps = new HashMap<Integer, Double>();
 				DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-				  DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-				  Document doc = dBuilder.parse(job.xmlDataSourceFile);
-				  doc.getDocumentElement().normalize();
-				  Boolean totals=false;
-				  NodeList nList = doc.getElementsByTagName("register");
-				  int cont=0;
-				  for (int temp = 0; temp < nList.getLength(); temp++) {				  
+				DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+				Document doc = dBuilder.parse(job.xmlDataSourceFile);
+				doc.getDocumentElement().normalize();
+				Boolean totals=false;
+				NodeList nList = doc.getElementsByTagName("register");
+				int cont=0;
+				for (int temp = 0; temp < nList.getLength(); temp++) {				  
 					Node nNode = nList.item(temp);
 					if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-					  cont++;
-					  NodeList children = nList.item(temp).getChildNodes();
-					  for(int j=0; j<children.getLength();j++){
-						Node nNodeChild = children.item(j);
-						if (nNodeChild.getNodeType() == Node.ELEMENT_NODE) {
-							Node e = nNodeChild.getAttributes().getNamedItem("format");
-							Node tipus = nNodeChild.getAttributes().getNamedItem("tipus");
-							Node total = nNodeChild.getAttributes().getNamedItem("total");
-							String contingut=nNodeChild.getTextContent();
-							if(e!=null && contingut !=null  && !contingut.trim().equals("")) {
-							  int tipus2=Integer.valueOf(tipus.getNodeValue());
-							  String format = e.getNodeValue();
-							  if(tipus2 == Value.DOUBLE) {
-							    DecimalFormat dec = new DecimalFormat("#0.00");
-							    if(format !=null && !format.trim().equals("")) {
-							      dec = new DecimalFormat(format);							      
-							    }
-							    contingut=dec.format(Double.parseDouble(contingut));
-							  }
-							}
-							if(total!=null) {
-							  totals = true;
-							  double suma=0;
-							  String tipoSuma = total.getNodeValue();
-							  if(!tipoSuma.equals("contador"))	 {	
-								if(contingut ==null || contingut.trim().equals("")) suma =0;
-								else suma = Double.parseDouble(contingut.replace(".", "").replace(",", "."));
-								sumaCamps.put(j, sumaCamps.get(j)==null?0+suma:sumaCamps.get(j)+suma);
-							  }							  
-							  if(temp ==nList.getLength()-1) {
-								  if(tipoSuma.equals("media") && cont !=0)   sumaCamps.put(j, sumaCamps.get(j)==null?0:sumaCamps.get(j)/cont);
-								  else if(tipoSuma.equals("contador"))  sumaCamps.put(j, (double)cont);
-							  }
-							}
-							
-							pw.write("   ");
-							pw.write(String.format(formatColumnes.get(j),contingut!=null?contingut.trim():""));
-						}						
-					  }
+						cont++;
+						NodeList children = nList.item(temp).getChildNodes();
+						for(int j=0; j<children.getLength();j++){
+							Node nNodeChild = children.item(j);
+							if (nNodeChild.getNodeType() == Node.ELEMENT_NODE) {
+								Node e = nNodeChild.getAttributes().getNamedItem("format");
+								Node tipus = nNodeChild.getAttributes().getNamedItem("tipus");
+								Node total = nNodeChild.getAttributes().getNamedItem("total");
+								String contingut=nNodeChild.getNodeValue();
+								if(e!=null && contingut !=null  && !contingut.trim().equals("")) {
+									int tipus2=Integer.valueOf(tipus.getNodeValue());
+									String format = e.getNodeValue();
+									if(tipus2 == Value.DOUBLE) {
+										DecimalFormat dec = new DecimalFormat("#0.00");
+										if(format !=null && !format.trim().equals("")) {
+											dec = new DecimalFormat(format);							      
+										}
+										contingut=dec.format(Double.parseDouble(contingut));
+									}
+								}
+								if(total!=null) {
+									totals = true;
+									double suma=0;
+									String tipoSuma = total.getNodeValue();
+									if(!tipoSuma.equals("contador"))	 {	
+										if(contingut ==null || contingut.trim().equals("")) suma =0;
+										else suma = Double.parseDouble(contingut.replace(".", "").replace(",", "."));
+										sumaCamps.put(j, sumaCamps.get(j)==null?0+suma:sumaCamps.get(j)+suma);
+									}							  
+									if(temp ==nList.getLength()-1) {
+										if(tipoSuma.equals("media") && cont !=0)   sumaCamps.put(j, sumaCamps.get(j)==null?0:sumaCamps.get(j)/cont);
+										else if(tipoSuma.equals("contador"))  sumaCamps.put(j, (double)cont);
+									}
+								}
+
+								pw.write("   ");
+								pw.write(String.format(formatColumnes.get(j),contingut!=null?contingut.trim():""));
+							}						
+						}
 					}
 					pw.newLine();
-			      }
+				}
 				//TOTALS
 				pw.newLine();
 				if(totals) {
-				  for(int x=0;x<formatColumnes.size();x++) {
-					pw.write("   ");
-					if(sumaCamps.containsKey(x))
-					  pw.write(String.format(formatColumnes.get(x),"").replace(' ','-'));		
-					else pw.write(String.format(formatColumnes.get(x),""));
-					//pw.write(String.format("%-"+(entry.getValue()[0]+4)+"s", StringUtil.justifyCenter("",entry.getValue()[0]+4,' ')));
-				  }
-				  pw.newLine();
-				  for(int x=0;x<formatColumnes.size();x++) {
-					pw.write("   ");
-					if(sumaCamps.containsKey(x)) {
-						DecimalFormat dec = new DecimalFormat("#0.00");
-						String contingut=dec.format(sumaCamps.get(x));
-						pw.write(String.format(formatColumnes.get(x),contingut));
+					for(int x=0;x<formatColumnes.size();x++) {
+						pw.write("   ");
+						if(sumaCamps.containsKey(x))
+							pw.write(String.format(formatColumnes.get(x),"").replace(' ','-'));		
+						else pw.write(String.format(formatColumnes.get(x),""));
 					}
-					else pw.write(String.format(formatColumnes.get(x),""));
-					//pw.write(String.format("%-"+(entry.getValue()[0]+4)+"s", StringUtil.justifyCenter("",entry.getValue()[0]+4,' ')));
-				  }
+					pw.newLine();
+					for(int x=0;x<formatColumnes.size();x++) {
+						pw.write("   ");
+						if(sumaCamps.containsKey(x)) {
+							DecimalFormat dec = new DecimalFormat("#0.00");
+							String contingut=dec.format(sumaCamps.get(x));
+							pw.write(String.format(formatColumnes.get(x),contingut));
+						}
+						else pw.write(String.format(formatColumnes.get(x),""));
+					}
 				}
-				
-				
-				/*
-				Set<Entry<Integer, String>> setUnder = formatColumnes.entrySet();
-				Iterator<Entry<Integer, String>> itUnder = setUnder.iterator();
-				while (itUnder.hasNext()) {
-					Map.Entry<Integer, String> entry = (Entry<Integer, String>) itUnder.next();
-					pw.write(String.format(formatStr,);
-				}
-				pw.newLine();
-				*/
-				//it=set.iterator();
-				
-				//pw.write(String.format(formatStr, nameColumns.toString()));
-				
+
 				pw.close();
-				//output.close();
 				if (abrir.getBoolean()) abrir(destino.getString(),"Bloc de notas");
 				job.dialog.exit();
 			}
@@ -444,77 +362,77 @@ public class PrintJasperPanelTXT extends PrintJasperPanel
 				e.printStackTrace();
 			}
 			finally {
-			  try  {
-				formatColumnes.clear();
-				if (pw!=null) pw.close();		
-			  }
-			  catch (Exception e) {
-				e.printStackTrace();
-			  }
+				try  {
+					formatColumnes.clear();
+					if (pw!=null) pw.close();		
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
 	private String getTipus(String[] tipus) {
-	  int llargada = Integer.valueOf(tipus[0]);
-	  switch(Integer.valueOf(tipus[1])) {
-	    case Columna.STRING:	return "%-"+llargada+"s";
-	    default: return  "%"+llargada+"s";
-	  }		
+		int llargada = Integer.valueOf(tipus[0]);
+		switch(Integer.valueOf(tipus[1])) {
+		case Columna.STRING:	return "%-"+llargada+"s";
+		default: return  "%"+llargada+"s";
+		}		
 	}
-	
+
 	public static class StringUtil {
-	  /**
-	   * Center the contents of the string. If the supplied string is longer than the desired width, it is truncated to the
-	   * specified length. If the supplied string is shorter than the desired width, padding characters are added to the beginning
-	   * and end of the string such that the length is that specified; one additional padding character is prepended if required.
-	   * All leading and trailing whitespace is removed before centering.
-	   * 
-	   * @param str the string to be left justified; if null, an empty string is used
-	   * @param width the desired width of the string; must be positive
-	   * @param padWithChar the character to use for padding, if needed
-	   * @return the left justified string
-	   * @see #setLength(String, int, char)
-	   */
-	  public static String justifyCenter( String str,
-	                                      final int width,
-	                                      char padWithChar ) {
-	      // Trim the leading and trailing whitespace ...
-	      str = str != null ? str.trim() : "";
+		/**
+		 * Center the contents of the string. If the supplied string is longer than the desired width, it is truncated to the
+		 * specified length. If the supplied string is shorter than the desired width, padding characters are added to the beginning
+		 * and end of the string such that the length is that specified; one additional padding character is prepended if required.
+		 * All leading and trailing whitespace is removed before centering.
+		 * 
+		 * @param str the string to be left justified; if null, an empty string is used
+		 * @param width the desired width of the string; must be positive
+		 * @param padWithChar the character to use for padding, if needed
+		 * @return the left justified string
+		 * @see #setLength(String, int, char)
+		 */
+		public static String justifyCenter( String str,
+				final int width,
+				char padWithChar ) {
+			// Trim the leading and trailing whitespace ...
+			str = str != null ? str.trim() : "";
 
-	      int addChars = width - str.length();
-	      if (addChars < 0) {
-	          // truncate
-	          return str.subSequence(0, width).toString();
-	      }
-	      // Write the content ...
-	      int prependNumber = addChars / 2;
-	      int appendNumber = prependNumber;
-	      if ((prependNumber + appendNumber) != addChars) {
-	          ++prependNumber;
-	      }
+			int addChars = width - str.length();
+			if (addChars < 0) {
+				// truncate
+				return str.subSequence(0, width).toString();
+			}
+			// Write the content ...
+			int prependNumber = addChars / 2;
+			int appendNumber = prependNumber;
+			if ((prependNumber + appendNumber) != addChars) {
+				++prependNumber;
+			}
 
-	      final StringBuilder sb = new StringBuilder();
+			final StringBuilder sb = new StringBuilder();
 
-	      // Prepend the pad character(s) ...
-	      while (prependNumber > 0) {
-	          sb.append(padWithChar);
-	          --prependNumber;
-	      }
+			// Prepend the pad character(s) ...
+			while (prependNumber > 0) {
+				sb.append(padWithChar);
+				--prependNumber;
+			}
 
-	      // Add the actual content
-	      sb.append(str);
+			// Add the actual content
+			sb.append(str);
 
-	      // Append the pad character(s) ...
-	      while (appendNumber > 0) {
-	          sb.append(padWithChar);
-	          --appendNumber;
-	      }
+			// Append the pad character(s) ...
+			while (appendNumber > 0) {
+				sb.append(padWithChar);
+				--appendNumber;
+			}
 
-	      return sb.toString();
-	  }
+			return sb.toString();
+		}
 
 	}
-	
+
 }
 
 

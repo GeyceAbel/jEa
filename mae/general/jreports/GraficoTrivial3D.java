@@ -3,8 +3,6 @@ package mae.general.jreports;
 import java.io.BufferedWriter;
 import java.util.LinkedHashMap;
 
-import mae.general.jreports.Grafico.tipoSPLIT;
-
 public class GraficoTrivial3D extends Grafico {
 	private String campoClave;
 	private String campoValor;

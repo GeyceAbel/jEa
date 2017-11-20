@@ -22,6 +22,7 @@ import java.util.Vector;
 
 
 
+
 import mae.easp.general.Easp;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -254,65 +255,53 @@ public class PrintJasperPanelVisorQuer extends PrintJasperPanel
   }
 
   public void onImprimir() {
-      try {
-    	  int startPage = 0;
-    	  Vector <JasperPrint> v = new Vector<JasperPrint>();
-    	  for (int i=0;i<job.vTarea.size();i++) {
-    		  JListado jl = job.vTarea.elementAt(i);
-    		  VistaPrevia vp = null;
-    		  generaJrxml(jl);
-    		  
-    		  int result =Maefc.YES_OPTION;
-    		  if(totalWidthColumnas(jl)>jl.getColumnWidth()+5) 
-    			result = Maefc.message("La configuración del listado excede de los \n márgenes de la hoja. ¿Desea continuar?.","Aviso",Maefc.INFORMATION_MESSAGE,Maefc.YES_NO_OPTION);
-    		  if(result ==Maefc.YES_OPTION) {
-    			
-    		    jl.generalJRXML(); 
-    		  
-    		    if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);    		  
-			    else if  (!jl.isXmlDataSource()) {
-				  if(jl.getConnection() != null) vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getConnection() , job.titulo);
-				  else vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
-			    }
-    		    else vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getXmlDataSource() , job.titulo);    		     		  
-    		    if (job.parametroPaginaInicial != null) {
-    			  jl.getParameters().put(job.parametroPaginaInicial, new Integer(startPage));
-    		    }    		      		  
-    		    vp.setParameter(jl.getParameters());
-    		    vp.compile();    	
-    		    JasperPrint jp = vp.getJprint();    		  
-    		    v.addElement(jp);
-    		    startPage += jp.getPages().size();     		  
-    		  }
-    	  }
-    	  JasperPrint jp = v.elementAt(0);
-    	  if (v.size()>1) {
-    		  for (int i=1;i<v.size();i++) {   
-    			  JasperPrint jptmp = v.elementAt(i);
-    			  for (int j = 0; j < jptmp.getPages().size(); j++) {
-    				  jp.addPage(jptmp.getPages().get(j));
-    				}    			  
-    		  }
-    	  }
-    	  
-     	  if(job.isShowDialeg())job.dialog.exit();
-     	  Vector <JasperViewer> vjv = new Vector<JasperViewer>();
-     	  JasperViewer jasperViewer =	new JasperViewer(jp,false,null,job.iconoVistaPrevia,job.tituloVistaPrevia);
-     	  vjv.addElement(jasperViewer);     	  
-     	  /*     	  
-     	  for (int i=0;i<v.size();i++) {
-     			JasperViewer jasperViewer =	new JasperViewer(
-     								v.elementAt(i),
-     								false,
-     								null,
-     								job.iconoVistaPrevia,
-     								job.tituloVistaPrevia
-     					);
-     			vjv.addElement(jasperViewer);
-     	 }
-     	 */
-     	  job.vjv = vjv;
-      }
+	  try {
+		  int startPage = 0;
+		  Vector <JasperPrint> v = new Vector<JasperPrint>();
+		  for (int i=0;i<job.vTarea.size();i++) {
+			  JListado jl = job.vTarea.elementAt(i);
+			  VistaPrevia vp = null;
+			  generaJrxml(jl);
+
+			  int result =Maefc.YES_OPTION;
+			  if(totalWidthColumnas(jl)>jl.getColumnWidth()+5) 
+				  result = Maefc.message("La configuración del listado excede de los \n márgenes de la hoja. ¿Desea continuar?.","Aviso",Maefc.INFORMATION_MESSAGE,Maefc.YES_NO_OPTION);
+			  if(result ==Maefc.YES_OPTION) {
+
+				  jl.generalJRXML(); 
+
+				  if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);    		  
+				  else if  (!jl.isXmlDataSource()) {
+					  if(jl.getConnection() != null) vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getConnection() , job.titulo);
+					  else vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
+				  }
+				  else vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getXmlDataSource() , job.titulo);    		     		  
+				  if (job.parametroPaginaInicial != null) {
+					  jl.getParameters().put(job.parametroPaginaInicial, new Integer(startPage));
+				  }    		      		  
+				  vp.setParameter(jl.getParameters());
+				  vp.compile();    	
+				  JasperPrint jp = vp.getJprint();    		  
+				  v.addElement(jp);
+				  startPage += jp.getPages().size();     		  
+			  }
+		  }
+		  JasperPrint jp = v.elementAt(0);
+		  if (v.size()>1) {
+			  for (int i=1;i<v.size();i++) {   
+				  JasperPrint jptmp = v.elementAt(i);
+				  for (int j = 0; j < jptmp.getPages().size(); j++) {
+					  jp.addPage(jptmp.getPages().get(j));
+				  }    			  
+			  }
+		  }
+
+		  if(job.isShowDialeg())job.dialog.exit();
+		  Vector <JasperViewer> vjv = new Vector<JasperViewer>();
+		  JasperViewer jasperViewer =	new JasperViewer(jp,true);
+		  vjv.addElement(jasperViewer);     	  
+		  job.vjv = vjv;
+	  }
 	  catch (Exception e) {
 		  e.printStackTrace();
 	  }

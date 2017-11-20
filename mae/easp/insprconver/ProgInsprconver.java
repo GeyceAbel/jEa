@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171116
-// Hora:             11:04:05
+// Fecha:            20171120
+// Hora:             16:23:11
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1541,6 +1541,11 @@ public class ProgInsprconver extends Program
     "	 PRIMARY KEY (ipccodigo)," +
     "	 FOREIGN KEY (ipccodplant) REFERENCES INFPLANTILLA(ipcodplant));"};
      
+    String sentencias14_2[]={
+    "DELETE FROM INFPLANTCOL where ipccodigo>=900000",
+    "DELETE FROM INFPLANTLINEA where iplcodigo>=900000",
+    "DELETE FROM INFPLANTILLA where ipcodplant='GYC01' or ipcodplant='GYC02' or ipcodplant='GYC03'"};
+    
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -3567,6 +3572,25 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("14.1");
         }
+    
+        if (versio < 14.2) {
+            for (i=0;i<sentencias14_2.length;++i) {
+              try {
+                Easp.chivato("14.2 Exec : ["+sentencias14_2[i]+"]",1);
+                Easp.connEA.executeUpdate(sentencias14_2[i]);
+              }
+              catch(Exception e) {
+                sqlOperation=sentencias14_2[i];
+                Easp.chivato("14.2 *** Error : ["+sentencias14_2[i]+"]  Error: ["+e+"]",1);
+                errorMessage=e.getMessage();
+              }
+            }
+            String tablas[] = {"INFPLANTILLA","INFPLANTLINEA","INFPLANTCOL"};
+            Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1402","easp.jar");
+            Easp.setVersionBD("bdeasp","14.2");
+            Easp.connEA.commit();
+            vvveractual.setValue("14.2");
+          }
      
     
       }

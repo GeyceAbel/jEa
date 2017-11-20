@@ -8,7 +8,6 @@ import geyce.maefc.LocationTabbed;
 import geyce.maefc.Maefc;
 import geyce.maefc.Selector;
 import geyce.maefc.VisualComponent;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,16 +16,20 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
-
 import mae.easp.general.Easp;
 import mae.easp.general.Mir;
 import mae.general.Numero;
 import mae.general.URLExec;
 import net.sf.jasperreports.engine.JREmptyDataSource;
-import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.export.JRPdfExporterParameter;
+import net.sf.jasperreports.export.ExporterInput;
+import net.sf.jasperreports.export.ExporterInputItem;
+import net.sf.jasperreports.export.OutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleExporterInputItem;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimplePdfReportConfiguration;
 
 public class PrintJasperPanelEMIR extends PrintJasperPanel
 {
@@ -251,7 +254,7 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 		if (noEstaAbiertoElFichero (destino.getString())) {
 			try {    	  
 				int startPage = 0;
-				List<JasperPrint> jprintlist = new ArrayList<JasperPrint>();
+				List<ExporterInputItem> jprintlist = new ArrayList<ExporterInputItem>();
 				for (int i=0;i<job.vTarea.size();i++) {
 					JListado jl = job.vTarea.elementAt(i);
 					VistaPrevia vp = null;
@@ -267,15 +270,34 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 					vp.setParameter(jl.getParameters());
 					vp.compile();    	
 					JasperPrint jp = vp.getJprint();    		  
-					jprintlist.add(jp);
+					jprintlist.add(new SimpleExporterInputItem (jp));
 					startPage += jp.getPages().size();
 				}
+				/*
 				JRExporter exporter = new JRPdfExporter();
 				exporter.setParameter(JRPdfExporterParameter.JASPER_PRINT_LIST, jprintlist);
 				FileOutputStream output = new FileOutputStream(new File(destino.getString()));
 				exporter.setParameter(JRPdfExporterParameter.OUTPUT_STREAM, output);
 				exporter.exportReport();
 				output.close();
+				 */
+
+				JRPdfExporter pdfexporter  = new JRPdfExporter();
+
+				SimplePdfReportConfiguration rc = new SimplePdfReportConfiguration();           
+				pdfexporter.setConfiguration(rc);
+
+				ExporterInput inp = new SimpleExporterInput(jprintlist);
+				pdfexporter.setExporterInput(inp);
+
+				FileOutputStream out = new FileOutputStream(new File(destino.getString()));		        
+				OutputStreamExporterOutput output = new SimpleOutputStreamExporterOutput(out);
+				pdfexporter.setExporterOutput(output);
+
+				pdfexporter.exportReport();          
+				out.close();
+
+
 				Mir envioMir = new Mir(empresa, nif, job.titulo, job.titulo, destino.getString(), aplicacio);
 				if (!envioMir.sendandpub()) {
 					bOk = false;
@@ -300,7 +322,7 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 			  for(Object empresaActual:empresaList) {
 				int startPage = 0;
 				String nif="";
-				List<JasperPrint> jprintlist = new ArrayList<JasperPrint>();
+				List<ExporterInputItem> jprintlist = new ArrayList<ExporterInputItem>();
 				for (int i=0;i<job.vTarea.size();i++) {					
 				  JListado jl = job.vTarea.elementAt(i);
 				  int relacio = (Integer)jl.relListadoObj;
@@ -321,12 +343,10 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 					vp.setParameter(jl.getParameters());
 					vp.compile();    	
 					JasperPrint jp = vp.getJprint();    		  
-					jprintlist.add(jp);
+					jprintlist.add(new SimpleExporterInputItem (jp));
 					startPage += jp.getPages().size();
 				  }
 				}
-				JRExporter exporter = new JRPdfExporter();
-				exporter.setParameter(JRPdfExporterParameter.JASPER_PRINT_LIST, jprintlist);
 				
 				
 				String aleatori = Numero.format( ((int)(Math.random()*10000)),"0000000") ;
@@ -335,12 +355,31 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 		            aleatori = Numero.format( ((int)(Math.random()*10000)),"0000000") ;
 		            filename = destino.getString()+"\\"+(job.prefixNomFitxer!=null?job.prefixNomFitxer:"")+nif+aleatori+".pdf";                	
 		          } 
-				
+		        
+		        
+		        JRPdfExporter pdfexporter  = new JRPdfExporter();
+
+				SimplePdfReportConfiguration rc = new SimplePdfReportConfiguration();           
+				pdfexporter.setConfiguration(rc);
+
+				ExporterInput inp = new SimpleExporterInput(jprintlist);
+				pdfexporter.setExporterInput(inp);
+
+				FileOutputStream out = new FileOutputStream(new File(filename));		        
+				OutputStreamExporterOutput output = new SimpleOutputStreamExporterOutput(out);
+				pdfexporter.setExporterOutput(output);
+
+				pdfexporter.exportReport();          
+				out.close();
+		        
+				/*
+				JRExporter exporter = new JRPdfExporter();
+				exporter.setParameter(JRPdfExporterParameter.JASPER_PRINT_LIST, jprintlist);
 				FileOutputStream output = new FileOutputStream(new File(filename));
 				exporter.setParameter(JRPdfExporterParameter.OUTPUT_STREAM, output);
 				exporter.exportReport();
 				output.close();
-				
+				*/
 				
 				Mir envioMir = new Mir(empresa, nif, job.titolMir!=null?job.titolMir:"EMIR", job.titolMir!=null?job.titolMir:"EMIR", filename, aplicacio);
 				int codiMir = envioMir.registraMir(false);				

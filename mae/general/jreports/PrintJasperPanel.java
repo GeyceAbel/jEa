@@ -9,10 +9,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Vector;
-
 import mae.easp.general.Easp;
-import net.sf.jasperreports.view.JasperViewer;
 import geyce.maefc.ControlButton;
 import geyce.maefc.ControlCheck;
 import geyce.maefc.ControlComboBox;
@@ -22,7 +19,6 @@ import geyce.maefc.ControlRadioButton;
 import geyce.maefc.ErrorManagerDefault;
 import geyce.maefc.Insert;
 import geyce.maefc.Maefc;
-import geyce.maefc.PrintPanelPrinter;
 import geyce.maefc.Selector;
 import geyce.maefc.Update;
 import geyce.maefc.VisualComponent;

@@ -11,7 +11,6 @@ import geyce.maefc.LocationTabbed;
 import geyce.maefc.Maefc;
 import geyce.maefc.Selector;
 import geyce.maefc.VisualComponent;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.DecimalFormat;
@@ -21,18 +20,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import javax.swing.JFileChooser;
-
 import javax.swing.filechooser.FileFilter;
-
 import mae.easp.general.Easp;
 import net.sf.jasperreports.engine.JREmptyDataSource;
-
-import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
-import net.sf.jasperreports.engine.export.ooxml.JRDocxExporterParameter;
+import net.sf.jasperreports.export.ExporterInput;
+import net.sf.jasperreports.export.ExporterInputItem;
+import net.sf.jasperreports.export.OutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimpleDocxReportConfiguration;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleExporterInputItem;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 
 public class PrintJasperPanelDOCQuer extends PrintJasperPanel
 {
@@ -304,47 +304,64 @@ public class PrintJasperPanelDOCQuer extends PrintJasperPanel
     return dec.format(Maefc.round(width * relacio, 1)) + "cm x " + dec.format(Maefc.round(height * relacio, 1)) + "cm";
   }  
 	  
-	public void onImprimir() {
-		if (noEstaAbiertoElFichero (destino.getString())) {
-			try {
-				int startPage = 0;
-				List<JasperPrint> jprintlist = new ArrayList<JasperPrint>();
-				JListado jl = job.vTarea.elementAt(0);
-				generaJrxml(jl);		    	  
-	    		int result =Maefc.YES_OPTION;
-	    		if(totalWidthColumnas(jl)>jl.getColumnWidth()+5) 
-	    		  result = Maefc.message("La configuración del listado excede de los \n márgenes de la hoja. ¿Desea continuar?.","Aviso",Maefc.INFORMATION_MESSAGE,Maefc.YES_NO_OPTION);
-	    		if(result ==Maefc.YES_OPTION) {
-	    		  VistaPrevia vp = null;
-	    		  jl.generalJRXML();
+  public void onImprimir() {
+	  if (noEstaAbiertoElFichero (destino.getString())) {
+		  try {
+			  int startPage = 0;
+			  List<ExporterInputItem> jprintlist = new ArrayList<ExporterInputItem>();
+			  JListado jl = job.vTarea.elementAt(0);
+			  generaJrxml(jl);		    	  
+			  int result =Maefc.YES_OPTION;
+			  if(totalWidthColumnas(jl)>jl.getColumnWidth()+5) 
+				  result = Maefc.message("La configuración del listado excede de los \n márgenes de la hoja. ¿Desea continuar?.","Aviso",Maefc.INFORMATION_MESSAGE,Maefc.YES_NO_OPTION);
+			  if(result ==Maefc.YES_OPTION) {
+				  VistaPrevia vp = null;
+				  jl.generalJRXML();
 				  if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);    		  
 				  else if  (!jl.isXmlDataSource()) {
-					if(jl.getConnection() != null) vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getConnection() , job.titulo);
-					else vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
+					  if(jl.getConnection() != null) vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getConnection() , job.titulo);
+					  else vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
 				  }
 				  else vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getXmlDataSource() , job.titulo);   
 				  if (job.parametroPaginaInicial != null) {
-					jl.getParameters().put(job.parametroPaginaInicial, new Integer(startPage));
+					  jl.getParameters().put(job.parametroPaginaInicial, new Integer(startPage));
 				  }    		  
 				  vp.setParameter(jl.getParameters());
 				  vp.compile();    	
 				  JasperPrint jp = vp.getJprint();    		  
-				  jprintlist.add(jp);
+				  jprintlist.add(new SimpleExporterInputItem (jp));
 				  startPage += jp.getPages().size();
-				
+
+				  JRDocxExporter docExporter  = new JRDocxExporter();
+
+				  SimpleDocxReportConfiguration rc = new SimpleDocxReportConfiguration();           
+				  rc.setFlexibleRowHeight(true);
+				  docExporter.setConfiguration(rc);
+
+				  ExporterInput inp = new SimpleExporterInput(jprintlist);
+				  docExporter.setExporterInput(inp);
+
+				  FileOutputStream out = new FileOutputStream(new File(destino.getString()));		        
+				  OutputStreamExporterOutput output = new SimpleOutputStreamExporterOutput(out);
+				  docExporter.setExporterOutput(output);
+
+				  docExporter.exportReport();          
+				  out.close();
+				  /*
 				  JRExporter exporter = new JRDocxExporter();
 				  exporter.setParameter(JRDocxExporterParameter.JASPER_PRINT_LIST, jprintlist);
 				  FileOutputStream output = new FileOutputStream(new File(destino.getString()));
 				  exporter.setParameter(JRDocxExporterParameter.OUTPUT_STREAM, output);
 				  exporter.exportReport();
 				  output.close();
+				   */
 				  if (abrir.getBoolean()) abrir(destino.getString(),"Microsoft Word");
 				  job.dialog.exit();
-	    		}
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
+			  }
+		  }
+		  catch (Exception e) {
+			  e.printStackTrace();
+		  }
+	  }
+  }
 }

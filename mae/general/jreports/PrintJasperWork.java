@@ -13,6 +13,7 @@ import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CellType;
 
 import net.sf.jasperreports.view.JasperViewer;
 import mae.easp.general.Easp;
@@ -293,7 +294,7 @@ public class PrintJasperWork {
 						HSSFCell cell = sheet.getRow(0).getCell(numCols);
 						if (cell == null) cell = sheet.getRow(0).createCell(numCols);
 						if (cell != null) {
-							cell.setCellType(HSSFCell.CELL_TYPE_BLANK);
+							cell.setCellType(CellType.BLANK);
 							sheet.setColumnHidden(numCols, false);
 							sheet.setColumnWidth(numCols, 2000);		
 						}

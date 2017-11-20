@@ -4,16 +4,13 @@ import geyce.maefc.DBConnection;
 import geyce.maefc.Field;
 import geyce.maefc.FieldDef;
 import geyce.maefc.Select;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -844,12 +841,6 @@ public class JListado {
 		dummyExtraFirstBands.addElement(b);
 	}
 
-	private int getTamanyColumnas() {
-		int t = 0;
-		for (int i=0;i<getNumColumnas();i++) t += getColumna(i).getTamany();
-		return t;
-	}
-
 	protected boolean generarQueryString(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
@@ -1134,10 +1125,6 @@ public class JListado {
 		else if (t == FieldDef.DOUBLE || t == FieldDef.MONEY || t == FieldDef.FLOAT ) tipo = "java.lang.Double";
 		else if (t == FieldDef.DATE ) tipo = "java.util.Date";
 		return tipo;
-	}
-
-	private String getTipoField(Field f) {
-		return getTipoField(f.getType());
 	}
 
 	private int getTamanyoEncabezado() {
@@ -1434,33 +1421,6 @@ public class JListado {
 		boolean bOk = true;
 		try {
 			pw.write("</jasperReport>");
-		}
-		catch (Exception e) {
-			sError = ""+e;
-			bOk = false;
-		}
-		return bOk;
-	}
-	private boolean generarBandBackground(BufferedWriter pw) {
-		boolean bOk = true;
-		try {
-			pw.write("<background>");
-			pw.write("<band splitType=\"Stretch\"/>");
-			pw.write("</background>");
-		}
-		catch (Exception e) {
-			sError = ""+e;
-			bOk = false;
-		}
-		return bOk;
-	}
-
-	private boolean generarColumnFooter(BufferedWriter pw) {
-		boolean bOk = true;
-		try {
-			pw.write("<columnFooter>");
-			pw.write("<band height=\"4\" splitType=\"Stretch\"/>");
-			pw.write("</columnFooter>");
 		}
 		catch (Exception e) {
 			sError = ""+e;

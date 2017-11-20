@@ -3,15 +3,7 @@ package mae.general.jreports;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.jasperreports.engine.JRExpression;
-import net.sf.jasperreports.engine.JRExpressionChunk;
-import net.sf.jasperreports.engine.design.JRDesignFrame;
-
 public class Encabezado {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private StaticText st;
 	private JListado jl;
 	private TextField tf;

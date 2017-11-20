@@ -8,35 +8,30 @@ import geyce.maefc.LocationTabbed;
 import geyce.maefc.Maefc;
 import geyce.maefc.Value;
 import geyce.maefc.VisualComponent;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
-
-import net.sf.jasperreports.engine.JRAbstractExporter;
 import net.sf.jasperreports.engine.JREmptyDataSource;
-import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JRParameter;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.export.JExcelApiExporterParameter;
 import net.sf.jasperreports.engine.export.JRCsvExporter;
-import net.sf.jasperreports.engine.export.JRCsvExporterParameter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
-import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
 import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
+import net.sf.jasperreports.export.ExporterInputItem;
+import net.sf.jasperreports.export.SimpleCsvExporterConfiguration;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleExporterInputItem;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimpleWriterExporterOutput;
+import net.sf.jasperreports.export.SimpleXlsReportConfiguration;
+import net.sf.jasperreports.export.SimpleXlsxReportConfiguration;
 
 public class PrintJasperPanelXLS extends PrintJasperPanel
 {
 	public ControlEdit     destino;
 	public ControlButton   examinarDestino;
-	//public ControlComboBox plantilla;
-	//public ControlButton   examinarPlantilla;
-	//public ControlCheck    archivoCSV;
-	//public ControlCheck    archivoCSVcab;
 	public ControlButton   crear;
 	public ControlCheck    abrir;
 	public ControlCheck    csv;
@@ -121,7 +116,6 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 			public void userChange(Value v) {
 				if(v.getBoolean()) destino.setValue(destino.getString().replace(".xls", ".csv"));
 				else destino.setValue(destino.getString().replace(".csv", ".xls"));
-				//super.onUserChage();
 				super.userChange(v);
 				this.show();
 			}
@@ -155,8 +149,6 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 		crear.setImage("geyce/maefc/images/excel.png");
 
 		addControl(crear);
-
-		//addPredeterminar();
 	}
 
 	public boolean onGenerar()
@@ -169,7 +161,7 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 		boolean bOk = false;
 		if (noEstaAbiertoElFichero (destino.getString(),!background)) {
 			try {
-				List<JasperPrint> jprintlist = new ArrayList<JasperPrint>();
+				List<ExporterInputItem> jprintlist = new ArrayList<ExporterInputItem>();
 				for (int i=0;i<job.vTarea.size();i++) {
 					JListado jl = job.vTarea.elementAt(i);
 					if(job.isQuery()) jl.generalJRXML();
@@ -183,10 +175,11 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 					if (jl.paginarExcel ) jl.getParameters().put(JRParameter.IS_IGNORE_PAGINATION,Boolean.TRUE);
 					vp.setParameter(jl.getParameters());				
 					vp.compile();    	
-					jprintlist.add(vp.getJprint());
-				}
-				FileOutputStream output = new FileOutputStream(new File(destino.getString()));
+					jprintlist.add(new SimpleExporterInputItem (vp.getJprint()));
+				}				
 				if(!csv.getBoolean()) {
+					
+					/*
 					JRExporter exporter = null;
 					if (chxlsx.getBoolean()) exporter = new JRXlsxExporter();
 					else exporter = new JRXlsExporter();
@@ -197,21 +190,56 @@ public class PrintJasperPanelXLS extends PrintJasperPanel
 					exporter.setParameter(JExcelApiExporterParameter.IS_COLLAPSE_ROW_SPAN, Boolean.TRUE);		
 					exporter.setParameter(JRXlsExporterParameter.IGNORE_PAGE_MARGINS, Boolean.TRUE);	
 
-					exporter.exportReport();				
+					exporter.exportReport();
+					*/
 
+					FileOutputStream out = new FileOutputStream(new File(destino.getString()));
+					if (chxlsx.getBoolean()) {
+						JRXlsxExporter exporter = new JRXlsxExporter();
+						SimpleXlsxReportConfiguration repConfig = new SimpleXlsxReportConfiguration();
+						
+						exporter.setExporterInput(new SimpleExporterInput(jprintlist));
+						exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(out));
+						if (job.multiPaginaExcel ) repConfig.setOnePagePerSheet(true);
+						repConfig.setCollapseRowSpan(true);
+						repConfig.setIgnorePageMargins(true);
+						exporter.setConfiguration(repConfig);
+						exporter.exportReport();          
+						out.close();						
+					}
+					else {
+						JRXlsExporter exporter = new JRXlsExporter();
+						SimpleXlsReportConfiguration repConfig = new SimpleXlsReportConfiguration();
+						
+						exporter.setExporterInput(new SimpleExporterInput(jprintlist));
+						exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(out));
+						if (job.multiPaginaExcel ) repConfig.setOnePagePerSheet(true);
+						repConfig.setCollapseRowSpan(true);
+						repConfig.setIgnorePageMargins(true);
+						exporter.setConfiguration(repConfig);
+						exporter.exportReport();          
+						out.close();						
+					}
 				}
 				//exportacio csv
 				else {
-					//final JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+					/*
 					JRAbstractExporter exporter = new JRCsvExporter();
 					exporter.setParameter(JRCsvExporterParameter.JASPER_PRINT_LIST, jprintlist);
 					exporter.setParameter(JRCsvExporterParameter.FIELD_DELIMITER, ";");				    
 					exporter.setParameter(JRCsvExporterParameter.OUTPUT_STREAM, output);
-					//exporter.setParameter(JRCsvExporterParameter.CHARACTER_ENCODING,"ISO-8859-1");
-					//exporter.setParameter(JRCsvExporterParameter.CHARACTER_ENCODING,"ISO-8859-1");
-					exporter.exportReport();	
+					exporter.exportReport();
+					*/
+					
+		            JRCsvExporter csvExporter = new JRCsvExporter();
+		            csvExporter.setExporterInput(new SimpleExporterInput(jprintlist));
+		            csvExporter.setExporterOutput(new SimpleWriterExporterOutput(destino.getString()));
+		            SimpleCsvExporterConfiguration cfgcsv = new SimpleCsvExporterConfiguration();
+		            cfgcsv.setFieldDelimiter(";");
+		            csvExporter.setConfiguration(cfgcsv);
+		            csvExporter.exportReport();
 				}
-				output.close();
+				
 				bOk = true;
 				if (!background) job.dialog.exit();
 				if (!csv.getBoolean() && job.editarExcelAlFinalizar) job.editXLS (destino.getString(),chxlsx.getBoolean());

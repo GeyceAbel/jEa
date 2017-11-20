@@ -1,9 +1,6 @@
 package mae.general.jreports;
 
 import java.io.BufferedWriter;
-import java.util.LinkedHashMap;
-
-import mae.general.jreports.Grafico.tipoSPLIT;
 
 public class Comentario {
 	public static enum tipoSPLIT {NINGUNO,IZQUIERDA,DERECHA,ARRIBA,ABAJO,IZQARR,IZQABA,DERARR,DERABA};
@@ -13,7 +10,6 @@ public class Comentario {
 	protected String sError;	
 	private String texto;
 	private String titulo;
-	private JListado jl;
 	private boolean sinOffset;
 	
 	public Comentario (String titulo, String texto, tipoSPLIT tipoSplit, int ampladaSummary, int gruixSummary, JListado jl) {
@@ -22,7 +18,6 @@ public class Comentario {
 		this.gruixSummary = gruixSummary;
 		this.tipoSplit = tipoSplit;		
 		this.titulo = titulo;
-		this.jl = jl;
 	}
 
 	protected boolean generar(BufferedWriter pw) {

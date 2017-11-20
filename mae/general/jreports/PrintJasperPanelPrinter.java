@@ -1,18 +1,5 @@
 package mae.general.jreports;
 
-import java.awt.print.PageFormat;
-import java.awt.print.Paper;
-import java.awt.print.PrinterJob;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.print.PrintService;
-import javax.print.attribute.HashPrintRequestAttributeSet;
-import javax.print.attribute.PrintRequestAttributeSet;
-import javax.print.attribute.standard.MediaSizeName;
-
 import geyce.maefc.CheckGroup;
 import geyce.maefc.ControlButton;
 import geyce.maefc.ControlComboBox;
@@ -21,22 +8,10 @@ import geyce.maefc.ControlRadioButton;
 import geyce.maefc.LayoutHtml;
 import geyce.maefc.LocationTabbed;
 import geyce.maefc.Maefc;
-import geyce.maefc.PrintingDialog;
 import geyce.maefc.VisualComponent;
-import net.sf.jasperreports.charts.base.JRBasePieDataset;
 import net.sf.jasperreports.engine.JREmptyDataSource;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.export.JRPdfExporterParameter;
-import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
-import net.sf.jasperreports.engine.export.JRPrintServiceExporterParameter;
-import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
-import net.sf.jasperreports.engine.export.ooxml.JRDocxExporterParameter;
-import net.sf.jasperreports.engine.print.JRPrinterAWT;
-import net.sf.jasperreports.view.JasperViewer;
 
 public class PrintJasperPanelPrinter extends PrintJasperPanel
 {

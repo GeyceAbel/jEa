@@ -10,14 +10,10 @@ import java.util.Map.Entry;
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
 import javax.print.attribute.HashPrintRequestAttributeSet;
-import javax.print.attribute.HashPrintServiceAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
-import javax.print.attribute.PrintServiceAttributeSet;
 import javax.print.attribute.standard.Copies;
 import javax.print.attribute.standard.MediaSizeName;
 import javax.print.attribute.standard.OrientationRequested;
-import javax.print.attribute.standard.PrinterName;
-
 import mae.easp.general.Easp;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRExporterParameter;
@@ -259,89 +255,62 @@ public class PrintJasperPanelPrinterQuer extends PrintJasperPanel {
   
   public void onImprimir()
   {
-	  
-      try {
-    	  int startPage = 0;
-    	  JListado jl = job.vTarea.elementAt(0);
-    	  
-    	  generaJrxml(jl);
-    	  for (int i=0;i<job.vTarea.size();i++) {
-    		  jl.generalJRXML();
-    		  VistaPrevia vp = null;
-    		  if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);    		  
-			  else if  (!jl.isXmlDataSource()) {
-				if(jl.getConnection() != null) vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getConnection() , job.titulo);
-				else vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
-			  }
-    		  else vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getXmlDataSource() , job.titulo);   
-    		  if (job.parametroPaginaInicial != null) {
-    			  jl.getParameters().put(job.parametroPaginaInicial, new Integer(startPage));
-    		  } 
-    		  
-    		  
-    		  vp.setParameter(jl.getParameters());
-    		  vp.compile();    	    	
-    		  JasperPrint jp = vp.getJprint();    		  
-    		  startPage += jp.getPages().size();   
-    		  
-    		  /*
-    		  Thread th = new Thread(new 
-    		  
-    		  Print(jp));
-    		  th.start();
-    		  */
-    		  /*
-    		  PrintRequestAttributeSet printRequestAttributeSet = new HashPrintRequestAttributeSet();
-    		  printRequestAttributeSet.add(MediaSizeName.ISO_A4);
 
-    		  PrintServiceAttributeSet printServiceAttributeSet = new HashPrintServiceAttributeSet();
-    		  printServiceAttributeSet.add(new PrinterName(destino.getString(), null));
-    		  //printServiceAttributeSet.add(new PrinterName("hp LaserJet 1320 PCL 6", null));
-    		  //printServiceAttributeSet.add(new PrinterName("PDFCreator", null));
-    		    
-    		  JRPrintServiceExporter exporter = new JRPrintServiceExporter();
-    		    
-    		  exporter.setParameter(JRExporterParameter.JASPER_PRINT, jp);
-    		  exporter.setParameter(JRPrintServiceExporterParameter.PRINT_REQUEST_ATTRIBUTE_SET, printRequestAttributeSet);
-    		  exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE_ATTRIBUTE_SET, printServiceAttributeSet);
-    		  exporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PAGE_DIALOG, Boolean.FALSE);
-    		  exporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
-    		    
-    		  exporter.exportReport();
-    		  */
-    		  PrinterJob job = PrinterJob.getPrinterJob();
-    		  /* Create an array of PrintServices */
-    		  PrintService[] services = PrintServiceLookup.lookupPrintServices(null, null);
-    		  int selectedService = 0;
-    		  /* Scan found services to see if anyone suits our needs */
-    		  for(int z = 0; z < services.length;z++){
-    		    if(services[z].getName().toUpperCase().contains(destino.getString().toUpperCase())){
-    		    /*If the service is named as what we are querying we select it */
-    		      selectedService = z;
-    		      break;
-    		    }
-    		  }
-    		  job.setPrintService(services[selectedService]);
-    		  PrintRequestAttributeSet printRequestAttributeSet = new HashPrintRequestAttributeSet();
-    		  //MediaSizeName mediaSizeName = MediaSize.findMedia(4,4,MediaPrintableArea.INCH);
-    		  printRequestAttributeSet.add(MediaSizeName.ISO_A4);    		  
-    		  printRequestAttributeSet.add(new Copies(copia.getInteger()));
-    		  if(horizontal.getBoolean()) printRequestAttributeSet.add(OrientationRequested.LANDSCAPE);
-    		  else printRequestAttributeSet.add(OrientationRequested.PORTRAIT);    		  
-    		  JRPrintServiceExporter exporter;
-    		  exporter = new JRPrintServiceExporter();
-    		  exporter.setParameter(JRExporterParameter.JASPER_PRINT, jp);
-    		  /* We set the selected service and pass it as a paramenter */
-    		  exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, services[selectedService]);
-    		  exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE_ATTRIBUTE_SET, services[selectedService].getAttributes());
-    		  exporter.setParameter(JRPrintServiceExporterParameter.PRINT_REQUEST_ATTRIBUTE_SET, printRequestAttributeSet);
-    		  exporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PAGE_DIALOG, Boolean.FALSE);
-    		  exporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.FALSE);
-    		  exporter.exportReport();    		  
-    	  }    	  
-    	  
-     	  job.dialog.exit();
-      }
+	  try {
+		  int startPage = 0;
+		  JListado jl = job.vTarea.elementAt(0);
+
+		  generaJrxml(jl);
+		  for (int i=0;i<job.vTarea.size();i++) {
+			  jl.generalJRXML();
+			  VistaPrevia vp = null;
+			  if (jl.sinDataSource)vp = new VistaPrevia(jl.rutaFicheroJRXML, new JREmptyDataSource(), job.titulo);    		  
+			  else if  (!jl.isXmlDataSource()) {
+				  if(jl.getConnection() != null) vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getConnection() , job.titulo);
+				  else vp = new VistaPrevia(jl.rutaFicheroJRXML, job.conn , job.titulo);
+			  }
+			  else vp = new VistaPrevia(jl.rutaFicheroJRXML, jl.getXmlDataSource() , job.titulo);   
+			  if (job.parametroPaginaInicial != null) {
+				  jl.getParameters().put(job.parametroPaginaInicial, new Integer(startPage));
+			  } 
+
+
+			  vp.setParameter(jl.getParameters());
+			  vp.compile();    	    	
+			  JasperPrint jp = vp.getJprint();    		  
+			  startPage += jp.getPages().size();   
+
+			  PrinterJob job = PrinterJob.getPrinterJob();
+
+			  PrintService[] services = PrintServiceLookup.lookupPrintServices(null, null);
+			  int selectedService = 0;
+
+			  for(int z = 0; z < services.length;z++){
+				  if(services[z].getName().toUpperCase().contains(destino.getString().toUpperCase())){
+					  selectedService = z;
+					  break;
+				  }
+			  }
+			  job.setPrintService(services[selectedService]);
+			  PrintRequestAttributeSet printRequestAttributeSet = new HashPrintRequestAttributeSet();
+			  printRequestAttributeSet.add(MediaSizeName.ISO_A4);    		  
+			  printRequestAttributeSet.add(new Copies(copia.getInteger()));
+			  if(horizontal.getBoolean()) printRequestAttributeSet.add(OrientationRequested.LANDSCAPE);
+			  else printRequestAttributeSet.add(OrientationRequested.PORTRAIT);    		  
+			  JRPrintServiceExporter exporter;
+			  exporter = new JRPrintServiceExporter();
+			  exporter.setParameter(JRExporterParameter.JASPER_PRINT, jp);
+
+			  exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE, services[selectedService]);
+			  exporter.setParameter(JRPrintServiceExporterParameter.PRINT_SERVICE_ATTRIBUTE_SET, services[selectedService].getAttributes());
+			  exporter.setParameter(JRPrintServiceExporterParameter.PRINT_REQUEST_ATTRIBUTE_SET, printRequestAttributeSet);
+			  exporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PAGE_DIALOG, Boolean.FALSE);
+			  exporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.FALSE);
+			  exporter.exportReport();    		  
+		  }    	  
+
+		  job.dialog.exit();
+	  }
 	  catch (Exception e) {
 		  e.printStackTrace();
 	  }	  	  

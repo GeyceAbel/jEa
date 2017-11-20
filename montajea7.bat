@@ -67,6 +67,7 @@ pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver1201\*.txt
 pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver1202\*.txt
 pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver1205\*.txt
 pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver1209\*.txt
+pkzip25 -add -path zip/easp%versio%.zip   mae\easp\ver1402\*.txt
 
 pkzip25 -add -path zip/easp%versio%.zip   query.xls
 
