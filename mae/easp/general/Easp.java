@@ -39,7 +39,7 @@ public class Easp {
   //variables de versiones
   public static String versionAplicacion="9.8";
   public static String versionFecha="Noviembre/2017";
-  public static String versionBDEA="14.1";
+  public static String versionBDEA="14.2";
 
   public static enum TIPO_HOST { ORACLE, LOCALHOST, AZURE, AZUREMSDN};
   public static TIPO_HOST HOST = TIPO_HOST.ORACLE;
