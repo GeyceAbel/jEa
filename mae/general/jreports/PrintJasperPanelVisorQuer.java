@@ -1,5 +1,6 @@
 package mae.general.jreports;
 
+import geyce.maefc.Aplication;
 import geyce.maefc.CheckGroup;
 import geyce.maefc.ControlButton;
 import geyce.maefc.ControlCheck;
@@ -11,18 +12,13 @@ import geyce.maefc.LocationTabbed;
 import geyce.maefc.Maefc;
 import geyce.maefc.Selector;
 import geyce.maefc.VisualComponent;
-
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import javax.imageio.ImageIO;
 import java.util.Vector;
-
-
-
-
-
 import mae.easp.general.Easp;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -298,7 +294,12 @@ public class PrintJasperPanelVisorQuer extends PrintJasperPanel
 
 		  if(job.isShowDialeg())job.dialog.exit();
 		  Vector <JasperViewer> vjv = new Vector<JasperViewer>();
-		  JasperViewer jasperViewer =	new JasperViewer(jp,true);
+		  JasperViewer jasperViewer =	new JasperViewer(jp,false);
+		  java.io.InputStream iconImage = Easp.obreFitxerDeDinsElJar(Aplication.getAplication().getIcon().getFileName());
+		  java.awt.image.BufferedImage imgBuf = ImageIO.read(iconImage);
+		  jasperViewer.setIconImage(imgBuf);
+		  jasperViewer.setTitle("Listado");
+		  jasperViewer.setFitWidthZoomRatio();
 		  vjv.addElement(jasperViewer);     	  
 		  job.vjv = vjv;
 	  }
