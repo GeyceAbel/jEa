@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171120
-// Hora:             16:49:58
+// Fecha:            20171121
+// Hora:             11:36:21
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -17,7 +17,7 @@ import mae.general.*;
 import mae.easp.*;
 // 
 // Programa: prlogaudition
-// Nombre:   Log Auditoria
+// Nombre:   Log de uso
 // Versión:  1.0
 // 
 public class ProgPrlogaudition extends Program
@@ -64,7 +64,7 @@ public class ProgPrlogaudition extends Program
     public Location( )
       {
       super();
-      setTitle("Log Auditoria");
+      setTitle("Log de uso");
       }
     }
     
@@ -287,7 +287,7 @@ public class ProgPrlogaudition extends Program
       {
       super(prlogaudition);
       setName("vlog");
-      setTitle("Historico de autoria");
+      setTitle("Log de uso");
       setLocation(new Location());
       setStates(SHOW | SEARCH);
       addSelect(saudition=new Saudition());
@@ -457,7 +457,7 @@ public class ProgPrlogaudition extends Program
     {
     this.prlogaudition=this;
     setName("prlogaudition");
-    setTitle("Log Auditoria");
+    setTitle("Log de uso");
     setLayout(new LayoutGridBag());
     setLocation(new Location());
     addForm(vlog=new FormVlog(this));
@@ -470,6 +470,7 @@ public class ProgPrlogaudition extends Program
     }
   public void onInit()
     {
+    saudition.setModifier("TOP 5000");
     if (initConnection ()) super.onInit();
     else {
       Maefc.message ("Imposible conectar con el LOG de Auditoria","¡Atención!",Maefc.WARNING_MESSAGE);
