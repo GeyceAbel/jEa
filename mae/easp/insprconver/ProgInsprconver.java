@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171120
-// Hora:             16:23:11
+// Fecha:            20171121
+// Hora:             12:31:12
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1542,9 +1542,9 @@ public class ProgInsprconver extends Program
     "	 FOREIGN KEY (ipccodplant) REFERENCES INFPLANTILLA(ipcodplant));"};
      
     String sentencias14_2[]={
-    "DELETE FROM INFPLANTCOL where ipccodigo>=900000",
-    "DELETE FROM INFPLANTLINEA where iplcodigo>=900000",
-    "DELETE FROM INFPLANTILLA where ipcodplant='GYC01' or ipcodplant='GYC02' or ipcodplant='GYC03'"};
+    "DELETE FROM INFPLANTCOL where ipccodplant in ('GYC01','GYC02','GYC03')",
+    "DELETE FROM INFPLANTLINEA where iplcodplant in ('GYC01','GYC02','GYC03')",
+    "DELETE FROM INFPLANTILLA where  ipcodplant in ('GYC01','GYC02','GYC03')"};
     
       int i=0;
       try {
