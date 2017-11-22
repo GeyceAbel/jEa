@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171121
-// Hora:             12:31:12
+// Fecha:            20171122
+// Hora:             10:23:16
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1506,12 +1506,27 @@ public class ProgInsprconver extends Program
     "   PRIMARY KEY (JCECODIGO));       "};
     
     String sentencias14_1[]={
+    "CREATE TABLE ESTILOS"+
+    "	 (estcodigo		INTEGER NOT NULL,"+
+    "	  estnombre		VARCHAR(30) NOT NULL,"+
+    "	  estcolor		VARCHAR(7),"+
+    "	  estfuente		INTEGER,"+
+    "	  estnegrita	VARCHAR(1),"+
+    "	  estcursiva	VARCHAR(1),"+
+    "	  estauxi1		INTEGER,"+
+    "	  estauxi2		INTEGER,"+
+    "	  estauxi3		INTEGER,"+
+    "	  estauxa1		VARCHAR(100),"+
+    "	  estauxa2		VARCHAR(100),"+
+    "	  estauxa3		VARCHAR(100),"+
+    "	  PRIMARY KEY (estcodigo));",
+    	
     "CREATE TABLE INFPLANTILLA" +
     " 	(ipcodplant	VARCHAR(10) NOT NULL," +
     " 	 ipdesc	    VARCHAR (60) NOT NULL," +
     " 	 ipmostrar0 VARCHAR (1)," +
     " 	PRIMARY KEY (ipcodplant));",
-        		
+            		
     "CREATE TABLE INFPLANTLINEA" +
     "	(iplcodigo		INTEGER NOT NULL," +
     "	 iplcodplant    VARCHAR(10) NOT NULL," +
@@ -1524,9 +1539,11 @@ public class ProgInsprconver extends Program
     "	 iplhasta  		VARCHAR(17)," +
     "	 iplmayor  		VARCHAR(1)," +
     "	 iplformula		VARCHAR(255)," +
+    "	 iplestilo		INTEGER," +
     "	 PRIMARY KEY (iplcodigo)," +
-    "	 FOREIGN KEY (iplcodplant) REFERENCES INFPLANTILLA(ipcodplant));",
-        		
+    "	 FOREIGN KEY (iplcodplant) REFERENCES INFPLANTILLA(ipcodplant),"+
+    "	 FOREIGN KEY (iplestilo) REFERENCES ESTILOS(estcodigo));",
+            		
     "CREATE TABLE INFPLANTCOL" +
     "	(ipccodigo 		INTEGER NOT NULL," +
     "	 ipccodplant	VARCHAR(10) NOT NULL," +
@@ -1540,7 +1557,7 @@ public class ProgInsprconver extends Program
     "	 ipcformula		VARCHAR(255)," +
     "	 PRIMARY KEY (ipccodigo)," +
     "	 FOREIGN KEY (ipccodplant) REFERENCES INFPLANTILLA(ipcodplant));"};
-     
+    
     String sentencias14_2[]={
     "DELETE FROM INFPLANTCOL where ipccodplant in ('GYC01','GYC02','GYC03')",
     "DELETE FROM INFPLANTLINEA where iplcodplant in ('GYC01','GYC02','GYC03')",
@@ -3585,7 +3602,7 @@ public class ProgInsprconver extends Program
                 errorMessage=e.getMessage();
               }
             }
-            String tablas[] = {"INFPLANTILLA","INFPLANTLINEA","INFPLANTCOL"};
+            String tablas[] = {"ESTILOS", "INFPLANTILLA","INFPLANTLINEA","INFPLANTCOL"};
             Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1402","easp.jar");
             Easp.setVersionBD("bdeasp","14.2");
             Easp.connEA.commit();

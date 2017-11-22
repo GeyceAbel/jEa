@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171120
-// Hora:             15:56:47
+// Fecha:            20171122
+// Hora:             10:23:10
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -105,6 +105,7 @@ public class CatEasp extends Catalog
   public TabLogjcontax tablogjcontax;
   public TabAvisos tabavisos;
   public TabJcoimpexcel tabjcoimpexcel;
+  public TabEstilos tabestilos;
   public TabInfplantilla tabinfplantilla;
   public TabInfplantlinea tabinfplantlinea;
   public TabInfplantcol tabinfplantcol;
@@ -4123,6 +4124,57 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabEstilos extends TableDef
+    {
+    // Campos
+    public FieldDef estcodigo;
+    public FieldDef estnombre;
+    public FieldDef estcolor;
+    public FieldDef estfuente;
+    public FieldDef estnegrita;
+    public FieldDef estcursiva;
+    public FieldDef estauxi1;
+    public FieldDef estauxi2;
+    public FieldDef estauxi3;
+    public FieldDef estauxa1;
+    public FieldDef estauxa2;
+    public FieldDef estauxa3;
+    public TabEstilos(String name)
+      {
+      super(name);
+      estcodigo = new FieldDef("estcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      estnombre = new FieldDef("estnombre",FieldDef.CHAR,30,FieldDef.NOTNULL);
+      estcolor = new FieldDef("estcolor",FieldDef.CHAR,7);
+      estfuente = new FieldDef("estfuente",FieldDef.INTEGER,0);
+      estnegrita = new FieldDef("estnegrita",FieldDef.CHAR,1);
+      estcursiva = new FieldDef("estcursiva",FieldDef.CHAR,1);
+      estauxi1 = new FieldDef("estauxi1",FieldDef.INTEGER,0);
+      estauxi2 = new FieldDef("estauxi2",FieldDef.INTEGER,0);
+      estauxi3 = new FieldDef("estauxi3",FieldDef.INTEGER,0);
+      estauxa1 = new FieldDef("estauxa1",FieldDef.CHAR,100);
+      estauxa2 = new FieldDef("estauxa2",FieldDef.CHAR,100);
+      estauxa3 = new FieldDef("estauxa3",FieldDef.CHAR,100);
+      FieldDef array[] = {
+        estcodigo,
+        estnombre,
+        estcolor,
+        estfuente,
+        estnegrita,
+        estcursiva,
+        estauxi1,
+        estauxi2,
+        estauxi3,
+        estauxa1,
+        estauxa2,
+        estauxa3        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {estcodigo };
+      setPrimaryKeys(arrayf);
+      estcodigo.setAutoIncrementable(true);
+      }
+    }
+    
   public class TabInfplantilla extends TableDef
     {
     // Campos
@@ -4160,6 +4212,7 @@ public class CatEasp extends Catalog
     public FieldDef iplhasta;
     public FieldDef iplmayor;
     public FieldDef iplformula;
+    public FieldDef iplestilo;
     public TabInfplantlinea(String name)
       {
       super(name);
@@ -4174,6 +4227,7 @@ public class CatEasp extends Catalog
       iplhasta = new FieldDef("iplhasta",FieldDef.CHAR,17);
       iplmayor = new FieldDef("iplmayor",FieldDef.CHAR,1);
       iplformula = new FieldDef("iplformula",FieldDef.CHAR,255);
+      iplestilo = new FieldDef("iplestilo",FieldDef.INTEGER,0);
       FieldDef array[] = {
         iplcodigo,
         iplcodplant,
@@ -4185,7 +4239,8 @@ public class CatEasp extends Catalog
         ipldesde,
         iplhasta,
         iplmayor,
-        iplformula        
+        iplformula,
+        iplestilo        
         };
       setColumns(array);
       FieldDef arrayf[] = {iplcodigo };
@@ -4330,6 +4385,7 @@ public class CatEasp extends Catalog
     tablogjcontax = new TabLogjcontax("logjcontax");
     tabavisos = new TabAvisos("avisos");
     tabjcoimpexcel = new TabJcoimpexcel("jcoimpexcel");
+    tabestilos = new TabEstilos("estilos");
     tabinfplantilla = new TabInfplantilla("infplantilla");
     tabinfplantlinea = new TabInfplantlinea("infplantlinea");
     tabinfplantcol = new TabInfplantcol("infplantcol");
@@ -4423,6 +4479,7 @@ public class CatEasp extends Catalog
       tablogjcontax,
       tabavisos,
       tabjcoimpexcel,
+      tabestilos,
       tabinfplantilla,
       tabinfplantlinea,
       tabinfplantcol      
@@ -4560,8 +4617,10 @@ public class CatEasp extends Catalog
       };
     tabtareajasperdet.setForeignKeys(tabtareajasperdetArrayfk);
     FieldDef tabinfplantlineaArrayf1[] = { tabinfplantlinea.iplcodplant };
+    FieldDef tabinfplantlineaArrayf2[] = { tabinfplantlinea.iplestilo };
     ForeignKey tabinfplantlineaArrayfk[] = { 
-      new ForeignKey(tabinfplantilla,tabinfplantlineaArrayf1)      
+      new ForeignKey(tabinfplantilla,tabinfplantlineaArrayf1),
+      new ForeignKey(tabestilos,tabinfplantlineaArrayf2)      
       };
     tabinfplantlinea.setForeignKeys(tabinfplantlineaArrayfk);
     FieldDef tabinfplantcolArrayf1[] = { tabinfplantcol.ipccodplant };
