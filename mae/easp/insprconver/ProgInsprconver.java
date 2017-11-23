@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171122
-// Hora:             10:23:16
+// Fecha:            20171123
+// Hora:             03:40:41
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1507,7 +1507,7 @@ public class ProgInsprconver extends Program
     
     String sentencias14_1[]={
     "CREATE TABLE ESTILOS"+
-    "	 (estcodigo		INTEGER NOT NULL,"+
+    "	 (estcodigo		VARCHAR(10) NOT NULL,"+
     "	  estnombre		VARCHAR(30) NOT NULL,"+
     "	  estcolor		VARCHAR(7),"+
     "	  estfuente		INTEGER,"+
@@ -1539,10 +1539,12 @@ public class ProgInsprconver extends Program
     "	 iplhasta  		VARCHAR(17)," +
     "	 iplmayor  		VARCHAR(1)," +
     "	 iplformula		VARCHAR(255)," +
-    "	 iplestilo		INTEGER," +
+    "	 iplestilo		VARCHAR(10)," +
+    "	 iplestilot		VARCHAR(10)," +
     "	 PRIMARY KEY (iplcodigo)," +
     "	 FOREIGN KEY (iplcodplant) REFERENCES INFPLANTILLA(ipcodplant),"+
-    "	 FOREIGN KEY (iplestilo) REFERENCES ESTILOS(estcodigo));",
+    "	 FOREIGN KEY (iplestilo) REFERENCES ESTILOS(estcodigo),"+
+    "	 FOREIGN KEY (iplestilot) REFERENCES ESTILOS(estcodigo));",
             		
     "CREATE TABLE INFPLANTCOL" +
     "	(ipccodigo 		INTEGER NOT NULL," +

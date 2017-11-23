@@ -6,6 +6,7 @@ public class Rotura {
 	private String nombre;
 	private String agruparPor;
 	private boolean negreta;
+	private boolean italic;
 	private boolean aligDerecha;
 	private JListado jl;
 	private String sum;
@@ -60,6 +61,7 @@ public class Rotura {
 	public Rotura (JListado jl, java.util.List<Totalizar> totales, String nombre, String agruparPor,String titol) {
 		anchura = 15;
 		negreta = true;
+		italic = false;
 		this.nombre = nombre;
 		this.agruparPor = agruparPor;
 		this.totales = totales;
@@ -201,6 +203,14 @@ public class Rotura {
 		this.negreta = negreta;
 	}
 
+	public boolean isItalic() {
+		return italic;
+	}
+	
+	public void setItalic(boolean italic) {
+		this.italic = italic;
+	}
+	
 	public boolean isAligDerecha() {
 		return aligDerecha;
 	}

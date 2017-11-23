@@ -647,6 +647,7 @@ public class JListado {
 					tf.setAligDerecha(r.isAligDerecha());
 					tf.setSizeFont(sizeDetalle+1);
 					tf.setNegreta(r.isNegreta());
+					tf.setItalic(r.isItalic());
 					if(col.getTipo() == mae.general.jreports.Columna.DOUBLE)
 						tf.setPattern("#,##0.00;-#,##0.00");
 					tf.setColorFons(r.getColorFons());
@@ -700,6 +701,7 @@ public class JListado {
 					}
 
 					tf.setNegreta(r.isNegreta());
+					tf.setItalic(r.isItalic());
 					tf.setVerticalAlig("Middle");
 					tf.setColorFont(r.getColorFont());
 					generarTextField(pw, tf);
@@ -1321,9 +1323,11 @@ public class JListado {
 			//pw.write("<paragraph rightIndent=\""+tf.getLeftIndent()+"\"/>");
 		}
 
-
-		if (tf.isNegreta()) pw.write("<font isBold=\"true\" size=\""+tf.getSizeFont()+"\"/>");
-		else pw.write("<font isBold=\"false\" size=\""+tf.getSizeFont()+"\"/>");
+		String italic = "";
+//		if (tf.isItalic()) italic = " fontName=\"Arial\" pdfFontName=\"Arial\" isItalic=\"true\" pdfEncoding=\"Cp1250\" isPdfEmbedded=\"true\"";
+		if (tf.isItalic()) italic = " isItalic=\"true\"";
+		if (tf.isNegreta()) pw.write("<font isBold=\"true\" size=\""+tf.getSizeFont()+"\" "+italic+" />");
+		else pw.write("<font isBold=\"false\" size=\""+tf.getSizeFont()+"\" "+italic+" />");
 		//pw.write("<paragraph rightIndent=\""+espacioEntreColumnas+"\"/>");
 		pw.write(indent);
 		pw.write("</textElement>");

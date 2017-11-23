@@ -3,6 +3,7 @@ package mae.general.jreports;
 
 public class TextField {
 	private boolean negreta;
+	private boolean italic;
 	private String colorFons;
 	private String colorFont;
 	private boolean asignarColorFondo;
@@ -36,6 +37,7 @@ private String style = "";
 	public TextField (JListado jlis,int x, int y, int width, int height)  {
 		this.jl = jlis;
 		negreta = false;
+		italic = false;
 		asignarColorFondo = false;
 		colorFont = "#000000";
 		//posIni = 0;
@@ -135,6 +137,12 @@ private String style = "";
 	}
 	public void setNegreta(boolean negreta) {
 		this.negreta = negreta;
+	}
+	public boolean isItalic() {
+		return italic;
+	}
+	public void setItalic(boolean italic) {
+		this.italic = italic;
 	}
 	public String getColorFons() {
 		return colorFons;
@@ -254,6 +262,7 @@ private String style = "";
 	public TextField getCopia() {
 		TextField tftmp = new TextField ();
 		tftmp.negreta = negreta;
+		tftmp.italic = italic;
 		tftmp.colorFons = colorFons;
 		tftmp.colorFont = colorFont;
 		tftmp.asignarColorFondo = asignarColorFondo;
