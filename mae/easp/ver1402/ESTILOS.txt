@@ -1,6 +1,6 @@
 'BL','Negrita grande','',1,'S','N',,,,,,
 'BLAZUL','Negrita grande azul','006699',1,'S','N',,,,,,
 'BS','Negrita pequeña','',-1,'S','N',,,,,,
-'GRIS','Gris','CCCCCC',0,'N','N',,,,,,
+'GRIS','Gris','555555',0,'N','N',,,,,,
 'KL','Cursiva grande','',1,'N','S',,,,,,
 'KS','Cursiva pequeña','',-1,'N','S',,,,,,
