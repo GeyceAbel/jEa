@@ -602,7 +602,7 @@ public class JListado {
 					pw.write("<textField>");
 					pw.write("<reportElement x=\"0\" y=\"0\" width=\"" + columnWidth + "\" height=\"" + (r.getHeaderHeight()-r.getPosY()) +"\"/>");
 					pw.write("<textElement textAlignment=\"Left\" verticalAlignment=\"Middle\">");
-					pw.write("<font size=\"" + r.getSizeFont() + "\" isBold=\"true\"/>");
+					pw.write("<font size=\"" + r.getSizeFont() + "\" isBold=\"true\" "+getFontName(true, false)+"/>");
 					pw.write("<paragraph leftIndent=\""+leftIndentTitol+"\"/>");
 					pw.write("</textElement>");
 					pw.write("<textFieldExpression><![CDATA[" + r.getGroupHeaderName() +"]]></textFieldExpression>");
@@ -1271,8 +1271,8 @@ public class JListado {
 
 		String under = "";
 		if (st.isUnderLine()) under = " isUnderline=\"true\"";
-		if (st.isNegreta()) pw.write("<font isBold=\"true\" size=\""+st.getSizeFont()+"\" "+under+" />");
-		else pw.write("<font isBold=\"false\" size=\""+st.getSizeFont()+"\" "+under+"/>");
+		if (st.isNegreta()) pw.write("<font isBold=\"true\" size=\""+st.getSizeFont()+"\" "+under+" "+getFontName(st.isNegreta(), false)+"/>");
+		else pw.write("<font isBold=\"false\" size=\""+st.getSizeFont()+"\" "+under+" "+getFontName(st.isNegreta(), false)+"/>");
 		pw.write(indent);
 		//pw.write("<paragraph rightIndent=\""+espacioEntreColumnas+"\"/>");
 		pw.write("</textElement>");
@@ -1326,8 +1326,8 @@ public class JListado {
 		String italic = "";
 //		if (tf.isItalic()) italic = " fontName=\"Arial\" pdfFontName=\"Arial\" isItalic=\"true\" pdfEncoding=\"Cp1250\" isPdfEmbedded=\"true\"";
 		if (tf.isItalic()) italic = " isItalic=\"true\"";
-		if (tf.isNegreta()) pw.write("<font isBold=\"true\" size=\""+tf.getSizeFont()+"\" "+italic+" />");
-		else pw.write("<font isBold=\"false\" size=\""+tf.getSizeFont()+"\" "+italic+" />");
+		if (tf.isNegreta()) pw.write("<font isBold=\"true\" size=\""+tf.getSizeFont()+"\" "+italic+" "+getFontName(tf.isNegreta(),tf.isItalic())+" />");
+		else pw.write("<font isBold=\"false\" size=\""+tf.getSizeFont()+"\" "+getFontName(tf.isNegreta(),tf.isItalic())+" "+italic+" />");
 		//pw.write("<paragraph rightIndent=\""+espacioEntreColumnas+"\"/>");
 		pw.write(indent);
 		pw.write("</textElement>");
@@ -1335,6 +1335,14 @@ public class JListado {
 		else if (tf.isExpression()) pw.write("<textFieldExpression><![CDATA[$F{"+tf.getExpression()+"}]]></textFieldExpression>");
 		else if (tf.esVariable()) pw.write("<textFieldExpression><![CDATA[$V{"+tf.getVariable().getNom()+"}]]></textFieldExpression>");
 		pw.write("</textField>");
+	}
+
+	private String getFontName(boolean negreta, boolean italic) {
+		String nom = "Helvetica";
+		if (negreta && italic) nom = "Helvetica-BoldOblique";
+		else if (negreta) nom = "Helvetica-Bold";
+		else if (italic) nom = "Helvetica-Oblique";
+		return " pdfFontName=\""+nom+"\"";
 	}
 
 	public int getNumEncabezados() {
@@ -1382,7 +1390,7 @@ public class JListado {
 					pw.write("<staticText>");
 					pw.write("<reportElement mode=\"Opaque\" x=\"" + col.getPosIni() + "\" y=\"" + espacioDetalle + "\" width=\"" + col.getSt().getWidth() + "\" height=\"" + espacioDetalle + "\" forecolor=\"#000000\" backcolor=\"" + t.getBackGroundColor() + "\"/>");
 					pw.write("<textElement textAlignment=\"Center\" verticalAlignment=\"Middle\">");
-					pw.write("<font isBold=\"true\" size=\""+col.getSt().getSizeFont()+"\"/>");
+					pw.write("<font isBold=\"true\" size=\""+col.getSt().getSizeFont()+"\"  "+getFontName(true, false)+"/>");
 					pw.write("</textElement>");
 					pw.write("<text><![CDATA[" + t.getTitol() + "]]></text>");
 					pw.write("</staticText>");
@@ -1403,7 +1411,7 @@ public class JListado {
 						indent="<paragraph rightIndent=\""+col.getTf().getLeftIndent()+"\"/>";
 						//pw.write("<paragraph rightIndent=\""+tf.getLeftIndent()+"\"/>");
 					}
-					pw.write("<font isBold=\"true\" size=\""+col.getTf().getSizeFont()+"\"/>");
+					pw.write("<font isBold=\"true\" size=\""+col.getTf().getSizeFont()+"\" "+getFontName(true, false)+"/>");
 					pw.write(indent);
 					pw.write("</textElement>");
 					pw.write("<textFieldExpression><![CDATA[$V{"+nom+"}]]></textFieldExpression>");
