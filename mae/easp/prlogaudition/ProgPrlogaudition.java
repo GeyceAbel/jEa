@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171121
-// Hora:             11:36:21
+// Fecha:            20171204
+// Hora:             12:35:10
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -26,6 +26,8 @@ public class ProgPrlogaudition extends Program
   public ProgPrlogaudition prlogaudition;
   // Inicio declaraciones globales
   private int ordenacion = -1;
+  private boolean filtroUsuario = false;
+  private String nomPC = Easp.getNomPC();
   DBConnection connAudition = null;
   private boolean initConnection() {
     boolean bOk = false;
@@ -49,6 +51,11 @@ public class ProgPrlogaudition extends Program
       bOk = false;
     }
     return bOk;
+  }
+  
+  public void onOpened() {
+    super.onOpened();
+    if (filtroUsuario) Maefc.message ("Para ver el registro de uso de todos los usuarios deberá entrar con un usuario del grupo [Administradores].\nEn caso contrario, únicamente verá el registro del usuario/pc ["+Aplication.getAplication().getUser()+"/"+nomPC+"]","¡Atención!");
   }
   
   // Fin declaraciones globales
@@ -178,7 +185,7 @@ public class ProgPrlogaudition extends Program
         }
       }
       
-    public class CtrlAprtipo extends ColumnEdit
+    public class CtrlAprtipo extends ColumnComboBox
       {
       public CtrlAprtipo(Form form)
         {
@@ -188,6 +195,15 @@ public class ProgPrlogaudition extends Program
         setType(STRING);
         setLength(25);
         setSearchable(true);
+        addItem("OPENPANEL");
+        addItem("OPENPRG");
+        addItem("OPENFRM");
+        addItem("CLICKBTN");
+        addItem("CLICKACT");
+        addItem("DELETEREG");
+        addItem("ALTAREG");
+        addItem("MODIFREG");
+        addItem("SAVEREG");
         setField(saudition.aprtipo);
         }
       }
@@ -363,6 +379,11 @@ public class ProgPrlogaudition extends Program
       addField(aprusuario=new Field(this,auditionpr,"aprusuario"));
       addField(aprventana=new Field(this,auditionpr,"aprventana"));
       }
+    public String getWhere()
+      {
+      if (filtroUsuario) return "aprusuario='"+Aplication.getAplication().getUser()+"' and aprnombrepc='"+nomPC+"'";
+      else return null;
+      }
     public String getOrder()
       {
       if (ordenacion>0) return vlog.getControlTable().getColumn(ordenacion).getControlValue().getName()+",aprcodi desc";
@@ -470,6 +491,10 @@ public class ProgPrlogaudition extends Program
     }
   public void onInit()
     {
+    Selector sgrupos = new Selector(Easp.connEA);
+    sgrupos.execute("Select * from usagrup where usagrupo = 'Administradores' and usalogin = '"+Aplication.getAplication().getUser()+"'");
+    filtroUsuario = !sgrupos.next();
+    sgrupos.close();
     saudition.setModifier("TOP 5000");
     if (initConnection ()) super.onInit();
     else {
