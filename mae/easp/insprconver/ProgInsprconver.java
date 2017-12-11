@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171123
-// Hora:             03:40:41
+// Fecha:            20171205
+// Hora:             16:36:30
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1507,63 +1507,86 @@ public class ProgInsprconver extends Program
     
     String sentencias14_1[]={
     "CREATE TABLE ESTILOS"+
-    "	 (estcodigo		VARCHAR(10) NOT NULL,"+
-    "	  estnombre		VARCHAR(30) NOT NULL,"+
-    "	  estcolor		VARCHAR(7),"+
-    "	  estfuente		INTEGER,"+
-    "	  estnegrita	VARCHAR(1),"+
-    "	  estcursiva	VARCHAR(1),"+
-    "	  estauxi1		INTEGER,"+
-    "	  estauxi2		INTEGER,"+
-    "	  estauxi3		INTEGER,"+
-    "	  estauxa1		VARCHAR(100),"+
-    "	  estauxa2		VARCHAR(100),"+
-    "	  estauxa3		VARCHAR(100),"+
-    "	  PRIMARY KEY (estcodigo));",
-    	
+    "  (estcodigo   VARCHAR(10) NOT NULL,"+
+    "   estnombre   VARCHAR(30) NOT NULL,"+
+    "   estcolor    VARCHAR(7),"+
+    "   estfuente   INTEGER,"+
+    "   estnegrita  VARCHAR(1),"+
+    "   estcursiva  VARCHAR(1),"+
+    "   estauxi1    INTEGER,"+
+    "   estauxi2    INTEGER,"+
+    "   estauxi3    INTEGER,"+
+    "   estauxa1    VARCHAR(100),"+
+    "   estauxa2    VARCHAR(100),"+
+    "   estauxa3    VARCHAR(100),"+
+    "   PRIMARY KEY (estcodigo));",
+    
     "CREATE TABLE INFPLANTILLA" +
-    " 	(ipcodplant	VARCHAR(10) NOT NULL," +
-    " 	 ipdesc	    VARCHAR (60) NOT NULL," +
-    " 	 ipmostrar0 VARCHAR (1)," +
-    " 	PRIMARY KEY (ipcodplant));",
-            		
+    "   (ipcodplant VARCHAR(10) NOT NULL," +
+    "    ipdesc     VARCHAR (60) NOT NULL," +
+    "    ipmostrar0 VARCHAR (1)," +
+    "   PRIMARY KEY (ipcodplant));",
+    
     "CREATE TABLE INFPLANTLINEA" +
-    "	(iplcodigo		INTEGER NOT NULL," +
-    "	 iplcodplant    VARCHAR(10) NOT NULL," +
-    "	 iplnumero		INTEGER NOT NULL," +
-    "	 iplcodlin   	VARCHAR(20)," +
-    "	 ipldesc     	VARCHAR(60)," +
-    "	 ipltotalizar	VARCHAR(1)," +
-    "	 ipltotaldesc	VARCHAR(60)," +
-    "	 ipldesde    	VARCHAR(17)," +
-    "	 iplhasta  		VARCHAR(17)," +
-    "	 iplmayor  		VARCHAR(1)," +
-    "	 iplformula		VARCHAR(255)," +
-    "	 iplestilo		VARCHAR(10)," +
-    "	 iplestilot		VARCHAR(10)," +
-    "	 PRIMARY KEY (iplcodigo)," +
-    "	 FOREIGN KEY (iplcodplant) REFERENCES INFPLANTILLA(ipcodplant),"+
-    "	 FOREIGN KEY (iplestilo) REFERENCES ESTILOS(estcodigo),"+
-    "	 FOREIGN KEY (iplestilot) REFERENCES ESTILOS(estcodigo));",
-            		
+    " (iplcodigo    INTEGER NOT NULL," +
+    "  iplcodplant    VARCHAR(10) NOT NULL," +
+    "  iplnumero    INTEGER NOT NULL," +
+    "  iplcodlin    VARCHAR(20)," +
+    "  ipldesc      VARCHAR(60)," +
+    "  ipltotalizar VARCHAR(1)," +
+    "  ipltotaldesc VARCHAR(60)," +
+    "  ipldesde     VARCHAR(17)," +
+    "  iplhasta     VARCHAR(17)," +
+    "  iplmayor     VARCHAR(1)," +
+    "  iplformula   VARCHAR(255)," +
+    "  iplestilo    VARCHAR(10)," +
+    "  iplestilot   VARCHAR(10)," +
+    "  PRIMARY KEY (iplcodigo)," +
+    "  FOREIGN KEY (iplcodplant) REFERENCES INFPLANTILLA(ipcodplant),"+
+    "  FOREIGN KEY (iplestilo) REFERENCES ESTILOS(estcodigo),"+
+    "  FOREIGN KEY (iplestilot) REFERENCES ESTILOS(estcodigo));",
+    
     "CREATE TABLE INFPLANTCOL" +
-    "	(ipccodigo 		INTEGER NOT NULL," +
-    "	 ipccodplant	VARCHAR(10) NOT NULL," +
-    "	 ipcnumero 		INTEGER NOT NULL," +
-    "	 ipcdesc    	VARCHAR(30)," +
-    "	 ipcejercol 	INTEGER ," +
-    "	 ipcdesdemes	INTEGER ," +
-    "	 ipchastames	INTEGER ," +
-    "	 ipcpositivos	VARCHAR(1)," +
-    "	 ipctiposaldo	VARCHAR(1)," +
-    "	 ipcformula		VARCHAR(255)," +
-    "	 PRIMARY KEY (ipccodigo)," +
-    "	 FOREIGN KEY (ipccodplant) REFERENCES INFPLANTILLA(ipcodplant));"};
+    " (ipccodigo    INTEGER NOT NULL," +
+    "  ipccodplant  VARCHAR(10) NOT NULL," +
+    "  ipcnumero    INTEGER NOT NULL," +
+    "  ipcdesc      VARCHAR(30)," +
+    "  ipcejercol   INTEGER ," +
+    "  ipcdesdemes  INTEGER ," +
+    "  ipchastames  INTEGER ," +
+    "  ipcpositivos VARCHAR(1)," +
+    "  ipctiposaldo VARCHAR(1)," +
+    "  ipcformula   VARCHAR(255)," +
+    "  PRIMARY KEY (ipccodigo)," +
+    "  FOREIGN KEY (ipccodplant) REFERENCES INFPLANTILLA(ipcodplant));"};
     
     String sentencias14_2[]={
     "DELETE FROM INFPLANTCOL where ipccodplant in ('GYC01','GYC02','GYC03')",
     "DELETE FROM INFPLANTLINEA where iplcodplant in ('GYC01','GYC02','GYC03')",
     "DELETE FROM INFPLANTILLA where  ipcodplant in ('GYC01','GYC02','GYC03')"};
+    
+    String sentencias14_3[]={
+    
+      " CREATE TABLE VALIDANOMAEAT                     " +
+      "     (vnacodi         INTEGER NOT NULL,         " +
+      "      vnacodigoemp    INTEGER,                  " +
+      "      vnanombreemp    VARCHAR(40),              " +
+      "      vnacodigo       VARCHAR(100),             " +
+      "      vnanombre       VARCHAR(200),             " +
+      "      vnanif          VARCHAR(15),              " +
+      "      vnaestadoaeat   VARCHAR(15),              " +
+      "      vnanombreaeat   VARCHAR(200),             " +
+      "      vnanom          VARCHAR(50),              " +
+      "      vnaapell1       VARCHAR(100),             " +
+      "      vnaapell2       VARCHAR(50),              " +
+      "      vnaestadoctrl   VARCHAR(15),              " +
+      "      vnafechactrl    "+formatData()+
+      "     PRIMARY KEY (vnacodi));                    ",
+      " alter table nifes add  datnombreant VARCHAR(50)  ",
+      " alter table nifes add  datapell1ant VARCHAR(100) ",
+      " alter table nifes add  datapell2ant VARCHAR(50)  "
+      };
+    
     
       int i=0;
       try {
@@ -3509,7 +3532,7 @@ public class ProgInsprconver extends Program
             Easp.setVersionBD("bdeasp","13.6");
             Easp.connEA.commit();
             vvveractual.setValue("13.6");
-        } 
+        }
         if (versio < 13.7) {
             for (i=0;i<sentencias13_7.length;++i) {
                 try {
@@ -3610,7 +3633,25 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("14.2");
           }
-     
+    
+        if (versio < 14.3) {
+            for (i=0;i<sentencias14_3.length;++i) {
+                try {
+                    Easp.chivato("14.3 Exec : ["+sentencias14_3[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias14_3[i]);
+                }
+                catch(Exception e) {
+                    sqlOperation=sentencias14_3[i];
+                    Easp.chivato("14.3 *** Error : ["+sentencias14_3[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","14.3");
+            Easp.connEA.commit();
+            vvveractual.setValue("14.3");
+        }
+    
+    
     
       }
       catch(Exception e) {

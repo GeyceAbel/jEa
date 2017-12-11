@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171123
-// Hora:             04:01:12
+// Fecha:            20171205
+// Hora:             16:37:40
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -109,6 +109,7 @@ public class CatEasp extends Catalog
   public TabInfplantilla tabinfplantilla;
   public TabInfplantlinea tabinfplantlinea;
   public TabInfplantcol tabinfplantcol;
+  public TabValidanomaeat tabvalidanomaeat;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -530,6 +531,9 @@ public class CatEasp extends Catalog
     public FieldDef datmovil;
     public FieldDef datuser;
     public FieldDef datgrupo;
+    public FieldDef datnombreant;
+    public FieldDef datapell1ant;
+    public FieldDef datapell2ant;
     public TabNifes(String name)
       {
       super(name);
@@ -642,6 +646,9 @@ public class CatEasp extends Catalog
       datmovil = new FieldDef("datmovil",FieldDef.INTEGER,0);
       datuser = new FieldDef("datuser",FieldDef.CHAR,25);
       datgrupo = new FieldDef("datgrupo",FieldDef.CHAR,15);
+      datnombreant = new FieldDef("datnombreant",FieldDef.CHAR,50);
+      datapell1ant = new FieldDef("datapell1ant",FieldDef.CHAR,100);
+      datapell2ant = new FieldDef("datapell2ant",FieldDef.CHAR,50);
       FieldDef array[] = {
         danifcif,
         datipo,
@@ -751,7 +758,10 @@ public class CatEasp extends Catalog
         datsfax,
         datmovil,
         datuser,
-        datgrupo        
+        datgrupo,
+        datnombreant,
+        datapell1ant,
+        datapell2ant        
         };
       setColumns(array);
       FieldDef arrayind1[] = { datapell1 };
@@ -4296,6 +4306,60 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabValidanomaeat extends TableDef
+    {
+    // Campos
+    public FieldDef vnacodi;
+    public FieldDef vnacodigoemp;
+    public FieldDef vnanombreemp;
+    public FieldDef vnacodigo;
+    public FieldDef vnanombre;
+    public FieldDef vnanif;
+    public FieldDef vnaestadoaeat;
+    public FieldDef vnanombreaeat;
+    public FieldDef vnanom;
+    public FieldDef vnaapell1;
+    public FieldDef vnaapell2;
+    public FieldDef vnaestadoctrl;
+    public FieldDef vnafechactrl;
+    public TabValidanomaeat(String name)
+      {
+      super(name);
+      vnacodi = new FieldDef("vnacodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      vnacodigoemp = new FieldDef("vnacodigoemp",FieldDef.INTEGER,0);
+      vnanombreemp = new FieldDef("vnanombreemp",FieldDef.CHAR,40);
+      vnacodigo = new FieldDef("vnacodigo",FieldDef.CHAR,100);
+      vnanombre = new FieldDef("vnanombre",FieldDef.CHAR,200);
+      vnanif = new FieldDef("vnanif",FieldDef.CHAR,15);
+      vnaestadoaeat = new FieldDef("vnaestadoaeat",FieldDef.CHAR,15);
+      vnanombreaeat = new FieldDef("vnanombreaeat",FieldDef.CHAR,200);
+      vnanom = new FieldDef("vnanom",FieldDef.CHAR,50);
+      vnaapell1 = new FieldDef("vnaapell1",FieldDef.CHAR,100);
+      vnaapell2 = new FieldDef("vnaapell2",FieldDef.CHAR,50);
+      vnaestadoctrl = new FieldDef("vnaestadoctrl",FieldDef.CHAR,15);
+      vnafechactrl = new FieldDef("vnafechactrl",FieldDef.DATE);
+      FieldDef array[] = {
+        vnacodi,
+        vnacodigoemp,
+        vnanombreemp,
+        vnacodigo,
+        vnanombre,
+        vnanif,
+        vnaestadoaeat,
+        vnanombreaeat,
+        vnanom,
+        vnaapell1,
+        vnaapell2,
+        vnaestadoctrl,
+        vnafechactrl        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {vnacodi };
+      setPrimaryKeys(arrayf);
+      vnacodi.setAutoIncrementable(true);
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -4391,6 +4455,7 @@ public class CatEasp extends Catalog
     tabinfplantilla = new TabInfplantilla("infplantilla");
     tabinfplantlinea = new TabInfplantlinea("infplantlinea");
     tabinfplantcol = new TabInfplantcol("infplantcol");
+    tabvalidanomaeat = new TabValidanomaeat("validanomaeat");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -4484,7 +4549,8 @@ public class CatEasp extends Catalog
       tabestilos,
       tabinfplantilla,
       tabinfplantlinea,
-      tabinfplantcol      
+      tabinfplantcol,
+      tabvalidanomaeat      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
