@@ -166,12 +166,12 @@ public class Login implements LoginListener{
 		}
 		try {
 			Statement st=dbc.createStatement();
-			ResultSet rs=dbc.executeQuery(st,"select parusuario from parametros where "+
-					"pardominio = '"+dominio+"' And parvalor = '"+machine+
+			ResultSet rs=dbc.executeQuery(st,"select parvalor from parametros where "+
+					"pardominio = '"+dominio+"' And parusuario = '"+machine+
 					"' And parvariable = 'TERMINAL' And parambito = 'PERFIL USUARIO'", false);
 			String user=null;
 			if (rs.next()) {
-				user=rs.getString("parusuario");
+				user=rs.getString("parvalor");
 				rs.close();
 			}
 			st.close();
@@ -197,16 +197,16 @@ public class Login implements LoginListener{
 		//APJORDI: Feia coses rares quan guardava el ultim usuari. ho simplifico
 		
 		Delete d = new Delete (dbc, "parametros");
-		boolean bOk = d.execute("pardominio = '"+dominio+"' AND parvalor ='"+machine+"' AND parvariable = 'TERMINAL' AND parambito = 'PERFIL USUARIO'");
+		boolean bOk = d.execute("pardominio = '"+dominio+"' AND parusuario ='"+machine+"' AND parvariable = 'TERMINAL' AND parambito = 'PERFIL USUARIO'");
 		if (bOk) {
 			Insert in = new Insert (dbc, "parametros");
 			in.valor("pardominio", dominio);
-			in.valor("parusuario", userLogin);
+			in.valor("parusuario", machine);
 			in.valor("parambito", "PERFIL USUARIO");
 			in.valor("parvariable", "TERMINAL");
 			in.valor("pardesc", "Nombre del Equipo/Terminal ultimo acceso");
 			in.valor("paragrup", "JEA");
-			in.valor("parvalor", machine);
+			in.valor("parvalor", userLogin);
 			in.valor("parespecific", "N");
 			bOk = in.execute();
 		}
