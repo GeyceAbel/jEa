@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20161121
-// Hora:             15:19:07
+// Fecha:            20171213
+// Hora:             17:12:23
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -50,122 +50,122 @@ public class ProgInsprexportbd extends Program
   String sUsertmp;
   String sPasswdtmp;
   
-  public void procesAzure() {  
-      sServidor = vexportbd.vvservidor.getString();
-      sUser = vexportbd.vvuser.getString();
-      sPasswd = vexportbd.vvpasswd.getString();
+    public void procesAzure() {  
+        sServidor = vexportbd.vvservidor.getString();
+        sUser = vexportbd.vvuser.getString();
+        sPasswd = vexportbd.vvpasswd.getString();
+        
+        String serverTmp = sServidor;
+        if (!vexportbd.vvinstancia.isNull()) serverTmp += "\\"+vexportbd.vvinstancia.getString();
+        
+        boolean resultBDEasp    = true ; 
+        boolean resultBDModelos = true ;
+        boolean resultBDLaboral = true ;
+        boolean resultBDJEO     = true;
+        boolean resultBDJISS    = true;
+        boolean resultBDJRENTA  = true;
+        boolean resultBDJCONTA  = true;
       
-      String serverTmp = sServidor;
-      if (!vexportbd.vvinstancia.isNull()) serverTmp += "\\"+vexportbd.vvinstancia.getString();
+        if ( bdeasp )                                        resultBDEasp    = traspasaBDAcc2SQL("easp"   ,serverTmp,sUser,sPasswd);
+        if ( resultBDEasp && bdmodelos )                     resultBDModelos = traspasaBDAcc2SQL("modelos",serverTmp,sUser,sPasswd);
+        if ( resultBDEasp && resultBDModelos && bdlaboral )  resultBDLaboral = traspasaBDAcc2SQL("laboral",serverTmp,sUser,sPasswd); 
+        if ( resultBDEasp && resultBDModelos && bdjeo )   resultBDJEO = traspasaBDAcc2SQL("jeo",serverTmp,sUser,sPasswd); 
+        if ( resultBDEasp && resultBDModelos && bdjiss )  resultBDJISS = traspasaBDAcc2SQL("jiss",serverTmp,sUser,sPasswd); 
+        if ( resultBDEasp && resultBDModelos && bdjrenta )resultBDJRENTA = traspasaBDAcc2SQL("jrenta",serverTmp,sUser,sPasswd); 
+        if ( resultBDEasp && resultBDModelos && bdjconta ){
+          DBConnection connEAtmp = getConexionEa ("easp", serverTmp, sUser,sPasswd, "sqlserver");
+          if (connEAtmp != null) {
+            for (int ejerActivo = 2002; resultBDJCONTA && ejerActivo<(Maefc.getYear(Maefc.getDate())+4); ejerActivo++) {
+              String ubiCtaspEEEE = sHome+"ctasp"+ejerActivo+".mdb";
+              if (Easp.existeFichero(ubiCtaspEEEE)) { 
+                resultBDJCONTA = traspasaBDAcc2SQL("ctasp"+ejerActivo,serverTmp,sUser,sPasswd) && actualizaBDSCargadas (9999, ejerActivo,connEAtmp, serverTmp, vexportbd.vvinstancia.getString(), vexportbd.vvpuerto.getInteger() ); 
+              }
+            }
+            connEAtmp.commit();
+            connEAtmp.disconnect();
+          }
+        }
+        boolean result = resultBDEasp && resultBDModelos && resultBDLaboral && resultBDJEO && resultBDJISS && resultBDJRENTA && resultBDJCONTA;
       
-      boolean resultBDEasp    = true ; 
-      boolean resultBDModelos = true ;
-      boolean resultBDLaboral = true ;
-      boolean resultBDJEO     = true;
-      boolean resultBDJISS    = true;
-      boolean resultBDJRENTA  = true;
-      boolean resultBDJCONTA  = true;
+        if ( result ) {
+      
+          String serverTmp2 = sServidor;
+          if (!vexportbd.vvinstancia.isNull() && vexportbd.vvpuerto.getInteger()>0) serverTmp2 += ":"+vexportbd.vvpuerto.getString();
+          if ( bdeasp )    {
     
-      if ( bdeasp )                                        resultBDEasp    = traspasaBDAcc2SQL("easp"   ,serverTmp,sUser,sPasswd);
-      if ( resultBDEasp && bdmodelos )                     resultBDModelos = traspasaBDAcc2SQL("modelos",serverTmp,sUser,sPasswd);
-      if ( resultBDEasp && resultBDModelos && bdlaboral )  resultBDLaboral = traspasaBDAcc2SQL("laboral",serverTmp,sUser,sPasswd); 
-      if ( resultBDEasp && resultBDModelos && bdjeo )   resultBDJEO = traspasaBDAcc2SQL("jeo",serverTmp,sUser,sPasswd); 
-      if ( resultBDEasp && resultBDModelos && bdjiss )  resultBDJISS = traspasaBDAcc2SQL("jiss",serverTmp,sUser,sPasswd); 
-      if ( resultBDEasp && resultBDModelos && bdjrenta )resultBDJRENTA = traspasaBDAcc2SQL("jrenta",serverTmp,sUser,sPasswd); 
-      if ( resultBDEasp && resultBDModelos && bdjconta ){
-        DBConnection connEAtmp = getConexionEa ("easp", serverTmp, sUser,sPasswd, "sqlserver");
-        if (connEAtmp != null) {
-          for (int ejerActivo = 2002; resultBDJCONTA && ejerActivo<(Maefc.getYear(Maefc.getDate())+4); ejerActivo++) {
-            String ubiCtaspEEEE = sHome+"ctasp"+ejerActivo+".mdb";
-            if (Easp.existeFichero(ubiCtaspEEEE)) { 
-              resultBDJCONTA = traspasaBDAcc2SQL("ctasp"+ejerActivo,serverTmp,sUser,sPasswd) && actualizaBDSCargadas (9999, ejerActivo,connEAtmp, serverTmp, vexportbd.vvinstancia.getString(), vexportbd.vvpuerto.getInteger() ); 
+        	String aplicJea = getContenido("EAB");
+            if(aplicJea !=null && aplicJea.startsWith("EAB")) { 
+              conver.setRegistre (Easp.dominio,"EAB"    ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
+            }       
+            
+            String aplicJges = getContenido("JGES");
+            if(aplicJges !=null && aplicJges.startsWith("JGES")) {
+            	Selector sbds = new Selector(Easp.connEA);
+                sbds.execute("Select bdnombre,bdversio from bds where bdnombre = 'bdexpe' ");  //getContratado
+                if ( sbds.next() ) {
+                   double version = sbds.getdouble("bdversio");
+                   if ( version >= 13  ) {
+                     conver.setRegistre (Easp.dominio,"JGES"    ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
+                     }
+                  }  
+                sbds.close();
+            }
+            // vip REVISAR ESTO APPAU - APJORDI  15/09/05 
+            String aplicJconta =getContenido("JCONTA");
+            if ((aplicJconta != null && aplicJconta.startsWith("JCONTA")) || bdjconta) {
+               conver.setRegistre (Easp.dominio,"JCONTA"    ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
             }
           }
-          connEAtmp.commit();
-          connEAtmp.disconnect();
+          if ( bdmodelos ) {
+            String aplicJmod =getContenido("JMOD");
+            if ((aplicJmod != null && aplicJmod.startsWith("JMOD"))) {
+        	  conver.setRegistre (Easp.dominio,"JMOD"   ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
+            }
+          }
+          if ( bdlaboral )  {
+        	  String aplicJnom =getContenido("JNOM");
+              if ((aplicJnom != null && aplicJnom.startsWith("JNOM"))) {
+        	    conver.setRegistre (Easp.dominio,"JNOM",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
+              }
+              String aplicJrrhh =getContenido("JRRHH");
+              if ((aplicJrrhh != null && aplicJrrhh.startsWith("JRRHH"))) {
+        	    conver.setRegistre (Easp.dominio,"JRRHH",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
+              }
+          }
+          if ( bdjeo ) {
+        	  String aplicJeo =getContenido("JEO");
+              if ((aplicJeo != null && aplicJeo.startsWith("JEO"))) {
+        	    conver.setRegistre (Easp.dominio,"JEO",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
+              }
+          }
+          if ( bdjiss ) {
+        	  String aplicJiss =getContenido("JISS");
+              if ((aplicJiss != null && aplicJiss.startsWith("JISS"))) {
+        	    conver.setRegistre (Easp.dominio,"JISS",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
+              }
+          }
+          if ( bdjrenta ) {
+        	  String aplicJren =getContenido("JRENTA");
+              if ((aplicJren != null && aplicJren.startsWith("JRENTA"))) {
+        	    conver.setRegistre (Easp.dominio,"JRENTA",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
+              }
+          }
+          Maefc.message ("La exportación ha finalizado correctamente.\nEs necesario que cierre todos los programas de GEyCE (jToken,jEA,jModelos .... )  para que los cambios tengan efecto.");
         }
-      }
-      boolean result = resultBDEasp && resultBDModelos && resultBDLaboral && resultBDJEO && resultBDJISS && resultBDJRENTA && resultBDJCONTA;
+        else {
+          Maefc.message ("Se han producido errores.\nSolucione las incidencias y ejecute de nuevo el proceso.");
+        }
+      
+    }
     
-      if ( result ) {
-    
-        String serverTmp2 = sServidor;
-        if (!vexportbd.vvinstancia.isNull() && vexportbd.vvpuerto.getInteger()>0) serverTmp2 += ":"+vexportbd.vvpuerto.getString();
-        if ( bdeasp )    {
+    private String getContenido(String apli) {
+        String result = "";
+        Azure az = new Azure ("starterdp.getContratado","domini="+Easp.dominio+"&apli="+apli);
+        if (az.procesar()) result = az.getContenido();
+        return result;
+    }
   
-      	String aplicJea = getContenido("EAB");
-          if(aplicJea !=null && aplicJea.startsWith("EAB")) { 
-            conver.setRegistre (Easp.dominio,"EAB"    ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
-          }       
-          
-          String aplicJges = getContenido("JGES");
-          if(aplicJges !=null && aplicJges.startsWith("JGES")) {
-          	Selector sbds = new Selector(Easp.connEA);
-              sbds.execute("Select bdnombre,bdversio from bds where bdnombre = 'bdexpe' ");  //getContratado
-              if ( sbds.next() ) {
-                 double version = sbds.getdouble("bdversio");
-                 if ( version >= 13  ) {
-                   conver.setRegistre (Easp.dominio,"JGES"    ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
-                   }
-                }  
-              sbds.close();
-          }
-          // vip REVISAR ESTO APPAU - APJORDI  15/09/05 
-          String aplicJconta =getContenido("JCONTA");
-          if ((aplicJconta != null && aplicJconta.startsWith("JCONTA")) || bdjconta) {
-             conver.setRegistre (Easp.dominio,"JCONTA"    ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
-          }
-        }
-        if ( bdmodelos ) {
-          String aplicJmod =getContenido("JMOD");
-          if ((aplicJmod != null && aplicJmod.startsWith("JMOD"))) {
-      	  conver.setRegistre (Easp.dominio,"JMOD"   ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
-          }
-        }
-        if ( bdlaboral )  {
-      	  String aplicJnom =getContenido("JNOM");
-            if ((aplicJnom != null && aplicJnom.startsWith("JNOM"))) {
-      	    conver.setRegistre (Easp.dominio,"JNOM",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
-            }
-            String aplicJrrhh =getContenido("JRRHH");
-            if ((aplicJrrhh != null && aplicJrrhh.startsWith("JRRHH"))) {
-      	    conver.setRegistre (Easp.dominio,"JRRHH",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
-            }
-        }
-        if ( bdjeo ) {
-      	  String aplicJeo =getContenido("JEO");
-            if ((aplicJeo != null && aplicJeo.startsWith("JEO"))) {
-      	    conver.setRegistre (Easp.dominio,"JEO",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
-            }
-        }
-        if ( bdjiss ) {
-      	  String aplicJiss =getContenido("JISS");
-            if ((aplicJiss != null && aplicJiss.startsWith("JISS"))) {
-      	    conver.setRegistre (Easp.dominio,"JISS",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
-            }
-        }
-        if ( bdjrenta ) {
-      	  String aplicJren =getContenido("JRENTA");
-            if ((aplicJren != null && aplicJren.startsWith("JRENTA"))) {
-      	    conver.setRegistre (Easp.dominio,"JRENTA",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
-            }
-        }
-        Maefc.message ("La exportación ha finalizado correctamente.\nEs necesario que cierre todos los programas de GEyCE (jToken,jEA,jModelos .... )  para que los cambios tengan efecto.");
-      }
-      else {
-        Maefc.message ("Se han producido errores.\nSolucione las incidencias y ejecute de nuevo el proceso.");
-      }
-    
-  }
-  
-  private String getContenido(String apli) {
-      String result = "";
-      Azure az = new Azure ("starterdp.getContratado","domini="+Easp.dominio+"&apli="+apli);
-      if (az.procesar()) result = az.getContenido();
-      return result;
-  }
-
-public void proces() {
+  public void proces() {
   
     sServidor = vexportbd.vvservidor.getString();
     sUser = vexportbd.vvuser.getString();
