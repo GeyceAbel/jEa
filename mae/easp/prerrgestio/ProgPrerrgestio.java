@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20161230
-// Hora:             12:11:11
+// Fecha:            20171213
+// Hora:             17:14:24
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -627,10 +627,10 @@ public class ProgPrerrgestio extends Program
                                 +"&fambito="+vvambito.getString()
                                 +"&ftexto="+codificar(vvtxtconsulta.getString())
                                 +"&error="+str8;
-               
-            String result = "";
-            Azure az = new Azure ("starterdp.ENVIARCONSULTA",parametros);
-            if (az.procesar()) result = az.getContenido();
+           
+                   String result = "";
+                    Azure az = new Azure ("starterdp.ENVIARCONSULTA",parametros);
+                    if (az.procesar()) result = az.getContenido();
             if(result.startsWith("-1")){
                 Maefc.message("Error enviando consulta técnica.\nPóngase en contacto con su servicio técnico.\n"+result.substring(3),"Error envío",Maefc.ERROR_MESSAGE);
             } else {
