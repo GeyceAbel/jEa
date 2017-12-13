@@ -229,9 +229,9 @@ public class Mir {
 
 		sNif = getNif (sCodiCDP,Easp.connEA);
 		if (sNif != null) {
-			String sDns="http://afinity.geyce.es/pls/agpi/agpi2dp.";
-			String sUrl = sDns+"getCDPfromNif?codiDP="+sCodiCDP.substring(0,6)+"000000&nifcif="+sNif;
-			String sCodiCDPOK = URLExec.getContenido(sUrl);
+			String sCodiCDPOK = "";
+			Azure az = new Azure ("agpi2dp.getCDPfromNif","codiDP="+sCodiCDP.substring(0,6)+"000000&nifcif="+sNif);
+			if (az.procesar()) sCodiCDPOK = az.getContenido();
 			if ( sCodiCDPOK!= null && sCodiCDPOK.trim().length() == 12 ) {
 				codigoCDP=sCodiCDPOK;
 				return codigoCDP ;

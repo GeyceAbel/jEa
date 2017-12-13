@@ -96,8 +96,10 @@ public class ProgPrerrgestio extends Program
                //+ "Pulse sobre el botón Problemas / Soluciones "
                //+ "documentados para localizar una posible solución.\nGracias.";
       }
-      String url = "http://afinity.geyce.es/pls/agpi/starterdp.getSolContexto?contexto="+contexto;
-      return mae.general.URLExec.getContenido(url);
+      String resu = "";
+      Azure az = new Azure ("starterdp.getSolContexto","contexto="+contexto);
+      if (az.procesar()) resu = az.getContenido();
+      return resu;
   }
   // Fin declaraciones globales
   // Ventana
@@ -625,14 +627,10 @@ public class ProgPrerrgestio extends Program
                                 +"&fambito="+vvambito.getString()
                                 +"&ftexto="+codificar(vvtxtconsulta.getString())
                                 +"&error="+str8;
-           
-        /*
-                    String res = mae.general.URLExec.getContenido("http://afinity.geyce.es/pls/agpi/p_proves.ENVIARCONSULTA?" 
-                            + parametros);
-                    System.out.println(res);
-        */    
-            String result = URLExec.getContenido("http://afinity.geyce.es/pls/agpi/starterdp.ENVIARCONSULTA?" 
-                            + parametros);
+               
+            String result = "";
+            Azure az = new Azure ("starterdp.ENVIARCONSULTA",parametros);
+            if (az.procesar()) result = az.getContenido();
             if(result.startsWith("-1")){
                 Maefc.message("Error enviando consulta técnica.\nPóngase en contacto con su servicio técnico.\n"+result.substring(3),"Error envío",Maefc.ERROR_MESSAGE);
             } else {

@@ -18,8 +18,8 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import mae.easp.general.Easp;
 import mae.easp.general.Mir;
+import mae.general.Azure;
 import mae.general.Numero;
-import mae.general.URLExec;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
@@ -239,9 +239,9 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 		String cdpAfinity = null;
 		String sNif = getNif ();
 		if (sNif != null) {
-			String sDns = "http://afinity.geyce.es/pls/agpi/agpi2dp.";
-			String sUrl = sDns+"getCDPfromNif?codiDP="+Easp.dominio.substring(0,6)+"000000&nifcif="+sNif;
-			String sCodiCDPOK = URLExec.getContenido(sUrl);
+			String sCodiCDPOK = "";
+			Azure az = new Azure ("agpi2dp.getCDPfromNif","codiDP="+Easp.dominio.substring(0,6)+"000000&nifcif="+sNif);
+			if (az.procesar()) sCodiCDPOK = az.getContenido();
 			if ( sCodiCDPOK!= null && sCodiCDPOK.trim().length() == 12 ) cdpAfinity = sCodiCDPOK;
 		}
 		return cdpAfinity;

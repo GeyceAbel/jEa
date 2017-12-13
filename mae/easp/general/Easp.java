@@ -483,8 +483,7 @@ public class Easp {
     	      }
 
       	  try {
-    		    String url=URL_AFINITY+"/pls/agpi/CONTROLLIC.grabaraviso?";
-    		    url += "pcliente="+codiDP;
+    		    String url = "pcliente="+codiDP;
     		    url += "&preferencia="+referencia;
     		    url += "&pmachine="+parserURL(nomPC);
     		    url += "&pusuario="+parserURL(usuario);
@@ -496,7 +495,8 @@ public class Easp {
     		    url += "&ppuestosper="+licencias;
     		    url += "&ppuestosocu="+sesiones;
     		    url += "&pnomspcocu="+parserURL(detallePL);
-    		    URLExec.procesarURL(url);
+    		    Azure az = new Azure ("CONTROLLIC.grabaraviso",url);
+    		    az.procesar(); 
     	      }
     	    catch (Exception e) {
     		    e.printStackTrace();
@@ -2078,7 +2078,7 @@ public static Date esFecha (String s){
           }
       else {
         if ( infoMsg ) {
-          	String cdpcdpcdp =buscaCDP(null,danifcif.getString(),null,null);
+          	String cdpcdpcdp =buscaCDP(danifcif.getString());
 			if ( cdpcdpcdp==null ) cdpcdpcdp=cdpcodi.getString();
           Maefc.message("Se ha generado un nuevo cliente de Afinity con los siguientes parámetros:\n"+
                   "\nCódigo de cliente: "+cdpcdpcdp+
@@ -2095,16 +2095,15 @@ public static Date esFecha (String s){
     return true;
     }
 
-  public static String buscaCDP(String modelo , String nif , String ejercicio , String periodo) {
-      String codCDP=null;
-      String dns=URL_AFINITY+"/pls/agpi/agpi2dp.";
-      String url = dns+"getCDPfromNif?codiDP="+dominio+"&nifcif="+nif;
-      codCDP = URLExec.getContenido(url);
-      if ( codCDP== null || codCDP.trim().length() != 12 ) {
-        codCDP = null ;
-        }
-      return codCDP;
-      }
+  public static String buscaCDP(String nif) {
+	  String codCDP=null;
+	  Azure az = new Azure ("agpi2dp.getCDPfromNif","codiDP="+dominio+"000000&nifcif="+nif);
+	  if (az.procesar()) codCDP = az.getContenido();
+	  if ( codCDP== null || codCDP.trim().length() != 12 ) {
+		  codCDP = null ;
+	  }
+	  return codCDP;
+  }
 
   
   public static String getFecha(Date fecha ) {
@@ -2398,32 +2397,22 @@ public static Date esFecha (String s){
         return az0.procesar();
 	  }
 
-	
-	
-  public static String buscaCDP(String nif) {
-    String codCDP=null;
-		String dns=URL_AFINITY+"/pls/agpi/agpi2dp.";
-    String url = dns+"getCDPfromNif?codiDP="+dominio+"&nifcif="+nif;
-    codCDP = URLExec.getContenido(url);
-    if ( codCDP== null || codCDP.trim().length() != 12 ) {
-      codCDP = null ;
-      System.out.println("CDP no encontrado en tabla cdp de la base de Datos Afinity ");
-      }
-    return codCDP;
-    }
-
 
   public static String getTipoBD(String sDominio ) {
-    String dns=URL_AFINITY+"/pls/agpi/agpi2dp.";
-    String url = dns+"gettipobd?pcod="+sDominio;
-    return URLExec.getContenido(url);
+	  String resu="";
+	  Azure az = new Azure ("agpi2dp.gettipobd","pcod="+sDominio);
+	  if (az.procesar()) resu = az.getContenido();
+	  return resu;
   }
 
   public static java.util.Hashtable <String,String> parametresAplic(String sDominio, String sServei) {
 
 	java.util.Hashtable <String,String> htParametres = new java.util.Hashtable <String,String> ();
-    String url = URL_AFINITY+"/pls/agpi/agpi2dp.getURLConnect?pcod="+sDominio+"&pservicio="+sServei;
-    String contingut = URLExec.getContenido(url);
+    
+	String contingut ="";    
+    Azure az = new Azure ("starterdp.getURLConnect","pcod="+sDominio+"&pservicio="+sServei);
+    if (az.procesar()) contingut = az.getContenido();
+    
     int pini=1;
     int pfin=1;
     if (contingut!=null && !contingut.trim().equals("")) {

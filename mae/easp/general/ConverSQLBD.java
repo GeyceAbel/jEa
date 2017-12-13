@@ -318,28 +318,24 @@ public class ConverSQLBD {
 		return script;
 	}
 
-public boolean setRegistre(String sCodi, String sAplic, String sHome, String sTipoBD, String sServer) {
-  String sPackage = "http://afinity.geyce.es/pls/agpi/agpi2dp.";
-  String sFunction = sPackage+"registraraplicacion?pcod="+sCodi+"&aplic="+sAplic+"&phome="+sHome+"&ptipo="+sTipoBD+"&pservidor="+sServer;
-  System.out.println("sFunction [" + sFunction + "]");
-
-  // String sResult = null;
-  String sResult = URLExec.getContenido(sFunction);
-
-  System.out.println ("sResult ["+sResult+"]");
-	int iOk;
-	try {
-		iOk = Integer.parseInt (sResult);
+	public boolean setRegistre(String sCodi, String sAplic, String sHome, String sTipoBD, String sServer) {
+		String sResult = "";
+		Azure az = new Azure ("agpi2dp.registraraplicacion","pcod="+sCodi+"&aplic="+sAplic+"&phome="+sHome+"&ptipo="+sTipoBD+"&pservidor="+sServer);
+		if (az.procesar()) sResult = az.getContenido();
+		System.out.println ("sResult ["+sResult+"]");
+		int iOk;
+		try {
+			iOk = Integer.parseInt (sResult);
+		}
+		catch (Exception e) {
+			iOk = 1;
+		}
+		if (iOk != 0) {
+			Maefc.message ("Error al canviar el registro de:\npcod="+sCodi+"&aplic="+sAplic+"&phome="+sHome+"&ptipo="+sTipoBD+"&pservidor="+sServer+"\nResult ["+sResult+"]");
+		}
+		return (iOk == 0);
 	}
-	catch (Exception e) {
-    iOk = 1;
-	}
-	if (iOk != 0) {
-		Maefc.message ("Error al canviar el registro de:\npcod="+sCodi+"&aplic="+sAplic+"&phome="+sHome+"&ptipo="+sTipoBD+"&pservidor="+sServer+"\nResult ["+sResult+"]");
-	}
-	return (iOk == 0);
-}
-//http://afinity.geyce.es/pls/agpi/agpi2dp.REGISTRARAPLICACION?pcod=888888000000&aplic=JMOD&phome=c:\ctasp_dev\&ptipo=sqlserver&pserver=localhost
+	//http://afinity.geyce.es/pls/agpi/agpi2dp.REGISTRARAPLICACION?pcod=888888000000&aplic=JMOD&phome=c:\ctasp_dev\&ptipo=sqlserver&pserver=localhost
 
 // Final de la Classe converSQLBD
 }

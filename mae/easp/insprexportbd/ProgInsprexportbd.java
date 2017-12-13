@@ -91,15 +91,14 @@ public class ProgInsprexportbd extends Program
     
         String serverTmp2 = sServidor;
         if (!vexportbd.vvinstancia.isNull() && vexportbd.vvpuerto.getInteger()>0) serverTmp2 += ":"+vexportbd.vvpuerto.getString();
-        String proc = "http://afinity.geyce.es/pls/agpi/starterdp.getContratado?domini="+Easp.dominio+"&apli=";
         if ( bdeasp )    {
   
-      	String aplicJea = URLExec.getContenido(proc+"EAB");
+      	String aplicJea = getContenido("EAB");
           if(aplicJea !=null && aplicJea.startsWith("EAB")) { 
             conver.setRegistre (Easp.dominio,"EAB"    ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
           }       
           
-          String aplicJges = URLExec.getContenido(proc+"JGES");
+          String aplicJges = getContenido("JGES");
           if(aplicJges !=null && aplicJges.startsWith("JGES")) {
           	Selector sbds = new Selector(Easp.connEA);
               sbds.execute("Select bdnombre,bdversio from bds where bdnombre = 'bdexpe' ");  //getContratado
@@ -112,41 +111,41 @@ public class ProgInsprexportbd extends Program
               sbds.close();
           }
           // vip REVISAR ESTO APPAU - APJORDI  15/09/05 
-          String aplicJconta =URLExec.getContenido(proc+"JCONTA");
+          String aplicJconta =getContenido("JCONTA");
           if ((aplicJconta != null && aplicJconta.startsWith("JCONTA")) || bdjconta) {
              conver.setRegistre (Easp.dominio,"JCONTA"    ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
           }
         }
         if ( bdmodelos ) {
-          String aplicJmod =URLExec.getContenido(proc+"JMOD");
+          String aplicJmod =getContenido("JMOD");
           if ((aplicJmod != null && aplicJmod.startsWith("JMOD"))) {
       	  conver.setRegistre (Easp.dominio,"JMOD"   ,vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
           }
         }
         if ( bdlaboral )  {
-      	  String aplicJnom =URLExec.getContenido(proc+"JNOM");
+      	  String aplicJnom =getContenido("JNOM");
             if ((aplicJnom != null && aplicJnom.startsWith("JNOM"))) {
       	    conver.setRegistre (Easp.dominio,"JNOM",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
             }
-            String aplicJrrhh =URLExec.getContenido(proc+"JRRHH");
+            String aplicJrrhh =getContenido("JRRHH");
             if ((aplicJrrhh != null && aplicJrrhh.startsWith("JRRHH"))) {
       	    conver.setRegistre (Easp.dominio,"JRRHH",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);    
             }
         }
         if ( bdjeo ) {
-      	  String aplicJeo =URLExec.getContenido(proc+"JEO");
+      	  String aplicJeo =getContenido("JEO");
             if ((aplicJeo != null && aplicJeo.startsWith("JEO"))) {
       	    conver.setRegistre (Easp.dominio,"JEO",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
             }
         }
         if ( bdjiss ) {
-      	  String aplicJiss =URLExec.getContenido(proc+"JISS");
+      	  String aplicJiss =getContenido("JISS");
             if ((aplicJiss != null && aplicJiss.startsWith("JISS"))) {
       	    conver.setRegistre (Easp.dominio,"JISS",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
             }
         }
         if ( bdjrenta ) {
-      	  String aplicJren =URLExec.getContenido(proc+"JRENTA");
+      	  String aplicJren =getContenido("JRENTA");
             if ((aplicJren != null && aplicJren.startsWith("JRENTA"))) {
       	    conver.setRegistre (Easp.dominio,"JRENTA",vexportbd.vvbdaccess.getString(),"sqlserver",serverTmp2);
             }
@@ -159,7 +158,14 @@ public class ProgInsprexportbd extends Program
     
   }
   
-  public void proces() {
+  private String getContenido(String apli) {
+      String result = "";
+      Azure az = new Azure ("starterdp.getContratado","domini="+Easp.dominio+"&apli="+apli);
+      if (az.procesar()) result = az.getContenido();
+      return result;
+  }
+
+public void proces() {
   
     sServidor = vexportbd.vvservidor.getString();
     sUser = vexportbd.vvuser.getString();
@@ -216,8 +222,7 @@ public class ProgInsprexportbd extends Program
         sbds.close();
   
         // vip REVISAR ESTO APPAU - APJORDI  15/09/05 
-        String url = "http://afinity.geyce.es/pls/agpi/starterdp.getContratado?domini="+Easp.dominio+"&apli=JCONTA";
-        String aplicJconta =URLExec.getContenido(url);
+        String aplicJconta =getContenido("JCONTA");
         if ((aplicJconta != null && aplicJconta.startsWith("JCONTA")) || bdjconta) {
            conver.setRegistre (Easp.dominio,"JCONTA"    ,Aplication.getAplication().getConfig("CONTAB.HOME"),"sqlserver",serverTmp2);
         }
