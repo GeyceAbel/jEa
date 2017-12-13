@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171009
-// Hora:             10:46:45
+// Fecha:            20171213
+// Hora:             13:50:59
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1319,7 +1319,7 @@ public class ProgQuerytrat extends Program
         super.onChange();
         if (qectitulo.isNull()) {
           String desc=qeccampo.getDescriptionValue();
-          if (desc==null || "".equals(desc)) desc=qeccampo.getString();
+          if (desc==null || "".equals(desc.trim())) desc=qeccampo.getString();
           qectitulo.setValue(desc);
         }
         
