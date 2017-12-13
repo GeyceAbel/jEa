@@ -6,7 +6,6 @@
 	<classpathentry kind="lib" path="zipc1.7/exptraspasos_7_030279.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jacob0101.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jawin0101.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/jconta140504.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jeo_7_160411.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jeoaux_7_160408.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jeoimp141003.zip"/>
@@ -27,5 +26,6 @@
 	<classpathentry kind="lib" path="zipc1.7/sqljdbc0401.zip"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="zipc1.7/httpclient171202.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/jconta7_171224.zip"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
