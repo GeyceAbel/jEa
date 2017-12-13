@@ -10,15 +10,14 @@ import mae.admon.general.*;
 import java.util.*;
 import java.text.*;
 import java.io.*;
+import java.net.URI;
+import java.net.URLEncoder;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
-
-import org.apache.commons.httpclient.URIException;
-import org.apache.commons.httpclient.util.URIUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
@@ -41,8 +40,8 @@ public class Easp {
   public static String versionFecha="Noviembre/2017";
   public static String versionBDEA="14.3";
 
-  public static enum TIPO_HOST { ORACLE, LOCALHOST, AZURE, AZUREMSDN};
-  public static TIPO_HOST HOST = TIPO_HOST.ORACLE;
+  public static enum TIPO_HOST { LOCALHOST, AZURE, AZUREMSDN};
+  public static TIPO_HOST HOST = TIPO_HOST.AZURE;
   public static final String HOST_AZURE 	 = "afinityprod.azurewebsites.net/";
   public static final String HOST_AZUREPRE 	 = "afinityprod-afinitypre.azurewebsites.net/";
   public static final String HOST_AZUREMSDN  = "afinity.azurewebsites.net/";
@@ -141,13 +140,8 @@ public class Easp {
     if (!filePlantillas.exists()) {
       setFileFromjar(destinoPlantillas,"query.xls",destinoPlantillas+"query.xls");
       }
-
-    boolean esAzure = "S".equals(Aplication.getAplication().getConfig("EsAzure"));
-    if (esAzure) HOST = TIPO_HOST.AZURE;
-    else HOST = TIPO_HOST.ORACLE;
+    HOST = TIPO_HOST.AZURE;
     System.out.println("**************** HOST JEA = "+Easp.HOST);
-    // APPAU 24-07-2014 se desactiva ya este mensaje de control
-    // avisoErroresLevesjModelos();
     
     return true;
     }
@@ -1828,15 +1822,6 @@ public static Date esFecha (String s){
       }
     }
   
-	public static String formatURL (String origen){
-		String dest = origen;
-		try {
-			dest = URIUtil.encodeQuery(origen);
-		} catch (URIException e) {
-			e.printStackTrace();
-		}
-		return dest;
-	}
 
   /**
    * inserta o actualiza el valor de un parámetro
@@ -2134,7 +2119,7 @@ public static Date esFecha (String s){
       String dns=URL_AFINITY+"/pls/agpi/";
       String procedure = "logusos.setUso";
       
-      String parametres = Easp.formatURL("pcdp="+dominio+
+      String parametres = "pcdp="+dominio+
                                      "&paplic="+aplic+
                                      "&pcoddato="+coddato+
                                      "&pmachine="+nomPC+
@@ -2152,7 +2137,7 @@ public static Date esFecha (String s){
                                      "&pdatostr3="+datostr3+
                                      "&pdatodat1="+getFecha(datodat1)+
                                      "&pdatodat2="+getFecha(datodat2)+
-                                     "&pdatodat3 ="+getFecha(datodat3) );
+                                     "&pdatodat3 ="+getFecha(datodat3);
   
     String url=dns+procedure+parametres;
     Azure az0 = new Azure (procedure,parametres);
@@ -2174,10 +2159,7 @@ public static Date esFecha (String s){
 
       String dns=URL_AFINITY+"/pls/agpi/";
       String procedure = "logusos.getUsos";
-      String parametres = Easp.formatURL("pcdp="+dominio+
-                                     "&paplic="+aplic+
-                                     "&pproduc="+producto
-                                     );
+      String parametres = "pcdp="+dominio+"&paplic="+aplic+"&pproduc="+producto;
       String url=dns+procedure+parametres;
       
       // Azure az0 = new Azure (procedure,parametres);
@@ -2402,13 +2384,13 @@ public static Date esFecha (String s){
 							"&pdatcontacto="+parserURL(contacto)+"&puspwd="+pwd+"&altafromprg="+altafromprg;
         if (esAzure()) {
         	nombreAfinity = (nombre+" "+ape1+" "+ape2).trim();
-        	parametres = Easp.formatURL("?pdp="+codiDP+"&pdatcodigo="+cdp+"&pdatipo=C&pdatnombre="+
+        	parametres = "?pdp="+codiDP+"&pdatcodigo="+cdp+"&pdatipo=C&pdatnombre="+
            			"&pdatapell1="+nombreAfinity+"&pdatapell2="+"&pdatnifcif="+nif+
            			"&pdatsiglas="+siglas+"&pdatvia="+via+"&pdatnum="+num+
 					"&pdatesc="+esc+"&pdatpiso="+piso+"&pdatletra="+letra+
 					"&pdatpobla="+pobla+"&pdatmuni="+muni+"&pdatprov="+prov+"&pdatcpos="+cp+
 					"&pdattel="+tel+"&pdatfax="+fax+"&pdatfisicajuri="+fj+"&pdatemail="+email+
-					"&pdatcontacto="+contacto+"&puspwd="+pwd+"&altafromprg="+altafromprg);
+					"&pdatcontacto="+contacto+"&puspwd="+pwd+"&altafromprg="+altafromprg;
         }
         System.out.println("parametres = ["+parametres+"]");
 		String url=dns+procedure+parametres;

@@ -3,8 +3,6 @@ package mae.easp.general;
 import geyce.maefc.*;
 import mae.general.*;
 import java.io.File;
-import org.apache.commons.httpclient.URIException;
-import org.apache.commons.httpclient.util.URIUtil;
 
 public class Mir {
 	private int empresa;
@@ -123,14 +121,7 @@ public class Mir {
 		return Easp.getPrefixeNow();
 	}
 	
-	private boolean send ( String usuario, String fechaCrea)  {
-		boolean bOk = true;
-		if (Easp.HOST == Easp.TIPO_HOST.ORACLE) bOk = sendOracle(usuario, fechaCrea);
-		else bOk = sendAzure(usuario, fechaCrea);
-		return bOk;
-	}
-	
-	private boolean sendAzure( String usuario, String fechaCrea)  {
+	private boolean send( String usuario, String fechaCrea)  {
 		boolean bOk = true ;    
 		errorEnvio = null;
 		File f = new File(fichero);
@@ -165,42 +156,6 @@ public class Mir {
 		return bOk;
 	}
 	
-	private boolean sendOracle( String usuario, String fechaCrea)  {
-		boolean bOk = true ;    
-		errorEnvio = null;
-		File f = new File(fichero);
-		fichero_afinity = getPrefixe()+"_"+f.getName();		
-		if (fichero_afinity.length()>80) {
-			errorEnvio = "Nombre del fichero demasiado largo.";
-			bOk = false;
-		}
-		else {
-			try {		  
-				String codCDPAfinity = getCDPMIR();
-				if (codCDPAfinity!=null && codCDPAfinity.length()>0) {
-					String rutaLocal = System.getProperty("user.dir")+"\\EnviosEMIR\\"+codCDPAfinity;
-					String ficheroLocal = rutaLocal+"\\"+fichero_afinity;
-					Easp.creaDirect(rutaLocal);
-					Easp.copyFile (fichero,ficheroLocal);
-					this.fichero = ficheroLocal;
-					if (bOk) bOk = enviaFitMIRHTTP(codCDPAfinity);
-					if (bOk) bOk = creaRegWebMIR(codCDPAfinity,fichero_afinity,aplic,tipoDoc,tipoDoc,desc,usuario, fechaCrea);
-				}
-				else {
-					String sCodiCDP = Easp.dominio.substring(0,6)+Util.formateoNumero("000000",empresa);
-					errorEnvio = "No esta dado de alta en Afinity el cliente "+sCodiCDP+".";
-					bOk = false;
-				}
-			}
-			catch (Exception e) {
-				bOk = false;
-				errorEnvio = e.getMessage();
-				e.printStackTrace();
-			}
-		}
-		return bOk;
-	}
-
 	public String getFicheroEnviado () {
 		return fichero;
 	}
@@ -215,8 +170,8 @@ public class Mir {
 				"&ppupclientedp="+codCDPAfinity+
 				"&ppupproducto="+prod+
 				"&ppupambito="+ambito+
-				"&ppuptitulo="+titulo+
-				"&ppupdesc="+desc+
+				"&ppuptitulo="+parserURL(titulo)+
+				"&ppupdesc="+parserURL(desc)+
 				"&ppupfechacre="+fechaCrea+
 				"&ppupfechapub="+fechahoy+
 				"&ppupejer="+Maefc.getYear(Maefc.getDate())+
@@ -224,7 +179,7 @@ public class Mir {
 				"&ppupusuario="+usuario+
 				"&desdeToken=N";		
 		String sCodiCDP = Easp.dominio.substring(0,6)+Util.formateoNumero("000000",empresa);
-		Azure az = new Azure("agpi2dp.AgpiAltaPDF", Easp.formatURL(params), f);
+		Azure az = new Azure("agpi2dp.AgpiAltaPDF", params, f);
 		if (az.procesar ()) {
 			String cont = az.getContenido();
 			bOk = (cont != null && cont.equals("0"));
@@ -241,36 +196,6 @@ public class Mir {
 		return bOk;
 	}
 	
-	private boolean creaRegWebMIR(String codCDPAfinity, String fitDesti, String prod, String ambito, String titulo, String desc, String usuario, String fechaCrea) {
-		boolean bOk=false;
-		if (fitDesti.length()>80) fitDesti = fitDesti.substring(0,80);
-		if (titulo.length()>30) titulo = titulo.substring(0,30);	  
-		String fechahoy=Util.formateoNumero("00",Maefc.getDay(Maefc.getDate()))+"-"+
-				Util.formateoNumero("00",1+Maefc.getMonth(Maefc.getDate()))+"-"+
-				Util.formateoNumero("0000",Maefc.getYear(Maefc.getDate()));
-		String dns="http://afinity.geyce.es/pls/agpi/agpi2dp.";
-		String url=dns+"AgpiAltaPDF?"+
-				"ppupdp="+Easp.dominio+
-				"&ppupiden="+fitDesti+
-				"&ppupclientedp="+codCDPAfinity+
-				"&ppupproducto="+prod+
-				"&ppupambito="+ambito+
-				"&ppuptitulo="+parserURL(titulo)+
-				"&ppupdesc="+parserURL(desc)+
-				"&ppupfechacre="+fechaCrea+
-				"&ppupfechapub="+fechahoy+
-				"&ppupejer="+Maefc.getYear(Maefc.getDate())+
-				"&ppupperiodo=0"+
-				"&ppupusuario="+usuario+
-				"&desdeToken=N";
-		bOk = URLExec.procesarURL(url);
-		if (!bOk) {
-			String sCodiCDP = Easp.dominio.substring(0,6)+Util.formateoNumero("000000",empresa);
-			errorEnvio = sCodiCDP+" error al crear el registro WEB del envio.";
-		}
-		return bOk;
-	}
-
 	private String parserURL(String origen){
 		StringBuffer sb=new StringBuffer();
 		for (int i=0;i< origen.length();i++){

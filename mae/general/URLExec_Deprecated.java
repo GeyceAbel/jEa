@@ -1,18 +1,15 @@
 package mae.general;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import org.apache.commons.httpclient.Header;
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpStatus;
-import org.apache.commons.httpclient.methods.PostMethod;
-
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
 import mae.easp.general.Easp;
 
-public class URLExec {
+public class URLExec_Deprecated {
   private static URL miurl;
   private static int resultado=0;
   private static String pagina=null;
@@ -27,12 +24,7 @@ public class URLExec {
 		  boolean addCSHTML = true;
 		  boolean remCSHTML = false;
 		  url = url.trim().toLowerCase();
-		  if (url.contains("azure") && Easp.HOST == Easp.TIPO_HOST.ORACLE) {
-			  newHost = Easp.HOST_ORACLE;
-			  oldHost = Easp.HOST_AZURE;
-			  remCSHTML = true;
-		  }
-		  else if (url.contains("afinity.geyce.es") && Easp.HOST == Easp.TIPO_HOST.AZURE) {
+		  if (url.contains("afinity.geyce.es") && Easp.HOST == Easp.TIPO_HOST.AZURE) {
 			  newHost = Easp.HOST_AZURE;
 			  oldHost = Easp.HOST_ORACLE;				
 		  }
@@ -73,35 +65,23 @@ public class URLExec {
   
 
   public static boolean ejecutarURL(){
-	  PostMethod post = null;
-	  InputStream istream = null;
+	  HttpPost post = null;
+	  CloseableHttpClient client = null;
 	  boolean bOk = false;
 	  try {
-		  post = new PostMethod(miurl.toString());
-		  String b64Encoded = Base64.encodeBytes(new String(Azure.getUsuario()+":"+Azure.getPassword()).getBytes("utf-8"));
-		  post.setRequestHeader(new Header("Authentication", "Basic " + b64Encoded));
-		  HttpClient client = new HttpClient();
-		  client.getParams().setParameter("http.connection.timeout", 20 * 1000);
-		  int statusCode = client.executeMethod( post );
-		  if( statusCode == HttpStatus.SC_OK ) {
-			  istream = post.getResponseBodyAsStream();
-			  int result=istream.read();
-			  setResultado(result);
-			  char primchar=(char) result;
-			  StringBuffer bf=new StringBuffer();
-			  while (result !=-1){
-				  result=istream.read();
-				  if (result!=-1){
-					  bf.append((char) result);
-				  }
-	          }
-			  setPagina(primchar+bf.toString());
+		  post = new HttpPost (miurl.toString());
+		  client = Azure.createHttpClient();
+		  HttpResponse response = client.execute(post);		  
+		  if( response.getStatusLine().getStatusCode() == HttpStatus.SC_OK ) {
+			  byte[] c = Azure.parseHttpResponse(response);
+			  setResultado(c [0]);
+			  setPagina(new String (c));
 			  bOk = true;
 		  }
 		  else {
 	    	  setResultado(-1);
-	    	  System.out.println("Error URLExec.ejecutarURL()  ="+statusCode+"\nImposible resolver URL: "+miurl.toString());
-	    	  setPagina("Error ="+statusCode+"\nImposible resolver URL: "+miurl.toString());
+	    	  System.out.println("Error URLExec.ejecutarURL()\n ("+response.getStatusLine().getStatusCode()+") "+response.getStatusLine().getReasonPhrase()+"\nImposible resolver URL: "+miurl.toString());
+	    	  setPagina("Error URLExec.ejecutarURL()\n ("+response.getStatusLine().getStatusCode()+") "+response.getStatusLine().getReasonPhrase()+"\nImposible resolver URL: "+miurl.toString());
 	    	  bOk = false;
 		  }
       } 
@@ -112,45 +92,33 @@ public class URLExec {
     	  bOk = false;
       }
 	  finally {
-		  if (istream != null) try {istream.close();}catch (IOException e) {}
 		  if (post != null) post.releaseConnection();
+		  if (client != null) try {client.close();} catch (IOException e) {}
 	  }
 	  return bOk;
   }
 
   public static String getContenido(String url){
-	  PostMethod get = null;
+	  HttpPost post = null;
+	  CloseableHttpClient client = null;
 	  String resultado = null;
-	  InputStream istream = null;
 	  try {
 		  url = checkHostUrl(url);
 		  if (getConnection(url)) {
-			  get = new PostMethod(miurl.toString());
-			  String b64Encoded = Base64.encodeBytes(new String(Azure.getUsuario()+":"+Azure.getPassword()).getBytes("utf-8"));
-			  get.setRequestHeader(new Header("Authentication", "Basic " + b64Encoded));
-			  HttpClient client = new HttpClient();
-			  client.getParams().setParameter("http.connection.timeout", 20 * 1000);
-			  int statusCode = client.executeMethod( get );
-			  if( statusCode == HttpStatus.SC_OK ) {
-				  istream = get.getResponseBodyAsStream();
-				  int result=istream.read();
-				  setResultado(result);
-				  char primchar=(char) result;
-				  StringBuffer bf=new StringBuffer();			  
-				  while (result !=-1){
-					  result=istream.read();
-					  if (result!=-1){
-						  bf.append((char) result);
-					  }
-				  }
-				  String cadena=primchar+bf.toString();
+			  post = new HttpPost (miurl.toString());
+			  client = Azure.createHttpClient();		
+			  HttpResponse response = client.execute(post);		  
+			  if( response.getStatusLine().getStatusCode() == HttpStatus.SC_OK ) {
+				  byte[] c = Azure.parseHttpResponse(response);
+				  setResultado(c [0]);
+				  String cadena = new String (c);
 				  if (cadena.endsWith("\n")) resultado = cadena.substring(0,cadena.length()-1);
 				  else resultado = cadena;
-			  }
+			  }			  
 			  else {
 		    	  setResultado(-1);
-		    	  System.out.println("Error en URLExec.getcontenido()  ="+statusCode+"\nImposible resolver URL: "+miurl.toString());
-		    	  setPagina("Error ="+statusCode+"\nImposible resolver URL: "+miurl.toString());
+		    	  System.out.println("Error URLExec.getContenido()\n ("+response.getStatusLine().getStatusCode()+") "+response.getStatusLine().getReasonPhrase()+"\nImposible resolver URL: "+miurl.toString());
+		    	  setPagina("Error URLExec.getContenido()\n ("+response.getStatusLine().getStatusCode()+") "+response.getStatusLine().getReasonPhrase()+"\nImposible resolver URL: "+miurl.toString());
 		    	  resultado = null;
 		      }
 		  } 
@@ -164,42 +132,26 @@ public class URLExec {
     	  resultado = null;
       }
 	  finally {
-		  if (istream != null) try {istream.close();}catch (IOException e) {}
-		  if (get != null) get.releaseConnection();
+		  if (post != null) post.releaseConnection();
+		  if (client != null) try {client.close();} catch (IOException e) {}
 	  }
 	  return resultado;
   }
 
-//  private static HTTPResponse initResponse (URL miurl, HTTPConnection miconnec) throws IOException {
-//	  HTTPResponse rsp = null;
-//	  miconnec.setTimeout(7000); // 7 segons			  
-//	  if (Easp.HOST == Easp.TIPO_HOST.ORACLE) rsp = miconnec.Get(miurl.getFile());
-//	  else {
-//		  miconnec.setAllowUserInteraction(false);
-//		  NVPair[] data = null;
-//		  String b64Encoded = Base64.encodeBytes(new String(Azure.getUsuario()+":"+Azure.getPassword()).getBytes("utf-8"));			
-//		  NVPair[] header = new NVPair[] {
-//				  new NVPair("Authentication", "Basic " + b64Encoded) 
-//		  };
-//		  rsp = miconnec.Post(miurl.getFile(), data, header);
-//	  }
-//	  return rsp;
-//}
-
 public static String getContenidoSSL(String url) {
-	  PostMethod post = null;
+	  HttpPost post = null;
+	  CloseableHttpClient client = null;
 	  String resultado = null;
 	  try {
 		  url = checkHostUrl(url);
 		  miurl=new URL(url);
-		  
-		  post = new PostMethod(miurl.toString());
-		  String b64Encoded = Base64.encodeBytes(new String(Azure.getUsuario()+":"+Azure.getPassword()).getBytes("utf-8"));
-		  post.setRequestHeader(new Header("Authentication", "Basic " + b64Encoded));
-		  HttpClient client = new HttpClient();
-		  client.getParams().setParameter("http.connection.timeout", 20 * 1000);
-		  int statusCode = client.executeMethod( post );
-		  if( statusCode == HttpStatus.SC_OK ) resultado = post.getResponseBodyAsString();
+		  post = new HttpPost (miurl.toString());
+		  client = Azure.createHttpClient();	
+		  HttpResponse response = client.execute(post);		  
+		  if( response.getStatusLine().getStatusCode() == HttpStatus.SC_OK ) {
+			  byte[] c = Azure.parseHttpResponse(response);
+			  resultado = new String (c);
+		  }			  		  
 		  else resultado = null;
 	  } 
 	  catch (Exception  e) {
@@ -207,6 +159,10 @@ public static String getContenidoSSL(String url) {
 		  e.printStackTrace();
 		  resultado = null;
       }
+	  finally {
+		  if (post != null) post.releaseConnection();
+		  if (client != null) try {client.close();} catch (IOException e) {}
+	  }
 	  return resultado;
   }
 
