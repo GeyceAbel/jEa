@@ -2108,11 +2108,12 @@ public static Date esFecha (String s){
   public static String buscaCDP(String nif) {
 	  String codCDP=null;
 	  Azure az = new Azure ("agpi2dp.getCDPfromNif");
-	  az.addParametroURL("codiDP", dominio+"000000");
+	  az.addParametroURL("codiDP", dominio);
 	  az.addParametroURL("nifcif", nif);
 	  if (az.procesar()) codCDP = az.getContenido();
 	  if ( codCDP== null || codCDP.trim().length() != 12 ) {
 		  codCDP = null ;
+	      System.out.println("CDP no encontrado en tabla cdp de la base de Datos Afinity ");		  
 	  }
 	  return codCDP;
   }
