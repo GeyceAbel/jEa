@@ -240,7 +240,9 @@ public class PrintJasperPanelEMIR extends PrintJasperPanel
 		String sNif = getNif ();
 		if (sNif != null) {
 			String sCodiCDPOK = "";
-			Azure az = new Azure ("agpi2dp.getCDPfromNif","codiDP="+Easp.dominio.substring(0,6)+"000000&nifcif="+sNif);
+			Azure az = new Azure ("agpi2dp.getCDPfromNif");
+			az.addParametroURL("codiDP", Easp.dominio.substring(0,6)+"000000");
+			az.addParametroURL("nifcif", sNif);
 			if (az.procesar()) sCodiCDPOK = az.getContenido();
 			if ( sCodiCDPOK!= null && sCodiCDPOK.trim().length() == 12 ) cdpAfinity = sCodiCDPOK;
 		}

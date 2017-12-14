@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171213
-// Hora:             17:12:23
+// Fecha:            20171214
+// Hora:             12:21:56
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -158,12 +158,14 @@ public class ProgInsprexportbd extends Program
       
     }
     
-    private String getContenido(String apli) {
-        String result = "";
-        Azure az = new Azure ("starterdp.getContratado","domini="+Easp.dominio+"&apli="+apli);
-        if (az.procesar()) result = az.getContenido();
-        return result;
-    }
+      private String getContenido(String apli) {
+          String result = "";
+          Azure az = new Azure ("starterdp.getContratado");
+          az.addParametroURL("domini", Easp.dominio);
+          az.addParametroURL("apli", apli);
+          if (az.procesar()) result = az.getContenido();
+          return result;
+      }
   
   public void proces() {
   

@@ -6,12 +6,16 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
@@ -28,31 +32,52 @@ public class Azure {
 	private final static int TIMEOUT = 30; //Seconds
 	private final long MB_MAXIMOS = 15; //Tamany màxim de fitxer.
 	private int numeroReintentos;
-	private String urlAzure;
 	private String contenido;
 	private byte [] contenidoBinario;
 	private String error;
 	private File fichero;
 	private int statusCode;
 	private String encoding;
+	private List<NameValuePair> lparametros;
+	private String funcion;
 	
 	public Azure (String function) {
 		this(function,null, null);
 	}
 
-	public Azure (String function, String parametros) {
-		this(function,parametros, null);
+	public Azure (String function, List<NameValuePair> lparams) {
+		this(function,lparams, null);
 	}
 
-	public Azure (String function, String parametros, File f) {
-		this.urlAzure = PROTOCOL + getRealHost() + SITE + function;
+	public Azure (String funcion, List<NameValuePair> lparams, File f) {
+		this.funcion = funcion;
 		this.fichero = f;
-		if (parametros != null && parametros.contains("\\")) parametros = parametros.replace("\\", "%5C");		
-		if (Easp.HOST == TIPO_HOST.LOCALHOST || Easp.HOST == TIPO_HOST.AZURE || Easp.HOST == TIPO_HOST.AZUREMSDN) this.urlAzure+=".cshtml";
-		if (parametros == null || parametros.trim().length()==0) parametros = "dominiojToken="+Easp.dominio;
-		else parametros +="&dominiojToken="+Easp.dominio;
-		this.urlAzure += "?"+parametros;		
+		this.lparametros = lparams;
+		addParametroURL ("dominiojToken",Easp.dominio);
 		numeroReintentos = 1;
+	}
+
+	public void addParametroURL (String nombre, String valor) {
+		addParametroURL(new AzureParameter(nombre,valor));
+	}
+	
+	public void addParametroURL (String nombre, int valor) {
+		addParametroURL(new AzureParameter(nombre,String.valueOf(valor)));
+	}	
+	
+	public void addParametroURL (String nombre, double valor) {
+		addParametroURL(new AzureParameter(nombre,String.valueOf(valor)));
+	}
+	
+	public void addParametroURL (NameValuePair nvp) {
+		if (lparametros == null) lparametros = new ArrayList<NameValuePair> ();
+		lparametros.add(nvp);		
+	}
+
+	private String getUrlAzure () {
+		String urlaz = PROTOCOL + getRealHost() + SITE + funcion +".cshtml?"+URLEncodedUtils.format(lparametros, "utf-8");
+		System.out.println("URLAZURE ["+urlaz+"]");
+		return urlaz;
 	}
 
 	private void initProcesar () {
@@ -67,7 +92,7 @@ public class Azure {
 		HttpPost post = null;
 		try {
 			initProcesar();
-			post = new HttpPost(urlAzure);
+			post = new HttpPost(getUrlAzure ());
 			if (fichero != null && fichero.exists()) {
 				if (fichero.length() > MB_MAXIMOS * 1024 * 1024) {
 					bOk = false;
@@ -84,7 +109,7 @@ public class Azure {
 		}
 		catch( Exception e ) {
 			bOk = false;
-			error = "Error incontrolado al procesar ("+urlAzure+"): \n"+e.getMessage();
+			error = "Error incontrolado al procesar ("+funcion+"): \n"+e.getMessage();
 			e.printStackTrace();
 		}
 		finally {
@@ -127,27 +152,10 @@ public class Azure {
 		FileOutputStream fos = null;
 		try {
 			initProcesar ();
-			post = new HttpPost(urlAzure);
+			post = new HttpPost(getUrlAzure());
 			if (executeConnection (client,post)) {
 				fos = new FileOutputStream(f.getAbsolutePath());
 				fos.write (contenidoBinario);
-//				if (pbf!=null) {
-//					pbf.setSecondaryAuto(false);
-//					pbf.setSecondaryPercent(0);
-//					pbf.setState("Descargando Fichero "+f.getName());
-//				}
-//				int iContpbf=0;
-//				byte[] buffer=new byte[1024];
-//				int kilobytes = (int)(tamanyoBinario/1024);
-//				if (pbf!=null && kilobytes>0) pbf.setState("Descargando Fichero ["+kilobytes+"K] "+f.getName());
-//				do {
-//					int llegits = contenidoBinario.read(buffer);
-//					if (llegits<=0) break;
-//					fos.write (buffer,0,llegits);
-//					if (pbf!=null && kilobytes>0 ) pbf.setSecondaryPercent ((int)(100*(++iContpbf)/(kilobytes)));
-//				}
-//				while(true);
-//				System.out.println ("Volum Afinity-Azure ("+tamanyoBinario+")  <--->  Volum Descarregat ("+f.length()+")");
 			}
 			else bOk = false;
 		}
@@ -194,7 +202,7 @@ public class Azure {
 		}
 		else {
 			contenido = null;
-			error = "Error al procesar ("+urlAzure+"): \n("+statusCode+") "+response.getStatusLine().getReasonPhrase();
+			error = "Error al procesar ("+funcion+"): \n("+statusCode+") "+response.getStatusLine().getReasonPhrase();
 		}			
 		bOk = contenido != null;			
 		return bOk;
@@ -256,5 +264,4 @@ public class Azure {
 	public void setEncoding(String enconding) {
 		this.encoding = enconding;
 	}
-	
 }

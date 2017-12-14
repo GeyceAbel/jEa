@@ -320,7 +320,12 @@ public class ConverSQLBD {
 
 	public boolean setRegistre(String sCodi, String sAplic, String sHome, String sTipoBD, String sServer) {
 		String sResult = "";
-		Azure az = new Azure ("agpi2dp.registraraplicacion","pcod="+sCodi+"&aplic="+sAplic+"&phome="+sHome+"&ptipo="+sTipoBD+"&pservidor="+sServer);
+		Azure az = new Azure ("agpi2dp.registraraplicacion");
+		az.addParametroURL("pcod", sCodi);
+		az.addParametroURL("aplic", sAplic);
+		az.addParametroURL("phome", sHome);
+		az.addParametroURL("ptipo", sTipoBD);
+		az.addParametroURL("pservidor", sServer);
 		if (az.procesar()) sResult = az.getContenido();
 		System.out.println ("sResult ["+sResult+"]");
 		int iOk;

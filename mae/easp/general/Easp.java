@@ -483,19 +483,29 @@ public class Easp {
     	      }
 
       	  try {
-    		    String url = "pcliente="+codiDP;
-    		    url += "&preferencia="+referencia;
-    		    url += "&pmachine="+parserURL(nomPC);
-    		    url += "&pusuario="+parserURL(usuario);
-    		    url += "&paplicacion="+aplicacion;
-    		    if (soloAvisar) url += "&ppermitido=S";
-    		    else url += "&ppermitido=N";
-    		    if (tarifa!=null) url += "&ptarifa="+tarifa;
-    		    else url += "&ptarifa=NoDefinida";
-    		    url += "&ppuestosper="+licencias;
-    		    url += "&ppuestosocu="+sesiones;
-    		    url += "&pnomspcocu="+parserURL(detallePL);
-    		    Azure az = new Azure ("CONTROLLIC.grabaraviso",url);
+//    		    String url = "pcliente="+codiDP;
+//    		    url += "&preferencia="+referencia;
+//    		    url += "&pmachine="+nomPC;
+//    		    url += "&pusuario="+usuario;
+//    		    url += "&paplicacion="+aplicacion;
+//    		    if (soloAvisar) url += "&ppermitido=S";
+//    		    else url += "&ppermitido=N";
+//    		    if (tarifa!=null) url += "&ptarifa="+tarifa;
+//    		    else url += "&ptarifa=NoDefinida";
+//    		    url += "&ppuestosper="+licencias;
+//    		    url += "&ppuestosocu="+sesiones;
+//    		    url += "&pnomspcocu="+detallePL;
+    		    Azure az = new Azure ("CONTROLLIC.grabaraviso");
+    		    az.addParametroURL("pcliente", codiDP);
+    		    az.addParametroURL("preferencia", referencia);
+    		    az.addParametroURL("pmachine", nomPC);
+    		    az.addParametroURL("pusuario", usuario);
+    		    az.addParametroURL("paplicacion", aplicacion);
+    		    az.addParametroURL("ppermitido", soloAvisar?"S":"N");
+    		    az.addParametroURL("ptarifa", tarifa!=null?tarifa:"NoDefinida");
+    		    az.addParametroURL("ppuestosper", licencias);
+    		    az.addParametroURL("ppuestosocu", sesiones);
+    		    az.addParametroURL("pnomspcocu", detallePL);
     		    az.procesar(); 
     	      }
     	    catch (Exception e) {
@@ -2097,7 +2107,9 @@ public static Date esFecha (String s){
 
   public static String buscaCDP(String nif) {
 	  String codCDP=null;
-	  Azure az = new Azure ("agpi2dp.getCDPfromNif","codiDP="+dominio+"000000&nifcif="+nif);
+	  Azure az = new Azure ("agpi2dp.getCDPfromNif");
+	  az.addParametroURL("codiDP", dominio+"000000");
+	  az.addParametroURL("nifcif", nif);
 	  if (az.procesar()) codCDP = az.getContenido();
 	  if ( codCDP== null || codCDP.trim().length() != 12 ) {
 		  codCDP = null ;
@@ -2138,8 +2150,27 @@ public static Date esFecha (String s){
                                      "&pdatodat2="+getFecha(datodat2)+
                                      "&pdatodat3 ="+getFecha(datodat3);
   
-    String url=dns+procedure+parametres;
-    Azure az0 = new Azure (procedure,parametres);
+
+    Azure az0 = new Azure (procedure);
+    az0.addParametroURL("pcdp", dominio);
+    az0.addParametroURL("paplic", aplic);
+    az0.addParametroURL("pcoddato", coddato);
+    az0.addParametroURL("pmachine", nomPC);
+    az0.addParametroURL("pusuario", nomUser);
+    az0.addParametroURL("pejer", ejer);
+    az0.addParametroURL("pperi", peri);
+    az0.addParametroURL("pdatoint1", datoint1);
+    az0.addParametroURL("pdatoint2", datoint2);
+    az0.addParametroURL("pdatoint3", datoint3);
+    az0.addParametroURL("pdatodou1", datodou1);
+    az0.addParametroURL("pdatodou2", datodou2);
+    az0.addParametroURL("pdatodou3", datodou3);
+    az0.addParametroURL("pdatostr1", datostr1);
+    az0.addParametroURL("pdatostr2", datostr2);
+    az0.addParametroURL("pdatostr3", datostr3);
+    az0.addParametroURL("pdatodat1", getFecha(datodat1));
+    az0.addParametroURL("pdatodat2", getFecha(datodat2));
+    az0.addParametroURL("pdatodat3", getFecha(datodat3));
     return az0.procesar();
     }
   catch(Exception e ) {
@@ -2155,19 +2186,15 @@ public static Date esFecha (String s){
 
 
       // System.out.println(" Ini: "+Fecha.getHora(Maefc.getDateTime(),"HH:mm:ss") );
-
-      String dns=URL_AFINITY+"/pls/agpi/";
-      String procedure = "logusos.getUsos";
-      String parametres = "pcdp="+dominio+"&paplic="+aplic+"&pproduc="+producto;
-      String url=dns+procedure+parametres;
-      
-      // Azure az0 = new Azure (procedure,parametres);
-      // return az0.procesar();
       
       InputStream stream;
 
         try {
-          Azure az1 = new Azure (procedure,parametres,null );
+          Azure az1 = new Azure ("logusos.getUsos" );
+          az1.addParametroURL ("pcdp",dominio);
+          az1.addParametroURL ("paplic",aplic);
+          az1.addParametroURL ("pproduc",producto);
+          
             String contenido = "" ;
             if (az1.procesar())  {
               contenido = az1.getContenido();  
@@ -2372,15 +2399,15 @@ public static Date esFecha (String s){
 																					 String tel, String fax, String contacto, String email, String altafromprg){
 		//String dns="http://afinity.geyce.es/pls/agpi/agpi2dp.";
 		String dns=URL_AFINITY+"/pls/agpi/";
-        String nombreAfinity = parserURL((nombre+" "+ape1+" "+ape2).trim());
+        String nombreAfinity = (nombre+" "+ape1+" "+ape2).trim();
         String procedure = "agpi2dp.AgpiAltaCDP";
         String parametres = "?pdp="+codiDP+"&pdatcodigo="+cdp+"&pdatipo=C&pdatnombre="+
 		           			"&pdatapell1="+nombreAfinity+"&pdatapell2="+"&pdatnifcif="+nif+
-		           			"&pdatsiglas="+siglas+"&pdatvia="+parserURL(via)+"&pdatnum="+parserURL(num)+
-							"&pdatesc="+parserURL(esc)+"&pdatpiso="+parserURL(piso)+"&pdatletra="+parserURL(letra)+
-							"&pdatpobla="+parserURL(pobla)+"&pdatmuni="+muni+"&pdatprov="+prov+"&pdatcpos="+cp+
-							"&pdattel="+tel+"&pdatfax="+fax+"&pdatfisicajuri="+fj+"&pdatemail="+parserURL(email)+
-							"&pdatcontacto="+parserURL(contacto)+"&puspwd="+pwd+"&altafromprg="+altafromprg;
+		           			"&pdatsiglas="+siglas+"&pdatvia="+via+"&pdatnum="+num+
+							"&pdatesc="+esc+"&pdatpiso="+piso+"&pdatletra="+letra+
+							"&pdatpobla="+pobla+"&pdatmuni="+muni+"&pdatprov="+prov+"&pdatcpos="+cp+
+							"&pdattel="+tel+"&pdatfax="+fax+"&pdatfisicajuri="+fj+"&pdatemail="+email+
+							"&pdatcontacto="+contacto+"&puspwd="+pwd+"&altafromprg="+altafromprg;
         if (esAzure()) {
         	nombreAfinity = (nombre+" "+ape1+" "+ape2).trim();
         	parametres = "?pdp="+codiDP+"&pdatcodigo="+cdp+"&pdatipo=C&pdatnombre="+
@@ -2391,16 +2418,39 @@ public static Date esFecha (String s){
 					"&pdattel="+tel+"&pdatfax="+fax+"&pdatfisicajuri="+fj+"&pdatemail="+email+
 					"&pdatcontacto="+contacto+"&puspwd="+pwd+"&altafromprg="+altafromprg;
         }
-        System.out.println("parametres = ["+parametres+"]");
-		String url=dns+procedure+parametres;
-		Azure az0 = new Azure (procedure,parametres);
+		Azure az0 = new Azure (procedure);
+		az0.addParametroURL ("pdp",codiDP);
+		az0.addParametroURL ("pdatcodigo",cdp);
+		az0.addParametroURL ("pdatipo","C");
+		az0.addParametroURL ("pdatnombre","");
+		az0.addParametroURL ("pdatapell1",nombreAfinity);
+		az0.addParametroURL ("pdatapell2","");
+		az0.addParametroURL ("pdatnifcif",nif);
+		az0.addParametroURL ("pdatsiglas",siglas);
+		az0.addParametroURL ("pdatvia",via);
+		az0.addParametroURL ("pdatnum",num);
+		az0.addParametroURL ("pdatesc",esc);
+		az0.addParametroURL ("pdatpiso",piso);
+		az0.addParametroURL ("pdatletra",letra);
+		az0.addParametroURL ("pdatpobla",pobla);
+		az0.addParametroURL ("pdatmuni",muni);
+		az0.addParametroURL ("pdatprov",prov);
+		az0.addParametroURL ("pdatcpos",cp);
+		az0.addParametroURL ("pdattel",tel);
+		az0.addParametroURL ("pdatfax",fax);
+		az0.addParametroURL ("pdatfisicajuri",fj);
+		az0.addParametroURL ("pdatemail",email);
+		az0.addParametroURL ("pdatcontacto",contacto);
+		az0.addParametroURL ("puspwd",pwd);
+		az0.addParametroURL ("altafromprg",altafromprg);
         return az0.procesar();
 	  }
 
 
   public static String getTipoBD(String sDominio ) {
 	  String resu="";
-	  Azure az = new Azure ("agpi2dp.gettipobd","pcod="+sDominio);
+	  Azure az = new Azure ("agpi2dp.gettipobd");
+	  az.addParametroURL ("pcod",sDominio);	  
 	  if (az.procesar()) resu = az.getContenido();
 	  return resu;
   }
@@ -2410,7 +2460,9 @@ public static Date esFecha (String s){
 	java.util.Hashtable <String,String> htParametres = new java.util.Hashtable <String,String> ();
     
 	String contingut ="";    
-    Azure az = new Azure ("starterdp.getURLConnect","pcod="+sDominio+"&pservicio="+sServei);
+    Azure az = new Azure ("starterdp.getURLConnect");
+    az.addParametroURL ("pcod",sDominio);
+    az.addParametroURL ("pservicio",sServei);    
     if (az.procesar()) contingut = az.getContenido();
     
     int pini=1;
@@ -2446,32 +2498,6 @@ public static Date esFecha (String s){
     }
     return htParametres;
   }
-
-
-/** Convierte según qué caracteres a un código que se pueda utilizar
-    * en una URL
-   * @param origen, texto que se va a convertir.
-   * @return la cadena de texto ya convertida.
-   */
-   public static String parserURL(String origen){
-      StringBuffer sb=new StringBuffer();
-      for (int i=0;i< origen.length();i++){
-        if (origen.charAt(i)==' ')
-          sb.append("%20");
-        else if (origen.charAt(i)=='=')
-          sb.append("%3D");
-        else if (origen.charAt(i)=='?')
-          sb.append("%3F");
-        else if (origen.charAt(i)=='&')
-          sb.append("%26");
-        else if (origen.charAt(i)=='+')
-          sb.append("%2B");
-        else
-          sb.append(origen.charAt(i));
-        }
-        return sb.toString();
-     }
-
 
   /**
    * inserta Acciones en la Tabla LOPDACC

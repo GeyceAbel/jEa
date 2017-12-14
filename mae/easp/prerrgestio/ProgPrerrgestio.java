@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171213
-// Hora:             17:14:24
+// Fecha:            20171214
+// Hora:             12:33:27
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -40,19 +40,6 @@ public class ProgPrerrgestio extends Program
    */
   private void initErrorParam(){
       param = new ErrorParam(new Exception(), "");
-  }
-  
-  /* Funció que codifica un texte en UTF-8 per a poder passar-lo
-   * per URL (per tema accents, espais, intros, etc.
-   * @param texte, texte que es codificarà
-   * @return String, cadena codificada o "" en cas que el texte sigui null
-  */
-  private String codificar(String texte) throws java.io.UnsupportedEncodingException {
-      if (texte == null){
-          return "";
-      } else {
-          return java.net.URLEncoder.encode(texte,"UTF-8");
-      }
   }
   
   /* Funció que retorna el nom de la aplicació que es guarda 
@@ -97,7 +84,8 @@ public class ProgPrerrgestio extends Program
                //+ "documentados para localizar una posible solución.\nGracias.";
       }
       String resu = "";
-      Azure az = new Azure ("starterdp.getSolContexto","contexto="+contexto);
+      Azure az = new Azure ("starterdp.getSolContexto");
+      az.addParametroURL("contexto", contexto);
       if (az.procesar()) resu = az.getContenido();
       return resu;
   }
@@ -598,8 +586,7 @@ public class ProgPrerrgestio extends Program
             byte[] bytes = byt.toByteArray();
             out.close();
             String str = mae.general.Base64.encodeBytes(bytes); //new sun.misc.BASE64Encoder().encode(bytes);
-            //String str = new String(bytes);
-            String str8 = codificar(str);
+            //String str8 = codificar(str);
             String email = "";
             if (!vvemail.isNull()){
                 email = vvemail.getString();
@@ -616,6 +603,7 @@ public class ProgPrerrgestio extends Program
             if (contexto != null){
                 ctxt = "&contexto="+contexto;
             }
+        /*
             String parametros = "fcod="+codi
                                 +"&faplicacion="+aplicacion + progs
                                 +"&ftipologia="+vvtipologia.getString()
@@ -627,9 +615,23 @@ public class ProgPrerrgestio extends Program
                                 +"&fambito="+vvambito.getString()
                                 +"&ftexto="+codificar(vvtxtconsulta.getString())
                                 +"&error="+str8;
-           
+          */ 
                    String result = "";
-                    Azure az = new Azure ("starterdp.ENVIARCONSULTA",parametros);
+                    Azure az = new Azure ("starterdp.ENVIARCONSULTA");
+                    az.addParametroURL("fcod", codi);
+                    az.addParametroURL("faplicacion", aplicacion);
+                    if (programa != null)az.addParametroURL("fprograma", programa);
+                    if (modulo != null)az.addParametroURL("fmodulo", modulo);
+                    az.addParametroURL("ftipologia", vvtipologia.getString());
+                    if (contexto != null)az.addParametroURL("contexto", contexto);
+                    az.addParametroURL("fcontacto", vvcontacto.getString());
+                    az.addParametroURL("ftelefono", vvtelefono.getString());
+                    az.addParametroURL("fmail", email);
+                    az.addParametroURL("fidioma", vvidioma.getString());
+                    az.addParametroURL("fambito", vvambito.getString());
+                    az.addParametroURL("ftexto", vvtxtconsulta.getString());
+                    az.addParametroURL("error", str);
+        
                     if (az.procesar()) result = az.getContenido();
             if(result.startsWith("-1")){
                 Maefc.message("Error enviando consulta técnica.\nPóngase en contacto con su servicio técnico.\n"+result.substring(3),"Error envío",Maefc.ERROR_MESSAGE);

@@ -165,21 +165,34 @@ public class Mir {
 		if (fitDesti.length()>80) fitDesti = fitDesti.substring(0,80);
 		if (titulo.length()>30) titulo = titulo.substring(0,30);	  
 		String fechahoy=Util.formateoNumero("00",Maefc.getDay(Maefc.getDate()))+"-" + Util.formateoNumero("00",1+Maefc.getMonth(Maefc.getDate()))+"-" + Util.formateoNumero("0000",Maefc.getYear(Maefc.getDate()));
-		String params = "ppupdp="+Easp.dominio+
-				"&ppupiden="+fitDesti+
-				"&ppupclientedp="+codCDPAfinity+
-				"&ppupproducto="+prod+
-				"&ppupambito="+ambito+
-				"&ppuptitulo="+parserURL(titulo)+
-				"&ppupdesc="+parserURL(desc)+
-				"&ppupfechacre="+fechaCrea+
-				"&ppupfechapub="+fechahoy+
-				"&ppupejer="+Maefc.getYear(Maefc.getDate())+
-				"&ppupperiodo=0"+
-				"&ppupusuario="+usuario+
-				"&desdeToken=N";		
+//		String params = "ppupdp="+Easp.dominio+
+//				"&ppupiden="+fitDesti+
+//				"&ppupclientedp="+codCDPAfinity+
+//				"&ppupproducto="+prod+
+//				"&ppupambito="+ambito+
+//				"&ppuptitulo="+titulo+
+//				"&ppupdesc="+desc+
+//				"&ppupfechacre="+fechaCrea+
+//				"&ppupfechapub="+fechahoy+
+//				"&ppupejer="+Maefc.getYear(Maefc.getDate())+
+//				"&ppupperiodo=0"+
+//				"&ppupusuario="+usuario+
+//				"&desdeToken=N";		
 		String sCodiCDP = Easp.dominio.substring(0,6)+Util.formateoNumero("000000",empresa);
-		Azure az = new Azure("agpi2dp.AgpiAltaPDF", params, f);
+		Azure az = new Azure("agpi2dp.AgpiAltaPDF", null, f);
+		az.addParametroURL("ppupdp", Easp.dominio);
+		az.addParametroURL("ppupiden", fitDesti);
+		az.addParametroURL("ppupclientedp", codCDPAfinity);
+		az.addParametroURL("ppupproducto", prod);
+		az.addParametroURL("ppupambito", ambito);
+		az.addParametroURL("ppuptitulo", titulo);
+		az.addParametroURL("ppupdesc", desc);
+		az.addParametroURL("ppupfechacre", fechaCrea);
+		az.addParametroURL("ppupfechapub", fechahoy);
+		az.addParametroURL("ppupejer", Maefc.getYear(Maefc.getDate()));
+		az.addParametroURL("ppupperiodo", "0");
+		az.addParametroURL("ppupusuario", usuario);
+		az.addParametroURL("desdeToken", "N");
 		if (az.procesar ()) {
 			String cont = az.getContenido();
 			bOk = (cont != null && cont.equals("0"));
@@ -196,19 +209,6 @@ public class Mir {
 		return bOk;
 	}
 	
-	private String parserURL(String origen){
-		StringBuffer sb=new StringBuffer();
-		for (int i=0;i< origen.length();i++){
-			if (origen.charAt(i)==' ') sb.append("%20");
-			else if (origen.charAt(i)=='=') sb.append("%3D");
-			else if (origen.charAt(i)=='?') sb.append("%3F");
-			else if (origen.charAt(i)=='&') sb.append("%26");
-			else if (origen.charAt(i)=='+') sb.append("%2B");
-			else sb.append(origen.charAt(i));
-		}
-		return sb.toString();
-	}
-
 	public boolean tieneMir() {
 		boolean bOk = true;
 		if (getCDPMIR() == null) {
@@ -230,7 +230,9 @@ public class Mir {
 		sNif = getNif (sCodiCDP,Easp.connEA);
 		if (sNif != null) {
 			String sCodiCDPOK = "";
-			Azure az = new Azure ("agpi2dp.getCDPfromNif","codiDP="+sCodiCDP.substring(0,6)+"000000&nifcif="+sNif);
+			Azure az = new Azure ("agpi2dp.getCDPfromNif");
+			az.addParametroURL("codiDP", sCodiCDP.substring(0,6)+"000000");
+			az.addParametroURL("nifcif", sNif);
 			if (az.procesar()) sCodiCDPOK = az.getContenido();
 			if ( sCodiCDPOK!= null && sCodiCDPOK.trim().length() == 12 ) {
 				codigoCDP=sCodiCDPOK;
