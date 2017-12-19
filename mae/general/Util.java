@@ -605,6 +605,28 @@ System.out.println("Error: "+e);
    * @return el CIF o NIF formateado o la cadena introducida y un mensaje
    * de error si no es correcto
    */
+	
+	public static boolean esCIFValido (String CIF) {
+		//si se trata de un NIF devuelve el NIF arreglado
+		if (CIF == null || CIF.length()!=9 || isNumero(CIF)) return false;
+		if (esNIF(CIF) == 0) return true;
+		String firstChar=CIF.substring(0,1);
+		if (!isNumero(firstChar) && !firstChar.equals("X") && !firstChar.equals("Y") && !firstChar.equals("Z") && !isNumero(CIF.substring(CIF.length()-1))) return isNumero(CIF.substring(1,CIF.length()-1));
+		if (!isNumero(firstChar) && !isNumero(CIF.substring(1,2))) return false;
+		if ( ( firstChar.equals("X") || firstChar.equals("Y") || firstChar.equals("Z") )){
+			if (isNumero(CIF.substring(CIF.length()-1))) return false;
+			else {
+				String NIE_XYZ = "" ;
+				if ( firstChar.equals("Y") ) NIE_XYZ = "1" ;
+				if ( firstChar.equals("Z") ) NIE_XYZ = "2" ;
+
+				String letracontrol=letraDNI(NIE_XYZ+CIF.substring(1,CIF.length()-1));
+				return CIF.substring(CIF.length()-1).equals(letracontrol);
+			}
+		}
+		return calcularCIFValido (CIF);		
+	}
+	
   public static String esCIF(String cif) {
 		//se limpia el nif o cif
 		String CIF = limpiarCIF(cif);
@@ -812,5 +834,26 @@ System.out.println("Error: "+e);
     }
 	//fin
 
+  public static boolean calcularCIFValido (String CIF){
+	  if (!isNumero(CIF.substring(1,9))) return false; 
+	  String pchar=CIF.substring(0,1);
+	  String lcif="ABCDEFGHJPQRSUVNW";
+	  if(lcif.indexOf(pchar) < 0) return false;
+	  else {
+		  String num=CIF.substring(1,CIF.length()-1);
+		  int ultdig=Integer.parseInt(CIF.substring(CIF.length()-1,CIF.length()));//Character.getNumericValue(num.charAt(num.length()-1));
+		  int primcol=0,segcol=0;
+		  for (int i=0;i<num.length();i+=2){
+			  primcol+=Integer.parseInt(formateoNumero("00",Integer.parseInt(num.substring(i,i+1))*2).substring(0,1))+Integer.parseInt(Util.formateoNumero("00",Integer.parseInt(num.substring(i,i+1))*2).substring(1,2));
+			  if (i < 5) segcol+=Integer.parseInt(num.substring(i+1,i+2));
+		  }
+		  int resulcol=primcol+segcol;
+		  int tmpultdig=(Integer.parseInt(formateoNumero("00",resulcol).substring(0,1))*10)+10-resulcol;
+		  if (tmpultdig==10) tmpultdig=0;
+		  return (tmpultdig==ultdig);
+
+	  }
+  }
+		//fin
   }
 
