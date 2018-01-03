@@ -2460,8 +2460,8 @@ public static Date esFecha (String s){
 
 	java.util.Hashtable <String,String> htParametres = new java.util.Hashtable <String,String> ();
     
-	String contingut ="";    
-    Azure az = new Azure ("starterdp.getURLConnect");
+	String contingut ="";
+    Azure az = new Azure ("agpi2dp.getURLConnect");
     az.addParametroURL ("pcod",sDominio);
     az.addParametroURL ("pservicio",sServei);    
     if (az.procesar()) contingut = az.getContenido();
