@@ -1,9 +1,5 @@
 package mae.general;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-
 import org.apache.http.NameValuePair;
 
 public class AzureParameter implements NameValuePair {
@@ -19,12 +15,12 @@ public class AzureParameter implements NameValuePair {
 		return nombre;
 	}
 	public String getValue() {
-		String v = URLEncoder.encode(valor);
-		try {
-			URLEncoder.encode(valor, StandardCharsets.UTF_8.toString());
-		} 
-		catch (UnsupportedEncodingException e) {e.printStackTrace();}
-		return v;
-		
+//		String v = URLEncoder.encode(valor);
+//		try {
+//			v = URLEncoder.encode(valor, StandardCharsets.UTF_8.toString());
+//		} 
+//		catch (UnsupportedEncodingException e) {e.printStackTrace();}
+//		return v;
+		return valor;
 	}
 }
