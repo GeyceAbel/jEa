@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171204
-// Hora:             12:35:10
+// Fecha:            20180104
+// Hora:             13:00:09
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -340,7 +340,6 @@ public class ProgPrlogaudition extends Program
     // Campos
     public Field apraccion;
     public Field apraplication;
-    public Field aprcodi;
     public Field aprdesc;
     public Field aprfecha;
     public Field aprinfo;
@@ -367,7 +366,6 @@ public class ProgPrlogaudition extends Program
       addTable(auditionpr=new Auditionpr(this));
       addField(apraccion=new Field(this,auditionpr,"apraccion"));
       addField(apraplication=new Field(this,auditionpr,"apraplication"));
-      addField(aprcodi=new Field(this,auditionpr,"aprcodi"));
       addField(aprdesc=new Field(this,auditionpr,"aprdesc"));
       addField(aprfecha=new Field(this,auditionpr,"aprfecha"));
       addField(aprinfo=new Field(this,auditionpr,"aprinfo"));
