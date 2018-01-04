@@ -53,7 +53,6 @@ public class Azure {
 		this.funcion = funcion;
 		this.fichero = f;
 		this.lparametros = lparams;
-		addParametroURL ("dominiojToken",Easp.dominio);
 		numeroReintentos = 1;
 	}
 
@@ -75,7 +74,8 @@ public class Azure {
 	}
 
 	private String getUrlAzure () {
-		String urlaz = PROTOCOL + getRealHost() + SITE + funcion +".cshtml?"+URLEncodedUtils.format(lparametros, "utf-8");
+		String urlaz = PROTOCOL + getRealHost() + SITE + funcion +".cshtml?dominiojToken="+Easp.dominio;
+		if (lparametros != null && lparametros.size()>0) urlaz +="&"+URLEncodedUtils.format(lparametros, "utf-8");
 		System.out.println("URLAZURE ["+urlaz+"]");
 		return urlaz;
 	}
