@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171102
-// Hora:             16:17:24
+// Fecha:            20180103
+// Hora:             15:42:40
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -105,6 +105,11 @@ public class CatAdmon extends Catalog
   public TabLogjcontax tablogjcontax;
   public TabAvisos tabavisos;
   public TabJcoimpexcel tabjcoimpexcel;
+  public TabEstilos tabestilos;
+  public TabInfplantilla tabinfplantilla;
+  public TabInfplantlinea tabinfplantlinea;
+  public TabInfplantcol tabinfplantcol;
+  public TabValidanomaeat tabvalidanomaeat;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -526,6 +531,9 @@ public class CatAdmon extends Catalog
     public FieldDef datmovil;
     public FieldDef datuser;
     public FieldDef datgrupo;
+    public FieldDef datnombreant;
+    public FieldDef datapell1ant;
+    public FieldDef datapell2ant;
     public TabNifes(String name)
       {
       super(name);
@@ -638,6 +646,9 @@ public class CatAdmon extends Catalog
       datmovil = new FieldDef("datmovil",FieldDef.INTEGER,0);
       datuser = new FieldDef("datuser",FieldDef.CHAR,25);
       datgrupo = new FieldDef("datgrupo",FieldDef.CHAR,15);
+      datnombreant = new FieldDef("datnombreant",FieldDef.CHAR,50);
+      datapell1ant = new FieldDef("datapell1ant",FieldDef.CHAR,100);
+      datapell2ant = new FieldDef("datapell2ant",FieldDef.CHAR,50);
       FieldDef array[] = {
         danifcif,
         datipo,
@@ -747,7 +758,10 @@ public class CatAdmon extends Catalog
         datsfax,
         datmovil,
         datuser,
-        datgrupo        
+        datgrupo,
+        datnombreant,
+        datapell1ant,
+        datapell2ant        
         };
       setColumns(array);
       FieldDef arrayind1[] = { datapell1 };
@@ -4120,6 +4134,241 @@ public class CatAdmon extends Catalog
       }
     }
     
+  public class TabEstilos extends TableDef
+    {
+    // Campos
+    public FieldDef estcodigo;
+    public FieldDef estnombre;
+    public FieldDef estcolor;
+    public FieldDef estfuente;
+    public FieldDef estnegrita;
+    public FieldDef estcursiva;
+    public FieldDef estauxi1;
+    public FieldDef estauxi2;
+    public FieldDef estauxi3;
+    public FieldDef estauxa1;
+    public FieldDef estauxa2;
+    public FieldDef estauxa3;
+    public TabEstilos(String name)
+      {
+      super(name);
+      estcodigo = new FieldDef("estcodigo",FieldDef.CHAR,10);
+      estnombre = new FieldDef("estnombre",FieldDef.CHAR,30,FieldDef.NOTNULL);
+      estcolor = new FieldDef("estcolor",FieldDef.CHAR,7);
+      estfuente = new FieldDef("estfuente",FieldDef.INTEGER,0);
+      estnegrita = new FieldDef("estnegrita",FieldDef.CHAR,1);
+      estcursiva = new FieldDef("estcursiva",FieldDef.CHAR,1);
+      estauxi1 = new FieldDef("estauxi1",FieldDef.INTEGER,0);
+      estauxi2 = new FieldDef("estauxi2",FieldDef.INTEGER,0);
+      estauxi3 = new FieldDef("estauxi3",FieldDef.INTEGER,0);
+      estauxa1 = new FieldDef("estauxa1",FieldDef.CHAR,100);
+      estauxa2 = new FieldDef("estauxa2",FieldDef.CHAR,100);
+      estauxa3 = new FieldDef("estauxa3",FieldDef.CHAR,100);
+      FieldDef array[] = {
+        estcodigo,
+        estnombre,
+        estcolor,
+        estfuente,
+        estnegrita,
+        estcursiva,
+        estauxi1,
+        estauxi2,
+        estauxi3,
+        estauxa1,
+        estauxa2,
+        estauxa3        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {estcodigo };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabInfplantilla extends TableDef
+    {
+    // Campos
+    public FieldDef ipcodplant;
+    public FieldDef ipdesc;
+    public FieldDef ipmostrar0;
+    public TabInfplantilla(String name)
+      {
+      super(name);
+      ipcodplant = new FieldDef("ipcodplant",FieldDef.CHAR,10,FieldDef.NOTNULL);
+      ipdesc = new FieldDef("ipdesc",FieldDef.CHAR,60,FieldDef.NOTNULL);
+      ipmostrar0 = new FieldDef("ipmostrar0",FieldDef.CHAR,1);
+      FieldDef array[] = {
+        ipcodplant,
+        ipdesc,
+        ipmostrar0        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {ipcodplant };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabInfplantlinea extends TableDef
+    {
+    // Campos
+    public FieldDef iplcodigo;
+    public FieldDef iplcodplant;
+    public FieldDef iplnumero;
+    public FieldDef iplcodlin;
+    public FieldDef ipldesc;
+    public FieldDef ipltotalizar;
+    public FieldDef ipltotaldesc;
+    public FieldDef ipldesde;
+    public FieldDef iplhasta;
+    public FieldDef iplmayor;
+    public FieldDef iplformula;
+    public FieldDef iplestilo;
+    public FieldDef iplestilot;
+    public TabInfplantlinea(String name)
+      {
+      super(name);
+      iplcodigo = new FieldDef("iplcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      iplcodplant = new FieldDef("iplcodplant",FieldDef.CHAR,10,FieldDef.NOTNULL);
+      iplnumero = new FieldDef("iplnumero",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      iplcodlin = new FieldDef("iplcodlin",FieldDef.CHAR,20);
+      ipldesc = new FieldDef("ipldesc",FieldDef.CHAR,60);
+      ipltotalizar = new FieldDef("ipltotalizar",FieldDef.CHAR,1);
+      ipltotaldesc = new FieldDef("ipltotaldesc",FieldDef.CHAR,60);
+      ipldesde = new FieldDef("ipldesde",FieldDef.CHAR,17);
+      iplhasta = new FieldDef("iplhasta",FieldDef.CHAR,17);
+      iplmayor = new FieldDef("iplmayor",FieldDef.CHAR,1);
+      iplformula = new FieldDef("iplformula",FieldDef.CHAR,255);
+      iplestilo = new FieldDef("iplestilo",FieldDef.CHAR,10);
+      iplestilot = new FieldDef("iplestilot",FieldDef.CHAR,10);
+      FieldDef array[] = {
+        iplcodigo,
+        iplcodplant,
+        iplnumero,
+        iplcodlin,
+        ipldesc,
+        ipltotalizar,
+        ipltotaldesc,
+        ipldesde,
+        iplhasta,
+        iplmayor,
+        iplformula,
+        iplestilo,
+        iplestilot        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {iplcodigo };
+      setPrimaryKeys(arrayf);
+      iplcodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabInfplantcol extends TableDef
+    {
+    // Campos
+    public FieldDef ipccodigo;
+    public FieldDef ipccodplant;
+    public FieldDef ipcnumero;
+    public FieldDef ipcdesc;
+    public FieldDef ipcejercol;
+    public FieldDef ipcdesdemes;
+    public FieldDef ipchastames;
+    public FieldDef ipcpositivos;
+    public FieldDef ipctiposaldo;
+    public FieldDef ipcformula;
+    public TabInfplantcol(String name)
+      {
+      super(name);
+      ipccodigo = new FieldDef("ipccodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      ipccodplant = new FieldDef("ipccodplant",FieldDef.CHAR,10,FieldDef.NOTNULL);
+      ipcnumero = new FieldDef("ipcnumero",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      ipcdesc = new FieldDef("ipcdesc",FieldDef.CHAR,30);
+      ipcejercol = new FieldDef("ipcejercol",FieldDef.INTEGER,0);
+      ipcdesdemes = new FieldDef("ipcdesdemes",FieldDef.INTEGER,0);
+      ipchastames = new FieldDef("ipchastames",FieldDef.INTEGER,0);
+      ipcpositivos = new FieldDef("ipcpositivos",FieldDef.CHAR,1);
+      ipctiposaldo = new FieldDef("ipctiposaldo",FieldDef.CHAR,1);
+      ipcformula = new FieldDef("ipcformula",FieldDef.CHAR,255);
+      FieldDef array[] = {
+        ipccodigo,
+        ipccodplant,
+        ipcnumero,
+        ipcdesc,
+        ipcejercol,
+        ipcdesdemes,
+        ipchastames,
+        ipcpositivos,
+        ipctiposaldo,
+        ipcformula        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {ipccodigo };
+      setPrimaryKeys(arrayf);
+      ipccodigo.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabValidanomaeat extends TableDef
+    {
+    // Campos
+    public FieldDef vnacodi;
+    public FieldDef vnacodigoemp;
+    public FieldDef vnanombreemp;
+    public FieldDef vnacodigo;
+    public FieldDef vnanombre;
+    public FieldDef vnanif;
+    public FieldDef vnaestadoaeat;
+    public FieldDef vnanombreaeat;
+    public FieldDef vnanom;
+    public FieldDef vnaapell1;
+    public FieldDef vnaapell2;
+    public FieldDef vnaestadoctrl;
+    public FieldDef vnafechactrl;
+    public FieldDef vnabasedatos;
+    public FieldDef vnatabla;
+    public FieldDef vnanifemp;
+    public TabValidanomaeat(String name)
+      {
+      super(name);
+      vnacodi = new FieldDef("vnacodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      vnacodigoemp = new FieldDef("vnacodigoemp",FieldDef.INTEGER,0);
+      vnanombreemp = new FieldDef("vnanombreemp",FieldDef.CHAR,40);
+      vnacodigo = new FieldDef("vnacodigo",FieldDef.CHAR,100);
+      vnanombre = new FieldDef("vnanombre",FieldDef.CHAR,200);
+      vnanif = new FieldDef("vnanif",FieldDef.CHAR,15);
+      vnaestadoaeat = new FieldDef("vnaestadoaeat",FieldDef.CHAR,15);
+      vnanombreaeat = new FieldDef("vnanombreaeat",FieldDef.CHAR,200);
+      vnanom = new FieldDef("vnanom",FieldDef.CHAR,50);
+      vnaapell1 = new FieldDef("vnaapell1",FieldDef.CHAR,100);
+      vnaapell2 = new FieldDef("vnaapell2",FieldDef.CHAR,50);
+      vnaestadoctrl = new FieldDef("vnaestadoctrl",FieldDef.CHAR,15);
+      vnafechactrl = new FieldDef("vnafechactrl",FieldDef.DATE);
+      vnabasedatos = new FieldDef("vnabasedatos",FieldDef.CHAR,15);
+      vnatabla = new FieldDef("vnatabla",FieldDef.CHAR,15);
+      vnanifemp = new FieldDef("vnanifemp",FieldDef.CHAR,15);
+      FieldDef array[] = {
+        vnacodi,
+        vnacodigoemp,
+        vnanombreemp,
+        vnacodigo,
+        vnanombre,
+        vnanif,
+        vnaestadoaeat,
+        vnanombreaeat,
+        vnanom,
+        vnaapell1,
+        vnaapell2,
+        vnaestadoctrl,
+        vnafechactrl,
+        vnabasedatos,
+        vnatabla,
+        vnanifemp        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {vnacodi };
+      setPrimaryKeys(arrayf);
+      vnacodi.setAutoIncrementable(true);
+      }
+    }
+    
   public CatAdmon()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -4211,6 +4460,11 @@ public class CatAdmon extends Catalog
     tablogjcontax = new TabLogjcontax("logjcontax");
     tabavisos = new TabAvisos("avisos");
     tabjcoimpexcel = new TabJcoimpexcel("jcoimpexcel");
+    tabestilos = new TabEstilos("estilos");
+    tabinfplantilla = new TabInfplantilla("infplantilla");
+    tabinfplantlinea = new TabInfplantlinea("infplantlinea");
+    tabinfplantcol = new TabInfplantcol("infplantcol");
+    tabvalidanomaeat = new TabValidanomaeat("validanomaeat");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -4300,7 +4554,12 @@ public class CatAdmon extends Catalog
       tablibregmerext,
       tablogjcontax,
       tabavisos,
-      tabjcoimpexcel      
+      tabjcoimpexcel,
+      tabestilos,
+      tabinfplantilla,
+      tabinfplantlinea,
+      tabinfplantcol,
+      tabvalidanomaeat      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
@@ -4434,6 +4693,20 @@ public class CatAdmon extends Catalog
       new ForeignKey(tabtareajasper,tabtareajasperdetArrayf1)      
       };
     tabtareajasperdet.setForeignKeys(tabtareajasperdetArrayfk);
+    FieldDef tabinfplantlineaArrayf1[] = { tabinfplantlinea.iplcodplant };
+    FieldDef tabinfplantlineaArrayf2[] = { tabinfplantlinea.iplestilo };
+    FieldDef tabinfplantlineaArrayf3[] = { tabinfplantlinea.iplestilot };
+    ForeignKey tabinfplantlineaArrayfk[] = { 
+      new ForeignKey(tabinfplantilla,tabinfplantlineaArrayf1),
+      new ForeignKey(tabestilos,tabinfplantlineaArrayf2),
+      new ForeignKey(tabestilos,tabinfplantlineaArrayf3)      
+      };
+    tabinfplantlinea.setForeignKeys(tabinfplantlineaArrayfk);
+    FieldDef tabinfplantcolArrayf1[] = { tabinfplantcol.ipccodplant };
+    ForeignKey tabinfplantcolArrayfk[] = { 
+      new ForeignKey(tabinfplantilla,tabinfplantcolArrayf1)      
+      };
+    tabinfplantcol.setForeignKeys(tabinfplantcolArrayfk);
     }
   }
   

@@ -38,7 +38,7 @@ public class Easp {
   //variables de versiones
   public static String versionAplicacion="9.8";
   public static String versionFecha="Noviembre/2017";
-  public static String versionBDEA="14.3";
+  public static String versionBDEA="14.4";
 
   public static enum TIPO_HOST { LOCALHOST, AZURE, AZUREMSDN};
   public static TIPO_HOST HOST = TIPO_HOST.AZURE;
@@ -142,7 +142,7 @@ public class Easp {
       }
     HOST = TIPO_HOST.AZURE;
     System.out.println("**************** HOST JEA = "+Easp.HOST);
-    
+
     return true;
     }
 

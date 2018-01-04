@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171211
-// Hora:             15:50:13
+// Fecha:            20180103
+// Hora:             16:19:53
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -25,12 +25,12 @@ public class ProgPrvalidanomaeat extends Program
   public AppEasp easp;
   public ProgPrvalidanomaeat prvalidanomaeat;
   // Inicio declaraciones globales
-  
-  
   public String aplicacion = "" ;
   public int    codEmp = 0 ;
+  public int    ejercicio=0;
   
   public DBConnection connExterna = null ;
+  public DBConnection connExtMod  = null ;
   public String       tablaUpdate = null ;
   public String       campoUpdate = null ;
   public String       campoCodEmpresa = null ;
@@ -345,6 +345,9 @@ public class ProgPrvalidanomaeat extends Program
     public Field vnanombre;
     public Field vnanombreaeat;
     public Field vnanombreemp;
+    public Field vnabasedatos;
+    public Field vnatabla;
+    public Field vnanifemp;
     class Validanomaeat extends Table
       {
       public Validanomaeat(Select select)
@@ -372,6 +375,9 @@ public class ProgPrvalidanomaeat extends Program
       addField(vnanombre=new Field(this,validanomaeat,"vnanombre"));
       addField(vnanombreaeat=new Field(this,validanomaeat,"vnanombreaeat"));
       addField(vnanombreemp=new Field(this,validanomaeat,"vnanombreemp"));
+      addField(vnabasedatos=new Field(this,validanomaeat,"vnabasedatos"));
+      addField(vnatabla=new Field(this,validanomaeat,"vnatabla"));
+      addField(vnanifemp=new Field(this,validanomaeat,"vnanifemp"));
       }
     public String getWhere()
       {
@@ -403,6 +409,9 @@ public class ProgPrvalidanomaeat extends Program
     public Field vnanombre;
     public Field vnanombreaeat;
     public Field vnanombreemp;
+    public Field vnabasedatos;
+    public Field vnatabla;
+    public Field vnanifemp;
     class Validanomaeat extends Table
       {
       public Validanomaeat(Select select)
@@ -430,6 +439,9 @@ public class ProgPrvalidanomaeat extends Program
       addField(vnanombre=new Field(this,validanomaeat,"vnanombre"));
       addField(vnanombreaeat=new Field(this,validanomaeat,"vnanombreaeat"));
       addField(vnanombreemp=new Field(this,validanomaeat,"vnanombreemp"));
+      addField(vnabasedatos=new Field(this,validanomaeat,"vnabasedatos"));
+      addField(vnatabla=new Field(this,validanomaeat,"vnatabla"));
+      addField(vnanifemp=new Field(this,validanomaeat,"vnanifemp"));
       }
     }
     
@@ -441,12 +453,12 @@ public class ProgPrvalidanomaeat extends Program
     // Campos
     public Field danifcif;
     public Field datapell1;
+    public Field datapell1ant;
     public Field datapell2;
+    public Field datapell2ant;
     public Field datipo;
     public Field datnombre;
     public Field datnombreant;
-    public Field datapell1ant;
-    public Field datapell2ant;
     class Nifes extends Table
       {
       public Nifes(Select select)
@@ -463,12 +475,12 @@ public class ProgPrvalidanomaeat extends Program
       addTable(nifes=new Nifes(this));
       addField(danifcif=new Field(this,nifes,"danifcif"));
       addField(datapell1=new Field(this,nifes,"datapell1"));
+      addField(datapell1ant=new Field(this,nifes,"datapell1ant"));
       addField(datapell2=new Field(this,nifes,"datapell2"));
+      addField(datapell2ant=new Field(this,nifes,"datapell2ant"));
       addField(datipo=new Field(this,nifes,"datipo"));
       addField(datnombre=new Field(this,nifes,"datnombre"));
       addField(datnombreant=new Field(this,nifes,"datnombreant"));
-      addField(datapell1ant=new Field(this,nifes,"datapell1ant"));
-      addField(datapell2ant=new Field(this,nifes,"datapell2ant"));
       }
     }
     

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171205
-// Hora:             16:37:40
+// Fecha:            20180103
+// Hora:             15:42:35
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -4322,6 +4322,9 @@ public class CatEasp extends Catalog
     public FieldDef vnaapell2;
     public FieldDef vnaestadoctrl;
     public FieldDef vnafechactrl;
+    public FieldDef vnabasedatos;
+    public FieldDef vnatabla;
+    public FieldDef vnanifemp;
     public TabValidanomaeat(String name)
       {
       super(name);
@@ -4338,6 +4341,9 @@ public class CatEasp extends Catalog
       vnaapell2 = new FieldDef("vnaapell2",FieldDef.CHAR,50);
       vnaestadoctrl = new FieldDef("vnaestadoctrl",FieldDef.CHAR,15);
       vnafechactrl = new FieldDef("vnafechactrl",FieldDef.DATE);
+      vnabasedatos = new FieldDef("vnabasedatos",FieldDef.CHAR,15);
+      vnatabla = new FieldDef("vnatabla",FieldDef.CHAR,15);
+      vnanifemp = new FieldDef("vnanifemp",FieldDef.CHAR,15);
       FieldDef array[] = {
         vnacodi,
         vnacodigoemp,
@@ -4351,7 +4357,10 @@ public class CatEasp extends Catalog
         vnaapell1,
         vnaapell2,
         vnaestadoctrl,
-        vnafechactrl        
+        vnafechactrl,
+        vnabasedatos,
+        vnatabla,
+        vnanifemp        
         };
       setColumns(array);
       FieldDef arrayf[] = {vnacodi };

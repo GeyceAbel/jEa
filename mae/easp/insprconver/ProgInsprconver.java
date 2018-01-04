@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171205
-// Hora:             16:36:30
+// Fecha:            20180103
+// Hora:             15:41:35
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1587,6 +1587,9 @@ public class ProgInsprconver extends Program
       " alter table nifes add  datapell2ant VARCHAR(50)  "
       };
     
+    String sentencias14_4[]={"ALTER table VALIDANOMAEAT  add  vnabasedatos    VARCHAR(15);",
+    "ALTER TABLE VALIDANOMAEAT ADD vnatabla        VARCHAR(15);",
+    "ALTER TABLE VALIDANOMAEAT ADD vnanifemp       VARCHAR(15);"};
     
       int i=0;
       try {
@@ -3650,9 +3653,22 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("14.3");
         }
-    
-    
-    
+        if (versio < 14.4) {
+            for (i=0;i<sentencias14_4.length;++i) {
+                try {
+                    Easp.chivato("14.4 Exec : ["+sentencias14_4[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias14_4[i]);
+                }
+                catch(Exception e) {
+                    sqlOperation=sentencias14_4[i];
+                    Easp.chivato("14.4 *** Error : ["+sentencias14_4[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","14.4");
+            Easp.connEA.commit();
+            vvveractual.setValue("14.4");
+        }
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
