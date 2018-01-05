@@ -18,7 +18,7 @@ public class ValidNamesAEAT {
   public ValidNamesAEAT(mae.easp.prvalidanomaeat.ProgPrvalidanomaeat vPr ) {
     pr = vPr ;
     }
-  
+
   public void corregirNombres ( ) {
 
     String whereExtra = " and vnaestadoaeat = 'SIMILAR' " ;
@@ -62,7 +62,13 @@ public class ValidNamesAEAT {
          }
          else {
            // socios directament nifes
-           if ("acumulado347".equals(pr.svalidautil.vnatabla.getString())) {
+           if ("empresa".equals(pr.svalidautil.vnatabla.getString())) {
+              sufijonif = "nif";
+              prefijo = "emp";
+              sufijonombre = "nombre";
+              where = prefijo+"codigo="+pr.svalidautil.vnacodigoemp.getInteger();
+           }
+           else if ("acumulado347".equals(pr.svalidautil.vnatabla.getString())) {
               sufijonif = "nif";
               prefijo = "a347";
               where = prefijo+"empresa="+pr.svalidautil.vnacodigoemp.getInteger()+" and "+prefijo+"ejercicio="+pr.ejercicio+" and "+prefijo+sufijonif+"='"+pr.svalidautil.vnanif.getString()+"'";
@@ -72,7 +78,7 @@ public class ValidNamesAEAT {
               prefijo = "pcu";
               sufijonombre = "desc";
               String cuenta = "";
-              String subcuenta = "";              
+              String subcuenta = "";
               if (pr.svalidautil.vnacodigo.getString()!=null && !"".equals(pr.svalidautil.vnacodigo.getString().trim())) {
             	  cuenta = pr.svalidautil.vnacodigo.getString().substring(0,20).trim();
             	  subcuenta = pr.svalidautil.vnacodigo.getString().substring(20).trim();
