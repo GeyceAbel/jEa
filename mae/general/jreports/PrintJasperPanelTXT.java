@@ -299,7 +299,12 @@ public class PrintJasperPanelTXT extends PrintJasperPanel
 								Node e = nNodeChild.getAttributes().getNamedItem("format");
 								Node tipus = nNodeChild.getAttributes().getNamedItem("tipus");
 								Node total = nNodeChild.getAttributes().getNamedItem("total");
-								String contingut=nNodeChild.getNodeValue();
+								//String contingut=nNodeChild.getNodeValue();
+								
+								String contingut = null;
+								if(nNodeChild.getFirstChild() != null)
+								  contingut=  nNodeChild.getFirstChild().getNodeValue();
+								
 								if(e!=null && contingut !=null  && !contingut.trim().equals("")) {
 									int tipus2=Integer.valueOf(tipus.getNodeValue());
 									String format = e.getNodeValue();
