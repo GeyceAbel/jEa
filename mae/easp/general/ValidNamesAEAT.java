@@ -42,12 +42,16 @@ public class ValidNamesAEAT {
     			prefijo = "m"+pr.svalidautil.vnatabla.getString().substring(3);
     			if ("mod184n".equals(pr.svalidautil.vnatabla.getString())) sufijonif = "nifmiembr";
     			else if ("mod190d".equals(pr.svalidautil.vnatabla.getString()) || "mod110d".equals(pr.svalidautil.vnatabla.getString())) sufijonombre = "nombre";
+    			else if ("mod182d".equals(pr.svalidautil.vnatabla.getString())) {
+    				sufijonif = "nifdec";
+    				sufijonombre = "nomdec";
+    			}
     			else if ("mod347d".equals(pr.svalidautil.vnatabla.getString())) sufijonif = "nifado";
     			else if ("mod180e".equals(pr.svalidautil.vnatabla.getString()) || "mod184d".equals(pr.svalidautil.vnatabla.getString()) ) {
     				sufijonif = "nif";
     				sufijonombre = "apellidos";
     			}
-    			else if ("mod190c".equals(pr.svalidautil.vnatabla.getString()) || "mod347c".equals(pr.svalidautil.vnatabla.getString()) || "mod193c".equals(pr.svalidautil.vnatabla.getString()) ) {
+    			else if ("mod190c".equals(pr.svalidautil.vnatabla.getString()) || "mod347c".equals(pr.svalidautil.vnatabla.getString()) || "mod193c".equals(pr.svalidautil.vnatabla.getString()) || "mod182c".equals(pr.svalidautil.vnatabla.getString()) ) {
     				sufijonif = "nif";
     				sufijonombre = "razon";
     			}
