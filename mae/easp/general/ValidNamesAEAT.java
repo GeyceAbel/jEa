@@ -1,7 +1,5 @@
 package mae.easp.general;
 
-import java.util.Date;
-
 import geyce.maefc.*;
 import mae.general.*;
 
@@ -29,7 +27,47 @@ public class ValidNamesAEAT {
 
     pr.svalidautil.execute();
     while ( !pr.svalidautil.isEof() ) {
-    	if ("JEO".equals(pr.aplicacion) || "JMODELOS".equals(pr.aplicacion))  {
+    	if ("JCONTA".equals(pr.aplicacion))  {    		
+    		pr.snifes.setWhere("danifcif = '"+pr.svalidautil.vnanif.getString()+"'");
+    		pr.snifes.execute();
+    		if ( !pr.snifes.isEof() ) {
+    			boolean retorn = false ;
+    			String nomAEAT = pr.svalidautil.vnanombreaeat.getString();
+    			String noms[] = separa(nomAEAT);
+    			if ( pr.connExterna != null ) {
+    				String codigo = pr.svalidautil.vnacodigo.getString() ;    					
+    				if ( codigo!=null && codigo.contains(".") && codigo.split("\\.").length>=2) {
+    					String cta = codigo.split("\\.")[0];
+    					String scta = codigo.split("\\.")[1];
+    					Update u = new Update (pr.connExterna,"PCUENTAS");
+    					u.valor("pcudesc",nomAEAT);
+    					retorn = u.execute("pcuempresa="+pr.svalidautil.vnacodigoemp.getInteger()+" and pcucuenta='"+cta+"' and pcusubcuenta='"+scta+"'");
+    				}
+    			}
+
+    			if ( retorn ) {
+    				pr.snifes.edit();
+    				if ( pr.snifes.datapell1ant.isNull() && pr.snifes.datapell2ant.isNull() && pr.snifes.datnombreant.isNull() ) {
+    					pr.snifes.datapell1ant  .setValue(pr.snifes.datapell1 );
+    					pr.snifes.datapell2ant  .setValue(pr.snifes.datapell2 );
+    					pr.snifes.datnombreant  .setValue(pr.snifes.datnombre );
+    				}
+    				pr.snifes.datapell1  .setValue(noms[0]);
+    				pr.snifes.datapell2  .setValue(noms[1]);
+    				pr.snifes.datnombre  .setValue(noms[2]);
+    				pr.snifes.update();
+
+    				pr.svalidautil.edit();
+    				pr.svalidautil.vnanombre.setValue(nomAEAT);
+    				pr.svalidautil.vnaestadoaeat.setValue("VALIDO");
+    				pr.svalidautil.update();
+
+    			}
+
+    		}
+
+    	}
+    	else if ("JEO".equals(pr.aplicacion) || "JMODELOS".equals(pr.aplicacion))  {
     		String tabla2 = "";
     		String prefijo = "";
     		String prefijo2 = "";
