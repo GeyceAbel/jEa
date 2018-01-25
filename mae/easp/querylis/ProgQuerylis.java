@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171113
-// Hora:             11:50:22
+// Fecha:            20180125
+// Hora:             15:33:57
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -773,8 +773,7 @@ public class ProgQuerylis extends Program
           else where=selwhere+" and ("+where+")";
         }
       }
-      /*
-      else if (aplicacion.equals("JCONTA")) {
+      else if (aplicacion.equals("JCONTA") && "GYC-C347-14".equals(squery.qeffrase.getString())) {
      	  String nomCampEmpresa = null;
         CatCtasp catjco = new CatCtasp();
         TableDef td = catjco.getTable(squery.qefmaster.getString().toLowerCase());
@@ -790,7 +789,6 @@ public class ProgQuerylis extends Program
         	else where += " and ("+nomCampEmpresa+"="+empresaJCONTA+")";
         }
       }
-      */
       else if ("E".equals(frase.ect) || "C".equals(frase.ect) || "T".equals(frase.ect)) {
               String selwhere="SELUSUARIO='"+Aplication.getAplication().getUser()+"' and SELPROGRAMA='QUERY'";
   
