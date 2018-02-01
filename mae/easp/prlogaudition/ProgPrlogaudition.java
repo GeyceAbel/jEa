@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180104
-// Hora:             13:00:09
+// Fecha:            20180201
+// Hora:             17:33:05
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -31,8 +31,9 @@ public class ProgPrlogaudition extends Program
   DBConnection connAudition = null;
   private boolean initConnection() {
     boolean bOk = false;
-    String ubicFitxerDesti = System.getProperty("user.dir")+"\\adt\\";
+    String ubicFitxerDesti = System.getProperty("user.dir")+"\\adt\\";  
     String nomFitxerDesti = "adtgyc_"+Aplication.getAplication().getName()+"_"+Maefc.getYear(Maefc.getDate())+".mdb";
+    if (Aplication.getAplication().getAudition() instanceof DefaultAuditionProgram) nomFitxerDesti = ((DefaultAuditionProgram)Aplication.getAplication().getAudition()).getNombreBD()+"_"+Aplication.getAplication().getName()+"_"+Maefc.getYear(Maefc.getDate())+".mdb";
     DataBase db=new DataBase();
     db.setName(nomFitxerDesti.substring(0, nomFitxerDesti.length()-4));
     db.setMyServer(ubicFitxerDesti);
