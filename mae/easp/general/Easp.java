@@ -38,7 +38,7 @@ public class Easp {
   //variables de versiones
   public static String versionAplicacion="9.8";
   public static String versionFecha="Noviembre/2017";
-  public static String versionBDEA="14.4";
+  public static String versionBDEA="14.5";
 
   public static enum TIPO_HOST { LOCALHOST, AZURE, AZUREMSDN};
   public static TIPO_HOST HOST = TIPO_HOST.AZURE;
@@ -382,9 +382,9 @@ public class Easp {
       if ( Double.valueOf(version).doubleValue() < 7.6 ) return true ;
 
       //APJORDI 12/05/2017
-      //Primer de tot borrem totes les sessions d'aquel PC, ja que sino s'acumulaven (si obria 2 sessions desde el mateix PC)      
+      //Primer de tot borrem totes les sessions d'aquel PC, ja que sino s'acumulaven (si obria 2 sessions desde el mateix PC)
       cerrarSesion(aplicacion, usuario);
-      
+
       Select ssesiones         = new Select(connEA);
       Table tbsesiones         = new Table(ssesiones,"sesiones");
       Field fdsescodigo        = new Field(ssesiones,tbsesiones,"sescodigo");
@@ -506,7 +506,7 @@ public class Easp {
     		    az.addParametroURL("ppuestosper", licencias);
     		    az.addParametroURL("ppuestosocu", sesiones);
     		    az.addParametroURL("pnomspcocu", detallePL);
-    		    az.procesar(); 
+    		    az.procesar();
     	      }
     	    catch (Exception e) {
     		    e.printStackTrace();
@@ -1074,7 +1074,7 @@ public static String cargoRepresentante(String tipoCargo ) {
     else if ( tipoCargo.equals("T") ) return "Titular";
     return "" ;
     }
-  
+
 
 
   public static void runFichaGeneral(String apl,String codiCDP,String nifcif, boolean alta){
@@ -1831,7 +1831,7 @@ public static Date esFecha (String s){
       pr.run();
       }
     }
-  
+
 
   /**
    * inserta o actualiza el valor de un parámetro
@@ -2113,24 +2113,24 @@ public static Date esFecha (String s){
 	  if (az.procesar()) codCDP = az.getContenido();
 	  if ( codCDP== null || codCDP.trim().length() != 12 ) {
 		  codCDP = null ;
-	      System.out.println("CDP no encontrado en tabla cdp de la base de Datos Afinity ");		  
+	      System.out.println("CDP no encontrado en tabla cdp de la base de Datos Afinity ");
 	  }
 	  return codCDP;
   }
 
-  
+
   public static String getFecha(Date fecha ) {
     if ( fecha == null ) return "" ;
     else                 return Fecha.fechaGregoriana(fecha).substring(6,8)+"-"+Fecha.fechaGregoriana(fecha).substring(4,6)+"-"+Fecha.fechaGregoriana(fecha).substring(0,4) ;
     }
 
-  
+
   public static boolean grabaUsoAfinity(String dominio, String aplic, String coddato, int ejer,int peri,String nomUser, int datoint1 , int datoint2 , int datoint3 , double datodou1 , double datodou2 , double datodou3 , String datostr1 , String datostr2 , String datostr3 , Date datodat1 , Date datodat2 , Date datodat3  ){
     try {
       String nomPC = nomUser ; nomPC = java.net.InetAddress.getLocalHost().getHostName() ;
       String dns=URL_AFINITY+"/pls/agpi/";
       String procedure = "logusos.setUso";
-      
+
       String parametres = "pcdp="+dominio+
                                      "&paplic="+aplic+
                                      "&pcoddato="+coddato+
@@ -2150,7 +2150,7 @@ public static Date esFecha (String s){
                                      "&pdatodat1="+getFecha(datodat1)+
                                      "&pdatodat2="+getFecha(datodat2)+
                                      "&pdatodat3 ="+getFecha(datodat3);
-  
+
 
     Azure az0 = new Azure (procedure);
     az0.addParametroURL("pcdp", dominio);
@@ -2187,7 +2187,7 @@ public static Date esFecha (String s){
 
 
       // System.out.println(" Ini: "+Fecha.getHora(Maefc.getDateTime(),"HH:mm:ss") );
-      
+
       InputStream stream;
 
         try {
@@ -2195,17 +2195,17 @@ public static Date esFecha (String s){
           az1.addParametroURL ("pcdp",dominio);
           az1.addParametroURL ("paplic",aplic);
           az1.addParametroURL ("pproduc",producto);
-          
+
             String contenido = "" ;
             if (az1.procesar())  {
-              contenido = az1.getContenido();  
+              contenido = az1.getContenido();
               if (contenido.indexOf("<error>")>0) {
-                  String error = contenido.substring((contenido.indexOf("<error>")+7),contenido.indexOf("</error>")); 
+                  String error = contenido.substring((contenido.indexOf("<error>")+7),contenido.indexOf("</error>"));
                   String mensaje ="Error 13 : " + error ;
-                  Maefc.message(mensaje ,"Error",Maefc.ERROR_MESSAGE); 
+                  Maefc.message(mensaje ,"Error",Maefc.ERROR_MESSAGE);
               }
-              else {          
-           
+              else {
+
                 DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder builder = builderFactory.newDocumentBuilder();
                 stream = new ByteArrayInputStream(contenido.getBytes());
@@ -2240,19 +2240,19 @@ public static Date esFecha (String s){
           }
         catch(Exception ex) {
           ex.printStackTrace();
-          System.out.println("Error 14:"+ex.getMessage());     
+          System.out.println("Error 14:"+ex.getMessage());
           }
         }
     catch(Exception e ) {
       System.out.println("Error 14b : "+e);
       }
-    
+
     // System.out.println(" Fin: "+Fecha.getHora(Maefc.getDateTime(),"HH:mm:ss") );
-    
+
      return false;
      }
 
-  
+
   public static void getUso(DBConnection connDB ,String usuario ,String uscaplic  , String uscdominio , String uscproducto, String usccoddato, String uscfechaini, String uscfechafin, String usctipo , String uscsentencia , String uscrecorre , String uscborraejer , String uscborraperi , String uscdesde, String uschasta , String uscprogram , String uscventana , String uscaccion ,    String usctipoau ) {
     ErrorManager actual = Aplication.getAplication().getErrorManager();
     try {
@@ -2264,18 +2264,18 @@ public static Date esFecha (String s){
       Selector selector = new Selector(connDB);
       selector.execute(uscsentencia);
       while ( selector.next() ) {
-        
+
         int datoint1 = 0 ; int datoint2 = 0 ; int datoint3 = 0 ;
         double datodou1 = 0.0 ; double datodou2 = 0.0 ; double datodou3 = 0.0 ;
         String datostr1 = "" ; String datostr2 = "" ; String datostr3 = "" ;
         Date datodat1 = null ; Date datodat2 = null ; Date datodat3 = null ;
-       
+
         int numint = 1 ; int numdou = 1 ; int numstr = 1 ; int numdat = 1 ;
-        
+
         for ( int i = 0 ; i < selector.getColumnCount() ; i++ ) {
           int tipo = selector.getColumnType(i+1) ;
           // System.out.println("coddato: ["+usccoddato+"] campo: ["+i+"] Tipo: ["+tipo+"] sentencia: ["+uscsentencia+"]");
-          
+
             if      ( tipo == 4 && numint == 1 )  { numint++; datoint1 = selector.getint(i+1); }
             else if ( tipo == 4 && numint == 2 )  { numint++; datoint2 = selector.getint(i+1); }
             else if ( tipo == 4 && numint == 3 )  { numint++; datoint3 = selector.getint(i+1); }
@@ -2291,59 +2291,59 @@ public static Date esFecha (String s){
             else if ( numstr == 1 )               { numstr++; datostr1 = selector.getString(i+1); }
             else if ( numstr == 2 )               { numstr++; datostr2 = selector.getString(i+1); }
             else if ( numstr == 3 )               { numstr++; datostr3 = selector.getString(i+1); }
-          
+
           }
 
         // String horaini = Fecha.getHora(Maefc.getDateTime(),"HH:mm:ss") ;
-        
+
         int tipoWhereExtra = 0 ;
         if      ( uscborraperi != null && uscborraperi.equals("1") ) tipoWhereExtra = 13;
         else if ( uscborraperi != null && uscborraperi.equals("2") ) tipoWhereExtra = 14;
         else if ( uscborraperi != null && uscborraperi.equals("3") ) tipoWhereExtra = 15;
         else if ( uscborraperi != null && uscborraperi.equals("4") ) tipoWhereExtra = 16;
-        
+
         grabaUsoAfinity(uscdominio, uscaplic, usccoddato, 0, tipoWhereExtra , usuario , datoint1, datoint2, datoint3, datodou1, datodou2, datodou3, datostr1, datostr2, datostr3, datodat1, datodat2, datodat3);
-        
-        // System.out.println("     subIni:  ["+horaini+"] subFin: "+Fecha.getHora(Maefc.getDateTime(),"HH:mm:ss") );    
+
+        // System.out.println("     subIni:  ["+horaini+"] subFin: "+Fecha.getHora(Maefc.getDateTime(),"HH:mm:ss") );
         // System.out.println("             datoint1: ["+datoint1+"] datoint2: ["+datoint2+"] datoint3: ["+datoint3+"] datodou1: ["+datodou1+"] datodou2: ["+datodou2+"] datodou3: ["+datodou3+"]  datostr1: ["+datostr1+"] datostr2: ["+datostr2+"] datostr3: ["+datostr3+"]  datodat1: ["+datodat1+"] datodat2: ["+datodat2+"] datodat3: ["+datodat3+"]");
         // System.out.println("");
-        
+
         if ( uscrecorre == null || !uscrecorre.equals("S") ) {
           break;
           }
         }
-      
+
       selector.close() ;
 
-      
+
       }
     else if ( usctipo != null && usctipo.equals("U")) { //Tipo Uso/Audition
-      
+
       }
-    
-    
+
+
     }
     catch(Exception e ) {
       System.out.println("Error 5: ["+e+"]");
       }
-    
+
     Aplication.getAplication().setErrorManager(actual);
-    
+
     }
-  
-  
-  
-  public static java.util.Date getDate(org.w3c.dom.Node node) {    
+
+
+
+  public static java.util.Date getDate(org.w3c.dom.Node node) {
     java.util.Date retorn = null ;
-    try {    
+    try {
       String fec = "" ;
-      if  ( node != null &&  node.getFirstChild() != null ) {                
-        fec = node.getFirstChild().getNodeValue();       
+      if  ( node != null &&  node.getFirstChild() != null ) {
+        fec = node.getFirstChild().getNodeValue();
         if ( fec != null && !fec.equals("") && fec.length() == 10 ) {
           retorn =  Fecha.construyeFecha( Integer.parseInt(fec.substring(0, 2)), Integer.parseInt(fec.substring(3, 5)) , Integer.parseInt(fec.substring(6)) )  ;
-        }       
-      }   
-    }    
+        }
+      }
+    }
     catch(Exception e ) {
       return null ;
     }
@@ -2351,22 +2351,22 @@ public static Date esFecha (String s){
   }
 
 
-  public static String getString(org.w3c.dom.Node node) {    
+  public static String getString(org.w3c.dom.Node node) {
     String retorn = null ;
-    try {    
+    try {
       String fec = "" ;
-      if  ( node != null &&  node.getFirstChild() != null ) {                
-        retorn = node.getFirstChild().getNodeValue();       
-      }   
-    }    
+      if  ( node != null &&  node.getFirstChild() != null ) {
+        retorn = node.getFirstChild().getNodeValue();
+      }
+    }
     catch(Exception e ) {
       return null ;
     }
     return retorn ;
   }
 
-  
-  
+
+
 	/**Funció per gravar les taules de datgen, clientedp, usuario, contratado i Uso a Afinity
 	 * amb les dades del cdp. Crida a una procedure que s'encarrega de gravar
 	 * @param cdp, codigo del cdp
@@ -2451,7 +2451,7 @@ public static Date esFecha (String s){
   public static String getTipoBD(String sDominio ) {
 	  String resu="";
 	  Azure az = new Azure ("agpi2dp.gettipobd");
-	  az.addParametroURL ("pcod",sDominio);	  
+	  az.addParametroURL ("pcod",sDominio);
 	  if (az.procesar()) resu = az.getContenido();
 	  return resu;
   }
@@ -2459,13 +2459,13 @@ public static Date esFecha (String s){
   public static java.util.Hashtable <String,String> parametresAplic(String sDominio, String sServei) {
 
 	java.util.Hashtable <String,String> htParametres = new java.util.Hashtable <String,String> ();
-    
+
 	String contingut ="";
     Azure az = new Azure ("agpi2dp.getURLConnect");
     az.addParametroURL ("pcod",sDominio);
-    az.addParametroURL ("pservicio",sServei);    
+    az.addParametroURL ("pservicio",sServei);
     if (az.procesar()) contingut = az.getContenido();
-    
+
     int pini=1;
     int pfin=1;
     if (contingut!=null && !contingut.trim().equals("")) {
@@ -2957,7 +2957,7 @@ public static String getPrefixeNow() {
 }
 
 
-public static boolean esAzure() {	
+public static boolean esAzure() {
 	return HOST == TIPO_HOST.AZURE;
 }
 
