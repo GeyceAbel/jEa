@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180205
-// Hora:             12:57:05
+// Fecha:            20180206
+// Hora:             16:12:15
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1595,6 +1595,18 @@ public class ProgInsprconver extends Program
         "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JEO' and PLCODIGO='gyc-carta415' and PLVENTANA='GYC-CARTA415';",
         "INSERT INTO PLANTILLAS (PLAPLICACION       , PLCODIGO                      ,       PLVENTANA                       , PLDESCRIPCION ,       PLURLPLANTILLA, PLTIPOPLAN              ) VALUES ('JEO','gyc-carta415','GYC-CARTA415','Plantilla carta informativa modelo 415','.\\plantillas\\gyccarta415.doc',0);"  };
     
+    String sentencias14_6[]={
+      "DELETE FROM QUEFRASE WHERE qeffrase = 'GYC-C347-17' and qefaplicacion='JCONTA';",
+      "DELETE FROM QUETABLA WHERE qetfrase = 'GYC-C347-17' and qetaplicacion='JCONTA';",
+      "DELETE FROM QUECOLUMN WHERE qecfrase = 'GYC-C347-17' and qecaplicacion='JCONTA';",
+      "DELETE FROM QUEVARIABLES WHERE qevfrase = 'GYC-C347-17' and qevaplicacion='JCONTA';",
+      "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JCONTA' and PLCODIGO='GYCPLAC347_14' and PLVENTANA='GYC-C347-17';",
+      "DELETE FROM QUEFRASE WHERE qeffrase = 'GYC-C415-17' and qefaplicacion='JCONTA';",
+      "DELETE FROM QUETABLA WHERE qetfrase = 'GYC-C415-17' and qetaplicacion='JCONTA';",
+      "DELETE FROM QUECOLUMN WHERE qecfrase = 'GYC-C415-17' and qecaplicacion='JCONTA';",
+      "DELETE FROM QUEVARIABLES WHERE qevfrase = 'GYC-C415-17' and qevaplicacion='JCONTA';",
+      "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JCONTA' and PLCODIGO='GYCPLAC415_17' and PLVENTANA='GYC-C415-17';"
+    };
     
       int i=0;
       try {
@@ -3690,6 +3702,27 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("14.5");
         }
+    
+       if (versio < 14.6) {
+          for (i=0;i<sentencias14_6.length;++i) {
+            try {
+              Easp.chivato("14.6 Exec : ["+sentencias14_6[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias14_6[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias14_6[i];
+              Easp.chivato("14.6 *** Error : ["+sentencias14_6[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          String tablas[] = {"PLANTILLAS","quefrase","quetabla","quecolumn","quevariables"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1406","easp.jar");
+          Easp.setVersionBD("bdeasp","14.6");
+          Easp.connEA.commit();
+          vvveractual.setValue("14.6");
+        }
+    
+    
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");

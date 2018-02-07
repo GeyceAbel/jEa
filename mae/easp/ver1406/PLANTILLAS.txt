@@ -1,0 +1,2 @@
+'JCONTA','GYCPLAC347_14','GYC-C347-17','Plantilla carta 347 - 2017 y superiores',,,,'.\plantillas\GYCPLAC347_14.dot',,,,0
+'JCONTA','GYCPLAC415_17','GYC-C415-17','Plantilla carta 415 - 2017 y siguientes',,,,'.\plantillas\GYCPLAC415_17.dot',,,,0

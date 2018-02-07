@@ -1,0 +1,2 @@
+'JCONTA','GYC-C347-17','Cartas informativas modelo 347 - 2017 y siguientes','acum347','Datos modelo 347','S',,'N',,,,'N',,'GYCPLAC347_14'
+'JCONTA','GYC-C415-17','Cartas informativas modelo 415 - 2017 y siguientes','acum347','Datos modelo 415','S',,'N',,,,'N',,'GYCPLAC415_17'

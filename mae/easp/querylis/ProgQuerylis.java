@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180125
-// Hora:             15:33:57
+// Fecha:            20180206
+// Hora:             15:35:58
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -773,7 +773,7 @@ public class ProgQuerylis extends Program
           else where=selwhere+" and ("+where+")";
         }
       }
-      else if (aplicacion.equals("JCONTA") && "GYC-C347-14".equals(squery.qeffrase.getString())) {
+      else if (aplicacion.equals("JCONTA") && ("GYC-C347-14".equals(squery.qeffrase.getString()) || "GYC-C347-17".equals(squery.qeffrase.getString()) || "GYC-C415-17".equals(squery.qeffrase.getString())  )    ) {
      	  String nomCampEmpresa = null;
         CatCtasp catjco = new CatCtasp();
         TableDef td = catjco.getTable(squery.qefmaster.getString().toLowerCase());
