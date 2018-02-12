@@ -517,7 +517,7 @@ public class Fecha {
     }
 
   public static Calendar calendar(Date data) {
-    Calendar c=new GregorianCalendar();
+    Calendar c=new GregorianCalendar();    
     c.setTime(data);
 
     int any=c.get(Calendar.YEAR);
@@ -527,6 +527,10 @@ public class Fecha {
     c.set(Calendar.YEAR,any);
     c.set(Calendar.MONTH,mes);
     c.set(Calendar.DAY_OF_MONTH,dia);
+    c.set(Calendar.HOUR,0);
+    c.set(Calendar.MINUTE,0);
+    c.set(Calendar.SECOND,0);
+    c.set(Calendar.MILLISECOND,0);
     return c;
     }
 
@@ -545,6 +549,10 @@ public class Fecha {
       if (hasMoreElements()) {
         Date ret=current.getTime();
         current.add(Calendar.DAY_OF_MONTH,1);
+        current.set(Calendar.HOUR,0);
+        current.set(Calendar.MINUTE,0);
+        current.set(Calendar.SECOND,0);
+        current.set(Calendar.MILLISECOND,0);
         return ret;
         }
       else
