@@ -30,7 +30,7 @@ public class Azure {
 	private static final String PROTOCOL = "https://";
 	private final String SITE 	 = "pls/agpi/";
 	private final static int TIMEOUT = 30; //Seconds
-	private final long MB_MAXIMOS = 15; //Tamany màxim de fitxer.
+	private final long MB_MAXIMOS = 50; //Tamany màxim de fitxer.
 	private int numeroReintentos;
 	private String contenido;
 	private byte [] contenidoBinario;
