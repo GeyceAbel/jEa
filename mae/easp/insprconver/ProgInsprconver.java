@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180206
-// Hora:             16:12:15
+// Fecha:            20180302
+// Hora:             12:08:08
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1607,6 +1607,9 @@ public class ProgInsprconver extends Program
       "DELETE FROM QUEVARIABLES WHERE qevfrase = 'GYC-C415-17' and qevaplicacion='JCONTA';",
       "DELETE FROM PLANTILLAS WHERE PLAPLICACION = 'JCONTA' and PLCODIGO='GYCPLAC415_17' and PLVENTANA='GYC-C415-17';"
     };
+    
+    String sentencias14_7[]={"DELETE FROM INDEMORA WHERE indejercicio=2018;",
+    "INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2018,'01/01/2018','31/12/2018',3.75);"};
     
       int i=0;
       try {
@@ -3720,6 +3723,22 @@ public class ProgInsprconver extends Program
           Easp.setVersionBD("bdeasp","14.6");
           Easp.connEA.commit();
           vvveractual.setValue("14.6");
+        }
+       if (versio < 14.7) {
+            for (i=0;i<sentencias14_7.length;++i) {
+                try {
+                    Easp.chivato("14.7 Exec : ["+sentencias14_7[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias14_7[i]);
+                }
+                catch(Exception e) {
+                    sqlOperation=sentencias14_7[i];
+                    Easp.chivato("14.7 *** Error : ["+sentencias14_7[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","14.7");
+            Easp.connEA.commit();
+            vvveractual.setValue("14.7");
         }
     
     
