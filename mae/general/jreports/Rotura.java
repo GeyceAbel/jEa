@@ -1,5 +1,7 @@
 package mae.general.jreports;
 
+import java.util.List;
+
 public class Rotura {
 	private int anchura;
 	private int sizeFont;
@@ -17,48 +19,38 @@ public class Rotura {
 
 	private String groupHeaderName;
 	private String titul;
-	private int posIniciTitul=0;
+	private int posIniciTitul = 0;
 	private int widthTitul;
 	private String printWhen;
-	//private boolean esVar;
-	//private boolean esCampo;
-	//private boolean esExpr;
-	private boolean printGroupHeader =false;
-	//java.util.List<Integer> columnes;
+	// private boolean esVar;
+	// private boolean esCampo;
+	// private boolean esExpr;
+	private boolean printGroupHeader = false;
+	// java.util.List<Integer> columnes;
 	java.util.List<Totalizar> totales;
-	//private String expression;
+	// private String expression;
 	private String backGroundHeaderColor = "#D3DFE2";
-	//private String backGroundHeaderColor = "#CAC3A2";
+	// private String backGroundHeaderColor = "#CAC3A2";
 	private int headerHeight;
 	private boolean igualIndent;
 	private boolean textoRoturaEsExpresion;
 	private String expresionVariables;
 	private boolean noImprimirSiTotalesEsCero = false;
 	private boolean sinRectangulo;
-  private int posX = 0;
-  private int posY = 0;
+	private int posX = 0;
+	private int posY = 0;
+	private List<Integer> columnasTotalesActivas;
 
 	/*
-	public Rotura (JListado jl, java.util.List<Integer> columnes, String nombre, String agruparPor,String titol) {
-		anchura = 15;
-		negreta = true;
-		this.nombre = nombre;
-		this.agruparPor = agruparPor;
-		this.columnes = columnes;
-		this.jl = jl;
-		sizeFont = jl.sizeDetalle+1;
-		aligDerecha = true;
-		sum = "Sum";
-		saltoPagina = false;
-		printWhen = this.jl.getPrintWhenDetalle();
-		asignarColorFondo = false;
-		colorFont = "#000000";
-		this.titul = titol;
-		headerHeight = 15;
-		//setEsCampo();
-	}
-*/
-	public Rotura (JListado jl, java.util.List<Totalizar> totales, String nombre, String agruparPor,String titol) {
+	 * public Rotura (JListado jl, java.util.List<Integer> columnes, String nombre,
+	 * String agruparPor,String titol) { anchura = 15; negreta = true; this.nombre =
+	 * nombre; this.agruparPor = agruparPor; this.columnes = columnes; this.jl = jl;
+	 * sizeFont = jl.sizeDetalle+1; aligDerecha = true; sum = "Sum"; saltoPagina =
+	 * false; printWhen = this.jl.getPrintWhenDetalle(); asignarColorFondo = false;
+	 * colorFont = "#000000"; this.titul = titol; headerHeight = 15; //setEsCampo();
+	 * }
+	 */
+	public Rotura(JListado jl, java.util.List<Totalizar> totales, String nombre, String agruparPor, String titol) {
 		anchura = 15;
 		negreta = true;
 		italic = false;
@@ -66,13 +58,13 @@ public class Rotura {
 		this.agruparPor = agruparPor;
 		this.totales = totales;
 		this.jl = jl;
-		sizeFont = jl.sizeDetalle+1;
+		sizeFont = jl.sizeDetalle + 1;
 		aligDerecha = true;
 		sum = "Sum";
 		saltoPagina = false;
 		printWhen = this.jl.getPrintWhenDetalle();
 		asignarColorFondo = false;
-		//colorFont = "#000000";
+		// colorFont = "#000000";
 		colorFont = "#0e4b80";
 		this.titul = titol;
 		headerHeight = 15;
@@ -81,36 +73,34 @@ public class Rotura {
 		expresionVariables = null;
 		noImprimirSiTotalesEsCero = false;
 		sinRectangulo = false;
-    posX = 0;
-    posY = 0;
-		//setEsCampo();
+		posX = 0;
+		posY = 0;
+		// setEsCampo();
 	}
 
-  public void setPosX(int posX) {
-    this.posX = posX;
-  }
+	public void setPosX(int posX) {
+		this.posX = posX;
+	}
 
-  public void setPosY(int posY) {
-    this.posY = posY;
-  }
+	public void setPosY(int posY) {
+		this.posY = posY;
+	}
 
-  public int getPosX() {
-    return posX;
-  }
+	public int getPosX() {
+		return posX;
+	}
 
-  public int getPosY() {
-    return posY;
-  }
+	public int getPosY() {
+		return posY;
+	}
 
 	public boolean isSinRectangulo() {
 		return sinRectangulo;
 	}
 
-
 	public void setSinRectangulo(boolean sinRectangulo) {
 		this.sinRectangulo = sinRectangulo;
 	}
-
 
 	public boolean isTextoRoturaEsExpresion() {
 		return textoRoturaEsExpresion;
@@ -136,15 +126,15 @@ public class Rotura {
 		this.printWhen = printWhen;
 	}
 
-	public void setTitul (String titul, int posIniciTitul, int widthTitul) {
+	public void setTitul(String titul, int posIniciTitul, int widthTitul) {
 		this.titul = titul;
 		this.posIniciTitul = posIniciTitul;
 		this.widthTitul = widthTitul;
 	}
 
-	public void setGroupHeaderName(String groupHeaderName){
-	  printGroupHeader = true;
-	  this.groupHeaderName = groupHeaderName;
+	public void setGroupHeaderName(String groupHeaderName) {
+		printGroupHeader = true;
+		this.groupHeaderName = groupHeaderName;
 	}
 
 	public String getGroupHeaderName() {
@@ -206,11 +196,11 @@ public class Rotura {
 	public boolean isItalic() {
 		return italic;
 	}
-	
+
 	public void setItalic(boolean italic) {
 		this.italic = italic;
 	}
-	
+
 	public boolean isAligDerecha() {
 		return aligDerecha;
 	}
@@ -218,15 +208,13 @@ public class Rotura {
 	public void setAligDerecha(boolean aligDerecha) {
 		this.aligDerecha = aligDerecha;
 	}
-/*
-	public java.util.List<Integer> getColumnes() {
-		return columnes;
-	}
 
-	public void setColumnes(java.util.List<Integer> columnes) {
-		this.columnes = columnes;
-	}
-	*/
+	/*
+	 * public java.util.List<Integer> getColumnes() { return columnes; }
+	 * 
+	 * public void setColumnes(java.util.List<Integer> columnes) { this.columnes =
+	 * columnes; }
+	 */
 	public java.util.List<Totalizar> getTotales() {
 		return totales;
 	}
@@ -254,22 +242,28 @@ public class Rotura {
 	public int getWidthTitul() {
 		return widthTitul;
 	}
+
 	public String getColorFons() {
 		return colorFons;
 	}
+
 	public void setColorFons(String colorFons) {
-		asignarColorFondo =true;
+		asignarColorFondo = true;
 		this.colorFons = colorFons;
 	}
+
 	public String getColorFont() {
 		return colorFont;
 	}
+
 	public void setColorFont(String colorFont) {
 		this.colorFont = colorFont;
 	}
+
 	public boolean isAsignarColorFondo() {
 		return asignarColorFondo;
 	}
+
 	public void setAsignarColorFondo(boolean asignarColorFondo) {
 		this.asignarColorFondo = asignarColorFondo;
 	}
@@ -283,10 +277,10 @@ public class Rotura {
 	}
 
 	public void setHeaderHeight(int height) {
-	  this.headerHeight = height;
+		this.headerHeight = height;
 	}
 
-	public int getHeaderHeight()  {
+	public int getHeaderHeight() {
 		return headerHeight;
 	}
 
@@ -297,6 +291,7 @@ public class Rotura {
 	public void setExpresionVariables(String expresionVariables) {
 		this.expresionVariables = expresionVariables;
 	}
+
 	public boolean isNoImprimirSiTotalesEsCero() {
 		return noImprimirSiTotalesEsCero;
 	}
@@ -305,39 +300,30 @@ public class Rotura {
 		this.noImprimirSiTotalesEsCero = noImprimirSiTotalesEsCero;
 	}
 
-
-
-/*
-	public boolean isEsVar() {
-		return esVar;
+	public List<Integer> getColumnasTotalesActivas() {
+		return columnasTotalesActivas;
 	}
 
-	public void setEsVar() {
-		this.esVar = true;
-		esExpr = false;
-		esCampo = false;
+	public void setColumnasTotalesActivas(List<Integer> columnasTotalesActivas) {
+		this.columnasTotalesActivas = columnasTotalesActivas;
 	}
 
-	public boolean isEsCampo() {
-		return esCampo;
-	}
-
-	public void setEsCampo() {
-		this.esCampo = true;
-		esVar = false;
-		esExpr = false;
-	}
-
-	public boolean isEsExpr() {
-		return esExpr;
-	}
-
-	public void setEsExpr() {
-		this.esExpr = true;
-		esVar = false;
-		esCampo = false;
-	}
-
-	*/
+	/*
+	 * public boolean isEsVar() { return esVar; }
+	 * 
+	 * public void setEsVar() { this.esVar = true; esExpr = false; esCampo = false;
+	 * }
+	 * 
+	 * public boolean isEsCampo() { return esCampo; }
+	 * 
+	 * public void setEsCampo() { this.esCampo = true; esVar = false; esExpr =
+	 * false; }
+	 * 
+	 * public boolean isEsExpr() { return esExpr; }
+	 * 
+	 * public void setEsExpr() { this.esExpr = true; esVar = false; esCampo = false;
+	 * }
+	 * 
+	 */
 
 }

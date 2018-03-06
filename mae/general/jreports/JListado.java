@@ -330,6 +330,12 @@ public class JListado {
 
 		return r;
 	}
+	
+	public Rotura addRotura (String nombre, String agruparPor,String titol, List<Totalizar> tles) {
+		Rotura r = new Rotura(this, tles, nombre, agruparPor,titol);
+		roturas.add(r);
+		return r;
+	}
 
 	/*
 	public Totalizar addTotalizar (String titulo,String nombreVariable,String expresionVariable,Calculation tipoCalculo) {
@@ -667,7 +673,9 @@ public class JListado {
 					else if (col.getTf().esVariable()) nom = "tot"+i+col.getTf().getVariable().getNom();
 					Variable v = new Variable(nom);
 					tf.setVariable(v);
-					generarTextField(pw, tf);
+					if (r.getColumnasTotalesActivas() == null || r.getColumnasTotalesActivas().contains(c)) {
+						generarTextField(pw, tf);
+					}
 				}
 				if (r.getTitul()!=null && r.getTitul().trim().length()>0) {
 					int widthTitol= 0;
@@ -1361,7 +1369,7 @@ public class JListado {
 		return xmlParameter.size();
 	}
 
-	private int getNumTotales() {
+	public int getNumTotales() {
 		return totales.size();
 	}
 
