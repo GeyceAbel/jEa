@@ -66,14 +66,16 @@ public class ConversionJCO extends ConversionLC {
 	private int asientoCC;
 	private boolean estaCerrado;
 	private Vector<String> vDepartamentos;
+	private boolean forzarCliPro;
 
 
-	public ConversionJCO (Program pr,int idConversion, int desdeEmp, int hastaEmp, int desdeEjer, int hastaEjer, String servidor, String instancia, String nombreBD, String user, String passwd, DBConnection connEA, String tipoCta, String longCta, boolean asigProy, boolean esSQL) {
+	public ConversionJCO (Program pr,int idConversion, int desdeEmp, int hastaEmp, int desdeEjer, int hastaEjer, String servidor, String instancia, String nombreBD, String user, String passwd, DBConnection connEA, String tipoCta, String longCta, boolean asigProy, boolean esSQL, boolean forzarCliPro) {
 		super (pr,desdeEmp, hastaEmp, desdeEjer, hastaEjer, connEA, servidor, instancia, nombreBD, user, passwd, idConversion);
 		this.tipoCta = tipoCta;
 		this.longCta = longCta;
 		this.asigProy = asigProy;
 		this.esSQL = esSQL;
+		this.forzarCliPro = forzarCliPro;
 		funciones = new FuncionesJCO(connEA,dominio);
 	}
 
@@ -532,7 +534,6 @@ public class ConversionJCO extends ConversionLC {
 			if (bOk) {
 				SelectorLogic spc = new SelectorLogic (connLC);
 				spc.execute("Select CodigoCuenta from PlanCuentas where CodigoEmpresa="+iEmp);
-				LONG_SBCTA = -1;
 				while (spc.next()) {      
 					String CodigoCuenta = spc.getString("CodigoCuenta");
 					if (CodigoCuenta!=null && LONG_SBCTA<CodigoCuenta.length()) LONG_SBCTA = CodigoCuenta.length() - 3;
@@ -1309,9 +1310,9 @@ public class ConversionJCO extends ConversionLC {
 
 	private String[] getFormatoCuenta (String cta) {
 		String [] tmp = null;
+		boolean esAlfa = "A".equals(tipoCta);
+		boolean esNumerico = !esAlfa;
 		if ("V".equals(longCta)) {
-			boolean esAlfa = "A".equals(tipoCta);
-			boolean esNumerico = !esAlfa;
 			if (cta!=null) cta = cta.trim();
 			if (cta!=null && cta.length()>3) {
 				tmp = new String [2];
@@ -1347,9 +1348,14 @@ public class ConversionJCO extends ConversionLC {
 			tmp [0] = cta.substring(0,3);
 			tmp [1] = cta.substring(3);
 		}
+
 		else if ("4".equals(longCta) && cta!=null && cta.length()>4 ) {
 			tmp = new String [2];
 			String ctaMayor = cta.substring(0, 4);
+			if (forzarCliPro && cta.substring(4).replace("0","").trim().length()>0 && (ctaMayor.startsWith("430") || ctaMayor.startsWith("410")  || ctaMayor.startsWith("400"))   && !"4300".equals(ctaMayor)  && !"4100".equals(ctaMayor)  && !"4000".equals(ctaMayor) ) {				
+				cta = cta.substring(0,3) + "0" + cta.substring(3);
+				ctaMayor = cta.substring(0, 4);
+			}
 			if (!Util.isNumero(ctaMayor.substring(3, 4))) {
 				tmp [0] = cta.substring(0,3)+"0";
 				tmp [1] = cta.substring(3);

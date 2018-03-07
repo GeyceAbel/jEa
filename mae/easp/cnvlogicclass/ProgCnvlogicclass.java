@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150618
-// Hora:             17:54:03
+// Fecha:            20180307
+// Hora:             12:31:55
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -156,6 +156,7 @@ public class ProgCnvlogicclass extends Program
     public void estadoCampos () {
       //Parametros jConta
       vvctas.setEnabled(chjco.getBoolean());
+      chforzarcp.setEnabled(chjco.getBoolean() && "4".equals(vvctas.getString()));
       vvnumalfa.setEnabled(chjco.getBoolean());
       chsql.setEnabled(chjco.getBoolean());
       chproy.setEnabled(chjco.getBoolean());
@@ -181,6 +182,7 @@ public class ProgCnvlogicclass extends Program
     public CtrlVvuser vvuser;
     public CtrlVvpasswd vvpasswd;
     public CtrlVvctas vvctas;
+    public CtrlChforzarcp chforzarcp;
     public CtrlVvnumalfa vvnumalfa;
     public CtrlChestimaciones chestimaciones;
     public CtrlChmercantil chmercantil;
@@ -546,12 +548,26 @@ public class ProgCnvlogicclass extends Program
         public void userChange (Value v) {
           super.userChange(v);
           disableIniConver ();
+          estadoCampos ();
+          if (!chforzarcp.isEnabled()) chforzarcp.setNull();
+          
         
         
         }
       public boolean obligate()
         {
         return true;
+        }
+      }
+      
+    public class CtrlChforzarcp extends ControlCheck
+      {
+      public CtrlChforzarcp(Form form)
+        {
+        super(form);
+        setName("chforzarcp");
+        setMessageHelp("Forzar cuentas cliente y proveedor a 4300, 4100 y 4000");
+        setTitle("Forzar cuentas cliente y proveedor");
         }
       }
       
@@ -1034,7 +1050,7 @@ public class ProgCnvlogicclass extends Program
               clcjco = new mae.easp.conversions.logicclass.ConversionJCO (cnvlogicclass,codiCab,vvempini.getInteger(),vvempfin.getInteger(),vvejeini.getInteger(),vvejefin.getInteger(),
                                                                                                                      vvservidor.getString(), vvinstancia.getString(), vvnombrebd.getString(),vvuser.getString(),
                                                                                                                      vvpasswd.getString(), getDataBase(), vvnumalfa.getString(), vvctas.getString(),
-                                                                                                                     chproy.getBoolean(), chsql.getBoolean());
+                                                                                                                     chproy.getBoolean(), chsql.getBoolean(), chforzarcp.getBoolean());
               if (clcjco.hayError()) {
                 bOk = false;
                 sError = clcjco.getError();
@@ -1187,6 +1203,7 @@ public class ProgCnvlogicclass extends Program
       addControl(vvuser=new CtrlVvuser(this));
       addControl(vvpasswd=new CtrlVvpasswd(this));
       addControl(vvctas=new CtrlVvctas(this));
+      addControl(chforzarcp=new CtrlChforzarcp(this));
       addControl(vvnumalfa=new CtrlVvnumalfa(this));
       addControl(chestimaciones=new CtrlChestimaciones(this));
       addControl(chmercantil=new CtrlChmercantil(this));
