@@ -282,8 +282,24 @@ public class FuncionesJCO {
 		s.close();
 		return bOk;	
 	}
+	
+	private int mesContable (int mesini , java.util.Date fechaasiento){
+		if (mesini == 1) return ( Maefc.getMonth(fechaasiento)+1 );
+		else {
+			// calculo de posicion en acumulado.
+			if (Maefc.getMonth(fechaasiento)+1 >= mesini)
+				return Maefc.getMonth(fechaasiento)+1-mesini+1;
+			else
+				return Maefc.getMonth(fechaasiento)+1-mesini+1+12;
+		}
+	}
 
+	
 	public boolean reconstruccionAcumulados (DBConnection dbJCta, int ejercicio, int codiJC, int codiLC, boolean estaCerrado, int asientoCE, int asientoCC, ProgressBarForm pbf) {
+		return reconstruccionAcumulados (dbJCta, ejercicio, codiJC, codiLC, estaCerrado, asientoCE, asientoCC, pbf, 1);
+	}
+	
+	public boolean reconstruccionAcumulados (DBConnection dbJCta, int ejercicio, int codiJC, int codiLC, boolean estaCerrado, int asientoCE, int asientoCC, ProgressBarForm pbf, int mesini) {
 		boolean bOk = true;
 		pbf.setSecondaryPercent(0);
 		if (codiLC>0) pbf.setState("Convirtiendo LC: "+codiLC+"  JC:"+codiJC+" ("+ejercicio+")  -  Reconstruccion Acumulados");		
@@ -315,7 +331,7 @@ public class FuncionesJCO {
 				else if (estaCerrado && asidiario>=60 && asiasiento==(asientoCE+1)) mes = 13;
 				else if (estaCerrado && asiasiento==asientoCC) mes = 14;
 				else if (estaCerrado && asidiario>=60 && asiasiento==(asientoCC+1)) mes = 14;
-				else mes = Maefc.getMonth(asifecha)+1;				
+				else mes = mesContable (mesini, asifecha);				
 				if ((asidiario>=1 && asidiario <= 60) ) {
 					bOk = setAcumulado(dbJCta,ejercicio,codiJC,"1",asicuenta,"0",asidebehaber,asiimporte,mes);
 					bOk = setAcumulado(dbJCta,ejercicio,codiJC,"1",asicuenta,asisubcuenta,asidebehaber,asiimporte,mes);
