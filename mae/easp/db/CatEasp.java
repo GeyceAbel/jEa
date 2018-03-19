@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180103
-// Hora:             15:42:35
+// Fecha:            20180319
+// Hora:             15:36:27
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -213,7 +213,7 @@ public class CatEasp extends Catalog
       {
       super(name);
       tratipo = new FieldDef("tratipo",FieldDef.CHAR,5,FieldDef.NOTNULL);
-      tradesc = new FieldDef("tradesc",FieldDef.CHAR,30,FieldDef.NOTNULL);
+      tradesc = new FieldDef("tradesc",FieldDef.CHAR,150,FieldDef.NOTNULL);
       traemre = new FieldDef("traemre",FieldDef.CHAR,1,FieldDef.NOTNULL);
       traregimen = new FieldDef("traregimen",FieldDef.CHAR,2,FieldDef.NOTNULL);
       tratipoiva = new FieldDef("tratipoiva",FieldDef.CHAR,3);

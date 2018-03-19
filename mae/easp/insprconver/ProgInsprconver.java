@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20180319
-// Hora:             09:56:12
+// Hora:             15:36:40
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1612,6 +1612,10 @@ public class ProgInsprconver extends Program
     "INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2018,'01/01/2018','31/12/2018',3.75);"};
     
       String sentencias14_8[]={"DELETE FROM CODIGOREGISTRO"};
+    
+      String sentencias14_9[]={
+        "ALTER TABLE TRANSACCIONES ALTER COLUMN tradesc VARCHAR(150);"
+      };
     
       int i=0;
       try {
@@ -3760,6 +3764,23 @@ public class ProgInsprconver extends Program
           Easp.connEA.commit();
           vvveractual.setValue("14.8");
         }
+        if (versio < 14.9) {
+            for (i=0;i<sentencias14_9.length;++i) {
+                try {
+                    Easp.chivato("14.9 Exec : ["+sentencias14_9[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias14_9[i]);
+                }
+                catch(Exception e) {
+                    sqlOperation=sentencias14_9[i];
+                    Easp.chivato("14.9 *** Error : ["+sentencias14_9[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","14.9");
+            Easp.connEA.commit();
+            vvveractual.setValue("14.9");
+        }
+    
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
