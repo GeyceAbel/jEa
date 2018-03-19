@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180302
-// Hora:             12:08:08
+// Fecha:            20180319
+// Hora:             09:56:12
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1610,6 +1610,8 @@ public class ProgInsprconver extends Program
     
     String sentencias14_7[]={"DELETE FROM INDEMORA WHERE indejercicio=2018;",
     "INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2018,'01/01/2018','31/12/2018',3.75);"};
+    
+      String sentencias14_8[]={"DELETE FROM CODIGOREGISTRO"};
     
       int i=0;
       try {
@@ -3740,8 +3742,24 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("14.7");
         }
-    
-    
+        if (versio < 14.8) {
+          for (i=0;i<sentencias14_8.length;++i) {
+            try {
+              Easp.chivato("14.8 Exec : ["+sentencias14_8[i]+"]",1);
+              Easp.connEA.executeUpdate(sentencias14_8[i]);
+            }
+            catch(Exception e) {
+              sqlOperation=sentencias14_8[i];
+              Easp.chivato("14.8 *** Error : ["+sentencias14_8[i]+"]  Error: ["+e+"]",1);
+              errorMessage=e.getMessage();
+            }
+          }
+          String tablas[]= {"CODIGOREGISTRO"};
+          Easp.leerSecuencial(Easp.connEA,tablas,"mae/easp/ver1408","easp.jar");
+          Easp.setVersionBD("bdeasp","14.8");
+          Easp.connEA.commit();
+          vvveractual.setValue("14.8");
+        }
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
