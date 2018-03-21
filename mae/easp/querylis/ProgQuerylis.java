@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180206
-// Hora:             15:35:58
+// Fecha:            20180320
+// Hora:             17:32:45
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -3245,23 +3245,25 @@ public class ProgQuerylis extends Program
            }
         }
         else if (aplicacion.equals("JMODELOS")) {
-          assigno=1;
-          loc.setHeight(75+200);
-          ControlPanel panel2=new ControlPanel(this);
-          panel2.setLayout(new LayoutBorder());
-          panel2.setParent(this);
-      
-          setLayout(new LayoutSplit(LayoutSplit.VERTICAL));
-          prconJmodelos=new mae.modasp.datselec.ProgDatselec();
-          panel.setLocation(new LocationSplit(LocationSplit.LEFT));
-          prconJmodelos.setConnection(getDataBase());
-          panel2.setLocation(new LocationSplit(LocationSplit.RIGHT));
-          prconJmodelos.setParent(panel2);
-      
-          prconJmodelos.borrarSeleccionado = true;
-          prconJmodelos.gprograma="QUERY";
-          prconJmodelos.desactivaLimpiar=true;
-          prconJmodelos.setLocation(LocationBorder.locationBorderCenter);    
+          if ("D".equals(frase.ect)) {
+              assigno=1;
+              loc.setHeight(75+200);
+              ControlPanel panel2=new ControlPanel(this);
+              panel2.setLayout(new LayoutBorder());
+              panel2.setParent(this);
+          
+              setLayout(new LayoutSplit(LayoutSplit.VERTICAL));
+              prconJmodelos=new mae.modasp.datselec.ProgDatselec();
+              panel.setLocation(new LocationSplit(LocationSplit.LEFT));
+              prconJmodelos.setConnection(getDataBase());
+              panel2.setLocation(new LocationSplit(LocationSplit.RIGHT));
+              prconJmodelos.setParent(panel2);
+          
+              prconJmodelos.borrarSeleccionado = true;
+              prconJmodelos.gprograma="QUERY";
+              prconJmodelos.desactivaLimpiar=true;
+              prconJmodelos.setLocation(LocationBorder.locationBorderCenter);    
+          }
         }
         else if (aplicacion.equals("JISS")) {
            if ("S".equals(frase.ect)) {

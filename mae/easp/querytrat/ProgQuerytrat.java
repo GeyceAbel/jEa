@@ -375,7 +375,7 @@ public class ProgQuerytrat extends Program
         if (nomCataleg.equals("") || nomCataleg.equals(cataleg1) || nomCataleg.equals(cataleg2) || nomCataleg.equals(cataleg3) ||
             nomCataleg.equals(cataleg4) || nomCataleg.equals(cataleg5) || nomCataleg.equals(cataleg6) || nomCataleg.equals(cataleg7) || nomCataleg.equals(cataleg8)) {
            qefect.setEnabled(true);  
-           if (aplicacion.equals("JMODELOS")) qefect.setValue("D");  
+//           if (aplicacion.equals("JMODELOS")) qefect.setValue("D");  
         }
         else {
            qefect.setValue("N");

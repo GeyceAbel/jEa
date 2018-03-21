@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180319
-// Hora:             15:36:40
+// Fecha:            20180321
+// Hora:             08:39:22
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1616,7 +1616,21 @@ public class ProgInsprconver extends Program
       String sentencias14_9[]={
         "ALTER TABLE TRANSACCIONES ALTER COLUMN tradesc VARCHAR(150);"
       };
-    
+    /*
+      String sentencias15_0[]={
+        "DELETE FROM TRANSACCIONES WHERE tratipoiva is null",
+        "DELETE FROM TRANSACCIONES WHERE tratipo='EAB'",
+        "DELETE FROM TRANSACCIONES WHERE tratipo='EAD'",
+        "DELETE FROM TRANSACCIONES WHERE tratipo='EBM'",
+        "DELETE FROM TRANSACCIONES WHERE tratipo='EIM'",
+        "DELETE FROM TRANSACCIONES WHERE tratipo='EOE'",
+        "DELETE FROM TRANSACCIONES WHERE tratipo='ERD'",
+        "DELETE FROM TRANSACCIONES WHERE tratipo='ERI'",
+        "DELETE FROM TRANSACCIONES WHERE tratipo='REN'",
+        "DELETE FROM TRANSACCIONES WHERE tratipo='REX'",
+        "DELETE FROM TRANSACCIONES WHERE tratipo='RMQ'"
+      };
+    */
       int i=0;
       try {
         if (vvveractual.getString().equals("1.1")) {
@@ -3780,7 +3794,24 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("14.9");
         }
-    
+    /*
+        if (versio < 15.0) {
+            for (i=0;i<sentencias15_0.length;++i) {
+                try {
+                    Easp.chivato("15.0 Exec : ["+sentencias15_0[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias15_0[i]);
+                }
+                catch(Exception e) {
+                    sqlOperation=sentencias15_0[i];
+                    Easp.chivato("15.0 *** Error : ["+sentencias15_0[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","15.0");
+            Easp.connEA.commit();
+            vvveractual.setValue("15.0");
+        }
+    */
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
