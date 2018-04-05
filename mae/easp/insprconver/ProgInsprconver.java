@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180321
-// Hora:             08:39:22
+// Fecha:            20180405
+// Hora:             12:51:09
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1615,6 +1615,10 @@ public class ProgInsprconver extends Program
     
       String sentencias14_9[]={
         "ALTER TABLE TRANSACCIONES ALTER COLUMN tradesc VARCHAR(150);"
+      };
+    
+      String sentencias15_0[]={
+        "ALTER TABLE CDP ADD cdpsiifacil VARCHAR(1);"
       };
     /*
       String sentencias15_0[]={
@@ -3794,7 +3798,6 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("14.9");
         }
-    /*
         if (versio < 15.0) {
             for (i=0;i<sentencias15_0.length;++i) {
                 try {
@@ -3811,7 +3814,6 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("15.0");
         }
-    */
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");

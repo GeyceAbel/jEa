@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180319
-// Hora:             15:36:27
+// Fecha:            20180405
+// Hora:             12:48:42
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -865,6 +865,7 @@ public class CatEasp extends Catalog
     public FieldDef cdpobserv;
     public FieldDef cdpdominio;
     public FieldDef cdpresponsable;
+    public FieldDef cdpsiifacil;
     public TabCdp(String name)
       {
       super(name);
@@ -896,6 +897,7 @@ public class CatEasp extends Catalog
       cdpobserv = new FieldDef("cdpobserv",FieldDef.CHAR,255);
       cdpdominio = new FieldDef("cdpdominio",FieldDef.CHAR,12);
       cdpresponsable = new FieldDef("cdpresponsable",FieldDef.CHAR,25);
+      cdpsiifacil = new FieldDef("cdpsiifacil",FieldDef.CHAR,25);
       FieldDef array[] = {
         cdpcodi,
         cdpnifcif,
@@ -924,7 +926,8 @@ public class CatEasp extends Catalog
         cdpbdestarenta,
         cdpobserv,
         cdpdominio,
-        cdpresponsable        
+        cdpresponsable,
+        cdpsiifacil        
         };
       setColumns(array);
       FieldDef arrayind1[] = { cdpdominio,cdpnifcif };
