@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180405
-// Hora:             12:48:42
+// Fecha:            20180412
+// Hora:             09:34:17
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -110,6 +110,12 @@ public class CatEasp extends Catalog
   public TabInfplantlinea tabinfplantlinea;
   public TabInfplantcol tabinfplantcol;
   public TabValidanomaeat tabvalidanomaeat;
+  public TabJcocnvprc tabjcocnvprc;
+  public TabPcinmovlog tabpcinmovlog;
+  public TabPcinmovhis tabpcinmovhis;
+  public TabPcmoranualhis tabpcmoranualhis;
+  public TabPcinmov tabpcinmov;
+  public TabPcmoranual tabpcmoranual;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -4372,6 +4378,346 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabJcocnvprc extends TableDef
+    {
+    // Campos
+    public FieldDef jcnprcodi;
+    public FieldDef jcnprtipo;
+    public FieldDef jcnprempresa;
+    public FieldDef jcnprfecha;
+    public FieldDef jcnpruser;
+    public TabJcocnvprc(String name)
+      {
+      super(name);
+      jcnprcodi = new FieldDef("jcnprcodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      jcnprtipo = new FieldDef("jcnprtipo",FieldDef.CHAR,20);
+      jcnprempresa = new FieldDef("jcnprempresa",FieldDef.INTEGER,0);
+      jcnprfecha = new FieldDef("jcnprfecha",FieldDef.DATE);
+      jcnpruser = new FieldDef("jcnpruser",FieldDef.CHAR,25);
+      FieldDef array[] = {
+        jcnprcodi,
+        jcnprtipo,
+        jcnprempresa,
+        jcnprfecha,
+        jcnpruser        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {jcnprcodi };
+      setPrimaryKeys(arrayf);
+      jcnprcodi.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabPcinmovlog extends TableDef
+    {
+    // Campos
+    public FieldDef pcilcodi;
+    public FieldDef pciltipo;
+    public FieldDef pcilrempresa;
+    public FieldDef pcilrfecha;
+    public FieldDef pcilruser;
+    public FieldDef pcilprcorigen;
+    public TabPcinmovlog(String name)
+      {
+      super(name);
+      pcilcodi = new FieldDef("pcilcodi",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pciltipo = new FieldDef("pciltipo",FieldDef.CHAR,20);
+      pcilrempresa = new FieldDef("pcilrempresa",FieldDef.INTEGER,0);
+      pcilrfecha = new FieldDef("pcilrfecha",FieldDef.DATE);
+      pcilruser = new FieldDef("pcilruser",FieldDef.CHAR,25);
+      pcilprcorigen = new FieldDef("pcilprcorigen",FieldDef.CHAR,100);
+      FieldDef array[] = {
+        pcilcodi,
+        pciltipo,
+        pcilrempresa,
+        pcilrfecha,
+        pcilruser,
+        pcilprcorigen        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {pcilcodi };
+      setPrimaryKeys(arrayf);
+      pcilcodi.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabPcinmovhis extends TableDef
+    {
+    // Campos
+    public FieldDef pcihelemento;
+    public FieldDef pcihempresa;
+    public FieldDef pcihejercicio;
+    public FieldDef pcihcuenta;
+    public FieldDef pcihsubcuenta;
+    public FieldDef pciharticulo;
+    public FieldDef pcihtipoamort;
+    public FieldDef pcihcodigoamor;
+    public FieldDef pcihdesc;
+    public FieldDef pcihsubctaamort;
+    public FieldDef pcihregistro;
+    public FieldDef pcihctadot;
+    public FieldDef pcihhoras;
+    public FieldDef pcihsubctadot;
+    public FieldDef pcihcoefapli;
+    public FieldDef pcihfecalta;
+    public FieldDef pcihfecbaja;
+    public FieldDef pcihctaamort;
+    public FieldDef pcihcoste;
+    public FieldDef pcihperapli;
+    public FieldDef pcihadquis;
+    public FieldDef pcihfecplan;
+    public FieldDef pcihunidades;
+    public FieldDef pcihreserva;
+    public FieldDef pcihnoamort;
+    public FieldDef pcihnuevousado;
+    public FieldDef pcihobser;
+    public FieldDef pcihlog;
+    public TabPcinmovhis(String name)
+      {
+      super(name);
+      pcihelemento = new FieldDef("pcihelemento",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pcihempresa = new FieldDef("pcihempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pcihejercicio = new FieldDef("pcihejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pcihcuenta = new FieldDef("pcihcuenta",FieldDef.CHAR,4,FieldDef.NOTNULL);
+      pcihsubcuenta = new FieldDef("pcihsubcuenta",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      pciharticulo = new FieldDef("pciharticulo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pcihtipoamort = new FieldDef("pcihtipoamort",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      pcihcodigoamor = new FieldDef("pcihcodigoamor",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pcihdesc = new FieldDef("pcihdesc",FieldDef.CHAR,40);
+      pcihsubctaamort = new FieldDef("pcihsubctaamort",FieldDef.CHAR,12);
+      pcihregistro = new FieldDef("pcihregistro",FieldDef.CHAR,8);
+      pcihctadot = new FieldDef("pcihctadot",FieldDef.CHAR,4);
+      pcihhoras = new FieldDef("pcihhoras",FieldDef.FLOAT,6,0);
+      pcihsubctadot = new FieldDef("pcihsubctadot",FieldDef.CHAR,12);
+      pcihcoefapli = new FieldDef("pcihcoefapli",FieldDef.FLOAT,6,0);
+      pcihfecalta = new FieldDef("pcihfecalta",FieldDef.DATE);
+      pcihfecbaja = new FieldDef("pcihfecbaja",FieldDef.DATE);
+      pcihctaamort = new FieldDef("pcihctaamort",FieldDef.CHAR,4);
+      pcihcoste = new FieldDef("pcihcoste",FieldDef.FLOAT,6,0);
+      pcihperapli = new FieldDef("pcihperapli",FieldDef.INTEGER,0);
+      pcihadquis = new FieldDef("pcihadquis",FieldDef.FLOAT,6,0);
+      pcihfecplan = new FieldDef("pcihfecplan",FieldDef.DATE);
+      pcihunidades = new FieldDef("pcihunidades",FieldDef.INTEGER,0);
+      pcihreserva = new FieldDef("pcihreserva",FieldDef.FLOAT,6,0);
+      pcihnoamort = new FieldDef("pcihnoamort",FieldDef.FLOAT,6,0);
+      pcihnuevousado = new FieldDef("pcihnuevousado",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      pcihobser = new FieldDef("pcihobser",FieldDef.CHAR,2000);
+      pcihlog = new FieldDef("pcihlog",FieldDef.INTEGER,0);
+      FieldDef array[] = {
+        pcihelemento,
+        pcihempresa,
+        pcihejercicio,
+        pcihcuenta,
+        pcihsubcuenta,
+        pciharticulo,
+        pcihtipoamort,
+        pcihcodigoamor,
+        pcihdesc,
+        pcihsubctaamort,
+        pcihregistro,
+        pcihctadot,
+        pcihhoras,
+        pcihsubctadot,
+        pcihcoefapli,
+        pcihfecalta,
+        pcihfecbaja,
+        pcihctaamort,
+        pcihcoste,
+        pcihperapli,
+        pcihadquis,
+        pcihfecplan,
+        pcihunidades,
+        pcihreserva,
+        pcihnoamort,
+        pcihnuevousado,
+        pcihobser,
+        pcihlog        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {pcihelemento };
+      setPrimaryKeys(arrayf);
+      pcihelemento.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabPcmoranualhis extends TableDef
+    {
+    // Campos
+    public FieldDef pcmhelemento;
+    public FieldDef pcmhamorejer;
+    public FieldDef pcmhtipo;
+    public FieldDef pcmhcoefamort;
+    public FieldDef pcmhamortanual;
+    public FieldDef pcmhamortacum;
+    public FieldDef pcmhamortpdte;
+    public FieldDef pcmhultfecha;
+    public FieldDef pcmhcuotaapli;
+    public TabPcmoranualhis(String name)
+      {
+      super(name);
+      pcmhelemento = new FieldDef("pcmhelemento",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pcmhamorejer = new FieldDef("pcmhamorejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pcmhtipo = new FieldDef("pcmhtipo",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      pcmhcoefamort = new FieldDef("pcmhcoefamort",FieldDef.FLOAT,6,0);
+      pcmhamortanual = new FieldDef("pcmhamortanual",FieldDef.FLOAT,6,0);
+      pcmhamortacum = new FieldDef("pcmhamortacum",FieldDef.FLOAT,6,0);
+      pcmhamortpdte = new FieldDef("pcmhamortpdte",FieldDef.FLOAT,6,0);
+      pcmhultfecha = new FieldDef("pcmhultfecha",FieldDef.DATE);
+      pcmhcuotaapli = new FieldDef("pcmhcuotaapli",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        pcmhelemento,
+        pcmhamorejer,
+        pcmhtipo,
+        pcmhcoefamort,
+        pcmhamortanual,
+        pcmhamortacum,
+        pcmhamortpdte,
+        pcmhultfecha,
+        pcmhcuotaapli        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {pcmhelemento,pcmhamorejer };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
+  public class TabPcinmov extends TableDef
+    {
+    // Campos
+    public FieldDef pcielemento;
+    public FieldDef pciempresa;
+    public FieldDef pciejercicio;
+    public FieldDef pcicuenta;
+    public FieldDef pcisubcuenta;
+    public FieldDef pciarticulo;
+    public FieldDef pcitipoamort;
+    public FieldDef pcicodigoamor;
+    public FieldDef pcidesc;
+    public FieldDef pcisubctaamort;
+    public FieldDef pciregistro;
+    public FieldDef pcictadot;
+    public FieldDef pcihoras;
+    public FieldDef pcisubctadot;
+    public FieldDef pcicoefapli;
+    public FieldDef pcifecalta;
+    public FieldDef pcifecbaja;
+    public FieldDef pcictaamort;
+    public FieldDef pcicoste;
+    public FieldDef pciperapli;
+    public FieldDef pciadquis;
+    public FieldDef pcifecplan;
+    public FieldDef pciunidades;
+    public FieldDef pcireserva;
+    public FieldDef pcinoamort;
+    public FieldDef pcinuevousado;
+    public FieldDef pciobser;
+    public TabPcinmov(String name)
+      {
+      super(name);
+      pcielemento = new FieldDef("pcielemento",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pciempresa = new FieldDef("pciempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pciejercicio = new FieldDef("pciejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pcicuenta = new FieldDef("pcicuenta",FieldDef.CHAR,4,FieldDef.NOTNULL);
+      pcisubcuenta = new FieldDef("pcisubcuenta",FieldDef.CHAR,12,FieldDef.NOTNULL);
+      pciarticulo = new FieldDef("pciarticulo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pcitipoamort = new FieldDef("pcitipoamort",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      pcicodigoamor = new FieldDef("pcicodigoamor",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pcidesc = new FieldDef("pcidesc",FieldDef.CHAR,40);
+      pcisubctaamort = new FieldDef("pcisubctaamort",FieldDef.CHAR,12);
+      pciregistro = new FieldDef("pciregistro",FieldDef.CHAR,8);
+      pcictadot = new FieldDef("pcictadot",FieldDef.CHAR,4);
+      pcihoras = new FieldDef("pcihoras",FieldDef.FLOAT,6,0);
+      pcisubctadot = new FieldDef("pcisubctadot",FieldDef.CHAR,12);
+      pcicoefapli = new FieldDef("pcicoefapli",FieldDef.FLOAT,6,0);
+      pcifecalta = new FieldDef("pcifecalta",FieldDef.DATE);
+      pcifecbaja = new FieldDef("pcifecbaja",FieldDef.DATE);
+      pcictaamort = new FieldDef("pcictaamort",FieldDef.CHAR,4);
+      pcicoste = new FieldDef("pcicoste",FieldDef.FLOAT,6,0);
+      pciperapli = new FieldDef("pciperapli",FieldDef.INTEGER,0);
+      pciadquis = new FieldDef("pciadquis",FieldDef.FLOAT,6,0);
+      pcifecplan = new FieldDef("pcifecplan",FieldDef.DATE);
+      pciunidades = new FieldDef("pciunidades",FieldDef.INTEGER,0);
+      pcireserva = new FieldDef("pcireserva",FieldDef.FLOAT,6,0);
+      pcinoamort = new FieldDef("pcinoamort",FieldDef.FLOAT,6,0);
+      pcinuevousado = new FieldDef("pcinuevousado",FieldDef.CHAR,3,FieldDef.NOTNULL);
+      pciobser = new FieldDef("pciobser",FieldDef.CHAR,2000);
+      FieldDef array[] = {
+        pcielemento,
+        pciempresa,
+        pciejercicio,
+        pcicuenta,
+        pcisubcuenta,
+        pciarticulo,
+        pcitipoamort,
+        pcicodigoamor,
+        pcidesc,
+        pcisubctaamort,
+        pciregistro,
+        pcictadot,
+        pcihoras,
+        pcisubctadot,
+        pcicoefapli,
+        pcifecalta,
+        pcifecbaja,
+        pcictaamort,
+        pcicoste,
+        pciperapli,
+        pciadquis,
+        pcifecplan,
+        pciunidades,
+        pcireserva,
+        pcinoamort,
+        pcinuevousado,
+        pciobser        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {pcielemento };
+      setPrimaryKeys(arrayf);
+      pcielemento.setAutoIncrementable(true);
+      }
+    }
+    
+  public class TabPcmoranual extends TableDef
+    {
+    // Campos
+    public FieldDef pcmelemento;
+    public FieldDef pcmamorejer;
+    public FieldDef pcmtipo;
+    public FieldDef pcmcoefamort;
+    public FieldDef pcmamortanual;
+    public FieldDef pcmamortacum;
+    public FieldDef pcmamortpdte;
+    public FieldDef pcmultfecha;
+    public FieldDef pcmcuotaapli;
+    public TabPcmoranual(String name)
+      {
+      super(name);
+      pcmelemento = new FieldDef("pcmelemento",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pcmamorejer = new FieldDef("pcmamorejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      pcmtipo = new FieldDef("pcmtipo",FieldDef.CHAR,1,FieldDef.NOTNULL);
+      pcmcoefamort = new FieldDef("pcmcoefamort",FieldDef.FLOAT,6,0);
+      pcmamortanual = new FieldDef("pcmamortanual",FieldDef.FLOAT,6,0);
+      pcmamortacum = new FieldDef("pcmamortacum",FieldDef.FLOAT,6,0);
+      pcmamortpdte = new FieldDef("pcmamortpdte",FieldDef.FLOAT,6,0);
+      pcmultfecha = new FieldDef("pcmultfecha",FieldDef.DATE);
+      pcmcuotaapli = new FieldDef("pcmcuotaapli",FieldDef.FLOAT,6,0);
+      FieldDef array[] = {
+        pcmelemento,
+        pcmamorejer,
+        pcmtipo,
+        pcmcoefamort,
+        pcmamortanual,
+        pcmamortacum,
+        pcmamortpdte,
+        pcmultfecha,
+        pcmcuotaapli        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {pcmelemento,pcmamorejer };
+      setPrimaryKeys(arrayf);
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -4468,6 +4814,12 @@ public class CatEasp extends Catalog
     tabinfplantlinea = new TabInfplantlinea("infplantlinea");
     tabinfplantcol = new TabInfplantcol("infplantcol");
     tabvalidanomaeat = new TabValidanomaeat("validanomaeat");
+    tabjcocnvprc = new TabJcocnvprc("jcocnvprc");
+    tabpcinmovlog = new TabPcinmovlog("pcinmovlog");
+    tabpcinmovhis = new TabPcinmovhis("pcinmovhis");
+    tabpcmoranualhis = new TabPcmoranualhis("pcmoranualhis");
+    tabpcinmov = new TabPcinmov("pcinmov");
+    tabpcmoranual = new TabPcmoranual("pcmoranual");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -4562,7 +4914,13 @@ public class CatEasp extends Catalog
       tabinfplantilla,
       tabinfplantlinea,
       tabinfplantcol,
-      tabvalidanomaeat      
+      tabvalidanomaeat,
+      tabjcocnvprc,
+      tabpcinmovlog,
+      tabpcinmovhis,
+      tabpcmoranualhis,
+      tabpcinmov,
+      tabpcmoranual      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
@@ -4710,6 +5068,21 @@ public class CatEasp extends Catalog
       new ForeignKey(tabinfplantilla,tabinfplantcolArrayf1)      
       };
     tabinfplantcol.setForeignKeys(tabinfplantcolArrayfk);
+    FieldDef tabpcinmovhisArrayf1[] = { tabpcinmovhis.pcihlog };
+    ForeignKey tabpcinmovhisArrayfk[] = { 
+      new ForeignKey(tabpcinmovlog,tabpcinmovhisArrayf1)      
+      };
+    tabpcinmovhis.setForeignKeys(tabpcinmovhisArrayfk);
+    FieldDef tabpcmoranualhisArrayf1[] = { tabpcmoranualhis.pcmhelemento };
+    ForeignKey tabpcmoranualhisArrayfk[] = { 
+      new ForeignKey(tabpcinmovhis,tabpcmoranualhisArrayf1)      
+      };
+    tabpcmoranualhis.setForeignKeys(tabpcmoranualhisArrayfk);
+    FieldDef tabpcmoranualArrayf1[] = { tabpcmoranual.pcmelemento };
+    ForeignKey tabpcmoranualArrayfk[] = { 
+      new ForeignKey(tabpcinmov,tabpcmoranualArrayf1)      
+      };
+    tabpcmoranual.setForeignKeys(tabpcmoranualArrayfk);
     }
   }
   
