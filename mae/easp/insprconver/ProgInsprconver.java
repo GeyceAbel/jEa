@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20180412
-// Hora:             09:39:30
+// Hora:             10:27:02
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1637,6 +1637,38 @@ public class ProgInsprconver extends Program
     	"    pcilruser VARCHAR(25),                                           "+
     	"    pcilprcorigen VARCHAR(100),                                      "+
     	"    PRIMARY KEY (pcilcodi));                                         ",
+    	"CREATE TABLE PCINMOV                                                 "+
+    	"   (pcielemento INTEGER NOT NULL ,              "+
+    	"    pciempresa INTEGER NOT NULL,                                     "+
+    	"    pciejercicio INTEGER NOT NULL,                                   "+
+    	"    pcicuenta VARCHAR(4) NOT NULL,                                   "+
+    	"    pcisubcuenta VARCHAR(12) NOT NULL,                               "+
+    	"    pciarticulo INTEGER NOT NULL,                                    "+
+    	"    pcitipoamort VARCHAR(3) NOT NULL,                                "+
+    	"    pcicodigoamor INTEGER NOT NULL,                                  "+
+    	"    pcidesc VARCHAR(40),                                             "+
+    	"    pcisubctaamort VARCHAR(12),                                      "+
+    	"    pciregistro VARCHAR(8),                                          "+
+    	"    pcictadot VARCHAR(4),                                            "+
+    	"    pcihoras FLOAT,                                                  "+
+    	"    pcisubctadot VARCHAR(12),                                        "+
+    	"    pcicoefapli FLOAT,                                               "+
+    	"    pcifecalta "+formatData()+
+    	"    pcifecbaja "+formatData()+
+    	"    pcictaamort VARCHAR(4),                                          "+
+    	"    pcicoste FLOAT,                                                  "+
+    	"    pciperapli INTEGER,                                              "+
+    	"    pciadquis FLOAT,                                                 "+
+    	"    pcifecplan "+formatData()+
+    	"    pciunidades INTEGER,                                             "+
+    	"    pcireserva FLOAT,                                                "+
+    	"    pcinoamort FLOAT,                                                "+
+    	"    pcinuevousado VARCHAR(3) NOT NULL,                               "+
+    	"    pciobser VARCHAR(2000),                                          "+
+    	"    PRIMARY KEY (pcielemento));                                      ",
+    };
+    
+    String sentencias15_2[]={
     	"CREATE TABLE PCINMOVHIS                                              "+
     	"   (pcihelemento INTEGER NOT NULL ,             "+
     	"    pcihempresa INTEGER NOT NULL,                                    "+
@@ -1680,35 +1712,6 @@ public class ProgInsprconver extends Program
     	"    pcmhcuotaapli FLOAT,                                             "+
     	"    PRIMARY KEY (pcmhelemento,pcmhamorejer),                         "+
     	"    FOREIGN KEY (pcmhelemento) REFERENCES PCINMOVHIS(pcihelemento)); ",
-    	"CREATE TABLE PCINMOV                                                 "+
-    	"   (pcielemento INTEGER NOT NULL ,              "+
-    	"    pciempresa INTEGER NOT NULL,                                     "+
-    	"    pciejercicio INTEGER NOT NULL,                                   "+
-    	"    pcicuenta VARCHAR(4) NOT NULL,                                   "+
-    	"    pcisubcuenta VARCHAR(12) NOT NULL,                               "+
-    	"    pciarticulo INTEGER NOT NULL,                                    "+
-    	"    pcitipoamort VARCHAR(3) NOT NULL,                                "+
-    	"    pcicodigoamor INTEGER NOT NULL,                                  "+
-    	"    pcidesc VARCHAR(40),                                             "+
-    	"    pcisubctaamort VARCHAR(12),                                      "+
-    	"    pciregistro VARCHAR(8),                                          "+
-    	"    pcictadot VARCHAR(4),                                            "+
-    	"    pcihoras FLOAT,                                                  "+
-    	"    pcisubctadot VARCHAR(12),                                        "+
-    	"    pcicoefapli FLOAT,                                               "+
-    	"    pcifecalta "+formatData()+
-    	"    pcifecbaja "+formatData()+
-    	"    pcictaamort VARCHAR(4),                                          "+
-    	"    pcicoste FLOAT,                                                  "+
-    	"    pciperapli INTEGER,                                              "+
-    	"    pciadquis FLOAT,                                                 "+
-    	"    pcifecplan "+formatData()+
-    	"    pciunidades INTEGER,                                             "+
-    	"    pcireserva FLOAT,                                                "+
-    	"    pcinoamort FLOAT,                                                "+
-    	"    pcinuevousado VARCHAR(3) NOT NULL,                               "+
-    	"    pciobser VARCHAR(2000),                                          "+
-    	"    PRIMARY KEY (pcielemento));                                      ",
     	"CREATE TABLE PCMORANUAL                                              "+
     	"   (pcmelemento INTEGER NOT NULL,                                    "+
     	"    pcmamorejer INTEGER NOT NULL,                                    "+
@@ -1722,6 +1725,8 @@ public class ProgInsprconver extends Program
     	"    PRIMARY KEY (pcmelemento,pcmamorejer),                           "+
     	"    FOREIGN KEY (pcmelemento) REFERENCES PCINMOV(pcielemento));      "
     };
+    
+    
     /*
       String sentencias15_0[]={
         "DELETE FROM TRANSACCIONES WHERE tratipoiva is null",
@@ -3931,6 +3936,22 @@ public class ProgInsprconver extends Program
             Easp.setVersionBD("bdeasp","15.1");
             Easp.connEA.commit();
             vvveractual.setValue("15.1");
+        }
+        if (versio < 15.2) {
+            for (i=0;i<sentencias15_2.length;++i) {
+                try {
+                    Easp.chivato("15.2 Exec : ["+sentencias15_2[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias15_2[i]);
+                }
+                catch(Exception e) {
+                    sqlOperation=sentencias15_2[i];
+                    Easp.chivato("15.2 *** Error : ["+sentencias15_2[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","15.2");
+            Easp.connEA.commit();
+            vvveractual.setValue("15.2");
         }
       }
       catch(Exception e) {
