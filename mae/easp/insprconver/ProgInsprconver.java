@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
 // Fecha:            20180412
-// Hora:             10:27:02
+// Hora:             10:39:04
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1664,7 +1664,7 @@ public class ProgInsprconver extends Program
     	"    pcireserva FLOAT,                                                "+
     	"    pcinoamort FLOAT,                                                "+
     	"    pcinuevousado VARCHAR(3) NOT NULL,                               "+
-    	"    pciobser VARCHAR(2000),                                          "+
+    	"    pciobser "+getMemo(2000)+
     	"    PRIMARY KEY (pcielemento));                                      ",
     };
     
@@ -1696,7 +1696,7 @@ public class ProgInsprconver extends Program
     	"    pcihreserva FLOAT,                                               "+
     	"    pcihnoamort FLOAT,                                               "+
     	"    pcihnuevousado VARCHAR(3) NOT NULL,                              "+
-    	"    pcihobser VARCHAR(2000),                                         "+
+    	"    pcihobser"+getMemo(2000)+
     	"    pcihlog INTEGER,                                                 "+
     	"    PRIMARY KEY (pcihelemento),                                      "+
     	"    FOREIGN KEY (pcihlog) REFERENCES PCINMOVLOG(pcilcodi));          ",
