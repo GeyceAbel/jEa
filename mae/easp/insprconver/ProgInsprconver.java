@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180412
-// Hora:             10:39:04
+// Fecha:            20180420
+// Hora:             10:17:43
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1726,6 +1726,12 @@ public class ProgInsprconver extends Program
     	"    FOREIGN KEY (pcmelemento) REFERENCES PCINMOV(pcielemento));      "
     };
     
+    String sentencias15_3[]={
+    "DELETE FROM PLANTILLAS WHERE PLAPLICACION='JRENTA' AND PLCODIGO='gyccarta1' and PLVENTANA='GYC-CARTA1';",
+    "DELETE FROM PLANTILLAS WHERE PLAPLICACION='JRENTA' AND PLCODIGO='gyccarta1' and PLVENTANA='GYC-CARTA2';",
+    "INSERT INTO PLANTILLAS (PLAPLICACION,PLCODIGO,PLVENTANA,PLDESCRIPCION ,PLURLPLANTILLA, PLTIPOPLAN) VALUES ('JRENTA','gyccarta1','GYC-CARTA1','Carta modelo jRenta','.\\plantillas\\gyccarta1.doc',0);",
+    "INSERT INTO PLANTILLAS (PLAPLICACION,PLCODIGO,PLVENTANA,PLDESCRIPCION ,PLURLPLANTILLA, PLTIPOPLAN) VALUES ('JRENTA','gyccarta1','GYC-CARTA2','Carta modelo jRenta','.\\plantillas\\gyccarta1.doc',0);"
+    };
     
     /*
       String sentencias15_0[]={
@@ -3953,6 +3959,22 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("15.2");
         }
+        if (versio < 15.3) {
+            for (i=0;i<sentencias15_3.length;++i) {
+                try {
+                    Easp.chivato("15.3 Exec : ["+sentencias15_3[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias15_3[i]);
+                }
+                catch(Exception e) {
+                    sqlOperation=sentencias15_3[i];
+                    Easp.chivato("15.3 *** Error : ["+sentencias15_3[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","15.3");
+            Easp.connEA.commit();
+            vvveractual.setValue("15.3");
+        } 
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");
