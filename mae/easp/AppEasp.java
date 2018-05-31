@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20171110
-// Hora:             09:42:01
+// Fecha:            20180531
+// Hora:             17:37:16
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -60,6 +60,11 @@ public class AppEasp extends Aplication
     }
   public void onInit()
     {
+    String destinoEjecucion =  System.getProperty("user.dir")+"\\";
+    if ( System.getProperty("java.version").startsWith("1.8") && !mae.modasp.general.Modasp.existeFichero(destinoEjecucion+"JdbcOdbc.dll") ) {
+      mae.modasp.general.Modasp.setFileFromjar(destinoEjecucion,"JdbcOdbc.dll",destinoEjecucion+"JdbcOdbc.dll");
+    }	  
+    
     Aplication.getAplication().setWaitIcon(new Imagen("mae/easp/html/EASP.png"));
     Aplication.getAplication().setIcon(new Imagen("mae/easp/html/EASP.png"));
     Easp.dominio=Aplication.getAplication().getParameter("Dominio");

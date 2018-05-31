@@ -1,8 +1,8 @@
 @echo off
 REM  **********  Aqui se especifica la version , y los paquetes de jtoken que se van a crear ***********
 
-set versio=_7_180502
-set version=18.05.02
+set versio=_7_180602
+set version=18.06.02
 
 GOTO JEA
 :FIJEA
@@ -20,7 +20,7 @@ echo version: %version% > vereasp%versio%.txt
 
 REM *** FICHEROS NO .CLASS ********* HTML,GIF,XML,XSL **************************************************
 
-pkzip25 -add -path zip/easp%versio%.zip   .properties
+REM pkzip25 -add -path zip/easp%versio%.zip   .properties
 pkzip25 -add -path zip/easp%versio%.zip   look.properties
 pkzip25 -add -path zip/easp%versio%.zip   maefc0110.dll
 pkzip25 -add -path zip/easp%versio%.zip   mae\easp\scripts\*.vbs
