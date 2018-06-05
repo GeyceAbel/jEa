@@ -934,7 +934,7 @@ public class ProgQuerylis extends Program
         for(java.util.Enumeration e=frase.nomsColumnes.keys();e.hasMoreElements();) {
             String key=(String)e.nextElement();
             Columna col=(Columna)frase.nomsColumnes.get(key);
-  
+            System.out.println(col.camp.field.getName());
             if (col.quorelacio.eof)
               col.valor.setNull();
             else

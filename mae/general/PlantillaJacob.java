@@ -426,7 +426,8 @@ public class PlantillaJacob extends Thread {
 	  
 	}
 	
-	public void executeMerge() {
+	public boolean executeMerge() {
+		boolean retorn = false;
 	  try {	
 		desempaquetaDll();
 		ComThread.InitMTA();
@@ -443,6 +444,7 @@ public class PlantillaJacob extends Thread {
 	    if(showPrintDialog)
 	      pd.show();
 	    else run();
+	    retorn = true;
 	    //if (oWord!=null)
 	      //oWord.setProperty("Visible", new Variant(true));
 	  }
@@ -457,8 +459,9 @@ public class PlantillaJacob extends Thread {
 	  }
 	  finally {
 		//if(saveAs==999 && !printDirecto) 
-		  ComThread.Release();
+		  ComThread.Release();		  
 	  }
+	  return retorn;
 	}
 	
 	public void tanca() {
