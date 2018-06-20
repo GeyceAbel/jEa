@@ -218,6 +218,7 @@ public class ActualizaNIFs
     private void abrirIncidencias() 
     {
 		mae.easp.adminciden.ProgAdminciden pr = new mae.easp.adminciden.ProgAdminciden ();
+		pr.setConnection(connEA);
 		pr.incCodi = numInc;
 		pr.run();
 	}

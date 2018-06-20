@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20150512
-// Hora:             16:48:57
+// Fecha:            20180620
+// Hora:             11:44:52
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -24,6 +24,9 @@ public class ProgPrselcdp extends Program
   {
   public AppEasp easp;
   public ProgPrselcdp prselcdp;
+  // Inicio declaraciones globales
+  public boolean vieneOtraAplicacion = false;
+  // Fin declaraciones globales
   // Ventana
   public FormVbuscaremp vbuscaremp;
   // Selects
@@ -387,6 +390,7 @@ public class ProgPrselcdp extends Program
         {
         mae.easp.prchgnif.ProgPrchgnif pr= new mae.easp.prchgnif.ProgPrchgnif();
         pr.gcdp=sempresa.cdpcodi.getString();
+        pr.setConnection(getDataBase());
         pr.run();
         int i = getCurrentRow();
         doShow();
@@ -535,10 +539,8 @@ public class ProgPrselcdp extends Program
       }
     }
     
-  public ProgPrselcdp(AppEasp easp)
+  public ProgPrselcdp()
     {
-    super(easp);
-    this.easp=easp;
     this.prselcdp=this;
     setName("prselcdp");
     setTitle("Clientes");
@@ -547,16 +549,20 @@ public class ProgPrselcdp extends Program
     addForm(vbuscaremp=new FormVbuscaremp(this));
     addForm(vlistaempresas=new FormVlistaempresas(this));
     }
-  public ProgPrselcdp()
+  public ProgPrselcdp(AppEasp easp)
     {
-    this((AppEasp) Aplication.getAplication());
+    this();
+    this.easp=easp;
     }
   public void onInit()
     {
     vbuscaremp.setLayout(new LayoutHtml("mae/easp/html/buscarempresa.html"));
     sempresa.setDistinct(true);
     vlistaempresas.setInitState(DataForm.SHOW) ;
-    
+    if (vieneOtraAplicacion) {
+       vlistaempresas.btseleccion.setVisible(false);  
+       vlistaempresas.acaltaagpi.setVisible(false);  
+    }
     super.onInit();
       
     
