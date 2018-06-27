@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180420
-// Hora:             10:17:43
+// Fecha:            20180627
+// Hora:             15:13:20
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1731,6 +1731,11 @@ public class ProgInsprconver extends Program
     "DELETE FROM PLANTILLAS WHERE PLAPLICACION='JRENTA' AND PLCODIGO='gyccarta1' and PLVENTANA='GYC-CARTA2';",
     "INSERT INTO PLANTILLAS (PLAPLICACION,PLCODIGO,PLVENTANA,PLDESCRIPCION ,PLURLPLANTILLA, PLTIPOPLAN) VALUES ('JRENTA','gyccarta1','GYC-CARTA1','Carta modelo jRenta','.\\plantillas\\gyccarta1.doc',0);",
     "INSERT INTO PLANTILLAS (PLAPLICACION,PLCODIGO,PLVENTANA,PLDESCRIPCION ,PLURLPLANTILLA, PLTIPOPLAN) VALUES ('JRENTA','gyccarta1','GYC-CARTA2','Carta modelo jRenta','.\\plantillas\\gyccarta1.doc',0);"
+    };
+    
+    String sentencias15_4[]={
+    "ALTER TABLE PCINMOV ADD pcicodini INTEGER",
+    "ALTER TABLE PCINMOVHIS ADD pcihcodini INTEGER"
     };
     
     /*
@@ -3975,6 +3980,22 @@ public class ProgInsprconver extends Program
             Easp.connEA.commit();
             vvveractual.setValue("15.3");
         } 
+        if (versio < 15.4) {
+            for (i=0;i<sentencias15_4.length;++i) {
+                try {
+                    Easp.chivato("15.4 Exec : ["+sentencias15_4[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias15_4[i]);
+                }
+                catch(Exception e) {
+                    sqlOperation=sentencias15_4[i];
+                    Easp.chivato("15.4 *** Error : ["+sentencias15_4[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","15.4");
+            Easp.connEA.commit();
+            vvveractual.setValue("15.4");
+        }
       }
       catch(Exception e) {
         System.out.println("Error en conversión: ["+e+"]");

@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180412
-// Hora:             09:34:17
+// Fecha:            20180627
+// Hora:             15:10:19
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -903,7 +903,7 @@ public class CatEasp extends Catalog
       cdpobserv = new FieldDef("cdpobserv",FieldDef.CHAR,255);
       cdpdominio = new FieldDef("cdpdominio",FieldDef.CHAR,12);
       cdpresponsable = new FieldDef("cdpresponsable",FieldDef.CHAR,25);
-      cdpsiifacil = new FieldDef("cdpsiifacil",FieldDef.CHAR,25);
+      cdpsiifacil = new FieldDef("cdpsiifacil",FieldDef.CHAR,1);
       FieldDef array[] = {
         cdpcodi,
         cdpnifcif,
@@ -4472,6 +4472,7 @@ public class CatEasp extends Catalog
     public FieldDef pcihnuevousado;
     public FieldDef pcihobser;
     public FieldDef pcihlog;
+    public FieldDef pcihcodini;
     public TabPcinmovhis(String name)
       {
       super(name);
@@ -4503,6 +4504,7 @@ public class CatEasp extends Catalog
       pcihnuevousado = new FieldDef("pcihnuevousado",FieldDef.CHAR,3,FieldDef.NOTNULL);
       pcihobser = new FieldDef("pcihobser",FieldDef.CHAR,2000);
       pcihlog = new FieldDef("pcihlog",FieldDef.INTEGER,0);
+      pcihcodini = new FieldDef("pcihcodini",FieldDef.INTEGER,0);
       FieldDef array[] = {
         pcihelemento,
         pcihempresa,
@@ -4531,7 +4533,8 @@ public class CatEasp extends Catalog
         pcihnoamort,
         pcihnuevousado,
         pcihobser,
-        pcihlog        
+        pcihlog,
+        pcihcodini        
         };
       setColumns(array);
       FieldDef arrayf[] = {pcihelemento };
@@ -4611,6 +4614,7 @@ public class CatEasp extends Catalog
     public FieldDef pcinoamort;
     public FieldDef pcinuevousado;
     public FieldDef pciobser;
+    public FieldDef pcicodini;
     public TabPcinmov(String name)
       {
       super(name);
@@ -4641,6 +4645,7 @@ public class CatEasp extends Catalog
       pcinoamort = new FieldDef("pcinoamort",FieldDef.FLOAT,6,0);
       pcinuevousado = new FieldDef("pcinuevousado",FieldDef.CHAR,3,FieldDef.NOTNULL);
       pciobser = new FieldDef("pciobser",FieldDef.CHAR,2000);
+      pcicodini = new FieldDef("pcicodini",FieldDef.INTEGER,0);
       FieldDef array[] = {
         pcielemento,
         pciempresa,
@@ -4668,7 +4673,8 @@ public class CatEasp extends Catalog
         pcireserva,
         pcinoamort,
         pcinuevousado,
-        pciobser        
+        pciobser,
+        pcicodini        
         };
       setColumns(array);
       FieldDef arrayf[] = {pcielemento };
