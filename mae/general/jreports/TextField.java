@@ -1,9 +1,11 @@
 package mae.general.jreports;
 
+import java.util.UUID;
 
-public class TextField {
+public class TextField extends JasperObject {
 	private boolean negreta;
 	private boolean italic;
+	private boolean underLined;
 	private String colorFons;
 	private String colorFont;
 	private boolean asignarColorFondo;
@@ -26,6 +28,9 @@ public class TextField {
 	private boolean esExpresionCompleta;
 	private boolean isStretchWithOverflow=false;
 	private boolean centered = false;
+	private boolean isBlankWhenNull = true;
+	private UUID uuid = UUID.randomUUID();
+	private String textAlignement = "Left";
 
 private String style = "";
 
@@ -38,6 +43,7 @@ private String style = "";
 		this.jl = jlis;
 		negreta = false;
 		italic = false;
+		underLined = false;
 		asignarColorFondo = false;
 		colorFont = "#000000";
 		//posIni = 0;
@@ -284,5 +290,37 @@ private String style = "";
 		tftmp.esExpresionCompleta = esExpresionCompleta;
 		tftmp.isStretchWithOverflow = isStretchWithOverflow;
 		return tftmp;
+	}
+
+	public boolean isBlankWhenNull() {
+		return isBlankWhenNull;
+	}
+
+	public void setBlankWhenNull(boolean isBlankWhenNull) {
+		this.isBlankWhenNull = isBlankWhenNull;
+	}
+
+	public UUID getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(UUID uuid) {
+		this.uuid = uuid;
+	}
+
+	public String getTextAlignement() {
+		return textAlignement;
+	}
+
+	public void setTextAlignement(String textAlignement) {
+		this.textAlignement = textAlignement;
+	}
+
+	public boolean isUnderLined() {
+		return underLined;
+	}
+
+	public void setUnderLined(boolean underLined) {
+		this.underLined = underLined;
 	}
 }

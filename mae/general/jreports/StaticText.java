@@ -1,6 +1,6 @@
 package mae.general.jreports;
 
-public class StaticText {
+public class StaticText extends JasperObject{
 	private String colorFons;
 	private String colorFont;
 	private boolean asignarColorFondo;

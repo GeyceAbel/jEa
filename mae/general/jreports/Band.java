@@ -1,20 +1,48 @@
 package mae.general.jreports;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class Band {
-	int height;
+	public enum SplitType { DEFAULT,STRETCH, PREVENT, IMMEDIATE} ;
+	int height = 15;
 	String printWhen;
 	Vector <TextField> vtf;
 	Vector <StaticText> vst;
+	ArrayList<JasperObject> jasperObject;
+	SplitType splitType = SplitType.STRETCH; 
 	
+	
+	public String getSplitType() {
+		switch(splitType) {
+		case DEFAULT: return "Default";
+		case STRETCH: return "Stretch";
+		case PREVENT: return "Prevent";
+		case IMMEDIATE: return "Immediate";
+		default: return "Default";
+		}
+	}
+
+	public void setSplitType(SplitType splitType) {
+		this.splitType = splitType;
+	}
+
 	
 	public Band () {
 		vtf = new Vector<TextField>();
 		vst = new Vector<StaticText>();
+		jasperObject = new ArrayList<JasperObject>();
+	}
+
+	public ArrayList<JasperObject> getJasperObject() {
+		return jasperObject;
 	}
 
 
+	public void addJasperObject(JasperObject jo) {
+	  jasperObject.add(jo);	
+	}
+	
 	public int getHeight() {
 		return height;
 	}
@@ -60,6 +88,10 @@ public class Band {
 
 	public TextField getFields(int j) {
 		return vtf.elementAt(j);
+	}
+	
+	public Vector <TextField> getTextFields () {
+		return vtf;
 	}
 	
 

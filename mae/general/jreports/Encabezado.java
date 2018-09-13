@@ -84,7 +84,7 @@ public class Encabezado {
 		st.setLiteral(literal);
 		st.setNegreta(true);
 		//st.setPosInicial(2 * (jl.getMargenizq()));
-		tf.setLeftIndent(jl.getMargenizq() + 10);
+		st.setLeftIndent(jl.getMargenizq() + 10);
 		st.setSizeFont(sizeFont);
 		st.setAligLeft();
 		//st.setWidth(width);

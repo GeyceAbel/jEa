@@ -44,6 +44,13 @@ public class JListado {
 	private List <Rotura> roturas;
 	private List <Totalizar> totales;
 	private List <Parametro> xmlParameter;
+	private List <Group> groups;
+	//private List <JasperObject> detailGroup;
+	
+	
+	private Band detail;
+
+
 
 	public DBConnection conn;
 	public String rutaFicheroJRXML;
@@ -136,6 +143,8 @@ public class JListado {
 		roturas = new ArrayList <Rotura>();
 		totales = new ArrayList<Totalizar>();
 		xmlParameter = new ArrayList<Parametro>();
+		groups = new ArrayList<Group>();
+		//detailGroup = new ArrayList<JasperObject>();
 		sizeDetalle = 8;
 		sizeEncabezado = 10;
 		sizeTitulo = 18;
@@ -254,6 +263,10 @@ public class JListado {
 		return enc;
 	}
 
+	public void addGroup(Group group) {
+		groups.add(group);
+	}
+	
 	public Parametro addParametro(String nom,String expression,String tipus,Object parametro, boolean isImport) {
 		Parametro p = new Parametro(nom, expression, tipus, isImport);
 		xmlParameter.add(p);
@@ -493,17 +506,26 @@ public class JListado {
 			if (bOk) bOk = generarVariablesRoturas (pw);
 			if (bOk) bOk = generarVariablesTotales (pw);
 			if (bOk) bOk = generarExtraVariables (pw);
+			
+			
+			
 			//initTamanyoColumnes ();
 			if(viewTotalesFinales)
 				if (bOk) bOk = generarTotalesFooter (pw);
 			if (bOk) bOk = generarRoturas (pw);
 			if (bOk && !getTitolColumnasEncabezado()) bOk = generarDummyHeader(pw);
 			if (bOk) bOk = generarGrupos(pw);
+			if (bOk) bOk = generarGroups (pw);
 			//if (bOk) bOk = generarBandBackground (pw);
 			if (bOk) bOk = generarBandTitle (pw);
 			if (bOk) bOk = generarPageHeader (pw);
 			//if (bOk) bOk = generarColumnHeader (pw);
-			if (bOk) bOk = generarDetail (pw);
+			if (bOk) {
+				if(detail != null)
+				  bOk = generarDetailEspecifico (pw);
+				else 
+				  bOk = generarDetail (pw);
+			}
 			//if (bOk) bOk = generarColumnFooter (pw);
 			if (bOk) bOk = generarPageFooter (pw);
 			if (sumario != null && sumario.haySummary()) sumario.generarSumary(pw);
@@ -574,6 +596,75 @@ public class JListado {
 		return bOk;
 	}
 
+	
+	protected void generaJasperObject(JasperObject jo, BufferedWriter pw) throws Exception{
+		if(jo instanceof TextField) {
+			generaTextField((TextField)jo,pw);
+		}		
+	}
+	
+	
+	protected void generaTextField(TextField tf, BufferedWriter pw) throws Exception{
+		  pw.write("<textField " + (tf.isStretchWithOverflow()?"isStretchWithOverflow=\"true\"":"") + "  isBlankWhenNull=" +(tf.isBlankWhenNull()?"\"true\"":"\"false\"") + ">");
+		  pw.write("<reportElement x=\"" + tf.getPosIni() + "\" y=\"" + tf.getY() + "\" width=\"" + tf.getWidth() + "\" height=\"" + tf.getAmplada() +"\">");
+		  pw.write("<property name=\"net.sf.jasperreports.export.xls.auto.fit.column\" value=\"true\"/>");
+		  pw.write("<property name=\"net.sf.jasperreports.print.keep.full.text\" value=\"true\"/>");
+		  pw.write("</reportElement>");
+		  pw.write("<textElement textAlignment=\"" + tf.getTextAlignement() + "\" verticalAlignment=\""+ tf.getVerticalAlig()  +"\">");
+		  pw.write("<font size=\"" + tf.getSizeFont() 
+		  		  + "\" isBold=\"" + (tf.isNegreta()?"true":"false") + "\" " 
+		          +  (tf.isItalic()?" isItalic=\"true\"":"")
+		          +  (tf.isUnderLined()?" isUnderline=\"true\"":"")
+		          +getFontName(true, false)+"/>");
+		  pw.write("<paragraph leftIndent=\""+tf.getLeftIndent()+"\"/>");
+		  pw.write("</textElement>");
+		  pw.write("<textFieldExpression>" + tf.getExpression() + "</textFieldExpression>");
+		  pw.write("</textField>");
+	}
+	
+	protected boolean generarGroups(BufferedWriter pw) {
+		boolean bOk = true;
+		try {
+		  for (Group tempGroup : groups) {
+			  pw.write("<group name=\""+tempGroup.getGroupName()+"\""+" isStartNewPage=\"" + (tempGroup.isStartInNewPage()?"\"true\"":"\"false\"") + "\" "+" isReprintHeaderOnEachPage=\"" + (tempGroup.isReprintHeaderOnEachPage()?"\"true\"":"\"false\"") + "\" minHeightToStartNewPage=\""+ tempGroup.getMinHeightToStartNewPage() +"\">");
+			  if(tempGroup.getGroupExpresion() != null )
+			    pw.write("<groupExpression>" + tempGroup.getGroupExpresion() + "</groupExpression>");
+			  if(tempGroup.isHasGroupHeader()) {
+				  pw.write("<groupHeader>");
+				  for(Band headerBand: tempGroup.bandsHeader) {
+					  pw.write("<band height=\""+headerBand.getHeight()+"\">");
+					  if(headerBand.getPrintWhen() != null)
+						  pw.write("<printWhenExpression>" + headerBand.getPrintWhen()  + "</printWhenExpression>");
+					  for(TextField tf: headerBand.getTextFields()) {
+						  generaTextField(tf,pw);
+					  }					  
+					  pw.write("</band>");
+				  }				  
+				  pw.write("</groupHeader>");
+			  }
+			  if(tempGroup.isHasGroupFooter()) {
+				  pw.write("<groupFooter>");
+				  for(Band footerBand: tempGroup.bandsFooter) {
+					  pw.write("<band height=\""+footerBand.getHeight()+"\">");
+					  if(footerBand.getPrintWhen() != null)
+						  pw.write("<printWhenExpression>" + footerBand.getPrintWhen()  + "</printWhenExpression>");
+					  for(TextField tf: footerBand.getTextFields()) {
+						  generaTextField(tf,pw);
+					  }					  
+					  pw.write("</band>");				  
+				  }
+				  pw.write("</groupFooter>");
+			  }				
+			  pw.write("</group>");
+		  }
+		}
+		catch(Exception ex) {
+			bOk = false;
+			sError = ex.getMessage();
+		}
+		return bOk;
+	}
+	
 	protected boolean generarGrupos(BufferedWriter pw) {
 		boolean bOk = true;
 		try {
@@ -756,6 +847,28 @@ public class JListado {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			sError = ""+e;
+			bOk = false;
+		}
+		return bOk;
+	}
+	
+	private boolean generarDetailEspecifico(BufferedWriter pw) {
+		boolean bOk = true;
+		try {			
+			pw.write("<detail>");
+			pw.write("<band height=\""+ detail.height+"\" splitType=\""+ detail.getSplitType() + "\">");
+			if (detail.printWhen!=null && detail.printWhen.length()>0) pw.write("<printWhenExpression>"+detail.printWhen+"</printWhenExpression>");
+			for (JasperObject jasperObject : detail.getJasperObject()) {
+				generaJasperObject(jasperObject, pw);
+			}
+			pw.write("</band>");
+			pw.write("</detail>");
+			
+			
+
+		}
+		catch (Exception e) {
 			sError = ""+e;
 			bOk = false;
 		}
@@ -1688,5 +1801,13 @@ public class JListado {
 	public String formatearLiteral(String valor) {
 		String valortmp = valor.replace("\"","\\\"");
 		return valortmp;
+	}
+	
+	public Band getDetail() {
+		return detail;
+	}
+
+	public void setDetailBand(Band detail) {
+		this.detail = detail;
 	}
 }
