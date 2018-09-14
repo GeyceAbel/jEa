@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180627
-// Hora:             15:13:20
+// Fecha:            20180913
+// Hora:             15:03:21
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1736,6 +1736,10 @@ public class ProgInsprconver extends Program
     String sentencias15_4[]={
     "ALTER TABLE PCINMOV ADD pcicodini INTEGER",
     "ALTER TABLE PCINMOVHIS ADD pcihcodini INTEGER"
+    };
+    
+    String sentencias15_5[]={
+    "ALTER TABLE CDP ADD cdpomiterel VARCHAR(1)",
     };
     
     /*
@@ -3995,6 +3999,22 @@ public class ProgInsprconver extends Program
             Easp.setVersionBD("bdeasp","15.4");
             Easp.connEA.commit();
             vvveractual.setValue("15.4");
+        }
+        if (versio < 15.5) {
+            for (i=0;i<sentencias15_5.length;++i) {
+                try {
+                    Easp.chivato("15.5 Exec : ["+sentencias15_5[i]+"]",1);
+                    Easp.connEA.executeUpdate(sentencias15_5[i]);
+                }
+                catch(Exception e) {
+                    sqlOperation=sentencias15_5[i];
+                    Easp.chivato("15.5 *** Error : ["+sentencias15_5[i]+"]  Error: ["+e+"]",1);
+                    errorMessage=e.getMessage();
+                }
+            }
+            Easp.setVersionBD("bdeasp","15.5");
+            Easp.connEA.commit();
+            vvveractual.setValue("15.5");
         }
       }
       catch(Exception e) {

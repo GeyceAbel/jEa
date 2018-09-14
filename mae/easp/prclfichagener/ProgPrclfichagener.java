@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20170727
-// Hora:             09:40:12
+// Fecha:            20180914
+// Hora:             10:42:01
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -175,8 +175,9 @@ public class ProgPrclfichagener extends Program
     
     public void onOpened(){
       super.onOpened();
+      chomiterel.setEnabled(!cdpcdprel.isNull());
       vdomicilioenv.run();
-    /*
+     /*
       vdatosbancarios.run();
       vrepresentantes.run();
     */
@@ -209,6 +210,7 @@ public class ProgPrclfichagener extends Program
     public CtrlVadministracio vadministracio;
     public CtrlCdpcodi cdpcodi;
     public CtrlCdpcdprel cdpcdprel;
+    public CtrlChomiterel chomiterel;
     // Acciones
     class Location extends LocationSplit
       {
@@ -398,6 +400,37 @@ public class ProgPrclfichagener extends Program
         setPrintable(false);
         setField(sgeneral.cdpcdprel);
         }
+      public void onChange()
+        {
+          super.onChange();
+        }
+                        
+        public void userChange(Value v ) {
+          super.userChange(v);
+          if(v!=null && !v.getString().trim().equals("")) {
+            chomiterel.setEnabled(true);
+          }
+          else {
+            chomiterel.setValue(false);
+            chomiterel.setEnabled(false);
+          }
+        
+        }
+      }
+      
+    public class CtrlChomiterel extends ControlCheck
+      {
+      public CtrlChomiterel(Form form)
+        {
+        super(form);
+        setName("chomiterel");
+        setMessageHelp("Omitir campo cdp relacionado para gestiones e-Mir y e-Portem");
+        setTitle("Omitir campo cdp relacionado");
+        }
+      public Object getDefault()
+        {
+        return new Boolean(false);
+        }
       }
       
     public FormVdatosafiliacio(ProgPrclfichagener prclfichagener)
@@ -421,6 +454,7 @@ public class ProgPrclfichagener extends Program
       addControl(vadministracio=new CtrlVadministracio(this));
       addControl(cdpcodi=new CtrlCdpcodi(this));
       addControl(cdpcdprel=new CtrlCdpcdprel(this));
+      addControl(chomiterel=new CtrlChomiterel(this));
       setSelect(sgeneral);
       }
     public void onInit()
@@ -442,6 +476,9 @@ public class ProgPrclfichagener extends Program
       if ( sgeneral.cdpcodi.getString().length() == 12 ) vvcodigo.setValue(Integer.parseInt(sgeneral.cdpcodi.getString().substring(6,12)));
       else                                               vvcodigo.setNull();
       
+      chomiterel.setValue(sgeneral.cdpomiterel.getString() != null && !sgeneral.cdpomiterel.getString().trim().equals("") && !sgeneral.cdpomiterel.getString().trim().equals("N"));
+      
+      
       }
     }
     
@@ -452,6 +489,7 @@ public class ProgPrclfichagener extends Program
     public Cdp cdp;
     public Nifes nifes;
     // Campos
+    public Field cdpomiterel;
     public Field cdpaeatadm;
     public Field cdpaeatdele;
     public Field cdpagpi;
@@ -532,6 +570,7 @@ public class ProgPrclfichagener extends Program
       setName("sgeneral");
       addTable(cdp=new Cdp(this));
       addTable(nifes=new Nifes(this));
+      addField(cdpomiterel=new Field(this,cdp,"cdpomiterel"));
       addField(cdpaeatadm=new Field(this,cdp,"cdpaeatadm"));
       addField(cdpaeatdele=new Field(this,cdp,"cdpaeatdele"));
       addField(cdpagpi=new Field(this,cdp,"cdpagpi"));

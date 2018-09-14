@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20170117
-// Hora:             13:31:57
+// Fecha:            20180914
+// Hora:             10:39:16
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -75,6 +75,7 @@ public class ProgPrtratamnifes extends Program
     
     public void onOpened(){
       super.onOpened();
+      
       danifcif.setEnabled(vnifcif==null);
       if (modo==20) doEdit();
       else if (modo==1) doInsert();
@@ -226,6 +227,7 @@ public class ProgPrtratamnifes extends Program
     public CtrlCdpref cdpref;
     public CtrlCdpcdprel cdpcdprel;
     public CtrlCdpobserv cdpobserv;
+    public CtrlChomiterel chomiterel;
     // Acciones
     public LinkAaltaafinity aaltaafinity;
     public LinkAdomicilios adomicilios;
@@ -1020,6 +1022,22 @@ public class ProgPrtratamnifes extends Program
         setPrintable(false);
         setField(snifes.cdpcdprel);
         }
+      public void onChange()
+        {
+          super.onChange();
+        }
+                        
+        public void userChange(Value v ) {
+          super.userChange(v);
+          if(v!=null && !v.getString().trim().equals("")) {
+            chomiterel.setEnabled(true);
+          }
+          else {
+            chomiterel.setValue(false);
+            chomiterel.setEnabled(false);
+          }
+        
+        }
       }
       
     public class CtrlCdpobserv extends ControlEditPane
@@ -1045,6 +1063,21 @@ public class ProgPrtratamnifes extends Program
         setLength(255);
         setPrintable(false);
         setField(snifes.cdpobserv);
+        }
+      }
+      
+    public class CtrlChomiterel extends ControlCheck
+      {
+      public CtrlChomiterel(Form form)
+        {
+        super(form);
+        setName("chomiterel");
+        setMessageHelp("Omitir campo cdp relacionado para gestiones e-Mir y e-Portem");
+        setTitle("Omitir campo cdp relacionado para gestiones e-Mir y e-Portem");
+        }
+      public Object getDefault()
+        {
+        return new Boolean(false);
         }
       }
       
@@ -1135,6 +1168,7 @@ public class ProgPrtratamnifes extends Program
       addControl(cdpref=new CtrlCdpref(this));
       addControl(cdpcdprel=new CtrlCdpcdprel(this));
       addControl(cdpobserv=new CtrlCdpobserv(this));
+      addControl(chomiterel=new CtrlChomiterel(this));
       addAction(aaltaafinity=new LinkAaltaafinity(this));
       addAction(adomicilios=new LinkAdomicilios(this));
       setSelect(snifes);
@@ -1189,6 +1223,10 @@ public class ProgPrtratamnifes extends Program
       super.onBeginRecord();
       chcbienes.setValue(snifes.datcbienes.getString().equals("S"));
       vcdpcodi.setValue(Integer.parseInt(snifes.cdpcodi.getString().substring(6)));
+      
+      chomiterel.setValue(snifes.cdpomiterel.getString() != null && !snifes.cdpomiterel.getString().trim().equals("") && !snifes.cdpomiterel.getString().trim().equals("N"));
+      chomiterel.setEnabled(!cdpcdprel.isNull() && !cdpcdprel.getString().trim().equals(""));
+      
       }
     }
     
@@ -1257,6 +1295,7 @@ public class ProgPrtratamnifes extends Program
     public Field datsiglas;
     public Field dattel;
     public Field datvia;
+    public Field cdpomiterel;
     class Nifes extends Table
       {
       public Nifes(Select select)
@@ -1281,6 +1320,15 @@ public class ProgPrtratamnifes extends Program
             datcbienes.setValue("S");
           else
             datcbienes.setValue("N");
+          if(vnifes.chomiterel.getBoolean()) {
+            cdpomiterel.setValue("S");
+          }
+          else {
+            cdpomiterel.setValue("N");
+          }
+        
+        
+        
           if (esDP)
             datipo.setValue("D");
           else
@@ -1294,6 +1342,14 @@ public class ProgPrtratamnifes extends Program
           datcbienes.setValue("S");
         else
           datcbienes.setValue("N");
+        
+          if(vnifes.chomiterel.getBoolean()) {
+            cdpomiterel.setValue("S");
+          }
+          else {
+            cdpomiterel.setValue("N");
+          }
+        
         return super.onUpdate();
         
         }
@@ -1417,6 +1473,7 @@ public class ProgPrtratamnifes extends Program
       addField(datsiglas=new Field(this,nifes,"datsiglas"));
       addField(dattel=new Field(this,nifes,"dattel"));
       addField(datvia=new Field(this,nifes,"datvia"));
+      addField(cdpomiterel=new Field(this,cdp,"cdpomiterel"));
       }
     public String getWhere()
       {
