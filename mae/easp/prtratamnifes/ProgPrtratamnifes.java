@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180914
-// Hora:             10:39:16
+// Fecha:            20180917
+// Hora:             15:22:04
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1001,10 +1001,6 @@ public class ProgPrtratamnifes extends Program
         setPrintable(false);
         setField(snifes.cdpref);
         }
-      public boolean obligate()
-        {
-        return true;
-        }
       }
       
     public class CtrlCdpcdprel extends ControlComboBox
@@ -1253,6 +1249,7 @@ public class ProgPrtratamnifes extends Program
     public Field cdpdominio;
     public Field cdpnifcif;
     public Field cdpobserv;
+    public Field cdpomiterel;
     public Field cdppwd;
     public Field cdppwdacc;
     public Field cdpref;
@@ -1295,7 +1292,6 @@ public class ProgPrtratamnifes extends Program
     public Field datsiglas;
     public Field dattel;
     public Field datvia;
-    public Field cdpomiterel;
     class Nifes extends Table
       {
       public Nifes(Select select)
@@ -1431,6 +1427,7 @@ public class ProgPrtratamnifes extends Program
       addField(cdpdominio=new Field(this,cdp,"cdpdominio"));
       addField(cdpnifcif=new Field(this,cdp,"cdpnifcif"));
       addField(cdpobserv=new Field(this,cdp,"cdpobserv"));
+      addField(cdpomiterel=new Field(this,cdp,"cdpomiterel"));
       addField(cdppwd=new Field(this,cdp,"cdppwd"));
       addField(cdppwdacc=new Field(this,cdp,"cdppwdacc"));
       addField(cdpref=new Field(this,cdp,"cdpref"));
@@ -1473,7 +1470,6 @@ public class ProgPrtratamnifes extends Program
       addField(datsiglas=new Field(this,nifes,"datsiglas"));
       addField(dattel=new Field(this,nifes,"dattel"));
       addField(datvia=new Field(this,nifes,"datvia"));
-      addField(cdpomiterel=new Field(this,cdp,"cdpomiterel"));
       }
     public String getWhere()
       {
