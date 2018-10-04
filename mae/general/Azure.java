@@ -29,7 +29,7 @@ import mae.easp.general.Easp.TIPO_HOST;
 public class Azure {	
 	private static final String PROTOCOL = "https://";
 	private final String SITE 	 = "pls/agpi/";
-	private final static int TIMEOUT = 30; //Seconds
+	private int TIMEOUT = 30; //Seconds
 	private final long MB_MAXIMOS = 50; //Tamany màxim de fitxer.
 	private int numeroReintentos;
 	private String contenido;
@@ -119,11 +119,11 @@ public class Azure {
 		return bOk;
 	}
 
-	public static CloseableHttpClient createHttpClient () {
+	public CloseableHttpClient createHttpClient () {
 		return createHttpClient (0);
 	}
 	
-	public static CloseableHttpClient createHttpClient (final int numreintentos) {
+	public CloseableHttpClient createHttpClient (final int numreintentos) {
 		String b64Encoded = "";
 		try {
 			b64Encoded = Base64.encodeBytes(new String(getUsuario()+":"+getPassword()).getBytes("utf-8"));
@@ -264,4 +264,14 @@ public class Azure {
 	public void setEncoding(String enconding) {
 		this.encoding = enconding;
 	}
+	
+	
+	public int getTIMEOUT() {
+		return TIMEOUT;
+	}
+
+	public void setTIMEOUT(int tIMEOUT) {
+		TIMEOUT = tIMEOUT;
+	}
+
 }
