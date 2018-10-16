@@ -1498,6 +1498,11 @@ public class ConversionJCO extends ConversionLC {
 	private boolean importarInmov (int empresa, int ejercicioL, int empJconta, int ejercicioJ) {
 
 		boolean bOk = true;
+		Selector sta = new Selector (connEA);
+		sta.execute("Select pcielemento from PCINMOV where pciempresa="+empJconta);
+		boolean tieneAmortizaciones = sta.next();
+		sta.close();
+		if (tieneAmortizaciones) return true;
 		pbf.setSecondaryPercent(0);
 		pbf.setState("Convirtiendo LC: "+empresa+"  JC:"+empJconta+" ("+ejercicioJ+")  -  Inmovilizado");
 
@@ -1514,7 +1519,7 @@ public class ConversionJCO extends ConversionLC {
 			pciarticulo++;
 			htArtic.put(tablac,new Integer(pciarticulo));
 			boolean bGrabaElem = true;
-			Insert i = new Insert(dbJCta,"PCINMOV");
+			Insert i = new Insert(connEA,"PCINMOV");
 			i.valor("pcielemento",elemento);
 			i.valor("pciempresa",empJconta);
 			i.valor("pciejercicio",ejercicioJ);
@@ -1663,7 +1668,7 @@ public class ConversionJCO extends ConversionLC {
 						Selector sexiste = new Selector (dbJCta);
 						sexiste.execute("Select * from PCMORANUAL where pcmelemento="+elemento+" and pcmamorejer="+ejeamo);
 						if (!sexiste.next()) {
-							Insert ip = new Insert(dbJCta,"PCMORANUAL");
+							Insert ip = new Insert(connEA,"PCMORANUAL");
 							ip.valor("pcmelemento",elemento);
 							ip.valor("pcmamorejer",ejeamo);
 							ip.valor("pcmtipo","C");
@@ -1678,7 +1683,7 @@ public class ConversionJCO extends ConversionLC {
 							bOk = ip.execute();
 						}
 						else {
-							Update up = new Update(dbJCta,"PCMORANUAL");
+							Update up = new Update(connEA,"PCMORANUAL");
 							double impamo = splan.getdouble("ImporteAmortizado");
 							if (impamo==0) impamo = splan.getdouble("importemaximoanual");
 							amortAcum += impamo;
