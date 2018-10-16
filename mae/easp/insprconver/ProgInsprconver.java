@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180913
-// Hora:             15:03:21
+// Fecha:            20181016
+// Hora:             17:58:01
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1742,6 +1742,15 @@ public class ProgInsprconver extends Program
     "ALTER TABLE CDP ADD cdpomiterel VARCHAR(1)",
     };
     
+    String sentencias15_6[]={
+        "CREATE TABLE DICCUENTAS"
+        +"  (diccodigo  INTEGER,"
+        +"	 dicempresa INTEGER,"
+        +"	 diconcepto VARCHAR(40),"
+        +"	 diccuenta  VARCHAR(4),"
+        +"	 dicscuenta VARCHAR(12),"
+        +"	 PRIMARY KEY (diccodigo));"
+    };
     /*
       String sentencias15_0[]={
         "DELETE FROM TRANSACCIONES WHERE tratipoiva is null",
@@ -4015,6 +4024,22 @@ public class ProgInsprconver extends Program
             Easp.setVersionBD("bdeasp","15.5");
             Easp.connEA.commit();
             vvveractual.setValue("15.5");
+        }
+        if (versio < 15.6) {
+            for (i=0;i<sentencias15_6.length;++i) {
+            	try {
+            		Easp.chivato("15.6 Exec : ["+sentencias15_6[i]+"]",1);
+            		Easp.connEA.executeUpdate(sentencias15_6[i]);
+            	}
+            	catch(Exception e) {
+            		sqlOperation=sentencias15_6[i];
+            		Easp.chivato("15.6 *** Error : ["+sentencias15_6[i]+"]  Error: ["+e+"]",1);
+            		errorMessage=e.getMessage();
+            	}
+            }
+            Easp.setVersionBD("bdeasp","15.6");
+            Easp.connEA.commit();
+            vvveractual.setValue("15.6");
         }
       }
       catch(Exception e) {

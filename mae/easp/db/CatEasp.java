@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20180914
-// Hora:             08:45:53
+// Fecha:            20181016
+// Hora:             17:57:54
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -116,6 +116,7 @@ public class CatEasp extends Catalog
   public TabPcmoranualhis tabpcmoranualhis;
   public TabPcinmov tabpcinmov;
   public TabPcmoranual tabpcmoranual;
+  public TabDiccuentas tabdiccuentas;
   public class TabGycauto extends TableDef
     {
     // Campos
@@ -4727,6 +4728,36 @@ public class CatEasp extends Catalog
       }
     }
     
+  public class TabDiccuentas extends TableDef
+    {
+    // Campos
+    public FieldDef diccodigo;
+    public FieldDef dicempresa;
+    public FieldDef diconcepto;
+    public FieldDef diccuenta;
+    public FieldDef dicscuenta;
+    public TabDiccuentas(String name)
+      {
+      super(name);
+      diccodigo = new FieldDef("diccodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+      dicempresa = new FieldDef("dicempresa",FieldDef.INTEGER,0);
+      diconcepto = new FieldDef("diconcepto",FieldDef.CHAR,40);
+      diccuenta = new FieldDef("diccuenta",FieldDef.CHAR,4);
+      dicscuenta = new FieldDef("dicscuenta",FieldDef.CHAR,12);
+      FieldDef array[] = {
+        diccodigo,
+        dicempresa,
+        diconcepto,
+        diccuenta,
+        dicscuenta        
+        };
+      setColumns(array);
+      FieldDef arrayf[] = {diccodigo };
+      setPrimaryKeys(arrayf);
+      diccodigo.setAutoIncrementable(true);
+      }
+    }
+    
   public CatEasp()
     {
     tabgycauto = new TabGycauto("gycauto");
@@ -4829,6 +4860,7 @@ public class CatEasp extends Catalog
     tabpcmoranualhis = new TabPcmoranualhis("pcmoranualhis");
     tabpcinmov = new TabPcinmov("pcinmov");
     tabpcmoranual = new TabPcmoranual("pcmoranual");
+    tabdiccuentas = new TabDiccuentas("diccuentas");
     TableDef array[] = {
       tabgycauto,
       tabsetupapl,
@@ -4929,7 +4961,8 @@ public class CatEasp extends Catalog
       tabpcinmovhis,
       tabpcmoranualhis,
       tabpcinmov,
-      tabpcmoranual      
+      tabpcmoranual,
+      tabdiccuentas      
       };
     setTables(array);
     FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
