@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20181016
-// Hora:             17:58:01
+// Fecha:            20181017
+// Hora:             17:10:46
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -1746,7 +1746,7 @@ public class ProgInsprconver extends Program
         "CREATE TABLE DICCUENTAS"
         +"  (diccodigo  INTEGER,"
         +"	 dicempresa INTEGER,"
-        +"	 diconcepto VARCHAR(40),"
+        +"	 dicconcepto VARCHAR(40),"
         +"	 diccuenta  VARCHAR(4),"
         +"	 dicscuenta VARCHAR(12),"
         +"	 PRIMARY KEY (diccodigo));"

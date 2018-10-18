@@ -1,6 +1,6 @@
 // Codigo Generado por MAEFCASE V-4.0 NO MODIFICAR!
-// Fecha:            20181016
-// Hora:             17:57:54
+// Fecha:            20181017
+// Hora:             17:05:26
 // Driver BD:        ODBC
 // Base de Datos:    bdeaspprog
 // 
@@ -4733,7 +4733,7 @@ public class CatEasp extends Catalog
     // Campos
     public FieldDef diccodigo;
     public FieldDef dicempresa;
-    public FieldDef diconcepto;
+    public FieldDef dicconcepto;
     public FieldDef diccuenta;
     public FieldDef dicscuenta;
     public TabDiccuentas(String name)
@@ -4741,13 +4741,13 @@ public class CatEasp extends Catalog
       super(name);
       diccodigo = new FieldDef("diccodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
       dicempresa = new FieldDef("dicempresa",FieldDef.INTEGER,0);
-      diconcepto = new FieldDef("diconcepto",FieldDef.CHAR,40);
+      dicconcepto = new FieldDef("dicconcepto",FieldDef.CHAR,40);
       diccuenta = new FieldDef("diccuenta",FieldDef.CHAR,4);
       dicscuenta = new FieldDef("dicscuenta",FieldDef.CHAR,12);
       FieldDef array[] = {
         diccodigo,
         dicempresa,
-        diconcepto,
+        dicconcepto,
         diccuenta,
         dicscuenta        
         };
