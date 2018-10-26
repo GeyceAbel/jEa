@@ -2212,6 +2212,10 @@ public class ConversionJCO extends ConversionLC {
 						else if (codtrans==35) aTrans = "RAG";
 						else if (codtrans==36) aTrans = "RRI";
 						else if (codtrans==37) aTrans = "RIN";
+						if (abono == -1) {
+							if ("E".equals(emirec)) aTrans = "EMB";
+							else aTrans = "RRD";
+						}
 
 						if (sl.getint("Exclusion347")!=0 || ClaveIRPFNomina!=null || Clave180!=null) a347 = "N";
 						if ("S".equals(a349) ) {
