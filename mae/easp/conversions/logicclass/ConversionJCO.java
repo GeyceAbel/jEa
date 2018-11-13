@@ -1260,21 +1260,17 @@ public class ConversionJCO extends ConversionLC {
 						else u.valor("pcucodirpf",1);
 					}
 					u.valor("pcuivaded","S");
-					if (esGuiri) {
-						u.valor("pcu347","N");
-						u.valor("pcu349","S");
-					}
-					else {
-						u.valor("pcu347","S");
-						u.valor("pcu349","N");
-					}
+					
+					DatosCuenta dc = getTransaccionCodigo(("C".equals(clipro) ? "E":"R"), sclipro.getint("CodigoTransaccion"), sclipro.getint("Exclusion347"), null, null);
+					
+					u.valor("pcu347",dc.a347);
+					u.valor("pcu349",dc.a349);
+					u.valor("pcuttrans",dc.transaccion);
 					
 					int CriterioIva = sclipro.getint("CriterioIva");
 					if (CriterioIva == 2) u.valor("pcurecc","S");
 					else u.valor("pcurecc","N");
 					
-					if ("C".equals(clipro)) u.valor("pcuttrans","EIN");
-					else u.valor("pcuttrans","RIN");
 					u.valor("pcunif",sNif);
 					String Contrapartida = getSelString(sclipro,"Contrapartida");
 					if (Contrapartida!=null && Contrapartida.length()>0) {
@@ -2117,9 +2113,7 @@ public class ConversionJCO extends ConversionLC {
 			}
 			else {			
 				String[] infocta = getNifFromCliConta(codigoCta,empJconta);
-				String a347 = "S";
-				String a349 = "N";
-				String aTrans = "IN";
+
 				Insert iciv = new Insert (dbJCta,"IVACABECERA");
 				iciv.valor("civcodi",0);
 				iciv.valor("civempresa",empJconta);
@@ -2187,60 +2181,20 @@ public class ConversionJCO extends ConversionLC {
 					sl.execute ("Select * from MovimientosIva where CodigoEmpresa="+iEmp+" and MovPosicion='"+movPosicion+"'");
 					while (bOk && sl.next()) {
 						String deducible = (sl.getint("Deducible")==0?"N":"S");
-						aTrans = emirec + "IN";
 						int codtrans = sl.getint("CodigoTransaccion");
-						if (codtrans==8) aTrans = "ERA";
-						else if (codtrans==10 || codtrans==11) aTrans = "EEN";
-						else if (codtrans==13) aTrans = "END";
-						else if (codtrans==14) aTrans = "EEX";
-						else if (codtrans==17 || codtrans==18 || codtrans==19) aTrans = "EOE";
-						else if (codtrans==20 || codtrans==21 || codtrans==22 || codtrans==29){
-							aTrans = "RAD";
-							a347 = "N";
-							a349 = "S";          
-							if (codtrans==21) aTrans = "RAB";
-							else if (codtrans==29) aTrans = "RAS";
-							if ("E".equals(emirec)) a349 = "N";
-						}
-						else if (codtrans==23) aTrans = emirec+"MQ";
-						else if (codtrans==25) aTrans = "EIB";
-						else if (codtrans==28) aTrans = "EPS";
-						else if (codtrans==27) aTrans = "RDI";
-						else if (codtrans==30) aTrans = "RIB"; 
-						else if (codtrans==31 || codtrans==32) aTrans = "RBM";
-						else if (codtrans==33) aTrans = "EDI";
-						else if (codtrans==35) aTrans = "RAG";
-						else if (codtrans==36) aTrans = "RRI";
-						else if (codtrans==37) aTrans = "RIN";
+						int exc347 = sl.getint("Exclusion347");
+						DatosCuenta datosCuenta = getTransaccionCodigo(emirec, codtrans, exc347, ClaveIRPFNomina, Clave180);
 						if (abono == -1) {
-							if ("E".equals(emirec)) aTrans = "EMB";
-							else aTrans = "RRD";
-						}
-
-						if (sl.getint("Exclusion347")!=0 || ClaveIRPFNomina!=null || Clave180!=null) a347 = "N";
-						if ("S".equals(a349) ) {
-							String sc = "";
-							String ss = "";
-							try {
-								String [] ctafull = getFormatoCuenta (codigoCta);
-								if (ctafull!=null) {
-									sc= ctafull[0];         
-									ss = ctafull[1];  
-								}
-							}
-							catch (Exception e) {
-								e.printStackTrace();
-							}
-							boolean bOkCC = !sc.equals("") && !ss.equals("") && !ss.equals("0");
-							if (bOkCC) bOk = check349 (iEmp, iEjerJ, sc, ss, empJconta);
+							if ("E".equals(emirec)) datosCuenta.transaccion = "EMB";
+							else datosCuenta.transaccion = "RRD";
 						}
 						if (bOk) {
 							Insert iliv = new Insert (dbJCta,"IVALINEAS");
-							iliv.valor("livacum347",a347);
-							iliv.valor("livacum349",a349);
+							iliv.valor("livacum347",datosCuenta.a347);
+							iliv.valor("livacum349",datosCuenta.a349);
 							iliv.valor("livdeducible",deducible);
 							iliv.valor("livmediacion","N");
-							iliv.valor("livtransaccion",aTrans);
+							iliv.valor("livtransaccion",datosCuenta.transaccion);
 							iliv.valor("livasto",codi);
 							iliv.valor("livcodi",civcodi);
 							iliv.valor("livcodilin",0);
@@ -2298,6 +2252,40 @@ public class ConversionJCO extends ConversionLC {
 		return bOk;
 	}
 	
+	private DatosCuenta getTransaccionCodigo(String emirec, int codtrans, int exclusion347, String claveIRPFNomina, String clave180) {
+		DatosCuenta datosCuenta = new DatosCuenta();
+		datosCuenta.transaccion = emirec + "IN";
+		datosCuenta.a347 = "S";
+		datosCuenta.a349 = "N"; 
+		if (codtrans==8) datosCuenta.transaccion = "ERA";
+		else if (codtrans==10 || codtrans==11) datosCuenta.transaccion = "EEN";
+		else if (codtrans==13) datosCuenta.transaccion = "END";
+		else if (codtrans==14) datosCuenta.transaccion = "EEX";
+		else if (codtrans==17 || codtrans==18 || codtrans==19) datosCuenta.transaccion = "EOE";
+		else if (codtrans==20 || codtrans==21 || codtrans==22 || codtrans==29){
+			datosCuenta.transaccion = "RAD";
+			datosCuenta.a347 = "N";
+			datosCuenta.a349 = "S";          
+			if (codtrans==21) datosCuenta.transaccion = "RAB";
+			else if (codtrans==29) datosCuenta.transaccion = "RAS";
+			if ("E".equals(emirec)) datosCuenta.a349 = "N";
+		}
+		else if (codtrans==23) datosCuenta.transaccion = emirec+"MQ";
+		else if (codtrans==25) datosCuenta.transaccion = "EIB";
+		else if (codtrans==28) datosCuenta.transaccion = "EPS";
+		else if (codtrans==27) datosCuenta.transaccion = "RDI";
+		else if (codtrans==30) datosCuenta.transaccion = "RIB"; 
+		else if (codtrans==31 || codtrans==32) datosCuenta.transaccion = "RBM";
+		else if (codtrans==33) datosCuenta.transaccion = "EDI";
+		else if (codtrans==35) datosCuenta.transaccion = "RAG";
+		else if (codtrans==36) datosCuenta.transaccion = "RRI";
+		else if (codtrans==37) datosCuenta.transaccion = "RIN";
+
+		if (exclusion347!=0 || claveIRPFNomina!=null || clave180!=null) datosCuenta.a347 = "N";
+
+		return datosCuenta;
+	}
+
 	private boolean importarCarteraIVA (int iEmp, int iEjer, String movPosicion, int asinum, int empJconta, int iEjerJ, int civcodi) {
 		boolean bOk = true;
 
@@ -4890,5 +4878,13 @@ public class ConversionJCO extends ConversionLC {
 		}
 		return vIncidencias;
 	}
+	
+}
+
+class DatosCuenta {
+
+	public String a349;
+	public String a347;
+	public String transaccion;
 	
 }
