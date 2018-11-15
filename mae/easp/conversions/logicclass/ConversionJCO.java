@@ -2273,10 +2273,10 @@ public class ConversionJCO extends ConversionLC {
 		else if (codtrans==23) datosCuenta.transaccion = emirec+"MQ";
 		else if (codtrans==25) datosCuenta.transaccion = "EIB";
 		else if (codtrans==28) datosCuenta.transaccion = "EPS";
-		else if (codtrans==27) datosCuenta.transaccion = "RDI";
+		else if (codtrans==27) datosCuenta.transaccion = "RISP";
 		else if (codtrans==30) datosCuenta.transaccion = "RIB"; 
 		else if (codtrans==31 || codtrans==32) datosCuenta.transaccion = "RBM";
-		else if (codtrans==33) datosCuenta.transaccion = "EDI";
+		else if (codtrans==33) datosCuenta.transaccion = "EISP";
 		else if (codtrans==35) datosCuenta.transaccion = "RAG";
 		else if (codtrans==36) datosCuenta.transaccion = "RRI";
 		else if (codtrans==37) datosCuenta.transaccion = "ROE";
