@@ -2279,7 +2279,7 @@ public class ConversionJCO extends ConversionLC {
 		else if (codtrans==33) datosCuenta.transaccion = "EDI";
 		else if (codtrans==35) datosCuenta.transaccion = "RAG";
 		else if (codtrans==36) datosCuenta.transaccion = "RRI";
-		else if (codtrans==37) datosCuenta.transaccion = "RIN";
+		else if (codtrans==37) datosCuenta.transaccion = "ROE";
 
 		if (exclusion347!=0 || claveIRPFNomina!=null || clave180!=null) datosCuenta.a347 = "N";
 
