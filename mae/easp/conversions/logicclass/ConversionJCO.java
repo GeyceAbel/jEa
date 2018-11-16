@@ -2175,43 +2175,53 @@ public class ConversionJCO extends ConversionLC {
 						boolean bOkCC = !sc.equals("") && !ss.equals("") && !ss.equals("0");
 						if (bOkCC) bOk = checkReten (iEmp, iEjerJ, sc, ss, empJconta,Clave180!=null);
 					}
-					int civcodi = 0;
-					civcodi = iciv.getField("civcodi").getInteger();
+					int civcodi = iciv.getField("civcodi").getInteger();
+					boolean eliminarFactura = false;
+					boolean duplicarFactura = false;
 					SelectorLogic sl = new SelectorLogic (connLC);
 					sl.execute ("Select * from MovimientosIva where CodigoEmpresa="+iEmp+" and MovPosicion='"+movPosicion+"'");
-					while (bOk && sl.next()) {
+					while (bOk && sl.next() && !eliminarFactura) {
 						String deducible = (sl.getint("Deducible")==0?"N":"S");
 						int codtrans = sl.getint("CodigoTransaccion");
 						int exc347 = sl.getint("Exclusion347");
 						DatosCuenta datosCuenta = getTransaccionCodigo(emirec, codtrans, exc347, ClaveIRPFNomina, Clave180);
-						if (abono == -1) {
-							if ("E".equals(emirec)) datosCuenta.transaccion = "EMB";
-							else datosCuenta.transaccion = "RRD";
-						}
-						if (bOk) {
-							Insert iliv = new Insert (dbJCta,"IVALINEAS");
-							iliv.valor("livacum347",datosCuenta.a347);
-							iliv.valor("livacum349",datosCuenta.a349);
-							iliv.valor("livdeducible",deducible);
-							iliv.valor("livmediacion","N");
-							iliv.valor("livtransaccion",datosCuenta.transaccion);
-							iliv.valor("livasto",codi);
-							iliv.valor("livcodi",civcodi);
-							iliv.valor("livcodilin",0);
-							iliv.valor("livbase",multiplicador * sl.getdouble("BaseIva"));
-							iliv.valor("livimpiva",multiplicador * sl.getdouble("CuotaIva"));
-							iliv.valor("livporiva",sl.getdouble("%IVA"));
-							iliv.valor("livimprec",multiplicador * sl.getdouble("RecargoEquivalencia"));
-							iliv.valor("livporrec",sl.getdouble("%RecargoEquivalencia"));
-							iliv.valor("livopefec","N");
-							bOk = iliv.execute();      
-							if (!bOk) sError = "ERROR al grabar la linea de Iva del asiento "+codi+" - "+movPosicion;
+						if (datosCuenta.esRegistroDoble && "E".equals(emirec)) eliminarFactura = true;
+						else {
+							duplicarFactura = duplicarFactura || datosCuenta.esRegistroDoble;
+							if (abono == -1 && !("EEN".equals(datosCuenta.transaccion) || "EEX".equals(datosCuenta.transaccion) || "END".equals(datosCuenta.transaccion) ) ) {
+								if ("E".equals(emirec)) datosCuenta.transaccion = "EMB";
+								else datosCuenta.transaccion = "RRD";
+							}
+							if (bOk) {
+								Insert iliv = new Insert (dbJCta,"IVALINEAS");
+								iliv.valor("livacum347",datosCuenta.a347);
+								iliv.valor("livacum349",datosCuenta.a349);
+								iliv.valor("livdeducible",deducible);
+								iliv.valor("livmediacion","N");
+								iliv.valor("livtransaccion",datosCuenta.transaccion);
+								iliv.valor("livasto",codi);
+								iliv.valor("livcodi",civcodi);
+								iliv.valor("livcodilin",0);
+								iliv.valor("livbase",multiplicador * sl.getdouble("BaseIva"));
+								iliv.valor("livimpiva",multiplicador * sl.getdouble("CuotaIva"));
+								iliv.valor("livporiva",sl.getdouble("%IVA"));
+								iliv.valor("livimprec",multiplicador * sl.getdouble("RecargoEquivalencia"));
+								iliv.valor("livporrec",sl.getdouble("%RecargoEquivalencia"));
+								iliv.valor("livopefec","N");
+								bOk = iliv.execute();      
+								if (!bOk) sError = "ERROR al grabar la linea de Iva del asiento "+codi+" - "+movPosicion;
+							}
 						}
 					}
 					sl.close();
-					//if (bOk && esRecc) bOk = importarCartera (iEmp, iEjerL, movPosicion, numAsi, empJconta,iEjerJ, civcodi);
-					//else 
-						if (bOk) bOk = importarCarteraIVA (iEmp, iEjerL, movPosicion, numAsi, empJconta,iEjerJ, civcodi);
+					if (bOk && eliminarFactura) {
+						Delete d = new Delete (dbJCta,"IVACABECERA");
+						bOk = d.execute("civempresa="+empJconta+" and civejercicio="+iEjerJ+" and civcodi="+civcodi);
+					}
+					if (bOk && duplicarFactura) {
+						bOk = duplicarFactura (dbJCta, empJconta, iEjerJ, civcodi);
+					}
+					else if (bOk) bOk = importarCarteraIVA (iEmp, iEjerL, movPosicion, numAsi, empJconta,iEjerJ, civcodi);
 				}
 			}
 		}
@@ -2252,13 +2262,75 @@ public class ConversionJCO extends ConversionLC {
 		return bOk;
 	}
 	
+	private boolean duplicarFactura(DBConnection connDup, int empDup, int ejerDup, int civcodiDup) {
+		boolean bOk = true;
+		Selector sic = new Selector(connDup);
+		sic.execute("Select * from IVACABECERA where civempresa="+empDup+" and civejercicio="+ejerDup+" and civcodi="+civcodiDup);
+		if (sic.next()) {
+			Insert ic = new Insert(connDup, "IVACABECERA");
+			ic.valor("civcodi", 0);
+			ic.valor("civempresa", sic.getint("civempresa"));
+			ic.valor("civejercicio", sic.getint("civejercicio"));
+			ic.valor("civivaigic", sic.getString("civivaigic"));
+			ic.valor("civserie", sic.getString("civserie"));
+			ic.valor("civregistro", sic.getint("civregistro"));
+			ic.valor("civfecha", sic.getDate("civfecha"));
+			ic.valor("civfechaop", sic.getDate("civfechaop"));
+			ic.valor("civdocumento", sic.getString("civdocumento"));
+			ic.valor("civdesc", sic.getString("civdesc"));
+			ic.valor("civnif", sic.getString("civnif"));
+			ic.valor("civimporte", sic.getdouble("civimporte"));
+			ic.valor("civemirep", "R");
+			ic.valor("civregimen", sic.getString("civregimen"));
+			int civasicodi = sic.getint("civasicodi");
+			if (civasicodi > 0) ic.valor("civasicodi", civasicodi);
+			ic.valor("civporirpf", sic.getdouble("civporirpf"));
+			ic.valor("civbaseirpf", sic.getdouble("civbaseirpf"));
+			ic.valor("civimpiva", sic.getdouble("civimpiva"));
+			bOk = ic.execute();
+			if (bOk) {
+				int newCodi = ic.getField("civcodi").getInteger();
+				Selector sil = new Selector(connDup);
+				sil.execute("Select * from IVALINEAS where livcodi=" + civcodiDup);
+				while (bOk && sil.next()) {
+					Insert il = new Insert(connDup, "IVALINEAS");
+					il.valor("livcodi", newCodi);
+					il.valor("livcodilin", 0);
+					il.valor("livasto", sil.getint("livasto"));
+					il.valor("livporiva", sil.getdouble("livporiva"));
+					il.valor("livporrec", sil.getdouble("livporrec"));
+					il.valor("livbase", sil.getdouble("livbase"));
+					il.valor("livimpiva", sil.getdouble("livimpiva"));
+					il.valor("livimprec", sil.getdouble("livimprec"));
+					il.valor("livacum347", "N");
+					il.valor("livacum349", "N");
+					il.valor("livmediacion", sil.getString("livmediacion"));
+					il.valor("livdeducible", sil.getString("livdeducible"));
+					il.valor("livtransaccion", sil.getString("livtransaccion"));
+					il.valor("livopefec", sil.getString("livopefec"));
+					il.valor("livprorrata", sil.getString("livprorrata"));
+					bOk = il.execute();
+				}
+				sil.close();
+			}
+		}
+		sic.close();
+		return bOk;
+	
+	}
+
 	private DatosCuenta getTransaccionCodigo(String emirec, int codtrans, int exclusion347, String claveIRPFNomina, String clave180) {
 		DatosCuenta datosCuenta = new DatosCuenta();
+		datosCuenta.esRegistroDoble = false;
 		datosCuenta.transaccion = emirec + "IN";
 		datosCuenta.a347 = "S";
 		datosCuenta.a349 = "N"; 
 		if (codtrans==8) datosCuenta.transaccion = "ERA";
-		else if (codtrans==10 || codtrans==11) datosCuenta.transaccion = "EEN";
+		else if (codtrans==10 || codtrans==11) {
+			datosCuenta.transaccion = "EEN";
+			datosCuenta.a347 = "N";
+			datosCuenta.a349 = "S";          
+		}
 		else if (codtrans==13) datosCuenta.transaccion = "END";
 		else if (codtrans==14) datosCuenta.transaccion = "EEX";
 		else if (codtrans==17 || codtrans==18 || codtrans==19) datosCuenta.transaccion = "EOE";
@@ -2269,11 +2341,23 @@ public class ConversionJCO extends ConversionLC {
 			if (codtrans==21) datosCuenta.transaccion = "RAB";
 			else if (codtrans==29) datosCuenta.transaccion = "RAS";
 			if ("E".equals(emirec)) datosCuenta.a349 = "N";
+			datosCuenta.esRegistroDoble = true;
 		}
 		else if (codtrans==23) datosCuenta.transaccion = emirec+"MQ";
 		else if (codtrans==25) datosCuenta.transaccion = "EIB";
-		else if (codtrans==28) datosCuenta.transaccion = "EPS";
-		else if (codtrans==27) datosCuenta.transaccion = "RISP";
+		else if (codtrans==28) {
+			datosCuenta.transaccion = "EPS";
+			datosCuenta.a347 = "N";
+			datosCuenta.a349 = "S";
+		}
+		else if (codtrans==27) {
+			datosCuenta.esRegistroDoble = true;
+			datosCuenta.transaccion = "RISP";
+		}
+		else if (codtrans==61) {
+			datosCuenta.esRegistroDoble = true;
+			datosCuenta.transaccion = "RISPB";
+		}
 		else if (codtrans==30) datosCuenta.transaccion = "RIB"; 
 		else if (codtrans==31 || codtrans==32) datosCuenta.transaccion = "RBM";
 		else if (codtrans==33) datosCuenta.transaccion = "EISP";
@@ -4883,6 +4967,7 @@ public class ConversionJCO extends ConversionLC {
 
 class DatosCuenta {
 
+	public boolean esRegistroDoble;
 	public String a349;
 	public String a347;
 	public String transaccion;
