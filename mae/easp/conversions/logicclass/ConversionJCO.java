@@ -2190,7 +2190,10 @@ public class ConversionJCO extends ConversionLC {
 							duplicarFactura = duplicarFactura || datosCuenta.esRegistroDoble;
 							if (abono == -1 && !("EEN".equals(datosCuenta.transaccion) || "EEX".equals(datosCuenta.transaccion) || "END".equals(datosCuenta.transaccion) ) ) {
 								if ("E".equals(emirec)) datosCuenta.transaccion = "EMB";
-								else datosCuenta.transaccion = "RRD";
+								else {
+									if ("RAD".equals(datosCuenta.transaccion) || "RAS".equals(datosCuenta.transaccion) || "RAB".equals(datosCuenta.transaccion) || "RISP".equals(datosCuenta.transaccion) || "RISPB".equals(datosCuenta.transaccion) ) datosCuenta.transaccion = "RRAD";
+									else datosCuenta.transaccion = "RRD";
+								}
 							}
 							if (bOk) {
 								Insert iliv = new Insert (dbJCta,"IVALINEAS");
@@ -2249,7 +2252,7 @@ public class ConversionJCO extends ConversionLC {
 			istr.valor ("tratipo","EPS");
 			istr.valor ("tradesc","Prestación Intracom. Servicios");
 			istr.valor ("traemre","E");
-			istr.valor ("traregimen","ON");
+			istr.valor ("traregimen","IN");
 			istr.valor ("tratipoiva","OND");
 			istr.valor ("travoloper","NDM");
 			istr.valor ("traoperespec","NDM");
@@ -2258,6 +2261,22 @@ public class ConversionJCO extends ConversionLC {
 			if (!bOk) sError = "ERROR al grabar transaccion EPS";
 		}
 		str.close();
+		str = new Selector (connEA);
+		str.execute("Select * from TRANSACCIONES where tratipo='RRAD'");
+		if (bOk && !str.next()) {
+			Insert istr = new Insert (connEA,"TRANSACCIONES");
+			istr.valor ("tratipo","RRAD");
+			istr.valor ("tradesc","Rectificativa intracomunitaria y ISP");
+			istr.valor ("traemre","R");
+			istr.valor ("traregimen","IN");
+			istr.valor ("tratipoiva","RD");
+			istr.valor ("travoloper","NO");
+			istr.valor ("traoperespec","SSP");
+			bOk = istr.execute();
+			if (!bOk) sError = "ERROR al grabar transaccion RRAD";
+		}
+		str.close();
+		
 		if (!bOk && (sError == null || sError.length()==0)) sError ="Error al grabar Facturas ("+movPosicion+")";
 		return bOk;
 	}
