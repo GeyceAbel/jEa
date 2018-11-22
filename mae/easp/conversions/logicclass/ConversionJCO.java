@@ -1167,13 +1167,14 @@ public class ConversionJCO extends ConversionLC {
 		while (bOk && sclipro.next()) {
 			pbf.setSecondaryPercent((++numActual)*100/numTotal);
 			String sCta  = sclipro.getString("CodigoCuenta");
-			String sNif = sclipro.getString("CifDni"); 
+			String sNif = sclipro.getString("CifDni");
+			String sNifOrig = sNif; 
 			String CifEuropeo = sclipro.getString("CifEuropeo");						
 			if (CifEuropeo != null && !CifEuropeo.toUpperCase().equals("ES") || sNif == null) sNif = CifEuropeo;
 			if (sNif !=null) sNif = sNif.trim();
 			if (sNif!=null && sCta!=null && sCta.trim().length()>=5 )  {
 				SelectorLogic snifclipro = new SelectorLogic (connLC);
-				snifclipro.execute("Select * from ClientesProveedores where CifDni='"+sNif+"'");
+				snifclipro.execute("Select * from ClientesProveedores where CifDni='"+sNifOrig+"'");
 				if (actualizarNif && snifclipro.next()) {
 					int datpais = snifclipro.getint("CodigoNacion");    
 					Selector snifes = new Selector (connEA);
