@@ -1168,15 +1168,14 @@ public class ConversionJCO extends ConversionLC {
 			pbf.setSecondaryPercent((++numActual)*100/numTotal);
 			String sCta  = sclipro.getString("CodigoCuenta");
 			String sNif = sclipro.getString("CifDni"); 
-			String CifEuropeo = sclipro.getString("CifEuropeo");
-			boolean esGuiri =     false;
+			String CifEuropeo = sclipro.getString("CifEuropeo");						
+			if (CifEuropeo != null && !CifEuropeo.toUpperCase().equals("ES") || sNif == null) sNif = CifEuropeo;
 			if (sNif !=null) sNif = sNif.trim();
 			if (sNif!=null && sCta!=null && sCta.trim().length()>=5 )  {
 				SelectorLogic snifclipro = new SelectorLogic (connLC);
 				snifclipro.execute("Select * from ClientesProveedores where CifDni='"+sNif+"'");
 				if (actualizarNif && snifclipro.next()) {
 					int datpais = snifclipro.getint("CodigoNacion");    
-					esGuiri = datpais != 0 && datpais != 108 && CifEuropeo!=null && CifEuropeo.length()>2 && !CifEuropeo.startsWith("ES");
 					Selector snifes = new Selector (connEA);
 					snifes.execute("Select * from NIFES where danifcif='"+sNif+"'");
 					if (!snifes.next()) {
@@ -2191,7 +2190,7 @@ public class ConversionJCO extends ConversionLC {
 							if (abono == -1 && !("EEN".equals(datosCuenta.transaccion) || "EEX".equals(datosCuenta.transaccion) || "END".equals(datosCuenta.transaccion) ) ) {
 								if ("E".equals(emirec)) datosCuenta.transaccion = "EMB";
 								else {
-									if ("RAD".equals(datosCuenta.transaccion) || "RAS".equals(datosCuenta.transaccion) || "RAB".equals(datosCuenta.transaccion) || "RISP".equals(datosCuenta.transaccion) || "RISPB".equals(datosCuenta.transaccion) ) datosCuenta.transaccion = "RRAD";
+									if ("RAS".equals(datosCuenta.transaccion) || "RISP".equals(datosCuenta.transaccion) || "RISPB".equals(datosCuenta.transaccion) ) datosCuenta.transaccion = "RRAD";
 									else datosCuenta.transaccion = "RRD";
 								}
 							}
