@@ -1170,7 +1170,7 @@ public class ConversionJCO extends ConversionLC {
 			String sNif = sclipro.getString("CifDni");
 			String sNifOrig = sNif; 
 			String CifEuropeo = sclipro.getString("CifEuropeo");						
-			if (CifEuropeo != null && !CifEuropeo.toUpperCase().equals("ES") || sNif == null) sNif = CifEuropeo;
+			if (CifEuropeo != null && !CifEuropeo.toUpperCase().startsWith("ES") || sNif == null) sNif = CifEuropeo;
 			if (sNif !=null) sNif = sNif.trim();
 			if (sNif!=null && sCta!=null && sCta.trim().length()>=5 )  {
 				SelectorLogic snifclipro = new SelectorLogic (connLC);
@@ -1376,6 +1376,26 @@ public class ConversionJCO extends ConversionLC {
 				tmp [0] = cta.substring(0,4);
 				tmp [1] = cta.substring(4);
 			}
+		}
+		else if ("3".equals(longCta) && cta!=null && (cta.length()==3  || cta.length()==4) ) {
+			if (cta.length()==3) {
+				tmp [0] = cta;
+				tmp [1] = "00";
+			}
+			else {
+				tmp [0] = cta.substring(0,3);
+				tmp [1] = cta.substring(3)+"0";
+			}
+			
+		}
+		else if ("4".equals(longCta) && cta!=null && (cta.length()==3  || cta.length()==4) ) {
+			tmp [0] = cta;
+			if (cta.length()==3) tmp [0] = cta+"0";
+			tmp [1] = "00";
+		}
+		else if (cta!=null && (cta.length()==3  || cta.length()==4) ) {
+			tmp [0] = cta;
+			tmp [1] = "00";
 		}
 		return tmp;
 	}
