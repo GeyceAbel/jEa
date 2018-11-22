@@ -1378,9 +1378,10 @@ public class ConversionJCO extends ConversionLC {
 			}
 		}
 		else if ("3".equals(longCta) && cta!=null && (cta.length()==3  || cta.length()==4) ) {
+			tmp = new String [2];
 			if (cta.length()==3) {
 				tmp [0] = cta;
-				tmp [1] = "00";
+				tmp [1] = "0000";
 			}
 			else {
 				tmp [0] = cta.substring(0,3);
@@ -1389,13 +1390,15 @@ public class ConversionJCO extends ConversionLC {
 			
 		}
 		else if ("4".equals(longCta) && cta!=null && (cta.length()==3  || cta.length()==4) ) {
+			tmp = new String [2];
 			tmp [0] = cta;
 			if (cta.length()==3) tmp [0] = cta+"0";
-			tmp [1] = "00";
+			tmp [1] = "0000";
 		}
 		else if (cta!=null && (cta.length()==3  || cta.length()==4) ) {
+			tmp = new String [2];
 			tmp [0] = cta;
-			tmp [1] = "00";
+			tmp [1] = "0000";
 		}
 		return tmp;
 	}
