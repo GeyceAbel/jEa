@@ -3014,9 +3014,9 @@ public static boolean esAzure() {
    * hacer inserts. Esta función llama al parser de fechas y de nulls
    * @param linia del secuencial que se va a parsear
    **/
-  private String parserLiniaSQL(String linia) {
+  private String parserLiniaSQL(DBConnection connIR, String linia) {
     if (!cancelarConversion) {
-      linia=ponerFechas(linia);
+      linia=ponerFechas(connIR, linia);
       if (!cancelarConversion)
         linia=ponerNulls(linia);
       }
@@ -3051,9 +3051,11 @@ public static boolean esAzure() {
    * @param linia del secuencial que se va a parsear
    * @return la linea con los campos de fecha parseados con #
    **/
-  public String ponerFechas(String linia) {
+  private String ponerFechas(DBConnection coonnIR, String linia) {
     StringBuffer sb= new StringBuffer(linia);
-    String tipoBD = Aplication.getAplication().getDataBase().getDB().getType().toUpperCase() ;
+    String tipoBD = null;
+    tipoBD=coonnIR.getDB().getType().toUpperCase() ;
+    
     int inici=0;
     int fincampo=0;
     if (sb.toString().substring(0,1).equals(",")) inici++;
@@ -3158,7 +3160,7 @@ public static boolean esAzure() {
   public boolean insertarLinia(DBConnection bd, String linia, String tabla, int nReg) {
     try {
       if (cancelarConversion) return false;
-      String valorLinea = parserLiniaSQL(linia);
+      String valorLinea = parserLiniaSQL(bd, linia);
       if (nReg>0) {
           int pos = Util.sch(valorLinea,',');
           if (pos!=-1 ) valorLinea = String.valueOf(nReg)+","+valorLinea.substring(pos+1);
