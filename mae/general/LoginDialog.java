@@ -12,6 +12,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.Keymap;
 import geyce.maefc.*;
+import mae.easp.general.Easp;
 
 public class LoginDialog{
 	private String rutaLogo=null;
@@ -125,6 +126,10 @@ public class LoginDialog{
 		if (pw!=null && pw.length() > 10) pw=pw.substring(0,10);
 		return pw;
 		//return password.getText();
+	}
+	
+	public String getPasswordMD5 () {
+		return Login.encryptMD5(new String(password.getPassword()));		
 	}
 
 	/**

@@ -7,22 +7,32 @@ package mae.general;
 
 import java.sql.*;
 import java.io.FileInputStream;
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.util.Properties;
 import geyce.maefc.*;
+import mae.easp.general.Easp;
 import mae.modasp.db.CatEasp;
 
 import javax.swing.JOptionPane;
 import javax.swing.JOptionPane.*;
 
 public class Login implements LoginListener{
+	private static final double SECURITY_MIN_VERSION_BD = 15.7;
 	private DBConnection dbc;
 	private LoginDialog ld=null;
 	private String localDomain=null;
 	private Aplication apl=null;
-	private String dominio=null;	
+	private String dominio=null;
+	private boolean security;	
 
 	Login(Aplication apl, String rutaLogo){
+		this (apl, rutaLogo, false);
+	}
+	
+	Login(Aplication apl, String rutaLogo, boolean security){
 		SystemView.setGui(true);
+		this.security = security;		
 		//Leemos .properties
 		properties(apl);
 
@@ -39,6 +49,22 @@ public class Login implements LoginListener{
 		ld.setUsuarios(getUsuarios());
 		ld.setUsuario(getUserDefault());
 		ld.show();
+	}
+
+	private void checkSecurity() {
+		System.out.println("Check Login MD5: "+security);
+		if (security) {
+	      Selector s = new Selector (dbc);
+	      s.execute("Select bdversio from BDS where bdnombre='bdeasp'");
+	      if (s.next()) {
+	    	  String v = s.getString("bdversio");
+	    	  security = Numero.redondeo(Double.parseDouble(v)) >=  Numero.redondeo(SECURITY_MIN_VERSION_BD);
+	      }
+	      else security = false;
+	      s.close();
+		}
+		Easp.setSecurityMD5 (security);
+		System.out.println("Login MD5: "+security);
 	}
 
 	//Leemos .properties
@@ -65,9 +91,8 @@ public class Login implements LoginListener{
 	//Recuperamos información en que dominio de consulado estamos y cual es la central.
 	private void inicializa(){
 		dominio=getDominio();
-		if (!conecta()){
-			cancel();
-		}
+		if (!conecta()) cancel();
+		else checkSecurity();
 	}
 
 	public String getDominio() {
@@ -120,11 +145,13 @@ public class Login implements LoginListener{
 			String funcio="UPPER";
 			if (dbc.getDB().getType().equals("access"))  funcio="UCASE";
 			String mylogin=ld.getLogin().toUpperCase();
-			ResultSet rs=dbc.executeQuery(st,"select USPASSWD from USUARIO where "+funcio+"(USLOGIN)='"+mylogin+"'", false);
+			String passwdField = "USPASSWD";
+			if (security) passwdField = "USMD5";
+			ResultSet rs=dbc.executeQuery(st,"select "+passwdField+" from USUARIO where "+funcio+"(USLOGIN)='"+mylogin+"'", false);
 			if (rs.next()) {
-				String pass=rs.getString("USPASSWD");
+				String pass=rs.getString(passwdField);
 				rs.close();
-				if ((pass!=null && pass.toUpperCase().equals(ld.getPassword().toUpperCase())) || (pass==null && ld.getPassword().equals(""))) {
+				if (passwordOK(pass)) {
 					apl.setTitle(apl.getTitle()+" ("+mylogin.trim()+")");
 					apl.setUser(mylogin.trim());
 					setUserDefault(ld.getLogin());
@@ -139,6 +166,15 @@ public class Login implements LoginListener{
 			return false;
 		}
 		return false;
+	}
+
+	private boolean passwordOK (String pass) {
+		boolean ok = false;
+		if (pass==null && ld.getPassword().equals("")) ok = true;
+		else if (security) ok = pass!=null && pass.equals(ld.getPasswordMD5());
+		else ok = pass!=null && pass.toUpperCase().equals(ld.getPassword().toUpperCase());
+	
+		return ok;
 	}
 
 	/**
@@ -282,7 +318,10 @@ public class Login implements LoginListener{
 		showLogIn(apl, null);
 	}
 	public static void showLogIn(Aplication apl, String rutaLogo){
-		Login login=new Login(apl, rutaLogo);
+		showLogIn (apl, rutaLogo, false);
+	}
+	public static void showLogIn(Aplication apl, String rutaLogo, boolean security){
+		Login login=new Login(apl, rutaLogo, security);
 	}
 
 	public static void showLogInAGPI(Aplication apl){
@@ -290,5 +329,21 @@ public class Login implements LoginListener{
 		// domini, usuari i contrassenya,
 		// i verificarà amb VirtualFiscControl.verifyLogin
 	}
-
+	
+	public static String encryptMD5 (String passwd) {
+		String md5 = null;
+		if (passwd != null && passwd.trim().length()>0) {
+			try {
+				passwd = passwd.trim().toUpperCase();
+				MessageDigest mdEnc = MessageDigest.getInstance("MD5");
+				mdEnc.update(passwd.getBytes(), 0, passwd.length());
+				md5 = new BigInteger(1, mdEnc.digest()).toString(16).toUpperCase();
+			} 
+			catch (Exception ex) {
+				ex.printStackTrace();
+				md5 = null;
+			}
+		}
+		return md5;
+	}
 }

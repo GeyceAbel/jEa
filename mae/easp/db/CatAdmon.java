@@ -1983,6 +1983,7 @@ public class CatAdmon extends Catalog
     public FieldDef usfirma;
     public FieldDef usfoto;
     public FieldDef usremoto;
+    public FieldDef usmd5;
     public TabUsuario(String name)
       {
       super(name);
@@ -2003,6 +2004,7 @@ public class CatAdmon extends Catalog
       usfirma = new FieldDef("usfirma",FieldDef.CHAR,25);
       usfoto = new FieldDef("usfoto",FieldDef.CHAR,25);
       usremoto = new FieldDef("usremoto",FieldDef.CHAR,1);
+      usmd5 = new FieldDef("usmd5",FieldDef.CHAR,100);
       FieldDef array[] = {
         uscodcon,
         uslogin,
@@ -2020,7 +2022,8 @@ public class CatAdmon extends Catalog
         usemail,
         usfirma,
         usfoto,
-        usremoto        
+        usremoto,
+        usmd5
         };
       setColumns(array);
       FieldDef arrayf[] = {uscodcon,uslogin };

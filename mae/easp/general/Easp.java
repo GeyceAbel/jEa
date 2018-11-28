@@ -38,7 +38,7 @@ public class Easp {
   //variables de versiones
   public static String versionAplicacion="9.8";
   public static String versionFecha="Abril/2018";
-  public static String versionBDEA="15.6";
+  public static String versionBDEA="15.7";
 
   public static enum TIPO_HOST { LOCALHOST, AZURE, AZUREMSDN};
   public static TIPO_HOST HOST = TIPO_HOST.AZURE;
@@ -52,6 +52,8 @@ public class Easp {
   public final static int IVA=16;
 
   public static boolean errorCheckBds = false;
+  
+  public static boolean securityMD5 = false;
 
   public static boolean isLocalDB(){
     return !(Aplication.getAplication().getConfig("BDAFINITY").equals("SI"));
@@ -2961,6 +2963,14 @@ public static boolean esAzure() {
 	return HOST == TIPO_HOST.AZURE;
 }
 
+
+public static void setSecurityMD5 (boolean security) {
+	securityMD5 = security;
+}
+
+public static boolean isSecurityMD5 () {
+	return securityMD5;
+}
 
 
  } //fin classe EASP
