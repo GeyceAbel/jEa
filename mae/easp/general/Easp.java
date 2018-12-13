@@ -52,7 +52,7 @@ public class Easp {
   public final static int IVA=16;
 
   public static boolean errorCheckBds = false;
-  
+
   public static boolean securityMD5 = false;
 
   public static boolean isLocalDB(){
@@ -836,6 +836,14 @@ public static boolean controlBDAplic(String bd, String pathFileBase ) {
   return true;
   }
 
+  public static boolean isPassMD5() {
+     return ("SI".equals(Aplication.getAplication().getConfig("esMD5")) || "Si".equals(Aplication.getAplication().getConfig("esMD5")) || "si".equals(Aplication.getAplication().getConfig("esMD5")));
+  }
+  public static boolean isErnestYoung() {
+      boolean isEY = false;
+      if ("100593000000".equals(dominio) || "100594000000".equals(dominio) || "100588000000".equals(dominio)) isEY = true;
+      return isEY;
+  }
 
 static class ErrorManagerVersion implements ErrorManager{
   public   int RUNTIME_EXCEPTION;
