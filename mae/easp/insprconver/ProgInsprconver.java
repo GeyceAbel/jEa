@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Nov 28 12:21:35 CET 2018
+// Fecha y hora:     Wed Dec 19 11:04:56 CET 2018
 // 
 // Aplicación: easp
 // 
@@ -1752,6 +1752,8 @@ String sentencias15_6[]={
 String sentencias15_7[]={
 "ALTER TABLE USUARIO ADD USMD5 VARCHAR(100)"
 };
+String sentencias15_8[]={"DELETE FROM EPIGRAFES WHERE epitipoact='1' AND epiepigrafe='913';",
+"UPDATE EPIGRAFES SET epidescripcion='SERVICIOS FORESTALES, PESCA Y ACUICULTURA' WHERE epitipoact='1' AND epiepigrafe='912';"};
 
   int i=0;
   try {
@@ -4059,6 +4061,23 @@ String sentencias15_7[]={
         Easp.connEA.commit();
         vvveractual.setValue("15.7");
     }
+    if (versio < 15.8) {
+        for (i=0;i<sentencias15_8.length;++i) {
+                try {
+                        Easp.chivato("15.8 Exec : ["+sentencias15_8[i]+"]",1);
+                        Easp.connEA.executeUpdate(sentencias15_8[i]);
+                }
+                catch(Exception e) {
+                        sqlOperation=sentencias15_8[i];
+                        Easp.chivato("15.8 *** Error : ["+sentencias15_8[i]+"]  Error: ["+e+"]",1);
+                        errorMessage=e.getMessage();
+                }
+        }
+        Easp.setVersionBD("bdeasp","15.8");
+        Easp.connEA.commit();
+        vvveractual.setValue("15.8");
+    }
+
   }
   catch(Exception e) {
     System.out.println("Error en conversión: ["+e+"]");
