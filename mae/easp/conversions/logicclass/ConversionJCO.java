@@ -1208,7 +1208,7 @@ public class ConversionJCO extends ConversionLC {
 							String colam = getSelString(snifclipro,"ColaMunicipio");
 							if (muntmp!=null && muntmp.trim().length()>0) {
 								SelectorLogic smu = new SelectorLogic(connLC);
-								smu.execute ("Select * from Municipios where CodigoMunicipio='"+connLC.getDB().getSQLFormat(muntmp)+"'");
+								smu.execute ("Select * from Municipios where CodigoMunicipio="+connLC.getDB().getSQLFormat(muntmp));
 								if (smu.next()) cmu = smu.getString("Municipio");
 								smu.close();
 							}
