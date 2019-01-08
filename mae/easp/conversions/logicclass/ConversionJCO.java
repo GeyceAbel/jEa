@@ -1208,7 +1208,7 @@ public class ConversionJCO extends ConversionLC {
 							String colam = getSelString(snifclipro,"ColaMunicipio");
 							if (muntmp!=null && muntmp.trim().length()>0) {
 								SelectorLogic smu = new SelectorLogic(connLC);
-								smu.execute ("Select * from Municipios where CodigoMunicipio='"+muntmp+"'");
+								smu.execute ("Select * from Municipios where CodigoMunicipio='"+connLC.getDB().getSQLFormat(muntmp)+"'");
 								if (smu.next()) cmu = smu.getString("Municipio");
 								smu.close();
 							}
@@ -1684,7 +1684,7 @@ public class ConversionJCO extends ConversionLC {
 					double amortAcum = 0;
 					while (bOk && splan.next()) {
 						int ejeamo = splan.getint("ejercicio");
-						Selector sexiste = new Selector (dbJCta);
+						Selector sexiste = new Selector (connEA);
 						sexiste.execute("Select * from PCMORANUAL where pcmelemento="+elemento+" and pcmamorejer="+ejeamo);
 						if (!sexiste.next()) {
 							Insert ip = new Insert(connEA,"PCMORANUAL");
