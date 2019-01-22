@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Jan 22 13:53:02 CET 2019
+// Fecha y hora:     Tue Jan 22 15:17:49 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -4570,7 +4570,6 @@ public class CatEasp extends Catalog
         public FieldDef pcinuevousado;
         public FieldDef pciobser;
         public FieldDef pcicodini;
-        public FieldDef pciobserva;
         public TabPcinmov(String name)
             {
             super(name);
@@ -4602,7 +4601,6 @@ public class CatEasp extends Catalog
             pcinuevousado = new FieldDef("pcinuevousado",FieldDef.CHAR,3,FieldDef.NOTNULL);
             pciobser = new FieldDef("pciobser",FieldDef.CHAR,2000);
             pcicodini = new FieldDef("pcicodini",FieldDef.INTEGER,12);
-            pciobserva = new FieldDef("pciobserva",FieldDef.CHAR,4000);
             FieldDef array[] = {
                 pcielemento,
                 pciempresa,
@@ -4631,8 +4629,7 @@ public class CatEasp extends Catalog
                 pcinoamort,
                 pcinuevousado,
                 pciobser,
-                pcicodini,
-                pciobserva                
+                pcicodini                
                 };
             setColumns(array);
             FieldDef arrayf[] = {pcielemento };
