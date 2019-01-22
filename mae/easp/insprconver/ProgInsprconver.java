@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Dec 19 11:04:56 CET 2018
+// Fecha y hora:     Tue Jan 22 13:41:03 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -35,6 +35,12 @@ public String getMemo(int tamany) {
     return " MEMO,";
   else
     return " VARCHAR("+tamany+"),";
+  }
+public String getMemoSinComa(int tamany) {
+  if (tipoDB.toUpperCase().equals("ACCESS"))
+    return " MEMO";
+  else
+    return " VARCHAR("+tamany+")";
   }
 public String formatoData() {
     if (tipoDB.toUpperCase().equals("ACCESS")) return " DATE";
@@ -1754,7 +1760,9 @@ String sentencias15_7[]={
 };
 String sentencias15_8[]={"DELETE FROM EPIGRAFES WHERE epitipoact='1' AND epiepigrafe='913';",
 "UPDATE EPIGRAFES SET epidescripcion='SERVICIOS FORESTALES, PESCA Y ACUICULTURA' WHERE epitipoact='1' AND epiepigrafe='912';"};
-
+String sentencias15_9[]={
+"ALTER TABLE PCINMOV ADD pciobserva "+getMemoSinComa(4000)
+};
   int i=0;
   try {
     if (vvveractual.getString().equals("1.1")) {
@@ -4076,6 +4084,22 @@ String sentencias15_8[]={"DELETE FROM EPIGRAFES WHERE epitipoact='1' AND epiepig
         Easp.setVersionBD("bdeasp","15.8");
         Easp.connEA.commit();
         vvveractual.setValue("15.8");
+    }
+    if (versio < 15.9) {
+    	for (i=0;i<sentencias15_9.length;++i) {
+    		try {
+    			Easp.chivato("15.9 Exec : ["+sentencias15_9[i]+"]",1);
+    			Easp.connEA.executeUpdate(sentencias15_9[i]);
+    		}
+    		catch(Exception e) {
+    			sqlOperation=sentencias15_9[i];
+    			Easp.chivato("15.9 *** Error : ["+sentencias15_9[i]+"]  Error: ["+e+"]",1);
+    			errorMessage=e.getMessage();
+    		}
+    	}
+    	Easp.setVersionBD("bdeasp","15.9");
+    	Easp.connEA.commit();
+    	vvveractual.setValue("15.9");
     }
 
   }
