@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Dec 13 17:21:06 CET 2018
+// Fecha y hora:     Tue Jan 29 11:30:14 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -664,10 +664,9 @@ class Bdeasp extends DataBase
     {
     public AppEasp easp;
     // Catalogos
-    public CatAdmon catadmon;
+    public CatEasp cateasp;
     public CatAutition catautition;
     public CatCtasp catctasp;
-    public CatEasp cateasp;
     public CatJeo catjeo;
     public CatJexpe catjexpe;
     public CatJiss catjiss;
@@ -686,10 +685,9 @@ class Bdeasp extends DataBase
         this.easp=easp;
         setServer("jdbc:odbc:");
         setName("bdeasp");
-        catadmon = new CatAdmon();
+        cateasp = new CatEasp();
         catautition = new CatAutition();
         catctasp = new CatCtasp();
-        cateasp = new CatEasp();
         catjeo = new CatJeo();
         catjexpe = new CatJexpe();
         catjiss = new CatJiss();
@@ -703,10 +701,9 @@ class Bdeasp extends DataBase
         catmodgen = new CatModgen();
         catxagpi = new CatXagpi();
         Catalog array[] = {
-            catadmon,
+            cateasp,
             catautition,
             catctasp,
-            cateasp,
             catjeo,
             catjexpe,
             catjiss,
