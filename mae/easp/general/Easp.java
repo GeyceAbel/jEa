@@ -172,12 +172,10 @@ public class Easp {
     DataBase db=new DataBase();
     db.setName("bdeasp");
     cateasp = new CatEasp();
-    CatAdmon catadmon;
-    catadmon = new CatAdmon();
     CatJexpe catExpe ;
     catExpe = new CatJexpe();
 	Catalog array[] = {
-      cateasp,catadmon,catExpe
+      cateasp,catExpe
       };
     db.setCatalogs(array);
     connEA = new DBConnection(db);
