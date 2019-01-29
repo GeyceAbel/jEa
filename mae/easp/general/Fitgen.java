@@ -2243,7 +2243,16 @@ public class Fitgen {
 	  fdnomempconvofic              = new Field(sempresajNomina,tbempresajNomina,"EMPCONVOFIC      ".trim());
   }
 
-
+public void actualizacionMasivaFichaGeneral() {
+  
+  sfitgen.setWhere(null);
+  sfitgen.execute();
+  
+  
+  }
+  
+  
+  
   Select scdp           ;
   Table tbcdp           ;
   Field cdpcodi         ;
