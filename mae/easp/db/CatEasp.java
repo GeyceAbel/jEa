@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Jan 22 15:17:49 CET 2019
+// Fecha y hora:     Thu Jan 24 16:22:14 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -113,6 +113,7 @@ public class CatEasp extends Catalog
     public TabPcinmov tabpcinmov;
     public TabPcmoranual tabpcmoranual;
     public TabDiccuentas tabdiccuentas;
+    public TabCambioeuro tabcambioeuro;
     public class TabGycauto extends TableDef
         {
         // campos
@@ -4710,6 +4711,29 @@ public class CatEasp extends Catalog
             }
         }
         
+    public class TabCambioeuro extends TableDef
+        {
+        // campos
+        public FieldDef cmbfecha;
+        public FieldDef cmbmoneda;
+        public FieldDef cmbimporte;
+        public TabCambioeuro(String name)
+            {
+            super(name);
+            cmbfecha = new FieldDef("cmbfecha",FieldDef.DATE,FieldDef.NOTNULL);
+            cmbmoneda = new FieldDef("cmbmoneda",FieldDef.CHAR,40,FieldDef.NOTNULL);
+            cmbimporte = new FieldDef("cmbimporte",FieldDef.FLOAT,0,2);
+            FieldDef array[] = {
+                cmbfecha,
+                cmbmoneda,
+                cmbimporte                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {cmbfecha,cmbmoneda };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
     public CatEasp()
         {
         tabgycauto = new TabGycauto("gycauto");
@@ -4813,6 +4837,7 @@ public class CatEasp extends Catalog
         tabpcinmov = new TabPcinmov("pcinmov");
         tabpcmoranual = new TabPcmoranual("pcmoranual");
         tabdiccuentas = new TabDiccuentas("diccuentas");
+        tabcambioeuro = new TabCambioeuro("cambioeuro");
         TableDef array[] = {
             tabgycauto,
             tabsetupapl,
@@ -4914,7 +4939,8 @@ public class CatEasp extends Catalog
             tabpcmoranualhis,
             tabpcinmov,
             tabpcmoranual,
-            tabdiccuentas            
+            tabdiccuentas,
+            tabcambioeuro            
             };
         setTables(array);
         FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
