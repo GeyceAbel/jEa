@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 13 09:02:06 CET 2019
+// Fecha y hora:     Wed Mar 13 15:22:28 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -422,8 +422,9 @@ public void onOpened() {
         // GET: SELECT
         public String getWhere ()
             {
-            if (filtroUsuario) return "aprusuario='"+Aplication.getAplication().getUser()+"' and aprnombrepc='"+nomPC+"'";
-            else return null;
+            String where = "apraplication='"+Aplication.getAplication().getName()+"'"; 
+if (filtroUsuario) where += " and aprusuario='"+Aplication.getAplication().getUser()+"' and aprnombrepc='"+nomPC+"'";
+            return where;
             }
         public String getOrder ()
             {
