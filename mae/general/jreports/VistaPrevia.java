@@ -86,6 +86,7 @@ public class VistaPrevia {
 					pd.close();
 				}
 				public void reportFillError (Throwable ex) {
+					ex.printStackTrace();
 					ErrorManagerDefault.generalEx(new Exception(ex), ex.getMessage());
 					pd.close();
 				}
