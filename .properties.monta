@@ -9,7 +9,7 @@ CONTAB.HOME=c:\\geyce\\contaasp\\
 HOME=c:\\geyce\\contaasp\\
 SERVIDOR=localhost
 BDAFINITY=NO
-
+auditable=si
 
 Sede=1
 ;fondo=jedifc.jpg

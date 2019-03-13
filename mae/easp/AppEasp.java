@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Jan 29 11:30:14 CET 2019
+// Fecha y hora:     Wed Mar 13 17:17:58 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -64,8 +64,8 @@ public class AppEasp extends Aplication
           mae.modasp.general.Modasp.setFileFromjar(destinoEjecucion,"JdbcOdbc.dll",destinoEjecucion+"JdbcOdbc.dll");
         }	  
         
-        Aplication.getAplication().setWaitIcon(new Imagen("mae/easp/html/EASP.png"));
-        Aplication.getAplication().setIcon(new Imagen("mae/easp/html/EASP.png"));
+        //Aplication.getAplication().setWaitIcon(new Imagen("mae/easp/html/EASP.png"));
+        Aplication.getAplication().setIcon(new Imagen("mae/easp/html/jea48.png"));
         Easp.dominio=Aplication.getAplication().getParameter("Dominio");
         Login.showLogIn(Aplication.getAplication(),"mae/easp/html/jea48.png",Easp.isPassMD5());
 
@@ -104,7 +104,6 @@ class Barramenu extends MenuBar
     public Mclientes mclientes;
     public Mdatosgenerales mdatosgenerales;
     public Musuarios musuarios;
-    public Mimpresoras mimpresoras;
     public Mtablascomunes mtablascomunes;
     public Mlopd mlopd;
     public Mayuda mayuda;
@@ -420,88 +419,13 @@ class Barramenu extends MenuBar
             }
         }
         
-    class Mimpresoras extends Menu
-        {
-        public M1impdisp m1impdisp;
-        public M1impformpag m1impformpag;
-        public M1imptipos m1imptipos;
-        public M1emu m1emu;
-        public M1impdef m1impdef;
-        class M1impdisp extends MenuItemProgram
-            {
-            public M1impdisp()
-                {
-                super("Impresoras disponibles");
-                setName("m1impdisp");
-                setProgram("mae.easp.admimprdisp.ProgAdmimprdisp");
-                // SET: MENU
-                }
-            }
-            
-        class M1impformpag extends MenuItemProgram
-            {
-            public M1impformpag()
-                {
-                super("Formatos de página");
-                setName("m1impformpag");
-                setProgram("mae.easp.admformpag.ProgAdmformpag");
-                // SET: MENU
-                }
-            }
-            
-        class M1imptipos extends MenuItemProgram
-            {
-            public M1imptipos()
-                {
-                super("Tipos de impresión");
-                setName("m1imptipos");
-                setProgram("mae.easp.admtipimpr.ProgAdmtipimpr");
-                // SET: MENU
-                }
-            }
-            
-        class M1emu extends MenuItemProgram
-            {
-            public M1emu()
-                {
-                super("Emulaciones y atributos");
-                setName("m1emu");
-                setProgram("mae.easp.admemuyatrib.ProgAdmemuyatrib");
-                // SET: MENU
-                }
-            }
-            
-        class M1impdef extends MenuItemProgram
-            {
-            public M1impdef()
-                {
-                super("Impresoras por usuario");
-                setName("m1impdef");
-                setProgram("mae.easp.admimprusu.ProgAdmimprusu");
-                // SET: MENU
-                }
-            }
-            
-        public Mimpresoras()
-            {
-            super("I&mpresoras");
-            setName("mimpresoras");
-            // SET: MENU
-            add(m1impdisp=new M1impdisp());
-            add(m1impformpag=new M1impformpag());
-            add(m1imptipos=new M1imptipos());
-            add(m1emu=new M1emu());
-            add(m1impdef=new M1impdef());
-            }
-        }
-        
     class Mtablascomunes extends Menu
         {
         public M1notas m1notas;
-        public M1incidef m1incidef;
         public M1inciden m1inciden;
         public M1gestmir m1gestmir;
         public M1gestionnif m1gestionnif;
+        public M1auditoria m1auditoria;
         class M1notas extends MenuItemProgram
             {
             public M1notas()
@@ -509,17 +433,6 @@ class Barramenu extends MenuBar
                 super("Notas");
                 setName("m1notas");
                 setProgram("mae.easp.admnotas.ProgAdmnotas");
-                // SET: MENU
-                }
-            }
-            
-        class M1incidef extends MenuItemProgram
-            {
-            public M1incidef()
-                {
-                super("Definición de incidencias");
-                setName("m1incidef");
-                setProgram("mae.easp.admdeferr.ProgAdmdeferr");
                 // SET: MENU
                 }
             }
@@ -557,16 +470,27 @@ class Barramenu extends MenuBar
                 }
             }
             
+        class M1auditoria extends MenuItemProgram
+            {
+            public M1auditoria()
+                {
+                super("&Log de uso");
+                setName("m1auditoria");
+                setProgram("mae.easp.prlogaudition.ProgPrlogaudition");
+                // SET: MENU
+                }
+            }
+            
         public Mtablascomunes()
             {
             super("U&tilidades");
             setName("mtablascomunes");
             // SET: MENU
             add(m1notas=new M1notas());
-            add(m1incidef=new M1incidef());
             add(m1inciden=new M1inciden());
             add(m1gestmir=new M1gestmir());
             add(m1gestionnif=new M1gestionnif());
+            add(m1auditoria=new M1auditoria());
             }
         }
         
@@ -652,7 +576,6 @@ class Barramenu extends MenuBar
         add(mclientes=new Mclientes());
         add(mdatosgenerales=new Mdatosgenerales());
         add(musuarios=new Musuarios());
-        add(mimpresoras=new Mimpresoras());
         add(mtablascomunes=new Mtablascomunes());
         add(mlopd=new Mlopd());
         add(mayuda=new Mayuda());
