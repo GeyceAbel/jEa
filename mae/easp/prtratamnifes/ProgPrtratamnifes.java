@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Dec 12 16:40:43 CET 2018
+// Fecha y hora:     Wed Mar 13 13:21:52 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -33,6 +33,7 @@ public int nuevoCodiCDP=0;
 public boolean noCargues = false ;
 
 public boolean gAltaEfectuada = false ;
+public boolean esAndorra = false;
     // Metodos
     // Ventana
     public FormVnifes vnifes;
@@ -939,11 +940,11 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
             // EVENT: CONTROLEDIT
             public boolean valid ()
                 {
-                if (!Util.isNumero(getString())) {
+                if (!esAndorra && !Util.isNumero(getString())) {
                   setMessageWarning("Sólo se admiten caracteres numéricos (y sin espacios)");
                   return false;
                   }
-                else if (!isNull() && getString().length()  > 1 && !Util.formateoNumero("00",datprov.getInteger()).equals(getString().substring(0,2))) {
+                else if (!esAndorra && !isNull() && getString().length()  > 1 && !Util.formateoNumero("00",datprov.getInteger()).equals(getString().substring(0,2))) {
                   setMessageWarning("Los dos primeros dígitos del código postal \ndeben corresponderse con el código de provincia");
                   return false;
                   }
@@ -1013,6 +1014,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
             public boolean obligate ()
                 {
                 if ("ISS".equals(aplicacion)) return false;
+                if (esAndorra) return false;
                 return true;
                 }
             }
@@ -1040,6 +1042,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
             public boolean obligate ()
                 {
                 if ("ISS".equals(aplicacion)) return false;
+                if (esAndorra) return false;
                 return true;
                 }
             }
@@ -1339,7 +1342,8 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
             snifes.cdp.setCheckDuplicates(true);
             snifes.nifes.setCheckDuplicates(true);
             datipf.setDescriptionLength(24);
-            if ("CON".equals(aplicacion))
+            if (esAndorra) datipf.addItem("8/NRT - Andorra");
+if ("CON".equals(aplicacion))
               cdpbdcomuconta.setEnabled(true);
             else
               cdpbdcomuconta.setEnabled(false);

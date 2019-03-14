@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Dec 12 16:58:51 CET 2018
+// Fecha y hora:     Wed Mar 13 13:08:09 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -36,7 +36,7 @@ public boolean tieneJISS=false;
 public boolean tieneJEO=false;
 public boolean tieneJRENTA = false;
 public boolean tieneJCONTA=false;
-
+public boolean esAndorra = false;
 
 DBConnection connJNomina=null;
 
@@ -62,6 +62,7 @@ public void abrirVNifes(int modo) {
   //  loc.setHeight(380);
   loc.setLocation(loc.CENTER);
   pr.setLocation(loc);
+  pr.esAndorra = esAndorra;
   pr.run();
   }
 
@@ -79,6 +80,7 @@ public void abrirVCDP(int modo) {
   loc.setHeight(250);
   loc.setLocation(loc.CENTER);
   pr.setLocation(loc);
+  pr.esAndorra = esAndorra;
   pr.run();
 }
 
