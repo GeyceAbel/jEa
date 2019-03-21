@@ -59,7 +59,9 @@ public class Easp {
     return !(Aplication.getAplication().getConfig("BDAFINITY").equals("SI"));
 	  }
 
-
+  public static boolean darMensajeErrorSQL() {
+	  return (!(Aplication.getAplication().getConfig("ERRORSQL").equals("NO") || Aplication.getAplication().getConfig("ERRORSQL").equals("No") || Aplication.getAplication().getConfig("ERRORSQL").equals("no")  || Aplication.getAplication().getConfig("ERRORSQL").equals("nO")));
+  }
   public static boolean init() {
     // Datos que se deben iniciar
     easp=(AppEasp) Aplication.getAplication();
@@ -2787,7 +2789,8 @@ public static Date esFecha (String s){
                   } else {
                       valor = String.valueOf(obj) + ". Error de SQL";
                   }
-              } else {
+              } 
+              else if (!campo.equals("SQLMessage") || darMensajeErrorSQL()) {            	  
                   valor = (String) obj;
               }
               if (valor != null){
