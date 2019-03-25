@@ -38,7 +38,7 @@ public class Easp {
   //variables de versiones
   public static String versionAplicacion="9.8";
   public static String versionFecha="Abril/2018";
-  public static String versionBDEA="15.9";
+  public static String versionBDEA="16.0";
 
   public static enum TIPO_HOST { LOCALHOST, AZURE, AZUREMSDN};
   public static TIPO_HOST HOST = TIPO_HOST.AZURE;
@@ -2789,8 +2789,8 @@ public static Date esFecha (String s){
                   } else {
                       valor = String.valueOf(obj) + ". Error de SQL";
                   }
-              } 
-              else if (!campo.equals("SQLMessage") || darMensajeErrorSQL()) {            	  
+              }
+              else if (!campo.equals("SQLMessage") || darMensajeErrorSQL()) {
                   valor = (String) obj;
               }
               if (valor != null){
@@ -3074,7 +3074,7 @@ public static boolean isSecurityMD5 () {
     StringBuffer sb= new StringBuffer(linia);
     String tipoBD = null;
     tipoBD=coonnIR.getDB().getType().toUpperCase() ;
-    
+
     int inici=0;
     int fincampo=0;
     if (sb.toString().substring(0,1).equals(",")) inici++;

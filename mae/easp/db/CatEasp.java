@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Mar 21 12:27:58 CET 2019
+// Fecha y hora:     Mon Mar 25 16:26:27 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -115,6 +115,7 @@ public class CatEasp extends Catalog
     public TabDiccuentas tabdiccuentas;
     public TabCambioeuro tabcambioeuro;
     public TabSeguridad tabseguridad;
+    public TabUshistorico tabushistorico;
     public class TabGycauto extends TableDef
         {
         // campos
@@ -1967,7 +1968,7 @@ public class CatEasp extends Catalog
             uscodcon = new FieldDef("uscodcon",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             uslogin = new FieldDef("uslogin",FieldDef.CHAR,25,FieldDef.NOTNULL);
             usnombre = new FieldDef("usnombre",FieldDef.CHAR,45);
-            uspasswd = new FieldDef("uspasswd",FieldDef.CHAR,10);
+            uspasswd = new FieldDef("uspasswd",FieldDef.CHAR,20);
             usdirec = new FieldDef("usdirec",FieldDef.CHAR,45);
             uscodpos = new FieldDef("uscodpos",FieldDef.CHAR,10);
             uspoblac = new FieldDef("uspoblac",FieldDef.CHAR,45);
@@ -4723,7 +4724,7 @@ public class CatEasp extends Catalog
             super(name);
             cmbfecha = new FieldDef("cmbfecha",FieldDef.DATE,FieldDef.NOTNULL);
             cmbmoneda = new FieldDef("cmbmoneda",FieldDef.CHAR,40,FieldDef.NOTNULL);
-            cmbimporte = new FieldDef("cmbimporte",FieldDef.FLOAT,0,0);
+            cmbimporte = new FieldDef("cmbimporte",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 cmbfecha,
                 cmbmoneda,
@@ -4743,6 +4744,7 @@ public class CatEasp extends Catalog
         public FieldDef seglongminima;
         public FieldDef seginclletras;
         public FieldDef segincnumeros;
+        public FieldDef seginccarespec;
         public FieldDef segcontrexpira;
         public FieldDef segreutiliza;
         public FieldDef seghistorico;
@@ -4759,6 +4761,7 @@ public class CatEasp extends Catalog
             seglongminima = new FieldDef("seglongminima",FieldDef.INTEGER,0);
             seginclletras = new FieldDef("seginclletras",FieldDef.CHAR,1);
             segincnumeros = new FieldDef("segincnumeros",FieldDef.CHAR,1);
+            seginccarespec = new FieldDef("seginccarespec",FieldDef.CHAR,1);
             segcontrexpira = new FieldDef("segcontrexpira",FieldDef.INTEGER,0);
             segreutiliza = new FieldDef("segreutiliza",FieldDef.CHAR,1);
             seghistorico = new FieldDef("seghistorico",FieldDef.INTEGER,0);
@@ -4773,6 +4776,7 @@ public class CatEasp extends Catalog
                 seglongminima,
                 seginclletras,
                 segincnumeros,
+                seginccarespec,
                 segcontrexpira,
                 segreutiliza,
                 seghistorico,
@@ -4789,6 +4793,7 @@ public class CatEasp extends Catalog
             seglongminima.setDescription("Longitud mínima");
             seginclletras.setDescription("Debe incluir [U] solo mayusculas, [L] solo minusculas, [M] mayusculas y minusculas");
             segincnumeros.setDescription("Debe incluir numeros");
+            seginccarespec.setDescription("Debe incluir caracteres especiales");
             segcontrexpira.setDescription("Numero de dias en los que expira la contraseña (0 o blanco no caduca)");
             segreutiliza.setDescription("[S]e puede reutilizar una contraseña que ya se utilizo");
             seghistorico.setDescription("Se permite reutilizar una contraseña de n-veces anteriores");
@@ -4797,6 +4802,46 @@ public class CatEasp extends Catalog
             segsesinactiva.setDescription("Despues de n-minutos de inactividad expira la sesion");
             segmaxsesion.setDescription("Despues de n-horas expira la sesion");
             segsesionsimul.setDescription("se permite acceder a la aplicacion con el mismo usuario");
+            }
+        }
+        
+    public class TabUshistorico extends TableDef
+        {
+        // campos
+        public FieldDef uhcodcon;
+        public FieldDef uhlogin;
+        public FieldDef uhfecha;
+        public FieldDef uhhora;
+        public FieldDef uhpasswd;
+        public FieldDef uhmd5;
+        public FieldDef uhprimera;
+        public TabUshistorico(String name)
+            {
+            super(name);
+            uhcodcon = new FieldDef("uhcodcon",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            uhlogin = new FieldDef("uhlogin",FieldDef.CHAR,25,FieldDef.NOTNULL);
+            uhfecha = new FieldDef("uhfecha",FieldDef.DATE,FieldDef.NOTNULL);
+            uhhora = new FieldDef("uhhora",FieldDef.CHAR,10,FieldDef.NOTNULL);
+            uhpasswd = new FieldDef("uhpasswd",FieldDef.CHAR,20);
+            uhmd5 = new FieldDef("uhmd5",FieldDef.CHAR,100);
+            uhprimera = new FieldDef("uhprimera",FieldDef.CHAR,1);
+            FieldDef array[] = {
+                uhcodcon,
+                uhlogin,
+                uhfecha,
+                uhhora,
+                uhpasswd,
+                uhmd5,
+                uhprimera                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {uhcodcon,uhlogin,uhfecha,uhhora };
+            setPrimaryKeys(arrayf);
+            uhfecha.setDescription("Fecha en la que se cambio la contraseña");
+            uhhora.setDescription("Hora");
+            uhpasswd.setDescription("Password");
+            uhmd5.setDescription("Password formato MD5");
+            uhprimera.setDescription("Primer password");
             }
         }
         
@@ -4905,6 +4950,7 @@ public class CatEasp extends Catalog
         tabdiccuentas = new TabDiccuentas("diccuentas");
         tabcambioeuro = new TabCambioeuro("cambioeuro");
         tabseguridad = new TabSeguridad("seguridad");
+        tabushistorico = new TabUshistorico("ushistorico");
         TableDef array[] = {
             tabgycauto,
             tabsetupapl,
@@ -5008,7 +5054,8 @@ public class CatEasp extends Catalog
             tabpcmoranual,
             tabdiccuentas,
             tabcambioeuro,
-            tabseguridad            
+            tabseguridad,
+            tabushistorico            
             };
         setTables(array);
         FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };

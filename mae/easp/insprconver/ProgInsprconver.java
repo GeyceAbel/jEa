@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Jan 24 16:13:39 CET 2019
+// Fecha y hora:     Mon Mar 25 16:35:30 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -1767,6 +1767,34 @@ String sentencias15_9[]={
 	"	 cmbimporte FLOAT,"+
 	"	 PRIMARY KEY (cmbfecha, cmbmoneda));"
 };
+String sentencias16_0[]={
+"CREATE TABLE SEGURIDAD"+
+"    (SEGCODIGO           integer NOT NULL,"+
+"     SEGCONTROBLIG       char(1),"+               
+"     SEGLONGMINIMA       integer,"+               
+"     SEGINCLLETRAS       char(1),"+               
+"     SEGINCNUMEROS       char(1),"+               
+"     SEGINCCARESPEC      char(1),"+               
+"     SEGCONTREXPIRA      integer,"+               
+"     SEGREUTILIZA        char(1),"+               
+"     SEGHISTORICO        integer,"+               
+"     SEGINTENTO          integer,"+               
+"     SEGPRIMERAVEZ       char(1),"+               
+"     SEGSESINACTIVA      integer,"+               
+"     SEGMAXSESION        integer,"+               
+"     SEGSESIONSIMUL      char(1),"+               
+"     PRIMARY KEY (SEGCODIGO));",
+"CREATE TABLE USHISTORICO"+
+"       (UHCODCON      INTEGER NOT NULL,"+
+"        UHLOGIN       CHAR(25) NOT NULL,"+
+"        UHFECHA       "+formatoData()+" NOT NULL,"+            
+"        UHHORA        CHAR(10) NOT NULL,"+	
+"        UHPASSWD      VARCHAR(20),"+              
+"        UHMD5         VARCHAR(100),"+             
+"        UHPRIMERA     CHAR(1),"+                  
+"        PRIMARY KEY (UHCODCON,UHLOGIN,UHFECHA,UHHORA));",
+"ALTER TABLE USUARIO ALTER COLUMN USPASSWD      varchar(20);"};
+
   int i=0;
   try {
     if (vvveractual.getString().equals("1.1")) {
@@ -4105,7 +4133,23 @@ String sentencias15_9[]={
         Easp.connEA.commit();
         vvveractual.setValue("15.9");
     }
-    
+    if (versio < 16.0) {
+        for (i=0;i<sentencias16_0.length;++i) {
+                try {
+                        Easp.chivato("16.0 Exec : ["+sentencias16_0[i]+"]",1);
+                        Easp.connEA.executeUpdate(sentencias16_0[i]);
+                }
+                catch(Exception e) {
+                        sqlOperation=sentencias16_0[i];
+                        Easp.chivato("16.0 *** Error : ["+sentencias16_0[i]+"]  Error: ["+e+"]",1);
+                        errorMessage=e.getMessage();
+                }
+        }
+        Easp.setVersionBD("bdeasp","16.0");
+        Easp.connEA.commit();
+        vvveractual.setValue("16.0");
+    }
+
   }
   catch(Exception e) {
     System.out.println("Error en conversión: ["+e+"]");

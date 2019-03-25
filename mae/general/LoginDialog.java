@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.Keymap;
+
 import geyce.maefc.*;
 import mae.easp.general.Easp;
 
@@ -65,7 +66,7 @@ public class LoginDialog{
 		AcceptListener accept=new AcceptListener(listener,this);
 		LoginWindowAdapter openclose=new LoginWindowAdapter(listener);
 
-		cancelar.addActionListener(cancel);
+		cancelar.addActionListener(cancel);		
 		panel0.setBackground(Color.WHITE);
 		panel1.setBackground(Color.WHITE);
 		panel2.setBackground(Color.WHITE);
@@ -74,11 +75,20 @@ public class LoginDialog{
 		frame.getRootPane().registerKeyboardAction(cancel,KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE,0),JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
 		frame.addWindowListener(openclose);
-		aceptar.addActionListener(accept);
-
+		aceptar.addActionListener(accept);		
 		frame.setResizable(false);
 	}
-
+	public void auditoria(String finestre, String titol) {
+    	if (Aplication.getAplication().getAudition() != null) {
+			ProcessForm form = new ProcessForm(null);
+			form.setName(finestre);
+			form.setTitle(finestre);
+			ControlButton boto = new ControlButton(form);			
+			boto.setName(titol);
+			boto.setTitle(titol);
+			Aplication.getAplication().getAudition().clickButton(boto);	
+		}
+    }
 	/**
 	 * Devuelve la aplicación.
 	 *
@@ -421,7 +431,8 @@ public class LoginDialog{
 	 */
 	void exit(){
 		frame.dispose();
-	}
+	}	
+	
 }
 
 /**
@@ -468,17 +479,21 @@ class AcceptListener implements ActionListener {
 		this.listener=listener;
 		this.ld=ld;
 	}
-
-	public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e){		
 		if ((ld.domainVisible && (ld.getDomain()==null || ld.getDomain().equals("")))
-				|| ld.getLogin()==null || ld.getLogin().equals(""))
+				|| ld.getLogin()==null || ld.getLogin().equals("")) {
+			ld.auditoria("LoginAplicacion","Sin usuario");
 			return;
+		}	
 		if (listener.accept()) {
+			ld.auditoria("LoginAplicacion","Usuario correcto");
 			ld.exit();
 			//ld.getAplication().run(); 5-1-2001
 		}
-		else
+		else {
+			ld.auditoria("LoginAplicacion","Usuario/contr. incorrecta");			
 			ld.alert();
+		}	
 	}
 }
 
@@ -492,8 +507,9 @@ class CancelListener implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e){
+		ld.auditoria("LoginAplicacion","Cancelar");				
 		ld.exit();
-		listener.cancel();
+		listener.cancel();		
 	}
 }
 

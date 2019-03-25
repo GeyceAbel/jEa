@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Nov 28 16:12:31 CET 2018
+// Fecha y hora:     Mon Mar 25 17:41:55 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -22,6 +22,7 @@ public class ProgUspusers extends Program
     public AppEasp easp;
     public ProgUspusers uspusers;
     // GLOBALES: PROGRAMA
+    Seguridad seguridad = null;
     // Metodos
     // Ventana
     public FormVusuarios vusuarios;
@@ -95,7 +96,9 @@ public boolean eliminaUsuario(int codcon, String grupo, String login){
   susagrup.setWhere("usacodco="+Easp.sede+" and usagrupo='"+grupo+
                     "' and usalogin='"+login+"'");
   susagrup.executeLock();//Bloqueos: no desbloquear, forma parte de transaccion
-  if (!susagrup.isEof()) return usagrup.delete();
+  if (!susagrup.isEof() && seguridad.eliminarHistorico(codcon, login )) {
+  	return usagrup.delete();
+  }
   else return false;
   }
 
@@ -1003,6 +1006,7 @@ else {
     public class FormVcontrasenya extends MonoDataForm
         {
         // GLOBALES: VENTANA
+        String contraAnt = "";
         // Metodos
         // Controles
         public CtrlUspasswd uspasswd;
@@ -1033,7 +1037,7 @@ else {
                 setTitle("Contraseña");
                 setType(STRING);
                 setMaskInput("*");
-                setLength(10);
+                setLength(20);
                 setPrintable(false);
                 setField(susuarios.uspasswd);
                 // SET: CONTROLEDIT
@@ -1062,6 +1066,7 @@ else {
         public void onOpened ()
             {
             super.onOpened();
+            contraAnt = uspasswd.getString();
             doEdit();
             }
         public void onExit ()
@@ -1069,6 +1074,21 @@ else {
             if (getNumState()!=DataForm.SHOW)
               onCancel();
             super.onExit();
+            }
+        public boolean onOkUpdate ()
+            {
+            boolean ret = super.onOkUpdate ();
+            if (ret) {
+   if (!uspasswd.getString().equals(contraAnt) || contraAnt==null || "".equals(contraAnt.trim()) || uspasswd.getString()==null || "".equals(uspasswd.getString().trim())) {
+   	ret = seguridad.isContrasenyaValida(uspasswd.getString(),null, vusuarios.uslogin.getString(),false);	
+   	if (!ret) Maefc.message(seguridad.getMissatgeAvis(),"¡Atención!");
+   	else {
+   		ret = seguridad.setHistorico(susuarios.uscodcon.getInteger(),susuarios.uslogin.getString(),uspasswd.getString(),null);
+   		if (!ret) Maefc.message(seguridad.getMissatgeAvis(),"¡Atención!");
+   	}
+   }
+}
+return ret;
             }
         }
         
@@ -1105,7 +1125,7 @@ else {
                 setName("vvmd5");
                 setTitle("Nueva contraseña");
                 setType(STRING);
-                setLength(10);
+                setLength(20);
                 setSearchable(true);
                 // SET: CONTROLEDIT
                 }
@@ -1123,7 +1143,7 @@ else {
                 setName("vvmd5repe");
                 setTitle("Repetir contraseña");
                 setType(STRING);
-                setLength(10);
+                setLength(20);
                 setSearchable(true);
                 // SET: CONTROLEDIT
                 }
@@ -1153,18 +1173,27 @@ if (ok && !vvmd5.getString().equals(vvmd5repe.getString())) {
 	vvmd5.activate();
 	ok = false;
 }
+else if (vvmd5.getString().length()>0) {
+	ok = seguridad.isContrasenyaValida(vvmd5.getString(),Login.encryptMD5(vvmd5.getString()), vusuarios.uslogin.getString(),true);
+	if (!ok) Maefc.message(seguridad.getMissatgeAvis(),"¡Atención!");
+}
 if (ok && vvmd5.getString().length()==0) {	
-	int resp = Maefc.message("¿Esta seguro que no quiere asignar contraseña al usuario "+susuarios.uslogin.getString()+"?","¡Atención!",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION);
+	int resp = Maefc.message("¿Está seguro que no quiere asignar contraseña al usuario "+susuarios.uslogin.getString()+"?","¡Atención!",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION);
 	ok = (resp == Maefc.YES_OPTION);
 }
 
 if (ok) {
 	susuarios.edit();
-	susuarios.uspasswd.setNull();
-	susuarios.usmd5.setValue(Login.encryptMD5(vvmd5.getString()));
-	susuarios.update();
-	susuarios.commit();
-	Maefc.message ("Contraseña actualizada correctamente","¡Atención!");
+	if (seguridad.setHistorico(susuarios.uscodcon.getInteger(),susuarios.uslogin.getString(),null,susuarios.usmd5.getString())) {
+		susuarios.uspasswd.setNull();
+		susuarios.usmd5.setValue(Login.encryptMD5(vvmd5.getString()));
+		susuarios.update();
+		susuarios.commit();
+		Maefc.message ("Contraseña actualizada correctamente","¡Atención!");
+	}
+	else Maefc.message(seguridad.getMissatgeAvis(),"¡Atención!");
+	vvmd5.setNull();
+	vvmd5repe.setNull();
 	vcontrasenyamd5.exit();
 }
 
@@ -1216,6 +1245,7 @@ if (ok) {
         {
         vcontrasenyamd5.vvmd5.setPassword(true);
         vcontrasenyamd5.vvmd5repe.setPassword(true);
+        seguridad = new Seguridad(getDataBase(),Easp.sede);
         super.onInit ();
         }
     }

@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 13 17:17:58 CET 2019
+// Fecha y hora:     Fri Mar 22 13:45:33 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -320,6 +320,7 @@ class Barramenu extends MenuBar
         
     class Musuarios extends Menu
         {
+        public Mseguridad mseguridad;
         public Musers musers;
         public Mgrupos mgrupos;
         public Meventos meventos;
@@ -327,6 +328,17 @@ class Barramenu extends MenuBar
         public Mpermisoslo mpermisoslo;
         public M1fechas m1fechas;
         public Mdesbloquearses mdesbloquearses;
+        class Mseguridad extends MenuItemProgram
+            {
+            public Mseguridad()
+                {
+                super("&Seguridad");
+                setName("mseguridad");
+                setProgram("mae.easp.usseguridad.ProgUsseguridad");
+                // SET: MENU
+                }
+            }
+            
         class Musers extends MenuItemProgram
             {
             public Musers()
@@ -409,6 +421,7 @@ class Barramenu extends MenuBar
             super("&Usuarios y permisos");
             setName("musuarios");
             // SET: MENU
+            add(mseguridad=new Mseguridad());
             add(musers=new Musers());
             add(mgrupos=new Mgrupos());
             add(meventos=new Meventos());

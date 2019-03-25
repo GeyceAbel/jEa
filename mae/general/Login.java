@@ -43,7 +43,7 @@ public class Login implements LoginListener{
 		ld.setMnemonicLogin('U');
 		ld.setNamePassword("Contraseña :");
 		ld.setMnemonicPassword('o');
-		ld.setNameAccept(" Entrar ");
+		ld.setNameAccept(" Entrar ");		
 		ld.setNameCancel("Cancelar");
 		inicializa();
 		ld.setUsuarios(getUsuarios());
