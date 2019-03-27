@@ -520,7 +520,7 @@ class AcceptListener implements ActionListener {
 			ld.auditoria("LoginAplicacion","Usuario/contr. incorrecta");
 			ld.alert();
       if (Easp.cambiarPassword) {
-    	  String novaContra = NewPassword.showNewPass(ld.getAplication(),  ld.getRutaLogo(), ld.getUsuario(), ld.getMd5(),ld.getConnexio());
+    	  String novaContra = NewPassword.showNewPass(ld.getAplication(),  ld.getRutaLogo(), ld.getUsuario(), ld.getMd5(),ld.getConnexio(),false);
         ld.setPassword(novaContra);
     	  System.out.println(novaContra);
       }

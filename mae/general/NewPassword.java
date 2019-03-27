@@ -19,12 +19,14 @@ public class NewPassword implements NewPassListener{
   private boolean md5;
   private String usuario;
   private static String newContrasenya = null;
+  private boolean vieneProgUser;
 
-  NewPassword(Aplication apl, String rutaLogo, String usuario, boolean md5,DBConnection dbc){
+  NewPassword(Aplication apl, String rutaLogo, String usuario, boolean md5,DBConnection dbc, boolean vieneProgUser){
 		SystemView.setGui(true);
     this.usuario = usuario;
     this.md5 = md5;
     this.dbc = dbc;
+    this.vieneProgUser=vieneProgUser;
 
     ld=new NewPassDialog(this,apl, rutaLogo,usuario, md5);
 		//Personalizamos el formulario de Login
@@ -107,8 +109,8 @@ public class NewPassword implements NewPassListener{
 	 * y saldremos al sistema.
 	 */
 	public void cancel(){
-		if (dbc.isConnected()) dbc.disconnect();
-		Aplication.getAplication().exit();
+    if (dbc.isConnected() && !vieneProgUser) dbc.disconnect();
+    if (!vieneProgUser) Aplication.getAplication().exit();
 	}
 
 
@@ -117,8 +119,8 @@ public class NewPassword implements NewPassListener{
 	}
 
 
-  public static String showNewPass(Aplication apl, String rutaLogo, String usuario, boolean security, DBConnection dbc){
-    NewPassword password  = new NewPassword(apl, rutaLogo, usuario, security,dbc);
+  public static String showNewPass(Aplication apl, String rutaLogo, String usuario, boolean security, DBConnection dbc, boolean vieneProgUsuario){
+    NewPassword password  = new NewPassword(apl, rutaLogo, usuario, security,dbc,vieneProgUsuario);
     return newContrasenya;
 	}
 
