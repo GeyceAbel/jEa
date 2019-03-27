@@ -396,7 +396,7 @@ public class Easp {
           sesionRepetida = true;
           return false;
       }
-      else if (seguridad.ctrlCaducada(sede,usuario) || seguridad.ctrlPrimeraVez(sede,usuario)) {
+      else if (seguridad.ctrlSinContrasenya(sede,usuario) || seguridad.ctrlCaducada(sede,usuario) || seguridad.ctrlPrimeraVez(sede,usuario)) {
     	  mensajeSesion = seguridad.getMissatgeAvis();
     	  cambiarPassword = true;
         return false;

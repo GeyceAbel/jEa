@@ -75,7 +75,7 @@ public class NewPassword implements NewPassListener{
                   else contrasenya = new String(ld.getPassword());
                   mae.easp.general.Seguridad seguridad = new mae.easp.general.Seguridad(dbc,Easp.sede);
                   seguridad.setAutoCommit();
-                  boolean esOk = seguridad.isContrasenyaValida(contrasenya,contrasenyaMD5, usuario,md5);
+                  boolean esOk = seguridad.isContrasenyaValida(new String(ld.getPassword()),ld.getPasswordMD5 (), usuario,md5);
                   if (esOk) esOk = seguridad.setContrasenya(uscodcon,usuario,contrasenya,contrasenyaMD5,md5);
                   if (!esOk) {
                     ld.setMensajeError(seguridad.getMissatgeAvis());
