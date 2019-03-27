@@ -18,6 +18,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
@@ -54,6 +55,10 @@ public class Easp {
   public static boolean errorCheckBds = false;
 
   public static boolean securityMD5 = false;
+
+  public static boolean sesionRepetida = false;
+  public static boolean cambiarPassword = false;
+  public static String mensajeSesion = "";
 
   public static boolean isLocalDB(){
     return !(Aplication.getAplication().getConfig("BDAFINITY").equals("SI"));
@@ -374,20 +379,33 @@ public class Easp {
     else return null;
   }
 
-
-
   public static boolean crearSesion(String tarifa,String usuario, String aplicacion , boolean verMensaje,boolean soloAvisar ) {
+	  return crearSesion(tarifa,usuario, aplicacion , verMensaje,soloAvisar,connEA );
+  }
+  public static boolean crearSesion(String tarifa,String usuario, String aplicacion , boolean verMensaje,boolean soloAvisar, DBConnection db ) {
 
 	try {
 
-	  String version =  getVersionBD("bdeasp") ;
-      if ( Double.valueOf(version).doubleValue() < 7.6 ) return true ;
-
+      sesionRepetida = false;
+      cambiarPassword = false;
+      mensajeSesion = "";
+      Seguridad seguridad = new Seguridad(db,sede);
+      if (!seguridad.permiteUserRepetido() && seguridad.usuarioRepetido(aplicacion, usuario)) {
+    	  //Maefc.message(seguridad.getMissatgeAvis(),"¡Atención!");
+    	  mensajeSesion = seguridad.getMissatgeAvis();
+          sesionRepetida = true;
+          return false;
+      }
+      else if (seguridad.ctrlCaducada(sede,usuario) || seguridad.ctrlPrimeraVez(sede,usuario)) {
+    	  mensajeSesion = seguridad.getMissatgeAvis();
+    	  cambiarPassword = true;
+        return false;
+      }
       //APJORDI 12/05/2017
       //Primer de tot borrem totes les sessions d'aquel PC, ja que sino s'acumulaven (si obria 2 sessions desde el mateix PC)
-      cerrarSesion(aplicacion, usuario);
+      cerrarSesion(aplicacion, usuario,db);
 
-      Select ssesiones         = new Select(connEA);
+      Select ssesiones         = new Select(db);
       Table tbsesiones         = new Table(ssesiones,"sesiones");
       Field fdsescodigo        = new Field(ssesiones,tbsesiones,"sescodigo");
       Field fdsesmachine       = new Field(ssesiones,tbsesiones,"sesmachine");
@@ -398,7 +416,7 @@ public class Easp {
       Field fdsespermitido     = new Field(ssesiones,tbsesiones,"sespermitido");
 
 
-      Select simpuserctrl          = new Select(connEA);
+      Select simpuserctrl          = new Select(db);
       Table tbimpuserctrl          = new Table(simpuserctrl,"impuser");
       Field fdimumachinectrl       = new Field(simpuserctrl,tbimpuserctrl,"imumachine");
       Field fdimuaplicacionctrl    = new Field(simpuserctrl,tbimpuserctrl,"imuaplicacion");
@@ -444,6 +462,7 @@ public class Easp {
       if ( licencias > 0 &&  sesiones >= licencias ) superaLicencias = true  ;
 
       ssesiones.addNew();
+      ssesiones.setForzarConexionGycauto(true);
       fdsesmachine    .setValue(nomPC);
       fdsesusuario    .setValue(usuario);
       fdsesfecha      .setValue(fechaGrabacio);
@@ -523,7 +542,7 @@ public class Easp {
        }
 
 
-      Select simpuser          = new Select(connEA);
+      Select simpuser          = new Select(db);
       Table tbimpuser          = new Table(simpuser,"impuser");
       Field fdimucodigo        = new Field(simpuser,tbimpuser,"imucodigo");
       Field fdimumachine       = new Field(simpuser,tbimpuser,"imumachine");
@@ -534,6 +553,7 @@ public class Easp {
 
 
       simpuser.addNew();
+      simpuser.setForzarConexionGycauto(true);
       fdimumachine    .setValue(nomPC);
       fdimuusuario    .setValue(usuario);
       fdimufecha      .setValue(Maefc.getDate());
@@ -549,11 +569,14 @@ public class Easp {
       return true ;
       }
 
-    }
+  }
 
   public static boolean cerrarSesion(String aplicacion,String usuario ) {
+	  return cerrarSesion(aplicacion,usuario,connEA );
+  }
+  public static boolean cerrarSesion(String aplicacion,String usuario,DBConnection db ) {
 	try {
-      Select simpuser          = new Select(connEA);
+      Select simpuser          = new Select(db);
       Table tbimpuser          = new Table(simpuser,"impuser");
       Field fdimucodigo        = new Field(simpuser,tbimpuser,"imucodigo");
       Field fdimumachine       = new Field(simpuser,tbimpuser,"imumachine");

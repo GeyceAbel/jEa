@@ -10,46 +10,62 @@ import java.io.FileInputStream;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.util.Properties;
+
 import geyce.maefc.*;
 import mae.easp.general.Easp;
-import mae.modasp.db.CatEasp;
+import mae.easp.db.CatEasp;
 
 import javax.swing.JOptionPane;
 import javax.swing.JOptionPane.*;
 
 public class Login implements LoginListener{
 	private static final double SECURITY_MIN_VERSION_BD = 15.7;
+  private static final double TABLASEGURIDAD_MIN_VERSION_BD = 16.0;
 	private DBConnection dbc;
-	private LoginDialog ld=null;
+  private LoginDialog ld=null;
 	private String localDomain=null;
 	private Aplication apl=null;
 	private String dominio=null;
-	private boolean security;	
+	private boolean security;
+	private String rutaLogo=null;
 
 	Login(Aplication apl, String rutaLogo){
 		this (apl, rutaLogo, false);
 	}
-	
+
 	Login(Aplication apl, String rutaLogo, boolean security){
 		SystemView.setGui(true);
-		this.security = security;		
+		this.rutaLogo = rutaLogo;
+		this.security = security;
 		//Leemos .properties
 		properties(apl);
 
-		ld=new LoginDialog(this,apl, rutaLogo);
+    ld=new LoginDialog(this,apl, rutaLogo,security);
 		//Personalizamos el formulario de Login
 		ld.setNameFrame("Identificación acceso "+apl.getTitle());
 		ld.setNameLogin("Usuario :");
 		ld.setMnemonicLogin('U');
 		ld.setNamePassword("Contraseña :");
 		ld.setMnemonicPassword('o');
-		ld.setNameAccept(" Entrar ");		
+		ld.setNameAccept(" Entrar ");
 		ld.setNameCancel("Cancelar");
 		inicializa();
 		ld.setUsuarios(getUsuarios());
 		ld.setUsuario(getUserDefault());
-		ld.show();
+		ld.setConnexio(dbc);
+		ld.show();    
 	}
+  private boolean existeTablaSeguridad() {
+     boolean existe = false;
+     Selector s = new Selector (dbc);
+     s.execute("Select bdversio from BDS where bdnombre='bdeasp'");
+     if (s.next()) {
+       String v = s.getString("bdversio");
+       existe = Numero.redondeo(Double.parseDouble(v)) >=  Numero.redondeo(TABLASEGURIDAD_MIN_VERSION_BD);
+     }
+     s.close();
+     return existe;
+  }
 
 	private void checkSecurity() {
 		System.out.println("Check Login MD5: "+security);
@@ -82,6 +98,10 @@ public class Login implements LoginListener{
 	      };
 	    db.setCatalogs(array);
 		db.setName("bdeasp");
+		db.setMyServer(Aplication.getDB().getServer());
+		db.setUser(Aplication.getDB().getUser());
+		db.setMyPassword(Aplication.getDB().getPassword());
+		db.setType(Aplication.getDB().getType());
 		dbc=new DBConnection(db);
 		if (dbc.connect()) return true;
 		else return false;
@@ -95,6 +115,9 @@ public class Login implements LoginListener{
 		else checkSecurity();
 	}
 
+  public LoginDialog getLoginDialogo() {
+      return ld;
+  }
 	public String getDominio() {
 		dominio=Aplication.getAplication().getParameter("Dominio");
 		if (dominio!=null && dominio.length() > 6)
@@ -139,6 +162,7 @@ public class Login implements LoginListener{
 	 *
 	 * @return   boolean
 	 */
+
 	public boolean accept() {
 		try {
 			Statement st=dbc.createStatement();
@@ -155,8 +179,16 @@ public class Login implements LoginListener{
 					apl.setTitle(apl.getTitle()+" ("+mylogin.trim()+")");
 					apl.setUser(mylogin.trim());
 					setUserDefault(ld.getLogin());
-					dbc.disconnect();
-					return true;
+					boolean creaSesio = true;
+          if (existeTablaSeguridad()) {
+						creaSesio = mae.easp.general.Easp.crearSesion(Aplication.getAplication().getConfig("Tarifa"),mylogin,Aplication.getAplication().getName(), true,false,dbc );
+						ld.setCodUsuario(mylogin);
+            if (!creaSesio) {
+                ld.setMensajeErrorSinDominio(mae.easp.general.Easp.mensajeSesion);
+            }
+					}
+          if (creaSesio) dbc.disconnect();
+					return creaSesio;
 				}
 			}
 		}
@@ -173,7 +205,7 @@ public class Login implements LoginListener{
 		if (pass==null && ld.getPassword().equals("")) ok = true;
 		else if (security) ok = pass!=null && pass.equals(ld.getPasswordMD5());
 		else ok = pass!=null && pass.toUpperCase().equals(ld.getPassword().toUpperCase());
-	
+
 		return ok;
 	}
 
@@ -231,7 +263,7 @@ public class Login implements LoginListener{
 		if ( machine == null ) return ;
 
 		//APJORDI: Feia coses rares quan guardava el ultim usuari. ho simplifico
-		
+
 		Delete d = new Delete (dbc, "parametros");
 		boolean bOk = d.execute("pardominio = '"+dominio+"' AND parusuario ='"+machine+"' AND parvariable = 'TERMINAL' AND parambito = 'PERFIL USUARIO'");
 		if (bOk) {
@@ -249,9 +281,9 @@ public class Login implements LoginListener{
 		if (bOk) dbc.commit();
 		else dbc.rollback();
 
-		
+
 		/*
-		
+
 		String sentencia="SELECT parvalor FROM parametros WHERE pardominio = '"+dominio+"' AND parusuario = '"+userLogin+"' AND parvariable = 'TERMINAL' AND parambito = 'PERFIL USUARIO'";
 
 		Statement stselect=null;
@@ -298,7 +330,7 @@ public class Login implements LoginListener{
 				System.out.println("Error al cerrar :"+ex2.getMessage());
 			}
 		}
-		
+
 		*/
 
 	}
@@ -329,7 +361,7 @@ public class Login implements LoginListener{
 		// domini, usuari i contrassenya,
 		// i verificarà amb VirtualFiscControl.verifyLogin
 	}
-	
+
 	public static String encryptMD5 (String passwd) {
 		String md5 = null;
 		if (passwd != null && passwd.trim().length()>0) {
@@ -338,7 +370,7 @@ public class Login implements LoginListener{
 				MessageDigest mdEnc = MessageDigest.getInstance("MD5");
 				mdEnc.update(passwd.getBytes(), 0, passwd.length());
 				md5 = new BigInteger(1, mdEnc.digest()).toString(16).toUpperCase();
-			} 
+			}
 			catch (Exception ex) {
 				ex.printStackTrace();
 				md5 = null;

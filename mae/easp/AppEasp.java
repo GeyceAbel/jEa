@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Mar 22 13:45:33 CET 2019
+// Fecha y hora:     Wed Mar 27 07:21:21 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -88,11 +88,17 @@ setAcl(mae.admon.general.Acceso.getAcl("EASP"));
         Login.logIn(app);
         */
         }
+    public void onExit ()
+        {
+        if (!Easp.sesionRepetida) mae.easp.general.Easp.cerrarSesion(Aplication.getAplication().getName(),Easp.usuario);
+        super.onExit ();
+        }
     public static void main(String argv[])
         {
         AppEasp app=new AppEasp();
         app.setParameters(argv);
         Login.logIn(app);
+        
         }
     }
     

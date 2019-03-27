@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Mar 25 17:41:55 CET 2019
+// Fecha y hora:     Wed Mar 27 11:39:21 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -203,11 +203,23 @@ public boolean eliminaPermiso(int codcon, String login, String recurso){
                 {
                 if (!Aplication.getAplication().getUser().toUpperCase().equals(uslogin.getString().toUpperCase())  && susagrup.isEof()  && !Aplication.getAplication().getUser().toUpperCase().equals("ADMIN")) 
   Maefc.message("No permitido","Aviso",Maefc.ERROR_MESSAGE);
-                else if (Easp.isSecurityMD5()) vcontrasenyamd5.open();
+                else {
+	mae.easp.uspassword.ProgUspassword pr = new mae.easp.uspassword.ProgUspassword();
+	pr.paramUscodigo= susuarios.uscodcon.getInteger();
+     pr.paramUsuario = uslogin.getString();
+     pr.paramMD5 = Easp.isSecurityMD5();
+     pr.conDB = getDataBase();
+     pr.vpassword.vvcontraactual.setValue(susuarios.uspasswd.getString());
+     pr.run();
+     int i=vusuarios.getCurrentRow();
+     if (pr.contrasenyaOk) doShow();
+     vusuarios.setCurrentRow(i);
+}
+/*else if (Easp.isSecurityMD5()) vcontrasenyamd5.open();
 else {
 	vcontrasenya.setInitState(DataForm.UPDATE);
                 	vcontrasenya.open();
-}
+}*/
                 }
             }
             

@@ -32,10 +32,14 @@ public class LoginDialog{
 	private JTextField domain=new CampoTexto(15);
 	private JComboBox login = new JComboBox() ;
 	//private JTextField login=new CampoTexto(15);
-	private JPasswordField password=new CampoTextoPassword(15);
+  public JPasswordField password=new CampoTextoPassword(15);
 	private JButton aceptar = new JButton("logIn ");
 	private JButton cancelar = new JButton("Cancel");
 	boolean domainVisible=false;
+  private boolean md5;
+  private String usuario = null;
+	private DBConnection dbc;
+
 
 	// Vista formulario
 	private GridBagLayout gridbag = new GridBagLayout();
@@ -52,10 +56,11 @@ public class LoginDialog{
 	private String smensaje="El login y / o el password es incorrecto. Inténtelo de nuevo.";
 
 	/** Constructor.   */
-	LoginDialog(LoginListener listener, Aplication apl, String rutaLogo) {
+  LoginDialog(LoginListener listener, Aplication apl, String rutaLogo, boolean md5 ) {
 		this.rutaLogo = rutaLogo;
 		this.listener=listener;
 		this.apl=apl;
+    this.md5=md5;
 		// Asignamos Eventos
 		PkActionListener pkaction=new PkActionListener(listener,this);
 		login.setPreferredSize(new Dimension(165, 21));
@@ -66,7 +71,7 @@ public class LoginDialog{
 		AcceptListener accept=new AcceptListener(listener,this);
 		LoginWindowAdapter openclose=new LoginWindowAdapter(listener);
 
-		cancelar.addActionListener(cancel);		
+		cancelar.addActionListener(cancel);
 		panel0.setBackground(Color.WHITE);
 		panel1.setBackground(Color.WHITE);
 		panel2.setBackground(Color.WHITE);
@@ -75,7 +80,7 @@ public class LoginDialog{
 		frame.getRootPane().registerKeyboardAction(cancel,KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE,0),JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
 		frame.addWindowListener(openclose);
-		aceptar.addActionListener(accept);		
+		aceptar.addActionListener(accept);
 		frame.setResizable(false);
 	}
 	public void auditoria(String finestre, String titol) {
@@ -83,10 +88,10 @@ public class LoginDialog{
 			ProcessForm form = new ProcessForm(null);
 			form.setName(finestre);
 			form.setTitle(finestre);
-			ControlButton boto = new ControlButton(form);			
+			ControlButton boto = new ControlButton(form);
 			boto.setName(titol);
 			boto.setTitle(titol);
-			Aplication.getAplication().getAudition().clickButton(boto);	
+			Aplication.getAplication().getAudition().clickButton(boto);
 		}
     }
 	/**
@@ -97,6 +102,24 @@ public class LoginDialog{
 	public Aplication getAplication(){
 		return apl;
 	}
+	public void setCodUsuario(String user) {
+	     this.usuario = user;
+	}
+  public String getRutaLogo() {
+    return rutaLogo;
+  }
+  public String getUsuario() {
+    return usuario;
+  }
+  public boolean getMd5(){
+    return md5;
+	}
+  public DBConnection getConnexio() {
+	  return dbc;
+  }
+  public void setConnexio(DBConnection dbc) {
+    this.dbc = dbc;
+  }
 
 	/**
 	 * Devuelve el dominio introducido.
@@ -124,6 +147,9 @@ public class LoginDialog{
 	public void setUsuario(String usuario){
 		login.setSelectedItem((String) usuario);
 	}
+  public void setPassword(String pass){
+	  password.setText(pass);
+  }
 
 
 	/**
@@ -133,13 +159,13 @@ public class LoginDialog{
 	 */
 	public String getPassword(){
 		String pw=new String(password.getPassword());
-		if (pw!=null && pw.length() > 10) pw=pw.substring(0,10);
+    if (pw!=null && pw.length() > 20) pw=pw.substring(0,20);
 		return pw;
 		//return password.getText();
 	}
-	
+
 	public String getPasswordMD5 () {
-		return Login.encryptMD5(new String(password.getPassword()));		
+		return Login.encryptMD5(new String(password.getPassword()));
 	}
 
 	/**
@@ -275,7 +301,7 @@ public class LoginDialog{
 		//    c.gridy = 0;
 		//		c.insets = new Insets(0,0,0,0);
 		//		//labeltt.setText(htmlTextArea.getText());
-		//    gridbag.setConstraints(labeltt1, c);		
+		//    gridbag.setConstraints(labeltt1, c);
 		labeltt.setLabelFor(null);
 		paneltt.add(labeltt);
 	}
@@ -360,14 +386,14 @@ public class LoginDialog{
 		frame.getContentPane().add(BorderLayout.PAGE_START, paneltt);
 		try {
 			BufferedImage myPicture = ImageIO.read(Aplication.getAplication().getClass().getClassLoader().getResourceAsStream(rutaLogo));
-			JLabel picLabel = new JLabel(new ImageIcon(myPicture));		
+			JLabel picLabel = new JLabel(new ImageIcon(myPicture));
 			panel0.add(picLabel);
-			panel0.add(new JLabel("    "));			
+			panel0.add(new JLabel("    "));
 			frame.getContentPane().add(BorderLayout.LINE_START, panel0);
 		}
 		catch (Exception  e) {
 
-		}		
+		}
 		frame.getContentPane().add(BorderLayout.LINE_END, panel1);
 		frame.getContentPane().add(BorderLayout.PAGE_END, panel2);
 		frame.pack();
@@ -431,8 +457,8 @@ public class LoginDialog{
 	 */
 	void exit(){
 		frame.dispose();
-	}	
-	
+	}
+
 }
 
 /**
@@ -479,21 +505,27 @@ class AcceptListener implements ActionListener {
 		this.listener=listener;
 		this.ld=ld;
 	}
-    public void actionPerformed(ActionEvent e){		
+    public void actionPerformed(ActionEvent e){
 		if ((ld.domainVisible && (ld.getDomain()==null || ld.getDomain().equals("")))
 				|| ld.getLogin()==null || ld.getLogin().equals("")) {
 			ld.auditoria("LoginAplicacion","Sin usuario");
 			return;
-		}	
+		}
 		if (listener.accept()) {
 			ld.auditoria("LoginAplicacion","Usuario correcto");
 			ld.exit();
 			//ld.getAplication().run(); 5-1-2001
 		}
 		else {
-			ld.auditoria("LoginAplicacion","Usuario/contr. incorrecta");			
+			ld.auditoria("LoginAplicacion","Usuario/contr. incorrecta");
 			ld.alert();
-		}	
+      if (Easp.cambiarPassword) {
+    	  String novaContra = NewPassword.showNewPass(ld.getAplication(),  ld.getRutaLogo(), ld.getUsuario(), ld.getMd5(),ld.getConnexio());
+        ld.setPassword(novaContra);
+    	  System.out.println(novaContra);
+      }
+
+		}
 	}
 }
 
@@ -507,9 +539,9 @@ class CancelListener implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e){
-		ld.auditoria("LoginAplicacion","Cancelar");				
+		ld.auditoria("LoginAplicacion","Cancelar");
 		ld.exit();
-		listener.cancel();		
+		listener.cancel();
 	}
 }
 
