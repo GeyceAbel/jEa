@@ -475,14 +475,22 @@ public class JListado {
 	}
 
 	public boolean generalJRXML () {
-		boolean bOk = true;
-		File fjrxml = null;
-		BufferedWriter pw = null;
+		boolean bOk = false;
 		try {
-			fjrxml = File.createTempFile("JRXML_", ".jrxml");
-			//fjrxml = new File("projasper.jrxml");
-
-			pw = new BufferedWriter(new OutputStreamWriter (new FileOutputStream(fjrxml),"UTF8"));
+			File fjrxml = File.createTempFile("JRXML_", ".jrxml");
+			BufferedWriter pw = new BufferedWriter(new OutputStreamWriter (new FileOutputStream(fjrxml),"UTF8"));
+			bOk = generalJRXML(pw);
+			rutaFicheroJRXML = fjrxml.getAbsolutePath();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bOk;
+	}
+	
+	public boolean generalJRXML (BufferedWriter pw) {
+		boolean bOk = true;
+		try {
 
 			if (bOk) bOk = generarCabecera (pw);
 			if(getNumParameters() > 0) {
@@ -530,7 +538,6 @@ public class JListado {
 			if (bOk) bOk = generarPageFooter (pw);
 			if (sumario != null && sumario.haySummary()) sumario.generarSumary(pw);
 			if (bOk) bOk = generarFinal (pw);
-			if (bOk) rutaFicheroJRXML = fjrxml.getAbsolutePath();
 		}
 		catch (Exception e) {
 			bOk = false;
@@ -539,8 +546,7 @@ public class JListado {
 		}
 		finally {
 			try  {
-				if (pw!=null) pw.close();
-				fjrxml = null;
+				if (pw!=null) pw.close();				
 			}
 			catch (Exception e) {
 				e.printStackTrace();
