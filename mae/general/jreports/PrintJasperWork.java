@@ -141,6 +141,10 @@ public class PrintJasperWork {
 		tamanyMinimFontExcel = 0;
 		editarExcelAlFinalizar = false;
 	}
+	
+	public Vector<JListado> getListados () {
+		return vTarea;
+	}
 
 	public void dialog (Program program) {
 		setDefaults();

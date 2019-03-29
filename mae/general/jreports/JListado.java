@@ -5,9 +5,12 @@ import geyce.maefc.Field;
 import geyce.maefc.FieldDef;
 import geyce.maefc.Select;
 import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -96,6 +99,7 @@ public class JListado {
 	public boolean afegirStyle1 = false;
 	public Summary sumario;
 	public Object relListadoObj;
+	public InputStream isJrxml;
 
 	public JListado (Select slistado, Orientacion or) {
 		rutaFicheroJRXML = null;
@@ -473,9 +477,43 @@ public class JListado {
 		String def = "<group name=\""+nombre+"\"><groupExpression>"+expression+"</groupExpression></group>";
 		grupos.addElement(def);
 	}
+	public boolean generalJRXMLStream () {
+		boolean bOk = true;
+		if (isJrxml == null) {
+			BufferedWriter pw = null;
+			ByteArrayOutputStream ba = new ByteArrayOutputStream();
+			OutputStreamWriter osr = null;
+			try {
+				osr = new OutputStreamWriter(ba,"UTF-8");
+				pw = new BufferedWriter(osr);
+				bOk = generalJRXML(pw);
+				if (bOk) isJrxml = new ByteArrayInputStream(ba.toByteArray());
 
+			}
+			catch (Exception e) {
+				bOk = false;
+				sError = "Error inesperado:"+e;
+				e.printStackTrace();
+			}
+			finally {
+				try  {
+					if (pw!=null) pw.close();
+					if (osr!=null) osr.close();
+					if (ba!=null) ba.close();
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return bOk;
+	}
 	public boolean generalJRXML () {
+		return generalJRXML (false);
+	}
+	public boolean generalJRXML (boolean esWeb) {
 		boolean bOk = false;
+		if (esWeb) return true;
 		try {
 			File fjrxml = File.createTempFile("JRXML_", ".jrxml");
 			BufferedWriter pw = new BufferedWriter(new OutputStreamWriter (new FileOutputStream(fjrxml),"UTF8"));
