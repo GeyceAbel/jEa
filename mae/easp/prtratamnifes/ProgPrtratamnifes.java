@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 13 13:21:52 CET 2019
+// Fecha y hora:     Fri Mar 29 13:43:47 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -236,8 +236,8 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 super();
                 setWidth(REMAINDER);
                 setHeight(REMAINDER);
-                setWeightx(780.0);
-                setWeighty(520.0);
+                setWeightx(800.0);
+                setWeighty(620.0);
                 setFill(BOTH);
                 setAnchor(CENTER);
                 }

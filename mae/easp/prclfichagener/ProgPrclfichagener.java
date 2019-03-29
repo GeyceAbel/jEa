@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 13 13:08:09 CET 2019
+// Fecha y hora:     Fri Mar 29 13:48:04 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -55,9 +55,9 @@ public void abrirVNifes(int modo) {
   pr.codiCDP=codiCDP;
   pr.setModal(true);
   LocationWindow loc=new LocationWindow();
-  loc.setWidth(800);
+  loc.setWidth(1000);
   //if (esDP)
-    loc.setHeight(520);
+    loc.setHeight(620);
   //else
   //  loc.setHeight(380);
   loc.setLocation(loc.CENTER);
@@ -337,9 +337,19 @@ public void onInsert(){
             {
             // GLOBALES: CONTROLEDIT
             // Metodos
+            class Look extends LookComponent
+                {
+                public Look( )
+                    {
+                    super();
+                    setLength(11);
+                    }
+                }
+                
             public CtrlDattel(Form form)
                 {
                 super(form);
+                setLook(new Look());
                 setName("dattel");
                 setMessageHelp("Teléfono");
                 setTitle("");
@@ -358,9 +368,19 @@ public void onInsert(){
             {
             // GLOBALES: CONTROLEDIT
             // Metodos
+            class Look extends LookComponent
+                {
+                public Look( )
+                    {
+                    super();
+                    setLength(11);
+                    }
+                }
+                
             public CtrlDatfax(Form form)
                 {
                 super(form);
+                setLook(new Look());
                 setName("datfax");
                 setMessageHelp("Fax");
                 setTitle("");
@@ -379,9 +399,19 @@ public void onInsert(){
             {
             // GLOBALES: CONTROLEDIT
             // Metodos
+            class Look extends LookComponent
+                {
+                public Look( )
+                    {
+                    super();
+                    setLength(11);
+                    }
+                }
+                
             public CtrlDatmovil(Form form)
                 {
                 super(form);
+                setLook(new Look());
                 setName("datmovil");
                 setTitle("Movil");
                 setType(INTEGER);
@@ -2541,8 +2571,8 @@ public boolean onOk(){
             public Location( )
                 {
                 super();
-                setWidth(490);
-                setHeight(324);
+                setWidth(690);
+                setHeight(330);
                 setTitle("Alta de Datos Bancarios");
                 setModal(true);
                 setLocation(CENTER);
@@ -4988,11 +5018,11 @@ public boolean onOk(){
         // Metodos
         // Controles
         public CtrlChagpi chagpi;
-        public CtrlChnomina chnomina;
-        public CtrlChgestion chgestion;
-        public CtrlChrenta chrenta;
         public CtrlChconta chconta;
         public CtrlCheo cheo;
+        public CtrlChgestion chgestion;
+        public CtrlChnomina chnomina;
+        public CtrlChrenta chrenta;
         public CtrlChiss chiss;
         public CtrlBtpasswdacc btpasswdacc;
         public CtrlCdppwd cdppwd;
@@ -5045,51 +5075,6 @@ public boolean onOk(){
             // GET: CHECKBOX
             }
             
-        public class CtrlChnomina extends ControlCheck
-            {
-            // GLOBALES: CHECKBOX
-            // Metodos
-            public CtrlChnomina(Form form)
-                {
-                super(form);
-                setName("chnomina");
-                setTitle("");
-                // SET: CHECKBOX
-                }
-            // EVENT: CHECKBOX
-            // GET: CHECKBOX
-            }
-            
-        public class CtrlChgestion extends ControlCheck
-            {
-            // GLOBALES: CHECKBOX
-            // Metodos
-            public CtrlChgestion(Form form)
-                {
-                super(form);
-                setName("chgestion");
-                setTitle("");
-                // SET: CHECKBOX
-                }
-            // EVENT: CHECKBOX
-            // GET: CHECKBOX
-            }
-            
-        public class CtrlChrenta extends ControlCheck
-            {
-            // GLOBALES: CHECKBOX
-            // Metodos
-            public CtrlChrenta(Form form)
-                {
-                super(form);
-                setName("chrenta");
-                setTitle("");
-                // SET: CHECKBOX
-                }
-            // EVENT: CHECKBOX
-            // GET: CHECKBOX
-            }
-            
         public class CtrlChconta extends ControlCheck
             {
             // GLOBALES: CHECKBOX
@@ -5113,6 +5098,51 @@ public boolean onOk(){
                 {
                 super(form);
                 setName("cheo");
+                setTitle("");
+                // SET: CHECKBOX
+                }
+            // EVENT: CHECKBOX
+            // GET: CHECKBOX
+            }
+            
+        public class CtrlChgestion extends ControlCheck
+            {
+            // GLOBALES: CHECKBOX
+            // Metodos
+            public CtrlChgestion(Form form)
+                {
+                super(form);
+                setName("chgestion");
+                setTitle("");
+                // SET: CHECKBOX
+                }
+            // EVENT: CHECKBOX
+            // GET: CHECKBOX
+            }
+            
+        public class CtrlChnomina extends ControlCheck
+            {
+            // GLOBALES: CHECKBOX
+            // Metodos
+            public CtrlChnomina(Form form)
+                {
+                super(form);
+                setName("chnomina");
+                setTitle("");
+                // SET: CHECKBOX
+                }
+            // EVENT: CHECKBOX
+            // GET: CHECKBOX
+            }
+            
+        public class CtrlChrenta extends ControlCheck
+            {
+            // GLOBALES: CHECKBOX
+            // Metodos
+            public CtrlChrenta(Form form)
+                {
+                super(form);
+                setName("chrenta");
                 setTitle("");
                 // SET: CHECKBOX
                 }
@@ -5233,11 +5263,11 @@ public boolean onOk(){
             // SET: VENTANA
             addSelect(sservicioscdp=new Sservicioscdp());
             addControl(chagpi=new CtrlChagpi(this));
-            addControl(chnomina=new CtrlChnomina(this));
-            addControl(chgestion=new CtrlChgestion(this));
-            addControl(chrenta=new CtrlChrenta(this));
             addControl(chconta=new CtrlChconta(this));
             addControl(cheo=new CtrlCheo(this));
+            addControl(chgestion=new CtrlChgestion(this));
+            addControl(chnomina=new CtrlChnomina(this));
+            addControl(chrenta=new CtrlChrenta(this));
             addControl(chiss=new CtrlChiss(this));
             addControl(btpasswdacc=new CtrlBtpasswdacc(this));
             addControl(cdppwd=new CtrlCdppwd(this));
@@ -5615,7 +5645,7 @@ else{
             public Location( )
                 {
                 super();
-                setWidth(605);
+                setWidth(705);
                 setHeight(400);
                 setTitle("Datos del representante");
                 setModal(true);
@@ -6299,7 +6329,7 @@ else{
                 {
                 super();
                 setWidth(725);
-                setHeight(350);
+                setHeight(250);
                 setTitle("Cambio Cuenta Bancaria");
                 setModal(true);
                 setLocation(CENTER);
