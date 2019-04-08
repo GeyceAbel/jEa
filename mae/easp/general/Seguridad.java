@@ -114,7 +114,7 @@ public class Seguridad {
         s.execute("Select uhfecha from USHISTORICO where uhcodcon="+codigo+" and uhlogin='"+login+"' order by uhfecha desc, uhhora desc");
         if (s.next()) ultFecha = s.getDate("uhfecha");
         s.close();
-        if (ultFecha!=null) nDias = Fecha.diasDiferencia(ultFecha, Maefc.getDate());
+        if (ultFecha!=null) nDias = Fecha.diasDiferencia(ultFecha, Maefc.getDate())-1;
         if (nDias>=getDiasCaducidad()) {
         	haCaducado = true;
         	missatgeError = "La contraseña ha caducado deberá cambiarla.";
