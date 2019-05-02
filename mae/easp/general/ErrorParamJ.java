@@ -47,9 +47,9 @@ public class ErrorParamJ extends Hashtable{
                     pw.flush();
     		        String stack = sw.toString();
     		    	if (stack!=null){
-    		    		if (paraEnviar && stack.length() > 400){
-    		    			stack = stack.substring(0,400);
-    		    		}
+//    		    		if (paraEnviar && stack.length() > 400){
+//    		    			stack = stack.substring(0,400);
+//    		    		}
     		    		put("StackTrace", stack);
     		    	}
 		    	}
