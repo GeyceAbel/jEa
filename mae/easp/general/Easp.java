@@ -39,7 +39,7 @@ public class Easp {
   //variables de versiones
   public static String versionAplicacion="9.8";
   public static String versionFecha="Abril/2018";
-  public static String versionBDEA="16.0";
+  public static String versionBDEA="16.2";
 
   public static enum TIPO_HOST { LOCALHOST, AZURE, AZUREMSDN};
   public static TIPO_HOST HOST = TIPO_HOST.AZURE;
@@ -58,6 +58,8 @@ public class Easp {
 
   public static boolean sesionRepetida = false;
   public static boolean cambiarPassword = false;
+  public static boolean usuarioBloqueado = false;
+  public static boolean ctrlReintentos = false;
   public static String mensajeSesion = "";
 
   public static boolean isLocalDB(){
@@ -388,10 +390,11 @@ public class Easp {
 
       sesionRepetida = false;
       cambiarPassword = false;
+      usuarioBloqueado = false;
       mensajeSesion = "";
       Seguridad seguridad = new Seguridad(db,sede);
+      ctrlReintentos = seguridad.ctrlReIntentos();
       if (!seguridad.permiteUserRepetido() && seguridad.usuarioRepetido(aplicacion, usuario)) {
-    	  //Maefc.message(seguridad.getMissatgeAvis(),"¡Atención!");
     	  mensajeSesion = seguridad.getMissatgeAvis();
           sesionRepetida = true;
           return false;
@@ -399,6 +402,11 @@ public class Easp {
       else if (seguridad.ctrlSinContrasenya(sede,usuario) || seguridad.ctrlCaducada(sede,usuario) || seguridad.ctrlPrimeraVez(sede,usuario)) {
     	  mensajeSesion = seguridad.getMissatgeAvis();
     	  cambiarPassword = true;
+        return false;
+      }
+      else if (seguridad.ctrlReintentos(sede,usuario)) {
+    	  mensajeSesion = seguridad.getMissatgeAvis();
+        usuarioBloqueado = true;
         return false;
       }
       //APJORDI 12/05/2017

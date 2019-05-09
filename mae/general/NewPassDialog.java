@@ -32,7 +32,7 @@ public class NewPassDialog{
 	private GridBagConstraints c = new GridBagConstraints();
 
   // Eventos NewPassword
-  private NewPassListener listener=null;
+  private LoginListener listener=null;
 
 	// Puntero a Aplicación
 	private Aplication apl;
@@ -41,7 +41,7 @@ public class NewPassDialog{
   private String mensajeError="El login y / o el password es incorrecto. Inténtelo de nuevo.";
 
 	/** Constructor.   */
-  NewPassDialog(NewPassListener listener, Aplication apl, String rutaLogo, String usuario, boolean md5) {
+  NewPassDialog(LoginListener listener, Aplication apl, String rutaLogo, String usuario, boolean md5) {
 		this.rutaLogo = rutaLogo;
 		this.listener=listener;
 		this.apl=apl;
@@ -326,10 +326,10 @@ class CampoTextoPass extends JPasswordField implements FocusListener {
 }
 
 class GuardarListener implements ActionListener {
-  NewPassListener listener;
+  LoginListener listener;
   NewPassDialog ld;
 
-  GuardarListener(NewPassListener listener, NewPassDialog ld){
+  GuardarListener(LoginListener listener, NewPassDialog ld){
 		this.listener=listener;
 		this.ld=ld;
 	}
@@ -346,10 +346,10 @@ class GuardarListener implements ActionListener {
 }
 
 class SalirListener implements ActionListener {
-  NewPassListener listener;
+	LoginListener listener;
   NewPassDialog ld;
 
-  SalirListener(NewPassListener listener, NewPassDialog ld){
+  SalirListener(LoginListener listener, NewPassDialog ld){
 		this.listener=listener;
 		this.ld=ld;
 	}
@@ -363,9 +363,9 @@ class SalirListener implements ActionListener {
 
 
 class PassWindowAdapter extends WindowAdapter{
-  NewPassListener listener;
+	LoginListener listener;
 
-  PassWindowAdapter(NewPassListener listener){
+  PassWindowAdapter(LoginListener listener){
 		this.listener=listener;
 	}
 

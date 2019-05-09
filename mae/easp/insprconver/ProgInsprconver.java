@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Mar 25 16:35:30 CET 2019
+// Fecha y hora:     Thu May 09 13:37:01 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -1795,6 +1795,10 @@ String sentencias16_0[]={
 "        PRIMARY KEY (UHCODCON,UHLOGIN,UHFECHA,UHHORA));",
 "ALTER TABLE USUARIO ALTER COLUMN USPASSWD      varchar(20);"};
 
+String sentencias16_1[]={"ALTER TABLE USHISTORICO ADD UHREINTENTO   INTEGER;",
+"DELETE FROM INDEMORA WHERE indejercicio=2019;",
+"INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2019,'01/01/2019','31/12/2019',3.75);"};
+ 
   int i=0;
   try {
     if (vvveractual.getString().equals("1.1")) {
@@ -4148,6 +4152,47 @@ String sentencias16_0[]={
         Easp.setVersionBD("bdeasp","16.0");
         Easp.connEA.commit();
         vvveractual.setValue("16.0");
+    }
+   if (versio < 16.1) {
+        for (i=0;i<sentencias16_1.length;++i) {
+                try {
+                        Easp.chivato("16.1 Exec : ["+sentencias16_1[i]+"]",1);
+                        Easp.connEA.executeUpdate(sentencias16_1[i]);
+                }
+                catch(Exception e) {
+                        sqlOperation=sentencias16_1[i];
+                        Easp.chivato("16.1 *** Error : ["+sentencias16_1[i]+"]  Error: ["+e+"]",1);
+                        errorMessage=e.getMessage();
+                }
+        }
+        Easp.setVersionBD("bdeasp","16.1");
+        Easp.connEA.commit();
+        vvveractual.setValue("16.1");
+    }
+
+    if (versio < 16.2) {
+    	   try {
+        	Selector s = new Selector (Easp.connEA);
+        	s.execute ("Select * from usuario");
+        	boolean esOk = true;
+        	while (s.next() && esOk) {
+        		String USPASSWD = s.getString("USPASSWD");
+        		String USMD5 = s.getString("USMD5");
+        		String USLOGIN = s.getString("USLOGIN");
+        		int USCODCON = s.getint("USCODCON");
+        	     if ((USPASSWD!=null && !"".equals(USPASSWD.trim())) || (USMD5!=null && !"".equals(USMD5)))  {
+      	     	mae.easp.general.Seguridad seguridad = new mae.easp.general.Seguridad(Easp.connEA,USCODCON);
+      	     	esOk = seguridad.setHistorico(USCODCON, USLOGIN, USPASSWD, USMD5, "N");
+        	     }        			
+        	}
+        	s.close();
+        }
+        catch(Exception e) {
+        		errorMessage=e.getMessage();
+        }
+    	   Easp.setVersionBD("bdeasp","16.2");
+        Easp.connEA.commit();
+        vvveractual.setValue("16.2");
     }
 
   }

@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Mar 25 16:26:27 CET 2019
+// Fecha y hora:     Thu May 09 16:24:12 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -4815,6 +4815,7 @@ public class CatEasp extends Catalog
         public FieldDef uhpasswd;
         public FieldDef uhmd5;
         public FieldDef uhprimera;
+        public FieldDef uhreintento;
         public TabUshistorico(String name)
             {
             super(name);
@@ -4825,6 +4826,7 @@ public class CatEasp extends Catalog
             uhpasswd = new FieldDef("uhpasswd",FieldDef.CHAR,20);
             uhmd5 = new FieldDef("uhmd5",FieldDef.CHAR,100);
             uhprimera = new FieldDef("uhprimera",FieldDef.CHAR,1);
+            uhreintento = new FieldDef("uhreintento",FieldDef.INTEGER,12);
             FieldDef array[] = {
                 uhcodcon,
                 uhlogin,
@@ -4832,7 +4834,8 @@ public class CatEasp extends Catalog
                 uhhora,
                 uhpasswd,
                 uhmd5,
-                uhprimera                
+                uhprimera,
+                uhreintento                
                 };
             setColumns(array);
             FieldDef arrayf[] = {uhcodcon,uhlogin,uhfecha,uhhora };
@@ -4842,6 +4845,7 @@ public class CatEasp extends Catalog
             uhpasswd.setDescription("Password");
             uhmd5.setDescription("Password formato MD5");
             uhprimera.setDescription("Primer password");
+            uhreintento.setDescription("Reintentos");
             }
         }
         

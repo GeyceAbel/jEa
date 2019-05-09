@@ -12,7 +12,7 @@ import mae.easp.db.CatEasp;
 import javax.swing.JOptionPane;
 import javax.swing.JOptionPane.*;
 
-public class NewPassword implements NewPassListener{
+public class NewPassword implements LoginListener{
 	private DBConnection dbc;
   private NewPassDialog ld=null;
 	private String dominio=null;
@@ -139,5 +139,20 @@ public class NewPassword implements NewPassListener{
 			}
 		}
 		return md5;
+	}
+
+	@Override
+	public double getHoursShutdown() {
+		return 0;
+	}
+
+	@Override
+	public double getMinutsReconnect() {
+		return 0;
+	}
+
+	@Override
+	public boolean runLogin() {
+		return false;
 	}
 }

@@ -104,6 +104,23 @@ public class Seguridad {
 	  }
 	  return sinContrasenya;
   }
+  public boolean ctrlReintentos(int codigo, String login) {
+      boolean bloqueada = false;
+      missatgeError = "";
+      if (ctrlReIntentos()) {
+    	  int reintentos = 0;
+        Selector s = new Selector (connSeguridad);
+        s.execute("Select UHREINTENTO from USHISTORICO where uhcodcon="+codigo+" and uhlogin='"+login+"' order by uhfecha desc, uhhora desc");
+        if (s.next()) reintentos = s.getint("UHREINTENTO");
+        s.close();
+        if (reintentos>getIntentos()) {
+        	bloqueada = true;
+        	missatgeError = "Ha superado el número de reintentos de introducir la contraseña, deberá conctar con el administrador para poder cambiarla.";
+        }
+      }
+      return bloqueada;
+  }
+
   public boolean ctrlCaducada(int codigo, String login) {
       boolean haCaducado = false;
       missatgeError = "";
@@ -115,7 +132,7 @@ public class Seguridad {
         if (s.next()) ultFecha = s.getDate("uhfecha");
         s.close();
         if (ultFecha!=null) nDias = Fecha.diasDiferencia(ultFecha, Maefc.getDate())-1;
-        if (nDias>=getDiasCaducidad()) {
+        if (nDias>getDiasCaducidad()) {
         	haCaducado = true;
         	missatgeError = "La contraseña ha caducado deberá cambiarla.";
         }
@@ -301,7 +318,30 @@ public class Seguridad {
        }
        return bOk;
   }
-  public boolean setHistorico(int codigo, String login, String password, String passmd5 ) {
+  public boolean setHistorico(int codigo, String login, String password, String passmd5) {
+       if ((password!=null && !"".equals(password.trim())) || (passmd5!=null && !"".equals(passmd5.trim()))) {
+          Select shistorico=new Select(connSeguridad);
+          Table thistorico=new Table(shistorico,"USHISTORICO");
+          Field fduhcodcon     =new Field(shistorico,thistorico,"uhcodcon");
+          Field fduhlogin      =new Field(shistorico,thistorico,"uhlogin");
+          Field fduhfecha      =new Field(shistorico,thistorico,"uhfecha");
+          Field fduhhora       =new Field(shistorico,thistorico,"uhhora");
+          Field fduhpasswd     =new Field(shistorico,thistorico,"uhpasswd");
+          Field fduhmd5        =new Field(shistorico,thistorico,"uhmd5");
+          Field fduhprimera    =new Field(shistorico,thistorico,"uhprimera");
+          String esPrimera = "N";
+          if (!Easp.cambiarPassword && !Easp.usuarioBloqueado) {
+              shistorico.setWhere("uhcodcon="+codigo+" and uhlogin='"+login+"'");
+              shistorico.execute();
+              if (shistorico.isEof()) esPrimera = "S";
+              shistorico.close();
+          }
+          return setHistorico(codigo, login, password, passmd5, esPrimera);
+       }
+       else return true;
+  }
+
+  public boolean setHistorico(int codigo, String login, String password, String passmd5, String esPrimera  ) {
        boolean bOk = true;
        missatgeError = null;
        if ((password!=null && !"".equals(password.trim())) || (passmd5!=null && !"".equals(passmd5.trim()))) {
@@ -314,12 +354,6 @@ public class Seguridad {
           Field fduhpasswd     =new Field(shistorico,thistorico,"uhpasswd");
           Field fduhmd5        =new Field(shistorico,thistorico,"uhmd5");
           Field fduhprimera    =new Field(shistorico,thistorico,"uhprimera");
-          String esPrimera = "N";
-          if (!Easp.cambiarPassword) {
-              shistorico.setWhere("uhcodcon="+codigo+" and uhlogin='"+login+"'");
-              shistorico.execute();
-              if (shistorico.isEof()) esPrimera = "S";
-          }
           shistorico.addNew();
           fduhcodcon  .setValue(codigo);
           fduhlogin   .setValue(login);
@@ -334,6 +368,23 @@ public class Seguridad {
               bOk = false;
           }
           else if (isAutoCommit()) connSeguridad.commit();
+       }
+       return bOk;
+  }
+  public boolean setReintentos(int codigo, String login) {
+       boolean bOk = true;
+       missatgeError = null;
+       Selector shistorico=new Selector(connSeguridad);
+       shistorico.execute("Select * from USHISTORICO where uhcodcon="+codigo+" and uhlogin='"+login+"' order by uhfecha desc,uhhora desc");
+       if (shistorico.next()) {
+           Update u = new Update(connSeguridad,"USHISTORICO");
+           u.valor("uhreintento",shistorico.getint("uhreintento")+1);
+           bOk = u.execute("uhcodcon="+codigo+" and uhlogin='"+login+"' and uhfecha="+connSeguridad.getDB().getSQLFormat(shistorico.getDate("uhfecha"))+" and uhhora='"+shistorico.getString("uhhora")+"'");
+           if (!bOk) {
+                missatgeError = "No se ha podido actualizar los reintentos.";
+               if (isAutoCommit())  connSeguridad.rollback();
+           }
+           else if (isAutoCommit()) connSeguridad.commit();
        }
        return bOk;
   }

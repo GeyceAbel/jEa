@@ -54,6 +54,7 @@ public class LoginDialog{
 	// Mensajes (con valores por defecto)
 	private String cmensaje="El dominio y / o el login y / o el password es incorrecto. Inténtelo de nuevo.";
 	private String smensaje="El login y / o el password es incorrecto. Inténtelo de nuevo.";
+	private String bmensaje="El usuario está bloqueado, contacte con el administrador."; 
 
 	/** Constructor.   */
   LoginDialog(LoginListener listener, Aplication apl, String rutaLogo, boolean md5 ) {
@@ -439,7 +440,8 @@ public class LoginDialog{
 	 */
 	void alert(){
 		String mensaje=smensaje;
-		if (domainVisible) mensaje=cmensaje;
+		if (Easp.usuarioBloqueado) mensaje = bmensaje;
+		else if (domainVisible) mensaje=cmensaje;
 		JOptionPane.showMessageDialog(null,mensaje,"Acceso",JOptionPane.ERROR_MESSAGE );
 		if (domainVisible){
 			domain.requestFocus();
@@ -517,7 +519,9 @@ class AcceptListener implements ActionListener {
 			//ld.getAplication().run(); 5-1-2001
 		}
 		else {
-			ld.auditoria("LoginAplicacion","Usuario/contr. incorrecta");
+      if (Easp.usuarioBloqueado) ld.auditoria("LoginAplicacion","Usuario bloqueado");
+      else ld.auditoria("LoginAplicacion","Usuario/contr. incorrecta");
+
 			ld.alert();
       if (Easp.cambiarPassword) {
     	  String novaContra = NewPassword.showNewPass(ld.getAplication(),  ld.getRutaLogo(), ld.getUsuario(), ld.getMd5(),ld.getConnexio(),false);

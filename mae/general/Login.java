@@ -13,6 +13,7 @@ import java.util.Properties;
 
 import geyce.maefc.*;
 import mae.easp.general.Easp;
+import mae.easp.general.Seguridad;
 import mae.easp.db.CatEasp;
 
 import javax.swing.JOptionPane;
@@ -20,27 +21,38 @@ import javax.swing.JOptionPane.*;
 
 public class Login implements LoginListener{
 	private static final double SECURITY_MIN_VERSION_BD = 15.7;
-  private static final double TABLASEGURIDAD_MIN_VERSION_BD = 16.0;
+	private static final double TABLASEGURIDAD_MIN_VERSION_BD = 16.0;
 	private DBConnection dbc;
-  private LoginDialog ld=null;
+	private LoginDialog ld=null;
 	private String localDomain=null;
 	private Aplication apl=null;
 	private String dominio=null;
 	private boolean security;
 	private String rutaLogo=null;
+	private boolean loginOk;
+	private boolean fromReconnect;
+	private Seguridad seguridad;
+	private double hoursShutdown;
+	private double minutsReconnect;
 
 	Login(Aplication apl, String rutaLogo){
 		this (apl, rutaLogo, false);
 	}
 
 	Login(Aplication apl, String rutaLogo, boolean security){
+		this (apl, rutaLogo, false, false);
+	}
+
+	Login(Aplication apl, String rutaLogo, boolean security, boolean fromReconnect){
 		SystemView.setGui(true);
 		this.rutaLogo = rutaLogo;
 		this.security = security;
+		this.loginOk = false;
+		this.fromReconnect = fromReconnect;
 		//Leemos .properties
 		properties(apl);
 
-    ld=new LoginDialog(this,apl, rutaLogo,security);
+		ld=new LoginDialog(this,apl, rutaLogo,security);
 		//Personalizamos el formulario de Login
 		ld.setNameFrame("Identificación acceso "+apl.getTitle());
 		ld.setNameLogin("Usuario :");
@@ -53,31 +65,35 @@ public class Login implements LoginListener{
 		ld.setUsuarios(getUsuarios());
 		ld.setUsuario(getUserDefault());
 		ld.setConnexio(dbc);
-		ld.show();    
+		ld.show();
 	}
-  private boolean existeTablaSeguridad() {
-     boolean existe = false;
-     Selector s = new Selector (dbc);
-     s.execute("Select bdversio from BDS where bdnombre='bdeasp'");
-     if (s.next()) {
-       String v = s.getString("bdversio");
-       existe = Numero.redondeo(Double.parseDouble(v)) >=  Numero.redondeo(TABLASEGURIDAD_MIN_VERSION_BD);
-     }
-     s.close();
-     return existe;
-  }
+	private boolean existeTablaSeguridad() {
+		boolean existe = false;
+		Selector s = new Selector (dbc);
+		s.execute("Select bdversio from BDS where bdnombre='bdeasp'");
+		if (s.next()) {
+			String v = s.getString("bdversio");
+			existe = Numero.redondeo(Double.parseDouble(v)) >=  Numero.redondeo(TABLASEGURIDAD_MIN_VERSION_BD);
+		}
+		s.close();
+		return existe;
+	}
 
 	private void checkSecurity() {
 		System.out.println("Check Login MD5: "+security);
 		if (security) {
-	      Selector s = new Selector (dbc);
-	      s.execute("Select bdversio from BDS where bdnombre='bdeasp'");
-	      if (s.next()) {
-	    	  String v = s.getString("bdversio");
-	    	  security = Numero.redondeo(Double.parseDouble(v)) >=  Numero.redondeo(SECURITY_MIN_VERSION_BD);
-	      }
-	      else security = false;
-	      s.close();
+			Selector s = new Selector (dbc);
+			s.execute("Select bdversio from BDS where bdnombre='bdeasp'");
+			if (s.next()) {
+				String v = s.getString("bdversio");
+				security = Numero.redondeo(Double.parseDouble(v)) >=  Numero.redondeo(SECURITY_MIN_VERSION_BD);
+			}
+			else security = false;
+			s.close();
+			Seguridad seguridad = new Seguridad(dbc,Easp.sede);
+			hoursShutdown = seguridad.getHorasSesion();
+			minutsReconnect = seguridad.getMinutosInactiva();
+			if (!fromReconnect) apl.setLoginListener(this);
 		}
 		Easp.setSecurityMD5 (security);
 		System.out.println("Login MD5: "+security);
@@ -93,10 +109,10 @@ public class Login implements LoginListener{
 	private boolean conecta(){
 		DataBase db=new DataBase();
 		CatEasp cateasp = new CatEasp();
-	    Catalog array[] = {
-	    		cateasp
-	      };
-	    db.setCatalogs(array);
+		Catalog array[] = {
+				cateasp
+		};
+		db.setCatalogs(array);
 		db.setName("bdeasp");
 		db.setMyServer(Aplication.getDB().getServer());
 		db.setUser(Aplication.getDB().getUser());
@@ -115,9 +131,9 @@ public class Login implements LoginListener{
 		else checkSecurity();
 	}
 
-  public LoginDialog getLoginDialogo() {
-      return ld;
-  }
+	public LoginDialog getLoginDialogo() {
+		return ld;
+	}
 	public String getDominio() {
 		dominio=Aplication.getAplication().getParameter("Dominio");
 		if (dominio!=null && dominio.length() > 6)
@@ -165,6 +181,7 @@ public class Login implements LoginListener{
 
 	public boolean accept() {
 		try {
+			loginOk = false;
 			Statement st=dbc.createStatement();
 			String funcio="UPPER";
 			if (dbc.getDB().getType().equals("access"))  funcio="UCASE";
@@ -175,20 +192,44 @@ public class Login implements LoginListener{
 			if (rs.next()) {
 				String pass=rs.getString(passwdField);
 				rs.close();
+        if (existeTablaSeguridad()) {
+           Seguridad seguridad = new Seguridad(dbc,Easp.sede);
+           if (seguridad.ctrlReIntentos() && seguridad.ctrlReintentos(Easp.sede,ld.getLogin())) {
+               Easp.usuarioBloqueado = true;
+               cancel();
+           }
+        }
 				if (passwordOK(pass)) {
+					loginOk = true;
 					apl.setTitle(apl.getTitle()+" ("+mylogin.trim()+")");
 					apl.setUser(mylogin.trim());
 					setUserDefault(ld.getLogin());
 					boolean creaSesio = true;
-          if (existeTablaSeguridad()) {
-						creaSesio = mae.easp.general.Easp.crearSesion(Aplication.getAplication().getConfig("Tarifa"),mylogin,Aplication.getAplication().getName(), true,false,dbc );
+					if (existeTablaSeguridad()) {
+						if (!fromReconnect)	creaSesio = mae.easp.general.Easp.crearSesion(Aplication.getAplication().getConfig("Tarifa"),mylogin,Aplication.getAplication().getName(), true,false,dbc );
 						ld.setCodUsuario(mylogin);
-            if (!creaSesio) {
-                ld.setMensajeErrorSinDominio(mae.easp.general.Easp.mensajeSesion);
-            }
+						if (!creaSesio) {
+							ld.setMensajeErrorSinDominio(mae.easp.general.Easp.mensajeSesion);
+						}
 					}
-          if (creaSesio) dbc.disconnect();
+					if (creaSesio) dbc.disconnect();
 					return creaSesio;
+				}
+				else {
+          if (existeTablaSeguridad()) {
+						Seguridad seguridad = new Seguridad(dbc,Easp.sede);
+						if (seguridad.ctrlReIntentos()) {
+              if (!Easp.usuarioBloqueado) {
+                  seguridad.setAutoCommit();
+                  seguridad.setReintentos(Easp.sede,ld.getLogin());
+                  if (seguridad.ctrlReintentos(Easp.sede,ld.getLogin())) {
+                     Easp.usuarioBloqueado = true;
+                     cancel();
+                  }
+              }
+						}
+
+					}
 				}
 			}
 		}
@@ -214,8 +255,11 @@ public class Login implements LoginListener{
 	 * y saldremos al sistema.
 	 */
 	public void cancel(){
+		loginOk = false;
+		if (Easp.usuarioBloqueado)
+			JOptionPane.showMessageDialog(null,"El usuario está bloqueado, contacte con el administrador.","Acceso",JOptionPane.ERROR_MESSAGE );
 		if (dbc.isConnected()) dbc.disconnect();
-		Aplication.getAplication().exit();
+		if (!fromReconnect) Aplication.getAplication().exit();
 	}
 
 
@@ -331,7 +375,7 @@ public class Login implements LoginListener{
 			}
 		}
 
-		*/
+		 */
 
 	}
 
@@ -346,14 +390,19 @@ public class Login implements LoginListener{
 	}
 
 	//5-1-2001:
-	public static void showLogIn(Aplication apl){
-		showLogIn(apl, null);
+	public static Login showLogIn(Aplication apl){
+		return showLogIn(apl, null);
 	}
-	public static void showLogIn(Aplication apl, String rutaLogo){
-		showLogIn (apl, rutaLogo, false);
+	public static Login showLogIn(Aplication apl, String rutaLogo){
+		return showLogIn (apl, rutaLogo, false);
 	}
-	public static void showLogIn(Aplication apl, String rutaLogo, boolean security){
-		Login login=new Login(apl, rutaLogo, security);
+	public static Login showLogIn(Aplication apl, String rutaLogo, boolean security){
+		return showLogIn (apl, rutaLogo, security, false);
+	}
+
+	public static Login showLogIn(Aplication apl, String rutaLogo, boolean security, boolean fromReconnect){
+		Login login=new Login(apl, rutaLogo, security, fromReconnect);
+		return login;
 	}
 
 	public static void showLogInAGPI(Aplication apl){
@@ -377,5 +426,25 @@ public class Login implements LoginListener{
 			}
 		}
 		return md5;
+	}
+
+	@Override
+	public double getHoursShutdown() {
+		 return hoursShutdown;
+	}
+
+	@Override
+	public double getMinutsReconnect() {
+		 return minutsReconnect;
+	}
+
+	@Override
+	public boolean runLogin() {
+		Login l = Login.showLogIn(apl, rutaLogo, security, true);
+		return l.isLogged();
+	}
+
+	private boolean isLogged() {
+		return loginOk;
 	}
 }
