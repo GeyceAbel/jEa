@@ -372,13 +372,26 @@ public class Seguridad {
        return bOk;
   }
   public boolean setReintentos(int codigo, String login) {
+       boolean trobat = false;
+       int reintentos = 0;
+       Selector shistorico=new Selector(connSeguridad);
+       shistorico.execute("Select uhreintento from USHISTORICO where uhcodcon="+codigo+" and uhlogin='"+login+"' order by uhfecha desc,uhhora desc");
+       if (shistorico.next()) {
+          trobat = true;
+          reintentos = shistorico.getint("uhreintento")+1;
+       }
+       shistorico.close();
+       if (trobat) return setReintentos(codigo, login, reintentos);
+       else return true;
+  }
+  public boolean setReintentos(int codigo, String login, int reintentos) {
        boolean bOk = true;
        missatgeError = null;
        Selector shistorico=new Selector(connSeguridad);
        shistorico.execute("Select * from USHISTORICO where uhcodcon="+codigo+" and uhlogin='"+login+"' order by uhfecha desc,uhhora desc");
        if (shistorico.next()) {
            Update u = new Update(connSeguridad,"USHISTORICO");
-           u.valor("uhreintento",shistorico.getint("uhreintento")+1);
+           u.valor("uhreintento",reintentos);
            bOk = u.execute("uhcodcon="+codigo+" and uhlogin='"+login+"' and uhfecha="+connSeguridad.getDB().getSQLFormat(shistorico.getDate("uhfecha"))+" and uhhora='"+shistorico.getString("uhhora")+"'");
            if (!bOk) {
                 missatgeError = "No se ha podido actualizar los reintentos.";

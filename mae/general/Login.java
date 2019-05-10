@@ -208,9 +208,12 @@ public class Login implements LoginListener{
 					if (existeTablaSeguridad()) {
 						if (!fromReconnect)	creaSesio = mae.easp.general.Easp.crearSesion(Aplication.getAplication().getConfig("Tarifa"),mylogin,Aplication.getAplication().getName(), true,false,dbc );
 						ld.setCodUsuario(mylogin);
-						if (!creaSesio) {
+            if (!creaSesio)
 							ld.setMensajeErrorSinDominio(mae.easp.general.Easp.mensajeSesion);
-						}
+            else if (existeTablaSeguridad()) {
+                    Seguridad seguridad = new Seguridad(dbc,Easp.sede);
+                 	seguridad.setReintentos(Easp.sede,ld.getLogin(),0);
+            }
 					}
 					if (creaSesio) dbc.disconnect();
 					return creaSesio;
