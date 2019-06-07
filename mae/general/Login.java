@@ -201,7 +201,7 @@ public class Login implements LoginListener{
 					setUserDefault(ld.getLogin());
 					boolean creaSesio = true;
 					if (existeTablaSeguridad()) {
-						if (!fromReconnect)	creaSesio = mae.easp.general.Easp.crearSesion(Aplication.getAplication().getConfig("Tarifa"),mylogin,Aplication.getAplication().getName(), true,false,dbc );
+						if (!fromReconnect)	creaSesio = mae.easp.general.Easp.crearSesion(Aplication.getAplication().getConfig("Tarifa"),mylogin, true,false,dbc );
 						ld.setCodUsuario(mylogin);
 						if (!creaSesio)
 							ld.setMensajeErrorSinDominio(mae.easp.general.Easp.mensajeSesion);

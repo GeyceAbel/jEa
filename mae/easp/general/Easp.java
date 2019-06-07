@@ -381,16 +381,17 @@ public class Easp {
     else return null;
   }
 
-  public static boolean crearSesion(String tarifa,String usuario, String aplicacion , boolean verMensaje,boolean soloAvisar ) {
-	  return crearSesion(tarifa,usuario, aplicacion , verMensaje,soloAvisar,connEA );
+  public static boolean crearSesion(String tarifa,String usuario, boolean verMensaje,boolean soloAvisar ) {
+	  return crearSesion(tarifa,usuario, verMensaje,soloAvisar,connEA );
   }
-  public static boolean crearSesion(String tarifa,String usuario, String aplicacion , boolean verMensaje,boolean soloAvisar, DBConnection db ) {
+  public static boolean crearSesion(String tarifa,String usuario, boolean verMensaje,boolean soloAvisar, DBConnection db ) {
 
 	try {
 
       sesionRepetida = false;
       cambiarPassword = false;
       usuarioBloqueado = false;
+      String aplicacion = Aplication.getAplication().getName();
       mensajeSesion = "";
       Seguridad seguridad = new Seguridad(db,sede);
       ctrlReintentos = seguridad.ctrlReIntentos();
@@ -411,7 +412,7 @@ public class Easp {
       }
       //APJORDI 12/05/2017
       //Primer de tot borrem totes les sessions d'aquel PC, ja que sino s'acumulaven (si obria 2 sessions desde el mateix PC)
-      cerrarSesion(aplicacion, usuario,db);
+      cerrarSesion(usuario,db);
 
       Select ssesiones         = new Select(db);
       Table tbsesiones         = new Table(ssesiones,"sesiones");
@@ -568,10 +569,10 @@ public class Easp {
 
   }
 
-  public static boolean cerrarSesion(String aplicacion,String usuario ) {
-	  return cerrarSesion(aplicacion,usuario,connEA );
+  public static boolean cerrarSesion(String usuario ) {
+	  return cerrarSesion(usuario,connEA );
   }
-  public static boolean cerrarSesion(String aplicacion,String usuario,DBConnection db ) {
+  public static boolean cerrarSesion(String usuario,DBConnection db ) {
 	try {
       Select simpuser          = new Select(db);
       Table tbimpuser          = new Table(simpuser,"impuser");
@@ -584,6 +585,7 @@ public class Easp {
 
 
       String nomPC = usuario ;
+      String aplicacion = Aplication.getAplication().getName();
       nomPC = java.net.InetAddress.getLocalHost().getHostName() ;
 
       simpuser.setWhere("imuaplicacion = '"+aplicacion+"' and imumachine = '"+nomPC+"'");
