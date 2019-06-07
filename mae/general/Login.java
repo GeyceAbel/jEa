@@ -6,18 +6,13 @@
 package mae.general;
 
 import java.sql.*;
-import java.io.FileInputStream;
 import java.math.BigInteger;
 import java.security.MessageDigest;
-import java.util.Properties;
-
 import geyce.maefc.*;
 import mae.easp.general.Easp;
 import mae.easp.general.Seguridad;
 import mae.easp.db.CatEasp;
-
 import javax.swing.JOptionPane;
-import javax.swing.JOptionPane.*;
 
 public class Login implements LoginListener{
 	private static final double SECURITY_MIN_VERSION_BD = 15.7;
@@ -192,13 +187,13 @@ public class Login implements LoginListener{
 			if (rs.next()) {
 				String pass=rs.getString(passwdField);
 				rs.close();
-        if (existeTablaSeguridad()) {
-           Seguridad seguridad = new Seguridad(dbc,Easp.sede);
-           if (seguridad.ctrlReIntentos() && seguridad.ctrlReintentos(Easp.sede,ld.getLogin())) {
-               Easp.usuarioBloqueado = true;
-               cancel();
-           }
-        }
+				if (existeTablaSeguridad()) {
+					Seguridad seguridad = new Seguridad(dbc,Easp.sede);
+					if (seguridad.ctrlReIntentos() && seguridad.ctrlReintentos(Easp.sede,ld.getLogin())) {
+						Easp.usuarioBloqueado = true;
+						cancel();
+					}
+				}
 				if (passwordOK(pass)) {
 					loginOk = true;
 					apl.setTitle(apl.getTitle()+" ("+mylogin.trim()+")");
@@ -208,28 +203,28 @@ public class Login implements LoginListener{
 					if (existeTablaSeguridad()) {
 						if (!fromReconnect)	creaSesio = mae.easp.general.Easp.crearSesion(Aplication.getAplication().getConfig("Tarifa"),mylogin,Aplication.getAplication().getName(), true,false,dbc );
 						ld.setCodUsuario(mylogin);
-            if (!creaSesio)
+						if (!creaSesio)
 							ld.setMensajeErrorSinDominio(mae.easp.general.Easp.mensajeSesion);
-            else if (existeTablaSeguridad()) {
-                    Seguridad seguridad = new Seguridad(dbc,Easp.sede);
-                 	seguridad.setReintentos(Easp.sede,ld.getLogin(),0);
-            }
+						else if (existeTablaSeguridad()) {
+							Seguridad seguridad = new Seguridad(dbc,Easp.sede);
+							seguridad.setReintentos(Easp.sede,ld.getLogin(),0);
+						}
 					}
 					if (creaSesio) dbc.disconnect();
 					return creaSesio;
 				}
 				else {
-          if (existeTablaSeguridad()) {
+					if (existeTablaSeguridad()) {
 						Seguridad seguridad = new Seguridad(dbc,Easp.sede);
 						if (seguridad.ctrlReIntentos()) {
-              if (!Easp.usuarioBloqueado) {
-                  seguridad.setAutoCommit();
-                  seguridad.setReintentos(Easp.sede,ld.getLogin());
-                  if (seguridad.ctrlReintentos(Easp.sede,ld.getLogin())) {
-                     Easp.usuarioBloqueado = true;
-                     cancel();
-                  }
-              }
+							if (!Easp.usuarioBloqueado) {
+								seguridad.setAutoCommit();
+								seguridad.setReintentos(Easp.sede,ld.getLogin());
+								if (seguridad.ctrlReintentos(Easp.sede,ld.getLogin())) {
+									Easp.usuarioBloqueado = true;
+									cancel();
+								}
+							}
 						}
 
 					}
@@ -433,12 +428,12 @@ public class Login implements LoginListener{
 
 	@Override
 	public double getHoursShutdown() {
-		 return hoursShutdown;
+		return hoursShutdown;
 	}
 
 	@Override
 	public double getMinutsReconnect() {
-		 return minutsReconnect;
+		return minutsReconnect;
 	}
 
 	@Override

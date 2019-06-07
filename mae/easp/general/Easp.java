@@ -512,18 +512,6 @@ public class Easp {
     	      }
 
       	  try {
-//    		    String url = "pcliente="+codiDP;
-//    		    url += "&preferencia="+referencia;
-//    		    url += "&pmachine="+nomPC;
-//    		    url += "&pusuario="+usuario;
-//    		    url += "&paplicacion="+aplicacion;
-//    		    if (soloAvisar) url += "&ppermitido=S";
-//    		    else url += "&ppermitido=N";
-//    		    if (tarifa!=null) url += "&ptarifa="+tarifa;
-//    		    else url += "&ptarifa=NoDefinida";
-//    		    url += "&ppuestosper="+licencias;
-//    		    url += "&ppuestosocu="+sesiones;
-//    		    url += "&pnomspcocu="+detallePL;
     		    Azure az = new Azure ("CONTROLLIC.grabaraviso");
     		    az.addParametroURL("pcliente", codiDP);
     		    az.addParametroURL("preferencia", referencia);
@@ -540,7 +528,8 @@ public class Easp {
     	    catch (Exception e) {
     		    e.printStackTrace();
     	    }
-    	  Maefc.message(msg,"Control de Licencias de Uso ",Maefc.WARNING_MESSAGE);
+      	  mensajeSesion = msg;
+//    	  Maefc.message(msg,"Control de Licencias de Uso ",Maefc.WARNING_MESSAGE);
     	  }
       // Si tiene licencia de 8 , siempre se permitirá acceder y solo se avisará
     	if ( !soloAvisar && licencias < 8) {
