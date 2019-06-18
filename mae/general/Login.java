@@ -85,14 +85,14 @@ public class Login implements LoginListener{
 			}
 			else security = false;
 			s.close();
-			if (security) {
+      if (existeTablaSeguridad()) {
 				Seguridad seguridad = new Seguridad(dbc,Easp.sede);
 				hoursShutdown = seguridad.getHorasSesion();
 				minutsReconnect = seguridad.getMinutosInactiva();
 				if (!fromReconnect) apl.setLoginListener(this);
-			}	
+			}
 		}
-			
+
 		Easp.setSecurityMD5 (security);
 		System.out.println("Login MD5: "+security);
 	}

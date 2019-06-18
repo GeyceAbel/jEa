@@ -115,7 +115,7 @@ public class Seguridad {
         s.close();
         if (reintentos>getIntentos()) {
         	bloqueada = true;
-        	missatgeError = "Ha superado el número de reintentos de introducir la contraseña, deberá conctar con el administrador para poder cambiarla.";
+          missatgeError = "Ha superado el número de reintentos de introducir la contraseña, deberá conctactar con el administrador para poder cambiarla.";
         }
       }
       return bloqueada;
