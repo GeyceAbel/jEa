@@ -36,7 +36,7 @@ public class FuncionesJNOM {
 		db.setName(sNomBD);
 		db.setMyServer(sUbicacion);
 		db.setType("access");
-		CatCtasp catctasp = new CatCtasp();
+		CatCtasp catctasp = new CatCtasp(Aplication.getAplication());
 		Catalog array[] = {catctasp};
 		db.setCatalogs(array);
 		DBConnection conn=new DBConnection(db);
@@ -106,7 +106,7 @@ public class FuncionesJNOM {
 		db.setUser(sUser);
 		db.setMyPassword(sPasswd);
 		db.setType(sTipus);
-		CatCtasp catctasp = new CatCtasp();
+		CatCtasp catctasp = new CatCtasp(Aplication.getAplication());
 		Catalog array[] = {catctasp};
 		db.setCatalogs(array);
 
