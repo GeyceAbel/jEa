@@ -11,6 +11,7 @@ import mae.easp.conversions.FuncionesJCO;
 import mae.easp.conversions.DadesEmpresa;
 import mae.easp.conversions.Incidencia;
 import mae.easp.conversions.logicclass.db.SelectorLogic;
+import mae.easp.general.Easp;
 import mae.general.Fecha;
 import mae.general.Numero;
 import mae.general.ProgressBarForm;
@@ -452,7 +453,7 @@ public class ConversionJCO extends ConversionLC {
 				sdan.close();
 			}
 			if (bOk && esSQL) {
-				BorrarDatosSQL borrsql = new BorrarDatosSQL (empJconta,iEjerJ,dbJCta);
+				BorrarDatosSQL borrsql = new BorrarDatosSQL (connEA,empJconta,iEjerJ,dbJCta, Easp.dominio);
 				bOk = borrsql.eliminarDatos();
 				if (!bOk) sError = borrsql.getError();
 			}

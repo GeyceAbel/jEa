@@ -2,6 +2,8 @@ package mae.easp.general;
 
 import geyce.maefc.*;
 import mae.general.*;
+import mae.modasp.general.AGPIConnect;
+
 import java.io.File;
 
 public class Mir {
