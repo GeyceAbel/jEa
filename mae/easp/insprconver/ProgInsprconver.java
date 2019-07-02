@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu May 09 13:37:01 CEST 2019
+// Fecha y hora:     Tue Jul 02 08:57:40 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -4182,6 +4182,7 @@ String sentencias16_1[]={"ALTER TABLE USHISTORICO ADD UHREINTENTO   INTEGER;",
         		int USCODCON = s.getint("USCODCON");
         	     if ((USPASSWD!=null && !"".equals(USPASSWD.trim())) || (USMD5!=null && !"".equals(USMD5)))  {
       	     	mae.easp.general.Seguridad seguridad = new mae.easp.general.Seguridad(Easp.connEA,USCODCON);
+      	     	seguridad.remAutoCommit();
       	     	esOk = seguridad.setHistorico(USCODCON, USLOGIN, USPASSWD, USMD5, "N");
         	     }        			
         	}
