@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Jun 07 09:48:46 CEST 2019
+// Fecha y hora:     Wed Jul 03 08:46:33 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -263,32 +263,8 @@ class Barramenu extends MenuBar
         
     class Mdatosgenerales extends Menu
         {
-        public M1datosidentif m1datosidentif;
-        public M1paramafinity m1paramafinity;
         public M1bdscargadas m1bdscargadas;
         public M1paramaplic m1paramaplic;
-        class M1datosidentif extends MenuItemProgram
-            {
-            public M1datosidentif()
-                {
-                super("Datos identificación del despacho");
-                setName("m1datosidentif");
-                setProgram("mae.easp.prfichadp.ProgPrfichadp");
-                // SET: MENU
-                }
-            }
-            
-        class M1paramafinity extends MenuItemProgram
-            {
-            public M1paramafinity()
-                {
-                super("Parámetros AfinityWeb");
-                setName("m1paramafinity");
-                setProgram("mae.easp.prdgparamafinit.ProgPrdgparamafinit");
-                // SET: MENU
-                }
-            }
-            
         class M1bdscargadas extends MenuItemProgram
             {
             public M1bdscargadas()
@@ -316,8 +292,6 @@ class Barramenu extends MenuBar
             super("Datos &Generales");
             setName("mdatosgenerales");
             // SET: MENU
-            add(m1datosidentif=new M1datosidentif());
-            add(m1paramafinity=new M1paramafinity());
             add(m1bdscargadas=new M1bdscargadas());
             add(m1paramaplic=new M1paramaplic());
             }
@@ -439,22 +413,10 @@ class Barramenu extends MenuBar
         
     class Mtablascomunes extends Menu
         {
-        public M1notas m1notas;
         public M1inciden m1inciden;
         public M1gestmir m1gestmir;
         public M1gestionnif m1gestionnif;
         public M1auditoria m1auditoria;
-        class M1notas extends MenuItemProgram
-            {
-            public M1notas()
-                {
-                super("Notas");
-                setName("m1notas");
-                setProgram("mae.easp.admnotas.ProgAdmnotas");
-                // SET: MENU
-                }
-            }
-            
         class M1inciden extends MenuItemProgram
             {
             public M1inciden()
@@ -504,7 +466,6 @@ class Barramenu extends MenuBar
             super("U&tilidades");
             setName("mtablascomunes");
             // SET: MENU
-            add(m1notas=new M1notas());
             add(m1inciden=new M1inciden());
             add(m1gestmir=new M1gestmir());
             add(m1gestionnif=new M1gestionnif());

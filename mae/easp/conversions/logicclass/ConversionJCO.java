@@ -1040,7 +1040,7 @@ public class ConversionJCO extends ConversionLC {
 			augmentaLong4 = false;
 			SelectorLogic spc = new SelectorLogic (connLC);
 			spc.execute("Select CodigoCuenta from PlanCuentas where CodigoEmpresa="+iEmp);
-			while (spc.next()) {      
+			while (!augmentaLong4 && spc.next()) {      
 				String CodigoCuenta = spc.getString("CodigoCuenta");
 				if ("4".equals(longCta) ) {  
 					if (CodigoCuenta != null && CodigoCuenta.length()>4) {
@@ -1056,6 +1056,7 @@ public class ConversionJCO extends ConversionLC {
 							augmentaLong4 = true;
 						}
 					}
+					if (augmentaLong4) System.out.println(CodigoCuenta);
 				}
 			}
 			spc.close();
@@ -1309,7 +1310,23 @@ public class ConversionJCO extends ConversionLC {
 		String [] tmp = null;
 		boolean esAlfa = "A".equals(tipoCta);
 		boolean esNumerico = !esAlfa;
-		if ("V".equals(longCta)) {
+		if ("100977000000".equals(dominio)) {
+			if (cta!=null && cta.length()>=4) {
+				tmp = new String [2];
+				if (cta.length() == 4) {
+					tmp [0] = cta;
+					tmp [1] = "";
+					for (int i=0;i<8;i++) tmp[1] = "0"+tmp[1];
+				}
+				else {
+					tmp [0] = cta.substring(0,4);
+					tmp [1] = cta.substring(4);			
+					for (int i=tmp[1].length();i<8;i++) tmp[1] = "0"+tmp[1];
+				}
+			}
+			else return null;
+		}		
+		else if ("V".equals(longCta)) {
 			if (cta!=null) cta = cta.trim();
 			if (cta!=null && cta.length()>3) {
 				tmp = new String [2];
@@ -1345,7 +1362,6 @@ public class ConversionJCO extends ConversionLC {
 			tmp [0] = cta.substring(0,3);
 			tmp [1] = cta.substring(3);
 		}
-
 		else if ("4".equals(longCta) && cta!=null && cta.length()>4 ) {
 			tmp = new String [2];
 			String ctaMayor = cta.substring(0, 4);
