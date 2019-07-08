@@ -28,7 +28,7 @@
 	<classpathentry kind="lib" path="zipc1.7/jeoimp_7_160408.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/audt180101.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/json161201.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/microfcagp7181296.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jconta7_190612.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/microfcagp7190602.zip"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
