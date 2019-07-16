@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Mar 29 13:43:47 CET 2019
+// Fecha y hora:     Tue Jul 16 11:49:34 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -194,8 +194,8 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
         // Controles
         public CtrlDanifcif danifcif;
         public CtrlDatfisicajuri datfisicajuri;
-        public CtrlChcbienes chcbienes;
         public CtrlDatipf datipf;
+        public CtrlChcbienes chcbienes;
         public CtrlDatapell1 datapell1;
         public CtrlDatapell2 datapell2;
         public CtrlDatnombre datnombre;
@@ -229,6 +229,15 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
         public LinkAaltaafinity aaltaafinity;
         public LinkAdomicilios adomicilios;
         // Fieldsets
+        public FSetFs1 fs1;
+        public FSetFs2a fs2a;
+        public FSetFs2b fs2b;
+        public FSetFs2c fs2c;
+        public FSetF3 f3;
+        public FSetF3a f3a;
+        public FSetF3b f3b;
+        public FSetF4a f4a;
+        public FSetF4b f4b;
         class Location extends LocationGridBag
             {
             public Location( )
@@ -372,22 +381,6 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 }
             }
             
-        public class CtrlChcbienes extends ControlCheck
-            {
-            // GLOBALES: CHECKBOX
-            // Metodos
-            public CtrlChcbienes(Form form)
-                {
-                super(form);
-                setName("chcbienes");
-                setMessageHelp("Tiene comunidad de bienes");
-                setTitle("C. Bienes");
-                // SET: CHECKBOX
-                }
-            // EVENT: CHECKBOX
-            // GET: CHECKBOX
-            }
-            
         public class CtrlDatipf extends ControlComboBox
             {
             // GLOBALES: CONTROLEDIT
@@ -397,7 +390,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 super(form);
                 setName("datipf");
                 setMessageHelp("Tipo de código identificador");
-                setTitle("IPF");
+                setTitle("Tipo NIF");
                 setType(STRING);
                 setMaskInput("U");
                 setLength(1);
@@ -413,6 +406,22 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlChcbienes extends ControlCheck
+            {
+            // GLOBALES: CHECKBOX
+            // Metodos
+            public CtrlChcbienes(Form form)
+                {
+                super(form);
+                setName("chcbienes");
+                setMessageHelp("Tiene comunidad de bienes");
+                setTitle("C. Bienes");
+                // SET: CHECKBOX
+                }
+            // EVENT: CHECKBOX
+            // GET: CHECKBOX
             }
             
         public class CtrlDatapell1 extends ControlEdit
@@ -433,7 +442,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 super(form);
                 setLook(new Look());
                 setName("datapell1");
-                setTitle("ape1");
+                setTitle("Apellido 1 / Razón social");
                 setType(STRING);
                 setMaskInput("U");
                 setLength(100);
@@ -465,7 +474,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 {
                 super(form);
                 setName("datapell2");
-                setTitle("ape2");
+                setTitle("Apellido 2");
                 setType(STRING);
                 setMaskInput("U");
                 setLength(25);
@@ -492,7 +501,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 {
                 super(form);
                 setName("datnombre");
-                setTitle("nom");
+                setTitle("Nombre");
                 setType(STRING);
                 setMaskInput("U");
                 setLength(20);
@@ -534,7 +543,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 setLook(new Look());
                 setName("datletraseti");
                 setMessageHelp("Letras etiqueta Agencia Tributaria");
-                setTitle("Letras etiqueta");
+                setTitle("Letras AEAT");
                 setType(STRING);
                 setMaskInput("U");
                 setLength(4);
@@ -590,7 +599,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 super(form);
                 setLook(new Look());
                 setName("datemail");
-                setTitle("email");
+                setTitle("Email");
                 setType(STRING);
                 setLength(100);
                 setPrintable(false);
@@ -609,7 +618,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 {
                 super(form);
                 setName("datcontacto");
-                setTitle("Contacto");
+                setTitle("Persona contacto");
                 setType(STRING);
                 setMaskInput("U");
                 setLength(30);
@@ -657,7 +666,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 {
                 super(form);
                 setName("datfax");
-                setTitle("fax");
+                setTitle("Fax");
                 setType(STRING);
                 setLength(15);
                 setPrintable(false);
@@ -685,7 +694,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 {
                 super(form);
                 setName("datmovil");
-                setTitle("Movil");
+                setTitle("Móvil");
                 setType(INTEGER);
                 setLength(9);
                 setPrintable(false);
@@ -767,7 +776,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 {
                 super(form);
                 setName("datnum");
-                setTitle("Numero");
+                setTitle("Número");
                 setType(STRING);
                 setLength(4);
                 setPrintable(false);
@@ -992,7 +1001,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 {
                 super(form);
                 setName("cdpaeatdele");
-                setTitle("eatdele");
+                setTitle("Delegación AEAT");
                 setType(INTEGER);
                 setMaskInput("99");
                 setPickUp(pickup=new mae.easp.general.pkdelegaciones.PickPkdelegaciones(this));
@@ -1028,7 +1037,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 {
                 super(form);
                 setName("cdpaeatadm");
-                setTitle("eatadm");
+                setTitle("Administración AEAT");
                 setType(INTEGER);
                 setMaskInput("999");
                 setPickUp(pickup=new mae.easp.general.pkadministracio.PickPkadministracio(this));
@@ -1055,7 +1064,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 {
                 super(form);
                 setName("vcdpcodi");
-                setTitle("Codi");
+                setTitle("Número empresa");
                 setType(DOUBLE);
                 setMaskInput("999999");
                 setProtect(true);
@@ -1161,7 +1170,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 super(form);
                 setName("cdpcdprel");
                 setMessageHelp("Código Afinity del cliente para el intercambio de datos");
-                setTitle("rel");
+                setTitle("Relacionado con");
                 setType(STRING);
                 setPickUp(pickup=new mae.easp.general.pkcdp.PickPkcdp(this));
                 setLength(12);
@@ -1284,6 +1293,141 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 }
             }
             
+        public class FSetFs1 extends Fieldset
+            {
+            public FSetFs1(Form form)
+                {
+                super(form);
+                setTitulo("Identificación");
+                addControl(danifcif);
+                addControl(datapell1);
+                addControl(datapell2);
+                addControl(datnombre);
+                getWebProperties().setXPad (30);
+                getWebProperties().setNumCols (4);
+                getWebProperties().setPosTitulo ("T");
+                }
+            }
+            
+        public class FSetFs2a extends Fieldset
+            {
+            public FSetFs2a(Form form)
+                {
+                super(form);
+                addControl(datfisicajuri);
+                addControl(datipf);
+                addControl(chcbienes);
+                getWebProperties().setAnchoColumnas (4);
+                getWebProperties().setSizeSeparacionT (0);
+                getWebProperties().setSizeSeparacionR (0);
+                }
+            }
+            
+        public class FSetFs2b extends Fieldset
+            {
+            public FSetFs2b(Form form)
+                {
+                super(form);
+                addControl(datletraseti);
+                addControl(datnacional);
+                addControl(datcontacto);
+                getWebProperties().setSizeSeparacionL (0);
+                getWebProperties().setAnchoColumnas (4);
+                getWebProperties().setSizeSeparacionT (0);
+                getWebProperties().setSizeSeparacionR (0);
+                }
+            }
+            
+        public class FSetFs2c extends Fieldset
+            {
+            public FSetFs2c(Form form)
+                {
+                super(form);
+                addControl(datemail);
+                addControl(dattel);
+                addControl(datfax);
+                addControl(datmovil);
+                getWebProperties().setSizeSeparacionL (0);
+                getWebProperties().setAnchoColumnas (4);
+                getWebProperties().setSizeSeparacionT (0);
+                }
+            }
+            
+        public class FSetF3 extends Fieldset
+            {
+            public FSetF3(Form form)
+                {
+                super(form);
+                setTitulo("Dirección");
+                addControl(datsiglas);
+                addControl(datvia);
+                addControl(datnum);
+                addControl(datesc);
+                addControl(datpiso);
+                addControl(datletra);
+                getWebProperties().setXPad (19);
+                getWebProperties().setNumCols (6);
+                getWebProperties().setSizeSeparacionB (0);
+                getWebProperties().setPosTitulo ("T");
+                }
+            }
+            
+        public class FSetF3a extends Fieldset
+            {
+            public FSetF3a(Form form)
+                {
+                super(form);
+                addControl(datprov);
+                addControl(datmuni);
+                addControl(datcpos);
+                getWebProperties().setAnchoColumnas (6);
+                getWebProperties().setSizeSeparacionT (0);
+                getWebProperties().setSizeSeparacionR (0);
+                }
+            }
+            
+        public class FSetF3b extends Fieldset
+            {
+            public FSetF3b(Form form)
+                {
+                super(form);
+                addControl(datpobla);
+                addControl(datpais);
+                getWebProperties().setSizeSeparacionL (0);
+                getWebProperties().setAnchoColumnas (6);
+                getWebProperties().setSizeSeparacionT (0);
+                }
+            }
+            
+        public class FSetF4a extends Fieldset
+            {
+            public FSetF4a(Form form)
+                {
+                super(form);
+                setTitulo("Datos CDP");
+                addControl(cdpaeatdele);
+                addControl(cdpaeatadm);
+                addControl(vcdpcodi);
+                addControl(cdpbdcomuconta);
+                addControl(cdpcdprel);
+                addControl(chomiterel);
+                getWebProperties().setAnchoColumnas (6);
+                getWebProperties().setCheckInv (true);
+                }
+            }
+            
+        public class FSetF4b extends Fieldset
+            {
+            public FSetF4b(Form form)
+                {
+                super(form);
+                setTitulo("Observaciones");
+                addControl(cdpobserv);
+                getWebProperties().setAnchoColumnas (6);
+                getWebProperties().setLabelVisible (false);
+                }
+            }
+            
         public FormVnifes(ProgPrtratamnifes prtratamnifes)
             {
             super(prtratamnifes);
@@ -1300,8 +1444,8 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
             addSelect(scdprep=new Scdprep());
             addControl(danifcif=new CtrlDanifcif(this));
             addControl(datfisicajuri=new CtrlDatfisicajuri(this));
-            addControl(chcbienes=new CtrlChcbienes(this));
             addControl(datipf=new CtrlDatipf(this));
+            addControl(chcbienes=new CtrlChcbienes(this));
             addControl(datapell1=new CtrlDatapell1(this));
             addControl(datapell2=new CtrlDatapell2(this));
             addControl(datnombre=new CtrlDatnombre(this));
@@ -1333,6 +1477,15 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
             addControl(chomiterel=new CtrlChomiterel(this));
             addAction(aaltaafinity=new LinkAaltaafinity(this));
             addAction(adomicilios=new LinkAdomicilios(this));
+            addFieldset(fs1=new FSetFs1(this));
+            addFieldset(fs2a=new FSetFs2a(this));
+            addFieldset(fs2b=new FSetFs2b(this));
+            addFieldset(fs2c=new FSetFs2c(this));
+            addFieldset(f3=new FSetF3(this));
+            addFieldset(f3a=new FSetF3a(this));
+            addFieldset(f3b=new FSetF3b(this));
+            addFieldset(f4a=new FSetF4a(this));
+            addFieldset(f4b=new FSetF4b(this));
             setSelect(snifes);
             }
         // GET: VENTANA

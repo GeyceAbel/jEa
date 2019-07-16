@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jul 03 08:46:33 CEST 2019
+// Fecha y hora:     Tue Jul 16 13:19:56 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -20,7 +20,7 @@ public class AppEasp extends Aplication
     Maefc.message("Imposible iniciar la aplicación","Aviso",Maefc.WARNING_MESSAGE);
     exit();
   }
-  mae.easp.zzzprmenuprogs.ProgZzzprmenuprogs progMenu=new mae.easp.zzzprmenuprogs.ProgZzzprmenuprogs(this);
+  mae.easp.general.menuinicial.ProgMenuInicial progMenu=new mae.easp.general.menuinicial.ProgMenuInicial (this);
   progMenu.run();  
 }
 
@@ -43,6 +43,18 @@ public class AppEasp extends Aplication
     }
     return null;
   }
+
+public String getNombreComercial () {
+	return "jEa";
+}
+
+public String getRutaLogoMenu() {
+	return "mae/easp/images/logoMenu.png";
+}
+
+public String getIcono32() {
+  return "mae/easp/images/jea32.png";
+}
     // Metodos
     public Barramenu barramenu;
     public Bdeasp bdeasp;
@@ -192,6 +204,9 @@ class Barramenu extends MenuBar
             super("&Configuración");
             setName("minstalacion");
             // SET: MENU
+            setIcono ("mae/easp/images/config.png");
+            getWebProperties().setIconoMenu ("fa fa-database");
+            getWebProperties().setVisible (true);
             add(m1insconver=new M1insconver());
             add(m1otrasaplic=new M1otrasaplic());
             add(m1exportbd=new M1exportbd());
@@ -213,6 +228,8 @@ class Barramenu extends MenuBar
                 setName("m1ficha");
                 setProgram("mae.easp.prselcdp.ProgPrselcdp");
                 // SET: MENU
+                setOrden (1);
+                setIconoPrincipal ("X");
                 }
             }
             
@@ -254,6 +271,7 @@ class Barramenu extends MenuBar
             super("&Clientes");
             setName("mclientes");
             // SET: MENU
+            setIcono ("mae/easp/images/building.png");
             add(m1ficha=new M1ficha());
             add(m1bancoscli=new M1bancoscli());
             add(m1repres=new M1repres());
@@ -273,6 +291,8 @@ class Barramenu extends MenuBar
                 setName("m1bdscargadas");
                 setProgram("mae.easp.prbds.ProgPrbds");
                 // SET: MENU
+                setOrden (4);
+                setIconoPrincipal ("X");
                 }
             }
             
@@ -292,6 +312,7 @@ class Barramenu extends MenuBar
             super("Datos &Generales");
             setName("mdatosgenerales");
             // SET: MENU
+            setIcono ("mae/easp/images/tax.png");
             add(m1bdscargadas=new M1bdscargadas());
             add(m1paramaplic=new M1paramaplic());
             }
@@ -326,6 +347,8 @@ class Barramenu extends MenuBar
                 setName("musers");
                 setProgram("mae.easp.uspusers.ProgUspusers");
                 // SET: MENU
+                setOrden (2);
+                setIconoPrincipal ("X");
                 }
             }
             
@@ -400,6 +423,7 @@ class Barramenu extends MenuBar
             super("&Usuarios y permisos");
             setName("musuarios");
             // SET: MENU
+            setIcono ("mae/easp/images/group.png");
             add(mseguridad=new Mseguridad());
             add(musers=new Musers());
             add(mgrupos=new Mgrupos());
@@ -436,6 +460,8 @@ class Barramenu extends MenuBar
                 setName("m1gestmir");
                 setProgram("mae.easp.prgestdocsmir.ProgPrgestdocsmir");
                 // SET: MENU
+                setOrden (3);
+                setIconoPrincipal ("X");
                 }
             }
             
@@ -466,6 +492,7 @@ class Barramenu extends MenuBar
             super("U&tilidades");
             setName("mtablascomunes");
             // SET: MENU
+            setIcono ("mae/easp/images/more.png");
             add(m1inciden=new M1inciden());
             add(m1gestmir=new M1gestmir());
             add(m1gestionnif=new M1gestionnif());
@@ -516,6 +543,7 @@ class Barramenu extends MenuBar
             super("&LOPD");
             setName("mlopd");
             // SET: MENU
+            setIcono ("mae/easp/images/quality.png");
             add(m1lopdacc=new M1lopdacc());
             add(m1lopdocopias=new M1lopdocopias());
             add(m1lopdinciden=new M1lopdinciden());
@@ -541,6 +569,7 @@ class Barramenu extends MenuBar
             super("&Ayuda");
             setName("mayuda");
             // SET: MENU
+            setIcono ("mae/easp/images/help.png");
             add(m1acercade=new M1acercade());
             }
         }

@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Mar 29 13:48:04 CET 2019
+// Fecha y hora:     Tue Jul 16 11:52:40 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -57,7 +57,7 @@ public void abrirVNifes(int modo) {
   LocationWindow loc=new LocationWindow();
   loc.setWidth(1000);
   //if (esDP)
-    loc.setHeight(620);
+    loc.setHeight(645);
   //else
   //  loc.setHeight(380);
   loc.setLocation(loc.CENTER);
@@ -201,16 +201,22 @@ public void onInsert(){
         public CtrlDanifcif danifcif;
         public CtrlVcliente vcliente;
         public CtrlDatfisicajuri datfisicajuri;
-        public CtrlDatemail datemail;
         public CtrlDattel dattel;
         public CtrlDatfax datfax;
         public CtrlDatmovil datmovil;
+        public CtrlDatemail datemail;
         public CtrlVadministracio vadministracio;
         public CtrlCdpcodi cdpcodi;
         public CtrlCdpcdprel cdpcdprel;
         public CtrlChomiterel chomiterel;
         // Acciones
         // Fieldsets
+        public FSetFs1a fs1a;
+        public FSetFs1b fs1b;
+        public FSetFs1c fs1c;
+        public FSetFs1d fs1d;
+        public FSetFs2 fs2;
+        public FSetFs3 fs3;
         class Location extends LocationSplit
             {
             public Location( )
@@ -228,7 +234,7 @@ public void onInsert(){
                 {
                 super(form);
                 setName("vvcodigo");
-                setTitle("");
+                setTitle("Empresa");
                 setType(INTEGER);
                 setMaskInput("######");
                 setLength(6);
@@ -248,7 +254,7 @@ public void onInsert(){
                 super(form);
                 setName("danifcif");
                 setMessageHelp("NIF/CIF");
-                setTitle("");
+                setTitle("NIF / CIF");
                 setType(STRING);
                 setMaskInput("U");
                 setLength(15);
@@ -269,7 +275,7 @@ public void onInsert(){
                 {
                 super(form);
                 setName("vcliente");
-                setTitle("");
+                setTitle("Nombre / Razón social");
                 setType(STRING);
                 setLength(40);
                 setEnabled(false);
@@ -289,44 +295,13 @@ public void onInsert(){
                 super(form);
                 setName("datfisicajuri");
                 setMessageHelp("Física / Jurídica");
-                setTitle("");
+                setTitle("F/J");
                 setType(STRING);
                 setMaskInput("U");
                 setLength(1);
                 setEnabled(false);
                 setPrintable(false);
                 setField(sgeneral.datfisicajuri);
-                // SET: CONTROLEDIT
-                }
-            // GET: CONTROLEDIT
-            // EVENT: CONTROLEDIT
-            }
-            
-        public class CtrlDatemail extends ControlEdit
-            {
-            // GLOBALES: CONTROLEDIT
-            // Metodos
-            class Look extends LookComponent
-                {
-                public Look( )
-                    {
-                    super();
-                    setLength(30);
-                    }
-                }
-                
-            public CtrlDatemail(Form form)
-                {
-                super(form);
-                setLook(new Look());
-                setName("datemail");
-                setMessageHelp("E-mail");
-                setTitle("");
-                setType(STRING);
-                setLength(100);
-                setEnabled(false);
-                setPrintable(false);
-                setField(sgeneral.datemail);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
@@ -352,7 +327,7 @@ public void onInsert(){
                 setLook(new Look());
                 setName("dattel");
                 setMessageHelp("Teléfono");
-                setTitle("");
+                setTitle("Teléfono");
                 setType(STRING);
                 setLength(15);
                 setEnabled(false);
@@ -383,7 +358,7 @@ public void onInsert(){
                 setLook(new Look());
                 setName("datfax");
                 setMessageHelp("Fax");
-                setTitle("");
+                setTitle("Fax");
                 setType(STRING);
                 setLength(15);
                 setEnabled(false);
@@ -424,6 +399,37 @@ public void onInsert(){
             // EVENT: CONTROLEDIT
             }
             
+        public class CtrlDatemail extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            class Look extends LookComponent
+                {
+                public Look( )
+                    {
+                    super();
+                    setLength(30);
+                    }
+                }
+                
+            public CtrlDatemail(Form form)
+                {
+                super(form);
+                setLook(new Look());
+                setName("datemail");
+                setMessageHelp("E-mail");
+                setTitle("Email");
+                setType(STRING);
+                setLength(100);
+                setEnabled(false);
+                setPrintable(false);
+                setField(sgeneral.datemail);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
         public class CtrlVadministracio extends ControlEdit
             {
             // GLOBALES: CONTROLEDIT
@@ -432,7 +438,7 @@ public void onInsert(){
                 {
                 super(form);
                 setName("vadministracio");
-                setTitle("");
+                setTitle("Administración");
                 setType(STRING);
                 setLength(5);
                 setEnabled(false);
@@ -521,6 +527,82 @@ public void onInsert(){
                 }
             }
             
+        public class FSetFs1a extends Fieldset
+            {
+            public FSetFs1a(Form form)
+                {
+                super(form);
+                addControl(vvcodigo);
+                getWebProperties().setAnchoColumnas (3);
+                getWebProperties().setSizeSeparacionR (0);
+                getWebProperties().setPosTitulo ("T");
+                }
+            }
+            
+        public class FSetFs1b extends Fieldset
+            {
+            public FSetFs1b(Form form)
+                {
+                super(form);
+                addControl(danifcif);
+                getWebProperties().setSizeSeparacionL (0);
+                getWebProperties().setAnchoColumnas (3);
+                getWebProperties().setSizeSeparacionR (0);
+                getWebProperties().setPosTitulo ("T");
+                }
+            }
+            
+        public class FSetFs1c extends Fieldset
+            {
+            public FSetFs1c(Form form)
+                {
+                super(form);
+                addControl(vcliente);
+                getWebProperties().setSizeSeparacionL (0);
+                getWebProperties().setAnchoColumnas (3);
+                getWebProperties().setSizeSeparacionR (0);
+                getWebProperties().setPosTitulo ("T");
+                }
+            }
+            
+        public class FSetFs1d extends Fieldset
+            {
+            public FSetFs1d(Form form)
+                {
+                super(form);
+                addControl(datfisicajuri);
+                getWebProperties().setSizeSeparacionL (0);
+                getWebProperties().setAnchoColumnas (3);
+                getWebProperties().setPosTitulo ("T");
+                }
+            }
+            
+        public class FSetFs2 extends Fieldset
+            {
+            public FSetFs2(Form form)
+                {
+                super(form);
+                addControl(dattel);
+                addControl(datfax);
+                addControl(datmovil);
+                addControl(datemail);
+                getWebProperties().setAnchoColumnas (6);
+                }
+            }
+            
+        public class FSetFs3 extends Fieldset
+            {
+            public FSetFs3(Form form)
+                {
+                super(form);
+                addControl(vadministracio);
+                addControl(cdpcdprel);
+                addControl(chomiterel);
+                getWebProperties().setAnchoColumnas (6);
+                getWebProperties().setCheckInv (true);
+                }
+            }
+            
         public FormVdatosafiliacio(ProgPrclfichagener prclfichagener)
             {
             super(prclfichagener);
@@ -536,14 +618,20 @@ public void onInsert(){
             addControl(danifcif=new CtrlDanifcif(this));
             addControl(vcliente=new CtrlVcliente(this));
             addControl(datfisicajuri=new CtrlDatfisicajuri(this));
-            addControl(datemail=new CtrlDatemail(this));
             addControl(dattel=new CtrlDattel(this));
             addControl(datfax=new CtrlDatfax(this));
             addControl(datmovil=new CtrlDatmovil(this));
+            addControl(datemail=new CtrlDatemail(this));
             addControl(vadministracio=new CtrlVadministracio(this));
             addControl(cdpcodi=new CtrlCdpcodi(this));
             addControl(cdpcdprel=new CtrlCdpcdprel(this));
             addControl(chomiterel=new CtrlChomiterel(this));
+            addFieldset(fs1a=new FSetFs1a(this));
+            addFieldset(fs1b=new FSetFs1b(this));
+            addFieldset(fs1c=new FSetFs1c(this));
+            addFieldset(fs1d=new FSetFs1d(this));
+            addFieldset(fs2=new FSetFs2(this));
+            addFieldset(fs3=new FSetFs3(this));
             setSelect(sgeneral);
             }
         // GET: VENTANA
@@ -826,6 +914,10 @@ public void onShow(){
         // Acciones
         public LinkAdomicilios adomicilios;
         // Fieldsets
+        public FSetFs1 fs1;
+        public FSetFs2 fs2;
+        public FSetFs3 fs3;
+        public FSetFs4 fs4;
         class Location extends LocationWindow
             {
             public Location( )
@@ -846,7 +938,7 @@ public void onShow(){
                 {
                 super(form);
                 setName("datcontacto");
-                setTitle("");
+                setTitle("Persona de contacto");
                 setType(STRING);
                 setLength(30);
                 setPrintable(false);
@@ -866,7 +958,7 @@ public void onShow(){
                 {
                 super(form);
                 setName("datsiglas");
-                setTitle("");
+                setTitle("Siglas");
                 setType(STRING);
                 setMaskInput("U");
                 setPickUp(pickup=new mae.easp.general.pksiglas.PickPksiglas(this));
@@ -898,7 +990,7 @@ public void onShow(){
                 super(form);
                 setLook(new Look());
                 setName("datvia");
-                setTitle("");
+                setTitle("Vía");
                 setType(STRING);
                 setLength(45);
                 setPrintable(false);
@@ -917,7 +1009,7 @@ public void onShow(){
                 {
                 super(form);
                 setName("datnum");
-                setTitle("");
+                setTitle("Núm");
                 setType(STRING);
                 setLength(6);
                 setPrintable(false);
@@ -936,7 +1028,7 @@ public void onShow(){
                 {
                 super(form);
                 setName("datesc");
-                setTitle("");
+                setTitle("Esc");
                 setType(STRING);
                 setMaskInput("U");
                 setLength(2);
@@ -956,7 +1048,7 @@ public void onShow(){
                 {
                 super(form);
                 setName("datpiso");
-                setTitle("");
+                setTitle("Piso");
                 setType(STRING);
                 setLength(2);
                 setPrintable(false);
@@ -975,7 +1067,7 @@ public void onShow(){
                 {
                 super(form);
                 setName("datletra");
-                setTitle("");
+                setTitle("Puerta");
                 setType(STRING);
                 setMaskInput("U");
                 setLength(2);
@@ -996,7 +1088,7 @@ public void onShow(){
                 {
                 super(form);
                 setName("datprov");
-                setTitle("");
+                setTitle("Provincia");
                 setType(INTEGER);
                 setPickUp(pickup=new mae.easp.general.pkprovincias.PickPkprovincias(this));
                 setLength(2);
@@ -1024,7 +1116,7 @@ public void onShow(){
                 {
                 super(form);
                 setName("datmuni");
-                setTitle("");
+                setTitle("Municipio");
                 setType(INTEGER);
                 setPickUp(pickup=new mae.easp.general.pkmunicipios.PickPkmunicipios(this));
                 setLength(5);
@@ -1049,7 +1141,7 @@ public void onShow(){
                 {
                 super(form);
                 setName("datpobla");
-                setTitle("");
+                setTitle("Población");
                 setType(STRING);
                 setLength(30);
                 setPrintable(false);
@@ -1068,7 +1160,7 @@ public void onShow(){
                 {
                 super(form);
                 setName("datcpos");
-                setTitle("");
+                setTitle("C. Postal");
                 setType(STRING);
                 setLength(5);
                 setPrintable(false);
@@ -1088,7 +1180,7 @@ public void onShow(){
                 {
                 super(form);
                 setName("datpais");
-                setTitle("");
+                setTitle("País");
                 setType(INTEGER);
                 setPickUp(pickup=new mae.easp.general.pkpaises.PickPkpaises(this));
                 setLength(3);
@@ -1420,6 +1512,61 @@ public void onShow(){
                 }
             }
             
+        public class FSetFs1 extends Fieldset
+            {
+            public FSetFs1(Form form)
+                {
+                super(form);
+                setTitulo("Domicilio afiliación");
+                addControl(datsiglas);
+                addControl(datvia);
+                addControl(datnum);
+                addControl(datesc);
+                addControl(datpiso);
+                addControl(datletra);
+                getWebProperties().setXPad (50);
+                getWebProperties().setSizeSeparacionB (0);
+                getWebProperties().setPosTitulo ("T");
+                }
+            }
+            
+        public class FSetFs2 extends Fieldset
+            {
+            public FSetFs2(Form form)
+                {
+                super(form);
+                addControl(datprov);
+                addControl(datmuni);
+                addControl(datcpos);
+                getWebProperties().setAnchoColumnas (6);
+                getWebProperties().setSizeSeparacionT (0);
+                getWebProperties().setSizeSeparacionR (0);
+                }
+            }
+            
+        public class FSetFs3 extends Fieldset
+            {
+            public FSetFs3(Form form)
+                {
+                super(form);
+                addControl(datpobla);
+                addControl(datpais);
+                getWebProperties().setSizeSeparacionL (0);
+                getWebProperties().setAnchoColumnas (6);
+                getWebProperties().setSizeSeparacionT (0);
+                }
+            }
+            
+        public class FSetFs4 extends Fieldset
+            {
+            public FSetFs4(Form form)
+                {
+                super(form);
+                addControl(datcontacto);
+                getWebProperties().setSizeSeparacionT (30);
+                }
+            }
+            
         public FormVdomicilioenv(ProgPrclfichagener prclfichagener)
             {
             super(prclfichagener);
@@ -1427,6 +1574,7 @@ public void onShow(){
             setTitle("Datos de la afiliación");
             setLocation(new Location());
             setStates(SHOW);
+            setPrintable(false);
             setModal(true);
             setUnique(true);
             // SET: VENTANA
@@ -1456,6 +1604,10 @@ public void onShow(){
             addControl(datepais=new CtrlDatepais(this));
             addControl(btcopiardatos=new CtrlBtcopiardatos(this));
             addAction(adomicilios=new LinkAdomicilios(this));
+            addFieldset(fs1=new FSetFs1(this));
+            addFieldset(fs2=new FSetFs2(this));
+            addFieldset(fs3=new FSetFs3(this));
+            addFieldset(fs4=new FSetFs4(this));
             setSelect(sgeneral);
             }
         // GET: VENTANA
@@ -1489,7 +1641,7 @@ public void onShow(){
   form.setLayout(new LayoutHtml("mae/easp/html/datosbancarios.html"));
   LocationWindow loc=(LocationWindow)form.getLocation();
   loc.setWidth(525);
-  loc.setHeight(165);
+  loc.setHeight(185);
   return form;
  }
 
@@ -1642,8 +1794,8 @@ boolean deleteAsignaciones() {
         // Controles
         public CtrlBccbanco bccbanco;
         public CtrlBccsucursal bccsucursal;
-        public CtrlBccnumero bccnumero;
         public CtrlBccdigitos bccdigitos;
+        public CtrlBccnumero bccnumero;
         public CtrlChiva chiva;
         public CtrlChirpf chirpf;
         public CtrlChpagosc chpagosc;
@@ -1656,6 +1808,7 @@ boolean deleteAsignaciones() {
         public LinkBtcambiobanco btcambiobanco;
         public LinkBtrestodatos btrestodatos;
         // Fieldsets
+        public FSetFs1 fs1;
         class Location extends LocationWindow
             {
             public Location( )
@@ -1735,44 +1888,6 @@ boolean deleteAsignaciones() {
                 }
             }
             
-        public class CtrlBccnumero extends ColumnEdit
-            {
-            // GLOBALES: CONTROLEDIT
-            // Metodos
-            public CtrlBccnumero(Form form)
-                {
-                super(form);
-                setName("bccnumero");
-                setTitle("Num.");
-                setType(STRING);
-                setLength(10);
-                setPrintable(false);
-                setField(sbancocli.bccnumero);
-                // SET: CONTROLEDIT
-                }
-            // GET: CONTROLEDIT
-            // EVENT: CONTROLEDIT
-            public boolean valid ()
-                {
-                if (Util.isNumero(this.getString()) && this.getString().length() == 10)
-                  return super.valid();
-                else
-                  return false;
-                }
-            public void userChange (Value v)
-                {
-                super.userChange (v);
-                if ("ISS".equals(aplicacion)) {
- 	if (bccbanco.getInteger()>0 && bccsucursal.getInteger()>0 && bccnumero.getString()!=null && !"".equals(bccnumero.getString().trim()))
- 		bccdigitos.setValue(Easp.digitoControl(bccbanco.getInteger(),bccsucursal.getInteger(),Long.valueOf(bccnumero.getString())));
-}
-                }
-            public boolean obligate ()
-                {
-                return true;
-                }
-            }
-            
         public class CtrlBccdigitos extends ColumnEdit
             {
             // GLOBALES: CONTROLEDIT
@@ -1781,7 +1896,7 @@ boolean deleteAsignaciones() {
                 {
                 super(form);
                 setName("bccdigitos");
-                setTitle("D.C.");
+                setTitle("DC");
                 setType(INTEGER);
                 setMaskInput("99");
                 setLength(2);
@@ -1808,6 +1923,54 @@ boolean deleteAsignaciones() {
             public boolean obligate ()
                 {
                 return true;
+                }
+            }
+            
+        public class CtrlBccnumero extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            class Look extends LookComponent
+                {
+                public Look( )
+                    {
+                    super();
+                    setLength(12);
+                    }
+                }
+                
+            public CtrlBccnumero(Form form)
+                {
+                super(form);
+                setLook(new Look());
+                setName("bccnumero");
+                setTitle("Número");
+                setType(STRING);
+                setLength(10);
+                setPrintable(false);
+                setField(sbancocli.bccnumero);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public boolean valid ()
+                {
+                if (Util.isNumero(this.getString()) && this.getString().length() == 10)
+                  return super.valid();
+                else
+                  return false;
+                }
+            public void userChange (Value v)
+                {
+                super.userChange (v);
+                if ("ISS".equals(aplicacion)) {
+ 	if (bccbanco.getInteger()>0 && bccsucursal.getInteger()>0 && bccnumero.getString()!=null && !"".equals(bccnumero.getString().trim()))
+ 		bccdigitos.setValue(Easp.digitoControl(bccbanco.getInteger(),bccsucursal.getInteger(),Long.valueOf(bccnumero.getString())));
+}
+                }
+            public boolean obligate ()
+                {
+                return true;
                 }
             }
             
@@ -2010,6 +2173,20 @@ boolean deleteAsignaciones() {
                 }
             }
             
+        public class FSetFs1 extends Fieldset
+            {
+            public FSetFs1(Form form)
+                {
+                super(form);
+                addControl(bccbanco);
+                addControl(bccsucursal);
+                addControl(bccdigitos);
+                addControl(bccnumero);
+                getWebProperties().setXPad (10);
+                getWebProperties().setPosTitulo ("T");
+                }
+            }
+            
         public FormVdatosbancarios(ProgPrclfichagener prclfichagener)
             {
             super(prclfichagener);
@@ -2029,8 +2206,8 @@ boolean deleteAsignaciones() {
             addSelect(sasignautil2=new Sasignautil2());
             addControl(bccbanco=new CtrlBccbanco(this));
             addControl(bccsucursal=new CtrlBccsucursal(this));
-            addControl(bccnumero=new CtrlBccnumero(this));
             addControl(bccdigitos=new CtrlBccdigitos(this));
+            addControl(bccnumero=new CtrlBccnumero(this));
             addControl(chiva=new CtrlChiva(this));
             addControl(chirpf=new CtrlChirpf(this));
             addControl(chpagosc=new CtrlChpagosc(this));
@@ -2041,6 +2218,7 @@ boolean deleteAsignaciones() {
             addAction(btliqanual=new LinkBtliqanual(this));
             addAction(btcambiobanco=new LinkBtcambiobanco(this));
             addAction(btrestodatos=new LinkBtrestodatos(this));
+            addFieldset(fs1=new FSetFs1(this));
             setSelect(sbancocli);
             }
         // GET: VENTANA
@@ -5030,6 +5208,9 @@ public boolean onOk(){
         // Acciones
         public LinkAcaltasfitgen acaltasfitgen;
         // Fieldsets
+        public FSetFs1 fs1;
+        public FSetFs2 fs2;
+        public FSetFs3 fs3;
         class Location extends LocationWindow
             {
             public Location( )
@@ -5083,7 +5264,7 @@ public boolean onOk(){
                 {
                 super(form);
                 setName("chconta");
-                setTitle("");
+                setTitle("Contabilidad");
                 // SET: CHECKBOX
                 }
             // EVENT: CHECKBOX
@@ -5098,7 +5279,7 @@ public boolean onOk(){
                 {
                 super(form);
                 setName("cheo");
-                setTitle("");
+                setTitle("Estimación");
                 // SET: CHECKBOX
                 }
             // EVENT: CHECKBOX
@@ -5113,7 +5294,7 @@ public boolean onOk(){
                 {
                 super(form);
                 setName("chgestion");
-                setTitle("");
+                setTitle("Gestión");
                 // SET: CHECKBOX
                 }
             // EVENT: CHECKBOX
@@ -5128,7 +5309,7 @@ public boolean onOk(){
                 {
                 super(form);
                 setName("chnomina");
-                setTitle("");
+                setTitle("Nómina");
                 // SET: CHECKBOX
                 }
             // EVENT: CHECKBOX
@@ -5143,7 +5324,7 @@ public boolean onOk(){
                 {
                 super(form);
                 setName("chrenta");
-                setTitle("");
+                setTitle("Renta");
                 // SET: CHECKBOX
                 }
             // EVENT: CHECKBOX
@@ -5158,7 +5339,7 @@ public boolean onOk(){
                 {
                 super(form);
                 setName("chiss");
-                setTitle("");
+                setTitle("Sociedades");
                 // SET: CHECKBOX
                 }
             // EVENT: CHECKBOX
@@ -5251,6 +5432,43 @@ public boolean onOk(){
                 }
             }
             
+        public class FSetFs1 extends Fieldset
+            {
+            public FSetFs1(Form form)
+                {
+                super(form);
+                setTitulo("Servicios disponibles");
+                addControl(chconta);
+                addControl(cheo);
+                addControl(chgestion);
+                getWebProperties().setAnchoColumnas (6);
+                getWebProperties().setSizeSeparacionR (0);
+                }
+            }
+            
+        public class FSetFs2 extends Fieldset
+            {
+            public FSetFs2(Form form)
+                {
+                super(form);
+                addControl(chnomina);
+                addControl(chrenta);
+                addControl(chiss);
+                getWebProperties().setSizeSeparacionL (0);
+                getWebProperties().setAnchoColumnas (6);
+                getWebProperties().setSizeLineaSup (43);
+                }
+            }
+            
+        public class FSetFs3 extends Fieldset
+            {
+            public FSetFs3(Form form)
+                {
+                super(form);
+                addControl(btpasswdacc);
+                }
+            }
+            
         public FormVservicios(ProgPrclfichagener prclfichagener)
             {
             super(prclfichagener);
@@ -5273,6 +5491,9 @@ public boolean onOk(){
             addControl(cdppwd=new CtrlCdppwd(this));
             addControl(cdpcdprel=new CtrlCdpcdprel(this));
             addAction(acaltasfitgen=new LinkAcaltasfitgen(this));
+            addFieldset(fs1=new FSetFs1(this));
+            addFieldset(fs2=new FSetFs2(this));
+            addFieldset(fs3=new FSetFs3(this));
             setSelect(sservicioscdp);
             }
         // GET: VENTANA
@@ -5395,7 +5616,7 @@ public boolean onOk(){
                 setHeight(150);
                 setTitle("Contraseña acceso Empresa");
                 setModal(true);
-                setLocation(SOUTH);
+                setLocation(CENTER);
                 }
             }
             

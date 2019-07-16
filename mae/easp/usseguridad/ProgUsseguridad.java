@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Mar 25 10:58:40 CET 2019
+// Fecha y hora:     Tue Jul 16 12:06:11 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -112,6 +112,9 @@ private void activaExpira() {
         public CtrlSegsesinactiva segsesinactiva;
         // Acciones
         // Fieldsets
+        public FSetF1 f1;
+        public FSetF1b f1b;
+        public FSetF2 f2;
         class Location extends LocationGridBag
             {
             public Location( )
@@ -179,7 +182,7 @@ private void activaExpira() {
                 super(form);
                 setName("chletras");
                 setMessageHelp("La contraseña debe contener letras");
-                setTitle("Letras");
+                setTitle("Contiene letras");
                 // SET: CHECKBOX
                 }
             // EVENT: CHECKBOX
@@ -195,7 +198,7 @@ private void activaExpira() {
                 super(form);
                 setName("chnumeros");
                 setMessageHelp("La contraseña debe contener números");
-                setTitle("Números");
+                setTitle("Contiene números");
                 // SET: CHECKBOX
                 }
             // EVENT: CHECKBOX
@@ -211,7 +214,7 @@ private void activaExpira() {
                 super(form);
                 setName("chcarespecial");
                 setMessageHelp("La contraseña debe contener algún caracter especial");
-                setTitle("Caracteres especiales");
+                setTitle("Carácteres especiales");
                 // SET: CHECKBOX
                 }
             // EVENT: CHECKBOX
@@ -227,7 +230,7 @@ private void activaExpira() {
                 super(form);
                 setName("segcontrexpira");
                 setMessageHelp("Número de dias en los que expira la contraseña (0 o blanco no caduca)");
-                setTitle("Numero de dias en los que expira la contraseña (0 o blanco no caduca)");
+                setTitle("Cada cuantos días caduca");
                 setType(INTEGER);
                 setMaskInput("###");
                 setMin(0);
@@ -250,7 +253,7 @@ private void activaExpira() {
                 super(form);
                 setName("chreutilizable");
                 setMessageHelp("Se pueden utilizar contraseñas que ya se habían utilizado anteriormente");
-                setTitle("Se puede reutilizar");
+                setTitle("Reutilizable");
                 // SET: CHECKBOX
                 }
             // EVENT: CHECKBOX
@@ -271,7 +274,7 @@ private void activaExpira() {
                 super(form);
                 setName("seghistorico");
                 setMessageHelp(" Se permite reutilizar una contraseña de n-veces anteriores");
-                setTitle("Se permite reutilizar una contraseña de n-veces anteriores");
+                setTitle("Se permite reautilizarla después de n-veces");
                 setType(INTEGER);
                 setMaskInput("##");
                 setMin(0);
@@ -294,7 +297,7 @@ private void activaExpira() {
                 super(form);
                 setName("segintento");
                 setMessageHelp("Número de reintentos permitidos");
-                setTitle("Número de intentos");
+                setTitle("Reintentar n-veces");
                 setType(INTEGER);
                 setMaskInput("#");
                 setMin(0);
@@ -317,7 +320,7 @@ private void activaExpira() {
                 super(form);
                 setName("chresetprimer");
                 setMessageHelp("Se debe resetear la contraseña en el primer acceso");
-                setTitle("Primera vez");
+                setTitle("Introducirla de nuevo en el primer acceso");
                 // SET: CHECKBOX
                 }
             // EVENT: CHECKBOX
@@ -333,7 +336,7 @@ private void activaExpira() {
                 super(form);
                 setName("chsimultaneo");
                 setMessageHelp("Se permite varios accesos a la aplicación con el mismo usuario");
-                setTitle("Usuario simultáneo");
+                setTitle("Permitir varias sesiones del mismo usuario");
                 // SET: CHECKBOX
                 }
             // EVENT: CHECKBOX
@@ -349,7 +352,7 @@ private void activaExpira() {
                 super(form);
                 setName("segmaxsesion");
                 setMessageHelp("Después de n-horas expira la sesión. En blanco no se tendrá en cuenta");
-                setTitle("Despues de n-horas expira la sesion");
+                setTitle("Cerrar automáticamente transcurridas n-horas");
                 setType(INTEGER);
                 setMaskInput("##");
                 setMin(0);
@@ -372,7 +375,7 @@ private void activaExpira() {
                 super(form);
                 setName("segsesinactiva");
                 setMessageHelp("Después de n-minutos de inactividad expira la sesión. En blanco no se tendrá en cuenta");
-                setTitle("Después de n-minutos de inactividad expira la sesión");
+                setTitle("Cerrar después de n-minutos de inactividad");
                 setType(INTEGER);
                 setMaskInput("####");
                 setMin(0);
@@ -384,6 +387,50 @@ private void activaExpira() {
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            }
+            
+        public class FSetF1 extends Fieldset
+            {
+            public FSetF1(Form form)
+                {
+                super(form);
+                setTitulo("Contraseña");
+                addControl(choblig);
+                addControl(chletras);
+                addControl(chcarespecial);
+                addControl(chreutilizable);
+                addControl(segintento);
+                getWebProperties().setAnchoColumnas (6);
+                getWebProperties().setSizeSeparacionR (0);
+                }
+            }
+            
+        public class FSetF1b extends Fieldset
+            {
+            public FSetF1b(Form form)
+                {
+                super(form);
+                addControl(seglongminima);
+                addControl(chnumeros);
+                addControl(segcontrexpira);
+                addControl(seghistorico);
+                addControl(chresetprimer);
+                getWebProperties().setSizeSeparacionL (0);
+                getWebProperties().setAnchoColumnas (6);
+                getWebProperties().setSizeLineaSup (43);
+                }
+            }
+            
+        public class FSetF2 extends Fieldset
+            {
+            public FSetF2(Form form)
+                {
+                super(form);
+                setTitulo("Sesiones");
+                addControl(chsimultaneo);
+                addControl(segmaxsesion);
+                addControl(segsesinactiva);
+                }
             }
             
         public FormVseguridad(ProgUsseguridad usseguridad)
@@ -411,6 +458,9 @@ private void activaExpira() {
             addControl(chsimultaneo=new CtrlChsimultaneo(this));
             addControl(segmaxsesion=new CtrlSegmaxsesion(this));
             addControl(segsesinactiva=new CtrlSegsesinactiva(this));
+            addFieldset(f1=new FSetF1(this));
+            addFieldset(f1b=new FSetF1b(this));
+            addFieldset(f2=new FSetF2(this));
             setSelect(sseguridad);
             }
         // GET: VENTANA
