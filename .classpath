@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path=""/>
-	<classpathentry kind="lib" path="zipc1.7/microfcagp7190603.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jeaproperties7.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jasperagp7171201.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/exptraspasos_7_030279.zip"/>
@@ -30,5 +29,6 @@
 	<classpathentry kind="lib" path="zipc1.7/audt180101.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/json161201.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jconta7_190612.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/microfcagp7190702.zip"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
