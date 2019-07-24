@@ -3923,7 +3923,7 @@ public class ConversionJCO extends ConversionLC {
 								if (fp==2 || fp==3) {
 									if (banco!=null && banco.trim().length()>0 && Util.isNumero(banco)) {
 										i303.valor("m300ibanpaisi","ES");
-										i303.valor("m300ibandci",mae.modasp.general.Modasp.getDCIBAN(banco+sucursal+digito+cuenta));
+										if ((banco+sucursal+digito+cuenta).length()==20) i303.valor("m300ibandci",mae.modasp.general.Modasp.getDCIBAN(banco+sucursal+digito+cuenta));
 									}
 									i303.valor("m300entingreso",banco);
 									i303.valor("m300ofiingreso",sucursal);
@@ -3935,7 +3935,7 @@ public class ConversionJCO extends ConversionLC {
 							else if (s303.getdouble("adevolver")!=0) {
 								if (banco!=null && banco.trim().length()>0 && Util.isNumero(banco)) {
 									i303.valor("m300ibanpaisi","ES");
-									i303.valor("m300ibandci",mae.modasp.general.Modasp.getDCIBAN(banco+sucursal+digito+cuenta));
+									if ((banco+sucursal+digito+cuenta).length()==20) i303.valor("m300ibandci",mae.modasp.general.Modasp.getDCIBAN(banco+sucursal+digito+cuenta));
 								}
 								i303.valor("m300entingreso",banco);
 								i303.valor("m300ofiingreso",sucursal);
