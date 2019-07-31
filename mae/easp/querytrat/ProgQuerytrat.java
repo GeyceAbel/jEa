@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Jul 30 12:59:33 CEST 2019
+// Fecha y hora:     Wed Jul 31 08:45:10 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -1096,7 +1096,7 @@ public void onInsert() {
                 setTitle("Orden");
                 setType(INTEGER);
                 setProtect(true);
-                setLength(10);
+                setLength(5);
                 setPrintable(false);
                 setField(stablas.qetorden);
                 // SET: CONTROLEDIT
@@ -1153,9 +1153,19 @@ public void onInsert() {
             {
             // GLOBALES: CONTROLEDIT
             // Metodos
+            class Look extends LookComponent
+                {
+                public Look( )
+                    {
+                    super();
+                    setLength(12);
+                    }
+                }
+                
             public CtrlQetbbdd(Form form)
                 {
                 super(form);
+                setLook(new Look());
                 setName("qetbbdd");
                 setTitle("Catálogo");
                 setType(STRING);
@@ -1173,9 +1183,19 @@ public void onInsert() {
             {
             // GLOBALES: CONTROLEDIT
             // Metodos
+            class Look extends LookComponent
+                {
+                public Look( )
+                    {
+                    super();
+                    setLength(4);
+                    }
+                }
+                
             public CtrlQetrelacion(Form form)
                 {
                 super(form);
+                setLook(new Look());
                 setName("qetrelacion");
                 setMessageHelp("Tipo de Relación");
                 setTitle("T.Rel");
@@ -1512,9 +1532,19 @@ void recargaCampos(String tabla) {
             {
             // GLOBALES: CONTROLEDIT
             // Metodos
+            class Look extends LookComponent
+                {
+                public Look( )
+                    {
+                    super();
+                    setLength(40);
+                    }
+                }
+                
             public CtrlQectitulo(Form form)
                 {
                 super(form);
+                setLook(new Look());
                 setName("qectitulo");
                 setTitle("Título");
                 setType(STRING);
@@ -1535,10 +1565,11 @@ void recargaCampos(String tabla) {
                 {
                 super(form);
                 setName("qecorderby");
-                setTitle("Ordenación");
+                setTitle("O.");
                 setType(STRING);
                 setLength(1);
                 setPrintable(false);
+                setDescriptionShow(false);
                 addItem("A/Ascendente");
                 addItem("D/Descendiente");
                 setField(scolumnas.qecorderby);
@@ -3711,7 +3742,9 @@ public void deleteFitxerPlantilla() throws Exception{
         vfrase.onInitFieldset();
 splantillas.setDb(Easp.connEA);
         splantillas2.setDb(Easp.connEA);
-        super.onInit();
+        
+vtablas.getControlTable().setJBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 2, DefaultScaledTheme.CTABLE_GRID));
+super.onInit();
         }
     }
     
