@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Jul 26 12:20:11 CEST 2019
+// Fecha y hora:     Fri Aug 02 10:46:46 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -2095,7 +2095,8 @@ if ("CON".equals(aplicacion))
           vnifes.setLayout(new LayoutHtml("mae/easp/html/datosafiliacionprodp.html"));
         //else
         //  vnifes.setLayout(new LayoutHtml("mae/easp/html/datosafiliacionprocdp.html"));
-        super.onInit();
+        esAndorra = "JCONTA-AND".equals(Aplication.getAplication().getConfig("Servicio")) || "S".equals(Aplication.getAplication().getConfig("ANDORRA"));
+super.onInit();
         }
     }
     
