@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Jul 02 08:57:40 CEST 2019
+// Fecha y hora:     Mon Sep 09 09:01:32 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -1798,7 +1798,19 @@ String sentencias16_0[]={
 String sentencias16_1[]={"ALTER TABLE USHISTORICO ADD UHREINTENTO   INTEGER;",
 "DELETE FROM INDEMORA WHERE indejercicio=2019;",
 "INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2019,'01/01/2019','31/12/2019',3.75);"};
- 
+
+String sentencias16_3[]={
+	"CREATE TABLE DICPATRON           "+
+	"	(dcpcodigo  INTEGER NOT NULL, "+
+	"	 dcpempresa INTEGER,         "+
+	"	 dcpcta     VARCHAR(4),      "+
+	"	 dcpscta    VARCHAR(12),     "+
+	"	 dcpctascta VARCHAR(17),     "+
+	"	 dcpcampo   VARCHAR(20),     "+
+	"	 dcpcond    VARCHAR(1),      "+
+	"	 dcpvalor   VARCHAR(100),    "+
+	"	 PRIMARY KEY (dcpcodigo));   "
+};
   int i=0;
   try {
     if (vvveractual.getString().equals("1.1")) {
@@ -4194,6 +4206,23 @@ String sentencias16_1[]={"ALTER TABLE USHISTORICO ADD UHREINTENTO   INTEGER;",
     	   Easp.setVersionBD("bdeasp","16.2");
         Easp.connEA.commit();
         vvveractual.setValue("16.2");
+    }
+
+       if (versio < 16.3) {
+        for (i=0;i<sentencias16_3.length;++i) {
+                try {
+                        Easp.chivato("16.3 Exec : ["+sentencias16_3[i]+"]",1);
+                        Easp.connEA.executeUpdate(sentencias16_3[i]);
+                }
+                catch(Exception e) {
+                        sqlOperation=sentencias16_3[i];
+                        Easp.chivato("16.3 *** Error : ["+sentencias16_3[i]+"]  Error: ["+e+"]",1);
+                        errorMessage=e.getMessage();
+                }
+        }
+        Easp.setVersionBD("bdeasp","16.3");
+        Easp.connEA.commit();
+        vvveractual.setValue("16.3");
     }
 
   }

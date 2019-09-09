@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu May 09 16:24:12 CEST 2019
+// Fecha y hora:     Mon Sep 09 08:56:31 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -116,6 +116,7 @@ public class CatEasp extends Catalog
     public TabCambioeuro tabcambioeuro;
     public TabSeguridad tabseguridad;
     public TabUshistorico tabushistorico;
+    public TabDicpatron tabdicpatron;
     public class TabGycauto extends TableDef
         {
         // campos
@@ -4849,6 +4850,45 @@ public class CatEasp extends Catalog
             }
         }
         
+    public class TabDicpatron extends TableDef
+        {
+        // campos
+        public FieldDef dcpcodigo;
+        public FieldDef dcpempresa;
+        public FieldDef dcpcta;
+        public FieldDef dcpscta;
+        public FieldDef dcpctascta;
+        public FieldDef dcpcampo;
+        public FieldDef dcpcond;
+        public FieldDef dcpvalor;
+        public TabDicpatron(String name)
+            {
+            super(name);
+            dcpcodigo = new FieldDef("dcpcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dcpempresa = new FieldDef("dcpempresa",FieldDef.INTEGER,0);
+            dcpcta = new FieldDef("dcpcta",FieldDef.CHAR,4);
+            dcpscta = new FieldDef("dcpscta",FieldDef.CHAR,12);
+            dcpctascta = new FieldDef("dcpctascta",FieldDef.CHAR,17);
+            dcpcampo = new FieldDef("dcpcampo",FieldDef.CHAR,20);
+            dcpcond = new FieldDef("dcpcond",FieldDef.CHAR,1);
+            dcpvalor = new FieldDef("dcpvalor",FieldDef.CHAR,100);
+            FieldDef array[] = {
+                dcpcodigo,
+                dcpempresa,
+                dcpcta,
+                dcpscta,
+                dcpctascta,
+                dcpcampo,
+                dcpcond,
+                dcpvalor                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dcpcodigo };
+            setPrimaryKeys(arrayf);
+            dcpcodigo.setAutoIncrementable(true);
+            }
+        }
+        
     public CatEasp()
         {
         tabgycauto = new TabGycauto("gycauto");
@@ -4955,6 +4995,7 @@ public class CatEasp extends Catalog
         tabcambioeuro = new TabCambioeuro("cambioeuro");
         tabseguridad = new TabSeguridad("seguridad");
         tabushistorico = new TabUshistorico("ushistorico");
+        tabdicpatron = new TabDicpatron("dicpatron");
         TableDef array[] = {
             tabgycauto,
             tabsetupapl,
@@ -5059,7 +5100,8 @@ public class CatEasp extends Catalog
             tabdiccuentas,
             tabcambioeuro,
             tabseguridad,
-            tabushistorico            
+            tabushistorico,
+            tabdicpatron            
             };
         setTables(array);
         FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
