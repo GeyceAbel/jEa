@@ -2,7 +2,6 @@ package mae.easp.general;
 
 import geyce.maefc.*;
 import mae.general.*;
-import mae.modasp.general.AGPIConnect;
 
 import java.io.File;
 
@@ -250,36 +249,6 @@ public class Mir {
 			return null ;
 		}
 	}
-
-	private boolean enviaFitMIRHTTP(String codCDPAfinity) {
-		boolean bOk = true;
-		try {
-			File f = new File(fichero);  
-			if (f.exists()) {
-				AGPIConnect agpicon = new AGPIConnect();
-				if (agpicon.findRemoteFile(codCDPAfinity+"/PDF", fichero_afinity)) {
-					agpicon.deleteRemoteFile(codCDPAfinity+"/PDF", fichero_afinity);
-				}
-				bOk = agpicon.uploadFile (null , codCDPAfinity,"PDF", fichero_afinity, fichero);
-				if (!bOk) {
-					String sCodiCDP = Easp.dominio.substring(0,6)+Util.formateoNumero("000000",empresa);
-					errorEnvio = sCodiCDP+" error al enviar el fichero.";
-				}
-			}
-			else {
-				bOk = false;
-				errorEnvio = "No se ha encontrado el fichero local a enviar.\n\nFichero: ["+f.getAbsolutePath()+"]";
-			}
-		}
-		catch (Exception exc) {
-			String sCodiCDP = Easp.dominio.substring(0,6)+Util.formateoNumero("000000",empresa);
-			errorEnvio = sCodiCDP+" error desconocido al enviar el fichero.\n"+exc;
-			exc.printStackTrace();
-			return false;
-		}
-		return bOk;
-	}
-
 
 	/*
 	 * OBTE EL NIF a partir del CDP i del camp cdpcdprel (Relacionado con)
