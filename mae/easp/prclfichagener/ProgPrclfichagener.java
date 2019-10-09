@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Jul 16 11:52:40 CEST 2019
+// Fecha y hora:     Wed Oct 09 12:04:51 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -3291,7 +3291,7 @@ public boolean nifYaExiste(String nif){
                 if (yaEstaValidado) 
                   return true;
                 else {
-                  String valido=Easp.esCIF(getString());
+                  String valido=Util.esCIF(getString());
                   if (valido==null)
                     return false;
                   else {
@@ -4096,7 +4096,7 @@ public boolean nifYaExiste(String nif){
                 {
                 if (getNumState()!=DataForm.INSERT || (nifValido!=null && nifValido.equals(getString())))
                   return true;
-                nifValido=Easp.esCIF(getString());
+                nifValido=Util.esCIF(getString());
                 if (nifValido==null)
                   return false;
                 else
@@ -4868,7 +4868,7 @@ public boolean onOk(){
             // EVENT: CONTROLEDIT
             public boolean valid ()
                 {
-                String valido=Easp.esCIF(getString());
+                String valido=Util.esCIF(getString());
                 if (valido==null)
                   return false;
                 else{
