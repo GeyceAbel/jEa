@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path=""/>
-	<classpathentry kind="lib" path="zipc1.7/microfcagp7190708.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jeaproperties7.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/jasperagp7171201.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/jeo_7_191005.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/exptraspasos_7_030279.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/httpclient171202.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jacob0101.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/jasperagp7171201.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jawin0101.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/jconta7_190612.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/jeo_7_191005.zip"/>
+	<classpathentry exported="true" kind="lib" path="zipc1.7/jeoaux_7_191004.zip"/>
+	<classpathentry exported="true" kind="lib" path="zipc1.7/jeoimp_7_191004.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jiss_7_160416.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jissotr_7_160415.zip"/>
+	<classpathentry exported="true" kind="lib" path="zipc1.7/jeosii_7_190902.zip"/>
+	<classpathentry exported="true" kind="lib" path="zipc1.7/jeootr_7_191005.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jrenta_7_160702.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jrentaaux_7_160702.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jsqlconnect.zip"/>
@@ -18,19 +23,14 @@
 	<classpathentry kind="lib" path="zipc1.7/labdat_7_191485.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/laboral_7_191485.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/labtraspasos_7_191393.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/modcontrol_7_160901.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/modelos_7_160901.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/modivaanu_7_160901.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/pdf0202.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/sqljdbc0401.zip"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="zipc1.7/httpclient171202.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/audt180101.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/json161201.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/jconta7_190612.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/jeoaux_7_191004.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/jeoimp_7_191004.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/jeootr_7_191005.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/jeosii_7_190902.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/microfcagp7191002.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/modcontrol7_190320.zip"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

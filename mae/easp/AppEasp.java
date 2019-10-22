@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Jul 16 13:19:56 CEST 2019
+// Fecha y hora:     Tue Oct 22 10:43:25 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -271,7 +271,7 @@ class Barramenu extends MenuBar
             super("&Clientes");
             setName("mclientes");
             // SET: MENU
-            setIcono ("mae/easp/images/building.png");
+            setIcono ("mae/easp/images/empreses.png");
             add(m1ficha=new M1ficha());
             add(m1bancoscli=new M1bancoscli());
             add(m1repres=new M1repres());
@@ -312,7 +312,7 @@ class Barramenu extends MenuBar
             super("Datos &Generales");
             setName("mdatosgenerales");
             // SET: MENU
-            setIcono ("mae/easp/images/tax.png");
+            setIcono ("mae/easp/images/generales.png");
             add(m1bdscargadas=new M1bdscargadas());
             add(m1paramaplic=new M1paramaplic());
             }
@@ -423,7 +423,7 @@ class Barramenu extends MenuBar
             super("&Usuarios y permisos");
             setName("musuarios");
             // SET: MENU
-            setIcono ("mae/easp/images/group.png");
+            setIcono ("mae/easp/images/usuarios.png");
             add(mseguridad=new Mseguridad());
             add(musers=new Musers());
             add(mgrupos=new Mgrupos());
@@ -543,7 +543,7 @@ class Barramenu extends MenuBar
             super("&LOPD");
             setName("mlopd");
             // SET: MENU
-            setIcono ("mae/easp/images/quality.png");
+            setIcono ("mae/easp/images/listar.png");
             add(m1lopdacc=new M1lopdacc());
             add(m1lopdocopias=new M1lopdocopias());
             add(m1lopdinciden=new M1lopdinciden());
