@@ -4,6 +4,7 @@
 	<classpathentry kind="lib" path="zipc1.7/microfcagp7190708.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jeaproperties7.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jasperagp7171201.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/jeo_7_191005.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/exptraspasos_7_030279.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jacob0101.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jawin0101.zip"/>
@@ -27,5 +28,9 @@
 	<classpathentry kind="lib" path="zipc1.7/audt180101.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/json161201.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jconta7_190612.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/jeoaux_7_191004.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/jeoimp_7_191004.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/jeootr_7_191005.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/jeosii_7_190902.zip"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
