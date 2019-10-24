@@ -74,7 +74,9 @@ public class Azure {
 	}
 
 	private String getUrlAzure () {
-		String urlaz = PROTOCOL + getRealHost() + SITE + funcion +".cshtml?dominiojToken="+Easp.dominio;
+		String dominiotmp = Easp.dominio;
+		if (dominiotmp == null) dominiotmp = Aplication.getAplication().getParameter("Dominio");
+		String urlaz = PROTOCOL + getRealHost() + SITE + funcion +".cshtml?dominiojToken="+dominiotmp;
 		if (lparametros != null && lparametros.size()>0) urlaz +="&"+URLEncodedUtils.format(lparametros, "utf-8");
 		System.out.println("URLAZURE ["+urlaz+"]");
 		return urlaz;
