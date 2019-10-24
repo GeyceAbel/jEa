@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 27 21:53:55 CET 2019
+// Fecha y hora:     Thu Oct 24 09:18:23 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -250,7 +250,7 @@ else {
      pr.conDB = getDataBase();
      pr.vpassword.vvcontraactual.setValue(susuarios.uspasswd.getString());
      pr.run();*/
-     mae.general.NewPassword.showNewPass(Aplication.getAplication(),  "mae/easp/html/jea48.png",Easp.usuario,Easp.isPassMD5(),getDataBase(),true);
+     mae.general.NewPassword.showNewPass(Aplication.getAplication(),  "mae/easp/html/jea48.png",uslogin.getString(),Easp.isPassMD5(),getDataBase(),true);
      int i=vusuarios.getCurrentRow();
      doShow();
      vusuarios.setCurrentRow(i);
