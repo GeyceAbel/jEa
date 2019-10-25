@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Sep 09 08:56:31 CEST 2019
+// Fecha y hora:     Wed Oct 16 16:28:03 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -4432,6 +4432,15 @@ public class CatEasp extends Catalog
         public FieldDef pcihobser;
         public FieldDef pcihlog;
         public FieldDef pcihcodini;
+        public FieldDef pcihfradoc;
+        public FieldDef pcihfrafecha;
+        public FieldDef pcihfratotal;
+        public FieldDef pcihfrabase;
+        public FieldDef pcihfracuota;
+        public FieldDef pcihfraporc;
+        public FieldDef pcihnifprov;
+        public FieldDef pcihnomprov;
+        public FieldDef pcihcausabaja;
         public TabPcinmovhis(String name)
             {
             super(name);
@@ -4464,6 +4473,15 @@ public class CatEasp extends Catalog
             pcihobser = new FieldDef("pcihobser",FieldDef.CHAR,2000);
             pcihlog = new FieldDef("pcihlog",FieldDef.INTEGER,0);
             pcihcodini = new FieldDef("pcihcodini",FieldDef.INTEGER,0);
+            pcihfradoc = new FieldDef("pcihfradoc",FieldDef.CHAR,60);
+            pcihfrafecha = new FieldDef("pcihfrafecha",FieldDef.DATE);
+            pcihfratotal = new FieldDef("pcihfratotal",FieldDef.FLOAT,0,2);
+            pcihfrabase = new FieldDef("pcihfrabase",FieldDef.FLOAT,0,2);
+            pcihfracuota = new FieldDef("pcihfracuota",FieldDef.FLOAT,0,2);
+            pcihfraporc = new FieldDef("pcihfraporc",FieldDef.FLOAT,0,2);
+            pcihnifprov = new FieldDef("pcihnifprov",FieldDef.CHAR,15);
+            pcihnomprov = new FieldDef("pcihnomprov",FieldDef.CHAR,200);
+            pcihcausabaja = new FieldDef("pcihcausabaja",FieldDef.CHAR,200);
             FieldDef array[] = {
                 pcihelemento,
                 pcihempresa,
@@ -4493,7 +4511,16 @@ public class CatEasp extends Catalog
                 pcihnuevousado,
                 pcihobser,
                 pcihlog,
-                pcihcodini                
+                pcihcodini,
+                pcihfradoc,
+                pcihfrafecha,
+                pcihfratotal,
+                pcihfrabase,
+                pcihfracuota,
+                pcihfraporc,
+                pcihnifprov,
+                pcihnomprov,
+                pcihcausabaja                
                 };
             setColumns(array);
             FieldDef arrayf[] = {pcihelemento };
@@ -4574,6 +4601,15 @@ public class CatEasp extends Catalog
         public FieldDef pcinuevousado;
         public FieldDef pciobser;
         public FieldDef pcicodini;
+        public FieldDef pcifradoc;
+        public FieldDef pcifrafecha;
+        public FieldDef pcifratotal;
+        public FieldDef pcifrabase;
+        public FieldDef pcifracuota;
+        public FieldDef pcifraporc;
+        public FieldDef pcinifprov;
+        public FieldDef pcinomprov;
+        public FieldDef pcicausabaja;
         public TabPcinmov(String name)
             {
             super(name);
@@ -4605,6 +4641,15 @@ public class CatEasp extends Catalog
             pcinuevousado = new FieldDef("pcinuevousado",FieldDef.CHAR,3,FieldDef.NOTNULL);
             pciobser = new FieldDef("pciobser",FieldDef.CHAR,2000);
             pcicodini = new FieldDef("pcicodini",FieldDef.INTEGER,0);
+            pcifradoc = new FieldDef("pcifradoc",FieldDef.CHAR,60);
+            pcifrafecha = new FieldDef("pcifrafecha",FieldDef.DATE);
+            pcifratotal = new FieldDef("pcifratotal",FieldDef.FLOAT,0,2);
+            pcifrabase = new FieldDef("pcifrabase",FieldDef.FLOAT,0,2);
+            pcifracuota = new FieldDef("pcifracuota",FieldDef.FLOAT,0,2);
+            pcifraporc = new FieldDef("pcifraporc",FieldDef.FLOAT,0,2);
+            pcinifprov = new FieldDef("pcinifprov",FieldDef.CHAR,15);
+            pcinomprov = new FieldDef("pcinomprov",FieldDef.CHAR,200);
+            pcicausabaja = new FieldDef("pcicausabaja",FieldDef.CHAR,200);
             FieldDef array[] = {
                 pcielemento,
                 pciempresa,
@@ -4633,7 +4678,16 @@ public class CatEasp extends Catalog
                 pcinoamort,
                 pcinuevousado,
                 pciobser,
-                pcicodini                
+                pcicodini,
+                pcifradoc,
+                pcifrafecha,
+                pcifratotal,
+                pcifrabase,
+                pcifracuota,
+                pcifraporc,
+                pcinifprov,
+                pcinomprov,
+                pcicausabaja                
                 };
             setColumns(array);
             FieldDef arrayf[] = {pcielemento };

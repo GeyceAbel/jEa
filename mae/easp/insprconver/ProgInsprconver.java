@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Sep 09 09:01:32 CEST 2019
+// Fecha y hora:     Wed Oct 16 16:03:13 CEST 2019
 // 
 // Aplicación: easp
 // 
@@ -1810,6 +1810,27 @@ String sentencias16_3[]={
 	"	 dcpcond    VARCHAR(1),      "+
 	"	 dcpvalor   VARCHAR(100),    "+
 	"	 PRIMARY KEY (dcpcodigo));   "
+};
+
+String sentencias16_4[]={
+	"ALTER TABLE PCINMOV ADD pcifradoc VARCHAR(60)",
+	"ALTER TABLE PCINMOV ADD pcifrafecha "+formatoData(), 
+	"ALTER TABLE PCINMOV ADD pcifratotal FLOAT",
+	"ALTER TABLE PCINMOV ADD pcifrabase FLOAT",
+	"ALTER TABLE PCINMOV ADD pcifracuota FLOAT",
+	"ALTER TABLE PCINMOV ADD pcifraporc FLOAT",
+	"ALTER TABLE PCINMOV ADD pcinifprov CHAR(15)",
+	"ALTER TABLE PCINMOV ADD pcinomprov VARCHAR(200)",
+	"ALTER TABLE PCINMOV ADD pcicausabaja VARCHAR(200)",
+	"ALTER TABLE PCINMOVHIS ADD pcihfradoc VARCHAR(60)",
+	"ALTER TABLE PCINMOVHIS ADD pcihfrafecha "+formatoData(), 
+	"ALTER TABLE PCINMOVHIS ADD pcihfratotal FLOAT",
+	"ALTER TABLE PCINMOVHIS ADD pcihfrabase FLOAT",
+	"ALTER TABLE PCINMOVHIS ADD pcihfracuota FLOAT",
+	"ALTER TABLE PCINMOVHIS ADD pcihfraporc FLOAT",
+	"ALTER TABLE PCINMOVHIS ADD pcihnifprov CHAR(15)",
+	"ALTER TABLE PCINMOVHIS ADD pcihnomprov VARCHAR(200)",
+	"ALTER TABLE PCINMOVHIS ADD pcihcausabaja VARCHAR(200)"
 };
   int i=0;
   try {
@@ -4223,6 +4244,23 @@ String sentencias16_3[]={
         Easp.setVersionBD("bdeasp","16.3");
         Easp.connEA.commit();
         vvveractual.setValue("16.3");
+    }
+
+    if (versio < 16.4) {
+        for (i=0;i<sentencias16_4.length;++i) {
+                try {
+                        Easp.chivato("16.4 Exec : ["+sentencias16_4[i]+"]",1);
+                        Easp.connEA.executeUpdate(sentencias16_4[i]);
+                }
+                catch(Exception e) {
+                        sqlOperation=sentencias16_4[i];
+                        Easp.chivato("16.4 *** Error : ["+sentencias16_4[i]+"]  Error: ["+e+"]",1);
+                        errorMessage=e.getMessage();
+                }
+        }
+        Easp.setVersionBD("bdeasp","16.4");
+        Easp.connEA.commit();
+        vvveractual.setValue("16.4");
     }
 
   }
