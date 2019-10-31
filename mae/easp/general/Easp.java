@@ -471,7 +471,6 @@ public class Easp {
       if ( licencias > 0 &&  sesiones >= licencias ) superaLicencias = true  ;
 
       ssesiones.addNew();
-      ssesiones.setForzarConexionGycauto(true);
       fdsesmachine    .setValue(nomPC);
       fdsesusuario    .setValue(usuario);
       fdsesfecha      .setValue(fechaGrabacio);
@@ -551,7 +550,6 @@ public class Easp {
 
 
       simpuser.addNew();
-      simpuser.setForzarConexionGycauto(true);
       fdimumachine    .setValue(nomPC);
       fdimuusuario    .setValue(usuario);
       fdimufecha      .setValue(Maefc.getDate());

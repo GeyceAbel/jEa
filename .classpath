@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="zipc1.7/microfcagp7191102.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/audt180101.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/httpclient171202.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jacob0101.zip"/>
@@ -11,7 +12,6 @@
 	<classpathentry kind="lib" path="zipc1.7/json161201.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jsqlconnect.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jtds1_7160701.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/microfcagp7191002.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/pdf0202.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/sqljdbc0401.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/exptraspasos_7_030279.zip"/>
