@@ -1484,7 +1484,7 @@ public static Date esFecha (String s){
              if ("S".equals(apliLaboral)) texte=texte+"Recuerde que jNómina utiliza el de afiliación"+"\n"+"¿Desea que se actualice? ";
              else texte=texte+"¿Desea que se actualice? ";
              // retorn==1 No retorn==2 Si
-             int retorn = Easp.messageConNuevosBotones(texte,"Datos afiliación",Maefc.INFORMATION_MESSAGE,opcions);
+             int retorn = Maefc.messageConNuevosBotones(texte,"Datos afiliación",Maefc.INFORMATION_MESSAGE,opcions);
              if (retorn==1) bOk2=false;
           }
           if(bOk2)  bOk = u.execute("danifcif='"+nif+"'");
@@ -2620,89 +2620,6 @@ public static Date esFecha (String s){
       }
       return ret;
   }
-
-//Funció que monta finestra del message de MAEFC pero s'ha canviat per dir-li els botons que s'ha de mostrar
-//i es passa com a opcion
-public static int messageConNuevosBotones(String message, String titol, int icono, String  [] opcions)
- {
-   java.awt.Component frame = geyce.maefc.swing.WSystemView.getTopComponent();
-   if (frame != null)
-   {
-     javax.swing.JOptionPane meu = new javax.swing.JOptionPane();
-     meu.setMessage(message);
-     meu.setMessageType(icono);
-     meu.setOptions(opcions);
-     javax.swing.JDialog dlg = meu.createDialog(frame, titol);
-
-     dlg.addWindowListener(new java.awt.event.WindowAdapter()
-     {
-       public void windowOpened(java.awt.event.WindowEvent e)
-       {
-         final javax.swing.JDialog d = (javax.swing.JDialog) e.getSource();
-
-         javax.swing.JRootPane root = javax.swing.SwingUtilities.getRootPane(d);
-         if (root != null)
-         {
-           javax.swing.AbstractAction nextControl = new javax.swing.AbstractAction()
-           {
-             public void actionPerformed(java.awt.event.ActionEvent event)
-             {
-               java.awt.Component c = d.getFocusOwner();
-               geyce.maefc.swing.WView.nextControl(c);
-             }
-           };
-           javax.swing.AbstractAction prevControl = new javax.swing.AbstractAction()
-           {
-             public void actionPerformed(java.awt.event.ActionEvent event)
-             {
-               java.awt.Component c = d.getFocusOwner();
-               geyce.maefc.swing.WView.previousControl(c);
-             }
-           };
-           javax.swing.AbstractAction enter = new javax.swing.AbstractAction()
-           {
-             public void actionPerformed(java.awt.event.ActionEvent event)
-             {
-               java.awt.Component c = d.getFocusOwner();
-               if (c instanceof javax.swing.JButton)
-               {
-                 ((javax.swing.JButton) c).doClick();
-               }
-             }
-           };
-
-           root.registerKeyboardAction(nextControl, javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_RIGHT, 0), javax.swing.JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-           root.registerKeyboardAction(prevControl, javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_LEFT, 0), javax.swing.JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-           root.registerKeyboardAction(enter, javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ENTER, 0), javax.swing.JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-           root.setDefaultButton(null);
-         }
-       }
-     });
-
-     dlg.setVisible(true);
-     dlg.dispose();
-     Object selectedValue = meu.getValue();
-
-     if (selectedValue == null)
-       return javax.swing.JOptionPane.CLOSED_OPTION;
-     int opcioSeleccionada = 0;
-     for (int i=0;i<opcions.length;i++) {
-       if (opcions[i].toString().equals(selectedValue.toString()))
-         opcioSeleccionada = i+1;
-     }
-     if (opcioSeleccionada!=0)
-       return opcioSeleccionada;
-     else
-       return javax.swing.JOptionPane.CLOSED_OPTION;
-   }
-   else
-   {
-     System.out.println(titol + ": " + message);
-     return javax.swing.JOptionPane.OK_OPTION;
-   }
-
- }
- //------------------
 
 public static void asignaResolucioInicial() {
    java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
