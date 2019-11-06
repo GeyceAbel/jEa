@@ -3815,6 +3815,7 @@ public boolean filtraXML(String texte) {
         {
         squery.setDb(Aplication.getAplication().getDataBase());
         sprueba.setDb(Aplication.getAplication().getDataBase());
+        squecolumn.setDb(Aplication.getAplication().getDataBase());
         splantillas.setDb(Easp.connEA);
         
         if (aplicacion.equals("JEO")) nomDirec="jEo";

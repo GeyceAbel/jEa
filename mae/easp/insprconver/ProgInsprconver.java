@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Oct 16 16:03:13 CEST 2019
+// Fecha y hora:     Wed Nov 06 12:43:40 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -1831,6 +1831,19 @@ String sentencias16_4[]={
 	"ALTER TABLE PCINMOVHIS ADD pcihnifprov CHAR(15)",
 	"ALTER TABLE PCINMOVHIS ADD pcihnomprov VARCHAR(200)",
 	"ALTER TABLE PCINMOVHIS ADD pcihcausabaja VARCHAR(200)"
+};
+
+String sentencias16_5[]={
+	"ALTER TABLE PCINMOV ADD pciproyecto CHAR(5)",
+	"ALTER TABLE PCINMOV ADD pcideparta CHAR(5)",
+	"ALTER TABLE PCINMOV ADD pcianyosreg INTEGER",
+	"ALTER TABLE PCINMOV ADD pcidivisor INTEGER",
+	"ALTER TABLE PCINMOV ADD pcicoefdefi FLOAT",
+	"ALTER TABLE PCINMOVHIS ADD pcihproyecto CHAR(5)",
+	"ALTER TABLE PCINMOVHIS ADD pcihdeparta CHAR(5)",
+	"ALTER TABLE PCINMOVHIS ADD pcihanyosreg INTEGER",
+	"ALTER TABLE PCINMOVHIS ADD pcihdivisor INTEGER",
+	"ALTER TABLE PCINMOVHIS ADD pcihcoefdefi FLOAT",
 };
   int i=0;
   try {
@@ -4246,7 +4259,7 @@ String sentencias16_4[]={
         vvveractual.setValue("16.3");
     }
 
-    if (versio < 16.4) {
+	if (versio < 16.4) {
         for (i=0;i<sentencias16_4.length;++i) {
                 try {
                         Easp.chivato("16.4 Exec : ["+sentencias16_4[i]+"]",1);
@@ -4261,6 +4274,23 @@ String sentencias16_4[]={
         Easp.setVersionBD("bdeasp","16.4");
         Easp.connEA.commit();
         vvveractual.setValue("16.4");
+    }
+
+    if (versio < 16.5) {
+    	for (i=0;i<sentencias16_5.length;++i) {
+    		try {
+    			Easp.chivato("16.5 Exec : ["+sentencias16_5[i]+"]",1);
+    			Easp.connEA.executeUpdate(sentencias16_5[i]);
+    		}
+    		catch(Exception e) {
+    			sqlOperation=sentencias16_5[i];
+    			Easp.chivato("16.5 *** Error : ["+sentencias16_5[i]+"]  Error: ["+e+"]",1);
+    			errorMessage=e.getMessage();
+    		}
+    	}
+    	Easp.setVersionBD("bdeasp","16.5");
+    	Easp.connEA.commit();
+    	vvveractual.setValue("16.5");
     }
 
   }
