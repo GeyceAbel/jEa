@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Oct 15 18:13:26 CEST 2019
+// Fecha y hora:     Wed Nov 27 13:16:08 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -67,7 +67,7 @@ public class ProgInsindices extends Program
       }
     }
   else if ( vindices.vvaplicacion.getString().equals("JRENTA") ) {
-          Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()),user,"M","INSINDICES","Reconstruccion de Indices BD JEO Ver1.0", Easp.dominio, "");
+          Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()),user,"M","INSINDICES","Reconstruccion de Indices BD JRENTA Ver1.0", Easp.dominio, "");
           DBConnection connJRenta = Easp.getConnexio("jrenta", Easp.connEA);
           if ( connJRenta != null ) {
              if ( execSentencias(connJRenta,indicesReconstruirSQL_jRenta) ) {
@@ -77,9 +77,18 @@ public class ProgInsindices extends Program
              connJRenta.disconnect();
           }
         }
-
+  else if ( vindices.vvaplicacion.getString().equals("JSOCIEDADES") ) {
+          Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()),user,"M","INSINDICES","Reconstruccion de Indices BD JSOCIEDADES Ver1.0", Easp.dominio, "");
+          DBConnection connJIss = Easp.getConnexio("jiss", Easp.connEA);
+          if ( connJIss != null ) {
+             if ( execSentencias(connJIss,indicesReconstruirSQL_jIss) ) {
+                Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
+             }
+             else Maefc.message("El proceso ha finalizado \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
+             connJIss.disconnect();
+          }
+  }
 }
-
 
 public void crear () {
   String user = Aplication.getAplication().getUser() ;
@@ -136,6 +145,18 @@ public void crear () {
         connJRenta.disconnect();
       }
     }
+    else  if ( vindices.vvaplicacion.getString().equals("JSOCIEDADES") ) {
+      Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()), user, "A", "INSINDICES", "Creación de Indices  BD JSOCIEDADES Ver1.0 ", Easp.dominio, "");
+      DBConnection connJIss = Easp.getConnexio("jiss", Easp.connEA);
+      if ( connJIss != null ) {
+        if ( execSentencias(connJIss,indicesSQL_jIss) ) {
+          Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
+        }
+        else Maefc.message("El proceso ha finalizado. \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
+        connJIss.disconnect();
+      }
+    }
+
 }
 
 public boolean execSentencias(DBConnection connexion , String vsentencias[]) {
@@ -154,7 +175,27 @@ public boolean execSentencias(DBConnection connexion , String vsentencias[]) {
   }
   return retorn ;
 }
-
+String indicesSQL_jIss[] = {
+	"CREATE INDEX ACTIVIDADES_GYC     ON ACTIVIDADES (actejeraplic, actsociedad)",
+	"CREATE INDEX ERRCOHERENCIA_GYC   ON ERRCOHERENCIA   (ercejeraplic, ercsociedad) INCLUDE (erciden, erctipo, ercapartado, ercprograma, ercactual, ercmensaje, ercrevisado)",
+	"CREATE INDEX CARGOS_GYC          ON CARGOS          (carejeraplic, carsociedad, carrepresentant,carf_poder, carfechafinpode)",
+	"CREATE INDEX CARGOS_GYC2         ON CARGOS          (carejeraplic, carsociedad, caradministrado,carf_poder, carfechafinpode, carvariacargo)",
+	"CREATE INDEX CARGOS_GYC3         ON CARGOS (carejeraplic, carsociedad,carvariacargo)",
+	"CREATE INDEX CTAVAREMPLEADO_GYC  ON CTAVAREMPLEADO (ctlejeraplic, ctlsociedad) INCLUDE (ctlident, ctlcodjnomina, ctlnombre, ctltipocon, ctlalta, ctlbaja, ctljornada, ctlsexo, ctlminusvalido, ctlnif)",
+	"CREATE INDEX DOCFILTRO_GYC       ON DOCFILTRO (dcfref, dcfnom_doc, dcfnom_tabla, dcfaplic)",
+	"CREATE INDEX MENUSOCIEDAD_GYC    ON MENUSOCIEDAD    (msoejeraplic, msogrconsolid) INCLUDE (msoident, msodescripcion, msoparent, msonumero, msoprograma, msocampo, msoejeranter, msoejersig)",
+	"CREATE INDEX PARTDEOTRAS_GYC     ON PARTDEOTRAS (padejeraplic, padsociedad,padporc_partic, padvariacargo)",
+	"CREATE INDEX PARTDEOTRAS_GYC2    ON PARTDEOTRAS (padejeraplic, padsociedad,padvariacargo)",
+	"CREATE INDEX RETENCIONES_GYC     ON RETENCIONES     (retejeraplic, retsociedad,retcod_concep)",
+	"CREATE INDEX SOCIEDADES_GYC      ON SOCIEDADES      (socejeraplic, soccif)",
+	"CREATE INDEX SOCIEDADES_GYC2     ON SOCIEDADES (socejeraplic,soctraspasada) INCLUDE (soccodigo, soccif, socnombre, soccausabaja, soccodigonomina, socgran_emp, socuser, socgrupo, socinactdespat)",
+	"CREATE INDEX SOCIOS_GYC          ON SOCIOS          (sosejeraplic, sossociedad,sosparticip)",
+	"CREATE INDEX SOCIOS_GYC2         ON SOCIOS          (sosejeraplic, sossociedad, sosnif, sostipo_registr,sosfecha_alta, sosfecha_baja)",
+	"CREATE INDEX SOCIOS_GYC3         ON SOCIOS          (sosejeraplic, sossociedad,sosvariacargo)",
+	"CREATE INDEX SOCIOS_GYC4         ON SOCIOS          (sosejeraplic, sossociedad,sosfecha_alta, sosfecha_baja, sostipo_propied)",
+	"CREATE INDEX SOCIOS_GYC5         ON SOCIOS          (sosejeraplic, sossociedad, sostipo_registr,sosvariacargo)",
+	"CREATE INDEX SOCIOS_GYC6         ON SOCIOS          (sosejeraplic, sossociedad, sostipo_registr,sosfecha_alta, sosfecha_baja, sosvariacargo)"};
+	
 String indicesSQL_jEO [] = {
 "CREATE INDEX ID_ACTIVIDADES_2 ON ACTIVIDADES (ACTEJERCICIO,ACTEMPRESA,ACTCODIGO)",
 "CREATE INDEX ID_PCUENTAS_2 ON PCUENTAS (PCUEMPRESA,PCUCUENTA,PCUSUBCUENTA)",
@@ -351,6 +392,27 @@ String indicesSQL_jEO [] = {
 "CREATE INDEX CAMORTIZIRPF_GYC_3 ON CAMORTIZIRPF (cirejercicio,ciramortanual) INCLUDE (cirelemento, circuotaapli)",
 "CREATE INDEX EMPRESA_GYC_3 ON EMPRESA (empnif,empfechabaja)"};
 
+String indicesReconstruirSQL_jIss[] = {
+	"ALTER  INDEX ACTIVIDADES_GYC     ON ACTIVIDADES        REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX ERRCOHERENCIA_GYC   ON ERRCOHERENCIA      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX CARGOS_GYC          ON CARGOS             REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX CARGOS_GYC2         ON CARGOS             REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX CARGOS_GYC3         ON CARGOS             REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX CTAVAREMPLEADO_GYC  ON CTAVAREMPLEADO     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX DOCFILTRO_GYC       ON DOCFILTRO          REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX MENUSOCIEDAD_GYC    ON MENUSOCIEDAD       REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX PARTDEOTRAS_GYC     ON PARTDEOTRAS        REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX PARTDEOTRAS_GYC2    ON PARTDEOTRAS        REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX RETENCIONES_GYC     ON RETENCIONES        REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX SOCIEDADES_GYC      ON SOCIEDADES         REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX SOCIEDADES_GYC2     ON SOCIEDADES         REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX SOCIOS_GYC          ON SOCIOS             REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX SOCIOS_GYC2         ON SOCIOS             REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX SOCIOS_GYC3         ON SOCIOS             REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX SOCIOS_GYC4         ON SOCIOS             REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX SOCIOS_GYC5         ON SOCIOS             REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+	"ALTER  INDEX SOCIOS_GYC6         ON SOCIOS             REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )"};
+	
 String indicesReconstruirSQL_jEO[] = {
  "ALTER INDEX ID_ACTIVIDADES_2 ON ACTIVIDADES      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
 "ALTER INDEX ID_PCUENTAS_2 ON PCUENTAS      		 REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
@@ -923,6 +985,7 @@ public void grabaLopdacc ( boolean isCrear ) {
                 addItem("JMODELOS");
                 addItem("JNOMINA");
                 addItem("JRENTA");
+                addItem("JSOCIEDADES");
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
