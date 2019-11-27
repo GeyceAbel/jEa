@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Nov 06 12:43:40 CET 2019
+// Fecha y hora:     Wed Nov 27 17:34:49 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -1845,6 +1845,8 @@ String sentencias16_5[]={
 	"ALTER TABLE PCINMOVHIS ADD pcihdivisor INTEGER",
 	"ALTER TABLE PCINMOVHIS ADD pcihcoefdefi FLOAT",
 };
+String sentencias16_6[]={"UPDATE MUNI347 SET mu7desc='GÜIMAR'  WHERE mu7codprov=38 AND mu7codmuni=201;"};
+
   int i=0;
   try {
     if (vvveractual.getString().equals("1.1")) {
@@ -4292,7 +4294,22 @@ String sentencias16_5[]={
     	Easp.connEA.commit();
     	vvveractual.setValue("16.5");
     }
-
+    if (versio < 16.6) {
+        for (i=0;i<sentencias16_6.length;++i) {
+                try {
+                        Easp.chivato("16.6 Exec : ["+sentencias16_6[i]+"]",1);
+                        Easp.connEA.executeUpdate(sentencias16_6[i]);
+                }
+                catch(Exception e) {
+                        sqlOperation=sentencias16_6[i];
+                        Easp.chivato("16.6 *** Error : ["+sentencias16_6[i]+"]  Error: ["+e+"]",1);
+                        errorMessage=e.getMessage();
+                }
+        }
+        Easp.setVersionBD("bdeasp","16.6");
+        Easp.connEA.commit();
+        vvveractual.setValue("16.6");
+    }
   }
   catch(Exception e) {
     System.out.println("Error en conversión: ["+e+"]");
