@@ -1847,6 +1847,97 @@ String sentencias16_5[]={
 };
 String sentencias16_6[]={"UPDATE MUNI347 SET mu7desc='GÜIMAR'  WHERE mu7codprov=38 AND mu7codmuni=201;"};
 
+String sentencias16_7[]={
+		"CREATE TABLE PARAMLIS(           "+
+		"	pliasesor INTEGER NOT NULL,         "+
+		"	pliusuario VARCHAR(25) NOT NULL,    "+
+		"	pliprograma VARCHAR(15) NOT NULL,   "+
+		"	pliopcion VARCHAR(2) NOT NULL,      "+
+		"	plicampoa1 VARCHAR(30),        "+
+		"	plicampoa2 VARCHAR(30),        "+
+		"	plicampoa3 VARCHAR(30),        "+
+		"	plicampoa4 VARCHAR(30),        "+
+		"	plicampoa5 VARCHAR(30),        "+
+		"	plicampoa6 VARCHAR(30),        "+
+		"	plicampoa7 VARCHAR(30),        "+
+		"	plicampoa8 VARCHAR(30),        "+
+		"	plicampoa9 VARCHAR(30),        "+
+		"	plicampoa10 VARCHAR(30),       "+
+		"	plicampoa11 VARCHAR(30),       "+
+		"	plicampoa12 VARCHAR(30),       "+
+		"	plicampoa13 VARCHAR(30),       "+
+		"	plicampoa14 VARCHAR(30),       "+
+		"	plicampoa15 VARCHAR(30),       "+
+		"	plicampoa16 VARCHAR(30),       "+
+		"	plicampoa17 VARCHAR(30),       "+
+		"	plicampoa18 VARCHAR(30),       "+
+		"	plicampoa19 VARCHAR(30),       "+
+		"	plicampoa20 VARCHAR(30),       "+
+		"	plicampoi21 INTEGER,           "+
+		"	plicampoi22 INTEGER,           "+
+		"	plicampoi23 INTEGER,           "+
+		"	plicampoi24 INTEGER,           "+
+		"	plicampoi25 INTEGER,           "+
+		"	plicampoi26 INTEGER,           "+
+		"	plicampoi27 INTEGER,           "+
+		"	plicampoi28 INTEGER,           "+
+		"	plicampoi29 INTEGER,           "+
+		"	plicampoi30 INTEGER,           "+
+		"	plicampoi31 INTEGER,           "+
+		"	plicampoi32 INTEGER,           "+
+		"	plicampoi33 INTEGER,           "+
+		"	plicampoi34 INTEGER,           "+
+		"	plicampoi35 INTEGER,           "+
+		"	plicampoi36 INTEGER,           "+
+		"	plicampoi37 INTEGER,           "+
+		"	plicampoi38 INTEGER,           "+
+		"	plicampoi39 INTEGER,           "+
+		"	plicampoi40 INTEGER,           "+
+		"	plicampon41 FLOAT,             "+
+		"	plicampon42 FLOAT,             "+
+		"	plicampon43 FLOAT,             "+
+		"	plicampon44 FLOAT,             "+
+		"	plicampon45 FLOAT,             "+
+		"	plicampon46 FLOAT,             "+
+		"	plicampon47 FLOAT,             "+
+		"	plicampon48 FLOAT,             "+
+		"	plicampon49 FLOAT,             "+
+		"	plicampon50 FLOAT,             "+
+		"	plicampod51 "+formatData()+
+		"	plicampod52 "+formatData()+
+		"	plicampod53 "+formatData()+
+		"	plicampod54 "+formatData()+
+		"	plicampod55 "+formatData()+
+		"	plicampod56 "+formatData()+
+		"	plicampod57 "+formatData()+
+		"	plicampod58 "+formatData()+
+		"	plicampod59 "+formatData()+
+		"	plicampod60 "+formatData()+
+		"	plicampoa61 VARCHAR(100),      "+
+		"	plicampoa62 VARCHAR(100),      "+
+		"	plicampoa63 VARCHAR(100),      "+
+		"	plicampoa64 VARCHAR(100),      "+
+		"	plicampoa65 VARCHAR(100),      "+
+		"	plicampoa66 VARCHAR(100),      "+
+		"	plicampoa67 VARCHAR(100),      "+
+		"	plicampoa68 VARCHAR(100),      "+
+		"	plicampoa69 VARCHAR(100),      "+
+		"	plicampoa70 VARCHAR(100),      "+
+		"	plicampon71 FLOAT,             "+
+		"	plicampon72 FLOAT,             "+
+		"	plicampon73 FLOAT,             "+
+		"	plicampon74 FLOAT,             "+
+		"	plicampon75 FLOAT,             "+
+		"	plicampon76 FLOAT,             "+
+		"	plicampon77 FLOAT,             "+
+		"	plicampon78 FLOAT,             "+
+		"	plicampon79 FLOAT,             "+
+		"	plicampon80 FLOAT,             "+
+		"	plicampoa81 "+ getMemo(2000)+
+		"	plicampoa82 "+ getMemo(2000)+
+		"PRIMARY KEY (pliasesor, pliusuario, pliprograma, pliopcion))"
+};
+
   int i=0;
   try {
     if (vvveractual.getString().equals("1.1")) {
@@ -4309,6 +4400,22 @@ String sentencias16_6[]={"UPDATE MUNI347 SET mu7desc='GÜIMAR'  WHERE mu7codprov=
         Easp.setVersionBD("bdeasp","16.6");
         Easp.connEA.commit();
         vvveractual.setValue("16.6");
+    }
+    if (versio < 16.7) {
+    	for (i=0;i<sentencias16_7.length;++i) {
+    		try {
+    			Easp.chivato("16.7 Exec : ["+sentencias16_7[i]+"]",1);
+    			Easp.connEA.executeUpdate(sentencias16_7[i]);
+    		}
+    		catch(Exception e) {
+    			sqlOperation=sentencias16_7[i];
+    			Easp.chivato("16.7 *** Error : ["+sentencias16_7[i]+"]  Error: ["+e+"]",1);
+    			errorMessage=e.getMessage();
+    		}
+    	}
+    	Easp.setVersionBD("bdeasp","16.7");
+    	Easp.connEA.commit();
+    	vvveractual.setValue("16.7");
     }
   }
   catch(Exception e) {
