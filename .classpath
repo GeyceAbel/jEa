@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="zipc1.7/microfcagp7191102.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/microfcagp7191106.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/audt180101.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/httpclient171202.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jacob0101.zip"/>
