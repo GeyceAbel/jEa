@@ -4446,13 +4446,13 @@ public class ConversionJCO extends ConversionLC {
 		fdorigen.setValue("A");
 		if (fechaImpreso!=null) fdfecha.setValue(fechaImpreso);
 		else fdfecha.setValue(Fecha.fechaFinMes(12, ejercicio));
-		if (banco!=null && Util.isNumero(banco)) fdbanco.setValue(banco);    
+
 		fdestadop.setValue("S");
 		fdestadot.setValue("S");
 		//fdestado.setValue("N");
 		fdtipodecl.setValue(tipoDeclaracion);
 
-		if (banco!=null) {
+		if (banco!=null && Util.isNumero(banco)) {
 			fdbanco.setValue(banco);
 			fdcccpago.setValue(banco + sucursal +digito + cuenta);
 		}
