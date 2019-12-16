@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Nov 27 17:34:49 CET 2019
+// Fecha y hora:     Mon Dec 16 17:37:16 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -1937,6 +1937,12 @@ String sentencias16_7[]={
 		"	plicampoa82 "+ getMemo(2000)+
 		"PRIMARY KEY (pliasesor, pliusuario, pliprograma, pliopcion))"
 };
+
+
+String sentencias16_8[]={"UPDATE MUNI347 SET mu7desc='UBEDA' WHERE mu7codprov=23 AND mu7codmuni=927;"};	
+
+
+
 
   int i=0;
   try {
@@ -4417,6 +4423,23 @@ String sentencias16_7[]={
     	Easp.connEA.commit();
     	vvveractual.setValue("16.7");
     }
+    if (versio < 16.8) {
+        for (i=0;i<sentencias16_8.length;++i) {
+                try {
+                        Easp.chivato("16.8 Exec : ["+sentencias16_8[i]+"]",1);
+                        Easp.connEA.executeUpdate(sentencias16_8[i]);
+                }
+                catch(Exception e) {
+                        sqlOperation=sentencias16_8[i];
+                        Easp.chivato("16.8 *** Error : ["+sentencias16_8[i]+"]  Error: ["+e+"]",1);
+                        errorMessage=e.getMessage();
+                }
+        }
+        Easp.setVersionBD("bdeasp","16.8");
+        Easp.connEA.commit();
+        vvveractual.setValue("16.8");
+    }
+    
   }
   catch(Exception e) {
     System.out.println("Error en conversión: ["+e+"]");
