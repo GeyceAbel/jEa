@@ -107,7 +107,7 @@ public class Seguridad {
   public boolean ctrlReintentos(int codigo, String login) {
       boolean bloqueada = false;
       missatgeError = "";
-      if (ctrlReIntentos()) {
+      if (ctrlReIntentos() && !"ADMIN".equals(login.toUpperCase())) {
     	  int reintentos = 0;
         Selector s = new Selector (connSeguridad);
         s.execute("Select UHREINTENTO from USHISTORICO where uhcodcon="+codigo+" and uhlogin='"+login+"' order by uhfecha desc, uhhora desc");
@@ -196,6 +196,7 @@ public class Seguridad {
   }
   public boolean usuarioRepetido (String aplicacion, String usuario) {
       boolean repetido = false;
+      if ("ADMIN".equals(usuario.toUpperCase()) && "EASP".equals(aplicacion.toUpperCase())) return false;
       missatgeError = "";
       Selector s = new Selector (connSeguridad);
       s.execute("Select * from IMPUSER where imuusuario='"+usuario+"' and imuaplicacion='"+aplicacion+"'");

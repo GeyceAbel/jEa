@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Oct 22 10:43:25 CEST 2019
+// Fecha y hora:     Mon Dec 30 12:56:56 CET 2019
 // 
 // Aplicación: easp
 // 
@@ -328,6 +328,7 @@ class Barramenu extends MenuBar
         public Mpermisoslo mpermisoslo;
         public M1fechas m1fechas;
         public Mdesbloquearses mdesbloquearses;
+        public Mdesbloquser mdesbloquser;
         class Mseguridad extends MenuItemProgram
             {
             public Mseguridad()
@@ -418,6 +419,17 @@ class Barramenu extends MenuBar
                 }
             }
             
+        class Mdesbloquser extends MenuItemProgram
+            {
+            public Mdesbloquser()
+                {
+                super("Desbloquear usuario");
+                setName("mdesbloquser");
+                setProgram("mae.easp.usdeblquser.ProgUsdeblquser");
+                // SET: MENU
+                }
+            }
+            
         public Musuarios()
             {
             super("&Usuarios y permisos");
@@ -432,6 +444,7 @@ class Barramenu extends MenuBar
             add(mpermisoslo=new Mpermisoslo());
             add(m1fechas=new M1fechas());
             add(mdesbloquearses=new Mdesbloquearses());
+            add(mdesbloquser=new Mdesbloquser());
             }
         }
         
