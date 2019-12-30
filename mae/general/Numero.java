@@ -1,14 +1,14 @@
 package mae.general;
 
-import java.util.*;
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
-import geyce.maefc.*;
 
 /** Clase que engloba funciones útiles para números
  * @author GEYCE - Manel Torres
  * @version 1.1, 1/6/2001
  */
 public class Numero {
+	public static boolean NEW_ROUND_METHOD = false;
 
   /** Función para redondear doubles
    *
@@ -16,10 +16,24 @@ public class Numero {
    *
    * @return numero
    */
-
+	
+	//APJORDI 30/12/2019 NO esta provat a casa client.
+	//                   El que esta clar, es que la funcio actual round no formata be el numero 12.345 
+	//                   Hauria de ser a 2 decimals 12.35 i retorna 12.34
+    public static double new_round (double numero, int digitos) {
+		BigDecimal bdn = BigDecimal.valueOf(numero);
+		bdn = bdn.setScale(digitos, BigDecimal.ROUND_HALF_UP);
+		return bdn.doubleValue();
+    }
+    
+    static public double actual_round (double n, int i) {
+		  double pot=Math.pow(10,i);
+		  return Math.floor(((n*pot) + 0.5d))/pot;
+    }
+    
   static public double round(double n, int i) {
-    double pot=Math.pow(10,i);
-    return Math.floor(((n*pot) + 0.5d))/pot;
+	  if (NEW_ROUND_METHOD) return new_round(n, i);
+	  else return actual_round (n,i);
     }
 
   /** Función para redondear doubles con dos decimales
