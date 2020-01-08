@@ -95,4 +95,35 @@ public class Numero {
     DecimalFormat d=new DecimalFormat(masc);
     return Util.lpad(d.format(n),masc.length());
     }
+  static public double val(String a) throws Exception {
+	    try {
+	      if (a==null || a.length()==0)
+	        return 0.0;
+	      else
+	        return Double.valueOf(a).doubleValue();
+	      }
+	    catch(Exception ex) {
+	      System.out.println(a+" no es un numero");
+	      throw ex;
+	      }
+	  }
+static public int valInt(String a) throws Exception {
+	    try {
+	      if (a==null || a.length()==0)
+	        return 0;
+	      else
+	        return Integer.valueOf(a).intValue();
+	      }
+	    catch(Exception ex) {
+	      System.out.println(a+" no es un numero");
+	      throw ex;
+	      }
+	  }
+static public String str(double a) throws Exception {
+    return String.valueOf(a);
+    }
+  static public String str(int a) throws Exception {
+    return String.valueOf(a);
+    }
+
   }
