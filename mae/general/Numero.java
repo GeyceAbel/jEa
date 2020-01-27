@@ -32,8 +32,10 @@ public class Numero {
     }
     
   static public double round(double n, int i) {
-	  if (NEW_ROUND_METHOD) return new_round(n, i);
-	  else return actual_round (n,i);
+	  //APJORDI: Deshabilitamos el new round porque igualmente falla (hay que hacer las multiplicaciones con el bigdecimal)
+	  //if (NEW_ROUND_METHOD) return new_round(n, i);
+	  //else 
+		  return actual_round (n,i);
     }
 
   /** Función para redondear doubles con dos decimales
