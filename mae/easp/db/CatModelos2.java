@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Sep 13 10:03:20 CEST 2019
+// Fecha y hora:     Mon Feb 03 13:34:15 CET 2020
 // 
 // Aplicación: easp
 // 
@@ -366,6 +366,24 @@ public class CatModelos2 extends Catalog
         public FieldDef m184etributos;
         public FieldDef m184eotrosgas;
         public FieldDef m184ecobropago;
+        public FieldDef m184egcanon;
+        public FieldDef m184egconserva;
+        public FieldDef m184egservicio;
+        public FieldDef m184egsuminis;
+        public FieldDef m184egfinan;
+        public FieldDef m184egamortiz;
+        public FieldDef m184egprovis;
+        public FieldDef m184einmrepar;
+        public FieldDef m184einmint;
+        public FieldDef m184einmintan;
+        public FieldDef m184einmtrib;
+        public FieldDef m184einmdudos;
+        public FieldDef m184einmterc;
+        public FieldDef m184einmseg;
+        public FieldDef m184einmamor;
+        public FieldDef m184einmmob;
+        public FieldDef m184einmotro;
+        public FieldDef m184einmdias;
         public TabMod184e(String name)
             {
             super(name);
@@ -408,6 +426,24 @@ public class CatModelos2 extends Catalog
             m184etributos = new FieldDef("m184etributos",FieldDef.FLOAT,6,0);
             m184eotrosgas = new FieldDef("m184eotrosgas",FieldDef.FLOAT,6,0);
             m184ecobropago = new FieldDef("m184ecobropago",FieldDef.CHAR,1);
+            m184egcanon = new FieldDef("m184egcanon",FieldDef.FLOAT,12,0);
+            m184egconserva = new FieldDef("m184egconserva",FieldDef.FLOAT,12,0);
+            m184egservicio = new FieldDef("m184egservicio",FieldDef.FLOAT,12,0);
+            m184egsuminis = new FieldDef("m184egsuminis",FieldDef.FLOAT,12,0);
+            m184egfinan = new FieldDef("m184egfinan",FieldDef.FLOAT,12,0);
+            m184egamortiz = new FieldDef("m184egamortiz",FieldDef.FLOAT,12,0);
+            m184egprovis = new FieldDef("m184egprovis",FieldDef.FLOAT,12,0);
+            m184einmrepar = new FieldDef("m184einmrepar",FieldDef.FLOAT,12,0);
+            m184einmint = new FieldDef("m184einmint",FieldDef.FLOAT,12,0);
+            m184einmintan = new FieldDef("m184einmintan",FieldDef.FLOAT,12,0);
+            m184einmtrib = new FieldDef("m184einmtrib",FieldDef.FLOAT,12,0);
+            m184einmdudos = new FieldDef("m184einmdudos",FieldDef.FLOAT,12,0);
+            m184einmterc = new FieldDef("m184einmterc",FieldDef.FLOAT,12,0);
+            m184einmseg = new FieldDef("m184einmseg",FieldDef.FLOAT,12,0);
+            m184einmamor = new FieldDef("m184einmamor",FieldDef.FLOAT,12,0);
+            m184einmmob = new FieldDef("m184einmmob",FieldDef.FLOAT,12,0);
+            m184einmotro = new FieldDef("m184einmotro",FieldDef.FLOAT,12,0);
+            m184einmdias = new FieldDef("m184einmdias",FieldDef.INTEGER,12);
             FieldDef array[] = {
                 m184eident,
                 m184edominio,
@@ -447,12 +483,48 @@ public class CatModelos2 extends Catalog
                 m184eadqterbs,
                 m184etributos,
                 m184eotrosgas,
-                m184ecobropago                
+                m184ecobropago,
+                m184egcanon,
+                m184egconserva,
+                m184egservicio,
+                m184egsuminis,
+                m184egfinan,
+                m184egamortiz,
+                m184egprovis,
+                m184einmrepar,
+                m184einmint,
+                m184einmintan,
+                m184einmtrib,
+                m184einmdudos,
+                m184einmterc,
+                m184einmseg,
+                m184einmamor,
+                m184einmmob,
+                m184einmotro,
+                m184einmdias                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m184eident };
             setPrimaryKeys(arrayf);
             m184eident.setAutoIncrementable(true);
+            m184egcanon.setDescription("Gastos de arrendamientos y canones");
+            m184egconserva.setDescription("Gastos de reparación y conservación");
+            m184egservicio.setDescription("Gastos de servicios profesionales independientes");
+            m184egsuminis.setDescription("Gastos de suministros");
+            m184egfinan.setDescription("Gastos financierso");
+            m184egamortiz.setDescription("Gastos de amortización");
+            m184egprovis.setDescription("Gastos de provisiones");
+            m184einmrepar.setDescription("Inm.Gastos: Conservacion y reparacion");
+            m184einmint.setDescription("Inm.Gastos: Intereses y demas gastos financiacion Ej.actual");
+            m184einmintan.setDescription("Inm.Gastos: Intereses y demas gastos financiacion ej.anter.pdtes");
+            m184einmtrib.setDescription("Inm.Gastos: Tributos y recargos");
+            m184einmdudos.setDescription("Inm.Gastos: Saldos dudoso cobro");
+            m184einmterc.setDescription("Inm.Gastos: Gastos terceros");
+            m184einmseg.setDescription("Inm.Gastos: Primas de seguros");
+            m184einmamor.setDescription("Inm.Gastos: Amortizacion inmueble");
+            m184einmmob.setDescription("Inm.Gastos: Amortizacion bienes muebles");
+            m184einmotro.setDescription("Inm.Gastos: Otros gastos");
+            m184einmdias.setDescription("Dias");
             }
         }
         
@@ -3951,6 +4023,36 @@ public class CatModelos2 extends Catalog
         public FieldDef m130dretencion;
         public FieldDef m130denlacejeo;
         public FieldDef m130dliqirpf;
+        public FieldDef m130dingreso7;
+        public FieldDef m130dingreso8;
+        public FieldDef m130dingreso9;
+        public FieldDef m130dingreso10;
+        public FieldDef m130dgastos23;
+        public FieldDef m130dgastos24;
+        public FieldDef m130dgastos25;
+        public FieldDef m130dgastos26;
+        public FieldDef m130dgastos27;
+        public FieldDef m130dgastos28;
+        public FieldDef m130dgastos29;
+        public FieldDef m130dgastos30;
+        public FieldDef m130dgastos31;
+        public FieldDef m130dgastos32;
+        public FieldDef m130dgastos33;
+        public FieldDef m130dgastos34;
+        public FieldDef m130dgastos35;
+        public FieldDef m130dgastos36;
+        public FieldDef m130dgastos37;
+        public FieldDef m130dgastos38;
+        public FieldDef m130dgastos39;
+        public FieldDef m130dgastos40;
+        public FieldDef m130dgastos41;
+        public FieldDef m130dgastos42;
+        public FieldDef m130dgastos43;
+        public FieldDef m130dgastos44;
+        public FieldDef m130dgastos45;
+        public FieldDef m130dgastos46;
+        public FieldDef m130dgastos47;
+        public FieldDef m130dgastos48;
         public TabMod130des(String name)
             {
             super(name);
@@ -3992,6 +4094,36 @@ public class CatModelos2 extends Catalog
             m130dretencion = new FieldDef("m130dretencion",FieldDef.FLOAT,6,0);
             m130denlacejeo = new FieldDef("m130denlacejeo",FieldDef.CHAR,12);
             m130dliqirpf = new FieldDef("m130dliqirpf",FieldDef.CHAR,1);
+            m130dingreso7 = new FieldDef("m130dingreso7",FieldDef.FLOAT,12,0);
+            m130dingreso8 = new FieldDef("m130dingreso8",FieldDef.FLOAT,12,0);
+            m130dingreso9 = new FieldDef("m130dingreso9",FieldDef.FLOAT,12,0);
+            m130dingreso10 = new FieldDef("m130dingreso10",FieldDef.FLOAT,12,0);
+            m130dgastos23 = new FieldDef("m130dgastos23",FieldDef.FLOAT,12,0);
+            m130dgastos24 = new FieldDef("m130dgastos24",FieldDef.FLOAT,12,0);
+            m130dgastos25 = new FieldDef("m130dgastos25",FieldDef.FLOAT,12,0);
+            m130dgastos26 = new FieldDef("m130dgastos26",FieldDef.FLOAT,12,0);
+            m130dgastos27 = new FieldDef("m130dgastos27",FieldDef.FLOAT,12,0);
+            m130dgastos28 = new FieldDef("m130dgastos28",FieldDef.FLOAT,12,0);
+            m130dgastos29 = new FieldDef("m130dgastos29",FieldDef.FLOAT,12,0);
+            m130dgastos30 = new FieldDef("m130dgastos30",FieldDef.FLOAT,12,0);
+            m130dgastos31 = new FieldDef("m130dgastos31",FieldDef.FLOAT,12,0);
+            m130dgastos32 = new FieldDef("m130dgastos32",FieldDef.FLOAT,12,0);
+            m130dgastos33 = new FieldDef("m130dgastos33",FieldDef.FLOAT,12,0);
+            m130dgastos34 = new FieldDef("m130dgastos34",FieldDef.FLOAT,12,0);
+            m130dgastos35 = new FieldDef("m130dgastos35",FieldDef.FLOAT,12,0);
+            m130dgastos36 = new FieldDef("m130dgastos36",FieldDef.FLOAT,12,0);
+            m130dgastos37 = new FieldDef("m130dgastos37",FieldDef.FLOAT,12,0);
+            m130dgastos38 = new FieldDef("m130dgastos38",FieldDef.FLOAT,12,0);
+            m130dgastos39 = new FieldDef("m130dgastos39",FieldDef.FLOAT,12,0);
+            m130dgastos40 = new FieldDef("m130dgastos40",FieldDef.FLOAT,12,0);
+            m130dgastos41 = new FieldDef("m130dgastos41",FieldDef.FLOAT,12,0);
+            m130dgastos42 = new FieldDef("m130dgastos42",FieldDef.FLOAT,12,0);
+            m130dgastos43 = new FieldDef("m130dgastos43",FieldDef.FLOAT,12,0);
+            m130dgastos44 = new FieldDef("m130dgastos44",FieldDef.FLOAT,12,0);
+            m130dgastos45 = new FieldDef("m130dgastos45",FieldDef.FLOAT,12,0);
+            m130dgastos46 = new FieldDef("m130dgastos46",FieldDef.FLOAT,12,0);
+            m130dgastos47 = new FieldDef("m130dgastos47",FieldDef.FLOAT,12,0);
+            m130dgastos48 = new FieldDef("m130dgastos48",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 m130dnif,
                 m130dejercicio,
@@ -4030,7 +4162,37 @@ public class CatModelos2 extends Catalog
                 m130dgastos22,
                 m130dretencion,
                 m130denlacejeo,
-                m130dliqirpf                
+                m130dliqirpf,
+                m130dingreso7,
+                m130dingreso8,
+                m130dingreso9,
+                m130dingreso10,
+                m130dgastos23,
+                m130dgastos24,
+                m130dgastos25,
+                m130dgastos26,
+                m130dgastos27,
+                m130dgastos28,
+                m130dgastos29,
+                m130dgastos30,
+                m130dgastos31,
+                m130dgastos32,
+                m130dgastos33,
+                m130dgastos34,
+                m130dgastos35,
+                m130dgastos36,
+                m130dgastos37,
+                m130dgastos38,
+                m130dgastos39,
+                m130dgastos40,
+                m130dgastos41,
+                m130dgastos42,
+                m130dgastos43,
+                m130dgastos44,
+                m130dgastos45,
+                m130dgastos46,
+                m130dgastos47,
+                m130dgastos48                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m130dnif,m130dejercicio,m130dactividad,m130dperiodo };
