@@ -1310,7 +1310,7 @@ public class ConversionJCO extends ConversionLC {
 		String [] tmp = null;
 		boolean esAlfa = "A".equals(tipoCta);
 		boolean esNumerico = !esAlfa;
-		if ("100977000000".equals(dominio)) {
+		if ("100977000000".equals(dominio) || "101053000000".equals(dominio)) {
 			if (cta!=null && cta.length()>=4) {
 				tmp = new String [2];
 				if (cta.length() == 4) {
