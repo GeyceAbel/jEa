@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Feb 03 13:34:29 CET 2020
+// Fecha y hora:     Mon Mar 09 09:17:33 CET 2020
 // 
 // Aplicación: easp
 // 
@@ -23,6 +23,7 @@ public class CatModelo714 extends Catalog
     public TabMod714h10 tabmod714h10;
     public TabMod714h11 tabmod714h11;
     public TabMod714h1 tabmod714h1;
+    public TabMod714h3a tabmod714h3a;
     public class TabMod714h2 extends TableDef
         {
         // campos
@@ -250,6 +251,28 @@ public class CatModelo714 extends Catalog
         public FieldDef m7bvaluti8;
         public FieldDef m7bvaluti9;
         public FieldDef m7bvaluti10;
+        public FieldDef m721porcen1;
+        public FieldDef m721porcen2;
+        public FieldDef m721porcen3;
+        public FieldDef m721porcen4;
+        public FieldDef m722porcen1;
+        public FieldDef m722porcen2;
+        public FieldDef m722porcen3;
+        public FieldDef m722porcen4;
+        public FieldDef m722porcen5;
+        public FieldDef m722porcen6;
+        public FieldDef m722porcen7;
+        public FieldDef m722porcen8;
+        public FieldDef m7bporcen1;
+        public FieldDef m7bporcen2;
+        public FieldDef m7bporcen3;
+        public FieldDef m7bporcen4;
+        public FieldDef m7bporcen5;
+        public FieldDef m7bporcen6;
+        public FieldDef m7bporcen7;
+        public FieldDef m7bporcen8;
+        public FieldDef m7bporcen9;
+        public FieldDef m7bporcen10;
         public TabMod714h2(String name)
             {
             super(name);
@@ -477,6 +500,28 @@ public class CatModelo714 extends Catalog
             m7bvaluti8 = new FieldDef("m7bvaluti8",FieldDef.CHAR,1);
             m7bvaluti9 = new FieldDef("m7bvaluti9",FieldDef.CHAR,1);
             m7bvaluti10 = new FieldDef("m7bvaluti10",FieldDef.CHAR,1);
+            m721porcen1 = new FieldDef("m721porcen1",FieldDef.FLOAT,6,0);
+            m721porcen2 = new FieldDef("m721porcen2",FieldDef.FLOAT,6,0);
+            m721porcen3 = new FieldDef("m721porcen3",FieldDef.FLOAT,6,0);
+            m721porcen4 = new FieldDef("m721porcen4",FieldDef.FLOAT,12,0);
+            m722porcen1 = new FieldDef("m722porcen1",FieldDef.FLOAT,6,0);
+            m722porcen2 = new FieldDef("m722porcen2",FieldDef.FLOAT,6,0);
+            m722porcen3 = new FieldDef("m722porcen3",FieldDef.FLOAT,6,0);
+            m722porcen4 = new FieldDef("m722porcen4",FieldDef.FLOAT,6,0);
+            m722porcen5 = new FieldDef("m722porcen5",FieldDef.FLOAT,6,0);
+            m722porcen6 = new FieldDef("m722porcen6",FieldDef.FLOAT,6,0);
+            m722porcen7 = new FieldDef("m722porcen7",FieldDef.FLOAT,6,0);
+            m722porcen8 = new FieldDef("m722porcen8",FieldDef.FLOAT,6,0);
+            m7bporcen1 = new FieldDef("m7bporcen1",FieldDef.FLOAT,6,0);
+            m7bporcen2 = new FieldDef("m7bporcen2",FieldDef.FLOAT,6,0);
+            m7bporcen3 = new FieldDef("m7bporcen3",FieldDef.FLOAT,6,0);
+            m7bporcen4 = new FieldDef("m7bporcen4",FieldDef.FLOAT,6,0);
+            m7bporcen5 = new FieldDef("m7bporcen5",FieldDef.FLOAT,6,0);
+            m7bporcen6 = new FieldDef("m7bporcen6",FieldDef.FLOAT,6,0);
+            m7bporcen7 = new FieldDef("m7bporcen7",FieldDef.FLOAT,6,0);
+            m7bporcen8 = new FieldDef("m7bporcen8",FieldDef.FLOAT,6,0);
+            m7bporcen9 = new FieldDef("m7bporcen9",FieldDef.FLOAT,6,0);
+            m7bporcen10 = new FieldDef("m7bporcen10",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m72dominio,
                 m72nif,
@@ -701,230 +746,274 @@ public class CatModelo714 extends Catalog
                 m7bvaluti7,
                 m7bvaluti8,
                 m7bvaluti9,
-                m7bvaluti10                
+                m7bvaluti10,
+                m721porcen1,
+                m721porcen2,
+                m721porcen3,
+                m721porcen4,
+                m722porcen1,
+                m722porcen2,
+                m722porcen3,
+                m722porcen4,
+                m722porcen5,
+                m722porcen6,
+                m722porcen7,
+                m722porcen8,
+                m7bporcen1,
+                m7bporcen2,
+                m7bporcen3,
+                m7bporcen4,
+                m7bporcen5,
+                m7bporcen6,
+                m7bporcen7,
+                m7bporcen8,
+                m7bporcen9,
+                m7bporcen10                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m72dominio,m72nif,m72ejercicio,m72periodo,m72pagina };
             setPrimaryKeys(arrayf);
-            m721clave1.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Clave 1 P U o blanco");
-            m721refencia1.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Referencia Catastral 1");
-            m721situacion1.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Situacion del inmueble 1");
-            m721valoracion1.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Valoracion 1");
-            m721clave2.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Clave 2 P U o blanco");
-            m721refencia2.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Referencia Catastral 2");
-            m721situacion2.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Situacion del inmueble 2");
-            m721valoracion2.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Valoracion 2");
-            m721clave3.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Clave 3 P U o blanco");
-            m721refencia3.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Referencia Catastral 3");
-            m721situacion3.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Situacion del inmueble 3");
-            m721valoracion3.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Valoracion 3");
-            m721clave4.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Clave 4 P U o blanco");
-            m721refencia4.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Referencia Catastral 4");
-            m721situacion4.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Situacion del inmueble 4");
-            m721valoracion4.setDescription("Bienes y dchos. A1 Bienes Inmuebles naturaleza urbana Vvda. Habitual Valoracion 4");
-            m72valtotvdahab.setDescription("Valor Total de la vivienda habitual susceptible de exencion (60)");
-            m72valvdahabexe.setDescription("Valor Exento (61)");
-            m72valvdahabnoe.setDescription("Valor No Exento (62)");
-            m722clave1.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 1 M N P o blanco");
-            m722tipo1.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 1 V L O o blanco");
-            m722refencia1.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 1");
-            m722situacion1.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 1");
-            m722valor1.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 1");
-            m722clave2.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 2 M N P o blanco");
-            m722tipo2.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 2 V L O o blanco");
-            m722refencia2.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 2");
-            m722situacion2.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 2");
-            m722valor2.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 2");
-            m722clave3.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 3 M N P o blanco");
-            m722tipo3.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 3 V L O o blanco");
-            m722refencia3.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 3");
-            m722situacion3.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 3");
-            m722valor3.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 3");
-            m722clave4.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 4 M N P o blanco");
-            m722tipo4.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 4 V L O o blanco");
-            m722refencia4.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 4");
-            m722situacion4.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 4");
-            m722valor4.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 4");
-            m722clave5.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 5 M N P o blanco");
-            m722tipo5.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 5 V L O o blanco");
-            m722refencia5.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 5");
-            m722situacion5.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 5");
-            m722valor5.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 5");
-            m722clave6.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 6 M N P o blanco");
-            m722tipo6.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 6 V L O o blanco");
-            m722refencia6.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 6");
-            m722situacion6.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 6");
-            m722valor6.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 6");
-            m722clave7.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 7 M N P o blanco");
-            m722tipo7.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 7 V L O o blanco");
-            m722refencia7.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 7");
-            m722situacion7.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 7");
-            m722valor7.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 7");
-            m722clave8.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 8 M N P o blanco");
-            m722tipo8.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 8 V L O o blanco");
-            m722refencia8.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 8");
-            m722situacion8.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 8");
-            m722valor8.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 8");
-            m722clave9.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 9 M N P o blanco");
-            m722tipo9.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 9 V L O o blanco");
-            m722refencia9.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 9");
-            m722situacion9.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 9");
-            m722valor9.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 9");
-            m722clave10.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 10 M N P o blanco");
-            m722tipo10.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 10 V L O o blanco");
-            m722refencia10.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 10");
-            m722situacion10.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 10");
-            m722valor10.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 10");
-            m722clave11.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 11 M N P o blanco");
-            m722tipo11.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 11 V L O o blanco");
-            m722refencia11.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 11");
-            m722situacion11.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 11");
-            m722valor11.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 11");
-            m722clave12.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 12 M N P o blanco");
-            m722tipo12.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 12 V L O o blanco");
-            m722refencia12.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 12");
-            m722situacion12.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 12");
-            m722valor12.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 12");
-            m722clave13.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 13 M N P o blanco");
-            m722tipo13.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 13 V L O o blanco");
-            m722refencia13.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 13");
-            m722situacion13.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 13");
-            m722valor13.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 13");
-            m722clave14.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 14 M N P o blanco");
-            m722tipo14.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 14 V L O o blanco");
-            m722refencia14.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 14");
-            m722situacion14.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 14");
-            m722valor14.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 14");
-            m722clave15.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 15 M N P o blanco");
-            m722tipo15.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 15 V L O o blanco");
-            m722refencia15.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 15");
-            m722situacion15.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 15");
-            m722valor15.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 15");
-            m722clave16.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 16 M N P o blanco");
-            m722tipo16.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 16 V L O o blanco");
-            m722refencia16.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 16");
-            m722situacion16.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 16");
-            m722valor16.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 16");
-            m722clave17.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 17 M N P o blanco");
-            m722tipo17.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 17 V L O o blanco");
-            m722refencia17.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 17");
-            m722situacion17.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 17");
-            m722valor17.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 17");
-            m722clave18.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 18 M N P o blanco");
-            m722tipo18.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 18 V L O o blanco");
-            m722refencia18.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 18");
-            m722situacion18.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 18");
-            m722valor18.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 18");
-            m722clave19.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Clave 19 M N P o blanco");
-            m722tipo19.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Tipo 19 V L O o blanco");
-            m722refencia19.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 19");
-            m722situacion19.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 19");
-            m722valor19.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Valoracion 19");
-            m72totala2.setDescription("Bienes y dchos. A2 Bienes Inmuebles naturaleza urbana Otros inmuebles Total [63]");
-            m72totala.setDescription("Bienes y dchos. A Bienes Inmuebles naturaleza urbana Total bienes inmuebles naturaleza urbana ( [62] [63] ) [01]");
-            m7bclave1.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 1 M N P o blanco");
-            m7brefencia1.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 1");
-            m7bsituacion1.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 1");
-            m7bvaloracion1.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 1");
-            m7bclave2.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 2 M N P o blanco");
-            m7brefencia2.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 2");
-            m7bsituacion2.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 2");
-            m7bvaloracion2.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 2");
-            m7bclave3.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 3 M N P o blanco");
-            m7brefencia3.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 3");
-            m7bsituacion3.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 3");
-            m7bvaloracion3.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 3");
-            m7bclave4.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 4 M N P o blanco");
-            m7brefencia4.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 4");
-            m7bsituacion4.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 4");
-            m7bvaloracion4.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 4");
-            m7bclave5.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica M N P o blanco");
-            m7brefencia5.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 5");
-            m7bsituacion5.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 5");
-            m7bvaloracion5.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 5");
-            m7bclave6.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica M N P o blanco");
-            m7brefencia6.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 6");
-            m7bsituacion6.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 6");
-            m7bvaloracion6.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 6");
-            m7bclave7.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 7 M N P o blanco");
-            m7brefencia7.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 7");
-            m7bsituacion7.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 7");
-            m7bvaloracion7.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 7");
-            m7bclave8.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 8 M N P o blanco");
-            m7brefencia8.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 8");
-            m7bsituacion8.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 8");
-            m7bvaloracion8.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 8");
-            m7bclave9.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 9 M N P o blanco");
-            m7brefencia9.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 9");
-            m7bsituacion9.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 9");
-            m7bvaloracion9.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 9");
-            m7bclave10.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 10 M N P o blanco");
-            m7brefencia10.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 10");
-            m7bsituacion10.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 10");
-            m7bvaloracion10.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 10");
-            m7bclave11.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 11 M N P o blanco");
-            m7brefencia11.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 11");
-            m7bsituacion11.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 11");
-            m7bvaloracion11.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 11");
-            m7bclave12.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 12 M N P o blanco");
-            m7brefencia12.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 12");
-            m7bsituacion12.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 12");
-            m7bvaloracion12.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 12");
-            m7bclave13.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 13 M N P o blanco");
-            m7brefencia13.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 13");
-            m7bsituacion13.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 13");
-            m7bvaloracion13.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 13");
-            m7bclave14.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 14 M N P o blanco");
-            m7brefencia14.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 14");
-            m7bsituacion14.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 14");
-            m7bvaloracion14.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 14");
-            m7bclave15.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 15 M N P o blanco");
-            m7brefencia15.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 15");
-            m7bsituacion15.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 15");
-            m7bvaloracion15.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 15");
-            m7bclave16.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 16 M N P o blanco");
-            m7brefencia16.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 16");
-            m7bsituacion16.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 16");
-            m7bvaloracion16.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 16");
-            m7bclave17.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 17 M N P o blanco");
-            m7brefencia17.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 17");
-            m7bsituacion17.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 17");
-            m7bvaloracion17.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 17");
-            m7bclave18.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 18 M N P o blanco");
-            m7brefencia18.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 18");
-            m7bsituacion18.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 18");
-            m7bvaloracion18.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 18");
-            m7bclave19.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 19 M N P o blanco");
-            m7brefencia19.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 19");
-            m7bsituacion19.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 19");
-            m7bvaloracion19.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 19");
-            m7bclave20.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Clave 20 M N P o blanco");
-            m7brefencia20.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Referencia catastral 20");
-            m7bsituacion20.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 20");
-            m7bvaloracion20.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Valoracion 20");
-            m72totalb.setDescription("Bienes y dchos. B Bienes Inmuebles naturaleza rustica Total [02]");
-            m721valuti1.setDescription("A1 Inmueble 1  Valor utilizado");
-            m721valuti2.setDescription("A1 Inmueble 2  Valor utilizado");
-            m721valuti3.setDescription("A1 Inmueble 3  Valor utilizado");
-            m721valuti4.setDescription("A1 Inmueble 4  Valor utilizado");
-            m722valuti1.setDescription("A2 Inmuble urbano 1 Valor utilizado");
-            m722valuti2.setDescription("A2 Inmuble urbano 2 Valor utilizado");
-            m722valuti3.setDescription("A2 Inmuble urbano 3 Valor utilizado");
-            m722valuti4.setDescription("A2 Inmuble urbano 4 Valor utilizado");
-            m722valuti5.setDescription("A2 Inmuble urbano 5 Valor utilizado");
-            m722valuti6.setDescription("A2 Inmuble urbano 6 Valor utilizado");
-            m722valuti7.setDescription("A2 Inmuble urbano 7 Valor utilizado");
-            m722valuti8.setDescription("A2 Inmuble urbano 8 Valor utilizado");
-            m7bvaluti1.setDescription("Inmueble rustico 1 Valor utilizado");
-            m7bvaluti2.setDescription("Inmueble rustico 2 Valor utilizado");
-            m7bvaluti3.setDescription("Inmueble rustico 3 Valor utilizado");
-            m7bvaluti4.setDescription("Inmueble rustico 4 Valor utilizado");
-            m7bvaluti5.setDescription("Inmueble rustico 5 Valor utilizado");
-            m7bvaluti6.setDescription("Inmueble rustico 6 Valor utilizado");
-            m7bvaluti7.setDescription("Inmueble rustico 7 Valor utilizado");
-            m7bvaluti8.setDescription("Inmueble rustico 8 Valor utilizado");
-            m7bvaluti9.setDescription("Inmueble rustico 9 Valor utilizado");
-            m7bvaluti10.setDescription("Inmueble rustico 10 Valor utilizado");
+            m721clave1.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 1 Clave 1 P U o blanco");
+            m721refencia1.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 1 Referencia Catastral");
+            m721situacion1.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 1 Situacion");
+            m721valoracion1.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 1 Valoracion");
+            m721clave2.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 2 Clave 2 P U o blanco");
+            m721refencia2.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 2 Referencia Catastral");
+            m721situacion2.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 2 Situacion");
+            m721valoracion2.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 2 Valoracion");
+            m721clave3.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 3 Clave 3 P U o blanco");
+            m721refencia3.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 3 Referencia Catastral");
+            m721situacion3.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 3 Situacion inmueble");
+            m721valoracion3.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 3 Valoracion");
+            m721clave4.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 4 Clave 4 P U o blanco");
+            m721refencia4.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 4 Referencia Catastral");
+            m721situacion4.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 4 Situacion inmueble");
+            m721valoracion4.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 4 Valoracion");
+            m72valtotvdahab.setDescription("A1 Valor Total de la vivienda habitual susceptible de exencion (60)");
+            m72valvdahabexe.setDescription("A1 Valor Exento (61)");
+            m72valvdahabnoe.setDescription("A1 Valor No Exento (62)");
+            m722clave1.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 1 M N P o blanco");
+            m722tipo1.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 1 V L O o blanco");
+            m722refencia1.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 1");
+            m722situacion1.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 1");
+            m722valor1.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 1");
+            m722clave2.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 2 M N P o blanco");
+            m722tipo2.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 2 V L O o blanco");
+            m722refencia2.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 2");
+            m722situacion2.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 2");
+            m722valor2.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 2");
+            m722clave3.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 3 M N P o blanco");
+            m722tipo3.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 3 V L O o blanco");
+            m722refencia3.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 3");
+            m722situacion3.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 3");
+            m722valor3.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 3");
+            m722clave4.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 4 M N P o blanco");
+            m722tipo4.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 4 V L O o blanco");
+            m722refencia4.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 4");
+            m722situacion4.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 4");
+            m722valor4.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 4");
+            m722clave5.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 5 M N P o blanco");
+            m722tipo5.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 5 V L O o blanco");
+            m722refencia5.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 5");
+            m722situacion5.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 5");
+            m722valor5.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 5");
+            m722clave6.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 6 M N P o blanco");
+            m722tipo6.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 6 V L O o blanco");
+            m722refencia6.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 6");
+            m722situacion6.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 6");
+            m722valor6.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 6");
+            m722clave7.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 7 M N P o blanco");
+            m722tipo7.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 7 V L O o blanco");
+            m722refencia7.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 7");
+            m722situacion7.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 7");
+            m722valor7.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 7");
+            m722clave8.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 8 M N P o blanco");
+            m722tipo8.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 8 V L O o blanco");
+            m722refencia8.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 8");
+            m722situacion8.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 8");
+            m722valor8.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 8");
+            m722clave9.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 9 M N P o blanco");
+            m722tipo9.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 9 V L O o blanco");
+            m722refencia9.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 9");
+            m722situacion9.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 9");
+            m722valor9.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 9");
+            m722clave10.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 10 M N P o blanco");
+            m722tipo10.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 10 V L O o blanco");
+            m722refencia10.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 10");
+            m722situacion10.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 10");
+            m722valor10.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 10");
+            m722clave11.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 11 M N P o blanco");
+            m722tipo11.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 11 V L O o blanco");
+            m722refencia11.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 11");
+            m722situacion11.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 11");
+            m722valor11.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 11");
+            m722clave12.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 12 M N P o blanco");
+            m722tipo12.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 12 V L O o blanco");
+            m722refencia12.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 12");
+            m722situacion12.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 12");
+            m722valor12.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 12");
+            m722clave13.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 13 M N P o blanco");
+            m722tipo13.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 13 V L O o blanco");
+            m722refencia13.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 13");
+            m722situacion13.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 13");
+            m722valor13.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 13");
+            m722clave14.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 14 M N P o blanco");
+            m722tipo14.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 14 V L O o blanco");
+            m722refencia14.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 14");
+            m722situacion14.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 14");
+            m722valor14.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 14");
+            m722clave15.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 15 M N P o blanco");
+            m722tipo15.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 15 V L O o blanco");
+            m722refencia15.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 15");
+            m722situacion15.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 15");
+            m722valor15.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 15");
+            m722clave16.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 16 M N P o blanco");
+            m722tipo16.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 16 V L O o blanco");
+            m722refencia16.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 16");
+            m722situacion16.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 16");
+            m722valor16.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 16");
+            m722clave17.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 17 M N P o blanco");
+            m722tipo17.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 17 V L O o blanco");
+            m722refencia17.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 17");
+            m722situacion17.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 17");
+            m722valor17.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 17");
+            m722clave18.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 18 M N P o blanco");
+            m722tipo18.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 18 V L O o blanco");
+            m722refencia18.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 18");
+            m722situacion18.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 18");
+            m722valor18.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 18");
+            m722clave19.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Clave 19 M N P o blanco");
+            m722tipo19.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Tipo 19 V L O o blanco");
+            m722refencia19.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Referencia catastral 19");
+            m722situacion19.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Situacion del inmueble 19");
+            m722valor19.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valoracion 19");
+            m72totala2.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Total [63]");
+            m72totala.setDescription("A  Inmuebles naturaleza urbana Total bienes inmuebles naturaleza urbana ( [62] [63] ) [01]");
+            m7bclave1.setDescription("B  Inmuebles naturaleza rustica Clave 1 M N P o blanco");
+            m7brefencia1.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 1");
+            m7bsituacion1.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 1");
+            m7bvaloracion1.setDescription("B  Inmuebles naturaleza rustica Valoracion 1");
+            m7bclave2.setDescription("B  Inmuebles naturaleza rustica Clave 2 M N P o blanco");
+            m7brefencia2.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 2");
+            m7bsituacion2.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 2");
+            m7bvaloracion2.setDescription("B  Inmuebles naturaleza rustica Valoracion 2");
+            m7bclave3.setDescription("B  Inmuebles naturaleza rustica Clave 3 M N P o blanco");
+            m7brefencia3.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 3");
+            m7bsituacion3.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 3");
+            m7bvaloracion3.setDescription("B  Inmuebles naturaleza rustica Valoracion 3");
+            m7bclave4.setDescription("B  Inmuebles naturaleza rustica Clave 4 M N P o blanco");
+            m7brefencia4.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 4");
+            m7bsituacion4.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 4");
+            m7bvaloracion4.setDescription("B  Inmuebles naturaleza rustica Valoracion 4");
+            m7bclave5.setDescription("B  Inmuebles naturaleza rustica M N P o blanco");
+            m7brefencia5.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 5");
+            m7bsituacion5.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 5");
+            m7bvaloracion5.setDescription("B  Inmuebles naturaleza rustica Valoracion 5");
+            m7bclave6.setDescription("B  Inmuebles naturaleza rustica M N P o blanco");
+            m7brefencia6.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 6");
+            m7bsituacion6.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 6");
+            m7bvaloracion6.setDescription("B  Inmuebles naturaleza rustica Valoracion 6");
+            m7bclave7.setDescription("B  Inmuebles naturaleza rustica Clave 7 M N P o blanco");
+            m7brefencia7.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 7");
+            m7bsituacion7.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 7");
+            m7bvaloracion7.setDescription("B  Inmuebles naturaleza rustica Valoracion 7");
+            m7bclave8.setDescription("B  Inmuebles naturaleza rustica Clave 8 M N P o blanco");
+            m7brefencia8.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 8");
+            m7bsituacion8.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 8");
+            m7bvaloracion8.setDescription("B  Inmuebles naturaleza rustica Valoracion 8");
+            m7bclave9.setDescription("B  Inmuebles naturaleza rustica Clave 9 M N P o blanco");
+            m7brefencia9.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 9");
+            m7bsituacion9.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 9");
+            m7bvaloracion9.setDescription("B  Inmuebles naturaleza rustica Valoracion 9");
+            m7bclave10.setDescription("B  Inmuebles naturaleza rustica Clave 10 M N P o blanco");
+            m7brefencia10.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 10");
+            m7bsituacion10.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 10");
+            m7bvaloracion10.setDescription("B  Inmuebles naturaleza rustica Valoracion 10");
+            m7bclave11.setDescription("B  Inmuebles naturaleza rustica Clave 11 M N P o blanco");
+            m7brefencia11.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 11");
+            m7bsituacion11.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 11");
+            m7bvaloracion11.setDescription("B  Inmuebles naturaleza rustica Valoracion 11");
+            m7bclave12.setDescription("B  Inmuebles naturaleza rustica Clave 12 M N P o blanco");
+            m7brefencia12.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 12");
+            m7bsituacion12.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 12");
+            m7bvaloracion12.setDescription("B  Inmuebles naturaleza rustica Valoracion 12");
+            m7bclave13.setDescription("B  Inmuebles naturaleza rustica Clave 13 M N P o blanco");
+            m7brefencia13.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 13");
+            m7bsituacion13.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 13");
+            m7bvaloracion13.setDescription("B  Inmuebles naturaleza rustica Valoracion 13");
+            m7bclave14.setDescription("B  Inmuebles naturaleza rustica Clave 14 M N P o blanco");
+            m7brefencia14.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 14");
+            m7bsituacion14.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 14");
+            m7bvaloracion14.setDescription("B  Inmuebles naturaleza rustica Valoracion 14");
+            m7bclave15.setDescription("B  Inmuebles naturaleza rustica Clave 15 M N P o blanco");
+            m7brefencia15.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 15");
+            m7bsituacion15.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 15");
+            m7bvaloracion15.setDescription("B  Inmuebles naturaleza rustica Valoracion 15");
+            m7bclave16.setDescription("B  Inmuebles naturaleza rustica Clave 16 M N P o blanco");
+            m7brefencia16.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 16");
+            m7bsituacion16.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 16");
+            m7bvaloracion16.setDescription("B  Inmuebles naturaleza rustica Valoracion 16");
+            m7bclave17.setDescription("B  Inmuebles naturaleza rustica Clave 17 M N P o blanco");
+            m7brefencia17.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 17");
+            m7bsituacion17.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 17");
+            m7bvaloracion17.setDescription("B  Inmuebles naturaleza rustica Valoracion 17");
+            m7bclave18.setDescription("B  Inmuebles naturaleza rustica Clave 18 M N P o blanco");
+            m7brefencia18.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 18");
+            m7bsituacion18.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 18");
+            m7bvaloracion18.setDescription("B  Inmuebles naturaleza rustica Valoracion 18");
+            m7bclave19.setDescription("B  Inmuebles naturaleza rustica Clave 19 M N P o blanco");
+            m7brefencia19.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 19");
+            m7bsituacion19.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 19");
+            m7bvaloracion19.setDescription("B  Inmuebles naturaleza rustica Valoracion 19");
+            m7bclave20.setDescription("B  Inmuebles naturaleza rustica Clave 20 M N P o blanco");
+            m7brefencia20.setDescription("B  Inmuebles naturaleza rustica Referencia catastral 20");
+            m7bsituacion20.setDescription("B  Inmuebles naturaleza rustica Situacion del inmueble (Municipio y Provincia) 20");
+            m7bvaloracion20.setDescription("B  Inmuebles naturaleza rustica Valoracion 20");
+            m72totalb.setDescription("B  Inmuebles naturaleza rustica Total [02]");
+            m721valuti1.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. Valor utilizado 1 V,A,P,C,D o blanco");
+            m721valuti2.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. Valor utilizado 2 V,A,P,C,D o blanco");
+            m721valuti3.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. Valor utilizado 3 V,A,P,C,D o blanco");
+            m721valuti4.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. Valor utilizado 4 V,A,P,C,D o blanco");
+            m722valuti1.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valor utilizado 1 V,A,P,C,D o blanco");
+            m722valuti2.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valor utilizado 2 V,A,P,C,D o blanco");
+            m722valuti3.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valor utilizado 3 V,A,P,C,D o blanco");
+            m722valuti4.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valor utilizado 4 V,A,P,C,D o blanco");
+            m722valuti5.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valor utilizado 5 V,A,P,C,D o blanco");
+            m722valuti6.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valor utilizado 6 V,A,P,C,D o blanco");
+            m722valuti7.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valor utilizado 7 V,A,P,C,D o blanco");
+            m722valuti8.setDescription("A2 Inmuebles naturaleza urbana Otros inmuebles Valor utilizado 8 V,A,P,C,D o blanco");
+            m7bvaluti1.setDescription("B  Inmuebles naturaleza rustica Valor utilizado 1 V,A,P,C,D o blanco");
+            m7bvaluti2.setDescription("B  Inmuebles naturaleza rustica Valor utilizado 2 V,A,P,C,D o blanco");
+            m7bvaluti3.setDescription("B  Inmuebles naturaleza rustica Valor utilizado 3 V,A,P,C,D o blanco");
+            m7bvaluti4.setDescription("B  Inmuebles naturaleza rustica Valor utilizado 4 V,A,P,C,D o blanco");
+            m7bvaluti5.setDescription("B  Inmuebles naturaleza rustica Valor utilizado 5 V,A,P,C,D o blanco");
+            m7bvaluti6.setDescription("B  Inmuebles naturaleza rustica Valor utilizado 6 V,A,P,C,D o blanco");
+            m7bvaluti7.setDescription("B  Inmuebles naturaleza rustica Valor utilizado 7 V,A,P,C,D o blanco");
+            m7bvaluti8.setDescription("B  Inmuebles naturaleza rustica Valor utilizado 8 V,A,P,C,D o blanco");
+            m7bvaluti9.setDescription("B  Inmuebles naturaleza rustica Valor utilizado 9 V,A,P,C,D o blanco");
+            m7bvaluti10.setDescription("B  Inmuebles naturaleza rustica Valor utilizado 10 V,A,P,C,D o blanco");
+            m721porcen1.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 1 Porcentaje titularidad      2019");
+            m721porcen2.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 2 Porcentaje titularidad");
+            m721porcen3.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 4 Porcentaje titularidad");
+            m721porcen4.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 4 Porcentaje titularidad");
+            m722porcen1.setDescription("A2 Inmuebles naturaleza urbana 1 Porcentaje titularidad");
+            m722porcen2.setDescription("A2 Inmuebles naturaleza urbana 2 Porcentaje titularidad");
+            m722porcen3.setDescription("A2 Inmuebles naturaleza urbana 3 Porcentaje titularidad");
+            m722porcen4.setDescription("A2 Inmuebles naturaleza urbana 4 Porcentaje titularidad");
+            m722porcen5.setDescription("A2 Inmuebles naturaleza urbana 5 Porcentaje titularidad");
+            m722porcen6.setDescription("A2 Inmuebles naturaleza urbana 6 Porcentaje titularidad");
+            m722porcen7.setDescription("A2 Inmuebles naturaleza urbana 7 Porcentaje titularidad");
+            m722porcen8.setDescription("A2 Inmuebles naturaleza urbana 8 Porcentaje titularidad");
+            m7bporcen1.setDescription("B  Inmuebles naturaleza rustica 1 Porcentaje de titularidad");
+            m7bporcen2.setDescription("B  Inmuebles naturaleza rustica 2 Porcentaje de titularidad");
+            m7bporcen3.setDescription("B  Inmuebles naturaleza rustica 3 Porcentaje de titularidad");
+            m7bporcen4.setDescription("B  Inmuebles naturaleza rustica 4 Porcentaje de titularidad");
+            m7bporcen5.setDescription("B  Inmuebles naturaleza rustica 5 Porcentaje de titularidad");
+            m7bporcen6.setDescription("B  Inmuebles naturaleza rustica 6 Porcentaje de titularidad");
+            m7bporcen7.setDescription("B  Inmuebles naturaleza rustica 7 Porcentaje de titularidad");
+            m7bporcen8.setDescription("B  Inmuebles naturaleza rustica 8 Porcentaje de titularidad");
+            m7bporcen9.setDescription("B  Inmuebles naturaleza rustica 9 Porcentaje de titularidad");
+            m7bporcen10.setDescription("B  Inmuebles naturaleza rustica 10 Porcentaje de titularidad");
             }
         }
         
@@ -1134,6 +1223,49 @@ public class CatModelo714 extends Catalog
         public FieldDef m73dvaluti10;
         public FieldDef m73dvaluti11;
         public FieldDef m73dvaluti12;
+        public FieldDef m731tipoprop1;
+        public FieldDef m731refencia1;
+        public FieldDef m731tipoprop2;
+        public FieldDef m731refencia2;
+        public FieldDef m731tipoprop3;
+        public FieldDef m731refencia3;
+        public FieldDef m731tipoprop4;
+        public FieldDef m731refencia4;
+        public FieldDef m731tipoprop5;
+        public FieldDef m731refencia5;
+        public FieldDef m731tipoprop6;
+        public FieldDef m731refencia6;
+        public FieldDef m731tipoprop7;
+        public FieldDef m731refencia7;
+        public FieldDef m732porcen1;
+        public FieldDef m732porcen2;
+        public FieldDef m732porcen3;
+        public FieldDef m732porcen4;
+        public FieldDef m732porcen5;
+        public FieldDef m73dporcen1;
+        public FieldDef m73dporcen2;
+        public FieldDef m73dporcen3;
+        public FieldDef m73dporcen4;
+        public FieldDef m73dporcen5;
+        public FieldDef m73dporcen6;
+        public FieldDef m73dporcen7;
+        public FieldDef m73dporcen8;
+        public FieldDef m73dporcen9;
+        public FieldDef m73dporcen10;
+        public FieldDef m73dporcen11;
+        public FieldDef m73dporcen12;
+        public FieldDef m73dtipoprop1;
+        public FieldDef m73dtipoprop2;
+        public FieldDef m73dtipoprop3;
+        public FieldDef m73dtipoprop4;
+        public FieldDef m73dtipoprop5;
+        public FieldDef m73dtipoprop6;
+        public FieldDef m73dtipoprop7;
+        public FieldDef m73dtipoprop8;
+        public FieldDef m73dtipoprop9;
+        public FieldDef m73dtipoprop10;
+        public FieldDef m73dtipoprop11;
+        public FieldDef m73dtipoprop12;
         public TabMod714h3(String name)
             {
             super(name);
@@ -1340,6 +1472,49 @@ public class CatModelo714 extends Catalog
             m73dvaluti10 = new FieldDef("m73dvaluti10",FieldDef.CHAR,1);
             m73dvaluti11 = new FieldDef("m73dvaluti11",FieldDef.CHAR,1);
             m73dvaluti12 = new FieldDef("m73dvaluti12",FieldDef.CHAR,1);
+            m731tipoprop1 = new FieldDef("m731tipoprop1",FieldDef.CHAR,1);
+            m731refencia1 = new FieldDef("m731refencia1",FieldDef.CHAR,20);
+            m731tipoprop2 = new FieldDef("m731tipoprop2",FieldDef.CHAR,1);
+            m731refencia2 = new FieldDef("m731refencia2",FieldDef.CHAR,20);
+            m731tipoprop3 = new FieldDef("m731tipoprop3",FieldDef.CHAR,1);
+            m731refencia3 = new FieldDef("m731refencia3",FieldDef.CHAR,20);
+            m731tipoprop4 = new FieldDef("m731tipoprop4",FieldDef.CHAR,1);
+            m731refencia4 = new FieldDef("m731refencia4",FieldDef.CHAR,20);
+            m731tipoprop5 = new FieldDef("m731tipoprop5",FieldDef.CHAR,1);
+            m731refencia5 = new FieldDef("m731refencia5",FieldDef.CHAR,20);
+            m731tipoprop6 = new FieldDef("m731tipoprop6",FieldDef.CHAR,1);
+            m731refencia6 = new FieldDef("m731refencia6",FieldDef.CHAR,20);
+            m731tipoprop7 = new FieldDef("m731tipoprop7",FieldDef.CHAR,1);
+            m731refencia7 = new FieldDef("m731refencia7",FieldDef.CHAR,20);
+            m732porcen1 = new FieldDef("m732porcen1",FieldDef.FLOAT,6,0);
+            m732porcen2 = new FieldDef("m732porcen2",FieldDef.FLOAT,6,0);
+            m732porcen3 = new FieldDef("m732porcen3",FieldDef.FLOAT,6,0);
+            m732porcen4 = new FieldDef("m732porcen4",FieldDef.FLOAT,6,0);
+            m732porcen5 = new FieldDef("m732porcen5",FieldDef.FLOAT,6,0);
+            m73dporcen1 = new FieldDef("m73dporcen1",FieldDef.FLOAT,6,0);
+            m73dporcen2 = new FieldDef("m73dporcen2",FieldDef.FLOAT,6,0);
+            m73dporcen3 = new FieldDef("m73dporcen3",FieldDef.FLOAT,6,0);
+            m73dporcen4 = new FieldDef("m73dporcen4",FieldDef.FLOAT,6,0);
+            m73dporcen5 = new FieldDef("m73dporcen5",FieldDef.FLOAT,6,0);
+            m73dporcen6 = new FieldDef("m73dporcen6",FieldDef.FLOAT,6,0);
+            m73dporcen7 = new FieldDef("m73dporcen7",FieldDef.FLOAT,6,0);
+            m73dporcen8 = new FieldDef("m73dporcen8",FieldDef.FLOAT,6,0);
+            m73dporcen9 = new FieldDef("m73dporcen9",FieldDef.FLOAT,6,0);
+            m73dporcen10 = new FieldDef("m73dporcen10",FieldDef.FLOAT,6,0);
+            m73dporcen11 = new FieldDef("m73dporcen11",FieldDef.FLOAT,6,0);
+            m73dporcen12 = new FieldDef("m73dporcen12",FieldDef.FLOAT,6,0);
+            m73dtipoprop1 = new FieldDef("m73dtipoprop1",FieldDef.CHAR,1);
+            m73dtipoprop2 = new FieldDef("m73dtipoprop2",FieldDef.CHAR,1);
+            m73dtipoprop3 = new FieldDef("m73dtipoprop3",FieldDef.CHAR,1);
+            m73dtipoprop4 = new FieldDef("m73dtipoprop4",FieldDef.CHAR,1);
+            m73dtipoprop5 = new FieldDef("m73dtipoprop5",FieldDef.CHAR,1);
+            m73dtipoprop6 = new FieldDef("m73dtipoprop6",FieldDef.CHAR,1);
+            m73dtipoprop7 = new FieldDef("m73dtipoprop7",FieldDef.CHAR,1);
+            m73dtipoprop8 = new FieldDef("m73dtipoprop8",FieldDef.CHAR,1);
+            m73dtipoprop9 = new FieldDef("m73dtipoprop9",FieldDef.CHAR,1);
+            m73dtipoprop10 = new FieldDef("m73dtipoprop10",FieldDef.CHAR,1);
+            m73dtipoprop11 = new FieldDef("m73dtipoprop11",FieldDef.CHAR,1);
+            m73dtipoprop12 = new FieldDef("m73dtipoprop12",FieldDef.CHAR,1);
             FieldDef array[] = {
                 m73dominio,
                 m73nif,
@@ -1543,192 +1718,235 @@ public class CatModelo714 extends Catalog
                 m73dvaluti9,
                 m73dvaluti10,
                 m73dvaluti11,
-                m73dvaluti12                
+                m73dvaluti12,
+                m731tipoprop1,
+                m731refencia1,
+                m731tipoprop2,
+                m731refencia2,
+                m731tipoprop3,
+                m731refencia3,
+                m731tipoprop4,
+                m731refencia4,
+                m731tipoprop5,
+                m731refencia5,
+                m731tipoprop6,
+                m731refencia6,
+                m731tipoprop7,
+                m731refencia7,
+                m732porcen1,
+                m732porcen2,
+                m732porcen3,
+                m732porcen4,
+                m732porcen5,
+                m73dporcen1,
+                m73dporcen2,
+                m73dporcen3,
+                m73dporcen4,
+                m73dporcen5,
+                m73dporcen6,
+                m73dporcen7,
+                m73dporcen8,
+                m73dporcen9,
+                m73dporcen10,
+                m73dporcen11,
+                m73dporcen12,
+                m73dtipoprop1,
+                m73dtipoprop2,
+                m73dtipoprop3,
+                m73dtipoprop4,
+                m73dtipoprop5,
+                m73dtipoprop6,
+                m73dtipoprop7,
+                m73dtipoprop8,
+                m73dtipoprop9,
+                m73dtipoprop10,
+                m73dtipoprop11,
+                m73dtipoprop12                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m73dominio,m73nif,m73ejercicio,m73periodo,m73pagina };
             setPrimaryKeys(arrayf);
-            m731epigrafe1.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 1");
-            m731domicilio1.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Domicilio actividad 1");
-            m731descripci1.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 1");
-            m731valor1.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Valoracion 1");
-            m731epigrafe2.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 2");
-            m731domicilio2.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Domicilio actividad 2");
-            m731descripci2.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 2");
-            m731valor2.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Valoracion 2");
-            m731epigrafe3.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 3");
-            m731domicilio3.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Domicilio actividad 3");
-            m731descripci3.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 3");
-            m731valor3.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Valoracion 3");
-            m731epigrafe4.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 4");
-            m731domicilio4.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Domicilio actividad 4");
-            m731descripci4.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 4");
-            m731valor4.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Valoracion 4");
-            m731epigrafe5.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 5");
-            m731domicilio5.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Domicilio actividad 5");
-            m731descripci5.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 5");
-            m731valor5.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Valoracion 5");
-            m731epigrafe6.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 6");
-            m731domicilio6.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Domicilio actividad 6");
-            m731descripci6.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 6");
-            m731valor6.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Valoracion 6");
-            m731epigrafe7.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 7");
-            m731domicilio7.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Domicilio actividad 7");
-            m731descripci7.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 7");
-            m731valor7.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Valoracion 7");
-            m731epigrafe8.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 8");
-            m731domicilio8.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Domicilio actividad 8");
-            m731descripci8.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 8");
-            m731valor8.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Valoracion 8");
-            m731epigrafe9.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 9");
-            m731domicilio9.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Domicilio actividad 9");
-            m731descripci9.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 9");
-            m731valor9.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Valoracion 9");
-            m731epigrafe10.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 10");
-            m731domicilio10.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Domicilio actividad 10");
-            m731descripci10.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 10");
-            m731valor10.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Valoracion 10");
-            m731epigrafe11.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 11");
-            m731domicilio11.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Domicilio actividad 11");
-            m731descripci11.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 11");
-            m731valor11.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Valoracion 11");
-            m731epigrafe12.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 12");
-            m731domicilio12.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Domicilio actividad 12");
-            m731descripci12.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 12");
-            m731valor12.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Valoracion 12");
-            m731epigrafe13.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 13");
-            m731domicilio13.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Domicilio actividad 13");
-            m731descripci13.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 13");
-            m731valor13.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Valoracion 13");
-            m73totalc1.setDescription("Bienes y dchos. empr./prof. C1no exentos y afectos (excepto inmuebles) Total [a]");
-            m732epigrafe1.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Epigrafe I.A.E. 1");
-            m732clave1.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Clave 1 U R o blanco");
-            m732refencia1.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Referencia catastral 1");
-            m732situacion1.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Situacion 1");
-            m732valor1.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Valoracion 1");
-            m732epigrafe2.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Epigrafe I.A.E. 2");
-            m732clave2.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Clave 2 U R o blanco");
-            m732refencia2.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Referencia catastral 2");
-            m732situacion2.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Situacion 2");
-            m732valor2.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Valoracion 2");
-            m732epigrafe3.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Epigrafe I.A.E. 3");
-            m732clave3.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Clave 3 U R o blanco");
-            m732refencia3.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Referencia catastral 3");
-            m732situacion3.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Situacion 3");
-            m732valor3.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Valoracion 3");
-            m732epigrafe4.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Epigrafe I.A.E. 4");
-            m732clave4.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Clave 4 U R o blanco");
-            m732refencia4.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Referencia catastral 4");
-            m732situacion4.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Situacion 4");
-            m732valor4.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Valoracion 4");
-            m732epigrafe5.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Epigrafe I.A.E. 5");
-            m732clave5.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Clave 5 U R o blanco");
-            m732refencia5.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Referencia catastral 5");
-            m732situacion5.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Situacion 5");
-            m732valor5.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Valoracion 5");
-            m732epigrafe6.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Epigrafe I.A.E. 6");
-            m732clave6.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Clave 6 U R o blanco");
-            m732refencia6.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Referencia catastral 6");
-            m732situacion6.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Situacion 6");
-            m732valor6.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Valoracion 6");
-            m732epigrafe7.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Epigrafe I.A.E. 7");
-            m732clave7.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Clave 7 U R o blanco");
-            m732refencia7.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Referencia catastral 7");
-            m732situacion7.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Situacion 7");
-            m732valor7.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Valoracion 7");
-            m732epigrafe8.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Epigrafe I.A.E. 8");
-            m732clave8.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Clave 8 U R o blanco");
-            m732refencia8.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Referencia catastral 8");
-            m732situacion8.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Situacion 8");
-            m732valor8.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Valoracion 8");
-            m732epigrafe9.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Epigrafe I.A.E. 9");
-            m732clave9.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Clave 9 U R o blanco");
-            m732refencia9.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Referencia catastral 9");
-            m732situacion9.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Situacion 9");
-            m732valor9.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Valoracion 9");
-            m732epigrafe10.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Epigrafe I.A.E. 10");
-            m732clave10.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Clave 10 U R o blanco");
-            m732refencia10.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Referencia catastral 10");
-            m732situacion10.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Situacion 10");
-            m732valor10.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Valoracion 10");
-            m732epigrafe11.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Epigrafe I.A.E. 11");
-            m732clave11.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Clave 11 U R o blanco");
-            m732refencia11.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Referencia catastral 11");
-            m732situacion11.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Situacion 11");
-            m732valor11.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Valoracion 11");
-            m732epigrafe12.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Epigrafe I.A.E. 12");
-            m732clave12.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Clave 12 U R o blanco");
-            m732refencia12.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Referencia catastral 12");
-            m732situacion12.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Situacion 12");
-            m732valor12.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Valoracion 12");
-            m73totalc2.setDescription("Bienes y dchos. empr./prof. C2no exentos y afectos. Inmuebles Total [b]");
+            m731epigrafe1.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 1");
+            m731domicilio1.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Domicilio actividad 1");
+            m731descripci1.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 1");
+            m731valor1.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Valoracion 1");
+            m731epigrafe2.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 2");
+            m731domicilio2.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Domicilio actividad 2");
+            m731descripci2.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 2");
+            m731valor2.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Valoracion 2");
+            m731epigrafe3.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 3");
+            m731domicilio3.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Domicilio actividad 3");
+            m731descripci3.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 3");
+            m731valor3.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Valoracion 3");
+            m731epigrafe4.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 4");
+            m731domicilio4.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Domicilio actividad 4");
+            m731descripci4.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 4");
+            m731valor4.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Valoracion 4");
+            m731epigrafe5.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 5");
+            m731domicilio5.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Domicilio actividad 5");
+            m731descripci5.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 5");
+            m731valor5.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Valoracion 5");
+            m731epigrafe6.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 6");
+            m731domicilio6.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Domicilio actividad 6");
+            m731descripci6.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 6");
+            m731valor6.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Valoracion 6");
+            m731epigrafe7.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 7");
+            m731domicilio7.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Domicilio actividad 7");
+            m731descripci7.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 7");
+            m731valor7.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Valoracion 7");
+            m731epigrafe8.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 8");
+            m731domicilio8.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Domicilio actividad 8");
+            m731descripci8.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 8");
+            m731valor8.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Valoracion 8");
+            m731epigrafe9.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 9");
+            m731domicilio9.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Domicilio actividad 9");
+            m731descripci9.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 9");
+            m731valor9.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Valoracion 9");
+            m731epigrafe10.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 10");
+            m731domicilio10.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Domicilio actividad 10");
+            m731descripci10.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 10");
+            m731valor10.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Valoracion 10");
+            m731epigrafe11.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 11");
+            m731domicilio11.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Domicilio actividad 11");
+            m731descripci11.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 11");
+            m731valor11.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Valoracion 11");
+            m731epigrafe12.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 12");
+            m731domicilio12.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Domicilio actividad 12");
+            m731descripci12.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 12");
+            m731valor12.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Valoracion 12");
+            m731epigrafe13.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Epigrafe I.A.E. 13");
+            m731domicilio13.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Domicilio actividad 13");
+            m731descripci13.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Descripc. bien/dcho. 13");
+            m731valor13.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Valoracion 13");
+            m73totalc1.setDescription("Bienes y dchos. empr./prof. C1 no exentos y afectos (excepto inmuebles) Total [a]");
+            m732epigrafe1.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Epigrafe I.A.E. 1");
+            m732clave1.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Clave 1 U R o blanco");
+            m732refencia1.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Referencia catastral 1");
+            m732situacion1.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Situacion 1");
+            m732valor1.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Valoracion 1");
+            m732epigrafe2.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Epigrafe I.A.E. 2");
+            m732clave2.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Clave 2 U R o blanco");
+            m732refencia2.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Referencia catastral 2");
+            m732situacion2.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Situacion 2");
+            m732valor2.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Valoracion 2");
+            m732epigrafe3.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Epigrafe I.A.E. 3");
+            m732clave3.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Clave 3 U R o blanco");
+            m732refencia3.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Referencia catastral 3");
+            m732situacion3.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Situacion 3");
+            m732valor3.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Valoracion 3");
+            m732epigrafe4.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Epigrafe I.A.E. 4");
+            m732clave4.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Clave 4 U R o blanco");
+            m732refencia4.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Referencia catastral 4");
+            m732situacion4.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Situacion 4");
+            m732valor4.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Valoracion 4");
+            m732epigrafe5.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Epigrafe I.A.E. 5");
+            m732clave5.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Clave 5 U R o blanco");
+            m732refencia5.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Referencia catastral 5");
+            m732situacion5.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Situacion 5");
+            m732valor5.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Valoracion 5");
+            m732epigrafe6.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Epigrafe I.A.E. 6");
+            m732clave6.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Clave 6 U R o blanco");
+            m732refencia6.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Referencia catastral 6");
+            m732situacion6.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Situacion 6");
+            m732valor6.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Valoracion 6");
+            m732epigrafe7.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Epigrafe I.A.E. 7");
+            m732clave7.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Clave 7 U R o blanco");
+            m732refencia7.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Referencia catastral 7");
+            m732situacion7.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Situacion 7");
+            m732valor7.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Valoracion 7");
+            m732epigrafe8.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Epigrafe I.A.E. 8");
+            m732clave8.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Clave 8 U R o blanco");
+            m732refencia8.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Referencia catastral 8");
+            m732situacion8.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Situacion 8");
+            m732valor8.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Valoracion 8");
+            m732epigrafe9.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Epigrafe I.A.E. 9");
+            m732clave9.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Clave 9 U R o blanco");
+            m732refencia9.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Referencia catastral 9");
+            m732situacion9.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Situacion 9");
+            m732valor9.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Valoracion 9");
+            m732epigrafe10.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Epigrafe I.A.E. 10");
+            m732clave10.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Clave 10 U R o blanco");
+            m732refencia10.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Referencia catastral 10");
+            m732situacion10.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Situacion 10");
+            m732valor10.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Valoracion 10");
+            m732epigrafe11.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Epigrafe I.A.E. 11");
+            m732clave11.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Clave 11 U R o blanco");
+            m732refencia11.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Referencia catastral 11");
+            m732situacion11.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Situacion 11");
+            m732valor11.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Valoracion 11");
+            m732epigrafe12.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Epigrafe I.A.E. 12");
+            m732clave12.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Clave 12 U R o blanco");
+            m732refencia12.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Referencia catastral 12");
+            m732situacion12.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Situacion 12");
+            m732valor12.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Valoracion 12");
+            m73totalc2.setDescription("Bienes y dchos. empr./prof. C2 no exentos y afectos. Inmuebles Total [b]");
             m73totalc.setDescription("Bienes y dchos. empr./prof. Total bienes y derechos no exentos y afectos (a) (b) [03]");
-            m73depigrafe1.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Epigrafe I.A.E. 1");
-            m73dclave1.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Clave 1 U R o blanco");
-            m73drefencia1.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Referencia catastral 1");
-            m73ddescripci1.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Descripcion 1");
-            m73dvalor1.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Valoracion 1");
-            m73depigrafe2.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Epigrafe I.A.E. 2");
-            m73dclave2.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Clave 2 U R o blanco");
-            m73drefencia2.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Referencia catastral 2");
-            m73ddescripci2.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Descripcion 2");
-            m73dvalor2.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Valoracion 2");
-            m73depigrafe3.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Epigrafe I.A.E. 3");
-            m73dclave3.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Clave 3 U R o blanco");
-            m73drefencia3.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Referencia catastral 3");
-            m73ddescripci3.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Descripcion 3");
-            m73dvalor3.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Valoracion 3");
-            m73depigrafe4.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Epigrafe I.A.E. 4");
-            m73dclave4.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Clave 4 U R o blanco");
-            m73drefencia4.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Referencia catastral 4");
-            m73ddescripci4.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Descripcion 4");
-            m73dvalor4.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Valoracion 4");
-            m73depigrafe5.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Epigrafe I.A.E. 5");
-            m73dclave5.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Clave 5 U R o blanco");
-            m73drefencia5.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Referencia catastral 5");
-            m73ddescripci5.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Descripcion 5");
-            m73dvalor5.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Valoracion 5");
-            m73depigrafe6.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Epigrafe I.A.E. 6");
-            m73dclave6.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Clave 6 U R o blanco");
-            m73drefencia6.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Referencia catastral 6");
-            m73ddescripci6.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Descripcion 6");
-            m73dvalor6.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Valoracion 6");
-            m73depigrafe7.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Epigrafe I.A.E. 7");
-            m73dclave7.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Clave 7 U R o blanco");
-            m73drefencia7.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Referencia catastral 7");
-            m73ddescripci7.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Descripcion 7");
-            m73dvalor7.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Valoracion 7");
-            m73depigrafe8.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Epigrafe I.A.E. 8");
-            m73dclave8.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Clave 8 U R o blanco");
-            m73drefencia8.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Referencia catastral 8");
-            m73ddescripci8.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Descripcion 8");
-            m73dvalor8.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Valoracion 8");
-            m73depigrafe9.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Epigrafe I.A.E. 9");
-            m73dclave9.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Clave 9 U R o blanco");
-            m73drefencia9.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Referencia catastral 9");
-            m73ddescripci9.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Descripcion 9");
-            m73dvalor9.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Valoracion 9");
-            m73depigrafe10.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Epigrafe I.A.E. 10");
-            m73dclave10.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Clave 10 U R o blanco");
-            m73drefencia10.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Referencia catastral 10");
-            m73ddescripci10.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Descripcion 10");
-            m73dvalor10.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Valoracion 10");
-            m73depigrafe11.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Epigrafe I.A.E. 11");
-            m73dclave11.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Clave 11 U R o blanco");
-            m73drefencia11.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Referencia catastral 11");
-            m73ddescripci11.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Descripcion 11");
-            m73dvalor11.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Valoracion 11");
-            m73depigrafe12.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Epigrafe I.A.E. 12");
-            m73dclave12.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Clave 12 U R o blanco");
-            m73drefencia12.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Referencia catastral 12");
-            m73ddescripci12.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Descripcion 12");
-            m73dvalor12.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Valoracion 12");
-            m73depigrafe13.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Epigrafe I.A.E. 13");
-            m73dclave13.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Clave 13 U R o blanco");
-            m73drefencia13.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Referencia catastral 13");
-            m73ddescripci13.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Descripcion 13");
-            m73dvalor13.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Valoracion 13");
-            m73totald.setDescription("Bienes y dchos. empr./prof. Dexentos y afectos Total (neto de deudas) [04]");
+            m73depigrafe1.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Epigrafe I.A.E. 1");
+            m73dclave1.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Clave 1 U R o blanco");
+            m73drefencia1.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Referencia catastral 1");
+            m73ddescripci1.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Descripcion 1");
+            m73dvalor1.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Valoracion 1");
+            m73depigrafe2.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Epigrafe I.A.E. 2");
+            m73dclave2.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Clave 2 U R o blanco");
+            m73drefencia2.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Referencia catastral 2");
+            m73ddescripci2.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Descripcion 2");
+            m73dvalor2.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Valoracion 2");
+            m73depigrafe3.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Epigrafe I.A.E. 3");
+            m73dclave3.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Clave 3 U R o blanco");
+            m73drefencia3.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Referencia catastral 3");
+            m73ddescripci3.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Descripcion 3");
+            m73dvalor3.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Valoracion 3");
+            m73depigrafe4.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Epigrafe I.A.E. 4");
+            m73dclave4.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Clave 4 U R o blanco");
+            m73drefencia4.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Referencia catastral 4");
+            m73ddescripci4.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Descripcion 4");
+            m73dvalor4.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Valoracion 4");
+            m73depigrafe5.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Epigrafe I.A.E. 5");
+            m73dclave5.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Clave 5 U R o blanco");
+            m73drefencia5.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Referencia catastral 5");
+            m73ddescripci5.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Descripcion 5");
+            m73dvalor5.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Valoracion 5");
+            m73depigrafe6.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Epigrafe I.A.E. 6");
+            m73dclave6.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Clave 6 U R o blanco");
+            m73drefencia6.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Referencia catastral 6");
+            m73ddescripci6.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Descripcion 6");
+            m73dvalor6.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Valoracion 6");
+            m73depigrafe7.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Epigrafe I.A.E. 7");
+            m73dclave7.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Clave 7 U R o blanco");
+            m73drefencia7.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Referencia catastral 7");
+            m73ddescripci7.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Descripcion 7");
+            m73dvalor7.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Valoracion 7");
+            m73depigrafe8.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Epigrafe I.A.E. 8");
+            m73dclave8.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Clave 8 U R o blanco");
+            m73drefencia8.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Referencia catastral 8");
+            m73ddescripci8.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Descripcion 8");
+            m73dvalor8.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Valoracion 8");
+            m73depigrafe9.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Epigrafe I.A.E. 9");
+            m73dclave9.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Clave 9 U R o blanco");
+            m73drefencia9.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Referencia catastral 9");
+            m73ddescripci9.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Descripcion 9");
+            m73dvalor9.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Valoracion 9");
+            m73depigrafe10.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Epigrafe I.A.E. 10");
+            m73dclave10.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Clave 10 U R o blanco");
+            m73drefencia10.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Referencia catastral 10");
+            m73ddescripci10.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Descripcion 10");
+            m73dvalor10.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Valoracion 10");
+            m73depigrafe11.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Epigrafe I.A.E. 11");
+            m73dclave11.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Clave 11 U R o blanco");
+            m73drefencia11.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Referencia catastral 11");
+            m73ddescripci11.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Descripcion 11");
+            m73dvalor11.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Valoracion 11");
+            m73depigrafe12.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Epigrafe I.A.E. 12");
+            m73dclave12.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Clave 12 U R o blanco");
+            m73drefencia12.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Referencia catastral 12");
+            m73ddescripci12.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Descripcion 12");
+            m73dvalor12.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Valoracion 12");
+            m73depigrafe13.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Epigrafe I.A.E. 13");
+            m73dclave13.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Clave 13 U R o blanco");
+            m73drefencia13.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Referencia catastral 13");
+            m73ddescripci13.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Descripcion 13");
+            m73dvalor13.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Valoracion 13");
+            m73totald.setDescription("Bienes y dchos. empr./prof. D exentos y afectos Total (neto de deudas) [04]");
             m732valuti1.setDescription("C2 no exentos y afectos. Inmuebles Valor utilizado 1 (V,A,P,C,D o blanco)");
             m732valuti2.setDescription("C2 no exentos y afectos. Inmuebles Valor utilizado 2 (V,A,P,C,D o blanco)");
             m732valuti3.setDescription("C2 no exentos y afectos. Inmuebles Valor utilizado 3 (V,A,P,C,D o blanco)");
@@ -1737,15 +1955,58 @@ public class CatModelo714 extends Catalog
             m73dvaluti1.setDescription("D exentos y afectos Valor utilizado 1  (V,A,P,C,D o blanco)");
             m73dvaluti2.setDescription("D exentos y afectos Valor utilizado 2  (V,A,P,C,D o blanco)");
             m73dvaluti3.setDescription("D exentos y afectos Valor utilizado 3  (V,A,P,C,D o blanco)");
-            m73dvaluti4.setDescription("D exentos y afectos Valor utilizado 4");
-            m73dvaluti5.setDescription("D exentos y afectos Valor utilizado 5");
-            m73dvaluti6.setDescription("D exentos y afectos Valor utilizado 6");
-            m73dvaluti7.setDescription("D exentos y afectos Valor utilizado 7");
-            m73dvaluti8.setDescription("D exentos y afectos Valor utilizado 8");
-            m73dvaluti9.setDescription("D exentos y afectos Valor utilizado 9");
-            m73dvaluti10.setDescription("D exentos y afectos Valor utilizado 10");
-            m73dvaluti11.setDescription("D exentos y afectos Valor utilizado 11");
+            m73dvaluti4.setDescription("D exentos y afectos Valor utilizado 4  (V,A,P,C,D o blanco)");
+            m73dvaluti5.setDescription("D exentos y afectos Valor utilizado 5  (V,A,P,C,D o blanco)");
+            m73dvaluti6.setDescription("D exentos y afectos Valor utilizado 6  (V,A,P,C,D o blanco)");
+            m73dvaluti7.setDescription("D exentos y afectos Valor utilizado 7  (V,A,P,C,D o blanco)");
+            m73dvaluti8.setDescription("D exentos y afectos Valor utilizado 8  (V,A,P,C,D o blanco)");
+            m73dvaluti9.setDescription("D exentos y afectos Valor utilizado 9  (V,A,P,C,D o blanco)");
+            m73dvaluti10.setDescription("D exentos y afectos Valor utilizado 10 (V,A,P,C,D o blanco)");
+            m73dvaluti11.setDescription("D exentos y afectos Valor utilizado 11 (V,A,P,C,D o blanco)");
             m73dvaluti12.setDescription("D exentos y afectos Valor utilizado 12 (V,A,P,C,D o blanco)");
+            m731tipoprop1.setDescription("C1 Bienes no exentos afectos 1 Clave o tipo propiedad                                2019");
+            m731refencia1.setDescription("C1 Bienes no exentos afectos 1 Referencia catastral (en caso de derechos sobre inmuebles)");
+            m731tipoprop2.setDescription("C1 Bienes no exentos afectos 2 Clave o tipo propiedad");
+            m731refencia2.setDescription("C1 Bienes no exentos afectos 2 Referencia catastral (en caso de derechos sobre inmuebles)");
+            m731tipoprop3.setDescription("C1 Bienes no exentos afectos 3 Clave o tipo propiedad");
+            m731refencia3.setDescription("C1 Bienes no exentos afectos 3 Referencia catastral (en caso de derechos sobre inmuebles)");
+            m731tipoprop4.setDescription("C1 Bienes no exentos afectos 4 Clave o tipo propiedad");
+            m731refencia4.setDescription("C1 Bienes no exentos afectos 4 Referencia catastral (en caso de derechos sobre inmuebles)");
+            m731tipoprop5.setDescription("C1 Bienes no exentos afectos 5 Clave o tipo propiedad");
+            m731refencia5.setDescription("C1 Bienes no exentos afectos 5 Referencia catastral (en caso de derechos sobre inmuebles)");
+            m731tipoprop6.setDescription("C1 Bienes no exentos afectos 6 Clave o tipo propiedad");
+            m731refencia6.setDescription("C1 Bienes no exentos afectos 6 Referencia catastral (en caso de derechos sobre inmuebles)");
+            m731tipoprop7.setDescription("C1 Bienes no exentos afectos 7 Clave o tipo propiedad");
+            m731refencia7.setDescription("C1 Bienes no exentos afectos 7 Referencia catastral (en caso de derechos sobre inmuebles)");
+            m732porcen1.setDescription("C2 Bienes no exentos afectos inmuebles 1 Porcentaje de titularidad   2019");
+            m732porcen2.setDescription("C2 Bienes no exentos afectos inmuebles 2 Porcentaje de titularidad");
+            m732porcen3.setDescription("C2 Bienes no exentos afectos inmuebles 3 Porcentaje de titularidad");
+            m732porcen4.setDescription("C2 Bienes no exentos afectos inmuebles 4 Porcentaje de titularidad");
+            m732porcen5.setDescription("C2 Bienes no exentos afectos inmuebles 5 Porcentaje de titularidad");
+            m73dporcen1.setDescription("D2 Bienes exentos afectos 1 Porcentaje de titularidad");
+            m73dporcen2.setDescription("D2 Bienes exentos afectos 2 Porcentaje de titularidad");
+            m73dporcen3.setDescription("D2 Bienes exentos afectos 3 Porcentaje de titularidad");
+            m73dporcen4.setDescription("D2 Bienes exentos afectos 4 Porcentaje de titularidad");
+            m73dporcen5.setDescription("D2 Bienes exentos afectos 5 Porcentaje de titularidad");
+            m73dporcen6.setDescription("D2 Bienes exentos afectos 6 Porcentaje de titularidad");
+            m73dporcen7.setDescription("D2 Bienes exentos afectos 7 Porcentaje de titularidad");
+            m73dporcen8.setDescription("D2 Bienes exentos afectos 8 Porcentaje de titularidad");
+            m73dporcen9.setDescription("D2 Bienes exentos afectos 9 Porcentaje de titularidad");
+            m73dporcen10.setDescription("D2 Bienes exentos afectos 10 Porcentaje de titularidad");
+            m73dporcen11.setDescription("D2 Bienes exentos afectos 11 Porcentaje de titularidad");
+            m73dporcen12.setDescription("D2 Bienes exentos afectos 12 Porcentaje de titularidad");
+            m73dtipoprop1.setDescription("D2 Bienes exentos afectos 1 Clave o tipo de propiedad");
+            m73dtipoprop2.setDescription("D2 Bienes exentos afectos 2 Clave o tipo de propiedad");
+            m73dtipoprop3.setDescription("D2 Bienes exentos afectos 3 Clave o tipo de propiedad");
+            m73dtipoprop4.setDescription("D2 Bienes exentos afectos 4 Clave o tipo de propiedad");
+            m73dtipoprop5.setDescription("D2 Bienes exentos afectos 5 Clave o tipo de propiedad");
+            m73dtipoprop6.setDescription("D2 Bienes exentos afectos 6 Clave o tipo de propiedad");
+            m73dtipoprop7.setDescription("D2 Bienes exentos afectos 7 Clave o tipo de propiedad");
+            m73dtipoprop8.setDescription("D2 Bienes exentos afectos 8 Clave o tipo de propiedad");
+            m73dtipoprop9.setDescription("D2 Bienes exentos afectos 9 Clave o tipo de propiedad");
+            m73dtipoprop10.setDescription("D2 Bienes exentos afectos 10 Clave o tipo de propiedad");
+            m73dtipoprop11.setDescription("D2 Bienes exentos afectos 11 Clave o tipo de propiedad");
+            m73dtipoprop12.setDescription("D2 Bienes exentos afectos 12 Clave o tipo de propiedad");
             }
         }
         
@@ -1863,6 +2124,62 @@ public class CatModelo714 extends Catalog
         public FieldDef m74f2descrip14;
         public FieldDef m74f2valor14;
         public FieldDef m74totalf2;
+        public FieldDef m74eporcen1;
+        public FieldDef m74eporcen2;
+        public FieldDef m74eporcen3;
+        public FieldDef m74eporcen4;
+        public FieldDef m74eporcen5;
+        public FieldDef m74eporcen6;
+        public FieldDef m74eporcen7;
+        public FieldDef m74eporcen8;
+        public FieldDef m74eporcen9;
+        public FieldDef m74eporcen10;
+        public FieldDef m74eporcen11;
+        public FieldDef m74eporcen12;
+        public FieldDef m74etipoprop1;
+        public FieldDef m74etipoprop2;
+        public FieldDef m74etipoprop3;
+        public FieldDef m74etipoprop4;
+        public FieldDef m74etipoprop5;
+        public FieldDef m74etipoprop6;
+        public FieldDef m74etipoprop7;
+        public FieldDef m74etipoprop8;
+        public FieldDef m74etipoprop9;
+        public FieldDef m74etipoprop10;
+        public FieldDef m74etipoprop11;
+        public FieldDef m74etipoprop12;
+        public FieldDef m74f1porcen1;
+        public FieldDef m74f1porcen2;
+        public FieldDef m74f1porcen3;
+        public FieldDef m74f1porcen4;
+        public FieldDef m74f1porcen5;
+        public FieldDef m74f1porcen6;
+        public FieldDef m74f1porcen7;
+        public FieldDef m74f1porcen8;
+        public FieldDef m74f1porcen9;
+        public FieldDef m74f1porcen10;
+        public FieldDef m74f1tipoprop1;
+        public FieldDef m74f1tipoprop2;
+        public FieldDef m74f1tipoprop3;
+        public FieldDef m74f1tipoprop4;
+        public FieldDef m74f1tipoprop5;
+        public FieldDef m74f1tipoprop6;
+        public FieldDef m74f1tipoprop7;
+        public FieldDef m74f1tipoprop8;
+        public FieldDef m74f1tipoprop9;
+        public FieldDef m74f1tipoprop10;
+        public FieldDef m74f2porcen1;
+        public FieldDef m74f2porcen2;
+        public FieldDef m74f2porcen3;
+        public FieldDef m74f2porcen4;
+        public FieldDef m74f2porcen5;
+        public FieldDef m74f2porcen6;
+        public FieldDef m74f2tipoprop1;
+        public FieldDef m74f2tipoprop2;
+        public FieldDef m74f2tipoprop3;
+        public FieldDef m74f2tipoprop4;
+        public FieldDef m74f2tipoprop5;
+        public FieldDef m74f2tipoprop6;
         public TabMod714h4(String name)
             {
             super(name);
@@ -1977,6 +2294,62 @@ public class CatModelo714 extends Catalog
             m74f2descrip14 = new FieldDef("m74f2descrip14",FieldDef.CHAR,62);
             m74f2valor14 = new FieldDef("m74f2valor14",FieldDef.FLOAT,6,0);
             m74totalf2 = new FieldDef("m74totalf2",FieldDef.FLOAT,6,0);
+            m74eporcen1 = new FieldDef("m74eporcen1",FieldDef.FLOAT,6,0);
+            m74eporcen2 = new FieldDef("m74eporcen2",FieldDef.FLOAT,6,0);
+            m74eporcen3 = new FieldDef("m74eporcen3",FieldDef.FLOAT,6,0);
+            m74eporcen4 = new FieldDef("m74eporcen4",FieldDef.FLOAT,6,0);
+            m74eporcen5 = new FieldDef("m74eporcen5",FieldDef.FLOAT,6,0);
+            m74eporcen6 = new FieldDef("m74eporcen6",FieldDef.FLOAT,6,0);
+            m74eporcen7 = new FieldDef("m74eporcen7",FieldDef.FLOAT,6,0);
+            m74eporcen8 = new FieldDef("m74eporcen8",FieldDef.FLOAT,6,0);
+            m74eporcen9 = new FieldDef("m74eporcen9",FieldDef.FLOAT,6,0);
+            m74eporcen10 = new FieldDef("m74eporcen10",FieldDef.FLOAT,6,0);
+            m74eporcen11 = new FieldDef("m74eporcen11",FieldDef.FLOAT,6,0);
+            m74eporcen12 = new FieldDef("m74eporcen12",FieldDef.FLOAT,6,0);
+            m74etipoprop1 = new FieldDef("m74etipoprop1",FieldDef.CHAR,1);
+            m74etipoprop2 = new FieldDef("m74etipoprop2",FieldDef.CHAR,1);
+            m74etipoprop3 = new FieldDef("m74etipoprop3",FieldDef.CHAR,1);
+            m74etipoprop4 = new FieldDef("m74etipoprop4",FieldDef.CHAR,1);
+            m74etipoprop5 = new FieldDef("m74etipoprop5",FieldDef.CHAR,1);
+            m74etipoprop6 = new FieldDef("m74etipoprop6",FieldDef.CHAR,1);
+            m74etipoprop7 = new FieldDef("m74etipoprop7",FieldDef.CHAR,1);
+            m74etipoprop8 = new FieldDef("m74etipoprop8",FieldDef.CHAR,1);
+            m74etipoprop9 = new FieldDef("m74etipoprop9",FieldDef.CHAR,1);
+            m74etipoprop10 = new FieldDef("m74etipoprop10",FieldDef.CHAR,1);
+            m74etipoprop11 = new FieldDef("m74etipoprop11",FieldDef.CHAR,1);
+            m74etipoprop12 = new FieldDef("m74etipoprop12",FieldDef.CHAR,1);
+            m74f1porcen1 = new FieldDef("m74f1porcen1",FieldDef.FLOAT,6,0);
+            m74f1porcen2 = new FieldDef("m74f1porcen2",FieldDef.FLOAT,6,0);
+            m74f1porcen3 = new FieldDef("m74f1porcen3",FieldDef.FLOAT,6,0);
+            m74f1porcen4 = new FieldDef("m74f1porcen4",FieldDef.FLOAT,6,0);
+            m74f1porcen5 = new FieldDef("m74f1porcen5",FieldDef.FLOAT,6,0);
+            m74f1porcen6 = new FieldDef("m74f1porcen6",FieldDef.FLOAT,6,0);
+            m74f1porcen7 = new FieldDef("m74f1porcen7",FieldDef.FLOAT,6,0);
+            m74f1porcen8 = new FieldDef("m74f1porcen8",FieldDef.FLOAT,6,0);
+            m74f1porcen9 = new FieldDef("m74f1porcen9",FieldDef.FLOAT,6,0);
+            m74f1porcen10 = new FieldDef("m74f1porcen10",FieldDef.FLOAT,6,0);
+            m74f1tipoprop1 = new FieldDef("m74f1tipoprop1",FieldDef.CHAR,1);
+            m74f1tipoprop2 = new FieldDef("m74f1tipoprop2",FieldDef.CHAR,1);
+            m74f1tipoprop3 = new FieldDef("m74f1tipoprop3",FieldDef.CHAR,1);
+            m74f1tipoprop4 = new FieldDef("m74f1tipoprop4",FieldDef.CHAR,1);
+            m74f1tipoprop5 = new FieldDef("m74f1tipoprop5",FieldDef.CHAR,1);
+            m74f1tipoprop6 = new FieldDef("m74f1tipoprop6",FieldDef.CHAR,1);
+            m74f1tipoprop7 = new FieldDef("m74f1tipoprop7",FieldDef.CHAR,1);
+            m74f1tipoprop8 = new FieldDef("m74f1tipoprop8",FieldDef.CHAR,1);
+            m74f1tipoprop9 = new FieldDef("m74f1tipoprop9",FieldDef.CHAR,1);
+            m74f1tipoprop10 = new FieldDef("m74f1tipoprop10",FieldDef.CHAR,1);
+            m74f2porcen1 = new FieldDef("m74f2porcen1",FieldDef.FLOAT,6,0);
+            m74f2porcen2 = new FieldDef("m74f2porcen2",FieldDef.FLOAT,6,0);
+            m74f2porcen3 = new FieldDef("m74f2porcen3",FieldDef.FLOAT,6,0);
+            m74f2porcen4 = new FieldDef("m74f2porcen4",FieldDef.FLOAT,6,0);
+            m74f2porcen5 = new FieldDef("m74f2porcen5",FieldDef.FLOAT,6,0);
+            m74f2porcen6 = new FieldDef("m74f2porcen6",FieldDef.FLOAT,6,0);
+            m74f2tipoprop1 = new FieldDef("m74f2tipoprop1",FieldDef.CHAR,1);
+            m74f2tipoprop2 = new FieldDef("m74f2tipoprop2",FieldDef.CHAR,1);
+            m74f2tipoprop3 = new FieldDef("m74f2tipoprop3",FieldDef.CHAR,1);
+            m74f2tipoprop4 = new FieldDef("m74f2tipoprop4",FieldDef.CHAR,1);
+            m74f2tipoprop5 = new FieldDef("m74f2tipoprop5",FieldDef.CHAR,1);
+            m74f2tipoprop6 = new FieldDef("m74f2tipoprop6",FieldDef.CHAR,1);
             FieldDef array[] = {
                 m74dominio,
                 m74nif,
@@ -2088,117 +2461,229 @@ public class CatModelo714 extends Catalog
                 m74f2valor13,
                 m74f2descrip14,
                 m74f2valor14,
-                m74totalf2                
+                m74totalf2,
+                m74eporcen1,
+                m74eporcen2,
+                m74eporcen3,
+                m74eporcen4,
+                m74eporcen5,
+                m74eporcen6,
+                m74eporcen7,
+                m74eporcen8,
+                m74eporcen9,
+                m74eporcen10,
+                m74eporcen11,
+                m74eporcen12,
+                m74etipoprop1,
+                m74etipoprop2,
+                m74etipoprop3,
+                m74etipoprop4,
+                m74etipoprop5,
+                m74etipoprop6,
+                m74etipoprop7,
+                m74etipoprop8,
+                m74etipoprop9,
+                m74etipoprop10,
+                m74etipoprop11,
+                m74etipoprop12,
+                m74f1porcen1,
+                m74f1porcen2,
+                m74f1porcen3,
+                m74f1porcen4,
+                m74f1porcen5,
+                m74f1porcen6,
+                m74f1porcen7,
+                m74f1porcen8,
+                m74f1porcen9,
+                m74f1porcen10,
+                m74f1tipoprop1,
+                m74f1tipoprop2,
+                m74f1tipoprop3,
+                m74f1tipoprop4,
+                m74f1tipoprop5,
+                m74f1tipoprop6,
+                m74f1tipoprop7,
+                m74f1tipoprop8,
+                m74f1tipoprop9,
+                m74f1tipoprop10,
+                m74f2porcen1,
+                m74f2porcen2,
+                m74f2porcen3,
+                m74f2porcen4,
+                m74f2porcen5,
+                m74f2porcen6,
+                m74f2tipoprop1,
+                m74f2tipoprop2,
+                m74f2tipoprop3,
+                m74f2tipoprop4,
+                m74f2tipoprop5,
+                m74f2tipoprop6                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m74dominio,m74nif,m74ejercicio,m74periodo,m74pagina };
             setPrimaryKeys(arrayf);
-            m74ebanco1.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 1");
-            m74ecta1.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 1");
-            m74evalor1.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 1");
-            m74ebanco2.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 2");
-            m74ecta2.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 2");
-            m74evalor2.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 2");
-            m74ebanco3.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 3");
-            m74ecta3.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 3");
-            m74evalor3.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 3");
-            m74ebanco4.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 4");
-            m74ecta4.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 4");
-            m74evalor4.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 4");
-            m74ebanco5.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 5");
-            m74ecta5.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 5");
-            m74evalor5.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 5");
-            m74ebanco6.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 6");
-            m74ecta6.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 6");
-            m74evalor6.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 6");
-            m74ebanco7.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 7");
-            m74ecta7.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 7");
-            m74evalor7.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 7");
-            m74ebanco8.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 8");
-            m74ecta8.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 8");
-            m74evalor8.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 8");
-            m74ebanco9.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 9");
-            m74ecta9.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 9");
-            m74evalor9.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 9");
-            m74ebanco10.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 10");
-            m74ecta10.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 10");
-            m74evalor10.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 10");
-            m74ebanco11.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 11");
-            m74ecta11.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 11");
-            m74evalor11.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 11");
-            m74ebanco12.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 12");
-            m74ecta12.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 12");
-            m74evalor12.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 12");
-            m74ebanco13.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 13");
-            m74ecta13.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 13");
-            m74evalor13.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 13");
-            m74ebanco14.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 14");
-            m74ecta14.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 14");
-            m74evalor14.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 14");
-            m74ebanco15.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Entidad deposito 15");
-            m74ecta15.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... N de cuenta o deposito 15");
-            m74evalor15.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Valor 15");
-            m74totale.setDescription("Bienes y dchos. EDepositos en cuenta corriente ahorro ... Total [05]");
-            m74f1descrip1.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 1");
-            m74f1valor1.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 1");
-            m74f1descrip2.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 2");
-            m74f1valor2.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 2");
-            m74f1descrip3.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 3");
-            m74f1valor3.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 3");
-            m74f1descrip4.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 4");
-            m74f1valor4.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 4");
-            m74f1descrip5.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 5");
-            m74f1valor5.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 5");
-            m74f1descrip6.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 6");
-            m74f1valor6.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 6");
-            m74f1descrip7.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 7");
-            m74f1valor7.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 7");
-            m74f1descrip8.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 8");
-            m74f1valor8.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 8");
-            m74f1descrip9.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 9");
-            m74f1valor9.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 9");
-            m74f1descrip10.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 10");
-            m74f1valor10.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 10");
-            m74f1descrip11.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 11");
-            m74f1valor11.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 11");
-            m74f1descrip12.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 12");
-            m74f1valor12.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 12");
-            m74f1descrip13.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 13");
-            m74f1valor13.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 13");
-            m74f1descrip14.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 14");
-            m74f1valor14.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 14");
-            m74f1descrip15.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Descripcion 15");
-            m74f1valor15.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Valor 15");
-            m74totalf1.setDescription("Bienes y dchos. FValores cesion terceros F1 Deuda publica obligaciones ... Total [06]");
-            m74f2descrip1.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Descripcion 1");
-            m74f2valor1.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Valor 1");
-            m74f2descrip2.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Descripcion 2");
-            m74f2valor2.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Valor 2");
-            m74f2descrip3.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Descripcion 3");
-            m74f2valor3.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Valor 3");
-            m74f2descrip4.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Descripcion 4");
-            m74f2valor4.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Valor 4");
-            m74f2descrip5.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Descripcion 5");
-            m74f2valor5.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Valor 5");
-            m74f2descrip6.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Descripcion 6");
-            m74f2valor6.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Valor 6");
-            m74f2descrip7.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Descripcion 7");
-            m74f2valor7.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Valor 7");
-            m74f2descrip8.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Descripcion 8");
-            m74f2valor8.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Valor 8");
-            m74f2descrip9.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Descripcion 9");
-            m74f2valor9.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Valor 9");
-            m74f2descrip10.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Descripcion 10");
-            m74f2valor10.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Valor 10");
-            m74f2descrip11.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Descripcion 11");
-            m74f2valor11.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Valor 11");
-            m74f2descrip12.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Descripcion 12");
-            m74f2valor12.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Valor 12");
-            m74f2descrip13.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Descripcion 13");
-            m74f2valor13.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Valor 13");
-            m74f2descrip14.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Descripcion 14");
-            m74f2valor14.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Valor 14");
-            m74totalf2.setDescription("Bienes y dchos. FValores cesion terceros F2 Obligaciones bonos certificados ... Total [07]");
+            m74ebanco1.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 1");
+            m74ecta1.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 1");
+            m74evalor1.setDescription("E Depositos en cuenta corriente ahorro ... Valor 1");
+            m74ebanco2.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 2");
+            m74ecta2.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 2");
+            m74evalor2.setDescription("E Depositos en cuenta corriente ahorro ... Valor 2");
+            m74ebanco3.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 3");
+            m74ecta3.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 3");
+            m74evalor3.setDescription("E Depositos en cuenta corriente ahorro ... Valor 3");
+            m74ebanco4.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 4");
+            m74ecta4.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 4");
+            m74evalor4.setDescription("E Depositos en cuenta corriente ahorro ... Valor 4");
+            m74ebanco5.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 5");
+            m74ecta5.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 5");
+            m74evalor5.setDescription("E Depositos en cuenta corriente ahorro ... Valor 5");
+            m74ebanco6.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 6");
+            m74ecta6.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 6");
+            m74evalor6.setDescription("E Depositos en cuenta corriente ahorro ... Valor 6");
+            m74ebanco7.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 7");
+            m74ecta7.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 7");
+            m74evalor7.setDescription("E Depositos en cuenta corriente ahorro ... Valor 7");
+            m74ebanco8.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 8");
+            m74ecta8.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 8");
+            m74evalor8.setDescription("E Depositos en cuenta corriente ahorro ... Valor 8");
+            m74ebanco9.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 9");
+            m74ecta9.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 9");
+            m74evalor9.setDescription("E Depositos en cuenta corriente ahorro ... Valor 9");
+            m74ebanco10.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 10");
+            m74ecta10.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 10");
+            m74evalor10.setDescription("E Depositos en cuenta corriente ahorro ... Valor 10");
+            m74ebanco11.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 11");
+            m74ecta11.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 11");
+            m74evalor11.setDescription("E Depositos en cuenta corriente ahorro ... Valor 11");
+            m74ebanco12.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 12");
+            m74ecta12.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 12");
+            m74evalor12.setDescription("E Depositos en cuenta corriente ahorro ... Valor 12");
+            m74ebanco13.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 13");
+            m74ecta13.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 13");
+            m74evalor13.setDescription("E Depositos en cuenta corriente ahorro ... Valor 13");
+            m74ebanco14.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 14");
+            m74ecta14.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 14");
+            m74evalor14.setDescription("E Depositos en cuenta corriente ahorro ... Valor 14");
+            m74ebanco15.setDescription("E Depositos en cuenta corriente ahorro ... Entidad deposito 15");
+            m74ecta15.setDescription("E Depositos en cuenta corriente ahorro ... N de cuenta o deposito 15");
+            m74evalor15.setDescription("E Depositos en cuenta corriente ahorro ... Valor 15");
+            m74totale.setDescription("E Depositos en cuenta corriente ahorro ... Total [05]");
+            m74f1descrip1.setDescription("F1 Deuda publica obligaciones ... Descripcion 1");
+            m74f1valor1.setDescription("F1 Deuda publica obligaciones ... Valor 1");
+            m74f1descrip2.setDescription("F1 Deuda publica obligaciones ... Descripcion 2");
+            m74f1valor2.setDescription("F1 Deuda publica obligaciones ... Valor 2");
+            m74f1descrip3.setDescription("F1 Deuda publica obligaciones ... Descripcion 3");
+            m74f1valor3.setDescription("F1 Deuda publica obligaciones ... Valor 3");
+            m74f1descrip4.setDescription("F1 Deuda publica obligaciones ... Descripcion 4");
+            m74f1valor4.setDescription("F1 Deuda publica obligaciones ... Valor 4");
+            m74f1descrip5.setDescription("F1 Deuda publica obligaciones ... Descripcion 5");
+            m74f1valor5.setDescription("F1 Deuda publica obligaciones ... Valor 5");
+            m74f1descrip6.setDescription("F1 Deuda publica obligaciones ... Descripcion 6");
+            m74f1valor6.setDescription("F1 Deuda publica obligaciones ... Valor 6");
+            m74f1descrip7.setDescription("F1 Deuda publica obligaciones ... Descripcion 7");
+            m74f1valor7.setDescription("F1 Deuda publica obligaciones ... Valor 7");
+            m74f1descrip8.setDescription("F1 Deuda publica obligaciones ... Descripcion 8");
+            m74f1valor8.setDescription("F1 Deuda publica obligaciones ... Valor 8");
+            m74f1descrip9.setDescription("F1 Deuda publica obligaciones ... Descripcion 9");
+            m74f1valor9.setDescription("F1 Deuda publica obligaciones ... Valor 9");
+            m74f1descrip10.setDescription("F1 Deuda publica obligaciones ... Descripcion 10");
+            m74f1valor10.setDescription("F1 Deuda publica obligaciones ... Valor 10");
+            m74f1descrip11.setDescription("F1 Deuda publica obligaciones ... Descripcion 11");
+            m74f1valor11.setDescription("F1 Deuda publica obligaciones ... Valor 11");
+            m74f1descrip12.setDescription("F1 Deuda publica obligaciones ... Descripcion 12");
+            m74f1valor12.setDescription("F1 Deuda publica obligaciones ... Valor 12");
+            m74f1descrip13.setDescription("F1 Deuda publica obligaciones ... Descripcion 13");
+            m74f1valor13.setDescription("F1 Deuda publica obligaciones ... Valor 13");
+            m74f1descrip14.setDescription("F1 Deuda publica obligaciones ... Descripcion 14");
+            m74f1valor14.setDescription("F1 Deuda publica obligaciones ... Valor 14");
+            m74f1descrip15.setDescription("F1 Deuda publica obligaciones ... Descripcion 15");
+            m74f1valor15.setDescription("F1 Deuda publica obligaciones ... Valor 15");
+            m74totalf1.setDescription("F1 Deuda publica obligaciones ... Total [06]");
+            m74f2descrip1.setDescription("F2 Obligaciones bonos certificados ... Descripcion 1");
+            m74f2valor1.setDescription("F2 Obligaciones bonos certificados ... Valor 1");
+            m74f2descrip2.setDescription("F2 Obligaciones bonos certificados ... Descripcion 2");
+            m74f2valor2.setDescription("F2 Obligaciones bonos certificados ... Valor 2");
+            m74f2descrip3.setDescription("F2 Obligaciones bonos certificados ... Descripcion 3");
+            m74f2valor3.setDescription("F2 Obligaciones bonos certificados ... Valor 3");
+            m74f2descrip4.setDescription("F2 Obligaciones bonos certificados ... Descripcion 4");
+            m74f2valor4.setDescription("F2 Obligaciones bonos certificados ... Valor 4");
+            m74f2descrip5.setDescription("F2 Obligaciones bonos certificados ... Descripcion 5");
+            m74f2valor5.setDescription("F2 Obligaciones bonos certificados ... Valor 5");
+            m74f2descrip6.setDescription("F2 Obligaciones bonos certificados ... Descripcion 6");
+            m74f2valor6.setDescription("F2 Obligaciones bonos certificados ... Valor 6");
+            m74f2descrip7.setDescription("F2 Obligaciones bonos certificados ... Descripcion 7");
+            m74f2valor7.setDescription("F2 Obligaciones bonos certificados ... Valor 7");
+            m74f2descrip8.setDescription("F2 Obligaciones bonos certificados ... Descripcion 8");
+            m74f2valor8.setDescription("F2 Obligaciones bonos certificados ... Valor 8");
+            m74f2descrip9.setDescription("F2 Obligaciones bonos certificados ... Descripcion 9");
+            m74f2valor9.setDescription("F2 Obligaciones bonos certificados ... Valor 9");
+            m74f2descrip10.setDescription("F2 Obligaciones bonos certificados ... Descripcion 10");
+            m74f2valor10.setDescription("F2 Obligaciones bonos certificados ... Valor 10");
+            m74f2descrip11.setDescription("F2 Obligaciones bonos certificados ... Descripcion 11");
+            m74f2valor11.setDescription("F2 Obligaciones bonos certificados ... Valor 11");
+            m74f2descrip12.setDescription("F2 Obligaciones bonos certificados ... Descripcion 12");
+            m74f2valor12.setDescription("F2 Obligaciones bonos certificados ... Valor 12");
+            m74f2descrip13.setDescription("F2 Obligaciones bonos certificados ... Descripcion 13");
+            m74f2valor13.setDescription("F2 Obligaciones bonos certificados ... Valor 13");
+            m74f2descrip14.setDescription("F2 Obligaciones bonos certificados ... Descripcion 14");
+            m74f2valor14.setDescription("F2 Obligaciones bonos certificados ... Valor 14");
+            m74totalf2.setDescription("F2 Obligaciones bonos certificados ... Total [07]");
+            m74eporcen1.setDescription("E Depositos cta corriente 1 Porcentaje de titularidad      2019");
+            m74eporcen2.setDescription("E Depositos cta corriente 2 Porcentaje de titularidad");
+            m74eporcen3.setDescription("E Depositos cta corriente 3 Porcentaje de titularidad");
+            m74eporcen4.setDescription("E Depositos cta corriente 4 Porcentaje de titularidad");
+            m74eporcen5.setDescription("E Depositos cta corriente 5 Porcentaje de titularidad");
+            m74eporcen6.setDescription("E Depositos cta corriente 6 Porcentaje de titularidad");
+            m74eporcen7.setDescription("E Depositos cta corriente 7 Porcentaje de titularidad");
+            m74eporcen8.setDescription("E Depositos cta corriente 8 Porcentaje de titularidad");
+            m74eporcen9.setDescription("E Depositos cta corriente 9 Porcentaje de titularidad");
+            m74eporcen10.setDescription("E Depositos cta corriente 10 Porcentaje de titularidad");
+            m74eporcen11.setDescription("E Depositos cta corriente 11 Porcentaje de titularidad");
+            m74eporcen12.setDescription("E Depositos cta corriente 12 Porcentaje de titularidad");
+            m74etipoprop1.setDescription("E Depositos cta corriente 1 Clave o tipo de propiedad");
+            m74etipoprop2.setDescription("E Depositos cta corriente 2 Clave o tipo de propiedad");
+            m74etipoprop3.setDescription("E Depositos cta corriente 3 Clave o tipo de propiedad");
+            m74etipoprop4.setDescription("E Depositos cta corriente 4 Clave o tipo de propiedad");
+            m74etipoprop5.setDescription("E Depositos cta corriente 5 Clave o tipo de propiedad");
+            m74etipoprop6.setDescription("E Depositos cta corriente 6 Clave o tipo de propiedad");
+            m74etipoprop7.setDescription("E Depositos cta corriente 7 Clave o tipo de propiedad");
+            m74etipoprop8.setDescription("E Depositos cta corriente 8 Clave o tipo de propiedad");
+            m74etipoprop9.setDescription("E Depositos cta corriente 9 Clave o tipo de propiedad");
+            m74etipoprop10.setDescription("E Depositos cta corriente 10 Clave o tipo de propiedad");
+            m74etipoprop11.setDescription("E Depositos cta corriente 11 Clave o tipo de propiedad");
+            m74etipoprop12.setDescription("E Depositos cta corriente 12 Clave o tipo de propiedad");
+            m74f1porcen1.setDescription("F1 Deuda publica obligaciones... 1 Porcentaje de titularidad");
+            m74f1porcen2.setDescription("F1 Deuda publica obligaciones... 2 Porcentaje de titularidad");
+            m74f1porcen3.setDescription("F1 Deuda publica obligaciones... 3 Porcentaje de titularidad");
+            m74f1porcen4.setDescription("F1 Deuda publica obligaciones... 4 Porcentaje de titularidad");
+            m74f1porcen5.setDescription("F1 Deuda publica obligaciones... 5 Porcentaje de titularidad");
+            m74f1porcen6.setDescription("F1 Deuda publica obligaciones... 6 Porcentaje de titularidad");
+            m74f1porcen7.setDescription("F1 Deuda publica obligaciones... 7 Porcentaje de titularidad");
+            m74f1porcen8.setDescription("F1 Deuda publica obligaciones... 8 Porcentaje de titularidad");
+            m74f1porcen9.setDescription("F1 Deuda publica obligaciones... 9 Porcentaje de titularidad");
+            m74f1porcen10.setDescription("F1 Deuda publica obligaciones... 10 Porcentaje de titularidad");
+            m74f1tipoprop1.setDescription("F1 Deuda publica obligaciones... 1 Clave o tipo de propiedad");
+            m74f1tipoprop2.setDescription("F1 Deuda publica obligaciones... 2 Clave o tipo de propiedad");
+            m74f1tipoprop3.setDescription("F1 Deuda publica obligaciones... 3 Clave o tipo de propiedad");
+            m74f1tipoprop4.setDescription("F1 Deuda publica obligaciones... 4 Clave o tipo de propiedad");
+            m74f1tipoprop5.setDescription("F1 Deuda publica obligaciones... 5 Clave o tipo de propiedad");
+            m74f1tipoprop6.setDescription("F1 Deuda publica obligaciones... 6 Clave o tipo de propiedad");
+            m74f1tipoprop7.setDescription("F1 Deuda publica obligaciones... 7 Clave o tipo de propiedad");
+            m74f1tipoprop8.setDescription("F1 Deuda publica obligaciones... 8 Clave o tipo de propiedad");
+            m74f1tipoprop9.setDescription("F1 Deuda publica obligaciones... 9 Clave o tipo de propiedad");
+            m74f1tipoprop10.setDescription("F1 Deuda publica obligaciones... 10 Clave o tipo de propiedad");
+            m74f2porcen1.setDescription("F2 Obligaciones bonos certificados... 1 Porcentaje de titularidad");
+            m74f2porcen2.setDescription("F2 Obligaciones bonos certificados... 2 Porcentaje de titularidad");
+            m74f2porcen3.setDescription("F2 Obligaciones bonos certificados... 3 Porcentaje de titularidad");
+            m74f2porcen4.setDescription("F2 Obligaciones bonos certificados... 4 Porcentaje de titularidad");
+            m74f2porcen5.setDescription("F2 Obligaciones bonos certificados... 5 Porcentaje de titularidad");
+            m74f2porcen6.setDescription("F2 Obligaciones bonos certificados... 6 Porcentaje de titularidad");
+            m74f2tipoprop1.setDescription("F2 Obligaciones bonos certificados... 1 Clave o tipo de propiedad");
+            m74f2tipoprop2.setDescription("F2 Obligaciones bonos certificados... 2 Clave o tipo de propiedad");
+            m74f2tipoprop3.setDescription("F2 Obligaciones bonos certificados... 3 Clave o tipo de propiedad");
+            m74f2tipoprop4.setDescription("F2 Obligaciones bonos certificados... 4 Clave o tipo de propiedad");
+            m74f2tipoprop5.setDescription("F2 Obligaciones bonos certificados... 5 Clave o tipo de propiedad");
+            m74f2tipoprop6.setDescription("F2 Obligaciones bonos certificados... 6 Clave o tipo de propiedad");
             }
         }
         
@@ -2299,6 +2784,77 @@ public class CatModelo714 extends Catalog
         public FieldDef m75g3descrip13;
         public FieldDef m75g3valor13;
         public FieldDef m75totalg3;
+        public FieldDef m75g1porcen1;
+        public FieldDef m75g1tipoprop1;
+        public FieldDef m75g1porcen2;
+        public FieldDef m75g1tipoprop2;
+        public FieldDef m75g1porcen3;
+        public FieldDef m75g1tipoprop3;
+        public FieldDef m75g1porcen4;
+        public FieldDef m75g1tipoprop4;
+        public FieldDef m75g1porcen5;
+        public FieldDef m75g1tipoprop5;
+        public FieldDef m75g1porcen6;
+        public FieldDef m75g1tipoprop6;
+        public FieldDef m75g1porcen7;
+        public FieldDef m75g1tipoprop7;
+        public FieldDef m75g1porcen8;
+        public FieldDef m75g1tipoprop8;
+        public FieldDef m75g1porcen9;
+        public FieldDef m75g1tipoprop9;
+        public FieldDef m75g1porcen10;
+        public FieldDef m75g1tipoprop10;
+        public FieldDef m75g2porcen1;
+        public FieldDef m75g2tipoprop1;
+        public FieldDef m75g2porcen2;
+        public FieldDef m75g2tipoprop2;
+        public FieldDef m75g2porcen3;
+        public FieldDef m75g2tipoprop3;
+        public FieldDef m75g2porcen4;
+        public FieldDef m75g2tipoprop4;
+        public FieldDef m75g2porcen5;
+        public FieldDef m75g2tipoprop5;
+        public FieldDef m75g2porcen6;
+        public FieldDef m75g2tipoprop6;
+        public FieldDef m75g2porcen7;
+        public FieldDef m75g2tipoprop7;
+        public FieldDef m75g2porcen8;
+        public FieldDef m75g2tipoprop8;
+        public FieldDef m75g2porcen9;
+        public FieldDef m75g2tipoprop9;
+        public FieldDef m75g2porcen10;
+        public FieldDef m75g2tipoprop10;
+        public FieldDef m75g2porcen11;
+        public FieldDef m75g2tipoprop11;
+        public FieldDef m75g2porcen12;
+        public FieldDef m75g2tipoprop12;
+        public FieldDef m75g2porcen13;
+        public FieldDef m75g2tipoprop13;
+        public FieldDef m75g3porcen1;
+        public FieldDef m75g3tipoprop1;
+        public FieldDef m75g3porcen2;
+        public FieldDef m75g3tipoprop2;
+        public FieldDef m75g3porcen3;
+        public FieldDef m75g3tipoprop3;
+        public FieldDef m75g3porcen4;
+        public FieldDef m75g3tipoprop4;
+        public FieldDef m75g4porcen1;
+        public FieldDef m75g4tipoprop1;
+        public FieldDef m75g4descrip1;
+        public FieldDef m75g4valor1;
+        public FieldDef m75g4porcen2;
+        public FieldDef m75g4tipoprop2;
+        public FieldDef m75g4descrip2;
+        public FieldDef m75g4valor2;
+        public FieldDef m75g4porcen3;
+        public FieldDef m75g4tipoprop3;
+        public FieldDef m75g4descrip3;
+        public FieldDef m75g4valor3;
+        public FieldDef m75g4porcen4;
+        public FieldDef m75g4tipoprop4;
+        public FieldDef m75g4descrip4;
+        public FieldDef m75g4valor4;
+        public FieldDef m75totalg4;
         public TabMod714h5(String name)
             {
             super(name);
@@ -2396,6 +2952,77 @@ public class CatModelo714 extends Catalog
             m75g3descrip13 = new FieldDef("m75g3descrip13",FieldDef.CHAR,62);
             m75g3valor13 = new FieldDef("m75g3valor13",FieldDef.FLOAT,6,0);
             m75totalg3 = new FieldDef("m75totalg3",FieldDef.FLOAT,6,0);
+            m75g1porcen1 = new FieldDef("m75g1porcen1",FieldDef.FLOAT,6,0);
+            m75g1tipoprop1 = new FieldDef("m75g1tipoprop1",FieldDef.CHAR,1);
+            m75g1porcen2 = new FieldDef("m75g1porcen2",FieldDef.FLOAT,6,0);
+            m75g1tipoprop2 = new FieldDef("m75g1tipoprop2",FieldDef.CHAR,1);
+            m75g1porcen3 = new FieldDef("m75g1porcen3",FieldDef.FLOAT,6,0);
+            m75g1tipoprop3 = new FieldDef("m75g1tipoprop3",FieldDef.CHAR,1);
+            m75g1porcen4 = new FieldDef("m75g1porcen4",FieldDef.FLOAT,6,0);
+            m75g1tipoprop4 = new FieldDef("m75g1tipoprop4",FieldDef.CHAR,1);
+            m75g1porcen5 = new FieldDef("m75g1porcen5",FieldDef.FLOAT,6,0);
+            m75g1tipoprop5 = new FieldDef("m75g1tipoprop5",FieldDef.CHAR,1);
+            m75g1porcen6 = new FieldDef("m75g1porcen6",FieldDef.FLOAT,6,0);
+            m75g1tipoprop6 = new FieldDef("m75g1tipoprop6",FieldDef.CHAR,1);
+            m75g1porcen7 = new FieldDef("m75g1porcen7",FieldDef.FLOAT,6,0);
+            m75g1tipoprop7 = new FieldDef("m75g1tipoprop7",FieldDef.CHAR,1);
+            m75g1porcen8 = new FieldDef("m75g1porcen8",FieldDef.FLOAT,6,0);
+            m75g1tipoprop8 = new FieldDef("m75g1tipoprop8",FieldDef.CHAR,1);
+            m75g1porcen9 = new FieldDef("m75g1porcen9",FieldDef.FLOAT,6,0);
+            m75g1tipoprop9 = new FieldDef("m75g1tipoprop9",FieldDef.CHAR,1);
+            m75g1porcen10 = new FieldDef("m75g1porcen10",FieldDef.FLOAT,6,0);
+            m75g1tipoprop10 = new FieldDef("m75g1tipoprop10",FieldDef.CHAR,1);
+            m75g2porcen1 = new FieldDef("m75g2porcen1",FieldDef.FLOAT,6,0);
+            m75g2tipoprop1 = new FieldDef("m75g2tipoprop1",FieldDef.CHAR,1);
+            m75g2porcen2 = new FieldDef("m75g2porcen2",FieldDef.FLOAT,6,0);
+            m75g2tipoprop2 = new FieldDef("m75g2tipoprop2",FieldDef.CHAR,1);
+            m75g2porcen3 = new FieldDef("m75g2porcen3",FieldDef.FLOAT,6,0);
+            m75g2tipoprop3 = new FieldDef("m75g2tipoprop3",FieldDef.CHAR,1);
+            m75g2porcen4 = new FieldDef("m75g2porcen4",FieldDef.FLOAT,6,0);
+            m75g2tipoprop4 = new FieldDef("m75g2tipoprop4",FieldDef.CHAR,1);
+            m75g2porcen5 = new FieldDef("m75g2porcen5",FieldDef.FLOAT,6,0);
+            m75g2tipoprop5 = new FieldDef("m75g2tipoprop5",FieldDef.CHAR,1);
+            m75g2porcen6 = new FieldDef("m75g2porcen6",FieldDef.FLOAT,6,0);
+            m75g2tipoprop6 = new FieldDef("m75g2tipoprop6",FieldDef.CHAR,1);
+            m75g2porcen7 = new FieldDef("m75g2porcen7",FieldDef.FLOAT,6,0);
+            m75g2tipoprop7 = new FieldDef("m75g2tipoprop7",FieldDef.CHAR,1);
+            m75g2porcen8 = new FieldDef("m75g2porcen8",FieldDef.FLOAT,6,0);
+            m75g2tipoprop8 = new FieldDef("m75g2tipoprop8",FieldDef.CHAR,1);
+            m75g2porcen9 = new FieldDef("m75g2porcen9",FieldDef.FLOAT,6,0);
+            m75g2tipoprop9 = new FieldDef("m75g2tipoprop9",FieldDef.CHAR,1);
+            m75g2porcen10 = new FieldDef("m75g2porcen10",FieldDef.FLOAT,6,0);
+            m75g2tipoprop10 = new FieldDef("m75g2tipoprop10",FieldDef.CHAR,1);
+            m75g2porcen11 = new FieldDef("m75g2porcen11",FieldDef.FLOAT,6,0);
+            m75g2tipoprop11 = new FieldDef("m75g2tipoprop11",FieldDef.CHAR,1);
+            m75g2porcen12 = new FieldDef("m75g2porcen12",FieldDef.FLOAT,6,0);
+            m75g2tipoprop12 = new FieldDef("m75g2tipoprop12",FieldDef.CHAR,1);
+            m75g2porcen13 = new FieldDef("m75g2porcen13",FieldDef.FLOAT,6,0);
+            m75g2tipoprop13 = new FieldDef("m75g2tipoprop13",FieldDef.CHAR,1);
+            m75g3porcen1 = new FieldDef("m75g3porcen1",FieldDef.FLOAT,6,0);
+            m75g3tipoprop1 = new FieldDef("m75g3tipoprop1",FieldDef.CHAR,1);
+            m75g3porcen2 = new FieldDef("m75g3porcen2",FieldDef.FLOAT,6,0);
+            m75g3tipoprop2 = new FieldDef("m75g3tipoprop2",FieldDef.CHAR,1);
+            m75g3porcen3 = new FieldDef("m75g3porcen3",FieldDef.FLOAT,6,0);
+            m75g3tipoprop3 = new FieldDef("m75g3tipoprop3",FieldDef.CHAR,1);
+            m75g3porcen4 = new FieldDef("m75g3porcen4",FieldDef.FLOAT,6,0);
+            m75g3tipoprop4 = new FieldDef("m75g3tipoprop4",FieldDef.CHAR,1);
+            m75g4porcen1 = new FieldDef("m75g4porcen1",FieldDef.FLOAT,6,0);
+            m75g4tipoprop1 = new FieldDef("m75g4tipoprop1",FieldDef.CHAR,1);
+            m75g4descrip1 = new FieldDef("m75g4descrip1",FieldDef.CHAR,62);
+            m75g4valor1 = new FieldDef("m75g4valor1",FieldDef.FLOAT,6,0);
+            m75g4porcen2 = new FieldDef("m75g4porcen2",FieldDef.FLOAT,6,0);
+            m75g4tipoprop2 = new FieldDef("m75g4tipoprop2",FieldDef.CHAR,1);
+            m75g4descrip2 = new FieldDef("m75g4descrip2",FieldDef.CHAR,62);
+            m75g4valor2 = new FieldDef("m75g4valor2",FieldDef.FLOAT,6,0);
+            m75g4porcen3 = new FieldDef("m75g4porcen3",FieldDef.FLOAT,6,0);
+            m75g4tipoprop3 = new FieldDef("m75g4tipoprop3",FieldDef.CHAR,1);
+            m75g4descrip3 = new FieldDef("m75g4descrip3",FieldDef.CHAR,62);
+            m75g4valor3 = new FieldDef("m75g4valor3",FieldDef.FLOAT,6,0);
+            m75g4porcen4 = new FieldDef("m75g4porcen4",FieldDef.FLOAT,6,0);
+            m75g4tipoprop4 = new FieldDef("m75g4tipoprop4",FieldDef.CHAR,1);
+            m75g4descrip4 = new FieldDef("m75g4descrip4",FieldDef.CHAR,62);
+            m75g4valor4 = new FieldDef("m75g4valor4",FieldDef.FLOAT,6,0);
+            m75totalg4 = new FieldDef("m75totalg4",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 m75dominio,
                 m75nif,
@@ -2490,100 +3117,242 @@ public class CatModelo714 extends Catalog
                 m75g3valor12,
                 m75g3descrip13,
                 m75g3valor13,
-                m75totalg3                
+                m75totalg3,
+                m75g1porcen1,
+                m75g1tipoprop1,
+                m75g1porcen2,
+                m75g1tipoprop2,
+                m75g1porcen3,
+                m75g1tipoprop3,
+                m75g1porcen4,
+                m75g1tipoprop4,
+                m75g1porcen5,
+                m75g1tipoprop5,
+                m75g1porcen6,
+                m75g1tipoprop6,
+                m75g1porcen7,
+                m75g1tipoprop7,
+                m75g1porcen8,
+                m75g1tipoprop8,
+                m75g1porcen9,
+                m75g1tipoprop9,
+                m75g1porcen10,
+                m75g1tipoprop10,
+                m75g2porcen1,
+                m75g2tipoprop1,
+                m75g2porcen2,
+                m75g2tipoprop2,
+                m75g2porcen3,
+                m75g2tipoprop3,
+                m75g2porcen4,
+                m75g2tipoprop4,
+                m75g2porcen5,
+                m75g2tipoprop5,
+                m75g2porcen6,
+                m75g2tipoprop6,
+                m75g2porcen7,
+                m75g2tipoprop7,
+                m75g2porcen8,
+                m75g2tipoprop8,
+                m75g2porcen9,
+                m75g2tipoprop9,
+                m75g2porcen10,
+                m75g2tipoprop10,
+                m75g2porcen11,
+                m75g2tipoprop11,
+                m75g2porcen12,
+                m75g2tipoprop12,
+                m75g2porcen13,
+                m75g2tipoprop13,
+                m75g3porcen1,
+                m75g3tipoprop1,
+                m75g3porcen2,
+                m75g3tipoprop2,
+                m75g3porcen3,
+                m75g3tipoprop3,
+                m75g3porcen4,
+                m75g3tipoprop4,
+                m75g4porcen1,
+                m75g4tipoprop1,
+                m75g4descrip1,
+                m75g4valor1,
+                m75g4porcen2,
+                m75g4tipoprop2,
+                m75g4descrip2,
+                m75g4valor2,
+                m75g4porcen3,
+                m75g4tipoprop3,
+                m75g4descrip3,
+                m75g4valor3,
+                m75g4porcen4,
+                m75g4tipoprop4,
+                m75g4descrip4,
+                m75g4valor4,
+                m75totalg4                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m75dominio,m75nif,m75ejercicio,m75periodo,m75pagina };
             setPrimaryKeys(arrayf);
-            m75g1descrip1.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 1");
-            m75g1valor1.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 1");
-            m75g1descrip2.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 2");
-            m75g1valor2.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 2");
-            m75g1descrip3.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 3");
-            m75g1valor3.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 3");
-            m75g1descrip4.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 4");
-            m75g1valor4.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 4");
-            m75g1descrip5.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 5");
-            m75g1valor5.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 5");
-            m75g1descrip6.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 6");
-            m75g1valor6.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 6");
-            m75g1descrip7.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 7");
-            m75g1valor7.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 7");
-            m75g1descrip8.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 8");
-            m75g1valor8.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 8");
-            m75g1descrip9.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 9");
-            m75g1valor9.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 9");
-            m75g1descrip10.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 10");
-            m75g1valor10.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 10");
-            m75g1descrip11.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 11");
-            m75g1valor11.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 11");
-            m75g1descrip12.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 12");
-            m75g1valor12.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 12");
-            m75totalg1.setDescription("Bienes y dchos. GValores no exentos G1 Acciones y partic. fondos Socied./Invers.negociadas Total [08]");
-            m75g2descrip1.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 1");
-            m75g2valor1.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 1");
-            m75g2descrip2.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 2");
-            m75g2valor2.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 2");
-            m75g2descrip3.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 3");
-            m75g2valor3.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 3");
-            m75g2descrip4.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 4");
-            m75g2valor4.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 4");
-            m75g2descrip5.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 5");
-            m75g2valor5.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 5");
-            m75g2descrip6.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 6");
-            m75g2valor6.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 6");
-            m75g2descrip7.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 7");
-            m75g2valor7.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 7");
-            m75g2descrip8.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 8");
-            m75g2valor8.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 8");
-            m75g2descrip9.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 9");
-            m75g2valor9.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 9");
-            m75g2descrip10.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 10");
-            m75g2valor10.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 10");
-            m75g2descrip11.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 11");
-            m75g2valor11.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 11");
-            m75g2descrip12.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 12");
-            m75g2valor12.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 12");
-            m75g2descrip13.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 13");
-            m75g2valor13.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 13");
-            m75g2descrip14.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 14");
-            m75g2valor14.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 14");
-            m75g2descrip15.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 15");
-            m75g2valor15.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 15");
-            m75g2descrip16.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 16");
-            m75g2valor16.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 16");
-            m75g2descrip17.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 17");
-            m75g2valor17.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 17");
-            m75g2descrip18.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Descripcion 18");
-            m75g2valor18.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Valor 18");
-            m75totalg2.setDescription("Bienes y dchos. GValores no exentos G2 Acciones y partic. fondos otras entid. Total [09]");
-            m75g3descrip1.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 1");
-            m75g3valor1.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 1");
-            m75g3descrip2.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 2");
-            m75g3valor2.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 2");
-            m75g3descrip3.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 3");
-            m75g3valor3.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 3");
-            m75g3descrip4.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 4");
-            m75g3valor4.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 4");
-            m75g3descrip5.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 5");
-            m75g3valor5.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 5");
-            m75g3descrip6.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 6");
-            m75g3valor6.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 6");
-            m75g3descrip7.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 7");
-            m75g3valor7.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 7");
-            m75g3descrip8.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 8");
-            m75g3valor8.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 8");
-            m75g3descrip9.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 9");
-            m75g3valor9.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 9");
-            m75g3descrip10.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 10");
-            m75g3valor10.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 10");
-            m75g3descrip11.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 11");
-            m75g3valor11.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 11");
-            m75g3descrip12.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 12");
-            m75g3valor12.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 12");
-            m75g3descrip13.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 13");
-            m75g3valor13.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 13");
-            m75totalg3.setDescription("Bienes y dchos. GValores no exentos G3 Acciones y partic. fondos Socied./Invers.no negoc.. Total [10]");
+            m75g1descrip1.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 1");
+            m75g1valor1.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 1");
+            m75g1descrip2.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 2");
+            m75g1valor2.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 2");
+            m75g1descrip3.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 3");
+            m75g1valor3.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 3");
+            m75g1descrip4.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 4");
+            m75g1valor4.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 4");
+            m75g1descrip5.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 5");
+            m75g1valor5.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 5");
+            m75g1descrip6.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 6");
+            m75g1valor6.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 6");
+            m75g1descrip7.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 7");
+            m75g1valor7.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 7");
+            m75g1descrip8.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 8");
+            m75g1valor8.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 8");
+            m75g1descrip9.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 9");
+            m75g1valor9.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 9");
+            m75g1descrip10.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 10");
+            m75g1valor10.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 10");
+            m75g1descrip11.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 11");
+            m75g1valor11.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 11");
+            m75g1descrip12.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Descripcion 12");
+            m75g1valor12.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Valor 12");
+            m75totalg1.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas Total [08]");
+            m75g2descrip1.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 1");
+            m75g2valor1.setDescription("G2 Acciones y partic. fondos otras entid. Valor 1");
+            m75g2descrip2.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 2");
+            m75g2valor2.setDescription("G2 Acciones y partic. fondos otras entid. Valor 2");
+            m75g2descrip3.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 3");
+            m75g2valor3.setDescription("G2 Acciones y partic. fondos otras entid. Valor 3");
+            m75g2descrip4.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 4");
+            m75g2valor4.setDescription("G2 Acciones y partic. fondos otras entid. Valor 4");
+            m75g2descrip5.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 5");
+            m75g2valor5.setDescription("G2 Acciones y partic. fondos otras entid. Valor 5");
+            m75g2descrip6.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 6");
+            m75g2valor6.setDescription("G2 Acciones y partic. fondos otras entid. Valor 6");
+            m75g2descrip7.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 7");
+            m75g2valor7.setDescription("G2 Acciones y partic. fondos otras entid. Valor 7");
+            m75g2descrip8.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 8");
+            m75g2valor8.setDescription("G2 Acciones y partic. fondos otras entid. Valor 8");
+            m75g2descrip9.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 9");
+            m75g2valor9.setDescription("G2 Acciones y partic. fondos otras entid. Valor 9");
+            m75g2descrip10.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 10");
+            m75g2valor10.setDescription("G2 Acciones y partic. fondos otras entid. Valor 10");
+            m75g2descrip11.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 11");
+            m75g2valor11.setDescription("G2 Acciones y partic. fondos otras entid. Valor 11");
+            m75g2descrip12.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 12");
+            m75g2valor12.setDescription("G2 Acciones y partic. fondos otras entid. Valor 12");
+            m75g2descrip13.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 13");
+            m75g2valor13.setDescription("G2 Acciones y partic. fondos otras entid. Valor 13");
+            m75g2descrip14.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 14");
+            m75g2valor14.setDescription("G2 Acciones y partic. fondos otras entid. Valor 14");
+            m75g2descrip15.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 15");
+            m75g2valor15.setDescription("G2 Acciones y partic. fondos otras entid. Valor 15");
+            m75g2descrip16.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 16");
+            m75g2valor16.setDescription("G2 Acciones y partic. fondos otras entid. Valor 16");
+            m75g2descrip17.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 17");
+            m75g2valor17.setDescription("G2 Acciones y partic. fondos otras entid. Valor 17");
+            m75g2descrip18.setDescription("G2 Acciones y partic. fondos otras entid. Descripcion 18");
+            m75g2valor18.setDescription("G2 Acciones y partic. fondos otras entid. Valor 18");
+            m75totalg2.setDescription("G2 Acciones y partic. fondos otras entid. Total [09]");
+            m75g3descrip1.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 1");
+            m75g3valor1.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 1");
+            m75g3descrip2.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 2");
+            m75g3valor2.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 2");
+            m75g3descrip3.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 3");
+            m75g3valor3.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 3");
+            m75g3descrip4.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 4");
+            m75g3valor4.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 4");
+            m75g3descrip5.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 5");
+            m75g3valor5.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 5");
+            m75g3descrip6.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 6");
+            m75g3valor6.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 6");
+            m75g3descrip7.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 7");
+            m75g3valor7.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 7");
+            m75g3descrip8.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 8");
+            m75g3valor8.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 8");
+            m75g3descrip9.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 9");
+            m75g3valor9.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 9");
+            m75g3descrip10.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 10");
+            m75g3valor10.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 10");
+            m75g3descrip11.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 11");
+            m75g3valor11.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 11");
+            m75g3descrip12.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 12");
+            m75g3valor12.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 12");
+            m75g3descrip13.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Descripcion 13");
+            m75g3valor13.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc. Valor 13");
+            m75totalg3.setDescription("G3 Acciones y partic. fondos Socied./Invers.no negoc.. Total [10]");
+            m75g1porcen1.setDescription("G1 1 Porcentaje de titularidad");
+            m75g1tipoprop1.setDescription("G1 1 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g1porcen2.setDescription("G1 2 Porcentaje de titularidad");
+            m75g1tipoprop2.setDescription("G1 2 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g1porcen3.setDescription("G1 3 Porcentaje de titularidad");
+            m75g1tipoprop3.setDescription("G1 3 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g1porcen4.setDescription("G1 4 Porcentaje de titularidad");
+            m75g1tipoprop4.setDescription("G1 4 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g1porcen5.setDescription("G1 5 Porcentaje de titularidad");
+            m75g1tipoprop5.setDescription("G1 5 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g1porcen6.setDescription("G1 6 Porcentaje de titularidad");
+            m75g1tipoprop6.setDescription("G1 6 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g1porcen7.setDescription("G1 7 Porcentaje de titularidad");
+            m75g1tipoprop7.setDescription("G1 7 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g1porcen8.setDescription("G1 8 Porcentaje de titularidad");
+            m75g1tipoprop8.setDescription("G1 8 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g1porcen9.setDescription("G1 9 Porcentaje de titularidad");
+            m75g1tipoprop9.setDescription("G1 9 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g1porcen10.setDescription("G1 10 Porcentaje de titularidad");
+            m75g1tipoprop10.setDescription("G1 10 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g2porcen1.setDescription("G2 1 Porcentaje de titularidad");
+            m75g2tipoprop1.setDescription("G2 1 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g2porcen2.setDescription("G2 2 Porcentaje de titularidad");
+            m75g2tipoprop2.setDescription("G2 2 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g2porcen3.setDescription("G2 3 Porcentaje de titularidad");
+            m75g2tipoprop3.setDescription("G2 3 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g2porcen4.setDescription("G2 4 Porcentaje de titularidad");
+            m75g2tipoprop4.setDescription("G2 4 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g2porcen5.setDescription("G2 5 Porcentaje de titularidad");
+            m75g2tipoprop5.setDescription("G2 5 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g2porcen6.setDescription("G2 6 Porcentaje de titularidad");
+            m75g2tipoprop6.setDescription("G2 6 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g2porcen7.setDescription("G2 7 Porcentaje de titularidad");
+            m75g2tipoprop7.setDescription("G2 7 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g2porcen8.setDescription("G2 8 Porcentaje de titularidad");
+            m75g2tipoprop8.setDescription("G2 8 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g2porcen9.setDescription("G2 9 Porcentaje de titularidad");
+            m75g2tipoprop9.setDescription("G2 9 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g2porcen10.setDescription("G2 10 Porcentaje de titularidad");
+            m75g2tipoprop10.setDescription("G2 10 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g2porcen11.setDescription("G2 11 Porcentaje de titularidad");
+            m75g2tipoprop11.setDescription("G2 11 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g2porcen12.setDescription("G2 12 Porcentaje de titularidad");
+            m75g2tipoprop12.setDescription("G2 12 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g2porcen13.setDescription("G2 13 Porcentaje de titularidad");
+            m75g2tipoprop13.setDescription("G2 13 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g3porcen1.setDescription("G3 1 Porcentaje de titularidad");
+            m75g3tipoprop1.setDescription("G3 1 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g3porcen2.setDescription("G3 2 Porcentaje de titularidad");
+            m75g3tipoprop2.setDescription("G3 2 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g3porcen3.setDescription("G3 3 Porcentaje de titularidad");
+            m75g3tipoprop3.setDescription("G3 3 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g3porcen4.setDescription("G3 4 Porcentaje de titularidad");
+            m75g3tipoprop4.setDescription("G3 4 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g4porcen1.setDescription("G4 1 Porcentaje de titularidad");
+            m75g4tipoprop1.setDescription("G4 1 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g4descrip1.setDescription("G4 1 Descripcion");
+            m75g4valor1.setDescription("G4 1 Valor");
+            m75g4porcen2.setDescription("G4 2 Porcentaje de titularidad");
+            m75g4tipoprop2.setDescription("G4 2 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g4descrip2.setDescription("G4 2 Descripcion");
+            m75g4valor2.setDescription("G4 2 Valor");
+            m75g4porcen3.setDescription("G4 3 Porcentaje de titularidad");
+            m75g4tipoprop3.setDescription("G4 3 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g4descrip3.setDescription("G4 3 Descripcion");
+            m75g4valor3.setDescription("G4 3 Valor");
+            m75g4porcen4.setDescription("G4 4 Porcentaje de titularidad");
+            m75g4tipoprop4.setDescription("G4 4 Clave o tipo de propiedad: Pleno dominio/ Nuda");
+            m75g4descrip4.setDescription("G4 4 descripcion");
+            m75g4valor4.setDescription("G4 4 Valor");
+            m75totalg4.setDescription("Total apartado G4");
             }
         }
         
@@ -2682,6 +3451,12 @@ public class CatModelo714 extends Catalog
         public FieldDef m76h2porfam2;
         public FieldDef m76h2porind3;
         public FieldDef m76h2porfam3;
+        public FieldDef m76h1tipoprop1;
+        public FieldDef m76h1tipoprop2;
+        public FieldDef m76h1tipoprop3;
+        public FieldDef m76h2tipoprop1;
+        public FieldDef m76h2tipoprop2;
+        public FieldDef m76h2tipoprop3;
         public TabMod714h6(String name)
             {
             super(name);
@@ -2765,18 +3540,24 @@ public class CatModelo714 extends Catalog
             m76janualidad5 = new FieldDef("m76janualidad5",FieldDef.FLOAT,6,0);
             m76jvalor5 = new FieldDef("m76jvalor5",FieldDef.FLOAT,6,0);
             m76totalj = new FieldDef("m76totalj",FieldDef.FLOAT,6,0);
-            m76h1porind1 = new FieldDef("m76h1porind1",FieldDef.FLOAT,12,0);
-            m76h1porfam1 = new FieldDef("m76h1porfam1",FieldDef.FLOAT,12,0);
-            m76h1porind2 = new FieldDef("m76h1porind2",FieldDef.FLOAT,12,0);
-            m76h1porfam2 = new FieldDef("m76h1porfam2",FieldDef.FLOAT,12,0);
-            m76h1porind3 = new FieldDef("m76h1porind3",FieldDef.FLOAT,12,0);
-            m76h1porfam3 = new FieldDef("m76h1porfam3",FieldDef.FLOAT,12,0);
-            m76h2porind1 = new FieldDef("m76h2porind1",FieldDef.FLOAT,12,0);
-            m76h2porfam1 = new FieldDef("m76h2porfam1",FieldDef.FLOAT,12,0);
-            m76h2porind2 = new FieldDef("m76h2porind2",FieldDef.FLOAT,12,0);
-            m76h2porfam2 = new FieldDef("m76h2porfam2",FieldDef.FLOAT,12,0);
-            m76h2porind3 = new FieldDef("m76h2porind3",FieldDef.FLOAT,12,0);
-            m76h2porfam3 = new FieldDef("m76h2porfam3",FieldDef.FLOAT,12,0);
+            m76h1porind1 = new FieldDef("m76h1porind1",FieldDef.FLOAT,6,0);
+            m76h1porfam1 = new FieldDef("m76h1porfam1",FieldDef.FLOAT,6,0);
+            m76h1porind2 = new FieldDef("m76h1porind2",FieldDef.FLOAT,6,0);
+            m76h1porfam2 = new FieldDef("m76h1porfam2",FieldDef.FLOAT,6,0);
+            m76h1porind3 = new FieldDef("m76h1porind3",FieldDef.FLOAT,6,0);
+            m76h1porfam3 = new FieldDef("m76h1porfam3",FieldDef.FLOAT,6,0);
+            m76h2porind1 = new FieldDef("m76h2porind1",FieldDef.FLOAT,6,0);
+            m76h2porfam1 = new FieldDef("m76h2porfam1",FieldDef.FLOAT,6,0);
+            m76h2porind2 = new FieldDef("m76h2porind2",FieldDef.FLOAT,6,0);
+            m76h2porfam2 = new FieldDef("m76h2porfam2",FieldDef.FLOAT,6,0);
+            m76h2porind3 = new FieldDef("m76h2porind3",FieldDef.FLOAT,6,0);
+            m76h2porfam3 = new FieldDef("m76h2porfam3",FieldDef.FLOAT,6,0);
+            m76h1tipoprop1 = new FieldDef("m76h1tipoprop1",FieldDef.CHAR,1);
+            m76h1tipoprop2 = new FieldDef("m76h1tipoprop2",FieldDef.CHAR,1);
+            m76h1tipoprop3 = new FieldDef("m76h1tipoprop3",FieldDef.CHAR,1);
+            m76h2tipoprop1 = new FieldDef("m76h2tipoprop1",FieldDef.CHAR,1);
+            m76h2tipoprop2 = new FieldDef("m76h2tipoprop2",FieldDef.CHAR,1);
+            m76h2tipoprop3 = new FieldDef("m76h2tipoprop3",FieldDef.CHAR,1);
             FieldDef array[] = {
                 m76dominio,
                 m76nif,
@@ -2869,7 +3650,13 @@ public class CatModelo714 extends Catalog
                 m76h2porind2,
                 m76h2porfam2,
                 m76h2porind3,
-                m76h2porfam3                
+                m76h2porfam3,
+                m76h1tipoprop1,
+                m76h1tipoprop2,
+                m76h1tipoprop3,
+                m76h2tipoprop1,
+                m76h2tipoprop2,
+                m76h2tipoprop3                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m76dominio,m76nif,m76ejercicio,m76periodo,m76pagina };
@@ -2961,6 +3748,12 @@ public class CatModelo714 extends Catalog
             m76h2porfam2.setDescription("H2 porcentaje de participacion familiar    2");
             m76h2porind3.setDescription("H2 porcentaje de participacion inidividual 3");
             m76h2porfam3.setDescription("H2 porcentaje de participacion familiar    3");
+            m76h1tipoprop1.setDescription("H1  Clave o tipo de propiedad 1");
+            m76h1tipoprop2.setDescription("H1  Clave o tipo de propiedad 2");
+            m76h1tipoprop3.setDescription("H1  Clave o tipo de propiedad 3");
+            m76h2tipoprop1.setDescription("H2  Clave o tipo de propiedad 1");
+            m76h2tipoprop2.setDescription("H2  Clave o tipo de propiedad 2");
+            m76h2tipoprop3.setDescription("H2  Clave o tipo de propiedad 3");
             }
         }
         
@@ -3078,6 +3871,40 @@ public class CatModelo714 extends Catalog
         public FieldDef m77mvaluti4;
         public FieldDef m77mvaluti5;
         public FieldDef m77mvaluti6;
+        public FieldDef m77kporcen1;
+        public FieldDef m77kporcen2;
+        public FieldDef m77kporcen3;
+        public FieldDef m77kporcen4;
+        public FieldDef m77kporcen5;
+        public FieldDef m77kporcen6;
+        public FieldDef m77kporcen7;
+        public FieldDef m77kporcen8;
+        public FieldDef m77ktipoprop1;
+        public FieldDef m77ktipoprop2;
+        public FieldDef m77ktipoprop3;
+        public FieldDef m77ktipoprop4;
+        public FieldDef m77ktipoprop5;
+        public FieldDef m77ktipoprop6;
+        public FieldDef m77ktipoprop7;
+        public FieldDef m77ktipoprop8;
+        public FieldDef m77lporcen1;
+        public FieldDef m77lporcen2;
+        public FieldDef m77lporcen3;
+        public FieldDef m77lporcen4;
+        public FieldDef m77lporcen5;
+        public FieldDef m77lporcen6;
+        public FieldDef m77ltipoprop1;
+        public FieldDef m77ltipoprop2;
+        public FieldDef m77ltipoprop3;
+        public FieldDef m77ltipoprop4;
+        public FieldDef m77ltipoprop5;
+        public FieldDef m77ltipoprop6;
+        public FieldDef m77mporcen1;
+        public FieldDef m77mporcen2;
+        public FieldDef m77mporcen3;
+        public FieldDef m77mporcen4;
+        public FieldDef m77mporcen5;
+        public FieldDef m77mporcen6;
         public TabMod714h7(String name)
             {
             super(name);
@@ -3192,6 +4019,40 @@ public class CatModelo714 extends Catalog
             m77mvaluti4 = new FieldDef("m77mvaluti4",FieldDef.CHAR,1);
             m77mvaluti5 = new FieldDef("m77mvaluti5",FieldDef.CHAR,1);
             m77mvaluti6 = new FieldDef("m77mvaluti6",FieldDef.CHAR,1);
+            m77kporcen1 = new FieldDef("m77kporcen1",FieldDef.FLOAT,6,0);
+            m77kporcen2 = new FieldDef("m77kporcen2",FieldDef.FLOAT,6,0);
+            m77kporcen3 = new FieldDef("m77kporcen3",FieldDef.FLOAT,6,0);
+            m77kporcen4 = new FieldDef("m77kporcen4",FieldDef.FLOAT,6,0);
+            m77kporcen5 = new FieldDef("m77kporcen5",FieldDef.FLOAT,6,0);
+            m77kporcen6 = new FieldDef("m77kporcen6",FieldDef.FLOAT,6,0);
+            m77kporcen7 = new FieldDef("m77kporcen7",FieldDef.FLOAT,6,0);
+            m77kporcen8 = new FieldDef("m77kporcen8",FieldDef.FLOAT,6,0);
+            m77ktipoprop1 = new FieldDef("m77ktipoprop1",FieldDef.CHAR,1);
+            m77ktipoprop2 = new FieldDef("m77ktipoprop2",FieldDef.CHAR,1);
+            m77ktipoprop3 = new FieldDef("m77ktipoprop3",FieldDef.CHAR,1);
+            m77ktipoprop4 = new FieldDef("m77ktipoprop4",FieldDef.CHAR,1);
+            m77ktipoprop5 = new FieldDef("m77ktipoprop5",FieldDef.CHAR,1);
+            m77ktipoprop6 = new FieldDef("m77ktipoprop6",FieldDef.CHAR,1);
+            m77ktipoprop7 = new FieldDef("m77ktipoprop7",FieldDef.CHAR,1);
+            m77ktipoprop8 = new FieldDef("m77ktipoprop8",FieldDef.CHAR,1);
+            m77lporcen1 = new FieldDef("m77lporcen1",FieldDef.FLOAT,6,0);
+            m77lporcen2 = new FieldDef("m77lporcen2",FieldDef.FLOAT,6,0);
+            m77lporcen3 = new FieldDef("m77lporcen3",FieldDef.FLOAT,6,0);
+            m77lporcen4 = new FieldDef("m77lporcen4",FieldDef.FLOAT,6,0);
+            m77lporcen5 = new FieldDef("m77lporcen5",FieldDef.FLOAT,6,0);
+            m77lporcen6 = new FieldDef("m77lporcen6",FieldDef.FLOAT,6,0);
+            m77ltipoprop1 = new FieldDef("m77ltipoprop1",FieldDef.CHAR,1);
+            m77ltipoprop2 = new FieldDef("m77ltipoprop2",FieldDef.CHAR,1);
+            m77ltipoprop3 = new FieldDef("m77ltipoprop3",FieldDef.CHAR,1);
+            m77ltipoprop4 = new FieldDef("m77ltipoprop4",FieldDef.CHAR,1);
+            m77ltipoprop5 = new FieldDef("m77ltipoprop5",FieldDef.CHAR,1);
+            m77ltipoprop6 = new FieldDef("m77ltipoprop6",FieldDef.CHAR,1);
+            m77mporcen1 = new FieldDef("m77mporcen1",FieldDef.FLOAT,6,0);
+            m77mporcen2 = new FieldDef("m77mporcen2",FieldDef.FLOAT,6,0);
+            m77mporcen3 = new FieldDef("m77mporcen3",FieldDef.FLOAT,6,0);
+            m77mporcen4 = new FieldDef("m77mporcen4",FieldDef.FLOAT,6,0);
+            m77mporcen5 = new FieldDef("m77mporcen5",FieldDef.FLOAT,6,0);
+            m77mporcen6 = new FieldDef("m77mporcen6",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m77dominio,
                 m77nif,
@@ -3303,117 +4164,185 @@ public class CatModelo714 extends Catalog
                 m77mvaluti3,
                 m77mvaluti4,
                 m77mvaluti5,
-                m77mvaluti6                
+                m77mvaluti6,
+                m77kporcen1,
+                m77kporcen2,
+                m77kporcen3,
+                m77kporcen4,
+                m77kporcen5,
+                m77kporcen6,
+                m77kporcen7,
+                m77kporcen8,
+                m77ktipoprop1,
+                m77ktipoprop2,
+                m77ktipoprop3,
+                m77ktipoprop4,
+                m77ktipoprop5,
+                m77ktipoprop6,
+                m77ktipoprop7,
+                m77ktipoprop8,
+                m77lporcen1,
+                m77lporcen2,
+                m77lporcen3,
+                m77lporcen4,
+                m77lporcen5,
+                m77lporcen6,
+                m77ltipoprop1,
+                m77ltipoprop2,
+                m77ltipoprop3,
+                m77ltipoprop4,
+                m77ltipoprop5,
+                m77ltipoprop6,
+                m77mporcen1,
+                m77mporcen2,
+                m77mporcen3,
+                m77mporcen4,
+                m77mporcen5,
+                m77mporcen6                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m77dominio,m77nif,m77ejercicio,m77periodo,m77pagina };
             setPrimaryKeys(arrayf);
-            m77kdescrip1.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Descripcion 1");
-            m77kvalor1.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Valor 1");
-            m77kdescrip2.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Descripcion 2");
-            m77kvalor2.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Valor 2");
-            m77kdescrip3.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Descripcion 3");
-            m77kvalor3.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Valor 3");
-            m77kdescrip4.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Descripcion 4");
-            m77kvalor4.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Valor 4");
-            m77kdescrip5.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Descripcion 5");
-            m77kvalor5.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Valor 5");
-            m77kdescrip6.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Descripcion 6");
-            m77kvalor6.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Valor 6");
-            m77kdescrip7.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Descripcion 7");
-            m77kvalor7.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Valor 7");
-            m77kdescrip8.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Descripcion 8");
-            m77kvalor8.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Valor 8");
-            m77kdescrip9.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Descripcion 9");
-            m77kvalor9.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Valor 9");
-            m77kdescrip10.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Descripcion 10");
-            m77kvalor10.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Valor 10");
-            m77kdescrip11.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Descripcion 11");
-            m77kvalor11.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Valor 11");
-            m77kdescrip12.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Descripcion 12");
-            m77kvalor12.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Valor 12");
-            m77kdescrip13.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Descripcion 13");
-            m77kvalor13.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Valor 13");
-            m77totalk.setDescription("Bienes y dchos. KVehiculos joyas pieles caracter suntuario ... Total [16]");
-            m77ldescrip1.setDescription("Bienes y dchos. LObjetos de arte y antigedades Descripcion 1");
-            m77lvalor1.setDescription("Bienes y dchos. LObjetos de arte y antigedades Valor 1");
-            m77ldescrip2.setDescription("Bienes y dchos. LObjetos de arte y antigedades Descripcion 2");
-            m77lvalor2.setDescription("Bienes y dchos. LObjetos de arte y antigedades Valor 2");
-            m77ldescrip3.setDescription("Bienes y dchos. LObjetos de arte y antigedades Descripcion 3");
-            m77lvalor3.setDescription("Bienes y dchos. LObjetos de arte y antigedades Valor 3");
-            m77ldescrip4.setDescription("Bienes y dchos. LObjetos de arte y antigedades Descripcion 4");
-            m77lvalor4.setDescription("Bienes y dchos. LObjetos de arte y antigedades Valor 4");
-            m77ldescrip5.setDescription("Bienes y dchos. LObjetos de arte y antigedades Descripcion 5");
-            m77lvalor5.setDescription("Bienes y dchos. LObjetos de arte y antigedades Valor 5");
-            m77ldescrip6.setDescription("Bienes y dchos. LObjetos de arte y antigedades Descripcion 6");
-            m77lvalor6.setDescription("Bienes y dchos. LObjetos de arte y antigedades Valor 6");
-            m77ldescrip7.setDescription("Bienes y dchos. LObjetos de arte y antigedades Descripcion 7");
-            m77lvalor7.setDescription("Bienes y dchos. LObjetos de arte y antigedades Valor 7");
-            m77ldescrip8.setDescription("Bienes y dchos. LObjetos de arte y antigedades Descripcion 8");
-            m77lvalor8.setDescription("Bienes y dchos. LObjetos de arte y antigedades Valor 8");
-            m77ldescrip9.setDescription("Bienes y dchos. LObjetos de arte y antigedades Descripcion 9");
-            m77lvalor9.setDescription("Bienes y dchos. LObjetos de arte y antigedades Valor 9");
-            m77totall.setDescription("Bienes y dchos. LObjetos de arte y antigedades Total [17]");
-            m77mclave1.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Clave 1 U D O o blancos");
-            m77mrefencia1.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Referencia catastral 1");
-            m77msituacion1.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Descripcion/Situacion del bien 1");
-            m77mvalbien1.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del bien 1");
-            m77mvalderec1.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del derecho 1");
-            m77mclave2.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Clave 2 U D O o blancos");
-            m77mrefencia2.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Referencia catastral 2");
-            m77msituacion2.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Descripcion/Situacion del bien 2");
-            m77mvalbien2.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del bien 2");
-            m77mvalderec2.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del derecho 2");
-            m77mclave3.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Clave 3 U D O o blancos");
-            m77mrefencia3.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Referencia catastral 3");
-            m77msituacion3.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Descripcion/Situacion del bien 3");
-            m77mvalbien3.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del bien 3");
-            m77mvalderec3.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del derecho 3");
-            m77mclave4.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Clave 4 U D O o blancos");
-            m77mrefencia4.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Referencia catastral 4");
-            m77msituacion4.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Descripcion/Situacion del bien 4");
-            m77mvalbien4.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del bien 4");
-            m77mvalderec4.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del derecho 4");
-            m77mclave5.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Clave 5 U D O o blancos");
-            m77mrefencia5.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Referencia catastral 5");
-            m77msituacion5.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Descripcion/Situacion del bien 5");
-            m77mvalbien5.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del bien 5");
-            m77mvalderec5.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del derecho 5");
-            m77mclave6.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Clave 6 U D O o blancos");
-            m77mrefencia6.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Referencia catastral 6");
-            m77msituacion6.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Descripcion/Situacion del bien 6");
-            m77mvalbien6.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del bien 6");
-            m77mvalderec6.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del derecho 6");
-            m77mclave7.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Clave 7 U D O o blancos");
-            m77mrefencia7.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Referencia catastral 7");
-            m77msituacion7.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Descripcion/Situacion del bien 7");
-            m77mvalbien7.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del bien 7");
-            m77mvalderec7.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del derecho 7");
-            m77mclave8.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Clave 8 U D O o blancos");
-            m77mrefencia8.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Referencia catastral 8");
-            m77msituacion8.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Descripcion/Situacion del bien 8");
-            m77mvalbien8.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del bien 8");
-            m77mvalderec8.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Valor del derecho 8");
-            m77totalm.setDescription("Bienes y dchos. MDerechos reales de uso y disfrute Total [18]");
-            m77ndescrip1.setDescription("Bienes y dchos. NConcesiones administrativas Descripcion 1");
-            m77nvalor1.setDescription("Bienes y dchos. NConcesiones administrativas Valor 1");
-            m77ndescrip2.setDescription("Bienes y dchos. NConcesiones administrativas Descripcion 2");
-            m77nvalor2.setDescription("Bienes y dchos. NConcesiones administrativas Valor 2");
-            m77ndescrip3.setDescription("Bienes y dchos. NConcesiones administrativas Descripcion 3");
-            m77nvalor3.setDescription("Bienes y dchos. NConcesiones administrativas Valor 3");
-            m77ndescrip4.setDescription("Bienes y dchos. NConcesiones administrativas Descripcion 4");
-            m77nvalor4.setDescription("Bienes y dchos. NConcesiones administrativas Valor 4");
-            m77ndescrip5.setDescription("Bienes y dchos. NConcesiones administrativas Descripcion 5");
-            m77nvalor5.setDescription("Bienes y dchos. NConcesiones administrativas Valor 5");
-            m77ndescrip6.setDescription("Bienes y dchos. NConcesiones administrativas Descripcion 6");
-            m77nvalor6.setDescription("Bienes y dchos. NConcesiones administrativas Valor 6");
-            m77totaln.setDescription("Bienes y dchos. NConcesiones administrativas Total [19]");
-            m77mvaluti1.setDescription("M Derechos reales Valor utilizado 1");
-            m77mvaluti2.setDescription("M Derechos reales Valor utilizado 2");
-            m77mvaluti3.setDescription("M Derechos reales Valor utilizado 3");
-            m77mvaluti4.setDescription("M Derechos reales Valor utilizado 5");
-            m77mvaluti5.setDescription("M Derechos reales Valor utilizado 5");
-            m77mvaluti6.setDescription("M Derechos reales Valor utilizado 6");
+            m77kdescrip1.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Descripcion 1");
+            m77kvalor1.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Valor 1");
+            m77kdescrip2.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Descripcion 2");
+            m77kvalor2.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Valor 2");
+            m77kdescrip3.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Descripcion 3");
+            m77kvalor3.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Valor 3");
+            m77kdescrip4.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Descripcion 4");
+            m77kvalor4.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Valor 4");
+            m77kdescrip5.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Descripcion 5");
+            m77kvalor5.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Valor 5");
+            m77kdescrip6.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Descripcion 6");
+            m77kvalor6.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Valor 6");
+            m77kdescrip7.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Descripcion 7");
+            m77kvalor7.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Valor 7");
+            m77kdescrip8.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Descripcion 8");
+            m77kvalor8.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Valor 8");
+            m77kdescrip9.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Descripcion 9");
+            m77kvalor9.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Valor 9");
+            m77kdescrip10.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Descripcion 10");
+            m77kvalor10.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Valor 10");
+            m77kdescrip11.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Descripcion 11");
+            m77kvalor11.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Valor 11");
+            m77kdescrip12.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Descripcion 12");
+            m77kvalor12.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Valor 12");
+            m77kdescrip13.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Descripcion 13");
+            m77kvalor13.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Valor 13");
+            m77totalk.setDescription("Bienes y dchos. K Vehiculos joyas pieles caracter suntuario ... Total [16]");
+            m77ldescrip1.setDescription("Bienes y dchos. L Objetos de arte y antigedades Descripcion 1");
+            m77lvalor1.setDescription("Bienes y dchos. L Objetos de arte y antigedades Valor 1");
+            m77ldescrip2.setDescription("Bienes y dchos. L Objetos de arte y antigedades Descripcion 2");
+            m77lvalor2.setDescription("Bienes y dchos. L Objetos de arte y antigedades Valor 2");
+            m77ldescrip3.setDescription("Bienes y dchos. L Objetos de arte y antigedades Descripcion 3");
+            m77lvalor3.setDescription("Bienes y dchos. L Objetos de arte y antigedades Valor 3");
+            m77ldescrip4.setDescription("Bienes y dchos. L Objetos de arte y antigedades Descripcion 4");
+            m77lvalor4.setDescription("Bienes y dchos. L Objetos de arte y antigedades Valor 4");
+            m77ldescrip5.setDescription("Bienes y dchos. L Objetos de arte y antigedades Descripcion 5");
+            m77lvalor5.setDescription("Bienes y dchos. L Objetos de arte y antigedades Valor 5");
+            m77ldescrip6.setDescription("Bienes y dchos. L Objetos de arte y antigedades Descripcion 6");
+            m77lvalor6.setDescription("Bienes y dchos. L Objetos de arte y antigedades Valor 6");
+            m77ldescrip7.setDescription("Bienes y dchos. L Objetos de arte y antigedades Descripcion 7");
+            m77lvalor7.setDescription("Bienes y dchos. L Objetos de arte y antigedades Valor 7");
+            m77ldescrip8.setDescription("Bienes y dchos. L Objetos de arte y antigedades Descripcion 8");
+            m77lvalor8.setDescription("Bienes y dchos. L Objetos de arte y antigedades Valor 8");
+            m77ldescrip9.setDescription("Bienes y dchos. L Objetos de arte y antigedades Descripcion 9");
+            m77lvalor9.setDescription("Bienes y dchos. L Objetos de arte y antigedades Valor 9");
+            m77totall.setDescription("Bienes y dchos. L Objetos de arte y antigedades Total [17]");
+            m77mclave1.setDescription("Bienes y dchos. M  Derechos reales de uso y disfrute Clave 1 U D O o blancos");
+            m77mrefencia1.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Referencia catastral 1");
+            m77msituacion1.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Descripcion/Situacion del bien 1");
+            m77mvalbien1.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del bien 1");
+            m77mvalderec1.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del derecho 1");
+            m77mclave2.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Clave 2 U D O o blancos");
+            m77mrefencia2.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Referencia catastral 2");
+            m77msituacion2.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Descripcion/Situacion del bien 2");
+            m77mvalbien2.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del bien 2");
+            m77mvalderec2.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del derecho 2");
+            m77mclave3.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Clave 3 U D O o blancos");
+            m77mrefencia3.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Referencia catastral 3");
+            m77msituacion3.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Descripcion/Situacion del bien 3");
+            m77mvalbien3.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del bien 3");
+            m77mvalderec3.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del derecho 3");
+            m77mclave4.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Clave 4 U D O o blancos");
+            m77mrefencia4.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Referencia catastral 4");
+            m77msituacion4.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Descripcion/Situacion del bien 4");
+            m77mvalbien4.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del bien 4");
+            m77mvalderec4.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del derecho 4");
+            m77mclave5.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Clave 5 U D O o blancos");
+            m77mrefencia5.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Referencia catastral 5");
+            m77msituacion5.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Descripcion/Situacion del bien 5");
+            m77mvalbien5.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del bien 5");
+            m77mvalderec5.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del derecho 5");
+            m77mclave6.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Clave 6 U D O o blancos");
+            m77mrefencia6.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Referencia catastral 6");
+            m77msituacion6.setDescription("Bienes y dchos. M  Derechos reales de uso y disfrute Descripcion/Situacion del bien 6");
+            m77mvalbien6.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del bien 6");
+            m77mvalderec6.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del derecho 6");
+            m77mclave7.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Clave 7 U D O o blancos");
+            m77mrefencia7.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Referencia catastral 7");
+            m77msituacion7.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Descripcion/Situacion del bien 7");
+            m77mvalbien7.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del bien 7");
+            m77mvalderec7.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del derecho 7");
+            m77mclave8.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Clave 8 U D O o blancos");
+            m77mrefencia8.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Referencia catastral 8");
+            m77msituacion8.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Descripcion/Situacion del bien 8");
+            m77mvalbien8.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del bien 8");
+            m77mvalderec8.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Valor del derecho 8");
+            m77totalm.setDescription("Bienes y dchos. M Derechos reales de uso y disfrute Total [18]");
+            m77ndescrip1.setDescription("Bienes y dchos. N Concesiones administrativas Descripcion 1");
+            m77nvalor1.setDescription("Bienes y dchos. N Concesiones administrativas Valor 1");
+            m77ndescrip2.setDescription("Bienes y dchos. N Concesiones administrativas Descripcion 2");
+            m77nvalor2.setDescription("Bienes y dchos. N Concesiones administrativas Valor 2");
+            m77ndescrip3.setDescription("Bienes y dchos. N Concesiones administrativas Descripcion 3");
+            m77nvalor3.setDescription("Bienes y dchos. N Concesiones administrativas Valor 3");
+            m77ndescrip4.setDescription("Bienes y dchos. N Concesiones administrativas Descripcion 4");
+            m77nvalor4.setDescription("Bienes y dchos. N Concesiones administrativas Valor 4");
+            m77ndescrip5.setDescription("Bienes y dchos. N Concesiones administrativas Descripcion 5");
+            m77nvalor5.setDescription("Bienes y dchos. N Concesiones administrativas Valor 5");
+            m77ndescrip6.setDescription("Bienes y dchos. N Concesiones administrativas Descripcion 6");
+            m77nvalor6.setDescription("Bienes y dchos. N Concesiones administrativas Valor 6");
+            m77totaln.setDescription("Bienes y dchos. N Concesiones administrativas Total [19]");
+            m77mvaluti1.setDescription("M Derechos reales Valor utilizado 1 V,A,P,C,D o blanco");
+            m77mvaluti2.setDescription("M Derechos reales Valor utilizado 2 V,A,P,C,D o blanco");
+            m77mvaluti3.setDescription("M Derechos reales Valor utilizado 3 V,A,P,C,D o blanco");
+            m77mvaluti4.setDescription("M Derechos reales Valor utilizado 4 V,A,P,C,D o blanco");
+            m77mvaluti5.setDescription("M Derechos reales Valor utilizado 5 V,A,P,C,D o blanco");
+            m77mvaluti6.setDescription("M Derechos reales Valor utilizado 6 V,A,P,C,D o blanco");
+            m77kporcen1.setDescription("K Porcentaje de titularidad 1     2019");
+            m77kporcen2.setDescription("K Porcentaje de titularidad 2");
+            m77kporcen3.setDescription("K Porcentaje de titularidad 3");
+            m77kporcen4.setDescription("K Porcentaje de titularidad 4");
+            m77kporcen5.setDescription("K Porcentaje de titularidad 5");
+            m77kporcen6.setDescription("K Porcentaje de titularidad 6");
+            m77kporcen7.setDescription("K Porcentaje de titularidad 7");
+            m77kporcen8.setDescription("K Porcentaje de titularidad 8");
+            m77ktipoprop1.setDescription("K Clave o tipo de propiedad 1");
+            m77ktipoprop2.setDescription("K Clave o tipo de propiedad 2");
+            m77ktipoprop3.setDescription("K Clave o tipo de propiedad 3");
+            m77ktipoprop4.setDescription("K Clave o tipo de propiedad 4");
+            m77ktipoprop5.setDescription("K Clave o tipo de propiedad 5");
+            m77ktipoprop6.setDescription("K Clave o tipo de propiedad 6");
+            m77ktipoprop7.setDescription("K Clave o tipo de propiedad 7");
+            m77ktipoprop8.setDescription("K Clave o tipo de propiedad 8");
+            m77lporcen1.setDescription("L Porcentaje de titularidad 1");
+            m77lporcen2.setDescription("L Porcentaje de titularidad 2");
+            m77lporcen3.setDescription("L Porcentaje de titularidad 3");
+            m77lporcen4.setDescription("L Porcentaje de titularidad 4");
+            m77lporcen5.setDescription("L Porcentaje de titularidad 5");
+            m77lporcen6.setDescription("L Porcentaje de titularidad 6");
+            m77ltipoprop1.setDescription("L Clave o tipo de propiedad 1");
+            m77ltipoprop2.setDescription("L Clave o tipo de propiedad 2");
+            m77ltipoprop3.setDescription("L Clave o tipo de propiedad 3");
+            m77ltipoprop4.setDescription("L Clave o tipo de propiedad 4");
+            m77ltipoprop5.setDescription("L Clave o tipo de propiedad 5");
+            m77ltipoprop6.setDescription("L Clave o tipo de propiedad 6");
+            m77mporcen1.setDescription("M Porcentaje de titularidad 1");
+            m77mporcen2.setDescription("M Porcentaje de titularidad 2");
+            m77mporcen3.setDescription("M Porcentaje de titularidad 3");
+            m77mporcen4.setDescription("M Porcentaje de titularidad 4");
+            m77mporcen5.setDescription("M Porcentaje de titularidad 5");
+            m77mporcen6.setDescription("M Porcentaje de titularidad 6");
             }
         }
         
@@ -3499,6 +4428,30 @@ public class CatModelo714 extends Catalog
         public FieldDef m782descrip13;
         public FieldDef m782valor13;
         public FieldDef m78total2;
+        public FieldDef m78oporcen1;
+        public FieldDef m78oporcen2;
+        public FieldDef m78oporcen3;
+        public FieldDef m78pporcen1;
+        public FieldDef m78pporcen2;
+        public FieldDef m78pporcen3;
+        public FieldDef m78qporcen1;
+        public FieldDef m78qporcen2;
+        public FieldDef m78qporcen3;
+        public FieldDef m78qporcen4;
+        public FieldDef m78qporcen5;
+        public FieldDef m78qporcen6;
+        public FieldDef m782porcen1;
+        public FieldDef m782porcen2;
+        public FieldDef m782porcen3;
+        public FieldDef m782porcen4;
+        public FieldDef m782porcen5;
+        public FieldDef m782porcen6;
+        public FieldDef m782porcen7;
+        public FieldDef m782porcen8;
+        public FieldDef m782porcen9;
+        public FieldDef m782porcen10;
+        public FieldDef m782porcen11;
+        public FieldDef m782porcen12;
         public TabMod714h8(String name)
             {
             super(name);
@@ -3581,6 +4534,30 @@ public class CatModelo714 extends Catalog
             m782descrip13 = new FieldDef("m782descrip13",FieldDef.CHAR,62);
             m782valor13 = new FieldDef("m782valor13",FieldDef.FLOAT,6,0);
             m78total2 = new FieldDef("m78total2",FieldDef.FLOAT,6,0);
+            m78oporcen1 = new FieldDef("m78oporcen1",FieldDef.FLOAT,6,0);
+            m78oporcen2 = new FieldDef("m78oporcen2",FieldDef.FLOAT,6,0);
+            m78oporcen3 = new FieldDef("m78oporcen3",FieldDef.FLOAT,6,0);
+            m78pporcen1 = new FieldDef("m78pporcen1",FieldDef.FLOAT,6,0);
+            m78pporcen2 = new FieldDef("m78pporcen2",FieldDef.FLOAT,6,0);
+            m78pporcen3 = new FieldDef("m78pporcen3",FieldDef.FLOAT,6,0);
+            m78qporcen1 = new FieldDef("m78qporcen1",FieldDef.FLOAT,6,0);
+            m78qporcen2 = new FieldDef("m78qporcen2",FieldDef.FLOAT,6,0);
+            m78qporcen3 = new FieldDef("m78qporcen3",FieldDef.FLOAT,6,0);
+            m78qporcen4 = new FieldDef("m78qporcen4",FieldDef.FLOAT,6,0);
+            m78qporcen5 = new FieldDef("m78qporcen5",FieldDef.FLOAT,6,0);
+            m78qporcen6 = new FieldDef("m78qporcen6",FieldDef.FLOAT,6,0);
+            m782porcen1 = new FieldDef("m782porcen1",FieldDef.FLOAT,6,0);
+            m782porcen2 = new FieldDef("m782porcen2",FieldDef.FLOAT,6,0);
+            m782porcen3 = new FieldDef("m782porcen3",FieldDef.FLOAT,6,0);
+            m782porcen4 = new FieldDef("m782porcen4",FieldDef.FLOAT,6,0);
+            m782porcen5 = new FieldDef("m782porcen5",FieldDef.FLOAT,6,0);
+            m782porcen6 = new FieldDef("m782porcen6",FieldDef.FLOAT,6,0);
+            m782porcen7 = new FieldDef("m782porcen7",FieldDef.FLOAT,6,0);
+            m782porcen8 = new FieldDef("m782porcen8",FieldDef.FLOAT,6,0);
+            m782porcen9 = new FieldDef("m782porcen9",FieldDef.FLOAT,6,0);
+            m782porcen10 = new FieldDef("m782porcen10",FieldDef.FLOAT,6,0);
+            m782porcen11 = new FieldDef("m782porcen11",FieldDef.FLOAT,6,0);
+            m782porcen12 = new FieldDef("m782porcen12",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 m78dominio,
                 m78nif,
@@ -3660,59 +4637,83 @@ public class CatModelo714 extends Catalog
                 m782valor12,
                 m782descrip13,
                 m782valor13,
-                m78total2                
+                m78total2,
+                m78oporcen1,
+                m78oporcen2,
+                m78oporcen3,
+                m78pporcen1,
+                m78pporcen2,
+                m78pporcen3,
+                m78qporcen1,
+                m78qporcen2,
+                m78qporcen3,
+                m78qporcen4,
+                m78qporcen5,
+                m78qporcen6,
+                m782porcen1,
+                m782porcen2,
+                m782porcen3,
+                m782porcen4,
+                m782porcen5,
+                m782porcen6,
+                m782porcen7,
+                m782porcen8,
+                m782porcen9,
+                m782porcen10,
+                m782porcen11,
+                m782porcen12                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m78dominio,m78nif,m78ejercicio,m78periodo,m78pagina };
             setPrimaryKeys(arrayf);
-            m78odescrip1.setDescription("Bienes y dchos. ODerechos derivados de la Propiedad Intelectual o Industrial Descripcion 1");
-            m78ovalor1.setDescription("Bienes y dchos. ODerechos derivados de la Propiedad Intelectual o Industrial Valor 1");
-            m78odescrip2.setDescription("Bienes y dchos. ODerechos derivados de la Propiedad Intelectual o Industrial Descripcion 2");
-            m78ovalor2.setDescription("Bienes y dchos. ODerechos derivados de la Propiedad Intelectual o Industrial Valor 2");
-            m78odescrip3.setDescription("Bienes y dchos. ODerechos derivados de la Propiedad Intelectual o Industrial Descripcion 3");
-            m78ovalor3.setDescription("Bienes y dchos. ODerechos derivados de la Propiedad Intelectual o Industrial Valor 3");
-            m78odescrip4.setDescription("Bienes y dchos. ODerechos derivados de la Propiedad Intelectual o Industrial Descripcion 4");
-            m78ovalor4.setDescription("Bienes y dchos. ODerechos derivados de la Propiedad Intelectual o Industrial Valor 4");
-            m78odescrip5.setDescription("Bienes y dchos. ODerechos derivados de la Propiedad Intelectual o Industrial Descripcion 5");
-            m78ovalor5.setDescription("Bienes y dchos. ODerechos derivados de la Propiedad Intelectual o Industrial Valor 5");
-            m78totalo.setDescription("Bienes y dchos. ODerechos derivados de la Propiedad Intelectual o Industrial Total [20]");
-            m78pdescrip1.setDescription("Bienes y dchos. POpciones contractuales Descripcion 1");
-            m78pvalor1.setDescription("Bienes y dchos. POpciones contractuales Valor 1");
-            m78pdescrip2.setDescription("Bienes y dchos. POpciones contractuales Descripcion 2");
-            m78pvalor2.setDescription("Bienes y dchos. POpciones contractuales Valor 2");
-            m78pdescrip3.setDescription("Bienes y dchos. POpciones contractuales Descripcion 3");
-            m78pvalor3.setDescription("Bienes y dchos. POpciones contractuales Valor 3");
-            m78pdescrip4.setDescription("Bienes y dchos. POpciones contractuales Descripcion 4");
-            m78pvalor4.setDescription("Bienes y dchos. POpciones contractuales Valor 4");
-            m78pdescrip5.setDescription("Bienes y dchos. POpciones contractuales Descripcion 5");
-            m78pvalor5.setDescription("Bienes y dchos. POpciones contractuales Valor 5");
-            m78totalp.setDescription("Bienes y dchos. POpciones contractuales Total [21]");
-            m78qdescrip1.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Descripcion 1");
-            m78qvalor1.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Valor 1");
-            m78qdescrip2.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Descripcion 2");
-            m78qvalor2.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Valor 2");
-            m78qdescrip3.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Descripcion 3");
-            m78qvalor3.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Valor 3");
-            m78qdescrip4.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Descripcion 4");
-            m78qvalor4.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Valor 4");
-            m78qdescrip5.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Descripcion 5");
-            m78qvalor5.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Valor 5");
-            m78qdescrip6.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Descripcion 6");
-            m78qvalor6.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Valor 6");
-            m78qdescrip7.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Descripcion 7");
-            m78qvalor7.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Valor 7");
-            m78qdescrip8.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Descripcion 8");
-            m78qvalor8.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Valor 8");
-            m78qdescrip9.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Descripcion 9");
-            m78qvalor9.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Valor 9");
-            m78qdescrip10.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Descripcion 10");
-            m78qvalor10.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Valor 10");
-            m78qdescrip11.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Descripcion 11");
-            m78qvalor11.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Valor 11");
-            m78qdescrip12.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Descripcion 12");
-            m78qvalor12.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Valor 12");
-            m78totalq.setDescription("Bienes y dchos. QDemas bienes y dchos. de contenido economico Total [22]");
-            m782descrip1.setDescription("(2) Deudas deducibles Descripcion 1");
+            m78odescrip1.setDescription("O  Derechos derivados de la Propiedad Intelectual o Industrial Descripcion 1");
+            m78ovalor1.setDescription("O  Derechos derivados de la Propiedad Intelectual o Industrial Valor 1");
+            m78odescrip2.setDescription("O  Derechos derivados de la Propiedad Intelectual o Industrial Descripcion 2");
+            m78ovalor2.setDescription("O  Derechos derivados de la Propiedad Intelectual o Industrial Valor 2");
+            m78odescrip3.setDescription("O  Derechos derivados de la Propiedad Intelectual o Industrial Descripcion 3");
+            m78ovalor3.setDescription("O  Derechos derivados de la Propiedad Intelectual o Industrial Valor 3");
+            m78odescrip4.setDescription("O  Derechos derivados de la Propiedad Intelectual o Industrial Descripcion 4");
+            m78ovalor4.setDescription("O  Derechos derivados de la Propiedad Intelectual o Industrial Valor 4");
+            m78odescrip5.setDescription("O  Derechos derivados de la Propiedad Intelectual o Industrial Descripcion 5");
+            m78ovalor5.setDescription("O  Derechos derivados de la Propiedad Intelectual o Industrial Valor 5");
+            m78totalo.setDescription("O  Derechos derivados de la Propiedad Intelectual o Industrial Total [20]");
+            m78pdescrip1.setDescription("P  Opciones contractuales Descripcion 1");
+            m78pvalor1.setDescription("P  Opciones contractuales Valor 1");
+            m78pdescrip2.setDescription("P  Opciones contractuales Descripcion 2");
+            m78pvalor2.setDescription("P  Opciones contractuales Valor 2");
+            m78pdescrip3.setDescription("P  Opciones contractuales Descripcion 3");
+            m78pvalor3.setDescription("P  Opciones contractuales Valor 3");
+            m78pdescrip4.setDescription("P  Opciones contractuales Descripcion 4");
+            m78pvalor4.setDescription("P  Opciones contractuales Valor 4");
+            m78pdescrip5.setDescription("P  Opciones contractuales Descripcion 5");
+            m78pvalor5.setDescription("P  Opciones contractuales Valor 5");
+            m78totalp.setDescription("P  Opciones contractuales Total [21]");
+            m78qdescrip1.setDescription("Q  Demas bienes y dchos. de contenido economico Descripcion 1");
+            m78qvalor1.setDescription("Q  Demas bienes y dchos. de contenido economico Valor 1");
+            m78qdescrip2.setDescription("Q  Demas bienes y dchos. de contenido economico Descripcion 2");
+            m78qvalor2.setDescription("Q  Demas bienes y dchos. de contenido economico Valor 2");
+            m78qdescrip3.setDescription("Q  Demas bienes y dchos. de contenido economico Descripcion 3");
+            m78qvalor3.setDescription("Q  Demas bienes y dchos. de contenido economico Valor 3");
+            m78qdescrip4.setDescription("Q  Demas bienes y dchos. de contenido economico Descripcion 4");
+            m78qvalor4.setDescription("Q  Demas bienes y dchos. de contenido economico Valor 4");
+            m78qdescrip5.setDescription("Q  Demas bienes y dchos. de contenido economico Descripcion 5");
+            m78qvalor5.setDescription("Q  Demas bienes y dchos. de contenido economico Valor 5");
+            m78qdescrip6.setDescription("Q  Demas bienes y dchos. de contenido economico Descripcion 6");
+            m78qvalor6.setDescription("Q  Demas bienes y dchos. de contenido economico Valor 6");
+            m78qdescrip7.setDescription("Q  Demas bienes y dchos. de contenido economico Descripcion 7");
+            m78qvalor7.setDescription("Q  Demas bienes y dchos. de contenido economico Valor 7");
+            m78qdescrip8.setDescription("Q  Demas bienes y dchos. de contenido economico Descripcion 8");
+            m78qvalor8.setDescription("Q  Demas bienes y dchos. de contenido economico Valor 8");
+            m78qdescrip9.setDescription("Q  Demas bienes y dchos. de contenido economico Descripcion 9");
+            m78qvalor9.setDescription("Q  Demas bienes y dchos. de contenido economico Valor 9");
+            m78qdescrip10.setDescription("Q  Demas bienes y dchos. de contenido economico Descripcion 10");
+            m78qvalor10.setDescription("Q  Demas bienes y dchos. de contenido economico Valor 10");
+            m78qdescrip11.setDescription("Q  Demas bienes y dchos. de contenido economico Descripcion 11");
+            m78qvalor11.setDescription("Q  Demas bienes y dchos. de contenido economico Valor 11");
+            m78qdescrip12.setDescription("Q  Demas bienes y dchos. de contenido economico Descripcion 12");
+            m78qvalor12.setDescription("Q  Demas bienes y dchos. de contenido economico Valor 12");
+            m78totalq.setDescription("Q  Demas bienes y dchos. de contenido economico Total [22]");
+            m782descrip1.setDescription("Deudas deducibles Descripcion 1");
             m782valor1.setDescription("Deudas deducibles Valor 1");
             m782descrip2.setDescription("Deudas deducibles Descripcion 2");
             m782valor2.setDescription("Deudas deducibles Valor 2");
@@ -3739,6 +4740,30 @@ public class CatModelo714 extends Catalog
             m782descrip13.setDescription("Deudas deducibles Descripcion 13");
             m782valor13.setDescription("Deudas deducibles Valor 13");
             m78total2.setDescription("Deudas deducibles Total [24]");
+            m78oporcen1.setDescription("O Porcentaje de titularidad 1");
+            m78oporcen2.setDescription("O Porcentaje de titularidad 2");
+            m78oporcen3.setDescription("O Porcentaje de titularidad 3");
+            m78pporcen1.setDescription("P Porcentaje de titularidad 1");
+            m78pporcen2.setDescription("P Porcentaje de titularidad 2");
+            m78pporcen3.setDescription("P Porcentaje de titularidad 3");
+            m78qporcen1.setDescription("Q Porcentaje de titularidad 1");
+            m78qporcen2.setDescription("Q Porcentaje de titularidad 2");
+            m78qporcen3.setDescription("Q Porcentaje de titularidad 3");
+            m78qporcen4.setDescription("Q Porcentaje de titularidad 4");
+            m78qporcen5.setDescription("Q Porcentaje de titularidad 5");
+            m78qporcen6.setDescription("Q Porcentaje de titularidad 6");
+            m782porcen1.setDescription("Deudas Porcentaje de titularidad 1");
+            m782porcen2.setDescription("Deudas Porcentaje de titularidad 2");
+            m782porcen3.setDescription("Deudas Porcentaje de titularidad 3");
+            m782porcen4.setDescription("Deudas Porcentaje de titularidad 4");
+            m782porcen5.setDescription("Deudas Porcentaje de titularidad 5");
+            m782porcen6.setDescription("Deudas Porcentaje de titularidad 6");
+            m782porcen7.setDescription("Deudas Porcentaje de titularidad 7");
+            m782porcen8.setDescription("Deudas Porcentaje de titularidad 8");
+            m782porcen9.setDescription("Deudas Porcentaje de titularidad 9");
+            m782porcen10.setDescription("Deudas Porcentaje de titularidad 10");
+            m782porcen11.setDescription("Deudas Porcentaje de titularidad 11");
+            m782porcen12.setDescription("Deudas Porcentaje de titularidad 12");
             }
         }
         
@@ -3959,7 +4984,7 @@ public class CatModelo714 extends Catalog
             m710vlcboni = new FieldDef("m710vlcboni",FieldDef.FLOAT,6,0);
             m710ingreso = new FieldDef("m710ingreso",FieldDef.FLOAT,6,0);
             m710autbonif = new FieldDef("m710autbonif",FieldDef.FLOAT,6,0);
-            m710autded = new FieldDef("m710autded",FieldDef.FLOAT,12,0);
+            m710autded = new FieldDef("m710autded",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m710dominio,
                 m710nif,
@@ -4174,6 +5199,9 @@ public class CatModelo714 extends Catalog
         public FieldDef m71tipodeclar;
         public FieldDef m71nombreape;
         public FieldDef m71optanorma;
+        public FieldDef m71sexo;
+        public FieldDef m71estcivil;
+        public FieldDef m71fecnacim;
         public TabMod714h1(String name)
             {
             super(name);
@@ -4236,6 +5264,9 @@ public class CatModelo714 extends Catalog
             m71tipodeclar = new FieldDef("m71tipodeclar",FieldDef.CHAR,1);
             m71nombreape = new FieldDef("m71nombreape",FieldDef.CHAR,80);
             m71optanorma = new FieldDef("m71optanorma",FieldDef.INTEGER,0);
+            m71sexo = new FieldDef("m71sexo",FieldDef.CHAR,1);
+            m71estcivil = new FieldDef("m71estcivil",FieldDef.INTEGER,0);
+            m71fecnacim = new FieldDef("m71fecnacim",FieldDef.DATE);
             FieldDef array[] = {
                 m71dominio,
                 m71nif,
@@ -4295,7 +5326,10 @@ public class CatModelo714 extends Catalog
                 m71extnacion,
                 m71tipodeclar,
                 m71nombreape,
-                m71optanorma                
+                m71optanorma,
+                m71sexo,
+                m71estcivil,
+                m71fecnacim                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m71dominio,m71nif,m71ejercicio,m71periodo };
@@ -4355,6 +5389,123 @@ public class CatModelo714 extends Catalog
             m71tipodeclar.setDescription("Tipo de declaracion");
             m71nombreape.setDescription("Nombre completo declarante (apellidos-nombre)");
             m71optanorma.setDescription("Modalidad casilla 4 y opta por aplicacion normativa autonomica 1-0");
+            m71sexo.setDescription("2019 Sexo H Hombre M Mujer");
+            m71estcivil.setDescription("2019 Estado Civil. 1 Soltero/a 2 Casado/a 3 Viudo/a 4 Divorciado/a o Separado/a");
+            m71fecnacim.setDescription("2019 Fecha de nacimiento.");
+            }
+        }
+        
+    public class TabMod714h3a extends TableDef
+        {
+        // campos
+        public FieldDef m73adominio;
+        public FieldDef m73anif;
+        public FieldDef m73aejercicio;
+        public FieldDef m73aperiodo;
+        public FieldDef m73apagina;
+        public FieldDef m731aporcen1;
+        public FieldDef m731aporcen2;
+        public FieldDef m731aporcen3;
+        public FieldDef m731aporcen4;
+        public FieldDef m731aporcen5;
+        public FieldDef m731aporcen6;
+        public FieldDef m731aporcen7;
+        public FieldDef m731anatur1;
+        public FieldDef m731anatur2;
+        public FieldDef m731anatur3;
+        public FieldDef m731anatur4;
+        public FieldDef m731anatur5;
+        public FieldDef m731anatur7;
+        public FieldDef m731anatur6;
+        public FieldDef m731avaluti1;
+        public FieldDef m731avaluti2;
+        public FieldDef m731avaluti3;
+        public FieldDef m731avaluti4;
+        public FieldDef m731avaluti5;
+        public FieldDef m731avaluti6;
+        public FieldDef m731avaluti7;
+        public TabMod714h3a(String name)
+            {
+            super(name);
+            m73adominio = new FieldDef("m73adominio",FieldDef.CHAR,12);
+            m73anif = new FieldDef("m73anif",FieldDef.CHAR,15);
+            m73aejercicio = new FieldDef("m73aejercicio",FieldDef.INTEGER,12);
+            m73aperiodo = new FieldDef("m73aperiodo",FieldDef.CHAR,2);
+            m73apagina = new FieldDef("m73apagina",FieldDef.INTEGER,12);
+            m731aporcen1 = new FieldDef("m731aporcen1",FieldDef.FLOAT,12,0);
+            m731aporcen2 = new FieldDef("m731aporcen2",FieldDef.FLOAT,12,0);
+            m731aporcen3 = new FieldDef("m731aporcen3",FieldDef.FLOAT,12,0);
+            m731aporcen4 = new FieldDef("m731aporcen4",FieldDef.FLOAT,12,0);
+            m731aporcen5 = new FieldDef("m731aporcen5",FieldDef.FLOAT,12,0);
+            m731aporcen6 = new FieldDef("m731aporcen6",FieldDef.FLOAT,12,0);
+            m731aporcen7 = new FieldDef("m731aporcen7",FieldDef.FLOAT,12,0);
+            m731anatur1 = new FieldDef("m731anatur1",FieldDef.CHAR,1);
+            m731anatur2 = new FieldDef("m731anatur2",FieldDef.CHAR,1);
+            m731anatur3 = new FieldDef("m731anatur3",FieldDef.CHAR,1);
+            m731anatur4 = new FieldDef("m731anatur4",FieldDef.CHAR,1);
+            m731anatur5 = new FieldDef("m731anatur5",FieldDef.CHAR,1);
+            m731anatur7 = new FieldDef("m731anatur7",FieldDef.CHAR,1);
+            m731anatur6 = new FieldDef("m731anatur6",FieldDef.CHAR,1);
+            m731avaluti1 = new FieldDef("m731avaluti1",FieldDef.CHAR,1);
+            m731avaluti2 = new FieldDef("m731avaluti2",FieldDef.CHAR,1);
+            m731avaluti3 = new FieldDef("m731avaluti3",FieldDef.CHAR,1);
+            m731avaluti4 = new FieldDef("m731avaluti4",FieldDef.CHAR,1);
+            m731avaluti5 = new FieldDef("m731avaluti5",FieldDef.CHAR,1);
+            m731avaluti6 = new FieldDef("m731avaluti6",FieldDef.CHAR,1);
+            m731avaluti7 = new FieldDef("m731avaluti7",FieldDef.CHAR,1);
+            FieldDef array[] = {
+                m73adominio,
+                m73anif,
+                m73aejercicio,
+                m73aperiodo,
+                m73apagina,
+                m731aporcen1,
+                m731aporcen2,
+                m731aporcen3,
+                m731aporcen4,
+                m731aporcen5,
+                m731aporcen6,
+                m731aporcen7,
+                m731anatur1,
+                m731anatur2,
+                m731anatur3,
+                m731anatur4,
+                m731anatur5,
+                m731anatur7,
+                m731anatur6,
+                m731avaluti1,
+                m731avaluti2,
+                m731avaluti3,
+                m731avaluti4,
+                m731avaluti5,
+                m731avaluti6,
+                m731avaluti7                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m73adominio,m73anif,m73aejercicio,m73aperiodo,m73apagina };
+            setDescription("continuacio pag 3 bienes afectos");
+            setPrimaryKeys(arrayf);
+            m731aporcen1.setDescription("C1 Bienes no exentos afectos 1 Porcentaje de titularidad");
+            m731aporcen2.setDescription("C1 Bienes no exentos afectos 2 Porcentaje de titularidad");
+            m731aporcen3.setDescription("C1 Bienes no exentos afectos 3 Porcentaje de titularidad");
+            m731aporcen4.setDescription("C1 Bienes no exentos afectos4 Porcentaje de titularidad");
+            m731aporcen5.setDescription("C1 Bienes no exentos afectos 5  Porcentaje de titularidad");
+            m731aporcen6.setDescription("C1 Bienes no exentos afectos 6  Porcentaje de titularidad");
+            m731aporcen7.setDescription("C1 Bienes no exentos afectos 7  Porcentaje de titularidad");
+            m731anatur1.setDescription("C1 Bienes no exentos afectos 1 Naturaleza urbana o rústica");
+            m731anatur2.setDescription("C1 Bienes no exentos afectos 2 Naturaleza urbana o rústica");
+            m731anatur3.setDescription("C1 Bienes no exentos afectos 3 Naturaleza urbana o rústica");
+            m731anatur4.setDescription("C1 Bienes no exentos afectos 4 Naturaleza urbana o rústica");
+            m731anatur5.setDescription("C1 Bienes no exentos afectos 5 Naturaleza urbana o rústica");
+            m731anatur7.setDescription("C1 Bienes no exentos afectos 7 Naturaleza urbana o rústica");
+            m731anatur6.setDescription("C1 Bienes no exentos afectos 6 Naturaleza urbana o rústica");
+            m731avaluti1.setDescription("C1 Bienes no exentos afectos 1 Valor utilizado (V-catas. P-compra C-constr....)");
+            m731avaluti2.setDescription("C1 Bienes no exentos afectos 2 Valor utilizado (V-catas. P-compra C-constr....)");
+            m731avaluti3.setDescription("C1 Bienes no exentos afectos 3 Valor utilizado (V-catas. P-compra C-constr....)");
+            m731avaluti4.setDescription("C1 Bienes no exentos afectos 4 Valor utilizado (V-catas. P-compra C-constr....)");
+            m731avaluti5.setDescription("C1 Bienes no exentos afectos 5 Valor utilizado (V-catas. P-compra C-constr....)");
+            m731avaluti6.setDescription("C1 Bienes no exentos afectos 6 Valor utilizado (V-catas. P-compra C-constr....)");
+            m731avaluti7.setDescription("C1 Bienes no exentos afectos 7 Valor utilizado (V-catas. P-compra C-constr....)");
             }
         }
         
@@ -4371,6 +5522,7 @@ public class CatModelo714 extends Catalog
         tabmod714h10 = new TabMod714h10("mod714h10");
         tabmod714h11 = new TabMod714h11("mod714h11");
         tabmod714h1 = new TabMod714h1("mod714h1");
+        tabmod714h3a = new TabMod714h3a("mod714h3a");
         TableDef array[] = {
             tabmod714h2,
             tabmod714h3,
@@ -4382,7 +5534,8 @@ public class CatModelo714 extends Catalog
             tabmod714h9,
             tabmod714h10,
             tabmod714h11,
-            tabmod714h1            
+            tabmod714h1,
+            tabmod714h3a            
             };
         setTables(array);
         }
