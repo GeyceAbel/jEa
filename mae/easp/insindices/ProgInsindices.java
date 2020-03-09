@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Dec 16 11:32:33 CET 2019
+// Fecha y hora:     Mon Mar 09 11:12:01 CET 2020
 // 
 // Aplicación: easp
 // 
@@ -905,7 +905,10 @@ String indicesSQL_jRenta[] = {
 "CREATE INDEX ID_ACCESODATOS3 ON ACCESODATOS (accejeraplic, acctabla, accdeclaran, acccodregistro)INCLUDE (acciden, accfecha, acchora, accusuario, accrevisado, accobserva);",
 "CREATE INDEX ID_CARTERAVALOR ON CARTERAVALOR(carejeraplic,cardeclaran,carcontador,cartipo)       INCLUDE (carident,carfechacompra,carlote,cartituloscompr,carcompra,cardescripcion,carvendersuscr,cartitulosvend,carfechaultvend,carliberadas,cartipoincr,cargastdonacion);",
 "CREATE INDEX ID_DECLARANTE   ON DECLARANTE  (decejeraplic,dectraspasado)                         INCLUDE (deccodigo,decnifdec,decapell1dec,decapell2dec,decnombredec,decnifcon,decapell1con,decapell2con,decnombrecon,decuser,decgrupo);",
-"CREATE INDEX ID_SELECCION    ON SELECCION   (selusuario,selprograma) INCLUDE (selcodigo,selempresa,selnombreempre);"
+"CREATE INDEX ID_SELECCION    ON SELECCION   (selusuario,selprograma) INCLUDE (selcodigo,selempresa,selnombreempre);",
+//09-03-2020
+"CREATE INDEX ID_DECLARANTE2 ON DECLARANTE (decejeraplic,dectraspasado,decuser,decgrupo,decapell1dec,decapell2dec,decnombredec,deccodigo) INCLUDE (decnifdec,decnifcon,decapell1con,decapell2con,decnombrecon);",
+"CREATE INDEX ID_DECLARANTE3 ON DECLARANTE (decejeraplic,decobligadec,decfechamortde,deccodigo)INCLUDE (decapell1dec,decapell2dec,decnombredec,deccodigocdpdec,decnifcon,decapell1con,decapell2con,decnombrecon,decobligacon,deccodigocdpcon);"
 };
 
 // Reconstruccion de Indices para optimización de las BD
@@ -928,7 +931,9 @@ String indicesReconstruirSQL_jRenta[] = {
 "ALTER INDEX ID_ACCESODATOS3   ON ACCESODATOS    REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",   
 "ALTER INDEX ID_CARTERAVALOR   ON CARTERAVALOR   REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",   
 "ALTER INDEX ID_DECLARANTE     ON DECLARANTE     REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",   
-"ALTER INDEX ID_SELECCION      ON SELECCION      REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )"   
+"ALTER INDEX ID_SELECCION      ON SELECCION      REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",
+"ALTER INDEX ID_DECLARANTE2    ON DECLARANTE     REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )", 
+"ALTER INDEX ID_DECLARANTE3    ON DECLARANTE     REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )"   
 };
     // Metodos
     // Ventana
