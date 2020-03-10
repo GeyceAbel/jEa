@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Mar 09 11:12:01 CET 2020
+// Fecha y hora:     Tue Mar 10 11:13:18 CET 2020
 // 
 // Aplicación: easp
 // 
@@ -484,7 +484,9 @@ String indicesSQL_jModelos [] = {
   "CREATE INDEX ID_MOD100H1   ON MOD100H1  (m11dominio, m11ejercicio, m11periodo, m11fecejerc,m11dprimapell, m11fecdia, m11fecmes) INCLUDE ( m11nif );",
   "CREATE INDEX ID_MOD100H4   ON MOD100H4  (m14dominio, m14nif, m14ejercicio,m14periodo);",
   "CREATE INDEX ID_MODESTADO2 ON MODESTADO (mesdominio,mesmodelo,mesejercicio,mesperiodo,mesuser) INCLUDE (mesnif);",
-  "CREATE INDEX IX_MODESTADO3 ON MODESTADO (mesejercicio,mesdecljren,mesmodelo,mespresentada,mesaplic);"
+  "CREATE INDEX IX_MODESTADO3 ON MODESTADO (mesejercicio,mesdecljren,mesmodelo,mespresentada,mesaplic);",
+  //10/03/2020
+  "CREATE INDEX IX_MOD347D_DNEP ON MOD347D (m347ddominio, m347dnif, m347dejercicio, m347dperiodo);"
   };
   
 String indicesReconstruirSQL_jModelos[] = {
@@ -505,7 +507,8 @@ String indicesReconstruirSQL_jModelos[] = {
     "ALTER INDEX  MOD100H1        ON  MOD100H1    REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
     "ALTER INDEX  MOD100H4        ON  MOD100H4    REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
     "ALTER INDEX  MODESTADO2      ON  MODESTADO   REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
-    "ALTER INDEX  MODESTADO3      ON  MODESTADO   REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )"
+    "ALTER INDEX  MODESTADO3      ON  MODESTADO   REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX IX_MOD347D_DNEP  ON  MOD347D     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )"
     };
 
 
