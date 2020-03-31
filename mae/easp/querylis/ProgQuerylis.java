@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Jul 30 13:05:28 CEST 2019
+// Fecha y hora:     Tue Mar 31 18:14:14 CEST 2020
 // 
 // Aplicación: easp
 // 
@@ -3816,7 +3816,7 @@ public boolean filtraXML(String texte) {
         squery.setDb(Aplication.getAplication().getDataBase());
         sprueba.setDb(Aplication.getAplication().getDataBase());
         squecolumn.setDb(Aplication.getAplication().getDataBase());
-        splantillas.setDb(Easp.connEA);
+splantillas.setDb(Easp.connEA);
         
         if (aplicacion.equals("JEO")) nomDirec="jEo";
         else if (aplicacion.equals("JMODELOS")) nomDirec="jModelos";
@@ -3830,7 +3830,8 @@ public boolean filtraXML(String texte) {
           setModal(true);
           squery.setDb(getDataBase());
           sprueba.setDb(getDataBase());
-          nomDirec="jConta";
+          squecolumn.setDb(getDataBase());
+  nomDirec="jConta";
         }
         else nomDirec="jNomina";
         
