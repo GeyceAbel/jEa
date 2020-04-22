@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Mar 09 09:45:15 CET 2020
+// Fecha y hora:     Wed Apr 22 15:35:58 CEST 2020
 // 
 // Aplicación: easp
 // 
@@ -1944,6 +1944,7 @@ String sentencias16_8[]={"UPDATE MUNI347 SET mu7desc='UBEDA' WHERE mu7codprov=23
 String sentencias16_9[]={"DELETE FROM INDEMORA WHERE indejercicio=2020;",
 "INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2020,'01/01/2020','31/12/2020',3.75);"};
 
+String sentencias17_0[] = {"INSERT INTO BANCO (bncodigo, bndesc) VALUES (239, 'EVO BANCO');"};
 
 
   int i=0;
@@ -4457,6 +4458,23 @@ String sentencias16_9[]={"DELETE FROM INDEMORA WHERE indejercicio=2020;",
         Easp.setVersionBD("bdeasp","16.9");
         Easp.connEA.commit();
         vvveractual.setValue("16.9");
+    }
+
+    if (versio < 17.0) {
+        for (i=0;i<sentencias17_0.length;++i) {
+            try {
+                Easp.chivato("17.0 Exec : ["+sentencias17_0[i]+"]",1);
+                Easp.connEA.executeUpdate(sentencias17_0[i]);
+            }
+            catch(Exception e) {
+                sqlOperation=sentencias17_0[i];
+                Easp.chivato("17.0 *** Error : ["+sentencias17_0[i]+"]  Error: ["+e+"]",1);
+                errorMessage=e.getMessage();
+            }
+        }
+        Easp.setVersionBD("bdeasp","17.0");
+        Easp.connEA.commit();
+        vvveractual.setValue("17.0");
     }
     
   }
