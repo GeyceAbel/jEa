@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Apr 22 15:35:58 CEST 2020
+// Fecha y hora:     Wed Jul 15 10:12:59 CEST 2020
 // 
 // Aplicación: easp
 // 
@@ -1946,6 +1946,8 @@ String sentencias16_9[]={"DELETE FROM INDEMORA WHERE indejercicio=2020;",
 
 String sentencias17_0[] = {"INSERT INTO BANCO (bncodigo, bndesc) VALUES (239, 'EVO BANCO');"};
 
+String sentencias17_2[] = null;
+//sentencias17_2 = Sentencias.sentencias17_2; //TODO descomentar
 
   int i=0;
   try {
@@ -4476,6 +4478,34 @@ String sentencias17_0[] = {"INSERT INTO BANCO (bncodigo, bndesc) VALUES (239, 'E
         Easp.connEA.commit();
         vvveractual.setValue("17.0");
     }
+
+  
+    if (versio < 17.1) {
+        validaBanco ();
+        Easp.setVersionBD("bdeasp","17.1");
+        Easp.connEA.commit();
+        vvveractual.setValue("17.1");
+    }
+/*
+    if (versio < 17.2) { //TAULES DADES FISCALS SOCIETATS
+        for (i=0;i<sentencias17_2.length;++i) {
+            try {
+                Easp.chivato("17.2 Exec : ["+sentencias17_2[i]+"]",1);
+                Easp.connEA.executeUpdate(sentencias17_2[i]);
+            }
+            catch(Exception e) {
+                sqlOperation=sentencias17_2[i];
+                Easp.chivato("17.2 *** Error : ["+sentencias17_2[i]+"]  Error: ["+e+"]",1);
+                errorMessage=e.getMessage();
+            }
+        }
+        Easp.setVersionBD("bdeasp","17.2");
+        Easp.connEA.commit();
+        vvveractual.setValue("17.2");
+    }
+*/
+    
+
     
   }
   catch(Exception e) {
@@ -4519,6 +4549,45 @@ public void grabaPerfilConta () {
   scdp.close();
   Easp.connEA.commit();
 }
+
+// 15-07-2020
+public void validaBanco(){
+	String codiCdp="";	
+	boolean bExiste=true;
+	
+	Selector sb = new Selector (Easp.connEA);
+	sb.execute ("Select * from BANCOCLI where bcccodigo is not null");
+	while (sb.next()){
+		   codiCdp=sb.getString("bcccodigo");		   
+		   int banco=sb.getint("bccbanco");
+             int ofici=sb.getint("bccsucursal");
+             int dc   =sb.getint("bccdigitos");
+             String cc=sb.getString("bccnumero");            
+		   //
+		   Selector s = new Selector (Easp.connEA);
+		   s.execute("Select * from CDP where cdpcodi='"+codiCdp+"'");
+		   if (s.next()) bExiste=true;	
+		   else bExiste=false;
+		   s.close();
+		   //
+		   if (!bExiste){
+		   	   System.out.println("jEA 17.1 ("+codiCdp+") "+banco+"-"+ofici+"-"+dc+"-"+cc);
+			   borraBancocli(codiCdp);			  			   
+		   }
+	}
+	sb.close();
+}
+public void borraBancocli(String codigo){ 
+    try {
+          Easp.connEA.executeUpdate("delete from BANCOCLI where bcccodigo = '"+codigo+"'");
+          Easp.connEA.executeUpdate("delete from ASIGNACIONES where abacodigo = '"+codigo+"'");         
+    }
+    catch(Exception e) {
+    	    Easp.chivato("  Error: ["+e+"]",1);
+        errorMessage=e.getMessage();  
+    }         
+}
+//
 
 public void grabarINDEMORA (int ejer, java.util.Date fechaini, java.util.Date fechafin, double tipo) {
       Insert iindemora = new Insert(Easp.connEA,"INDEMORA");
