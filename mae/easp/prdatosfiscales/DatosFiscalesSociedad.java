@@ -14,12 +14,16 @@ import geyce.maefc.DBConnection;
 import geyce.maefc.Delete;
 import geyce.maefc.Insert;
 import geyce.maefc.Maefc;
+import geyce.maefc.Selector;
+import mae.general.ProgressBarForm;
+import mae.general.Util;
 
 public class DatosFiscalesSociedad {
 	private File f;
 	private int paramEjer;
 	private String paramNif;
 	private DBConnection connEA;
+	private ProgressBarForm pbf;
 	private String linea;
 	private boolean hayIncidencias;
 	private String sError;
@@ -34,12 +38,40 @@ public class DatosFiscalesSociedad {
 	private List<SecreYRepre> lSecreYRepre;
 	private List<PagoFraccionado> lPagoFraccionado;
 	private List<VolumenOperaciones> lVolumenOperaciones;
+	private List<RendimientosTrabajo> lRendimientosTrabajo;
+	private List<DeduccionesBasesNegReservas> lDeduccionesBasesNegReservas;
+	private HashMap<Integer,String[]> hmBIN;
+	private HashMap<Integer,String[]> hmCN;
+	private HashMap<Integer,String[]> hmDI1;
+	private HashMap<Integer,String[]> hmDI2;
+	private HashMap<Integer,String[]> hmDI3;
+	private HashMap<Integer,String[]> hmDI4;
+	private HashMap<Integer,String[]> hmBEN;
+	private HashMap<Integer,String[]> hmPER;
+	private HashMap<Integer,String[]> hmCAN;
+	private HashMap<Integer,String[]> hmACT;
+	private HashMap<Integer,String[]> hmDON;
+	private HashMap<Integer,String[]> hmMT1;
+	private HashMap<Integer,String[]> hmMT2;
+	private HashMap<Integer,String[]> hmNIV;
+	private HashMap<Integer,String[]> hmDNI;
+	private HashMap<Integer,String[]> hmCAP;
+	private HashMap<Integer,String[]> hmGFP;
+	private HashMap<Integer,String[]> hmLBO;
+	private HashMap<Integer,String[]> hmRIC;
+	private List<Donaciones> lDonaciones;
+	private List<MultasDGT> lMultasDGT;
+	private List<RendimientosCtasBancarias> lRendimientosCtasBancarias;
+	private List<Sancion> lSanciones;
 	
-	public DatosFiscalesSociedad(File f, int paramEjer, String paramNif, DBConnection connEA){
+	
+	
+	public DatosFiscalesSociedad(File f, int paramEjer, String paramNif, DBConnection connEA, ProgressBarForm pbf){
 		this.f = f;
 		this.paramEjer = paramEjer;
 		this.paramNif = paramNif;
 		this.connEA = connEA;
+		this.pbf = pbf;
 	}
 	
 	private void initVariables(){
@@ -56,6 +88,12 @@ public class DatosFiscalesSociedad {
 		lSecreYRepre = new ArrayList<SecreYRepre>();
 		lPagoFraccionado = new ArrayList<PagoFraccionado>();
 		lVolumenOperaciones = new ArrayList<VolumenOperaciones>();
+		lRendimientosTrabajo = new ArrayList<RendimientosTrabajo>();
+		lDeduccionesBasesNegReservas = new ArrayList<DeduccionesBasesNegReservas>();
+		lDonaciones = new ArrayList<Donaciones>();
+		lMultasDGT = new ArrayList<MultasDGT>();
+		lRendimientosCtasBancarias = new ArrayList<RendimientosCtasBancarias>();
+		lSanciones = new ArrayList<Sancion>();
 		
 	}
 	
@@ -73,6 +111,313 @@ public class DatosFiscalesSociedad {
 		hmActividades.put("B05","Pesquera");
 	}
 		
+	private void initBIN(){
+		//Bases imponibles negativas pendientes de compensar de ejercicios anteriores
+		//pos inicial, anyoded, casilla M200 IS.2018, casilla M200 IS.2019
+		hmBIN = new HashMap<Integer,String[]>();
+		hmBIN.put(8,  new String[]{"1997", "00548","00640"});
+		hmBIN.put(21, new String[]{"1998", "00645","00643"});
+		hmBIN.put(34, new String[]{"1999", "00648","00646"});
+		hmBIN.put(47, new String[]{"2000", "00651","00649"});
+		hmBIN.put(60, new String[]{"2001", "00654","00652"});
+		hmBIN.put(73, new String[]{"2002", "00657","00655"});
+		hmBIN.put(86, new String[]{"2002", "00660","00658"});
+		hmBIN.put(99, new String[]{"2004", "00663","00661"});
+		hmBIN.put(112,new String[]{"2005", "00666","00664"});
+		hmBIN.put(125,new String[]{"2005", "00669","00667"});
+		hmBIN.put(138,new String[]{"2007", "00748","00743"});
+		hmBIN.put(151,new String[]{"2008", "00277","00275"});
+		hmBIN.put(164,new String[]{"2009", "00610","00608"});
+		hmBIN.put(177,new String[]{"2010", "00706","00704"});
+		hmBIN.put(190,new String[]{"2011", "00015","00013"});
+		hmBIN.put(203,new String[]{"2012", "00727","00725"});
+		hmBIN.put(216,new String[]{"2013", "00536","00534"});
+		hmBIN.put(229,new String[]{"2014", "00699","00607"});
+		hmBIN.put(242,new String[]{"2015", "01047","01045"});
+		hmBIN.put(255,new String[]{"2016", "01521","01519"});
+		hmBIN.put(268,new String[]{"2017", "01594","01592"});
+		hmBIN.put(281,new String[]{"2018", "00552","01825"});
+		hmBIN.put(294,new String[]{"2018", "01330","01825"});
+	}
+	
+	private void initCN(){
+		//Cuotas negativas cooperativas pendientes de compensar ejercicios anteriores
+		hmCN = new HashMap<Integer,String[]>();
+		hmCN.put(8,   new String[]{"2000","01224","00673"});
+		hmCN.put(21,  new String[]{"2001","00678","00676"});
+		hmCN.put(34,  new String[]{"2002","00681","00679"});
+		hmCN.put(47,  new String[]{"2003","00684","00682"});
+		hmCN.put(60,  new String[]{"2004","00687","00685"});
+		hmCN.put(73,  new String[]{"2005","00690","00688"});
+		hmCN.put(86,  new String[]{"2006","00693","00691"});
+		hmCN.put(99,  new String[]{"2007","00672","00623"});
+		hmCN.put(112, new String[]{"2008","00281","00279"});
+		hmCN.put(125, new String[]{"2009","00900","00587"});
+		hmCN.put(138, new String[]{"2010","00100","00059"});
+		hmCN.put(151, new String[]{"2011","00019","00017"});
+		hmCN.put(164, new String[]{"2012","00777","00772"});
+		hmCN.put(177, new String[]{"2013","00909","00907"});
+		hmCN.put(190, new String[]{"2014","00912","00910"});
+		hmCN.put(203, new String[]{"2015","00937","00935"});
+		hmCN.put(216, new String[]{"2016","01513","01511"});
+		hmCN.put(229, new String[]{"2017","01769","01767"});
+		hmCN.put(242, new String[]{"2018","00560","02113"});
+		hmCN.put(255, new String[]{"2018","01331","02113"});
+	}
+	
+	private void initDI1(){
+		//Deducciones doble imposición interna RDL 4/2004
+		hmDI1 = new HashMap<Integer,String[]>();
+		hmDI1.put(8,   new String[]{"2008","00848","00104"});
+		hmDI1.put(21,  new String[]{"2009","00284","00106"});
+		hmDI1.put(34,  new String[]{"2010","00707","00108"});
+		hmDI1.put(47,  new String[]{"2011","00300","00110"});
+		hmDI1.put(60,  new String[]{"2012","00027","00112"});
+		hmDI1.put(73,  new String[]{"2013","00716","00114"});
+		hmDI1.put(86,  new String[]{"2014","00738","00735"});
+	}
+	
+	private void initDI2(){
+		//Deducciones doble imposición internacional RDL 4/2004
+		hmDI2 = new HashMap<Integer,String[]>();
+		hmDI2.put(8,   new String[]{"2005","00639","00153"});
+		hmDI2.put(21,  new String[]{"2006","00197","00154"});
+		hmDI2.put(34,  new String[]{"2007","00287","00155"});
+		hmDI2.put(47,  new String[]{"2008","00827","00156"});
+		hmDI2.put(60,  new String[]{"2009","00003","00157"});
+		hmDI2.put(73,  new String[]{"2010","00030","00158"});
+		hmDI2.put(86,  new String[]{"2011","00719","00159"});
+		hmDI2.put(99,  new String[]{"2012","00724","00720"});
+		hmDI2.put(112, new String[]{"2013","00742","00739"});
+		hmDI2.put(125, new String[]{"2014","00137","00134"});
+	}
+	private void initDI3(){
+		//Deducciones doble imposición interna DT 23ª.1 LIS
+		hmDI3 = new HashMap<Integer,String[]>();
+		hmDI3.put(8,   new String[]{"2015","00121","00101"});
+		hmDI3.put(21,  new String[]{"2016","00126","00122"});
+		hmDI3.put(34,  new String[]{"2017","01599","01595"});
+		hmDI3.put(47,  new String[]{"2018","01347","01828"}); 
+		
+	}
+	 
+	private void initDI4(){
+		//Deducciones doble imposición internacional LIS
+		hmDI4 = new HashMap<Integer,String[]>();
+		hmDI4.put(8,   new String[]{"2015","01053","01054"});
+		hmDI4.put(21,  new String[]{"2016","01352","01348"});
+		hmDI4.put(34,  new String[]{"2017","01774","01770"});
+		hmDI4.put(47,  new String[]{"2018","00174","01833"});
+		
+	}
+
+	private void initBEN(){
+		//Deducciones disposición transitoria 24ª.7 LIS y ART. 42 RDL 4/2004 
+		hmBEN = new HashMap<Integer,String[]>();
+		hmBEN.put(8,   new String[]{"2004","00934","00932"});
+		hmBEN.put(21,  new String[]{"2005","00299","00297"});
+		hmBEN.put(34,  new String[]{"2006","00092","00090"});
+		hmBEN.put(47,  new String[]{"2007","00006","00004"});
+		hmBEN.put(60,  new String[]{"2008","00033","00031"});
+		hmBEN.put(73,  new String[]{"2009","00024","00022"});
+		hmBEN.put(86,  new String[]{"2010","00042","00040"});
+		hmBEN.put(99,  new String[]{"2011","00140","00138"});
+		hmBEN.put(112, new String[]{"2012","00143","00141"});
+		hmBEN.put(125, new String[]{"2013","00190","00188"});
+		hmBEN.put(138, new String[]{"2014","00805","00803"});
+		hmBEN.put(151, new String[]{"2015","01057","01055"});
+		hmBEN.put(164, new String[]{"2016","00709","00700"});
+		hmBEN.put(177, new String[]{"2017","01355","01353"});
+		hmBEN.put(190, new String[]{"2018","01840","01775"});
+		
+	}
+	
+	private void initPER(){
+		//Deducciones disposición transitoria 24ª.1 LIS 
+		hmPER = new HashMap<Integer,String[]>();
+		hmPER.put(8,   new String[]{"2014","00754","00749"});
+		hmPER.put(21,  new String[]{"2015","00757","00752"});
+		hmPER.put(34,  new String[]{"2016","00760","00755"});
+		hmPER.put(47,  new String[]{"2017","00763","00758"});
+		hmPER.put(60,  new String[]{"2018","00784","00761 "}); 
+		
+	}
+	 
+	private void initCAN(){
+		//Deducciones inversión en Canarias
+		hmCAN = new HashMap<Integer,String[]>();             
+		hmCAN.put(8,  new String[]{"2010", "01356","00854"});
+		hmCAN.put(21, new String[]{"2011", "00859","00857"});
+		hmCAN.put(34, new String[]{"2012", "00862","00860"});
+		hmCAN.put(47, new String[]{"2013", "00865","00863"});
+		hmCAN.put(60, new String[]{"2014", "00885","00883"});
+		hmCAN.put(73, new String[]{"2015", "00790","00785"});
+		hmCAN.put(86, new String[]{"2016", "01359","01357"});
+		hmCAN.put(99, new String[]{"2017", "01780","01778"});
+		hmCAN.put(112,new String[]{"2018", "02118","00852"});
+		hmCAN.put(125,new String[]{"2001", "00873","00871"});
+		hmCAN.put(138,new String[]{"2002", "00876","00874"});
+		hmCAN.put(151,new String[]{"2003", "00879","00877"});
+		hmCAN.put(164,new String[]{"2004", "00882","00880"});
+		hmCAN.put(177,new String[]{"2005", "00870","00866"});
+		hmCAN.put(190,new String[]{"2006", "00941","00939"});
+		hmCAN.put(203,new String[]{"2007", "00193","00191"});
+		hmCAN.put(216,new String[]{"2008", "00701","00613"});
+		hmCAN.put(229,new String[]{"2009", "00011","00200"});
+		hmCAN.put(242,new String[]{"2010", "00039","00037"});
+		hmCAN.put(255,new String[]{"2011", "00046","00044"});
+		hmCAN.put(268,new String[]{"2012", "00530","00528"});
+		hmCAN.put(281,new String[]{"2013", "00146","00144"});
+		hmCAN.put(294,new String[]{"2014", "00149","00147"});
+		hmCAN.put(307,new String[]{"2015", "00242","00240"});
+		hmCAN.put(320,new String[]{"2016", "01060","01058"});
+		hmCAN.put(333,new String[]{"2017", "00806","00791"});
+		hmCAN.put(346,new String[]{"2018", "02124","01781"});
+		hmCAN.put(359,new String[]{"2018", "02127","02119"});
+		
+	}
+	
+	private void initACT(){
+		//Deducciones para incentivar determinadas actividades (Cap. IV Tit. VI y DT 24ª.3 LIS) 
+		hmACT = new HashMap<Integer,String[]>();             
+		hmACT.put(8,  new String[]{"2001", "00788","00786"});
+		hmACT.put(21, new String[]{"2002", "00833","00766"});
+		hmACT.put(34, new String[]{"2003", "00897","00198"});
+		hmACT.put(47, new String[]{"2004", "00290","00288"});
+		hmACT.put(60, new String[]{"2005", "00468","00466"});
+		hmACT.put(73, new String[]{"2006", "00586","00061"});
+		hmACT.put(86, new String[]{"2007", "00478","00472"});
+		hmACT.put(99, new String[]{"2008", "00182","00180"});
+		hmACT.put(112,new String[]{"2009", "00533","00531"});
+		hmACT.put(125,new String[]{"2010", "00947","00945"});
+		hmACT.put(138,new String[]{"2011", "00962","00960"});
+		hmACT.put(151,new String[]{"2012", "00186","00183"});
+		hmACT.put(164,new String[]{"2013", "00968","00966"});
+		hmACT.put(177,new String[]{"2013", "00459","00457"});
+		hmACT.put(190,new String[]{"2013", "00462","00460"});
+		hmACT.put(203,new String[]{"2014", "01065","01063"});
+		hmACT.put(216,new String[]{"2014", "01068","01066"});
+		hmACT.put(229,new String[]{"2014", "01071","01069"});
+		hmACT.put(242,new String[]{"2015", "00815","00813"});
+		hmACT.put(255,new String[]{"2015", "00507","00986"});
+		hmACT.put(268,new String[]{"2015", "00594","00557"});
+		hmACT.put(281,new String[]{"2016", "01616","01614"});
+		hmACT.put(294,new String[]{"2016", "01619","01617"});
+		hmACT.put(307,new String[]{"2016", "01622","01620"});
+		hmACT.put(320,new String[]{"2017", "01849","01847"});
+		hmACT.put(333,new String[]{"2017", "01852","01850"});
+		hmACT.put(346,new String[]{"2017", "01855","01853"});
+		hmACT.put(359,new String[]{"2018", "00809 + 01077 + 00965 + 00751 + 00797 + 00889 + 01371 + 02192 + 00636","02218"});
+		hmACT.put(372,new String[]{"2018", "00800","02221"});
+		hmACT.put(385,new String[]{"2018", "00713","02224"});
+		hmACT.put(398,new String[]{"2018", "00830","00828"});
+		
+	}
+	
+	private void initDON(){
+		//Deducción donativos a entidades sin fines de lucro. Ley 49/2002  
+		hmDON = new HashMap<Integer,String[]>();             
+		hmDON.put(8,  new String[]{"2009", "00010","00008"});
+		hmDON.put(21, new String[]{"2010", "00036","00034"});
+		hmDON.put(34, new String[]{"2011", "00203","00201"});
+		hmDON.put(47, new String[]{"2012", "00906","00904"});
+		hmDON.put(60, new String[]{"2013", "00992","00990"});
+		hmDON.put(73, new String[]{"2014", "00999","00997"});
+		hmDON.put(86, new String[]{"2015", "00248","00246"});
+		hmDON.put(99, new String[]{"2016", "00995","00993"});
+		hmDON.put(112,new String[]{"2017", "01436","01434"});
+		hmDON.put(125,new String[]{"2018", "01952","01718"});
+		
+	}
+	
+	private void initMT1(){
+		//Deducción por reversión de medidas temporales (DT 37ª.1 LIS) 
+		hmMT1 = new HashMap<Integer,String[]>();             
+		hmMT1.put(8,  new String[]{"2015", "01169","01167"});
+		hmMT1.put(21, new String[]{"2016", "01441","01439"});
+		hmMT1.put(34, new String[]{"2017", "01445","01443"});
+		hmMT1.put(47, new String[]{"2018", "01956","01722"});
+		
+	}
+	
+	private void initMT2(){
+		//Deducción por reversión de medidas temporales (DT 37ª.2 LIS) 
+		hmMT2 = new HashMap<Integer,String[]>();             
+		hmMT2.put(8,  new String[]{"2015", "01181","01179"});
+		hmMT2.put(21, new String[]{"2016", "01450","01448"});
+		hmMT2.put(34, new String[]{"2017", "01454","01452"});
+		hmMT2.put(47, new String[]{"2018", "01960","01726"});
+		
+	}
+	
+	private void initNIV(){
+		//Reserva de nivelación (reducción en base imponible)  
+		hmNIV = new HashMap<Integer,String[]>();             
+		hmNIV.put(8,  new String[]{"2015", "01143","01141"});
+		hmNIV.put(21, new String[]{"2016", "01146","01144"});
+		hmNIV.put(34, new String[]{"2017", "01457","01455"});
+		hmNIV.put(47, new String[]{"2018", "01731","01961"});
+		
+	}
+	
+	private void initDNI(){
+		//Reserva de nivelación (dotación reserva)  
+		hmDNI = new HashMap<Integer,String[]>();             
+		hmDNI.put(8,  new String[]{"2015", "01152","01150"});
+		hmDNI.put(21, new String[]{"2016", "01156","01154"});
+		hmDNI.put(34, new String[]{"2017", "01460","01458"});
+		hmDNI.put(47, new String[]{"2018", "01966","01732"});
+		
+	}
+	
+	private void initCAP(){
+		//Reserva de capitalización 
+		hmCAP = new HashMap<Integer,String[]>();             
+		hmCAP.put(8,  new String[]{"2017", "01472","01134"});
+		hmCAP.put(21, new String[]{"2018", "01987","01470"});
+		
+	}
+	
+	private void initGFP(){
+		//Limitación en la deducibilidad de gastos financieros. Gastos financieros pendientes de deducir
+		hmGFP = new HashMap<Integer,String[]>();             
+		hmGFP.put(8,  new String[]{"2012", "01191","01188"});
+		hmGFP.put(21, new String[]{"2013", "01196","01193"});
+		hmGFP.put(34, new String[]{"2014", "01201","01198"});
+		hmGFP.put(47, new String[]{"2015", "01205","01202"});
+		hmGFP.put(60, new String[]{"2015", "01206","01203"});
+		hmGFP.put(73, new String[]{"2016", "01210","01462"});
+		hmGFP.put(86, new String[]{"2016", "01211","01463"});
+		hmGFP.put(99, new String[]{"2017", "01465","01736"});
+		hmGFP.put(112,new String[]{"2017", "01466","01737"});
+		hmGFP.put(125,new String[]{"2018", "01980","01977"});
+		hmGFP.put(138,new String[]{"2018", "01981","01978"});
+		
+	}
+	
+	private void initLBO(){
+		//Pendiente de adición por límite beneficio operativo no aplicado
+		hmLBO = new HashMap<Integer,String[]>();             
+		hmLBO.put(8,  new String[]{"2014", "00537","00273"});
+		hmLBO.put(21, new String[]{"2015", "00957","00955"});
+		hmLBO.put(34, new String[]{"2016", "01219","01217"});
+		hmLBO.put(47, new String[]{"2017", "01469","01467"});
+		hmLBO.put(60, new String[]{"2018", "01984","01741"});
+		
+	}
+	
+	private void initRIC(){
+		//Régimen especial de la reserva para inversiones en Canarias (Ley 19/1994) 
+		hmRIC = new HashMap<Integer,String[]>();             
+		hmRIC.put(8,  new String[]{"2015", "00048","00089"});
+		hmRIC.put(21, new String[]{"2016", "00527","00097"});
+		hmRIC.put(34, new String[]{"2017", "00925","00524"});
+		hmRIC.put(47, new String[]{"2018", "00996","00922"});
+		
+	}
+		
+
+	
 	public boolean leer(){
 		boolean bOk = true;
 		initVariables();
@@ -81,26 +426,33 @@ public class DatosFiscalesSociedad {
 			InputStreamReader read = null;
 			BufferedReader in = null;
 			try{
+				pbf.setSecondaryPercent(0);
+				pbf.setState("Leyendo datos fiscales");
 				filein = new FileInputStream(f);
 				read = new InputStreamReader(filein);
 				in = new BufferedReader(read);
 				linea = in.readLine();
-				//if (!("0DFIS"+paramEjer).equals(linea)){
-				//	
-				//}
 				while (linea!=null){
-					if (bOk) bOk = leerDatosDomicilio();
-					if (bOk) bOk = leerDatosCensales();
-					if (bOk) bOk = leerPeriodoYCNAE();
-					if (bOk) bOk = leerCaracteres();
-					if (bOk) bOk = leerAdmins();
-					if (bOk) bOk = leerEntidadesParticipa();
-					if (bOk) bOk = leerPersonasYEntParticipan();
-					if (bOk) bOk = leerSecreYRepre();
-					if (bOk) bOk = leerPagosFraccionados();
-					if (bOk) bOk = leerVolumenOperaciones();
+					if      (bOk && linea.startsWith("2DOM")) bOk = leerDatosDomicilio();
+					else if (bOk && linea.startsWith("2AE"))  bOk = leerDatosCensales();
+					else if (bOk && linea.startsWith("2MD1")) bOk = leerPeriodoYCNAE();
+					else if (bOk && linea.startsWith("2MD2")) bOk = leerCaracteres();
+					else if (bOk && linea.startsWith("2MD4")) bOk = leerAdmins();
+					else if (bOk && linea.startsWith("2MD5")) bOk = leerEntidadesParticipa();
+					else if (bOk && linea.startsWith("2MD6")) bOk = leerPersonasYEntParticipan();
+					else if (bOk && linea.startsWith("2MD8")) bOk = leerSecreYRepre();
+					else if (bOk && linea.startsWith("2PF"))  bOk = leerPagosFraccionados();
+					else if (bOk && linea.startsWith("2TR"))  bOk = leerVolumenOperaciones();
+					else if (bOk && linea.startsWith("2RTA")) bOk = leerRendimientosTrabajo();
+					else if (bOk && linea.startsWith("2DN"))  bOk = leerDonaciones();
+					else if (bOk && linea.startsWith("2MTR")) bOk = leerMultasDGT();
+					else if (bOk && linea.startsWith("2CB"))  bOk = leerRendimientosCtasBancarias();
+					else if (bOk && linea.startsWith("2SRN")) bOk = leerSanciones();
+					else if (bOk)                             bOk = leerDeduccionesBasesNegReservas();
 					linea = in.readLine();
 				}
+				pbf.setSecondaryPercent(100);
+				pbf.setPercent(30);
 			}
 			catch(Exception ex){
 				mostrarIncidencia();
@@ -124,24 +476,37 @@ public class DatosFiscalesSociedad {
 	
 	public boolean grabar(){
 		boolean bOk = true;
+		pbf.setState("Grabando datos fiscales");
+		pbf.setSecondaryPercent(20);
+		if (bOk) bOk = eliminarDatosAnteriores();
 		if (bOk) bOk = grabarDomicilios();
 		if (bOk) bOk = grabarDatosCensales();
 		if (bOk) bOk = grabarPeriodoYCNAE();
+		pbf.setSecondaryPercent(40);
 		if (bOk) bOk = grabarCaracteres();
 		if (bOk) bOk = grabarAdmins();
 		if (bOk) bOk = grabarEntidadesParticipa();
 		if (bOk) bOk = grabarPersonasYEntParticipan();
+		pbf.setSecondaryPercent(60);
 		if (bOk) bOk = grabarSecreYRepre();
 		if (bOk) bOk = grabarPagosFraccionados();
 		if (bOk) bOk = grabarVolumenOperaciones();
-		
+		if (bOk) bOk = grabarRendimientosTrabajo();
+		if (bOk) bOk = grabarDonaciones();
+		pbf.setSecondaryPercent(80);
+		if (bOk) bOk = grabarMultasDGT();
+		if (bOk) bOk = grabarRendimientosCtasBancarias();
+		if (bOk) bOk = grabarSanciones();
+		if (bOk) bOk = grabarDeduccionesBasesNegReservas();
+		pbf.setSecondaryPercent(100);
+		pbf.setPercent(100);
 		if (bOk){
 			connEA.commit();
-			Maefc.message("Datos fiscales grabados con éxito");
+			
 		}
 		else {
 			connEA.rollback();
-			Maefc.message("Error grabando datos fiscales:\n"+"- "+sError);
+			
 		}
 		return bOk;
 	}
@@ -171,7 +536,7 @@ public class DatosFiscalesSociedad {
 				d.codpos = parserString(191,196);
 				d.codMuni = parserString(196,201);
 				d.muni = parserString(201,231);
-				d.codProv = parserDouble(231,233).intValue();
+				d.codProv = parserInteger(231,233);
 				d.prov = parserString(233,253);
 				d.refcat = parserString(253,273);
 			}
@@ -191,10 +556,45 @@ public class DatosFiscalesSociedad {
 		return true;
 	}
 	
-	private boolean grabarDomicilios(){
+	private boolean eliminarDatosAnteriores(){
 		boolean bOk = true;
 		Delete del = new Delete(connEA,"DFSDOMICILIO");
 		if (bOk) bOk = del.execute("dfdejer="+paramEjer+" AND dfdnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSCENSALES");
+		if (bOk) bOk = del.execute("dfcejer="+paramEjer+" AND dfcnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSPERIODOYCNAE");
+		if (bOk) bOk = del.execute("dfpejer="+paramEjer+" AND dfpnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSCARACTERES");
+		if (bOk) bOk = del.execute("dfcejer="+paramEjer+" AND dfcnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSADMINS");
+		if (bOk) bOk = del.execute("dfaejer="+paramEjer+" AND dfanif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSENTIDPART");
+		if (bOk) bOk = del.execute("dfeejer="+paramEjer+" AND dfenif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSPERSPART");
+		if (bOk) bOk = del.execute("dfpejer="+paramEjer+" AND dfpnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSSECREREPRE");
+		if (bOk) bOk = del.execute("dfsejer="+paramEjer+" AND dfsnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSPAGOSFRAC");
+		if (bOk) bOk = del.execute("dfpejer="+paramEjer+" AND dfpnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSVOLOPER");
+		if (bOk) bOk = del.execute("dfvejer="+paramEjer+" AND dfvnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSRDTOTRAB");
+		if (bOk) bOk = del.execute("dfrejer="+paramEjer+" AND dfrnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSDEDUCYBASES");
+		if (bOk) bOk = del.execute("dfdejer="+paramEjer+" AND dfdnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSDONACIONES");
+		if (bOk) bOk = del.execute("dfdejer="+paramEjer+" AND dfdnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSMULTASDGT");
+		if (bOk) bOk = del.execute("dfmejer="+paramEjer+" AND dfmnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSRDTOCTASBAN");
+		if (bOk) bOk = del.execute("dfrejer="+paramEjer+" AND dfrnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSSANCIONES");
+		if (bOk) bOk = del.execute("dfsejer="+paramEjer+" AND dfsnif='"+paramNif+"'");
+		return bOk;
+	}
+	
+	private boolean grabarDomicilios(){
+		boolean bOk = true;
 		for (Domicilio d : lDom){
 			if (bOk){
 				Insert in = new Insert(connEA, "DFSDOMICILIO");
@@ -262,8 +662,6 @@ public class DatosFiscalesSociedad {
 	
 	private boolean grabarDatosCensales(){
 		boolean bOk = true;
-		Delete del = new Delete(connEA, "DFSCENSALES");
-		if (bOk) bOk = del.execute("dfcejer="+paramEjer+" AND dfcnif='"+paramNif+"'");
 		for (DatosCensales dc : lDatosCensales){
 			if (bOk) {
 				Insert in = new Insert(connEA, "DFSCENSALES");
@@ -318,8 +716,6 @@ public class DatosFiscalesSociedad {
 	
 	private boolean grabarPeriodoYCNAE(){
 		boolean bOk = true;
-		Delete del = new Delete(connEA, "DFSPERIODOYCNAE");
-		if (bOk) bOk = del.execute("dfpejer="+paramEjer+" AND dfpnif='"+paramNif+"'");
 		for (PeriodoImpositivoYCNAE per : lPeriodoYCNAE){
 			if (bOk) {
 				Insert in = new Insert(connEA, "DFSPERIODOYCNAE");
@@ -355,8 +751,6 @@ public class DatosFiscalesSociedad {
 	
 	private boolean grabarCaracteres(){
 		boolean bOk = true;
-		Delete del = new Delete(connEA, "DFSCARACTERES");
-		if (bOk) bOk = del.execute("dfcejer="+paramEjer+" AND dfcnif='"+paramNif+"'");
 		for (Caracteres car : lCaracteres){
 			if (bOk){
 				Insert in = new Insert(connEA, "DFSCARACTERES");
@@ -391,8 +785,6 @@ public class DatosFiscalesSociedad {
 	
 	private boolean grabarAdmins(){
 		boolean bOk = true;
-		Delete del = new Delete(connEA, "DFSADMINS");
-		if (bOk) bOk = del.execute("dfaejer="+paramEjer+" AND dfanif='"+paramNif+"'");
 		for (Administradores admin : lAdministradores){
 			if (bOk){
 				Insert in = new Insert(connEA, "DFSADMINS");
@@ -434,8 +826,6 @@ public class DatosFiscalesSociedad {
 	
 	private boolean grabarEntidadesParticipa(){
 		boolean bOk = true;
-		Delete del = new Delete(connEA, "DFSENTIDPART");
-		if (bOk) bOk = del.execute("dfeejer="+paramEjer+" AND dfenif='"+paramNif+"'");
 		for (EntidadesParticipa ent : lEntidadesParticipa){
 			if (bOk){
 				Insert in = new Insert(connEA, "DFSENTIDPART");
@@ -480,8 +870,6 @@ public class DatosFiscalesSociedad {
 	
 	private boolean grabarPersonasYEntParticipan(){
 		boolean bOk = true;
-		Delete del = new Delete(connEA, "DFSPERSPART");
-		if (bOk) bOk = del.execute("dfpejer="+paramEjer+" AND dfpnif='"+paramNif+"'");
 		for (PersonasYEntParticipan pep : lPersonasYEntParticipan){
 			if (bOk){
 				Insert in = new Insert(connEA, "DFSPERSPART");
@@ -532,8 +920,6 @@ public class DatosFiscalesSociedad {
 	
 	private boolean grabarSecreYRepre(){
 		boolean bOk = true;
-		Delete del = new Delete(connEA, "DFSSECREREPRE");
-		if (bOk) bOk = del.execute("dfsejer="+paramEjer+" AND dfsnif='"+paramNif+"'");
 		for (SecreYRepre syr : lSecreYRepre){
 			if (bOk){
 				Insert in = new Insert(connEA, "DFSSECREREPRE");
@@ -574,8 +960,6 @@ public class DatosFiscalesSociedad {
 	
 	private boolean grabarPagosFraccionados(){
 		boolean bOk = true;
-		Delete del = new Delete(connEA, "DFSPAGOSFRAC");
-		if (bOk) bOk = del.execute("dfpejer="+paramEjer+" AND dfpnif='"+paramNif+"'");
 		for (PagoFraccionado pf : lPagoFraccionado){
 			if (bOk){
 				Insert in = new Insert(connEA, "DFSPAGOSFRAC");
@@ -632,8 +1016,6 @@ public class DatosFiscalesSociedad {
 	
 	private boolean grabarVolumenOperaciones(){
 		boolean bOk = true;
-		Delete del = new Delete(connEA, "DFSVOLOPER");
-		if (bOk) bOk = del.execute("dfvejer="+paramEjer+" AND dfvnif='"+paramNif+"'");
 		for (VolumenOperaciones vo : lVolumenOperaciones){
 			if (bOk){
 				Insert in = new Insert(connEA, "DFSVOLOPER");
@@ -652,34 +1034,368 @@ public class DatosFiscalesSociedad {
 		return bOk;
 	}
 	
-	private boolean leerTODO(){
-//		if (linea.startsWith("")){
-//			.add();
-//			return sError == null;
-//		}
+	private boolean leerRendimientosTrabajo(){
+		if (linea.startsWith("2RTA")){
+			RendimientosTrabajo rt = new RendimientosTrabajo();
+			rt.ejercicio = paramEjer;
+			rt.nif = paramNif;
+			rt.codigo = parserString(1,8);
+			rt.nifPagador = parserString(8,17);
+			rt.nombre = parserString(17,57);
+			rt.clave = parserString(57,59);
+			rt.retribDinerarias = parserDouble(59,72);
+			rt.retenciones = parserDouble(72,85);
+			rt.especie = parserDouble(85,98);
+			rt.ingCta = parserDouble(98,111);
+			rt.ingCtaReper = parserDouble(111,124);
+			rt.gastosDeduc = parserDouble(124,137);
+			rt.reducciones = parserDouble(137,150);
+			lRendimientosTrabajo.add(rt);
+			return sError == null;
+		}
 		return true;
 	}
 	
-	private boolean grabarTODO(){
+	private boolean grabarRendimientosTrabajo(){
 		boolean bOk = true;
-		Delete del = new Delete(connEA, "TODO");
-		if (bOk) bOk = del.execute("");
-//		for (){
-//			if (bOk){
-//				Insert in = new Insert(connEA, "TODO");
-//				bOk = in.execute();
-//				if (!bOk){
-//					hayIncidencias = true;
-//					sError = .codigo;
-//				}
-//			}
-//		}
+		for (RendimientosTrabajo rt : lRendimientosTrabajo){
+			if (bOk){
+				Insert in = new Insert(connEA, "DFSRDTOTRAB");
+				in.valor("dfrejer", paramEjer);
+				in.valor("dfrnif", paramNif);
+				in.valor("dfrcodigo", rt.codigo);
+				in.valor("dfrnifpaga", rt.nifPagador);
+				in.valor("dfrnombre", rt.nombre);
+				in.valor("dfrclave", rt.clave);
+				in.valor("dfrdinera", rt.retribDinerarias);
+				in.valor("dfrreten", rt.retenciones);
+				in.valor("dfrespecie", rt.especie);
+				in.valor("dfringcta", rt.ingCta);
+				in.valor("dfringctarep", rt.ingCtaReper);
+				in.valor("dfrgastosded", rt.gastosDeduc);
+				in.valor("dfrreduc", rt.reducciones);
+				bOk = in.execute();
+				if (!bOk){
+					hayIncidencias = true;
+					sError = rt.codigo;
+				}
+			}
+		}
 		return bOk;
 	}
 	
-	private void mostrarIncidencia(){
-		//TODO
-		Maefc.message("TODO");
+	private boolean leerDeduccionesBasesNegReservas(){
+		HashMap<Integer,String[]> hmTmp = new HashMap<Integer,String[]>();
+		DeduccionesBasesNegReservas ded = new DeduccionesBasesNegReservas();
+		ded.codigo = parserString(1,8);
+		if (linea.startsWith("2BIN")){
+			ded.tipoDed = "BIN";
+			if (hmBIN==null) initBIN();
+			hmTmp = hmBIN;
+		}
+		else if (linea.startsWith("2CN")){
+			ded.tipoDed = "CN";
+			if (hmCN==null) initCN();
+			hmTmp = hmCN;
+		}
+		else if (linea.startsWith("2DI1")){
+			ded.tipoDed = "DI1";
+			if (hmDI1==null) initDI1();
+			hmTmp = hmDI1;
+		}
+		else if (linea.startsWith("2DI2")){
+			ded.tipoDed = "DI2";
+			if (hmDI2==null) initDI2();
+			hmTmp = hmDI2;
+		}
+		else if (linea.startsWith("2DI3")){
+			ded.tipoDed = "DI3";
+			if (hmDI3==null) initDI3();
+			hmTmp = hmDI3;
+		}
+		else if (linea.startsWith("2DI4")){
+			ded.tipoDed = "DI4";
+			if (hmDI4==null) initDI4();
+			hmTmp = hmDI4;
+		}
+		else if (linea.startsWith("2BEN")){
+			ded.tipoDed = "BEN";
+			if (hmBEN==null) initBEN();
+			hmTmp = hmBEN;
+		}
+		else if (linea.startsWith("2PER")){
+			ded.tipoDed = "PER";
+			if (hmPER==null) initPER();
+			hmTmp = hmPER;
+		}
+		else if (linea.startsWith("2CAN")){
+			ded.tipoDed = "CAN";
+			if (hmCAN==null) initCAN();
+			hmTmp = hmCAN;
+		}
+		else if (linea.startsWith("2ACT")){
+			ded.tipoDed = "ACT";
+			if (hmACT==null) initACT();
+			hmTmp = hmACT;
+		}
+		else if (linea.startsWith("2DON")){
+			ded.tipoDed = "DON";
+			if (hmDON==null) initDON();
+			hmTmp = hmDON;
+		}
+		else if (linea.startsWith("2MT1")){
+			ded.tipoDed = "MT1";
+			if (hmMT1==null) initMT1();
+			hmTmp = hmMT1;
+		}
+		else if (linea.startsWith("2MT2")){
+			ded.tipoDed = "MT2";
+			if (hmMT2==null) initMT2();
+			hmTmp = hmMT2;
+		}
+		else if (linea.startsWith("2NIV")){
+			ded.tipoDed = "NIV";
+			if (hmNIV==null) initNIV();
+			hmTmp = hmNIV;
+		}
+		else if (linea.startsWith("2DNI")){
+			ded.tipoDed = "DNI";
+			if (hmDNI==null) initDNI();
+			hmTmp = hmDNI;
+		}
+		else if (linea.startsWith("2CAP")){
+			ded.tipoDed = "CAP";
+			if (hmCAP==null) initCAP();
+			hmTmp = hmCAP;
+		}
+		else if (linea.startsWith("2GFP")){
+			ded.tipoDed = "GFP";
+			if (hmGFP==null) initGFP();
+			hmTmp = hmGFP;
+		}
+		else if (linea.startsWith("2LBO")){
+			ded.tipoDed = "LBO";
+			if (hmLBO==null) initLBO();
+			hmTmp = hmLBO;
+		}
+		else if (linea.startsWith("2RIC")){
+			ded.tipoDed = "RIC";
+			if (hmRIC==null) initRIC();
+			hmTmp = hmRIC;
+		}
+		
+		
+		for (Integer posIni : hmTmp.keySet()){
+			DeduccionesBasesNegReservas dedTmp = new DeduccionesBasesNegReservas();
+			dedTmp.ejercicio = paramEjer;
+			dedTmp.nif = paramNif;
+			dedTmp.codigo = ded.codigo;
+			dedTmp.tipoDed = ded.tipoDed;
+			dedTmp.anyoDed = Integer.valueOf(hmTmp.get(posIni)[0]);
+			dedTmp.casEjerAnt = hmTmp.get(posIni)[1];
+			dedTmp.casEjer    = hmTmp.get(posIni)[2];
+			dedTmp.importe    = parserDouble(posIni,posIni+13);
+			lDeduccionesBasesNegReservas.add(dedTmp);
+		}
+		
+		return sError == null;
+	}
+	
+	private boolean grabarDeduccionesBasesNegReservas(){
+		boolean bOk = true;
+		for (DeduccionesBasesNegReservas ded : lDeduccionesBasesNegReservas){
+			if (bOk){
+				Insert in = new Insert(connEA, "DFSDEDUCYBASES");
+				in.valor("dfdejer", paramEjer);
+				in.valor("dfdnif", paramNif);
+				in.valor("dfdcodigo", ded.codigo);
+				in.valor("dfdtipoded", ded.tipoDed);
+				in.valor("dfdanyded", ded.anyoDed);
+				in.valor("dfdcasejer", ded.casEjer);
+				in.valor("dfdcasejerant", ded.casEjerAnt);
+				in.valor("dfdimporte", ded.importe);
+				bOk = in.execute();
+				if (!bOk){
+					hayIncidencias = true;
+					sError = ded.codigo;
+				}
+			}
+		}
+		return bOk;
+	}
+	
+	private boolean leerSanciones(){
+		if (linea.startsWith("2SRN")){
+			Sancion sa = new Sancion();
+			sa.ejercicio = paramEjer;
+			sa.nif = paramNif;
+			sa.codigo = parserString(1,8);
+			sa.concepto = parserString(8,48); 
+			sa.descripcion = parserString(48,118);
+			sa.sancion = parserDouble(118,131);
+			sa.recargoOrigen = parserDouble(131,144);
+			sa.recargoApremio = parserDouble(144,157);
+			sa.importeCalculado = parserDouble(157,170);
+			lSanciones.add(sa);
+			return sError == null;
+		}
+		return true;
+	}
+	
+	private boolean grabarSanciones(){
+		boolean bOk = true;
+		for (Sancion sa: lSanciones){
+			Insert in = new Insert(connEA, "DFSSANCIONES");
+			in.valor("dfsejer", paramEjer);
+			in.valor("dfsnif", paramNif);
+			in.valor("dfscodigo", sa.codigo);
+			in.valor("dfsconcepto", sa.concepto);
+			in.valor("dfsdesc", sa.descripcion);
+			in.valor("dfssancion", sa.sancion);
+			in.valor("dfsrecargoo", sa.recargoOrigen);
+			in.valor("dfsrecargoa", sa.recargoApremio);
+			in.valor("dfscalculado", sa.importeCalculado);
+			bOk = in.execute();
+			if (!bOk){
+				hayIncidencias = true;
+				sError = sa.codigo;
+			}
+		}
+		return bOk;
+	}
+	
+	private boolean leerDonaciones(){
+		if (linea.startsWith("2DN")){
+			Donaciones don = new Donaciones();
+			don.ejercicio = paramEjer;
+			don.nif = paramNif;
+			don.codigo = parserString(1,8);
+			don.nifEnt= parserString(8,17);
+			don.nombre= parserString(17,57);
+			don.tipo= parserString(57,58);
+			don.clave= parserString(58,59);
+			don.importe= parserDouble(59,72);
+			don.recur= parserString(72,73);
+			lDonaciones.add(don);
+			return sError == null;
+		}
+		return true;
+	}
+	
+	private boolean grabarDonaciones(){
+		boolean bOk = true;
+		for (Donaciones don : lDonaciones){
+			if (bOk){
+				Insert in = new Insert(connEA, "DFSDONACIONES");
+				in.valor("dfdejer", paramEjer);
+				in.valor("dfdnif", paramNif);
+				in.valor("dfdcodigo", don.codigo);
+				in.valor("dfdnifent", don.nifEnt);
+				in.valor("dfdnombre", don.nombre);
+				in.valor("dfdtipo", don.tipo);
+				in.valor("dfdclave", don.clave);
+				in.valor("dfdimporte", don.importe);
+				in.valor("dfdrecur", don.recur);
+				bOk = in.execute();
+				if (!bOk){
+					hayIncidencias = true;
+					sError = don.codigo;
+				}
+			}
+		}
+		return bOk;
+	}
+	
+	private boolean leerMultasDGT(){
+		if (linea.startsWith("2MTR")){
+			MultasDGT multa = new MultasDGT();
+			multa.ejercicio = paramEjer;
+			multa.nif = paramNif;
+			multa.codigo = parserString(1,8);
+			multa.ejerMulta = parserInteger(8,12);
+			multa.matricula = parserString(12,22);
+			multa.totalVoluntaria = parserDouble(22,35);
+			multa.recargoApremio = parserDouble(35,48);
+			multa.totalEjecutiva = parserDouble(48,61);
+			lMultasDGT.add(multa);
+			return sError == null;
+		}
+		return true;
+	}
+	
+	private boolean grabarMultasDGT(){
+		boolean bOk = true;
+		for (MultasDGT multa : lMultasDGT){
+			if (bOk){
+				Insert in = new Insert(connEA, "DFSMULTASDGT");
+				in.valor("dfmejer", paramEjer);
+				in.valor("dfmnif", paramNif);
+				in.valor("dfmcodigo", multa.codigo);
+				in.valor("dfmejermulta", multa.ejerMulta);
+				in.valor("dfmmatricula", multa.matricula);
+				in.valor("dfmtvolunta", multa.totalVoluntaria);
+				in.valor("dfmrecargoa", multa.recargoApremio);
+				in.valor("dfmtejecut", multa.totalEjecutiva);
+				bOk = in.execute();
+				if (!bOk){
+					hayIncidencias = true;
+					sError = multa.codigo;
+				}
+			}
+		}
+		return bOk;
+	}
+	
+	private boolean leerRendimientosCtasBancarias(){
+		if (linea.startsWith("2CB")){
+			RendimientosCtasBancarias rdtoCtas = new RendimientosCtasBancarias();
+			rdtoCtas.ejercicio = paramEjer;
+			rdtoCtas.nif = paramNif;
+			rdtoCtas.codigo = parserString(1,8);
+			rdtoCtas.nifPaga = parserString(8,17);
+			rdtoCtas.nombre = parserString(17,57);
+			rdtoCtas.cuenta = parserString(57,67);
+			rdtoCtas.tipo = parserString(67,68);
+			rdtoCtas.titulares = parserString(68,71);
+			rdtoCtas.rdtoDinerario = parserDouble(71,84);
+			rdtoCtas.reten = parserDouble(84,97);
+			rdtoCtas.rdtoEspecie = parserDouble(97,110);
+			rdtoCtas.ingCta = parserDouble(110,123);
+			lRendimientosCtasBancarias.add(rdtoCtas);
+			return sError == null;
+		}
+		return true;
+	}
+	
+	private boolean grabarRendimientosCtasBancarias(){
+		boolean bOk = true;
+		for (RendimientosCtasBancarias rdtoCtas : lRendimientosCtasBancarias){
+			if (bOk){
+				Insert in = new Insert(connEA, "DFSRDTOCTASBAN");
+				in.valor("dfrejer", paramEjer);
+				in.valor("dfrnif", paramNif);
+				in.valor("dfrcodigo", rdtoCtas.codigo);
+				in.valor("dfrnifpaga", rdtoCtas.nifPaga);
+				in.valor("dfrnombre", rdtoCtas.nombre);
+				in.valor("dfrcuenta", rdtoCtas.cuenta);
+				in.valor("dfrtipo", rdtoCtas.tipo);
+				in.valor("dfrtitulares", rdtoCtas.titulares);
+				in.valor("dfrrdtodiner", rdtoCtas.rdtoDinerario);
+				in.valor("dfrreten", rdtoCtas.reten);
+				in.valor("dfrrdtoespec", rdtoCtas.rdtoEspecie);
+				in.valor("dfringcta", rdtoCtas.ingCta);
+				bOk = in.execute();
+				if (!bOk){
+					hayIncidencias = true;
+					sError = rdtoCtas.codigo;
+				}
+			}
+		}
+		return bOk;
+	}
+	
+	public void mostrarIncidencia(){
+		Maefc.message("Error procesando datos fiscales:\n"+"- "+sError);
 	}
 	
 	private String parserString(int ini, int fin) {
@@ -714,7 +1430,7 @@ public class DatosFiscalesSociedad {
 		if (linea.length()>=fin) {
 			try {
 				s = linea.substring(ini, fin); 
-				if (s!=null && s.trim().length()>0) d = Double.parseDouble(s);
+				if (s!=null && s.trim().length()>0) d = Double.parseDouble(s)/100; //2 posicions finals per 2 decimals
 			}
 			catch (Exception e) {
 				e.printStackTrace();
@@ -726,6 +1442,30 @@ public class DatosFiscalesSociedad {
 			}
 		}
 		return d;
+	}
+	
+	private Integer parserInteger(int ini, int fin) {
+		return parserInteger(null, ini, fin);
+	}
+	
+	private Integer parserInteger(String campo, int ini, int fin) {
+		Integer i = new Integer(0);
+		String s = null;
+		if (linea.length()>=fin) {
+			try {
+				s = linea.substring(ini, fin); 
+				if (s!=null && s.trim().length()>0) i = Integer.parseInt(s);
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+				hayIncidencias = true;
+				if (sError==null || "".equals(sError)) {
+					if (campo==null) sError = e.getMessage();
+					else sError = campo+" ["+s+"]";
+				}
+			}
+		}
+		return i;
 	}
 	
 	class Domicilio {
@@ -856,10 +1596,82 @@ public class DatosFiscalesSociedad {
 		double totalVolumen;
 	}
 	
-	class TODO{
+	class RendimientosTrabajo{
 		int ejercicio;
 		String nif;
 		String codigo;
+		String nifPagador;
+		String nombre;
+		String clave;
+		double retribDinerarias;
+		double retenciones;
+		double especie;
+		double ingCta;
+		double ingCtaReper;
+		double gastosDeduc;
+		double reducciones;
+	}
+	
+	class DeduccionesBasesNegReservas {
+		int ejercicio;
+		String nif;
+		String codigo;
+		String tipoDed;
+		int anyoDed;
+		String casEjer;
+		String casEjerAnt;
+		double importe;
+	}
+	
+	class Donaciones{
+		int ejercicio;
+		String nif;
+		String codigo;
+		String nifEnt;
+		String nombre;
+		String tipo;
+		String clave;
+		double importe;
+		String recur;
+	}
+	
+	class MultasDGT{
+		int ejercicio;
+		String nif;
+		String codigo;
+		int ejerMulta;
+		String matricula;
+		double totalVoluntaria;
+		double recargoApremio;
+		double totalEjecutiva;
+		
+	}
+	
+	class RendimientosCtasBancarias{
+		int ejercicio;
+		String nif;
+		String codigo;
+		String nifPaga;
+		String nombre;
+		String cuenta;
+		String tipo;
+		String titulares;
+		double rdtoDinerario;
+		double reten;
+		double rdtoEspecie;
+		double ingCta;
+	}
+	
+	class Sancion{
+		int ejercicio;
+		String nif;
+		String codigo;
+		String concepto;
+		String descripcion;
+		double sancion;
+		double recargoOrigen;
+		double recargoApremio;
+		double importeCalculado;
 	}
 	
 	private String getActividad(String cod){
@@ -944,6 +1756,13 @@ public class DatosFiscalesSociedad {
 		return null;
 	}
 	
+	public static String getTipoPersona(String tipo){
+		if ("F".equals(tipo)) return "Física";
+		if ("J".equals(tipo)) return "Jurídica";
+		if ("O".equals(tipo)) return "Otra";
+		return null;
+	}
+	
 	public static String getTipoPagoFraccionado(String codigo){
 		if ("I".equals(codigo)) return "Ingreso";
 		if ("N".equals(codigo)) return "Negativa";
@@ -958,5 +1777,52 @@ public class DatosFiscalesSociedad {
 		if ("V".equals(codigo)) return "Devoluc. CCT";
 		return null;
 	}
+	
+	public static String getTipoDonativo(String tipo){
+		if ("X".equals(tipo)) return "Especie";
+		return "Dineraria";
+	}
+	
+	public static String getClaveDonativo(String clave){
+		if ("A".equals(clave)) return "Donativo";
+		if ("B".equals(clave)) return "Donativo";
+		if ("F".equals(clave)) return "Cuota";
+		if ("G".equals(clave)) return "Donativo";
+		return "Donativo";
+		
+	}
+	
+	public static String getRecurrenciaDonativo(String tipo){
+		if ("0".equals(tipo)) return "Sin contenido";
+		if ("1".equals(tipo)) return "No recurrente";
+		if ("2".equals(tipo)) return "Recurrente";
+		return null;
+	}
+	
+	public static String getClavePagador(String clave){
+		if ("E1".equals(clave)) return "Consejero"; //E1, E2, E3, E4 = Consejero
+		if ("E2".equals(clave)) return "Consejero";
+		if ("E3".equals(clave)) return "Consejero";
+		if ("E4".equals(clave)) return "Consejero";
+		return null;
+	}
+	
+	public static String getFuncionSecreRepre(String funcion){
+		if ("S".equals(funcion)) return "Secretario del Consejo de Administración";
+		if ("R".equals(funcion)) return "Representante Legal";
+		return null;
+	}
+	
+	public static String getTipoCuentaBancaria(String tipo){
+		if ("1".equals(tipo)) return "Cuenta corriente";
+		if ("2".equals(tipo)) return "Cuenta ahorro";
+		if ("3".equals(tipo)) return "Impos. A plazo";
+		if ("4".equals(tipo)) return "Cuenta financ.";
+		if ("5".equals(tipo)) return "Cuenta crédito";
+		if ("6".equals(tipo)) return "Contr. Financ. atip.";
+		return null;
+	}
+	
+	
 }
 

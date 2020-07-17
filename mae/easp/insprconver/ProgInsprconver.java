@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jul 15 10:12:59 CEST 2020
+// Fecha y hora:     Fri Jul 17 12:05:51 CEST 2020
 // 
 // Aplicación: easp
 // 
@@ -4486,16 +4486,16 @@ String sentencias17_2[] = null;
         Easp.connEA.commit();
         vvveractual.setValue("17.1");
     }
-/*
+
     if (versio < 17.2) { //TAULES DADES FISCALS SOCIETATS
-        for (i=0;i<sentencias17_2.length;++i) {
+        for (i=0;i<Sentencias.sentencias17_2.length;++i) {
             try {
-                Easp.chivato("17.2 Exec : ["+sentencias17_2[i]+"]",1);
-                Easp.connEA.executeUpdate(sentencias17_2[i]);
+                Easp.chivato("17.2 Exec : ["+Sentencias.sentencias17_2[i]+"]",1);
+                Easp.connEA.executeUpdate(Sentencias.sentencias17_2[i]);
             }
             catch(Exception e) {
-                sqlOperation=sentencias17_2[i];
-                Easp.chivato("17.2 *** Error : ["+sentencias17_2[i]+"]  Error: ["+e+"]",1);
+                sqlOperation=Sentencias.sentencias17_2[i];
+                Easp.chivato("17.2 *** Error : ["+Sentencias.sentencias17_2[i]+"]  Error: ["+e+"]",1);
                 errorMessage=e.getMessage();
             }
         }
@@ -4503,7 +4503,7 @@ String sentencias17_2[] = null;
         Easp.connEA.commit();
         vvveractual.setValue("17.2");
     }
-*/
+
     
 
     

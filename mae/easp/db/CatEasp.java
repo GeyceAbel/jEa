@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Nov 06 12:56:20 CET 2019
+// Fecha y hora:     Fri Jul 17 11:32:08 CEST 2020
 // 
 // Aplicación: easp
 // 
@@ -117,6 +117,22 @@ public class CatEasp extends Catalog
     public TabSeguridad tabseguridad;
     public TabUshistorico tabushistorico;
     public TabDicpatron tabdicpatron;
+    public TabDfsdomicilio tabdfsdomicilio;
+    public TabDfscensales tabdfscensales;
+    public TabDfsperiodoycnae tabdfsperiodoycnae;
+    public TabDfscaracteres tabdfscaracteres;
+    public TabDfsadmins tabdfsadmins;
+    public TabDfsentidpart tabdfsentidpart;
+    public TabDfsperspart tabdfsperspart;
+    public TabDfssecrerepre tabdfssecrerepre;
+    public TabDfspagosfrac tabdfspagosfrac;
+    public TabDfsvoloper tabdfsvoloper;
+    public TabDfsrdtotrab tabdfsrdtotrab;
+    public TabDfsdeducybases tabdfsdeducybases;
+    public TabDfsdonaciones tabdfsdonaciones;
+    public TabDfsmultasdgt tabdfsmultasdgt;
+    public TabDfsrdtoctasban tabdfsrdtoctasban;
+    public TabDfssanciones tabdfssanciones;
     public class TabGycauto extends TableDef
         {
         // campos
@@ -4973,6 +4989,696 @@ public class CatEasp extends Catalog
             }
         }
         
+    public class TabDfsdomicilio extends TableDef
+        {
+        // campos
+        public FieldDef dfdejer;
+        public FieldDef dfdnif;
+        public FieldDef dfdcodigo;
+        public FieldDef dfdtipodom;
+        public FieldDef dfdtipovia;
+        public FieldDef dfdcodvia;
+        public FieldDef dfdnomvial;
+        public FieldDef dfdnomviac;
+        public FieldDef dfdtiponum;
+        public FieldDef dfdcalifnum;
+        public FieldDef dfdbloque;
+        public FieldDef dfdportal;
+        public FieldDef dfdescalera;
+        public FieldDef dfdpiso;
+        public FieldDef dfdpuerta;
+        public FieldDef dfdcomplem;
+        public FieldDef dfdpoblacion;
+        public FieldDef dfdcodpos;
+        public FieldDef dfdcodmuni;
+        public FieldDef dfdmuni;
+        public FieldDef dfdcodprov;
+        public FieldDef dfdprov;
+        public FieldDef dfdrefcat;
+        public FieldDef dfd21address;
+        public FieldDef dfd21compl;
+        public FieldDef dfd21pobla;
+        public FieldDef dfd21codpos;
+        public FieldDef dfd21provre;
+        public FieldDef dfd21pais;
+        public FieldDef dfd21codpais;
+        public FieldDef dfd21nacional;
+        public TabDfsdomicilio(String name)
+            {
+            super(name);
+            dfdejer = new FieldDef("dfdejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfdnif = new FieldDef("dfdnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfdcodigo = new FieldDef("dfdcodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfdtipodom = new FieldDef("dfdtipodom",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            dfdtipovia = new FieldDef("dfdtipovia",FieldDef.CHAR,5);
+            dfdcodvia = new FieldDef("dfdcodvia",FieldDef.CHAR,5);
+            dfdnomvial = new FieldDef("dfdnomvial",FieldDef.CHAR,50);
+            dfdnomviac = new FieldDef("dfdnomviac",FieldDef.CHAR,25);
+            dfdtiponum = new FieldDef("dfdtiponum",FieldDef.CHAR,3);
+            dfdcalifnum = new FieldDef("dfdcalifnum",FieldDef.CHAR,3);
+            dfdbloque = new FieldDef("dfdbloque",FieldDef.CHAR,3);
+            dfdportal = new FieldDef("dfdportal",FieldDef.CHAR,3);
+            dfdescalera = new FieldDef("dfdescalera",FieldDef.CHAR,3);
+            dfdpiso = new FieldDef("dfdpiso",FieldDef.CHAR,3);
+            dfdpuerta = new FieldDef("dfdpuerta",FieldDef.CHAR,3);
+            dfdcomplem = new FieldDef("dfdcomplem",FieldDef.CHAR,40);
+            dfdpoblacion = new FieldDef("dfdpoblacion",FieldDef.CHAR,30);
+            dfdcodpos = new FieldDef("dfdcodpos",FieldDef.CHAR,5);
+            dfdcodmuni = new FieldDef("dfdcodmuni",FieldDef.CHAR,5);
+            dfdmuni = new FieldDef("dfdmuni",FieldDef.CHAR,30);
+            dfdcodprov = new FieldDef("dfdcodprov",FieldDef.INTEGER,0);
+            dfdprov = new FieldDef("dfdprov",FieldDef.CHAR,20);
+            dfdrefcat = new FieldDef("dfdrefcat",FieldDef.CHAR,20);
+            dfd21address = new FieldDef("dfd21address",FieldDef.CHAR,50);
+            dfd21compl = new FieldDef("dfd21compl",FieldDef.CHAR,40);
+            dfd21pobla = new FieldDef("dfd21pobla",FieldDef.CHAR,30);
+            dfd21codpos = new FieldDef("dfd21codpos",FieldDef.CHAR,10);
+            dfd21provre = new FieldDef("dfd21provre",FieldDef.CHAR,30);
+            dfd21pais = new FieldDef("dfd21pais",FieldDef.CHAR,30);
+            dfd21codpais = new FieldDef("dfd21codpais",FieldDef.CHAR,2);
+            dfd21nacional = new FieldDef("dfd21nacional",FieldDef.CHAR,2);
+            FieldDef array[] = {
+                dfdejer,
+                dfdnif,
+                dfdcodigo,
+                dfdtipodom,
+                dfdtipovia,
+                dfdcodvia,
+                dfdnomvial,
+                dfdnomviac,
+                dfdtiponum,
+                dfdcalifnum,
+                dfdbloque,
+                dfdportal,
+                dfdescalera,
+                dfdpiso,
+                dfdpuerta,
+                dfdcomplem,
+                dfdpoblacion,
+                dfdcodpos,
+                dfdcodmuni,
+                dfdmuni,
+                dfdcodprov,
+                dfdprov,
+                dfdrefcat,
+                dfd21address,
+                dfd21compl,
+                dfd21pobla,
+                dfd21codpos,
+                dfd21provre,
+                dfd21pais,
+                dfd21codpais,
+                dfd21nacional                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfdejer,dfdnif,dfdcodigo };
+            setDescription("Datos fiscales sociedades. Domicilio");
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfscensales extends TableDef
+        {
+        // campos
+        public FieldDef dfcejer;
+        public FieldDef dfcnif;
+        public FieldDef dfccodigo;
+        public FieldDef dfccodact;
+        public FieldDef dfcgrupoiae;
+        public FieldDef dfccodcnae;
+        public FieldDef dfcdescact;
+        public TabDfscensales(String name)
+            {
+            super(name);
+            dfcejer = new FieldDef("dfcejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfcnif = new FieldDef("dfcnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfccodigo = new FieldDef("dfccodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfccodact = new FieldDef("dfccodact",FieldDef.CHAR,3);
+            dfcgrupoiae = new FieldDef("dfcgrupoiae",FieldDef.CHAR,5);
+            dfccodcnae = new FieldDef("dfccodcnae",FieldDef.CHAR,5);
+            dfcdescact = new FieldDef("dfcdescact",FieldDef.CHAR,40);
+            FieldDef array[] = {
+                dfcejer,
+                dfcnif,
+                dfccodigo,
+                dfccodact,
+                dfcgrupoiae,
+                dfccodcnae,
+                dfcdescact                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfcejer,dfcnif,dfccodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfsperiodoycnae extends TableDef
+        {
+        // campos
+        public FieldDef dfpejer;
+        public FieldDef dfpnif;
+        public FieldDef dfpcodigo;
+        public FieldDef dfpfecini;
+        public FieldDef dfpfecfin;
+        public FieldDef dfptipoper;
+        public FieldDef dfpcnae2009;
+        public TabDfsperiodoycnae(String name)
+            {
+            super(name);
+            dfpejer = new FieldDef("dfpejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfpnif = new FieldDef("dfpnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfpcodigo = new FieldDef("dfpcodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfpfecini = new FieldDef("dfpfecini",FieldDef.DATE);
+            dfpfecfin = new FieldDef("dfpfecfin",FieldDef.DATE);
+            dfptipoper = new FieldDef("dfptipoper",FieldDef.INTEGER,0);
+            dfpcnae2009 = new FieldDef("dfpcnae2009",FieldDef.CHAR,5);
+            FieldDef array[] = {
+                dfpejer,
+                dfpnif,
+                dfpcodigo,
+                dfpfecini,
+                dfpfecfin,
+                dfptipoper,
+                dfpcnae2009                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfpejer,dfpnif,dfpcodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfscaracteres extends TableDef
+        {
+        // campos
+        public FieldDef dfcejer;
+        public FieldDef dfcnif;
+        public FieldDef dfccodigo;
+        public FieldDef dfccaracter;
+        public TabDfscaracteres(String name)
+            {
+            super(name);
+            dfcejer = new FieldDef("dfcejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfcnif = new FieldDef("dfcnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfccodigo = new FieldDef("dfccodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfccaracter = new FieldDef("dfccaracter",FieldDef.CHAR,5);
+            FieldDef array[] = {
+                dfcejer,
+                dfcnif,
+                dfccodigo,
+                dfccaracter                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfcejer,dfcnif,dfccodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfsadmins extends TableDef
+        {
+        // campos
+        public FieldDef dfaejer;
+        public FieldDef dfanif;
+        public FieldDef dfacodigo;
+        public FieldDef dfanifadmin;
+        public FieldDef dfatiponif;
+        public FieldDef dfanombre;
+        public TabDfsadmins(String name)
+            {
+            super(name);
+            dfaejer = new FieldDef("dfaejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfanif = new FieldDef("dfanif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfacodigo = new FieldDef("dfacodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfanifadmin = new FieldDef("dfanifadmin",FieldDef.CHAR,9);
+            dfatiponif = new FieldDef("dfatiponif",FieldDef.CHAR,1);
+            dfanombre = new FieldDef("dfanombre",FieldDef.CHAR,60);
+            FieldDef array[] = {
+                dfaejer,
+                dfanif,
+                dfacodigo,
+                dfanifadmin,
+                dfatiponif,
+                dfanombre                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfaejer,dfanif,dfacodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfsentidpart extends TableDef
+        {
+        // campos
+        public FieldDef dfeejer;
+        public FieldDef dfenif;
+        public FieldDef dfecodigo;
+        public FieldDef dfeentnifid;
+        public FieldDef dfenombre;
+        public FieldDef dfeprovpais;
+        public FieldDef dfeporcpart;
+        public FieldDef dfevalornom;
+        public FieldDef dfevalorlib;
+        public FieldDef dfeingrdivej;
+        public TabDfsentidpart(String name)
+            {
+            super(name);
+            dfeejer = new FieldDef("dfeejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfenif = new FieldDef("dfenif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfecodigo = new FieldDef("dfecodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfeentnifid = new FieldDef("dfeentnifid",FieldDef.CHAR,20);
+            dfenombre = new FieldDef("dfenombre",FieldDef.CHAR,60);
+            dfeprovpais = new FieldDef("dfeprovpais",FieldDef.CHAR,2);
+            dfeporcpart = new FieldDef("dfeporcpart",FieldDef.FLOAT,0,2);
+            dfevalornom = new FieldDef("dfevalornom",FieldDef.FLOAT,0,2);
+            dfevalorlib = new FieldDef("dfevalorlib",FieldDef.FLOAT,0,2);
+            dfeingrdivej = new FieldDef("dfeingrdivej",FieldDef.FLOAT,0,2);
+            FieldDef array[] = {
+                dfeejer,
+                dfenif,
+                dfecodigo,
+                dfeentnifid,
+                dfenombre,
+                dfeprovpais,
+                dfeporcpart,
+                dfevalornom,
+                dfevalorlib,
+                dfeingrdivej                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfeejer,dfenif,dfecodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfsperspart extends TableDef
+        {
+        // campos
+        public FieldDef dfpejer;
+        public FieldDef dfpnif;
+        public FieldDef dfpcodigo;
+        public FieldDef dfppersnif;
+        public FieldDef dfptiponif;
+        public FieldDef dfpesrepre;
+        public FieldDef dfpnombre;
+        public FieldDef dfpprovpais;
+        public FieldDef dfpvalornom;
+        public FieldDef dfpporcpart;
+        public TabDfsperspart(String name)
+            {
+            super(name);
+            dfpejer = new FieldDef("dfpejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfpnif = new FieldDef("dfpnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfpcodigo = new FieldDef("dfpcodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfppersnif = new FieldDef("dfppersnif",FieldDef.CHAR,9);
+            dfptiponif = new FieldDef("dfptiponif",FieldDef.CHAR,1);
+            dfpesrepre = new FieldDef("dfpesrepre",FieldDef.CHAR,1);
+            dfpnombre = new FieldDef("dfpnombre",FieldDef.CHAR,60);
+            dfpprovpais = new FieldDef("dfpprovpais",FieldDef.CHAR,2);
+            dfpvalornom = new FieldDef("dfpvalornom",FieldDef.FLOAT,0,2);
+            dfpporcpart = new FieldDef("dfpporcpart",FieldDef.FLOAT,0,2);
+            FieldDef array[] = {
+                dfpejer,
+                dfpnif,
+                dfpcodigo,
+                dfppersnif,
+                dfptiponif,
+                dfpesrepre,
+                dfpnombre,
+                dfpprovpais,
+                dfpvalornom,
+                dfpporcpart                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfpejer,dfpnif,dfpcodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfssecrerepre extends TableDef
+        {
+        // campos
+        public FieldDef dfsejer;
+        public FieldDef dfsnif;
+        public FieldDef dfscodigo;
+        public FieldDef dfspersnif;
+        public FieldDef dfsnombre;
+        public FieldDef dfsfuncion;
+        public FieldDef dfsfecfirma;
+        public TabDfssecrerepre(String name)
+            {
+            super(name);
+            dfsejer = new FieldDef("dfsejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfsnif = new FieldDef("dfsnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfscodigo = new FieldDef("dfscodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfspersnif = new FieldDef("dfspersnif",FieldDef.CHAR,9);
+            dfsnombre = new FieldDef("dfsnombre",FieldDef.CHAR,60);
+            dfsfuncion = new FieldDef("dfsfuncion",FieldDef.CHAR,1);
+            dfsfecfirma = new FieldDef("dfsfecfirma",FieldDef.DATE);
+            FieldDef array[] = {
+                dfsejer,
+                dfsnif,
+                dfscodigo,
+                dfspersnif,
+                dfsnombre,
+                dfsfuncion,
+                dfsfecfirma                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfsejer,dfsnif,dfscodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfspagosfrac extends TableDef
+        {
+        // campos
+        public FieldDef dfpejer;
+        public FieldDef dfpnif;
+        public FieldDef dfpcodigo;
+        public FieldDef dfpmodelo;
+        public FieldDef dfptipo;
+        public FieldDef dfpperiodo;
+        public FieldDef dfpdeleg;
+        public FieldDef dfpjustif;
+        public FieldDef dfpimporte;
+        public TabDfspagosfrac(String name)
+            {
+            super(name);
+            dfpejer = new FieldDef("dfpejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfpnif = new FieldDef("dfpnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfpcodigo = new FieldDef("dfpcodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfpmodelo = new FieldDef("dfpmodelo",FieldDef.CHAR,3);
+            dfptipo = new FieldDef("dfptipo",FieldDef.CHAR,1);
+            dfpperiodo = new FieldDef("dfpperiodo",FieldDef.CHAR,2);
+            dfpdeleg = new FieldDef("dfpdeleg",FieldDef.CHAR,2);
+            dfpjustif = new FieldDef("dfpjustif",FieldDef.CHAR,13);
+            dfpimporte = new FieldDef("dfpimporte",FieldDef.FLOAT,0,2);
+            FieldDef array[] = {
+                dfpejer,
+                dfpnif,
+                dfpcodigo,
+                dfpmodelo,
+                dfptipo,
+                dfpperiodo,
+                dfpdeleg,
+                dfpjustif,
+                dfpimporte                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfpejer,dfpnif,dfpcodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfsvoloper extends TableDef
+        {
+        // campos
+        public FieldDef dfvejer;
+        public FieldDef dfvnif;
+        public FieldDef dfvcodigo;
+        public FieldDef dfvmodelo;
+        public FieldDef dfvtotvol;
+        public TabDfsvoloper(String name)
+            {
+            super(name);
+            dfvejer = new FieldDef("dfvejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfvnif = new FieldDef("dfvnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfvcodigo = new FieldDef("dfvcodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfvmodelo = new FieldDef("dfvmodelo",FieldDef.CHAR,3,FieldDef.NOTNULL);
+            dfvtotvol = new FieldDef("dfvtotvol",FieldDef.FLOAT,0,2);
+            FieldDef array[] = {
+                dfvejer,
+                dfvnif,
+                dfvcodigo,
+                dfvmodelo,
+                dfvtotvol                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfvejer,dfvnif,dfvcodigo,dfvmodelo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfsrdtotrab extends TableDef
+        {
+        // campos
+        public FieldDef dfrejer;
+        public FieldDef dfrnif;
+        public FieldDef dfrcodigo;
+        public FieldDef dfrnifpaga;
+        public FieldDef dfrnombre;
+        public FieldDef dfrclave;
+        public FieldDef dfrdinera;
+        public FieldDef dfrreten;
+        public FieldDef dfrespecie;
+        public FieldDef dfringcta;
+        public FieldDef dfringctarep;
+        public FieldDef dfrgastosded;
+        public FieldDef dfrreduc;
+        public TabDfsrdtotrab(String name)
+            {
+            super(name);
+            dfrejer = new FieldDef("dfrejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfrnif = new FieldDef("dfrnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfrcodigo = new FieldDef("dfrcodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfrnifpaga = new FieldDef("dfrnifpaga",FieldDef.CHAR,9);
+            dfrnombre = new FieldDef("dfrnombre",FieldDef.CHAR,40);
+            dfrclave = new FieldDef("dfrclave",FieldDef.CHAR,2);
+            dfrdinera = new FieldDef("dfrdinera",FieldDef.FLOAT,0,2);
+            dfrreten = new FieldDef("dfrreten",FieldDef.FLOAT,0,2);
+            dfrespecie = new FieldDef("dfrespecie",FieldDef.FLOAT,0,2);
+            dfringcta = new FieldDef("dfringcta",FieldDef.FLOAT,0,2);
+            dfringctarep = new FieldDef("dfringctarep",FieldDef.FLOAT,0,2);
+            dfrgastosded = new FieldDef("dfrgastosded",FieldDef.FLOAT,0,2);
+            dfrreduc = new FieldDef("dfrreduc",FieldDef.FLOAT,0,2);
+            FieldDef array[] = {
+                dfrejer,
+                dfrnif,
+                dfrcodigo,
+                dfrnifpaga,
+                dfrnombre,
+                dfrclave,
+                dfrdinera,
+                dfrreten,
+                dfrespecie,
+                dfringcta,
+                dfringctarep,
+                dfrgastosded,
+                dfrreduc                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfrejer,dfrnif,dfrcodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfsdeducybases extends TableDef
+        {
+        // campos
+        public FieldDef dfdejer;
+        public FieldDef dfdnif;
+        public FieldDef dfdcodigo;
+        public FieldDef dfdtipoded;
+        public FieldDef dfdanyded;
+        public FieldDef dfdcasejer;
+        public FieldDef dfdcasejerant;
+        public FieldDef dfdimporte;
+        public TabDfsdeducybases(String name)
+            {
+            super(name);
+            dfdejer = new FieldDef("dfdejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfdnif = new FieldDef("dfdnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfdcodigo = new FieldDef("dfdcodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfdtipoded = new FieldDef("dfdtipoded",FieldDef.CHAR,3,FieldDef.NOTNULL);
+            dfdanyded = new FieldDef("dfdanyded",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfdcasejer = new FieldDef("dfdcasejer",FieldDef.CHAR,255,FieldDef.NOTNULL);
+            dfdcasejerant = new FieldDef("dfdcasejerant",FieldDef.CHAR,255,FieldDef.NOTNULL);
+            dfdimporte = new FieldDef("dfdimporte",FieldDef.FLOAT,0,2);
+            FieldDef array[] = {
+                dfdejer,
+                dfdnif,
+                dfdcodigo,
+                dfdtipoded,
+                dfdanyded,
+                dfdcasejer,
+                dfdcasejerant,
+                dfdimporte                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfdejer,dfdnif,dfdcodigo,dfdtipoded,dfdanyded,dfdcasejer,dfdcasejerant };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfsdonaciones extends TableDef
+        {
+        // campos
+        public FieldDef dfdejer;
+        public FieldDef dfdnif;
+        public FieldDef dfdcodigo;
+        public FieldDef dfdnifent;
+        public FieldDef dfdnombre;
+        public FieldDef dfdtipo;
+        public FieldDef dfdclave;
+        public FieldDef dfdimporte;
+        public FieldDef dfdrecur;
+        public TabDfsdonaciones(String name)
+            {
+            super(name);
+            dfdejer = new FieldDef("dfdejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfdnif = new FieldDef("dfdnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfdcodigo = new FieldDef("dfdcodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfdnifent = new FieldDef("dfdnifent",FieldDef.CHAR,9);
+            dfdnombre = new FieldDef("dfdnombre",FieldDef.CHAR,40);
+            dfdtipo = new FieldDef("dfdtipo",FieldDef.CHAR,1);
+            dfdclave = new FieldDef("dfdclave",FieldDef.CHAR,1);
+            dfdimporte = new FieldDef("dfdimporte",FieldDef.FLOAT,0,2);
+            dfdrecur = new FieldDef("dfdrecur",FieldDef.CHAR,1);
+            FieldDef array[] = {
+                dfdejer,
+                dfdnif,
+                dfdcodigo,
+                dfdnifent,
+                dfdnombre,
+                dfdtipo,
+                dfdclave,
+                dfdimporte,
+                dfdrecur                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfdejer,dfdnif,dfdcodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfsmultasdgt extends TableDef
+        {
+        // campos
+        public FieldDef dfmejer;
+        public FieldDef dfmnif;
+        public FieldDef dfmcodigo;
+        public FieldDef dfmejermulta;
+        public FieldDef dfmmatricula;
+        public FieldDef dfmtvolunta;
+        public FieldDef dfmrecargoa;
+        public FieldDef dfmtejecut;
+        public TabDfsmultasdgt(String name)
+            {
+            super(name);
+            dfmejer = new FieldDef("dfmejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfmnif = new FieldDef("dfmnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfmcodigo = new FieldDef("dfmcodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfmejermulta = new FieldDef("dfmejermulta",FieldDef.INTEGER,0);
+            dfmmatricula = new FieldDef("dfmmatricula",FieldDef.CHAR,10);
+            dfmtvolunta = new FieldDef("dfmtvolunta",FieldDef.FLOAT,0,2);
+            dfmrecargoa = new FieldDef("dfmrecargoa",FieldDef.FLOAT,0,2);
+            dfmtejecut = new FieldDef("dfmtejecut",FieldDef.FLOAT,0,2);
+            FieldDef array[] = {
+                dfmejer,
+                dfmnif,
+                dfmcodigo,
+                dfmejermulta,
+                dfmmatricula,
+                dfmtvolunta,
+                dfmrecargoa,
+                dfmtejecut                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfmejer,dfmnif,dfmcodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfsrdtoctasban extends TableDef
+        {
+        // campos
+        public FieldDef dfrejer;
+        public FieldDef dfrnif;
+        public FieldDef dfrcodigo;
+        public FieldDef dfrnifpaga;
+        public FieldDef dfrnombre;
+        public FieldDef dfrcuenta;
+        public FieldDef dfrtipo;
+        public FieldDef dfrtitulares;
+        public FieldDef dfrrdtodiner;
+        public FieldDef dfrreten;
+        public FieldDef dfrrdtoespec;
+        public FieldDef dfringcta;
+        public TabDfsrdtoctasban(String name)
+            {
+            super(name);
+            dfrejer = new FieldDef("dfrejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfrnif = new FieldDef("dfrnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfrcodigo = new FieldDef("dfrcodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfrnifpaga = new FieldDef("dfrnifpaga",FieldDef.CHAR,9);
+            dfrnombre = new FieldDef("dfrnombre",FieldDef.CHAR,40);
+            dfrcuenta = new FieldDef("dfrcuenta",FieldDef.CHAR,10);
+            dfrtipo = new FieldDef("dfrtipo",FieldDef.CHAR,1);
+            dfrtitulares = new FieldDef("dfrtitulares",FieldDef.CHAR,3);
+            dfrrdtodiner = new FieldDef("dfrrdtodiner",FieldDef.FLOAT,0,2);
+            dfrreten = new FieldDef("dfrreten",FieldDef.FLOAT,0,2);
+            dfrrdtoespec = new FieldDef("dfrrdtoespec",FieldDef.FLOAT,0,2);
+            dfringcta = new FieldDef("dfringcta",FieldDef.FLOAT,0,2);
+            FieldDef array[] = {
+                dfrejer,
+                dfrnif,
+                dfrcodigo,
+                dfrnifpaga,
+                dfrnombre,
+                dfrcuenta,
+                dfrtipo,
+                dfrtitulares,
+                dfrrdtodiner,
+                dfrreten,
+                dfrrdtoespec,
+                dfringcta                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfrejer,dfrnif,dfrcodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
+    public class TabDfssanciones extends TableDef
+        {
+        // campos
+        public FieldDef dfsejer;
+        public FieldDef dfsnif;
+        public FieldDef dfscodigo;
+        public FieldDef dfsconcepto;
+        public FieldDef dfsdesc;
+        public FieldDef dfssancion;
+        public FieldDef dfsrecargoo;
+        public FieldDef dfsrecargoa;
+        public FieldDef dfscalculado;
+        public TabDfssanciones(String name)
+            {
+            super(name);
+            dfsejer = new FieldDef("dfsejer",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfsnif = new FieldDef("dfsnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            dfscodigo = new FieldDef("dfscodigo",FieldDef.CHAR,7,FieldDef.NOTNULL);
+            dfsconcepto = new FieldDef("dfsconcepto",FieldDef.CHAR,40);
+            dfsdesc = new FieldDef("dfsdesc",FieldDef.CHAR,70);
+            dfssancion = new FieldDef("dfssancion",FieldDef.FLOAT,0,2);
+            dfsrecargoo = new FieldDef("dfsrecargoo",FieldDef.FLOAT,0,2);
+            dfsrecargoa = new FieldDef("dfsrecargoa",FieldDef.FLOAT,0,2);
+            dfscalculado = new FieldDef("dfscalculado",FieldDef.FLOAT,0,2);
+            FieldDef array[] = {
+                dfsejer,
+                dfsnif,
+                dfscodigo,
+                dfsconcepto,
+                dfsdesc,
+                dfssancion,
+                dfsrecargoo,
+                dfsrecargoa,
+                dfscalculado                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfsejer,dfsnif,dfscodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
     public CatEasp()
         {
         tabgycauto = new TabGycauto("gycauto");
@@ -5080,6 +5786,22 @@ public class CatEasp extends Catalog
         tabseguridad = new TabSeguridad("seguridad");
         tabushistorico = new TabUshistorico("ushistorico");
         tabdicpatron = new TabDicpatron("dicpatron");
+        tabdfsdomicilio = new TabDfsdomicilio("dfsdomicilio");
+        tabdfscensales = new TabDfscensales("dfscensales");
+        tabdfsperiodoycnae = new TabDfsperiodoycnae("dfsperiodoycnae");
+        tabdfscaracteres = new TabDfscaracteres("dfscaracteres");
+        tabdfsadmins = new TabDfsadmins("dfsadmins");
+        tabdfsentidpart = new TabDfsentidpart("dfsentidpart");
+        tabdfsperspart = new TabDfsperspart("dfsperspart");
+        tabdfssecrerepre = new TabDfssecrerepre("dfssecrerepre");
+        tabdfspagosfrac = new TabDfspagosfrac("dfspagosfrac");
+        tabdfsvoloper = new TabDfsvoloper("dfsvoloper");
+        tabdfsrdtotrab = new TabDfsrdtotrab("dfsrdtotrab");
+        tabdfsdeducybases = new TabDfsdeducybases("dfsdeducybases");
+        tabdfsdonaciones = new TabDfsdonaciones("dfsdonaciones");
+        tabdfsmultasdgt = new TabDfsmultasdgt("dfsmultasdgt");
+        tabdfsrdtoctasban = new TabDfsrdtoctasban("dfsrdtoctasban");
+        tabdfssanciones = new TabDfssanciones("dfssanciones");
         TableDef array[] = {
             tabgycauto,
             tabsetupapl,
@@ -5185,7 +5907,23 @@ public class CatEasp extends Catalog
             tabcambioeuro,
             tabseguridad,
             tabushistorico,
-            tabdicpatron            
+            tabdicpatron,
+            tabdfsdomicilio,
+            tabdfscensales,
+            tabdfsperiodoycnae,
+            tabdfscaracteres,
+            tabdfsadmins,
+            tabdfsentidpart,
+            tabdfsperspart,
+            tabdfssecrerepre,
+            tabdfspagosfrac,
+            tabdfsvoloper,
+            tabdfsrdtotrab,
+            tabdfsdeducybases,
+            tabdfsdonaciones,
+            tabdfsmultasdgt,
+            tabdfsrdtoctasban,
+            tabdfssanciones            
             };
         setTables(array);
         FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
