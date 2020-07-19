@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Jul 17 12:54:46 CEST 2020
+// Fecha y hora:     Sun Jul 19 20:55:58 CEST 2020
 // 
 // Aplicación: easp
 // 
@@ -35,6 +35,7 @@ public boolean[] visibles;
 
 private String getRuta(){
 	//TODO APJORDIG: consultar ruta a guardar a Ester (paràmetre ?), aquesta ruta es fa servir també a altres llocs
+	if (Easp.isErnestYoung()) return System.getProperty("user.dir")+"\\AEAT\\"+progEjer+"\\DFS";
 	return "C:\\GEYCE\\AEAT\\"+progEjer+"\\DFS";
 }
 
@@ -357,6 +358,9 @@ private String getProvinciaPais(String codigo){
                 	eliminaFilasConMismoImporte(vlimitagastosf, vlimitagastosf.vvimptegyc, vlimitagastosf.dfdimporte);
                 	eliminaFilasConMismoImporte(vpdteadicion, vpdteadicion.vvimptegyc, vpdteadicion.dfdimporte);
                 	eliminaFilasConMismoImporte(vregespcan, vregespcan.vvimptegyc, vregespcan.dfdimporte);
+                	eliminaFilasConMismoImporte(vdonaciones,vdonaciones.vvimptegyc,vdonaciones.dfdimporte);
+                	eliminaFilasConMismoImporte(vmultasdgt,vmultasdgt.vvimptegyc,vmultasdgt.dfmtejecut);
+                	eliminaFilasConMismoImporte(vsanciones,vsanciones.vvimptegyc,vsanciones.dfscalculado);
                 	setTitle("&2. Quitar filtro importes");
                 }
                 else {
@@ -382,6 +386,9 @@ private String getProvinciaPais(String codigo){
                 	slimitagastosf.execute();
                 	spdteadicion.execute();
                 	sregespcan.execute();
+                	sdonaciones.execute();
+                	smultasdgt.execute();
+                	ssanciones.execute();
                 }
                 prdatosfiscales.show();
                 				
@@ -453,7 +460,7 @@ private String getProvinciaPais(String codigo){
             public Location( )
                 {
                 super();
-                setTitle("Datos domicilios");
+                setTitle("Domicilio");
                 setModal(true);
                 }
             }
@@ -818,7 +825,7 @@ private String getProvinciaPais(String codigo){
             {
             super(prdatosfiscales);
             setName("vdomicilio");
-            setTitle("Datos domicilios");
+            setTitle("Domicilio");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -1451,8 +1458,9 @@ else {
                 setName("vvcardesc");
                 setTitle("Carácter");
                 setType(STRING);
-                setLength(10);
+                setLength(120);
                 setSearchable(true);
+                setEnabled(false);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
@@ -2362,7 +2370,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vsecrerepre");
-            setTitle("Secetarios/Representantes");
+            setTitle("Secetario/Representantes");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -2669,6 +2677,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super.onBeginRecord ();
             vvtipo.setValue(DatosFiscalesSociedad.getTipoPagoFraccionado(dfptipo.getString()));
+vvimptegyc.setValue(DatosFiscalesSociedad.getImportePagoFracc(connModelos,progEjer,paramNif,dfpmodelo.getString(),dfpperiodo.getString()));
             }
         }
         
@@ -2829,7 +2838,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vvoloper");
-            setTitle("Volumen de operaciones");
+            setTitle("Vol.operaciones");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -2847,6 +2856,12 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             setInitState(DataForm.SHOW);
             super.onInit ();
+            }
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getImporteNeto(connAplic,progEjer,gSociedad));
+            else vvimptegyc.setValue(DatosFiscalesSociedad.getVolOper(connModelos,progEjer,paramNif,dfvmodelo.getString()));
             }
         }
         
@@ -3403,7 +3418,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vbasesneg");
-            setTitle("Bases impon. negativas pdtes.");
+            setTitle("Bases negativas");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -3419,6 +3434,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getBasesNeg(connAplic,progEjer,gSociedad,dfdanyded.getInteger()));
+            }
         }
         
     // 
@@ -3620,7 +3640,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vcuotasneg");
-            setTitle("Cuotas negativas cooper. pdtes.");
+            setTitle("Cuotas negativas");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -3636,6 +3656,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getCuotaNeg(connAplic,progEjer,gSociedad,dfdanyded.getInteger()));
+            }
         }
         
     // 
@@ -3837,7 +3862,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vdeducdi1");
-            setTitle("Deduc. doble imp. interna RDL 4/2004");
+            setTitle("Doble imp. interna RDL 4/2004");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -3853,6 +3878,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getDImpInterna(connAplic,progEjer,gSociedad,dfdanyded.getInteger()));
+            }
         }
         
     // 
@@ -4054,7 +4084,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vdeducdi2");
-            setTitle("Deduc. doble imp. internacional RDL 4/2004");
+            setTitle("Doble imp. internacional RDL 4/2004");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -4070,6 +4100,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getDImpInternacional(connAplic,progEjer,gSociedad,dfdanyded.getInteger()));
+            }
         }
         
     // 
@@ -4271,7 +4306,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vdeducdi3");
-            setTitle("Deduc. doble imp. interna DT23.1 LIS");
+            setTitle("Doble imp. interna DT23.1 LIS");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -4287,6 +4322,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getDImpInterna(connAplic,progEjer,gSociedad,dfdanyded.getInteger()));
+            }
         }
         
     // 
@@ -4488,7 +4528,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vdeducdi4");
-            setTitle("Deduc. doble imp. internacional LIS");
+            setTitle("Doble imp. internacional LIS");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -4504,6 +4544,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getDImpInternacional(connAplic,progEjer,gSociedad,dfdanyded.getInteger()));
+            }
         }
         
     // 
@@ -4721,6 +4766,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getDed247(connAplic,progEjer,gSociedad,dfdanyded.getInteger()));
+            }
         }
         
     // 
@@ -4938,6 +4988,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getDed241(connAplic,progEjer,gSociedad,dfdanyded.getInteger()));
+            }
         }
         
     // 
@@ -5139,7 +5194,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vdeduccan");
-            setTitle("Deduc. inversión en Canarias");
+            setTitle("Deduc. inversión Canarias");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -5155,6 +5210,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getDedCan(connAplic,progEjer,gSociedad,dfdanyded.getInteger(),dfdcasejer.getInteger()));
+            }
         }
         
     // 
@@ -5372,6 +5432,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getDedActiv(connAplic,progEjer,gSociedad,dfdanyded.getInteger(),dfdcasejer.getInteger()));
+            }
         }
         
     // 
@@ -5589,6 +5654,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getDedDona(connAplic,progEjer,gSociedad,dfdanyded.getInteger()));
+            }
         }
         
     // 
@@ -5790,7 +5860,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vdeducreinv371");
-            setTitle("Deduc reinv. medidas temporales DT 37.1 LIS");
+            setTitle("Reinv. medidas temporales DT 37.1 LIS");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -5806,6 +5876,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getDed371_2(connAplic,progEjer,gSociedad,dfdanyded.getInteger(),1));
+            }
         }
         
     // 
@@ -6007,7 +6082,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vdeducreinv372");
-            setTitle("Deduc reinv. medidas temporales DT 37.2 LIS");
+            setTitle("Reinv. medidas temporales DT 37.2 LIS");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -6023,6 +6098,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getDed371_2(connAplic,progEjer,gSociedad,dfdanyded.getInteger(),2));
+            }
         }
         
     // 
@@ -6224,7 +6304,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vreservanibi");
-            setTitle("Reserva de nivelación (reduc. base imp.)");
+            setTitle("Red.res.nivelación");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -6240,6 +6320,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getRedResNivel(connAplic,gSociedad,dfdanyded.getInteger()));
+            }
         }
         
     // 
@@ -6441,7 +6526,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vreservanidr");
-            setTitle("Reserva de nivelación (dotación reserva)");
+            setTitle("Dotación res.nivelación");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -6457,6 +6542,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getDotResNivel(connAplic,gSociedad,dfdanyded.getInteger()));
+            }
         }
         
     // 
@@ -6658,7 +6748,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vreservacap");
-            setTitle("Reserva de capitalización");
+            setTitle("Res.capitalización");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -6674,6 +6764,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getRedResCapital(connAplic,progEjer,gSociedad,dfdanyded.getInteger()));
+            }
         }
         
     // 
@@ -6877,7 +6972,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vlimitagastosf");
-            setTitle("Limitación deducibilidad gastos financieros");
+            setTitle("Gastos financieros pdtes.");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -6893,6 +6988,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGasFinan(connAplic,progEjer,gSociedad,dfdanyded.getInteger(),dfdcasejer.getInteger()));
+            }
         }
         
     // 
@@ -7094,7 +7194,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vpdteadicion");
-            setTitle("Pdte. adición límite beneficio operativo no aplicado");
+            setTitle("Bfo.operativo no aplicado");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -7113,7 +7213,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
         public void onBeginRecord ()
             {
             super.onBeginRecord ();
-            vvimptegyc.setValue(spdteadicion.dfdanyded.getDouble());
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getBfoPdte(connAplic,progEjer,gSociedad,dfdanyded.getInteger()));
             }
         }
         
@@ -7316,7 +7416,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             {
             super(prdatosfiscales);
             setName("vregespcan");
-            setTitle("Régimen espcial reserva inversiones en Canarias");
+            setTitle("RIC");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -7332,6 +7432,11 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getRIC(connAplic,progEjer,gSociedad,dfdanyded.getInteger()));
+            }
         }
         
     // 
@@ -7404,6 +7509,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
         public CtrlVvclavedesc vvclavedesc;
         public CtrlDfdimporte dfdimporte;
         public CtrlVvrecurrencia vvrecurrencia;
+        public CtrlVvimptegyc vvimptegyc;
         // Acciones
         // Fieldsets
         class Location extends LocationWindow
@@ -7565,6 +7671,26 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             // EVENT: CONTROLEDIT
             }
             
+        public class CtrlVvimptegyc extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvimptegyc(Form form)
+                {
+                super(form);
+                setName("vvimptegyc");
+                setTitle("Importe en GEYCE");
+                setType(DOUBLE);
+                setMaskInput("##,###,###,###.99");
+                setMaskOutput("##,###,###,###.99");
+                setLength(17);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
         public FormVdonaciones(ProgPrdatosfiscales prdatosfiscales)
             {
             super(prdatosfiscales);
@@ -7583,6 +7709,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             addControl(vvclavedesc=new CtrlVvclavedesc(this));
             addControl(dfdimporte=new CtrlDfdimporte(this));
             addControl(vvrecurrencia=new CtrlVvrecurrencia(this));
+            addControl(vvimptegyc=new CtrlVvimptegyc(this));
             setSelect(sdonaciones);
             }
         // GET: VENTANA
@@ -7593,6 +7720,7 @@ vvprovpais.setValue(getProvinciaPais(sparticipan.dfpprovpais.getString()));
             vvtipo.setValue(DatosFiscalesSociedad.getTipoDonativo(sdonaciones.dfdtipo.getString()));
 vvclavedesc.setValue(DatosFiscalesSociedad.getClaveDonativo(sdonaciones.dfdclave.getString()));
 vvrecurrencia.setValue(DatosFiscalesSociedad.getRecurrenciaDonativo(sdonaciones.dfdrecur.getString()));
+if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(connAplic,progEjer,gSociedad));
             }
         }
         
@@ -7662,6 +7790,7 @@ vvrecurrencia.setValue(DatosFiscalesSociedad.getRecurrenciaDonativo(sdonaciones.
         public CtrlDfmtvolunta dfmtvolunta;
         public CtrlDfmrecargoa dfmrecargoa;
         public CtrlDfmtejecut dfmtejecut;
+        public CtrlVvimptegyc vvimptegyc;
         // Acciones
         // Fieldsets
         class Location extends LocationWindow
@@ -7792,6 +7921,26 @@ vvrecurrencia.setValue(DatosFiscalesSociedad.getRecurrenciaDonativo(sdonaciones.
             // EVENT: CONTROLEDIT
             }
             
+        public class CtrlVvimptegyc extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvimptegyc(Form form)
+                {
+                super(form);
+                setName("vvimptegyc");
+                setTitle("Importe en GEYCE");
+                setType(DOUBLE);
+                setMaskInput("##,###,###,###.99");
+                setMaskOutput("##,###,###,###.99");
+                setLength(17);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
         public FormVmultasdgt(ProgPrdatosfiscales prdatosfiscales)
             {
             super(prdatosfiscales);
@@ -7808,10 +7957,16 @@ vvrecurrencia.setValue(DatosFiscalesSociedad.getRecurrenciaDonativo(sdonaciones.
             addControl(dfmtvolunta=new CtrlDfmtvolunta(this));
             addControl(dfmrecargoa=new CtrlDfmrecargoa(this));
             addControl(dfmtejecut=new CtrlDfmtejecut(this));
+            addControl(vvimptegyc=new CtrlVvimptegyc(this));
             setSelect(smultasdgt);
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getMultasSancion(connAplic,progEjer,gSociedad));
+            }
         }
         
     // 
@@ -8093,7 +8248,7 @@ vvrecurrencia.setValue(DatosFiscalesSociedad.getRecurrenciaDonativo(sdonaciones.
             {
             super(prdatosfiscales);
             setName("vrdtoctasbanc");
-            setTitle("Rdtos. cuentas bancarias imputadas");
+            setTitle("Rdtos. cuentas");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -8193,6 +8348,7 @@ vvrecurrencia.setValue(DatosFiscalesSociedad.getRecurrenciaDonativo(sdonaciones.
         public CtrlDfsrecargoo dfsrecargoo;
         public CtrlDfsrecargoa dfsrecargoa;
         public CtrlDfscalculado dfscalculado;
+        public CtrlVvimptegyc vvimptegyc;
         // Acciones
         // Fieldsets
         class Location extends LocationWindow
@@ -8344,6 +8500,26 @@ vvrecurrencia.setValue(DatosFiscalesSociedad.getRecurrenciaDonativo(sdonaciones.
             // EVENT: CONTROLEDIT
             }
             
+        public class CtrlVvimptegyc extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvimptegyc(Form form)
+                {
+                super(form);
+                setName("vvimptegyc");
+                setTitle("Importe en GEYCE");
+                setType(DOUBLE);
+                setMaskInput("##,###,###,###.99");
+                setMaskOutput("##,###,###,###.99");
+                setLength(17);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
         public FormVsanciones(ProgPrdatosfiscales prdatosfiscales)
             {
             super(prdatosfiscales);
@@ -8361,10 +8537,16 @@ vvrecurrencia.setValue(DatosFiscalesSociedad.getRecurrenciaDonativo(sdonaciones.
             addControl(dfsrecargoo=new CtrlDfsrecargoo(this));
             addControl(dfsrecargoa=new CtrlDfsrecargoa(this));
             addControl(dfscalculado=new CtrlDfscalculado(this));
+            addControl(vvimptegyc=new CtrlVvimptegyc(this));
             setSelect(ssanciones);
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getMultasSancion(connAplic,progEjer,gSociedad));
+            }
         }
         
     // 

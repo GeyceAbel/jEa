@@ -13,6 +13,8 @@ import java.util.HashMap;
 import geyce.maefc.DBConnection;
 import geyce.maefc.Delete;
 import geyce.maefc.Insert;
+import geyce.maefc.TableDef;
+import geyce.maefc.FieldDef;
 import geyce.maefc.Maefc;
 import geyce.maefc.Selector;
 import mae.general.ProgressBarForm;
@@ -63,9 +65,9 @@ public class DatosFiscalesSociedad {
 	private List<MultasDGT> lMultasDGT;
 	private List<RendimientosCtasBancarias> lRendimientosCtasBancarias;
 	private List<Sancion> lSanciones;
-	
-	
-	
+
+
+
 	public DatosFiscalesSociedad(File f, int paramEjer, String paramNif, DBConnection connEA, ProgressBarForm pbf){
 		this.f = f;
 		this.paramEjer = paramEjer;
@@ -73,7 +75,7 @@ public class DatosFiscalesSociedad {
 		this.connEA = connEA;
 		this.pbf = pbf;
 	}
-	
+
 	private void initVariables(){
 		hayIncidencias = false;
 		sError = null;
@@ -94,9 +96,9 @@ public class DatosFiscalesSociedad {
 		lMultasDGT = new ArrayList<MultasDGT>();
 		lRendimientosCtasBancarias = new ArrayList<RendimientosCtasBancarias>();
 		lSanciones = new ArrayList<Sancion>();
-		
+
 	}
-	
+
 	private void initActividades(){
 		hmActividades = new HashMap<String,String>();
 		hmActividades.put("A01","Alquiler de locales");
@@ -110,7 +112,7 @@ public class DatosFiscalesSociedad {
 		hmActividades.put("B04","Producción mejillón");
 		hmActividades.put("B05","Pesquera");
 	}
-		
+
 	private void initBIN(){
 		//Bases imponibles negativas pendientes de compensar de ejercicios anteriores
 		//pos inicial, anyoded, casilla M200 IS.2018, casilla M200 IS.2019
@@ -139,7 +141,7 @@ public class DatosFiscalesSociedad {
 		hmBIN.put(281,new String[]{"2018", "00552","01825"});
 		hmBIN.put(294,new String[]{"2018", "01330","01825"});
 	}
-	
+
 	private void initCN(){
 		//Cuotas negativas cooperativas pendientes de compensar ejercicios anteriores
 		hmCN = new HashMap<Integer,String[]>();
@@ -164,7 +166,7 @@ public class DatosFiscalesSociedad {
 		hmCN.put(242, new String[]{"2018","00560","02113"});
 		hmCN.put(255, new String[]{"2018","01331","02113"});
 	}
-	
+
 	private void initDI1(){
 		//Deducciones doble imposición interna RDL 4/2004
 		hmDI1 = new HashMap<Integer,String[]>();
@@ -176,7 +178,7 @@ public class DatosFiscalesSociedad {
 		hmDI1.put(73,  new String[]{"2013","00716","00114"});
 		hmDI1.put(86,  new String[]{"2014","00738","00735"});
 	}
-	
+
 	private void initDI2(){
 		//Deducciones doble imposición internacional RDL 4/2004
 		hmDI2 = new HashMap<Integer,String[]>();
@@ -197,10 +199,10 @@ public class DatosFiscalesSociedad {
 		hmDI3.put(8,   new String[]{"2015","00121","00101"});
 		hmDI3.put(21,  new String[]{"2016","00126","00122"});
 		hmDI3.put(34,  new String[]{"2017","01599","01595"});
-		hmDI3.put(47,  new String[]{"2018","01347","01828"}); 
-		
+		hmDI3.put(47,  new String[]{"2018","01347","01828"});
+
 	}
-	 
+
 	private void initDI4(){
 		//Deducciones doble imposición internacional LIS
 		hmDI4 = new HashMap<Integer,String[]>();
@@ -208,11 +210,11 @@ public class DatosFiscalesSociedad {
 		hmDI4.put(21,  new String[]{"2016","01352","01348"});
 		hmDI4.put(34,  new String[]{"2017","01774","01770"});
 		hmDI4.put(47,  new String[]{"2018","00174","01833"});
-		
+
 	}
 
 	private void initBEN(){
-		//Deducciones disposición transitoria 24ª.7 LIS y ART. 42 RDL 4/2004 
+		//Deducciones disposición transitoria 24ª.7 LIS y ART. 42 RDL 4/2004
 		hmBEN = new HashMap<Integer,String[]>();
 		hmBEN.put(8,   new String[]{"2004","00934","00932"});
 		hmBEN.put(21,  new String[]{"2005","00299","00297"});
@@ -229,23 +231,23 @@ public class DatosFiscalesSociedad {
 		hmBEN.put(164, new String[]{"2016","00709","00700"});
 		hmBEN.put(177, new String[]{"2017","01355","01353"});
 		hmBEN.put(190, new String[]{"2018","01840","01775"});
-		
+
 	}
-	
+
 	private void initPER(){
-		//Deducciones disposición transitoria 24ª.1 LIS 
+		//Deducciones disposición transitoria 24ª.1 LIS
 		hmPER = new HashMap<Integer,String[]>();
 		hmPER.put(8,   new String[]{"2014","00754","00749"});
 		hmPER.put(21,  new String[]{"2015","00757","00752"});
 		hmPER.put(34,  new String[]{"2016","00760","00755"});
 		hmPER.put(47,  new String[]{"2017","00763","00758"});
-		hmPER.put(60,  new String[]{"2018","00784","00761 "}); 
-		
+		hmPER.put(60,  new String[]{"2018","00784","00761 "});
+
 	}
-	 
+
 	private void initCAN(){
 		//Deducciones inversión en Canarias
-		hmCAN = new HashMap<Integer,String[]>();             
+		hmCAN = new HashMap<Integer,String[]>();
 		hmCAN.put(8,  new String[]{"2010", "01356","00854"});
 		hmCAN.put(21, new String[]{"2011", "00859","00857"});
 		hmCAN.put(34, new String[]{"2012", "00862","00860"});
@@ -274,12 +276,12 @@ public class DatosFiscalesSociedad {
 		hmCAN.put(333,new String[]{"2017", "00806","00791"});
 		hmCAN.put(346,new String[]{"2018", "02124","01781"});
 		hmCAN.put(359,new String[]{"2018", "02127","02119"});
-		
+
 	}
-	
+
 	private void initACT(){
-		//Deducciones para incentivar determinadas actividades (Cap. IV Tit. VI y DT 24ª.3 LIS) 
-		hmACT = new HashMap<Integer,String[]>();             
+		//Deducciones para incentivar determinadas actividades (Cap. IV Tit. VI y DT 24ª.3 LIS)
+		hmACT = new HashMap<Integer,String[]>();
 		hmACT.put(8,  new String[]{"2001", "00788","00786"});
 		hmACT.put(21, new String[]{"2002", "00833","00766"});
 		hmACT.put(34, new String[]{"2003", "00897","00198"});
@@ -311,12 +313,12 @@ public class DatosFiscalesSociedad {
 		hmACT.put(372,new String[]{"2018", "00800","02221"});
 		hmACT.put(385,new String[]{"2018", "00713","02224"});
 		hmACT.put(398,new String[]{"2018", "00830","00828"});
-		
+
 	}
-	
+
 	private void initDON(){
-		//Deducción donativos a entidades sin fines de lucro. Ley 49/2002  
-		hmDON = new HashMap<Integer,String[]>();             
+		//Deducción donativos a entidades sin fines de lucro. Ley 49/2002
+		hmDON = new HashMap<Integer,String[]>();
 		hmDON.put(8,  new String[]{"2009", "00010","00008"});
 		hmDON.put(21, new String[]{"2010", "00036","00034"});
 		hmDON.put(34, new String[]{"2011", "00203","00201"});
@@ -327,60 +329,60 @@ public class DatosFiscalesSociedad {
 		hmDON.put(99, new String[]{"2016", "00995","00993"});
 		hmDON.put(112,new String[]{"2017", "01436","01434"});
 		hmDON.put(125,new String[]{"2018", "01952","01718"});
-		
+
 	}
-	
+
 	private void initMT1(){
-		//Deducción por reversión de medidas temporales (DT 37ª.1 LIS) 
-		hmMT1 = new HashMap<Integer,String[]>();             
+		//Deducción por reversión de medidas temporales (DT 37ª.1 LIS)
+		hmMT1 = new HashMap<Integer,String[]>();
 		hmMT1.put(8,  new String[]{"2015", "01169","01167"});
 		hmMT1.put(21, new String[]{"2016", "01441","01439"});
 		hmMT1.put(34, new String[]{"2017", "01445","01443"});
 		hmMT1.put(47, new String[]{"2018", "01956","01722"});
-		
+
 	}
-	
+
 	private void initMT2(){
-		//Deducción por reversión de medidas temporales (DT 37ª.2 LIS) 
-		hmMT2 = new HashMap<Integer,String[]>();             
+		//Deducción por reversión de medidas temporales (DT 37ª.2 LIS)
+		hmMT2 = new HashMap<Integer,String[]>();
 		hmMT2.put(8,  new String[]{"2015", "01181","01179"});
 		hmMT2.put(21, new String[]{"2016", "01450","01448"});
 		hmMT2.put(34, new String[]{"2017", "01454","01452"});
 		hmMT2.put(47, new String[]{"2018", "01960","01726"});
-		
+
 	}
-	
+
 	private void initNIV(){
-		//Reserva de nivelación (reducción en base imponible)  
-		hmNIV = new HashMap<Integer,String[]>();             
+		//Reserva de nivelación (reducción en base imponible)
+		hmNIV = new HashMap<Integer,String[]>();
 		hmNIV.put(8,  new String[]{"2015", "01143","01141"});
 		hmNIV.put(21, new String[]{"2016", "01146","01144"});
 		hmNIV.put(34, new String[]{"2017", "01457","01455"});
 		hmNIV.put(47, new String[]{"2018", "01731","01961"});
-		
+
 	}
-	
+
 	private void initDNI(){
-		//Reserva de nivelación (dotación reserva)  
-		hmDNI = new HashMap<Integer,String[]>();             
+		//Reserva de nivelación (dotación reserva)
+		hmDNI = new HashMap<Integer,String[]>();
 		hmDNI.put(8,  new String[]{"2015", "01152","01150"});
 		hmDNI.put(21, new String[]{"2016", "01156","01154"});
 		hmDNI.put(34, new String[]{"2017", "01460","01458"});
 		hmDNI.put(47, new String[]{"2018", "01966","01732"});
-		
+
 	}
-	
+
 	private void initCAP(){
-		//Reserva de capitalización 
-		hmCAP = new HashMap<Integer,String[]>();             
+		//Reserva de capitalización
+		hmCAP = new HashMap<Integer,String[]>();
 		hmCAP.put(8,  new String[]{"2017", "01472","01134"});
 		hmCAP.put(21, new String[]{"2018", "01987","01470"});
-		
+
 	}
-	
+
 	private void initGFP(){
 		//Limitación en la deducibilidad de gastos financieros. Gastos financieros pendientes de deducir
-		hmGFP = new HashMap<Integer,String[]>();             
+		hmGFP = new HashMap<Integer,String[]>();
 		hmGFP.put(8,  new String[]{"2012", "01191","01188"});
 		hmGFP.put(21, new String[]{"2013", "01196","01193"});
 		hmGFP.put(34, new String[]{"2014", "01201","01198"});
@@ -392,32 +394,32 @@ public class DatosFiscalesSociedad {
 		hmGFP.put(112,new String[]{"2017", "01466","01737"});
 		hmGFP.put(125,new String[]{"2018", "01980","01977"});
 		hmGFP.put(138,new String[]{"2018", "01981","01978"});
-		
+
 	}
-	
+
 	private void initLBO(){
 		//Pendiente de adición por límite beneficio operativo no aplicado
-		hmLBO = new HashMap<Integer,String[]>();             
+		hmLBO = new HashMap<Integer,String[]>();
 		hmLBO.put(8,  new String[]{"2014", "00537","00273"});
 		hmLBO.put(21, new String[]{"2015", "00957","00955"});
 		hmLBO.put(34, new String[]{"2016", "01219","01217"});
 		hmLBO.put(47, new String[]{"2017", "01469","01467"});
 		hmLBO.put(60, new String[]{"2018", "01984","01741"});
-		
+
 	}
-	
+
 	private void initRIC(){
-		//Régimen especial de la reserva para inversiones en Canarias (Ley 19/1994) 
-		hmRIC = new HashMap<Integer,String[]>();             
+		//Régimen especial de la reserva para inversiones en Canarias (Ley 19/1994)
+		hmRIC = new HashMap<Integer,String[]>();
 		hmRIC.put(8,  new String[]{"2015", "00048","00089"});
 		hmRIC.put(21, new String[]{"2016", "00527","00097"});
 		hmRIC.put(34, new String[]{"2017", "00925","00524"});
 		hmRIC.put(47, new String[]{"2018", "00996","00922"});
-		
-	}
-		
 
-	
+	}
+
+
+
 	public boolean leer(){
 		boolean bOk = true;
 		initVariables();
@@ -457,7 +459,7 @@ public class DatosFiscalesSociedad {
 			catch(Exception ex){
 				mostrarIncidencia();
 				ex.printStackTrace();
-				
+
 			}
 			finally {
 				try{
@@ -470,10 +472,10 @@ public class DatosFiscalesSociedad {
 				}
 			}
 		}
-		
+
 		return bOk;
 	}
-	
+
 	public boolean grabar(){
 		boolean bOk = true;
 		pbf.setState("Grabando datos fiscales");
@@ -502,15 +504,15 @@ public class DatosFiscalesSociedad {
 		pbf.setPercent(100);
 		if (bOk){
 			connEA.commit();
-			
+
 		}
 		else {
 			connEA.rollback();
-			
+
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerDatosDomicilio(){
 		if (linea.startsWith("2DOM")){
 			Domicilio d = new Domicilio();
@@ -555,7 +557,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean eliminarDatosAnteriores(){
 		boolean bOk = true;
 		Delete del = new Delete(connEA,"DFSDOMICILIO");
@@ -592,7 +594,7 @@ public class DatosFiscalesSociedad {
 		if (bOk) bOk = del.execute("dfsejer="+paramEjer+" AND dfsnif='"+paramNif+"'");
 		return bOk;
 	}
-	
+
 	private boolean grabarDomicilios(){
 		boolean bOk = true;
 		for (Domicilio d : lDom){
@@ -642,7 +644,7 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerDatosCensales(){
 		if (linea.startsWith("2AE")){
 			DatosCensales dc = new DatosCensales();
@@ -653,13 +655,13 @@ public class DatosFiscalesSociedad {
 			dc.descAct = getActividad(dc.codAct);
 			dc.grupoIAE = parserString(11, 16);
 			dc.codCNAE = parserString(16, 21);
-			
+
 			lDatosCensales.add(dc);
 			return sError == null;
 		}
 		return true;
 	}
-	
+
 	private boolean grabarDatosCensales(){
 		boolean bOk = true;
 		for (DatosCensales dc : lDatosCensales){
@@ -669,7 +671,7 @@ public class DatosFiscalesSociedad {
 				in.valor("dfcnif", paramNif);
 				in.valor("dfccodigo", dc.codigo);
 				in.valor("dfccodact", dc.codAct);
-				in.valor("dfcdescact", dc.descAct); 
+				in.valor("dfcdescact", dc.descAct);
 				in.valor("dfcgrupoiae", dc.grupoIAE);
 				in.valor("dfccodcnae", dc.codCNAE);
 				bOk = in.execute();
@@ -681,7 +683,7 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerPeriodoYCNAE(){
 		if (linea.startsWith("2MD1")){
 			PeriodoImpositivoYCNAE per = new PeriodoImpositivoYCNAE();
@@ -707,13 +709,13 @@ public class DatosFiscalesSociedad {
 				}
 			}
 			per.tipo = parserString(24,25);
-			per.CNAE = parserString(25,30); 
+			per.CNAE = parserString(25,30);
 			lPeriodoYCNAE.add(per);
 			return sError == null;
 		}
 		return true;
 	}
-	
+
 	private boolean grabarPeriodoYCNAE(){
 		boolean bOk = true;
 		for (PeriodoImpositivoYCNAE per : lPeriodoYCNAE){
@@ -723,7 +725,7 @@ public class DatosFiscalesSociedad {
 				in.valor("dfpnif", paramNif);
 				in.valor("dfpcodigo", per.codigo);
 				in.valor("dfpfecini", per.fechaini);
-				in.valor("dfpfecfin", per.fechafin); 
+				in.valor("dfpfecfin", per.fechafin);
 				in.valor("dfptipoper", per.tipo);
 				in.valor("dfpcnae2009", per.CNAE);
 				bOk = in.execute();
@@ -735,7 +737,7 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerCaracteres(){
 		if (linea.startsWith("2MD2")){
 			Caracteres car = new Caracteres();
@@ -748,7 +750,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarCaracteres(){
 		boolean bOk = true;
 		for (Caracteres car : lCaracteres){
@@ -767,7 +769,7 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerAdmins(){
 		if (linea.startsWith("2MD4")){
 			Administradores admin = new Administradores();
@@ -782,7 +784,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarAdmins(){
 		boolean bOk = true;
 		for (Administradores admin : lAdministradores){
@@ -803,8 +805,8 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
-	
+
+
 	private boolean leerEntidadesParticipa(){
 		if (linea.startsWith("2MD5")){
 			EntidadesParticipa ent = new EntidadesParticipa();
@@ -823,7 +825,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarEntidadesParticipa(){
 		boolean bOk = true;
 		for (EntidadesParticipa ent : lEntidadesParticipa){
@@ -848,7 +850,7 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerPersonasYEntParticipan(){
 		if (linea.startsWith("2MD6")){
 			PersonasYEntParticipan pep = new PersonasYEntParticipan();
@@ -867,7 +869,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarPersonasYEntParticipan(){
 		boolean bOk = true;
 		for (PersonasYEntParticipan pep : lPersonasYEntParticipan){
@@ -892,7 +894,7 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerSecreYRepre(){
 		if (linea.startsWith("2MD8")){
 			SecreYRepre syr = new SecreYRepre();
@@ -917,7 +919,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarSecreYRepre(){
 		boolean bOk = true;
 		for (SecreYRepre syr : lSecreYRepre){
@@ -939,7 +941,7 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerPagosFraccionados(){
 		if (linea.startsWith("2PF")){
 			PagoFraccionado pf = new PagoFraccionado();
@@ -957,7 +959,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarPagosFraccionados(){
 		boolean bOk = true;
 		for (PagoFraccionado pf : lPagoFraccionado){
@@ -981,7 +983,7 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerVolumenOperaciones(){
 		if (linea.startsWith("2TRN")){
 			VolumenOperaciones vo390 = new VolumenOperaciones();
@@ -1013,7 +1015,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarVolumenOperaciones(){
 		boolean bOk = true;
 		for (VolumenOperaciones vo : lVolumenOperaciones){
@@ -1033,7 +1035,7 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerRendimientosTrabajo(){
 		if (linea.startsWith("2RTA")){
 			RendimientosTrabajo rt = new RendimientosTrabajo();
@@ -1055,7 +1057,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarRendimientosTrabajo(){
 		boolean bOk = true;
 		for (RendimientosTrabajo rt : lRendimientosTrabajo){
@@ -1083,7 +1085,7 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerDeduccionesBasesNegReservas(){
 		HashMap<Integer,String[]> hmTmp = new HashMap<Integer,String[]>();
 		DeduccionesBasesNegReservas ded = new DeduccionesBasesNegReservas();
@@ -1183,8 +1185,8 @@ public class DatosFiscalesSociedad {
 			if (hmRIC==null) initRIC();
 			hmTmp = hmRIC;
 		}
-		
-		
+
+
 		for (Integer posIni : hmTmp.keySet()){
 			DeduccionesBasesNegReservas dedTmp = new DeduccionesBasesNegReservas();
 			dedTmp.ejercicio = paramEjer;
@@ -1197,10 +1199,10 @@ public class DatosFiscalesSociedad {
 			dedTmp.importe    = parserDouble(posIni,posIni+13);
 			lDeduccionesBasesNegReservas.add(dedTmp);
 		}
-		
+
 		return sError == null;
 	}
-	
+
 	private boolean grabarDeduccionesBasesNegReservas(){
 		boolean bOk = true;
 		for (DeduccionesBasesNegReservas ded : lDeduccionesBasesNegReservas){
@@ -1223,14 +1225,14 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerSanciones(){
 		if (linea.startsWith("2SRN")){
 			Sancion sa = new Sancion();
 			sa.ejercicio = paramEjer;
 			sa.nif = paramNif;
 			sa.codigo = parserString(1,8);
-			sa.concepto = parserString(8,48); 
+			sa.concepto = parserString(8,48);
 			sa.descripcion = parserString(48,118);
 			sa.sancion = parserDouble(118,131);
 			sa.recargoOrigen = parserDouble(131,144);
@@ -1241,7 +1243,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarSanciones(){
 		boolean bOk = true;
 		for (Sancion sa: lSanciones){
@@ -1263,7 +1265,7 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerDonaciones(){
 		if (linea.startsWith("2DN")){
 			Donaciones don = new Donaciones();
@@ -1281,7 +1283,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarDonaciones(){
 		boolean bOk = true;
 		for (Donaciones don : lDonaciones){
@@ -1305,7 +1307,7 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerMultasDGT(){
 		if (linea.startsWith("2MTR")){
 			MultasDGT multa = new MultasDGT();
@@ -1322,7 +1324,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarMultasDGT(){
 		boolean bOk = true;
 		for (MultasDGT multa : lMultasDGT){
@@ -1345,7 +1347,7 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerRendimientosCtasBancarias(){
 		if (linea.startsWith("2CB")){
 			RendimientosCtasBancarias rdtoCtas = new RendimientosCtasBancarias();
@@ -1366,7 +1368,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarRendimientosCtasBancarias(){
 		boolean bOk = true;
 		for (RendimientosCtasBancarias rdtoCtas : lRendimientosCtasBancarias){
@@ -1393,15 +1395,15 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	public void mostrarIncidencia(){
 		Maefc.message("Error procesando datos fiscales:\n"+"- "+sError);
 	}
-	
+
 	private String parserString(int ini, int fin) {
 		return parserString(null, ini, fin);
 	}
-	
+
 	private String parserString(String campo, int ini, int fin) {
 		String s = null;
 		if (linea.length()>=fin) {
@@ -1419,17 +1421,17 @@ public class DatosFiscalesSociedad {
 		}
 		return s;
 	}
-	
+
 	private Double parserDouble(int ini, int fin) {
 		return parserDouble(null, ini, fin);
 	}
-	
+
 	private Double parserDouble(String campo, int ini, int fin) {
 		Double d = new Double(0);
 		String s = null;
 		if (linea.length()>=fin) {
 			try {
-				s = linea.substring(ini, fin); 
+				s = linea.substring(ini, fin);
 				if (s!=null && s.trim().length()>0) d = Double.parseDouble(s)/100; //2 posicions finals per 2 decimals
 			}
 			catch (Exception e) {
@@ -1443,17 +1445,17 @@ public class DatosFiscalesSociedad {
 		}
 		return d;
 	}
-	
+
 	private Integer parserInteger(int ini, int fin) {
 		return parserInteger(null, ini, fin);
 	}
-	
+
 	private Integer parserInteger(String campo, int ini, int fin) {
 		Integer i = new Integer(0);
 		String s = null;
 		if (linea.length()>=fin) {
 			try {
-				s = linea.substring(ini, fin); 
+				s = linea.substring(ini, fin);
 				if (s!=null && s.trim().length()>0) i = Integer.parseInt(s);
 			}
 			catch (Exception e) {
@@ -1467,7 +1469,7 @@ public class DatosFiscalesSociedad {
 		}
 		return i;
 	}
-	
+
 	class Domicilio {
 		int ejercicio;
 		String nif;
@@ -1501,9 +1503,9 @@ public class DatosFiscalesSociedad {
 		String pais21;
 		String codPais21;
 		String nacional21;
-		
+
 	}
-	
+
 	class DatosCensales {
 		int ejercicio;
 		String nif;
@@ -1513,7 +1515,7 @@ public class DatosFiscalesSociedad {
 		String grupoIAE;
 		String codCNAE;
 	}
-	
+
 	class PeriodoImpositivoYCNAE{
 		int ejercicio;
 		String nif;
@@ -1523,14 +1525,14 @@ public class DatosFiscalesSociedad {
 		String tipo;
 		String CNAE;
 	}
-	
+
 	class Caracteres{
 		int ejercicio;
 		String nif;
 		String codigo;
 		String codCaracterMarcado;
 	}
-	
+
 	class Administradores{
 		int ejercicio;
 		String nif;
@@ -1539,7 +1541,7 @@ public class DatosFiscalesSociedad {
 		String tipoPersona;
 		String nombreRazon;
 	}
-	
+
 	class EntidadesParticipa{
 		int ejercicio;
 		String nif;
@@ -1552,7 +1554,7 @@ public class DatosFiscalesSociedad {
 		double valorLibros;
 		double dividendos;
 	}
-	
+
 	class PersonasYEntParticipan{
 		int ejercicio;
 		String nif;
@@ -1565,7 +1567,7 @@ public class DatosFiscalesSociedad {
 		double valorNominal;
 		double porcPart;
 	}
-	
+
 	class SecreYRepre{
 		int ejercicio;
 		String nif;
@@ -1575,7 +1577,7 @@ public class DatosFiscalesSociedad {
 		String funcion;
 		Date fechaFirma;
 	}
-	
+
 	class PagoFraccionado{
 		int ejercicio;
 		String nif;
@@ -1587,7 +1589,7 @@ public class DatosFiscalesSociedad {
 		String justificante;
 		double importe;
 	}
-	
+
 	class VolumenOperaciones{
 		int ejercicio;
 		String nif;
@@ -1595,7 +1597,7 @@ public class DatosFiscalesSociedad {
 		String modelo;
 		double totalVolumen;
 	}
-	
+
 	class RendimientosTrabajo{
 		int ejercicio;
 		String nif;
@@ -1611,7 +1613,7 @@ public class DatosFiscalesSociedad {
 		double gastosDeduc;
 		double reducciones;
 	}
-	
+
 	class DeduccionesBasesNegReservas {
 		int ejercicio;
 		String nif;
@@ -1622,7 +1624,7 @@ public class DatosFiscalesSociedad {
 		String casEjerAnt;
 		double importe;
 	}
-	
+
 	class Donaciones{
 		int ejercicio;
 		String nif;
@@ -1634,7 +1636,7 @@ public class DatosFiscalesSociedad {
 		double importe;
 		String recur;
 	}
-	
+
 	class MultasDGT{
 		int ejercicio;
 		String nif;
@@ -1644,9 +1646,9 @@ public class DatosFiscalesSociedad {
 		double totalVoluntaria;
 		double recargoApremio;
 		double totalEjecutiva;
-		
+
 	}
-	
+
 	class RendimientosCtasBancarias{
 		int ejercicio;
 		String nif;
@@ -1661,7 +1663,7 @@ public class DatosFiscalesSociedad {
 		double rdtoEspecie;
 		double ingCta;
 	}
-	
+
 	class Sancion{
 		int ejercicio;
 		String nif;
@@ -1673,7 +1675,7 @@ public class DatosFiscalesSociedad {
 		double recargoApremio;
 		double importeCalculado;
 	}
-	
+
 	private String getActividad(String cod){
 		String desc = null;
 		if (hmActividades.containsKey(cod)){
@@ -1681,7 +1683,7 @@ public class DatosFiscalesSociedad {
 		}
 		return desc;
 	}
-	
+
 	public static String getPeriodoDesc(String tipoPer){
 		if ("1".equals(tipoPer)){
 			return "Ejercicio económico de 12 meses de duración, que coincida con el año natural";
@@ -1694,7 +1696,7 @@ public class DatosFiscalesSociedad {
 		}
 		return null;
 	}
-	
+
 	public static String getCaracterMarcadoDesc(String codigo){
 		if("00001".equals(codigo)) return "Entidad sin ánimo de lucro acogida régimen fiscal Título II Ley 49/2002";
 		if("00002".equals(codigo)) return "Entidad parcialmente exenta";
@@ -1755,14 +1757,14 @@ public class DatosFiscalesSociedad {
 		if("00073".equals(codigo)) return "Opción del 0,7% de la cuota íntegra para fines sociales (DA 103ª Ley 6/2018)";
 		return null;
 	}
-	
+
 	public static String getTipoPersona(String tipo){
 		if ("F".equals(tipo)) return "Física";
 		if ("J".equals(tipo)) return "Jurídica";
 		if ("O".equals(tipo)) return "Otra";
 		return null;
 	}
-	
+
 	public static String getTipoPagoFraccionado(String codigo){
 		if ("I".equals(codigo)) return "Ingreso";
 		if ("N".equals(codigo)) return "Negativa";
@@ -1777,28 +1779,28 @@ public class DatosFiscalesSociedad {
 		if ("V".equals(codigo)) return "Devoluc. CCT";
 		return null;
 	}
-	
+
 	public static String getTipoDonativo(String tipo){
 		if ("X".equals(tipo)) return "Especie";
 		return "Dineraria";
 	}
-	
+
 	public static String getClaveDonativo(String clave){
 		if ("A".equals(clave)) return "Donativo";
 		if ("B".equals(clave)) return "Donativo";
 		if ("F".equals(clave)) return "Cuota";
 		if ("G".equals(clave)) return "Donativo";
 		return "Donativo";
-		
+
 	}
-	
+
 	public static String getRecurrenciaDonativo(String tipo){
 		if ("0".equals(tipo)) return "Sin contenido";
 		if ("1".equals(tipo)) return "No recurrente";
 		if ("2".equals(tipo)) return "Recurrente";
 		return null;
 	}
-	
+
 	public static String getClavePagador(String clave){
 		if ("E1".equals(clave)) return "Consejero"; //E1, E2, E3, E4 = Consejero
 		if ("E2".equals(clave)) return "Consejero";
@@ -1806,13 +1808,13 @@ public class DatosFiscalesSociedad {
 		if ("E4".equals(clave)) return "Consejero";
 		return null;
 	}
-	
+
 	public static String getFuncionSecreRepre(String funcion){
 		if ("S".equals(funcion)) return "Secretario del Consejo de Administración";
 		if ("R".equals(funcion)) return "Representante Legal";
 		return null;
 	}
-	
+
 	public static String getTipoCuentaBancaria(String tipo){
 		if ("1".equals(tipo)) return "Cuenta corriente";
 		if ("2".equals(tipo)) return "Cuenta ahorro";
@@ -1822,7 +1824,277 @@ public class DatosFiscalesSociedad {
 		if ("6".equals(tipo)) return "Contr. Financ. atip.";
 		return null;
 	}
-	
-	
-}
 
+  public static double getImportePagoFracc(DBConnection connModelos,int ejer,String nif,String modelo,String periodo) {
+     double pago = 0;
+     if (periodo!=null && !"".equals(periodo.trim()) && periodo.length()>1) {
+        Selector s = new Selector(connModelos);
+        s.execute("Select mesimporteliq from modestado where mesmodelo='"+modelo+"' and mesnif='"+nif+"' and mesejercicio="+ejer+" and mesperiodo='"+periodo.substring(0,1)+"P'");
+        if (s.next()) pago = s.getdouble("mesimporteliq");
+        s.close();
+     }
+     return pago;
+  }
+  public static double getImporteNeto(DBConnection connJISS, int ejer, int codSoc) {
+    double impNeto = 0;
+    boolean socFinanciera = false;
+    boolean socAseguradora = false;
+    Selector ssociedad = new Selector(connJISS);
+    ssociedad.execute("Select socent_credito,socgrupocredito,socent_aseg,socgrupoasegura from sociedades where socejeraplic="+ejer+" and soccodigo="+codSoc);
+    if (ssociedad.next()) {
+          if ("S".equals(ssociedad.getString("socent_credito")) || "S".equals(ssociedad.getString("socgrupocredito"))) socFinanciera = true;
+          if ("S".equals(ssociedad.getString("socent_aseg")) || "S".equals(ssociedad.getString("socgrupoasegura"))) socAseguradora = true;
+    }
+    ssociedad.close();
+    Selector scta = new Selector(connJISS);
+    if (socFinanciera) {
+        scta.execute("Select crecrimpneto from CTARTDOENTCRED where crecrejeraplic="+ejer+" and crecrsociedad="+codSoc);
+        if (scta.next()) impNeto = scta.getdouble("crecrimpneto");
+    }
+    else if (socAseguradora) {
+        scta.execute("Select creatimpneto from CTARTDOENTASEGT  where createjeraplic="+ejer+" and creatsociedad="+codSoc);
+        if (scta.next()) impNeto = scta.getdouble("creatimpneto");
+    }
+    else {
+        scta.execute("Select deimp_neto_cifr from CTARESULTADO where deejeraplic="+ejer+" and desociedad="+codSoc);
+        if (scta.next()) impNeto = scta.getdouble("deimp_neto_cifr");
+    }
+    scta.close();
+    return impNeto;
+  }
+
+  public static double getVolOper(DBConnection connModelos,int ejer,String nif,String modelo) {
+     double volOper = 0;
+     if ("390".equals(modelo)) {
+        Selector sModelos = new Selector(connModelos);
+        sModelos.execute("Select m903voloptotvol from MOD3903 where m903nif='"+nif+"' and m903ejercicio="+ejer+" and m903periodo='0A'");
+        if (sModelos.next()) volOper = sModelos.getdouble("m903voloptotvol");
+        sModelos.close();
+     }
+     else if ("303".equals(modelo)) {
+        Selector sModelos = new Selector(connModelos);
+        sModelos.execute("Select m300exototal from MOD300 where m300nif='"+nif+"' and m300ejercicio="+ejer+" and (m300periodo='12' or m300periodo='4T') and m300modelo='303'");
+        if (sModelos.next()) volOper = sModelos.getdouble("m300exototal");
+        sModelos.close();
+     }
+     else if ("322".equals(modelo)) {
+        Selector sModelos = new Selector(connModelos);
+        sModelos.execute("Select m322exototal from MOD322 where m322nif='"+nif+"' and m322ejercicio="+ejer+" and m322periodo='12'");
+        if (sModelos.next()) volOper = sModelos.getdouble("m322exototal");
+        sModelos.close();
+     }
+     return volOper;
+  }
+  public static double getBasesNeg(DBConnection connJISS, int ejer, int codSoc, int ejerDed) {
+    double impBase = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select compdte_ini_ej from COMPENPERDIDAS where comejeraplic="+ejer+" and comsociedad="+codSoc+" and comanyo="+ejerDed);
+    if (s.next()) impBase = s.getdouble("compdte_ini_ej");
+    s.close();
+    return impBase;
+  }
+  public static double getCuotaNeg(DBConnection connJISS, int ejer, int codSoc, int ejerDed) {
+    double impCuota = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select cocpdte_ini_ej from COMPPERDCOOPERA where cocejeraplic="+ejer+" and cocsociedad="+codSoc+" and cocanyo="+ejerDed);
+    if (s.next()) impCuota = s.getdouble("cocpdte_ini_ej");
+    s.close();
+    return impCuota;
+  }
+  public static double getDImpInterna(DBConnection connJISS, int ejer, int codSoc, int ejerDed) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select sum(dddsaldo) as total from DOBLEIMPDIVIDEN where dddejeraplic="+ejer+" and dddsociedad="+codSoc+" and dddanyo="+ejerDed);
+    if (s.next()) impDed = s.getdouble("total");
+    s.close();
+    s.execute("Select sum(ddpsaldo) as total from DOBLEIMPPLUSVAL where ddpejeraplic="+ejer+" and ddpsociedad="+codSoc+" and ddpanyo="+ejerDed);
+    if (s.next()) impDed += s.getdouble("total");
+    s.close();
+    return impDed;
+  }
+  public static double getDImpInternacional(DBConnection connJISS, int ejer, int codSoc, int ejerDed) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select sum(ddisaldo) as total from DINTERNACIONIMP where ddiejeraplic="+ejer+" and ddisociedad="+codSoc+" and ddianyo="+ejerDed);
+    if (s.next()) impDed = s.getdouble("total");
+    s.close();
+    s.execute("Select sum(ddvsaldo) as total from DINTERNACIONDIV where ddvejeraplic="+ejer+" and ddvsociedad="+codSoc+" and ddvanyo="+ejerDed);
+    if (s.next()) impDed += s.getdouble("total");
+    s.close();
+    return impDed;
+  }
+  public static double getDed247(DBConnection connJISS, int ejer, int codSoc, int ejerDed) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select sum(dresaldo) as total from DEDREINVERSION where dreejeraplic="+ejer+" and dresociedad="+codSoc+" and dreanyo="+ejerDed);
+    if (s.next()) impDed = s.getdouble("total");
+    s.close();
+    return impDed;
+  }
+  public static double getDed241(DBConnection connJISS, int ejer, int codSoc, int ejerDed) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select diipd_saldo from DEDINVERSION where diiejeraplic="+ejer+" and diisociedad="+codSoc+" and diianyo="+ejerDed);
+    if (s.next()) impDed = s.getdouble("diipd_saldo");
+    s.close();
+    return impDed;
+  }
+  public static double getDedCan(DBConnection connJISS, int ejer, int codSoc, int ejerDed, int nCasella) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select * from DEDINVCANARIAS where dicejeraplic="+ejer+" and dicsociedad="+codSoc+" and dicanyo="+ejerDed);
+    if (s.next()) {
+        if (nCasella==854 || nCasella==857 || nCasella==860 || nCasella==863 || nCasella==883 || nCasella==785 || nCasella==1357 || nCasella==1778 || nCasella==852)
+            impDed = s.getdouble("dicaf_saldo");
+        else if (nCasella==2119) {
+            impDed = s.getdouble("dicce_go_saldo")+s.getdouble("dicid_go_saldo")+s.getdouble("dicct_go_saldo")+s.getdouble("dicpc_go_saldo")+s.getdouble("dicpd_go_saldo")+
+                     s.getdouble("dicem1_go_saldo")+s.getdouble("dicem2_go_saldo")+s.getdouble("dictao_go_saldo")+s.getdouble("dicgpp_go_saldo")+s.getdouble("dicpev_go_saldo");
+        }
+        else {
+            impDed = s.getdouble("dicid_saldo")+s.getdouble("dicpc_saldo")+s.getdouble("dicbic_saldo")+s.getdouble("dicee_saldo")+s.getdouble("dicfor_prof_sal")+s.getdouble("dicpma_mat_sald")+
+                     s.getdouble("dicpd_saldo")+s.getdouble("diced_saldo")+s.getdouble("dicempleo_saldo")+s.getdouble("dicinter_saldo")+s.getdouble("dictrans_saldo")+s.getdouble("dicaip_saldo")+
+                     s.getdouble("dicgua_saldo")+s.getdouble("dicapd_saldo")+s.getdouble("dicema43_saldo")+s.getdouble("dicced43_saldo")+s.getdouble("dicbfos_saldo")+s.getdouble("dicpce_saldo")+
+                     s.getdouble("dictao_saldo")+s.getdouble("dicgpp_saldo")+s.getdouble("dicpev_saldo");
+        }
+    }
+    s.close();
+    return impDed;
+  }
+  public static double getDedActiv(DBConnection connJISS, int ejer, int codSoc, int ejerDed, int nCasella) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select * from DEDINVERSION where diiejeraplic="+ejer+" and diisociedad="+codSoc+" and diianyo="+ejerDed);
+    if (s.next()) {
+           TableDef DedInt = (new mae.easp.db.CatJiss()).getTable("dedinversion");
+           int nCamps = DedInt.getColumns().length;
+           for (int i=2;i<nCamps;i++) {
+                FieldDef field = DedInt.getColumns()[i];
+                String nom = field.getName();
+                if (nom.endsWith("saldo") && !"diipd_saldo".equals(nom)) {
+                    if (ejerDed>2012 && "diiid_saldo".equals(nom) && (nCasella==457 || nCasella==1066 || nCasella==986 || nCasella==1617 || nCasella==1850 || nCasella==2221))
+                        impDed += s.getdouble(i);
+                    else if (ejerDed>2012 && "diiinter_saldo".equals(nom) && (nCasella==460 || nCasella==1069 || nCasella==557 || nCasella==1620 || nCasella==1853 || nCasella==2224))
+                        impDed += s.getdouble(i);
+                    else impDed += s.getdouble(i);
+                }
+           }
+    }
+    s.close();
+    if (ejerDed<2013 || nCasella ==966 || nCasella==1063 || nCasella==813 || nCasella==1614 || nCasella==1847 || nCasella==2218) {
+       s.execute("Select * from DEDINTGRAL where digejeraplic="+ejer+" and digsociedad="+codSoc+" and diganyo="+ejerDed);
+       if (s.next()) {
+           TableDef DedInt = (new mae.easp.db.CatJiss()).getTable("dedintgral");
+           int nCamps = DedInt.getColumns().length;
+           for (int i=2;i<nCamps;i++) {
+                FieldDef field = DedInt.getColumns()[i];
+                if (field.getName().endsWith("saldo")) impDed += s.getdouble(i);
+           }
+       }
+       s.close();
+       s.execute("Select * from DEDINTGRAL2 where dig2ejeraplic="+ejer+" and dig2sociedad="+codSoc+" and dig2anyo="+ejerDed);
+       if (s.next()) {
+           TableDef DedInt = (new mae.easp.db.CatJiss()).getTable("dedintgral2");
+           int nCamps = DedInt.getColumns().length;
+           for (int i=2;i<nCamps;i++) {
+                FieldDef field = DedInt.getColumns()[i];
+                if (field.getName().endsWith("saldo")) impDed += s.getdouble(i);
+           }
+       }
+       s.close();
+       s.execute("Select * from DEDINTGRAL3 where dig3ejeraplic="+ejer+" and dig3sociedad="+codSoc+" and dig3anyo="+ejerDed);
+       if (s.next()) {
+           TableDef DedInt = (new mae.easp.db.CatJiss()).getTable("dedintgral3");
+           int nCamps = DedInt.getColumns().length;
+           for (int i=2;i<nCamps;i++) {
+                FieldDef field = DedInt.getColumns()[i];
+                if (field.getName().endsWith("saldo")) impDed += s.getdouble(i);
+           }
+       }
+       s.close();
+    }
+    return impDed;
+  }
+  public static double getDedDona(DBConnection connJISS, int ejer, int codSoc, int ejerDed) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select sum(ddosaldo_anteri) as total from DEDDONACIONES where ddoejeraplic="+ejer+" and ddosociedad="+codSoc+" and ddoanyo="+ejerDed);
+    if (s.next()) impDed = s.getdouble("total");
+    s.close();
+    return impDed;
+  }
+  public static double getDed371_2(DBConnection connJISS, int ejer, int codSoc, int ejerDed, int article) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select sum(drtsaldoini) as total from DEDREVERSION where drtejeraplic="+ejer+" and drtsociedad="+codSoc+" and drtanyo="+ejerDed+" and drtarticulo="+article);
+    if (s.next()) impDed = s.getdouble("total");
+    s.close();
+    return impDed;
+  }
+  public static double getRedResNivel(DBConnection connJISS, int codSoc, int ejerDed) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select rrdreduccion from RESNIVELADISMIN where rrdejercicio="+ejerDed+" and rrdsociedad="+codSoc);
+    if (s.next()) impDed = s.getdouble("rrdreduccion");
+    s.close();
+    return impDed;
+  }
+  public static double getDotResNivel(DBConnection connJISS, int codSoc, int ejerDed) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select rrddotreserva from RESNIVELADISMIN where rrdejercicio="+ejerDed+" and rrdsociedad="+codSoc);
+    if (s.next()) impDed = s.getdouble("rrddotreserva");
+    s.close();
+    return impDed;
+  }
+  public static double getRedResCapital(DBConnection connJISS,int ejer, int codSoc, int ejerDed) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select rrcsaldoini from REDRESCAPITALIZ where rrcejeraplic="+ejer+" and rrcanyo="+ejerDed+" and rrcsociedad="+codSoc);
+    if (s.next()) impDed = s.getdouble("rrcsaldoini");
+    s.close();
+    return impDed;
+  }
+  public static double getGasFinan(DBConnection connJISS, int ejer, int codSoc, int ejerDed, int nCasella) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select * from COMPGASTFINPDTE where fpcejeraplic="+ejer+" and fpcsociedad="+codSoc+" and fpcanyo="+ejerDed);
+    if (s.next()) {
+        if (ejerDed<2014 || nCasella==1203 || nCasella==1463 || nCasella==1737 || nCasella==1978) impDed = s.getdouble("fpcpdte_ini_ej");
+        else impDed = s.getdouble("fpcpdte_ini_e2");
+    }
+    s.close();
+    return impDed;
+  }
+  public static double getBfoPdte(DBConnection connJISS, int ejer, int codSoc, int ejerDed) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select cbopdte_ini_ej from COMPENBFOOPERA where cboejeraplic="+ejer+" and cbosociedad="+codSoc+" and cboanyo="+ejerDed);
+    if (s.next()) impDed = s.getdouble("cbopdte_ini_ej");
+    s.close();
+    return impDed;
+  }
+  public static double getRIC(DBConnection connJISS, int ejer, int codSoc, int ejerDed) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select ricimporte_dota from RIC where ricejeraplic="+ejer+" and ricsociedad="+codSoc+" and ricanyo="+ejerDed);
+    if (s.next()) impDed = s.getdouble("ricimporte_dota");
+    s.close();
+    return impDed;
+  }
+  public static double getGastoDonativo(DBConnection connJISS, int ejer, int codSoc) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select dcagasto_donati from DETALLECORECC where dcejeraplic="+ejer+" and dcsociedad="+codSoc);
+    if (s.next()) impDed = s.getdouble("dcagasto_donati");
+    s.close();
+    return impDed;
+  }
+  public static double getMultasSancion(DBConnection connJISS, int ejer, int codSoc) {
+    double impDed = 0;
+    Selector s = new Selector(connJISS);
+    s.execute("Select dc2amultas from DETALLECOREC2 where dc2ejeraplic="+ejer+" and dc2sociedad="+codSoc);
+    if (s.next()) impDed = s.getdouble("dc2amultas");
+    s.close();
+    return impDed;
+  }
+}
