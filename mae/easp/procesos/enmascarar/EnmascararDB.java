@@ -10,41 +10,49 @@ import geyce.maefc.Update;
 import mae.general.Util;
 
 public class EnmascararDB {
-	private Hashtable<String, String> htRelacionNifes;
+	private Hashtable<String, DatosNif> htRelacionNifes;
 	private long ultimoNif;
 	private DBConnection connEA;
 	private EnmascararJCO ejco;
 	private EnmascararJNO ejno;
-	
+
 	public EnmascararDB(DBConnection connEA) {
 		this.connEA = connEA;
-		htRelacionNifes = new Hashtable<String, String>();
+		htRelacionNifes = new Hashtable<String, DatosNif>();
 		ultimoNif = 0;
 		ejco = new EnmascararJCO(connEA);
 		ejno = new EnmascararJNO(connEA);
-		
+
 	}
 
 	public void proceso () throws Exception {
 		try {
 			Selector s = new Selector (connEA);
-			s.execute("Select * from CDP order by cdpcodi");
+			s.execute("Select distinct cdpnifcif from CDP");
 			while (s.next()) enmascararNif(s.getString("cdpnifcif"));
 			s.close();
-			
+
 			ejco.iniciarProceso(this);
 			ejno.iniciarProceso(this);
-			
-			connEA.commit();			
+
+			eliminarNifesNoDuplicados();
+			if (debug()) System.out.println("antes commit EA");
+			connEA.commit();
+			System.out.println("PROCESO FINALIZADO CORRECTAMENTE");
 		}
 		catch (Exception e) {
 			connEA.rollback();
 			throw e;
 		}
-		
+
 	}
-	protected String getNifEnmascarado (String nif) throws Exception {
-		String nifEnm = null;
+	private void eliminarNifesNoDuplicados() throws Exception {
+		Delete d = new Delete (connEA,"NIFES");
+		if (!d.execute("datdominio is null or datdominio<>'DUPLICADO'")) throw new Exception ("Error al eliminar NIF No duplicados");
+	}
+
+	protected DatosNif getNifEnmascarado (String nif) throws Exception {
+		DatosNif nifEnm = null;
 		if (nif != null && nif.trim().length()>0) {
 			nifEnm = htRelacionNifes.get(nif);
 			if (nifEnm == null) nifEnm = enmascararNif (nif);
@@ -52,10 +60,12 @@ public class EnmascararDB {
 		return nifEnm;
 	}
 
-	private String enmascararNif(String nif) throws Exception {
-		String nifPropuesto = null;
+	private DatosNif enmascararNif(String nif) throws Exception {
+		DatosNif nifPropuesto = new DatosNif();
 		if (esNifDuplicado(nif)) { //Per si repetim el enmascarament que no enmascari un nif ja enmascarat previament. Ho sabem pq datdominio = DUPLICADO
-			nifPropuesto = nif;
+			nifPropuesto = new DatosNif();
+			nifPropuesto.nif = nif;
+			nifPropuesto.nom = getNombreNif(nif);
 			htRelacionNifes.put(nif,nifPropuesto);
 		}
 		else {
@@ -63,7 +73,7 @@ public class EnmascararDB {
 			boolean trobat = false;
 			while (!trobat) {
 				nifPropuesto = componerNif(nif);
-				if (!existeNif(nifPropuesto)) {
+				if (!existeNif(nifPropuesto.nif)) {
 					duplicarNif(nif, nifPropuesto);
 					actualizarDependencias(nif, nifPropuesto);
 					eliminarNif(nif);
@@ -73,39 +83,40 @@ public class EnmascararDB {
 				else ultimoNif++;
 			}
 		}
+		if (debug()) System.out.println(nif+" --> "+nifPropuesto.nif);
 		return nifPropuesto;
-		
+
 	}
 
-	private void actualizarDependencias(String nif, String nifPropuesto) throws Exception {
+	private void actualizarDependencias(String nif, DatosNif dnPropuesto) throws Exception {
 		Update u = new Update(connEA, "NIFESMUF");
-		u.valor("mufnif", nifPropuesto);
-		if (!u.execute("mufnif="+connEA.getDB().getSQLFormat(nif))) throw new Exception ("Error al actualizar NIFESMUF "+nif+" -- "+nifPropuesto);
+		u.valor("mufnif", dnPropuesto.nif);
+		if (!u.execute("mufnif="+connEA.getDB().getSQLFormat(nif))) throw new Exception ("Error al actualizar NIFESMUF "+nif+" -- "+dnPropuesto.nif);
 
 		u = new Update(connEA, "CDP");
-		u.valor("cdpnifcif", nifPropuesto);
-		if (!u.execute("cdpnifcif="+connEA.getDB().getSQLFormat(nif))) throw new Exception ("Error al actualizar CDP "+nif+" -- "+nifPropuesto);
+		u.valor("cdpnifcif", dnPropuesto.nif);
+		if (!u.execute("cdpnifcif="+connEA.getDB().getSQLFormat(nif))) throw new Exception ("Error al actualizar CDP "+nif+" -- "+dnPropuesto.nif);
 
 		u = new Update(connEA, "REPRESENTANTES");
-		u.valor("repnifcif", nifPropuesto);
-		if (!u.execute("repnifcif="+connEA.getDB().getSQLFormat(nif))) throw new Exception ("Error al actualizar REPRESENTANTES "+nif+" -- "+nifPropuesto);
+		u.valor("repnifcif", dnPropuesto.nif);
+		if (!u.execute("repnifcif="+connEA.getDB().getSQLFormat(nif))) throw new Exception ("Error al actualizar REPRESENTANTES "+nif+" -- "+dnPropuesto.nif);
 
 		u = new Update(connEA, "DP");
-		u.valor("dpnifcif", nifPropuesto);
-		if (!u.execute("dpnifcif="+connEA.getDB().getSQLFormat(nif))) throw new Exception ("Error al actualizar DP "+nif+" -- "+nifPropuesto);
+		u.valor("dpnifcif", dnPropuesto.nif);
+		if (!u.execute("dpnifcif="+connEA.getDB().getSQLFormat(nif))) throw new Exception ("Error al actualizar DP "+nif+" -- "+dnPropuesto.nif);
 	}
 
-	private void duplicarNif(String nif, String nifPropuesto) throws Exception {
+	private void duplicarNif(String nif, DatosNif nifPropuesto) throws Exception {
+		Insert i = new Insert(connEA, "NIFES");
+		i.valor("danifcif",nifPropuesto.nif);
+		i.valor("datdominio","DUPLICADO");
+		i.valor("datapell1",nifPropuesto.nom);
+
 		Selector s = new Selector (connEA);
 		s.execute("Select * from NIFES where danifcif="+connEA.getDB().getSQLFormat(nif));
 		boolean existe = s.next();
 		if (existe) {
-			Insert i = new Insert(connEA, "NIFES");
-			i.valor("danifcif",nifPropuesto);
 			i.valor("datipo",s.getString("datipo"));
-			i.valor("datnombre",s.getString("datnombre"));
-			i.valor("datapell1",s.getString("datapell1"));
-			i.valor("datapell2",s.getString("datapell2"));
 			i.valor("datsiglas",s.getString("datsiglas"));
 			i.valor("datvia",s.getString("datvia"));
 			i.valor("datnum",s.getString("datnum"));
@@ -138,7 +149,6 @@ public class EnmascararDB {
 			i.valor("datletraseti",s.getString("datletraseti"));
 			i.valor("datipf",s.getString("datipf"));
 			i.valor("datcbienes",s.getString("datcbienes"));
-			i.valor("datdominio","DUPLICADO");
 			i.valor("datnacional",s.getString("datnacional"));
 			i.valor("datfftvia",s.getString("datfftvia"));
 			i.valor("datfvia",s.getString("datfvia"));
@@ -210,13 +220,12 @@ public class EnmascararDB {
 			i.valor("datmovil",s.getString("datmovil"));
 			i.valor("datuser",s.getString("datuser"));
 			i.valor("datgrupo",s.getString("datgrupo"));
-			i.valor("datnombreant",s.getString("datnombreant"));
-			i.valor("datapell1ant",s.getString("datapell1ant"));
-			i.valor("datapell2ant",s.getString("datapell2ant"));
-			if (!i.execute()) throw new Exception ("Error al grabar el NIF ["+nifPropuesto+"]");
+		}
+		else {
+			i.valor("datipo","D");
 		}
 		s.close();
-		if (!existe) throw new Exception ("NIF ["+nif+"] no encontrado en la tabla NIFES.");
+		if (!i.execute()) throw new Exception ("Error al grabar el NIF ["+nifPropuesto+"]");
 	}
 
 	private void eliminarNif(String nif) throws Exception {
@@ -232,6 +241,15 @@ public class EnmascararDB {
 		return existe;
 	}
 	
+	private String getNombreNif (String nif) {
+		String n = "JOHN DOE NONE";
+		Selector s = new Selector (connEA);
+		s.execute("Select datapell1 from NIFES where danifcif="+connEA.getDB().getSQLFormat(nif));
+		if (s.next()) n = s.getString("datapell1");
+		s.close();
+		return n;
+	}
+
 
 	private boolean esNifDuplicado(String nif) {
 		Selector s = new Selector (connEA);
@@ -241,10 +259,32 @@ public class EnmascararDB {
 		return existe;
 	}
 
-	private String componerNif(String nif) {
+	private DatosNif componerNif(String nif) {
 		String nifC = Util.rpt("0", 8 - String.valueOf(ultimoNif).length()) + String.valueOf(ultimoNif);
 		nifC += Util.letraDNI(nifC);
-		return nifC;
+		DatosNif dn = new DatosNif();
+		dn.nif = nifC;
+		dn.nom = "JOHN DOE "+ultimoNif;
+		return dn;
+	}
+
+	protected boolean debug () {
+		return true;
 	}
 	
+	protected void actualizarTabla (EnmascararDB e, DBConnection connPr, String tabla, String camponif, String camponombre) throws Exception {
+		Selector s = new Selector (connPr);
+		s.execute("Select distinct "+camponif+" from "+tabla+" where "+camponif+" is not null and "+camponif+"<>''");
+		while (s.next()) {
+			String nif = s.getString(camponif);
+			if (nif != null && nif.trim().length()>0) {
+				Update u = new Update (connPr, tabla);
+				DatosNif newNif = e.getNifEnmascarado(nif);
+				u.valor(camponif, newNif.nif );
+				if (camponombre != null) u.valor(camponombre, newNif.nom );
+				if (!u.execute(camponif+"="+connPr.getDB().getSQLFormat(nif))) throw new Exception("Error al actualizar "+tabla+" "+nif+" -- "+newNif.nom);
+			}
+		}
+		s.close();
+	}
 }

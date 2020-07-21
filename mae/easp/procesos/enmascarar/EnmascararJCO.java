@@ -33,55 +33,31 @@ public class EnmascararJCO implements EnmascararApicacion {
 		DBConnection connJC = fj.getConexionCtasp(nom, server, user, pass, tipo);
 		if (connJC != null) {
 			try {
+				if (edb.debug()) System.out.println("Enmascarando "+nom);
 				actualizaEmpresa(edb, connJC);
 				actualizaPCuentas(edb, connJC);
 				actualizaRegistroIVA(edb, connJC);
 				connJC.commit();
+				connJC.disconnect();
 			}
 			catch (Exception e) {
 				connJC.rollback();
+				connJC.disconnect();
 				throw e;
 			}
 		}
 	}
 
 	private void actualizaRegistroIVA(EnmascararDB e, DBConnection connJC) throws Exception {
-		Selector s = new Selector (connJC);
-		s.execute("Select distinct civnif from IVACABECERA where civnif is not null");
-		while (s.next()) {
-			String civnif = s.getString("civnif");
-			Update u = new Update (connJC, "IVACABECERA");
-			String newNif = e.getNifEnmascarado(civnif);
-			u.valor("civnif", civnif );
-			if (!u.execute("civnif="+connJC.getDB().getSQLFormat(civnif))) throw new Exception("Error al actualizar IVACABECERA "+civnif+" -- "+newNif);			
-		}
-		s.close();
+		e.actualizarTabla(e, connJC, "IVACABECERA", "civnif", "civdesc");
 	}
 
 	private void actualizaPCuentas(EnmascararDB e, DBConnection connJC) throws Exception {
-		Selector s = new Selector (connJC);
-		s.execute("Select distinct pcunif from pcuentas where pcunif is not null");
-		while (s.next()) {
-			String pcunif = s.getString("pcunif");
-			Update u = new Update (connJC, "PCUENTAS");
-			String newNif = e.getNifEnmascarado(pcunif);
-			u.valor("pcunif", newNif );
-			if (!u.execute("pcunif="+connJC.getDB().getSQLFormat(pcunif))) throw new Exception("Error al actualizar PCUENTAS "+pcunif+" -- "+newNif);			
-		}
-		s.close();
+		e.actualizarTabla(e, connJC, "PCUENTAS", "pcunif", "pcudesc");
 	}
 
 	private void actualizaEmpresa (EnmascararDB e, DBConnection connJC) throws Exception {
-		Selector s = new Selector (connJC);
-		s.execute("Select distinct empnif from EMPRESA where empnif is not null");
-		while (s.next()) {
-			String empnif = s.getString("empnif");
-			Update u = new Update (connJC, "EMPRESA");
-			String newNif = e.getNifEnmascarado(empnif);
-			u.valor("empnif", newNif );
-			if (!u.execute("empnif="+connJC.getDB().getSQLFormat(empnif))) throw new Exception("Error al actualizar EMPRESA "+empnif+" -- "+newNif);			
-		}
-		s.close();
+		e.actualizarTabla(e, connJC, "EMPRESA", "empnif", null);
 	}
 	
 }

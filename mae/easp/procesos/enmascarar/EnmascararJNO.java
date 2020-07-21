@@ -19,13 +19,16 @@ public class EnmascararJNO implements EnmascararApicacion {
 		DBConnection connJN = getConexion();
 		if (connJN != null) {
 			try {
+				if (edb.debug()) System.out.println("Enmascarando laboral");
 				actualizaEmpresa(edb, connJN);
 				actualizaTrabajador(edb, connJN);
 				actualizaUnifam(edb, connJN);
 				connJN.commit();
+				connJN.disconnect();
 			}
 			catch (Exception e) {
 				connJN.rollback();
+				connJN.disconnect();
 				throw e;
 			}
 		}
@@ -54,41 +57,14 @@ public class EnmascararJNO implements EnmascararApicacion {
 
 
 	private void actualizaEmpresa (EnmascararDB e, DBConnection connJN) throws Exception {
-		Selector s = new Selector (connJN);
-		s.execute("Select distinct empnif from EMPRESA where empnif is not null");
-		while (s.next()) {
-			String empnif = s.getString("empnif");
-			Update u = new Update (connJN, "EMPRESA");
-			String newNif = e.getNifEnmascarado(empnif);
-			u.valor("empnif", newNif );
-			if (!u.execute("empnif="+connJN.getDB().getSQLFormat(empnif))) throw new Exception("Error al actualizar EMPRESA "+empnif+" -- "+newNif);			
-		}
-		s.close();
+		e.actualizarTabla(e, connJN, "EMPRESA", "empnif", "empnombre");
 	}
 	
 	private void actualizaTrabajador (EnmascararDB e, DBConnection connJN) throws Exception {
-		Selector s = new Selector (connJN);
-		s.execute("Select distinct tranif from TRABAJADOR where tranif is not null");
-		while (s.next()) {
-			String tranif = s.getString("tranif");
-			Update u = new Update (connJN, "TRABAJADOR");
-			String newNif = e.getNifEnmascarado(tranif);
-			u.valor("empnif", newNif );
-			if (!u.execute("empnif="+connJN.getDB().getSQLFormat(tranif))) throw new Exception("Error al actualizar TRABAJADOR "+tranif+" -- "+newNif);			
-		}
-		s.close();
+		e.actualizarTabla(e, connJN, "TRABAJADOR", "tranif", "tranombre");
 	}
 	
 	private void actualizaUnifam (EnmascararDB e, DBConnection connJN) throws Exception {
-		Selector s = new Selector (connJN);
-		s.execute("Select distinct tranif from TRAUNIFAM where tranif is not null");
-		while (s.next()) {
-			String trudni = s.getString("trudni");
-			Update u = new Update (connJN, "TRAUNIFAM");
-			String newNif = e.getNifEnmascarado(trudni);
-			u.valor("trudni", newNif );
-			if (!u.execute("trudni="+connJN.getDB().getSQLFormat(trudni))) throw new Exception("Error al actualizar TRAUNIFAM "+trudni+" -- "+newNif);			
-		}
-		s.close();
+		e.actualizarTabla(e, connJN, "TRAUNIFAM", "trudni", "trunombre");
 	}
 }
