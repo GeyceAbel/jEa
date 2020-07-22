@@ -1432,7 +1432,10 @@ public class DatosFiscalesSociedad {
 		if (linea.length()>=fin) {
 			try {
 				s = linea.substring(ini, fin);
-				if (s!=null && s.trim().length()>0) d = Double.parseDouble(s)/100; //2 posicions finals per 2 decimals
+				if (s!=null && s.trim().length()>0) {
+					if (s.startsWith("N")) s = s.substring(1); //Ens quedem valor absolut
+					d = Double.parseDouble(s)/100; //2 posicions finals per 2 decimals
+				}
 			}
 			catch (Exception e) {
 				e.printStackTrace();

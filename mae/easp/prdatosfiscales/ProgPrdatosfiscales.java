@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Sun Jul 19 20:55:58 CEST 2020
+// Fecha y hora:     Wed Jul 22 09:19:45 CEST 2020
 // 
 // Aplicación: easp
 // 
@@ -8821,7 +8821,7 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
         setName("prdatosfiscales");
         setTitle("Datos fiscales");
         // SET: PROGRAMA
-        setLayout(new LayoutSplit(LayoutSplit.VERTICAL,0.15));
+        setLayout(new LayoutSplit(LayoutSplit.VERTICAL,0.30));
         setLocation(new Location());
         addForm(vprimera=new FormVprimera(this));
         addForm(vdomicilio=new FormVdomicilio(this));
