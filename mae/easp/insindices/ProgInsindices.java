@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Mar 10 11:13:18 CET 2020
+// Fecha y hora:     Tue Jul 28 09:06:18 CEST 2020
 // 
 // Aplicación: easp
 // 
@@ -388,6 +388,7 @@ String indicesSQL_jEO [] = {
 "CREATE INDEX APUNTES_GYC_6 ON APUNTES (apuejercicio, apuempresa) INCLUDE (apuiden, apuactividad, apuserie, apunumero, apufechafactura, aputipofactura, apufechacobro, apucuenta, apusubcuenta, apudocumento, apunroinggasto, apuconcepto, apunif, apunombre, apudescripcion, aputransaccion, apudeducible, apuinclprorrata, apucultivoirpf, apucultivoiva, aputipotierras, apulibroirpf, apulibroiva, aputotalfactura, apubaseiva1, apuporciva1, apuporcreceq1, apuimporteiva1, apuimporterec1, apu347base1, apu349base1, apubaseiva2, apuporciva2, apuporcreceq2, apuimporteiva2, apuimporterec2, apu347base2, apu349base2, apubaseiva3, apuporciva3, apuporcreceq3, apuimporteiva3, apuimporterec3, apu347base3, apu349base3, apubaseirpf, apuporcirpf, apuimporteirpf, apubaseexenta, apu347basexenta, apu349basexenta, apucodplantilla, apuivaigic, apuregimeniva, apurectifica, apurectserie, apurectnumero, apurecfecha, aputipoprovis, apuefectivo, apuimpefectivo, apufechaoperac, apuregimencaja, apuperliqiva, apuperliqpagfr, apuperliqirpf, apubienusado, apudesglose, apucuentaing, apusubcuentaing, apupdeducgasto, apupdeducgasiva, apuidfacgesdoc, apufechacrea, apusiitfac, apusiicltr, apusiidesc, apusiisitin, apusiircat, apusiiimtr, apucodisii, apusiiidfa, apusiicltr1, apusiicltr2, apusiitnifc, apusiicexen, apusii714, apusiitai, apusiinumac, apusiitlib)",
 "CREATE INDEX APUNTES_GYC_7 ON APUNTES (apuejercicio, apuempresa, apuactividad, apuserie, apunumero, aputipofactura,apuiden) INCLUDE (apufechafactura)",
 "CREATE INDEX APUNTES_GYC_8 ON APUNTES (apuejercicio, apuempresa, apufechafactura, aputipofactura, apudocumento, apunif, aputotalfactura,apuiden)",
+"CREATE INDEX APUNTES_GYC_9 ON APUNTES (apuempresa, apuactividad, aputipofactura, apurectifica, apurectserie, apurectnumero, apurecfecha) INCLUDE (apuiden, apuejercicio, apuserie, apunumero, apufechafactura, apufechacobro, apucuenta, apusubcuenta, apudocumento, apunroinggasto, apuconcepto, apunif, apunombre, apudescripcion, aputransaccion, apudeducible, apuinclprorrata, apucultivoirpf, apucultivoiva, aputipotierras, apulibroirpf, apulibroiva, aputotalfactura, apubaseiva1, apuporciva1, apuporcreceq1, apuimporteiva1, apuimporterec1, apu347base1, apu349base1, apubaseiva2, apuporciva2, apuporcreceq2, apuimporteiva2, apuimporterec2, apu347base2, apu349base2, apubaseiva3, apuporciva3, apuporcreceq3, apuimporteiva3, apuimporterec3, apu347base3, apu349base3, apubaseirpf, apuporcirpf, apuimporteirpf, apubaseexenta, apu347basexenta, apu349basexenta, apucodplantilla, apuivaigic, apuregimeniva, aputipoprovis)",
 "CREATE INDEX BIENINVERSION_GYC_3 ON BIENINVERSION (bieempresa)",
 "CREATE INDEX CAMORTIZIRPF_GYC_3 ON CAMORTIZIRPF (cirejercicio,ciramortanual) INCLUDE (cirelemento, circuotaapli)",
 "CREATE INDEX EMPRESA_GYC_3 ON EMPRESA (empnif,empfechabaja)"};
@@ -432,6 +433,7 @@ String indicesReconstruirSQL_jEO[] = {
 "ALTER INDEX APUNTES_GYC_6 ON APUNTES       		 REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
 "ALTER INDEX APUNTES_GYC_7 ON APUNTES       		 REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
 "ALTER INDEX APUNTES_GYC_8 ON APUNTES       		 REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+"ALTER INDEX APUNTES_GYC_9 ON APUNTES       		 REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
 "ALTER INDEX BIENINVERSION_GYC_3 ON BIENINVERSION  REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
 "ALTER INDEX CAMORTIZIRPF_GYC_3 ON CAMORTIZIRPF    REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
 "ALTER INDEX EMPRESA_GYC_3 ON EMPRESA              REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
