@@ -1,5 +1,6 @@
 package mae.easp.insprconver;
 
+import mae.easp.general.Easp;
 import mae.modasp.general.Modasp;
 
 public class Sentencias {
@@ -210,19 +211,19 @@ public class Sentencias {
 	};
 
 	public static String getMemo(int tamany) {
-		String tipoDB=Modasp.connModasp.getDB().getType();
+		String tipoDB=Easp.connEA.getDB().getType();
 		if (tipoDB.toUpperCase().equals("ACCESS")) return " MEMO,";
 		else                                       return " VARCHAR("+tamany+"),";
 	}
 
 	public static String formatData() {
-		String tipoDB=Modasp.connModasp.getDB().getType();
+		String tipoDB=Easp.connEA.getDB().getType();
 		if (tipoDB.toUpperCase().equals("ACCESS")) return " DATE,";
 		else return " DATETIME,";
 	}
 
 	public static String formatoData() {
-		String tipoDB=Modasp.connModasp.getDB().getType();
+		String tipoDB=Easp.connEA.getDB().getType();
 		if (tipoDB.toUpperCase().equals("ACCESS")) return " DATE";
 		else
 			return " DATETIME";
