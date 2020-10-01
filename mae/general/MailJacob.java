@@ -119,20 +119,43 @@ public class MailJacob {
 	 * @param token token dins la plantilla html que sera substituit pel body o texte a enviar.
 	 */
 	public void sendTemplateOutlook( String to , String subject , String body, File signatureTemplate, String token ) throws Exception  {		
-  	  //ActiveXComponent outlook = new ActiveXComponent("Outlook.Application");		  
-      //Dispatch mail =	Dispatch.invoke(outlook.getObject(), "CreateItem", Dispatch.Get, new Object[] { "0" }, new int[0]).toDispatch();
-      //Dispatch mail = Dispatch.call(outlook, "CreateItem", 0).toDispatch();
-	  Dispatch mail = Dispatch.call(outlook, "CreateItemFromTemplate", new Variant(signatureTemplate.getAbsolutePath())).toDispatch();
-		
-	  defautlTypeMail = olFormatHTML;
-	  //String htmlBody="";	    
-	  //String htmlBody=body + Dispatch.get(mail, "HTMLBody").toString();		 
-	  //htmlBody = body + replaceHtmlContent(body, signatureTemplate, token);	
-	  String htmlBody=Dispatch.get(mail, "HTMLBody").toString();
-	  if(htmlBody.contains(token))
-	    htmlBody = htmlBody.replace(token, body);
-	  send(mail, to, subject, htmlBody);	
+		  //ActiveXComponent outlook = new ActiveXComponent("Outlook.Application");		  
+		  //Dispatch mail =	Dispatch.invoke(outlook.getObject(), "CreateItem", Dispatch.Get, new Object[] { "0" }, new int[0]).toDispatch();
+		  //Dispatch mail = Dispatch.call(outlook, "CreateItem", 0).toDispatch();
+		  Dispatch mail = Dispatch.call(outlook, "CreateItemFromTemplate", new Variant(signatureTemplate.getAbsolutePath())).toDispatch();
+			
+		  defautlTypeMail = olFormatHTML;
+		  //String htmlBody="";	    
+		  //String htmlBody=body + Dispatch.get(mail, "HTMLBody").toString();		 
+		  //htmlBody = body + replaceHtmlContent(body, signatureTemplate, token);	
+		  String htmlBody=Dispatch.get(mail, "HTMLBody").toString();
+		  if(htmlBody.contains(token)) 
+			  htmlBody = htmlBody.replace(token, body);
+		  send(mail, to, subject, htmlBody);   
 	}
+	
+	public boolean sendTemplateOutlookNew( String to , String subject , String body, File signatureTemplate, String token ) throws Exception  {		
+		  boolean tiene = false;
+		  //ActiveXComponent outlook = new ActiveXComponent("Outlook.Application");		  
+		  //Dispatch mail =	Dispatch.invoke(outlook.getObject(), "CreateItem", Dispatch.Get, new Object[] { "0" }, new int[0]).toDispatch();
+		  //Dispatch mail = Dispatch.call(outlook, "CreateItem", 0).toDispatch();
+		  Dispatch mail = Dispatch.call(outlook, "CreateItemFromTemplate", new Variant(signatureTemplate.getAbsolutePath())).toDispatch();
+			
+		  defautlTypeMail = olFormatHTML;
+		  //String htmlBody="";	    
+		  //String htmlBody=body + Dispatch.get(mail, "HTMLBody").toString();		 
+		  //htmlBody = body + replaceHtmlContent(body, signatureTemplate, token);	
+		  String htmlBody=Dispatch.get(mail, "HTMLBody").toString();
+		  if(htmlBody.contains(token)) 
+			  tiene = true;
+		  if(tiene) {
+			  htmlBody = htmlBody.replace(token, body);
+			  send(mail, to, subject, htmlBody); 
+		  }
+		  return tiene;
+		  
+	}
+	
 	
 	private void send(Dispatch mail,String to, String subject, String body) throws Exception {	
 		
