@@ -537,7 +537,7 @@ public class ConversionJCO extends ConversionLC {
 				spc.execute("Select CodigoCuenta from PlanCuentas where CodigoEmpresa="+iEmp);
 				while (spc.next()) {      
 					String CodigoCuenta = spc.getString("CodigoCuenta");
-					if (CodigoCuenta!=null && LONG_SBCTA<CodigoCuenta.length()) LONG_SBCTA = CodigoCuenta.length() - 3;
+					if (CodigoCuenta!=null && LONG_SBCTA<CodigoCuenta.length()) LONG_SBCTA = CodigoCuenta.length() - ("4".equals(longCta) ? 4 : 3);
 				}
 				spc.close();
 			}
@@ -732,6 +732,7 @@ public class ConversionJCO extends ConversionLC {
 			snif.execute(sqlnif);
 			boolean addNewDone = false;
 			Insert inif = new Insert (connEA,"NIFES");
+			int contNombreAuto = 0;
 			while (bOk && snif.next()) {
 				if (!addNewDone) {
 					Delete dnifes = new Delete (connEA,"NIFES");
@@ -749,7 +750,8 @@ public class ConversionJCO extends ConversionLC {
 							apellido1 = resultat[0]; 
 							apellido2 = resultat[1]; 
 						} 
-						else apellido1 = s.getString("RazonSocialEmpleado"); 
+						else apellido1 = s.getString("RazonSocialEmpleado");
+						if (apellido1 == null || "".equals(apellido1.trim())) apellido1 = "CONVERAUTO("+empJconta+"-"+iEjerJ+")_"+ ++contNombreAuto;
 					}  
 					inif.valor("datnombre",nombre);
 					inif.valor("datapell1",apellido1);
@@ -1325,7 +1327,23 @@ public class ConversionJCO extends ConversionLC {
 				}
 			}
 			else return null;
-		}		
+		}
+		else if ("101139000000".equals(dominio) && "4".equals(longCta)){
+			if (cta!=null && cta.length()>=4){
+				tmp = new String[2];
+				if (cta.length()==4){
+					tmp[0] = cta;
+					tmp[1] = Util.rpt("0",LONG_SBCTA);
+				}
+				else {
+					tmp[0] = cta.substring(0,4);
+					tmp[1] = cta.substring(4);
+					if (esNumerico && Util.isNumero(tmp[1])){
+						tmp[1] = Numero.format(Double.parseDouble(tmp[1]), Util.rpt("0", LONG_SBCTA));
+					}
+				}
+			}
+		}
 		else if ("V".equals(longCta)) {
 			if (cta!=null) cta = cta.trim();
 			if (cta!=null && cta.length()>3) {
@@ -1398,11 +1416,11 @@ public class ConversionJCO extends ConversionLC {
 			tmp = new String [2];
 			if (cta.length()==3) {
 				tmp [0] = cta;
-				tmp [1] = "0000";
+				tmp [1] = Util.rpt("0", LONG_SBCTA);
 			}
 			else {
-				tmp [0] = cta.substring(0,3);
-				tmp [1] = cta.substring(3)+"0";
+				tmp [0] = cta.substring(0,3)+"0";
+				tmp [1] = cta.substring(3);
 			}
 			
 		}
@@ -1410,12 +1428,12 @@ public class ConversionJCO extends ConversionLC {
 			tmp = new String [2];
 			tmp [0] = cta;
 			if (cta.length()==3) tmp [0] = cta+"0";
-			tmp [1] = "0000";
+			tmp [1] = Util.rpt("0", LONG_SBCTA);
 		}
 		else if (cta!=null && (cta.length()==3  || cta.length()==4) ) {
 			tmp = new String [2];
 			tmp [0] = cta;
-			tmp [1] = "0000";
+			tmp [1] = Util.rpt("0", LONG_SBCTA);
 		}
 		return tmp;
 	}
