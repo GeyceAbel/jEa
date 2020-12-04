@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Sep 13 10:03:08 CEST 2019
+// Fecha y hora:     Thu Oct 01 12:44:09 CEST 2020
 // 
 // Aplicación: easp
 // 
@@ -418,6 +418,7 @@ public class CatJeo extends Catalog
         public FieldDef lintipoestima;
         public FieldDef linpagoactiv;
         public FieldDef linirpfactiv;
+        public FieldDef linsubnrotipo;
         public TabLinacumulados(String name)
             {
             super(name);
@@ -434,6 +435,7 @@ public class CatJeo extends Catalog
             lintipoestima = new FieldDef("lintipoestima",FieldDef.CHAR,3);
             linpagoactiv = new FieldDef("linpagoactiv",FieldDef.CHAR,1);
             linirpfactiv = new FieldDef("linirpfactiv",FieldDef.CHAR,1);
+            linsubnrotipo = new FieldDef("linsubnrotipo",FieldDef.INTEGER,12);
             FieldDef array[] = {
                 linejercicio,
                 lincodigo,
@@ -447,7 +449,8 @@ public class CatJeo extends Catalog
                 linequival3,
                 lintipoestima,
                 linpagoactiv,
-                linirpfactiv                
+                linirpfactiv,
+                linsubnrotipo                
                 };
             setColumns(array);
             FieldDef arrayf[] = {linejercicio,lincodigo };
@@ -466,6 +469,7 @@ public class CatJeo extends Catalog
             lintipoestima.setDescription("Sólo para actividades acogidas a estimación");
             linpagoactiv.setDescription("No debe tenerse en cuenta para pagos fraccionados del tipo actividad");
             linirpfactiv.setDescription("No debe tenerse en cuenta para dec.anaul irpf del tipo actividad");
+            linsubnrotipo.setDescription("Numero de subacumulado dentro del tipo");
             }
         }
         
@@ -3043,6 +3047,8 @@ public class CatJeo extends Catalog
         public FieldDef biecodtablamort;
         public FieldDef biefechaoperac;
         public FieldDef bieobserv;
+        public FieldDef biectaelemen;
+        public FieldDef biesbctaelemen;
         public TabBieninversion(String name)
             {
             super(name);
@@ -3096,6 +3102,8 @@ public class CatJeo extends Catalog
             biecodtablamort = new FieldDef("biecodtablamort",FieldDef.CHAR,8);
             biefechaoperac = new FieldDef("biefechaoperac",FieldDef.DATE);
             bieobserv = new FieldDef("bieobserv",FieldDef.CHAR,2000);
+            biectaelemen = new FieldDef("biectaelemen",FieldDef.CHAR,4);
+            biesbctaelemen = new FieldDef("biesbctaelemen",FieldDef.CHAR,15);
             FieldDef array[] = {
                 bieelemento,
                 bieempresa,
@@ -3146,7 +3154,9 @@ public class CatJeo extends Catalog
                 bieperiodotabla,
                 biecodtablamort,
                 biefechaoperac,
-                bieobserv                
+                bieobserv,
+                biectaelemen,
+                biesbctaelemen                
                 };
             setColumns(array);
             FieldDef arrayf[] = {bieelemento };
@@ -3158,8 +3168,8 @@ public class CatJeo extends Catalog
             bienumero.setDescription("Número de factura");
             biefechafactura.setDescription("Fecha de factura");
             biefechautiliz.setDescription("Fecha de puesta en servicio");
-            biecuenta.setDescription("Cuenta de mayor");
-            biesubcuenta.setDescription("Subcuenta");
+            biecuenta.setDescription("Cuenta de mayor del proveedor");
+            biesubcuenta.setDescription("Subcuenta del proveedor");
             biedocumento.setDescription("Número de documento");
             bienif.setDescription("NIF cliente o proveedor");
             bienombre.setDescription("Nombre del cliente");
@@ -3202,6 +3212,8 @@ public class CatJeo extends Catalog
             biecodtablamort.setDescription("Código de elemento en la tabla amortizaciones");
             biefechaoperac.setDescription("Fecha de operación");
             bieobserv.setDescription("Observaciones sobre bien inversion");
+            biectaelemen.setDescription("Cuenta de mayor del elemento");
+            biesbctaelemen.setDescription("Subcuenta del elemento");
             }
         }
         
@@ -3915,6 +3927,7 @@ public class CatJeo extends Catalog
         public FieldDef llbimportecol20;
         public FieldDef llblibroirpf;
         public FieldDef llblibroiva;
+        public FieldDef llbconcepto;
         public TabListadolibros(String name)
             {
             super(name);
@@ -3978,6 +3991,7 @@ public class CatJeo extends Catalog
             llbimportecol20 = new FieldDef("llbimportecol20",FieldDef.FLOAT,6,0);
             llblibroirpf = new FieldDef("llblibroirpf",FieldDef.CHAR,1);
             llblibroiva = new FieldDef("llblibroiva",FieldDef.CHAR,1);
+            llbconcepto = new FieldDef("llbconcepto",FieldDef.CHAR,60);
             FieldDef array[] = {
                 llbcodigo,
                 llbusuario,
@@ -4038,7 +4052,8 @@ public class CatJeo extends Catalog
                 llbimportecol19,
                 llbimportecol20,
                 llblibroirpf,
-                llblibroiva                
+                llblibroiva,
+                llbconcepto                
                 };
             setColumns(array);
             FieldDef arrayf[] = {llbcodigo };
@@ -4104,6 +4119,7 @@ public class CatJeo extends Catalog
             llbimportecol20.setDescription("Importe columna 20");
             llblibroirpf.setDescription("Libro de irpf");
             llblibroiva.setDescription("Libro de iva");
+            llbconcepto.setDescription("Descripcion ingreso y gasto renta");
             }
         }
         
@@ -4131,6 +4147,7 @@ public class CatJeo extends Catalog
         public FieldDef pcmpiva3;
         public FieldDef pcmprecargo3;
         public FieldDef pcm347aduana;
+        public FieldDef pcmsublineairpf;
         public TabPcmayor(String name)
             {
             super(name);
@@ -4155,6 +4172,7 @@ public class CatJeo extends Catalog
             pcmpiva3 = new FieldDef("pcmpiva3",FieldDef.INTEGER,0);
             pcmprecargo3 = new FieldDef("pcmprecargo3",FieldDef.INTEGER,0);
             pcm347aduana = new FieldDef("pcm347aduana",FieldDef.CHAR,1);
+            pcmsublineairpf = new FieldDef("pcmsublineairpf",FieldDef.INTEGER,12);
             FieldDef array[] = {
                 pcmempresa,
                 pcmcuenta,
@@ -4176,7 +4194,8 @@ public class CatJeo extends Catalog
                 pcmprecargo2,
                 pcmpiva3,
                 pcmprecargo3,
-                pcm347aduana                
+                pcm347aduana,
+                pcmsublineairpf                
                 };
             setColumns(array);
             FieldDef arrayf[] = {pcmempresa,pcmcuenta };
@@ -4203,6 +4222,7 @@ public class CatJeo extends Catalog
             pcmpiva3.setDescription("Tipo impositivo de IVA, IGIC o Reg.especial agricultura y pesca");
             pcmprecargo3.setDescription("% de recargo de equivalencia");
             pcm347aduana.setDescription("347 regimen de deposito distinto aduanero");
+            pcmsublineairpf.setDescription("Equivalencia con sublinea ingresos/gastos declaracion IRPF");
             }
         }
         

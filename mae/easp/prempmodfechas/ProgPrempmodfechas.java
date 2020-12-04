@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Feb 03 13:06:48 CET 2020
+// Fecha y hora:     Mon Oct 05 12:13:07 CEST 2020
 // 
 // Aplicación: easp
 // 
@@ -124,8 +124,12 @@ private void leeCheck(){
                 setTitle("Periodicidad");
                 setType(STRING);
                 setLength(2);
+                setComboEditable(false);
+                setRestricted(false);
+                setDescriptionShow(false);
                 addItem("M/Mensual");
                 addItem("T/trimestral");
+                addItem("P/Periódica");
                 addItem("A/Anual");
                 setField(sempmodelos.emodtipoper);
                 // SET: CONTROLEDIT

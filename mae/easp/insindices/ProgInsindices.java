@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Jul 28 09:06:18 CEST 2020
+// Fecha y hora:     Fri Dec 04 12:06:43 CET 2020
 // 
 // Aplicación: easp
 // 
@@ -488,8 +488,21 @@ String indicesSQL_jModelos [] = {
   "CREATE INDEX ID_MODESTADO2 ON MODESTADO (mesdominio,mesmodelo,mesejercicio,mesperiodo,mesuser) INCLUDE (mesnif);",
   "CREATE INDEX IX_MODESTADO3 ON MODESTADO (mesejercicio,mesdecljren,mesmodelo,mespresentada,mesaplic);",
   //10/03/2020
-  "CREATE INDEX IX_MOD347D_DNEP ON MOD347D (m347ddominio, m347dnif, m347dejercicio, m347dperiodo);"
-  };
+  "CREATE INDEX IX_MOD347D_DNEP ON MOD347D (m347ddominio, m347dnif, m347dejercicio, m347dperiodo);",
+  //12/11/2020
+  "CREATE INDEX MOD347D_27022019                                                         ON MOD347D (m347dnif, m347dejercicio, m347dperiodo,m347ddominio);",  
+  "CREATE INDEX MODIRPFL_MILEJERCICIO_MILEPIGRAFE_MILLETRA_MILTIPO                      ON MODIRPFL (MILEJERCICIO, MILEPIGRAFE, MILLETRA, MILTIPO);",
+  "CREATE INDEX MODNIFCDP_mncdominio_mncejercicio_mnccdp_mncmodelo_mncperiodo           ON MODNIFCDP (mncdominio, mncejercicio, mnccdp,mncmodelo, mncperiodo);",  
+  "CREATE INDEX MODESTADO_mesdominio_mesnif_mesejercicio                                ON MODESTADO (mesdominio, mesnif, mesejercicio);",  
+  "CREATE INDEX MODESTADO_mesdominio_mesnif_mesmodelo_mescccpago                        ON MODESTADO (mesdominio, mesnif,mesmodelo, mescccpago);",
+  "CREATE INDEX MODESTADO_mesmodelo_mesejercicio_mesdecljren_mesjrdeclar                ON MODESTADO (mesmodelo, mesejercicio, mesdecljren, mesjrdeclar);",
+  "CREATE INDEX MODESTADO_mesejercicio_mesperiodo_mespresentada_mesuser_mesdominio      ON MODESTADO (mesejercicio, mesperiodo, mespresentada, mesuser,mesdominio);",  
+  "CREATE INDEX SIIRECIBIDAS_sirnif_sirestado_sirfecha_sirsiiigic                       ON SIIRECIBIDAS (sirnif,sirestado, sirfecha, sirsiiigic);",
+  "CREATE INDEX SIIRECIBIDAS_sirnif_sirsiiigic                                          ON SIIRECIBIDAS (sirnif,sirsiiigic);",
+  "CREATE INDEX MOD300_m300nif_m300ejercicio_m300periodo_m300modelo                     ON MOD300 (m300nif, m300ejercicio, m300periodo, m300modelo);",
+  "CREATE INDEX MOD130_m130nif_m130ejercicio_m130periodo                                ON MOD130 (m130nif, m130ejercicio, m130periodo);",
+  "CREATE INDEX MOD110_m110nif_m110ejercicio_m110periodo_m110modelo                     ON MOD110 (m110nif, m110ejercicio, m110periodo, m110modelo);",
+  "CREATE INDEX MOD110D_m110ddominio_m110dnif_m110dejercicio_m110dmodelo_m110dapartado  ON MOD110D (m110ddominio,m110dnif,m110dejercicio,m110dmodelo,m110dapartado );"};
   
 String indicesReconstruirSQL_jModelos[] = {
     "ALTER INDEX  MOD347C_GYC     ON  MOD347C     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
@@ -506,14 +519,26 @@ String indicesReconstruirSQL_jModelos[] = {
     "ALTER INDEX  ID_MODESTADO    ON  MODESTADO   REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
     "ALTER INDEX  MODESTADO_GYC_2 ON  MODESTADO   REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
     "ALTER INDEX  MOD110D_GYC     ON  MOD110D     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
-    "ALTER INDEX  MOD100H1        ON  MOD100H1    REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
-    "ALTER INDEX  MOD100H4        ON  MOD100H4    REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
-    "ALTER INDEX  MODESTADO2      ON  MODESTADO   REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
-    "ALTER INDEX  MODESTADO3      ON  MODESTADO   REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
-    "ALTER INDEX IX_MOD347D_DNEP  ON  MOD347D     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )"
-    };
-
-
+    "ALTER INDEX  ID_MOD100H1        ON  MOD100H1    REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX  ID_MOD100H4        ON  MOD100H4    REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX  ID_MODESTADO2      ON  MODESTADO   REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX  IX_MODESTADO3      ON  MODESTADO   REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX IX_MOD347D_DNEP  ON  MOD347D     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    //12/11/2020
+    "ALTER INDEX MOD347D_27022019                                                         ON MOD347D                REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX MODIRPFL_MILEJERCICIO_MILEPIGRAFE_MILLETRA_MILTIPO                     ON MODIRPFL     REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX MODNIFCDP_mncdominio_mncejercicio_mnccdp_mncmodelo_mncperiodo          ON MODNIFCDP    REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",    
+    "ALTER INDEX MODESTADO_mesdominio_mesnif_mesejercicio                               ON MODESTADO    REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX MODESTADO_mesdominio_mesnif_mesmodelo_mescccpago                       ON MODESTADO    REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX MODESTADO_mesmodelo_mesejercicio_mesdecljren_mesjrdeclar               ON MODESTADO    REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX MODESTADO_mesejercicio_mesperiodo_mespresentada_mesuser_mesdominio     ON MODESTADO    REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",    
+    "ALTER INDEX SIIRECIBIDAS_sirnif_sirestado_sirfecha_sirsiiigic                      ON SIIRECIBIDAS REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX SIIRECIBIDAS_sirnif_sirsiiigic                                         ON SIIRECIBIDAS REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX MOD300_m300nif_m300ejercicio_m300periodo_m300modelo                    ON MOD300       REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX MOD130_m130nif_m130ejercicio_m130periodo                               ON MOD130       REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX MOD110_m110nif_m110ejercicio_m110periodo_m110modelo                    ON MOD110       REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )",
+    "ALTER INDEX MOD110D_m110ddominio_m110dnif_m110dejercicio_m110dmodelo_m110dapartado ON MOD110D      REBUILD WITH ( PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, SORT_IN_TEMPDB = OFF, ONLINE = OFF )"};
+    
 /* Creacion de Indices para optimización de las Bases de Datos . */
 String indicesSQL_jNomina[] = {
   "CREATE INDEX ID_CVCONTRATOS   ON CONCLAVES (CVEJER,CVPER,CVPLANT);                                                               ",
