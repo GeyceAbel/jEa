@@ -1,10 +1,12 @@
 package mae.easp.insprconver;
 
 import mae.easp.general.Easp;
-import mae.modasp.general.Modasp;
 
 public class Sentencias {
-	
+
+  public static String sentencias17_3[]={"DELETE FROM INDEMORA WHERE indejercicio=2021;",
+      "INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2021,'01/01/2021','31/12/2021',3.75);"};
+
 	public static String sentencias17_2[] ={
 			"CREATE TABLE DFSDOMICILIO(      " +
 			" dfdejer INTEGER NOT NULL,      " +
@@ -39,7 +41,7 @@ public class Sentencias {
 			" dfd21codpais VARCHAR(2),       " +
 			" dfd21nacional VARCHAR(2),      " +
 			" PRIMARY KEY (dfdejer, dfdnif, dfdcodigo));",
-			
+
 			"CREATE TABLE DFSCENSALES(      " +
 			" dfcejer INTEGER NOT NULL,     " +
 			" dfcnif VARCHAR(15) NOT NULL,  " +
@@ -49,7 +51,7 @@ public class Sentencias {
 			" dfcgrupoiae	VARCHAR(5),     " +
 			" dfccodcnae  VARCHAR(5),       " +
 			" PRIMARY KEY (dfcejer, dfcnif, dfccodigo));",
-					
+
 			"CREATE TABLE DFSPERIODOYCNAE(   " +
 			" dfpejer	INTEGER NOT NULL,    " +
 			" dfpnif 	VARCHAR(15) NOT NULL," +
@@ -60,22 +62,22 @@ public class Sentencias {
 			" dfpcnae2009	VARCHAR(5),      " +
 			" PRIMARY KEY(dfpejer, dfpnif, dfpcodigo));",
 
-			"CREATE TABLE DFSCARACTERES(     " + 
-			" dfcejer INTEGER NOT NULL,      " + 
-			" dfcnif 	VARCHAR(15) NOT NULL," + 
-			" dfccodigo	VARCHAR(7) NOT NULL, " + 
-			" dfccaracter VARCHAR(5),        " + 
+			"CREATE TABLE DFSCARACTERES(     " +
+			" dfcejer INTEGER NOT NULL,      " +
+			" dfcnif 	VARCHAR(15) NOT NULL," +
+			" dfccodigo	VARCHAR(7) NOT NULL, " +
+			" dfccaracter VARCHAR(5),        " +
 			" PRIMARY KEY (dfcejer, dfcnif, dfccodigo));",
-					
-			"CREATE TABLE DFSADMINS(         " + 
-			" dfaejer	INTEGER NOT NULL,    " + 
-			" dfanif	VARCHAR(15) NOT NULL," + 
-			" dfacodigo	VARCHAR(7) NOT NULL, " + 
-			" dfanifadmin	VARCHAR(9),      " + 
-			" dfatiponif	VARCHAR(1),      " + 
-			" dfanombre	VARCHAR(60),         " + 
-			" PRIMARY KEY(dfaejer, dfanif, dfacodigo));", 
-										 
+
+			"CREATE TABLE DFSADMINS(         " +
+			" dfaejer	INTEGER NOT NULL,    " +
+			" dfanif	VARCHAR(15) NOT NULL," +
+			" dfacodigo	VARCHAR(7) NOT NULL, " +
+			" dfanifadmin	VARCHAR(9),      " +
+			" dfatiponif	VARCHAR(1),      " +
+			" dfanombre	VARCHAR(60),         " +
+			" PRIMARY KEY(dfaejer, dfanif, dfacodigo));",
+
 			"CREATE TABLE DFSENTIDPART(      " +
 			" dfeejer	INTEGER NOT NULL,    " +
 			" dfenif	VARCHAR(15) NOT NULL," +
@@ -88,7 +90,7 @@ public class Sentencias {
 			" dfevalorlib	FLOAT,           " +
 			" dfeingrdivej	FLOAT,           " +
 			" PRIMARY KEY(dfeejer, dfenif, dfecodigo));",
-            
+
 			"CREATE TABLE DFSPERSPART(       " +
 			" dfpejer	INTEGER NOT NULL,    " +
 			" dfpnif	VARCHAR(15) NOT NULL," +
@@ -101,7 +103,7 @@ public class Sentencias {
 			" dfpvalornom	FLOAT,           " +
 			" dfpporcpart	FLOAT,           " +
 			" PRIMARY KEY(dfpejer, dfpnif, dfpcodigo));",
-            
+
 			"CREATE TABLE DFSSECREREPRE(     " +
 			" dfsejer	INTEGER NOT NULL,    " +
 			" dfsnif	VARCHAR(15) NOT NULL," +
@@ -111,27 +113,27 @@ public class Sentencias {
 			" dfsfuncion	VARCHAR(1),      " +
 			" dfsfecfirma " + formatData() +
 			" PRIMARY KEY(dfsejer, dfsnif, dfscodigo));",
-				
-			"CREATE TABLE DFSPAGOSFRAC(      " + 
-			" dfpejer	INTEGER NOT NULL,    " + 
-			" dfpnif	VARCHAR(15) NOT NULL," + 
-			" dfpcodigo	VARCHAR(7) NOT NULL, " + 
-			" dfpmodelo	VARCHAR(3),          " + 
-			" dfptipo	VARCHAR(1),          " + 
-			" dfpperiodo	VARCHAR(2),      " + 
-			" dfpdeleg	VARCHAR(2),          " + 
-			" dfpjustif	VARCHAR(13),         " + 
-			" dfpimporte	FLOAT,           " + 
+
+			"CREATE TABLE DFSPAGOSFRAC(      " +
+			" dfpejer	INTEGER NOT NULL,    " +
+			" dfpnif	VARCHAR(15) NOT NULL," +
+			" dfpcodigo	VARCHAR(7) NOT NULL, " +
+			" dfpmodelo	VARCHAR(3),          " +
+			" dfptipo	VARCHAR(1),          " +
+			" dfpperiodo	VARCHAR(2),      " +
+			" dfpdeleg	VARCHAR(2),          " +
+			" dfpjustif	VARCHAR(13),         " +
+			" dfpimporte	FLOAT,           " +
 			" PRIMARY KEY(dfpejer, dfpnif, dfpcodigo));",
-				
-			"CREATE TABLE DFSVOLOPER(        " + 
-			" dfvejer	INTEGER NOT NULL,    " + 
-			" dfvnif	VARCHAR(15) NOT NULL," + 
-			" dfvcodigo	VARCHAR(7) NOT NULL, " + 
-			" dfvmodelo	VARCHAR(3) NOT NULL, " + 
-			" dfvtotvol	FLOAT,               " + 
+
+			"CREATE TABLE DFSVOLOPER(        " +
+			" dfvejer	INTEGER NOT NULL,    " +
+			" dfvnif	VARCHAR(15) NOT NULL," +
+			" dfvcodigo	VARCHAR(7) NOT NULL, " +
+			" dfvmodelo	VARCHAR(3) NOT NULL, " +
+			" dfvtotvol	FLOAT,               " +
 			" PRIMARY KEY(dfvejer, dfvnif, dfvcodigo, dfvmodelo));",
-            
+
 			"CREATE TABLE DFSRDTOTRAB(       " +
 			" dfrejer	INTEGER NOT NULL,    " +
 			" dfrnif	VARCHAR(15) NOT NULL," +
@@ -146,8 +148,8 @@ public class Sentencias {
 			" dfringctarep FLOAT,            " +
 			" dfrgastosded	FLOAT,           " +
 			" dfrreduc		FLOAT,	         " +
-			" PRIMARY KEY(dfrejer, dfrnif, dfrcodigo));", 
-				
+			" PRIMARY KEY(dfrejer, dfrnif, dfrcodigo));",
+
 			"CREATE TABLE DFSDEDUCYBASES(       " +
 			" dfdejer	INTEGER NOT NULL,       " +
 			" dfdnif	VARCHAR(15) NOT NULL,   " +
@@ -158,7 +160,7 @@ public class Sentencias {
 			" dfdcasejerant VARCHAR(255) NOT NULL," +
 			" dfdimporte	FLOAT,              " +
 			" PRIMARY KEY(dfdejer, dfdnif, dfdcodigo, dfdtipoded, dfdanyded, dfdcasejer, dfdcasejerant));",
-				
+
 			"CREATE TABLE DFSDONACIONES(     " +
 			" dfdejer	INTEGER NOT NULL,    " +
 			" dfdnif	VARCHAR(15) NOT NULL," +
@@ -170,7 +172,7 @@ public class Sentencias {
 			" dfdimporte	FLOAT,           " +
 			" dfdrecur	VARCHAR(1),          " +
 			" PRIMARY KEY (dfdejer, dfdnif,dfdcodigo));",
-			
+
 			"CREATE TABLE DFSMULTASDGT(      " +
 			" dfmejer	INTEGER NOT NULL,    " +
 			" dfmnif	VARCHAR(15) NOT NULL," +
@@ -181,7 +183,7 @@ public class Sentencias {
 			" dfmrecargoa	FLOAT,           " +
 			" dfmtejecut	FLOAT,           " +
 			" PRIMARY KEY(dfmejer, dfmnif, dfmcodigo));",
-			
+
 			"CREATE TABLE DFSRDTOCTASBAN(    " +
 			" dfrejer INTEGER NOT NULL,      " +
 			" dfrnif 	VARCHAR(15) NOT NULL," +
@@ -196,7 +198,7 @@ public class Sentencias {
 			" dfrrdtoespec	FLOAT,           " +
 			" dfringcta	FLOAT,	             " +
 			" PRIMARY KEY(dfrejer,dfrnif,dfrcodigo));",
-			
+
 			"CREATE TABLE DFSSANCIONES(     " +
 			" dfsejer INTEGER NOT NULL,     " +
 			" dfsnif VARCHAR(15) NOT NULL,  " +
