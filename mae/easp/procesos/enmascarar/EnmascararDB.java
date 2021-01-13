@@ -233,7 +233,7 @@ public class EnmascararDB {
 		if (!d.execute("danifcif="+connEA.getDB().getSQLFormat(nif))) throw new Exception ("Error al eliminar NIF ["+nif+"]");
 	}
 
-	private boolean existeNif(String nif) {
+	protected boolean existeNif(String nif) {
 		Selector s = new Selector (connEA);
 		s.execute("Select danifcif from NIFES where danifcif="+connEA.getDB().getSQLFormat(nif));
 		boolean existe = s.next();
