@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Jul 16 11:59:16 CEST 2019
+// Fecha y hora:     Wed Jan 20 16:25:31 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -209,8 +209,8 @@ public class ProgPrselcdp extends Program
         {
         // GLOBALES: VENTANA
         public void onSelection(){
-  btseleccion.onAction();
-  }
+  if (!vieneOtraAplicacion) btseleccion.onAction();
+}
         // Metodos
         // Controles
         public CtrlVvcodigo vvcodigo;
