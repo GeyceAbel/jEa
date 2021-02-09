@@ -20,7 +20,7 @@ import geyce.maefc.Selector;
 import geyce.maefc.TableDef;
 import geyce.maefc.Update;
 
-public class ActualizaNIFs 
+public class ActualizaNIFs
 {
 	private String cdp="";
 	private String oldNIF="";
@@ -37,7 +37,7 @@ public class ActualizaNIFs
 	private boolean hayIncidencia = false;
 	private int numInc = 0;
 	private boolean esVFISC = false;
-	
+
 
 	public ActualizaNIFs(String cdp, String oldNIF, String newNIF, DBConnection connEA, boolean esVFISC)
 	{
@@ -47,8 +47,8 @@ public class ActualizaNIFs
 		this.connEA=connEA;
 		this.esVFISC = esVFISC;
 	}
-	
-    public boolean updateNIF() 
+
+    public boolean updateNIF()
     {
     	this.connJModelos = getConnexio("modelos", connEA);
     	if (!checkNifJModelos())  return false;
@@ -65,9 +65,9 @@ public class ActualizaNIFs
     	if (sinc.next()) numInc = sinc.getint("codi");
     	sinc.close();
 		Selector selecConnection = new Selector(connEA);
-		
+
 		selecConnection.execute("Select * from CDP where cdpcodi = '"+cdp+"'");
-		
+
 		if(selecConnection.next())
 		{
 			jnomina = selecConnection.getString("cdpcknomina");
@@ -80,8 +80,8 @@ public class ActualizaNIFs
 					if (!execute) aplicError = "jNomina";
 				}
 			}
-			
-			
+
+
 			jeo = selecConnection.getString("cdpckeo");
 			if(execute)
 			{
@@ -92,7 +92,7 @@ public class ActualizaNIFs
 					if (!execute) aplicError = "jEo";
 				}
 			}
-			
+
 			jiss = selecConnection.getString("cdpckiss");
 			if(execute)
 			{
@@ -113,7 +113,7 @@ public class ActualizaNIFs
 					if (!execute) aplicError = "jRenta";
 				}
 			}
-			
+
 			jconta = selecConnection.getString("cdpckconta");
 			if(execute)
 			{
@@ -124,23 +124,23 @@ public class ActualizaNIFs
 				}
 			}
 		}
-		
+
 		if(execute)
-		{			
+		{
 	    	execute = CambiarNIFJModelos(this.connJModelos);
 	    	if (!execute) aplicError = "jModelos";
 		}
-		
+
 		if(execute) {
 			execute = CambiarNIFJEa(connEA);
 			if (!execute) aplicError = "jEa";
 		}
-		
+
 		if(execute) connEA.commit();
 		else connEA.rollback();
-	
+
     	selecConnection.close();
-		
+
 		if(execute && jnomina!=null && jnomina.equals("S"))
 		{
 			connJNomina.commit();
@@ -151,7 +151,7 @@ public class ActualizaNIFs
 			connJNomina.rollback();
 			connJNomina.disconnect();
 		}
-		
+
 		if(execute && jeo!=null && jeo.equals("S"))
 		{
 			connJEo.commit();
@@ -172,7 +172,7 @@ public class ActualizaNIFs
 			connJEo.rollback();
 			connJEo.disconnect();
 		}
-		
+
 		if(jconta!=null && jconta.equals("S"))
 		{
 			Iterator<DBConnection> it1 = v1.iterator();
@@ -184,38 +184,38 @@ public class ActualizaNIFs
 					connJConta.commit();
 					connJConta.disconnect();
 				}
-				else 
+				else
 				{
 					connJConta.rollback();
 					connJConta.disconnect();
 				}
 			}
 		}
-			
+
 		if(execute) connJModelos.commit();
 		else connJModelos.rollback();
-		
+
 		connJModelos.disconnect();
-		
-		if(execute) 
+
+		if(execute)
 		{
-			if(hayIncidencia && !esVFISC) 
+			if(hayIncidencia && !esVFISC)
 			{
 				int resp = Maefc.message("Se han modificado los NIF/CIF correctamente, pero se han producido incidencias durante el proceso. \n\n¿Desea ver las incidencias?","Atención",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION);
 				if(resp == Maefc.YES_OPTION) abrirIncidencias();
 			}
 			else Maefc.message("Se han modificado los NIF/CIF correctamente","Atención",Maefc.INFORMATION_MESSAGE);
 
-			
+
 
 		}
 		else Maefc.message("Se ha producido un error al cambiar el NIF en "+aplicError+".","Error",Maefc.ERROR_MESSAGE);
 
-		
+
 		return execute;
 	}
-    
-    private void abrirIncidencias() 
+
+    private void abrirIncidencias()
     {
 		mae.easp.adminciden.ProgAdminciden pr = new mae.easp.adminciden.ProgAdminciden ();
 		pr.setConnection(connEA);
@@ -229,14 +229,14 @@ public class ActualizaNIFs
     	Easp.grabaIncidencia(connEA, "ActualizaNIFs", "Cambio NIF "+titulo, msg);
     }
 
-	
-	private DBConnection getConnexio(String nombd, DBConnection connEA) 
+
+	private DBConnection getConnexio(String nombd, DBConnection connEA)
 	{
-		// return(conectaBD(nombd, connEA.getDB().getServer(), connEA.getDB().getUser(), connEA.getDB().getPassword(), connEA.getDB().getType()));	
+		// return(conectaBD(nombd, connEA.getDB().getServer(), connEA.getDB().getUser(), connEA.getDB().getPassword(), connEA.getDB().getType()));
 	  return Easp.getConnexio(nombd,connEA) ;
     }
-	
-	private boolean CambiarNIFJNomina(DBConnection connJNomina) 
+
+	private boolean CambiarNIFJNomina(DBConnection connJNomina)
 	{
 		try {
 		      Update up = new Update (connJNomina,"EMPRESA");
@@ -254,7 +254,7 @@ public class ActualizaNIFs
 		     return false ;
 	}
 
-	private boolean CambiarNIFJEo(DBConnection connJEo) 
+	private boolean CambiarNIFJEo(DBConnection connJEo)
 	{
 		try {
 		      Update up = new Update(connJEo,"EMPRESA");
@@ -271,8 +271,8 @@ public class ActualizaNIFs
 		      }
 		     return false ;
 	}
-	
-	private boolean CambiarNIFJIss(DBConnection connJIss) 
+
+	private boolean CambiarNIFJIss(DBConnection connJIss)
 	{
 		try {
 		      if ( cdp == null || newNIF == null || newNIF.equals("") || cdp.length() < 12 ) return false;
@@ -289,7 +289,7 @@ public class ActualizaNIFs
 		      }
 		     return false ;
 	}
-	private boolean CambiarNIFJRenta(DBConnection connJRenta) 
+	private boolean CambiarNIFJRenta(DBConnection connJRenta)
 	{
 		try {
 		      if ( cdp == null || newNIF == null || newNIF.equals("") || cdp.length() < 12 ) return false;
@@ -299,7 +299,7 @@ public class ActualizaNIFs
 		      if   ( ok )  {
 			      up = new Update(connJRenta,"DECLARANTE");
 			      up.valor("decnifcon",newNIF);
-			      ok = up.execute("deccodigocdpcon = '"+cdp+"'");		    	  		    	  
+			      ok = up.execute("deccodigocdpcon = '"+cdp+"'");
 		    	  if (ok) return true ;
 		      }
 		      System.out.println("Error al  actualizar nif en jRenta tabla DECLARANTE");
@@ -310,16 +310,16 @@ public class ActualizaNIFs
 		      }
 		     return false ;
 	}
-	
-	private boolean CambiarNIFJEa(DBConnection connJEa) 
+
+	private boolean CambiarNIFJEa(DBConnection connJEa)
 	{
 		Delete d = null;
 		boolean execute = true;
 		Selector newNIFSelector = new Selector(connJEa.getDataBase());
 		Selector oldNIFSelector = new Selector(connJEa.getDataBase());
-		
+
 		oldNIFSelector.execute("Select * from NIFES where danifcif = '"+oldNIF+"'");
-		
+
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
@@ -439,8 +439,8 @@ public class ActualizaNIFs
 				up.valor("datnfax    ".trim(),oldNIFSelector.getint("datnfax    ".trim()));
 				up.valor("datntel2   ".trim(),oldNIFSelector.getint("datntel2   ".trim()));
 				up.valor("datnmovil2 ".trim(),oldNIFSelector.getint("datnmovil2 ".trim()));
-				up.valor("datnfax2   ".trim(),oldNIFSelector.getint("datnfax2   ".trim()));				
-				
+				up.valor("datnfax2   ".trim(),oldNIFSelector.getint("datnfax2   ".trim()));
+
 				if(execute)  execute = up.execute("danifcif='"+newNIF+"'");
 			}
 			else
@@ -486,7 +486,7 @@ public class ActualizaNIFs
 				i.valor("datcbienes", oldNIFSelector.getString("datcbienes"));
 				i.valor("datdominio", oldNIFSelector.getString("datdominio"));
 				i.valor("datnacional", oldNIFSelector.getint("datnacional"));
-				
+
 				i.valor("datfftvia  ".trim(),oldNIFSelector.getString("datfftvia  ".trim()));
 				i.valor("datfvia    ".trim(),oldNIFSelector.getString("datfvia    ".trim()));
 				i.valor("datftnum   ".trim(),oldNIFSelector.getString("datftnum   ".trim()));
@@ -561,14 +561,14 @@ public class ActualizaNIFs
 			}
 			newNIFSelector.close();
 		}
-		
+
 		oldNIFSelector.close();
 		oldNIFSelector.execute("Select * from PERFILTRIBUT where pftnif = '"+oldNIF+"'");
-		
+
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
-		
+
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
 			newNIFSelector.execute("Select * from PERFILTRIBUT where pftnif = '"+newNIF+"' and pftejercicio = "+oldNIFSelector.getint("pftejercicio"));
 			if(newNIFSelector.next())
@@ -589,12 +589,12 @@ public class ActualizaNIFs
 				i.valor("pftintracom", oldNIFSelector.getString("pftintracom"));
 				i.valor("pftintrastat", oldNIFSelector.getString("pftintrastat"));
 				i.valor("pftfechafin", oldNIFSelector.getDate("pftfechafin"));
-				
+
 				execute = i.execute();
 			}
 			newNIFSelector.close();
 		}
-		oldNIFSelector.close();		
+		oldNIFSelector.close();
 
 		//if(execute) execute = UpdateNIF(connJEa, "NIFESMUF", "mufnif",(connJEa.getDB().getCatalogs())[1]);
 		if(execute) execute = UpdateNIF(connJEa, "NIFESMUF", "mufnif",new mae.easp.db.CatEasp ());
@@ -605,17 +605,17 @@ public class ActualizaNIFs
 		if(execute) execute = UpdateNIF(connJEa, "MIR", "mircif");
 		//if(execute) execute = UpdateNIF(connJEa, "EMPMODELOS", "emodnif",(connJEa.getDB().getCatalogs())[1]);
 		if(execute) execute = UpdateNIF(connJEa, "EMPMODELOS", "emodnif",new mae.easp.db.CatEasp ());
-		
-		
+
+
 		d = new Delete(connJEa, "PERFILTRIBUT");
 		if(execute) d.execute("pftnif='"+oldNIF+"'");
-		
+
 		//if(execute) execute = UpdateNIF(connJEa, "AVISADO", "avinif",(connJEa.getDB().getCatalogs())[1]);
 		if(execute) execute = UpdateNIF(connJEa, "AVISADO", "avinif",new mae.easp.db.CatEasp ());
-		
+
 		return execute;
 	}
-	
+
 	private DBConnection conectaBD(String bdnom, String bdserver, String bduser, String bdpassword, String bdtype) {
 	   /*
 	    DataBase db=new DataBase();
@@ -625,39 +625,39 @@ public class ActualizaNIFs
 	    db.setMyPassword(bdpassword);
 	    db.setType(bdtype);
 	    DBConnection conn=new DBConnection(db);
-	    
-	    if (bdnom.equals("modelos")) 
+
+	    if (bdnom.equals("modelos"))
 	    {
             CatModgen catmodgen = new CatModgen();
             CatModelos1 catmodelos1 = new CatModelos1();
             CatModelos2 catmodelos2 = new CatModelos2();
             Catalog array[] = {catmodelos1,catmodelos2,catmodgen};
             db.setCatalogs(array);
-        }	    
-	    else if (bdnom.equals("laboral")) 
+        }
+	    else if (bdnom.equals("laboral"))
 	    {
             CatLaboral catlaboral = new CatLaboral();
             Catalog array[] = {catlaboral};
             db.setCatalogs(array);
-        }	    
-	    else if (bdnom.equals("jeo")) 
+        }
+	    else if (bdnom.equals("jeo"))
 	    {
             CatJeo catjeo = new CatJeo();
             Catalog array[] = {catjeo};
             db.setCatalogs(array);
         }
-	    else if (bdnom.startsWith("cta")) 
+	    else if (bdnom.startsWith("cta"))
 	    {
             CatCtasp catctasp = new CatCtasp();
             Catalog array[] = {catctasp};
             db.setCatalogs(array);
-        }	    
-	    else if (bdnom.startsWith("jiss")) 
+        }
+	    else if (bdnom.startsWith("jiss"))
 	    {
 	    	CatJiss catjiss = new CatJiss ();
             Catalog array[] = {catjiss};
             db.setCatalogs(array);
-        }	    
+        }
 	    conn=new DBConnection(db);
 	    if (conn.connect()) return conn;
 	    else return null;
@@ -665,13 +665,13 @@ public class ActualizaNIFs
 	   return Easp.conectaBD(bdnom,bdserver,bduser,bdpassword,bdtype);
 	  }
 
-	private boolean cambiarNifJConta() 
+	private boolean cambiarNifJConta()
 	{
 	  boolean bOk = true;
 	  v1 = new Vector<DBConnection>();
 	  Selector s = new Selector (connEA);
 	  s.execute("Select * from bdscargadas where bddominio='"+cdp+"'");
-	  
+
 	  while (s.next() && bOk) {
 	    int numEmp = 0;
 	    try {
@@ -697,9 +697,9 @@ public class ActualizaNIFs
 		boolean execute = true;
 		Selector newNIFSelector = new Selector(connJModelos.getDataBase());
 		Selector oldNIFSelector = new Selector(connJModelos.getDataBase());
-		
+
 		oldNIFSelector.execute("Select * from MOD300 where m300nif = '"+oldNIF+"'");
-		
+
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
@@ -822,16 +822,16 @@ public class ActualizaNIFs
 			newNIFSelector.close();
 		}
 		oldNIFSelector.close();
-		
+
 		oldNIFSelector.execute("Select * from MOD3901 where m901nif = '"+oldNIF+"'");
-		
+
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
 			newNIFSelector.execute("Select * from MOD3901 where m901dominio = '"+oldNIFSelector.getString("m901dominio")+"' and m901nif = '"+newNIF+"' and m901ejercicio = "+oldNIFSelector.getint("m901ejercicio")+" and m901periodo = '"+oldNIFSelector.getString("m901periodo")+"'");
 			if(newNIFSelector.next()) {
-				grabarIncidencia("jModelos", "Se ha eliminado el modelo 390 m901dominio = '"+oldNIFSelector.getString("m901dominio")+"' and m901nif = '"+oldNIF+"' and m901ejercicio = "+oldNIFSelector.getint("m901ejercicio")+" and m901periodo = '"+oldNIFSelector.getString("m901periodo")+"' ya que existía un 390 con el nuevo NIF "+newNIF);				
+				grabarIncidencia("jModelos", "Se ha eliminado el modelo 390 m901dominio = '"+oldNIFSelector.getString("m901dominio")+"' and m901nif = '"+oldNIF+"' and m901ejercicio = "+oldNIFSelector.getint("m901ejercicio")+" and m901periodo = '"+oldNIFSelector.getString("m901periodo")+"' ya que existía un 390 con el nuevo NIF "+newNIF);
 			}
 			else
 			{
@@ -854,25 +854,25 @@ public class ActualizaNIFs
 				i.valor("m901provincia", oldNIFSelector.getString("m901provincia"));
 				i.valor("m901cpostal", oldNIFSelector.getString("m901cpostal"));
 				i.valor("m901devexport", oldNIFSelector.getString("m901devexport"));
-				i.valor("m901devjustant", oldNIFSelector.getString("m901devjustant"));				
+				i.valor("m901devjustant", oldNIFSelector.getString("m901devjustant"));
 				i.valor("m901estactpcpal", oldNIFSelector.getString("m901estactpcpal"));
 				i.valor("m901estclapcpal", oldNIFSelector.getdouble("m901estclapcpal"));
-				i.valor("m901estepipcpal", oldNIFSelector.getString("m901estepipcpal"));				
+				i.valor("m901estepipcpal", oldNIFSelector.getString("m901estepipcpal"));
 				i.valor("m901estactvtra1", oldNIFSelector.getString("m901estactvtra1"));
 				i.valor("m901estclaotra1", oldNIFSelector.getdouble("m901estclaotra1"));
-				i.valor("m901estepiotra1", oldNIFSelector.getString("m901estepiotra1"));				
+				i.valor("m901estepiotra1", oldNIFSelector.getString("m901estepiotra1"));
 				i.valor("m901estactvtra2", oldNIFSelector.getString("m901estactvtra2"));
 				i.valor("m901estclaotra2", oldNIFSelector.getdouble("m901estclaotra2"));
-				i.valor("m901estepiotra2", oldNIFSelector.getString("m901estepiotra2"));				
+				i.valor("m901estepiotra2", oldNIFSelector.getString("m901estepiotra2"));
 				i.valor("m901estactvtra3", oldNIFSelector.getString("m901estactvtra3"));
 				i.valor("m901estclaotra3", oldNIFSelector.getdouble("m901estclaotra3"));
-				i.valor("m901estepiotra3", oldNIFSelector.getString("m901estepiotra3"));				
+				i.valor("m901estepiotra3", oldNIFSelector.getString("m901estepiotra3"));
 				i.valor("m901estactvtra4", oldNIFSelector.getString("m901estactvtra4"));
 				i.valor("m901estclaotra4", oldNIFSelector.getdouble("m901estclaotra4"));
-				i.valor("m901estepiotra4", oldNIFSelector.getString("m901estepiotra4"));				
+				i.valor("m901estepiotra4", oldNIFSelector.getString("m901estepiotra4"));
 				i.valor("m901estactvtra5", oldNIFSelector.getString("m901estactvtra5"));
 				i.valor("m901estclaotra5", oldNIFSelector.getdouble("m901estclaotra5"));
-				i.valor("m901estepiotra5", oldNIFSelector.getString("m901estepiotra5"));				
+				i.valor("m901estepiotra5", oldNIFSelector.getString("m901estepiotra5"));
 				i.valor("m901estdopterc", oldNIFSelector.getString("m901estdopterc"));
 				i.valor("m901estdconjnif", oldNIFSelector.getString("m901estdconjnif"));
 				i.valor("m901estdconjrso", oldNIFSelector.getString("m901estdconjrso"));
@@ -932,10 +932,10 @@ public class ActualizaNIFs
 			}
 			newNIFSelector.close();
 		}
-		
+
 		oldNIFSelector.close();
 		oldNIFSelector.execute("Select * from MOD180e where m180enif = '"+oldNIF+"'");
-		
+
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
@@ -991,11 +991,11 @@ public class ActualizaNIFs
 		}
 		oldNIFSelector.close();
 		oldNIFSelector.execute("Select * from MOD190C where m190cnif = '"+oldNIF+"'");
-		
+
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
-			
+
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
 			newNIFSelector.execute("Select * from MOD190C where m190cdominio = '"+oldNIFSelector.getString("m190cdominio")+"' and m190cnif = '"+newNIF+"' and m190cejercicio = "+oldNIFSelector.getint("m190cejercicio")+" and m190cperiodo = '"+oldNIFSelector.getString("m190cperiodo")+"'");
 			if(newNIFSelector.next())
@@ -1056,14 +1056,14 @@ public class ActualizaNIFs
 			}
 			newNIFSelector.close();
 		}
-		
+
 		oldNIFSelector.close();
 		oldNIFSelector.execute("Select * from MOD347C where m347cnif = '"+oldNIF+"'");
-		
+
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
-			
+
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
 			newNIFSelector.execute("Select * from MOD347C where m347cdominio = '"+oldNIFSelector.getString("m347cdominio")+"' and m347cnif = '"+newNIF+"' and m347cejercicio = "+oldNIFSelector.getint("m347cejercicio")+" and m347cperiodo = '"+oldNIFSelector.getString("m347cperiodo")+"'");
 			if(newNIFSelector.next())
@@ -1125,14 +1125,14 @@ public class ActualizaNIFs
 			}
 			newNIFSelector.close();
 		}
-		
+
 		oldNIFSelector.close();
 		oldNIFSelector.execute("Select * from MOD340C where m340cnif = '"+oldNIF+"'");
 
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
-			
+
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
 			newNIFSelector.execute("Select * from MOD340C where m340cdominio = '"+oldNIFSelector.getString("m340cdominio")+"' and m340cnif = '"+newNIF+"' and m340cejercicio = "+oldNIFSelector.getint("m340cejercicio")+" and m340cperiodo = '"+oldNIFSelector.getString("m340cperiodo")+"'");
 			if(newNIFSelector.next())
@@ -1180,12 +1180,12 @@ public class ActualizaNIFs
 			}
 			newNIFSelector.close();
 		}
-		
+
 		oldNIFSelector.close();
 
-		
+
 		oldNIFSelector.execute("Select * from MOD193C where m193cnif = '"+oldNIF+"'");
-		
+
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
@@ -1244,14 +1244,14 @@ public class ActualizaNIFs
 			}
 			newNIFSelector.close();
 		}
-		
+
 		oldNIFSelector.close();
 		oldNIFSelector.execute("Select * from MOD349C where m349cnif = '"+oldNIF+"'");
-		
+
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
-			
+
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
 			newNIFSelector.execute("Select * from MOD349C where m349cdominio = '"+oldNIFSelector.getString("m349cdominio")+"' and m349cnif = '"+newNIF+"' and m349cejercicio = "+oldNIFSelector.getint("m349cejercicio")+" and m349cperiodo = '"+oldNIFSelector.getString("m349cperiodo")+"'");
 			if(newNIFSelector.next())
@@ -1316,14 +1316,14 @@ public class ActualizaNIFs
 			}
 			newNIFSelector.close();
 		}
-		
+
 		oldNIFSelector.close();
 		oldNIFSelector.execute("Select * from MODINTC where mintcnif = '"+oldNIF+"'");
-		
+
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
-			
+
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
 			newNIFSelector.execute("Select * from MODINTC where mintcdominio = '"+oldNIFSelector.getString("mintcdominio")+"' and mintcnif = '"+newNIF+"' and mintcejercicio = "+oldNIFSelector.getint("mintcejercicio")+" and mintcperiodo = '"+oldNIFSelector.getString("mintcperiodo")+"'");
 			if(newNIFSelector.next())
@@ -1360,10 +1360,10 @@ public class ActualizaNIFs
 			newNIFSelector.close();
 		}
 		oldNIFSelector.close();
-		
+
 		/*modelos2*/
 		oldNIFSelector.execute("Select * from MOD184D where m184dnif = '"+oldNIF+"'");
-		
+
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
@@ -1456,26 +1456,26 @@ public class ActualizaNIFs
 			}
 			newNIFSelector.close();
 		}
-			
+
 		oldNIFSelector.close();
 		/*MODGEN*/
 		oldNIFSelector.execute("Select * from MODESTADO where mesnif = '"+oldNIF+"'");
-		
+
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
-			newNIFSelector.execute("Select * from MODESTADO where mesdominio = '"+oldNIFSelector.getString("mesdominio")+"' and mesmodelo = '"+oldNIFSelector.getString("mesmodelo")+"' and mesnif = '"+newNIF+"' and mesejercicio = "+oldNIFSelector.getint("mesejercicio")+" and mesperiodo = '"+oldNIFSelector.getString("mesperiodo")+"'");			
+			newNIFSelector.execute("Select * from MODESTADO where mesdominio = '"+oldNIFSelector.getString("mesdominio")+"' and mesmodelo = '"+oldNIFSelector.getString("mesmodelo")+"' and mesnif = '"+newNIF+"' and mesejercicio = "+oldNIFSelector.getint("mesejercicio")+" and mesperiodo = '"+oldNIFSelector.getString("mesperiodo")+"'");
 			if(newNIFSelector.next()) {
 				grabarIncidencia("jModelos", "Se ha eliminado el estado del Modelo mesdominio = '"+oldNIFSelector.getString("mesdominio")+"' and mesmodelo = '"+oldNIFSelector.getString("mesmodelo")+"' and mesnif = '"+oldNIF+"' and mesejercicio = "+oldNIFSelector.getint("mesejercicio")+" and mesperiodo = '"+oldNIFSelector.getString("mesperiodo")+"' ya que existía un Modestado con el nuevo NIF "+newNIF);
-				
+
 			}
 			else
 			{
 				/*No existe el registro con el nuevo NIF --> lo creamos*/
 				Insert i = new Insert(connJModelos, "MODESTADO");
 				i.valor("mesdominio", oldNIFSelector.getString("mesdominio"));
-				i.valor("mesmodelo", oldNIFSelector.getString("mesmodelo"));	
+				i.valor("mesmodelo", oldNIFSelector.getString("mesmodelo"));
 				i.valor("mesnif", newNIF);
 				i.valor("mesejercicio", oldNIFSelector.getint("mesejercicio"));
 				i.valor("mesperiodo", oldNIFSelector.getString("mesperiodo"));
@@ -1531,23 +1531,23 @@ public class ActualizaNIFs
 				i.valor("mesuserk", oldNIFSelector.getString("mesuserk"));
 				i.valor("mesplatk", oldNIFSelector.getString("mesplatk"));
 				i.valor("mesaplazada", oldNIFSelector.getString("mesaplazada"));
-				
+
 				execute = i.execute();
 			}
 			newNIFSelector.close();
 		}
-		
+
 		oldNIFSelector.close();
 		oldNIFSelector.execute("Select * from MODACTEO where MAENIF = '"+oldNIF+"'");
-		
+
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
-			
+
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
-			newNIFSelector.execute("Select * from MODACTEO where MAEDOMINIO = '"+oldNIFSelector.getString("MAEDOMINIO")+"' and MAENIF = '"+newNIF+"' and MAECODIGO = "+oldNIFSelector.getint("MAECODIGO"));			
+			newNIFSelector.execute("Select * from MODACTEO where MAEDOMINIO = '"+oldNIFSelector.getString("MAEDOMINIO")+"' and MAENIF = '"+newNIF+"' and MAECODIGO = "+oldNIFSelector.getint("MAECODIGO"));
 			if(newNIFSelector.next()) {
-				grabarIncidencia("jModelos", "Se ha eliminado ACTEO MAEDOMINIO = '"+oldNIFSelector.getString("MAEDOMINIO")+"' and MAENIF = '"+newNIF+"' and MAECODIGO = "+oldNIFSelector.getint("MAECODIGO")+"' ya que existía una ACTEO con el nuevo NIF "+newNIF);				
+				grabarIncidencia("jModelos", "Se ha eliminado ACTEO MAEDOMINIO = '"+oldNIFSelector.getString("MAEDOMINIO")+"' and MAENIF = '"+newNIF+"' and MAECODIGO = "+oldNIFSelector.getint("MAECODIGO")+"' ya que existía una ACTEO con el nuevo NIF "+newNIF);
 			}
 			else
 			{
@@ -1590,17 +1590,17 @@ public class ActualizaNIFs
 			}
 			newNIFSelector.close();
 		}
-	
-		
-		
+
+
+
 		oldNIFSelector.close();
-		
+
 		oldNIFSelector.execute("Select * from MOD296R where m296rnif = '"+oldNIF+"'");
-		
+
 		/*Hay que copiar cada uno de los registros del NIF antiguo con el NIF nuevo*/
 		while(execute && oldNIFSelector.next())
 		{
-			
+
 			/*Comprobamos que no exista el registro con el nuevo NIF*/
 			newNIFSelector.execute("Select * from MOD296R where m296rdominio = '"+oldNIFSelector.getString("m296rdominio")+"' and m296rnif = '"+newNIF+"' and m296rejercicio = "+oldNIFSelector.getint("m296rejercicio")+" and m296rperiodo = '"+oldNIFSelector.getString("m296rperiodo")+"'");
 			if(newNIFSelector.next())
@@ -1638,23 +1638,23 @@ public class ActualizaNIFs
 			}
 			newNIFSelector.close();
 		}
-		
+
 		oldNIFSelector.close();
-		
-		
-		
-		
-		
+
+
+
+
+
 		/*Hacemos el update de las tablas que no tienen problemas de restricciones*/
 		if (execute) execute = UpdateNIFs(connJModelos);
-		
+
 		/*Borramos los campos con los NIF antiguos que previamente habiamos duplicado*/
 		if (execute) execute = DeleteNIFs(connJModelos);
-		
+
 		if (execute) execute = evaluarIncidenciasJModelos ();
 		return execute;
 	}
-	
+
 	private boolean evaluarIncidenciasJModelos() {
 		Hashtable<String,String> ht = new Hashtable<String, String>();
 		Selector s = new Selector (connJModelos);
@@ -1678,10 +1678,10 @@ public class ActualizaNIFs
 		return true;
 	}
 
-	private boolean UpdateNIFs(DBConnection connJModelos) 
+	private boolean UpdateNIFs(DBConnection connJModelos)
 	{
 		boolean execute = true;
-		
+
 		/*modelos1*/
 		if(execute) execute = UpdateNIF(connJModelos, "MOD300DES", "m300dnif",(connJModelos.getDB().getCatalogs())[0]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD300PRO", "mpronif",(connJModelos.getDB().getCatalogs())[0]);
@@ -1726,7 +1726,7 @@ public class ActualizaNIFs
 		if(execute) execute = UpdateNIF(connJModelos, "MOD296D", "m296dnif");
 		if(execute) execute = UpdateNIF(connJModelos, "MOD322", "m322nif",(connJModelos.getDB().getCatalogs())[0]);
 
-		
+
 		/*modelos2*/
 		if(execute) execute = UpdateNIF(connJModelos, "MOD184E", "m184enif");
 		if(execute) execute = UpdateNIF(connJModelos, "MOD184N", "m184nnif");
@@ -1766,6 +1766,7 @@ public class ActualizaNIFs
 		if(execute) execute = UpdateNIF(connJModelos, "MOD100H4", "m14nif",(connJModelos.getDB().getCatalogs())[3]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD100H5", "m15nif",(connJModelos.getDB().getCatalogs())[3]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD100H6", "m16nif",(connJModelos.getDB().getCatalogs())[3]);
+    if(execute) execute = UpdateNIF(connJModelos, "MOD100H6D", "m16nif",(connJModelos.getDB().getCatalogs())[3]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD100H7", "m17nif",(connJModelos.getDB().getCatalogs())[3]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD100H8", "m18nif",(connJModelos.getDB().getCatalogs())[3]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD100H9", "m19nif",(connJModelos.getDB().getCatalogs())[3]);
@@ -1808,7 +1809,7 @@ public class ActualizaNIFs
 		if(execute) execute = UpdateNIF(connJModelos, "MOD200H23", "m2023nif",(connJModelos.getDB().getCatalogs())[4]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD200H24", "m2024nif",(connJModelos.getDB().getCatalogs())[4]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD200HCP", "m20cpnif",(connJModelos.getDB().getCatalogs())[4]);
-		
+
 		if(execute) execute = UpdateNIF(connJModelos, "MOD714H1", "m71nif",(connJModelos.getDB().getCatalogs())[5]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD714H2", "m72nif",(connJModelos.getDB().getCatalogs())[5]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD714H3", "m73nif",(connJModelos.getDB().getCatalogs())[5]);
@@ -1822,7 +1823,7 @@ public class ActualizaNIFs
 		if(execute) execute = UpdateNIF(connJModelos, "MOD714H11", "m711nif",(connJModelos.getDB().getCatalogs())[5]);
 
 		if(execute) execute = UpdateNIF(connJModelos, "MOD102", "m102nif",(connJModelos.getDB().getCatalogs())[0]);
-		
+
 		/*MODGEN*/
 		if(execute) execute = UpdateNIF(connJModelos, "MODNIFCDP", "mncnif",(connJModelos.getDB().getCatalogs())[2]);
 		if(execute) execute = UpdateNIF(connJModelos, "PRESENTADOR", "prenif");
@@ -1834,10 +1835,10 @@ public class ActualizaNIFs
 		if(execute) execute = UpdateNIF(connJModelos, "MODINGAGR", "MNANIF",(connJModelos.getDB().getCatalogs())[2]);
 		if(execute) execute = UpdateNIF(connJModelos, "CODELECMAT", "cemnif");
 		if(execute) execute = UpdateNIF(connJModelos, "IMPORTCFG", "imcnif",(connJModelos.getDB().getCatalogs())[2]);
-		if(execute) execute = UpdateNIF(connJModelos, "IMPORTHIS", "imhnif");		
+		if(execute) execute = UpdateNIF(connJModelos, "IMPORTHIS", "imhnif");
 		return execute;
 	}
-	
+
 	private boolean UpdateNIF(DBConnection conn, String nomTaula, String nomCampNIF, Catalog catalog)
 	{
 		boolean execute = true;
@@ -1846,17 +1847,17 @@ public class ActualizaNIFs
 		FieldDef[] primaryKeys = tb.getPrimaryKeys();
 		FieldDef primaryKey = null;
 		Selector oldNIFSelector = new Selector(conn);
-		
-		
+
+
 		oldNIFSelector.execute("Select * from "+nomTaula+" where "+nomCampNIF+" = '"+oldNIF+"'");
-		
+
 		while(oldNIFSelector.next())
 		{
 			for(int i = 0; i < primaryKeys.length; i++)
 			{
 				primaryKey = primaryKeys[i];
 				condicion = condicion.concat(primaryKey.getName());
-				
+
 				if(primaryKey.getType() == FieldDef.INTEGER)
 				{
 					condicion = condicion.concat(" ="+oldNIFSelector.getint(primaryKey.getName()));
@@ -1879,17 +1880,17 @@ public class ActualizaNIFs
 				condicion = condicion.concat(" and ");
 			}
 			condicion = condicion.substring(0, condicion.length()-4);
-			
+
 			Selector selector = new Selector(conn);
 			selector.execute("Select * from "+nomTaula+" where "+condicion);
-			
+
 			condicion = "";
-			
+
 			for(int i = 0; i < primaryKeys.length; i++)
 			{
 				primaryKey = primaryKeys[i];
 				condicion = condicion.concat(primaryKey.getName());
-				
+
 				if(primaryKey.getType() == FieldDef.INTEGER)
 				{
 					condicion = condicion.concat(" ="+oldNIFSelector.getint(primaryKey.getName()));
@@ -1912,43 +1913,43 @@ public class ActualizaNIFs
 				condicion = condicion.concat(" and ");
 			}
 			condicion = condicion.substring(0, condicion.length()-4);
-			
+
 			if(selector.next())
 			{
 				//existe una pk con el nuevo nif
-				
+
 				Delete d = new Delete(conn, nomTaula);
-					
+
 				if(execute) execute = d.execute(condicion);
-				
+
 				System.out.println("Select * from "+nomTaula+" where "+condicion);
 				grabarIncidencia("jModelos", "Se ha eliminado de la tabla"+nomTaula+" el registro "+condicion+" ya que existía otro con el nuevo NIF "+newNIF);
 
-				
+
 			}
 			else
 			{
 				/*Update del registro con el nuevo nif*/
 				Update up = new Update(conn, nomTaula);
-				
+
 				up.valor(nomCampNIF, newNIF);
-				
+
 				if(execute) execute = up.execute(condicion);
 			}
 			condicion = "";
 			selector.close();
 		}
 		oldNIFSelector.close();
-		
+
 	return execute;
 	}
-	
+
 	private boolean UpdateNIF(DBConnection conn, String nomTaula, String nomCampNIF)
 	{
 		boolean execute = true;
 		Update up = new Update(conn, nomTaula);
 		up.valor(nomCampNIF, newNIF);
-		
+
 		if(nomTaula.trim().toUpperCase().equals("CDP"))
 		{
 			/*Se tiene que filtrar por oldNIF y por cdp*/
@@ -1958,62 +1959,62 @@ public class ActualizaNIFs
 		{
 			execute = up.execute(nomCampNIF+"='"+oldNIF+"'");
 		}
-		
+
 		return(execute);
 	}
-	
-	private boolean DeleteNIFs(DBConnection connJModelos) 
+
+	private boolean DeleteNIFs(DBConnection connJModelos)
 	{
 		/*modelos1*/
 		Delete d = new Delete(connJModelos, "MOD300");
 		boolean execute = d.execute("m300nif='"+oldNIF+"'");
-		
+
 		d = new Delete(connJModelos, "MOD3901");
 		if(execute)  execute = d.execute("m901nif='"+oldNIF+"'");
-		
+
 		d = new Delete(connJModelos, "MOD180e");
 		if(execute)  execute = d.execute("m180enif='"+oldNIF+"'");
-		
+
 		d = new Delete(connJModelos, "MOD190C");
 		if(execute)  execute = d.execute("m190cnif='"+oldNIF+"'");
-		
+
 		d = new Delete(connJModelos, "MOD347C");
 		if(execute)  execute = d.execute("m347cnif='"+oldNIF+"'");
 
 		d = new Delete(connJModelos, "MOD340C");
 		if(execute)  execute = d.execute("m340cnif='"+oldNIF+"'");
-		
+
 		d = new Delete(connJModelos, "MOD193C");
 		if(execute)  execute = d.execute("m193cnif='"+oldNIF+"'");
-		
+
 		d = new Delete(connJModelos, "MOD349C");
 		if(execute)  execute = d.execute("m349cnif='"+oldNIF+"'");
 
 		d = new Delete(connJModelos, "MOD296R");
 		if(execute)  execute = d.execute("m296rnif='"+oldNIF+"'");
-		
+
 		d = new Delete(connJModelos, "MODINTC");
 		if(execute)  execute = d.execute("mintcnif='"+oldNIF+"'");
-		
+
 		/*modelos2*/
 		d = new Delete(connJModelos, "MOD184D");
 		if(execute)  execute = d.execute("m184dnif='"+oldNIF+"'");
-		
+
 		/*MODGEN*/
 		d = new Delete(connJModelos, "MODESTADO");
 		if(execute)  execute = d.execute("mesnif='"+oldNIF+"'");
-		
+
 		d = new Delete(connJModelos, "MODACTEO");
-		if(execute) execute = d.execute("MAENIF='"+oldNIF+"'");	
-		
+		if(execute) execute = d.execute("MAENIF='"+oldNIF+"'");
+
 		return execute;
 	}
-	
+
 	private boolean tratar110D_115D_349ACUM(DBConnection conn, String nomTaula, String nomCampNIF )
 	{
 		boolean execute = true;
 		Selector newNIFSelector = new Selector(conn);
-		
+
 		newNIFSelector.execute("Select * from "+nomTaula+" where "+nomCampNIF+" = '"+newNIF+"'");
 		if(nomTaula.trim().toUpperCase().equals("MOD110D"))
 		{
@@ -2025,7 +2026,7 @@ public class ActualizaNIFs
 
 			}
 		}
-		
+
 		if(nomTaula.trim().toUpperCase().equals("MOD115D"))
 		{
 			if(newNIFSelector.next())
@@ -2036,7 +2037,7 @@ public class ActualizaNIFs
 
 			}
 		}
-		
+
 		if(nomTaula.trim().toUpperCase().equals("MOD349ACUM"))
 		{
 			if(newNIFSelector.next())
@@ -2047,7 +2048,7 @@ public class ActualizaNIFs
 
 			}
 		}
-		
+
 		if(nomTaula.trim().toUpperCase().equals("MOD123D"))
 		{
 			if(newNIFSelector.next())
@@ -2058,7 +2059,7 @@ public class ActualizaNIFs
 
 			}
 		}
-		
+
 		if(nomTaula.trim().toUpperCase().equals("MOD216D"))
 		{
 			if(newNIFSelector.next())
@@ -2071,10 +2072,10 @@ public class ActualizaNIFs
 		}
 
 		newNIFSelector.close();
-		
+
 		return execute ;
 	}
-	
+
 	private boolean checkNifJModelos () {
 		boolean continuar = true;
 		vcheck = new Vector<String>();
@@ -2139,7 +2140,7 @@ public class ActualizaNIFs
 		checkNif(connJModelos, "MOD0369", "m0369nif");
 		checkNif(connJModelos, "MOD03610", "m03610nif");
 		checkNif(connJModelos, "MOD03611", "m03611nif");
-		
+
 		checkNif(connJModelos, "MOD036P1", "m36p1nif");
 		checkNif(connJModelos, "MOD036P2", "m36p2anif");
 		checkNif(connJModelos, "MOD036P2B", "m36p2bnif");
@@ -2152,8 +2153,8 @@ public class ActualizaNIFs
 		checkNif(connJModelos, "MOD036P8", "m36p8nif");
 
 		checkNif(connJModelos, "MOD576", "m576nif");
-		checkNif(connJModelos, "MOD130DES", "M130DNIF");				
-		checkNif(connJModelos, "MOD310DES", "M310DNIF");				
+		checkNif(connJModelos, "MOD130DES", "M130DNIF");
+		checkNif(connJModelos, "MOD310DES", "M310DNIF");
 		checkNif(connJModelos, "MODESTADO", "mesnif");
 		checkNif(connJModelos, "MODNIFCDP", "mncnif");
 		checkNif(connJModelos, "PRESENTADOR", "prenif");
@@ -2166,7 +2167,7 @@ public class ActualizaNIFs
 		checkNif(connJModelos, "MODINGAGR", "MNANIF");
 		checkNif(connJModelos, "CODELECMAT", "cemnif");
 		checkNif(connJModelos, "IMPORTCFG", "imcnif");
-		checkNif(connJModelos, "IMPORTHIS", "imhnif");		
+		checkNif(connJModelos, "IMPORTHIS", "imhnif");
 		if (vcheck.size()>0) {
 			String tablas ="";
 			for (int i=0;i<vcheck.size();i++) {
