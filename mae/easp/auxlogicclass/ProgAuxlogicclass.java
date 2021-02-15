@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Jul 16 10:08:56 CEST 2019
+// Fecha y hora:     Thu Feb 04 17:22:14 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -23,10 +23,29 @@ public class ProgAuxlogicclass extends Program
     public ProgAuxlogicclass auxlogicclass;
     // GLOBALES: PROGRAMA
     public boolean bOk = true;
+private String dominio = "";
+private String user = Aplication.getAplication().getUser() ;
+private String ambito = "CONVERLOGICEA" ;
+private String variable = "PARAMLOGICEA" ;
+private String desc     = "Opciones de conversion de Logic a jEA" ;
+private String grupo    = "EASP";
+
+public String[] getParametros(String line) {
+  String contingut[] = new String[5];
+  int tokenNumber=0;
+  java.util.StringTokenizer st = new java.util.StringTokenizer(line, "^");    
+  while(st.hasMoreTokens())
+  {
+  	contingut[tokenNumber] = st.nextToken();
+    tokenNumber++;       
+  }
+  return contingut;
+}
     // Metodos
     // Ventana
     public FormVejecutar vejecutar;
     // Selects
+    public Sparametros sparametros;
     class Location extends LocationTabbed
         {
         public Location( )
@@ -409,6 +428,25 @@ private boolean altaNIFClass () {
   pbf.launch();
   return bOk;
 }
+
+private String getLineaParametros() {
+	String parametros = "";
+	if (vvservidor.getString() != null && !"".equals(vvservidor.getString()))
+		parametros += vvservidor.getString() + "^";
+	else
+		parametros += " ^";
+	if (vvusuario.getString() != null && !"".equals(vvusuario.getString()))
+		parametros += vvusuario.getString() + "^";
+	else
+		parametros += " ^";
+	if (vvcontrasenya.getString() != null && !"".equals(vvcontrasenya.getString()))
+		parametros += vvcontrasenya.getString() + "^";
+	else
+		parametros += " ^";
+	if (vvbase.getString() != null && !"".equals(vvbase.getString()))
+		parametros += vvbase.getString();
+	return parametros;
+}
         // Metodos
         // Controles
         public CtrlVvservidor vvservidor;
@@ -555,7 +593,12 @@ private boolean altaNIFClass () {
             // EVENT: ACCION
             public void onAction ()
                 {
-                if (vvservidor.getString()==null || "".equals(vvservidor.getString().trim()) || vvusuario.getString()==null || "".equals(vvusuario.getString().trim()) || vvbase.getString()==null || "".equals(vvbase.getString().trim()))  Maefc.message("Debe informar los datos.");
+                sparametros.edit();
+sparametros.parvalor.setValue(getLineaParametros());
+sparametros.update();
+sparametros.commit();
+
+if (vvservidor.getString()==null || "".equals(vvservidor.getString().trim()) || vvusuario.getString()==null || "".equals(vvusuario.getString().trim()) || vvbase.getString()==null || "".equals(vvbase.getString().trim()))  Maefc.message("Debe informar los datos.");
                 else {
                    bOk = true;
                    connLogic = getConexioLogic(vvservidor.getString(), vvusuario.getString(), vvcontrasenya.getString(), vvbase.getString());
@@ -570,7 +613,7 @@ private boolean altaNIFClass () {
                       }       
                    }
                    else Maefc.message("No se ha podido conectar con la base de datos de Lógic.");
-                }
+                }
                 }
             }
             
@@ -594,6 +637,7 @@ private boolean altaNIFClass () {
             setLocation(new Location());
             setPrintable(false);
             // SET: VENTANA
+            addSelect(sparametros=new Sparametros());
             addControl(vvservidor=new CtrlVvservidor(this));
             addControl(vvusuario=new CtrlVvusuario(this));
             addControl(vvcontrasenya=new CtrlVvcontrasenya(this));
@@ -603,6 +647,57 @@ private boolean altaNIFClass () {
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        }
+        
+    // 
+    public class Sparametros extends Select
+        {
+        // Tablas
+        // GLOBALES: SELECT
+        // Metodos
+        public Parametros parametros;
+        // Campos
+        public Field pardominio;
+        public Field parusuario;
+        public Field parambito;
+        public Field parvariable;
+        public Field pardesc;
+        public Field partipo;
+        public Field paragrup;
+        public Field parvalor;
+        public Field parespecific;
+        class Parametros extends Table
+            {
+            // GLOBALES: TABLA
+            // Metodos
+            public Parametros(Select select)
+                {
+                super(select);
+                setName("parametros");
+                setOptions(READ | INSERT | DELETE | UPDATE);
+                // SET: TABLA
+                }
+            // GET: TABLA
+            // EVENT: TABLA
+            }
+            
+        public Sparametros()
+            {
+            setName("sparametros");
+            // SET: SELECT
+            addTable(parametros=new Parametros(this));
+            addField(pardominio=new Field(this,parametros,"pardominio"));
+            addField(parusuario=new Field(this,parametros,"parusuario"));
+            addField(parambito=new Field(this,parametros,"parambito"));
+            addField(parvariable=new Field(this,parametros,"parvariable"));
+            addField(pardesc=new Field(this,parametros,"pardesc"));
+            addField(partipo=new Field(this,parametros,"partipo"));
+            addField(paragrup=new Field(this,parametros,"paragrup"));
+            addField(parvalor=new Field(this,parametros,"parvalor"));
+            addField(parespecific=new Field(this,parametros,"parespecific"));
+            }
+        // GET: SELECT
+        // EVENT: SELECT
         }
         
     public ProgAuxlogicclass()
@@ -624,20 +719,44 @@ private boolean altaNIFClass () {
     // EVENT: PROGRAMA
     public void onInit ()
         {
-        mae.easp.cnvaviso.ProgCnvaviso pra = new mae.easp.cnvaviso.ProgCnvaviso ();
+        mae.easp.cnvaviso.ProgCnvaviso pra = new mae.easp.cnvaviso.ProgCnvaviso();
         pra.setModal(false);
-        LocationWindow loc=new LocationWindow();
+        LocationWindow loc = new LocationWindow();
         loc.setWidth(810);
         loc.setHeight(520);
         pra.setLocation(loc);
         pra.run();
         if (!pra.haAceptadoCondiciones) {
-          return;
+        	return;
         }
         setConnection(Easp.connEA);
         vejecutar.aejecutar.setEnabled(false);
         vejecutar.vvcontrasenya.setPassword(true);
         vejecutar.setLayout(new LayoutHtml("mae/easp/html/cnvlogicclass.html"));
+        
+        //sparametros.setDb(contaasp.getCAsp().connEA);
+        if (Easp.dominio != null)
+        	dominio = Easp.dominio;
+        else
+        	dominio = "7777777000000";
+        sparametros.setWhere("pardominio = '" + dominio + "'   AND parusuario = '" + user + "' AND parambito = '" + ambito + "' AND parvariable = '" + variable + "'");
+        sparametros.execute();
+        if (sparametros.isEof()) {
+        	sparametros.addNew();
+        	sparametros.pardominio.setValue(dominio);
+        	sparametros.parusuario.setValue(user);
+        	sparametros.parambito.setValue(ambito);
+        	sparametros.parvariable.setValue(variable);
+        	sparametros.pardesc.setValue(desc);
+        	sparametros.paragrup.setValue(grupo);
+        	sparametros.insert();
+        	sparametros.commit();
+        } else {
+        	vejecutar.vvservidor.setValue(getParametros(sparametros.parvalor.getString())[0]);
+        	vejecutar.vvusuario.setValue(getParametros(sparametros.parvalor.getString())[1]);
+        	vejecutar.vvcontrasenya.setValue(getParametros(sparametros.parvalor.getString())[2]);
+        	vejecutar.vvbase.setValue(getParametros(sparametros.parvalor.getString())[3]);
+        }
         super.onInit();
         }
     }
