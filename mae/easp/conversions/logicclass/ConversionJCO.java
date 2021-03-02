@@ -2466,6 +2466,7 @@ public class ConversionJCO extends ConversionLC {
 			catch (Exception e) {
 			}
 			if (sc!=null && ss!=null) {
+				checkCta (iEmp, iEjerJ, sc, ss,empJconta);
 				Date fechaVencimiento = sf.getDate("FechaVencimiento");
 				String sCtab = sf.getString("Contrapartida");
 				String scb = null;
@@ -2504,6 +2505,7 @@ public class ConversionJCO extends ConversionLC {
 					icp.valor("cobcivcodi", civcodi);
 					icp.valor("cobejerasto", iEjerJ);
 					if (scb!=null && ssb!=null) {
+						checkCta (iEmp, iEjerJ, scb, ssb,empJconta);
 						icp.valor("cobcuentaban", scb);		        	
 						icp.valor("cobsubctaban", ssb);		        	
 					}
