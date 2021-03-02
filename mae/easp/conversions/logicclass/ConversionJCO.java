@@ -1353,7 +1353,7 @@ public class ConversionJCO extends ConversionLC {
 					String ctatmp = cta.substring(0,4);
 					if (htGrupos.containsKey(ctatmp)) {
 						tmp [0] = cta.substring(0,4);
-						tmp [1] = "0"+cta.substring(4);
+						tmp [1] = cta.substring(4);
 						trobat = true;
 					}
 				}
