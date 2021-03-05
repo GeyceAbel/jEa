@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Mar 02 17:04:27 CET 2021
+// Fecha y hora:     Fri Mar 05 12:37:04 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -28,12 +28,14 @@ private static final int CCDP = 1;
 private static final int NIF = 2;
 private static final int NOMBRE = 3;
 private static final int ALTA_AFINITY = 4;
-private static final int USUARIO_AFINITY = 5;
-private static final int PASSWD_AFINITY = 6;
-private static final int CODIGO_AFINITY = 7;
+private static final int CODIGO_AFINITY = 5;
+private static final int USUARIO_AFINITY = 6;
+private static final int PASSWD_AFINITY = 7;
 private static final int PORTAL_AFINITY = 8;
 private static String URL_AZURE = "agpi2dp.getpwdcdp";
+private static String URL_GESDOC = "gesdoc.getcontenido";
 private String xml = "";
+private String gesdoc = "";
 private Azure azure;
 private XMLInputFactory factory;
 private XMLStreamReader reader;
@@ -153,6 +155,13 @@ private boolean isValidTextNode(String node, XMLStreamReader reader) throws XMLS
 		return true;
 	else 
 		return false;
+}
+
+private void netejaChecks() {
+	for (Integer row : selectedRows) {
+		vcdpafinity.getControlTable().refreshValueAt(new Value(0), row, CHECK);
+	}
+	selectedRows.clear();
 }
 
 private class Client {
@@ -289,6 +298,7 @@ eliminarNoMarcados(ALTA_AFINITY);
         public CtrlVvportalcdp vvportalcdp;
         // Acciones
         public LinkAaltafinity aaltafinity;
+        public LinkAgesdoc agesdoc;
         // Fieldsets
         class Location extends LocationSplit
             {
@@ -384,7 +394,7 @@ eliminarNoMarcados(ALTA_AFINITY);
                 public Look( )
                     {
                     super();
-                    setLength(50);
+                    setLength(25);
                     }
                 }
                 
@@ -395,7 +405,7 @@ eliminarNoMarcados(ALTA_AFINITY);
                 setName("datnombre");
                 setTitle("Nombre");
                 setType(STRING);
-                setLength(50);
+                setLength(25);
                 setSearchable(true);
                 setField(scdp.datnombre);
                 // SET: CONTROLEDIT
@@ -430,7 +440,7 @@ eliminarNoMarcados(ALTA_AFINITY);
                 public Look( )
                     {
                     super();
-                    setLength(12);
+                    setLength(15);
                     }
                 }
                 
@@ -441,7 +451,7 @@ eliminarNoMarcados(ALTA_AFINITY);
                 setName("vvcodafinity");
                 setTitle("Código de Afinity");
                 setType(STRING);
-                setLength(10);
+                setLength(15);
                 setSearchable(true);
                 // SET: CONTROLEDIT
                 getWebProperties().setAnchoColumnas (12);
@@ -459,7 +469,7 @@ eliminarNoMarcados(ALTA_AFINITY);
                 public Look( )
                     {
                     super();
-                    setLength(25);
+                    setLength(50);
                     }
                 }
                 
@@ -470,7 +480,7 @@ eliminarNoMarcados(ALTA_AFINITY);
                 setName("vvusuario");
                 setTitle("Usuario");
                 setType(STRING);
-                setLength(10);
+                setLength(50);
                 setSearchable(true);
                 // SET: CONTROLEDIT
                 getWebProperties().setAnchoColumnas (25);
@@ -488,7 +498,7 @@ eliminarNoMarcados(ALTA_AFINITY);
                 public Look( )
                     {
                     super();
-                    setLength(15);
+                    setLength(25);
                     }
                 }
                 
@@ -499,7 +509,7 @@ eliminarNoMarcados(ALTA_AFINITY);
                 setName("vvpasswd");
                 setTitle("Password");
                 setType(STRING);
-                setLength(10);
+                setLength(25);
                 setSearchable(true);
                 // SET: CONTROLEDIT
                 getWebProperties().setAnchoColumnas (15);
@@ -555,13 +565,48 @@ if (selectedRows.size() == 0) {
 			nifExistents.add(nif);
 		}
 	}
-	  Maefc.message(
-	  	((graba) ? selectedRows + " cliente/s dado/s de alta\n" : "") + 
-  			((nifExistents.size() == 1) ? "El cliente " + nifExistents + " ya esta dado de alta en Afinity" : 
-  				"Los clientes " + nifExistents + " ya estan dados de alta en Afinity"),
-  					"Atención",
-  						Maefc.INFORMATION_MESSAGE);
+	if (nifExistents.size() > 0) {
+		Maefc.message("Los clientes " + nifExistents + " ya estan dados de alta en Afinity", "Atención", Maefc.INFORMATION_MESSAGE);		
+	}
+	netejaChecks();
 }
+                }
+            }
+            
+        public class LinkAgesdoc extends Action
+            {
+            public LinkAgesdoc(Form form)
+                {
+                super(form);
+                setName("agesdoc");
+                setTitle("&2. GESDOC");
+                // SET: ACCION
+                setOptions(SHOW);
+                }
+            // EVENT: ACCION
+            public void onAction ()
+                {
+                super.onAction ();
+                
+int selectedRow = vcdpafinity.getControlTable().getSelectedRow();
+String cdp = vcdpafinity.getControlTable().getValueAt(selectedRow, CODIGO_AFINITY).getString();
+azure = new Azure(URL_GESDOC);
+azure.addParametroURL("cdp", cdp);
+
+if (azure.procesar()) {
+	gesdoc = azure.getContenido();
+	if (!"".equals(gesdoc)) {
+		mae.easp.progesdoc.ProgProgesdoc proggesdoc = new mae.easp.progesdoc.ProgProgesdoc(easp);
+		proggesdoc.cdp = cdp;
+		proggesdoc.xml = gesdoc;
+		proggesdoc.run();
+     }	
+}
+else {
+	Maefc.message("No se ha podido conectar con Afinity", "¡Atención!", Maefc.WARNING_MESSAGE);
+	return;
+}
+
                 }
             }
             
@@ -584,6 +629,7 @@ if (selectedRows.size() == 0) {
             addControl(vvpasswd=new CtrlVvpasswd(this));
             addControl(vvportalcdp=new CtrlVvportalcdp(this));
             addAction(aaltafinity=new LinkAaltafinity(this));
+            addAction(agesdoc=new LinkAgesdoc(this));
             setSelect(scdp);
             }
         // GET: VENTANA
@@ -619,6 +665,17 @@ if ((clients != null && clients.size() > 0) && clients.containsKey(cdpnifcif.get
 	vvusuario.setValue(client.usuario.toString());
 	vvpasswd.setValue(client.passwd.toString());
 	vvportalcdp.setValue((client.tienePortal) ? 1 : 0);		
+}
+            }
+        public void onFocusRecord ()
+            {
+            super.onFocusRecord ();
+            
+if (vvportalcdp.getInteger() == 1) {
+	agesdoc.setEnabled(true);
+}
+else {
+	agesdoc.setEnabled(false);	
 }
             }
         }
@@ -809,7 +866,7 @@ if ((clients != null && clients.size() > 0) && clients.containsKey(cdpnifcif.get
             {
             setName("scdp");
             // SET: SELECT
-            setFrom ("cdp inner join nifes on cdp.cdpnifcif = nifes.danifcif");
+            setFrom ("cdp inner join nifes on cdp.cdpnifcif = nifes.danifcif WHERE cdp.cdpcodi LIKE '" + Easp.dominio.substring(0,6) + "%'");
             addTable(cdp=new Cdp(this));
             addTable(nifes=new Nifes(this));
             addField(cdpcodi=new Field(this,cdp,"cdpcodi"));
