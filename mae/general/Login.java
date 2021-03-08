@@ -29,25 +29,30 @@ public class Login implements LoginListener{
 	private Seguridad seguridad;
 	private double hoursShutdown;
 	private double minutsReconnect;
+	private boolean esRemot;
 
 	Login(Aplication apl, String rutaLogo){
-		this (apl, rutaLogo, false);
+		this (apl, rutaLogo, false, false);
 	}
 
 	Login(Aplication apl, String rutaLogo, boolean security){
 		this (apl, rutaLogo, false, false);
 	}
-
 	Login(Aplication apl, String rutaLogo, boolean security, boolean fromReconnect){
+		this (apl, rutaLogo, false, false, false);
+	}
+
+	Login(Aplication apl, String rutaLogo, boolean security, boolean fromReconnect, boolean esRemoto){
 		SystemView.setGui(true);
 		this.rutaLogo = rutaLogo;
 		this.security = security;
 		this.loginOk = false;
 		this.fromReconnect = fromReconnect;
+		this.esRemot = esRemoto;
 		//Leemos .properties
 		properties(apl);
 
-		ld=new LoginDialog(this,apl, rutaLogo,security);
+		ld=new LoginDialog(this,apl, rutaLogo,security,esRemoto);
 		//Personalizamos el formulario de Login
 		ld.setNameFrame("Identificación acceso "+apl.getTitle());
 		ld.setNameLogin("Usuario :");
@@ -85,7 +90,7 @@ public class Login implements LoginListener{
 			}
 			else security = false;
 			s.close();
-      if (existeTablaSeguridad()) {
+			if (existeTablaSeguridad()) {
 				Seguridad seguridad = new Seguridad(dbc,Easp.sede);
 				hoursShutdown = seguridad.getHorasSesion();
 				minutsReconnect = seguridad.getMinutosInactiva();
@@ -269,6 +274,11 @@ public class Login implements LoginListener{
 	}
 
 	private String getUserDefault() {
+		if (esRemot) return getUserDefaultRemoto();
+		else return getUserDefaultNoRemoto();			
+	}
+
+	private String getUserDefaultNoRemoto() {
 		String machine = null;
 		try {
 			machine = java.net.InetAddress.getLocalHost().getHostName();
@@ -296,7 +306,120 @@ public class Login implements LoginListener{
 		}
 	}
 
+	private String getUserDefaultRemoto() {
+		String ret = null;
+		String usrJTOKEN = Aplication.getAplication().getParameter("User");
+		System.out.println("usrJTOKEN ["+usrJTOKEN+"]");
+		if (usrJTOKEN == null || usrJTOKEN.trim().length()==0) return getUserDefaultNoRemoto();
+		else {
+			try {
+				Statement st=dbc.createStatement();
+				ResultSet rs=dbc.executeQuery(st,"select parvalor from parametros where "+
+						"pardominio = '"+dominio+"' And parusuario = '"+usrJTOKEN+
+						"' And parvariable = 'TERM_REMOTO' And parambito = 'PERFIL USUARIO'", false);
+				String user=null;
+				if (rs.next()) {
+					user=rs.getString("parvalor");
+					rs.close();
+				}
+				st.close();
+				ret =  user;
+			}
+			catch (SQLException e ) {
+				System.out.println("Error de SQL en getUserDefault:"+e.getMessage());
+				ret = null ; // return "Admon";
+			}
+		}
+		if (ret == null || ret.trim().length()==0) return getUserDefaultNoRemoto();
+		return ret;
+	}
+
 	private void setUserDefault(String userLogin) {
+		if (esRemot) setUserDefaultRemoto(userLogin);
+		else setUserDefaultNoRemoto(userLogin);
+
+	}
+
+	private void setUserDefaultRemoto(String userLogin) {
+		String usrJTOKEN = Aplication.getAplication().getParameter("User");
+		System.out.println("usrJTOKEN ["+usrJTOKEN+"]");
+		if (usrJTOKEN == null || usrJTOKEN.trim().length()==0) setUserDefaultNoRemoto(userLogin);
+		else {
+			usrJTOKEN = usrJTOKEN.trim();
+			Delete d = new Delete (dbc, "parametros");
+			boolean bOk = d.execute("pardominio = '"+dominio+"' AND parusuario ='"+usrJTOKEN+"' AND parvariable = 'TERM_REMOTO' AND parambito = 'PERFIL USUARIO'");
+			if (bOk) {
+				Insert in = new Insert (dbc, "parametros");
+				in.valor("pardominio", dominio);
+				in.valor("parusuario", usrJTOKEN);
+				in.valor("parambito", "PERFIL USUARIO");
+				in.valor("parvariable", "TERM_REMOTO");
+				in.valor("pardesc", "Usuario jtoken ultimo acceso remoto");
+				in.valor("paragrup", "JEA");
+				in.valor("parvalor", userLogin);
+				in.valor("parespecific", "N");
+				bOk = in.execute();
+			}
+			if (bOk) dbc.commit();
+			else dbc.rollback();
+		}
+
+
+		/*
+
+		String sentencia="SELECT parvalor FROM parametros WHERE pardominio = '"+dominio+"' AND parusuario = '"+userLogin+"' AND parvariable = 'TERMINAL' AND parambito = 'PERFIL USUARIO'";
+
+		Statement stselect=null;
+		Statement stgravar=null;
+		try {
+			stselect=dbc.createStatement(true);
+
+			ResultSet rs=dbc.executeQuery(stselect,sentencia,true);
+			int result=0;
+			String valor=null;
+			if (!rs.next()) { //fer l'insert
+				stgravar=dbc.createStatement();
+				sentencia="delete from parametros WHERE pardominio = '"+dominio+"' AND parvalor ='"+machine+"' AND parvariable = 'TERMINAL' AND parambito = 'PERFIL USUARIO'";
+				//borrar reg on sigui la mateixa máquina
+				result=dbc.executeUpdate(stgravar,sentencia,true);
+				if (result > 0) dbc.commit();
+				sentencia="insert into parametros (pardominio, parusuario,parambito,parvariable,pardesc,paragrup,parvalor,parespecific) "+
+						"values ('"+dominio+"','"+userLogin+"','PERFIL USUARIO','TERMINAL','Nombre del Equipo/Terminal ultimo acceso',"+
+						"'JEA','"+machine+"','N')";
+				result=dbc.executeUpdate(stgravar,sentencia,true);
+				if (result > 0) dbc.commit();
+			}
+			else  { //se actualiza la máquina
+				valor=rs.getString("parvalor");
+				if (!machine.equals(valor)) {
+					sentencia="update parametros set parvalor='"+machine+"' where pardominio='"+dominio+
+							"' and parusuario='"+userLogin+"' and parambito='PERFIL USUARIO' and parvariable='TERMINAL'";
+					stgravar=dbc.createStatement();
+					result=dbc.executeUpdate(stgravar,sentencia,true);
+					if (result > 0) dbc.commit();
+				}
+			}
+		}
+		catch(SQLException ex) {
+			System.out.println("Error de SQL:"+ex.getMessage());
+			dbc.rollback();
+		}
+		finally {
+			try {
+				if (stselect!=null) stselect.close();
+				if (stgravar!=null) stgravar.close();
+			}
+			catch(SQLException ex2) {
+				System.out.println("Error al cerrar :"+ex2.getMessage());
+			}
+		}
+
+		 */
+
+	}
+
+
+	private void setUserDefaultNoRemoto(String userLogin) {
 		String machine=null;
 		try {
 			machine = java.net.InetAddress.getLocalHost().getHostName();
@@ -405,6 +528,12 @@ public class Login implements LoginListener{
 		Login login=new Login(apl, rutaLogo, security, fromReconnect);
 		return login;
 	}
+	public static Login showLogInRemoto(Aplication apl, String rutaLogo) {
+		Login login=new Login(apl, rutaLogo, false, false, true);
+		return login;
+
+	}
+
 
 	public static void showLogInAGPI(Aplication apl){
 		//aquest serà un login diferent que demanarà

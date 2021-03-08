@@ -31,6 +31,7 @@ public class LoginDialog{
 
 	private JTextField domain=new CampoTexto(15);
 	private JComboBox login = new JComboBox() ;
+	private JTextField loginremoto=new CampoTexto(15);
 	//private JTextField login=new CampoTexto(15);
   public JPasswordField password=new CampoTextoPassword(15);
 	private JButton aceptar = new JButton("logIn ");
@@ -39,6 +40,7 @@ public class LoginDialog{
   private boolean md5;
   private String usuario = null;
 	private DBConnection dbc;
+	private boolean esRemoto;
 
 
 	// Vista formulario
@@ -57,17 +59,28 @@ public class LoginDialog{
 	private String bmensaje="El usuario está bloqueado, contacte con el administrador."; 
 
 	/** Constructor.   */
-  LoginDialog(LoginListener listener, Aplication apl, String rutaLogo, boolean md5 ) {
+  LoginDialog(LoginListener listener, Aplication apl, String rutaLogo, boolean md5, boolean esRemoto ) {
 		this.rutaLogo = rutaLogo;
 		this.listener=listener;
 		this.apl=apl;
-    this.md5=md5;
+		this.md5=md5;
+		this.esRemoto = esRemoto;
 		// Asignamos Eventos
 		PkActionListener pkaction=new PkActionListener(listener,this);
-		login.setPreferredSize(new Dimension(165, 21));
-		login.setBackground(Color.white);
-		login.setEditable(true);
-		login.addActionListener(pkaction);
+		
+		if (esRemoto) {
+			loginremoto.setPreferredSize(new Dimension(165, 21));
+			loginremoto.setBackground(Color.white);
+			loginremoto.setEditable(true);
+			loginremoto.addActionListener(pkaction);			
+		}
+		else {
+			login.setPreferredSize(new Dimension(165, 21));
+			login.setBackground(Color.white);
+			login.setEditable(true);
+			login.addActionListener(pkaction);
+		}
+
 		CancelListener cancel=new CancelListener(listener,this);
 		AcceptListener accept=new AcceptListener(listener,this);
 		LoginWindowAdapter openclose=new LoginWindowAdapter(listener);
@@ -95,6 +108,14 @@ public class LoginDialog{
 			Aplication.getAplication().getAudition().clickButton(boto);
 		}
     }
+	protected void setRemoto(boolean b) {
+		esRemoto = b;
+	}
+	
+	protected boolean isRemoto () {
+		return esRemoto;
+	}
+
 	/**
 	 * Devuelve la aplicación.
 	 *
@@ -137,16 +158,18 @@ public class LoginDialog{
 	 * @return   String.
 	 */
 	public String getLogin(){
-		return (String) login.getSelectedItem();
+		if (esRemoto) return loginremoto.getText();
+		else return (String) login.getSelectedItem();
 	}
 
 	public void setUsuarios(String[] v){
-		for (int i=0; i < v.length; i++)
+		for (int i=0; !esRemoto && i < v.length; i++)
 			login.addItem(v[i]);
 	}
 
 	public void setUsuario(String usuario){
-		login.setSelectedItem((String) usuario);
+		if (esRemoto) loginremoto.setText(usuario);
+		else login.setSelectedItem((String) usuario);
 	}
   public void setPassword(String pass){
 	  password.setText(pass);
@@ -311,6 +334,11 @@ public class LoginDialog{
 	 * Vista del campo usuario.
 	 */
 	private void viewLogin(int i){
+		if (esRemoto) viewLoginRemoto(i);
+		else viewLoginNoRemoto(i);
+	}
+	
+	private void viewLoginNoRemoto(int i){
 		c.gridx = 0;
 		c.gridy = i;
 		c.insets = new Insets(5,0,0,0);
@@ -326,6 +354,23 @@ public class LoginDialog{
 		if (ff!=null)
 			login.setFont(ff);
 		panel1.add(login);
+	}
+	private void viewLoginRemoto(int i){
+		c.gridx = 0;
+		c.gridy = i;
+		c.insets = new Insets(5,0,0,0);
+		gridbag.setConstraints(label, c);
+		label.setLabelFor(loginremoto);
+		panel1.add(label);
+
+		c.gridx = 1;
+		c.gridy = i;
+		c.insets = new Insets(5,15,0,0);
+		gridbag.setConstraints(loginremoto, c);
+		Font ff=password.getFont();
+		if (ff!=null)
+			loginremoto.setFont(ff);
+		panel1.add(loginremoto);
 	}
 
 	/**
@@ -429,10 +474,20 @@ public class LoginDialog{
 		frame.setVisible(true);
 	}
 
-	public void abrir(){
+	private void abrirNoRemoto(){
 		String textologin=(String) login.getSelectedItem();
 		if (textologin!=null && !textologin.equals(""))
 			password.requestFocus();
+	}
+	private void abrirRemoto(){
+		String textologin=(String) loginremoto.getText();
+		if (textologin!=null && !textologin.equals(""))
+			password.requestFocus();
+	}
+	
+	public void abrir() {
+		if (esRemoto) abrirRemoto();
+		else abrirNoRemoto();
 	}
 
 	/**
@@ -448,7 +503,8 @@ public class LoginDialog{
 			domain.selectAll();
 		}
 		else{
-			login.requestFocus();
+			if (esRemoto) loginremoto.requestFocus();
+			else login.requestFocus();
 			//login.selectAll();
 		}
 		frame.setVisible(true);
