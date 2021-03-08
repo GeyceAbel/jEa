@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Mar 05 12:37:08 CET 2021
+// Fecha y hora:     Mon Mar 08 09:41:56 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -358,7 +358,7 @@ private void montarArbol(ArrayList<Element> elements){
     public class FormVgesdoc extends ProcessForm
         {
         // GLOBALES: VENTANA
-        int selectedId = 0;
+        private TreeElement elementSelected = null;
 
 public void onOpened() {
   super.onOpened();
@@ -394,18 +394,40 @@ private void crearArbol(boolean test) {
   jt.getSelectionModel().setSelectionMode(javax.swing.tree.TreeSelectionModel.SINGLE_TREE_SELECTION);
   javax.swing.ToolTipManager.sharedInstance().registerComponent(jt);
   jt.setCellRenderer(new MyRenderer());
+  jt.addMouseListener(new java.awt.event.MouseListener() {
+	
+	@Override
+	public void mouseReleased(java.awt.event.MouseEvent e) {}
+	
+	@Override
+	public void mousePressed(java.awt.event.MouseEvent e) {
+		if (e.getClickCount() == 2) {
+      	    DefaultMutableTreeNode node = (DefaultMutableTreeNode) jt.getLastSelectedPathComponent();
+
+		    if (node != null && node.isLeaf()) {
+		    	   Object nodeInfo = node.getUserObject();
+		        elementSelected = (TreeElement) nodeInfo;
+		        obreFitxer();
+		    } 
+		}
+	}
+	
+	@Override
+	public void mouseExited(java.awt.event.MouseEvent e) {}
+	
+	@Override
+	public void mouseEntered(java.awt.event.MouseEvent e) {}
+	
+	@Override
+	public void mouseClicked(java.awt.event.MouseEvent e) {}
+   });
   jt.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
 	@Override
 	public void valueChanged(javax.swing.event.TreeSelectionEvent e) {
 		DefaultMutableTreeNode node = (DefaultMutableTreeNode) jt.getLastSelectedPathComponent();
-
-	    if (node == null)
-			return;
-
-	    Object nodeInfo = node.getUserObject();
-
-	    if (node.isLeaf()) {
-	        selectedId = ((TreeElement) nodeInfo).id;
+	    if (node != null && node.isLeaf()) {
+	    	   Object nodeInfo = node.getUserObject();
+	        elementSelected = (TreeElement) nodeInfo;
 	    } 
 	}
   });
@@ -419,6 +441,42 @@ private void dropTree() {
     node1.removeAllChildren();
   }
   raiz.removeAllChildren();
+}
+
+private void obreFitxer() {
+	if (elementSelected.id != 0) {
+	azure = new Azure(URL_FITXER_GESDOC);
+	azure.addParametroURL("cdp", cdp);
+	azure.addParametroURL("id", elementSelected.id);
+	
+	if (azure.procesar()) {
+		byte[] contingut = azure.getContenidoBinario();
+		if (!"".equals(contingut.toString())) {
+			File f;
+			try {
+				f = File.createTempFile(
+						"gesdoc", 
+							(elementSelected.nom.contains(".")) ? elementSelected.nom.substring(elementSelected.nom.lastIndexOf("."), elementSelected.nom.length()) : ".txt");
+				try (java.io.FileOutputStream pw = new java.io.FileOutputStream(f);) {
+					pw.write(contingut);
+				}
+				
+				java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+				desktop.open(f);
+			} catch (java.io.IOException e) {
+				e.printStackTrace();
+			}
+	     }	
+	}
+	else {
+		Maefc.message("No se ha podido conectar con Afinity", "¡Atención!", Maefc.WARNING_MESSAGE);
+		return;
+	}
+}
+else {
+	Maefc.message("No hay ningún fichero seleccionado", "¡Atención!", Maefc.WARNING_MESSAGE);
+	return;
+}
 }
         // Metodos
         // Controles
@@ -448,40 +506,7 @@ private void dropTree() {
             public void onAction ()
                 {
                 super.onAction ();
-                if (selectedId != 0) {
-	azure = new Azure(URL_FITXER_GESDOC);
-	azure.addParametroURL("cdp", cdp);
-	azure.addParametroURL("id", selectedId);
-	
-	if (azure.procesar()) {
-		String contingut = azure.getContenido();
-		if (!"".equals(contingut)) {
-			File f;
-			try {
-				f = File.createTempFile("gesdoc", ".pdf");
-				try (java.io.PrintWriter pw = new java.io.PrintWriter(f);) {
-					pw.write(contingut);
-				}
-				
-				java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
-				desktop.open(f);
-				f.deleteOnExit();
-				
-			} catch (java.io.IOException e) {
-				e.printStackTrace();
-			}
-	     }	
-	}
-	else {
-		Maefc.message("No se ha podido conectar con Afinity", "¡Atención!", Maefc.WARNING_MESSAGE);
-		return;
-	}
-}
-else {
-	Maefc.message("No hay ningún fichero seleccionado", "¡Atención!", Maefc.WARNING_MESSAGE);
-	return;
-}
-
+                obreFitxer();
                 }
             }
             

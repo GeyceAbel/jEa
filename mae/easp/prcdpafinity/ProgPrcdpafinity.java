@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Mar 05 12:37:04 CET 2021
+// Fecha y hora:     Mon Mar 08 11:04:15 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -15,7 +15,7 @@ import javax.xml.stream.*;
 import mae.easp.*;
 // 
 // Programa: prcdpafinity
-// Nombre:   CDP Afinity
+// Nombre:   Clientes Afinity
 // Versión:  1.0
 // 
 public class ProgPrcdpafinity extends Program
@@ -40,7 +40,11 @@ private Azure azure;
 private XMLInputFactory factory;
 private XMLStreamReader reader;
 private java.util.HashMap<String, Client> clients = null;
-private java.util.ArrayList<Integer> selectedRows = new java.util.ArrayList<Integer>();
+private java.util.ArrayList<String> selectedRows = new java.util.ArrayList<String>();
+private int order = -1;
+private int ultimoOrdenado = -1;
+private String[] torden;
+private boolean reOrdena = false;
 
 private void eliminarNoMarcados(int columna) {
 	int rowS = vcdpafinity.getControlTable().getSelectedRow();
@@ -158,10 +162,81 @@ private boolean isValidTextNode(String node, XMLStreamReader reader) throws XMLS
 }
 
 private void netejaChecks() {
-	for (Integer row : selectedRows) {
-		vcdpafinity.getControlTable().refreshValueAt(new Value(0), row, CHECK);
+	for (int x = 0; x < vcdpafinity.getControlTable().getRowCount(); x++) {
+		vcdpafinity.getControlTable().refreshValueAt(new Value(0), x, CHECK);
 	}
 	selectedRows.clear();
+}
+
+private int getRow(String cdp) {
+	int row = -1;
+	for (int x = 0; x < vcdpafinity.getControlTable().getRowCount(); x++) {
+		if (cdp.equals(vcdpafinity.getControlTable().getValueAt(x, CCDP).getString())) {
+			row = x;
+			break;
+		}
+	}
+	return row;
+}
+
+private void ordena(int col) {
+	if (reOrdena) {
+		boolean ordre = true;
+		if (!"ASC".equals(torden[col])) {
+			ordre = false;
+			torden[col] = "ASC";
+		}
+		else {
+			torden[col] = "DESC";
+		}
+
+		boolean ordenat = false;
+		while (!ordenat) {
+			ordenat = true;
+			for (int x = 0; x < vcdpafinity.getControlTable().getRowCount() - 1; x++) {
+				if (ordre && vcdpafinity.getControlTable().getValueAt(x, col).getString().toLowerCase().compareTo(vcdpafinity.getControlTable().getValueAt(x + 1, col).getString().toLowerCase()) > 0) {
+					swapRows(x, x + 1);
+					ordenat = false;
+				}
+				else if (!ordre && vcdpafinity.getControlTable().getValueAt(x, col).getString().toLowerCase().compareTo(vcdpafinity.getControlTable().getValueAt(x + 1, col).getString().toLowerCase()) < 0) {
+					swapRows(x + 1, x);
+					ordenat = false;
+				}
+			}
+		}
+	}
+}
+
+private void swapRows(int row, int row2) {
+	Integer check = vcdpafinity.getControlTable().getValueAt(row, CHECK).getInteger();
+	String cdp = vcdpafinity.getControlTable().getValueAt(row, CCDP).getString();
+	String nif = vcdpafinity.getControlTable().getValueAt(row, NIF).getString();
+	String nom = vcdpafinity.getControlTable().getValueAt(row, NOMBRE).getString();
+	Integer altaa = vcdpafinity.getControlTable().getValueAt(row, ALTA_AFINITY).getInteger();
+	String coda = vcdpafinity.getControlTable().getValueAt(row, CODIGO_AFINITY).getString();
+	String usuari = vcdpafinity.getControlTable().getValueAt(row, USUARIO_AFINITY).getString();
+	String pssw = vcdpafinity.getControlTable().getValueAt(row, PASSWD_AFINITY).getString();
+	Integer portal = vcdpafinity.getControlTable().getValueAt(row, PORTAL_AFINITY).getInteger();
+	
+	vcdpafinity.getControlTable().refreshValueAt(new Value(vcdpafinity.getControlTable().getValueAt(row2, CHECK).getInteger()),row, CHECK);
+	vcdpafinity.getControlTable().refreshValueAt(Value.createValue(vcdpafinity.getControlTable().getValueAt(row2, CCDP).getString()),row, CCDP);
+	vcdpafinity.getControlTable().refreshValueAt(Value.createValue(vcdpafinity.getControlTable().getValueAt(row2, NIF).getString()),row, NIF);
+	vcdpafinity.getControlTable().refreshValueAt(Value.createValue(vcdpafinity.getControlTable().getValueAt(row2, NOMBRE).getString()),row, NOMBRE);
+	vcdpafinity.getControlTable().refreshValueAt(new Value(vcdpafinity.getControlTable().getValueAt(row2, ALTA_AFINITY).getInteger()),row, ALTA_AFINITY);
+	vcdpafinity.getControlTable().refreshValueAt(Value.createValue(vcdpafinity.getControlTable().getValueAt(row2, CODIGO_AFINITY).getString()),row, CODIGO_AFINITY);
+	vcdpafinity.getControlTable().refreshValueAt(Value.createValue(vcdpafinity.getControlTable().getValueAt(row2, USUARIO_AFINITY).getString()),row, USUARIO_AFINITY);
+	vcdpafinity.getControlTable().refreshValueAt(Value.createValue(vcdpafinity.getControlTable().getValueAt(row2, PASSWD_AFINITY).getString()),row, PASSWD_AFINITY);
+	vcdpafinity.getControlTable().refreshValueAt(new Value(vcdpafinity.getControlTable().getValueAt(row2, PORTAL_AFINITY).getInteger()),row, PORTAL_AFINITY);
+	
+	vcdpafinity.getControlTable().refreshValueAt(new Value(check),row2, CHECK);
+	vcdpafinity.getControlTable().refreshValueAt(Value.createValue(cdp),row2, CCDP);
+	vcdpafinity.getControlTable().refreshValueAt(Value.createValue(nif),row2, NIF);
+	vcdpafinity.getControlTable().refreshValueAt(Value.createValue(nom),row2, NOMBRE);
+	vcdpafinity.getControlTable().refreshValueAt(new Value(altaa),row2, ALTA_AFINITY);
+	vcdpafinity.getControlTable().refreshValueAt(Value.createValue(coda),row2, CODIGO_AFINITY);
+	vcdpafinity.getControlTable().refreshValueAt(Value.createValue(usuari),row2, USUARIO_AFINITY);
+	vcdpafinity.getControlTable().refreshValueAt(Value.createValue(pssw),row2, PASSWD_AFINITY);
+	vcdpafinity.getControlTable().refreshValueAt(new Value(portal),row2, PORTAL_AFINITY);
 }
 
 private class Client {
@@ -184,7 +259,7 @@ private class Client {
         public Location( )
             {
             super();
-            setTitle("CDP Afinity");
+            setTitle("Clientes Afinity");
             }
         }
         
@@ -221,8 +296,7 @@ private class Client {
             public void onAction ()
                 {
                 super.onAction ();
-                selectedRows.clear();
-vcdpafinity.doShow();
+                vcdpafinity.doShow();
                 }
             }
             
@@ -240,8 +314,7 @@ vcdpafinity.doShow();
             public void onAction ()
                 {
                 super.onAction ();
-                selectedRows.clear();
-vcdpafinity.doShow();
+                vcdpafinity.doShow();
 eliminarMarcados(ALTA_AFINITY);
                 }
             }
@@ -260,8 +333,7 @@ eliminarMarcados(ALTA_AFINITY);
             public void onAction ()
                 {
                 super.onAction ();
-                selectedRows.clear();
-vcdpafinity.doShow();
+                vcdpafinity.doShow();
 eliminarNoMarcados(ALTA_AFINITY);
                 }
             }
@@ -285,6 +357,19 @@ eliminarNoMarcados(ALTA_AFINITY);
     public class FormVcdpafinity extends MultiDataForm
         {
         // GLOBALES: VENTANA
+        public void onColumnClick(int ncol) {
+  Maefc.waitCursor();
+  super.onColumnClick(ncol);
+  reOrdena = true;
+  order = ncol;
+  if (order == CCDP || order == NIF) {
+  	doShow();
+  }
+  else if (order == NOMBRE) {
+  	ordena(NOMBRE);
+  }
+  Maefc.restoreCursor();
+}
         // Metodos
         // Controles
         public CtrlVvcheck vvcheck;
@@ -555,7 +640,9 @@ if (selectedRows.size() == 0) {
 }else {
 	boolean graba = false;
 	java.util.ArrayList<String> nifExistents = new java.util.ArrayList<String>();
-	for (Integer row : selectedRows) {
+	for (String cdp : selectedRows) {
+		int row = getRow(cdp);
+		if (row != -1) {
 		String nif = vcdpafinity.getControlTable().getValueAt(row, NIF).getString();
 		if (Easp.buscaCDP(nif) == null) {
 			graba = true;
@@ -564,6 +651,7 @@ if (selectedRows.size() == 0) {
 		else {
 			nifExistents.add(nif);
 		}
+	  }
 	}
 	if (nifExistents.size() > 0) {
 		Maefc.message("Los clientes " + nifExistents + " ya estan dados de alta en Afinity", "Atención", Maefc.INFORMATION_MESSAGE);		
@@ -614,7 +702,7 @@ else {
             {
             super(prcdpafinity);
             setName("vcdpafinity");
-            setTitle("CDP Afinity");
+            setTitle("Clientes Afinity");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             // SET: VENTANA
@@ -639,17 +727,19 @@ else {
             super.onSelection ();
             
 if (vvcheck.getInteger() != 1) {
-	selectedRows.add(vcdpafinity.getControlTable().getSelectedRow());
+	selectedRows.add(vcdpafinity.getControlTable().getValueAt(vcdpafinity.getControlTable().getSelectedRow(), CCDP).getString());
 	vvcheck.setValue(1);
 }
 else {
-	selectedRows.remove(new Integer(vcdpafinity.getControlTable().getSelectedRow()));
+	selectedRows.remove((vcdpafinity.getControlTable().getValueAt(vcdpafinity.getControlTable().getSelectedRow(), CCDP).getString()));
 	vvcheck.setValue(0);
 }
             }
         public void onInit ()
             {
             setInitState(DataForm.SHOW);
+            torden = new String[4];
+            for (int i=1;i<torden.length;i++) torden[i] = "DESC";
             super.onInit ();
             }
         public void onBeginRecord ()
@@ -666,6 +756,11 @@ if ((clients != null && clients.size() > 0) && clients.containsKey(cdpnifcif.get
 	vvpasswd.setValue(client.passwd.toString());
 	vvportalcdp.setValue((client.tienePortal) ? 1 : 0);		
 }
+
+if (selectedRows.contains(cdpcodi.getString())) {
+	vvcheck.setValue(1);
+}
+
             }
         public void onFocusRecord ()
             {
@@ -1013,6 +1108,29 @@ else {
             addField(datapell2ant=new Field(this,nifes,"datapell2ant"));
             }
         // GET: SELECT
+        public String getOrder ()
+            {
+            if (reOrdena) {
+            	if (ultimoOrdenado != order) {
+            		torden[order] = "ASC";
+            	}
+            	else 
+            {
+            		if ("DESC".equals(torden[order])) torden[order] = "ASC";
+            		else torden[order] = "DESC";
+            	}
+            	reOrdena = false;
+            
+            ultimoOrdenado = order;
+            
+            switch (order){
+             case 1: return "cdp.cdpcodi "+torden[order]+", cdp.cdpnifcif";
+             case 2: return "cdp.cdpnifcif "+torden[order]+",cdp.cdpcodi";
+             default: return "cdp.cdpcodi "+torden[order]+",cdp.cdpnifcif "+torden[order]+"";
+            }
+            }
+             return "cdp.cdpcodi";
+            }
         // EVENT: SELECT
         }
         
@@ -1022,7 +1140,7 @@ else {
         this.easp=easp;
         this.prcdpafinity=this;
         setName("prcdpafinity");
-        setTitle("CDP Afinity");
+        setTitle("Clientes Afinity");
         // SET: PROGRAMA
         setLayout(new LayoutSplit(LayoutSplit.VERTICAL,0.10));
         setLocation(new Location());
