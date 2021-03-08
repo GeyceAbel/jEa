@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Mar 08 12:54:36 CET 2021
+// Fecha y hora:     Mon Mar 08 13:55:35 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -41,6 +41,7 @@ private XMLInputFactory factory;
 private XMLStreamReader reader;
 private java.util.HashMap<String, Client> clients = null;
 private java.util.ArrayList<String> selectedRows = new java.util.ArrayList<String>();
+private java.util.ArrayList<String> filtre = new java.util.ArrayList<String>();
 private int order = -1;
 private int ultimoOrdenado = -1;
 private String[] torden;
@@ -206,6 +207,14 @@ private class Client {
     public class FormVcdpafaccion extends ProcessForm
         {
         // GLOBALES: VENTANA
+        private void afegirFiltre(boolean altaAfinity) {
+	int alta = (altaAfinity) ? 1 : 0;
+	for (int x = 0; x < vcdpafinity.getControlTable().getRowCount(); x++) {
+		if (vcdpafinity.getControlTable().getValueAt(x, ALTA_AFINITY).getInteger() == alta) {
+			filtre.add(vcdpafinity.getControlTable().getValueAt(x, CCDP).getString());
+		}
+	}
+}
         // Metodos
         // Controles
         // Acciones
@@ -255,7 +264,9 @@ private class Client {
                 {
                 super.onAction ();
                 vcdpafinity.doShow();
-eliminarMarcados(ALTA_AFINITY);
+afegirFiltre(false);
+vcdpafinity.doShow();
+filtre.clear();
                 }
             }
             
@@ -274,7 +285,9 @@ eliminarMarcados(ALTA_AFINITY);
                 {
                 super.onAction ();
                 vcdpafinity.doShow();
-eliminarNoMarcados(ALTA_AFINITY);
+afegirFiltre(true);
+vcdpafinity.doShow();
+filtre.clear();
                 }
             }
             
@@ -898,7 +911,7 @@ else {
             {
             setName("scdp");
             // SET: SELECT
-            setFrom ("cdp inner join nifes on cdp.cdpnifcif = nifes.danifcif WHERE cdp.cdpcodi LIKE '" + Easp.dominio.substring(0,6) + "%'");
+            setFrom ("cdp inner join nifes on cdp.cdpnifcif = nifes.danifcif");
             addTable(cdp=new Cdp(this));
             addTable(nifes=new Nifes(this));
             addField(cdpcodi=new Field(this,cdp,"cdpcodi"));
@@ -1045,6 +1058,20 @@ else {
             addField(datapell2ant=new Field(this,nifes,"datapell2ant"));
             }
         // GET: SELECT
+        public String getWhere ()
+            {
+            String where = "cdp.cdpcodi LIKE '" + Easp.dominio.substring(0,6) + "%'";
+            if (filtre.size() > 0) {
+            	where += " AND cdp.cdpcodi IN(";
+            	for (String codi : filtre) {
+            		where += "'" + codi + "',";
+            	}
+            	return where.substring(0, where.length() - 1) + ")";
+            }
+            else {
+            	return where;
+            }
+            }
         public String getOrder ()
             {
             if (reOrdena) {
