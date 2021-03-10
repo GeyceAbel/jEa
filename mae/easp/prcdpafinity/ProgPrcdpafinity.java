@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Mar 08 13:55:35 CET 2021
+// Fecha y hora:     Tue Mar 09 14:00:37 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -1122,17 +1122,37 @@ else {
         {
         super.onInit ();
         
-azure = new Azure(URL_AZURE);
+ProgressBarForm pbf = new ProgressBarForm(this, "Consultando clientes...") {
+			
+	@Override
+	public void job() {
+		setPercent(0);
+		azure = new Azure(URL_AZURE);
+		if (azure.procesar()) {
+			setPercent(40);
+			xml = azure.getContenido();
+			setPercent(60);
+			if (!"".equals(xml)) {
+				clients = getClients(xml);	
+				setPercent(80);
+				exit();
+		    }	
+			else {
+				Maefc.message("No se ha podido conectar con Afinity", "¡Atención!", Maefc.WARNING_MESSAGE);
+				return;
+			}
+		}
+		else {
+			Maefc.message("No se ha podido conectar con Afinity", "¡Atención!", Maefc.WARNING_MESSAGE);
+			return;
+		}
+	}
+};
 
-if (azure.procesar()) {
-	xml = azure.getContenido();
-	if (!"".equals(xml)) {
-	clients = getClients(xml);	
-     }	
-}
-else {
-	Maefc.message("No se ha podido conectar con Afinity", "¡Atención!", Maefc.WARNING_MESSAGE);
-}
+pbf.setFormWidth(600);
+pbf.setEnabledCancel(false);
+pbf.setSecondaryAuto(false);
+pbf.launch();
         }
     }
     

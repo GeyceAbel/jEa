@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Mar 08 09:41:56 CET 2021
+// Fecha y hora:     Wed Mar 10 09:51:40 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -46,6 +46,7 @@ public class ProgProgesdoc extends Program
   private XMLInputFactory factory;
   private XMLStreamReader reader;
   private static final String URL_FITXER_GESDOC = "gesdoc.getfile";
+  private static String URL_GESDOC = "gesdoc.getcontenido";
   private static final String path = "C:\\Users\\aleix.barrera\\Desktop\\ges.xml";
 
   public String xml = "";
@@ -341,6 +342,39 @@ private void montarArbol(ArrayList<Element> elements){
 			montarArbol(fill, (DirectoryElement) e);
 	}
  }
+
+ public void initActionRefresh() {
+     if (vgesdoc.iarefresh == null) {
+		vgesdoc.iarefresh = new IconAction(vgesdoc, "Actualizar", "Actualizar", null, "Actualizar") {
+			public void onAction() {
+				refrescaFitxers();
+			}
+		};
+     }
+}
+
+private void refrescaFitxers() {
+	azure = new Azure(URL_GESDOC);
+	azure.addParametroURL("cdp", cdp);
+	
+	if (azure.procesar()) {
+		xml = azure.getContenido();
+		if (!"".equals(xml)) {
+			elements = getElements(xml);
+			vgesdoc.refrescarArbol();
+	     }	
+	}
+	else {
+		Maefc.message("No se ha podido conectar con Afinity", "¡Atención!", Maefc.WARNING_MESSAGE);
+		return;
+	}
+}
+
+public void create() {
+	super.create();
+	initActionRefresh();
+	vgesdoc.iarefresh.create();
+}
     // Metodos
     // Ventana
     public FormVgesdoc vgesdoc;
@@ -359,6 +393,8 @@ private void montarArbol(ArrayList<Element> elements){
         {
         // GLOBALES: VENTANA
         private TreeElement elementSelected = null;
+
+IconAction iarefresh;
 
 public void onOpened() {
   super.onOpened();
@@ -384,6 +420,7 @@ private void refrescarArbol () {
     jt.expandPath(jt.getPathForRow(row));
   }
   jt.setSelectionRow(numOrig); 
+  arbre.refresh();
 }
 
 private void crearArbol(boolean test) {
@@ -455,7 +492,7 @@ private void obreFitxer() {
 			File f;
 			try {
 				f = File.createTempFile(
-						"gesdoc", 
+						(elementSelected.nom.contains(".") ? elementSelected.nom.substring(0, elementSelected.nom.lastIndexOf(".")) : elementSelected.nom), 
 							(elementSelected.nom.contains(".")) ? elementSelected.nom.substring(elementSelected.nom.lastIndexOf("."), elementSelected.nom.length()) : ".txt");
 				try (java.io.FileOutputStream pw = new java.io.FileOutputStream(f);) {
 					pw.write(contingut);
@@ -562,10 +599,12 @@ else {
     // EVENT: PROGRAMA
     public void onInit ()
         {
+        //System.out.println(xml);
         elements = getElements(xml);
         vgesdoc.addControl(arbre=new CtrlArbre(vgesdoc));
         raiz = new TreeTableNode();
         arbre.setRoot(raiz);
+        initActionRefresh();
         super.onInit();
         }
     }
