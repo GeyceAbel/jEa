@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Mar 09 14:00:37 CET 2021
+// Fecha y hora:     Wed Mar 10 13:21:46 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -163,10 +163,27 @@ private boolean isValidTextNode(String node, XMLStreamReader reader) throws XMLS
 }
 
 private void netejaChecks() {
+	int rowS = vcdpafinity.getControlTable().getSelectedRow();
 	for (int x = 0; x < vcdpafinity.getControlTable().getRowCount(); x++) {
 		vcdpafinity.getControlTable().refreshValueAt(new Value(0), x, CHECK);
 	}
 	selectedRows.clear();
+	vcdpafinity.getControlTable().refreshTable();
+	vcdpafinity.getControlTable().setSelectedRow(rowS);
+}
+
+private void ompleChecks() {
+	int rowS = vcdpafinity.getControlTable().getSelectedRow();
+	selectedRows.clear();
+	for (int x = 0; x < vcdpafinity.getControlTable().getRowCount(); x++) {
+		if (vcdpafinity.getControlTable().getValueAt(x, ALTA_AFINITY).getInteger() != 1) {
+			vcdpafinity.getControlTable().setSelectedRow(x);
+			vcdpafinity.vvcheck.setValue(1);
+			selectedRows.add(vcdpafinity.cdpcodi.getString());
+		}		
+	}
+	vcdpafinity.getControlTable().refreshTable();
+	vcdpafinity.getControlTable().setSelectedRow(rowS);
 }
 
 private int getRow(String cdp) {
@@ -178,6 +195,34 @@ private int getRow(String cdp) {
 		}
 	}
 	return row;
+}
+
+ public void initActionSelectAll() {
+     if (vcdpafinity.iaselall == null) {
+		vcdpafinity.iaselall = new IconAction(vcdpafinity, "Selec. todos", "Selec. todos", null, "Selec. todos") {
+			public void onAction() {
+				ompleChecks();
+			}
+		};
+     }
+}
+
+public void initActionDesSelectAll() {
+     if (vcdpafinity.iadesall == null) {
+		vcdpafinity.iadesall = new IconAction(vcdpafinity, "Desec. todos", "Desc. todos", null, "Desc. todos") {
+			public void onAction() {
+				netejaChecks();
+			}
+		};
+     }
+}
+
+public void create() {
+	super.create();
+	initActionSelectAll();
+	initActionDesSelectAll();
+	vcdpafinity.iaselall.create();
+	vcdpafinity.iadesall.create();
 }
 
 private class Client {
@@ -310,7 +355,12 @@ filtre.clear();
     public class FormVcdpafinity extends MultiDataForm
         {
         // GLOBALES: VENTANA
-        public void onColumnClick(int ncol) {
+        IconAction iadesall;
+IconAction iaselall;
+
+public StringBuffer sb = null;
+
+public void onColumnClick(int ncol) {
   Maefc.waitCursor();
   super.onColumnClick(ncol);
   reOrdena = true;
@@ -319,6 +369,15 @@ filtre.clear();
   	doShow();
   }
   Maefc.restoreCursor();
+}
+
+private boolean generaReport(StringBuffer message, java.io.File file) {
+	try (java.io.PrintWriter pw = new java.io.PrintWriter(file)) {
+		pw.write(message.toString());
+	} catch (java.io.FileNotFoundException e) {
+		return false;
+	}
+	return true;
 }
         // Metodos
         // Controles
@@ -588,25 +647,59 @@ if (selectedRows.size() == 0) {
 	Maefc.message("No hay ningún registro seleccionado" ,"Atención",Maefc.INFORMATION_MESSAGE);
 	return;
 }else {
-	boolean graba = false;
-	java.util.ArrayList<String> nifExistents = new java.util.ArrayList<String>();
-	for (String cdp : selectedRows) {
-		int row = getRow(cdp);
-		if (row != -1) {
-		String nif = vcdpafinity.getControlTable().getValueAt(row, NIF).getString();
-		if (Easp.buscaCDP(nif) == null) {
-			graba = true;
-			Easp.grabarDatosAfinity(nif,true);
+
+	ProgressBarForm pbf = new ProgressBarForm(getProgram(), "Dando de alta en Afinity...") {
+			
+	@Override
+	public void job() {
+		setPercent(0);
+		int x = 0;
+		sb = new StringBuffer("Reporte Alta Afinity\n\n");
+		java.util.ArrayList<String> nifExistents = new java.util.ArrayList<String>();
+		for (String cdp : selectedRows) {
+			setPercent((x++/selectedRows.size())*100);
+			int row = getRow(cdp);
+			if (row != -1) {
+			String nif = vcdpafinity.getControlTable().getValueAt(row, NIF).getString();
+			if (Easp.buscaCDP(nif) == null) {
+				Easp.grabarDatosAfinity(nif,true);
+				if (Easp.mensajeSesion != null) {
+					sb.append("CDP - " + cdp + " NIF - " + nif + "\n" + Easp.mensajeSesion + "\n");
+				}
+			}
+			else {
+				nifExistents.add(nif);
+			}
+		  }
 		}
-		else {
-			nifExistents.add(nif);
+		if (nifExistents.size() > 0) {
+			Maefc.message("Los clientes " + nifExistents + " ya estan dados de alta en Afinity", "Atención", Maefc.INFORMATION_MESSAGE);		
 		}
-	  }
-	}
-	if (nifExistents.size() > 0) {
-		Maefc.message("Los clientes " + nifExistents + " ya estan dados de alta en Afinity", "Atención", Maefc.INFORMATION_MESSAGE);		
-	}
+		exit();
+		}
+	};
+
+	pbf.setFormWidth(600);
+	pbf.setEnabledCancel(false);
+	pbf.setSecondaryAuto(false);
+	pbf.launch();
+	
 	netejaChecks();
+	doShow();
+	if (sb != null) {
+		java.io.File report;
+		try {
+			report = java.io.File.createTempFile("ReportAfinity", ".txt");
+			if (generaReport(sb, report)) {
+				Maefc.message("Se ha generado un reporte del proceso de alta afinity", "Información", Maefc.INFORMATION_MESSAGE);
+				java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+				desktop.open(report);
+			}
+		} catch (java.io.IOException e) {
+			e.printStackTrace();
+		}
+		sb = null;
+	}
 }
                 }
             }
@@ -676,7 +769,7 @@ else {
             {
             super.onSelection ();
             
-if (vvcheck.getInteger() != 1) {
+if (vvcheck.getInteger() != 1 && vvaltafinity.getInteger() != 1) {
 	selectedRows.add(vcdpafinity.getControlTable().getValueAt(vcdpafinity.getControlTable().getSelectedRow(), CCDP).getString());
 	vvcheck.setValue(1);
 }
@@ -1139,12 +1232,12 @@ ProgressBarForm pbf = new ProgressBarForm(this, "Consultando clientes...") {
 		    }	
 			else {
 				Maefc.message("No se ha podido conectar con Afinity", "¡Atención!", Maefc.WARNING_MESSAGE);
-				return;
+				exit();
 			}
 		}
 		else {
 			Maefc.message("No se ha podido conectar con Afinity", "¡Atención!", Maefc.WARNING_MESSAGE);
-			return;
+			exit();
 		}
 	}
 };

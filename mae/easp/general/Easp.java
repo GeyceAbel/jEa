@@ -43,7 +43,8 @@ public class Easp {
 
   public static enum TIPO_HOST { LOCALHOST, AZURE, AZUREMSDN};
   public static TIPO_HOST HOST = TIPO_HOST.AZURE;
-  public static final String HOST_AZURE 	 = "afinityprod.azurewebsites.net/";
+  public static final String HOST_AZURE 	 = "afinityprod-afinitypre.azurewebsites.net/";
+//  public static final String HOST_AZURE 	 = "afinityprod.azurewebsites.net/";
   public static final String HOST_AZUREPRE 	 = "afinityprod-afinitypre.azurewebsites.net/";
   public static final String HOST_AZUREMSDN  = "afinity.azurewebsites.net/";
   public static final String HOST_LOCALHOST  = "localhost:52373/";
@@ -1849,6 +1850,7 @@ public static Date esFecha (String s){
     snifes.execute();
     if ( snifes.isEof() ) {
       if ( infoMsg ) Maefc.message("No se ha podido generar un nuevo CDP");
+      mensajeSesion = "No se encuentra un código CDP asociado con " + nif;
       return false;
       }
 
@@ -1863,12 +1865,14 @@ public static Date esFecha (String s){
               dattel.getString(),datfax.getString(),
               datcontacto.getString(),datemail.getString(),"S")) {
           if ( infoMsg ) Maefc.message("No se ha podido generar un nuevo CDP");
+		  mensajeSesion = "No se ha podido conectar con Afinity";
           return false;
           }
       else {
         if ( infoMsg ) {
           	String cdpcdpcdp =buscaCDP(danifcif.getString());
 			if ( cdpcdpcdp==null ) cdpcdpcdp=cdpcodi.getString();
+			mensajeSesion = "Se ha generado un nuevo cliente de Afinity con el código " + cdpcdpcdp + " y contraseña " + passw + "";
           Maefc.message("Se ha generado un nuevo cliente de Afinity con los siguientes parámetros:\n"+
                   "\nCódigo de cliente: "+cdpcdpcdp+
                   "\nUsuario:           ADMINISTRADOR"+
