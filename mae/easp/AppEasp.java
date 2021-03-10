@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Feb 04 17:09:51 CET 2021
+// Fecha y hora:     Wed Mar 10 13:53:14 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -219,6 +219,7 @@ class Barramenu extends MenuBar
         public M1ficha m1ficha;
         public M1bancoscli m1bancoscli;
         public M1repres m1repres;
+        public M1cdpafinity m1cdpafinity;
         public M1nifesmuf m1nifesmuf;
         class M1ficha extends MenuItemProgram
             {
@@ -255,6 +256,17 @@ class Barramenu extends MenuBar
                 }
             }
             
+        class M1cdpafinity extends MenuItemProgram
+            {
+            public M1cdpafinity()
+                {
+                super("Clientes Afinity");
+                setName("m1cdpafinity");
+                setProgram("mae.easp.prcdpafinity.ProgPrcdpafinity");
+                // SET: MENU
+                }
+            }
+            
         class M1nifesmuf extends MenuItemProgram
             {
             public M1nifesmuf()
@@ -275,6 +287,7 @@ class Barramenu extends MenuBar
             add(m1ficha=new M1ficha());
             add(m1bancoscli=new M1bancoscli());
             add(m1repres=new M1repres());
+            add(m1cdpafinity=new M1cdpafinity());
             add(m1nifesmuf=new M1nifesmuf());
             }
         }

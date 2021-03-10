@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 10 13:21:46 CET 2021
+// Fecha y hora:     Wed Mar 10 13:52:50 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -223,6 +223,41 @@ public void create() {
 	initActionDesSelectAll();
 	vcdpafinity.iaselall.create();
 	vcdpafinity.iadesall.create();
+}
+
+private void cargarClients() {
+	ProgressBarForm pbf = new ProgressBarForm(this, "Consultando clientes...") {
+			
+	@Override
+	public void job() {
+		setPercent(0);
+		azure = new Azure(URL_AZURE);
+		if (azure.procesar()) {
+			setPercent(40);
+			xml = azure.getContenido();
+			setPercent(60);
+			if (!"".equals(xml)) {
+				clients = getClients(xml);	
+				setPercent(80);
+				exit();
+		    }	
+			else {
+				Maefc.message("No se ha podido conectar con Afinity", "¡Atención!", Maefc.WARNING_MESSAGE);
+				exit();
+			}
+		}
+		else {
+			Maefc.message("No se ha podido conectar con Afinity", "¡Atención!", Maefc.WARNING_MESSAGE);
+			exit();
+		}
+	}
+};
+
+pbf.setFormWidth(600);
+pbf.setEnabledCancel(false);
+pbf.setSecondaryAuto(false);
+pbf.launch();
+
 }
 
 private class Client {
@@ -673,7 +708,7 @@ if (selectedRows.size() == 0) {
 		  }
 		}
 		if (nifExistents.size() > 0) {
-			Maefc.message("Los clientes " + nifExistents + " ya estan dados de alta en Afinity", "Atención", Maefc.INFORMATION_MESSAGE);		
+			sb.append("Los clientes " + nifExistents + " ya estan dados de alta en Afinity\n");
 		}
 		exit();
 		}
@@ -685,6 +720,7 @@ if (selectedRows.size() == 0) {
 	pbf.launch();
 	
 	netejaChecks();
+	cargarClients();
 	doShow();
 	if (sb != null) {
 		java.io.File report;
@@ -1215,37 +1251,7 @@ else {
         {
         super.onInit ();
         
-ProgressBarForm pbf = new ProgressBarForm(this, "Consultando clientes...") {
-			
-	@Override
-	public void job() {
-		setPercent(0);
-		azure = new Azure(URL_AZURE);
-		if (azure.procesar()) {
-			setPercent(40);
-			xml = azure.getContenido();
-			setPercent(60);
-			if (!"".equals(xml)) {
-				clients = getClients(xml);	
-				setPercent(80);
-				exit();
-		    }	
-			else {
-				Maefc.message("No se ha podido conectar con Afinity", "¡Atención!", Maefc.WARNING_MESSAGE);
-				exit();
-			}
-		}
-		else {
-			Maefc.message("No se ha podido conectar con Afinity", "¡Atención!", Maefc.WARNING_MESSAGE);
-			exit();
-		}
-	}
-};
-
-pbf.setFormWidth(600);
-pbf.setEnabledCancel(false);
-pbf.setSecondaryAuto(false);
-pbf.launch();
+cargarClients();
         }
     }
     
