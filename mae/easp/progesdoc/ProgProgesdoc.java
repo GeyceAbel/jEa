@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 10 09:51:40 CET 2021
+// Fecha y hora:     Thu Mar 11 09:08:09 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -519,6 +519,7 @@ else {
         // Controles
         // Acciones
         public LinkAofitxer aofitxer;
+        public LinkAafichero aafichero;
         // Fieldsets
         class Location extends LocationBorder
             {
@@ -547,6 +548,33 @@ else {
                 }
             }
             
+        public class LinkAafichero extends Action
+            {
+            public LinkAafichero(Form form)
+                {
+                super(form);
+                setName("aafichero");
+                setTitle("&2. Subir fichero");
+                // SET: ACCION
+                setOptions(SHOW);
+                }
+            // EVENT: ACCION
+            public void onAction ()
+                {
+                super.onAction ();
+                
+mae.easp.pradfitxerafin.ProgPradfitxerafin prog = new mae.easp.pradfitxerafin.ProgPradfitxerafin(easp);
+prog.cdp = cdp;
+prog.setModal(true);
+LocationWindow loc=new LocationWindow();
+loc.setWidth(600);
+loc.setHeight(400);
+loc.setLocation(loc.CENTER);
+prog.setLocation(loc);
+prog.open();
+                }
+            }
+            
         public FormVgesdoc(ProgProgesdoc progesdoc)
             {
             super(progesdoc);
@@ -558,6 +586,7 @@ else {
             // SET: VENTANA
             addSelect(sselect=new Sselect());
             addAction(aofitxer=new LinkAofitxer(this));
+            addAction(aafichero=new LinkAafichero(this));
             }
         // GET: VENTANA
         // EVENT: VENTANA
