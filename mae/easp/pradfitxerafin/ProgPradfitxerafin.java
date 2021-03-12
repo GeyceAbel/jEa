@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Mar 12 08:56:13 CET 2021
+// Fecha y hora:     Fri Mar 12 12:26:02 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -13,6 +13,7 @@ import mae.general.*;
 // IMPORTS: PROGRAMA
 import java.util.ArrayList;
 import javax.xml.stream.*;
+import javax.json.*;
 import mae.easp.progesdoc.DirectoryElement;
 import javax.swing.tree.DefaultMutableTreeNode;
 import mae.easp.*;
@@ -27,14 +28,48 @@ public class ProgPradfitxerafin extends Program
     public ProgPradfitxerafin pradfitxerafin;
     // GLOBALES: PROGRAMA
     private static final String INFO_CDP_URL = "gesdoc.getinfocdp";
+private static final String UPLOAD_FILE_URL = "gesdoc.uploadfile";
 private Azure azure = null;
 private XMLInputFactory factory;
 private XMLStreamReader reader;
 private ArrayList<DirectoryElement> directoris = null;
 private ArrayList<Element> etiquetas = null;
+private java.util.Map<String,String> novaetiqueta = new java.util.HashMap<String,String>();
   
 public String cdp = null;
 public String xml = null;
+
+private boolean uploadFile() {
+	azure = new Azure(UPLOAD_FILE_URL, null, new java.io.File(vadfitxerafin.vvfichero.getString()));
+	azure.addParametroURL("cdp",cdp);
+	if (vdirectoriorem.elementSelected != null) {	
+		azure.addParametroURL("iddir",vdirectoriorem.elementSelected.id);
+	}
+	if (novaetiqueta.size() > 0) {
+		azure.addParametroURL("etiqueta", creaJson(novaetiqueta).toString());
+	}
+	return azure.procesar();
+}
+
+private JsonObject creaJson(java.util.Map<String, String> mapa) {
+	JsonObjectBuilder builder = Json.createObjectBuilder();
+	for (java.util.Map.Entry<String, String> eti : mapa.entrySet()) {
+		builder.add(eti.getKey(), eti.getValue());
+	}
+	return builder.build();
+}
+
+private EtiquetaElement buscaEtiqueta(String nom) {
+	int x = 0;
+	EtiquetaElement element = null;
+	do {
+		if (etiquetas.get(x) instanceof FamiliaElement) {
+		element = ((FamiliaElement) etiquetas.get(x)).buscaEtiqueta(nom);
+		}
+		x++;
+	} while (element == null && x < etiquetas.size());
+	return element;
+}
 
 private Element getElement(Element parentElement, XMLStreamReader reader) throws XMLStreamException {
 	Element element = null;
@@ -436,6 +471,7 @@ vetiquetas.open();
                 super.onAction ();
                 
 vvetiquetas.setValue("");
+novaetiqueta.clear();
                 }
             }
             
@@ -656,8 +692,12 @@ if ("".equals(vvvalor.getString())) {
 	Maefc.message("No se puede añadir un valor vacio", "¡Atención!", Maefc.WARNING_MESSAGE);
 }
 else {
-	vadfitxerafin.vvetiquetas.setValue(vadfitxerafin.vvetiquetas.getString() + vvfamilia.getString() + " - " + vvetiqueta.getString() + " - " + vvvalor.getString() + "\n");
-	vetiquetas.exit();
+	EtiquetaElement element = buscaEtiqueta(vvetiqueta.getString());
+	if (element != null) {
+		novaetiqueta.put(Integer.toString(element.getId()), vvvalor.getString());
+		vadfitxerafin.vvetiquetas.setValue(vadfitxerafin.vvetiquetas.getString() + vvfamilia.getString() + " - " + vvetiqueta.getString() + " - " + vvvalor.getString() + "\n");
+		vetiquetas.exit();
+	}
 }
 
                 }
@@ -975,23 +1015,39 @@ else {
         }
     // GET: PROGRAMA
     // EVENT: PROGRAMA
+    public void onOpened ()
+        {
+        super.onOpened ();
+        if (cdp == null) {
+	exit();
+}
+
+        }
     public void onInit ()
         {
-        vadfitxerafin.setLayout(new LayoutFieldset(vadfitxerafin));
-        vadfitxerafin.setTitle("CDP " + cdp);
-        
-        azure = new Azure(INFO_CDP_URL);
-        azure.addParametroURL("cdp", cdp);
-        	
-        if (azure.procesar()) {
-        	xml = azure.getContenido();
-        	etiquetas = getEtiquetas(xml);
-        	directoris = getDirectorios(xml);
-        	System.out.println(directoris);
-        	System.out.println(etiquetas);
+        if (cdp == null || "".equals(cdp)) {
+        	Maefc.message("Imposible recuperar los datos del cliente en el servidor AFINITY", "¡Atención!", Maefc.WARNING_MESSAGE);
+          	exit();
         }
-        
-        super.onInit ();
+        else {
+        	vadfitxerafin.setLayout(new LayoutFieldset(vadfitxerafin));
+          vadfitxerafin.setTitle("CDP " + cdp);
+          
+          azure = new Azure(INFO_CDP_URL);
+          azure.addParametroURL("cdp", cdp);
+          	
+          if (azure.procesar()) {
+          	xml = azure.getContenido();
+          	etiquetas = getEtiquetas(xml);
+          	directoris = getDirectorios(xml);
+          }
+          else {
+          	Maefc.message("Imposible recuperar los datos del cliente en el servidor AFINITY", "¡Atención!", Maefc.WARNING_MESSAGE);
+              	exit();
+          }
+          
+          super.onInit ();
+        }
         }
     }
     

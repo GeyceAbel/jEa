@@ -26,6 +26,15 @@ public class FamiliaElement extends Element {
 	public void removeElement(Element e) {
 		this.elements.remove(e);
 	}
+	
+	public EtiquetaElement buscaEtiqueta(String nomEtiqueta) {
+		if (elements == null || elements.size() == 0) return null;
+		for (Element element : elements) {
+			if (element instanceof EtiquetaElement && nomEtiqueta.equals(element.getNombre()))
+				return (EtiquetaElement) element;
+		}
+		return null;
+	}
 
 	@Override
 	public String toString() {
