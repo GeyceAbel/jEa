@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Mar 12 12:26:02 CET 2021
+// Fecha y hora:     Fri Mar 12 13:04:17 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -330,8 +330,8 @@ private boolean isValidTextNode(String node, XMLStreamReader reader) throws XMLS
                 {
                 super(form);
                 setName("vvbrowse");
-                setTitle("Navegar...");
-                setTitle("Navegar...");
+                setTitle("Examinar");
+                setTitle("Examinar");
                 // SET: BOTON
                 }
             // EVENT: BOTON
@@ -377,8 +377,8 @@ if (chooser.showOpenDialog(null) == javax.swing.JFileChooser.APPROVE_OPTION) {
                 {
                 super(form);
                 setName("vvbrowsedir");
-                setTitle("Navegar...");
-                setTitle("Navegar...");
+                setTitle("Examinar");
+                setTitle("Examinar");
                 // SET: BOTON
                 }
             // EVENT: BOTON
@@ -541,25 +541,32 @@ novaetiqueta.clear();
 	vvfamilia.removeAllItems();
 	vvetiqueta.removeAllItems();
 	
-	for (Element e : etiquetas) {
-		loadComboBoxes(e);
+	for (int x = 0; x < etiquetas.size(); x++) {
+		Element e = etiquetas.get(x);
+		if (e instanceof FamiliaElement) {
+			vvfamilia.addItem(e.getNombre());
+			if (x == 0 && ((FamiliaElement) e).hasElements()) {
+				for (Element e2 : ((FamiliaElement) e).getElements()) {
+					vvetiqueta.addItem(e2.getNombre());
+				}	
+			}
+		}
 	}
 	vvfamilia.onSelectedIndex(0);
 	vvetiqueta.onSelectedIndex(0);
 }
 
-private void loadComboBoxes(Element e) {
-	if (e instanceof FamiliaElement) {
-		vvfamilia.addItem(e.getNombre());
-		if (((FamiliaElement) e).hasElements()) {
+private void refreshEtiqueta(String familia) {
+	vvetiqueta.removeAllItems();
+
+	for (Element e : etiquetas) {
+		if (e.getNombre().equals(familia) && e instanceof FamiliaElement && ((FamiliaElement) e).hasElements()) {
 			for (Element e2 : ((FamiliaElement) e).getElements()) {
-				loadComboBoxes(e2);
-			}
+				vvetiqueta.addItem(e2.getNombre());
+			}	
 		}
 	}
-	else if (e instanceof EtiquetaElement) {
-		vvetiqueta.addItem(e.getNombre());
-	}
+	vvetiqueta.onSelectedIndex(0);
 }
         // Metodos
         // Controles
@@ -612,6 +619,11 @@ private void loadComboBoxes(Element e) {
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public void userChange (Value v)
+                {
+                super.userChange (v);
+                refreshEtiqueta(getString());
+                }
             }
             
         public class CtrlVvetiqueta extends ControlComboBox
@@ -911,7 +923,7 @@ private void crearArbol(boolean test) {
 	@Override
 	public void valueChanged(javax.swing.event.TreeSelectionEvent e) {
 		DefaultMutableTreeNode node = (DefaultMutableTreeNode) jt.getLastSelectedPathComponent();
-	    if (node != null && node.isLeaf()) {
+	    if (node != null) {
 	    	   Object nodeInfo = node.getUserObject();
 	        elementSelected = (TreeElement) nodeInfo;
 	    } 
