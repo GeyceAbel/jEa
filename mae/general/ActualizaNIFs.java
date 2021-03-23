@@ -1766,7 +1766,7 @@ public class ActualizaNIFs
 		if(execute) execute = UpdateNIF(connJModelos, "MOD100H4", "m14nif",(connJModelos.getDB().getCatalogs())[3]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD100H5", "m15nif",(connJModelos.getDB().getCatalogs())[3]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD100H6", "m16nif",(connJModelos.getDB().getCatalogs())[3]);
-    if(execute) execute = UpdateNIF(connJModelos, "MOD100H6D", "m16nif",(connJModelos.getDB().getCatalogs())[3]);
+    if(execute) execute = UpdateNIF(connJModelos, "MOD100H6D", "m16dnif",(connJModelos.getDB().getCatalogs())[3]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD100H7", "m17nif",(connJModelos.getDB().getCatalogs())[3]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD100H8", "m18nif",(connJModelos.getDB().getCatalogs())[3]);
 		if(execute) execute = UpdateNIF(connJModelos, "MOD100H9", "m19nif",(connJModelos.getDB().getCatalogs())[3]);

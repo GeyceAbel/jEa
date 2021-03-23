@@ -159,6 +159,9 @@ private boolean esjExpe;
             public void onChange ()
                 {
                 super.onChange();
+                if ("JCONTA-AND".equals(Aplication.getAplication().getConfig("Servicio")) || "S".equals(Aplication.getAplication().getConfig("ANDORRA")))
+                	vcambianif.vnounif.setValue(getString());
+                else 
                 vcambianif.vnounif.setValue(Util.esCIF(vcambianif.vnounif.getString()));
                 }
             }
