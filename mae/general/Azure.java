@@ -9,6 +9,9 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.json.JsonObject;
+
 import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -40,19 +43,29 @@ public class Azure {
 	private String encoding;
 	private List<NameValuePair> lparametros;
 	private String funcion;
+	private JsonObject json;
 	
 	public Azure (String function) {
-		this(function,null, null);
+		this(function,null);
 	}
 
 	public Azure (String function, List<NameValuePair> lparams) {
-		this(function,lparams, null);
+		this(function,lparams, null, null);
 	}
 
 	public Azure (String funcion, List<NameValuePair> lparams, File f) {
+		this (funcion, lparams, f, null);
+	}
+
+	public Azure (String funcion, List<NameValuePair> lparams, JsonObject json) {
+		this (funcion, lparams, null, json);
+	}
+
+	public Azure (String funcion, List<NameValuePair> lparams, File f, JsonObject json) {
 		this.funcion = funcion;
 		this.fichero = f;
 		this.lparametros = lparams;
+		this.json = json;
 		numeroReintentos = 1;
 	}
 
@@ -95,15 +108,18 @@ public class Azure {
 		try {
 			initProcesar();
 			post = new HttpPost(getUrlAzure ());
-			if (fichero != null && fichero.exists()) {
-				if (fichero.length() > MB_MAXIMOS * 1024 * 1024) {
+			if ((fichero != null && fichero.exists()) || json != null) {
+				if (fichero != null && fichero.length() > MB_MAXIMOS * 1024 * 1024) {
 					bOk = false;
 					error = "Fichero demasiado grande: "+(Numero.redondeo((double)fichero.length()/(double)1024))+" KBytes";
 				}
 				else {
 					MultipartEntityBuilder mpart = MultipartEntityBuilder.create();
-					FileBody fileBody = new FileBody(fichero, ContentType.DEFAULT_BINARY);
-					mpart.addPart(fichero.getName(), fileBody);
+					if (fichero != null) {
+						FileBody fileBody = new FileBody(fichero, ContentType.DEFAULT_BINARY);
+						mpart.addPart(fichero.getName(), fileBody);
+					}
+					if (json != null) mpart.addTextBody("characterProfile", json.toString(), ContentType.APPLICATION_JSON);
 					post.setEntity(mpart.build());
 				}
 			}
