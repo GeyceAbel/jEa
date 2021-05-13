@@ -3,6 +3,10 @@ package mae.easp.insprconver;
 import mae.easp.general.Easp;
 
 public class Sentencias {
+	
+  public static String sentencias17_5[]={
+		  "INSERT INTO EPIGRAFES (epitipoact, epiepigrafe, epidescripcion, epiepisinpunto) VALUES ('1', '151.6', 'COMERCIALIZACIÓN DE ENERGÍA ELÉCTRICA', '1516')"
+  };
 
   public static String sentencias17_3[]={"DELETE FROM INDEMORA WHERE indejercicio=2021;",
       "INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2021,'01/01/2021','31/12/2021',3.75);"};
