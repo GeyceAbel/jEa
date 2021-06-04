@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Mar 12 12:26:27 CET 2021
+// Fecha y hora:     Fri Jun 04 10:38:46 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -47,10 +47,10 @@ public class ProgProgesdoc extends Program
   private XMLStreamReader reader;
   private static final String URL_FITXER_GESDOC = "gesdoc.getfile";
   private static String URL_GESDOC = "gesdoc.getcontenido";
-  private static final String path = "C:\\Users\\aleix.barrera\\Desktop\\ges.xml";
 
   public String xml = "";
   public String cdp = "";
+  public String nombrecdp = "";
 
 private String getSize(long size) {
 if (size <= 0) {
@@ -629,6 +629,7 @@ prog.open();
     public void onInit ()
         {
         //System.out.println(xml);
+        setTitle("Gesdoc: "+cdp+"-"+nombrecdp);
         elements = getElements(xml);
         vgesdoc.addControl(arbre=new CtrlArbre(vgesdoc));
         raiz = new TreeTableNode();

@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 10 13:52:50 CET 2021
+// Fecha y hora:     Fri Jun 04 11:00:33 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -29,13 +29,12 @@ private static final int NIF = 2;
 private static final int NOMBRE = 3;
 private static final int ALTA_AFINITY = 4;
 private static final int CODIGO_AFINITY = 5;
-private static final int USUARIO_AFINITY = 6;
+private static final int MAIL_AFINITY = 6;
 private static final int PASSWD_AFINITY = 7;
 private static final int PORTAL_AFINITY = 8;
 private static String URL_AZURE = "agpi2dp.getpwdcdp";
 private static String URL_GESDOC = "gesdoc.getcontenido";
 private String xml = "";
-private String gesdoc = "";
 private Azure azure;
 private XMLInputFactory factory;
 private XMLStreamReader reader;
@@ -131,9 +130,12 @@ private java.util.HashMap<String, Client> getClients(String xml) {
 					if ("S".equals(reader.getText().toString()))
 						client.tienePortal = true;
 				}
+				else if (isValidTextNode("email", reader) && client != null) {
+					client.mail = reader.getText().toString();
+				}
 				else if (isValidTextNode("usuario", reader) && client != null) {
 					client.usuario = reader.getText().toString();
-				}
+				}				
 				else if (isValidTextNode("passwd", reader) && client != null) {
 					client.passwd = reader.getText().toString();
 				}
@@ -264,6 +266,7 @@ private class Client {
 	public String nif = null;
 	public String dominio = "";
 	public String usuario = "";
+	public String mail = "";
 	public String passwd = "";
 	public boolean tienePortal = false;
 }
@@ -422,7 +425,7 @@ private boolean generaReport(StringBuffer message, java.io.File file) {
         public CtrlDatnombre datnombre;
         public CtrlVvaltafinity vvaltafinity;
         public CtrlVvcodafinity vvcodafinity;
-        public CtrlVvusuario vvusuario;
+        public CtrlVvmail vvmail;
         public CtrlVvpasswd vvpasswd;
         public CtrlVvportalcdp vvportalcdp;
         // Acciones
@@ -552,7 +555,8 @@ private boolean generaReport(StringBuffer message, java.io.File file) {
                 {
                 super(form);
                 setName("vvaltafinity");
-                setTitle("Alta en Afinity");
+                setMessageHelp("Esta dado de alta en afinityweb");
+                setTitle("");
                 setType(INTEGER);
                 // SET: CHECKBOX
                 }
@@ -589,7 +593,7 @@ private boolean generaReport(StringBuffer message, java.io.File file) {
             // EVENT: CONTROLEDIT
             }
             
-        public class CtrlVvusuario extends ColumnEdit
+        public class CtrlVvmail extends ColumnEdit
             {
             // GLOBALES: CONTROLEDIT
             // Metodos
@@ -602,12 +606,12 @@ private boolean generaReport(StringBuffer message, java.io.File file) {
                     }
                 }
                 
-            public CtrlVvusuario(Form form)
+            public CtrlVvmail(Form form)
                 {
                 super(form);
                 setLook(new Look());
-                setName("vvusuario");
-                setTitle("Usuario");
+                setName("vvmail");
+                setTitle("EMail");
                 setType(STRING);
                 setLength(50);
                 setSearchable(true);
@@ -655,7 +659,8 @@ private boolean generaReport(StringBuffer message, java.io.File file) {
                 {
                 super(form);
                 setName("vvportalcdp");
-                setTitle("Portal CDP");
+                setMessageHelp("Tiene Portal CDP");
+                setTitle("Portal");
                 setType(INTEGER);
                 // SET: CHECKBOX
                 }
@@ -746,7 +751,7 @@ if (selectedRows.size() == 0) {
                 {
                 super(form);
                 setName("agesdoc");
-                setTitle("&2. GESDOC");
+                setTitle("&2. Gestión Documental");
                 // SET: ACCION
                 setOptions(SHOW);
                 }
@@ -757,15 +762,17 @@ if (selectedRows.size() == 0) {
                 
 int selectedRow = vcdpafinity.getControlTable().getSelectedRow();
 String cdp = vcdpafinity.getControlTable().getValueAt(selectedRow, CODIGO_AFINITY).getString();
+String nombrecdp = vcdpafinity.getControlTable().getValueAt(selectedRow, NOMBRE).getString();
 azure = new Azure(URL_GESDOC);
 azure.addParametroURL("cdp", cdp);
 
 if (azure.procesar()) {
-	gesdoc = azure.getContenido();
+	String gesdoc = azure.getContenido();
 	if (!"".equals(gesdoc)) {
 		mae.easp.progesdoc.ProgProgesdoc proggesdoc = new mae.easp.progesdoc.ProgProgesdoc(easp);
 		proggesdoc.cdp = cdp;
 		proggesdoc.xml = gesdoc;
+		proggesdoc.nombrecdp = nombrecdp;
 		proggesdoc.run();
      }	
 }
@@ -792,7 +799,7 @@ else {
             addControl(datnombre=new CtrlDatnombre(this));
             addControl(vvaltafinity=new CtrlVvaltafinity(this));
             addControl(vvcodafinity=new CtrlVvcodafinity(this));
-            addControl(vvusuario=new CtrlVvusuario(this));
+            addControl(vvmail=new CtrlVvmail(this));
             addControl(vvpasswd=new CtrlVvpasswd(this));
             addControl(vvportalcdp=new CtrlVvportalcdp(this));
             addAction(aaltafinity=new LinkAaltafinity(this));
@@ -830,27 +837,15 @@ datnombre.setValue(scdp.datapell1.getString() + " " + scdp.datapell2.getString()
 if ((clients != null && clients.size() > 0) && clients.containsKey(cdpnifcif.getString())) {
 	Client client = clients.get(cdpnifcif.getString());
 	vvaltafinity.setValue(1);
-	vvcodafinity.setValue(client.dominio.toString());
-	vvusuario.setValue(client.usuario.toString());
-	vvpasswd.setValue(client.passwd.toString());
+	vvcodafinity.setValue(client.dominio);
+	vvmail.setValue(client.mail);
+	vvpasswd.setValue(client.passwd);
 	vvportalcdp.setValue((client.tienePortal) ? 1 : 0);		
 }
+vvcheck.setValue(selectedRows.contains(cdpcodi.getString()) ? 1 : 0);
+agesdoc.setEnabled(vvportalcdp.getBoolean());
 
-if (selectedRows.contains(cdpcodi.getString())) {
-	vvcheck.setValue(1);
-}
-
-            }
-        public void onFocusRecord ()
-            {
-            super.onFocusRecord ();
-            
-if (vvportalcdp.getInteger() == 1) {
-	agesdoc.setEnabled(true);
-}
-else {
-	agesdoc.setEnabled(false);	
-}
+if (vvmail.getString().length() == 0) vvmail.setValue(scdp.datemail);
             }
         }
         
@@ -1203,27 +1198,31 @@ else {
             }
         public String getOrder ()
             {
-            if (reOrdena) {
+            if (reOrdena && order<=3) {
             	if (ultimoOrdenado != order) {
             		torden[order] = "ASC";
-            	}
-            	else 
-            {
-            		if ("DESC".equals(torden[order])) torden[order] = "ASC";
-            		else torden[order] = "DESC";
+            	} else {
+            		if ("DESC".equals(torden[order]))
+            			torden[order] = "ASC";
+            		else
+            			torden[order] = "DESC";
             	}
             	reOrdena = false;
             
-            ultimoOrdenado = order;
+            	ultimoOrdenado = order;
             
-            switch (order){
-             case 1: return "cdp.cdpcodi "+torden[order]+", cdp.cdpnifcif, nifes.datapell1, nifes.datapell2, nifes.datnombre";
-             case 2: return "cdp.cdpnifcif "+torden[order]+",cdp.cdpcodi, nifes.datapell1, nifes.datapell2, nifes.datnombre";
-             case 3: return " nifes.datapell1 "+torden[order]+", nifes.datapell2, nifes.datnombre, cdp.cdpcodi, cdp.cdpnifcif";
-             default: return "cdp.cdpcodi "+torden[order]+",cdp.cdpnifcif "+torden[order]+" , nifes.datapell1 "+torden[order]+", nifes.datapell2 "+torden[order]+", nifes.datnombre "+torden[order]+"";
+            	switch (order) {
+            	case 1:
+            		return "cdp.cdpcodi " + torden[order] + ", cdp.cdpnifcif, nifes.datapell1, nifes.datapell2, nifes.datnombre";
+            	case 2:
+            		return "cdp.cdpnifcif " + torden[order] + ",cdp.cdpcodi, nifes.datapell1, nifes.datapell2, nifes.datnombre";
+            	case 3:
+            		return " nifes.datapell1 " + torden[order] + ", nifes.datapell2, nifes.datnombre, cdp.cdpcodi, cdp.cdpnifcif";
+            	default:
+            		return "cdp.cdpcodi " + torden[order] + ",cdp.cdpnifcif " + torden[order] + " , nifes.datapell1 " + torden[order] + ", nifes.datapell2 " + torden[order] + ", nifes.datnombre " + torden[order] + "";
+            	}
             }
-            }
-             return "cdp.cdpcodi";
+            return "cdp.cdpcodi";
             }
         // EVENT: SELECT
         }
@@ -1249,9 +1248,14 @@ else {
     // EVENT: PROGRAMA
     public void onInit ()
         {
-        super.onInit ();
-        
-cargarClients();
+        if (!Aplication.getAplication().getUser().toUpperCase().equals("ADMIN")) {
+  Maefc.message("Sólo se permite la entrada al administrador","Aviso",Maefc.WARNING_MESSAGE);
+  exit();
+  }
+else {
+	super.onInit ();
+        	cargarClients();
+}
         }
     }
     
