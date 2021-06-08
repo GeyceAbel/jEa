@@ -1,0 +1,59 @@
+<project name="jEa" default="all" basedir=".">
+	<description>
+		Crear Distribucio JEA
+	</description>
+	<!-- set global properties for this build -->
+
+	<property name="vjava" value="7" />
+	<property name="vejer" value="21" />
+	<property name="vmes" value="06" />
+	<property name="vauto" value="01" />
+
+	<property name="dist" location="buildtmp" />
+	<property name="zipsversio" location="ZIP" />
+	
+	<property name="zipjea" value="easp_${vjava}_${vejer}${vmes}${vauto}" />
+	
+	<target name="all" depends="principal" description="dependencia con todos los targets" />
+
+	<target name="init">
+		<echo message="Creamos directorio ${dist}" /> 
+		<delete dir="${dist}" /> 
+	    <mkdir dir="${dist}" />
+	</target>
+	
+	<target name="clean">
+		<echo message="Eliminamos directorio ${dist}" /> 
+		<delete dir="${dist}" /> 
+	</target>
+	
+	<target name="principal">
+		<antcall target="init" />
+		<echo message="Target Crea  ${zipjea}" />
+		<echo message="version: ${vejer}.${vmes}.${vauto}" file="${dist}/ver${zipjea}.txt" />
+		<delete file="${zipsversio}/${zipjea}.zip"></delete>
+		<!--<copy file=".properties.monta" tofile="${dist}/.properties"/>-->
+		<copy todir="${dist}">
+			<fileset dir=".">
+				<include name ="mae/**/*.png" />
+				<include name ="mae/**/*.jpg" />
+				<include name ="mae/**/*.html" />
+				<include name ="mae/**/*.gif" />
+				<include name ="mae/**/*.txt" />
+				<include name ="mae/**/*.vbs" />
+				<include name ="query.xls" />
+		  		<include name ="mae/**/*.class"/>
+				<include name ="maefc0110.dll"/>
+				<include name ="look.properties"/>
+			</fileset>
+			<fileset dir="${dist}">
+				<include name ="ver${zipjea}.txt" />
+			</fileset>
+		</copy>
+
+		<jar jarfile="${zipsversio}/${zipjea}.zip" basedir="${dist}" /> 
+		<antcall target="clean" />
+		<echo message="FIN ${zipjea}" />		
+	</target>
+
+</project>
