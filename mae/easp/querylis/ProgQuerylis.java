@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Mar 31 18:14:14 CEST 2020
+// Fecha y hora:     Wed Jun 09 09:03:27 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -63,7 +63,9 @@ Frase llegeixFrase(String nom) {
       frase.from        =sfrase.getString("qeffrom");
       frase.where       =sfrase.getString("qefwhere");
       frase.ect         =sfrase.getString("qefect");
-      frase.nomConexio  =buscaNomConexio(sfrase.getString("qefmaster"));
+      String master = sfrase.getString("qefmaster");
+      String bbdd = getBbdd(nom, master);
+      frase.nomConexio  =buscaNomConexio(bbdd, master);
       frase.repetirLinea=sfrase.getString("qefrepetir");
       frase.count       =sfrase.getString("qefcount");
 
@@ -77,9 +79,18 @@ Frase llegeixFrase(String nom) {
     return frase;
     }
 
-    String buscaNomConexio(String nomMaster) {
+    String getBbdd(String frase, String nomMaster) {
+		String bbdd = null;
+		Selector sl = new Selector(getDataBase());
+		sl.execute("SELECT * FROM quetabla WHERE qetaplicacion='"+aplicacion+"' AND qetfrase='"+frase+"' AND qettabla='"+nomMaster+"'");
+		if (sl.next()) bbdd = sl.getString("qetbbdd");
+		sl.close();
+		return bbdd;
+	}
+
+    String buscaNomConexio(String bbdd, String nomMaster) {
       String nomConnect="";
-      TablaCatalogo tc=buscaTabla(null,nomMaster);
+      TablaCatalogo tc=buscaTabla(bbdd,nomMaster);
       if (tc!=null) {
            for (int i=0;i<quonexions.length;i++) {
               if (hiHaCataleg(quonexions[i],tc.catalogo)){

@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Jul 16 10:02:36 CEST 2019
+// Fecha y hora:     Wed Jun 09 08:58:18 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -79,94 +79,107 @@ private void disableIniConver () {
         {
         // GLOBALES: VENTANA
         public void onOpened() {
-  super.onOpened();
-  scodcnvotraplc.setWhere ("ccoaplic='"+AplicacionOrigen.toString()+"' and ccohistorico='N'");
-  scodcnvotraplc.execute();
-  if (!scodcnvotraplc.isEof()) {
-    vvempini.setValue(scodcnvotraplc.ccoempini);
-    vvempfin.setValue(scodcnvotraplc.ccoempfin);
-    vvejeini.setValue(scodcnvotraplc.ccoejeini);
-    vvejefin.setValue(scodcnvotraplc.ccoejefin);
-    vvservidor.setValue(scodcnvotraplc.ccoservidor);
-    vvinstancia.setValue(scodcnvotraplc.ccoinstancia);
-    vvnombrebd.setValue(scodcnvotraplc.ccobbdd);
-    vvuser.setValue(scodcnvotraplc.ccouserbd);
-    vvpasswd.setValue(scodcnvotraplc.ccopwdbd);
-    vvctas.setValue(scodcnvotraplc.ccojcoctamayor);
-    vvnumalfa.setValue(scodcnvotraplc.ccojcotipocta);
-    chsql.setValue(scodcnvotraplc.ccojcosql);
-    chproy.setValue(scodcnvotraplc.ccojcocanales);
-    chjco.setValue(scodcnvotraplc.ccotraspjco);
-    chjeo.setValue(scodcnvotraplc.ccotraspjeo);
-    chjre.setValue(scodcnvotraplc.ccotraspjre);
-    chjsoc.setValue(scodcnvotraplc.ccotraspjsoc);
-    chjges.setValue(scodcnvotraplc.ccotraspjges);
-    chjnom.setValue(scodcnvotraplc.ccotraspjnom);
-    vcodigos.idConver = scodcnvotraplc.ccocodi.getInteger();
-    chestimaciones.setValue(scodcnvotraplc.ccoestimacion);
-    chmercantil.setValue(scodcnvotraplc.ccomercantil);
-    chmodelos.setValue(scodcnvotraplc.ccomodelos);
-    vvdesdedec.setValue(scodcnvotraplc.ccodecdesde);
-    vvhastadec.setValue(scodcnvotraplc.ccodechasta);
-    vrensimul.setValue(scodcnvotraplc.ccodecsimul); 
-    vvdpto.setValue(scodcnvotraplc.ccodepartamento);
-  }
-  else {
-    vvempini.setValue(1);
-    vvempfin.setValue(999999);
-    vvejeini.setValue(2008);
-    vvejefin.setValue(Maefc.getYear(Maefc.getDate()));
-    vvservidor.setValue(Easp.getNomPC());
-    vvnombrebd.setValue("LOGIC");
-    vvuser.setValue("sa");
-    vvpasswd.setValue("sa");
-    vcodigos.idConver = -1;
-  }
-  if (fromJCO) {
-    chjeo.setEnabled(false);
-    chjeo.setValue(false);
-    chjsoc.setEnabled(false);
-    chjsoc.setValue(false);
-    chjre.setEnabled(false);
-    chjre.setValue(false);
-    chjnom.setEnabled(false);
-    chjnom.setValue(false);
-    chjges.setEnabled(false);
-    chjges.setValue(false);
-  }
-  else if (fromJISS) {
-    chjeo.setEnabled(false);
-    chjeo.setValue(false);
-    chjco.setEnabled(false);
-    chjco.setValue(false);
-    chjre.setEnabled(false);
-    chjre.setValue(false);
-    chjnom.setEnabled(false);
-    chjnom.setValue(false);
-    chjges.setEnabled(false);
-    chjges.setValue(false);
-  }
-  estadoCampos ();
+	super.onOpened();
+	scodcnvotraplc.setWhere("ccoaplic='" + AplicacionOrigen.toString() + "' and ccohistorico='N'");
+	scodcnvotraplc.execute();
+	if (!scodcnvotraplc.isEof()) {
+		vvempini.setValue(scodcnvotraplc.ccoempini);
+		vvempfin.setValue(scodcnvotraplc.ccoempfin);
+		vvejeini.setValue(scodcnvotraplc.ccoejeini);
+		vvejefin.setValue(scodcnvotraplc.ccoejefin);
+		vvservidor.setValue(scodcnvotraplc.ccoservidor);
+		vvinstancia.setValue(scodcnvotraplc.ccoinstancia);
+		vvnombrebd.setValue(scodcnvotraplc.ccobbdd);
+		vvuser.setValue(scodcnvotraplc.ccouserbd);
+		vvpasswd.setValue(scodcnvotraplc.ccopwdbd);
+		vvctas.setValue(scodcnvotraplc.ccojcoctamayor);
+		vvnumalfa.setValue(scodcnvotraplc.ccojcotipocta);
+		chsql.setValue(scodcnvotraplc.ccojcosql);
+		chproy.setValue(scodcnvotraplc.ccojcocanales);
+		chjco.setValue(scodcnvotraplc.ccotraspjco);
+		chjeo.setValue(scodcnvotraplc.ccotraspjeo);
+		chjre.setValue(scodcnvotraplc.ccotraspjre);
+		chjsoc.setValue(scodcnvotraplc.ccotraspjsoc);
+		chjges.setValue(scodcnvotraplc.ccotraspjges);
+		chjnom.setValue(scodcnvotraplc.ccotraspjnom);
+		vcodigos.idConver = scodcnvotraplc.ccocodi.getInteger();
+		chestimaciones.setValue(scodcnvotraplc.ccoestimacion);
+		chmercantil.setValue(scodcnvotraplc.ccomercantil);
+		chmodelos.setValue(scodcnvotraplc.ccomodelos);
+		vvdesdedec.setValue(scodcnvotraplc.ccodecdesde);
+		vvhastadec.setValue(scodcnvotraplc.ccodechasta);
+		vrensimul.setValue(scodcnvotraplc.ccodecsimul);
+		vvdpto.setValue(scodcnvotraplc.ccodepartamento);
+	} else {
+		vvempini.setValue(1);
+		vvempfin.setValue(999999);
+		vvejeini.setValue(2008);
+		vvejefin.setValue(Maefc.getYear(Maefc.getDate()));
+		vvservidor.setValue(Easp.getNomPC());
+		vvnombrebd.setValue("LOGIC");
+		vvuser.setValue("sa");
+		vvpasswd.setValue("sa");
+		vcodigos.idConver = -1;
+	}
+	if (fromJCO) {
+		chjeo.setEnabled(false);
+		chjeo.setValue(false);
+		chjsoc.setEnabled(false);
+		chjsoc.setValue(false);
+		chjre.setEnabled(false);
+		chjre.setValue(false);
+		chjnom.setEnabled(false);
+		chjnom.setValue(false);
+		chjges.setEnabled(false);
+		chjges.setValue(false);
+	} else if (fromJISS) {
+		chjeo.setEnabled(false);
+		chjeo.setValue(false);
+		chjco.setEnabled(false);
+		chjco.setValue(false);
+		chjre.setEnabled(false);
+		chjre.setValue(false);
+		chjnom.setEnabled(false);
+		chjnom.setValue(false);
+		chjges.setEnabled(false);
+		chjges.setValue(false);
+	}
+	estadoCampos();
 }
 
-
-public void estadoCampos () {
-  //Parametros jConta
-  vvctas.setEnabled(chjco.getBoolean());
-  chforzarcp.setEnabled(chjco.getBoolean() && "4".equals(vvctas.getString()));
-  vvnumalfa.setEnabled(chjco.getBoolean());
-  chsql.setEnabled(chjco.getBoolean());
-  chproy.setEnabled(chjco.getBoolean());
-  vvdpto.setEnabled(chjnom.getBoolean());
-  // Parametros jEO
-  chestimaciones.setEnabled(chjeo.getBoolean()); 
-  chmercantil.setEnabled(chjeo.getBoolean()); 
-  chmodelos.setEnabled(chjeo.getBoolean()); 
-  // jRenta
-  vvdesdedec.setEnabled(chjre.getBoolean());
-  vvhastadec.setEnabled(chjre.getBoolean());
-  vrensimul.setEnabled(chjre.getBoolean()); 
+public void estadoCampos() {
+	//Parametros jConta
+	vvctas.setEnabled(chjco.getBoolean());
+	chforzarcp.setEnabled(chjco.getBoolean() && "4".equals(vvctas.getString()));
+	vvnumalfa.setEnabled(chjco.getBoolean());
+	chsql.setEnabled(chjco.getBoolean());
+	chproy.setEnabled(chjco.getBoolean());
+	chsoloamort.setEnabled(chjco.getBoolean());
+	vvdpto.setEnabled(chjnom.getBoolean());
+	// Parametros jEO
+	chestimaciones.setEnabled(chjeo.getBoolean());
+	chmercantil.setEnabled(chjeo.getBoolean());
+	chmodelos.setEnabled(chjeo.getBoolean());
+	// jRenta
+	vvdesdedec.setEnabled(chjre.getBoolean());
+	vvhastadec.setEnabled(chjre.getBoolean());
+	vrensimul.setEnabled(chjre.getBoolean());
 }
+
+IconAction iconayuda = new IconAction(this, "Ayuda", "Ayuda del modelo [F1]", javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0), "Ayuda") {
+	public void onAction() {
+		try {
+			int i = Windows.ShellExecute("open", "https://afinityprod.blob.core.windows.net/documentos/conversions/LOGICCLASSCONTA.pdf", null, null, Windows.SW_SHOWNORMAL);
+			System.out.println(i);
+		} catch (Exception e) {
+			Maefc.message("Error abriendo documento:\n" + e.getMessage(), "Error", Maefc.ERROR_MESSAGE);
+		}
+	}
+
+	public String getIcon() {
+		return "mae/modasp/images/Ayuda.gif";
+	}
+};
         // Metodos
         // Controles
         public CtrlVvempini vvempini;
@@ -193,6 +206,7 @@ public void estadoCampos () {
         public CtrlChsql chsql;
         public CtrlChproy chproy;
         public CtrlChestimaciones chestimaciones;
+        public CtrlChsoloamort chsoloamort;
         public CtrlChjsoc chjsoc;
         public CtrlChmodelos chmodelos;
         public CtrlVvdpto vvdpto;
@@ -944,6 +958,21 @@ public void estadoCampos () {
                 }
             }
             
+        public class CtrlChsoloamort extends ControlCheck
+            {
+            // GLOBALES: CHECKBOX
+            // Metodos
+            public CtrlChsoloamort(Form form)
+                {
+                super(form);
+                setName("chsoloamort");
+                setTitle("Importar solo amortizaciones");
+                // SET: CHECKBOX
+                }
+            // EVENT: CHECKBOX
+            // GET: CHECKBOX
+            }
+            
         public class CtrlChjsoc extends ControlCheck
             {
             // GLOBALES: CHECKBOX
@@ -1166,7 +1195,7 @@ public void estadoCampos () {
                       clcjco = new mae.easp.conversions.logicclass.ConversionJCO (cnvlogicclass,codiCab,vvempini.getInteger(),vvempfin.getInteger(),vvejeini.getInteger(),vvejefin.getInteger(),
                                                                                                                              vvservidor.getString(), vvinstancia.getString(), vvnombrebd.getString(),vvuser.getString(),
                                                                                                                              vvpasswd.getString(), getDataBase(), vvnumalfa.getString(), vvctas.getString(),
-                                                                                                                             chproy.getBoolean(), chsql.getBoolean(), chforzarcp.getBoolean());
+                                                                                                                             chproy.getBoolean(), chsql.getBoolean(), chforzarcp.getBoolean(), chsoloamort.getBoolean());
                       if (clcjco.hayError()) {
                         bOk = false;
                         sError = clcjco.getError();
@@ -1357,6 +1386,7 @@ public void estadoCampos () {
                 addControl(vvctas);
                 addControl(chsql);
                 addControl(chproy);
+                addControl(chsoloamort);
                 getWebProperties().setAnchoColumnas (2);
                 getWebProperties().setSizeSeparacionT (0);
                 getWebProperties().setSizeSeparacionR (0);
@@ -1474,6 +1504,7 @@ public void estadoCampos () {
             addControl(chsql=new CtrlChsql(this));
             addControl(chproy=new CtrlChproy(this));
             addControl(chestimaciones=new CtrlChestimaciones(this));
+            addControl(chsoloamort=new CtrlChsoloamort(this));
             addControl(chjsoc=new CtrlChjsoc(this));
             addControl(chmodelos=new CtrlChmodelos(this));
             addControl(vvdpto=new CtrlVvdpto(this));
@@ -1493,6 +1524,11 @@ public void estadoCampos () {
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onInit ()
+            {
+            super.onInit ();
+            iconayuda.create();
+            }
         }
         
     // 
@@ -1595,39 +1631,42 @@ public void estadoCampos () {
         // GLOBALES: VENTANA
         int idConver = -1;
 
-public void onEdit () {  
-  chsel.setEnabled(false);
-  chjco.setEnabled(false);
-  chjeo.setEnabled(false);
-  chjsoc.setEnabled(false);
-  chjre.setEnabled(false);
-  chjnom.setEnabled(false);
-  chjges.setEnabled(false);
-  super.onEdit();
+public void onEdit() {
+	chsel.setEnabled(false);
+	chjco.setEnabled(false);
+	chjeo.setEnabled(false);
+	chjsoc.setEnabled(false);
+	chjre.setEnabled(false);
+	chjnom.setEnabled(false);
+	chjges.setEnabled(false);
+	super.onEdit();
 }
 
 private boolean esElMismoCDP(String codCdp, String nif) {
-  boolean mismo = false;
-  Selector sCdp = new Selector(getDataBase());
-  sCdp.execute("Select * from CDP where cdpcodi='"+codCdp+"' and cdpnifcif='"+nif+"'");
-  if (sCdp.next()) mismo = true;
-  sCdp.close();
-  return mismo;           
+	boolean mismo = false;
+	Selector sCdp = new Selector(getDataBase());
+	sCdp.execute("Select * from CDP where cdpcodi='" + codCdp + "' and cdpnifcif='" + nif + "'");
+	if (sCdp.next())
+		mismo = true;
+	sCdp.close();
+	return mismo;
 }
 
 private boolean existeCDP(String codCdp) {
-  boolean existe = false;
-  Selector sCdp = new Selector(getDataBase());
-  sCdp.execute("Select * from CDP where cdpcodi='"+codCdp+"'");
-  if (sCdp.next()) existe = true;
-  sCdp.close();
-  return existe;           
+	boolean existe = false;
+	Selector sCdp = new Selector(getDataBase());
+	sCdp.execute("Select * from CDP where cdpcodi='" + codCdp + "'");
+	if (sCdp.next())
+		existe = true;
+	sCdp.close();
+	return existe;
 }
 
 private boolean existeAConvertir(int integer) {
-  boolean trobat = false;
-  for (int i=0;i<vcodigos.getRowCount() && !trobat;i++) trobat = i!=getCurrentRow() && (cclcodigeyce.getInteger() == vcodigos.cclcodigeyce.getValue(i).getInteger());
-  return trobat;
+	boolean trobat = false;
+	for (int i = 0; i < vcodigos.getRowCount() && !trobat; i++)
+		trobat = i != getCurrentRow() && (cclcodigeyce.getInteger() == vcodigos.cclcodigeyce.getValue(i).getInteger());
+	return trobat;
 }
         // Metodos
         // Controles
@@ -3298,7 +3337,7 @@ public java.awt.Color getCellColorForeground(boolean isSelected, boolean hasFocu
         if (!pra.haAceptadoCondiciones) return;*/
         vconversion.setLayout(new LayoutHtml("mae/easp/html/cnvlogicclas_vconversion.html"));
         vcodigos.aact.setVisible(fromJCO);
-        super.onInit();
+        super.onInit();
         }
     }
     

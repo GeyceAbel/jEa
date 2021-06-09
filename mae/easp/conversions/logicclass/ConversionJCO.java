@@ -1,8 +1,11 @@
 package mae.easp.conversions.logicclass;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Vector;
 
 import mae.contaasp.general.BorrarDatosSQL;
@@ -37,7 +40,6 @@ public class ConversionJCO extends ConversionLC {
 	private DBConnection dbJCta;
 	private java.util.Hashtable<Integer,TipoReten> htRet;
 	private java.util.Hashtable<Integer,TipoIVA> htIva;
-	private java.util.Vector<String> ctaMayor;
 	private java.util.Hashtable <String,String> htGrupos;
 	private int LONG_SBCTA;
 	private boolean augmentaLong4;
@@ -68,16 +70,20 @@ public class ConversionJCO extends ConversionLC {
 	private boolean estaCerrado;
 	private Vector<String> vDepartamentos;
 	private boolean forzarCliPro;
+	private boolean soloAmort;
+	private final List<String> dominiosGIE = Arrays.asList(new String[]{"101139000000", "888888000000"});
+	private List<Integer> lEmpAmortProcesadas;
 
-
-	public ConversionJCO (Program pr,int idConversion, int desdeEmp, int hastaEmp, int desdeEjer, int hastaEjer, String servidor, String instancia, String nombreBD, String user, String passwd, DBConnection connEA, String tipoCta, String longCta, boolean asigProy, boolean esSQL, boolean forzarCliPro) {
+	public ConversionJCO (Program pr,int idConversion, int desdeEmp, int hastaEmp, int desdeEjer, int hastaEjer, String servidor, String instancia, String nombreBD, String user, String passwd, DBConnection connEA, String tipoCta, String longCta, boolean asigProy, boolean esSQL, boolean forzarCliPro, boolean soloAmort) {
 		super (pr,desdeEmp, hastaEmp, desdeEjer, hastaEjer, connEA, servidor, instancia, nombreBD, user, passwd, idConversion);
 		this.tipoCta = tipoCta;
 		this.longCta = longCta;
 		this.asigProy = asigProy;
 		this.esSQL = esSQL;
 		this.forzarCliPro = forzarCliPro;
+		this.soloAmort = soloAmort;
 		funciones = new FuncionesJCO(connEA,dominio);
+		lEmpAmortProcesadas = new ArrayList<Integer>();
 	}
 
 	@Override
@@ -1067,7 +1073,6 @@ public class ConversionJCO extends ConversionLC {
 	}
 	private boolean importarPC (int iEmp, int iEjerL, int empJconta, int iEjerJ) {
 		boolean bOk = true;
-		ctaMayor = new java.util.Vector <String> ();
 		pbf.setSecondaryPercent(0);
 		pbf.setState("Convirtiendo LC: "+iEmp+"  JC:"+empJconta+" ("+iEjerJ+")  -  Plan cuentas");
 		if (bOk) {
@@ -1306,9 +1311,13 @@ public class ConversionJCO extends ConversionLC {
 		
 		return bOk;
 	}
+	
+	private String[] getFormatoCuenta(String cta){
+		return getFormatoCuenta(cta, 0);
+	}
 
 
-	private String[] getFormatoCuenta (String cta) {
+	private String[] getFormatoCuenta (String cta, int empLC) {
 		String [] tmp = null;
 		boolean esAlfa = "A".equals(tipoCta);
 		boolean esNumerico = !esAlfa;
@@ -1345,6 +1354,7 @@ public class ConversionJCO extends ConversionLC {
 			}
 		}
 		else if ("V".equals(longCta)) {
+			if (htGrupos==null) initHTGrupos(empLC); //només null si ve de soloAmort
 			if (cta!=null) cta = cta.trim();
 			if (cta!=null && cta.length()>3) {
 				tmp = new String [2];
@@ -1381,6 +1391,7 @@ public class ConversionJCO extends ConversionLC {
 			tmp [1] = cta.substring(3);
 		}
 		else if ("4".equals(longCta) && cta!=null && cta.length()>4 ) {
+			if (htGrupos==null) initHTGrupos(empLC); //només null si ve de soloAmort
 			tmp = new String [2];
 			String ctaMayor = cta.substring(0, 4);
 			if (forzarCliPro && cta.substring(4).replace("0","").trim().length()>0 && (ctaMayor.startsWith("430") || ctaMayor.startsWith("410")  || ctaMayor.startsWith("400"))   && !"4300".equals(ctaMayor)  && !"4100".equals(ctaMayor)  && !"4000".equals(ctaMayor) ) {				
@@ -1480,7 +1491,6 @@ public class ConversionJCO extends ConversionLC {
 			ipcu.valor("pcu347","N");
 			ipcu.valor("pcu349","N");
 			ipcu.execute();
-			ctaMayor.add(sc);
 		}
 		else if (desccta==null) sdesc = spcu.getString("pcudesc");
 		spcu.close();
@@ -1499,7 +1509,6 @@ public class ConversionJCO extends ConversionLC {
 			ipcu.valor("pcu347","N");
 			ipcu.valor("pcu349","N");
 			ipcu.execute();
-			ctaMayor.add(sc);
 		}
 		spcu.close();
 	}
@@ -1549,19 +1558,36 @@ public class ConversionJCO extends ConversionLC {
 		return tmp2;
 	}
 
-	private boolean importarInmov (int empresa, int ejercicioL, int empJconta, int ejercicioJ) {
-
+	private boolean importarInmov (int empresa, int ejercicioL, int empJconta, int ejercicioJ, boolean soloAmort) {
 		boolean bOk = true;
-		Selector sta = new Selector (connEA);
-		sta.execute("Select pcielemento from PCINMOV where pciempresa="+empJconta);
-		boolean tieneAmortizaciones = sta.next();
-		sta.close();
-		if (tieneAmortizaciones) return true;
+		ProcesoAm procesoAmor = new ProcesoAm(dbJCta, empJconta, ejercicioJ);
+		if (procesoAmor.tieneDatosEA()) {
+			if (soloAmort) {
+				if (isEmpAmortProcedada(empresa)) return bOk;
+				setEmpAmortProcesada(empresa);
+				LONG_SBCTA = -1;
+				augmentaLong4 = false;
+				SelectorLogic spc = new SelectorLogic(connLC);
+				spc.execute("Select CodigoCuenta from PlanCuentas where CodigoEmpresa=" + empresa);
+				String CodigoCuenta;
+				for (; spc.next(); LONG_SBCTA = (CodigoCuenta.length() - ("4".equals(longCta) ? 4 : 3))) {
+					CodigoCuenta = spc.getString("CodigoCuenta");
+					if ((CodigoCuenta == null) || (LONG_SBCTA >= CodigoCuenta.length())) break;
+				}
+				spc.close();
+				bOk = procesoAmor.traspasarEA_HEA(procesoAmor.generarLog("REIMP_LOGIC"));
+				if (bOk) bOk = procesoAmor.eliminarEA();
+			}
+			else return bOk;
+		}
 		pbf.setSecondaryPercent(0);
 		pbf.setState("Convirtiendo LC: "+empresa+"  JC:"+empJconta+" ("+ejercicioJ+")  -  Inmovilizado");
 
 		SelectorLogic s = new SelectorLogic (connLC);
-		s.execute("Select * from ElementoTiposPlan INNER JOIN ElementosInmovilizado ON ElementosInmovilizado.CodigoEmpresa=ElementoTiposPlan.CodigoEmpresa and ElementosInmovilizado.CodigoElemento=ElementoTiposPlan.CodigoElemento where  ElementoTiposPlan.CodigoEmpresa="+empresa+" and ElementosInmovilizado.CodigoElemento is not null  and ElementoTiposPlan.CodigoDefinicion_ is not null and ElementosInmovilizado.CodigoElemento<>''  and ElementoTiposPlan.CodigoDefinicion_<>''");
+		String campoGIE = "ElementosInmovilizado.ImporteInicial";
+		String campoImporteAmor = "ElementoTiposPlan.ImporteActualizado";
+		if (dominiosGIE.contains(dominio)) campoImporteAmor = campoGIE;
+		s.execute("Select  "+campoImporteAmor+" as impActualizado, * from ElementoTiposPlan INNER JOIN ElementosInmovilizado ON ElementosInmovilizado.CodigoEmpresa=ElementoTiposPlan.CodigoEmpresa and ElementosInmovilizado.CodigoElemento=ElementoTiposPlan.CodigoElemento where  ElementoTiposPlan.CodigoEmpresa="+empresa+" and ElementosInmovilizado.CodigoElemento is not null  and ElementoTiposPlan.CodigoDefinicion_ is not null and ElementosInmovilizado.CodigoElemento<>''  and ElementoTiposPlan.CodigoDefinicion_<>''");
 		int elemento = 0;
 		Hashtable <String,Integer> htArtic = new Hashtable <String,Integer> ();
 		while (bOk && s.next()) {
@@ -1602,7 +1628,7 @@ public class ConversionJCO extends ConversionLC {
 			Date FechaVenta = s.getDate("FechaVenta");
 			if (FechaBaja!=null) i.valor("pcifecbaja",FechaBaja);    
 			else i.valor("pcifecbaja",FechaVenta);    
-			double importeactualizado = s.getdouble("ImporteActualizado");
+			double importeactualizado = s.getdouble("impActualizado");
 			//double noamort = s.getdouble("ValorResidualInicial"); 
 			i.valor("pciadquis",importeactualizado);
 			i.valor("pciunidades",1);
@@ -1638,7 +1664,7 @@ public class ConversionJCO extends ConversionLC {
 					tmp = tmp.replace(".", "");                                    
 					tmp = getCuentaAnt (empresa,tmp);
 					tmp = tmp.replace(".", "");                                    
-					String [] ctafull = getFormatoCuenta (tmp);
+					String [] ctafull = getFormatoCuenta (tmp, empresa);
 					if (ctafull!=null) {
 						cc= ctafull[0];         
 						sc = ctafull[1];  
@@ -4880,32 +4906,52 @@ public class ConversionJCO extends ConversionLC {
 			sPer.execute("Select * from Periodos where codigoempresa="+empLC+" and ejercicio="+ejerLogic+" and numeroperiodo=98");
 			if (sPer.next()) fechaCierre = sPer.getDate("fechainicio");
 			sPer.close();
-			if (bOk) bOk = initConver(empLC,ejerLogic,empJC,ejerJconta,mesInicio,sNifEmpresa) && emc.getDescripcionError()==null;			
-			if (bOk) bOk = initDatos(empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
-			if (bOk) bOk = importarPC (empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
-			if (bOk) bOk = importarInmov (empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
-			if (bOk) bOk = importarFP () && emc.getDescripcionError()==null;
-			if (bOk) bOk = importarAsientos (empLC,ejerLogic,empJC,ejerJconta,fechaCierre,mesInicio) && emc.getDescripcionError()==null;
-			if (bOk) {
-				if (ejerLogic<2014) bOk = altaModelo303 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
-				else  bOk = altaModelo303_14 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
+			if (soloAmort) {
+				String sHome = funciones.getHome();
+				if (bOk && !esSQL && (sHome == null || sHome.length()==0)) {
+					bOk = false;
+					sError = "Variable HOME no encontrada ("+ejerJconta+")";			
+				}
+				if (bOk && (ejerJconta <= 0 || empLC <= 0)) {
+					bOk = false;
+					sError = "Empresa - Ejercicio No definidos ";
+				}
+				if (esSQL) dbJCta = funciones.getConexionCtasp ( 9999, ejerJconta );
+				else dbJCta = funciones.getConectionJCO_ACCESS ( "ctasp"+Util.formateoNumero("000000",empJC)+ejerJconta, sHome );
+				if (bOk && dbJCta!=null) {
+					bOk = importarInmov(empLC,  ejerLogic,  empJC,  ejerJconta, true);
+					if (bOk) bOk = sError == null || "".equals(sError.trim());
+				}
 			}
-			if (bOk) bOk = altaModelo349 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
-			if (bOk) bOk = altaModelo115 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
-			if (bOk) {
-				pbf.setSecondaryPercent(0);
-				pbf.setState("Convirtiendo LC: "+empLC+"  JC:"+empJC+" ("+ejerJconta+")  -  Finalizando");
-				bOk = funciones.checkLongitudNumerica (dbJCta,empJC,ejerJconta);
-				if (!bOk) sError = "Error en checkLongitudNumerica";
+			else {
+				if (bOk) bOk = initConver(empLC,ejerLogic,empJC,ejerJconta,mesInicio,sNifEmpresa) && emc.getDescripcionError()==null;			
+				if (bOk) bOk = initDatos(empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
+				if (bOk) bOk = importarPC (empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
+				if (bOk) bOk = importarInmov (empLC,ejerLogic,empJC,ejerJconta, false) && emc.getDescripcionError()==null;
+				if (bOk) bOk = importarFP () && emc.getDescripcionError()==null;
+				if (bOk) bOk = importarAsientos (empLC,ejerLogic,empJC,ejerJconta,fechaCierre,mesInicio) && emc.getDescripcionError()==null;
+				if (bOk) {
+					if (ejerLogic<2014) bOk = altaModelo303 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
+					else  bOk = altaModelo303_14 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
+				}
+				if (bOk) bOk = altaModelo349 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
+				if (bOk) bOk = altaModelo115 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
+				if (bOk) {
+					pbf.setSecondaryPercent(0);
+					pbf.setState("Convirtiendo LC: "+empLC+"  JC:"+empJC+" ("+ejerJconta+")  -  Finalizando");
+					bOk = funciones.checkLongitudNumerica (dbJCta,empJC,ejerJconta);
+					if (!bOk) sError = "Error en checkLongitudNumerica";
+				}
+				if (bOk) {
+					pbf.setState("Convirtiendo LC: "+empLC+"  JC:"+empJC+" ("+ejerJconta+")  -  Perfil Tributartio");
+					bOk = funciones.rehacerPerfil(dbJCta,empJC,ejerLogic);
+					if (!bOk) sError = "Error en rehacerPerfil";
+				}
+				if (bOk) bOk = funciones.reconstruccionAcumulados(dbJCta, ejerJconta, empJC,empLC, estaCerrado, asientoCE, asientoCC, pbf);			
+				
 			}
 			if (bOk) {
-				pbf.setState("Convirtiendo LC: "+empLC+"  JC:"+empJC+" ("+ejerJconta+")  -  Perfil Tributartio");
-				bOk = funciones.rehacerPerfil(dbJCta,empJC,ejerLogic);
-				if (!bOk) sError = "Error en rehacerPerfil";
-			}
-			if (bOk) bOk = funciones.reconstruccionAcumulados(dbJCta, ejerJconta, empJC,empLC, estaCerrado, asientoCE, asientoCC, pbf);			
-			if (bOk) {
-				dbJCta.commit();
+				if (dbJCta != null) dbJCta.commit();
 				connEA.commit();
 				connModasp.commit();
 			}
@@ -5042,6 +5088,15 @@ public class ConversionJCO extends ConversionLC {
 		return vIncidencias;
 	}
 	
+	private boolean isEmpAmortProcedada(int empresaOrigen) {
+		return lEmpAmortProcesadas!=null && lEmpAmortProcesadas.contains(empresaOrigen);
+	}
+	
+	private void setEmpAmortProcesada(int empresaOrigen) {
+		if (lEmpAmortProcesadas==null) lEmpAmortProcesadas = new ArrayList<Integer>();
+		lEmpAmortProcesadas.add(empresaOrigen);
+	}
+	
 }
 
 class DatosCuenta {
@@ -5052,3 +5107,5 @@ class DatosCuenta {
 	public String transaccion;
 	
 }
+
+

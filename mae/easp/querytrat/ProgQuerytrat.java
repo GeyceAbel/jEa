@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jul 31 08:45:10 CEST 2019
+// Fecha y hora:     Wed Jun 09 09:31:22 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -29,6 +29,7 @@ public String master;
 public Quonexio[] quonexions;
 public java.util.Hashtable<String,java.util.Hashtable<String,String>> htTaules = null;
 public mae.general.PlantillaJacob plantilla;
+final java.util.List<String> taulesJContaLlegirdEA = java.util.Arrays.asList(new String[]{"pcinmov", "pcmoranual"});
 
 
 class TablaCatalogo {
@@ -205,7 +206,9 @@ TablaCatalogo buscaTabla(String tabla) {
 }
   
 FieldCatalogo buscaCampo(String tabla, String campo) {
-    TablaCatalogo tc=buscaTabla(tabla);
+    TablaCatalogo tc=null;
+    if (taulesJContaLlegirdEA.contains(tabla)) tc = buscaTabla("easp", tabla);
+    else tc = buscaTabla(tabla);
     if (tc==null) return null;
   
     FieldCatalogo fc=new FieldCatalogo();
@@ -614,9 +617,9 @@ FieldCatalogo buscaCampo(String tabla, String campo) {
                 in.valor("qetaplicacion",aplicacion);
                 in.valor("qetfrase",qeffrase.getString());
             
-                TablaCatalogo tc;
-            
-                tc=buscaTabla(qefmaster.getString());
+                TablaCatalogo tc = null;
+    if (taulesJContaLlegirdEA.contains(qefmaster.getString())) tc = buscaTabla("easp", qefmaster.getString());
+    else tc = buscaTabla(qefmaster.getString());
                 in.valor("qetorden",orden);
                 in.valor("qettabla",qefmaster.getString());
                 in.valor("qetbbdd",tc.catalogo.getName());
