@@ -1,6 +1,8 @@
 package mae.easp.conversions.logicclass;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import geyce.maefc.Aplication;
 import geyce.maefc.DBConnection;
@@ -14,6 +16,8 @@ public class ProcesoAm {
 	private DBConnection connJCO;
 	private int empresa;
 	private int ejercicio;
+	private final List<String> dominiosGIE = Arrays.asList(new String[]{"101139000000", "888888000000"});
+	private final int EJER_AMORT_NO_BORRAR = 2021; 
 	
 	public ProcesoAm (DBConnection connJCO, int empresa, int ejercicio) {
 		this.connJCO = connJCO;
@@ -179,9 +183,13 @@ public class ProcesoAm {
 	private boolean eliminar (DBConnection conn) {
 		boolean bOk = true;
 		Delete dpcm = new Delete (conn,"PCMORANUAL");
-		bOk = dpcm.execute("pcmelemento in (Select pcielemento from PCINMOV where pciempresa="+empresa+")");
+		String query = "pcmelemento in (Select pcielemento from PCINMOV where pciempresa="+empresa+")";
+		if (dominiosGIE.contains(Easp.dominio)) query = "pcmelemento in (Select pcielemento from PCINMOV where pciempresa="+empresa+" AND  YEAR(pcifecalta)<"+EJER_AMORT_NO_BORRAR+")";
+		bOk = dpcm.execute(query);
 		Delete dpci = new Delete (conn,"PCINMOV");
-		if (bOk) bOk = dpci.execute("pciempresa="+empresa);
+		query = "pciempresa="+empresa;
+		if (dominiosGIE.contains(Easp.dominio)) query = "pciempresa="+empresa+" AND YEAR(pcifecalta)<"+EJER_AMORT_NO_BORRAR;
+		if (bOk) bOk = dpci.execute(query);
 		return bOk;
 	}
 	

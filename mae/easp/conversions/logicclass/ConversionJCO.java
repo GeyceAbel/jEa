@@ -1753,13 +1753,13 @@ public class ConversionJCO extends ConversionLC {
 							ip.valor("pcmamorejer",ejeamo);
 							ip.valor("pcmtipo","C");
 							ip.valor("pcmcoefamort",por);
-							double impamo = splan.getdouble("ImporteAmortizado");
+							double impamo = splan.getdouble("ImporteMaximoAnual");
 							ip.valor("pcmamortanual",impamo);
 							amortAcum += impamo;
 							ip.valor("pcmamortacum",amortAcum);
 							ip.valor("pcmamortpdte",importeactualizado - amortAcum);
 							ip.valor("pcmultfecha",splan.getDate("FechaUltimaAmortizacion"));
-							if (impamo!=0) ip.valor("pcmcuotaapli",impamo);
+							if (!Numero.doubleEquals(splan.getdouble("ImporteAmortizado"), 0)) ip.valor("pcmcuotaapli", splan.getdouble("ImporteAmortizado"));
 							bOk = ip.execute();
 						}
 						else {
