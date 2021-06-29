@@ -42,6 +42,11 @@ public class DatosFiscalesSociedad {
 	private List<VolumenOperaciones> lVolumenOperaciones;
 	private List<RendimientosTrabajo> lRendimientosTrabajo;
 	private List<DeduccionesBasesNegReservas> lDeduccionesBasesNegReservas;
+	private List<AdministradorNoInformado> lAdministradorNoInformado;
+	private List<SocioNoInformado> lSocioNoInformado;
+	private List<RegistroDeclarado> lRegistroDeclarado;
+	private List<RendimientoImputadoInformado> lRendimientoImputadoInformado;
+	private List<ArrendamientosLocalesImp> lArrendamientosLocalesImp;
 	private HashMap<Integer,String[]> hmBIN;
 	private HashMap<Integer,String[]> hmCN;
 	private HashMap<Integer,String[]> hmDI1;
@@ -77,6 +82,7 @@ public class DatosFiscalesSociedad {
 	}
 
 	private void initVariables(){
+		linea = null;
 		hayIncidencias = false;
 		sError = null;
 		initActividades();
@@ -96,7 +102,9 @@ public class DatosFiscalesSociedad {
 		lMultasDGT = new ArrayList<MultasDGT>();
 		lRendimientosCtasBancarias = new ArrayList<RendimientosCtasBancarias>();
 		lSanciones = new ArrayList<Sancion>();
-
+		lAdministradorNoInformado = new ArrayList<AdministradorNoInformado>();
+		lSocioNoInformado = new ArrayList<SocioNoInformado>();
+		lRegistroDeclarado = new ArrayList<RegistroDeclarado>();
 	}
 
 	private void initActividades(){
@@ -400,12 +408,20 @@ public class DatosFiscalesSociedad {
 	private void initLBO(){
 		//Pendiente de adición por límite beneficio operativo no aplicado
 		hmLBO = new HashMap<Integer,String[]>();
-		hmLBO.put(8,  new String[]{"2014", "00537","00273"});
-		hmLBO.put(21, new String[]{"2015", "00957","00955"});
-		hmLBO.put(34, new String[]{"2016", "01219","01217"});
-		hmLBO.put(47, new String[]{"2017", "01469","01467"});
-		hmLBO.put(60, new String[]{"2018", "01984","01741"});
-
+		if (paramEjer >= 2020) {
+			hmLBO.put(8,  new String[]{"2015", "00957","00955"});
+			hmLBO.put(21, new String[]{"2016", "01219","01217"});
+			hmLBO.put(34, new String[]{"2017", "01469","01467"});
+			hmLBO.put(47, new String[]{"2018", "01743","01741"});
+			hmLBO.put(60, new String[]{"2019", "02260","01982"});
+		}
+		else {
+			hmLBO.put(8,  new String[]{"2014", "00537","00273"});
+			hmLBO.put(21, new String[]{"2015", "00957","00955"});
+			hmLBO.put(34, new String[]{"2016", "01219","01217"});
+			hmLBO.put(47, new String[]{"2017", "01469","01467"});
+			hmLBO.put(60, new String[]{"2018", "01984","01741"});
+		}
 	}
 
 	private void initRIC(){
@@ -424,17 +440,12 @@ public class DatosFiscalesSociedad {
 		boolean bOk = true;
 		initVariables();
 		if (f.exists()){
-			FileInputStream filein = null;
-			InputStreamReader read = null;
-			BufferedReader in = null;
-			try{
+			try (FileInputStream filein = new FileInputStream(f);
+					InputStreamReader read = new InputStreamReader(filein);
+						BufferedReader in = new BufferedReader(read);) {
 				pbf.setSecondaryPercent(0);
 				pbf.setState("Leyendo datos fiscales");
-				filein = new FileInputStream(f);
-				read = new InputStreamReader(filein);
-				in = new BufferedReader(read);
-				linea = in.readLine();
-				while (linea!=null){
+				while ((linea = in.readLine()) != null){
 					if      (bOk && linea.startsWith("2DOM")) bOk = leerDatosDomicilio();
 					else if (bOk && linea.startsWith("2AE"))  bOk = leerDatosCensales();
 					else if (bOk && linea.startsWith("2MD1")) bOk = leerPeriodoYCNAE();
@@ -450,8 +461,12 @@ public class DatosFiscalesSociedad {
 					else if (bOk && linea.startsWith("2MTR")) bOk = leerMultasDGT();
 					else if (bOk && linea.startsWith("2CB"))  bOk = leerRendimientosCtasBancarias();
 					else if (bOk && linea.startsWith("2SRN")) bOk = leerSanciones();
+					else if (bOk && linea.startsWith("ADB") && paramEjer == 2020) bOk = leerAdminsNoInformados();
+					else if (bOk && linea.startsWith("SOC") && paramEjer == 2020) bOk = leerSociosNoInformados();
+					else if (bOk && linea.startsWith("CIN") && paramEjer == 2020) bOk = leerRegistrosDeclarados();
+					else if (bOk && linea.startsWith("RE") && paramEjer == 2020) bOk = leerRendimientosImputados();
+					else if (bOk && linea.startsWith("AR") && paramEjer == 2020) bOk = leerArrendamientosLocalesImp();
 					else if (bOk)                             bOk = leerDeduccionesBasesNegReservas();
-					linea = in.readLine();
 				}
 				pbf.setSecondaryPercent(100);
 				pbf.setPercent(30);
@@ -459,17 +474,6 @@ public class DatosFiscalesSociedad {
 			catch(Exception ex){
 				mostrarIncidencia();
 				ex.printStackTrace();
-
-			}
-			finally {
-				try{
-					if (in != null) in.close();
-	    			if (read != null) read.close();
-	    			if (filein != null) filein.close();
-				}
-				catch(Exception ex){
-					ex.printStackTrace();
-				}
 			}
 		}
 
@@ -500,6 +504,12 @@ public class DatosFiscalesSociedad {
 		if (bOk) bOk = grabarRendimientosCtasBancarias();
 		if (bOk) bOk = grabarSanciones();
 		if (bOk) bOk = grabarDeduccionesBasesNegReservas();
+		pbf.setSecondaryPercent(90);
+		if (bOk) bOk = grabarAdminsNoInformados();
+		if (bOk) bOk = grabarSociosNoInformados();
+		if (bOk) bOk = grabarRegistrosDeclarados();
+		if (bOk) bOk = grabarRendimientosImputados();
+		if (bOk) bOk = grabarArrendamientosLocalesImp();
 		pbf.setSecondaryPercent(100);
 		pbf.setPercent(100);
 		if (bOk){
@@ -509,6 +519,196 @@ public class DatosFiscalesSociedad {
 		else {
 			connEA.rollback();
 
+		}
+		return bOk;
+	}
+	
+	private boolean leerAdminsNoInformados() {
+		if (linea.startsWith("ADB")) {
+			AdministradorNoInformado ani = new AdministradorNoInformado();
+			ani.nif = paramNif;
+			ani.ejercicio = paramEjer;
+			ani.codigo = parserString(1,8);
+			
+			lAdministradorNoInformado.add(ani);
+			
+			return sError == null;
+		}
+		return true;		
+	}
+	
+	private boolean grabarAdminsNoInformados() {
+		boolean bOk = true;
+		for (AdministradorNoInformado ani : lAdministradorNoInformado) {
+			Insert in = new Insert(connEA, "DFSADMINSNINFO");
+			in.valor("dfanejer", paramEjer);
+			in.valor("dfannif", paramNif);
+			in.valor("dfancodigo", ani.codigo);
+			bOk = in.execute();
+			if (!bOk){
+				hayIncidencias = true;
+				sError = ani.codigo;
+			}
+		}
+		return bOk;
+	}
+	
+	private boolean leerSociosNoInformados() {
+		if (linea.startsWith("SOC")) {
+			SocioNoInformado sni = new SocioNoInformado();
+			sni.nif = paramNif;
+			sni.ejercicio = paramEjer;
+			sni.codigo = parserString(1,8);
+			
+			lSocioNoInformado.add(sni);
+			
+			return sError == null;
+		}
+		return true;
+	}
+	
+	private boolean grabarSociosNoInformados() {
+		boolean bOk = true;
+		for (SocioNoInformado sni : lSocioNoInformado) {
+			Insert in = new Insert(connEA, "DFSSOCIOSNINFO");
+			in.valor("dfsnejer", paramEjer);
+			in.valor("dfsnnif", paramNif);
+			in.valor("dfsncodigo", sni.codigo);
+			bOk = in.execute();
+			if (!bOk){
+				hayIncidencias = true;
+				sError = sni.codigo;
+			}
+		}
+		return bOk;
+	}
+
+	private boolean leerRegistrosDeclarados() {
+		if (linea.startsWith("CIN")) {
+			RegistroDeclarado rg = new RegistroDeclarado();
+			rg.ejercicio = paramEjer;
+			rg.nif = paramNif;
+			rg.codigo = parserString(1,8);
+			rg.clave = parserString(8, 11);
+			rg.percepciones = parserDouble(11, 26);
+			rg.retenciones = parserDouble(26, 41);
+			rg.vpercepespecie = parserDouble(41, 56);
+			rg.ingctaefectuados = parserDouble(56, 71);
+			rg.ingctarepercutidos = parserDouble(71, 86);
+			rg.percepcionesIlt = parserDouble(86, 101);
+			rg.retencionesIlt = parserDouble(101, 116);
+			rg.vpercepespecieItl = parserDouble(116, 131);
+			rg.ingctaefectuadosIlt = parserDouble(131, 146);
+			rg.ingctarepercutidosIlt = parserDouble(146, 161);
+			rg.importeCalculado = parserDouble(161, 176);
+			return sError == null;
+		}
+		return true;
+	}
+	
+	private boolean grabarRegistrosDeclarados() {
+		boolean bOk = true;
+		for (RegistroDeclarado rd : lRegistroDeclarado) {
+			Insert in = new Insert(connEA, "DFSREGDECLARADO");
+			in.valor("dfrdejer", paramEjer);
+			in.valor("dfrdnif", paramNif);
+			in.valor("dfrdcodigo", rd.codigo);
+			in.valor("dfrdclave", rd.clave);
+			in.valor("dfrdpercep", rd.percepciones);
+			in.valor("dfrdretenc", rd.retenciones);
+			in.valor("dfrdvperes", rd.vpercepespecie);
+			in.valor("dfrdingefc", rd.ingctaefectuados);
+			in.valor("dfrdingrep", rd.ingctarepercutidos);
+			in.valor("dfrdpercepilt", rd.percepcionesIlt);
+			in.valor("dfrdretencilt", rd.retencionesIlt);
+			in.valor("dfrdvperesilt", rd.vpercepespecieItl);
+			in.valor("dfrdingefcilt", rd.ingctaefectuadosIlt);
+			in.valor("dfrdingrepilt", rd.ingctarepercutidosIlt);
+			in.valor("dfrdimpcalcul", rd.importeCalculado);
+			bOk = in.execute();
+			if (!bOk){
+			hayIncidencias = true;
+				sError = rd.codigo;
+			}
+		}
+		return bOk;
+	}
+
+	private boolean leerRendimientosImputados() {
+		if (linea.startsWith("RE")) {
+			RendimientoImputadoInformado rii = new RendimientoImputadoInformado();
+			rii.ejercicio = paramEjer;
+			rii.nif = paramNif; 
+			rii.codigo = parserString(1,8);
+			rii.nifemisor = parserString(8, 17);
+			rii.nomemisor = parserString(17, 57);
+			rii.nifdeclaran = parserString(57, 66);
+			rii.nomdeclaran = parserString(66, 106);
+			rii.clave = parserString(106, 109);
+			rii.tipo = parserInteger(109, 110);
+			rii.importeIntegro = parserDouble(110, 125);
+			rii.retencion = parserDouble(125, 138);
+			rii.gastosDeducibles = parserDouble(138, 151);
+			rii.penalizacion = parserDouble(151, 162);
+			
+			return sError == null;
+		}
+		return true;
+	}
+	
+	private boolean grabarRendimientosImputados() {
+		boolean bOk = true;
+		for (RendimientoImputadoInformado rii : lRendimientoImputadoInformado) {
+			Insert in = new Insert(connEA, "DFSRDTIMPINFO");
+			in.valor("dfriejer", paramEjer);
+			in.valor("dfrinif", paramNif);
+			in.valor("dfricodigo", rii.codigo);
+			in.valor("dfrinifemis", rii.nifemisor);
+			in.valor("dfrinomemis", rii.nomemisor);
+			in.valor("dfrinifdecl", rii.nifdeclaran);
+			in.valor("dfrinomdecl", rii.nomdeclaran);
+			in.valor("dfriclave", rii.clave);
+			in.valor("dfritipo", rii.tipo);
+			in.valor("dfriimpinte", rii.importeIntegro);
+			in.valor("dfriretenci", rii.retencion);
+			in.valor("dfrigtodedu", rii.gastosDeducibles);
+			in.valor("dfripenaliz", rii.penalizacion);
+			bOk = in.execute();
+			if (!bOk){
+				hayIncidencias = true;
+				sError = rii.codigo;
+			}
+		}
+		return bOk;
+	}
+
+	private boolean leerArrendamientosLocalesImp() {
+		if (linea.startsWith("AR")) {
+			
+			
+			return sError == null;
+		}
+		return true;
+	}
+	
+	private boolean grabarArrendamientosLocalesImp() {
+		boolean bOk = true;
+		for (ArrendamientosLocalesImp ali : lArrendamientosLocalesImp) {
+			Insert in = new Insert(connEA, "DFSARRLOCALIMP");
+			in.valor("dfarejer", paramEjer);
+			in.valor("dfarnif", paramNif);
+			in.valor("dfarcodigo", ali.codigo);
+			in.valor("dfarcodigo", ali.nifpagador);
+			in.valor("dfarcodigo", ali.nompagador);
+			in.valor("dfarcodigo", ali.refcatastr);
+			in.valor("dfarcodigo", ali.clave);
+			in.valor("dfarcodigo", ali.ingresos);
+			in.valor("dfarcodigo", ali.retencion);
+			bOk = in.execute();
+			if (!bOk){
+				hayIncidencias = true;
+				sError = ali.codigo;
+			}
 		}
 		return bOk;
 	}
@@ -779,6 +979,11 @@ public class DatosFiscalesSociedad {
 			admin.nifAdmin = parserString(8,17);
 			admin.tipoPersona = parserString(17,18);
 			admin.nombreRazon = parserString(18,78);
+			if (paramEjer >= 2020) {
+				admin.representante = parserString(78, 79);
+				admin.domiciliofiscal = parserString(79, 129);
+				admin.provincia = parserString(129, 131);
+			}
 			lAdministradores.add(admin);
 			return sError == null;
 		}
@@ -796,6 +1001,11 @@ public class DatosFiscalesSociedad {
 				in.valor("dfanifadmin", admin.nifAdmin);
 				in.valor("dfatiponif", admin.tipoPersona);
 				in.valor("dfanombre", admin.nombreRazon);
+				if (paramEjer >= 2020) {
+					in.valor("dfarepresent", admin.representante);
+					in.valor("dfadomiciliof", admin.domiciliofiscal);
+					in.valor("dfaprovincia", admin.provincia);
+				}
 				bOk = in.execute();
 				if (!bOk){
 					hayIncidencias = true;
@@ -1265,7 +1475,7 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-
+	
 	private boolean leerDonaciones(){
 		if (linea.startsWith("2DN")){
 			Donaciones don = new Donaciones();
@@ -1537,12 +1747,16 @@ public class DatosFiscalesSociedad {
 	}
 
 	class Administradores{
+		
 		int ejercicio;
 		String nif;
 		String codigo;
 		String nifAdmin;
 		String tipoPersona;
 		String nombreRazon;
+		String representante;
+		String domiciliofiscal;
+		String provincia;
 	}
 
 	class EntidadesParticipa{
@@ -1677,6 +1891,64 @@ public class DatosFiscalesSociedad {
 		double recargoOrigen;
 		double recargoApremio;
 		double importeCalculado;
+	}
+	
+	class AdministradorNoInformado {
+		int ejercicio;
+		String nif;
+		String codigo;
+	}
+	
+	class SocioNoInformado {
+		int ejercicio;
+		String nif;
+		String codigo;
+	}
+	
+	class RegistroDeclarado {
+		int ejercicio;
+		String nif;
+		String codigo;
+		String clave;
+		double percepciones;
+		double retenciones;
+		double vpercepespecie;
+		double ingctaefectuados;
+		double ingctarepercutidos;
+		double percepcionesIlt;
+		double retencionesIlt;
+		double vpercepespecieItl;
+		double ingctaefectuadosIlt;
+		double ingctarepercutidosIlt;
+		double importeCalculado;
+	}
+	
+	class RendimientoImputadoInformado {
+		int ejercicio;
+		String nif;
+		String codigo;
+		String nifemisor;
+		String nomemisor;
+		String nifdeclaran;
+		String nomdeclaran;
+		String clave;
+		int tipo;
+		double importeIntegro;
+		double retencion;
+		double gastosDeducibles;
+		double penalizacion;
+	}
+	
+	class ArrendamientosLocalesImp {
+		int ejercicio;
+		String nif;
+		String codigo;
+		String nifpagador;
+		String nompagador;
+		String refcatastr;
+		String clave;
+		double ingresos;
+		double retencion;
 	}
 
 	private String getActividad(String cod){

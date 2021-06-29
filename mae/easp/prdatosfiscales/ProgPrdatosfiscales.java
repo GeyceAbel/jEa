@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jul 22 09:19:45 CEST 2020
+// Fecha y hora:     Tue Jun 29 15:14:04 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -1550,6 +1550,9 @@ else {
         public CtrlDfanifadmin dfanifadmin;
         public CtrlDfatiponif dfatiponif;
         public CtrlDfanombre dfanombre;
+        public CtrlDfarepresent dfarepresent;
+        public CtrlDfadomiciliof dfadomiciliof;
+        public CtrlDfaprovincia dfaprovincia;
         // Acciones
         // Fieldsets
         class Location extends LocationWindow
@@ -1627,9 +1630,66 @@ else {
                 setName("dfanombre");
                 setTitle("Nombre");
                 setType(STRING);
-                setLength(60);
+                setLength(50);
                 setSearchable(true);
                 setField(sdfsadmins.dfanombre);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfarepresent extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfarepresent(Form form)
+                {
+                super(form);
+                setName("dfarepresent");
+                setTitle("Representante");
+                setType(STRING);
+                setLength(1);
+                setSearchable(true);
+                setField(sdfsadmins.dfarepresent);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfadomiciliof extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfadomiciliof(Form form)
+                {
+                super(form);
+                setName("dfadomiciliof");
+                setTitle("Domicilio fiscal");
+                setType(STRING);
+                setLength(50);
+                setSearchable(true);
+                setField(sdfsadmins.dfadomiciliof);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfaprovincia extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfaprovincia(Form form)
+                {
+                super(form);
+                setName("dfaprovincia");
+                setTitle("Provincia");
+                setType(STRING);
+                setLength(2);
+                setSearchable(true);
+                setField(sdfsadmins.dfaprovincia);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
@@ -1650,6 +1710,9 @@ else {
             addControl(dfanifadmin=new CtrlDfanifadmin(this));
             addControl(dfatiponif=new CtrlDfatiponif(this));
             addControl(dfanombre=new CtrlDfanombre(this));
+            addControl(dfarepresent=new CtrlDfarepresent(this));
+            addControl(dfadomiciliof=new CtrlDfadomiciliof(this));
+            addControl(dfaprovincia=new CtrlDfaprovincia(this));
             setSelect(sdfsadmins);
             }
         // GET: VENTANA
@@ -1675,6 +1738,9 @@ else {
         public Field dfanifadmin;
         public Field dfatiponif;
         public Field dfanombre;
+        public Field dfarepresent;
+        public Field dfadomiciliof;
+        public Field dfaprovincia;
         class Dfsadmins extends Table
             {
             // GLOBALES: TABLA
@@ -1701,6 +1767,9 @@ else {
             addField(dfanifadmin=new Field(this,dfsadmins,"dfanifadmin"));
             addField(dfatiponif=new Field(this,dfsadmins,"dfatiponif"));
             addField(dfanombre=new Field(this,dfsadmins,"dfanombre"));
+            addField(dfarepresent=new Field(this,dfsadmins,"dfarepresent"));
+            addField(dfadomiciliof=new Field(this,dfsadmins,"dfadomiciliof"));
+            addField(dfaprovincia=new Field(this,dfsadmins,"dfaprovincia"));
             }
         // GET: SELECT
         public String getWhere ()
@@ -8944,6 +9013,12 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
              if (visible) ventanas[i].setParent(cp);
              ventanas[i].setLocation(loc);
              ventanas[i].setInitState(DataForm.SHOW);
+        }
+        
+        if (progEjer < 2020) {
+        	vadmins.getControlTable().removeColumn(vadmins.dfarepresent.getColumnInfo().index);
+        	vadmins.getControlTable().removeColumn(vadmins.dfadomiciliof.getColumnInfo().index);
+        	vadmins.getControlTable().removeColumn(vadmins.dfaprovincia.getColumnInfo().index);
         }
         
         super.onInit();
