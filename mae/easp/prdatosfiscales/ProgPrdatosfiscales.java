@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jun 30 11:01:54 CEST 2021
+// Fecha y hora:     Wed Jun 30 18:09:07 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -217,6 +217,15 @@ private String getProvinciaPais(String codigo){
     public Sarrndlocimp sarrndlocimp;
     // Ventana
     public FormVimportar vimportar;
+    // Selects
+    // Ventana
+    public FormVtotalesre vtotalesre;
+    // Selects
+    // Ventana
+    public FormVtotalesrdi vtotalesrdi;
+    // Selects
+    // Ventana
+    public FormVtotalesarr vtotalesarr;
     // Selects
     class Location extends LocationTabbed
         {
@@ -9207,6 +9216,16 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            
+vtotalesre.totalPercepInteg += dfrdpercep.getDouble();
+vtotalesre.totalRetenciones += dfrdretenc.getDouble();
+vtotalesre.totalPercepIntegIlt += dfrdpercepilt.getDouble();
+vtotalesre.totalRetencionesIlt += dfrdretencilt.getDouble();
+vtotalesre.totalImpCalculado += dfrdimpcalcul.getDouble();
+            }
         }
         
     // 
@@ -9287,7 +9306,7 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
         public CtrlDfrinifdecl dfrinifdecl;
         public CtrlDfrinomdecl dfrinomdecl;
         public CtrlDfriclave dfriclave;
-        public CtrlDfritipo dfritipo;
+        public CtrlVvtipo vvtipo;
         public CtrlDfriimpinte dfriimpinte;
         public CtrlDfriretenci dfriretenci;
         public CtrlDfrigtodedu dfrigtodedu;
@@ -9416,19 +9435,18 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
             // EVENT: CONTROLEDIT
             }
             
-        public class CtrlDfritipo extends ColumnEdit
+        public class CtrlVvtipo extends ColumnEdit
             {
             // GLOBALES: CONTROLEDIT
             // Metodos
-            public CtrlDfritipo(Form form)
+            public CtrlVvtipo(Form form)
                 {
                 super(form);
-                setName("dfritipo");
+                setName("vvtipo");
                 setTitle("Tipo");
-                setType(INTEGER);
-                setLength(10);
+                setType(STRING);
+                setLength(15);
                 setSearchable(true);
-                setField(srendiimpinfo.dfritipo);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
@@ -9535,7 +9553,7 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
             addControl(dfrinifdecl=new CtrlDfrinifdecl(this));
             addControl(dfrinomdecl=new CtrlDfrinomdecl(this));
             addControl(dfriclave=new CtrlDfriclave(this));
-            addControl(dfritipo=new CtrlDfritipo(this));
+            addControl(vvtipo=new CtrlVvtipo(this));
             addControl(dfriimpinte=new CtrlDfriimpinte(this));
             addControl(dfriretenci=new CtrlDfriretenci(this));
             addControl(dfrigtodedu=new CtrlDfrigtodedu(this));
@@ -9544,6 +9562,14 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            vvtipo.setValue(DatosFiscalesSociedad.getTipoRendimientoImputado(srendiimpinfo.dfritipo.getString()));
+vtotalesrdi.totalImporte += dfriimpinte.getDouble();
+vtotalesrdi.totalRetencion += dfriretenci.getDouble();
+vtotalesrdi.totalGasto += dfrigtodedu.getDouble();
+            }
         }
         
     // 
@@ -9618,7 +9644,7 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
         public CtrlDfarnifpaga dfarnifpaga;
         public CtrlDfarnompaga dfarnompaga;
         public CtrlDfarrefcata dfarrefcata;
-        public CtrlDfarclave dfarclave;
+        public CtrlVvclave vvclave;
         public CtrlDfaringreso dfaringreso;
         public CtrlDfarretenci dfarretenci;
         // Acciones
@@ -9707,19 +9733,18 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
             // EVENT: CONTROLEDIT
             }
             
-        public class CtrlDfarclave extends ColumnEdit
+        public class CtrlVvclave extends ColumnEdit
             {
             // GLOBALES: CONTROLEDIT
             // Metodos
-            public CtrlDfarclave(Form form)
+            public CtrlVvclave(Form form)
                 {
                 super(form);
-                setName("dfarclave");
+                setName("vvclave");
                 setTitle("Clave");
-                setType(INTEGER);
-                setLength(10);
+                setType(DATE);
+                setLength(15);
                 setSearchable(true);
-                setField(sarrndlocimp.dfarclave);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
@@ -9782,13 +9807,20 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
             addControl(dfarnifpaga=new CtrlDfarnifpaga(this));
             addControl(dfarnompaga=new CtrlDfarnompaga(this));
             addControl(dfarrefcata=new CtrlDfarrefcata(this));
-            addControl(dfarclave=new CtrlDfarclave(this));
+            addControl(vvclave=new CtrlVvclave(this));
             addControl(dfaringreso=new CtrlDfaringreso(this));
             addControl(dfarretenci=new CtrlDfarretenci(this));
             setSelect(sarrndlocimp);
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            vvclave.setValue(DatosFiscalesSociedad.getClaveArrendamientoLocalesImputados(sarrndlocimp.dfarclave.getString()));
+vtotalesarr.totalIngreso += dfaringreso.getDouble();
+vtotalesarr.totalRetencion += dfarretenci.getDouble();
+            }
         }
         
     // 
@@ -9860,13 +9892,9 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
 					public void job() {
 						DatosFiscalesSociedad dfs = new DatosFiscalesSociedad(f, progEjer, paramNif,
 								Easp.connEA, this);
-						boolean bOk = dfs.leer();
-						if (bOk)
-							bOk = dfs.grabar();
-						if (bOk) {
-							Maefc.message("Datos fiscales grabados con éxito");
-						} else {
-							dfs.mostrarIncidencia();
+						if(dfs.leer()) {
+							if (dfs.grabar()) Maefc.message("Datos fiscales grabados con éxito");	
+							else dfs.mostrarIncidencia();
 						}
 						exit();
 					}
@@ -10057,6 +10085,422 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
             }
         }
         
+    public class FormVtotalesre extends ProcessForm
+        {
+        // GLOBALES: VENTANA
+        public double totalPercepInteg = 0;
+public double totalRetenciones = 0;
+public double totalPercepIntegIlt = 0;
+public double totalRetencionesIlt = 0;
+public double totalImpCalculado = 0;
+        // Metodos
+        // Controles
+        public CtrlVvpercepint vvpercepint;
+        public CtrlVvretenciones vvretenciones;
+        public CtrlVvpercepintilt vvpercepintilt;
+        public CtrlVvretencionilt vvretencionilt;
+        public CtrlVvimportetotal vvimportetotal;
+        // Acciones
+        // Fieldsets
+        public FSetFs1 fs1;
+        class Location extends LocationSplit
+            {
+            public Location( )
+                {
+                super();
+                }
+            }
+            
+        public class CtrlVvpercepint extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvpercepint(Form form)
+                {
+                super(form);
+                setName("vvpercepint");
+                setTitle("Total percepciones dinerarias integras");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public Object getDefault ()
+                {
+                return 0.0;
+                }
+            }
+            
+        public class CtrlVvretenciones extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvretenciones(Form form)
+                {
+                super(form);
+                setName("vvretenciones");
+                setTitle("Total retenciones");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public Object getDefault ()
+                {
+                return 0.0;
+                }
+            }
+            
+        public class CtrlVvpercepintilt extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvpercepintilt(Form form)
+                {
+                super(form);
+                setName("vvpercepintilt");
+                setTitle("Total percepciones dinerarias ILT");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public Object getDefault ()
+                {
+                return 0.0;
+                }
+            }
+            
+        public class CtrlVvretencionilt extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvretencionilt(Form form)
+                {
+                super(form);
+                setName("vvretencionilt");
+                setTitle("Total retenciones ILT");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public Object getDefault ()
+                {
+                return 0.0;
+                }
+            }
+            
+        public class CtrlVvimportetotal extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvimportetotal(Form form)
+                {
+                super(form);
+                setName("vvimportetotal");
+                setTitle("Total importe calculado");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public Object getDefault ()
+                {
+                return 0.0;
+                }
+            }
+            
+        public class FSetFs1 extends Fieldset
+            {
+            public FSetFs1(Form form)
+                {
+                super(form);
+                addControl(vvpercepint);
+                addControl(vvretenciones);
+                addControl(vvpercepintilt);
+                addControl(vvretencionilt);
+                addControl(vvimportetotal);
+                getWebProperties().setNumCols (5);
+                }
+            }
+            
+        public FormVtotalesre(ProgPrdatosfiscales prdatosfiscales)
+            {
+            super(prdatosfiscales);
+            setName("vtotalesre");
+            setLocation(new Location());
+            setPrintable(false);
+            // SET: VENTANA
+            addControl(vvpercepint=new CtrlVvpercepint(this));
+            addControl(vvretenciones=new CtrlVvretenciones(this));
+            addControl(vvpercepintilt=new CtrlVvpercepintilt(this));
+            addControl(vvretencionilt=new CtrlVvretencionilt(this));
+            addControl(vvimportetotal=new CtrlVvimportetotal(this));
+            addFieldset(fs1=new FSetFs1(this));
+            }
+        // GET: VENTANA
+        // EVENT: VENTANA
+        public void onInit ()
+            {
+            super.onInit ();
+            vvpercepint.setValue(totalPercepInteg);
+vvretenciones.setValue(totalRetenciones);
+vvpercepintilt.setValue(totalPercepIntegIlt);
+vvretencionilt.setValue(totalRetencionesIlt);
+vvimportetotal.setValue(totalImpCalculado);
+            }
+        }
+        
+    public class FormVtotalesrdi extends ProcessForm
+        {
+        // GLOBALES: VENTANA
+        public double totalImporte = 0;
+public double totalRetencion = 0;
+public double totalGasto = 0;
+        // Metodos
+        // Controles
+        public CtrlVvgastos vvgastos;
+        public CtrlVvimporte vvimporte;
+        public CtrlVvretencion vvretencion;
+        // Acciones
+        // Fieldsets
+        public FSetFs1 fs1;
+        class Location extends LocationSplit
+            {
+            public Location( )
+                {
+                super();
+                }
+            }
+            
+        public class CtrlVvgastos extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvgastos(Form form)
+                {
+                super(form);
+                setName("vvgastos");
+                setTitle("Total gasto deducible");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public Object getDefault ()
+                {
+                return 0.0;
+                }
+            }
+            
+        public class CtrlVvimporte extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvimporte(Form form)
+                {
+                super(form);
+                setName("vvimporte");
+                setTitle("Total importe");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public Object getDefault ()
+                {
+                return 0.0;
+                }
+            }
+            
+        public class CtrlVvretencion extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvretencion(Form form)
+                {
+                super(form);
+                setName("vvretencion");
+                setTitle("Total retencion");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public Object getDefault ()
+                {
+                return 0.0;
+                }
+            }
+            
+        public class FSetFs1 extends Fieldset
+            {
+            public FSetFs1(Form form)
+                {
+                super(form);
+                addControl(vvgastos);
+                addControl(vvimporte);
+                addControl(vvretencion);
+                getWebProperties().setNumCols (3);
+                }
+            }
+            
+        public FormVtotalesrdi(ProgPrdatosfiscales prdatosfiscales)
+            {
+            super(prdatosfiscales);
+            setName("vtotalesrdi");
+            setLocation(new Location());
+            setPrintable(false);
+            // SET: VENTANA
+            addControl(vvgastos=new CtrlVvgastos(this));
+            addControl(vvimporte=new CtrlVvimporte(this));
+            addControl(vvretencion=new CtrlVvretencion(this));
+            addFieldset(fs1=new FSetFs1(this));
+            }
+        // GET: VENTANA
+        // EVENT: VENTANA
+        public void onInit ()
+            {
+            super.onInit ();
+            vvimporte.setValue(totalImporte);
+vvretencion.setValue(totalRetencion);
+vvgastos.setValue(totalGasto);
+            }
+        }
+        
+    public class FormVtotalesarr extends ProcessForm
+        {
+        // GLOBALES: VENTANA
+        public double totalIngreso = 0;
+public double totalRetencion = 0;
+        // Metodos
+        // Controles
+        public CtrlVvingresos vvingresos;
+        public CtrlVvretencion vvretencion;
+        // Acciones
+        // Fieldsets
+        public FSetFs1 fs1;
+        class Location extends LocationSplit
+            {
+            public Location( )
+                {
+                super();
+                }
+            }
+            
+        public class CtrlVvingresos extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvingresos(Form form)
+                {
+                super(form);
+                setName("vvingresos");
+                setTitle("Total ingresos");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public Object getDefault ()
+                {
+                return 0.0;
+                }
+            }
+            
+        public class CtrlVvretencion extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvretencion(Form form)
+                {
+                super(form);
+                setName("vvretencion");
+                setTitle("Total retenciones");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public Object getDefault ()
+                {
+                return 0.0;
+                }
+            }
+            
+        public class FSetFs1 extends Fieldset
+            {
+            public FSetFs1(Form form)
+                {
+                super(form);
+                addControl(vvingresos);
+                addControl(vvretencion);
+                getWebProperties().setNumCols (2);
+                }
+            }
+            
+        public FormVtotalesarr(ProgPrdatosfiscales prdatosfiscales)
+            {
+            super(prdatosfiscales);
+            setName("vtotalesarr");
+            setLocation(new Location());
+            setPrintable(false);
+            // SET: VENTANA
+            addControl(vvingresos=new CtrlVvingresos(this));
+            addControl(vvretencion=new CtrlVvretencion(this));
+            addFieldset(fs1=new FSetFs1(this));
+            }
+        // GET: VENTANA
+        // EVENT: VENTANA
+        public void onInit ()
+            {
+            super.onInit ();
+            vvingresos.setValue(totalIngreso);
+vvretencion.setValue(totalRetencion);
+            }
+        }
+        
     public ProgPrdatosfiscales()
         {
         this.prdatosfiscales=this;
@@ -10106,6 +10550,9 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
         addForm(vrendiimpinfo=new FormVrendiimpinfo(this));
         addForm(varrndlocimp=new FormVarrndlocimp(this));
         addForm(vimportar=new FormVimportar(this));
+        addForm(vtotalesre=new FormVtotalesre(this));
+        addForm(vtotalesrdi=new FormVtotalesrdi(this));
+        addForm(vtotalesarr=new FormVtotalesarr(this));
         vprimera.aimportar.setForm(vimportar);
         }
     public ProgPrdatosfiscales(AppEasp easp)
@@ -10126,11 +10573,12 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
         vdomicilio.vvcomplemen.setViewLength(20);
         vdomicilio.dfd21pais.setViewLength(15);
         
+        // afegir vadminnoinf, vsocinoinf
         MultiDataForm[] ventanas = new MultiDataForm[]{vdomicilio, vdatcens, vperycnae, vcaracteres, vadmins, vparticipa, vparticipan,
-                	    vsecrerepre, vpagosfrac, vvoloper, vrdtotrabajo, vbasesneg, vcuotasneg, vdeducdi1, vdeducdi2, vdeducdi3, vdeducdi4,
+              	    vsecrerepre, vpagosfrac, vvoloper, vrdtotrabajo, vbasesneg, vcuotasneg, vdeducdi1, vdeducdi2, vdeducdi3, vdeducdi4,
                       vdeducdt247, vdeducdt241, vdeduccan, vdeducact, vdeducdona, vdeducreinv371, vdeducreinv372, vreservanibi, vreservanidr,
-                      vreservacap, vlimitagastosf, vpdteadicion, vregespcan, vdonaciones, vmultasdgt, vrdtoctasbanc, vsanciones, vadminnoinf,
-                      vsocinoinf, vregdeclara, vrendiimpinfo, varrndlocimp};
+                      vreservacap, vlimitagastosf, vpdteadicion, vregespcan, vdonaciones, vmultasdgt, vrdtoctasbanc, vsanciones, vregdeclara,
+                      vrendiimpinfo, varrndlocimp};
         
         java.util.HashMap<MultiDataForm, Select> hmSelectVentana = new java.util.HashMap<MultiDataForm, Select>();
         hmSelectVentana.put(vdomicilio, sdfsdomicilio);
@@ -10170,13 +10618,21 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
         hmSelectVentana.put(vrdtoctasbanc,srdtoctasbanc);
         hmSelectVentana.put(vsanciones,ssanciones);
         
+        java.util.HashMap<MultiDataForm, Form> hmVentanaTotal = new java.util.HashMap<MultiDataForm, Form>();
         if (progEjer >= 2020) {
-        	hmSelectVentana.put(vadminnoinf, sadminnoinf);
-        	hmSelectVentana.put(vsocinoinf, ssocionoinf);
+        //	Comentat fins propera actualització de AEAT
+        //	hmSelectVentana.put(vadminnoinf, sadminnoinf);
+        //	hmSelectVentana.put(vsocinoinf, ssocionoinf);
         	hmSelectVentana.put(vregdeclara, sregdeclara);
         	hmSelectVentana.put(vrendiimpinfo, srendiimpinfo);
         	hmSelectVentana.put(varrndlocimp, sarrndlocimp);
+        
+        	hmVentanaTotal.put(vregdeclara, vtotalesre);	
+        	hmVentanaTotal.put(vrendiimpinfo, vtotalesrdi);
+        	hmVentanaTotal.put(varrndlocimp, vtotalesarr);
         }
+        
+        
         
         if (visibles==null){
         	visibles = new boolean[ventanas.length];
@@ -10191,15 +10647,31 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
         LocationTabbed loc;
         
         for (int i=0; i<ventanas.length;i++){
-        	loc=new LocationTabbed();
-             loc.setTitle(ventanas[i].getTitle());
-             loc.setExitIcon(false);
-             hmSelectVentana.get(ventanas[i]).setDb(Easp.connEA);
-             hmSelectVentana.get(ventanas[i]).execute();
-             boolean visible = visibles.length>i && visibles[i] && !hmSelectVentana.get(ventanas[i]).isEof();
-             if (visible) ventanas[i].setParent(cp);
-             ventanas[i].setLocation(loc);
-             ventanas[i].setInitState(DataForm.SHOW);
+           loc=new LocationTabbed();
+           loc.setTitle(ventanas[i].getTitle());
+           loc.setExitIcon(false);
+           hmSelectVentana.get(ventanas[i]).setDb(Easp.connEA);
+           hmSelectVentana.get(ventanas[i]).execute();
+           boolean visible = (visibles.length>i && visibles[i] && !hmSelectVentana.get(ventanas[i]).isEof()) || hmVentanaTotal.containsKey(ventanas[i]);
+           if (visible) ventanas[i].setParent(cp);
+           ventanas[i].setLocation(loc);
+           ventanas[i].setInitState(DataForm.SHOW);
+        
+           if (hmVentanaTotal.containsKey(ventanas[i])) {
+           	Form subwindow = hmVentanaTotal.get(ventanas[i]);
+           	ControlPanel cp2=new ControlPanel(this);
+           	cp2.setLocation(loc);
+           	cp2.setParent(cp);
+           	cp2.setLayout(new LayoutSplit(LayoutSplit.VERTICAL,0.85));
+        
+           	ventanas[i].setLocation(new LocationSplit(LocationSplit.LEFT));
+           	ventanas[i].setModal(false);
+           	ventanas[i].setParent(cp2);
+         	subwindow.setLocation(new LocationSplit(LocationSplit.RIGHT));
+         	subwindow.setLayout(new LayoutFieldset(subwindow));
+        	subwindow.setModal(false);
+         	subwindow.setParent(cp2);
+           }
         }
         
         super.onInit();

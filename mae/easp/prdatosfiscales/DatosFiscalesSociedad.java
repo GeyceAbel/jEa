@@ -436,6 +436,10 @@ public class DatosFiscalesSociedad {
 
 	}
 
+	private void errorTrobat() throws Exception {
+		sError = linea;
+		throw new Exception(sError);
+	}
 
 
 	public boolean leer(){
@@ -448,7 +452,11 @@ public class DatosFiscalesSociedad {
 				pbf.setSecondaryPercent(0);
 				pbf.setState("Leyendo datos fiscales");
 				while ((linea = in.readLine()) != null){
-					if      (bOk && linea.startsWith("2DOM")) bOk = leerDatosDomicilio();
+					if (linea.startsWith("Error")) {
+						errorTrobat();
+						bOk = false;
+					}
+					else if (bOk && linea.startsWith("2DOM")) bOk = leerDatosDomicilio();
 					else if (bOk && linea.startsWith("2AE"))  bOk = leerDatosCensales();
 					else if (bOk && linea.startsWith("2MD1")) bOk = leerPeriodoYCNAE();
 					else if (bOk && linea.startsWith("2MD2")) bOk = leerCaracteres();
@@ -463,8 +471,9 @@ public class DatosFiscalesSociedad {
 					else if (bOk && linea.startsWith("2MTR")) bOk = leerMultasDGT();
 					else if (bOk && linea.startsWith("2CB"))  bOk = leerRendimientosCtasBancarias();
 					else if (bOk && linea.startsWith("2SRN")) bOk = leerSanciones();
-					else if (bOk && linea.startsWith("ADB") && paramEjer == 2020) bOk = leerAdminsNoInformados();
-					else if (bOk && linea.startsWith("SOC") && paramEjer == 2020) bOk = leerSociosNoInformados();
+//					Comentat fins actualització AEAT
+//					else if (bOk && linea.startsWith("ADB") && paramEjer == 2020) bOk = leerAdminsNoInformados();
+//					else if (bOk && linea.startsWith("SOC") && paramEjer == 2020) bOk = leerSociosNoInformados();
 					else if (bOk && linea.startsWith("CIN") && paramEjer == 2020) bOk = leerRegistrosDeclarados();
 					else if (bOk && linea.startsWith("RE") && paramEjer == 2020) bOk = leerRendimientosImputados();
 					else if (bOk && linea.startsWith("AR") && paramEjer == 2020) bOk = leerArrendamientosLocalesImp();
@@ -507,8 +516,9 @@ public class DatosFiscalesSociedad {
 		if (bOk) bOk = grabarSanciones();
 		if (bOk) bOk = grabarDeduccionesBasesNegReservas();
 		pbf.setSecondaryPercent(90);
-		if (bOk) bOk = grabarAdminsNoInformados();
-		if (bOk) bOk = grabarSociosNoInformados();
+//		Comentat fins actualització AEAT
+//		if (bOk) bOk = grabarAdminsNoInformados();
+//		if (bOk) bOk = grabarSociosNoInformados();
 		if (bOk) bOk = grabarRegistrosDeclarados();
 		if (bOk) bOk = grabarRendimientosImputados();
 		if (bOk) bOk = grabarArrendamientosLocalesImp();
@@ -2064,6 +2074,14 @@ public class DatosFiscalesSociedad {
 		if ("G".equals(codigo)) return "Ingreso CCT";
 		if ("V".equals(codigo)) return "Devoluc. CCT";
 		return null;
+	}	
+	
+	public static String getClaveArrendamientoLocalesImputados(String clave) {
+		return ("1".equals(clave) ? "Dineraria" : "Especie");
+	}
+	
+	public static String getTipoRendimientoImputado(String tipo) {
+		return ("1".equals(tipo) ? "Dineraria" : "Especie");
 	}
 
 	public static String getTipoDonativo(String tipo){
