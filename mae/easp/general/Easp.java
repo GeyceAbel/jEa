@@ -39,11 +39,11 @@ public class Easp {
   //variables de versiones
   public static String versionAplicacion="9.8";
   public static String versionFecha="Marzo/2020";
-  public static String versionBDEA="17.5";
+  public static String versionBDEA="17.6";
 
   public static enum TIPO_HOST { LOCALHOST, AZURE, AZUREMSDN};
   public static TIPO_HOST HOST = TIPO_HOST.AZURE;
-//  public static final String HOST_AZURE 	 = "afinityprod-afinitypre.azurewebsites.net/";
+//  public static final String HOST_AZURE 	 = "afinityprod-afinitydev.azurewebsites.net/";
   public static final String HOST_AZURE 	 = "afinityprod.azurewebsites.net/";
   public static final String HOST_AZUREPRE 	 = "afinityprod-afinitypre.azurewebsites.net/";
   public static final String HOST_AZUREMSDN  = "afinity.azurewebsites.net/";

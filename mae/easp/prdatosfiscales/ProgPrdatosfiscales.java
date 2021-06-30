@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Jun 29 15:14:04 CEST 2021
+// Fecha y hora:     Wed Jun 30 11:01:54 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -195,6 +195,26 @@ private String getProvinciaPais(String codigo){
     public FormVsanciones vsanciones;
     // Selects
     public Ssanciones ssanciones;
+    // Ventana
+    public FormVadminnoinf vadminnoinf;
+    // Selects
+    public Sadminnoinf sadminnoinf;
+    // Ventana
+    public FormVsocinoinf vsocinoinf;
+    // Selects
+    public Ssocionoinf ssocionoinf;
+    // Ventana
+    public FormVregdeclara vregdeclara;
+    // Selects
+    public Sregdeclara sregdeclara;
+    // Ventana
+    public FormVrendiimpinfo vrendiimpinfo;
+    // Selects
+    public Srendiimpinfo srendiimpinfo;
+    // Ventana
+    public FormVarrndlocimp varrndlocimp;
+    // Selects
+    public Sarrndlocimp sarrndlocimp;
     // Ventana
     public FormVimportar vimportar;
     // Selects
@@ -8673,6 +8693,1159 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
         // EVENT: SELECT
         }
         
+    public class FormVadminnoinf extends MultiDataForm
+        {
+        // GLOBALES: VENTANA
+        // Metodos
+        // Controles
+        public CtrlDfancodigo dfancodigo;
+        // Acciones
+        // Fieldsets
+        class Location extends LocationWindow
+            {
+            public Location( )
+                {
+                super();
+                }
+            }
+            
+        public class CtrlDfancodigo extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfancodigo(Form form)
+                {
+                super(form);
+                setName("dfancodigo");
+                setTitle("Código AEAT");
+                setType(STRING);
+                setLength(7);
+                setSearchable(true);
+                setField(sadminnoinf.dfancodigo);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public FormVadminnoinf(ProgPrdatosfiscales prdatosfiscales)
+            {
+            super(prdatosfiscales);
+            setName("vadminnoinf");
+            setTitle("Administradores no informados en Modelo 200");
+            setLocation(new Location());
+            setStates(SHOW | SEARCH);
+            setModal(true);
+            // SET: VENTANA
+            addSelect(sadminnoinf=new Sadminnoinf());
+            addControl(dfancodigo=new CtrlDfancodigo(this));
+            setSelect(sadminnoinf);
+            }
+        // GET: VENTANA
+        // EVENT: VENTANA
+        }
+        
+    // 
+    public class Sadminnoinf extends Select
+        {
+        // Tablas
+        // GLOBALES: SELECT
+        // Metodos
+        public Dfsadminsninfo dfsadminsninfo;
+        // Campos
+        public Field dfanejer;
+        public Field dfannif;
+        public Field dfancodigo;
+        class Dfsadminsninfo extends Table
+            {
+            // GLOBALES: TABLA
+            // Metodos
+            public Dfsadminsninfo(Select select)
+                {
+                super(select);
+                setName("dfsadminsninfo");
+                setOptions(READ | INSERT | DELETE | UPDATE);
+                // SET: TABLA
+                }
+            // GET: TABLA
+            // EVENT: TABLA
+            }
+            
+        public Sadminnoinf()
+            {
+            setName("sadminnoinf");
+            // SET: SELECT
+            addTable(dfsadminsninfo=new Dfsadminsninfo(this));
+            addField(dfanejer=new Field(this,dfsadminsninfo,"dfanejer"));
+            addField(dfannif=new Field(this,dfsadminsninfo,"dfannif"));
+            addField(dfancodigo=new Field(this,dfsadminsninfo,"dfancodigo"));
+            }
+        // GET: SELECT
+        public String getWhere ()
+            {
+            return "dfanejer="+progEjer+" AND dfannif='"+paramNif+"'";
+            }
+        // EVENT: SELECT
+        }
+        
+    public class FormVsocinoinf extends MultiDataForm
+        {
+        // GLOBALES: VENTANA
+        // Metodos
+        // Controles
+        public CtrlDfsncodigo dfsncodigo;
+        // Acciones
+        // Fieldsets
+        class Location extends LocationWindow
+            {
+            public Location( )
+                {
+                super();
+                }
+            }
+            
+        public class CtrlDfsncodigo extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfsncodigo(Form form)
+                {
+                super(form);
+                setName("dfsncodigo");
+                setTitle("Código AEAT");
+                setType(STRING);
+                setLength(7);
+                setSearchable(true);
+                setField(ssocionoinf.dfsncodigo);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public FormVsocinoinf(ProgPrdatosfiscales prdatosfiscales)
+            {
+            super(prdatosfiscales);
+            setName("vsocinoinf");
+            setTitle("Socios no informados en Modelo 200");
+            setLocation(new Location());
+            setStates(SHOW | SEARCH);
+            setModal(true);
+            // SET: VENTANA
+            addSelect(ssocionoinf=new Ssocionoinf());
+            addControl(dfsncodigo=new CtrlDfsncodigo(this));
+            setSelect(ssocionoinf);
+            }
+        // GET: VENTANA
+        // EVENT: VENTANA
+        }
+        
+    // 
+    public class Ssocionoinf extends Select
+        {
+        // Tablas
+        // GLOBALES: SELECT
+        // Metodos
+        public Dfssociosninfo dfssociosninfo;
+        // Campos
+        public Field dfsnejer;
+        public Field dfsnnif;
+        public Field dfsncodigo;
+        class Dfssociosninfo extends Table
+            {
+            // GLOBALES: TABLA
+            // Metodos
+            public Dfssociosninfo(Select select)
+                {
+                super(select);
+                setName("dfssociosninfo");
+                setOptions(READ | INSERT | DELETE | UPDATE);
+                // SET: TABLA
+                }
+            // GET: TABLA
+            // EVENT: TABLA
+            }
+            
+        public Ssocionoinf()
+            {
+            setName("ssocionoinf");
+            // SET: SELECT
+            addTable(dfssociosninfo=new Dfssociosninfo(this));
+            addField(dfsnejer=new Field(this,dfssociosninfo,"dfsnejer"));
+            addField(dfsnnif=new Field(this,dfssociosninfo,"dfsnnif"));
+            addField(dfsncodigo=new Field(this,dfssociosninfo,"dfsncodigo"));
+            }
+        // GET: SELECT
+        public String getWhere ()
+            {
+            return "dfsnejer="+progEjer+" AND dfsnnif='"+paramNif+"'";
+            }
+        // EVENT: SELECT
+        }
+        
+    public class FormVregdeclara extends MultiDataForm
+        {
+        // GLOBALES: VENTANA
+        // Metodos
+        // Controles
+        public CtrlDfrdcodigo dfrdcodigo;
+        public CtrlDfrdclave dfrdclave;
+        public CtrlDfrdpercep dfrdpercep;
+        public CtrlDfrdretenc dfrdretenc;
+        public CtrlDfrdvperes dfrdvperes;
+        public CtrlDfrdingefc dfrdingefc;
+        public CtrlDfrdingrep dfrdingrep;
+        public CtrlDfrdpercepilt dfrdpercepilt;
+        public CtrlDfrdretencilt dfrdretencilt;
+        public CtrlDfrdvperesilt dfrdvperesilt;
+        public CtrlDfrdingefcilt dfrdingefcilt;
+        public CtrlDfrdingrepilt dfrdingrepilt;
+        public CtrlDfrdimpcalcul dfrdimpcalcul;
+        // Acciones
+        // Fieldsets
+        class Location extends LocationWindow
+            {
+            public Location( )
+                {
+                super();
+                }
+            }
+            
+        public class CtrlDfrdcodigo extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrdcodigo(Form form)
+                {
+                super(form);
+                setName("dfrdcodigo");
+                setTitle("Código AEAT");
+                setType(STRING);
+                setLength(7);
+                setSearchable(true);
+                setField(sregdeclara.dfrdcodigo);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrdclave extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrdclave(Form form)
+                {
+                super(form);
+                setName("dfrdclave");
+                setTitle("Clave");
+                setType(STRING);
+                setLength(3);
+                setSearchable(true);
+                setField(sregdeclara.dfrdclave);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrdpercep extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrdpercep(Form form)
+                {
+                super(form);
+                setName("dfrdpercep");
+                setTitle("Percepciones dinerarias íntegra");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(sregdeclara.dfrdpercep);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrdretenc extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrdretenc(Form form)
+                {
+                super(form);
+                setName("dfrdretenc");
+                setTitle("Retenciones");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(sregdeclara.dfrdretenc);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrdvperes extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrdvperes(Form form)
+                {
+                super(form);
+                setName("dfrdvperes");
+                setTitle("Valoración percepciones en especie");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(sregdeclara.dfrdvperes);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrdingefc extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrdingefc(Form form)
+                {
+                super(form);
+                setName("dfrdingefc");
+                setTitle("Ingresos a cuenta efectuados");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(sregdeclara.dfrdingefc);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrdingrep extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrdingrep(Form form)
+                {
+                super(form);
+                setName("dfrdingrep");
+                setTitle("Ingresos a cuenta repercutidos");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(sregdeclara.dfrdingrep);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrdpercepilt extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrdpercepilt(Form form)
+                {
+                super(form);
+                setName("dfrdpercepilt");
+                setTitle("Percepciones dinerarias íntegra ILT");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(sregdeclara.dfrdpercepilt);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrdretencilt extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrdretencilt(Form form)
+                {
+                super(form);
+                setName("dfrdretencilt");
+                setTitle("Retenciones ILT");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(sregdeclara.dfrdretencilt);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrdvperesilt extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrdvperesilt(Form form)
+                {
+                super(form);
+                setName("dfrdvperesilt");
+                setTitle("Valoración percepciones en especie ILT");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(sregdeclara.dfrdvperesilt);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrdingefcilt extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrdingefcilt(Form form)
+                {
+                super(form);
+                setName("dfrdingefcilt");
+                setTitle("Ingresos a cuenta efectuados ILT");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(sregdeclara.dfrdingefcilt);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrdingrepilt extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrdingrepilt(Form form)
+                {
+                super(form);
+                setName("dfrdingrepilt");
+                setTitle("Ingresos a cuenta repercutidos ILT");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(sregdeclara.dfrdingrepilt);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrdimpcalcul extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrdimpcalcul(Form form)
+                {
+                super(form);
+                setName("dfrdimpcalcul");
+                setTitle("Importe calculado");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(sregdeclara.dfrdimpcalcul);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public FormVregdeclara(ProgPrdatosfiscales prdatosfiscales)
+            {
+            super(prdatosfiscales);
+            setName("vregdeclara");
+            setTitle("Registros declarados en el modelo 190, presentado por el propio contribuyente");
+            setLocation(new Location());
+            setStates(SHOW | SEARCH);
+            setModal(true);
+            // SET: VENTANA
+            addSelect(sregdeclara=new Sregdeclara());
+            addControl(dfrdcodigo=new CtrlDfrdcodigo(this));
+            addControl(dfrdclave=new CtrlDfrdclave(this));
+            addControl(dfrdpercep=new CtrlDfrdpercep(this));
+            addControl(dfrdretenc=new CtrlDfrdretenc(this));
+            addControl(dfrdvperes=new CtrlDfrdvperes(this));
+            addControl(dfrdingefc=new CtrlDfrdingefc(this));
+            addControl(dfrdingrep=new CtrlDfrdingrep(this));
+            addControl(dfrdpercepilt=new CtrlDfrdpercepilt(this));
+            addControl(dfrdretencilt=new CtrlDfrdretencilt(this));
+            addControl(dfrdvperesilt=new CtrlDfrdvperesilt(this));
+            addControl(dfrdingefcilt=new CtrlDfrdingefcilt(this));
+            addControl(dfrdingrepilt=new CtrlDfrdingrepilt(this));
+            addControl(dfrdimpcalcul=new CtrlDfrdimpcalcul(this));
+            setSelect(sregdeclara);
+            }
+        // GET: VENTANA
+        // EVENT: VENTANA
+        }
+        
+    // 
+    public class Sregdeclara extends Select
+        {
+        // Tablas
+        // GLOBALES: SELECT
+        // Metodos
+        public Dfsregdeclarado dfsregdeclarado;
+        // Campos
+        public Field dfrdejer;
+        public Field dfrdnif;
+        public Field dfrdcodigo;
+        public Field dfrdclave;
+        public Field dfrdpercep;
+        public Field dfrdretenc;
+        public Field dfrdvperes;
+        public Field dfrdingefc;
+        public Field dfrdingrep;
+        public Field dfrdpercepilt;
+        public Field dfrdretencilt;
+        public Field dfrdvperesilt;
+        public Field dfrdingefcilt;
+        public Field dfrdingrepilt;
+        public Field dfrdimpcalcul;
+        class Dfsregdeclarado extends Table
+            {
+            // GLOBALES: TABLA
+            // Metodos
+            public Dfsregdeclarado(Select select)
+                {
+                super(select);
+                setName("dfsregdeclarado");
+                setOptions(READ | INSERT | DELETE | UPDATE);
+                // SET: TABLA
+                }
+            // GET: TABLA
+            // EVENT: TABLA
+            }
+            
+        public Sregdeclara()
+            {
+            setName("sregdeclara");
+            // SET: SELECT
+            addTable(dfsregdeclarado=new Dfsregdeclarado(this));
+            addField(dfrdejer=new Field(this,dfsregdeclarado,"dfrdejer"));
+            addField(dfrdnif=new Field(this,dfsregdeclarado,"dfrdnif"));
+            addField(dfrdcodigo=new Field(this,dfsregdeclarado,"dfrdcodigo"));
+            addField(dfrdclave=new Field(this,dfsregdeclarado,"dfrdclave"));
+            addField(dfrdpercep=new Field(this,dfsregdeclarado,"dfrdpercep"));
+            addField(dfrdretenc=new Field(this,dfsregdeclarado,"dfrdretenc"));
+            addField(dfrdvperes=new Field(this,dfsregdeclarado,"dfrdvperes"));
+            addField(dfrdingefc=new Field(this,dfsregdeclarado,"dfrdingefc"));
+            addField(dfrdingrep=new Field(this,dfsregdeclarado,"dfrdingrep"));
+            addField(dfrdpercepilt=new Field(this,dfsregdeclarado,"dfrdpercepilt"));
+            addField(dfrdretencilt=new Field(this,dfsregdeclarado,"dfrdretencilt"));
+            addField(dfrdvperesilt=new Field(this,dfsregdeclarado,"dfrdvperesilt"));
+            addField(dfrdingefcilt=new Field(this,dfsregdeclarado,"dfrdingefcilt"));
+            addField(dfrdingrepilt=new Field(this,dfsregdeclarado,"dfrdingrepilt"));
+            addField(dfrdimpcalcul=new Field(this,dfsregdeclarado,"dfrdimpcalcul"));
+            }
+        // GET: SELECT
+        public String getWhere ()
+            {
+            return "dfrdejer="+progEjer+" AND dfrdnif='"+paramNif+"'";
+            }
+        // EVENT: SELECT
+        }
+        
+    public class FormVrendiimpinfo extends MultiDataForm
+        {
+        // GLOBALES: VENTANA
+        // Metodos
+        // Controles
+        public CtrlDfricodigo dfricodigo;
+        public CtrlDfrinifemis dfrinifemis;
+        public CtrlDfrinomemis dfrinomemis;
+        public CtrlDfrinifdecl dfrinifdecl;
+        public CtrlDfrinomdecl dfrinomdecl;
+        public CtrlDfriclave dfriclave;
+        public CtrlDfritipo dfritipo;
+        public CtrlDfriimpinte dfriimpinte;
+        public CtrlDfriretenci dfriretenci;
+        public CtrlDfrigtodedu dfrigtodedu;
+        public CtrlDfripenaliz dfripenaliz;
+        // Acciones
+        // Fieldsets
+        class Location extends LocationWindow
+            {
+            public Location( )
+                {
+                super();
+                }
+            }
+            
+        public class CtrlDfricodigo extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfricodigo(Form form)
+                {
+                super(form);
+                setName("dfricodigo");
+                setTitle("Código AEAT");
+                setType(STRING);
+                setLength(7);
+                setSearchable(true);
+                setField(srendiimpinfo.dfricodigo);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrinifemis extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrinifemis(Form form)
+                {
+                super(form);
+                setName("dfrinifemis");
+                setTitle("NIF emisor");
+                setType(STRING);
+                setLength(9);
+                setSearchable(true);
+                setField(srendiimpinfo.dfrinifemis);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrinomemis extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrinomemis(Form form)
+                {
+                super(form);
+                setName("dfrinomemis");
+                setTitle("Nombre emisor");
+                setType(STRING);
+                setLength(40);
+                setSearchable(true);
+                setField(srendiimpinfo.dfrinomemis);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrinifdecl extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrinifdecl(Form form)
+                {
+                super(form);
+                setName("dfrinifdecl");
+                setTitle("NIF declarante");
+                setType(STRING);
+                setLength(9);
+                setSearchable(true);
+                setField(srendiimpinfo.dfrinifdecl);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrinomdecl extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrinomdecl(Form form)
+                {
+                super(form);
+                setName("dfrinomdecl");
+                setTitle("Nombre declarante");
+                setType(STRING);
+                setLength(40);
+                setSearchable(true);
+                setField(srendiimpinfo.dfrinomdecl);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfriclave extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfriclave(Form form)
+                {
+                super(form);
+                setName("dfriclave");
+                setTitle("Clave");
+                setType(STRING);
+                setLength(3);
+                setSearchable(true);
+                setField(srendiimpinfo.dfriclave);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfritipo extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfritipo(Form form)
+                {
+                super(form);
+                setName("dfritipo");
+                setTitle("Tipo");
+                setType(INTEGER);
+                setLength(10);
+                setSearchable(true);
+                setField(srendiimpinfo.dfritipo);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfriimpinte extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfriimpinte(Form form)
+                {
+                super(form);
+                setName("dfriimpinte");
+                setTitle("Importe íntegro");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(srendiimpinfo.dfriimpinte);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfriretenci extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfriretenci(Form form)
+                {
+                super(form);
+                setName("dfriretenci");
+                setTitle("Retención");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(srendiimpinfo.dfriretenci);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfrigtodedu extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfrigtodedu(Form form)
+                {
+                super(form);
+                setName("dfrigtodedu");
+                setTitle("Gastos deducibles");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(srendiimpinfo.dfrigtodedu);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfripenaliz extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfripenaliz(Form form)
+                {
+                super(form);
+                setName("dfripenaliz");
+                setTitle("Penalización");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(srendiimpinfo.dfripenaliz);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public FormVrendiimpinfo(ProgPrdatosfiscales prdatosfiscales)
+            {
+            super(prdatosfiscales);
+            setName("vrendiimpinfo");
+            setTitle("Rendimientos imputados informados en el M193");
+            setLocation(new Location());
+            setStates(SHOW | SEARCH);
+            setModal(true);
+            // SET: VENTANA
+            addSelect(srendiimpinfo=new Srendiimpinfo());
+            addControl(dfricodigo=new CtrlDfricodigo(this));
+            addControl(dfrinifemis=new CtrlDfrinifemis(this));
+            addControl(dfrinomemis=new CtrlDfrinomemis(this));
+            addControl(dfrinifdecl=new CtrlDfrinifdecl(this));
+            addControl(dfrinomdecl=new CtrlDfrinomdecl(this));
+            addControl(dfriclave=new CtrlDfriclave(this));
+            addControl(dfritipo=new CtrlDfritipo(this));
+            addControl(dfriimpinte=new CtrlDfriimpinte(this));
+            addControl(dfriretenci=new CtrlDfriretenci(this));
+            addControl(dfrigtodedu=new CtrlDfrigtodedu(this));
+            addControl(dfripenaliz=new CtrlDfripenaliz(this));
+            setSelect(srendiimpinfo);
+            }
+        // GET: VENTANA
+        // EVENT: VENTANA
+        }
+        
+    // 
+    public class Srendiimpinfo extends Select
+        {
+        // Tablas
+        // GLOBALES: SELECT
+        // Metodos
+        public Dfsrdtimpinfo dfsrdtimpinfo;
+        // Campos
+        public Field dfriejer;
+        public Field dfrinif;
+        public Field dfricodigo;
+        public Field dfrinifemis;
+        public Field dfrinomemis;
+        public Field dfrinifdecl;
+        public Field dfrinomdecl;
+        public Field dfriclave;
+        public Field dfritipo;
+        public Field dfriimpinte;
+        public Field dfriretenci;
+        public Field dfrigtodedu;
+        public Field dfripenaliz;
+        class Dfsrdtimpinfo extends Table
+            {
+            // GLOBALES: TABLA
+            // Metodos
+            public Dfsrdtimpinfo(Select select)
+                {
+                super(select);
+                setName("dfsrdtimpinfo");
+                setOptions(READ | INSERT | DELETE | UPDATE);
+                // SET: TABLA
+                }
+            // GET: TABLA
+            // EVENT: TABLA
+            }
+            
+        public Srendiimpinfo()
+            {
+            setName("srendiimpinfo");
+            // SET: SELECT
+            addTable(dfsrdtimpinfo=new Dfsrdtimpinfo(this));
+            addField(dfriejer=new Field(this,dfsrdtimpinfo,"dfriejer"));
+            addField(dfrinif=new Field(this,dfsrdtimpinfo,"dfrinif"));
+            addField(dfricodigo=new Field(this,dfsrdtimpinfo,"dfricodigo"));
+            addField(dfrinifemis=new Field(this,dfsrdtimpinfo,"dfrinifemis"));
+            addField(dfrinomemis=new Field(this,dfsrdtimpinfo,"dfrinomemis"));
+            addField(dfrinifdecl=new Field(this,dfsrdtimpinfo,"dfrinifdecl"));
+            addField(dfrinomdecl=new Field(this,dfsrdtimpinfo,"dfrinomdecl"));
+            addField(dfriclave=new Field(this,dfsrdtimpinfo,"dfriclave"));
+            addField(dfritipo=new Field(this,dfsrdtimpinfo,"dfritipo"));
+            addField(dfriimpinte=new Field(this,dfsrdtimpinfo,"dfriimpinte"));
+            addField(dfriretenci=new Field(this,dfsrdtimpinfo,"dfriretenci"));
+            addField(dfrigtodedu=new Field(this,dfsrdtimpinfo,"dfrigtodedu"));
+            addField(dfripenaliz=new Field(this,dfsrdtimpinfo,"dfripenaliz"));
+            }
+        // GET: SELECT
+        public String getWhere ()
+            {
+            return "dfriejer="+progEjer+" AND dfrinif='"+paramNif+"'";
+            }
+        // EVENT: SELECT
+        }
+        
+    public class FormVarrndlocimp extends MultiDataForm
+        {
+        // GLOBALES: VENTANA
+        // Metodos
+        // Controles
+        public CtrlDfarcodigo dfarcodigo;
+        public CtrlDfarnifpaga dfarnifpaga;
+        public CtrlDfarnompaga dfarnompaga;
+        public CtrlDfarrefcata dfarrefcata;
+        public CtrlDfarclave dfarclave;
+        public CtrlDfaringreso dfaringreso;
+        public CtrlDfarretenci dfarretenci;
+        // Acciones
+        // Fieldsets
+        class Location extends LocationWindow
+            {
+            public Location( )
+                {
+                super();
+                }
+            }
+            
+        public class CtrlDfarcodigo extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfarcodigo(Form form)
+                {
+                super(form);
+                setName("dfarcodigo");
+                setTitle("Código AEAT");
+                setType(STRING);
+                setLength(7);
+                setSearchable(true);
+                setField(sarrndlocimp.dfarcodigo);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfarnifpaga extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfarnifpaga(Form form)
+                {
+                super(form);
+                setName("dfarnifpaga");
+                setTitle("NIF pagador");
+                setType(STRING);
+                setLength(9);
+                setSearchable(true);
+                setField(sarrndlocimp.dfarnifpaga);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfarnompaga extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfarnompaga(Form form)
+                {
+                super(form);
+                setName("dfarnompaga");
+                setTitle("Nombre pagador");
+                setType(STRING);
+                setLength(40);
+                setSearchable(true);
+                setField(sarrndlocimp.dfarnompaga);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfarrefcata extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfarrefcata(Form form)
+                {
+                super(form);
+                setName("dfarrefcata");
+                setTitle("Ref. Catastral");
+                setType(STRING);
+                setLength(20);
+                setSearchable(true);
+                setField(sarrndlocimp.dfarrefcata);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfarclave extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfarclave(Form form)
+                {
+                super(form);
+                setName("dfarclave");
+                setTitle("Clave");
+                setType(INTEGER);
+                setLength(10);
+                setSearchable(true);
+                setField(sarrndlocimp.dfarclave);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfaringreso extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfaringreso(Form form)
+                {
+                super(form);
+                setName("dfaringreso");
+                setTitle("Ingresos");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(sarrndlocimp.dfaringreso);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfarretenci extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfarretenci(Form form)
+                {
+                super(form);
+                setName("dfarretenci");
+                setTitle("Retención");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setMaskOutput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(sarrndlocimp.dfarretenci);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public FormVarrndlocimp(ProgPrdatosfiscales prdatosfiscales)
+            {
+            super(prdatosfiscales);
+            setName("varrndlocimp");
+            setTitle("Arrendamientos de locales imputados en el M180");
+            setLocation(new Location());
+            setStates(SHOW | SEARCH);
+            setModal(true);
+            // SET: VENTANA
+            addSelect(sarrndlocimp=new Sarrndlocimp());
+            addControl(dfarcodigo=new CtrlDfarcodigo(this));
+            addControl(dfarnifpaga=new CtrlDfarnifpaga(this));
+            addControl(dfarnompaga=new CtrlDfarnompaga(this));
+            addControl(dfarrefcata=new CtrlDfarrefcata(this));
+            addControl(dfarclave=new CtrlDfarclave(this));
+            addControl(dfaringreso=new CtrlDfaringreso(this));
+            addControl(dfarretenci=new CtrlDfarretenci(this));
+            setSelect(sarrndlocimp);
+            }
+        // GET: VENTANA
+        // EVENT: VENTANA
+        }
+        
+    // 
+    public class Sarrndlocimp extends Select
+        {
+        // Tablas
+        // GLOBALES: SELECT
+        // Metodos
+        public Dfsarrlocalimp dfsarrlocalimp;
+        // Campos
+        public Field dfarejer;
+        public Field dfarnif;
+        public Field dfarcodigo;
+        public Field dfarnifpaga;
+        public Field dfarnompaga;
+        public Field dfarrefcata;
+        public Field dfarclave;
+        public Field dfaringreso;
+        public Field dfarretenci;
+        class Dfsarrlocalimp extends Table
+            {
+            // GLOBALES: TABLA
+            // Metodos
+            public Dfsarrlocalimp(Select select)
+                {
+                super(select);
+                setName("dfsarrlocalimp");
+                setOptions(READ | INSERT | DELETE | UPDATE);
+                // SET: TABLA
+                }
+            // GET: TABLA
+            // EVENT: TABLA
+            }
+            
+        public Sarrndlocimp()
+            {
+            setName("sarrndlocimp");
+            // SET: SELECT
+            addTable(dfsarrlocalimp=new Dfsarrlocalimp(this));
+            addField(dfarejer=new Field(this,dfsarrlocalimp,"dfarejer"));
+            addField(dfarnif=new Field(this,dfsarrlocalimp,"dfarnif"));
+            addField(dfarcodigo=new Field(this,dfsarrlocalimp,"dfarcodigo"));
+            addField(dfarnifpaga=new Field(this,dfsarrlocalimp,"dfarnifpaga"));
+            addField(dfarnompaga=new Field(this,dfsarrlocalimp,"dfarnompaga"));
+            addField(dfarrefcata=new Field(this,dfsarrlocalimp,"dfarrefcata"));
+            addField(dfarclave=new Field(this,dfsarrlocalimp,"dfarclave"));
+            addField(dfaringreso=new Field(this,dfsarrlocalimp,"dfaringreso"));
+            addField(dfarretenci=new Field(this,dfsarrlocalimp,"dfarretenci"));
+            }
+        // GET: SELECT
+        public String getWhere ()
+            {
+            return "dfarejer="+progEjer+" AND dfarnif='"+paramNif+"'";
+            }
+        // EVENT: SELECT
+        }
+        
     public class FormVimportar extends ProcessForm
         {
         // GLOBALES: VENTANA
@@ -8927,6 +10100,11 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
         addForm(vmultasdgt=new FormVmultasdgt(this));
         addForm(vrdtoctasbanc=new FormVrdtoctasbanc(this));
         addForm(vsanciones=new FormVsanciones(this));
+        addForm(vadminnoinf=new FormVadminnoinf(this));
+        addForm(vsocinoinf=new FormVsocinoinf(this));
+        addForm(vregdeclara=new FormVregdeclara(this));
+        addForm(vrendiimpinfo=new FormVrendiimpinfo(this));
+        addForm(varrndlocimp=new FormVarrndlocimp(this));
         addForm(vimportar=new FormVimportar(this));
         vprimera.aimportar.setForm(vimportar);
         }
@@ -8949,9 +10127,10 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
         vdomicilio.dfd21pais.setViewLength(15);
         
         MultiDataForm[] ventanas = new MultiDataForm[]{vdomicilio, vdatcens, vperycnae, vcaracteres, vadmins, vparticipa, vparticipan,
-        	 vsecrerepre, vpagosfrac, vvoloper, vrdtotrabajo, vbasesneg, vcuotasneg, vdeducdi1, vdeducdi2, vdeducdi3, vdeducdi4,
-              vdeducdt247, vdeducdt241, vdeduccan, vdeducact, vdeducdona, vdeducreinv371, vdeducreinv372, vreservanibi, vreservanidr,
-              vreservacap, vlimitagastosf, vpdteadicion, vregespcan, vdonaciones, vmultasdgt, vrdtoctasbanc, vsanciones};
+                	    vsecrerepre, vpagosfrac, vvoloper, vrdtotrabajo, vbasesneg, vcuotasneg, vdeducdi1, vdeducdi2, vdeducdi3, vdeducdi4,
+                      vdeducdt247, vdeducdt241, vdeduccan, vdeducact, vdeducdona, vdeducreinv371, vdeducreinv372, vreservanibi, vreservanidr,
+                      vreservacap, vlimitagastosf, vpdteadicion, vregespcan, vdonaciones, vmultasdgt, vrdtoctasbanc, vsanciones, vadminnoinf,
+                      vsocinoinf, vregdeclara, vrendiimpinfo, varrndlocimp};
         
         java.util.HashMap<MultiDataForm, Select> hmSelectVentana = new java.util.HashMap<MultiDataForm, Select>();
         hmSelectVentana.put(vdomicilio, sdfsdomicilio);
@@ -8991,6 +10170,14 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
         hmSelectVentana.put(vrdtoctasbanc,srdtoctasbanc);
         hmSelectVentana.put(vsanciones,ssanciones);
         
+        if (progEjer >= 2020) {
+        	hmSelectVentana.put(vadminnoinf, sadminnoinf);
+        	hmSelectVentana.put(vsocinoinf, ssocionoinf);
+        	hmSelectVentana.put(vregdeclara, sregdeclara);
+        	hmSelectVentana.put(vrendiimpinfo, srendiimpinfo);
+        	hmSelectVentana.put(varrndlocimp, sarrndlocimp);
+        }
+        
         if (visibles==null){
         	visibles = new boolean[ventanas.length];
         	for (int i=0; i<visibles.length;i++) {
@@ -9013,12 +10200,6 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
              if (visible) ventanas[i].setParent(cp);
              ventanas[i].setLocation(loc);
              ventanas[i].setInitState(DataForm.SHOW);
-        }
-        
-        if (progEjer < 2020) {
-        	vadmins.getControlTable().removeColumn(vadmins.dfarepresent.getColumnInfo().index);
-        	vadmins.getControlTable().removeColumn(vadmins.dfadomiciliof.getColumnInfo().index);
-        	vadmins.getControlTable().removeColumn(vadmins.dfaprovincia.getColumnInfo().index);
         }
         
         super.onInit();

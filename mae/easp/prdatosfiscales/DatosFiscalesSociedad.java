@@ -105,6 +105,8 @@ public class DatosFiscalesSociedad {
 		lAdministradorNoInformado = new ArrayList<AdministradorNoInformado>();
 		lSocioNoInformado = new ArrayList<SocioNoInformado>();
 		lRegistroDeclarado = new ArrayList<RegistroDeclarado>();
+		lRendimientoImputadoInformado = new ArrayList<RendimientoImputadoInformado>();
+		lArrendamientosLocalesImp = new ArrayList<ArrendamientosLocalesImp>();
 	}
 
 	private void initActividades(){
@@ -684,7 +686,16 @@ public class DatosFiscalesSociedad {
 
 	private boolean leerArrendamientosLocalesImp() {
 		if (linea.startsWith("AR")) {
-			
+			ArrendamientosLocalesImp ali = new ArrendamientosLocalesImp();
+			ali.ejercicio = paramEjer;
+			ali.nif = paramNif; 
+			ali.codigo = parserString(1,8);
+			ali.nifpagador = parserString(8, 17);
+			ali.nompagador = parserString(17, 57);
+			ali.refcatastr = parserString(57, 77);
+			ali.clave = parserInteger(77, 78);
+			ali.ingresos = parserDouble(78, 91);
+			ali.retencion = parserDouble(91, 104);
 			
 			return sError == null;
 		}
@@ -698,12 +709,12 @@ public class DatosFiscalesSociedad {
 			in.valor("dfarejer", paramEjer);
 			in.valor("dfarnif", paramNif);
 			in.valor("dfarcodigo", ali.codigo);
-			in.valor("dfarcodigo", ali.nifpagador);
-			in.valor("dfarcodigo", ali.nompagador);
-			in.valor("dfarcodigo", ali.refcatastr);
-			in.valor("dfarcodigo", ali.clave);
-			in.valor("dfarcodigo", ali.ingresos);
-			in.valor("dfarcodigo", ali.retencion);
+			in.valor("dfarnifpaga", ali.nifpagador);
+			in.valor("dfarnompaga", ali.nompagador);
+			in.valor("dfarrefcata", ali.refcatastr);
+			in.valor("dfarclave", ali.clave);
+			in.valor("dfaringreso", ali.ingresos);
+			in.valor("dfarretenci", ali.retencion);
 			bOk = in.execute();
 			if (!bOk){
 				hayIncidencias = true;
@@ -1946,7 +1957,7 @@ public class DatosFiscalesSociedad {
 		String nifpagador;
 		String nompagador;
 		String refcatastr;
-		String clave;
+		int clave;
 		double ingresos;
 		double retencion;
 	}

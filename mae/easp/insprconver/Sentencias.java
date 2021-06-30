@@ -4,6 +4,65 @@ import mae.easp.general.Easp;
 
 public class Sentencias {
 	
+  public static String sentencias17_6[] = {
+	"ALTER TABLE DFSADMINS ADD dfarepresent CHAR(1);",
+	"ALTER TABLE DFSADMINS ADD dfadomiciliof VARCHAR(50);",
+	"ALTER TABLE DFSADMINS ADD dfaprovincia VARCHAR(2);",
+	"CREATE TABLE DFSADMINSNINFO ("
+	+ "	dfanejer	INTEGER NOT NULL,"
+	+ "	dfannif		VARCHAR(15) NOT NULL,"
+	+ "	dfancodigo	VARCHAR(7) NOT NULL,"
+	+ "	PRIMARY KEY(dfanejer, dfannif, dfancodigo));",
+	"CREATE TABLE DFSSOCIOSNINFO ("
+	+ "	dfsnejer	INTEGER NOT NULL,"
+	+ "	dfsnnif		VARCHAR(15) NOT NULL,"
+	+ "	dfsncodigo	VARCHAR(7) NOT NULL,"
+	+ "	PRIMARY KEY(dfsnejer, dfsnnif, dfsncodigo));",
+	"CREATE TABLE DFSREGDECLARADO ("
+	+ "	dfrdejer 	INTEGER,"
+	+ "	dfrdnif  	VARCHAR(15),"
+	+ "	dfrdcodigo  VARCHAR(7),"
+	+ "	dfrdclave   VARCHAR(3),"
+	+ "	dfrdpercep  FLOAT,"
+	+ "	dfrdretenc  FLOAT,"
+	+ "	dfrdvperes  FLOAT,"
+	+ "	dfrdingefc  FLOAT,"
+	+ "	dfrdingrep  FLOAT,"
+	+ "	dfrdpercepilt FLOAT,"
+	+ "	dfrdretencilt FLOAT,"
+	+ "	dfrdvperesilt FLOAT,"
+	+ "	dfrdingefcilt FLOAT,"
+	+ "	dfrdingrepilt FLOAT,"
+	+ "	dfrdimpcalcul FLOAT,"
+	+ "	PRIMARY KEY(dfrdejer, dfrdnif, dfrdcodigo));",
+	"CREATE TABLE DFSRDTIMPINFO ("
+	+ "	dfriejer   	INTEGER,"
+	+ "	dfrinif 	VARCHAR(15),"
+	+ "	dfricodigo  VARCHAR(7),"
+	+ "	dfrinifemis VARCHAR(9),"
+	+ "	dfrinomemis VARCHAR(40),"
+	+ "	dfrinifdecl VARCHAR(9),"
+	+ "	dfrinomdecl VARCHAR(40),"
+	+ "	dfriclave   VARCHAR(3),"
+	+ "	dfritipo    INTEGER,"
+	+ "	dfriimpinte FLOAT,"
+	+ "	dfriretenci FLOAT,"
+	+ "	dfrigtodedu FLOAT,"
+	+ "	dfripenaliz FLOAT,"
+	+ "	PRIMARY KEY(dfriejer, dfrinif, dfricodigo));",
+	"CREATE TABLE DFSARRLOCALIMP ("
+	+ "	dfarejer INTEGER,"
+	+ "	dfarnif	 VARCHAR(15),"
+	+ "	dfarcodigo VARCHAR(7),"
+	+ "	dfarnifpaga VARCHAR(9),"
+	+ "	dfarnompaga VARCHAR(40),"
+	+ "	dfarrefcata VARCHAR(20),"
+	+ "	dfarclave INTEGER,"
+	+ "	dfaringreso FLOAT,"
+	+ "	dfarretenci FLOAT,"
+	+ "	PRIMARY KEY(dfarejer, dfarnif, dfarcodigo));"	
+  };
+	
   public static String sentencias17_5[]={
 		  "INSERT INTO EPIGRAFES (epitipoact, epiepigrafe, epidescripcion, epiepisinpunto) VALUES ('1', '151.6', 'COMERCIALIZACIÓN DE ENERGÍA ELÉCTRICA', '1516')"
   };
