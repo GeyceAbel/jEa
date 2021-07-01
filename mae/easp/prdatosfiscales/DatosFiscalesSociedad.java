@@ -451,11 +451,8 @@ public class DatosFiscalesSociedad {
 						BufferedReader in = new BufferedReader(read);) {
 				pbf.setSecondaryPercent(0);
 				pbf.setState("Leyendo datos fiscales");
-				while ((linea = in.readLine()) != null){
-					if (linea.startsWith("Error")) {
-						errorTrobat();
-						bOk = false;
-					}
+				while ((linea = in.readLine()) != null && bOk){
+					if (linea.startsWith("Error")) errorTrobat();
 					else if (bOk && linea.startsWith("2DOM")) bOk = leerDatosDomicilio();
 					else if (bOk && linea.startsWith("2AE"))  bOk = leerDatosCensales();
 					else if (bOk && linea.startsWith("2MD1")) bOk = leerPeriodoYCNAE();
@@ -472,17 +469,18 @@ public class DatosFiscalesSociedad {
 					else if (bOk && linea.startsWith("2CB"))  bOk = leerRendimientosCtasBancarias();
 					else if (bOk && linea.startsWith("2SRN")) bOk = leerSanciones();
 //					Comentat fins actualització AEAT
-//					else if (bOk && linea.startsWith("ADB") && paramEjer == 2020) bOk = leerAdminsNoInformados();
-//					else if (bOk && linea.startsWith("SOC") && paramEjer == 2020) bOk = leerSociosNoInformados();
-					else if (bOk && linea.startsWith("CIN") && paramEjer == 2020) bOk = leerRegistrosDeclarados();
-					else if (bOk && linea.startsWith("RE") && paramEjer == 2020) bOk = leerRendimientosImputados();
-					else if (bOk && linea.startsWith("AR") && paramEjer == 2020) bOk = leerArrendamientosLocalesImp();
+//					else if (bOk && linea.startsWith("2ADB") && paramEjer == 2020) bOk = leerAdminsNoInformados();
+//					else if (bOk && linea.startsWith("2SOC") && paramEjer == 2020) bOk = leerSociosNoInformados();
+					else if (bOk && linea.startsWith("2CIN") && paramEjer == 2020) bOk = leerRegistrosDeclarados();
+					else if (bOk && linea.startsWith("2RE") && paramEjer == 2020) bOk = leerRendimientosImputados();
+					else if (bOk && linea.startsWith("2AR") && paramEjer == 2020) bOk = leerArrendamientosLocalesImp();
 					else if (bOk)                             bOk = leerDeduccionesBasesNegReservas();
 				}
 				pbf.setSecondaryPercent(100);
 				pbf.setPercent(30);
 			}
 			catch(Exception ex){
+				bOk = false;
 				mostrarIncidencia();
 				ex.printStackTrace();
 			}
@@ -536,7 +534,7 @@ public class DatosFiscalesSociedad {
 	}
 	
 	private boolean leerAdminsNoInformados() {
-		if (linea.startsWith("ADB")) {
+		if (linea.startsWith("2ADB")) {
 			AdministradorNoInformado ani = new AdministradorNoInformado();
 			ani.nif = paramNif;
 			ani.ejercicio = paramEjer;
@@ -566,7 +564,7 @@ public class DatosFiscalesSociedad {
 	}
 	
 	private boolean leerSociosNoInformados() {
-		if (linea.startsWith("SOC")) {
+		if (linea.startsWith("2SOC")) {
 			SocioNoInformado sni = new SocioNoInformado();
 			sni.nif = paramNif;
 			sni.ejercicio = paramEjer;
@@ -596,7 +594,7 @@ public class DatosFiscalesSociedad {
 	}
 
 	private boolean leerRegistrosDeclarados() {
-		if (linea.startsWith("CIN")) {
+		if (linea.startsWith("2CIN")) {
 			RegistroDeclarado rg = new RegistroDeclarado();
 			rg.ejercicio = paramEjer;
 			rg.nif = paramNif;
@@ -613,6 +611,7 @@ public class DatosFiscalesSociedad {
 			rg.ingctaefectuadosIlt = parserDouble(131, 146);
 			rg.ingctarepercutidosIlt = parserDouble(146, 161);
 			rg.importeCalculado = parserDouble(161, 176);
+			lRegistroDeclarado.add(rg);
 			return sError == null;
 		}
 		return true;
@@ -647,7 +646,7 @@ public class DatosFiscalesSociedad {
 	}
 
 	private boolean leerRendimientosImputados() {
-		if (linea.startsWith("RE")) {
+		if (linea.startsWith("2RE")) {
 			RendimientoImputadoInformado rii = new RendimientoImputadoInformado();
 			rii.ejercicio = paramEjer;
 			rii.nif = paramNif; 
@@ -662,7 +661,7 @@ public class DatosFiscalesSociedad {
 			rii.retencion = parserDouble(125, 138);
 			rii.gastosDeducibles = parserDouble(138, 151);
 			rii.penalizacion = parserDouble(151, 162);
-			
+			lRendimientoImputadoInformado.add(rii);
 			return sError == null;
 		}
 		return true;
@@ -695,7 +694,7 @@ public class DatosFiscalesSociedad {
 	}
 
 	private boolean leerArrendamientosLocalesImp() {
-		if (linea.startsWith("AR")) {
+		if (linea.startsWith("2AR")) {
 			ArrendamientosLocalesImp ali = new ArrendamientosLocalesImp();
 			ali.ejercicio = paramEjer;
 			ali.nif = paramNif; 
@@ -706,7 +705,7 @@ public class DatosFiscalesSociedad {
 			ali.clave = parserInteger(77, 78);
 			ali.ingresos = parserDouble(78, 91);
 			ali.retencion = parserDouble(91, 104);
-			
+			lArrendamientosLocalesImp.add(ali);
 			return sError == null;
 		}
 		return true;
@@ -813,6 +812,16 @@ public class DatosFiscalesSociedad {
 		if (bOk) bOk = del.execute("dfrejer="+paramEjer+" AND dfrnif='"+paramNif+"'");
 		del = new Delete(connEA, "DFSSANCIONES");
 		if (bOk) bOk = del.execute("dfsejer="+paramEjer+" AND dfsnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSADMINSNINFO");
+		if (bOk) bOk = del.execute("dfanejer="+paramEjer+" AND dfannif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSSOCIOSNINFO");
+		if (bOk) bOk = del.execute("dfsnejer="+paramEjer+" AND dfsnnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSREGDECLARADO");
+		if (bOk) bOk = del.execute("dfrdejer="+paramEjer+" AND dfrdnif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSRDTIMPINFO");
+		if (bOk) bOk = del.execute("dfriejer="+paramEjer+" AND dfrinif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSARRLOCALIMP");
+		if (bOk) bOk = del.execute("dfarejer="+paramEjer+" AND dfarnif='"+paramNif+"'");
 		return bOk;
 	}
 

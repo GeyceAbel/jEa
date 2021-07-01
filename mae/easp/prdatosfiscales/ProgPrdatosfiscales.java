@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Jul 01 09:06:47 CEST 2021
+// Fecha y hora:     Thu Jul 01 13:54:37 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -8895,6 +8895,20 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
     public class FormVregdeclara extends MultiDataForm
         {
         // GLOBALES: VENTANA
+        public void totalitza() {
+	Selector sl = new Selector(Easp.connEA);
+	sl.execute("SELECT SUM(dfrdpercep) as percep, SUM(dfrdretenc) as retenc, SUM(dfrdpercepilt) as percepilt"
+      			+ ", SUM(dfrdretencilt) as retencilt, SUM(dfrdimpcalcul) as impcalcul FROM "
+        			+ sregdeclara.getFrom() + " WHERE " + sregdeclara.getWhere() + ";");
+   	if (sl.next()) {
+    		vtotalesre.vvpercepint.setValue(sl.getdouble("percep"));
+    		vtotalesre.vvretenciones.setValue(sl.getdouble("retenc"));
+    		vtotalesre.vvpercepintilt.setValue(sl.getdouble("percepilt"));
+    		vtotalesre.vvretencionilt.setValue(sl.getdouble("retencilt"));
+    		vtotalesre.vvimportetotal.setValue(sl.getdouble("impcalcul"));
+    	}
+    	sl.close();
+}
         // Metodos
         // Controles
         public CtrlDfrdcodigo dfrdcodigo;
@@ -9216,15 +9230,10 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
             }
         // GET: VENTANA
         // EVENT: VENTANA
-        public void onBeginRecord ()
+        public void onOpened ()
             {
-            super.onBeginRecord ();
-            
-vtotalesre.totalPercepInteg += dfrdpercep.getDouble();
-vtotalesre.totalRetenciones += dfrdretenc.getDouble();
-vtotalesre.totalPercepIntegIlt += dfrdpercepilt.getDouble();
-vtotalesre.totalRetencionesIlt += dfrdretencilt.getDouble();
-vtotalesre.totalImpCalculado += dfrdimpcalcul.getDouble();
+            super.onOpened ();
+            totalitza();
             }
         }
         
@@ -9298,6 +9307,17 @@ vtotalesre.totalImpCalculado += dfrdimpcalcul.getDouble();
     public class FormVrendiimpinfo extends MultiDataForm
         {
         // GLOBALES: VENTANA
+        public void totalitza() {
+	Selector sl = new Selector(Easp.connEA);
+	sl.execute("SELECT SUM(dfriimpinte) as iimpinte, SUM(dfriretenci) as retenc, SUM(dfrigtodedu) as igtodedu FROM "
+        			+ srendiimpinfo.getFrom() + " WHERE " + srendiimpinfo.getWhere() + ";");
+   	if (sl.next()) {
+    		vtotalesrdi.vvimporte.setValue(sl.getdouble("iimpinte"));
+    		vtotalesrdi.vvretencion.setValue(sl.getdouble("retenc"));
+    		vtotalesrdi.vvgastos.setValue(sl.getdouble("igtodedu"));
+    	}
+    	sl.close();
+}
         // Metodos
         // Controles
         public CtrlDfricodigo dfricodigo;
@@ -9562,13 +9582,15 @@ vtotalesre.totalImpCalculado += dfrdimpcalcul.getDouble();
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onOpened ()
+            {
+            super.onOpened ();
+            totalitza();
+            }
         public void onBeginRecord ()
             {
             super.onBeginRecord ();
             vvtipo.setValue(DatosFiscalesSociedad.getTipoRendimientoImputado(srendiimpinfo.dfritipo.getString()));
-vtotalesrdi.totalImporte += dfriimpinte.getDouble();
-vtotalesrdi.totalRetencion += dfriretenci.getDouble();
-vtotalesrdi.totalGasto += dfrigtodedu.getDouble();
             }
         }
         
@@ -9638,6 +9660,16 @@ vtotalesrdi.totalGasto += dfrigtodedu.getDouble();
     public class FormVarrndlocimp extends MultiDataForm
         {
         // GLOBALES: VENTANA
+        public void totalitza() {
+	Selector sl = new Selector(Easp.connEA);
+	sl.execute("SELECT SUM(dfaringreso) as ingreso, SUM(dfarretenci) as retenc FROM "
+        			+ sarrndlocimp.getFrom() + " WHERE " + sarrndlocimp.getWhere() + ";");
+   	if (sl.next()) {
+    		vtotalesarr.vvingresos.setValue(sl.getdouble("ingreso"));
+    		vtotalesarr.vvretencion.setValue(sl.getdouble("retenc"));
+    	}
+    	sl.close();
+}
         // Metodos
         // Controles
         public CtrlDfarcodigo dfarcodigo;
@@ -9814,12 +9846,16 @@ vtotalesrdi.totalGasto += dfrigtodedu.getDouble();
             }
         // GET: VENTANA
         // EVENT: VENTANA
+        public void onOpened ()
+            {
+            super.onOpened ();
+            totalitza();
+            }
         public void onBeginRecord ()
             {
             super.onBeginRecord ();
             vvclave.setValue(DatosFiscalesSociedad.getClaveArrendamientoLocalesImputados(sarrndlocimp.dfarclave.getString()));
-vtotalesarr.totalIngreso += dfaringreso.getDouble();
-vtotalesarr.totalRetencion += dfarretenci.getDouble();
+
             }
         }
         
@@ -10261,15 +10297,6 @@ public double totalImpCalculado = 0;
             }
         // GET: VENTANA
         // EVENT: VENTANA
-        public void onInit ()
-            {
-            super.onInit ();
-            vvpercepint.setValue(totalPercepInteg);
-vvretenciones.setValue(totalRetenciones);
-vvpercepintilt.setValue(totalPercepIntegIlt);
-vvretencionilt.setValue(totalRetencionesIlt);
-vvimportetotal.setValue(totalImpCalculado);
-            }
         }
         
     public class FormVtotalesrdi extends ProcessForm
@@ -10392,13 +10419,6 @@ public double totalGasto = 0;
             }
         // GET: VENTANA
         // EVENT: VENTANA
-        public void onInit ()
-            {
-            super.onInit ();
-            vvimporte.setValue(totalImporte);
-vvretencion.setValue(totalRetencion);
-vvgastos.setValue(totalGasto);
-            }
         }
         
     public class FormVtotalesarr extends ProcessForm
@@ -10493,12 +10513,6 @@ public double totalRetencion = 0;
             }
         // GET: VENTANA
         // EVENT: VENTANA
-        public void onInit ()
-            {
-            super.onInit ();
-            vvingresos.setValue(totalIngreso);
-vvretencion.setValue(totalRetencion);
-            }
         }
         
     public ProgPrdatosfiscales()
