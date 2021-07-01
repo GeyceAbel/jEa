@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jun 30 18:09:07 CEST 2021
+// Fecha y hora:     Thu Jul 01 09:06:47 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -9193,7 +9193,7 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
             {
             super(prdatosfiscales);
             setName("vregdeclara");
-            setTitle("Registros declarados en el modelo 190, presentado por el propio contribuyente");
+            setTitle("M190");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -9541,7 +9541,7 @@ vtotalesre.totalImpCalculado += dfrdimpcalcul.getDouble();
             {
             super(prdatosfiscales);
             setName("vrendiimpinfo");
-            setTitle("Rendimientos imputados informados en el M193");
+            setTitle("M193");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -9797,7 +9797,7 @@ vtotalesrdi.totalGasto += dfrigtodedu.getDouble();
             {
             super(prdatosfiscales);
             setName("varrndlocimp");
-            setTitle("Arrendamientos de locales imputados en el M180");
+            setTitle("M180");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -10647,31 +10647,33 @@ vvretencion.setValue(totalRetencion);
         LocationTabbed loc;
         
         for (int i=0; i<ventanas.length;i++){
-           loc=new LocationTabbed();
-           loc.setTitle(ventanas[i].getTitle());
-           loc.setExitIcon(false);
-           hmSelectVentana.get(ventanas[i]).setDb(Easp.connEA);
-           hmSelectVentana.get(ventanas[i]).execute();
-           boolean visible = (visibles.length>i && visibles[i] && !hmSelectVentana.get(ventanas[i]).isEof()) || hmVentanaTotal.containsKey(ventanas[i]);
-           if (visible) ventanas[i].setParent(cp);
-           ventanas[i].setLocation(loc);
-           ventanas[i].setInitState(DataForm.SHOW);
+         loc=new LocationTabbed();
+         loc.setTitle(ventanas[i].getTitle());
+         loc.setExitIcon(false);
+         hmSelectVentana.get(ventanas[i]).setDb(Easp.connEA);
+         hmSelectVentana.get(ventanas[i]).execute();
+         boolean visible = visibles.length>i && visibles[i] && !hmSelectVentana.get(ventanas[i]).isEof();
+         if (visible) ventanas[i].setParent(cp);
+         ventanas[i].setLocation(loc);
+         ventanas[i].setInitState(DataForm.SHOW);
         
-           if (hmVentanaTotal.containsKey(ventanas[i])) {
-           	Form subwindow = hmVentanaTotal.get(ventanas[i]);
-           	ControlPanel cp2=new ControlPanel(this);
-           	cp2.setLocation(loc);
-           	cp2.setParent(cp);
-           	cp2.setLayout(new LayoutSplit(LayoutSplit.VERTICAL,0.85));
+         if (hmVentanaTotal.containsKey(ventanas[i])) {
+         	Form subwindow = hmVentanaTotal.get(ventanas[i]);
+         	ControlPanel cp2=new ControlPanel(this);
+         	cp2.setLocation(loc);
+         	if (visible) cp2.setParent(cp);
+         	cp2.setLayout(new LayoutSplit(LayoutSplit.VERTICAL,0.85));
         
-           	ventanas[i].setLocation(new LocationSplit(LocationSplit.LEFT));
-           	ventanas[i].setModal(false);
-           	ventanas[i].setParent(cp2);
-         	subwindow.setLocation(new LocationSplit(LocationSplit.RIGHT));
-         	subwindow.setLayout(new LayoutFieldset(subwindow));
+         	ventanas[i].setLocation(new LocationSplit(LocationSplit.LEFT));
+         	ventanas[i].setModal(false);
+         	ventanas[i].setParent(cp2);
+         	ventanas[i].setVisible(visible);
+        	subwindow.setLocation(new LocationSplit(LocationSplit.RIGHT));
+        	subwindow.setLayout(new LayoutFieldset(subwindow));
         	subwindow.setModal(false);
-         	subwindow.setParent(cp2);
-           }
+        	subwindow.setParent(cp2);
+        	subwindow.setVisible(visible);
+         }
         }
         
         super.onInit();
