@@ -60,9 +60,11 @@ public class PrintJasperWork {
 	public File resultEnvioEmir;
 	protected String prefixNomFitxer;
 	protected String titolMir;
+	protected String titolGD;
 	public int extraPercentWithColumnExcel;
 	public short tamanyMinimFontExcel;
 	public boolean editarExcelAlFinalizar;
+	private IGesDoc oGD;
 	
 	private void showPanels(){
      	 for (int j=0;j<vjv.size();j++) {
@@ -96,6 +98,10 @@ public class PrintJasperWork {
 
 	public void setPestanaDOCX(boolean pestanaDOCX) {
 		this.pestanaDOCX = pestanaDOCX;
+	}
+	
+	public void setPestanaGD (IGesDoc oGD) {
+		this.oGD = oGD;
 	}
 	
 	public void setPestanaEMIR (int empresa, String aplicacio) {
@@ -403,5 +409,9 @@ public class PrintJasperWork {
 	protected void editXLS(String ruta, boolean esExcel2007) {
 		if (esExcel2007) editXLS2007(ruta);
 		else editXLS2000(ruta);
+	}
+
+	public IGesDoc getGD() {
+		return oGD;
 	}
 }

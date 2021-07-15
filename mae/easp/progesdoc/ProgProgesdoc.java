@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Jun 04 10:38:46 CEST 2021
+// Fecha y hora:     Wed Jun 16 17:21:54 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -22,7 +22,7 @@ import javax.xml.stream.*;
 import mae.easp.*;
 // 
 // Programa: progesdoc
-// Nombre:   Gesdoc
+// Nombre:   Gestión Documental
 // Versión:  1.0
 // 
 public class ProgProgesdoc extends Program
@@ -236,13 +236,6 @@ private class CtrlArbre extends ControlTreeTable {
     columna6.create();
     addColumn(columna6);
 
-    ColumnEdit columna8=new ColumnEdit((ControlTable)null);
-    columna8.setTitle("Usuario");
-    columna8.setType(ColumnEdit.STRING);
-    columna8.setLength(40);
-    columna8.create();
-    addColumn(columna8);
-
     ColumnEdit columna9=new ColumnEdit((ControlTable)null);
     columna9.setTitle("Tamaño");
     columna9.setType(ColumnEdit.STRING);
@@ -314,7 +307,6 @@ private class TreeElement extends TreeArray {
 		addElement(this.nom);
 		addElement(this.fcreacion);
 		addElement(this.flectura);
-		addElement(this.usuario);
 		addElement(this.tamano);
 	}
 
@@ -385,7 +377,7 @@ public void create() {
         public Location( )
             {
             super();
-            setTitle("Gesdoc");
+            setTitle("Gestión Documental");
             }
         }
         
@@ -571,7 +563,8 @@ loc.setWidth(600);
 loc.setHeight(400);
 loc.setLocation(loc.CENTER);
 prog.setLocation(loc);
-prog.open();
+prog.run();
+iarefresh.doAction();
                 }
             }
             
@@ -614,7 +607,7 @@ prog.open();
         this.easp=easp;
         this.progesdoc=this;
         setName("progesdoc");
-        setTitle("Gesdoc");
+        setTitle("Gestión Documental");
         // SET: PROGRAMA
         setLayout(new LayoutBorder());
         setLocation(new Location());
@@ -629,7 +622,7 @@ prog.open();
     public void onInit ()
         {
         //System.out.println(xml);
-        setTitle("Gesdoc: "+cdp+"-"+nombrecdp);
+        vgesdoc.setTitle(cdp+" - "+nombrecdp);
         elements = getElements(xml);
         vgesdoc.addControl(arbre=new CtrlArbre(vgesdoc));
         raiz = new TreeTableNode();

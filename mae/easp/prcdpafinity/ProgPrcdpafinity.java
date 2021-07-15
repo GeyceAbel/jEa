@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Jun 04 11:00:33 CEST 2021
+// Fecha y hora:     Wed Jun 16 15:24:43 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -585,7 +585,6 @@ private boolean generaReport(StringBuffer message, java.io.File file) {
                 setTitle("Código de Afinity");
                 setType(STRING);
                 setLength(15);
-                setSearchable(true);
                 // SET: CONTROLEDIT
                 getWebProperties().setAnchoColumnas (12);
                 }
@@ -614,7 +613,6 @@ private boolean generaReport(StringBuffer message, java.io.File file) {
                 setTitle("EMail");
                 setType(STRING);
                 setLength(50);
-                setSearchable(true);
                 // SET: CONTROLEDIT
                 getWebProperties().setAnchoColumnas (25);
                 }
@@ -643,7 +641,6 @@ private boolean generaReport(StringBuffer message, java.io.File file) {
                 setTitle("Password");
                 setType(STRING);
                 setLength(25);
-                setSearchable(true);
                 // SET: CONTROLEDIT
                 getWebProperties().setAnchoColumnas (15);
                 }
@@ -681,67 +678,72 @@ private boolean generaReport(StringBuffer message, java.io.File file) {
             // EVENT: ACCION
             public void onAction ()
                 {
-                super.onAction ();
+                super.onAction();
                 
-if (selectedRows.size() == 0) {
-	Maefc.message("No hay ningún registro seleccionado" ,"Atención",Maefc.INFORMATION_MESSAGE);
-	return;
-}else {
-
-	ProgressBarForm pbf = new ProgressBarForm(getProgram(), "Dando de alta en Afinity...") {
-			
-	@Override
-	public void job() {
-		setPercent(0);
-		int x = 0;
-		sb = new StringBuffer("Reporte Alta Afinity\n\n");
-		java.util.ArrayList<String> nifExistents = new java.util.ArrayList<String>();
-		for (String cdp : selectedRows) {
-			setPercent((x++/selectedRows.size())*100);
-			int row = getRow(cdp);
-			if (row != -1) {
-			String nif = vcdpafinity.getControlTable().getValueAt(row, NIF).getString();
-			if (Easp.buscaCDP(nif) == null) {
-				Easp.grabarDatosAfinity(nif,true);
-				if (Easp.mensajeSesion != null) {
-					sb.append("CDP - " + cdp + " NIF - " + nif + "\n" + Easp.mensajeSesion + "\n");
-				}
-			}
-			else {
-				nifExistents.add(nif);
-			}
-		  }
-		}
-		if (nifExistents.size() > 0) {
-			sb.append("Los clientes " + nifExistents + " ya estan dados de alta en Afinity\n");
-		}
-		exit();
-		}
-	};
-
-	pbf.setFormWidth(600);
-	pbf.setEnabledCancel(false);
-	pbf.setSecondaryAuto(false);
-	pbf.launch();
-	
-	netejaChecks();
-	cargarClients();
-	doShow();
-	if (sb != null) {
-		java.io.File report;
-		try {
-			report = java.io.File.createTempFile("ReportAfinity", ".txt");
-			if (generaReport(sb, report)) {
-				Maefc.message("Se ha generado un reporte del proceso de alta afinity", "Información", Maefc.INFORMATION_MESSAGE);
-				java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
-				desktop.open(report);
-			}
-		} catch (java.io.IOException e) {
-			e.printStackTrace();
-		}
-		sb = null;
-	}
-}
+                if (selectedRows.size() == 0) {
+                	Maefc.message("No hay ningún registro seleccionado", "Atención", Maefc.INFORMATION_MESSAGE);
+                	return;
+                } else {
+                	String msg = "Este proceso dará de alta en AfinityWeb los clientes seleccionados.\nAl finalizar el proceso se abrirá una relación de clientes con el dominio-contraseña asignados.\n\nParalelamente tiene la opción de notificar automáicamente por email los datos de acceso.";
+                	String[] opcions = { "Continuar y notificar por eMail", "Continuar y NO notificar", "Cancelar" };
+                	int resp = Maefc.messageConNuevosBotones(msg, "Alta en AfinityWeb", Maefc.QUESTION_MESSAGE, opcions);
+                	if (resp == 1 || resp == 2) {
+                		final boolean conMail = (resp == 1);
+                		ProgressBarForm pbf = new ProgressBarForm(getProgram(), "Dando de alta en Afinity...") {
+                
+                			@Override
+                			public void job() {
+                				setPercent(0);
+                				int x = 0;
+                				sb = new StringBuffer("Reporte Alta Afinity\n\n");
+                				java.util.ArrayList<String> nifExistents = new java.util.ArrayList<String>();
+                				for (String cdp : selectedRows) {
+                					setPercent((x++ / selectedRows.size()) * 100);
+                					int row = getRow(cdp);
+                					if (row != -1) {
+                						String nif = vcdpafinity.getControlTable().getValueAt(row, NIF).getString();
+                						String nom = vcdpafinity.getControlTable().getValueAt(row, NOMBRE).getString();
+                						String codAf = Easp.buscaCDP(nif);
+                						if (codAf == null) {
+                							Easp.grabarDatosAfinity(nif, false, conMail);
+                							if (Easp.mensajeSesion != null)
+                								sb.append("Cliente " + nif + "-" + nom + ": " + Easp.mensajeSesion + "\n");
+                						} else
+                							nifExistents.add(nif + "-" + nom + " (" + codAf + ")");
+                					}
+                				}
+                				if (nifExistents.size() > 0) {
+                					for (String s : nifExistents)
+                						sb.append("Cliente " + s + " ya esta dado de alta en Afinity\n");
+                				}
+                				exit();
+                			}
+                		};
+                
+                		pbf.setFormWidth(600);
+                		pbf.setEnabledCancel(false);
+                		pbf.setSecondaryAuto(false);
+                		pbf.launch();
+                
+                		netejaChecks();
+                		cargarClients();
+                		doShow();
+                		if (sb != null) {
+                			java.io.File report;
+                			try {
+                				report = java.io.File.createTempFile("ReportAfinity", ".txt");
+                				if (generaReport(sb, report)) {
+                					Maefc.message("Se ha generado un reporte del proceso de alta afinity", "Información", Maefc.INFORMATION_MESSAGE);
+                					java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+                					desktop.open(report);
+                				}
+                			} catch (java.io.IOException e) {
+                				e.printStackTrace();
+                			}
+                			sb = null;
+                		}
+                	}
+                }
                 }
             }
             

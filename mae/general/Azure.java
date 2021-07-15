@@ -227,9 +227,9 @@ public class Azure {
 	}
 
 	public static String getRealHost() {
-		String host = Easp.HOST_ORACLE;
-		if (Easp.HOST == TIPO_HOST.AZURE) host = Easp.HOST_AZURE;
-		else if (Easp.HOST == TIPO_HOST.AZUREMSDN) host = Easp.HOST_AZUREMSDN;
+		String host = Easp.HOST_AZURE;
+		if (Easp.HOST == TIPO_HOST.AZUREPRE) host = Easp.HOST_AZUREPRE;
+		else if (Easp.HOST == TIPO_HOST.AZUREDEV) host = Easp.HOST_AZUREDEV;
 		else if (Easp.HOST == TIPO_HOST.LOCALHOST) host = Easp.HOST_LOCALHOST;	
 		return host;
 	}

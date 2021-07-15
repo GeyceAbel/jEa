@@ -29,11 +29,8 @@ public class PrintJasperDialog extends Form
 		LocationWindow lw = new LocationWindow();
 		lw.setModal(true);
 		lw.setLocation(LocationWindow.CENTER);
-		lw.setWidth(520);
-		if(isQuery)
-		  lw.setHeight(480);
-		else
-		  lw.setHeight(380);
+		lw.setWidth(640);
+     	lw.setHeight(505);
 		setLocation(lw);	
 	}
 	
@@ -128,6 +125,12 @@ public class PrintJasperDialog extends Form
 		}
 		if (pEMIR) {
 			PrintJasperPanel panel = new  PrintJasperPanelEMIR(job);
+			panel.setParent(this);
+			addTab(panel);
+		}
+		
+		if (job.getGD() != null) {
+			PrintJasperPanelGesDoc panel = new  PrintJasperPanelGesDoc(job);
 			panel.setParent(this);
 			addTab(panel);
 		}

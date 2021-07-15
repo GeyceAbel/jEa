@@ -41,14 +41,13 @@ public class Easp {
   public static String versionFecha="Marzo/2020";
   public static String versionBDEA="17.6";
 
-  public static enum TIPO_HOST { LOCALHOST, AZURE, AZUREMSDN};
+  public static enum TIPO_HOST { LOCALHOST, AZURE, AZUREPRE, AZUREDEV};
   public static TIPO_HOST HOST = TIPO_HOST.AZURE;
 //  public static final String HOST_AZURE 	 = "afinityprod-afinitydev.azurewebsites.net/";
   public static final String HOST_AZURE 	 = "afinityprod.azurewebsites.net/";
   public static final String HOST_AZUREPRE 	 = "afinityprod-afinitypre.azurewebsites.net/";
-  public static final String HOST_AZUREMSDN  = "afinity.azurewebsites.net/";
+  public static final String HOST_AZUREDEV 	 = "afinityprod-afinitydev.azurewebsites.net/";
   public static final String HOST_LOCALHOST  = "localhost:52373/";
-  public static final String HOST_ORACLE 	 = "afinity.geyce.es/";
 
   //Constantes
   public final static int IVA=16;
@@ -1794,80 +1793,80 @@ public static Date esFecha (String s){
       return result;
       }
 
-
-
-  public static String URL_AFINITY = "http://afinity.geyce.es" ; // "http://172.27.15.180";
-  public static boolean grabarDatosAfinity(String nif ,boolean infoMsg) {
-    Select snifes     = new Select(connEA);
-    Table  tbnifes    = new Table(snifes,"nifes");
-    Table  tbcdp      = new Table(snifes,"cdp");
-    Field cdpcodi       = new Field(snifes,tbcdp,"cdpcodi");
-    Field cdppwd        = new Field(snifes,tbcdp,"cdppwd");
-    Field cdpaeatdele   = new Field(snifes,tbcdp,"cdpaeatdele");
-    Field cdpaeatadm    = new Field(snifes,tbcdp,"cdpaeatadm");
-    Field danifcif      = new Field(snifes,tbnifes,"danifcif");
-    Field datfisicajuri = new Field(snifes,tbnifes,"datfisicajuri");
-    Field datnombre     = new Field(snifes,tbnifes,"datnombre");
-    Field datapell1     = new Field(snifes,tbnifes,"datapell1");
-    Field datapell2     = new Field(snifes,tbnifes,"datapell2");
-    Field datsiglas     = new Field(snifes,tbnifes,"datsiglas");
-    Field datvia        = new Field(snifes,tbnifes,"datvia");
-    Field datnum        = new Field(snifes,tbnifes,"datnum");
-    Field datpuerta     = new Field(snifes,tbnifes,"datletra");
-    Field datesc        = new Field(snifes,tbnifes,"datesc");
-    Field datletra      = new Field(snifes,tbnifes,"datletra");
-    Field datpiso       = new Field(snifes,tbnifes,"datpiso");
-    Field datpobla      = new Field(snifes,tbnifes,"datpobla");
-    Field datcpos       = new Field(snifes,tbnifes,"datcpos");
-    Field dattel        = new Field(snifes,tbnifes,"dattel");
-    Field datfax        = new Field(snifes,tbnifes,"datfax");
-    Field datmuni       = new Field(snifes,tbnifes,"datmuni");
-    Field datprov       = new Field(snifes,tbnifes,"datprov");
-    Field letetiq       = new Field(snifes,tbnifes,"datletraseti");
-    Field datemail      = new Field(snifes,tbnifes,"datemail");
-    Field datcontacto   = new Field(snifes,tbnifes,"datcontacto");
-    snifes.setFrom("(nifes INNER JOIN cdp ON nifes.danifcif=cdp.cdpnifcif)");
-    snifes.setWhere("danifcif='"+nif+"'");
-    snifes.execute();
-    if ( snifes.isEof() ) {
-      if ( infoMsg ) Maefc.message("No se ha podido generar un nuevo CDP");
-      mensajeSesion = "No se encuentra un código CDP asociado con " + nif;
-      return false;
-      }
-
-    String passw=Util.generarNum(6);
-      if (!grabarDatosAfinity(cdpcodi.getString(),danifcif.getString(),datfisicajuri.getString(),
-              passw,datnombre.getString(), datapell1.getString(),
-              datapell2.getString(),datsiglas.getString(),
-              datvia.getString(),datnum.getString(),datesc.getString(),
-              datpiso.getString(),datletra.getString(),
-              datpobla.getString(),datcpos.getString(),
-              datmuni.getInteger(), datprov.getInteger(),
-              dattel.getString(),datfax.getString(),
-              datcontacto.getString(),datemail.getString(),"S")) {
-          if ( infoMsg ) Maefc.message("No se ha podido generar un nuevo CDP");
-		  mensajeSesion = "No se ha podido conectar con Afinity";
-          return false;
-          }
-      else {
-        if ( infoMsg ) {
-          	String cdpcdpcdp =buscaCDP(danifcif.getString());
-			if ( cdpcdpcdp==null ) cdpcdpcdp=cdpcodi.getString();
-			mensajeSesion = "Se ha generado un nuevo cliente de Afinity con el código " + cdpcdpcdp + " y contraseña " + passw + "";
-          Maefc.message("Se ha generado un nuevo cliente de Afinity con los siguientes parámetros:\n"+
-                  "\nCódigo de cliente: "+cdpcdpcdp+
-                  "\nUsuario:           ADMINISTRADOR"+
-                  "\nContraseña:        "+passw+
-                  "\n\nComunique al cliente que para acceder a la información desde Afinity debe conectarse a:\n"+
-                  "\nhttp://afinity.geyce.es\n"+
-                  "\n\nAl entrar en el área de sólo clientes, deberá introducir un Nombre de Usuario\n"+
-                  "y una Contraseña. Estos dos parámetros serán:\n"+
-                  "\nNombre de Usuario: "+cdpcdpcdp+
-                  "\nContraseña:        "+passw,"Información",Maefc.INFORMATION_MESSAGE);
-          }
-        }
-    return true;
+    public static boolean grabarDatosAfinity(String nif ,boolean infoMsg) {
+    	return grabarDatosAfinity(nif ,infoMsg, false);
     }
+  public static boolean grabarDatosAfinity(String nif ,boolean infoMsg, boolean conEmail) {
+	  Select snifes     = new Select(connEA);
+	  Table  tbnifes    = new Table(snifes,"nifes");
+	  Table  tbcdp      = new Table(snifes,"cdp");
+	  Field cdpcodi       = new Field(snifes,tbcdp,"cdpcodi");
+	  Field cdppwd        = new Field(snifes,tbcdp,"cdppwd");
+	  Field cdpaeatdele   = new Field(snifes,tbcdp,"cdpaeatdele");
+	  Field cdpaeatadm    = new Field(snifes,tbcdp,"cdpaeatadm");
+	  Field danifcif      = new Field(snifes,tbnifes,"danifcif");
+	  Field datfisicajuri = new Field(snifes,tbnifes,"datfisicajuri");
+	  Field datnombre     = new Field(snifes,tbnifes,"datnombre");
+	  Field datapell1     = new Field(snifes,tbnifes,"datapell1");
+	  Field datapell2     = new Field(snifes,tbnifes,"datapell2");
+	  Field datsiglas     = new Field(snifes,tbnifes,"datsiglas");
+	  Field datvia        = new Field(snifes,tbnifes,"datvia");
+	  Field datnum        = new Field(snifes,tbnifes,"datnum");
+	  Field datpuerta     = new Field(snifes,tbnifes,"datletra");
+	  Field datesc        = new Field(snifes,tbnifes,"datesc");
+	  Field datletra      = new Field(snifes,tbnifes,"datletra");
+	  Field datpiso       = new Field(snifes,tbnifes,"datpiso");
+	  Field datpobla      = new Field(snifes,tbnifes,"datpobla");
+	  Field datcpos       = new Field(snifes,tbnifes,"datcpos");
+	  Field dattel        = new Field(snifes,tbnifes,"dattel");
+	  Field datfax        = new Field(snifes,tbnifes,"datfax");
+	  Field datmuni       = new Field(snifes,tbnifes,"datmuni");
+	  Field datprov       = new Field(snifes,tbnifes,"datprov");
+	  Field letetiq       = new Field(snifes,tbnifes,"datletraseti");
+	  Field datemail      = new Field(snifes,tbnifes,"datemail");
+	  Field datcontacto   = new Field(snifes,tbnifes,"datcontacto");
+	  snifes.setFrom("(nifes INNER JOIN cdp ON nifes.danifcif=cdp.cdpnifcif)");
+	  snifes.setWhere("danifcif='"+nif+"'");
+	  snifes.execute();
+	  if ( snifes.isEof() ) {
+		  if ( infoMsg ) Maefc.message("No se ha podido generar un nuevo CDP");
+		  mensajeSesion = "No se encuentra un código CDP asociado con " + nif;
+		  return false;
+	  }
+
+	  String passw=Util.generarNum(6);
+	  if (!grabarDatosAfinity(cdpcodi.getString(),danifcif.getString(),datfisicajuri.getString(),
+			  passw,datnombre.getString(), datapell1.getString(),
+			  datapell2.getString(),datsiglas.getString(),
+			  datvia.getString(),datnum.getString(),datesc.getString(),
+			  datpiso.getString(),datletra.getString(),
+			  datpobla.getString(),datcpos.getString(),
+			  datmuni.getInteger(), datprov.getInteger(),
+			  dattel.getString(),datfax.getString(),
+			  datcontacto.getString(),datemail.getString(),"S", conEmail)) {
+		  if ( infoMsg ) Maefc.message("No se ha podido generar un nuevo CDP");
+		  mensajeSesion = "No se ha podido conectar con Afinity";
+		  return false;
+	  }
+	  else {
+		  if ( infoMsg ) {
+			  String cdpcdpcdp =buscaCDP(danifcif.getString());
+			  if ( cdpcdpcdp==null ) cdpcdpcdp=cdpcodi.getString();
+			  mensajeSesion = "Se ha generado un nuevo cliente de Afinity con el código " + cdpcdpcdp + " y contraseña " + passw + "";
+			  Maefc.message("Se ha generado un nuevo cliente de Afinity con los siguientes parámetros:\n"+
+					  "\nCódigo de cliente: "+cdpcdpcdp+
+					  "\nUsuario:           ADMINISTRADOR"+
+					  "\nContraseña:        "+passw+
+					  "\n\nComunique al cliente que para acceder a la información desde Afinity debe conectarse a:\n"+
+					  "\nhttp://afinity.geyce.es\n"+
+					  "\n\nAl entrar en el área de sólo clientes, deberá introducir un Nombre de Usuario\n"+
+					  "y una Contraseña. Estos dos parámetros serán:\n"+
+					  "\nNombre de Usuario: "+cdpcdpcdp+
+					  "\nContraseña:        "+passw,"Información",Maefc.INFORMATION_MESSAGE);
+		  }
+	  }
+	  return true;
+  }
 
   public static String buscaCDP(String nif) {
 	  String codCDP=null;
@@ -1890,54 +1889,32 @@ public static Date esFecha (String s){
 
 
   public static boolean grabaUsoAfinity(String dominio, String aplic, String coddato, int ejer,int peri,String nomUser, int datoint1 , int datoint2 , int datoint3 , double datodou1 , double datodou2 , double datodou3 , String datostr1 , String datostr2 , String datostr3 , Date datodat1 , Date datodat2 , Date datodat3  ){
-    try {
-      String nomPC = nomUser ; nomPC = java.net.InetAddress.getLocalHost().getHostName() ;
-      String dns=URL_AFINITY+"/pls/agpi/";
-      String procedure = "logusos.setUso";
+	  try {
+		  String nomPC = nomUser ; nomPC = java.net.InetAddress.getLocalHost().getHostName() ;
+		  String procedure = "logusos.setUso";
 
-      String parametres = "pcdp="+dominio+
-                                     "&paplic="+aplic+
-                                     "&pcoddato="+coddato+
-                                     "&pmachine="+nomPC+
-                                     "&pusuario="+nomUser+
-                                     "&pejer="+ejer+
-                                     "&pperi="+peri+
-                                     "&pdatoint1="+datoint1+
-                                     "&pdatoint2="+datoint2+
-                                     "&pdatoint3="+datoint3+
-                                     "&pdatodou1="+datodou1+
-                                     "&pdatodou2="+datodou2+
-                                     "&pdatodou3="+datodou3+
-                                     "&pdatostr1="+datostr1+
-                                     "&pdatostr2="+datostr2+
-                                     "&pdatostr3="+datostr3+
-                                     "&pdatodat1="+getFecha(datodat1)+
-                                     "&pdatodat2="+getFecha(datodat2)+
-                                     "&pdatodat3 ="+getFecha(datodat3);
-
-
-    Azure az0 = new Azure (procedure);
-    az0.addParametroURL("pcdp", dominio);
-    az0.addParametroURL("paplic", aplic);
-    az0.addParametroURL("pcoddato", coddato);
-    az0.addParametroURL("pmachine", nomPC);
-    az0.addParametroURL("pusuario", nomUser);
-    az0.addParametroURL("pejer", ejer);
-    az0.addParametroURL("pperi", peri);
-    az0.addParametroURL("pdatoint1", datoint1);
-    az0.addParametroURL("pdatoint2", datoint2);
-    az0.addParametroURL("pdatoint3", datoint3);
-    az0.addParametroURL("pdatodou1", datodou1);
-    az0.addParametroURL("pdatodou2", datodou2);
-    az0.addParametroURL("pdatodou3", datodou3);
-    az0.addParametroURL("pdatostr1", datostr1);
-    az0.addParametroURL("pdatostr2", datostr2);
-    az0.addParametroURL("pdatostr3", datostr3);
-    az0.addParametroURL("pdatodat1", getFecha(datodat1));
-    az0.addParametroURL("pdatodat2", getFecha(datodat2));
-    az0.addParametroURL("pdatodat3", getFecha(datodat3));
-    return az0.procesar();
-    }
+		  Azure az0 = new Azure (procedure);
+		  az0.addParametroURL("pcdp", dominio);
+		  az0.addParametroURL("paplic", aplic);
+		  az0.addParametroURL("pcoddato", coddato);
+		  az0.addParametroURL("pmachine", nomPC);
+		  az0.addParametroURL("pusuario", nomUser);
+		  az0.addParametroURL("pejer", ejer);
+		  az0.addParametroURL("pperi", peri);
+		  az0.addParametroURL("pdatoint1", datoint1);
+		  az0.addParametroURL("pdatoint2", datoint2);
+		  az0.addParametroURL("pdatoint3", datoint3);
+		  az0.addParametroURL("pdatodou1", datodou1);
+		  az0.addParametroURL("pdatodou2", datodou2);
+		  az0.addParametroURL("pdatodou3", datodou3);
+		  az0.addParametroURL("pdatostr1", datostr1);
+		  az0.addParametroURL("pdatostr2", datostr2);
+		  az0.addParametroURL("pdatostr3", datostr3);
+		  az0.addParametroURL("pdatodat1", getFecha(datodat1));
+		  az0.addParametroURL("pdatodat2", getFecha(datodat2));
+		  az0.addParametroURL("pdatodat3", getFecha(datodat3));
+		  return az0.procesar();
+	  }
   catch(Exception e ) {
     System.out.println("Error 13 : "+e);
     }
@@ -2161,28 +2138,9 @@ public static Date esFecha (String s){
 																					 String siglas, String via, String num,
 																					 String esc, String piso, String letra,
 																					 String pobla, String cp, int muni, int prov,
-																					 String tel, String fax, String contacto, String email, String altafromprg){
-		//String dns="http://afinity.geyce.es/pls/agpi/agpi2dp.";
-		String dns=URL_AFINITY+"/pls/agpi/";
+																					 String tel, String fax, String contacto, String email, String altafromprg, boolean conEmail){
         String nombreAfinity = (nombre+" "+ape1+" "+ape2).trim();
         String procedure = "agpi2dp.AgpiAltaCDP";
-        String parametres = "?pdp="+codiDP+"&pdatcodigo="+cdp+"&pdatipo=C&pdatnombre="+
-		           			"&pdatapell1="+nombreAfinity+"&pdatapell2="+"&pdatnifcif="+nif+
-		           			"&pdatsiglas="+siglas+"&pdatvia="+via+"&pdatnum="+num+
-							"&pdatesc="+esc+"&pdatpiso="+piso+"&pdatletra="+letra+
-							"&pdatpobla="+pobla+"&pdatmuni="+muni+"&pdatprov="+prov+"&pdatcpos="+cp+
-							"&pdattel="+tel+"&pdatfax="+fax+"&pdatfisicajuri="+fj+"&pdatemail="+email+
-							"&pdatcontacto="+contacto+"&puspwd="+pwd+"&altafromprg="+altafromprg;
-        if (esAzure()) {
-        	nombreAfinity = (nombre+" "+ape1+" "+ape2).trim();
-        	parametres = "?pdp="+codiDP+"&pdatcodigo="+cdp+"&pdatipo=C&pdatnombre="+
-           			"&pdatapell1="+nombreAfinity+"&pdatapell2="+"&pdatnifcif="+nif+
-           			"&pdatsiglas="+siglas+"&pdatvia="+via+"&pdatnum="+num+
-					"&pdatesc="+esc+"&pdatpiso="+piso+"&pdatletra="+letra+
-					"&pdatpobla="+pobla+"&pdatmuni="+muni+"&pdatprov="+prov+"&pdatcpos="+cp+
-					"&pdattel="+tel+"&pdatfax="+fax+"&pdatfisicajuri="+fj+"&pdatemail="+email+
-					"&pdatcontacto="+contacto+"&puspwd="+pwd+"&altafromprg="+altafromprg;
-        }
 		Azure az0 = new Azure (procedure);
 		az0.addParametroURL ("pdp",codiDP);
 		az0.addParametroURL ("pdatcodigo",cdp);
@@ -2208,6 +2166,7 @@ public static Date esFecha (String s){
 		az0.addParametroURL ("pdatcontacto",contacto);
 		az0.addParametroURL ("puspwd",pwd);
 		az0.addParametroURL ("altafromprg",altafromprg);
+		az0.addParametroURL ("conemail",conEmail?"S":"N");
         return az0.procesar();
 	  }
 
@@ -2640,7 +2599,7 @@ public static String getPrefixeNow() {
 
 
 public static boolean esAzure() {
-	return HOST == TIPO_HOST.AZURE;
+	return true;
 }
 
 
