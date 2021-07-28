@@ -942,7 +942,7 @@ class Seleccio {
       for(java.util.Enumeration e=frase.nomsColumnes.keys();e.hasMoreElements();) {
           String key=(String)e.nextElement();
           Columna col=(Columna)frase.nomsColumnes.get(key);
-
+          System.out.println(col.camp.field.getName());
           if (col.quorelacio.eof)
             col.valor.setNull();
           else
@@ -968,7 +968,7 @@ class Seleccio {
                     else
                         col.valor.setValue(vali);
                     break;
-                case Value.STRING:
+                case Value.STRING:                	
                     String vals=(String)col.quorelacio.selector.getObject(col.camp.field.getName());
                     //String vals=col.quorelacio.selector.getString(col.camp.field.getName());
                     if (col.quorelacio.selector.wasNull())

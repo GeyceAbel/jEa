@@ -4592,6 +4592,23 @@ String sentencias17_4[] = {"DELETE FROM AMORTIZACION WHERE amocodigo>=2000"};
         vvveractual.setValue("17.7");
     }
     
+    if (versio < 17.9) {
+        for (i = 0; i < Sentencias.sentencias17_9.length; ++i) {
+            try {
+                Easp.chivato("17.9 Exec : ["+Sentencias.sentencias17_9[i]+"]",1);
+                Easp.connEA.executeUpdate(Sentencias.sentencias17_9[i]);
+            }
+            catch(Exception e) {
+                sqlOperation=Sentencias.sentencias17_9[i];
+                Easp.chivato("17.9 *** Error : ["+Sentencias.sentencias17_9[i]+"]  Error: ["+e+"]",1);
+                errorMessage=e.getMessage();
+            }
+        }
+        Easp.setVersionBD("bdeasp","17.9");
+        Easp.connEA.commit();
+        vvveractual.setValue("17.9");
+    }
+    
   }
   catch(Exception e) {
     System.out.println("Error en conversión: ["+e+"]");

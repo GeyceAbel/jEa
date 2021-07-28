@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jun 30 09:14:09 CEST 2021
+// Fecha y hora:     Tue Jul 20 22:01:01 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -140,6 +140,7 @@ public class CatEasp extends Catalog
     public TabDfsregdeclarado tabdfsregdeclarado;
     public TabDfsrdtimpinfo tabdfsrdtimpinfo;
     public TabDfsarrlocalimp tabdfsarrlocalimp;
+    public TabWnifes tabwnifes;
     public class TabGycauto extends TableDef
         {
         // campos
@@ -6229,6 +6230,131 @@ public class CatEasp extends Catalog
             }
         }
         
+    public class TabWnifes extends TableDef
+        {
+        // campos
+        public FieldDef datcodigo;
+        public FieldDef danifcif;
+        public FieldDef datipo;
+        public FieldDef datnombre;
+        public FieldDef datapell1;
+        public FieldDef datapell2;
+        public FieldDef datsiglas;
+        public FieldDef datvia;
+        public FieldDef datnum;
+        public FieldDef datesc;
+        public FieldDef datpiso;
+        public FieldDef datletra;
+        public FieldDef datpobla;
+        public FieldDef datmuni;
+        public FieldDef datprov;
+        public FieldDef datpais;
+        public FieldDef datcpos;
+        public FieldDef dattel;
+        public FieldDef datfax;
+        public FieldDef datfisicajuri;
+        public FieldDef datemail;
+        public FieldDef datcontacto;
+        public FieldDef datipf;
+        public FieldDef datdominio;
+        public FieldDef datcbienes;
+        public FieldDef datnacional;
+        public FieldDef datmovil;
+        public FieldDef datuser;
+        public FieldDef datgrupo;
+        public FieldDef datcdptipo;
+        public FieldDef datcdpestado;
+        public FieldDef datcdpdatep;
+        public FieldDef datcdpdatev;
+        public FieldDef datcdpdatei;
+        public FieldDef datcdpuserp;
+        public FieldDef datcdpuserv;
+        public FieldDef datcdpuseri;
+        public TabWnifes(String name)
+            {
+            super(name);
+            datcodigo = new FieldDef("datcodigo",FieldDef.INTEGER,12);
+            danifcif = new FieldDef("danifcif",FieldDef.CHAR,15);
+            datipo = new FieldDef("datipo",FieldDef.CHAR,1);
+            datnombre = new FieldDef("datnombre",FieldDef.CHAR,50);
+            datapell1 = new FieldDef("datapell1",FieldDef.CHAR,100);
+            datapell2 = new FieldDef("datapell2",FieldDef.CHAR,50);
+            datsiglas = new FieldDef("datsiglas",FieldDef.CHAR,2);
+            datvia = new FieldDef("datvia",FieldDef.CHAR,45);
+            datnum = new FieldDef("datnum",FieldDef.CHAR,6);
+            datesc = new FieldDef("datesc",FieldDef.CHAR,2);
+            datpiso = new FieldDef("datpiso",FieldDef.CHAR,6);
+            datletra = new FieldDef("datletra",FieldDef.CHAR,2);
+            datpobla = new FieldDef("datpobla",FieldDef.CHAR,30);
+            datmuni = new FieldDef("datmuni",FieldDef.INTEGER,12);
+            datprov = new FieldDef("datprov",FieldDef.INTEGER,12);
+            datpais = new FieldDef("datpais",FieldDef.INTEGER,12);
+            datcpos = new FieldDef("datcpos",FieldDef.CHAR,5);
+            dattel = new FieldDef("dattel",FieldDef.CHAR,15);
+            datfax = new FieldDef("datfax",FieldDef.CHAR,15);
+            datfisicajuri = new FieldDef("datfisicajuri",FieldDef.CHAR,1);
+            datemail = new FieldDef("datemail",FieldDef.CHAR,100);
+            datcontacto = new FieldDef("datcontacto",FieldDef.CHAR,30);
+            datipf = new FieldDef("datipf",FieldDef.CHAR,1);
+            datdominio = new FieldDef("datdominio",FieldDef.CHAR,12);
+            datcbienes = new FieldDef("datcbienes",FieldDef.CHAR,1);
+            datnacional = new FieldDef("datnacional",FieldDef.INTEGER,12);
+            datmovil = new FieldDef("datmovil",FieldDef.INTEGER,12);
+            datuser = new FieldDef("datuser",FieldDef.CHAR,25);
+            datgrupo = new FieldDef("datgrupo",FieldDef.CHAR,25);
+            datcdptipo = new FieldDef("datcdptipo",FieldDef.CHAR,1);
+            datcdpestado = new FieldDef("datcdpestado",FieldDef.CHAR,1);
+            datcdpdatep = new FieldDef("datcdpdatep",FieldDef.DATE);
+            datcdpdatev = new FieldDef("datcdpdatev",FieldDef.DATE);
+            datcdpdatei = new FieldDef("datcdpdatei",FieldDef.DATE);
+            datcdpuserp = new FieldDef("datcdpuserp",FieldDef.CHAR,25);
+            datcdpuserv = new FieldDef("datcdpuserv",FieldDef.CHAR,25);
+            datcdpuseri = new FieldDef("datcdpuseri",FieldDef.CHAR,25);
+            FieldDef array[] = {
+                datcodigo,
+                danifcif,
+                datipo,
+                datnombre,
+                datapell1,
+                datapell2,
+                datsiglas,
+                datvia,
+                datnum,
+                datesc,
+                datpiso,
+                datletra,
+                datpobla,
+                datmuni,
+                datprov,
+                datpais,
+                datcpos,
+                dattel,
+                datfax,
+                datfisicajuri,
+                datemail,
+                datcontacto,
+                datipf,
+                datdominio,
+                datcbienes,
+                datnacional,
+                datmovil,
+                datuser,
+                datgrupo,
+                datcdptipo,
+                datcdpestado,
+                datcdpdatep,
+                datcdpdatev,
+                datcdpdatei,
+                datcdpuserp,
+                datcdpuserv,
+                datcdpuseri                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {datcodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
     public CatEasp()
         {
         tabgycauto = new TabGycauto("gycauto");
@@ -6359,6 +6485,7 @@ public class CatEasp extends Catalog
         tabdfsregdeclarado = new TabDfsregdeclarado("dfsregdeclarado");
         tabdfsrdtimpinfo = new TabDfsrdtimpinfo("dfsrdtimpinfo");
         tabdfsarrlocalimp = new TabDfsarrlocalimp("dfsarrlocalimp");
+        tabwnifes = new TabWnifes("wnifes");
         TableDef array[] = {
             tabgycauto,
             tabsetupapl,
@@ -6487,7 +6614,8 @@ public class CatEasp extends Catalog
             tabdfssociosninfo,
             tabdfsregdeclarado,
             tabdfsrdtimpinfo,
-            tabdfsarrlocalimp            
+            tabdfsarrlocalimp,
+            tabwnifes            
             };
         setTables(array);
         FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
