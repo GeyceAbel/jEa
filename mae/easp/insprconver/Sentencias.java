@@ -5,7 +5,7 @@ import mae.easp.general.Easp;
 public class Sentencias {
 	
 	  public static String sentencias17_9[] = {
-			  "CREATE TABLE dbo.WNIFES(                "
+			  "CREATE TABLE WNIFES(                "
 				+ "datcodigo " + getAuto() + " NOT NULL, "
 				+ "danifcif varchar(15) NOT NULL,        "
 				+ "datipo varchar(1) NULL,               "
