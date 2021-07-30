@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Jul 15 12:30:26 CEST 2021
+// Fecha y hora:     Fri Jul 30 10:31:09 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -4575,23 +4575,7 @@ String sentencias17_4[] = {"DELETE FROM AMORTIZACION WHERE amocodigo>=2000"};
         vvveractual.setValue("17.6");
     }
     
-    if (versio < 17.7) {
-        for (i = 0; i < Sentencias.sentencias17_7.length; ++i) {
-            try {
-                Easp.chivato("17.7 Exec : ["+Sentencias.sentencias17_7[i]+"]",1);
-                Easp.connEA.executeUpdate(Sentencias.sentencias17_7[i]);
-            }
-            catch(Exception e) {
-                sqlOperation=Sentencias.sentencias17_7[i];
-                Easp.chivato("17.7 *** Error : ["+Sentencias.sentencias17_7[i]+"]  Error: ["+e+"]",1);
-                errorMessage=e.getMessage();
-            }
-        }
-        Easp.setVersionBD("bdeasp","17.7");
-        Easp.connEA.commit();
-        vvveractual.setValue("17.7");
-    }
-    
+ 
     if (versio < 17.9) {
         for (i = 0; i < Sentencias.sentencias17_9.length; ++i) {
             try {
@@ -4608,6 +4592,23 @@ String sentencias17_4[] = {"DELETE FROM AMORTIZACION WHERE amocodigo>=2000"};
         Easp.connEA.commit();
         vvveractual.setValue("17.9");
     }
+
+     if (versio < 18.0) {
+        for (i = 0; i < Sentencias.sentencias18_0.length; ++i) {
+            try {
+                Easp.chivato("18.0 Exec : ["+Sentencias.sentencias18_0[i]+"]",1);
+                Easp.connEA.executeUpdate(Sentencias.sentencias18_0[i]);
+            }
+            catch(Exception e) {
+                sqlOperation=Sentencias.sentencias18_0[i];
+                Easp.chivato("18.0 *** Error : ["+Sentencias.sentencias18_0[i]+"]  Error: ["+e+"]",1);
+                errorMessage=e.getMessage();
+            }
+        }
+        Easp.setVersionBD("bdeasp","18.0");
+        Easp.connEA.commit();
+        vvveractual.setValue("18.0");
+    } 
     
   }
   catch(Exception e) {

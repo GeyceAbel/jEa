@@ -26,7 +26,8 @@ public interface IGesDoc {
 		MODAEAT,
 		OBLIGTRIB,
 		RESPAEAT,
-		BORRADOR
+		BORRADOR, 
+		INFORME, BIENINV, COM347, BIEUSADOS
 	}
 	public static enum ETIQUETAS {
 		CDP,

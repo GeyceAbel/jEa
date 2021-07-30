@@ -1,8 +1,10 @@
 package mae.general.jreports;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import geyce.maefc.DBConnection;
+import geyce.maefc.Maefc;
 import geyce.maefc.Selector;
 import mae.easp.general.Easp;
 import mae.general.Azure;
@@ -128,6 +130,16 @@ public abstract class GesDoc implements IGesDoc {
 		else if (tp == TIPOPERIODO.ANUAL) return "0A";
 		return "--";
 	}
+	
+	public static TIPOPERIODO getPeridodo(Date d) {	
+		if (d != null) return getPeridodo (String.valueOf((1+Maefc.getMonth(d))));
+		else return TIPOPERIODO.ANUAL;
+	}
+	
+	public static TIPOPERIODO getPeridodo(int i) {	
+		return getPeridodo (String.valueOf(i));
+	}
+	
 	public static TIPOPERIODO getPeridodo(String val) {	
 		TIPOPERIODO tp = null;
 		if ("01".equals(val) || "1".equals(val)) tp= TIPOPERIODO.ENERO;
