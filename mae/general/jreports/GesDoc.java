@@ -142,7 +142,8 @@ public abstract class GesDoc implements IGesDoc {
 	
 	public static TIPOPERIODO getPeridodo(String val) {	
 		TIPOPERIODO tp = null;
-		if ("01".equals(val) || "1".equals(val)) tp= TIPOPERIODO.ENERO;
+		if ("00".equals(val) || "0".equals(val)) tp= TIPOPERIODO.INICIAL;
+		else if ("01".equals(val) || "1".equals(val)) tp= TIPOPERIODO.ENERO;
 		else if ("02".equals(val) || "2".equals(val)) tp= TIPOPERIODO.FEBRERO;
 		else if ("03".equals(val) || "3".equals(val)) tp= TIPOPERIODO.MARZO;
 		else if ("04".equals(val) || "4".equals(val)) tp= TIPOPERIODO.ABRIL;

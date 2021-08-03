@@ -63,7 +63,9 @@ public interface IGesDoc {
 		PER1,
 		PER2,
 		PER3,
-		ANUAL
+		ANUAL, 
+		INICIAL,
+		FINAL
 	}
 
 	public int getEmpresa();
