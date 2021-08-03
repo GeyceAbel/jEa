@@ -128,6 +128,8 @@ public abstract class GesDoc implements IGesDoc {
 		else if (tp == TIPOPERIODO.PER2) return "2P";
 		else if (tp == TIPOPERIODO.PER3) return "3P";
 		else if (tp == TIPOPERIODO.ANUAL) return "0A";
+		else if (tp == TIPOPERIODO.INICIAL) return "INI";
+		else if (tp == TIPOPERIODO.FINAL) return "FIN";
 		return "--";
 	}
 	
@@ -143,6 +145,8 @@ public abstract class GesDoc implements IGesDoc {
 	public static TIPOPERIODO getPeridodo(String val) {	
 		TIPOPERIODO tp = null;
 		if ("00".equals(val) || "0".equals(val)) tp= TIPOPERIODO.INICIAL;
+		else if ("13".equals(val)) tp= TIPOPERIODO.FINAL;
+		else if ("14".equals(val)) tp= TIPOPERIODO.FINAL;
 		else if ("01".equals(val) || "1".equals(val)) tp= TIPOPERIODO.ENERO;
 		else if ("02".equals(val) || "2".equals(val)) tp= TIPOPERIODO.FEBRERO;
 		else if ("03".equals(val) || "3".equals(val)) tp= TIPOPERIODO.MARZO;
