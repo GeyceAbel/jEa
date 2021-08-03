@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Mar 23 15:11:25 CET 2021
+// Fecha y hora:     Thu Jul 22 10:04:22 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -64,7 +64,19 @@ public class CatModelo100 extends Catalog
     public TabMod100ibalears tabmod100ibalears;
     public TabMod100cmancha tabmod100cmancha;
     public TabMod100h2guarde tabmod100h2guarde;
-    public TabMod100dedmatern tabmod100dedmatern;
+    public TabMod100cleon tabmod100cleon;
+    public TabMod100canarias tabmod100canarias;
+    public TabMod100murcia tabmod100murcia;
+    public TabMod100valencia tabmod100valencia;
+    public TabMod100valenciab tabmod100valenciab;
+    public TabMod100galicia tabmod100galicia;
+    public TabMod100extremad tabmod100extremad;
+    public TabMod100cotizacss tabmod100cotizacss;
+    public TabMod100andaluci tabmod100andaluci;
+    public TabMod100aragon tabmod100aragon;
+    public TabMod100asturias tabmod100asturias;
+    public TabMod100cantabria tabmod100cantabria;
+    public TabMod100larioja tabmod100larioja;
     public class TabDeflis100 extends TableDef
         {
         // campos
@@ -2267,6 +2279,7 @@ public class CatModelo100 extends Catalog
         public FieldDef m15gasto43;
         public FieldDef m15retencio;
         public FieldDef m15rednueva;
+        public FieldDef m15pagofracc;
         public TabMod100h5(String name)
             {
             super(name);
@@ -2424,7 +2437,8 @@ public class CatModelo100 extends Catalog
             m15gasto42 = new FieldDef("m15gasto42",FieldDef.FLOAT,6,0);
             m15gasto43 = new FieldDef("m15gasto43",FieldDef.FLOAT,6,0);
             m15retencio = new FieldDef("m15retencio",FieldDef.FLOAT,6,0);
-            m15rednueva = new FieldDef("m15rednueva",FieldDef.CHAR,1);
+            m15rednueva = new FieldDef("m15rednueva",FieldDef.FLOAT,6,0);
+            m15pagofracc = new FieldDef("m15pagofracc",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m15dominio,
                 m15nif,
@@ -2580,7 +2594,8 @@ public class CatModelo100 extends Catalog
                 m15gasto42,
                 m15gasto43,
                 m15retencio,
-                m15rednueva                
+                m15rednueva,
+                m15pagofracc                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m15dominio,m15nif,m15declarac,m15ejercicio,m15periodo,m15pagina };
@@ -2735,6 +2750,7 @@ public class CatModelo100 extends Catalog
             m15gasto43.setDescription("2019 Gastos: Dotaciones amort. ganado y cultivos                               //R19 INMATERIAL");
             m15retencio.setDescription("2020 Retencion (xml)");
             m15rednueva.setDescription("2020 ED-EDS S/N tiene derecho red.nueva actividad (xml)");
+            m15pagofracc.setDescription("2020 Pagos fraccionados (* nou)");
             }
         }
         
@@ -2847,6 +2863,7 @@ public class CatModelo100 extends Catalog
         public FieldDef m16diaactividad;
         public FieldDef m16tipmunilorca;
         public FieldDef m16infadicional;
+        public FieldDef m16pagofracc;
         public TabMod100h6(String name)
             {
             super(name);
@@ -2956,6 +2973,7 @@ public class CatModelo100 extends Catalog
             m16diaactividad = new FieldDef("m16diaactividad",FieldDef.INTEGER,0);
             m16tipmunilorca = new FieldDef("m16tipmunilorca",FieldDef.INTEGER,0);
             m16infadicional = new FieldDef("m16infadicional",FieldDef.CHAR,12);
+            m16pagofracc = new FieldDef("m16pagofracc",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m16dominio,
                 m16nif,
@@ -3062,7 +3080,8 @@ public class CatModelo100 extends Catalog
                 m16maxtrabsimul,
                 m16diaactividad,
                 m16tipmunilorca,
-                m16infadicional                
+                m16infadicional,
+                m16pagofracc                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m16dominio,m16nif,m16declarac,m16ejercicio,m16periodo,m16pagina };
@@ -3168,6 +3187,7 @@ public class CatModelo100 extends Catalog
             m16diaactividad.setDescription("Días de actividad sin estado de alarma");
             m16tipmunilorca.setDescription("Tipo municipio Lorca");
             m16infadicional.setDescription("Informacion adicional");
+            m16pagofracc.setDescription("2020 Pagos fraccionados (* nou)");
             }
         }
         
@@ -3271,6 +3291,8 @@ public class CatModelo100 extends Catalog
         public FieldDef m111fpmejprnai;
         public FieldDef m111fpdejeraip;
         public FieldDef m111fpdejeresto;
+        public FieldDef m111aipejercici;
+        public FieldDef m111fpctitular;
         public TabMod100h11(String name)
             {
             super(name);
@@ -3371,6 +3393,8 @@ public class CatModelo100 extends Catalog
             m111fpmejprnai = new FieldDef("m111fpmejprnai",FieldDef.FLOAT,6,0);
             m111fpdejeraip = new FieldDef("m111fpdejeraip",FieldDef.FLOAT,6,0);
             m111fpdejeresto = new FieldDef("m111fpdejeresto",FieldDef.FLOAT,6,0);
+            m111aipejercici = new FieldDef("m111aipejercici",FieldDef.FLOAT,6,0);
+            m111fpctitular = new FieldDef("m111fpctitular",FieldDef.CHAR,1);
             FieldDef array[] = {
                 m111dominio,
                 m111nif,
@@ -3468,7 +3492,9 @@ public class CatModelo100 extends Catalog
                 m111fpmejpraip,
                 m111fpmejprnai,
                 m111fpdejeraip,
-                m111fpdejeresto                
+                m111fpdejeresto,
+                m111aipejercici,
+                m111fpctitular                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m111dominio,m111nif,m111declarac,m111ejercicio,m111periodo,m111pagina };
@@ -3565,6 +3591,8 @@ public class CatModelo100 extends Catalog
             m111fpmejprnai.setDescription("Reduc Base Gral 1 FPI Aportacion propia persona discapacidad no aip");
             m111fpdejeraip.setDescription("Aportaciones del ejercicio a favor deportistas del promotor");
             m111fpdejeresto.setDescription("Aportaciones del ejercicio a favor deportistas no promotor");
+            m111aipejercici.setDescription("Aportaciones del ejercicio AIP");
+            m111fpctitular.setDescription("Reducciones base imponible Titular FPC");
             }
         }
         
@@ -3659,6 +3687,15 @@ public class CatModelo100 extends Catalog
         public FieldDef m114batreteninm;
         public FieldDef m114batretenact;
         public FieldDef m114batretengan;
+        public FieldDef m114bfecfallec;
+        public FieldDef m114bfalltotal;
+        public FieldDef m114bcedidoc;
+        public FieldDef m114bbenefic;
+        public FieldDef m114bnifcedc;
+        public FieldDef m114bnifbenifc;
+        public FieldDef m114babonoc;
+        public FieldDef m114bfcdtitular;
+        public FieldDef m114babonodd;
         public TabMod100h14b(String name)
             {
             super(name);
@@ -3696,7 +3733,7 @@ public class CatModelo100 extends Catalog
             m114bimported = new FieldDef("m114bimported",FieldDef.FLOAT,6,0);
             m114babonod = new FieldDef("m114babonod",FieldDef.FLOAT,6,0);
             m114bnifa = new FieldDef("m114bnifa",FieldDef.CHAR,9);
-            m114bnombrea = new FieldDef("m114bnombrea",FieldDef.CHAR,15);
+            m114bnombrea = new FieldDef("m114bnombrea",FieldDef.CHAR,60);
             m114bfecinia = new FieldDef("m114bfecinia",FieldDef.DATE);
             m114bfecfina = new FieldDef("m114bfecfina",FieldDef.DATE);
             m114bpersonasa = new FieldDef("m114bpersonasa",FieldDef.INTEGER,0);
@@ -3733,7 +3770,7 @@ public class CatModelo100 extends Catalog
             m114bdedfcd = new FieldDef("m114bdedfcd",FieldDef.FLOAT,6,0);
             m114bfcdabono = new FieldDef("m114bfcdabono",FieldDef.FLOAT,6,0);
             m114bfcdnif = new FieldDef("m114bfcdnif",FieldDef.CHAR,9);
-            m114bfcdnombre = new FieldDef("m114bfcdnombre",FieldDef.CHAR,30);
+            m114bfcdnombre = new FieldDef("m114bfcdnombre",FieldDef.CHAR,50);
             m114bfcdfecini = new FieldDef("m114bfcdfecini",FieldDef.DATE);
             m114bfcdfecfin = new FieldDef("m114bfcdfecfin",FieldDef.DATE);
             m114bfcdcasado = new FieldDef("m114bfcdcasado",FieldDef.CHAR,1);
@@ -3750,6 +3787,15 @@ public class CatModelo100 extends Catalog
             m114batreteninm = new FieldDef("m114batreteninm",FieldDef.FLOAT,6,0);
             m114batretenact = new FieldDef("m114batretenact",FieldDef.FLOAT,6,0);
             m114batretengan = new FieldDef("m114batretengan",FieldDef.FLOAT,6,0);
+            m114bfecfallec = new FieldDef("m114bfecfallec",FieldDef.DATE);
+            m114bfalltotal = new FieldDef("m114bfalltotal",FieldDef.CHAR,1);
+            m114bcedidoc = new FieldDef("m114bcedidoc",FieldDef.CHAR,1);
+            m114bbenefic = new FieldDef("m114bbenefic",FieldDef.CHAR,1);
+            m114bnifcedc = new FieldDef("m114bnifcedc",FieldDef.CHAR,9);
+            m114bnifbenifc = new FieldDef("m114bnifbenifc",FieldDef.CHAR,9);
+            m114babonoc = new FieldDef("m114babonoc",FieldDef.FLOAT,6,0);
+            m114bfcdtitular = new FieldDef("m114bfcdtitular",FieldDef.INTEGER,0);
+            m114babonodd = new FieldDef("m114babonodd",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m114bdominio,
                 m114bnif,
@@ -3838,7 +3884,16 @@ public class CatModelo100 extends Catalog
                 m114batretenmob,
                 m114batreteninm,
                 m114batretenact,
-                m114batretengan                
+                m114batretengan,
+                m114bfecfallec,
+                m114bfalltotal,
+                m114bcedidoc,
+                m114bbenefic,
+                m114bnifcedc,
+                m114bnifbenifc,
+                m114babonoc,
+                m114bfcdtitular,
+                m114babonodd                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m114bdominio,m114bnif,m114bdeclarac,m114bejercicio,m114bperiodo,m114bpagina };
@@ -3926,6 +3981,15 @@ public class CatModelo100 extends Catalog
             m114batreteninm.setDescription("Atribucion rentas retenciones inmobiliario");
             m114batretenact.setDescription("Atribucion rentas retenciones actividades");
             m114batretengan.setDescription("Atribucion rentas retenciones ganancias/perd.");
+            m114bfecfallec.setDescription("deduccion Descendiente discapacidad: Fecha fallecimiento otro progenitor");
+            m114bfalltotal.setDescription("Si el fallecido se aplica la totalidad de la deduccion los meses");
+            m114bcedidoc.setDescription("Conyuge: Le han cedido derecho deduc.");
+            m114bbenefic.setDescription("Conyuge: Cede derecho deduc.");
+            m114bnifcedc.setDescription("Conyuge: Le han cedido derecho Nif cedente 1");
+            m114bnifbenifc.setDescription("Conyuge; Cede derecho Nif beneficiario");
+            m114babonoc.setDescription("Conyuge: Ded.Descen.Discapacidad: Abono anticipado");
+            m114bfcdtitular.setDescription("Ded.Conyuge discapacitado: titular deduccion");
+            m114babonodd.setDescription("Ded.Descen.Discapacidad: Abono anticipado del declarante");
             }
         }
         
@@ -8611,6 +8675,8 @@ public class CatModelo100 extends Catalog
         public FieldDef m17amoporceco;
         public FieldDef m17amootroeco;
         public FieldDef m17amoacces;
+        public FieldDef m17pagofracc;
+        public FieldDef m17codigoactiv;
         public TabMod100h7(String name)
             {
             super(name);
@@ -8787,6 +8853,8 @@ public class CatModelo100 extends Catalog
             m17amoporceco = new FieldDef("m17amoporceco",FieldDef.FLOAT,6,0);
             m17amootroeco = new FieldDef("m17amootroeco",FieldDef.FLOAT,6,0);
             m17amoacces = new FieldDef("m17amoacces",FieldDef.FLOAT,6,0);
+            m17pagofracc = new FieldDef("m17pagofracc",FieldDef.FLOAT,6,0);
+            m17codigoactiv = new FieldDef("m17codigoactiv",FieldDef.INTEGER,0);
             FieldDef array[] = {
                 m17dominio,
                 m17nif,
@@ -8960,7 +9028,9 @@ public class CatModelo100 extends Catalog
                 m17amootron,
                 m17amoporceco,
                 m17amootroeco,
-                m17amoacces                
+                m17amoacces,
+                m17pagofracc,
+                m17codigoactiv                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m17dominio,m17nif,m17declarac,m17ejercicio,m17periodo,m17pagina };
@@ -9133,6 +9203,8 @@ public class CatModelo100 extends Catalog
             m17amoporceco.setDescription("Amortiz.ganadera porciono ecologica");
             m17amootroeco.setDescription("Amortiz.ganadera otras ecologica");
             m17amoacces.setDescription("Amortiz.trabajos accesorios");
+            m17pagofracc.setDescription("2020 Pagos fraccionados (* nou)");
+            m17codigoactiv.setDescription("Codigo actividad");
             }
         }
         
@@ -9346,6 +9418,7 @@ public class CatModelo100 extends Catalog
         public FieldDef m18edsminopos;
         public FieldDef m18edsrdoneg;
         public FieldDef m18edsminoneg;
+        public FieldDef m18pagofracc;
         public TabMod100h8(String name)
             {
             super(name);
@@ -9556,6 +9629,7 @@ public class CatModelo100 extends Catalog
             m18edsminopos = new FieldDef("m18edsminopos",FieldDef.FLOAT,6,0);
             m18edsrdoneg = new FieldDef("m18edsrdoneg",FieldDef.FLOAT,6,0);
             m18edsminoneg = new FieldDef("m18edsminoneg",FieldDef.FLOAT,6,0);
+            m18pagofracc = new FieldDef("m18pagofracc",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m18dominio,
                 m18nif,
@@ -9763,7 +9837,8 @@ public class CatModelo100 extends Catalog
                 m18edsrdopos,
                 m18edsminopos,
                 m18edsrdoneg,
-                m18edsminoneg                
+                m18edsminoneg,
+                m18pagofracc                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m18dominio,m18nif,m18declarac,m18ejercicio,m18periodo,m18pagina };
@@ -9970,6 +10045,7 @@ public class CatModelo100 extends Catalog
             m18edsminopos.setDescription("EDS minoraciones activ.beneficios");
             m18edsrdoneg.setDescription("EDS rdto neto previo de las activ.con perdidas");
             m18edsminoneg.setDescription("EDS minoraciones activ.perdidas");
+            m18pagofracc.setDescription("pagos fraccionados actividades");
             }
         }
         
@@ -10183,6 +10259,8 @@ public class CatModelo100 extends Catalog
         public FieldDef m19fimexrvrinv;
         public FieldDef m19fimexrvpdte;
         public FieldDef m19fimexrvrcto;
+        public FieldDef m19fimagotadt9;
+        public FieldDef m19fimcompens;
         public TabMod100h9(String name)
             {
             super(name);
@@ -10393,6 +10471,8 @@ public class CatModelo100 extends Catalog
             m19fimexrvrinv = new FieldDef("m19fimexrvrinv",FieldDef.FLOAT,6,0);
             m19fimexrvpdte = new FieldDef("m19fimexrvpdte",FieldDef.FLOAT,6,0);
             m19fimexrvrcto = new FieldDef("m19fimexrvrcto",FieldDef.FLOAT,6,0);
+            m19fimagotadt9 = new FieldDef("m19fimagotadt9",FieldDef.CHAR,1);
+            m19fimcompens = new FieldDef("m19fimcompens",FieldDef.CHAR,1);
             FieldDef array[] = {
                 m19dominio,
                 m19nif,
@@ -10600,7 +10680,9 @@ public class CatModelo100 extends Catalog
                 m19fimpat2005,
                 m19fimexrvrinv,
                 m19fimexrvpdte,
-                m19fimexrvrcto                
+                m19fimexrvrcto,
+                m19fimagotadt9,
+                m19fimcompens                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m19dominio,m19nif,m19declarac,m19ejercicio,m19periodo,m19pagina };
@@ -10807,6 +10889,8 @@ public class CatModelo100 extends Catalog
             m19fimexrvrinv.setDescription("FIM renta vitalicia importe reinvertido hasta 31/12/ejer");
             m19fimexrvpdte.setDescription("FIM renta vitalicia importe compromete a reinvertir en ejer+1");
             m19fimexrvrcto.setDescription("FIM renta vitalicai retencion compromete a reinvertir en ejer+1");
+            m19fimagotadt9.setDescription("FIM: Con esta ganancia se agota el limite de la DT9 (abatimiento)");
+            m19fimcompens.setDescription("FIM: Compensar pérdida con ganancias");
             }
         }
         
@@ -10998,6 +11082,12 @@ public class CatModelo100 extends Catalog
         public FieldDef m191otrexaccpdt;
         public FieldDef m191otrexvdainv;
         public FieldDef m191otrexvdapdt;
+        public FieldDef m191otragotadt9;
+        public FieldDef m191otrpatr2005;
+        public FieldDef m191fimcompens;
+        public FieldDef m191acbcompens;
+        public FieldDef m191otrcompens;
+        public FieldDef m191dscompens;
         public TabMod100h91(String name)
             {
             super(name);
@@ -11186,6 +11276,12 @@ public class CatModelo100 extends Catalog
             m191otrexaccpdt = new FieldDef("m191otrexaccpdt",FieldDef.FLOAT,6,0);
             m191otrexvdainv = new FieldDef("m191otrexvdainv",FieldDef.FLOAT,6,0);
             m191otrexvdapdt = new FieldDef("m191otrexvdapdt",FieldDef.FLOAT,6,0);
+            m191otragotadt9 = new FieldDef("m191otragotadt9",FieldDef.CHAR,1);
+            m191otrpatr2005 = new FieldDef("m191otrpatr2005",FieldDef.FLOAT,6,0);
+            m191fimcompens = new FieldDef("m191fimcompens",FieldDef.CHAR,1);
+            m191acbcompens = new FieldDef("m191acbcompens",FieldDef.CHAR,1);
+            m191otrcompens = new FieldDef("m191otrcompens",FieldDef.CHAR,1);
+            m191dscompens = new FieldDef("m191dscompens",FieldDef.CHAR,1);
             FieldDef array[] = {
                 m191dominio,
                 m191nif,
@@ -11371,7 +11467,13 @@ public class CatModelo100 extends Catalog
                 m191otrexaccinv,
                 m191otrexaccpdt,
                 m191otrexvdainv,
-                m191otrexvdapdt                
+                m191otrexvdapdt,
+                m191otragotadt9,
+                m191otrpatr2005,
+                m191fimcompens,
+                m191acbcompens,
+                m191otrcompens,
+                m191dscompens                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m191dominio,m191nif,m191declarac,m191ejercicio,m191periodo,m191pagina };
@@ -11557,6 +11659,12 @@ public class CatModelo100 extends Catalog
             m191otrexaccpdt.setDescription("Otros elem. Exencion entidad nueva creacio: pendiente de reinvertir");
             m191otrexvdainv.setDescription("Otros elem. Exencion vda. habitual: importe reinvertido");
             m191otrexvdapdt.setDescription("Otros elem. Exencion vda. habitual: pendiente de reinvertir");
+            m191otragotadt9.setDescription("Otros elem. Con esta ganancia se agota el limite de la DT9 (abatimiento)");
+            m191otrpatr2005.setDescription("Otros elem. Valor patrimonio 2005");
+            m191fimcompens.setDescription("FIM: Compensar pérdida con ganancias");
+            m191acbcompens.setDescription("ACB: Compensar pérdida con ganancias");
+            m191otrcompens.setDescription("Otros elementos: Compensar pérdida con ganancias");
+            m191dscompens.setDescription("Derechos de suscripcion: Compensar pérdida con ganancias");
             }
         }
         
@@ -12914,6 +13022,10 @@ public class CatModelo100 extends Catalog
         public FieldDef m113dbaotrimptc;
         public FieldDef m113dbaganbasec;
         public FieldDef m113dbaganimptc;
+        public FieldDef m113obldeclarad;
+        public FieldDef m113obldeclarac;
+        public FieldDef m113obldeclarat;
+        public FieldDef m113dedautcomun;
         public TabMod100h13(String name)
             {
             super(name);
@@ -13054,6 +13166,10 @@ public class CatModelo100 extends Catalog
             m113dbaotrimptc = new FieldDef("m113dbaotrimptc",FieldDef.FLOAT,6,0);
             m113dbaganbasec = new FieldDef("m113dbaganbasec",FieldDef.FLOAT,6,0);
             m113dbaganimptc = new FieldDef("m113dbaganimptc",FieldDef.FLOAT,6,0);
+            m113obldeclarad = new FieldDef("m113obldeclarad",FieldDef.CHAR,1);
+            m113obldeclarac = new FieldDef("m113obldeclarac",FieldDef.CHAR,1);
+            m113obldeclarat = new FieldDef("m113obldeclarat",FieldDef.CHAR,1);
+            m113dedautcomun = new FieldDef("m113dedautcomun",FieldDef.CHAR,1);
             FieldDef array[] = {
                 m113dominio,
                 m113nif,
@@ -13191,7 +13307,11 @@ public class CatModelo100 extends Catalog
                 m113dbaotrbasec,
                 m113dbaotrimptc,
                 m113dbaganbasec,
-                m113dbaganimptc                
+                m113dbaganimptc,
+                m113obldeclarad,
+                m113obldeclarac,
+                m113obldeclarat,
+                m113dedautcomun                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m113dominio,m113nif,m113declarac,m113ejercicio,m113periodo };
@@ -13302,7 +13422,7 @@ public class CatModelo100 extends Catalog
             m113int1eimpde6.setDescription("Perd.deducciones interes demora 1996: Importe perdida deduccion 6");
             m113int1etipde6.setDescription("Perd.deducciones interes demora 1996: Tipo declaracion 6");
             m113int1efinic6.setDescription("Perd.deducciones interes demora 1996: Fecha inicial 6");
-            m113ded2est1.setDescription("Perd.deducciones importe deduccion estatal de 1997 a 2001 (* nou)");
+            m113ded2est1.setDescription("Perd.deducciones importe deduccion estatal de 1997 a 2001");
             m113ded2est2.setDescription("Perd.deducciones importe deduccion estatal de 2002 a 2008");
             m113ded2est3.setDescription("Perd.deducciones importe deduccion estatal de 2009 a 2019 no nueva creacion");
             m113ded2est4.setDescription("Perd.deducciones importe deduccion estatal de 2009 a 2019 empresa nueva creacion");
@@ -13329,6 +13449,10 @@ public class CatModelo100 extends Catalog
             m113dbaotrimptc.setDescription("Ded doble imposicion internacional rentas gravadas extranjero base ahorro resto impuesto(conyuge para conjunta)");
             m113dbaganbasec.setDescription("Ded doble imposicion internacional rentas gravadas extranjero base ahorro ganancias(conyuge para conjunta)");
             m113dbaganimptc.setDescription("Ded doble imposicion internacional rentas gravadas extranjero base ahorro ganancias impuesto(conyuge para conjunta)");
+            m113obldeclarad.setDescription("Obligado a declarar declarante");
+            m113obldeclarac.setDescription("Obligado a declarar conyuge");
+            m113obldeclarat.setDescription("Obligado a declarar conjunta");
+            m113dedautcomun.setDescription("Hay deducciones autonomicas con datos comunes");
             }
         }
         
@@ -16325,6 +16449,12 @@ public class CatModelo100 extends Catalog
         public FieldDef m192dsexrvrinv;
         public FieldDef m192dsexrvpdte;
         public FieldDef m192dsexrvrcto;
+        public FieldDef m192acbagotadt9;
+        public FieldDef m192dsagotadt9;
+        public FieldDef m192fimcompens;
+        public FieldDef m192acbcompens;
+        public FieldDef m192otrcompens;
+        public FieldDef m192dscompens;
         public TabMod100h92(String name)
             {
             super(name);
@@ -16474,6 +16604,12 @@ public class CatModelo100 extends Catalog
             m192dsexrvrinv = new FieldDef("m192dsexrvrinv",FieldDef.FLOAT,6,0);
             m192dsexrvpdte = new FieldDef("m192dsexrvpdte",FieldDef.FLOAT,6,0);
             m192dsexrvrcto = new FieldDef("m192dsexrvrcto",FieldDef.FLOAT,6,0);
+            m192acbagotadt9 = new FieldDef("m192acbagotadt9",FieldDef.CHAR,1);
+            m192dsagotadt9 = new FieldDef("m192dsagotadt9",FieldDef.CHAR,1);
+            m192fimcompens = new FieldDef("m192fimcompens",FieldDef.CHAR,1);
+            m192acbcompens = new FieldDef("m192acbcompens",FieldDef.CHAR,1);
+            m192otrcompens = new FieldDef("m192otrcompens",FieldDef.CHAR,1);
+            m192dscompens = new FieldDef("m192dscompens",FieldDef.CHAR,1);
             FieldDef array[] = {
                 m192dominio,
                 m192nif,
@@ -16620,7 +16756,13 @@ public class CatModelo100 extends Catalog
                 m192acbexrvrcto,
                 m192dsexrvrinv,
                 m192dsexrvpdte,
-                m192dsexrvrcto                
+                m192dsexrvrcto,
+                m192acbagotadt9,
+                m192dsagotadt9,
+                m192fimcompens,
+                m192acbcompens,
+                m192otrcompens,
+                m192dscompens                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m192dominio,m192nif,m192declarac,m192ejercicio,m192periodo,m192pagina };
@@ -16767,6 +16909,12 @@ public class CatModelo100 extends Catalog
             m192dsexrvrinv.setDescription("Drets Suscrip renta vitalicia importe reinvertido hasta 31/12/ejer");
             m192dsexrvpdte.setDescription("Drets Suscrip renta vitalicia importe compromete a reinvertir en ejer+1");
             m192dsexrvrcto.setDescription("Drets Suscrip renta vitalicai retencion compromete a reinvertir en ejer+1");
+            m192acbagotadt9.setDescription("ACB: Con esta ganancia se agota el limite de la DT9 (abatimiento)");
+            m192dsagotadt9.setDescription("Derechos suscripción: Con esta ganancia se agota el limite de la DT9 (abatimiento)");
+            m192fimcompens.setDescription("FIM: Compensar pérdida con ganancias");
+            m192acbcompens.setDescription("ACB: Compensar pérdida con ganancias");
+            m192otrcompens.setDescription("Otros elementos: Compensar pérdida con ganancias");
+            m192dscompens.setDescription("Derechos de suscripcion: Compensar pérdida con ganancias");
             }
         }
         
@@ -17430,6 +17578,30 @@ public class CatModelo100 extends Catalog
         public FieldDef m114crectjustif;
         public FieldDef m114crectcta;
         public FieldDef m114crectbic;
+        public FieldDef m114ctitular;
+        public FieldDef m114cmiembfam;
+        public FieldDef m114cbenefifc;
+        public FieldDef m114ccedidofc;
+        public FieldDef m114cnifcedfc;
+        public FieldDef m114cnifbenifc;
+        public FieldDef m114cabonofc;
+        public FieldDef m114cinchijos01;
+        public FieldDef m114cinchijos02;
+        public FieldDef m114cinchijos03;
+        public FieldDef m114cinchijos04;
+        public FieldDef m114cinchijos05;
+        public FieldDef m114cinchijos06;
+        public FieldDef m114cinchijos07;
+        public FieldDef m114cinchijos08;
+        public FieldDef m114cinchijos09;
+        public FieldDef m114cinchijos10;
+        public FieldDef m114cinchijos11;
+        public FieldDef m114cinchijos12;
+        public FieldDef m114cmesini;
+        public FieldDef m114cmesfin;
+        public FieldDef m114cregdtitul;
+        public FieldDef m114cregatitul;
+        public FieldDef m114cabonofd;
         public TabMod100h14c(String name)
             {
             super(name);
@@ -17473,6 +17645,30 @@ public class CatModelo100 extends Catalog
             m114crectjustif = new FieldDef("m114crectjustif",FieldDef.CHAR,13);
             m114crectcta = new FieldDef("m114crectcta",FieldDef.CHAR,34);
             m114crectbic = new FieldDef("m114crectbic",FieldDef.CHAR,11);
+            m114ctitular = new FieldDef("m114ctitular",FieldDef.INTEGER,0);
+            m114cmiembfam = new FieldDef("m114cmiembfam",FieldDef.CHAR,1);
+            m114cbenefifc = new FieldDef("m114cbenefifc",FieldDef.CHAR,1);
+            m114ccedidofc = new FieldDef("m114ccedidofc",FieldDef.CHAR,1);
+            m114cnifcedfc = new FieldDef("m114cnifcedfc",FieldDef.CHAR,9);
+            m114cnifbenifc = new FieldDef("m114cnifbenifc",FieldDef.CHAR,9);
+            m114cabonofc = new FieldDef("m114cabonofc",FieldDef.FLOAT,6,0);
+            m114cinchijos01 = new FieldDef("m114cinchijos01",FieldDef.INTEGER,0);
+            m114cinchijos02 = new FieldDef("m114cinchijos02",FieldDef.INTEGER,0);
+            m114cinchijos03 = new FieldDef("m114cinchijos03",FieldDef.INTEGER,0);
+            m114cinchijos04 = new FieldDef("m114cinchijos04",FieldDef.INTEGER,0);
+            m114cinchijos05 = new FieldDef("m114cinchijos05",FieldDef.INTEGER,0);
+            m114cinchijos06 = new FieldDef("m114cinchijos06",FieldDef.INTEGER,0);
+            m114cinchijos07 = new FieldDef("m114cinchijos07",FieldDef.INTEGER,0);
+            m114cinchijos08 = new FieldDef("m114cinchijos08",FieldDef.INTEGER,0);
+            m114cinchijos09 = new FieldDef("m114cinchijos09",FieldDef.INTEGER,0);
+            m114cinchijos10 = new FieldDef("m114cinchijos10",FieldDef.INTEGER,0);
+            m114cinchijos11 = new FieldDef("m114cinchijos11",FieldDef.INTEGER,0);
+            m114cinchijos12 = new FieldDef("m114cinchijos12",FieldDef.INTEGER,0);
+            m114cmesini = new FieldDef("m114cmesini",FieldDef.INTEGER,0);
+            m114cmesfin = new FieldDef("m114cmesfin",FieldDef.INTEGER,0);
+            m114cregdtitul = new FieldDef("m114cregdtitul",FieldDef.INTEGER,0);
+            m114cregatitul = new FieldDef("m114cregatitul",FieldDef.INTEGER,0);
+            m114cabonofd = new FieldDef("m114cabonofd",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m114cdominio,
                 m114cnif,
@@ -17513,7 +17709,31 @@ public class CatModelo100 extends Catalog
                 m114crectresult,
                 m114crectjustif,
                 m114crectcta,
-                m114crectbic                
+                m114crectbic,
+                m114ctitular,
+                m114cmiembfam,
+                m114cbenefifc,
+                m114ccedidofc,
+                m114cnifcedfc,
+                m114cnifbenifc,
+                m114cabonofc,
+                m114cinchijos01,
+                m114cinchijos02,
+                m114cinchijos03,
+                m114cinchijos04,
+                m114cinchijos05,
+                m114cinchijos06,
+                m114cinchijos07,
+                m114cinchijos08,
+                m114cinchijos09,
+                m114cinchijos10,
+                m114cinchijos11,
+                m114cinchijos12,
+                m114cmesini,
+                m114cmesfin,
+                m114cregdtitul,
+                m114cregatitul,
+                m114cabonofd                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m114cdominio,m114cnif,m114cdeclarac,m114cejercicio,m114cperiodo,m114cpagina };
@@ -17553,6 +17773,30 @@ public class CatModelo100 extends Catalog
             m114crectjustif.setDescription("Rectificacion autoliq: Nro justificante");
             m114crectcta.setDescription("Rectificacion autoliq: Nro cta IBAN devolucion");
             m114crectbic.setDescription("Rectiticacion autoliq: Codigo SWIFT/BIC");
+            m114ctitular.setDescription("Ded.Familia numerosa:  titular");
+            m114cmiembfam.setDescription("Si esta casado y un miembro no forma parte unidad, informe el que si forma parte");
+            m114cbenefifc.setDescription("Ded.Familia numerosa:  Conyuge. Cede derecho deduc.");
+            m114ccedidofc.setDescription("Ded.Familia numerosa:  Conyuge.Le han cedido derecho deduc.");
+            m114cnifcedfc.setDescription("Ded.Familia numerosa:  Conyuge.Le han cedido derecho Nif cedente");
+            m114cnifbenifc.setDescription("Ded.Familia numerosa:  Conyuge.Cede derecho Nif beneficiario");
+            m114cabonofc.setDescription("Ded.Familia numerosa:  Conyuge. abono anticipado");
+            m114cinchijos01.setDescription("Incremento deduc.fam.numerosa nro hijos excede del minimo exigido: enero");
+            m114cinchijos02.setDescription("Incremento deduc.fam.numerosa nro hijos excede del minimo exigido: febrero");
+            m114cinchijos03.setDescription("Incremento deduc.fam.numerosa nro hijos excede del minimo exigido: marzo");
+            m114cinchijos04.setDescription("Incremento deduc.fam.numerosa nro hijos excede del minimo exigido: abril");
+            m114cinchijos05.setDescription("Incremento deduc.fam.numerosa nro hijos excede del minimo exigido: mayo");
+            m114cinchijos06.setDescription("Incremento deduc.fam.numerosa nro hijos excede del minimo exigido: junio");
+            m114cinchijos07.setDescription("Incremento deduc.fam.numerosa nro hijos excede del minimo exigido: julio");
+            m114cinchijos08.setDescription("Incremento deduc.fam.numerosa nro hijos excede del minimo exigido: agosto");
+            m114cinchijos09.setDescription("Incremento deduc.fam.numerosa nro hijos excede del minimo exigido: septiembre");
+            m114cinchijos10.setDescription("Incremento deduc.fam.numerosa nro hijos excede del minimo exigido: octubre");
+            m114cinchijos11.setDescription("Incremento deduc.fam.numerosa nro hijos excede del minimo exigido: noviembre");
+            m114cinchijos12.setDescription("Incremento deduc.fam.numerosa nro hijos excede del minimo exigido: diciembre");
+            m114cmesini.setDescription("Familia monoparental: mes inicio deduccion");
+            m114cmesfin.setDescription("Familia monoparental: mes final deduccion");
+            m114cregdtitul.setDescription("Ded.Descend. Discapacidad: titular Cobro anticipado a regularizar");
+            m114cregatitul.setDescription("Ded.Ascendiente Discapacidad: titular Cobro anticipado a regularizar");
+            m114cabonofd.setDescription("Ded.Familia numerosa:  Declarante abono anticipado");
             }
         }
         
@@ -17737,6 +17981,32 @@ public class CatModelo100 extends Catalog
         public FieldDef m16aamoespacc2;
         public FieldDef m16aamoracc3;
         public FieldDef m16aamoespacc3;
+        public FieldDef m16amejejdia1;
+        public FieldDef m16amejejdia2;
+        public FieldDef m16amejejdia3;
+        public FieldDef m16amejejdia4;
+        public FieldDef m16amejeja1dia1;
+        public FieldDef m16amejeja1dia2;
+        public FieldDef m16amejeja1dia3;
+        public FieldDef m16amejeja1dia4;
+        public FieldDef m16amejeja2dia1;
+        public FieldDef m16amejeja2dia2;
+        public FieldDef m16amejeja2dia3;
+        public FieldDef m16amejeja2dia4;
+        public FieldDef m16amejeja3dia1;
+        public FieldDef m16amejeja3dia2;
+        public FieldDef m16amejeja3dia3;
+        public FieldDef m16amejeja3dia4;
+        public FieldDef m16aidentinmob;
+        public FieldDef m16aacc1idinmob;
+        public FieldDef m16aacc2idinmob;
+        public FieldDef m16aacc3idinmob;
+        public FieldDef m16aporcpracc1;
+        public FieldDef m16aporcusuacc1;
+        public FieldDef m16aporcpracc2;
+        public FieldDef m16aporcusuacc2;
+        public FieldDef m16aporcpracc3;
+        public FieldDef m16aporcusuacc3;
         public TabMod100h6a(String name)
             {
             super(name);
@@ -17918,6 +18188,32 @@ public class CatModelo100 extends Catalog
             m16aamoespacc2 = new FieldDef("m16aamoespacc2",FieldDef.FLOAT,6,0);
             m16aamoracc3 = new FieldDef("m16aamoracc3",FieldDef.FLOAT,6,0);
             m16aamoespacc3 = new FieldDef("m16aamoespacc3",FieldDef.FLOAT,6,0);
+            m16amejejdia1 = new FieldDef("m16amejejdia1",FieldDef.INTEGER,0);
+            m16amejejdia2 = new FieldDef("m16amejejdia2",FieldDef.INTEGER,0);
+            m16amejejdia3 = new FieldDef("m16amejejdia3",FieldDef.INTEGER,0);
+            m16amejejdia4 = new FieldDef("m16amejejdia4",FieldDef.INTEGER,0);
+            m16amejeja1dia1 = new FieldDef("m16amejeja1dia1",FieldDef.INTEGER,0);
+            m16amejeja1dia2 = new FieldDef("m16amejeja1dia2",FieldDef.INTEGER,0);
+            m16amejeja1dia3 = new FieldDef("m16amejeja1dia3",FieldDef.INTEGER,0);
+            m16amejeja1dia4 = new FieldDef("m16amejeja1dia4",FieldDef.INTEGER,0);
+            m16amejeja2dia1 = new FieldDef("m16amejeja2dia1",FieldDef.INTEGER,0);
+            m16amejeja2dia2 = new FieldDef("m16amejeja2dia2",FieldDef.INTEGER,0);
+            m16amejeja2dia3 = new FieldDef("m16amejeja2dia3",FieldDef.INTEGER,0);
+            m16amejeja2dia4 = new FieldDef("m16amejeja2dia4",FieldDef.INTEGER,0);
+            m16amejeja3dia1 = new FieldDef("m16amejeja3dia1",FieldDef.INTEGER,0);
+            m16amejeja3dia2 = new FieldDef("m16amejeja3dia2",FieldDef.INTEGER,0);
+            m16amejeja3dia3 = new FieldDef("m16amejeja3dia3",FieldDef.INTEGER,0);
+            m16amejeja3dia4 = new FieldDef("m16amejeja3dia4",FieldDef.INTEGER,0);
+            m16aidentinmob = new FieldDef("m16aidentinmob",FieldDef.INTEGER,0);
+            m16aacc1idinmob = new FieldDef("m16aacc1idinmob",FieldDef.INTEGER,0);
+            m16aacc2idinmob = new FieldDef("m16aacc2idinmob",FieldDef.INTEGER,0);
+            m16aacc3idinmob = new FieldDef("m16aacc3idinmob",FieldDef.INTEGER,0);
+            m16aporcpracc1 = new FieldDef("m16aporcpracc1",FieldDef.FLOAT,6,0);
+            m16aporcusuacc1 = new FieldDef("m16aporcusuacc1",FieldDef.FLOAT,6,0);
+            m16aporcpracc2 = new FieldDef("m16aporcpracc2",FieldDef.FLOAT,6,0);
+            m16aporcusuacc2 = new FieldDef("m16aporcusuacc2",FieldDef.FLOAT,6,0);
+            m16aporcpracc3 = new FieldDef("m16aporcpracc3",FieldDef.FLOAT,6,0);
+            m16aporcusuacc3 = new FieldDef("m16aporcusuacc3",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m16adominio,
                 m16anif,
@@ -18096,7 +18392,33 @@ public class CatModelo100 extends Catalog
                 m16aamoracc2,
                 m16aamoespacc2,
                 m16aamoracc3,
-                m16aamoespacc3                
+                m16aamoespacc3,
+                m16amejejdia1,
+                m16amejejdia2,
+                m16amejejdia3,
+                m16amejejdia4,
+                m16amejeja1dia1,
+                m16amejeja1dia2,
+                m16amejeja1dia3,
+                m16amejeja1dia4,
+                m16amejeja2dia1,
+                m16amejeja2dia2,
+                m16amejeja2dia3,
+                m16amejeja2dia4,
+                m16amejeja3dia1,
+                m16amejeja3dia2,
+                m16amejeja3dia3,
+                m16amejeja3dia4,
+                m16aidentinmob,
+                m16aacc1idinmob,
+                m16aacc2idinmob,
+                m16aacc3idinmob,
+                m16aporcpracc1,
+                m16aporcusuacc1,
+                m16aporcpracc2,
+                m16aporcusuacc2,
+                m16aporcpracc3,
+                m16aporcusuacc3                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m16adominio,m16anif,m16adeclarac,m16aejercicio,m16aperiodo,m16apagina };
@@ -18275,6 +18597,32 @@ public class CatModelo100 extends Catalog
             m16aamoespacc2.setDescription("Inm.accesorio 2 amortizacion especial");
             m16aamoracc3.setDescription("Inm.accesorio 3 amortizacion");
             m16aamoespacc3.setDescription("Inm.accesorio 3 amortizacion especial");
+            m16amejejdia1.setDescription("Inmueble arrendado: mejoras ejercicio 1 nro. dias amortizacion");
+            m16amejejdia2.setDescription("Inmueble arrendado: mejoras ejercicio 2 nro. dias amortizacion");
+            m16amejejdia3.setDescription("Inmueble arrendado: mejoras ejercicio 3 nro. dias amortizacion");
+            m16amejejdia4.setDescription("Inmueble arrendado: mejoras ejercicio 4 nro. dias amortizacion");
+            m16amejeja1dia1.setDescription("Inmueble accesorio 1:  mejoras ejercicio 1 nro. dias amortizacion");
+            m16amejeja1dia2.setDescription("Inmueble accesorio 1: mejoras ejercicio 2 nro. dias amortizacion");
+            m16amejeja1dia3.setDescription("Inmueble accesorio 1: mejoras ejercicio 3 nro. dias amortizacion");
+            m16amejeja1dia4.setDescription("Inmueble accesorio 1: mejoras ejercicio 4 nro. dias amortizacion");
+            m16amejeja2dia1.setDescription("Inmueble accesorio 2: mejoras ejercicio 1 nro. dias amortizacion");
+            m16amejeja2dia2.setDescription("Inmueble accesorio 2: mejoras ejercicio 2 nro. dias amortizacion");
+            m16amejeja2dia3.setDescription("Inmueble accesorio 2: mejoras ejercicio 3 nro. dias amortizacion");
+            m16amejeja2dia4.setDescription("Inmueble accesorio 2: mejoras ejercicio 4 nro. dias amortizacion");
+            m16amejeja3dia1.setDescription("Inmueble accesorio 3: mejoras ejercicio 1 nro. dias amortizacion");
+            m16amejeja3dia2.setDescription("Inmueble accesorio 3: mejoras ejercicio 2 nro. dias amortizacion");
+            m16amejeja3dia3.setDescription("Inmueble accesorio 3: mejoras ejercicio 3 nro. dias amortizacion");
+            m16amejeja3dia4.setDescription("Inmueble accesorio 3: mejoras ejercicio 4 nro. dias amortizacion");
+            m16aidentinmob.setDescription("Inmueble: identificador en tabla inmobiliario");
+            m16aacc1idinmob.setDescription("Inmueble accesorio 1: identificador en tabla inmobiliario");
+            m16aacc2idinmob.setDescription("Inmueble accesorio 2: identificador en tabla inmobiliario");
+            m16aacc3idinmob.setDescription("Inmueble accesorio 3: identificador en tabla inmobiliario");
+            m16aporcpracc1.setDescription("Inmueble accesorio 1: % propiedad");
+            m16aporcusuacc1.setDescription("Inmueble accesorio 1: % propiedad usufructo");
+            m16aporcpracc2.setDescription("Inmueble accesorio 2: % propiedad");
+            m16aporcusuacc2.setDescription("Inmueble accesorio 2: % propiedad usufructo");
+            m16aporcpracc3.setDescription("Inmueble accesorio 3: % propiedad");
+            m16aporcusuacc3.setDescription("Inmueble accesorio 3: % propiedad usufructo");
             }
         }
         
@@ -19376,24 +19724,15 @@ public class CatModelo100 extends Catalog
         public FieldDef m12ah6dedrnr;
         public FieldDef m12ah7dedrnr;
         public FieldDef m12ah8dedrnr;
-        public FieldDef m12ah1fmor;
         public FieldDef m12ah9dedrnr;
         public FieldDef m12ah1fmort;
-        public FieldDef m12ah2fmor;
         public FieldDef m12ah2fmort;
-        public FieldDef m12ah3fmor;
         public FieldDef m12ah3fmort;
-        public FieldDef m12ah4fmor;
         public FieldDef m12ah4fmort;
-        public FieldDef m12ah5fmor;
         public FieldDef m12ah5fmort;
-        public FieldDef m12ah6fmor;
         public FieldDef m12ah6fmort;
-        public FieldDef m12ah7fmor;
         public FieldDef m12ah7fmort;
-        public FieldDef m12ah8fmor;
         public FieldDef m12ah8fmort;
-        public FieldDef m12ah9fmor;
         public FieldDef m12ah9fmort;
         public FieldDef m12aa1fmort;
         public FieldDef m12aa2fmort;
@@ -19472,24 +19811,15 @@ public class CatModelo100 extends Catalog
             m12ah6dedrnr = new FieldDef("m12ah6dedrnr",FieldDef.CHAR,1);
             m12ah7dedrnr = new FieldDef("m12ah7dedrnr",FieldDef.CHAR,1);
             m12ah8dedrnr = new FieldDef("m12ah8dedrnr",FieldDef.CHAR,1);
-            m12ah1fmor = new FieldDef("m12ah1fmor",FieldDef.DATE);
             m12ah9dedrnr = new FieldDef("m12ah9dedrnr",FieldDef.CHAR,1);
             m12ah1fmort = new FieldDef("m12ah1fmort",FieldDef.DATE);
-            m12ah2fmor = new FieldDef("m12ah2fmor",FieldDef.DATE);
             m12ah2fmort = new FieldDef("m12ah2fmort",FieldDef.DATE);
-            m12ah3fmor = new FieldDef("m12ah3fmor",FieldDef.DATE);
             m12ah3fmort = new FieldDef("m12ah3fmort",FieldDef.DATE);
-            m12ah4fmor = new FieldDef("m12ah4fmor",FieldDef.DATE);
             m12ah4fmort = new FieldDef("m12ah4fmort",FieldDef.DATE);
-            m12ah5fmor = new FieldDef("m12ah5fmor",FieldDef.DATE);
             m12ah5fmort = new FieldDef("m12ah5fmort",FieldDef.DATE);
-            m12ah6fmor = new FieldDef("m12ah6fmor",FieldDef.DATE);
             m12ah6fmort = new FieldDef("m12ah6fmort",FieldDef.DATE);
-            m12ah7fmor = new FieldDef("m12ah7fmor",FieldDef.DATE);
             m12ah7fmort = new FieldDef("m12ah7fmort",FieldDef.DATE);
-            m12ah8fmor = new FieldDef("m12ah8fmor",FieldDef.DATE);
             m12ah8fmort = new FieldDef("m12ah8fmort",FieldDef.DATE);
-            m12ah9fmor = new FieldDef("m12ah9fmor",FieldDef.DATE);
             m12ah9fmort = new FieldDef("m12ah9fmort",FieldDef.DATE);
             m12aa1fmort = new FieldDef("m12aa1fmort",FieldDef.DATE);
             m12aa2fmort = new FieldDef("m12aa2fmort",FieldDef.DATE);
@@ -19566,24 +19896,15 @@ public class CatModelo100 extends Catalog
                 m12ah6dedrnr,
                 m12ah7dedrnr,
                 m12ah8dedrnr,
-                m12ah1fmor,
                 m12ah9dedrnr,
                 m12ah1fmort,
-                m12ah2fmor,
                 m12ah2fmort,
-                m12ah3fmor,
                 m12ah3fmort,
-                m12ah4fmor,
                 m12ah4fmort,
-                m12ah5fmor,
                 m12ah5fmort,
-                m12ah6fmor,
                 m12ah6fmort,
-                m12ah7fmor,
                 m12ah7fmort,
-                m12ah8fmor,
                 m12ah8fmort,
-                m12ah9fmor,
                 m12ah9fmort,
                 m12aa1fmort,
                 m12aa2fmort,
@@ -19664,24 +19985,15 @@ public class CatModelo100 extends Catalog
             m12ah6dedrnr.setDescription("Hijo 6 deduc.resto miembros otro estado UE");
             m12ah7dedrnr.setDescription("Hijo 7 deduc.resto miembros otro estado UE");
             m12ah8dedrnr.setDescription("Hijo 8 deduc.resto miembros otro estado UE");
-            m12ah1fmor.setDescription("Fecha muerte hijo 1");
             m12ah9dedrnr.setDescription("Hijo 9 deduc.resto miembros otro estado UE");
             m12ah1fmort.setDescription("Fecha muerte hijo 1");
-            m12ah2fmor.setDescription("Fecha muerte hijo 2");
             m12ah2fmort.setDescription("Fecha muerte hijo 2");
-            m12ah3fmor.setDescription("Fecha muerte hijo 3");
             m12ah3fmort.setDescription("Fecha muerte hijo 3");
-            m12ah4fmor.setDescription("Fecha muerte hijo 4");
             m12ah4fmort.setDescription("Fecha muerte hijo 4");
-            m12ah5fmor.setDescription("Fecha muerte hijo 5");
             m12ah5fmort.setDescription("Fecha muerte hijo 5");
-            m12ah6fmor.setDescription("Fecha muerte hijo 6");
             m12ah6fmort.setDescription("Fecha muerte hijo 6");
-            m12ah7fmor.setDescription("Fecha muerte hijo 7");
             m12ah7fmort.setDescription("Fecha muerte hijo 7");
-            m12ah8fmor.setDescription("Fecha muerte hijo 8");
             m12ah8fmort.setDescription("Fecha muerte hijo 8");
-            m12ah9fmor.setDescription("Fecha muerte hijo 9");
             m12ah9fmort.setDescription("Fecha muerte hijo 9");
             m12aa1fmort.setDescription("Ascendiente 1 fecha muerte");
             m12aa2fmort.setDescription("Ascendiente 2 fecha muerte");
@@ -20054,6 +20366,8 @@ public class CatModelo100 extends Catalog
         public FieldDef m1cadeclarac;
         public FieldDef m1caejercicio;
         public FieldDef m1caperiodo;
+        public FieldDef m1canreg;
+        public FieldDef m1catitular;
         public FieldDef m1canacadhijc;
         public FieldDef m1canacadhijt;
         public FieldDef m1cadonfomcat;
@@ -20092,6 +20406,8 @@ public class CatModelo100 extends Catalog
             m1cadeclarac = new FieldDef("m1cadeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
             m1caejercicio = new FieldDef("m1caejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             m1caperiodo = new FieldDef("m1caperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1canreg = new FieldDef("m1canreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1catitular = new FieldDef("m1catitular",FieldDef.INTEGER,0);
             m1canacadhijc = new FieldDef("m1canacadhijc",FieldDef.INTEGER,0);
             m1canacadhijt = new FieldDef("m1canacadhijt",FieldDef.INTEGER,0);
             m1cadonfomcat = new FieldDef("m1cadonfomcat",FieldDef.FLOAT,6,0);
@@ -20128,6 +20444,8 @@ public class CatModelo100 extends Catalog
                 m1cadeclarac,
                 m1caejercicio,
                 m1caperiodo,
+                m1canreg,
+                m1catitular,
                 m1canacadhijc,
                 m1canacadhijt,
                 m1cadonfomcat,
@@ -20160,7 +20478,7 @@ public class CatModelo100 extends Catalog
                 m1cadeducpaga                
                 };
             setColumns(array);
-            FieldDef arrayf[] = {m1cadominio,m1canif,m1cadeclarac,m1caejercicio,m1caperiodo };
+            FieldDef arrayf[] = {m1cadominio,m1canif,m1cadeclarac,m1caejercicio,m1caperiodo,m1canreg };
             setPrimaryKeys(arrayf);
             m1canacadhijc.setDescription("Hijos nacidos o adoptados en 2020 que dan derecho a la deduccion (Comunes) C01CT1");
             m1canacadhijt.setDescription("Hijos nacidos o adoptados en 2020 que dan derecho a la deduccion (Titular) C02CT1");
@@ -20264,6 +20582,8 @@ public class CatModelo100 extends Catalog
         public FieldDef m1madeclarac;
         public FieldDef m1maejercicio;
         public FieldDef m1maperiodo;
+        public FieldDef m1manreg;
+        public FieldDef m1matitular;
         public FieldDef m1mahijcom20;
         public FieldDef m1mahijtit20;
         public FieldDef m1mahijconv20a;
@@ -20279,9 +20599,9 @@ public class CatModelo100 extends Catalog
         public FieldDef m1maprimentit;
         public FieldDef m1masegmencom;
         public FieldDef m1masegmentit;
+        public FieldDef m1matermentit;
         public FieldDef m1matermencom;
         public FieldDef m1atermentit;
-        public FieldDef m1matermentit;
         public FieldDef m1maacogi;
         public FieldDef m1manumperscom;
         public FieldDef m1manumperstit;
@@ -20324,10 +20644,10 @@ public class CatModelo100 extends Catalog
         public FieldDef m1magvestesc6;
         public FieldDef m1maconviven6;
         public FieldDef m1manumiembro;
+        public FieldDef m1macantsasl;
         public FieldDef m1maderereduc1;
         public FieldDef m1manifent1;
         public FieldDef m1macantsas1;
-        public FieldDef m1macantsasl;
         public FieldDef m1macantsas2;
         public FieldDef m1macantsas3;
         public FieldDef m1manifent2;
@@ -20355,6 +20675,8 @@ public class CatModelo100 extends Catalog
             m1madeclarac = new FieldDef("m1madeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
             m1maejercicio = new FieldDef("m1maejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             m1maperiodo = new FieldDef("m1maperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1manreg = new FieldDef("m1manreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1matitular = new FieldDef("m1matitular",FieldDef.INTEGER,0);
             m1mahijcom20 = new FieldDef("m1mahijcom20",FieldDef.FLOAT,6,0);
             m1mahijtit20 = new FieldDef("m1mahijtit20",FieldDef.FLOAT,6,0);
             m1mahijconv20a = new FieldDef("m1mahijconv20a",FieldDef.CHAR,2);
@@ -20370,9 +20692,9 @@ public class CatModelo100 extends Catalog
             m1maprimentit = new FieldDef("m1maprimentit",FieldDef.FLOAT,6,0);
             m1masegmencom = new FieldDef("m1masegmencom",FieldDef.FLOAT,6,0);
             m1masegmentit = new FieldDef("m1masegmentit",FieldDef.FLOAT,6,0);
+            m1matermentit = new FieldDef("m1matermentit",FieldDef.FLOAT,6,0);
             m1matermencom = new FieldDef("m1matermencom",FieldDef.FLOAT,6,0);
             m1atermentit = new FieldDef("m1atermentit",FieldDef.FLOAT,6,0);
-            m1matermentit = new FieldDef("m1matermentit",FieldDef.FLOAT,6,0);
             m1maacogi = new FieldDef("m1maacogi",FieldDef.CHAR,2);
             m1manumperscom = new FieldDef("m1manumperscom",FieldDef.FLOAT,6,0);
             m1manumperstit = new FieldDef("m1manumperstit",FieldDef.FLOAT,6,0);
@@ -20415,10 +20737,10 @@ public class CatModelo100 extends Catalog
             m1magvestesc6 = new FieldDef("m1magvestesc6",FieldDef.FLOAT,6,0);
             m1maconviven6 = new FieldDef("m1maconviven6",FieldDef.CHAR,2);
             m1manumiembro = new FieldDef("m1manumiembro",FieldDef.INTEGER,0);
+            m1macantsasl = new FieldDef("m1macantsasl",FieldDef.FLOAT,6,0);
             m1maderereduc1 = new FieldDef("m1maderereduc1",FieldDef.INTEGER,0);
             m1manifent1 = new FieldDef("m1manifent1",FieldDef.CHAR,10);
             m1macantsas1 = new FieldDef("m1macantsas1",FieldDef.FLOAT,6,0);
-            m1macantsasl = new FieldDef("m1macantsasl",FieldDef.FLOAT,6,0);
             m1macantsas2 = new FieldDef("m1macantsas2",FieldDef.FLOAT,6,0);
             m1macantsas3 = new FieldDef("m1macantsas3",FieldDef.FLOAT,6,0);
             m1manifent2 = new FieldDef("m1manifent2",FieldDef.CHAR,10);
@@ -20444,6 +20766,8 @@ public class CatModelo100 extends Catalog
                 m1madeclarac,
                 m1maejercicio,
                 m1maperiodo,
+                m1manreg,
+                m1matitular,
                 m1mahijcom20,
                 m1mahijtit20,
                 m1mahijconv20a,
@@ -20459,9 +20783,9 @@ public class CatModelo100 extends Catalog
                 m1maprimentit,
                 m1masegmencom,
                 m1masegmentit,
+                m1matermentit,
                 m1matermencom,
                 m1atermentit,
-                m1matermentit,
                 m1maacogi,
                 m1manumperscom,
                 m1manumperstit,
@@ -20504,10 +20828,10 @@ public class CatModelo100 extends Catalog
                 m1magvestesc6,
                 m1maconviven6,
                 m1manumiembro,
+                m1macantsasl,
                 m1maderereduc1,
                 m1manifent1,
                 m1macantsas1,
-                m1macantsasl,
                 m1macantsas2,
                 m1macantsas3,
                 m1manifent2,
@@ -20529,7 +20853,7 @@ public class CatModelo100 extends Catalog
                 m1mamiembruf                
                 };
             setColumns(array);
-            FieldDef arrayf[] = {m1madominio,m1manif,m1madeclarac,m1maejercicio,m1maperiodo };
+            FieldDef arrayf[] = {m1madominio,m1manif,m1madeclarac,m1maejercicio,m1maperiodo,m1manreg };
             setPrimaryKeys(arrayf);
             m1madeclarac.setDescription("Tipo declaraciion [C]onjunta, [D]eclarante");
             m1mahijcom20.setDescription("Hijos Nacidos o adoptados en 2020 comunes -- COM1M1");
@@ -20547,9 +20871,9 @@ public class CatModelo100 extends Catalog
             m1maprimentit.setDescription("Primer menor en acogimiento familiar del titular --DEC1M3");
             m1masegmencom.setDescription("Segundor menor en acogimiento familiar comun --COM2M3");
             m1masegmentit.setDescription("Segundo menor en acogimiento familiar del titular --DEC2M3");
+            m1matermentit.setDescription("Tercer menor en acogimiento familiar del titular --DEC3M3");
             m1matermencom.setDescription("Tercer menor en acogimiento familiar comun --COM3M3");
             m1atermentit.setDescription("Tercer menor en acogimiento familiar del titular --DEC3M3");
-            m1matermentit.setDescription("Tercer menor en acogimiento familiar del titular --DEC3M3");
             m1maacogi.setDescription("El acogimiento familiar realizado por un matrimonio o unión (SI/NO) -- CONVM3");
             m1manumperscom.setDescription("Numero de personas con derecho a la deducción común --C01M4");
             m1manumperstit.setDescription("Numero de personas con derecho a la deducción del titular --CO2M4");
@@ -20592,10 +20916,10 @@ public class CatModelo100 extends Catalog
             m1magvestesc6.setDescription("Gastos de vestuario escolar hijo 6 --IMP6CM8");
             m1maconviven6.setDescription("Si el hijo 6 convive con ambos padres --CONV6N8");
             m1manumiembro.setDescription("Numero de miembros de la unidad familiar --NUMEROM8");
+            m1macantsasl.setDescription("Cantidades invertidas en SA o SL 1 --IMP11M11");
             m1maderereduc1.setDescription("Si tiene derecho a a aplicar la reduccion2 --DECM10");
             m1manifent1.setDescription("NIF entidad 1 --NIF1M11");
             m1macantsas1.setDescription("Cantidades invertidas en SA o SL 1 --IMP11M11");
-            m1macantsasl.setDescription("Cantidades invertidas en SA o SL 1 --IMP11M11");
             m1macantsas2.setDescription("Cantidades invertidas en SA o SL 2 --IMP21M11");
             m1macantsas3.setDescription("Cantidades invertidas en SA o SL 3 --IMP31M11");
             m1manifent2.setDescription("NIF entidad 2 --NIF2M11");
@@ -20626,6 +20950,8 @@ public class CatModelo100 extends Catalog
         public FieldDef m1ibdeclarac;
         public FieldDef m1ibejercicio;
         public FieldDef m1ibperiodo;
+        public FieldDef m1ibnreg;
+        public FieldDef m1ibtitular;
         public FieldDef m1ibinvvivih;
         public FieldDef m1ibadlibimp;
         public FieldDef m1ibadlibnuc;
@@ -20704,6 +21030,8 @@ public class CatModelo100 extends Catalog
             m1ibdeclarac = new FieldDef("m1ibdeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
             m1ibejercicio = new FieldDef("m1ibejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             m1ibperiodo = new FieldDef("m1ibperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1ibnreg = new FieldDef("m1ibnreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1ibtitular = new FieldDef("m1ibtitular",FieldDef.INTEGER,0);
             m1ibinvvivih = new FieldDef("m1ibinvvivih",FieldDef.FLOAT,6,0);
             m1ibadlibimp = new FieldDef("m1ibadlibimp",FieldDef.FLOAT,6,0);
             m1ibadlibnuc = new FieldDef("m1ibadlibnuc",FieldDef.INTEGER,0);
@@ -20780,6 +21108,8 @@ public class CatModelo100 extends Catalog
                 m1ibdeclarac,
                 m1ibejercicio,
                 m1ibperiodo,
+                m1ibnreg,
+                m1ibtitular,
                 m1ibinvvivih,
                 m1ibadlibimp,
                 m1ibadlibnuc,
@@ -20852,7 +21182,7 @@ public class CatModelo100 extends Catalog
                 m1ibdedemerg                
                 };
             setColumns(array);
-            FieldDef arrayf[] = {m1ibdominio,m1ibnif,m1ibdeclarac,m1ibejercicio,m1ibperiodo };
+            FieldDef arrayf[] = {m1ibdominio,m1ibnif,m1ibdeclarac,m1ibejercicio,m1ibperiodo,m1ibnreg };
             setPrimaryKeys(arrayf);
             m1ibinvvivih.setDescription("Importe inversión mejora sostenibilidad vivienda habitual IMPIB1");
             m1ibadlibimp.setDescription("Importe adquisición libros de texto IMP1IB2");
@@ -20935,6 +21265,8 @@ public class CatModelo100 extends Catalog
         public FieldDef m1cmdeclarac;
         public FieldDef m1cmejercicio;
         public FieldDef m1cmperiodo;
+        public FieldDef m1cmnreg;
+        public FieldDef m1cmtitular;
         public FieldDef m1cmconresid;
         public FieldDef m1cmascnomb1;
         public FieldDef m1cmascdedu1;
@@ -20984,6 +21316,8 @@ public class CatModelo100 extends Catalog
             m1cmdeclarac = new FieldDef("m1cmdeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
             m1cmejercicio = new FieldDef("m1cmejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             m1cmperiodo = new FieldDef("m1cmperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1cmnreg = new FieldDef("m1cmnreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1cmtitular = new FieldDef("m1cmtitular",FieldDef.INTEGER,0);
             m1cmconresid = new FieldDef("m1cmconresid",FieldDef.INTEGER,0);
             m1cmascnomb1 = new FieldDef("m1cmascnomb1",FieldDef.CHAR,48);
             m1cmascdedu1 = new FieldDef("m1cmascdedu1",FieldDef.INTEGER,0);
@@ -21031,6 +21365,8 @@ public class CatModelo100 extends Catalog
                 m1cmdeclarac,
                 m1cmejercicio,
                 m1cmperiodo,
+                m1cmnreg,
+                m1cmtitular,
                 m1cmconresid,
                 m1cmascnomb1,
                 m1cmascdedu1,
@@ -21074,7 +21410,7 @@ public class CatModelo100 extends Catalog
                 m1cmdonculdo                
                 };
             setColumns(array);
-            FieldDef arrayf[] = {m1cmdominio,m1cmnif,m1cmdeclarac,m1cmejercicio,m1cmperiodo };
+            FieldDef arrayf[] = {m1cmdominio,m1cmnif,m1cmdeclarac,m1cmejercicio,m1cmperiodo,m1cmnreg };
             setPrimaryKeys(arrayf);
             m1cmconresid.setDescription("Contribuyente mayor de 75 años que no ha residido más de 30 días en una residencia");
             m1cmascnomb1.setDescription("Ascendientes mayores de 75 años, nombre ascendiente 1");
@@ -21206,134 +21542,4748 @@ public class CatModelo100 extends Catalog
             }
         }
         
-    public class TabMod100dedmatern extends TableDef
+    public class TabMod100cleon extends TableDef
         {
         // campos
-        public FieldDef m1mtdominio;
-        public FieldDef m1mtnif;
-        public FieldDef m1mtdeclarac;
-        public FieldDef m1mtejercicio;
-        public FieldDef m1mtperiodo;
-        public FieldDef m1mttodos;
-        public FieldDef m1mtcotenero;
-        public FieldDef m1mtcotfebrero;
-        public FieldDef m1mtcotmarzo;
-        public FieldDef m1mtcotabril;
-        public FieldDef m1mtcotmayo;
-        public FieldDef m1mtcotjunio;
-        public FieldDef m1mtcotjulio;
-        public FieldDef m1mtcotagosto;
-        public FieldDef m1mtcotseptiemb;
-        public FieldDef m1mtcotoctubre;
-        public FieldDef m1mtcotnoviembr;
-        public FieldDef m1mtcotdiciembr;
-        public FieldDef m1mtenero;
-        public FieldDef m1mtfebrero;
-        public FieldDef m1mtmarzo;
-        public FieldDef m1mtabril;
-        public FieldDef m1mtmayo;
-        public FieldDef m1mtjunio;
-        public FieldDef m1mtjulio;
-        public FieldDef m1mtagosto;
-        public FieldDef m1mtseptiembr;
-        public FieldDef m1mtoctubre;
-        public FieldDef m1mtnoviembre;
-        public FieldDef m1mtdiciembre;
-        public TabMod100dedmatern(String name)
+        public FieldDef m1cldominio;
+        public FieldDef m1clnif;
+        public FieldDef m1cldeclarac;
+        public FieldDef m1clejercicio;
+        public FieldDef m1clperiodo;
+        public FieldDef m1clnreg;
+        public FieldDef m1cltitular;
+        public FieldDef m1cldisnousr;
+        public FieldDef m1cldihijcom;
+        public FieldDef m1cldihijtit;
+        public FieldDef m1climpvivjov;
+        public FieldDef m1cldonfunpat;
+        public FieldDef m1cldoninvdes;
+        public FieldDef m1clinvrecpat;
+        public FieldDef m1clmovimpsat;
+        public FieldDef m1clnummatvei;
+        public FieldDef m1clalqimpsat1;
+        public FieldDef m1clalqimpsat2;
+        public FieldDef m1clalqpoblac1;
+        public FieldDef m1clalqpoblac2;
+        public FieldDef m1clalqnifarr1;
+        public FieldDef m1clalqnifarr2;
+        public FieldDef m1clalqnidarr1;
+        public FieldDef m1clalqnidarr2;
+        public FieldDef m1clinvmeddisc;
+        public FieldDef m1cladqnconimp;
+        public FieldDef m1cladqnconfec;
+        public FieldDef m1cladqnconeje;
+        public FieldDef m1clfempreimp1;
+        public FieldDef m1clfempreimp2;
+        public FieldDef m1clfemprenif1;
+        public FieldDef m1clfemprenif2;
+        public FieldDef m1clinvrehvimp;
+        public FieldDef m1clautdeduc17;
+        public FieldDef m1clautdeduc18;
+        public FieldDef m1clautdeduc19;
+        public FieldDef m1clfamnumcom;
+        public FieldDef m1clfamnumtit;
+        public FieldDef m1clfamnumnum;
+        public FieldDef m1clnacadoord;
+        public FieldDef m1clnacadonord;
+        public FieldDef m1clnacadomun;
+        public FieldDef m1clnacadodisc;
+        public FieldDef m1clmultpara20;
+        public FieldDef m1clmultpard20;
+        public FieldDef m1clmultpard19;
+        public FieldDef m1clmultparhij;
+        public FieldDef m1clmultparnum;
+        public FieldDef m1clmultparimp;
+        public FieldDef m1clmultpari19;
+        public FieldDef m1clmultp18req;
+        public FieldDef m1clmultp18tit;
+        public FieldDef m1clmultp18dos;
+        public FieldDef m1clmultp19req;
+        public FieldDef m1clmultp19tit;
+        public FieldDef m1clmultp19dos;
+        public FieldDef m1clcuimenemph;
+        public FieldDef m1clcuimensubh;
+        public FieldDef m1clcuimennifh;
+        public FieldDef m1clcuimenescu;
+        public FieldDef m1clcuimensube;
+        public FieldDef m1clcuimennife;
+        public FieldDef m1clpatder;
+        public FieldDef m1clpatnumsem;
+        public FieldDef m1cladonac20c;
+        public FieldDef m1cladonac20t;
+        public FieldDef m1cladonac20n;
+        public FieldDef m1cladoint20c;
+        public FieldDef m1cladoint20t;
+        public FieldDef m1cladoint20n;
+        public FieldDef m1clssehimp;
+        public FieldDef m1clssehnif;
+        public TabMod100cleon(String name)
             {
             super(name);
-            m1mtdominio = new FieldDef("m1mtdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
-            m1mtnif = new FieldDef("m1mtnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
-            m1mtdeclarac = new FieldDef("m1mtdeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
-            m1mtejercicio = new FieldDef("m1mtejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-            m1mtperiodo = new FieldDef("m1mtperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
-            m1mttodos = new FieldDef("m1mttodos",FieldDef.CHAR,1);
-            m1mtcotenero = new FieldDef("m1mtcotenero",FieldDef.FLOAT,6,0);
-            m1mtcotfebrero = new FieldDef("m1mtcotfebrero",FieldDef.FLOAT,6,0);
-            m1mtcotmarzo = new FieldDef("m1mtcotmarzo",FieldDef.FLOAT,6,0);
-            m1mtcotabril = new FieldDef("m1mtcotabril",FieldDef.FLOAT,6,0);
-            m1mtcotmayo = new FieldDef("m1mtcotmayo",FieldDef.FLOAT,6,0);
-            m1mtcotjunio = new FieldDef("m1mtcotjunio",FieldDef.FLOAT,6,0);
-            m1mtcotjulio = new FieldDef("m1mtcotjulio",FieldDef.FLOAT,6,0);
-            m1mtcotagosto = new FieldDef("m1mtcotagosto",FieldDef.FLOAT,6,0);
-            m1mtcotseptiemb = new FieldDef("m1mtcotseptiemb",FieldDef.FLOAT,6,0);
-            m1mtcotoctubre = new FieldDef("m1mtcotoctubre",FieldDef.FLOAT,6,0);
-            m1mtcotnoviembr = new FieldDef("m1mtcotnoviembr",FieldDef.FLOAT,6,0);
-            m1mtcotdiciembr = new FieldDef("m1mtcotdiciembr",FieldDef.FLOAT,6,0);
-            m1mtenero = new FieldDef("m1mtenero",FieldDef.CHAR,1);
-            m1mtfebrero = new FieldDef("m1mtfebrero",FieldDef.CHAR,1);
-            m1mtmarzo = new FieldDef("m1mtmarzo",FieldDef.CHAR,1);
-            m1mtabril = new FieldDef("m1mtabril",FieldDef.CHAR,1);
-            m1mtmayo = new FieldDef("m1mtmayo",FieldDef.CHAR,1);
-            m1mtjunio = new FieldDef("m1mtjunio",FieldDef.CHAR,1);
-            m1mtjulio = new FieldDef("m1mtjulio",FieldDef.CHAR,1);
-            m1mtagosto = new FieldDef("m1mtagosto",FieldDef.CHAR,1);
-            m1mtseptiembr = new FieldDef("m1mtseptiembr",FieldDef.CHAR,1);
-            m1mtoctubre = new FieldDef("m1mtoctubre",FieldDef.CHAR,1);
-            m1mtnoviembre = new FieldDef("m1mtnoviembre",FieldDef.CHAR,1);
-            m1mtdiciembre = new FieldDef("m1mtdiciembre",FieldDef.CHAR,1);
+            m1cldominio = new FieldDef("m1cldominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m1clnif = new FieldDef("m1clnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m1cldeclarac = new FieldDef("m1cldeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+            m1clejercicio = new FieldDef("m1clejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1clperiodo = new FieldDef("m1clperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1clnreg = new FieldDef("m1clnreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1cltitular = new FieldDef("m1cltitular",FieldDef.INTEGER,0);
+            m1cldisnousr = new FieldDef("m1cldisnousr",FieldDef.INTEGER,0);
+            m1cldihijcom = new FieldDef("m1cldihijcom",FieldDef.INTEGER,0);
+            m1cldihijtit = new FieldDef("m1cldihijtit",FieldDef.INTEGER,0);
+            m1climpvivjov = new FieldDef("m1climpvivjov",FieldDef.FLOAT,6,0);
+            m1cldonfunpat = new FieldDef("m1cldonfunpat",FieldDef.FLOAT,6,0);
+            m1cldoninvdes = new FieldDef("m1cldoninvdes",FieldDef.FLOAT,6,0);
+            m1clinvrecpat = new FieldDef("m1clinvrecpat",FieldDef.FLOAT,6,0);
+            m1clmovimpsat = new FieldDef("m1clmovimpsat",FieldDef.FLOAT,6,0);
+            m1clnummatvei = new FieldDef("m1clnummatvei",FieldDef.CHAR,10);
+            m1clalqimpsat1 = new FieldDef("m1clalqimpsat1",FieldDef.FLOAT,6,0);
+            m1clalqimpsat2 = new FieldDef("m1clalqimpsat2",FieldDef.FLOAT,6,0);
+            m1clalqpoblac1 = new FieldDef("m1clalqpoblac1",FieldDef.INTEGER,0);
+            m1clalqpoblac2 = new FieldDef("m1clalqpoblac2",FieldDef.INTEGER,0);
+            m1clalqnifarr1 = new FieldDef("m1clalqnifarr1",FieldDef.CHAR,10);
+            m1clalqnifarr2 = new FieldDef("m1clalqnifarr2",FieldDef.CHAR,10);
+            m1clalqnidarr1 = new FieldDef("m1clalqnidarr1",FieldDef.CHAR,20);
+            m1clalqnidarr2 = new FieldDef("m1clalqnidarr2",FieldDef.CHAR,20);
+            m1clinvmeddisc = new FieldDef("m1clinvmeddisc",FieldDef.FLOAT,6,0);
+            m1cladqnconimp = new FieldDef("m1cladqnconimp",FieldDef.FLOAT,6,0);
+            m1cladqnconfec = new FieldDef("m1cladqnconfec",FieldDef.DATE);
+            m1cladqnconeje = new FieldDef("m1cladqnconeje",FieldDef.INTEGER,0);
+            m1clfempreimp1 = new FieldDef("m1clfempreimp1",FieldDef.FLOAT,6,0);
+            m1clfempreimp2 = new FieldDef("m1clfempreimp2",FieldDef.FLOAT,6,0);
+            m1clfemprenif1 = new FieldDef("m1clfemprenif1",FieldDef.CHAR,10);
+            m1clfemprenif2 = new FieldDef("m1clfemprenif2",FieldDef.CHAR,10);
+            m1clinvrehvimp = new FieldDef("m1clinvrehvimp",FieldDef.FLOAT,6,0);
+            m1clautdeduc17 = new FieldDef("m1clautdeduc17",FieldDef.FLOAT,6,0);
+            m1clautdeduc18 = new FieldDef("m1clautdeduc18",FieldDef.FLOAT,6,0);
+            m1clautdeduc19 = new FieldDef("m1clautdeduc19",FieldDef.FLOAT,6,0);
+            m1clfamnumcom = new FieldDef("m1clfamnumcom",FieldDef.CHAR,2);
+            m1clfamnumtit = new FieldDef("m1clfamnumtit",FieldDef.CHAR,2);
+            m1clfamnumnum = new FieldDef("m1clfamnumnum",FieldDef.INTEGER,0);
+            m1clnacadoord = new FieldDef("m1clnacadoord",FieldDef.INTEGER,0);
+            m1clnacadonord = new FieldDef("m1clnacadonord",FieldDef.INTEGER,0);
+            m1clnacadomun = new FieldDef("m1clnacadomun",FieldDef.INTEGER,0);
+            m1clnacadodisc = new FieldDef("m1clnacadodisc",FieldDef.FLOAT,6,0);
+            m1clmultpara20 = new FieldDef("m1clmultpara20",FieldDef.FLOAT,6,0);
+            m1clmultpard20 = new FieldDef("m1clmultpard20",FieldDef.FLOAT,6,0);
+            m1clmultpard19 = new FieldDef("m1clmultpard19",FieldDef.FLOAT,6,0);
+            m1clmultparhij = new FieldDef("m1clmultparhij",FieldDef.INTEGER,0);
+            m1clmultparnum = new FieldDef("m1clmultparnum",FieldDef.FLOAT,6,0);
+            m1clmultparimp = new FieldDef("m1clmultparimp",FieldDef.FLOAT,6,0);
+            m1clmultpari19 = new FieldDef("m1clmultpari19",FieldDef.FLOAT,6,0);
+            m1clmultp18req = new FieldDef("m1clmultp18req",FieldDef.INTEGER,0);
+            m1clmultp18tit = new FieldDef("m1clmultp18tit",FieldDef.INTEGER,0);
+            m1clmultp18dos = new FieldDef("m1clmultp18dos",FieldDef.INTEGER,0);
+            m1clmultp19req = new FieldDef("m1clmultp19req",FieldDef.INTEGER,0);
+            m1clmultp19tit = new FieldDef("m1clmultp19tit",FieldDef.INTEGER,0);
+            m1clmultp19dos = new FieldDef("m1clmultp19dos",FieldDef.INTEGER,0);
+            m1clcuimenemph = new FieldDef("m1clcuimenemph",FieldDef.FLOAT,6,0);
+            m1clcuimensubh = new FieldDef("m1clcuimensubh",FieldDef.FLOAT,6,0);
+            m1clcuimennifh = new FieldDef("m1clcuimennifh",FieldDef.CHAR,10);
+            m1clcuimenescu = new FieldDef("m1clcuimenescu",FieldDef.FLOAT,6,0);
+            m1clcuimensube = new FieldDef("m1clcuimensube",FieldDef.FLOAT,6,0);
+            m1clcuimennife = new FieldDef("m1clcuimennife",FieldDef.CHAR,10);
+            m1clpatder = new FieldDef("m1clpatder",FieldDef.INTEGER,0);
+            m1clpatnumsem = new FieldDef("m1clpatnumsem",FieldDef.INTEGER,0);
+            m1cladonac20c = new FieldDef("m1cladonac20c",FieldDef.FLOAT,6,0);
+            m1cladonac20t = new FieldDef("m1cladonac20t",FieldDef.FLOAT,6,0);
+            m1cladonac20n = new FieldDef("m1cladonac20n",FieldDef.INTEGER,0);
+            m1cladoint20c = new FieldDef("m1cladoint20c",FieldDef.FLOAT,6,0);
+            m1cladoint20t = new FieldDef("m1cladoint20t",FieldDef.FLOAT,6,0);
+            m1cladoint20n = new FieldDef("m1cladoint20n",FieldDef.INTEGER,0);
+            m1clssehimp = new FieldDef("m1clssehimp",FieldDef.FLOAT,6,0);
+            m1clssehnif = new FieldDef("m1clssehnif",FieldDef.CHAR,10);
             FieldDef array[] = {
-                m1mtdominio,
-                m1mtnif,
-                m1mtdeclarac,
-                m1mtejercicio,
-                m1mtperiodo,
-                m1mttodos,
-                m1mtcotenero,
-                m1mtcotfebrero,
-                m1mtcotmarzo,
-                m1mtcotabril,
-                m1mtcotmayo,
-                m1mtcotjunio,
-                m1mtcotjulio,
-                m1mtcotagosto,
-                m1mtcotseptiemb,
-                m1mtcotoctubre,
-                m1mtcotnoviembr,
-                m1mtcotdiciembr,
-                m1mtenero,
-                m1mtfebrero,
-                m1mtmarzo,
-                m1mtabril,
-                m1mtmayo,
-                m1mtjunio,
-                m1mtjulio,
-                m1mtagosto,
-                m1mtseptiembr,
-                m1mtoctubre,
-                m1mtnoviembre,
-                m1mtdiciembre                
+                m1cldominio,
+                m1clnif,
+                m1cldeclarac,
+                m1clejercicio,
+                m1clperiodo,
+                m1clnreg,
+                m1cltitular,
+                m1cldisnousr,
+                m1cldihijcom,
+                m1cldihijtit,
+                m1climpvivjov,
+                m1cldonfunpat,
+                m1cldoninvdes,
+                m1clinvrecpat,
+                m1clmovimpsat,
+                m1clnummatvei,
+                m1clalqimpsat1,
+                m1clalqimpsat2,
+                m1clalqpoblac1,
+                m1clalqpoblac2,
+                m1clalqnifarr1,
+                m1clalqnifarr2,
+                m1clalqnidarr1,
+                m1clalqnidarr2,
+                m1clinvmeddisc,
+                m1cladqnconimp,
+                m1cladqnconfec,
+                m1cladqnconeje,
+                m1clfempreimp1,
+                m1clfempreimp2,
+                m1clfemprenif1,
+                m1clfemprenif2,
+                m1clinvrehvimp,
+                m1clautdeduc17,
+                m1clautdeduc18,
+                m1clautdeduc19,
+                m1clfamnumcom,
+                m1clfamnumtit,
+                m1clfamnumnum,
+                m1clnacadoord,
+                m1clnacadonord,
+                m1clnacadomun,
+                m1clnacadodisc,
+                m1clmultpara20,
+                m1clmultpard20,
+                m1clmultpard19,
+                m1clmultparhij,
+                m1clmultparnum,
+                m1clmultparimp,
+                m1clmultpari19,
+                m1clmultp18req,
+                m1clmultp18tit,
+                m1clmultp18dos,
+                m1clmultp19req,
+                m1clmultp19tit,
+                m1clmultp19dos,
+                m1clcuimenemph,
+                m1clcuimensubh,
+                m1clcuimennifh,
+                m1clcuimenescu,
+                m1clcuimensube,
+                m1clcuimennife,
+                m1clpatder,
+                m1clpatnumsem,
+                m1cladonac20c,
+                m1cladonac20t,
+                m1cladonac20n,
+                m1cladoint20c,
+                m1cladoint20t,
+                m1cladoint20n,
+                m1clssehimp,
+                m1clssehnif                
                 };
             setColumns(array);
-            FieldDef arrayf[] = {m1mtdominio,m1mtnif,m1mtdeclarac,m1mtejercicio,m1mtperiodo };
-            setDescription("Datos adicionales maternidad");
+            FieldDef arrayf[] = {m1cldominio,m1clnif,m1cldeclarac,m1clejercicio,m1clperiodo,m1clnreg };
             setPrimaryKeys(arrayf);
-            m1mtdeclarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
-            m1mttodos.setDescription("Cotiza todos meses");
-            m1mtcotenero.setDescription("Cotizacion Enero");
-            m1mtcotfebrero.setDescription("Cotizacion Febrero");
-            m1mtcotmarzo.setDescription("Cotizacion Marzo");
-            m1mtcotabril.setDescription("Cotizacion Abril");
-            m1mtcotmayo.setDescription("Cotizacion Mayo");
-            m1mtcotjunio.setDescription("Cotizacion Junio");
-            m1mtcotjulio.setDescription("Cotizacion Jullio");
-            m1mtcotagosto.setDescription("Cotizacion Agosto");
-            m1mtcotseptiemb.setDescription("Cotizacion Septiembre");
-            m1mtcotoctubre.setDescription("Cotizacion Octubre");
-            m1mtcotnoviembr.setDescription("Cotizacion Noviembre");
-            m1mtcotdiciembr.setDescription("Cotizacion Diciembre");
-            m1mtenero.setDescription("Ejerce actividad o trabaja en Enero");
-            m1mtfebrero.setDescription("Ejerce actividad o trabaja en  Febrero");
-            m1mtmarzo.setDescription("Ejerce actividad o trabaja en  Marzo");
-            m1mtabril.setDescription("Ejerce actividad o trabaja en  Abril");
-            m1mtmayo.setDescription("Ejerce actividad o trabaja en  Mayo");
-            m1mtjunio.setDescription("Ejerce actividad o trabaja en  Junio");
-            m1mtjulio.setDescription("Ejerce actividad o trabaja en  Jullio");
-            m1mtagosto.setDescription("Ejerce actividad o trabaja en  Agosto");
-            m1mtseptiembr.setDescription("Ejerce actividad o trabaja en  Septiembre");
-            m1mtoctubre.setDescription("Ejerce actividad o trabaja en  Octubre");
-            m1mtnoviembre.setDescription("Ejerce actividad o trabaja en  Noviembre");
-            m1mtdiciembre.setDescription("Ejerce actividad o trabaja en  Diciembre");
+            m1cldeclarac.setDescription("Tipo declaraciion [C]onjunta, [D]eclarante");
+            m1clnreg.setDescription("Numero de Registro.");
+            m1cltitular.setDescription("Titular");
+            m1cldisnousr.setDescription("DECCL1 Si es persona con discapadidad y no es usuario de residencias públicas o concertadas en la CA.");
+            m1cldihijcom.setDescription("COMCL1 Hijos comunes integrantes de la unidad familiar bajo potestad con grado de discapacidad +65 sin rentas ni usuarios de residencias.");
+            m1cldihijtit.setDescription("TITCL1 Hijos del titular integrantes de la unidad familiar bajo potestad con grado de discapacidad +65 sin rentas ni usuarios de residencias.");
+            m1climpvivjov.setDescription("IMPCL2 Importe satisfecho de la adquisición de una vivienda habitual para jóvenes.");
+            m1cldonfunpat.setDescription("IMPCL3 Donaciones a fundaciones y para la recuperación del patrimonio historico, cultural, natural.");
+            m1cldoninvdes.setDescription("IMPCL31 Fomento de la investigación, el desarrolla y la inovación.");
+            m1clinvrecpat.setDescription("IMPCL4 Inversión en la recuperación del patrimonio historico, cultural y natural.");
+            m1clmovimpsat.setDescription("IMPCL19 Importe satisfecho con derecho a deducción.");
+            m1clnummatvei.setDescription("MATCL19 Número de matrícula del vehículo.");
+            m1clalqimpsat1.setDescription("IMP1CL5 Importes Satisfecho Alquiler VH 1.");
+            m1clalqimpsat2.setDescription("IMP2CL5 Importes Satisfecho Alquiler VH 2.");
+            m1clalqpoblac1.setDescription("MR1CL5 Población alquiler VH 1.");
+            m1clalqpoblac2.setDescription("MR2CL5 Población alquiler VH 2.");
+            m1clalqnifarr1.setDescription("NIF1CL5 NIF arrendador 1.");
+            m1clalqnifarr2.setDescription("NIF2CL5 NIF arrendador 2.");
+            m1clalqnidarr1.setDescription("VNONIF1CL5 Nº Identificación del arrendador en su pais de residencia fuera de España 1.");
+            m1clalqnidarr2.setDescription("VNONIF2CL5 Nº Identificación del arrendador en su pais de residencia fuera de España 2.");
+            m1clinvmeddisc.setDescription("IMPCL6 Importe de inversión de instalaciones meidomabientales y de adaptación a discapacitados.");
+            m1cladqnconimp.setDescription("IMPCL20 Importe por la adquisición de una VH de nueva construcción.");
+            m1cladqnconfec.setDescription("FECHACL20 Fecha del visado del proyecto de ejecución de la vivienta.");
+            m1cladqnconeje.setDescription("EJERCICIOCL20 Ejercicio en el que se ha satisfecho la primera cantidad de la adquisición.");
+            m1clfempreimp1.setDescription("IMP1CL17 Fomento del emprendimiento importe entidad 1");
+            m1clfempreimp2.setDescription("IMP2CL17 Fomento del emprendimiento importe entidad 2");
+            m1clfemprenif1.setDescription("IMP1CL17 NIF Entidad 1");
+            m1clfemprenif2.setDescription("IMP1CL17 NIF Entidad 2");
+            m1clinvrehvimp.setDescription("IMPCL18 Importe satisfecho por la inversión i rehabilitación de viviendas destinadas al alquiler.");
+            m1clautdeduc17.setDescription("IMP1CL11EA Importe de deduciones autonómicas no aplicadas en 2017.");
+            m1clautdeduc18.setDescription("IMP2CL11EA Importe de deduciones autonómicas no aplicadas en 2018.");
+            m1clautdeduc19.setDescription("IMP3CL11EA Importe de deduciones autonómicas no aplicadas en 2019.");
+            m1clfamnumcom.setDescription("VF1CL11 Si son familia numerosa común. (S/N)");
+            m1clfamnumtit.setDescription("VF2CL11 Si son familia numerosa solo el titular. (S/N)");
+            m1clfamnumnum.setDescription("NUMCL11 Numero de personas con derecho a aplicar la reducción.");
+            m1clnacadoord.setDescription("ORDENCL12 Orden del primer hijo que da derecho a deducción.");
+            m1clnacadonord.setDescription("ORDENMCL12 Orden correcto del primer hijo que da derecho a deducción.");
+            m1clnacadomun.setDescription("HABCL12 Municipio en el que tiene el domicilio fiscal.");
+            m1clnacadodisc.setDescription("IMPCL12 Importe de la dedución por hijo discapacitado antes de los 5 años.");
+            m1clmultpara20.setDescription("DH2CL13 Importe de la dedución de 2020 de partos múltiples simultaneos.");
+            m1clmultpard20.setDescription("DH11BCL13 Importe de la dedudción de 2019 para los partos múltiples de ese año.");
+            m1clmultpard19.setDescription("DPM11BCL13 Deducción por  parto multiple aplicada en 2019 del parto de 2020.");
+            m1clmultparhij.setDescription("NUMPMCL13 Numero de hijos de parto o adopción múltiple en 12 meses.");
+            m1clmultparnum.setDescription("DH12BCL13 Importe de la dedución de 2020 de partos múltiples simultaneos en 12 meses.");
+            m1clmultparimp.setDescription("DH11BCL13 Importe de la dedudción de 2019 para los partos simultaneos en 12 meses.");
+            m1clmultpari19.setDescription("DPM11CL13 Deducción por  parto multiple aplicada en 2019 del parto de 2020 simultaneo en 12 meses.");
+            m1clmultp18req.setDescription("DEC1CL13B Si cumple los requisitos para parto multiple en 2018.");
+            m1clmultp18tit.setDescription("DEC2CL13B	Si los requisitos cumplidos solo se dieron al titular de la declaración de 2018.");
+            m1clmultp18dos.setDescription("DEC6CL13B Si tuvo 2 partos múltiples en 2018.");
+            m1clmultp19req.setDescription("DEC3CL13B Si cumple los requisitos para parto multiple en 2019");
+            m1clmultp19tit.setDescription("DEC5CL13B Si los requisitos cumplidos solo se dieron al titular de la declaración de 2019.");
+            m1clmultp19dos.setDescription("DEC4CL13B Si tuvo 2 partos múltiples en 2019.");
+            m1clcuimenemph.setDescription("VAL11CL14 Importe satisfecho por una persona empleada del hogar al cuidado de hijos menores.");
+            m1clcuimensubh.setDescription("VAL12CL14 Subvenciones percibidas por un epleado del hogar al cuidado de hijos menores");
+            m1clcuimennifh.setDescription("NIF1CL14 NIF de la persona empleada del hogar al cuidado de hijos menores.");
+            m1clcuimenescu.setDescription("VAL21CL14 Importe satisfecho por gastos en escuelas, centros y guarderies al cuidado de hijos menores.");
+            m1clcuimensube.setDescription("VAL22CL14 Subvenciones percibidas por gastos en escuelas, centros y guarderies al cuidado de hijos menores.");
+            m1clcuimennife.setDescription("NIF2CL14 NIF de la escuela, centro o guarderia al cuidado de hijos menores.");
+            m1clpatder.setDescription("DECCL15 Si tiene derecho a aplicar la reducción por paternidad.");
+            m1clpatnumsem.setDescription("NUMCL15 Semanas disfrutadas de paternidad, al no ser el màximo legal.");
+            m1cladonac20c.setDescription("COM1CL16 Numero de hijos adoptados nacionalmente en 2020 comunes.");
+            m1cladonac20t.setDescription("DEC1CL16 Numero de hijos adopptados nacionalmente en 2020 del titular.");
+            m1cladonac20n.setDescription("NUMCL16 Numero de personas con derecho a aplicar esta reducción nacional.");
+            m1cladoint20c.setDescription("COM2CL16 Numero de hijos adoptados internacionalmente en 2020 comunes.");
+            m1cladoint20t.setDescription("DEC2CL16 Numero de hijos adopptados internacionalmente en 2020 del titular.");
+            m1cladoint20n.setDescription("NUM2CL16 Numero de personas con derecho a aplicar esta reducción internacional.");
+            m1clssehimp.setDescription("IMPCL7 Importe satisfecho pro las cuotas de la SS de los empleados del hogar.");
+            m1clssehnif.setDescription("VNIFCL7 NIF persona empleada del hogar.");
+            }
+        }
+        
+    public class TabMod100canarias extends TableDef
+        {
+        // campos
+        public FieldDef m1cndominio;
+        public FieldDef m1cnnif;
+        public FieldDef m1cndeclarac;
+        public FieldDef m1cnejercicio;
+        public FieldDef m1cnperiodo;
+        public FieldDef m1cnnreg;
+        public FieldDef m1cntitular;
+        public FieldDef m1cndoneco;
+        public FieldDef m1cnpathist;
+        public FieldDef m1cnintcult;
+        public FieldDef m1cngasestco;
+        public FieldDef m1cngasestti;
+        public FieldDef m1cngasestnp;
+        public FieldDef m1cnresisla;
+        public FieldDef m1cndonvh1t;
+        public FieldDef m1cndonvh1i;
+        public FieldDef m1cndonvh2t;
+        public FieldDef m1cndonvh2i;
+        public FieldDef m1cndonvh3t;
+        public FieldDef m1cndonvh3i;
+        public FieldDef m1cnnac1hij12c;
+        public FieldDef m1cnnac1hij12t;
+        public FieldDef m1cnnac1hij3c;
+        public FieldDef m1cnnac1hij3t;
+        public FieldDef m1cnnac1hij4c;
+        public FieldDef m1cnnac1hij4t;
+        public FieldDef m1cnnac1hij5c;
+        public FieldDef m1cnnac1hij5t;
+        public FieldDef m1cnnac1hijnp;
+        public FieldDef m1cnnac2hij12c;
+        public FieldDef m1cnnac2hij12t;
+        public FieldDef m1cnnac2hij3c;
+        public FieldDef m1cnnac2hij3t;
+        public FieldDef m1cnnac2hijnp;
+        public FieldDef m1cngasguame1;
+        public FieldDef m1cngasguaim1;
+        public FieldDef m1cngasguame2;
+        public FieldDef m1cngasguaim2;
+        public FieldDef m1cngasguame3;
+        public FieldDef m1cngasguaim3;
+        public FieldDef m1cngasguanc;
+        public FieldDef m1cnfamnumgc;
+        public FieldDef m1cnfamnumgt;
+        public FieldDef m1cnfamnumec;
+        public FieldDef m1cnfamnumet;
+        public FieldDef m1cnfamnumnp;
+        public FieldDef m1cninvvivhab;
+        public FieldDef m1cnobrvivhab;
+        public FieldDef m1cnalqhab1imp;
+        public FieldDef m1cnalqhab2imp;
+        public FieldDef m1cnalqhab1nif;
+        public FieldDef m1cnalqhab2nif;
+        public FieldDef m1cnalqhab1ext;
+        public FieldDef m1cnalqhab2ext;
+        public FieldDef m1cnalqhab1ref;
+        public FieldDef m1cnalqhab2ref;
+        public FieldDef m1cnalqhab1nor;
+        public FieldDef m1cnalqhab2nor;
+        public FieldDef m1cnalqhabsubv;
+        public FieldDef m1cndesmpleado;
+        public FieldDef m1cndonadmpub;
+        public FieldDef m1cndonempcul;
+        public FieldDef m1cndonempcie;
+        public FieldDef m1cndonunipub;
+        public FieldDef m1cndonuniart;
+        public FieldDef m1cndonapocap;
+        public FieldDef m1cnlucromec1;
+        public FieldDef m1cnlucromec2;
+        public FieldDef m1cnestudioai1;
+        public FieldDef m1cnestudioai2;
+        public FieldDef m1cnestudioai3;
+        public FieldDef m1cnestudioai4;
+        public FieldDef m1cnestudioai5;
+        public FieldDef m1cnestudioai6;
+        public FieldDef m1cnestudiobi1;
+        public FieldDef m1cnestudiobi2;
+        public FieldDef m1cnestudiobi3;
+        public FieldDef m1cnestudiobi4;
+        public FieldDef m1cnestudiobi5;
+        public FieldDef m1cnestudiobi6;
+        public FieldDef m1cnestudiobn1;
+        public FieldDef m1cnestudiobn2;
+        public FieldDef m1cnestudiobn3;
+        public FieldDef m1cnestudiobn4;
+        public FieldDef m1cnestudiobn5;
+        public FieldDef m1cnestudiobn6;
+        public FieldDef m1cnacogmennmc;
+        public FieldDef m1cnacogmennmt;
+        public FieldDef m1cnacogmennc;
+        public FieldDef m1cnacogmendi1;
+        public FieldDef m1cnacogmennc1;
+        public FieldDef m1cnacogmendi2;
+        public FieldDef m1cnacogmennc2;
+        public FieldDef m1cnacogmendi3;
+        public FieldDef m1cnacogmennc3;
+        public FieldDef m1cnfammono;
+        public FieldDef m1cnvivhabreen;
+        public FieldDef m1cngasenfmed;
+        public FieldDef m1cngasenfapa;
+        public FieldDef m1cnfamdiscnpc;
+        public FieldDef m1cnfamdiscnpt;
+        public FieldDef m1cnfamdiscnp;
+        public FieldDef m1cnarrvihaimp;
+        public FieldDef m1cnarrvihanif;
+        public FieldDef m1cnarrvihaext;
+        public FieldDef m1cngasseg1imp;
+        public FieldDef m1cngasseg2imp;
+        public FieldDef m1cngasseg3imp;
+        public FieldDef m1cngasseg1nif;
+        public FieldDef m1cngasseg2nif;
+        public FieldDef m1cngasseg3nif;
+        public FieldDef m1cngasseg1ext;
+        public FieldDef m1cngasseg2ext;
+        public FieldDef m1cngasseg3ext;
+        public FieldDef m1cngasseg1ref;
+        public FieldDef m1cngasseg2ref;
+        public FieldDef m1cngasseg3ref;
+        public FieldDef m1cngasseg1nor;
+        public FieldDef m1cngasseg2nor;
+        public FieldDef m1cngasseg3nor;
+        public TabMod100canarias(String name)
+            {
+            super(name);
+            m1cndominio = new FieldDef("m1cndominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m1cnnif = new FieldDef("m1cnnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m1cndeclarac = new FieldDef("m1cndeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+            m1cnejercicio = new FieldDef("m1cnejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1cnperiodo = new FieldDef("m1cnperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1cnnreg = new FieldDef("m1cnnreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1cntitular = new FieldDef("m1cntitular",FieldDef.INTEGER,0);
+            m1cndoneco = new FieldDef("m1cndoneco",FieldDef.FLOAT,6,0);
+            m1cnpathist = new FieldDef("m1cnpathist",FieldDef.FLOAT,6,0);
+            m1cnintcult = new FieldDef("m1cnintcult",FieldDef.FLOAT,6,0);
+            m1cngasestco = new FieldDef("m1cngasestco",FieldDef.FLOAT,6,0);
+            m1cngasestti = new FieldDef("m1cngasestti",FieldDef.FLOAT,6,0);
+            m1cngasestnp = new FieldDef("m1cngasestnp",FieldDef.FLOAT,6,0);
+            m1cnresisla = new FieldDef("m1cnresisla",FieldDef.INTEGER,0);
+            m1cndonvh1t = new FieldDef("m1cndonvh1t",FieldDef.INTEGER,0);
+            m1cndonvh1i = new FieldDef("m1cndonvh1i",FieldDef.FLOAT,6,0);
+            m1cndonvh2t = new FieldDef("m1cndonvh2t",FieldDef.INTEGER,0);
+            m1cndonvh2i = new FieldDef("m1cndonvh2i",FieldDef.FLOAT,6,0);
+            m1cndonvh3t = new FieldDef("m1cndonvh3t",FieldDef.INTEGER,0);
+            m1cndonvh3i = new FieldDef("m1cndonvh3i",FieldDef.FLOAT,6,0);
+            m1cnnac1hij12c = new FieldDef("m1cnnac1hij12c",FieldDef.FLOAT,6,0);
+            m1cnnac1hij12t = new FieldDef("m1cnnac1hij12t",FieldDef.FLOAT,6,0);
+            m1cnnac1hij3c = new FieldDef("m1cnnac1hij3c",FieldDef.FLOAT,6,0);
+            m1cnnac1hij3t = new FieldDef("m1cnnac1hij3t",FieldDef.FLOAT,6,0);
+            m1cnnac1hij4c = new FieldDef("m1cnnac1hij4c",FieldDef.FLOAT,6,0);
+            m1cnnac1hij4t = new FieldDef("m1cnnac1hij4t",FieldDef.FLOAT,6,0);
+            m1cnnac1hij5c = new FieldDef("m1cnnac1hij5c",FieldDef.FLOAT,6,0);
+            m1cnnac1hij5t = new FieldDef("m1cnnac1hij5t",FieldDef.FLOAT,6,0);
+            m1cnnac1hijnp = new FieldDef("m1cnnac1hijnp",FieldDef.INTEGER,0);
+            m1cnnac2hij12c = new FieldDef("m1cnnac2hij12c",FieldDef.FLOAT,6,0);
+            m1cnnac2hij12t = new FieldDef("m1cnnac2hij12t",FieldDef.FLOAT,6,0);
+            m1cnnac2hij3c = new FieldDef("m1cnnac2hij3c",FieldDef.FLOAT,6,0);
+            m1cnnac2hij3t = new FieldDef("m1cnnac2hij3t",FieldDef.FLOAT,6,0);
+            m1cnnac2hijnp = new FieldDef("m1cnnac2hijnp",FieldDef.INTEGER,0);
+            m1cngasguame1 = new FieldDef("m1cngasguame1",FieldDef.INTEGER,0);
+            m1cngasguaim1 = new FieldDef("m1cngasguaim1",FieldDef.FLOAT,6,0);
+            m1cngasguame2 = new FieldDef("m1cngasguame2",FieldDef.INTEGER,0);
+            m1cngasguaim2 = new FieldDef("m1cngasguaim2",FieldDef.FLOAT,6,0);
+            m1cngasguame3 = new FieldDef("m1cngasguame3",FieldDef.INTEGER,0);
+            m1cngasguaim3 = new FieldDef("m1cngasguaim3",FieldDef.FLOAT,6,0);
+            m1cngasguanc = new FieldDef("m1cngasguanc",FieldDef.INTEGER,0);
+            m1cnfamnumgc = new FieldDef("m1cnfamnumgc",FieldDef.INTEGER,0);
+            m1cnfamnumgt = new FieldDef("m1cnfamnumgt",FieldDef.INTEGER,0);
+            m1cnfamnumec = new FieldDef("m1cnfamnumec",FieldDef.INTEGER,0);
+            m1cnfamnumet = new FieldDef("m1cnfamnumet",FieldDef.INTEGER,0);
+            m1cnfamnumnp = new FieldDef("m1cnfamnumnp",FieldDef.INTEGER,0);
+            m1cninvvivhab = new FieldDef("m1cninvvivhab",FieldDef.FLOAT,6,0);
+            m1cnobrvivhab = new FieldDef("m1cnobrvivhab",FieldDef.FLOAT,6,0);
+            m1cnalqhab1imp = new FieldDef("m1cnalqhab1imp",FieldDef.FLOAT,6,0);
+            m1cnalqhab2imp = new FieldDef("m1cnalqhab2imp",FieldDef.FLOAT,6,0);
+            m1cnalqhab1nif = new FieldDef("m1cnalqhab1nif",FieldDef.CHAR,20);
+            m1cnalqhab2nif = new FieldDef("m1cnalqhab2nif",FieldDef.CHAR,20);
+            m1cnalqhab1ext = new FieldDef("m1cnalqhab1ext",FieldDef.INTEGER,0);
+            m1cnalqhab2ext = new FieldDef("m1cnalqhab2ext",FieldDef.INTEGER,0);
+            m1cnalqhab1ref = new FieldDef("m1cnalqhab1ref",FieldDef.CHAR,20);
+            m1cnalqhab2ref = new FieldDef("m1cnalqhab2ref",FieldDef.CHAR,20);
+            m1cnalqhab1nor = new FieldDef("m1cnalqhab1nor",FieldDef.INTEGER,0);
+            m1cnalqhab2nor = new FieldDef("m1cnalqhab2nor",FieldDef.INTEGER,0);
+            m1cnalqhabsubv = new FieldDef("m1cnalqhabsubv",FieldDef.FLOAT,6,0);
+            m1cndesmpleado = new FieldDef("m1cndesmpleado",FieldDef.INTEGER,0);
+            m1cndonadmpub = new FieldDef("m1cndonadmpub",FieldDef.FLOAT,6,0);
+            m1cndonempcul = new FieldDef("m1cndonempcul",FieldDef.FLOAT,6,0);
+            m1cndonempcie = new FieldDef("m1cndonempcie",FieldDef.FLOAT,6,0);
+            m1cndonunipub = new FieldDef("m1cndonunipub",FieldDef.FLOAT,6,0);
+            m1cndonuniart = new FieldDef("m1cndonuniart",FieldDef.FLOAT,6,0);
+            m1cndonapocap = new FieldDef("m1cndonapocap",FieldDef.FLOAT,6,0);
+            m1cnlucromec1 = new FieldDef("m1cnlucromec1",FieldDef.FLOAT,6,0);
+            m1cnlucromec2 = new FieldDef("m1cnlucromec2",FieldDef.FLOAT,6,0);
+            m1cnestudioai1 = new FieldDef("m1cnestudioai1",FieldDef.FLOAT,6,0);
+            m1cnestudioai2 = new FieldDef("m1cnestudioai2",FieldDef.FLOAT,6,0);
+            m1cnestudioai3 = new FieldDef("m1cnestudioai3",FieldDef.FLOAT,6,0);
+            m1cnestudioai4 = new FieldDef("m1cnestudioai4",FieldDef.FLOAT,6,0);
+            m1cnestudioai5 = new FieldDef("m1cnestudioai5",FieldDef.FLOAT,6,0);
+            m1cnestudioai6 = new FieldDef("m1cnestudioai6",FieldDef.FLOAT,6,0);
+            m1cnestudiobi1 = new FieldDef("m1cnestudiobi1",FieldDef.FLOAT,6,0);
+            m1cnestudiobi2 = new FieldDef("m1cnestudiobi2",FieldDef.FLOAT,6,0);
+            m1cnestudiobi3 = new FieldDef("m1cnestudiobi3",FieldDef.FLOAT,6,0);
+            m1cnestudiobi4 = new FieldDef("m1cnestudiobi4",FieldDef.FLOAT,6,0);
+            m1cnestudiobi5 = new FieldDef("m1cnestudiobi5",FieldDef.FLOAT,6,0);
+            m1cnestudiobi6 = new FieldDef("m1cnestudiobi6",FieldDef.FLOAT,6,0);
+            m1cnestudiobn1 = new FieldDef("m1cnestudiobn1",FieldDef.FLOAT,6,0);
+            m1cnestudiobn2 = new FieldDef("m1cnestudiobn2",FieldDef.FLOAT,6,0);
+            m1cnestudiobn3 = new FieldDef("m1cnestudiobn3",FieldDef.FLOAT,6,0);
+            m1cnestudiobn4 = new FieldDef("m1cnestudiobn4",FieldDef.FLOAT,6,0);
+            m1cnestudiobn5 = new FieldDef("m1cnestudiobn5",FieldDef.FLOAT,6,0);
+            m1cnestudiobn6 = new FieldDef("m1cnestudiobn6",FieldDef.FLOAT,6,0);
+            m1cnacogmennmc = new FieldDef("m1cnacogmennmc",FieldDef.FLOAT,6,0);
+            m1cnacogmennmt = new FieldDef("m1cnacogmennmt",FieldDef.FLOAT,6,0);
+            m1cnacogmennc = new FieldDef("m1cnacogmennc",FieldDef.INTEGER,0);
+            m1cnacogmendi1 = new FieldDef("m1cnacogmendi1",FieldDef.INTEGER,0);
+            m1cnacogmennc1 = new FieldDef("m1cnacogmennc1",FieldDef.INTEGER,0);
+            m1cnacogmendi2 = new FieldDef("m1cnacogmendi2",FieldDef.INTEGER,0);
+            m1cnacogmennc2 = new FieldDef("m1cnacogmennc2",FieldDef.INTEGER,0);
+            m1cnacogmendi3 = new FieldDef("m1cnacogmendi3",FieldDef.INTEGER,0);
+            m1cnacogmennc3 = new FieldDef("m1cnacogmennc3",FieldDef.INTEGER,0);
+            m1cnfammono = new FieldDef("m1cnfammono",FieldDef.INTEGER,0);
+            m1cnvivhabreen = new FieldDef("m1cnvivhabreen",FieldDef.FLOAT,6,0);
+            m1cngasenfmed = new FieldDef("m1cngasenfmed",FieldDef.FLOAT,6,0);
+            m1cngasenfapa = new FieldDef("m1cngasenfapa",FieldDef.FLOAT,6,0);
+            m1cnfamdiscnpc = new FieldDef("m1cnfamdiscnpc",FieldDef.FLOAT,6,0);
+            m1cnfamdiscnpt = new FieldDef("m1cnfamdiscnpt",FieldDef.FLOAT,6,0);
+            m1cnfamdiscnp = new FieldDef("m1cnfamdiscnp",FieldDef.INTEGER,0);
+            m1cnarrvihaimp = new FieldDef("m1cnarrvihaimp",FieldDef.FLOAT,6,0);
+            m1cnarrvihanif = new FieldDef("m1cnarrvihanif",FieldDef.CHAR,20);
+            m1cnarrvihaext = new FieldDef("m1cnarrvihaext",FieldDef.INTEGER,0);
+            m1cngasseg1imp = new FieldDef("m1cngasseg1imp",FieldDef.FLOAT,6,0);
+            m1cngasseg2imp = new FieldDef("m1cngasseg2imp",FieldDef.FLOAT,6,0);
+            m1cngasseg3imp = new FieldDef("m1cngasseg3imp",FieldDef.FLOAT,6,0);
+            m1cngasseg1nif = new FieldDef("m1cngasseg1nif",FieldDef.CHAR,20);
+            m1cngasseg2nif = new FieldDef("m1cngasseg2nif",FieldDef.CHAR,20);
+            m1cngasseg3nif = new FieldDef("m1cngasseg3nif",FieldDef.CHAR,20);
+            m1cngasseg1ext = new FieldDef("m1cngasseg1ext",FieldDef.INTEGER,0);
+            m1cngasseg2ext = new FieldDef("m1cngasseg2ext",FieldDef.INTEGER,0);
+            m1cngasseg3ext = new FieldDef("m1cngasseg3ext",FieldDef.INTEGER,0);
+            m1cngasseg1ref = new FieldDef("m1cngasseg1ref",FieldDef.CHAR,20);
+            m1cngasseg2ref = new FieldDef("m1cngasseg2ref",FieldDef.CHAR,20);
+            m1cngasseg3ref = new FieldDef("m1cngasseg3ref",FieldDef.CHAR,20);
+            m1cngasseg1nor = new FieldDef("m1cngasseg1nor",FieldDef.INTEGER,0);
+            m1cngasseg2nor = new FieldDef("m1cngasseg2nor",FieldDef.INTEGER,0);
+            m1cngasseg3nor = new FieldDef("m1cngasseg3nor",FieldDef.INTEGER,0);
+            FieldDef array[] = {
+                m1cndominio,
+                m1cnnif,
+                m1cndeclarac,
+                m1cnejercicio,
+                m1cnperiodo,
+                m1cnnreg,
+                m1cntitular,
+                m1cndoneco,
+                m1cnpathist,
+                m1cnintcult,
+                m1cngasestco,
+                m1cngasestti,
+                m1cngasestnp,
+                m1cnresisla,
+                m1cndonvh1t,
+                m1cndonvh1i,
+                m1cndonvh2t,
+                m1cndonvh2i,
+                m1cndonvh3t,
+                m1cndonvh3i,
+                m1cnnac1hij12c,
+                m1cnnac1hij12t,
+                m1cnnac1hij3c,
+                m1cnnac1hij3t,
+                m1cnnac1hij4c,
+                m1cnnac1hij4t,
+                m1cnnac1hij5c,
+                m1cnnac1hij5t,
+                m1cnnac1hijnp,
+                m1cnnac2hij12c,
+                m1cnnac2hij12t,
+                m1cnnac2hij3c,
+                m1cnnac2hij3t,
+                m1cnnac2hijnp,
+                m1cngasguame1,
+                m1cngasguaim1,
+                m1cngasguame2,
+                m1cngasguaim2,
+                m1cngasguame3,
+                m1cngasguaim3,
+                m1cngasguanc,
+                m1cnfamnumgc,
+                m1cnfamnumgt,
+                m1cnfamnumec,
+                m1cnfamnumet,
+                m1cnfamnumnp,
+                m1cninvvivhab,
+                m1cnobrvivhab,
+                m1cnalqhab1imp,
+                m1cnalqhab2imp,
+                m1cnalqhab1nif,
+                m1cnalqhab2nif,
+                m1cnalqhab1ext,
+                m1cnalqhab2ext,
+                m1cnalqhab1ref,
+                m1cnalqhab2ref,
+                m1cnalqhab1nor,
+                m1cnalqhab2nor,
+                m1cnalqhabsubv,
+                m1cndesmpleado,
+                m1cndonadmpub,
+                m1cndonempcul,
+                m1cndonempcie,
+                m1cndonunipub,
+                m1cndonuniart,
+                m1cndonapocap,
+                m1cnlucromec1,
+                m1cnlucromec2,
+                m1cnestudioai1,
+                m1cnestudioai2,
+                m1cnestudioai3,
+                m1cnestudioai4,
+                m1cnestudioai5,
+                m1cnestudioai6,
+                m1cnestudiobi1,
+                m1cnestudiobi2,
+                m1cnestudiobi3,
+                m1cnestudiobi4,
+                m1cnestudiobi5,
+                m1cnestudiobi6,
+                m1cnestudiobn1,
+                m1cnestudiobn2,
+                m1cnestudiobn3,
+                m1cnestudiobn4,
+                m1cnestudiobn5,
+                m1cnestudiobn6,
+                m1cnacogmennmc,
+                m1cnacogmennmt,
+                m1cnacogmennc,
+                m1cnacogmendi1,
+                m1cnacogmennc1,
+                m1cnacogmendi2,
+                m1cnacogmennc2,
+                m1cnacogmendi3,
+                m1cnacogmennc3,
+                m1cnfammono,
+                m1cnvivhabreen,
+                m1cngasenfmed,
+                m1cngasenfapa,
+                m1cnfamdiscnpc,
+                m1cnfamdiscnpt,
+                m1cnfamdiscnp,
+                m1cnarrvihaimp,
+                m1cnarrvihanif,
+                m1cnarrvihaext,
+                m1cngasseg1imp,
+                m1cngasseg2imp,
+                m1cngasseg3imp,
+                m1cngasseg1nif,
+                m1cngasseg2nif,
+                m1cngasseg3nif,
+                m1cngasseg1ext,
+                m1cngasseg2ext,
+                m1cngasseg3ext,
+                m1cngasseg1ref,
+                m1cngasseg2ref,
+                m1cngasseg3ref,
+                m1cngasseg1nor,
+                m1cngasseg2nor,
+                m1cngasseg3nor                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m1cndominio,m1cnnif,m1cndeclarac,m1cnejercicio,m1cnperiodo,m1cnnreg };
+            setPrimaryKeys(arrayf);
+            m1cndoneco.setDescription("IMPCAN1          Importe satisfecho con derecho a la deducción]");
+            m1cnpathist.setDescription("IMPCAN2          Importe satisfecho con derecho a la deducción]");
+            m1cnintcult.setDescription("IMPCAN3          Importe satisfecho con derecho a la deducción (1)]");
+            m1cngasestco.setDescription("CONCAN4          Comunes:Número de descendientes que cursen estudios de educación superior fuera de la isla de residencia habitual, que dan derecho a la deducción (vea la ayuda)]");
+            m1cngasestti.setDescription("DECCAN4          Del titular:Número de descendientes que cursen estudios de educación superior fuera de la isla de residencia habitual, que dan derecho a la deducción (vea la ayuda)]");
+            m1cngasestnp.setDescription("NUM1CAN4         Nº de personas que tienen derecho a aplicar la deducción]");
+            m1cnresisla.setDescription("DECCAN5          Si tiene derecho a la deducción marque la casilla (Vea la ayuda)]");
+            m1cndonvh1t.setDescription("GRADO1CAN6       Primer descendiente]");
+            m1cndonvh1i.setDescription("VAL1CAN6         Importe de la donación:Primer descendiente]");
+            m1cndonvh2t.setDescription("GRADO2CAN6       Segundo descendiente]");
+            m1cndonvh2i.setDescription("VAL2CAN6         Importe de la donación:Segundo descendiente]");
+            m1cndonvh3t.setDescription("GRADO3CAN6       Tercer descendiente]");
+            m1cndonvh3i.setDescription("VAL3CAN6         Importe de la donación:Tercer descendiente]");
+            m1cnnac1hij12c.setDescription("CO1CAN7          Comunes (*):Primero o segundo]");
+            m1cnnac1hij12t.setDescription("DE1CAN7          Del Titular:Primero o segundo]");
+            m1cnnac1hij3c.setDescription("CO2CAN7          Comunes (*):Tercero]");
+            m1cnnac1hij3t.setDescription("DE2CAN7          Del Titular:Tercero]");
+            m1cnnac1hij4c.setDescription("CO3CAN7          Comunes (*):Cuarto]");
+            m1cnnac1hij4t.setDescription("DE3CAN7          Del Titular:Cuarto]");
+            m1cnnac1hij5c.setDescription("CO4CAN7          Comunes (*):Quinto y sucesivos]");
+            m1cnnac1hij5t.setDescription("DE4CAN7          Del Titular:Quinto y sucesivos]");
+            m1cnnac1hijnp.setDescription("NUM1CAN7         Número de personas que tienen derecho a aplicar la deducción]");
+            m1cnnac2hij12c.setDescription("DCO1CAN7         Comunes (*):Primer o segundo hijo con grado de   discapacidad igual o superior al 65%]");
+            m1cnnac2hij12t.setDescription("DDE1CAN7         Del titular:Primer o segundo hijo con grado de   discapacidad igual o superior al 65%]");
+            m1cnnac2hij3c.setDescription("DCO2CAN7         Comunes (*):Tercer o posterior hijo con grado de   discapacidad igual o superior al 65%]");
+            m1cnnac2hij3t.setDescription("DDE2CAN7         Del titular:Tercer o posterior hijo con grado de   discapacidad igual o superior al 65%]");
+            m1cnnac2hijnp.setDescription("NUM1BCAN7        Número de personas que tienen derecho a aplicar la deducción]");
+            m1cngasguame1.setDescription("MESES1CAN9       Meses (*):Primero]");
+            m1cngasguaim1.setDescription("VAL21CAN9        Importe satisfecho   por el titular:Primero]");
+            m1cngasguame2.setDescription("MESES2CAN9       Meses (*):Segundo]");
+            m1cngasguaim2.setDescription("VAL22CAN9        Importe satisfecho   por el titular:Segundo]");
+            m1cngasguame3.setDescription("MESES3CAN9       Meses (*):Tercero]");
+            m1cngasguaim3.setDescription("VAL23CAN9        Importe satisfecho   por el titular:Tercero]");
+            m1cngasguanc.setDescription("NUMDCAN9         Nº de contribuyentes con derecho a aplicar la deducción]");
+            m1cnfamnumgc.setDescription("CAT1CAN10        De categoría general:Común]");
+            m1cnfamnumgt.setDescription("CAT1TCAN10       De categoría general:Del titular]");
+            m1cnfamnumec.setDescription("CAT2CAN10        De categoría especial:Común]");
+            m1cnfamnumet.setDescription("CAT2TCAN10       De categoría especial:Del titular]");
+            m1cnfamnumnp.setDescription("NUMCAN10         Número de personas que tienen derecho a aplicar la deducción]");
+            m1cninvvivhab.setDescription("IMPCAN11         Importe satisfecho con derecho a la deducción (1)(2)]");
+            m1cnobrvivhab.setDescription("IMPCAN12         Importe satisfecho con derecho a la deducción (1)]");
+            m1cnalqhab1imp.setDescription("IMP1CAN13        Importe satisfecho]");
+            m1cnalqhab2imp.setDescription("IMP2CAN13        Importe satisfecho]");
+            m1cnalqhab1nif.setDescription("NIF1CAN13        NIF del arrendador]");
+            m1cnalqhab2nif.setDescription("NIF2CAN13        NIF del arrendador]");
+            m1cnalqhab1ext.setDescription("VNONIF1CAN13     Si el arrendador no reside en España y no tiene NIF español, indique el {2}Número de identificación en el país de residencia{2}]");
+            m1cnalqhab2ext.setDescription("VNONIF2CAN13     Si el arrendador no reside en España y no tiene NIF español, indique el {2}Número de identificación en el país de residencia{2}]");
+            m1cnalqhab1ref.setDescription("RC1CAN13         Referencia catastral de la vivienda alquilada]");
+            m1cnalqhab2ref.setDescription("RC2CAN13         Referencia catastral de la vivienda alquilada]");
+            m1cnalqhab1nor.setDescription("RCNO1CAN13       Si la vivienda alquilada no tiene referencia catastral, marque la casilla]");
+            m1cnalqhab2nor.setDescription("RCNO2CAN13       Si la vivienda alquilada no tiene referencia catastral, marque la casilla]");
+            m1cnalqhabsubv.setDescription("SUBVCAN13        Si ha percibido subvenciones por alquiler de la vivienda habitual, indique su importe]");
+            m1cndesmpleado.setDescription("DECCAN15         Si tiene derecho a la deducción marque la casilla (Vea la ayuda)]");
+            m1cndonadmpub.setDescription("IMP1CAN16        Donativos a la Administración Publica de Canarias, corporaciones locales de Canarias y entidades públicas de carácter cultural, deportivo o de investigación que dependan de éstas]");
+            m1cndonempcul.setDescription("IMP2CAN16        Donativos a empresas culturales, con fondos propios inferiores a 300.000 euros, cuya actividad sea la cinematografía, las artes escénicas, la música, la pintura y otras artes visuales");
+            m1cndonempcie.setDescription("IMP3CAN16        Donativos a empresas científicas, con fondos propios inferiores a 300.000 euros,  cuya actividad principal sea la investigación]");
+            m1cndonunipub.setDescription("IMP4CAN16        Donativos a universidades públicas y privadas, a centros de investigación y centros superiores de enseñanzas artísticas de Canarias para actividades de investigación o docencia]");
+            m1cndonuniart.setDescription("IMP5CAN16        Donativos a universidades y centros públicos de enseñanzas artísticas superiores de Canarias para el fomento del acceso a la educación superior]");
+            m1cndonapocap.setDescription("IMP6CAN16        Aportaciones de capital a empresas de base tecnológica creadas o desarrolladas a partir de patentes o de resultados generados por proyectos de investigación en universidades canarias]");
+            m1cnlucromec1.setDescription("IMP1CAN17        Importe de las donaciones a favor de entidades beneficiarias de mecenazgo, excepto las que deban reflejarse en la casilla siguiente]");
+            m1cnlucromec2.setDescription("IMP2CAN17        Donaciones efectuadas en 2020 a entidades beneficiarias de mecenazgo cuando, en 2018 y 2019, también se hayan realizado donaciones a cada una de ellas iguales o superiores a la del añ");
+            m1cnestudioai1.setDescription("IMPA1CAN18       DESCENDIENTE 1:A) Importe satisfecho por descendientes comunes a los cónyuges siempre que ambos hayan satisfecho los gastos por partes iguales (1)(2)]");
+            m1cnestudioai2.setDescription("IMPA2CAN18       DESCENDIENTE 2:A) Importe satisfecho por descendientes comunes a los cónyuges siempre que ambos hayan satisfecho los gastos por partes iguales (1)(2)]");
+            m1cnestudioai3.setDescription("IMPA3CAN18       DESCENDIENTE 3:A) Importe satisfecho por descendientes comunes a los cónyuges siempre que ambos hayan satisfecho los gastos por partes iguales (1)(2)]");
+            m1cnestudioai4.setDescription("IMPA4CAN18       DESCENDIENTE 4:A) Importe satisfecho por descendientes comunes a los cónyuges siempre que ambos hayan satisfecho los gastos por partes iguales (1)(2)]");
+            m1cnestudioai5.setDescription("IMPA5CAN18       DESCENDIENTE 5:A) Importe satisfecho por descendientes comunes a los cónyuges siempre que ambos hayan satisfecho los gastos por partes iguales (1)(2)]");
+            m1cnestudioai6.setDescription("IMPA6CAN18       DESCENDIENTE 6:A) Importe satisfecho por descendientes comunes a los cónyuges siempre que ambos hayan satisfecho los gastos por partes iguales (1)(2)]");
+            m1cnestudiobi1.setDescription("IMPB1CAN18       DESCENDIENTE 1:B) Importe satisfecho por descendientes en supuestos distintos del apartado A)]");
+            m1cnestudiobi2.setDescription("IMPB2CAN18       DESCENDIENTE 2:B) Importe satisfecho por descendientes en supuestos distintos del apartado A)]");
+            m1cnestudiobi3.setDescription("IMPB3CAN18       DESCENDIENTE 3:B) Importe satisfecho por descendientes en supuestos distintos del apartado A)]");
+            m1cnestudiobi4.setDescription("IMPB4CAN18       DESCENDIENTE 4:B) Importe satisfecho por descendientes en supuestos distintos del apartado A)]");
+            m1cnestudiobi5.setDescription("IMPB5CAN18       DESCENDIENTE 5:B) Importe satisfecho por descendientes en supuestos distintos del apartado A)]");
+            m1cnestudiobi6.setDescription("IMPB6CAN18       DESCENDIENTE 6:B) Importe satisfecho por descendientes en supuestos distintos del apartado A)]");
+            m1cnestudiobn1.setDescription("NUM1CAN18        DESCENDIENTE 1:Nº de personas con derecho a aplicar la deducción (3)]");
+            m1cnestudiobn2.setDescription("NUM2CAN18        DESCENDIENTE 2:Nº de personas con derecho a aplicar la deducción (3)]");
+            m1cnestudiobn3.setDescription("NUM3CAN18        DESCENDIENTE 3:Nº de personas con derecho a aplicar la deducción (3)]");
+            m1cnestudiobn4.setDescription("NUM4CAN18        DESCENDIENTE 4:Nº de personas con derecho a aplicar la deducción (3)]");
+            m1cnestudiobn5.setDescription("NUM5CAN18        DESCENDIENTE 5:Nº de personas con derecho a aplicar la deducción (3)]");
+            m1cnestudiobn6.setDescription("NUM6CAN18        DESCENDIENTE 6:Nº de personas con derecho a aplicar la deducción (3)]");
+            m1cnacogmennmc.setDescription("MENOR1CCAN19     Comunes:Número de menores en régimen de acogimiento familiar de urgencia,  temporal o permanente, con los que se ha convivido todo el período impositivo]");
+            m1cnacogmennmt.setDescription("MENOR1DCAN19     Del titular:Número de menores en régimen de acogimiento familiar de urgencia,  temporal o permanente, con los que se ha convivido todo el período impositivo]");
+            m1cnacogmennc.setDescription("NUM1CAN19        Número de contribuyentes que tienen derecho a aplicar la deducción]");
+            m1cnacogmendi1.setDescription("MENORB2CAN19     Días acogimiento:Primer menor acogido parte del año]");
+            m1cnacogmennc1.setDescription("NUMB2CAN19       Nº de contribuyentes con derecho a la deducción:Primer menor acogido parte del año]");
+            m1cnacogmendi2.setDescription("MENORB3CAN19     Días acogimiento:Segundo menor acogido parte del año]");
+            m1cnacogmennc2.setDescription("NUMB3CAN19       Nº de contribuyentes con derecho a la deducción:Segundo menor acogido parte del año]");
+            m1cnacogmendi3.setDescription("MENORB4CAN19     Días acogimiento:Restantes menores acogidos parte del año (*)]");
+            m1cnacogmennc3.setDescription("NUMB4CAN19       Nº de contribuyentes con derecho a la deducción:Restantes menores acogidos parte del año (*)]");
+            m1cnfammono.setDescription("DECCAN20         Si tiene derecho a la deducción marque la casilla (Vea la ayuda)]");
+            m1cnvivhabreen.setDescription("IMPCAN21         Importe satisfecho con derecho a la deducción (1)(2)]");
+            m1cngasenfmed.setDescription("IMP1CAN22        Gastos por prestación de servicios médicos y sanitarios]");
+            m1cngasenfapa.setDescription("IMP2CAN22        Gastos por adquisición de aparatos y complementos (incluidas gafas graduadas y lentillas) destinadas a suplir deficiencias físicas de las personas]");
+            m1cnfamdiscnpc.setDescription("C01CAN23         Común:Nº de personas que dan derecho a la deducción]");
+            m1cnfamdiscnpt.setDescription("C02CAN23         Titular:Nº de personas que dan derecho a la deducción]");
+            m1cnfamdiscnp.setDescription("NUM1CAN23        Nº de personas que tienen derecho a aplicar la deducción]");
+            m1cnarrvihaimp.setDescription("IMP1CAN24        Importe satisfecho]");
+            m1cnarrvihanif.setDescription("VNIF1CAN24       NIF del arrendador]");
+            m1cnarrvihaext.setDescription("VNONIF1CAN24     Si el arrendador no reside en España y no tiene NIF español, indique el {2}Número de identificación en el país de residencia{2}]");
+            m1cngasseg1imp.setDescription("IMP1CAN26        Arrendamiento1:Importe satisfecho, con derecho a la deducción,por la prima de seguro para cubrir el impago de las rentas]");
+            m1cngasseg2imp.setDescription("IMP2CAN26        Arrendamiento2:Importe satisfecho, con derecho a la deducción,por la prima de seguro para cubrir el impago de las rentas]");
+            m1cngasseg3imp.setDescription("IMP3CAN26        Arrendamiento3:Importe satisfecho, con derecho a la deducción,por la prima de seguro para cubrir el impago de las rentas]");
+            m1cngasseg1nif.setDescription("NIF1CAN26        Arrendamiento1:NIF del arrendatario]");
+            m1cngasseg2nif.setDescription("NIF2CAN26        Arrendamiento2:NIF del arrendatario]");
+            m1cngasseg3nif.setDescription("NIF3CAN26        Arrendamiento3:NIF del arrendatario]");
+            m1cngasseg1ext.setDescription("VNONIF1CAN26     Arrendamiento1:Si el arrendatario no reside en España y no tiene NIF español, indique el número de identificación en el país de residencia]");
+            m1cngasseg2ext.setDescription("VNONIF2CAN26     Arrendamiento2:Si el arrendatario no reside en España y no tiene NIF español, indique el número de identificación en el país de residencia]");
+            m1cngasseg3ext.setDescription("VNONIF3CAN26     Arrendamiento3:Si el arrendatario no reside en España y no tiene NIF español, indique el número de identificación en el país de residencia]");
+            m1cngasseg1ref.setDescription("RC1CAN26         Arrendamiento1:Referencia catastral de la vivienda alquilada]");
+            m1cngasseg2ref.setDescription("RC2CAN26         Arrendamiento2:Referencia catastral de la vivienda alquilada]");
+            m1cngasseg3ref.setDescription("RC3CAN26         Arrendamiento3:Referencia catastral de la vivienda alquilada]");
+            m1cngasseg1nor.setDescription("RCNO1CAN26       Arrendamiento1:Si la vivienda alquilada no tiene referencia catastral, marque la casilla]");
+            m1cngasseg2nor.setDescription("RCNO2CAN26       Arrendamiento2:Si la vivienda alquilada no tiene referencia catastral, marque la casilla]");
+            m1cngasseg3nor.setDescription("RCNO3CAN26       Arrendamiento3:Si la vivienda alquilada no tiene referencia catastral, marque la casilla]");
+            }
+        }
+        
+    public class TabMod100murcia extends TableDef
+        {
+        // campos
+        public FieldDef m1mudominio;
+        public FieldDef m1munif;
+        public FieldDef m1mudeclarac;
+        public FieldDef m1muejercicio;
+        public FieldDef m1muperiodo;
+        public FieldDef m1munreg;
+        public FieldDef m1mutitular;
+        public FieldDef m1muvhjimp1;
+        public FieldDef m1muvhjreg1;
+        public FieldDef m1muvhjimp2;
+        public FieldDef m1muvhjreg2;
+        public FieldDef m1mudpcimp;
+        public FieldDef m1muguaimpa1;
+        public FieldDef m1muguaimpa2;
+        public FieldDef m1muguaimpa3;
+        public FieldDef m1muguaimpa4;
+        public FieldDef m1muguaimpb1;
+        public FieldDef m1muguaimpb2;
+        public FieldDef m1muguaimpb3;
+        public FieldDef m1muguaimpb4;
+        public FieldDef m1muguanp1;
+        public FieldDef m1muguanp2;
+        public FieldDef m1muguanp3;
+        public FieldDef m1muguanp4;
+        public FieldDef m1murenov;
+        public FieldDef m1muagua;
+        public FieldDef m1muaccimp1;
+        public FieldDef m1muaccimp2;
+        public FieldDef m1muaccnif1;
+        public FieldDef m1muaccnif2;
+        public FieldDef m1muborimp1;
+        public FieldDef m1muborimp2;
+        public FieldDef m1mubornif1;
+        public FieldDef m1mubornif2;
+        public FieldDef m1mugesc1ndco;
+        public FieldDef m1mugesc1beca;
+        public FieldDef m1mugesc2ndco;
+        public FieldDef m1mugesc2beca;
+        public FieldDef m1mugesc3ndco;
+        public FieldDef m1mugesc3beca;
+        public FieldDef m1mugescfamnu;
+        public FieldDef m1muinvbio;
+        public FieldDef m1munaccom1;
+        public FieldDef m1munactit1;
+        public FieldDef m1munaccom2;
+        public FieldDef m1munactit2;
+        public FieldDef m1munaccom3;
+        public FieldDef m1munactit3;
+        public FieldDef m1munacnumd;
+        public FieldDef m1mudiscapa;
+        public FieldDef m1muconcimp;
+        public FieldDef m1muconccc;
+        public FieldDef m1mumay65npc;
+        public FieldDef m1mumay65npt;
+        public FieldDef m1mumay65npd;
+        public TabMod100murcia(String name)
+            {
+            super(name);
+            m1mudominio = new FieldDef("m1mudominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m1munif = new FieldDef("m1munif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m1mudeclarac = new FieldDef("m1mudeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+            m1muejercicio = new FieldDef("m1muejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1muperiodo = new FieldDef("m1muperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1munreg = new FieldDef("m1munreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1mutitular = new FieldDef("m1mutitular",FieldDef.INTEGER,0);
+            m1muvhjimp1 = new FieldDef("m1muvhjimp1",FieldDef.FLOAT,6,0);
+            m1muvhjreg1 = new FieldDef("m1muvhjreg1",FieldDef.CHAR,1);
+            m1muvhjimp2 = new FieldDef("m1muvhjimp2",FieldDef.FLOAT,6,0);
+            m1muvhjreg2 = new FieldDef("m1muvhjreg2",FieldDef.CHAR,1);
+            m1mudpcimp = new FieldDef("m1mudpcimp",FieldDef.FLOAT,6,0);
+            m1muguaimpa1 = new FieldDef("m1muguaimpa1",FieldDef.FLOAT,6,0);
+            m1muguaimpa2 = new FieldDef("m1muguaimpa2",FieldDef.FLOAT,6,0);
+            m1muguaimpa3 = new FieldDef("m1muguaimpa3",FieldDef.FLOAT,6,0);
+            m1muguaimpa4 = new FieldDef("m1muguaimpa4",FieldDef.FLOAT,6,0);
+            m1muguaimpb1 = new FieldDef("m1muguaimpb1",FieldDef.FLOAT,6,0);
+            m1muguaimpb2 = new FieldDef("m1muguaimpb2",FieldDef.FLOAT,6,0);
+            m1muguaimpb3 = new FieldDef("m1muguaimpb3",FieldDef.FLOAT,6,0);
+            m1muguaimpb4 = new FieldDef("m1muguaimpb4",FieldDef.FLOAT,6,0);
+            m1muguanp1 = new FieldDef("m1muguanp1",FieldDef.FLOAT,6,0);
+            m1muguanp2 = new FieldDef("m1muguanp2",FieldDef.FLOAT,6,0);
+            m1muguanp3 = new FieldDef("m1muguanp3",FieldDef.FLOAT,6,0);
+            m1muguanp4 = new FieldDef("m1muguanp4",FieldDef.FLOAT,6,0);
+            m1murenov = new FieldDef("m1murenov",FieldDef.FLOAT,6,0);
+            m1muagua = new FieldDef("m1muagua",FieldDef.FLOAT,6,0);
+            m1muaccimp1 = new FieldDef("m1muaccimp1",FieldDef.FLOAT,6,0);
+            m1muaccimp2 = new FieldDef("m1muaccimp2",FieldDef.FLOAT,6,0);
+            m1muaccnif1 = new FieldDef("m1muaccnif1",FieldDef.CHAR,10);
+            m1muaccnif2 = new FieldDef("m1muaccnif2",FieldDef.CHAR,10);
+            m1muborimp1 = new FieldDef("m1muborimp1",FieldDef.FLOAT,6,0);
+            m1muborimp2 = new FieldDef("m1muborimp2",FieldDef.FLOAT,6,0);
+            m1mubornif1 = new FieldDef("m1mubornif1",FieldDef.CHAR,10);
+            m1mubornif2 = new FieldDef("m1mubornif2",FieldDef.CHAR,10);
+            m1mugesc1ndco = new FieldDef("m1mugesc1ndco",FieldDef.FLOAT,6,0);
+            m1mugesc1beca = new FieldDef("m1mugesc1beca",FieldDef.FLOAT,6,0);
+            m1mugesc2ndco = new FieldDef("m1mugesc2ndco",FieldDef.FLOAT,6,0);
+            m1mugesc2beca = new FieldDef("m1mugesc2beca",FieldDef.FLOAT,6,0);
+            m1mugesc3ndco = new FieldDef("m1mugesc3ndco",FieldDef.FLOAT,6,0);
+            m1mugesc3beca = new FieldDef("m1mugesc3beca",FieldDef.FLOAT,6,0);
+            m1mugescfamnu = new FieldDef("m1mugescfamnu",FieldDef.INTEGER,0);
+            m1muinvbio = new FieldDef("m1muinvbio",FieldDef.FLOAT,6,0);
+            m1munaccom1 = new FieldDef("m1munaccom1",FieldDef.FLOAT,6,0);
+            m1munactit1 = new FieldDef("m1munactit1",FieldDef.FLOAT,6,0);
+            m1munaccom2 = new FieldDef("m1munaccom2",FieldDef.FLOAT,6,0);
+            m1munactit2 = new FieldDef("m1munactit2",FieldDef.FLOAT,6,0);
+            m1munaccom3 = new FieldDef("m1munaccom3",FieldDef.FLOAT,6,0);
+            m1munactit3 = new FieldDef("m1munactit3",FieldDef.FLOAT,6,0);
+            m1munacnumd = new FieldDef("m1munacnumd",FieldDef.INTEGER,0);
+            m1mudiscapa = new FieldDef("m1mudiscapa",FieldDef.FLOAT,6,0);
+            m1muconcimp = new FieldDef("m1muconcimp",FieldDef.FLOAT,6,0);
+            m1muconccc = new FieldDef("m1muconccc",FieldDef.CHAR,11);
+            m1mumay65npc = new FieldDef("m1mumay65npc",FieldDef.FLOAT,6,0);
+            m1mumay65npt = new FieldDef("m1mumay65npt",FieldDef.FLOAT,6,0);
+            m1mumay65npd = new FieldDef("m1mumay65npd",FieldDef.INTEGER,0);
+            FieldDef array[] = {
+                m1mudominio,
+                m1munif,
+                m1mudeclarac,
+                m1muejercicio,
+                m1muperiodo,
+                m1munreg,
+                m1mutitular,
+                m1muvhjimp1,
+                m1muvhjreg1,
+                m1muvhjimp2,
+                m1muvhjreg2,
+                m1mudpcimp,
+                m1muguaimpa1,
+                m1muguaimpa2,
+                m1muguaimpa3,
+                m1muguaimpa4,
+                m1muguaimpb1,
+                m1muguaimpb2,
+                m1muguaimpb3,
+                m1muguaimpb4,
+                m1muguanp1,
+                m1muguanp2,
+                m1muguanp3,
+                m1muguanp4,
+                m1murenov,
+                m1muagua,
+                m1muaccimp1,
+                m1muaccimp2,
+                m1muaccnif1,
+                m1muaccnif2,
+                m1muborimp1,
+                m1muborimp2,
+                m1mubornif1,
+                m1mubornif2,
+                m1mugesc1ndco,
+                m1mugesc1beca,
+                m1mugesc2ndco,
+                m1mugesc2beca,
+                m1mugesc3ndco,
+                m1mugesc3beca,
+                m1mugescfamnu,
+                m1muinvbio,
+                m1munaccom1,
+                m1munactit1,
+                m1munaccom2,
+                m1munactit2,
+                m1munaccom3,
+                m1munactit3,
+                m1munacnumd,
+                m1mudiscapa,
+                m1muconcimp,
+                m1muconccc,
+                m1mumay65npc,
+                m1mumay65npt,
+                m1mumay65npd                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m1mudominio,m1munif,m1mudeclarac,m1muejercicio,m1muperiodo,m1munreg };
+            setPrimaryKeys(arrayf);
+            m1muvhjimp1.setDescription("IMP1MU1 Importe satisfecho");
+            m1muvhjreg1.setDescription("VP1MU1 Vivienda protegida (SI/NO)");
+            m1muvhjimp2.setDescription("IMP2MU1 Importe satisfecho");
+            m1muvhjreg2.setDescription("VP2MU1 Vivienda protegida (SI/NO)");
+            m1mudpcimp.setDescription("IMPMU2 Importe de la donación");
+            m1muguaimpa1.setDescription("IMP1AMU3 DESCENDIENTE 1:A)	Importe satisfecho que corresponde al contribuyente por descendientes comunes a los cónyuges, siempre que ambos hayan satisfecho los gastos");
+            m1muguaimpa2.setDescription("IMP2AMU3 DESCENDIENTE 1:A)	Importe satisfecho que corresponde al contribuyente por descendientes comunes a los cónyuges, siempre que ambos hayan satisfecho los gastos");
+            m1muguaimpa3.setDescription("IMP3AMU3 DESCENDIENTE 1:A)	Importe satisfecho que corresponde al contribuyente por descendientes comunes a los cónyuges, siempre que ambos hayan satisfecho los gastos");
+            m1muguaimpa4.setDescription("IMP4AMU3 DESCENDIENTE 1:A)	Importe satisfecho que corresponde al contribuyente por descendientes comunes a los cónyuges, siempre que ambos hayan satisfecho los gastos");
+            m1muguaimpb1.setDescription("IMP1BMU3 DESCENDIENTE 1:B)	Importe satisfecho que corresponde al contribuyente en supuestos distintos del apartado A)");
+            m1muguaimpb2.setDescription("IMP2BMU3 DESCENDIENTE 1:B)	Importe satisfecho que corresponde al contribuyente en supuestos distintos del apartado A)");
+            m1muguaimpb3.setDescription("IMP3BMU3 DESCENDIENTE 1:B)	Importe satisfecho que corresponde al contribuyente en supuestos distintos del apartado A)");
+            m1muguaimpb4.setDescription("IMP4BMU3 DESCENDIENTE 1:B)	Importe satisfecho que corresponde al contribuyente en supuestos distintos del apartado A)");
+            m1muguanp1.setDescription("NUM1MU3  DESCENDIENTE 1:Nº de personas con derecho a aplicar la deducción");
+            m1muguanp2.setDescription("NUM2MU3  DESCENDIENTE 1:Nº de personas con derecho a aplicar la deducción");
+            m1muguanp3.setDescription("NUM3MU3  DESCENDIENTE 1:Nº de personas con derecho a aplicar la deducción");
+            m1muguanp4.setDescription("NUM4MU3  DESCENDIENTE 1:Nº de personas con derecho a aplicar la deducción");
+            m1murenov.setDescription("IMPMU4 Importe satisfecho con derecho a la deducción");
+            m1muagua.setDescription("IMPMU5 Importe satisfecho con derecho a la deducción");
+            m1muaccimp1.setDescription("IMP1MU6 Importe satisfecho con derecho a la deducción:Entidad 1");
+            m1muaccimp2.setDescription("IMP2MU6 Importe satisfecho con derecho a la deducción:Entidad 2");
+            m1muaccnif1.setDescription("NIF1MU6 NIF de la entidad nueva o de reciente creación:Entidad 1");
+            m1muaccnif2.setDescription("NIF2MU6 NIF de la entidad nueva o de reciente creación:Entidad 2");
+            m1muborimp1.setDescription("IMP1MU7 Importe satisfecho con derecho a la deducción:Entidad 1");
+            m1muborimp2.setDescription("IMP2MU7 Importe satisfecho con derecho a la deducción:Entidad 2");
+            m1mubornif1.setDescription("NIF1MU7 NIF de la entidad nueva o de reciente creación:Entidad 1");
+            m1mubornif2.setDescription("NIF2MU7 NIF de la entidad nueva o de reciente creación:Entidad 2");
+            m1mugesc1ndco.setDescription("NUMDES1MU8 Número de descendientes comunes a los cónyuges que originan el derecho a la deducción a ambos progenitores, siempre que éstos presenten declaración");
+            m1mugesc1beca.setDescription("BECA1MU8 Importe total, correspondiente a ambos cónyuges, de las becas o ayudas públicas percibidas para la adquisición de libros de texto y material escolar de estos descendientes");
+            m1mugesc2ndco.setDescription("NUMDES2MU8 Número de descendientes comunes a los cónyuges que originan el derecho a la deducción a ambos progenitores, siempre que éstos presenten declaración");
+            m1mugesc2beca.setDescription("BECA2MU8 Importe total, correspondiente a ambos cónyuges, de las becas o ayudas públicas percibidas para la adquisición de libros de texto y material escolar de estos descendientes");
+            m1mugesc3ndco.setDescription("NUMDES3MU8 Número de descendientes comunes a los cónyuges que originan el derecho a la deducción a ambos progenitores, siempre que éstos presenten declaración");
+            m1mugesc3beca.setDescription("BECA3MU8 Importe total, correspondiente a ambos cónyuges, de las becas o ayudas públicas percibidas para la adquisición de libros de texto y material escolar de estos descendientes");
+            m1mugescfamnu.setDescription("FAMNUMMU8 Si forma parte de una familia numerosa");
+            m1muinvbio.setDescription("IMPMU9 Importe de la donación");
+            m1munaccom1.setDescription("COM1MU10 Común:Primero");
+            m1munactit1.setDescription("DEC1MU10 Del titular:Primero");
+            m1munaccom2.setDescription("COM2MU10 Común:Segundo");
+            m1munactit2.setDescription("DEC2MU10 Del titular:Segundo");
+            m1munaccom3.setDescription("COM3MU10 Común:Tercero o sucesivos");
+            m1munactit3.setDescription("DEC3MU10 Del titular:Tercero o sucesivos");
+            m1munacnumd.setDescription("NUMMU10 Del titular:Número de declarantes con derecho a aplicar la deducción");
+            m1mudiscapa.setDescription("MU11 Importe");
+            m1muconcimp.setDescription("IMPMU12 Importe de las cotizaciones a la Seguridad Social que dan derecho a la deducción");
+            m1muconccc.setDescription("VCCMU12 C. C. Cotización");
+            m1mumay65npc.setDescription("C01MU13 Común:Nº de personas que dan derecho a la deducción");
+            m1mumay65npt.setDescription("C02MU13 Titular:Nº de personas que dan derecho a la deducción");
+            m1mumay65npd.setDescription("NUM1MU13 Nº de personas que tienen derecho a aplicar la deducción");
+            }
+        }
+        
+    public class TabMod100valencia extends TableDef
+        {
+        // campos
+        public FieldDef m1vadominio;
+        public FieldDef m1vanif;
+        public FieldDef m1vadeclarac;
+        public FieldDef m1vaejercicio;
+        public FieldDef m1vaperiodo;
+        public FieldDef m1vanreg;
+        public FieldDef m1vatitular;
+        public FieldDef m1vacomnumhij1;
+        public FieldDef m1vadecnumhij1;
+        public FieldDef m1vacomnumhij2;
+        public FieldDef m1vadecnumhij2;
+        public FieldDef m1vanumdechij;
+        public FieldDef m1vacomnumper1;
+        public FieldDef m1vadecnumper1;
+        public FieldDef m1vanumdecper1;
+        public FieldDef m1vacomnumper2;
+        public FieldDef m1vadecnumper2;
+        public FieldDef m1vacomdias1;
+        public FieldDef m1vadecdias1;
+        public FieldDef m1vadecdias2;
+        public FieldDef m1vacomnacadp;
+        public FieldDef m1vadecnacadp;
+        public FieldDef m1vanumnacadp;
+        public FieldDef m1vacomnacdis;
+        public FieldDef m1vadecnacdis;
+        public FieldDef m1vacomnacdish;
+        public FieldDef m1vadecnacdish;
+        public FieldDef m1vanumnacdis;
+        public FieldDef m1vacomfamnumg;
+        public FieldDef m1vadecfamnumg;
+        public FieldDef m1vacomfamnume;
+        public FieldDef m1vadecfamnume;
+        public FieldDef m1vanumfamnum;
+        public FieldDef m1vaguavin1;
+        public FieldDef m1vaguadia1;
+        public FieldDef m1vaguaimp1;
+        public FieldDef m1vaguanum1;
+        public FieldDef m1vaguavin2;
+        public FieldDef m1vaguadia2;
+        public FieldDef m1vaguaimp2;
+        public FieldDef m1vaguanum2;
+        public FieldDef m1vaguavin3;
+        public FieldDef m1vaguadia3;
+        public FieldDef m1vaguaimp3;
+        public FieldDef m1vaguanum3;
+        public FieldDef m1vaguavin4;
+        public FieldDef m1vaguadia4;
+        public FieldDef m1vaguaimp4;
+        public FieldDef m1vaguanum4;
+        public FieldDef m1vacondisc65;
+        public FieldDef m1vacomnupasc;
+        public FieldDef m1vadecnupasc;
+        public FieldDef m1vadecnudasc;
+        public FieldDef m1vahogar;
+        public FieldDef m1vaadqvihame;
+        public FieldDef m1vaadqvihadi;
+        public FieldDef m1vaadqvihadi33;
+        public FieldDef m1varevisub;
+        public FieldDef m1varevinej;
+        public FieldDef m1vareviimp;
+        public FieldDef m1vaalqvitip1;
+        public FieldDef m1vaalqvicla1;
+        public FieldDef m1vaalqviimp1;
+        public FieldDef m1vaalqvidia1;
+        public FieldDef m1vaalqvinum1;
+        public FieldDef m1vaalqvinif1;
+        public FieldDef m1vaalqviext1;
+        public FieldDef m1vaalqvitip2;
+        public FieldDef m1vaalqvicla2;
+        public FieldDef m1vaalqviimp2;
+        public FieldDef m1vaalqvidia2;
+        public FieldDef m1vaalqvinum2;
+        public FieldDef m1vaalqvinif2;
+        public FieldDef m1vaalqviext2;
+        public FieldDef m1vaalqvitip3;
+        public FieldDef m1vaalqvicla3;
+        public FieldDef m1vaalqviimp3;
+        public FieldDef m1vaalqvidia3;
+        public FieldDef m1vaalqvinum3;
+        public FieldDef m1vaalqvinif3;
+        public FieldDef m1vaalqviext3;
+        public FieldDef m1vaalqvitip4;
+        public FieldDef m1vaalqvicla4;
+        public FieldDef m1vaalqviimp4;
+        public FieldDef m1vaalqvidia4;
+        public FieldDef m1vaalqvinum4;
+        public FieldDef m1vaalqvinif4;
+        public FieldDef m1vaalqviext4;
+        public FieldDef m1vaarrviimp1;
+        public FieldDef m1vaarrvidia1;
+        public FieldDef m1vaarrvinum1;
+        public FieldDef m1vaarrvinif1;
+        public FieldDef m1vaarrviext1;
+        public FieldDef m1vaarrviimp2;
+        public FieldDef m1vaarrvidia2;
+        public FieldDef m1vaarrvinum2;
+        public FieldDef m1vaarrvinif2;
+        public FieldDef m1vaarrviext2;
+        public FieldDef m1vaarrviimp3;
+        public FieldDef m1vaarrvidia3;
+        public FieldDef m1vaarrvinum3;
+        public FieldDef m1vaarrvinif3;
+        public FieldDef m1vaarrviext3;
+        public FieldDef m1varenderarr;
+        public FieldDef m1vadonfineco;
+        public FieldDef m1vabiepatcul;
+        public FieldDef m1vaconrepbie;
+        public FieldDef m1vatitconbie;
+        public FieldDef m1vadonlengua;
+        public FieldDef m1vadosdesc;
+        public FieldDef m1vaayumat;
+        public FieldDef m1vanumhijcon;
+        public FieldDef m1vanumdeccon;
+        public FieldDef m1vanumhijsin;
+        public FieldDef m1vanumdecsin;
+        public FieldDef m1vanumdecdia;
+        public FieldDef m1vanumprodia;
+        public FieldDef m1vaobvihaa01;
+        public FieldDef m1vaobvihaa11;
+        public FieldDef m1vaobviportit1;
+        public FieldDef m1vaobviporcon1;
+        public FieldDef m1vaobviporotr1;
+        public FieldDef m1vaobvisuma1;
+        public FieldDef m1vaobvinif1;
+        public FieldDef m1vaobvihaa02;
+        public FieldDef m1vaobvihaa12;
+        public FieldDef m1vaobviportit2;
+        public FieldDef m1vaobviporcon2;
+        public FieldDef m1vaobviporotr2;
+        public FieldDef m1vaobvisuma2;
+        public FieldDef m1vaobvinif2;
+        public FieldDef m1vaobviindiv;
+        public FieldDef m1vaobvipha1;
+        public FieldDef m1vaobvipportit1;
+        public FieldDef m1vaobvipporcon1;
+        public FieldDef m1vaobvipporotr1;
+        public FieldDef m1vaobvipnif1;
+        public FieldDef m1vaobvipha2;
+        public FieldDef m1vaobvipportit2;
+        public FieldDef m1vaobvipporcon2;
+        public FieldDef m1vaobvipporotr2;
+        public FieldDef m1vaobvipnif2;
+        public FieldDef m1vaobvipindiv;
+        public FieldDef m1vadonculdep;
+        public FieldDef m1vaabonoscul;
+        public FieldDef m1vainvelea01;
+        public FieldDef m1vainvelea11;
+        public FieldDef m1vainvelea21;
+        public FieldDef m1vainvelea31;
+        public FieldDef m1vainveleti1;
+        public FieldDef m1vainvelea02;
+        public FieldDef m1vainvelea12;
+        public FieldDef m1vainvelea22;
+        public FieldDef m1vainvelea32;
+        public FieldDef m1vainveleti2;
+        public FieldDef m1vainvelea03;
+        public FieldDef m1vainvelea13;
+        public FieldDef m1vainvelea23;
+        public FieldDef m1vainvelea33;
+        public FieldDef m1vainveleti3;
+        public FieldDef m1vainvelea04;
+        public FieldDef m1vainvelea14;
+        public FieldDef m1vainvelea24;
+        public FieldDef m1vainvelea34;
+        public FieldDef m1vainveleti4;
+        public FieldDef m1vaerteimp;
+        public FieldDef m1vabiciimp;
+        public FieldDef m1vaimasdcovid;
+        public FieldDef m1vagastocovid;
+        public TabMod100valencia(String name)
+            {
+            super(name);
+            m1vadominio = new FieldDef("m1vadominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m1vanif = new FieldDef("m1vanif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m1vadeclarac = new FieldDef("m1vadeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+            m1vaejercicio = new FieldDef("m1vaejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1vaperiodo = new FieldDef("m1vaperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1vanreg = new FieldDef("m1vanreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1vatitular = new FieldDef("m1vatitular",FieldDef.INTEGER,0);
+            m1vacomnumhij1 = new FieldDef("m1vacomnumhij1",FieldDef.FLOAT,6,0);
+            m1vadecnumhij1 = new FieldDef("m1vadecnumhij1",FieldDef.FLOAT,6,0);
+            m1vacomnumhij2 = new FieldDef("m1vacomnumhij2",FieldDef.FLOAT,6,0);
+            m1vadecnumhij2 = new FieldDef("m1vadecnumhij2",FieldDef.FLOAT,6,0);
+            m1vanumdechij = new FieldDef("m1vanumdechij",FieldDef.INTEGER,0);
+            m1vacomnumper1 = new FieldDef("m1vacomnumper1",FieldDef.FLOAT,6,0);
+            m1vadecnumper1 = new FieldDef("m1vadecnumper1",FieldDef.FLOAT,6,0);
+            m1vanumdecper1 = new FieldDef("m1vanumdecper1",FieldDef.INTEGER,0);
+            m1vacomnumper2 = new FieldDef("m1vacomnumper2",FieldDef.FLOAT,6,0);
+            m1vadecnumper2 = new FieldDef("m1vadecnumper2",FieldDef.FLOAT,6,0);
+            m1vacomdias1 = new FieldDef("m1vacomdias1",FieldDef.INTEGER,0);
+            m1vadecdias1 = new FieldDef("m1vadecdias1",FieldDef.INTEGER,0);
+            m1vadecdias2 = new FieldDef("m1vadecdias2",FieldDef.INTEGER,0);
+            m1vacomnacadp = new FieldDef("m1vacomnacadp",FieldDef.INTEGER,0);
+            m1vadecnacadp = new FieldDef("m1vadecnacadp",FieldDef.INTEGER,0);
+            m1vanumnacadp = new FieldDef("m1vanumnacadp",FieldDef.INTEGER,0);
+            m1vacomnacdis = new FieldDef("m1vacomnacdis",FieldDef.FLOAT,6,0);
+            m1vadecnacdis = new FieldDef("m1vadecnacdis",FieldDef.FLOAT,6,0);
+            m1vacomnacdish = new FieldDef("m1vacomnacdish",FieldDef.FLOAT,6,0);
+            m1vadecnacdish = new FieldDef("m1vadecnacdish",FieldDef.FLOAT,6,0);
+            m1vanumnacdis = new FieldDef("m1vanumnacdis",FieldDef.INTEGER,0);
+            m1vacomfamnumg = new FieldDef("m1vacomfamnumg",FieldDef.INTEGER,0);
+            m1vadecfamnumg = new FieldDef("m1vadecfamnumg",FieldDef.INTEGER,0);
+            m1vacomfamnume = new FieldDef("m1vacomfamnume",FieldDef.INTEGER,0);
+            m1vadecfamnume = new FieldDef("m1vadecfamnume",FieldDef.INTEGER,0);
+            m1vanumfamnum = new FieldDef("m1vanumfamnum",FieldDef.INTEGER,0);
+            m1vaguavin1 = new FieldDef("m1vaguavin1",FieldDef.INTEGER,0);
+            m1vaguadia1 = new FieldDef("m1vaguadia1",FieldDef.INTEGER,0);
+            m1vaguaimp1 = new FieldDef("m1vaguaimp1",FieldDef.FLOAT,6,0);
+            m1vaguanum1 = new FieldDef("m1vaguanum1",FieldDef.INTEGER,0);
+            m1vaguavin2 = new FieldDef("m1vaguavin2",FieldDef.INTEGER,0);
+            m1vaguadia2 = new FieldDef("m1vaguadia2",FieldDef.INTEGER,0);
+            m1vaguaimp2 = new FieldDef("m1vaguaimp2",FieldDef.FLOAT,6,0);
+            m1vaguanum2 = new FieldDef("m1vaguanum2",FieldDef.INTEGER,0);
+            m1vaguavin3 = new FieldDef("m1vaguavin3",FieldDef.INTEGER,0);
+            m1vaguadia3 = new FieldDef("m1vaguadia3",FieldDef.INTEGER,0);
+            m1vaguaimp3 = new FieldDef("m1vaguaimp3",FieldDef.FLOAT,6,0);
+            m1vaguanum3 = new FieldDef("m1vaguanum3",FieldDef.INTEGER,0);
+            m1vaguavin4 = new FieldDef("m1vaguavin4",FieldDef.INTEGER,0);
+            m1vaguadia4 = new FieldDef("m1vaguadia4",FieldDef.INTEGER,0);
+            m1vaguaimp4 = new FieldDef("m1vaguaimp4",FieldDef.FLOAT,6,0);
+            m1vaguanum4 = new FieldDef("m1vaguanum4",FieldDef.INTEGER,0);
+            m1vacondisc65 = new FieldDef("m1vacondisc65",FieldDef.INTEGER,0);
+            m1vacomnupasc = new FieldDef("m1vacomnupasc",FieldDef.FLOAT,6,0);
+            m1vadecnupasc = new FieldDef("m1vadecnupasc",FieldDef.FLOAT,6,0);
+            m1vadecnudasc = new FieldDef("m1vadecnudasc",FieldDef.INTEGER,0);
+            m1vahogar = new FieldDef("m1vahogar",FieldDef.FLOAT,6,0);
+            m1vaadqvihame = new FieldDef("m1vaadqvihame",FieldDef.FLOAT,6,0);
+            m1vaadqvihadi = new FieldDef("m1vaadqvihadi",FieldDef.FLOAT,6,0);
+            m1vaadqvihadi33 = new FieldDef("m1vaadqvihadi33",FieldDef.INTEGER,0);
+            m1varevisub = new FieldDef("m1varevisub",FieldDef.INTEGER,0);
+            m1varevinej = new FieldDef("m1varevinej",FieldDef.INTEGER,0);
+            m1vareviimp = new FieldDef("m1vareviimp",FieldDef.FLOAT,6,0);
+            m1vaalqvitip1 = new FieldDef("m1vaalqvitip1",FieldDef.INTEGER,0);
+            m1vaalqvicla1 = new FieldDef("m1vaalqvicla1",FieldDef.INTEGER,0);
+            m1vaalqviimp1 = new FieldDef("m1vaalqviimp1",FieldDef.FLOAT,6,0);
+            m1vaalqvidia1 = new FieldDef("m1vaalqvidia1",FieldDef.INTEGER,0);
+            m1vaalqvinum1 = new FieldDef("m1vaalqvinum1",FieldDef.INTEGER,0);
+            m1vaalqvinif1 = new FieldDef("m1vaalqvinif1",FieldDef.CHAR,20);
+            m1vaalqviext1 = new FieldDef("m1vaalqviext1",FieldDef.INTEGER,0);
+            m1vaalqvitip2 = new FieldDef("m1vaalqvitip2",FieldDef.INTEGER,0);
+            m1vaalqvicla2 = new FieldDef("m1vaalqvicla2",FieldDef.INTEGER,0);
+            m1vaalqviimp2 = new FieldDef("m1vaalqviimp2",FieldDef.FLOAT,6,0);
+            m1vaalqvidia2 = new FieldDef("m1vaalqvidia2",FieldDef.INTEGER,0);
+            m1vaalqvinum2 = new FieldDef("m1vaalqvinum2",FieldDef.INTEGER,0);
+            m1vaalqvinif2 = new FieldDef("m1vaalqvinif2",FieldDef.CHAR,20);
+            m1vaalqviext2 = new FieldDef("m1vaalqviext2",FieldDef.INTEGER,0);
+            m1vaalqvitip3 = new FieldDef("m1vaalqvitip3",FieldDef.INTEGER,0);
+            m1vaalqvicla3 = new FieldDef("m1vaalqvicla3",FieldDef.INTEGER,0);
+            m1vaalqviimp3 = new FieldDef("m1vaalqviimp3",FieldDef.FLOAT,6,0);
+            m1vaalqvidia3 = new FieldDef("m1vaalqvidia3",FieldDef.INTEGER,0);
+            m1vaalqvinum3 = new FieldDef("m1vaalqvinum3",FieldDef.INTEGER,0);
+            m1vaalqvinif3 = new FieldDef("m1vaalqvinif3",FieldDef.CHAR,20);
+            m1vaalqviext3 = new FieldDef("m1vaalqviext3",FieldDef.INTEGER,0);
+            m1vaalqvitip4 = new FieldDef("m1vaalqvitip4",FieldDef.INTEGER,0);
+            m1vaalqvicla4 = new FieldDef("m1vaalqvicla4",FieldDef.INTEGER,0);
+            m1vaalqviimp4 = new FieldDef("m1vaalqviimp4",FieldDef.FLOAT,6,0);
+            m1vaalqvidia4 = new FieldDef("m1vaalqvidia4",FieldDef.INTEGER,0);
+            m1vaalqvinum4 = new FieldDef("m1vaalqvinum4",FieldDef.INTEGER,0);
+            m1vaalqvinif4 = new FieldDef("m1vaalqvinif4",FieldDef.CHAR,20);
+            m1vaalqviext4 = new FieldDef("m1vaalqviext4",FieldDef.INTEGER,0);
+            m1vaarrviimp1 = new FieldDef("m1vaarrviimp1",FieldDef.FLOAT,6,0);
+            m1vaarrvidia1 = new FieldDef("m1vaarrvidia1",FieldDef.INTEGER,0);
+            m1vaarrvinum1 = new FieldDef("m1vaarrvinum1",FieldDef.INTEGER,0);
+            m1vaarrvinif1 = new FieldDef("m1vaarrvinif1",FieldDef.CHAR,20);
+            m1vaarrviext1 = new FieldDef("m1vaarrviext1",FieldDef.INTEGER,0);
+            m1vaarrviimp2 = new FieldDef("m1vaarrviimp2",FieldDef.FLOAT,6,0);
+            m1vaarrvidia2 = new FieldDef("m1vaarrvidia2",FieldDef.INTEGER,0);
+            m1vaarrvinum2 = new FieldDef("m1vaarrvinum2",FieldDef.INTEGER,0);
+            m1vaarrvinif2 = new FieldDef("m1vaarrvinif2",FieldDef.CHAR,20);
+            m1vaarrviext2 = new FieldDef("m1vaarrviext2",FieldDef.INTEGER,0);
+            m1vaarrviimp3 = new FieldDef("m1vaarrviimp3",FieldDef.FLOAT,6,0);
+            m1vaarrvidia3 = new FieldDef("m1vaarrvidia3",FieldDef.INTEGER,0);
+            m1vaarrvinum3 = new FieldDef("m1vaarrvinum3",FieldDef.INTEGER,0);
+            m1vaarrvinif3 = new FieldDef("m1vaarrvinif3",FieldDef.CHAR,20);
+            m1vaarrviext3 = new FieldDef("m1vaarrviext3",FieldDef.INTEGER,0);
+            m1varenderarr = new FieldDef("m1varenderarr",FieldDef.FLOAT,6,0);
+            m1vadonfineco = new FieldDef("m1vadonfineco",FieldDef.FLOAT,6,0);
+            m1vabiepatcul = new FieldDef("m1vabiepatcul",FieldDef.FLOAT,6,0);
+            m1vaconrepbie = new FieldDef("m1vaconrepbie",FieldDef.FLOAT,6,0);
+            m1vatitconbie = new FieldDef("m1vatitconbie",FieldDef.FLOAT,6,0);
+            m1vadonlengua = new FieldDef("m1vadonlengua",FieldDef.FLOAT,6,0);
+            m1vadosdesc = new FieldDef("m1vadosdesc",FieldDef.INTEGER,0);
+            m1vaayumat = new FieldDef("m1vaayumat",FieldDef.INTEGER,0);
+            m1vanumhijcon = new FieldDef("m1vanumhijcon",FieldDef.INTEGER,0);
+            m1vanumdeccon = new FieldDef("m1vanumdeccon",FieldDef.INTEGER,0);
+            m1vanumhijsin = new FieldDef("m1vanumhijsin",FieldDef.INTEGER,0);
+            m1vanumdecsin = new FieldDef("m1vanumdecsin",FieldDef.INTEGER,0);
+            m1vanumdecdia = new FieldDef("m1vanumdecdia",FieldDef.INTEGER,0);
+            m1vanumprodia = new FieldDef("m1vanumprodia",FieldDef.INTEGER,0);
+            m1vaobvihaa01 = new FieldDef("m1vaobvihaa01",FieldDef.FLOAT,6,0);
+            m1vaobvihaa11 = new FieldDef("m1vaobvihaa11",FieldDef.FLOAT,6,0);
+            m1vaobviportit1 = new FieldDef("m1vaobviportit1",FieldDef.FLOAT,6,0);
+            m1vaobviporcon1 = new FieldDef("m1vaobviporcon1",FieldDef.FLOAT,6,0);
+            m1vaobviporotr1 = new FieldDef("m1vaobviporotr1",FieldDef.FLOAT,6,0);
+            m1vaobvisuma1 = new FieldDef("m1vaobvisuma1",FieldDef.FLOAT,6,0);
+            m1vaobvinif1 = new FieldDef("m1vaobvinif1",FieldDef.CHAR,9);
+            m1vaobvihaa02 = new FieldDef("m1vaobvihaa02",FieldDef.FLOAT,6,0);
+            m1vaobvihaa12 = new FieldDef("m1vaobvihaa12",FieldDef.FLOAT,6,0);
+            m1vaobviportit2 = new FieldDef("m1vaobviportit2",FieldDef.FLOAT,6,0);
+            m1vaobviporcon2 = new FieldDef("m1vaobviporcon2",FieldDef.FLOAT,6,0);
+            m1vaobviporotr2 = new FieldDef("m1vaobviporotr2",FieldDef.FLOAT,6,0);
+            m1vaobvisuma2 = new FieldDef("m1vaobvisuma2",FieldDef.FLOAT,6,0);
+            m1vaobvinif2 = new FieldDef("m1vaobvinif2",FieldDef.CHAR,9);
+            m1vaobviindiv = new FieldDef("m1vaobviindiv",FieldDef.INTEGER,0);
+            m1vaobvipha1 = new FieldDef("m1vaobvipha1",FieldDef.FLOAT,6,0);
+            m1vaobvipportit1 = new FieldDef("m1vaobvipportit1",FieldDef.FLOAT,6,0);
+            m1vaobvipporcon1 = new FieldDef("m1vaobvipporcon1",FieldDef.FLOAT,6,0);
+            m1vaobvipporotr1 = new FieldDef("m1vaobvipporotr1",FieldDef.FLOAT,6,0);
+            m1vaobvipnif1 = new FieldDef("m1vaobvipnif1",FieldDef.CHAR,9);
+            m1vaobvipha2 = new FieldDef("m1vaobvipha2",FieldDef.FLOAT,6,0);
+            m1vaobvipportit2 = new FieldDef("m1vaobvipportit2",FieldDef.FLOAT,6,0);
+            m1vaobvipporcon2 = new FieldDef("m1vaobvipporcon2",FieldDef.FLOAT,6,0);
+            m1vaobvipporotr2 = new FieldDef("m1vaobvipporotr2",FieldDef.FLOAT,6,0);
+            m1vaobvipnif2 = new FieldDef("m1vaobvipnif2",FieldDef.CHAR,9);
+            m1vaobvipindiv = new FieldDef("m1vaobvipindiv",FieldDef.INTEGER,0);
+            m1vadonculdep = new FieldDef("m1vadonculdep",FieldDef.FLOAT,6,0);
+            m1vaabonoscul = new FieldDef("m1vaabonoscul",FieldDef.FLOAT,6,0);
+            m1vainvelea01 = new FieldDef("m1vainvelea01",FieldDef.FLOAT,6,0);
+            m1vainvelea11 = new FieldDef("m1vainvelea11",FieldDef.FLOAT,6,0);
+            m1vainvelea21 = new FieldDef("m1vainvelea21",FieldDef.FLOAT,6,0);
+            m1vainvelea31 = new FieldDef("m1vainvelea31",FieldDef.FLOAT,6,0);
+            m1vainveleti1 = new FieldDef("m1vainveleti1",FieldDef.FLOAT,6,0);
+            m1vainvelea02 = new FieldDef("m1vainvelea02",FieldDef.FLOAT,6,0);
+            m1vainvelea12 = new FieldDef("m1vainvelea12",FieldDef.FLOAT,6,0);
+            m1vainvelea22 = new FieldDef("m1vainvelea22",FieldDef.FLOAT,6,0);
+            m1vainvelea32 = new FieldDef("m1vainvelea32",FieldDef.FLOAT,6,0);
+            m1vainveleti2 = new FieldDef("m1vainveleti2",FieldDef.FLOAT,6,0);
+            m1vainvelea03 = new FieldDef("m1vainvelea03",FieldDef.FLOAT,6,0);
+            m1vainvelea13 = new FieldDef("m1vainvelea13",FieldDef.FLOAT,6,0);
+            m1vainvelea23 = new FieldDef("m1vainvelea23",FieldDef.FLOAT,6,0);
+            m1vainvelea33 = new FieldDef("m1vainvelea33",FieldDef.FLOAT,6,0);
+            m1vainveleti3 = new FieldDef("m1vainveleti3",FieldDef.FLOAT,6,0);
+            m1vainvelea04 = new FieldDef("m1vainvelea04",FieldDef.FLOAT,6,0);
+            m1vainvelea14 = new FieldDef("m1vainvelea14",FieldDef.FLOAT,6,0);
+            m1vainvelea24 = new FieldDef("m1vainvelea24",FieldDef.FLOAT,6,0);
+            m1vainvelea34 = new FieldDef("m1vainvelea34",FieldDef.FLOAT,6,0);
+            m1vainveleti4 = new FieldDef("m1vainveleti4",FieldDef.FLOAT,6,0);
+            m1vaerteimp = new FieldDef("m1vaerteimp",FieldDef.FLOAT,6,0);
+            m1vabiciimp = new FieldDef("m1vabiciimp",FieldDef.FLOAT,6,0);
+            m1vaimasdcovid = new FieldDef("m1vaimasdcovid",FieldDef.FLOAT,6,0);
+            m1vagastocovid = new FieldDef("m1vagastocovid",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m1vadominio,
+                m1vanif,
+                m1vadeclarac,
+                m1vaejercicio,
+                m1vaperiodo,
+                m1vanreg,
+                m1vatitular,
+                m1vacomnumhij1,
+                m1vadecnumhij1,
+                m1vacomnumhij2,
+                m1vadecnumhij2,
+                m1vanumdechij,
+                m1vacomnumper1,
+                m1vadecnumper1,
+                m1vanumdecper1,
+                m1vacomnumper2,
+                m1vadecnumper2,
+                m1vacomdias1,
+                m1vadecdias1,
+                m1vadecdias2,
+                m1vacomnacadp,
+                m1vadecnacadp,
+                m1vanumnacadp,
+                m1vacomnacdis,
+                m1vadecnacdis,
+                m1vacomnacdish,
+                m1vadecnacdish,
+                m1vanumnacdis,
+                m1vacomfamnumg,
+                m1vadecfamnumg,
+                m1vacomfamnume,
+                m1vadecfamnume,
+                m1vanumfamnum,
+                m1vaguavin1,
+                m1vaguadia1,
+                m1vaguaimp1,
+                m1vaguanum1,
+                m1vaguavin2,
+                m1vaguadia2,
+                m1vaguaimp2,
+                m1vaguanum2,
+                m1vaguavin3,
+                m1vaguadia3,
+                m1vaguaimp3,
+                m1vaguanum3,
+                m1vaguavin4,
+                m1vaguadia4,
+                m1vaguaimp4,
+                m1vaguanum4,
+                m1vacondisc65,
+                m1vacomnupasc,
+                m1vadecnupasc,
+                m1vadecnudasc,
+                m1vahogar,
+                m1vaadqvihame,
+                m1vaadqvihadi,
+                m1vaadqvihadi33,
+                m1varevisub,
+                m1varevinej,
+                m1vareviimp,
+                m1vaalqvitip1,
+                m1vaalqvicla1,
+                m1vaalqviimp1,
+                m1vaalqvidia1,
+                m1vaalqvinum1,
+                m1vaalqvinif1,
+                m1vaalqviext1,
+                m1vaalqvitip2,
+                m1vaalqvicla2,
+                m1vaalqviimp2,
+                m1vaalqvidia2,
+                m1vaalqvinum2,
+                m1vaalqvinif2,
+                m1vaalqviext2,
+                m1vaalqvitip3,
+                m1vaalqvicla3,
+                m1vaalqviimp3,
+                m1vaalqvidia3,
+                m1vaalqvinum3,
+                m1vaalqvinif3,
+                m1vaalqviext3,
+                m1vaalqvitip4,
+                m1vaalqvicla4,
+                m1vaalqviimp4,
+                m1vaalqvidia4,
+                m1vaalqvinum4,
+                m1vaalqvinif4,
+                m1vaalqviext4,
+                m1vaarrviimp1,
+                m1vaarrvidia1,
+                m1vaarrvinum1,
+                m1vaarrvinif1,
+                m1vaarrviext1,
+                m1vaarrviimp2,
+                m1vaarrvidia2,
+                m1vaarrvinum2,
+                m1vaarrvinif2,
+                m1vaarrviext2,
+                m1vaarrviimp3,
+                m1vaarrvidia3,
+                m1vaarrvinum3,
+                m1vaarrvinif3,
+                m1vaarrviext3,
+                m1varenderarr,
+                m1vadonfineco,
+                m1vabiepatcul,
+                m1vaconrepbie,
+                m1vatitconbie,
+                m1vadonlengua,
+                m1vadosdesc,
+                m1vaayumat,
+                m1vanumhijcon,
+                m1vanumdeccon,
+                m1vanumhijsin,
+                m1vanumdecsin,
+                m1vanumdecdia,
+                m1vanumprodia,
+                m1vaobvihaa01,
+                m1vaobvihaa11,
+                m1vaobviportit1,
+                m1vaobviporcon1,
+                m1vaobviporotr1,
+                m1vaobvisuma1,
+                m1vaobvinif1,
+                m1vaobvihaa02,
+                m1vaobvihaa12,
+                m1vaobviportit2,
+                m1vaobviporcon2,
+                m1vaobviporotr2,
+                m1vaobvisuma2,
+                m1vaobvinif2,
+                m1vaobviindiv,
+                m1vaobvipha1,
+                m1vaobvipportit1,
+                m1vaobvipporcon1,
+                m1vaobvipporotr1,
+                m1vaobvipnif1,
+                m1vaobvipha2,
+                m1vaobvipportit2,
+                m1vaobvipporcon2,
+                m1vaobvipporotr2,
+                m1vaobvipnif2,
+                m1vaobvipindiv,
+                m1vadonculdep,
+                m1vaabonoscul,
+                m1vainvelea01,
+                m1vainvelea11,
+                m1vainvelea21,
+                m1vainvelea31,
+                m1vainveleti1,
+                m1vainvelea02,
+                m1vainvelea12,
+                m1vainvelea22,
+                m1vainvelea32,
+                m1vainveleti2,
+                m1vainvelea03,
+                m1vainvelea13,
+                m1vainvelea23,
+                m1vainvelea33,
+                m1vainveleti3,
+                m1vainvelea04,
+                m1vainvelea14,
+                m1vainvelea24,
+                m1vainvelea34,
+                m1vainveleti4,
+                m1vaerteimp,
+                m1vabiciimp,
+                m1vaimasdcovid,
+                m1vagastocovid                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m1vadominio,m1vanif,m1vadeclarac,m1vaejercicio,m1vaperiodo,m1vanreg };
+            setPrimaryKeys(arrayf);
+            m1vacomnumhij1.setDescription("COM1VA1 Nº de hijos nacidos o adoptados en 2020 que dan derecho a la deducción");
+            m1vadecnumhij1.setDescription("DEC1VA1 Nº de hijos nacidos o adoptados en 2020 que dan derecho a la deducción");
+            m1vacomnumhij2.setDescription("COM2VA1 Nº de hijos nacidos o adoptados en 2018 o 2019 que dan derecho a la deducción");
+            m1vadecnumhij2.setDescription("DEC2VA1 Nº de hijos nacidos o adoptados en 2018 o 2019 que dan derecho a la deducción");
+            m1vanumdechij.setDescription("NUM1VA1 Nº de declarantes que tienen derecho a aplicar la deducción");
+            m1vacomnumper1.setDescription("COM3VA1 Nº de personas acogidas durante todo el período impositivo en régimen de acogimiento familiar con familia educadora, que dan derecho a la deducción");
+            m1vadecnumper1.setDescription("DEC3VA1 Nº de personas acogidas durante todo el período impositivo en régimen de acogimiento familiar con familia educadora, que dan derecho a la deducción");
+            m1vanumdecper1.setDescription("NUM2VA1 Nº de declarantes que tienen derecho a aplicar la deducción");
+            m1vacomnumper2.setDescription("COM4VA1 Nº de personas acogidas durante parte del período impositivo");
+            m1vadecnumper2.setDescription("DEC4VA1 Nº de personas acogidas durante parte del período impositivo");
+            m1vacomdias1.setDescription("DIASOVA1 Suma del nº de días de duración de esos acogimientos en el período impositivo");
+            m1vadecdias1.setDescription("DIASTVA1 Suma del nº de días de duración de esos acogimientos en el período impositivo");
+            m1vadecdias2.setDescription("NUM3VA1 Nº de declarantes que tienen derecho a aplicar la deducción");
+            m1vacomnacadp.setDescription("COM1VA2 Si en 2020 se ha producido un nacimiento o adopción múltiple marque la casilla que corresponda");
+            m1vadecnacadp.setDescription("DEC1VA2 Si en 2020 se ha producido un nacimiento o adopción múltiple marque la casilla que corresponda");
+            m1vanumnacadp.setDescription("NUMVA2 Si en 2020 se ha producido un nacimiento o adopción múltiple marque la casilla que corresponda");
+            m1vacomnacdis.setDescription("MENORCJVA3 Único hijo con discapacidad");
+            m1vadecnacdis.setDescription("MENORDVA3 Único hijo con discapacidad");
+            m1vacomnacdish.setDescription("HIJOSCJVA3 Hijo con discapacidad con, al menos, un hermano con discapacidad");
+            m1vadecnacdish.setDescription("HIJOSDVA3 Hijo con discapacidad con, al menos, un hermano con discapacidad");
+            m1vanumnacdis.setDescription("NUM1VA3 Nº de declarantes que tienen derecho a aplicar la deducción");
+            m1vacomfamnumg.setDescription("CAT1VA4 De categoría general");
+            m1vadecfamnumg.setDescription("CAT1TVA4 De categoría general");
+            m1vacomfamnume.setDescription("CAT2VA4 De categoría especial");
+            m1vadecfamnume.setDescription("CAT2TVA4 De categoría especial");
+            m1vanumfamnum.setDescription("NUMVA4 Nº de declarantes que tienen derecho a aplicar la deducción");
+            m1vaguavin1.setDescription("TIPO1VA5 Guarderia vinculacion");
+            m1vaguadia1.setDescription("MESES1VA5 Guarderia dias");
+            m1vaguaimp1.setDescription("VAL21VA5 Guarderia Importe");
+            m1vaguanum1.setDescription("NUM1VA5 Guarderia dias");
+            m1vaguavin2.setDescription("TIPO2VA5 Guarderia vinculacion");
+            m1vaguadia2.setDescription("MESES2VA5 Guarderia dias");
+            m1vaguaimp2.setDescription("VAL22VA5 Guarderia Importe");
+            m1vaguanum2.setDescription("NUM2VA5 Guarderia dias");
+            m1vaguavin3.setDescription("TIPO3VA5 Guarderia vinculacion");
+            m1vaguadia3.setDescription("MESES3VA5 Guarderia dias");
+            m1vaguaimp3.setDescription("VAL23VA5 Guarderia Importe");
+            m1vaguanum3.setDescription("NUM3VA5 Guarderia dias");
+            m1vaguavin4.setDescription("TIPO4VA5 Guarderia vinculacion");
+            m1vaguadia4.setDescription("MESES4VA5 Guarderia dias");
+            m1vaguaimp4.setDescription("VAL24VA5 Guarderia Importe");
+            m1vaguanum4.setDescription("NUM4VA5 Guarderia dias");
+            m1vacondisc65.setDescription("DECVA7 Contribuyentes con discapacidad, de edad igual o superior a 65 años");
+            m1vacomnupasc.setDescription("C01VA8 Nº de personas que dan derecho a la deducción");
+            m1vadecnupasc.setDescription("C02VA8 Nº de personas que dan derecho a la deducción");
+            m1vadecnudasc.setDescription("NUM1VA8 Nº de personas que dan derecho a la deducción");
+            m1vahogar.setDescription("IMPVA9 Por la realización por uno de los cónyuges de la unidad familiar de labores no remuneradas en el hogar");
+            m1vaadqvihame.setDescription("IMPVA11 Primera adquisición de vivienda habitual por menores de 36 años");
+            m1vaadqvihadi.setDescription("IMPVA12 Adquisición de la vivienda habitual por personas con discapacidad");
+            m1vaadqvihadi33.setDescription("NCONVA12");
+            m1varevisub.setDescription("DECVA13 adquisición o rehabilitación de la vivienda habitual cantidades procedentes de una subvención concedida por la Generalitat Valenciana");
+            m1varevinej.setDescription("NUMVA13 Número de ejercicios en los que se van a imputar las ayudas percibidas");
+            m1vareviimp.setDescription("IMPVA13 Importe de la ayuda pública recibida para la adquisición o rehabilitación de la vivienda habitual en el ámbito de la rehabilitación edificatoria y regeneración y renovación urbana");
+            m1vaalqvitip1.setDescription("TIPO1VA14 Por alquiler de vivienda habitual Tipo");
+            m1vaalqvicla1.setDescription("CLAVE1VA14 Por alquiler de vivienda habitual Clave");
+            m1vaalqviimp1.setDescription("IMP1VA14 Por alquiler de vivienda habitual Importe");
+            m1vaalqvidia1.setDescription("MESES1VA14 Por alquiler de vivienda habitual Dias");
+            m1vaalqvinum1.setDescription("NUM1VA14 Por alquiler de vivienda habitual Numero");
+            m1vaalqvinif1.setDescription("NIF1VA14 / VNONIF1VA14 Por alquiler de vivienda habitual Nif/extrangero");
+            m1vaalqviext1.setDescription("Es extrangero");
+            m1vaalqvitip2.setDescription("TIPO1VA24 Por alquiler de vivienda habitual Tipo");
+            m1vaalqvicla2.setDescription("CLAVE1VA24 Por alquiler de vivienda habitual Clave");
+            m1vaalqviimp2.setDescription("IMP1VA24 Por alquiler de vivienda habitual Importe");
+            m1vaalqvidia2.setDescription("MESES1VA24 Por alquiler de vivienda habitual Dias");
+            m1vaalqvinum2.setDescription("NUM1VA24 Por alquiler de vivienda habitual Numero");
+            m1vaalqvinif2.setDescription("NIF2VA14 / VNONIF2VA14 Por alquiler de vivienda habitual Nif/extrangero");
+            m1vaalqviext2.setDescription("Es extrangero");
+            m1vaalqvitip3.setDescription("TIPO3VA14 Por alquiler de vivienda habitual Tipo");
+            m1vaalqvicla3.setDescription("CLAVE3VA14 Por alquiler de vivienda habitual Clave");
+            m1vaalqviimp3.setDescription("IMP3VA14 Por alquiler de vivienda habitual Importe");
+            m1vaalqvidia3.setDescription("MESES3VA14 Por alquiler de vivienda habitual Dias");
+            m1vaalqvinum3.setDescription("NUM3VA14 Por alquiler de vivienda habitual Numero");
+            m1vaalqvinif3.setDescription("NIF3VA14 / VNONIF3VA14 Por alquiler de vivienda habitual Nif/extrangero");
+            m1vaalqviext3.setDescription("Es extrangero");
+            m1vaalqvitip4.setDescription("TIPO4VA14 Por alquiler de vivienda habitual Tipo");
+            m1vaalqvicla4.setDescription("CLAVE4VA14 Por alquiler de vivienda habitual Clave");
+            m1vaalqviimp4.setDescription("IMP4VA14 Por alquiler de vivienda habitual Importe");
+            m1vaalqvidia4.setDescription("MESES4VA14 Por alquiler de vivienda habitual Dias");
+            m1vaalqvinum4.setDescription("NUM4VA14 Por alquiler de vivienda habitual Numero");
+            m1vaalqvinif4.setDescription("NIF4VA14 / VNONIF4VA14 Por alquiler de vivienda habitual Nif/extrangero");
+            m1vaalqviext4.setDescription("Es extrangero");
+            m1vaarrviimp1.setDescription("IMP11VA15 Arrendamiento de vivienda por actividades en distinto municipio Importe");
+            m1vaarrvidia1.setDescription("IMP12VA15 Arrendamiento de vivienda por actividades en distinto municipio Dias");
+            m1vaarrvinum1.setDescription("NUM1VA15 Arrendamiento de vivienda por actividades en distinto municipio Numero");
+            m1vaarrvinif1.setDescription("NIF1VA15 / VNONIF1VA15 Por alquiler de vivienda habitual Nif/extrangero");
+            m1vaarrviext1.setDescription("Es extrangero");
+            m1vaarrviimp2.setDescription("IMP21VA15 Arrendamiento de vivienda por actividades en distinto municipio Importe");
+            m1vaarrvidia2.setDescription("IMP22VA15 Arrendamiento de vivienda por actividades en distinto municipio Dias");
+            m1vaarrvinum2.setDescription("NUM2VA15 Arrendamiento de vivienda por actividades en distinto municipio Numero");
+            m1vaarrvinif2.setDescription("NIF2VA15 / VNONIF2VA15 Por alquiler de vivienda habitual Nif/extrangero");
+            m1vaarrviext2.setDescription("Es extrangero");
+            m1vaarrviimp3.setDescription("IMP31VA15 Arrendamiento de vivienda por actividades en distinto municipio Importe");
+            m1vaarrvidia3.setDescription("IMP32VA15 Arrendamiento de vivienda por actividades en distinto municipio Dias");
+            m1vaarrvinum3.setDescription("NUM3VA15 Arrendamiento de vivienda por actividades en distinto municipio Numero");
+            m1vaarrvinif3.setDescription("NIF3VA15 / VNONIF3VA15 Por alquiler de vivienda habitual Nif/extrangero");
+            m1vaarrviext3.setDescription("Es extrangero");
+            m1varenderarr.setDescription("IMPVA16 Importe de los rendimientos íntegros obtenidos por el arrendamiento de vivienda(s) que originen el derecho a la deducción");
+            m1vadonfineco.setDescription("IMPVA17 Donaciones con finalidad ecológica");
+            m1vabiepatcul.setDescription("IMPVA18 Donaciones de bienes del Patrimonio Cultural Valenciano");
+            m1vaconrepbie.setDescription("IMPVA19 Cantidades donadas para la conservación, reparación y restauración de bienes integrantes del Patrimonio Cultural Valenciano");
+            m1vatitconbie.setDescription("IMPVA20 Cantidades destinadas por sus titulares a la conservación, reparación y restauración de bienes integrantes del Patrimonio Cultural Valenciano");
+            m1vadonlengua.setDescription("IMPVA21 Donaciones dinerarias destinadas al fomento de la lengua valenciana");
+            m1vadosdesc.setDescription("DECVA23 Contribuyentes con dos o más descendientes");
+            m1vaayumat.setDescription("DECVA24 Cantidades procedentes de ayudas públicas concedidas por la Generalitat en el marco de la Ley 6/2009, de 30 de junio, de la Generalitat, de protección a la maternidad");
+            m1vanumhijcon.setDescription("HIJOS1VA25 Convivencia Número de hijos o acogidos comunes por los que puede aplicar la deducción");
+            m1vanumdeccon.setDescription("NUM1VA25 Convivencia Número de hijos o acogidos comunes por los que puede aplicar la deducción");
+            m1vanumhijsin.setDescription("HIJOS3VA25 Sin Número de hijos o acogidos comunes por los que puede aplicar la deducción");
+            m1vanumdecsin.setDescription("HIJOS4VA25 Sin Número de hijos o acogidos comunes por los que puede aplicar la deducción");
+            m1vanumdecdia.setDescription("DIASTVA25  Número de días en los que el titular de la declaración se encuentra en situación de desempleo e inscrito como demandante de empleo en un servicio público de empleo");
+            m1vanumprodia.setDescription("DIASOPVA25 Sin Número de hijos o acogidos comunes por los que puede aplicar la deducción");
+            m1vaobvihaa01.setDescription("IMP1VA26 Por obras realizadas en 2015");
+            m1vaobvihaa11.setDescription("IMP3VA26 Por obras realizadas en 2014");
+            m1vaobviportit1.setDescription("POR1TITVA26 Porcentaje del contribuyente en la titularidad en la vivienda");
+            m1vaobviporcon1.setDescription("POR1CONYVA26 Porcentaje del otro cónyuge en la titularidad de la vivienda, siempre que sea su vivienda habitual");
+            m1vaobviporotr1.setDescription("POR1OTVA26 Si hay otras personas, distintas del declarante y del cónyuge, que sean declarantes   por este impuesto y que tengan derecho a aplicar la deducción por la misma   vivienda habitual, indique");
+            m1vaobvisuma1.setDescription("SUMA1VA26 Suma de las bases de la deducción aplicada desde 2014 a 2018 por todos los propietarios de la vivienda");
+            m1vaobvinif1.setDescription("NIFOM1VA26 NIF de la persona o entidad que realiza las obras");
+            m1vaobvihaa02.setDescription("IMP2VA26 Por obras realizadas en 2015");
+            m1vaobvihaa12.setDescription("IMP4VA26 Por obras realizadas en 2014");
+            m1vaobviportit2.setDescription("POR2TITVA26 Porcentaje del contribuyente en la titularidad en la vivienda");
+            m1vaobviporcon2.setDescription("POR2CONYVA26 Porcentaje del otro cónyuge en la titularidad de la vivienda, siempre que sea su vivienda habitual");
+            m1vaobviporotr2.setDescription("POR2OTVA26 Si hay otras personas, distintas del declarante y del cónyuge, que sean declarantes   por este impuesto y que tengan derecho a aplicar la deducción por la misma   vivienda habitual, indique");
+            m1vaobvisuma2.setDescription("SUMA2VA26 Suma de las bases de la deducción aplicada desde 2014 a 2018 por todos los propietarios de la vivienda");
+            m1vaobvinif2.setDescription("NIFOM2VA26 NIF de la persona o entidad que realiza las obras");
+            m1vaobviindiv.setDescription("DECLARDVA26 Si va a optar por la tributación individual y su cónyuge no presenta declaración por este Impuesto");
+            m1vaobvipha1.setDescription("IMP1VA26B Cantidades satisfechas en 2020");
+            m1vaobvipportit1.setDescription("POR1TITVA26B Porcentaje del contribuyente en la titularidad en la vivienda");
+            m1vaobvipporcon1.setDescription("POR1CONYVA26B Porcentaje del otro cónyuge en la titularidad de la vivienda, siempre que sea su vivienda habitual");
+            m1vaobvipporotr1.setDescription("POR1OTVA26B Si hay otras personas, distintas del declarante y del cónyuge, que sean declarantes   por este impuesto y que tengan derecho a aplicar la deducción por la misma   vivienda habitual, indiqu");
+            m1vaobvipnif1.setDescription("NIFOM1VA26B NIF de la persona o entidad que realiza las obras");
+            m1vaobvipha2.setDescription("IMP2VA26B Cantidades satisfechas en 2020");
+            m1vaobvipportit2.setDescription("POR2TITVA26B Porcentaje del contribuyente en la titularidad en la vivienda");
+            m1vaobvipporcon2.setDescription("POR2CONYVA26B Porcentaje del otro cónyuge en la titularidad de la vivienda, siempre que sea su vivienda habitual");
+            m1vaobvipporotr2.setDescription("POR2OTVA26B Si hay otras personas, distintas del declarante y del cónyuge, que sean declarantes   por este impuesto y que tengan derecho a aplicar la deducción por la misma   vivienda habitual, indiqu");
+            m1vaobvipnif2.setDescription("NIFOM2VA26B NIF de la persona o entidad que realiza las obras");
+            m1vaobvipindiv.setDescription("DECLARDVA26B Si va a optar por la tributación individual y su cónyuge no presenta declaración por este Impuesto");
+            m1vadonculdep.setDescription("IMPVA27B Donaciones o cesiones de uso o comodatos para otros fines de carácter cultural, científico o deportivo no profesional");
+            m1vaabonoscul.setDescription("IMPVA28 Cantidades destinadas a abonos culturales");
+            m1vainvelea01.setDescription("IMP11VA29 atisfechas en 2017 (1) y (3)");
+            m1vainvelea11.setDescription("IMP12VA29 atisfechas en 2018 (1) y (3)");
+            m1vainvelea21.setDescription("IMP13VA29 atisfechas en 2019 (2) y (3)");
+            m1vainvelea31.setDescription("IMP14VA29 atisfechas en 2019 (2) y (3)");
+            m1vainveleti1.setDescription("POR1TITVA29 Porcentaje de titularidad del contribuyente en la vivienda");
+            m1vainvelea02.setDescription("IMP21VA29 atisfechas en 2017 (1) y (3)");
+            m1vainvelea12.setDescription("IMP22VA29 atisfechas en 2018 (1) y (3)");
+            m1vainvelea22.setDescription("IMP23VA29 atisfechas en 2019 (2) y (3)");
+            m1vainvelea32.setDescription("IMP24VA29 atisfechas en 2019 (2) y (3)");
+            m1vainveleti2.setDescription("POR2TITVA29 Porcentaje de titularidad del contribuyente en la vivienda");
+            m1vainvelea03.setDescription("IMP31VA29 atisfechas en 2017 (1) y (3)");
+            m1vainvelea13.setDescription("IMP32VA29 atisfechas en 2018 (1) y (3)");
+            m1vainvelea23.setDescription("IMP33VA29 atisfechas en 2019 (2) y (3)");
+            m1vainvelea33.setDescription("IMP34VA29 atisfechas en 2019 (2) y (3)");
+            m1vainveleti3.setDescription("POR3TITVA29 Porcentaje de titularidad del contribuyente en la vivienda");
+            m1vainvelea04.setDescription("IMP41VA29 atisfechas en 2017 (1) y (3)");
+            m1vainvelea14.setDescription("IMP42VA29 atisfechas en 2018 (1) y (3)");
+            m1vainvelea24.setDescription("IMP43VA29 atisfechas en 2019 (2) y (3)");
+            m1vainvelea34.setDescription("IMP44VA29 atisfechas en 2019 (2) y (3)");
+            m1vainveleti4.setDescription("POR4TITVA29 Porcentaje de titularidad del contribuyente en la vivienda");
+            m1vaerteimp.setDescription("IMPVA30 ERTE, Importe de la ayuda pública recibida");
+            m1vabiciimp.setDescription("IMPVA31 Deducción por ayudas públicas concedidas por la Generalitat, en virtud de la Orden 5/2020, para la adquisición o electrificación de bicicletas urbanas y vehículos eléctricos de movilidad perso");
+            m1vaimasdcovid.setDescription("IMPVA32 Por donaciones dinerarias dirigidas a financiar programas de investigación, innovación y desarrollo científico o tecnológico en el campo del tratamiento y prevención de las infecciones produci");
+            m1vagastocovid.setDescription("IMPVA33 Por donaciones para contribuir a la financiación de los gastos ocasionados por la crisis sanitaria producida por la Covid-19");
+            }
+        }
+        
+    public class TabMod100valenciab extends TableDef
+        {
+        // campos
+        public FieldDef m1vbdominio;
+        public FieldDef m1vbnif;
+        public FieldDef m1vbdeclarac;
+        public FieldDef m1vbejercicio;
+        public FieldDef m1vbperiodo;
+        public FieldDef m1vbnreg;
+        public FieldDef m1vbtitular;
+        public FieldDef m1vbconraanu;
+        public FieldDef m1vbconraene;
+        public FieldDef m1vbconrafeb;
+        public FieldDef m1vbconramar;
+        public FieldDef m1vbconraabr;
+        public FieldDef m1vbconramay;
+        public FieldDef m1vbconrajun;
+        public FieldDef m1vbconrajul;
+        public FieldDef m1vbconraago;
+        public FieldDef m1vbconrasep;
+        public FieldDef m1vbconraoct;
+        public FieldDef m1vbconranov;
+        public FieldDef m1vbconradic;
+        public FieldDef m1vbconcotrass;
+        public FieldDef m1vbconcotene;
+        public FieldDef m1vbconcotfeb;
+        public FieldDef m1vbconcotmar;
+        public FieldDef m1vbconcotabr;
+        public FieldDef m1vbconcotmay;
+        public FieldDef m1vbconcotjun;
+        public FieldDef m1vbconcotjul;
+        public FieldDef m1vbconcotago;
+        public FieldDef m1vbconcotsep;
+        public FieldDef m1vbconcotoct;
+        public FieldDef m1vbconcotnov;
+        public FieldDef m1vbconcotdic;
+        public FieldDef m1vbconmeshij1;
+        public FieldDef m1vbconffalle1;
+        public FieldDef m1vbconhayotr1;
+        public FieldDef m1vbconotrene1;
+        public FieldDef m1vbconotrfeb1;
+        public FieldDef m1vbconotrmar1;
+        public FieldDef m1vbconotrabr1;
+        public FieldDef m1vbconotrmay1;
+        public FieldDef m1vbconotrjun1;
+        public FieldDef m1vbconotrjul1;
+        public FieldDef m1vbconotrago1;
+        public FieldDef m1vbconotrsep1;
+        public FieldDef m1vbconotroct1;
+        public FieldDef m1vbconotrnov1;
+        public FieldDef m1vbconotrdic1;
+        public FieldDef m1vbconcotss1;
+        public FieldDef m1vbcondeduc1;
+        public FieldDef m1vbconmeshij2;
+        public FieldDef m1vbconffalle2;
+        public FieldDef m1vbconhayotr2;
+        public FieldDef m1vbconotrene2;
+        public FieldDef m1vbconotrfeb2;
+        public FieldDef m1vbconotrmar2;
+        public FieldDef m1vbconotrabr2;
+        public FieldDef m1vbconotrmay2;
+        public FieldDef m1vbconotrjun2;
+        public FieldDef m1vbconotrjul2;
+        public FieldDef m1vbconotrago2;
+        public FieldDef m1vbconotrsep2;
+        public FieldDef m1vbconotroct2;
+        public FieldDef m1vbconotrnov2;
+        public FieldDef m1vbconotrdic2;
+        public FieldDef m1vbconcotss2;
+        public FieldDef m1vbcondeduc2;
+        public FieldDef m1vbconmeshij3;
+        public FieldDef m1vbconffalle3;
+        public FieldDef m1vbconhayotr3;
+        public FieldDef m1vbconotrene3;
+        public FieldDef m1vbconotrfeb3;
+        public FieldDef m1vbconotrmar3;
+        public FieldDef m1vbconotrabr3;
+        public FieldDef m1vbconotrmay3;
+        public FieldDef m1vbconotrjun3;
+        public FieldDef m1vbconotrjul3;
+        public FieldDef m1vbconotrago3;
+        public FieldDef m1vbconotrsep3;
+        public FieldDef m1vbconotroct3;
+        public FieldDef m1vbconotrnov3;
+        public FieldDef m1vbconotrdic3;
+        public FieldDef m1vbconcotss3;
+        public FieldDef m1vbcondeduc3;
+        public FieldDef m1vbconmeshij4;
+        public FieldDef m1vbconffalle4;
+        public FieldDef m1vbconhayotr4;
+        public FieldDef m1vbconotrene4;
+        public FieldDef m1vbconotrfeb4;
+        public FieldDef m1vbconotrmar4;
+        public FieldDef m1vbconotrabr4;
+        public FieldDef m1vbconotrmay4;
+        public FieldDef m1vbconotrjun4;
+        public FieldDef m1vbconotrjul4;
+        public FieldDef m1vbconotrago4;
+        public FieldDef m1vbconotrsep4;
+        public FieldDef m1vbconotroct4;
+        public FieldDef m1vbconotrnov4;
+        public FieldDef m1vbconotrdic4;
+        public FieldDef m1vbconcotss4;
+        public FieldDef m1vbcondeduc4;
+        public FieldDef m1vbconmeshij5;
+        public FieldDef m1vbconffalle5;
+        public FieldDef m1vbconhayotr5;
+        public FieldDef m1vbconotrene5;
+        public FieldDef m1vbconotrfeb5;
+        public FieldDef m1vbconotrmar5;
+        public FieldDef m1vbconotrabr5;
+        public FieldDef m1vbconotrmay5;
+        public FieldDef m1vbconotrjun5;
+        public FieldDef m1vbconotrjul5;
+        public FieldDef m1vbconotrago5;
+        public FieldDef m1vbconotrsep5;
+        public FieldDef m1vbconotroct5;
+        public FieldDef m1vbconotrnov5;
+        public FieldDef m1vbconotrdic5;
+        public FieldDef m1vbconcotss5;
+        public FieldDef m1vbcondeduc5;
+        public FieldDef m1vbconmeshij6;
+        public FieldDef m1vbconffalle6;
+        public FieldDef m1vbconhayotr6;
+        public FieldDef m1vbconotrene6;
+        public FieldDef m1vbconotrfeb6;
+        public FieldDef m1vbconotrmar6;
+        public FieldDef m1vbconotrabr6;
+        public FieldDef m1vbconotrmay6;
+        public FieldDef m1vbconotrjun6;
+        public FieldDef m1vbconotrjul6;
+        public FieldDef m1vbconotrago6;
+        public FieldDef m1vbconotrsep6;
+        public FieldDef m1vbconotroct6;
+        public FieldDef m1vbconotrnov6;
+        public FieldDef m1vbconotrdic6;
+        public FieldDef m1vbconcotss6;
+        public FieldDef m1vbcondeduc6;
+        public TabMod100valenciab(String name)
+            {
+            super(name);
+            m1vbdominio = new FieldDef("m1vbdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m1vbnif = new FieldDef("m1vbnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m1vbdeclarac = new FieldDef("m1vbdeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+            m1vbejercicio = new FieldDef("m1vbejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1vbperiodo = new FieldDef("m1vbperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1vbnreg = new FieldDef("m1vbnreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1vbtitular = new FieldDef("m1vbtitular",FieldDef.INTEGER,0);
+            m1vbconraanu = new FieldDef("m1vbconraanu",FieldDef.INTEGER,0);
+            m1vbconraene = new FieldDef("m1vbconraene",FieldDef.INTEGER,0);
+            m1vbconrafeb = new FieldDef("m1vbconrafeb",FieldDef.INTEGER,0);
+            m1vbconramar = new FieldDef("m1vbconramar",FieldDef.INTEGER,0);
+            m1vbconraabr = new FieldDef("m1vbconraabr",FieldDef.INTEGER,0);
+            m1vbconramay = new FieldDef("m1vbconramay",FieldDef.INTEGER,0);
+            m1vbconrajun = new FieldDef("m1vbconrajun",FieldDef.INTEGER,0);
+            m1vbconrajul = new FieldDef("m1vbconrajul",FieldDef.INTEGER,0);
+            m1vbconraago = new FieldDef("m1vbconraago",FieldDef.INTEGER,0);
+            m1vbconrasep = new FieldDef("m1vbconrasep",FieldDef.INTEGER,0);
+            m1vbconraoct = new FieldDef("m1vbconraoct",FieldDef.INTEGER,0);
+            m1vbconranov = new FieldDef("m1vbconranov",FieldDef.INTEGER,0);
+            m1vbconradic = new FieldDef("m1vbconradic",FieldDef.INTEGER,0);
+            m1vbconcotrass = new FieldDef("m1vbconcotrass",FieldDef.INTEGER,0);
+            m1vbconcotene = new FieldDef("m1vbconcotene",FieldDef.FLOAT,6,0);
+            m1vbconcotfeb = new FieldDef("m1vbconcotfeb",FieldDef.FLOAT,6,0);
+            m1vbconcotmar = new FieldDef("m1vbconcotmar",FieldDef.FLOAT,6,0);
+            m1vbconcotabr = new FieldDef("m1vbconcotabr",FieldDef.FLOAT,6,0);
+            m1vbconcotmay = new FieldDef("m1vbconcotmay",FieldDef.FLOAT,6,0);
+            m1vbconcotjun = new FieldDef("m1vbconcotjun",FieldDef.FLOAT,6,0);
+            m1vbconcotjul = new FieldDef("m1vbconcotjul",FieldDef.FLOAT,6,0);
+            m1vbconcotago = new FieldDef("m1vbconcotago",FieldDef.FLOAT,6,0);
+            m1vbconcotsep = new FieldDef("m1vbconcotsep",FieldDef.FLOAT,6,0);
+            m1vbconcotoct = new FieldDef("m1vbconcotoct",FieldDef.FLOAT,6,0);
+            m1vbconcotnov = new FieldDef("m1vbconcotnov",FieldDef.FLOAT,6,0);
+            m1vbconcotdic = new FieldDef("m1vbconcotdic",FieldDef.FLOAT,6,0);
+            m1vbconmeshij1 = new FieldDef("m1vbconmeshij1",FieldDef.INTEGER,0);
+            m1vbconffalle1 = new FieldDef("m1vbconffalle1",FieldDef.DATE);
+            m1vbconhayotr1 = new FieldDef("m1vbconhayotr1",FieldDef.INTEGER,0);
+            m1vbconotrene1 = new FieldDef("m1vbconotrene1",FieldDef.INTEGER,0);
+            m1vbconotrfeb1 = new FieldDef("m1vbconotrfeb1",FieldDef.INTEGER,0);
+            m1vbconotrmar1 = new FieldDef("m1vbconotrmar1",FieldDef.INTEGER,0);
+            m1vbconotrabr1 = new FieldDef("m1vbconotrabr1",FieldDef.INTEGER,0);
+            m1vbconotrmay1 = new FieldDef("m1vbconotrmay1",FieldDef.INTEGER,0);
+            m1vbconotrjun1 = new FieldDef("m1vbconotrjun1",FieldDef.INTEGER,0);
+            m1vbconotrjul1 = new FieldDef("m1vbconotrjul1",FieldDef.INTEGER,0);
+            m1vbconotrago1 = new FieldDef("m1vbconotrago1",FieldDef.INTEGER,0);
+            m1vbconotrsep1 = new FieldDef("m1vbconotrsep1",FieldDef.INTEGER,0);
+            m1vbconotroct1 = new FieldDef("m1vbconotroct1",FieldDef.INTEGER,0);
+            m1vbconotrnov1 = new FieldDef("m1vbconotrnov1",FieldDef.INTEGER,0);
+            m1vbconotrdic1 = new FieldDef("m1vbconotrdic1",FieldDef.INTEGER,0);
+            m1vbconcotss1 = new FieldDef("m1vbconcotss1",FieldDef.FLOAT,6,0);
+            m1vbcondeduc1 = new FieldDef("m1vbcondeduc1",FieldDef.FLOAT,6,0);
+            m1vbconmeshij2 = new FieldDef("m1vbconmeshij2",FieldDef.INTEGER,0);
+            m1vbconffalle2 = new FieldDef("m1vbconffalle2",FieldDef.DATE);
+            m1vbconhayotr2 = new FieldDef("m1vbconhayotr2",FieldDef.INTEGER,0);
+            m1vbconotrene2 = new FieldDef("m1vbconotrene2",FieldDef.INTEGER,0);
+            m1vbconotrfeb2 = new FieldDef("m1vbconotrfeb2",FieldDef.INTEGER,0);
+            m1vbconotrmar2 = new FieldDef("m1vbconotrmar2",FieldDef.INTEGER,0);
+            m1vbconotrabr2 = new FieldDef("m1vbconotrabr2",FieldDef.INTEGER,0);
+            m1vbconotrmay2 = new FieldDef("m1vbconotrmay2",FieldDef.INTEGER,0);
+            m1vbconotrjun2 = new FieldDef("m1vbconotrjun2",FieldDef.INTEGER,0);
+            m1vbconotrjul2 = new FieldDef("m1vbconotrjul2",FieldDef.INTEGER,0);
+            m1vbconotrago2 = new FieldDef("m1vbconotrago2",FieldDef.INTEGER,0);
+            m1vbconotrsep2 = new FieldDef("m1vbconotrsep2",FieldDef.INTEGER,0);
+            m1vbconotroct2 = new FieldDef("m1vbconotroct2",FieldDef.INTEGER,0);
+            m1vbconotrnov2 = new FieldDef("m1vbconotrnov2",FieldDef.INTEGER,0);
+            m1vbconotrdic2 = new FieldDef("m1vbconotrdic2",FieldDef.INTEGER,0);
+            m1vbconcotss2 = new FieldDef("m1vbconcotss2",FieldDef.FLOAT,6,0);
+            m1vbcondeduc2 = new FieldDef("m1vbcondeduc2",FieldDef.FLOAT,6,0);
+            m1vbconmeshij3 = new FieldDef("m1vbconmeshij3",FieldDef.INTEGER,0);
+            m1vbconffalle3 = new FieldDef("m1vbconffalle3",FieldDef.DATE);
+            m1vbconhayotr3 = new FieldDef("m1vbconhayotr3",FieldDef.INTEGER,0);
+            m1vbconotrene3 = new FieldDef("m1vbconotrene3",FieldDef.INTEGER,0);
+            m1vbconotrfeb3 = new FieldDef("m1vbconotrfeb3",FieldDef.INTEGER,0);
+            m1vbconotrmar3 = new FieldDef("m1vbconotrmar3",FieldDef.INTEGER,0);
+            m1vbconotrabr3 = new FieldDef("m1vbconotrabr3",FieldDef.INTEGER,0);
+            m1vbconotrmay3 = new FieldDef("m1vbconotrmay3",FieldDef.INTEGER,0);
+            m1vbconotrjun3 = new FieldDef("m1vbconotrjun3",FieldDef.INTEGER,0);
+            m1vbconotrjul3 = new FieldDef("m1vbconotrjul3",FieldDef.INTEGER,0);
+            m1vbconotrago3 = new FieldDef("m1vbconotrago3",FieldDef.INTEGER,0);
+            m1vbconotrsep3 = new FieldDef("m1vbconotrsep3",FieldDef.INTEGER,0);
+            m1vbconotroct3 = new FieldDef("m1vbconotroct3",FieldDef.INTEGER,0);
+            m1vbconotrnov3 = new FieldDef("m1vbconotrnov3",FieldDef.INTEGER,0);
+            m1vbconotrdic3 = new FieldDef("m1vbconotrdic3",FieldDef.INTEGER,0);
+            m1vbconcotss3 = new FieldDef("m1vbconcotss3",FieldDef.FLOAT,6,0);
+            m1vbcondeduc3 = new FieldDef("m1vbcondeduc3",FieldDef.FLOAT,6,0);
+            m1vbconmeshij4 = new FieldDef("m1vbconmeshij4",FieldDef.INTEGER,0);
+            m1vbconffalle4 = new FieldDef("m1vbconffalle4",FieldDef.DATE);
+            m1vbconhayotr4 = new FieldDef("m1vbconhayotr4",FieldDef.INTEGER,0);
+            m1vbconotrene4 = new FieldDef("m1vbconotrene4",FieldDef.INTEGER,0);
+            m1vbconotrfeb4 = new FieldDef("m1vbconotrfeb4",FieldDef.INTEGER,0);
+            m1vbconotrmar4 = new FieldDef("m1vbconotrmar4",FieldDef.INTEGER,0);
+            m1vbconotrabr4 = new FieldDef("m1vbconotrabr4",FieldDef.INTEGER,0);
+            m1vbconotrmay4 = new FieldDef("m1vbconotrmay4",FieldDef.INTEGER,0);
+            m1vbconotrjun4 = new FieldDef("m1vbconotrjun4",FieldDef.INTEGER,0);
+            m1vbconotrjul4 = new FieldDef("m1vbconotrjul4",FieldDef.INTEGER,0);
+            m1vbconotrago4 = new FieldDef("m1vbconotrago4",FieldDef.INTEGER,0);
+            m1vbconotrsep4 = new FieldDef("m1vbconotrsep4",FieldDef.INTEGER,0);
+            m1vbconotroct4 = new FieldDef("m1vbconotroct4",FieldDef.INTEGER,0);
+            m1vbconotrnov4 = new FieldDef("m1vbconotrnov4",FieldDef.INTEGER,0);
+            m1vbconotrdic4 = new FieldDef("m1vbconotrdic4",FieldDef.INTEGER,0);
+            m1vbconcotss4 = new FieldDef("m1vbconcotss4",FieldDef.FLOAT,6,0);
+            m1vbcondeduc4 = new FieldDef("m1vbcondeduc4",FieldDef.FLOAT,6,0);
+            m1vbconmeshij5 = new FieldDef("m1vbconmeshij5",FieldDef.INTEGER,0);
+            m1vbconffalle5 = new FieldDef("m1vbconffalle5",FieldDef.DATE);
+            m1vbconhayotr5 = new FieldDef("m1vbconhayotr5",FieldDef.INTEGER,0);
+            m1vbconotrene5 = new FieldDef("m1vbconotrene5",FieldDef.INTEGER,0);
+            m1vbconotrfeb5 = new FieldDef("m1vbconotrfeb5",FieldDef.INTEGER,0);
+            m1vbconotrmar5 = new FieldDef("m1vbconotrmar5",FieldDef.INTEGER,0);
+            m1vbconotrabr5 = new FieldDef("m1vbconotrabr5",FieldDef.INTEGER,0);
+            m1vbconotrmay5 = new FieldDef("m1vbconotrmay5",FieldDef.INTEGER,0);
+            m1vbconotrjun5 = new FieldDef("m1vbconotrjun5",FieldDef.INTEGER,0);
+            m1vbconotrjul5 = new FieldDef("m1vbconotrjul5",FieldDef.INTEGER,0);
+            m1vbconotrago5 = new FieldDef("m1vbconotrago5",FieldDef.INTEGER,0);
+            m1vbconotrsep5 = new FieldDef("m1vbconotrsep5",FieldDef.INTEGER,0);
+            m1vbconotroct5 = new FieldDef("m1vbconotroct5",FieldDef.INTEGER,0);
+            m1vbconotrnov5 = new FieldDef("m1vbconotrnov5",FieldDef.INTEGER,0);
+            m1vbconotrdic5 = new FieldDef("m1vbconotrdic5",FieldDef.INTEGER,0);
+            m1vbconcotss5 = new FieldDef("m1vbconcotss5",FieldDef.FLOAT,6,0);
+            m1vbcondeduc5 = new FieldDef("m1vbcondeduc5",FieldDef.FLOAT,6,0);
+            m1vbconmeshij6 = new FieldDef("m1vbconmeshij6",FieldDef.INTEGER,0);
+            m1vbconffalle6 = new FieldDef("m1vbconffalle6",FieldDef.DATE);
+            m1vbconhayotr6 = new FieldDef("m1vbconhayotr6",FieldDef.INTEGER,0);
+            m1vbconotrene6 = new FieldDef("m1vbconotrene6",FieldDef.INTEGER,0);
+            m1vbconotrfeb6 = new FieldDef("m1vbconotrfeb6",FieldDef.INTEGER,0);
+            m1vbconotrmar6 = new FieldDef("m1vbconotrmar6",FieldDef.INTEGER,0);
+            m1vbconotrabr6 = new FieldDef("m1vbconotrabr6",FieldDef.INTEGER,0);
+            m1vbconotrmay6 = new FieldDef("m1vbconotrmay6",FieldDef.INTEGER,0);
+            m1vbconotrjun6 = new FieldDef("m1vbconotrjun6",FieldDef.INTEGER,0);
+            m1vbconotrjul6 = new FieldDef("m1vbconotrjul6",FieldDef.INTEGER,0);
+            m1vbconotrago6 = new FieldDef("m1vbconotrago6",FieldDef.INTEGER,0);
+            m1vbconotrsep6 = new FieldDef("m1vbconotrsep6",FieldDef.INTEGER,0);
+            m1vbconotroct6 = new FieldDef("m1vbconotroct6",FieldDef.INTEGER,0);
+            m1vbconotrnov6 = new FieldDef("m1vbconotrnov6",FieldDef.INTEGER,0);
+            m1vbconotrdic6 = new FieldDef("m1vbconotrdic6",FieldDef.INTEGER,0);
+            m1vbconcotss6 = new FieldDef("m1vbconcotss6",FieldDef.FLOAT,6,0);
+            m1vbcondeduc6 = new FieldDef("m1vbcondeduc6",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m1vbdominio,
+                m1vbnif,
+                m1vbdeclarac,
+                m1vbejercicio,
+                m1vbperiodo,
+                m1vbnreg,
+                m1vbtitular,
+                m1vbconraanu,
+                m1vbconraene,
+                m1vbconrafeb,
+                m1vbconramar,
+                m1vbconraabr,
+                m1vbconramay,
+                m1vbconrajun,
+                m1vbconrajul,
+                m1vbconraago,
+                m1vbconrasep,
+                m1vbconraoct,
+                m1vbconranov,
+                m1vbconradic,
+                m1vbconcotrass,
+                m1vbconcotene,
+                m1vbconcotfeb,
+                m1vbconcotmar,
+                m1vbconcotabr,
+                m1vbconcotmay,
+                m1vbconcotjun,
+                m1vbconcotjul,
+                m1vbconcotago,
+                m1vbconcotsep,
+                m1vbconcotoct,
+                m1vbconcotnov,
+                m1vbconcotdic,
+                m1vbconmeshij1,
+                m1vbconffalle1,
+                m1vbconhayotr1,
+                m1vbconotrene1,
+                m1vbconotrfeb1,
+                m1vbconotrmar1,
+                m1vbconotrabr1,
+                m1vbconotrmay1,
+                m1vbconotrjun1,
+                m1vbconotrjul1,
+                m1vbconotrago1,
+                m1vbconotrsep1,
+                m1vbconotroct1,
+                m1vbconotrnov1,
+                m1vbconotrdic1,
+                m1vbconcotss1,
+                m1vbcondeduc1,
+                m1vbconmeshij2,
+                m1vbconffalle2,
+                m1vbconhayotr2,
+                m1vbconotrene2,
+                m1vbconotrfeb2,
+                m1vbconotrmar2,
+                m1vbconotrabr2,
+                m1vbconotrmay2,
+                m1vbconotrjun2,
+                m1vbconotrjul2,
+                m1vbconotrago2,
+                m1vbconotrsep2,
+                m1vbconotroct2,
+                m1vbconotrnov2,
+                m1vbconotrdic2,
+                m1vbconcotss2,
+                m1vbcondeduc2,
+                m1vbconmeshij3,
+                m1vbconffalle3,
+                m1vbconhayotr3,
+                m1vbconotrene3,
+                m1vbconotrfeb3,
+                m1vbconotrmar3,
+                m1vbconotrabr3,
+                m1vbconotrmay3,
+                m1vbconotrjun3,
+                m1vbconotrjul3,
+                m1vbconotrago3,
+                m1vbconotrsep3,
+                m1vbconotroct3,
+                m1vbconotrnov3,
+                m1vbconotrdic3,
+                m1vbconcotss3,
+                m1vbcondeduc3,
+                m1vbconmeshij4,
+                m1vbconffalle4,
+                m1vbconhayotr4,
+                m1vbconotrene4,
+                m1vbconotrfeb4,
+                m1vbconotrmar4,
+                m1vbconotrabr4,
+                m1vbconotrmay4,
+                m1vbconotrjun4,
+                m1vbconotrjul4,
+                m1vbconotrago4,
+                m1vbconotrsep4,
+                m1vbconotroct4,
+                m1vbconotrnov4,
+                m1vbconotrdic4,
+                m1vbconcotss4,
+                m1vbcondeduc4,
+                m1vbconmeshij5,
+                m1vbconffalle5,
+                m1vbconhayotr5,
+                m1vbconotrene5,
+                m1vbconotrfeb5,
+                m1vbconotrmar5,
+                m1vbconotrabr5,
+                m1vbconotrmay5,
+                m1vbconotrjun5,
+                m1vbconotrjul5,
+                m1vbconotrago5,
+                m1vbconotrsep5,
+                m1vbconotroct5,
+                m1vbconotrnov5,
+                m1vbconotrdic5,
+                m1vbconcotss5,
+                m1vbcondeduc5,
+                m1vbconmeshij6,
+                m1vbconffalle6,
+                m1vbconhayotr6,
+                m1vbconotrene6,
+                m1vbconotrfeb6,
+                m1vbconotrmar6,
+                m1vbconotrabr6,
+                m1vbconotrmay6,
+                m1vbconotrjun6,
+                m1vbconotrjul6,
+                m1vbconotrago6,
+                m1vbconotrsep6,
+                m1vbconotroct6,
+                m1vbconotrnov6,
+                m1vbconotrdic6,
+                m1vbconcotss6,
+                m1vbcondeduc6                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m1vbdominio,m1vbnif,m1vbdeclarac,m1vbejercicio,m1vbperiodo,m1vbnreg };
+            setPrimaryKeys(arrayf);
+            m1vbconraanu.setDescription("ANUALVA6 Si ejerce actividad por cuenta propia o ajena durante todos los meses del año");
+            m1vbconraene.setDescription("MES1VA6 Ejerce Actividad por cuenta propia o ajena");
+            m1vbconrafeb.setDescription("MES2VA6 Ejerce Actividad por cuenta propia o ajena");
+            m1vbconramar.setDescription("MES3VA6 Ejerce Actividad por cuenta propia o ajena");
+            m1vbconraabr.setDescription("MES4VA6 Ejerce Actividad por cuenta propia o ajena");
+            m1vbconramay.setDescription("MES5VA6 Ejerce Actividad por cuenta propia o ajena");
+            m1vbconrajun.setDescription("MES6VA6 Ejerce Actividad por cuenta propia o ajena");
+            m1vbconrajul.setDescription("MES7VA6 Ejerce Actividad por cuenta propia o ajena");
+            m1vbconraago.setDescription("MES8VA6 Ejerce Actividad por cuenta propia o ajena");
+            m1vbconrasep.setDescription("MES9VA6 Ejerce Actividad por cuenta propia o ajena");
+            m1vbconraoct.setDescription("MES10VA6 Ejerce Actividad por cuenta propia o ajena");
+            m1vbconranov.setDescription("MES11VA6 Ejerce Actividad por cuenta propia o ajena");
+            m1vbconradic.setDescription("MES12VA6 Ejerce Actividad por cuenta propia o ajena");
+            m1vbconcotrass.setDescription("MAY100TITVA6 Si el importe de las cotizaciones a la Seguridad Social o mutualidad de carácter alternativo devengadas es igual o superior en cada uno de los meses del año a 34,83 euros");
+            m1vbconcotene.setDescription("COTI1VA6  Cotizaciones devengadas");
+            m1vbconcotfeb.setDescription("COTI2VA6  Cotizaciones devengadas");
+            m1vbconcotmar.setDescription("COTI3VA6  Cotizaciones devengadas");
+            m1vbconcotabr.setDescription("COTI4VA6  Cotizaciones devengadas");
+            m1vbconcotmay.setDescription("COTI5VA6  Cotizaciones devengadas");
+            m1vbconcotjun.setDescription("COTI6VA6  Cotizaciones devengadas");
+            m1vbconcotjul.setDescription("COTI7VA6  Cotizaciones devengadas");
+            m1vbconcotago.setDescription("COTI8VA6  Cotizaciones devengadas");
+            m1vbconcotsep.setDescription("COTI9VA6  Cotizaciones devengadas");
+            m1vbconcotoct.setDescription("COTI10VA6 Cotizaciones devengadas");
+            m1vbconcotnov.setDescription("COTI11VA6 Cotizaciones devengadas");
+            m1vbconcotdic.setDescription("COTI12VA6 Cotizaciones devengadas");
+            m1vbconmeshij1.setDescription("MESESVA6 Meses en los que el hijo o menor acogido da derecho a deducción");
+            m1vbconffalle1.setDescription("FALMATERVA6 Fecha de fallecimiento de la madre o de atribución de la guarda y custodia de forma exclusiva al padr");
+            m1vbconhayotr1.setDescription("NUMPERVA6 Si, excepcionalmente, hay más de una persona con derecho a la deducción");
+            m1vbconotrene1.setDescription("MESPE1VA6 Hijo 1");
+            m1vbconotrfeb1.setDescription("MESPE2VA6 Hijo 1");
+            m1vbconotrmar1.setDescription("MESPE3VA6 Hijo 1");
+            m1vbconotrabr1.setDescription("MESPE4VA6 Hijo 1");
+            m1vbconotrmay1.setDescription("MESPE5VA6 Hijo 1");
+            m1vbconotrjun1.setDescription("MESPE6VA6 Hijo 1");
+            m1vbconotrjul1.setDescription("MESPE7VA6 Hijo 1");
+            m1vbconotrago1.setDescription("MESPE8VA6 Hijo 1");
+            m1vbconotrsep1.setDescription("MESPE9VA6 Hijo 1");
+            m1vbconotroct1.setDescription("MESPE10VA6 Hijo 1");
+            m1vbconotrnov1.setDescription("MESPE11VA6 Hijo 1");
+            m1vbconotrdic1.setDescription("MESPE12VA6 Hijo 1");
+            m1vbconcotss1.setDescription("COTVA6 Cotizaciones a la Seg. Social ( o Mutualidad alternativa) en los meses en los que se puede aplicar la deducción");
+            m1vbcondeduc1.setDescription("COTVA6 Cuantía de la deducción");
+            m1vbconmeshij2.setDescription("MESESVA6 Meses en los que el hijo o menor acogido da derecho a deducción");
+            m1vbconffalle2.setDescription("FALMATERVA6 Fecha de fallecimiento de la madre o de atribución de la guarda y custodia de forma exclusiva al padr");
+            m1vbconhayotr2.setDescription("NUMPERVA6 Si, excepcionalmente, hay más de una persona con derecho a la deducción");
+            m1vbconotrene2.setDescription("MESPE1VA6 Hijo 2");
+            m1vbconotrfeb2.setDescription("MESPE2VA6 Hijo 2");
+            m1vbconotrmar2.setDescription("MESPE3VA6 Hijo 2");
+            m1vbconotrabr2.setDescription("MESPE4VA6 Hijo 2");
+            m1vbconotrmay2.setDescription("MESPE5VA6 Hijo 2");
+            m1vbconotrjun2.setDescription("MESPE6VA6 Hijo 2");
+            m1vbconotrjul2.setDescription("MESPE7VA6 Hijo 2");
+            m1vbconotrago2.setDescription("MESPE8VA6 Hijo 2");
+            m1vbconotrsep2.setDescription("MESPE9VA6 Hijo 2");
+            m1vbconotroct2.setDescription("MESPE10VA6 Hijo 2");
+            m1vbconotrnov2.setDescription("MESPE11VA6 Hijo 2");
+            m1vbconotrdic2.setDescription("MESPE12VA6 Hijo 2");
+            m1vbconcotss2.setDescription("COTVA6 Cotizaciones a la Seg. Social ( o Mutualidad alternativa) en los meses en los que se puede aplicar la deducción");
+            m1vbcondeduc2.setDescription("COTVA6 Cuantía de la deducción");
+            m1vbconmeshij3.setDescription("MESESVA6 Meses en los que el hijo o menor acogido da derecho a deducción");
+            m1vbconffalle3.setDescription("FALMATERVA6 Fecha de fallecimiento de la madre o de atribución de la guarda y custodia de forma exclusiva al padr");
+            m1vbconhayotr3.setDescription("NUMPERVA6 Si, excepcionalmente, hay más de una persona con derecho a la deducción");
+            m1vbconotrene3.setDescription("MESPE1VA6 Hijo 3");
+            m1vbconotrfeb3.setDescription("MESPE2VA6 Hijo 3");
+            m1vbconotrmar3.setDescription("MESPE3VA6 Hijo 3");
+            m1vbconotrabr3.setDescription("MESPE4VA6 Hijo 3");
+            m1vbconotrmay3.setDescription("MESPE5VA6 Hijo 3");
+            m1vbconotrjun3.setDescription("MESPE6VA6 Hijo 3");
+            m1vbconotrjul3.setDescription("MESPE7VA6 Hijo 3");
+            m1vbconotrago3.setDescription("MESPE8VA6 Hijo 3");
+            m1vbconotrsep3.setDescription("MESPE9VA6 Hijo 3");
+            m1vbconotroct3.setDescription("MESPE10VA6 Hijo 3");
+            m1vbconotrnov3.setDescription("MESPE11VA6 Hijo 3");
+            m1vbconotrdic3.setDescription("MESPE12VA6 Hijo 3");
+            m1vbconcotss3.setDescription("COTVA6 Cotizaciones a la Seg. Social ( o Mutualidad alternativa) en los meses en los que se puede aplicar la deducción");
+            m1vbcondeduc3.setDescription("COTVA6 Cuantía de la deducción");
+            m1vbconmeshij4.setDescription("MESESVA6 Meses en los que el hijo o menor acogido da derecho a deducción");
+            m1vbconffalle4.setDescription("FALMATERVA6 Fecha de fallecimiento de la madre o de atribución de la guarda y custodia de forma exclusiva al padr");
+            m1vbconhayotr4.setDescription("NUMPERVA6 Si, excepcionalmente, hay más de una persona con derecho a la deducción");
+            m1vbconotrene4.setDescription("MESPE1VA6 Hijo 4");
+            m1vbconotrfeb4.setDescription("MESPE2VA6 Hijo 4");
+            m1vbconotrmar4.setDescription("MESPE3VA6 Hijo 4");
+            m1vbconotrabr4.setDescription("MESPE4VA6 Hijo 4");
+            m1vbconotrmay4.setDescription("MESPE5VA6 Hijo 4");
+            m1vbconotrjun4.setDescription("MESPE6VA6 Hijo 4");
+            m1vbconotrjul4.setDescription("MESPE7VA6 Hijo 4");
+            m1vbconotrago4.setDescription("MESPE8VA6 Hijo 4");
+            m1vbconotrsep4.setDescription("MESPE9VA6 Hijo 4");
+            m1vbconotroct4.setDescription("MESPE10VA6 Hijo 4");
+            m1vbconotrnov4.setDescription("MESPE11VA6 Hijo 4");
+            m1vbconotrdic4.setDescription("MESPE12VA6 Hijo 4");
+            m1vbconcotss4.setDescription("COTVA6 Cotizaciones a la Seg. Social ( o Mutualidad alternativa) en los meses en los que se puede aplicar la deducción");
+            m1vbcondeduc4.setDescription("COTVA6 Cuantía de la deducción");
+            m1vbconmeshij5.setDescription("MESESVA6 Meses en los que el hijo o menor acogido da derecho a deducción");
+            m1vbconffalle5.setDescription("FALMATERVA6 Fecha de fallecimiento de la madre o de atribución de la guarda y custodia de forma exclusiva al padr");
+            m1vbconhayotr5.setDescription("NUMPERVA6 Si, excepcionalmente, hay más de una persona con derecho a la deducción");
+            m1vbconotrene5.setDescription("MESPE1VA6 Hijo 5");
+            m1vbconotrfeb5.setDescription("MESPE2VA6 Hijo 5");
+            m1vbconotrmar5.setDescription("MESPE3VA6 Hijo 5");
+            m1vbconotrabr5.setDescription("MESPE4VA6 Hijo 5");
+            m1vbconotrmay5.setDescription("MESPE5VA6 Hijo 5");
+            m1vbconotrjun5.setDescription("MESPE6VA6 Hijo 5");
+            m1vbconotrjul5.setDescription("MESPE7VA6 Hijo 5");
+            m1vbconotrago5.setDescription("MESPE8VA6 Hijo 5");
+            m1vbconotrsep5.setDescription("MESPE9VA6 Hijo 5");
+            m1vbconotroct5.setDescription("MESPE10VA6 Hijo 5");
+            m1vbconotrnov5.setDescription("MESPE11VA6 Hijo 5");
+            m1vbconotrdic5.setDescription("MESPE12VA6 Hijo 5");
+            m1vbconcotss5.setDescription("COTVA6 Cotizaciones a la Seg. Social ( o Mutualidad alternativa) en los meses en los que se puede aplicar la deducción");
+            m1vbcondeduc5.setDescription("COTVA6 Cuantía de la deducción");
+            m1vbconmeshij6.setDescription("MESESVA6 Meses en los que el hijo o menor acogido da derecho a deducción");
+            m1vbconffalle6.setDescription("FALMATERVA6 Fecha de fallecimiento de la madre o de atribución de la guarda y custodia de forma exclusiva al padr");
+            m1vbconhayotr6.setDescription("NUMPERVA6 Si, excepcionalmente, hay más de una persona con derecho a la deducción");
+            m1vbconotrene6.setDescription("MESPE1VA6 Hijo 6");
+            m1vbconotrfeb6.setDescription("MESPE2VA6 Hijo 6");
+            m1vbconotrmar6.setDescription("MESPE3VA6 Hijo 6");
+            m1vbconotrabr6.setDescription("MESPE4VA6 Hijo 6");
+            m1vbconotrmay6.setDescription("MESPE5VA6 Hijo 6");
+            m1vbconotrjun6.setDescription("MESPE6VA6 Hijo 6");
+            m1vbconotrjul6.setDescription("MESPE7VA6 Hijo 6");
+            m1vbconotrago6.setDescription("MESPE8VA6 Hijo 6");
+            m1vbconotrsep6.setDescription("MESPE9VA6 Hijo 6");
+            m1vbconotroct6.setDescription("MESPE10VA6 Hijo 6");
+            m1vbconotrnov6.setDescription("MESPE11VA6 Hijo 6");
+            m1vbconotrdic6.setDescription("MESPE12VA6 Hijo 6");
+            m1vbconcotss6.setDescription("COTVA6 Cotizaciones a la Seg. Social ( o Mutualidad alternativa) en los meses en los que se puede aplicar la deducción");
+            m1vbcondeduc6.setDescription("COTVA6 Cuantía de la deducción");
+            }
+        }
+        
+    public class TabMod100galicia extends TableDef
+        {
+        // campos
+        public FieldDef m1gadominio;
+        public FieldDef m1ganif;
+        public FieldDef m1gadeclarac;
+        public FieldDef m1gaejercicio;
+        public FieldDef m1gaperiodo;
+        public FieldDef m1ganreg;
+        public FieldDef m1gatitular;
+        public FieldDef m1ganahaprco;
+        public FieldDef m1ganahaprti;
+        public FieldDef m1ganahaprdi;
+        public FieldDef m1ganahaprtr;
+        public FieldDef m1ganahasgco;
+        public FieldDef m1ganahasgti;
+        public FieldDef m1ganahasgdi;
+        public FieldDef m1ganahasgtr;
+        public FieldDef m1ganahatrsc;
+        public FieldDef m1ganahatrst;
+        public FieldDef m1ganahatrcc;
+        public FieldDef m1ganahatrct;
+        public FieldDef m1ganahahico;
+        public FieldDef m1ganahapmsc;
+        public FieldDef m1ganahapmst;
+        public FieldDef m1ganahapmcc;
+        public FieldDef m1ganahapmct;
+        public FieldDef m1ganahamuni;
+        public FieldDef m1ganahbprco;
+        public FieldDef m1ganahbprti;
+        public FieldDef m1ganahbprdi;
+        public FieldDef m1ganahbprtr;
+        public FieldDef m1ganahbsgco;
+        public FieldDef m1ganahbsgti;
+        public FieldDef m1ganahbsgdi;
+        public FieldDef m1ganahbsgtr;
+        public FieldDef m1ganahbtrsc;
+        public FieldDef m1ganahbtrst;
+        public FieldDef m1ganahbtrcc;
+        public FieldDef m1ganahbtrct;
+        public FieldDef m1ganahbhico;
+        public FieldDef m1gafamnucgc;
+        public FieldDef m1gafamnucgt;
+        public FieldDef m1gafamnucec;
+        public FieldDef m1gafamnucet;
+        public FieldDef m1gafamnuper;
+        public FieldDef m1gadedhiimp;
+        public FieldDef m1gadedhicon;
+        public FieldDef m1gadedhiper;
+        public FieldDef m1gadedhicom;
+        public FieldDef m1gadedhitit;
+        public FieldDef m1gadismayde;
+        public FieldDef m1gadismayim;
+        public FieldDef m1gagastecim;
+        public FieldDef m1gagastecpe;
+        public FieldDef m1gaalvivim1;
+        public FieldDef m1gaalvivni1;
+        public FieldDef m1gaalvivex1;
+        public FieldDef m1gaalvivpe1;
+        public FieldDef m1gaalvivim2;
+        public FieldDef m1gaalvivni2;
+        public FieldDef m1gaalvivex2;
+        public FieldDef m1gaalvivpe2;
+        public FieldDef m1gaalvivim3;
+        public FieldDef m1gaalvivni3;
+        public FieldDef m1gaalvivex3;
+        public FieldDef m1gaalvivpe3;
+        public FieldDef m1gaalvivhic;
+        public FieldDef m1gaalvivhit;
+        public FieldDef m1gaafamemac;
+        public FieldDef m1gaafamemat;
+        public FieldDef m1gaafamemec;
+        public FieldDef m1gaafamemet;
+        public FieldDef m1gaafameper;
+        public FieldDef m1gainaccim1;
+        public FieldDef m1gainaccni1;
+        public FieldDef m1gainaccpi1;
+        public FieldDef m1gainaccim2;
+        public FieldDef m1gainaccni2;
+        public FieldDef m1gainaccpi2;
+        public FieldDef m1gaaccfiim1;
+        public FieldDef m1gaaccfini1;
+        public FieldDef m1gaaccfipi1;
+        public FieldDef m1gaaccfiim2;
+        public FieldDef m1gaaccfini2;
+        public FieldDef m1gaaccfipi2;
+        public FieldDef m1gainvalni1;
+        public FieldDef m1gainvali01;
+        public FieldDef m1gainvali91;
+        public FieldDef m1gainvali81;
+        public FieldDef m1gainvali71;
+        public FieldDef m1gainvalni2;
+        public FieldDef m1gainvali02;
+        public FieldDef m1gainvali92;
+        public FieldDef m1gainvali82;
+        public FieldDef m1gainvali72;
+        public FieldDef m1gadonidimp;
+        public FieldDef m1gainvreimp;
+        public FieldDef m1gainvrecod;
+        public FieldDef m1garehbieim;
+        public FieldDef m1gainvagri1;
+        public FieldDef m1gainvagrn1;
+        public FieldDef m1gainvagri2;
+        public FieldDef m1gainvagrn2;
+        public FieldDef m1gasubinimp;
+        public FieldDef m1gadapirim1;
+        public FieldDef m1gadapirim2;
+        public FieldDef m1gaobeneim1;
+        public FieldDef m1gaobeneco1;
+        public FieldDef m1gaobenepo1;
+        public FieldDef m1gaobenein1;
+        public FieldDef m1gaobeneim2;
+        public FieldDef m1gaobeneco2;
+        public FieldDef m1gaobenepo2;
+        public FieldDef m1gaobenein2;
+        public FieldDef m1gaobeneim3;
+        public FieldDef m1gaobeneco3;
+        public FieldDef m1gaobenepo3;
+        public FieldDef m1gaobenein3;
+        public FieldDef m1gaobeneim4;
+        public FieldDef m1gaobeneco4;
+        public FieldDef m1gaobenepo4;
+        public FieldDef m1gaobenein4;
+        public FieldDef m1gasubdepim;
+        public TabMod100galicia(String name)
+            {
+            super(name);
+            m1gadominio = new FieldDef("m1gadominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m1ganif = new FieldDef("m1ganif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m1gadeclarac = new FieldDef("m1gadeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+            m1gaejercicio = new FieldDef("m1gaejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1gaperiodo = new FieldDef("m1gaperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1ganreg = new FieldDef("m1ganreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1gatitular = new FieldDef("m1gatitular",FieldDef.INTEGER,0);
+            m1ganahaprco = new FieldDef("m1ganahaprco",FieldDef.FLOAT,6,0);
+            m1ganahaprti = new FieldDef("m1ganahaprti",FieldDef.FLOAT,6,0);
+            m1ganahaprdi = new FieldDef("m1ganahaprdi",FieldDef.CHAR,1);
+            m1ganahaprtr = new FieldDef("m1ganahaprtr",FieldDef.INTEGER,0);
+            m1ganahasgco = new FieldDef("m1ganahasgco",FieldDef.FLOAT,6,0);
+            m1ganahasgti = new FieldDef("m1ganahasgti",FieldDef.FLOAT,6,0);
+            m1ganahasgdi = new FieldDef("m1ganahasgdi",FieldDef.CHAR,1);
+            m1ganahasgtr = new FieldDef("m1ganahasgtr",FieldDef.INTEGER,0);
+            m1ganahatrsc = new FieldDef("m1ganahatrsc",FieldDef.FLOAT,6,0);
+            m1ganahatrst = new FieldDef("m1ganahatrst",FieldDef.FLOAT,6,0);
+            m1ganahatrcc = new FieldDef("m1ganahatrcc",FieldDef.FLOAT,6,0);
+            m1ganahatrct = new FieldDef("m1ganahatrct",FieldDef.FLOAT,6,0);
+            m1ganahahico = new FieldDef("m1ganahahico",FieldDef.CHAR,1);
+            m1ganahapmsc = new FieldDef("m1ganahapmsc",FieldDef.FLOAT,6,0);
+            m1ganahapmst = new FieldDef("m1ganahapmst",FieldDef.FLOAT,6,0);
+            m1ganahapmcc = new FieldDef("m1ganahapmcc",FieldDef.FLOAT,6,0);
+            m1ganahapmct = new FieldDef("m1ganahapmct",FieldDef.FLOAT,6,0);
+            m1ganahamuni = new FieldDef("m1ganahamuni",FieldDef.INTEGER,0);
+            m1ganahbprco = new FieldDef("m1ganahbprco",FieldDef.FLOAT,6,0);
+            m1ganahbprti = new FieldDef("m1ganahbprti",FieldDef.FLOAT,6,0);
+            m1ganahbprdi = new FieldDef("m1ganahbprdi",FieldDef.CHAR,1);
+            m1ganahbprtr = new FieldDef("m1ganahbprtr",FieldDef.INTEGER,0);
+            m1ganahbsgco = new FieldDef("m1ganahbsgco",FieldDef.FLOAT,6,0);
+            m1ganahbsgti = new FieldDef("m1ganahbsgti",FieldDef.FLOAT,6,0);
+            m1ganahbsgdi = new FieldDef("m1ganahbsgdi",FieldDef.CHAR,1);
+            m1ganahbsgtr = new FieldDef("m1ganahbsgtr",FieldDef.INTEGER,0);
+            m1ganahbtrsc = new FieldDef("m1ganahbtrsc",FieldDef.FLOAT,6,0);
+            m1ganahbtrst = new FieldDef("m1ganahbtrst",FieldDef.FLOAT,6,0);
+            m1ganahbtrcc = new FieldDef("m1ganahbtrcc",FieldDef.FLOAT,6,0);
+            m1ganahbtrct = new FieldDef("m1ganahbtrct",FieldDef.FLOAT,6,0);
+            m1ganahbhico = new FieldDef("m1ganahbhico",FieldDef.CHAR,1);
+            m1gafamnucgc = new FieldDef("m1gafamnucgc",FieldDef.INTEGER,0);
+            m1gafamnucgt = new FieldDef("m1gafamnucgt",FieldDef.INTEGER,0);
+            m1gafamnucec = new FieldDef("m1gafamnucec",FieldDef.INTEGER,0);
+            m1gafamnucet = new FieldDef("m1gafamnucet",FieldDef.INTEGER,0);
+            m1gafamnuper = new FieldDef("m1gafamnuper",FieldDef.INTEGER,0);
+            m1gadedhiimp = new FieldDef("m1gadedhiimp",FieldDef.FLOAT,6,0);
+            m1gadedhicon = new FieldDef("m1gadedhicon",FieldDef.INTEGER,0);
+            m1gadedhiper = new FieldDef("m1gadedhiper",FieldDef.INTEGER,0);
+            m1gadedhicom = new FieldDef("m1gadedhicom",FieldDef.INTEGER,0);
+            m1gadedhitit = new FieldDef("m1gadedhitit",FieldDef.INTEGER,0);
+            m1gadismayde = new FieldDef("m1gadismayde",FieldDef.INTEGER,0);
+            m1gadismayim = new FieldDef("m1gadismayim",FieldDef.FLOAT,6,0);
+            m1gagastecim = new FieldDef("m1gagastecim",FieldDef.FLOAT,6,0);
+            m1gagastecpe = new FieldDef("m1gagastecpe",FieldDef.INTEGER,0);
+            m1gaalvivim1 = new FieldDef("m1gaalvivim1",FieldDef.FLOAT,6,0);
+            m1gaalvivni1 = new FieldDef("m1gaalvivni1",FieldDef.CHAR,20);
+            m1gaalvivex1 = new FieldDef("m1gaalvivex1",FieldDef.INTEGER,0);
+            m1gaalvivpe1 = new FieldDef("m1gaalvivpe1",FieldDef.INTEGER,0);
+            m1gaalvivim2 = new FieldDef("m1gaalvivim2",FieldDef.FLOAT,6,0);
+            m1gaalvivni2 = new FieldDef("m1gaalvivni2",FieldDef.CHAR,20);
+            m1gaalvivex2 = new FieldDef("m1gaalvivex2",FieldDef.INTEGER,0);
+            m1gaalvivpe2 = new FieldDef("m1gaalvivpe2",FieldDef.INTEGER,0);
+            m1gaalvivim3 = new FieldDef("m1gaalvivim3",FieldDef.FLOAT,6,0);
+            m1gaalvivni3 = new FieldDef("m1gaalvivni3",FieldDef.CHAR,20);
+            m1gaalvivex3 = new FieldDef("m1gaalvivex3",FieldDef.INTEGER,0);
+            m1gaalvivpe3 = new FieldDef("m1gaalvivpe3",FieldDef.INTEGER,0);
+            m1gaalvivhic = new FieldDef("m1gaalvivhic",FieldDef.INTEGER,0);
+            m1gaalvivhit = new FieldDef("m1gaalvivhit",FieldDef.INTEGER,0);
+            m1gaafamemac = new FieldDef("m1gaafamemac",FieldDef.FLOAT,6,0);
+            m1gaafamemat = new FieldDef("m1gaafamemat",FieldDef.FLOAT,6,0);
+            m1gaafamemec = new FieldDef("m1gaafamemec",FieldDef.FLOAT,6,0);
+            m1gaafamemet = new FieldDef("m1gaafamemet",FieldDef.FLOAT,6,0);
+            m1gaafameper = new FieldDef("m1gaafameper",FieldDef.INTEGER,0);
+            m1gainaccim1 = new FieldDef("m1gainaccim1",FieldDef.FLOAT,6,0);
+            m1gainaccni1 = new FieldDef("m1gainaccni1",FieldDef.CHAR,20);
+            m1gainaccpi1 = new FieldDef("m1gainaccpi1",FieldDef.INTEGER,0);
+            m1gainaccim2 = new FieldDef("m1gainaccim2",FieldDef.FLOAT,6,0);
+            m1gainaccni2 = new FieldDef("m1gainaccni2",FieldDef.CHAR,20);
+            m1gainaccpi2 = new FieldDef("m1gainaccpi2",FieldDef.INTEGER,0);
+            m1gaaccfiim1 = new FieldDef("m1gaaccfiim1",FieldDef.FLOAT,6,0);
+            m1gaaccfini1 = new FieldDef("m1gaaccfini1",FieldDef.CHAR,20);
+            m1gaaccfipi1 = new FieldDef("m1gaaccfipi1",FieldDef.INTEGER,0);
+            m1gaaccfiim2 = new FieldDef("m1gaaccfiim2",FieldDef.FLOAT,6,0);
+            m1gaaccfini2 = new FieldDef("m1gaaccfini2",FieldDef.CHAR,20);
+            m1gaaccfipi2 = new FieldDef("m1gaaccfipi2",FieldDef.INTEGER,0);
+            m1gainvalni1 = new FieldDef("m1gainvalni1",FieldDef.CHAR,20);
+            m1gainvali01 = new FieldDef("m1gainvali01",FieldDef.FLOAT,6,0);
+            m1gainvali91 = new FieldDef("m1gainvali91",FieldDef.FLOAT,6,0);
+            m1gainvali81 = new FieldDef("m1gainvali81",FieldDef.FLOAT,6,0);
+            m1gainvali71 = new FieldDef("m1gainvali71",FieldDef.FLOAT,6,0);
+            m1gainvalni2 = new FieldDef("m1gainvalni2",FieldDef.CHAR,20);
+            m1gainvali02 = new FieldDef("m1gainvali02",FieldDef.FLOAT,6,0);
+            m1gainvali92 = new FieldDef("m1gainvali92",FieldDef.FLOAT,6,0);
+            m1gainvali82 = new FieldDef("m1gainvali82",FieldDef.FLOAT,6,0);
+            m1gainvali72 = new FieldDef("m1gainvali72",FieldDef.FLOAT,6,0);
+            m1gadonidimp = new FieldDef("m1gadonidimp",FieldDef.FLOAT,6,0);
+            m1gainvreimp = new FieldDef("m1gainvreimp",FieldDef.FLOAT,6,0);
+            m1gainvrecod = new FieldDef("m1gainvrecod",FieldDef.CHAR,20);
+            m1garehbieim = new FieldDef("m1garehbieim",FieldDef.FLOAT,6,0);
+            m1gainvagri1 = new FieldDef("m1gainvagri1",FieldDef.FLOAT,6,0);
+            m1gainvagrn1 = new FieldDef("m1gainvagrn1",FieldDef.CHAR,20);
+            m1gainvagri2 = new FieldDef("m1gainvagri2",FieldDef.FLOAT,6,0);
+            m1gainvagrn2 = new FieldDef("m1gainvagrn2",FieldDef.CHAR,20);
+            m1gasubinimp = new FieldDef("m1gasubinimp",FieldDef.FLOAT,6,0);
+            m1gadapirim1 = new FieldDef("m1gadapirim1",FieldDef.FLOAT,6,0);
+            m1gadapirim2 = new FieldDef("m1gadapirim2",FieldDef.FLOAT,6,0);
+            m1gaobeneim1 = new FieldDef("m1gaobeneim1",FieldDef.FLOAT,6,0);
+            m1gaobeneco1 = new FieldDef("m1gaobeneco1",FieldDef.FLOAT,6,0);
+            m1gaobenepo1 = new FieldDef("m1gaobenepo1",FieldDef.FLOAT,6,0);
+            m1gaobenein1 = new FieldDef("m1gaobenein1",FieldDef.CHAR,20);
+            m1gaobeneim2 = new FieldDef("m1gaobeneim2",FieldDef.FLOAT,6,0);
+            m1gaobeneco2 = new FieldDef("m1gaobeneco2",FieldDef.FLOAT,6,0);
+            m1gaobenepo2 = new FieldDef("m1gaobenepo2",FieldDef.FLOAT,6,0);
+            m1gaobenein2 = new FieldDef("m1gaobenein2",FieldDef.CHAR,20);
+            m1gaobeneim3 = new FieldDef("m1gaobeneim3",FieldDef.FLOAT,6,0);
+            m1gaobeneco3 = new FieldDef("m1gaobeneco3",FieldDef.FLOAT,6,0);
+            m1gaobenepo3 = new FieldDef("m1gaobenepo3",FieldDef.FLOAT,6,0);
+            m1gaobenein3 = new FieldDef("m1gaobenein3",FieldDef.CHAR,20);
+            m1gaobeneim4 = new FieldDef("m1gaobeneim4",FieldDef.FLOAT,6,0);
+            m1gaobeneco4 = new FieldDef("m1gaobeneco4",FieldDef.FLOAT,6,0);
+            m1gaobenepo4 = new FieldDef("m1gaobenepo4",FieldDef.FLOAT,6,0);
+            m1gaobenein4 = new FieldDef("m1gaobenein4",FieldDef.CHAR,20);
+            m1gasubdepim = new FieldDef("m1gasubdepim",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m1gadominio,
+                m1ganif,
+                m1gadeclarac,
+                m1gaejercicio,
+                m1gaperiodo,
+                m1ganreg,
+                m1gatitular,
+                m1ganahaprco,
+                m1ganahaprti,
+                m1ganahaprdi,
+                m1ganahaprtr,
+                m1ganahasgco,
+                m1ganahasgti,
+                m1ganahasgdi,
+                m1ganahasgtr,
+                m1ganahatrsc,
+                m1ganahatrst,
+                m1ganahatrcc,
+                m1ganahatrct,
+                m1ganahahico,
+                m1ganahapmsc,
+                m1ganahapmst,
+                m1ganahapmcc,
+                m1ganahapmct,
+                m1ganahamuni,
+                m1ganahbprco,
+                m1ganahbprti,
+                m1ganahbprdi,
+                m1ganahbprtr,
+                m1ganahbsgco,
+                m1ganahbsgti,
+                m1ganahbsgdi,
+                m1ganahbsgtr,
+                m1ganahbtrsc,
+                m1ganahbtrst,
+                m1ganahbtrcc,
+                m1ganahbtrct,
+                m1ganahbhico,
+                m1gafamnucgc,
+                m1gafamnucgt,
+                m1gafamnucec,
+                m1gafamnucet,
+                m1gafamnuper,
+                m1gadedhiimp,
+                m1gadedhicon,
+                m1gadedhiper,
+                m1gadedhicom,
+                m1gadedhitit,
+                m1gadismayde,
+                m1gadismayim,
+                m1gagastecim,
+                m1gagastecpe,
+                m1gaalvivim1,
+                m1gaalvivni1,
+                m1gaalvivex1,
+                m1gaalvivpe1,
+                m1gaalvivim2,
+                m1gaalvivni2,
+                m1gaalvivex2,
+                m1gaalvivpe2,
+                m1gaalvivim3,
+                m1gaalvivni3,
+                m1gaalvivex3,
+                m1gaalvivpe3,
+                m1gaalvivhic,
+                m1gaalvivhit,
+                m1gaafamemac,
+                m1gaafamemat,
+                m1gaafamemec,
+                m1gaafamemet,
+                m1gaafameper,
+                m1gainaccim1,
+                m1gainaccni1,
+                m1gainaccpi1,
+                m1gainaccim2,
+                m1gainaccni2,
+                m1gainaccpi2,
+                m1gaaccfiim1,
+                m1gaaccfini1,
+                m1gaaccfipi1,
+                m1gaaccfiim2,
+                m1gaaccfini2,
+                m1gaaccfipi2,
+                m1gainvalni1,
+                m1gainvali01,
+                m1gainvali91,
+                m1gainvali81,
+                m1gainvali71,
+                m1gainvalni2,
+                m1gainvali02,
+                m1gainvali92,
+                m1gainvali82,
+                m1gainvali72,
+                m1gadonidimp,
+                m1gainvreimp,
+                m1gainvrecod,
+                m1garehbieim,
+                m1gainvagri1,
+                m1gainvagrn1,
+                m1gainvagri2,
+                m1gainvagrn2,
+                m1gasubinimp,
+                m1gadapirim1,
+                m1gadapirim2,
+                m1gaobeneim1,
+                m1gaobeneco1,
+                m1gaobenepo1,
+                m1gaobenein1,
+                m1gaobeneim2,
+                m1gaobeneco2,
+                m1gaobenepo2,
+                m1gaobenein2,
+                m1gaobeneim3,
+                m1gaobeneco3,
+                m1gaobenepo3,
+                m1gaobenein3,
+                m1gaobeneim4,
+                m1gaobeneco4,
+                m1gaobenepo4,
+                m1gaobenein4,
+                m1gasubdepim                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m1gadominio,m1ganif,m1gadeclarac,m1gaejercicio,m1gaperiodo,m1ganreg };
+            setPrimaryKeys(arrayf);
+            m1ganahaprco.setDescription("Nac. adopción hijos, a) Primero común");
+            m1ganahaprti.setDescription("Nac. adopción hijos, a) Primero titular");
+            m1ganahaprdi.setDescription("Nac. adopción hijos, a) Primero discapacidad");
+            m1ganahaprtr.setDescription("Nac. adopción hijos, a) Primero nº de orden en tributacion");
+            m1ganahasgco.setDescription("Nac. adopción hijos, a) Segundo común");
+            m1ganahasgti.setDescription("Nac. adopción hijos, a) Segundo titular");
+            m1ganahasgdi.setDescription("Nac. adopción hijos, a) Segundo discapacidad");
+            m1ganahasgtr.setDescription("Nac. adopción hijos, a) Segundo nº de orden en tributacion");
+            m1ganahatrsc.setDescription("Nac. adopción hijos, a) Tercero sin discapacidad común");
+            m1ganahatrst.setDescription("Nac. adopción hijos, a) Tercero sin discapacidad titular");
+            m1ganahatrcc.setDescription("Nac. adopción hijos, a) Tercero con discapacidad común");
+            m1ganahatrct.setDescription("Nac. adopción hijos, a) Tercero con discapacidad titular");
+            m1ganahahico.setDescription("Nac. adopción hijos, a) Hijos conviven con ambos padres");
+            m1ganahapmsc.setDescription("Nac. adopción hijos, a) Nº hijos partos m. sin disc. común");
+            m1ganahapmst.setDescription("Nac. adopción hijos, a) Nº hijos partos m. sin disc. titu.");
+            m1ganahapmcc.setDescription("Nac. adopción hijos, a) Nº hijos partos m. con disc. común");
+            m1ganahapmct.setDescription("Nac. adopción hijos, a) Nº hijos partos m. con disc. titu.");
+            m1ganahamuni.setDescription("Nac. adopción hijos, a) Municipio menos de 5000 hab.");
+            m1ganahbprco.setDescription("Nac. adopción hijos, b) Primero común");
+            m1ganahbprti.setDescription("Nac. adopción hijos, b) Primero titular");
+            m1ganahbprdi.setDescription("Nac. adopción hijos, b) Primero discapacidad");
+            m1ganahbprtr.setDescription("Nac. adopción hijos, b) Primero nº de orden en tributacion");
+            m1ganahbsgco.setDescription("Nac. adopción hijos, b) Segundo común");
+            m1ganahbsgti.setDescription("Nac. adopción hijos, b) Segundo titular");
+            m1ganahbsgdi.setDescription("Nac. adopción hijos, b) Segundo discapacidad");
+            m1ganahbsgtr.setDescription("Nac. adopción hijos, b) Segundo nº de orden en tributacion");
+            m1ganahbtrsc.setDescription("Nac. adopción hijos, b) Tercero sin discapacidad común");
+            m1ganahbtrst.setDescription("Nac. adopción hijos, b) Tercero sin discapacidad titular");
+            m1ganahbtrcc.setDescription("Nac. adopción hijos, b) Tercero con discapacidad común");
+            m1ganahbtrct.setDescription("Nac. adopción hijos, b) Tercero con discapacidad titular");
+            m1ganahbhico.setDescription("Nac. adopción hijos, b) Hijos conviven con ambos padres");
+            m1gafamnucgc.setDescription("Familia numerosa, Categoría general común");
+            m1gafamnucgt.setDescription("Familia numerosa, Categoría general titular");
+            m1gafamnucec.setDescription("Familia numerosa, Categoría especial común");
+            m1gafamnucet.setDescription("Familia numerosa, Categoría especial titular");
+            m1gafamnuper.setDescription("Familia numerosa, Nº de personas con derecho a la deducción");
+            m1gadedhiimp.setDescription("Cuidado de hijos, Importe satisfecho");
+            m1gadedhicon.setDescription("Cuidado de hijos, Si el gasto corresponde a ambos conyuges");
+            m1gadedhiper.setDescription("Cuidado de hijos, Nº de personas con derecho a la deduccion");
+            m1gadedhicom.setDescription("Cuidado de hijos, Nº de hijos que conviven comunes");
+            m1gadedhitit.setDescription("Cuidado de hijos, Nº de hijos que conviven titular");
+            m1gadismayde.setDescription("Contri. dis. > 65, Si tiene derecho a la deduccion");
+            m1gadismayim.setDescription("Contri. dis. > 65, Importe satisfecho");
+            m1gagastecim.setDescription("Gastos en tecnologia hogar, Importe satisfecho");
+            m1gagastecpe.setDescription("Gastos en tecnologia hogar, Nº de personas con derecho");
+            m1gaalvivim1.setDescription("Alquiler vivi. hab. <= 35, Importe 1");
+            m1gaalvivni1.setDescription("Alquiler vivi. hab. <= 35, NIF 1");
+            m1gaalvivex1.setDescription("Alquiler vivi. hab. <= 35, Es extranjero 1");
+            m1gaalvivpe1.setDescription("Alquiler vivi. hab. <= 35, Nº de personas con derecho 1");
+            m1gaalvivim2.setDescription("Alquiler vivi. hab. <= 35, Importe 2");
+            m1gaalvivni2.setDescription("Alquiler vivi. hab. <= 35, NIF 2");
+            m1gaalvivex2.setDescription("Alquiler vivi. hab. <= 35, Es extranjero 2");
+            m1gaalvivpe2.setDescription("Alquiler vivi. hab. <= 35, Nº de personas con derecho 2");
+            m1gaalvivim3.setDescription("Alquiler vivi. hab. <= 35, Importe 3");
+            m1gaalvivni3.setDescription("Alquiler vivi. hab. <= 35, NIF 3");
+            m1gaalvivex3.setDescription("Alquiler vivi. hab. <= 35, Es extranjero 3");
+            m1gaalvivpe3.setDescription("Alquiler vivi. hab. <= 35, Nº de personas con derecho 3");
+            m1gaalvivhic.setDescription("Alquiler vivi. hab. <= 35, Nº de hijos conviven comunes");
+            m1gaalvivhit.setDescription("Alquiler vivi. hab. <= 35, Nº de hijos conviven del titular");
+            m1gaafamemac.setDescription("Acogimiento menores, Nº menores > 183 días común");
+            m1gaafamemat.setDescription("Acogimiento menores, Nº menores > 183 días titular");
+            m1gaafamemec.setDescription("Acogimiento menores, Nº menores < 183 días común");
+            m1gaafamemet.setDescription("Acogimiento menores, Nº menores < 183 días titular");
+            m1gaafameper.setDescription("Acogimiento menores, Nº personas con derecho a la deduc.");
+            m1gainaccim1.setDescription("Inv. acciones nueva creación, Importe entidad 1");
+            m1gainaccni1.setDescription("Inv. acciones nueva creación, NIF entidad 1");
+            m1gainaccpi1.setDescription("Inv. acciones nueva creación, Inv. a PIMES, uni. o I+D 1");
+            m1gainaccim2.setDescription("Inv. acciones nueva creación, Importe entidad 2");
+            m1gainaccni2.setDescription("Inv. acciones nueva creación, NIF entidad 2");
+            m1gainaccpi2.setDescription("Inv. acciones nueva creación, Inv. a PIMES, uni. o I+D 2");
+            m1gaaccfiim1.setDescription("Inv. acciones nueva creación y financia., Importe entidad 1");
+            m1gaaccfini1.setDescription("Inv. acciones nueva creación y financia., NIF entidad 1");
+            m1gaaccfipi1.setDescription("Inv. acciones nueva creación y financia., Inv. a PIMES, uni. o I+D 1");
+            m1gaaccfiim2.setDescription("Inv. acciones nueva creación y financia., Importe entidad 2");
+            m1gaaccfini2.setDescription("Inv. acciones nueva creación y financia., NIF entidad 2");
+            m1gaaccfipi2.setDescription("Inv. acciones nueva creación y financia., Inv. a PIMES, uni. o I+D 2");
+            m1gainvalni1.setDescription("Inv. acciones empresas MAB., NIF entidad 1");
+            m1gainvali01.setDescription("Inv. acciones empresas MAB., Importe 2020 1");
+            m1gainvali91.setDescription("Inv. acciones empresas MAB., Importe 2019 1");
+            m1gainvali81.setDescription("Inv. acciones empresas MAB., Importe 2018 1");
+            m1gainvali71.setDescription("Inv. acciones empresas MAB., Importe 2017 1");
+            m1gainvalni2.setDescription("Inv. acciones empresas MAB., NIF entidad 2");
+            m1gainvali02.setDescription("Inv. acciones empresas MAB., Importe 2020 2");
+            m1gainvali92.setDescription("Inv. acciones empresas MAB., Importe 2019 2");
+            m1gainvali82.setDescription("Inv. acciones empresas MAB., Importe 2018 2");
+            m1gainvali72.setDescription("Inv. acciones empresas MAB., Importe 2017 2");
+            m1gadonidimp.setDescription("Donaciones I+D, Importe donativos");
+            m1gainvreimp.setDescription("Inv. inst. energias renovables, Importe satisfecho");
+            m1gainvrecod.setDescription("Inv. inst. energias renovables, Código de la instalación");
+            m1garehbieim.setDescription("Rehabilitación bienes inm. Importe");
+            m1gainvagri1.setDescription("Inv. empresa agr. Importe de la inversión 1");
+            m1gainvagrn1.setDescription("Inv. empresa agr. NIF entidad 1");
+            m1gainvagri2.setDescription("Inv. empresa agr. Importe de la inversión 2");
+            m1gainvagrn2.setDescription("Inv. empresa agr. NIF entidad 2");
+            m1gasubinimp.setDescription("Subv. daños incendios octubre 2017");
+            m1gadapirim1.setDescription("Subv. daños causados expl. piro. Tui 2018, Importe");
+            m1gadapirim2.setDescription("Subv. daños causados expl. piro. Tui 2018, Importe excede");
+            m1gaobeneim1.setDescription("Obras mejora ef. energetica, Importe vivi 1");
+            m1gaobeneco1.setDescription("Obras mejora ef. energetica, Coste vivi 1");
+            m1gaobenepo1.setDescription("Obras mejora ef. energetica, Porcentaje vivi 1");
+            m1gaobenein1.setDescription("Obras mejora ef. energetica, Nº inscripción vivi 1");
+            m1gaobeneim2.setDescription("Obras mejora ef. energetica, Importe vivi 2");
+            m1gaobeneco2.setDescription("Obras mejora ef. energetica, Coste vivi 2");
+            m1gaobenepo2.setDescription("Obras mejora ef. energetica, Porcentaje vivi 2");
+            m1gaobenein2.setDescription("Obras mejora ef. energetica, Nº inscripción vivi 2");
+            m1gaobeneim3.setDescription("Obras mejora ef. energetica, Importe vivi 3");
+            m1gaobeneco3.setDescription("Obras mejora ef. energetica, Coste vivi 3");
+            m1gaobenepo3.setDescription("Obras mejora ef. energetica, Porcentaje vivi 3");
+            m1gaobenein3.setDescription("Obras mejora ef. energetica, Nº inscripción vivi 3");
+            m1gaobeneim4.setDescription("Obras mejora ef. energetica, Importe vivi 4");
+            m1gaobeneco4.setDescription("Obras mejora ef. energetica, Coste vivi 4");
+            m1gaobenepo4.setDescription("Obras mejora ef. energetica, Porcentaje vivi 4");
+            m1gaobenein4.setDescription("Obras mejora ef. energetica, Nº inscripción vivi 4");
+            m1gasubdepim.setDescription("Ayuda y subvención deportista, Importe subvención");
+            }
+        }
+        
+    public class TabMod100extremad extends TableDef
+        {
+        // campos
+        public FieldDef m1exdominio;
+        public FieldDef m1exnif;
+        public FieldDef m1exdeclarac;
+        public FieldDef m1exejercicio;
+        public FieldDef m1experiodo;
+        public FieldDef m1exnreg;
+        public FieldDef m1extitular;
+        public FieldDef m1exavvjimp1;
+        public FieldDef m1exavvjter1;
+        public FieldDef m1exavvjmre1;
+        public FieldDef m1exavvjimp2;
+        public FieldDef m1exavvjter2;
+        public FieldDef m1exavvjmre2;
+        public FieldDef m1exdiscadsc;
+        public FieldDef m1exdiscadst;
+        public FieldDef m1exdiscdepc;
+        public FieldDef m1exdiscdept;
+        public FieldDef m1exdiscdedt;
+        public FieldDef m1exacmmenac;
+        public FieldDef m1exacmmenat;
+        public FieldDef m1exacmmenbc;
+        public FieldDef m1exacmmenbt;
+        public FieldDef m1exacmmenpm;
+        public FieldDef m1expmunumhc;
+        public FieldDef m1expmunumht;
+        public FieldDef m1expmuconhp;
+        public FieldDef m1excmatenuc;
+        public FieldDef m1excmatenut;
+        public FieldDef m1excmateded;
+        public FieldDef m1exaccimpe1;
+        public FieldDef m1exaccnife1;
+        public FieldDef m1exaccimpe2;
+        public FieldDef m1exaccnife2;
+        public FieldDef m1exdedmeimp;
+        public FieldDef m1exdedmeimc;
+        public FieldDef m1exdedmeimg;
+        public FieldDef m1exviudoded;
+        public FieldDef m1exviudohij;
+        public FieldDef m1exarrviim1;
+        public FieldDef m1exarrviru1;
+        public FieldDef m1exarrvini1;
+        public FieldDef m1exarrviex1;
+        public FieldDef m1exarrvinu1;
+        public FieldDef m1exarrviim2;
+        public FieldDef m1exarrviru2;
+        public FieldDef m1exarrvini2;
+        public FieldDef m1exarrviex2;
+        public FieldDef m1exarrvinu2;
+        public FieldDef m1exarrvifnu;
+        public TabMod100extremad(String name)
+            {
+            super(name);
+            m1exdominio = new FieldDef("m1exdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m1exnif = new FieldDef("m1exnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m1exdeclarac = new FieldDef("m1exdeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+            m1exejercicio = new FieldDef("m1exejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1experiodo = new FieldDef("m1experiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1exnreg = new FieldDef("m1exnreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1extitular = new FieldDef("m1extitular",FieldDef.INTEGER,0);
+            m1exavvjimp1 = new FieldDef("m1exavvjimp1",FieldDef.FLOAT,6,0);
+            m1exavvjter1 = new FieldDef("m1exavvjter1",FieldDef.INTEGER,0);
+            m1exavvjmre1 = new FieldDef("m1exavvjmre1",FieldDef.INTEGER,0);
+            m1exavvjimp2 = new FieldDef("m1exavvjimp2",FieldDef.FLOAT,6,0);
+            m1exavvjter2 = new FieldDef("m1exavvjter2",FieldDef.INTEGER,0);
+            m1exavvjmre2 = new FieldDef("m1exavvjmre2",FieldDef.INTEGER,0);
+            m1exdiscadsc = new FieldDef("m1exdiscadsc",FieldDef.FLOAT,6,0);
+            m1exdiscadst = new FieldDef("m1exdiscadst",FieldDef.FLOAT,6,0);
+            m1exdiscdepc = new FieldDef("m1exdiscdepc",FieldDef.FLOAT,6,0);
+            m1exdiscdept = new FieldDef("m1exdiscdept",FieldDef.FLOAT,6,0);
+            m1exdiscdedt = new FieldDef("m1exdiscdedt",FieldDef.INTEGER,0);
+            m1exacmmenac = new FieldDef("m1exacmmenac",FieldDef.FLOAT,6,0);
+            m1exacmmenat = new FieldDef("m1exacmmenat",FieldDef.FLOAT,6,0);
+            m1exacmmenbc = new FieldDef("m1exacmmenbc",FieldDef.FLOAT,6,0);
+            m1exacmmenbt = new FieldDef("m1exacmmenbt",FieldDef.FLOAT,6,0);
+            m1exacmmenpm = new FieldDef("m1exacmmenpm",FieldDef.CHAR,1);
+            m1expmunumhc = new FieldDef("m1expmunumhc",FieldDef.FLOAT,6,0);
+            m1expmunumht = new FieldDef("m1expmunumht",FieldDef.FLOAT,6,0);
+            m1expmuconhp = new FieldDef("m1expmuconhp",FieldDef.CHAR,1);
+            m1excmatenuc = new FieldDef("m1excmatenuc",FieldDef.FLOAT,6,0);
+            m1excmatenut = new FieldDef("m1excmatenut",FieldDef.FLOAT,6,0);
+            m1excmateded = new FieldDef("m1excmateded",FieldDef.FLOAT,6,0);
+            m1exaccimpe1 = new FieldDef("m1exaccimpe1",FieldDef.FLOAT,6,0);
+            m1exaccnife1 = new FieldDef("m1exaccnife1",FieldDef.CHAR,20);
+            m1exaccimpe2 = new FieldDef("m1exaccimpe2",FieldDef.FLOAT,6,0);
+            m1exaccnife2 = new FieldDef("m1exaccnife2",FieldDef.CHAR,20);
+            m1exdedmeimp = new FieldDef("m1exdedmeimp",FieldDef.FLOAT,6,0);
+            m1exdedmeimc = new FieldDef("m1exdedmeimc",FieldDef.FLOAT,6,0);
+            m1exdedmeimg = new FieldDef("m1exdedmeimg",FieldDef.FLOAT,6,0);
+            m1exviudoded = new FieldDef("m1exviudoded",FieldDef.INTEGER,0);
+            m1exviudohij = new FieldDef("m1exviudohij",FieldDef.INTEGER,0);
+            m1exarrviim1 = new FieldDef("m1exarrviim1",FieldDef.FLOAT,6,0);
+            m1exarrviru1 = new FieldDef("m1exarrviru1",FieldDef.CHAR,1);
+            m1exarrvini1 = new FieldDef("m1exarrvini1",FieldDef.CHAR,20);
+            m1exarrviex1 = new FieldDef("m1exarrviex1",FieldDef.INTEGER,0);
+            m1exarrvinu1 = new FieldDef("m1exarrvinu1",FieldDef.INTEGER,0);
+            m1exarrviim2 = new FieldDef("m1exarrviim2",FieldDef.FLOAT,6,0);
+            m1exarrviru2 = new FieldDef("m1exarrviru2",FieldDef.CHAR,1);
+            m1exarrvini2 = new FieldDef("m1exarrvini2",FieldDef.CHAR,20);
+            m1exarrviex2 = new FieldDef("m1exarrviex2",FieldDef.INTEGER,0);
+            m1exarrvinu2 = new FieldDef("m1exarrvinu2",FieldDef.INTEGER,0);
+            m1exarrvifnu = new FieldDef("m1exarrvifnu",FieldDef.CHAR,1);
+            FieldDef array[] = {
+                m1exdominio,
+                m1exnif,
+                m1exdeclarac,
+                m1exejercicio,
+                m1experiodo,
+                m1exnreg,
+                m1extitular,
+                m1exavvjimp1,
+                m1exavvjter1,
+                m1exavvjmre1,
+                m1exavvjimp2,
+                m1exavvjter2,
+                m1exavvjmre2,
+                m1exdiscadsc,
+                m1exdiscadst,
+                m1exdiscdepc,
+                m1exdiscdept,
+                m1exdiscdedt,
+                m1exacmmenac,
+                m1exacmmenat,
+                m1exacmmenbc,
+                m1exacmmenbt,
+                m1exacmmenpm,
+                m1expmunumhc,
+                m1expmunumht,
+                m1expmuconhp,
+                m1excmatenuc,
+                m1excmatenut,
+                m1excmateded,
+                m1exaccimpe1,
+                m1exaccnife1,
+                m1exaccimpe2,
+                m1exaccnife2,
+                m1exdedmeimp,
+                m1exdedmeimc,
+                m1exdedmeimg,
+                m1exviudoded,
+                m1exviudohij,
+                m1exarrviim1,
+                m1exarrviru1,
+                m1exarrvini1,
+                m1exarrviex1,
+                m1exarrvinu1,
+                m1exarrviim2,
+                m1exarrviru2,
+                m1exarrvini2,
+                m1exarrviex2,
+                m1exarrvinu2,
+                m1exarrvifnu                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m1exdominio,m1exnif,m1exdeclarac,m1exejercicio,m1experiodo,m1exnreg };
+            setPrimaryKeys(arrayf);
+            m1exavvjimp1.setDescription("Adquisición o rehab vivienda hab. jovenes o victimas, importe vivienda 1");
+            m1exavvjter1.setDescription("Adquisición o rehab vivienda hab. jovenes o victimas, es victima tr. 1");
+            m1exavvjmre1.setDescription("Adquisición o rehab vivienda hab. jovenes o victimas, ef. a partir de 01/2015 o muni. con menos de 3000 habitantes 1");
+            m1exavvjimp2.setDescription("Adquisición o rehab vivienda hab. jovenes o victimas, importe vivienda 2");
+            m1exavvjter2.setDescription("Adquisición o rehab vivienda hab. jovenes o victimas, es victima tr. 2");
+            m1exavvjmre2.setDescription("Adquisición o rehab vivienda hab. jovenes o victimas, ef. a partir de 01/2015 o muni. con menos de 3000 habitantes 2");
+            m1exdiscadsc.setDescription("Cuidado familiares con disc., Nº de asc, desc, con disc > 65% comun");
+            m1exdiscadst.setDescription("Cuidado familiares con disc., Nº de asc, desc, con disc > 65% titular");
+            m1exdiscdepc.setDescription("Cuidado familiares con disc., Nº de asc, desc, con depen. comun");
+            m1exdiscdept.setDescription("Cuidado familiares con disc., Nº de asc, desc, con depen. titular");
+            m1exdiscdedt.setDescription("Cuidado familiares con disc., Nº de personas con derecho");
+            m1exacmmenac.setDescription("Acogimiento de menores, Nº de menores acog. más de 183 días comun");
+            m1exacmmenat.setDescription("Acogimiento de menores, Nº de menores acog. más de 183 días titular");
+            m1exacmmenbc.setDescription("Acogimiento de menores, Nº de menores acog. entre 90 y 183 días comun");
+            m1exacmmenbt.setDescription("Acogimiento de menores, Nº de menores acog. entre 90 y 183 días titular");
+            m1exacmmenpm.setDescription("Acogimiento de menores, realizado por pareja de hecho o matrimonio");
+            m1expmunumhc.setDescription("Partos múltiples, Nº de hijos común");
+            m1expmunumht.setDescription("Partos múltiples, Nº de hijos titular");
+            m1expmuconhp.setDescription("Partos múltiples, Hijos conviven con ambos padres");
+            m1excmatenuc.setDescription("Compra de material escolar, Nº de hijos escolarizados común");
+            m1excmatenut.setDescription("Compra de material escolar, Nº de hijos escolarizados titular");
+            m1excmateded.setDescription("Compra de material escolar, Nº de personas con derecho a la deduc.");
+            m1exaccimpe1.setDescription("Inversión acciones, importe inversión entidad 1");
+            m1exaccnife1.setDescription("Inversión acciones, NIF de la entidad 1");
+            m1exaccimpe2.setDescription("Inversión acciones, importe inversión entidad 2");
+            m1exaccnife2.setDescription("Inversión acciones, NIF de la entidad 2");
+            m1exdedmeimp.setDescription("Cuidado hijos menores 14 años, importe satisfecho");
+            m1exdedmeimc.setDescription("Cuidado hijos menores 14 años, importe satisfecho por el conyuge / pareja");
+            m1exdedmeimg.setDescription("Cuidado hijos menores 14 años, importe satisfecho por otro progenitor");
+            m1exviudoded.setDescription("Contribuyentes viudos, derecho a la deducción");
+            m1exviudohij.setDescription("Contribuyentes viudos, si tiene hijos que no perciban rentas");
+            m1exarrviim1.setDescription("Arrendamiento vivienda habitual, importe vivienda 1");
+            m1exarrviru1.setDescription("Arrendamiento vivienda habitual, medio rural 1");
+            m1exarrvini1.setDescription("Arrendamiento vivienda habitual, nif arrendador 1");
+            m1exarrviex1.setDescription("Arrendamiento vivienda habitual, es extranjero 1");
+            m1exarrvinu1.setDescription("Arrendamiento vivienda habitual, nº de contribuyentes con derecho 1");
+            m1exarrviim2.setDescription("Arrendamiento vivienda habitual, importe vivienda 2");
+            m1exarrviru2.setDescription("Arrendamiento vivienda habitual, medio rural 2");
+            m1exarrvini2.setDescription("Arrendamiento vivienda habitual, nif arrendador 2");
+            m1exarrviex2.setDescription("Arrendamiento vivienda habitual, es extranjero 2");
+            m1exarrvinu2.setDescription("Arrendamiento vivienda habitual, nº de contribuyentes con derecho 2");
+            m1exarrvifnu.setDescription("Arrendamiento vivienda habitual, familia numerosa");
+            }
+        }
+        
+    public class TabMod100cotizacss extends TableDef
+        {
+        // campos
+        public FieldDef m1csdominio;
+        public FieldDef m1csnif;
+        public FieldDef m1csdeclarac;
+        public FieldDef m1csejercicio;
+        public FieldDef m1csperiodo;
+        public FieldDef m1csmiembro;
+        public FieldDef m1cstodos;
+        public FieldDef m1cscotenero;
+        public FieldDef m1cscotfebrero;
+        public FieldDef m1cscotmarzo;
+        public FieldDef m1cscotabril;
+        public FieldDef m1cscotmayo;
+        public FieldDef m1cscotjunio;
+        public FieldDef m1cscotjulio;
+        public FieldDef m1cscotagosto;
+        public FieldDef m1cscotseptiemb;
+        public FieldDef m1cscotoctubre;
+        public FieldDef m1cscotnoviembr;
+        public FieldDef m1cscotdiciembr;
+        public FieldDef m1csenero;
+        public FieldDef m1csfebrero;
+        public FieldDef m1csmarzo;
+        public FieldDef m1csabril;
+        public FieldDef m1csmayo;
+        public FieldDef m1csjunio;
+        public FieldDef m1csjulio;
+        public FieldDef m1csagosto;
+        public FieldDef m1csseptiembr;
+        public FieldDef m1csoctubre;
+        public FieldDef m1csnoviembre;
+        public FieldDef m1csdiciembre;
+        public FieldDef m1csabonomater;
+        public FieldDef m1csconvenero;
+        public FieldDef m1csconvfebrero;
+        public FieldDef m1csconvmarzo;
+        public FieldDef m1csconvabril;
+        public FieldDef m1csconvmayo;
+        public FieldDef m1csconvjunio;
+        public FieldDef m1csconvjulio;
+        public FieldDef m1csconvagosto;
+        public FieldDef m1csconvseptiem;
+        public FieldDef m1csconvoctubre;
+        public FieldDef m1csconvnoviemb;
+        public FieldDef m1csconvdiciemb;
+        public FieldDef m1cstitmatern;
+        public TabMod100cotizacss(String name)
+            {
+            super(name);
+            m1csdominio = new FieldDef("m1csdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m1csnif = new FieldDef("m1csnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m1csdeclarac = new FieldDef("m1csdeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+            m1csejercicio = new FieldDef("m1csejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1csperiodo = new FieldDef("m1csperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1csmiembro = new FieldDef("m1csmiembro",FieldDef.CHAR,1);
+            m1cstodos = new FieldDef("m1cstodos",FieldDef.CHAR,1);
+            m1cscotenero = new FieldDef("m1cscotenero",FieldDef.FLOAT,6,0);
+            m1cscotfebrero = new FieldDef("m1cscotfebrero",FieldDef.FLOAT,6,0);
+            m1cscotmarzo = new FieldDef("m1cscotmarzo",FieldDef.FLOAT,6,0);
+            m1cscotabril = new FieldDef("m1cscotabril",FieldDef.FLOAT,6,0);
+            m1cscotmayo = new FieldDef("m1cscotmayo",FieldDef.FLOAT,6,0);
+            m1cscotjunio = new FieldDef("m1cscotjunio",FieldDef.FLOAT,6,0);
+            m1cscotjulio = new FieldDef("m1cscotjulio",FieldDef.FLOAT,6,0);
+            m1cscotagosto = new FieldDef("m1cscotagosto",FieldDef.FLOAT,6,0);
+            m1cscotseptiemb = new FieldDef("m1cscotseptiemb",FieldDef.FLOAT,6,0);
+            m1cscotoctubre = new FieldDef("m1cscotoctubre",FieldDef.FLOAT,6,0);
+            m1cscotnoviembr = new FieldDef("m1cscotnoviembr",FieldDef.FLOAT,6,0);
+            m1cscotdiciembr = new FieldDef("m1cscotdiciembr",FieldDef.FLOAT,6,0);
+            m1csenero = new FieldDef("m1csenero",FieldDef.CHAR,1);
+            m1csfebrero = new FieldDef("m1csfebrero",FieldDef.CHAR,1);
+            m1csmarzo = new FieldDef("m1csmarzo",FieldDef.CHAR,1);
+            m1csabril = new FieldDef("m1csabril",FieldDef.CHAR,1);
+            m1csmayo = new FieldDef("m1csmayo",FieldDef.CHAR,1);
+            m1csjunio = new FieldDef("m1csjunio",FieldDef.CHAR,1);
+            m1csjulio = new FieldDef("m1csjulio",FieldDef.CHAR,1);
+            m1csagosto = new FieldDef("m1csagosto",FieldDef.CHAR,1);
+            m1csseptiembr = new FieldDef("m1csseptiembr",FieldDef.CHAR,1);
+            m1csoctubre = new FieldDef("m1csoctubre",FieldDef.CHAR,1);
+            m1csnoviembre = new FieldDef("m1csnoviembre",FieldDef.CHAR,1);
+            m1csdiciembre = new FieldDef("m1csdiciembre",FieldDef.CHAR,1);
+            m1csabonomater = new FieldDef("m1csabonomater",FieldDef.FLOAT,6,0);
+            m1csconvenero = new FieldDef("m1csconvenero",FieldDef.CHAR,1);
+            m1csconvfebrero = new FieldDef("m1csconvfebrero",FieldDef.CHAR,1);
+            m1csconvmarzo = new FieldDef("m1csconvmarzo",FieldDef.CHAR,1);
+            m1csconvabril = new FieldDef("m1csconvabril",FieldDef.CHAR,1);
+            m1csconvmayo = new FieldDef("m1csconvmayo",FieldDef.CHAR,1);
+            m1csconvjunio = new FieldDef("m1csconvjunio",FieldDef.CHAR,1);
+            m1csconvjulio = new FieldDef("m1csconvjulio",FieldDef.CHAR,1);
+            m1csconvagosto = new FieldDef("m1csconvagosto",FieldDef.CHAR,1);
+            m1csconvseptiem = new FieldDef("m1csconvseptiem",FieldDef.CHAR,1);
+            m1csconvoctubre = new FieldDef("m1csconvoctubre",FieldDef.CHAR,1);
+            m1csconvnoviemb = new FieldDef("m1csconvnoviemb",FieldDef.CHAR,1);
+            m1csconvdiciemb = new FieldDef("m1csconvdiciemb",FieldDef.CHAR,1);
+            m1cstitmatern = new FieldDef("m1cstitmatern",FieldDef.CHAR,1);
+            FieldDef array[] = {
+                m1csdominio,
+                m1csnif,
+                m1csdeclarac,
+                m1csejercicio,
+                m1csperiodo,
+                m1csmiembro,
+                m1cstodos,
+                m1cscotenero,
+                m1cscotfebrero,
+                m1cscotmarzo,
+                m1cscotabril,
+                m1cscotmayo,
+                m1cscotjunio,
+                m1cscotjulio,
+                m1cscotagosto,
+                m1cscotseptiemb,
+                m1cscotoctubre,
+                m1cscotnoviembr,
+                m1cscotdiciembr,
+                m1csenero,
+                m1csfebrero,
+                m1csmarzo,
+                m1csabril,
+                m1csmayo,
+                m1csjunio,
+                m1csjulio,
+                m1csagosto,
+                m1csseptiembr,
+                m1csoctubre,
+                m1csnoviembre,
+                m1csdiciembre,
+                m1csabonomater,
+                m1csconvenero,
+                m1csconvfebrero,
+                m1csconvmarzo,
+                m1csconvabril,
+                m1csconvmayo,
+                m1csconvjunio,
+                m1csconvjulio,
+                m1csconvagosto,
+                m1csconvseptiem,
+                m1csconvoctubre,
+                m1csconvnoviemb,
+                m1csconvdiciemb,
+                m1cstitmatern                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m1csdominio,m1csnif,m1csdeclarac,m1csejercicio,m1csperiodo,m1csmiembro };
+            setDescription("Cotizaciones seguridad social");
+            setPrimaryKeys(arrayf);
+            m1csdeclarac.setDescription("Tipo declaracion [C]onjunta, [D]eclarante");
+            m1csmiembro.setDescription("Miembro: [T]itular,[C]onyuge");
+            m1cstodos.setDescription("Cotiza todos meses");
+            m1cscotenero.setDescription("Cotizacion Enero");
+            m1cscotfebrero.setDescription("Cotizacion Febrero");
+            m1cscotmarzo.setDescription("Cotizacion Marzo");
+            m1cscotabril.setDescription("Cotizacion Abril");
+            m1cscotmayo.setDescription("Cotizacion Mayo");
+            m1cscotjunio.setDescription("Cotizacion Junio");
+            m1cscotjulio.setDescription("Cotizacion Jullio");
+            m1cscotagosto.setDescription("Cotizacion Agosto");
+            m1cscotseptiemb.setDescription("Cotizacion Septiembre");
+            m1cscotoctubre.setDescription("Cotizacion Octubre");
+            m1cscotnoviembr.setDescription("Cotizacion Noviembre");
+            m1cscotdiciembr.setDescription("Cotizacion Diciembre");
+            m1csenero.setDescription("Ejerce actividad o trabaja en Enero");
+            m1csfebrero.setDescription("Ejerce actividad o trabaja en  Febrero");
+            m1csmarzo.setDescription("Ejerce actividad o trabaja en  Marzo");
+            m1csabril.setDescription("Ejerce actividad o trabaja en  Abril");
+            m1csmayo.setDescription("Ejerce actividad o trabaja en  Mayo");
+            m1csjunio.setDescription("Ejerce actividad o trabaja en  Junio");
+            m1csjulio.setDescription("Ejerce actividad o trabaja en  Jullio");
+            m1csagosto.setDescription("Ejerce actividad o trabaja en  Agosto");
+            m1csseptiembr.setDescription("Ejerce actividad o trabaja en  Septiembre");
+            m1csoctubre.setDescription("Ejerce actividad o trabaja en  Octubre");
+            m1csnoviembre.setDescription("Ejerce actividad o trabaja en  Noviembre");
+            m1csdiciembre.setDescription("Ejerce actividad o trabaja en  Diciembre");
+            m1csabonomater.setDescription("Abono maternidad");
+            m1csconvenero.setDescription("Enero  otro aplica deduccion ascendiente o descendiente minusvalido");
+            m1csconvfebrero.setDescription("Febrero otro aplica deduccion ascendiente o descendiente minusvalido");
+            m1csconvmarzo.setDescription("Marzo otro aplica deduccion ascendiente o descendiente minusvalido");
+            m1csconvabril.setDescription("Abril otro aplica deduccion ascendiente o descendiente minusvalido");
+            m1csconvmayo.setDescription("Mayo  otro aplica deduccion ascendiente o descendiente minusvalido");
+            m1csconvjunio.setDescription("Junio otro aplica deduccion ascendiente o descendiente minusvalido");
+            m1csconvjulio.setDescription("Jullio otro aplica deduccion ascendiente o descendiente minusvalido");
+            m1csconvagosto.setDescription("Agosto otro aplica deduccion ascendiente o descendiente minusvalido");
+            m1csconvseptiem.setDescription("Septiembre otro aplica deduccion ascendiente o descendiente minusvalido");
+            m1csconvoctubre.setDescription("Octubre otro aplica deduccion ascendiente o descendiente minusvalido");
+            m1csconvnoviemb.setDescription("Noviembre otro aplica deduccion ascendiente o descendiente minusvalido");
+            m1csconvdiciemb.setDescription("Diciembre otro aplica deduccion ascendiente o descendiente minusvalido");
+            m1cstitmatern.setDescription("Titular deduccion maternidad");
+            }
+        }
+        
+    public class TabMod100andaluci extends TableDef
+        {
+        // campos
+        public FieldDef m1andominio;
+        public FieldDef m1annif;
+        public FieldDef m1andeclarac;
+        public FieldDef m1anejercicio;
+        public FieldDef m1anperiodo;
+        public FieldDef m1annreg;
+        public FieldDef m1antitular;
+        public FieldDef m1anhijoadoc;
+        public FieldDef m1anhijoadot;
+        public FieldDef m1anhijodere;
+        public FieldDef m1anhijomulc;
+        public FieldDef m1anhijomult;
+        public FieldDef m1anvivprote;
+        public FieldDef m1aninvivhim;
+        public FieldDef m1aninvivhre;
+        public FieldDef m1analvivim1;
+        public FieldDef m1analvivni1;
+        public FieldDef m1analvivex1;
+        public FieldDef m1analvivim2;
+        public FieldDef m1analvivni2;
+        public FieldDef m1analvivex2;
+        public FieldDef m1anaccacim1;
+        public FieldDef m1anaccacni1;
+        public FieldDef m1anaccacim2;
+        public FieldDef m1anaccacni2;
+        public FieldDef m1anadpinnuc;
+        public FieldDef m1anadpinnut;
+        public FieldDef m1anadpinnpe;
+        public FieldDef m1anmonascde;
+        public FieldDef m1anmonascnu;
+        public FieldDef m1anasdisgim;
+        public FieldDef m1anasdisgcc;
+        public FieldDef m1anasdisdim;
+        public FieldDef m1anasdisdcc;
+        public FieldDef m1angasjurim;
+        public FieldDef m1anpardisca;
+        public FieldDef m1andoncovid;
+        public TabMod100andaluci(String name)
+            {
+            super(name);
+            m1andominio = new FieldDef("m1andominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m1annif = new FieldDef("m1annif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m1andeclarac = new FieldDef("m1andeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+            m1anejercicio = new FieldDef("m1anejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1anperiodo = new FieldDef("m1anperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1annreg = new FieldDef("m1annreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1antitular = new FieldDef("m1antitular",FieldDef.INTEGER,0);
+            m1anhijoadoc = new FieldDef("m1anhijoadoc",FieldDef.FLOAT,6,0);
+            m1anhijoadot = new FieldDef("m1anhijoadot",FieldDef.FLOAT,6,0);
+            m1anhijodere = new FieldDef("m1anhijodere",FieldDef.INTEGER,0);
+            m1anhijomulc = new FieldDef("m1anhijomulc",FieldDef.FLOAT,6,0);
+            m1anhijomult = new FieldDef("m1anhijomult",FieldDef.FLOAT,6,0);
+            m1anvivprote = new FieldDef("m1anvivprote",FieldDef.INTEGER,0);
+            m1aninvivhim = new FieldDef("m1aninvivhim",FieldDef.FLOAT,6,0);
+            m1aninvivhre = new FieldDef("m1aninvivhre",FieldDef.INTEGER,0);
+            m1analvivim1 = new FieldDef("m1analvivim1",FieldDef.FLOAT,6,0);
+            m1analvivni1 = new FieldDef("m1analvivni1",FieldDef.CHAR,20);
+            m1analvivex1 = new FieldDef("m1analvivex1",FieldDef.INTEGER,0);
+            m1analvivim2 = new FieldDef("m1analvivim2",FieldDef.FLOAT,6,0);
+            m1analvivni2 = new FieldDef("m1analvivni2",FieldDef.CHAR,20);
+            m1analvivex2 = new FieldDef("m1analvivex2",FieldDef.INTEGER,0);
+            m1anaccacim1 = new FieldDef("m1anaccacim1",FieldDef.FLOAT,6,0);
+            m1anaccacni1 = new FieldDef("m1anaccacni1",FieldDef.CHAR,20);
+            m1anaccacim2 = new FieldDef("m1anaccacim2",FieldDef.FLOAT,6,0);
+            m1anaccacni2 = new FieldDef("m1anaccacni2",FieldDef.CHAR,20);
+            m1anadpinnuc = new FieldDef("m1anadpinnuc",FieldDef.FLOAT,6,0);
+            m1anadpinnut = new FieldDef("m1anadpinnut",FieldDef.FLOAT,6,0);
+            m1anadpinnpe = new FieldDef("m1anadpinnpe",FieldDef.INTEGER,0);
+            m1anmonascde = new FieldDef("m1anmonascde",FieldDef.INTEGER,0);
+            m1anmonascnu = new FieldDef("m1anmonascnu",FieldDef.INTEGER,0);
+            m1anasdisgim = new FieldDef("m1anasdisgim",FieldDef.FLOAT,6,0);
+            m1anasdisgcc = new FieldDef("m1anasdisgcc",FieldDef.CHAR,11);
+            m1anasdisdim = new FieldDef("m1anasdisdim",FieldDef.FLOAT,6,0);
+            m1anasdisdcc = new FieldDef("m1anasdisdcc",FieldDef.CHAR,11);
+            m1angasjurim = new FieldDef("m1angasjurim",FieldDef.FLOAT,6,0);
+            m1anpardisca = new FieldDef("m1anpardisca",FieldDef.INTEGER,0);
+            m1andoncovid = new FieldDef("m1andoncovid",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m1andominio,
+                m1annif,
+                m1andeclarac,
+                m1anejercicio,
+                m1anperiodo,
+                m1annreg,
+                m1antitular,
+                m1anhijoadoc,
+                m1anhijoadot,
+                m1anhijodere,
+                m1anhijomulc,
+                m1anhijomult,
+                m1anvivprote,
+                m1aninvivhim,
+                m1aninvivhre,
+                m1analvivim1,
+                m1analvivni1,
+                m1analvivex1,
+                m1analvivim2,
+                m1analvivni2,
+                m1analvivex2,
+                m1anaccacim1,
+                m1anaccacni1,
+                m1anaccacim2,
+                m1anaccacni2,
+                m1anadpinnuc,
+                m1anadpinnut,
+                m1anadpinnpe,
+                m1anmonascde,
+                m1anmonascnu,
+                m1anasdisgim,
+                m1anasdisgcc,
+                m1anasdisdim,
+                m1anasdisdcc,
+                m1angasjurim,
+                m1anpardisca,
+                m1andoncovid                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m1andominio,m1annif,m1andeclarac,m1anejercicio,m1anperiodo,m1annreg };
+            setPrimaryKeys(arrayf);
+            m1anhijoadoc.setDescription("Nacimiento/adopción hijos, Nº de hijos n/a comunes 2020");
+            m1anhijoadot.setDescription("Nacimiento/adopción hijos, Nº de hijos n/a titulares 2020");
+            m1anhijodere.setDescription("Nacimiento/adopción hijos, Nº pers. con derecho a la deducc.");
+            m1anhijomulc.setDescription("Nacimiento/adopción hijos, Nº hijos múltiples comunes");
+            m1anhijomult.setDescription("Nacimiento/adopción hijos, Nº hijos múltiples titular");
+            m1anvivprote.setDescription("Benef. ayudas viviendas protegidas, régimen de protección");
+            m1aninvivhim.setDescription("Inv. viv. habitual y jov., importe satisfecho");
+            m1aninvivhre.setDescription("Inv. viv. habitual y jov., régimen de protección");
+            m1analvivim1.setDescription("Alquiler viv. habitual, importe 1");
+            m1analvivni1.setDescription("Alquiler viv. habitual, nif 1");
+            m1analvivex1.setDescription("Alquiler viv. habitual, es extranjero 1");
+            m1analvivim2.setDescription("Alquiler viv. habitual, importe 2");
+            m1analvivni2.setDescription("Alquiler viv. habitual, nif 2");
+            m1analvivex2.setDescription("Alquiler viv. habitual, es extranjero 2");
+            m1anaccacim1.setDescription("Acciones sociedades o ampliación, importe 1");
+            m1anaccacni1.setDescription("Acciones sociedades o ampliación, nif 1");
+            m1anaccacim2.setDescription("Acciones sociedades o ampliación, importe 2");
+            m1anaccacni2.setDescription("Acciones sociedades o ampliación, nif 2");
+            m1anadpinnuc.setDescription("Adopción hijos int., Nº de hijos adoptados 2020 común");
+            m1anadpinnut.setDescription("Adopción hijos int., Nº de hijos adoptados 2020 titular");
+            m1anadpinnpe.setDescription("Adopción hijos int., Nº de pers. con derecho a la deducc.");
+            m1anmonascde.setDescription("Familia monoparental con asc. de > 75 años, cumple requisitos");
+            m1anmonascnu.setDescription("Familia monoparental con asc. de > 75 años, Nº ascendientes");
+            m1anasdisgim.setDescription("Asistencia disc. general, importe");
+            m1anasdisgcc.setDescription("Asistencia disc. general, C.C.Cotización");
+            m1anasdisdim.setDescription("Asistencia disc. doméstica, importe");
+            m1anasdisdcc.setDescription("Asistencia disc. doméstica, C.C.Cotización");
+            m1angasjurim.setDescription("Gastos defensa jurídica laboral, importe");
+            m1anpardisca.setDescription("Cónyuges o parejas de hecho con discapacidad, derecho");
+            m1andoncovid.setDescription("Donaciones al Servicio Andaluz de Salud para la lucha COVID19");
+            }
+        }
+        
+    public class TabMod100aragon extends TableDef
+        {
+        // campos
+        public FieldDef m1ardominio;
+        public FieldDef m1arnif;
+        public FieldDef m1ardeclarac;
+        public FieldDef m1arejercicio;
+        public FieldDef m1arperiodo;
+        public FieldDef m1arnreg;
+        public FieldDef m1artitular;
+        public FieldDef m1arhijoadoc;
+        public FieldDef m1arhijoadot;
+        public FieldDef m1arhijoadco;
+        public FieldDef m1arhijodisc;
+        public FieldDef m1arhijodist;
+        public FieldDef m1arhijodico;
+        public FieldDef m1arhijointc;
+        public FieldDef m1arhijointt;
+        public FieldDef m1arhijoinco;
+        public FieldDef m1arperdepec;
+        public FieldDef m1arperdepet;
+        public FieldDef m1arperdeped;
+        public FieldDef m1ardonecoci;
+        public FieldDef m1arvihabter;
+        public FieldDef m1araccmeim1;
+        public FieldDef m1araccmeni1;
+        public FieldDef m1araccmeim2;
+        public FieldDef m1araccmeni2;
+        public FieldDef m1araccreim1;
+        public FieldDef m1araccreni1;
+        public FieldDef m1araccreim2;
+        public FieldDef m1araccreni2;
+        public FieldDef m1aradvivhab;
+        public FieldDef m1aradlibim1;
+        public FieldDef m1aradlibco1;
+        public FieldDef m1aradlibbe1;
+        public FieldDef m1aradlibim2;
+        public FieldDef m1aradlibco2;
+        public FieldDef m1aradlibbe2;
+        public FieldDef m1aradlibim3;
+        public FieldDef m1aradlibco3;
+        public FieldDef m1aradlibbe3;
+        public FieldDef m1aradlibim4;
+        public FieldDef m1aradlibco4;
+        public FieldDef m1aradlibbe4;
+        public FieldDef m1aradlibim5;
+        public FieldDef m1aradlibco5;
+        public FieldDef m1aradlibbe5;
+        public FieldDef m1aradlibim6;
+        public FieldDef m1aradlibco6;
+        public FieldDef m1aradlibbe6;
+        public FieldDef m1aradlibnum;
+        public FieldDef m1ararvidaim;
+        public FieldDef m1ararvidani;
+        public FieldDef m1ararvidaex;
+        public FieldDef m1ararrvivso;
+        public FieldDef m1arinvsoim1;
+        public FieldDef m1arinvsoni1;
+        public FieldDef m1arinvsoim2;
+        public FieldDef m1arinvsoni2;
+        public FieldDef m1aradohico1;
+        public FieldDef m1aradohiti1;
+        public FieldDef m1aradohico2;
+        public FieldDef m1aradohiti2;
+        public FieldDef m1aradohicon;
+        public FieldDef m1arguardim1;
+        public FieldDef m1arguardpa1;
+        public FieldDef m1arguardan1;
+        public FieldDef m1arguardpr1;
+        public FieldDef m1arguardim2;
+        public FieldDef m1arguardpa2;
+        public FieldDef m1arguardan2;
+        public FieldDef m1arguardpr2;
+        public FieldDef m1arguardim3;
+        public FieldDef m1arguardpa3;
+        public FieldDef m1arguardan3;
+        public FieldDef m1arguardpr3;
+        public FieldDef m1arguardim4;
+        public FieldDef m1arguardpa4;
+        public FieldDef m1arguardan4;
+        public FieldDef m1arguardpr4;
+        public TabMod100aragon(String name)
+            {
+            super(name);
+            m1ardominio = new FieldDef("m1ardominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m1arnif = new FieldDef("m1arnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m1ardeclarac = new FieldDef("m1ardeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+            m1arejercicio = new FieldDef("m1arejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1arperiodo = new FieldDef("m1arperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1arnreg = new FieldDef("m1arnreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1artitular = new FieldDef("m1artitular",FieldDef.INTEGER,0);
+            m1arhijoadoc = new FieldDef("m1arhijoadoc",FieldDef.FLOAT,6,0);
+            m1arhijoadot = new FieldDef("m1arhijoadot",FieldDef.FLOAT,6,0);
+            m1arhijoadco = new FieldDef("m1arhijoadco",FieldDef.CHAR,1);
+            m1arhijodisc = new FieldDef("m1arhijodisc",FieldDef.FLOAT,6,0);
+            m1arhijodist = new FieldDef("m1arhijodist",FieldDef.FLOAT,6,0);
+            m1arhijodico = new FieldDef("m1arhijodico",FieldDef.CHAR,1);
+            m1arhijointc = new FieldDef("m1arhijointc",FieldDef.FLOAT,6,0);
+            m1arhijointt = new FieldDef("m1arhijointt",FieldDef.FLOAT,6,0);
+            m1arhijoinco = new FieldDef("m1arhijoinco",FieldDef.CHAR,1);
+            m1arperdepec = new FieldDef("m1arperdepec",FieldDef.FLOAT,6,0);
+            m1arperdepet = new FieldDef("m1arperdepet",FieldDef.FLOAT,6,0);
+            m1arperdeped = new FieldDef("m1arperdeped",FieldDef.FLOAT,6,0);
+            m1ardonecoci = new FieldDef("m1ardonecoci",FieldDef.FLOAT,6,0);
+            m1arvihabter = new FieldDef("m1arvihabter",FieldDef.FLOAT,6,0);
+            m1araccmeim1 = new FieldDef("m1araccmeim1",FieldDef.FLOAT,6,0);
+            m1araccmeni1 = new FieldDef("m1araccmeni1",FieldDef.CHAR,20);
+            m1araccmeim2 = new FieldDef("m1araccmeim2",FieldDef.FLOAT,6,0);
+            m1araccmeni2 = new FieldDef("m1araccmeni2",FieldDef.CHAR,20);
+            m1araccreim1 = new FieldDef("m1araccreim1",FieldDef.FLOAT,6,0);
+            m1araccreni1 = new FieldDef("m1araccreni1",FieldDef.CHAR,20);
+            m1araccreim2 = new FieldDef("m1araccreim2",FieldDef.FLOAT,6,0);
+            m1araccreni2 = new FieldDef("m1araccreni2",FieldDef.CHAR,20);
+            m1aradvivhab = new FieldDef("m1aradvivhab",FieldDef.FLOAT,6,0);
+            m1aradlibim1 = new FieldDef("m1aradlibim1",FieldDef.FLOAT,6,0);
+            m1aradlibco1 = new FieldDef("m1aradlibco1",FieldDef.CHAR,1);
+            m1aradlibbe1 = new FieldDef("m1aradlibbe1",FieldDef.FLOAT,6,0);
+            m1aradlibim2 = new FieldDef("m1aradlibim2",FieldDef.FLOAT,6,0);
+            m1aradlibco2 = new FieldDef("m1aradlibco2",FieldDef.CHAR,1);
+            m1aradlibbe2 = new FieldDef("m1aradlibbe2",FieldDef.FLOAT,6,0);
+            m1aradlibim3 = new FieldDef("m1aradlibim3",FieldDef.FLOAT,6,0);
+            m1aradlibco3 = new FieldDef("m1aradlibco3",FieldDef.CHAR,1);
+            m1aradlibbe3 = new FieldDef("m1aradlibbe3",FieldDef.FLOAT,6,0);
+            m1aradlibim4 = new FieldDef("m1aradlibim4",FieldDef.FLOAT,6,0);
+            m1aradlibco4 = new FieldDef("m1aradlibco4",FieldDef.CHAR,1);
+            m1aradlibbe4 = new FieldDef("m1aradlibbe4",FieldDef.FLOAT,6,0);
+            m1aradlibim5 = new FieldDef("m1aradlibim5",FieldDef.FLOAT,6,0);
+            m1aradlibco5 = new FieldDef("m1aradlibco5",FieldDef.CHAR,1);
+            m1aradlibbe5 = new FieldDef("m1aradlibbe5",FieldDef.FLOAT,6,0);
+            m1aradlibim6 = new FieldDef("m1aradlibim6",FieldDef.FLOAT,6,0);
+            m1aradlibco6 = new FieldDef("m1aradlibco6",FieldDef.CHAR,1);
+            m1aradlibbe6 = new FieldDef("m1aradlibbe6",FieldDef.FLOAT,6,0);
+            m1aradlibnum = new FieldDef("m1aradlibnum",FieldDef.INTEGER,0);
+            m1ararvidaim = new FieldDef("m1ararvidaim",FieldDef.FLOAT,6,0);
+            m1ararvidani = new FieldDef("m1ararvidani",FieldDef.CHAR,20);
+            m1ararvidaex = new FieldDef("m1ararvidaex",FieldDef.INTEGER,0);
+            m1ararrvivso = new FieldDef("m1ararrvivso",FieldDef.FLOAT,6,0);
+            m1arinvsoim1 = new FieldDef("m1arinvsoim1",FieldDef.FLOAT,6,0);
+            m1arinvsoni1 = new FieldDef("m1arinvsoni1",FieldDef.CHAR,20);
+            m1arinvsoim2 = new FieldDef("m1arinvsoim2",FieldDef.FLOAT,6,0);
+            m1arinvsoni2 = new FieldDef("m1arinvsoni2",FieldDef.CHAR,20);
+            m1aradohico1 = new FieldDef("m1aradohico1",FieldDef.INTEGER,0);
+            m1aradohiti1 = new FieldDef("m1aradohiti1",FieldDef.INTEGER,0);
+            m1aradohico2 = new FieldDef("m1aradohico2",FieldDef.INTEGER,0);
+            m1aradohiti2 = new FieldDef("m1aradohiti2",FieldDef.INTEGER,0);
+            m1aradohicon = new FieldDef("m1aradohicon",FieldDef.CHAR,1);
+            m1arguardim1 = new FieldDef("m1arguardim1",FieldDef.FLOAT,6,0);
+            m1arguardpa1 = new FieldDef("m1arguardpa1",FieldDef.INTEGER,0);
+            m1arguardan1 = new FieldDef("m1arguardan1",FieldDef.INTEGER,0);
+            m1arguardpr1 = new FieldDef("m1arguardpr1",FieldDef.FLOAT,6,0);
+            m1arguardim2 = new FieldDef("m1arguardim2",FieldDef.FLOAT,6,0);
+            m1arguardpa2 = new FieldDef("m1arguardpa2",FieldDef.INTEGER,0);
+            m1arguardan2 = new FieldDef("m1arguardan2",FieldDef.INTEGER,0);
+            m1arguardpr2 = new FieldDef("m1arguardpr2",FieldDef.FLOAT,6,0);
+            m1arguardim3 = new FieldDef("m1arguardim3",FieldDef.FLOAT,6,0);
+            m1arguardpa3 = new FieldDef("m1arguardpa3",FieldDef.INTEGER,0);
+            m1arguardan3 = new FieldDef("m1arguardan3",FieldDef.INTEGER,0);
+            m1arguardpr3 = new FieldDef("m1arguardpr3",FieldDef.FLOAT,6,0);
+            m1arguardim4 = new FieldDef("m1arguardim4",FieldDef.FLOAT,6,0);
+            m1arguardpa4 = new FieldDef("m1arguardpa4",FieldDef.INTEGER,0);
+            m1arguardan4 = new FieldDef("m1arguardan4",FieldDef.INTEGER,0);
+            m1arguardpr4 = new FieldDef("m1arguardpr4",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m1ardominio,
+                m1arnif,
+                m1ardeclarac,
+                m1arejercicio,
+                m1arperiodo,
+                m1arnreg,
+                m1artitular,
+                m1arhijoadoc,
+                m1arhijoadot,
+                m1arhijoadco,
+                m1arhijodisc,
+                m1arhijodist,
+                m1arhijodico,
+                m1arhijointc,
+                m1arhijointt,
+                m1arhijoinco,
+                m1arperdepec,
+                m1arperdepet,
+                m1arperdeped,
+                m1ardonecoci,
+                m1arvihabter,
+                m1araccmeim1,
+                m1araccmeni1,
+                m1araccmeim2,
+                m1araccmeni2,
+                m1araccreim1,
+                m1araccreni1,
+                m1araccreim2,
+                m1araccreni2,
+                m1aradvivhab,
+                m1aradlibim1,
+                m1aradlibco1,
+                m1aradlibbe1,
+                m1aradlibim2,
+                m1aradlibco2,
+                m1aradlibbe2,
+                m1aradlibim3,
+                m1aradlibco3,
+                m1aradlibbe3,
+                m1aradlibim4,
+                m1aradlibco4,
+                m1aradlibbe4,
+                m1aradlibim5,
+                m1aradlibco5,
+                m1aradlibbe5,
+                m1aradlibim6,
+                m1aradlibco6,
+                m1aradlibbe6,
+                m1aradlibnum,
+                m1ararvidaim,
+                m1ararvidani,
+                m1ararvidaex,
+                m1ararrvivso,
+                m1arinvsoim1,
+                m1arinvsoni1,
+                m1arinvsoim2,
+                m1arinvsoni2,
+                m1aradohico1,
+                m1aradohiti1,
+                m1aradohico2,
+                m1aradohiti2,
+                m1aradohicon,
+                m1arguardim1,
+                m1arguardpa1,
+                m1arguardan1,
+                m1arguardpr1,
+                m1arguardim2,
+                m1arguardpa2,
+                m1arguardan2,
+                m1arguardpr2,
+                m1arguardim3,
+                m1arguardpa3,
+                m1arguardan3,
+                m1arguardpr3,
+                m1arguardim4,
+                m1arguardpa4,
+                m1arguardan4,
+                m1arguardpr4                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m1ardominio,m1arnif,m1ardeclarac,m1arejercicio,m1arperiodo,m1arnreg };
+            setPrimaryKeys(arrayf);
+            m1arhijoadoc.setDescription("Nacimiento/adopción tercer hij., Nº de hijos n/a comunes 2020");
+            m1arhijoadot.setDescription("Nacimiento/adopción tercer hij., Nº de hijos n/a titular 2020");
+            m1arhijoadco.setDescription("Nacimiento/adopción tercer hij., hijos conviven con ambos padres");
+            m1arhijodisc.setDescription("Nacimiento/adopción hijos disc., Nº de hijos n/a disc >= 33% comunes 2020");
+            m1arhijodist.setDescription("Nacimiento/adopción hijos disc., Nº de hijos n/a disc >= 33% titular 2020");
+            m1arhijodico.setDescription("Nacimiento/adopción hijos disc., hijos conviven con ambos padres");
+            m1arhijointc.setDescription("Adopción internacional de niños, hijos adoptados en 2020 comunes");
+            m1arhijointt.setDescription("Adopción internacional de niños, hijos adoptados en 2020 del titular");
+            m1arhijoinco.setDescription("Adopción internacional de niños, hijos conviven con ambos padres");
+            m1arperdepec.setDescription("Cuidado de personas dependientes, Nº de personas comunes");
+            m1arperdepet.setDescription("Cuidado de personas dependientes, Nº de personas del titular");
+            m1arperdeped.setDescription("Cuidado de personas dependientes, Nº de personas con derecho a la deducc.");
+            m1ardonecoci.setDescription("Donaciones con fin ecológico e I+D, importe");
+            m1arvihabter.setDescription("Adquisición vivienda habitual víctima terrorismo, importe");
+            m1araccmeim1.setDescription("Inversión acciones entidades Mercado Alternativo, importe entidad 1");
+            m1araccmeni1.setDescription("Inversión acciones entidades Mercado Alternativo, nif entidad 1");
+            m1araccmeim2.setDescription("Inversión acciones entidades Mercado Alternativo, importe entidad 2");
+            m1araccmeni2.setDescription("Inversión acciones entidades Mercado Alternativo, nif entidad 2");
+            m1araccreim1.setDescription("Inversión acciones entidades reciente creación, importe entidad 1");
+            m1araccreni1.setDescription("Inversión acciones entidades reciente creación, nif entidad 1");
+            m1araccreim2.setDescription("Inversión acciones entidades reciente creación, importe entidad 2");
+            m1araccreni2.setDescription("Inversión acciones entidades reciente creación, nif entidad 2");
+            m1aradvivhab.setDescription("Adquisición o rehab. viv. hab. núcleos rurales o análogos, importe");
+            m1aradlibim1.setDescription("Adquisición libros de texto y material escolar, importe descendiente 1");
+            m1aradlibco1.setDescription("Adquisición libros de texto y material escolar, conyuge deduc. descendiente 1");
+            m1aradlibbe1.setDescription("Adquisición libros de texto y material escolar, becas y ayudas descendiente 1");
+            m1aradlibim2.setDescription("Adquisición libros de texto y material escolar, importe descendiente 2");
+            m1aradlibco2.setDescription("Adquisición libros de texto y material escolar, conyuge deduc. descendiente 2");
+            m1aradlibbe2.setDescription("Adquisición libros de texto y material escolar, becas y ayudas descendiente 2");
+            m1aradlibim3.setDescription("Adquisición libros de texto y material escolar, importe descendiente 3");
+            m1aradlibco3.setDescription("Adquisición libros de texto y material escolar, conyuge deduc. descendiente 3");
+            m1aradlibbe3.setDescription("Adquisición libros de texto y material escolar, becas y ayudas descendiente 3");
+            m1aradlibim4.setDescription("Adquisición libros de texto y material escolar, importe descendiente 4");
+            m1aradlibco4.setDescription("Adquisición libros de texto y material escolar, conyuge deduc. descendiente 4");
+            m1aradlibbe4.setDescription("Adquisición libros de texto y material escolar, becas y ayudas descendiente 4");
+            m1aradlibim5.setDescription("Adquisición libros de texto y material escolar, importe descendiente 5");
+            m1aradlibco5.setDescription("Adquisición libros de texto y material escolar, conyuge deduc. descendiente 5");
+            m1aradlibbe5.setDescription("Adquisición libros de texto y material escolar, becas y ayudas descendiente 5");
+            m1aradlibim6.setDescription("Adquisición libros de texto y material escolar, importe descendiente 6");
+            m1aradlibco6.setDescription("Adquisición libros de texto y material escolar, conyuge deduc. descendiente 6");
+            m1aradlibbe6.setDescription("Adquisición libros de texto y material escolar, becas y ayudas descendiente 6");
+            m1aradlibnum.setDescription("Adquisición libros de texto y material escolar, si es familia numerosa");
+            m1ararvidaim.setDescription("Deducc. arrendamiento de vivienda habitual dación pago, importe");
+            m1ararvidani.setDescription("Deducc. arrendamiento de vivienda habitual dación pago, nif del arrendador");
+            m1ararvidaex.setDescription("Deducc. arrendamiento de vivienda habitual dación pago, es extranjero");
+            m1ararrvivso.setDescription("Arrendamiento de vivienda social, importe");
+            m1arinvsoim1.setDescription("Inversión en entidades de la economía social, importe entidad 1");
+            m1arinvsoni1.setDescription("Inversión en entidades de la economía social, nif entidad 1");
+            m1arinvsoim2.setDescription("Inversión en entidades de la economía social, importe entidad 2");
+            m1arinvsoni2.setDescription("Inversión en entidades de la economía social, nif entidad 2");
+            m1aradohico1.setDescription("Nacimiento/adopción primer/segundo hijo, es primer hijo común");
+            m1aradohiti1.setDescription("Nacimiento/adopción primer/segundo hijo, es primer hijo titular");
+            m1aradohico2.setDescription("Nacimiento/adopción primer/segundo hijo, es segundo hijo común");
+            m1aradohiti2.setDescription("Nacimiento/adopción primer/segundo hijo, es segundo hijo titular");
+            m1aradohicon.setDescription("Nacimiento/adopción primer/segundo hijo, hijos conviven con ambos padres");
+            m1arguardim1.setDescription("Gastos de guarderia, importe hijo 1");
+            m1arguardpa1.setDescription("Gastos de guarderia, si solo vive con un padre hijo 1");
+            m1arguardan1.setDescription("Gastos de guarderia, si el hijo ha cumplido 3 años en 2020 hijo 1");
+            m1arguardpr1.setDescription("Gastos de guarderia, deduccion fallecimiento otro progenitor hijo 1");
+            m1arguardim2.setDescription("Gastos de guarderia, importe hijo 2");
+            m1arguardpa2.setDescription("Gastos de guarderia, si solo vive con un padre hijo 2");
+            m1arguardan2.setDescription("Gastos de guarderia, si el hijo ha cumplido 3 años en 2020 hijo 2");
+            m1arguardpr2.setDescription("Gastos de guarderia, deduccion fallecimiento otro progenitor hijo 2");
+            m1arguardim3.setDescription("Gastos de guarderia, importe hijo 3");
+            m1arguardpa3.setDescription("Gastos de guarderia, si solo vive con un padre hijo 3");
+            m1arguardan3.setDescription("Gastos de guarderia, si el hijo ha cumplido 3 años en 2020 hijo 3");
+            m1arguardpr3.setDescription("Gastos de guarderia, deduccion fallecimiento otro progenitor hijo 3");
+            m1arguardim4.setDescription("Gastos de guarderia, importe hijo 4");
+            m1arguardpa4.setDescription("Gastos de guarderia, si solo vive con un padre hijo 4");
+            m1arguardan4.setDescription("Gastos de guarderia, si el hijo ha cumplido 3 años en 2020 hijo 4");
+            m1arguardpr4.setDescription("Gastos de guarderia, deduccion fallecimiento otro progenitor hijo 4");
+            }
+        }
+        
+    public class TabMod100asturias extends TableDef
+        {
+        // campos
+        public FieldDef m1asdominio;
+        public FieldDef m1asnif;
+        public FieldDef m1asdeclarac;
+        public FieldDef m1asejercicio;
+        public FieldDef m1asperiodo;
+        public FieldDef m1asnreg;
+        public FieldDef m1astitular;
+        public FieldDef m1asacremapc;
+        public FieldDef m1asacremapt;
+        public FieldDef m1asacrematt;
+        public FieldDef m1asvivhabdi;
+        public FieldDef m1asvivfamdi;
+        public FieldDef m1asvivfamdn;
+        public FieldDef m1asinvprode;
+        public FieldDef m1asinvpronp;
+        public FieldDef m1asalvivim1;
+        public FieldDef m1asalvivru1;
+        public FieldDef m1asalvivni1;
+        public FieldDef m1asalvivex1;
+        public FieldDef m1asalvivim2;
+        public FieldDef m1asalvivru2;
+        public FieldDef m1asalvivni2;
+        public FieldDef m1asalvivex2;
+        public FieldDef m1asdonfinca;
+        public FieldDef m1asaopinhic;
+        public FieldDef m1asaopinhit;
+        public FieldDef m1asaopinnpe;
+        public FieldDef m1asnamulhic;
+        public FieldDef m1asnamulhit;
+        public FieldDef m1asnamulnpe;
+        public FieldDef m1asfamnucgc;
+        public FieldDef m1asfamnucgt;
+        public FieldDef m1asfamnucec;
+        public FieldDef m1asfamnucet;
+        public FieldDef m1asfamnunpe;
+        public FieldDef m1asfmmonodd;
+        public FieldDef m1asfmmonoim;
+        public FieldDef m1asacfmenmc;
+        public FieldDef m1asacfmenmt;
+        public FieldDef m1asacfmennc;
+        public FieldDef m1asacfmennt;
+        public FieldDef m1asacfmenpe;
+        public FieldDef m1ascerfoim1;
+        public FieldDef m1ascerfope1;
+        public FieldDef m1ascerfoim2;
+        public FieldDef m1ascerfope2;
+        public FieldDef m1ascerfoim3;
+        public FieldDef m1ascerfope3;
+        public FieldDef m1asgacenim1;
+        public FieldDef m1asgacenco1;
+        public FieldDef m1asgacenme1;
+        public FieldDef m1asgacenim2;
+        public FieldDef m1asgacenco2;
+        public FieldDef m1asgacenme2;
+        public FieldDef m1asgacenim3;
+        public FieldDef m1asgacenco3;
+        public FieldDef m1asgacenme3;
+        public FieldDef m1asgacenim4;
+        public FieldDef m1asgacenco4;
+        public FieldDef m1asgacenme4;
+        public FieldDef m1asadtexim1;
+        public FieldDef m1asadtexco1;
+        public FieldDef m1asadtexbe1;
+        public FieldDef m1asadtexim2;
+        public FieldDef m1asadtexco2;
+        public FieldDef m1asadtexbe2;
+        public FieldDef m1asadtexim3;
+        public FieldDef m1asadtexco3;
+        public FieldDef m1asadtexbe3;
+        public FieldDef m1asadtexim4;
+        public FieldDef m1asadtexco4;
+        public FieldDef m1asadtexbe4;
+        public FieldDef m1asadtexim5;
+        public FieldDef m1asadtexco5;
+        public FieldDef m1asadtexbe5;
+        public FieldDef m1asadtexim6;
+        public FieldDef m1asadtexco6;
+        public FieldDef m1asadtexbe6;
+        public FieldDef m1asadtexnum;
+        public FieldDef m1asnasshijc;
+        public FieldDef m1asnasshijt;
+        public FieldDef m1asnasshcon;
+        public FieldDef m1asautonded;
+        public FieldDef m1asgastrans;
+        public FieldDef m1asayucovid;
+        public TabMod100asturias(String name)
+            {
+            super(name);
+            m1asdominio = new FieldDef("m1asdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m1asnif = new FieldDef("m1asnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m1asdeclarac = new FieldDef("m1asdeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+            m1asejercicio = new FieldDef("m1asejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1asperiodo = new FieldDef("m1asperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1asnreg = new FieldDef("m1asnreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1astitular = new FieldDef("m1astitular",FieldDef.INTEGER,0);
+            m1asacremapc = new FieldDef("m1asacremapc",FieldDef.FLOAT,6,0);
+            m1asacremapt = new FieldDef("m1asacremapt",FieldDef.FLOAT,6,0);
+            m1asacrematt = new FieldDef("m1asacrematt",FieldDef.INTEGER,0);
+            m1asvivhabdi = new FieldDef("m1asvivhabdi",FieldDef.FLOAT,6,0);
+            m1asvivfamdi = new FieldDef("m1asvivfamdi",FieldDef.FLOAT,6,0);
+            m1asvivfamdn = new FieldDef("m1asvivfamdn",FieldDef.INTEGER,0);
+            m1asinvprode = new FieldDef("m1asinvprode",FieldDef.INTEGER,0);
+            m1asinvpronp = new FieldDef("m1asinvpronp",FieldDef.INTEGER,0);
+            m1asalvivim1 = new FieldDef("m1asalvivim1",FieldDef.FLOAT,6,0);
+            m1asalvivru1 = new FieldDef("m1asalvivru1",FieldDef.CHAR,1);
+            m1asalvivni1 = new FieldDef("m1asalvivni1",FieldDef.CHAR,20);
+            m1asalvivex1 = new FieldDef("m1asalvivex1",FieldDef.INTEGER,0);
+            m1asalvivim2 = new FieldDef("m1asalvivim2",FieldDef.FLOAT,6,0);
+            m1asalvivru2 = new FieldDef("m1asalvivru2",FieldDef.CHAR,1);
+            m1asalvivni2 = new FieldDef("m1asalvivni2",FieldDef.CHAR,20);
+            m1asalvivex2 = new FieldDef("m1asalvivex2",FieldDef.INTEGER,0);
+            m1asdonfinca = new FieldDef("m1asdonfinca",FieldDef.FLOAT,6,0);
+            m1asaopinhic = new FieldDef("m1asaopinhic",FieldDef.FLOAT,6,0);
+            m1asaopinhit = new FieldDef("m1asaopinhit",FieldDef.FLOAT,6,0);
+            m1asaopinnpe = new FieldDef("m1asaopinnpe",FieldDef.INTEGER,0);
+            m1asnamulhic = new FieldDef("m1asnamulhic",FieldDef.FLOAT,6,0);
+            m1asnamulhit = new FieldDef("m1asnamulhit",FieldDef.FLOAT,6,0);
+            m1asnamulnpe = new FieldDef("m1asnamulnpe",FieldDef.FLOAT,6,0);
+            m1asfamnucgc = new FieldDef("m1asfamnucgc",FieldDef.INTEGER,0);
+            m1asfamnucgt = new FieldDef("m1asfamnucgt",FieldDef.INTEGER,0);
+            m1asfamnucec = new FieldDef("m1asfamnucec",FieldDef.INTEGER,0);
+            m1asfamnucet = new FieldDef("m1asfamnucet",FieldDef.INTEGER,0);
+            m1asfamnunpe = new FieldDef("m1asfamnunpe",FieldDef.INTEGER,0);
+            m1asfmmonodd = new FieldDef("m1asfmmonodd",FieldDef.INTEGER,0);
+            m1asfmmonoim = new FieldDef("m1asfmmonoim",FieldDef.FLOAT,6,0);
+            m1asacfmenmc = new FieldDef("m1asacfmenmc",FieldDef.FLOAT,6,0);
+            m1asacfmenmt = new FieldDef("m1asacfmenmt",FieldDef.FLOAT,6,0);
+            m1asacfmennc = new FieldDef("m1asacfmennc",FieldDef.FLOAT,6,0);
+            m1asacfmennt = new FieldDef("m1asacfmennt",FieldDef.FLOAT,6,0);
+            m1asacfmenpe = new FieldDef("m1asacfmenpe",FieldDef.INTEGER,0);
+            m1ascerfoim1 = new FieldDef("m1ascerfoim1",FieldDef.FLOAT,6,0);
+            m1ascerfope1 = new FieldDef("m1ascerfope1",FieldDef.INTEGER,0);
+            m1ascerfoim2 = new FieldDef("m1ascerfoim2",FieldDef.FLOAT,6,0);
+            m1ascerfope2 = new FieldDef("m1ascerfope2",FieldDef.INTEGER,0);
+            m1ascerfoim3 = new FieldDef("m1ascerfoim3",FieldDef.FLOAT,6,0);
+            m1ascerfope3 = new FieldDef("m1ascerfope3",FieldDef.INTEGER,0);
+            m1asgacenim1 = new FieldDef("m1asgacenim1",FieldDef.FLOAT,6,0);
+            m1asgacenco1 = new FieldDef("m1asgacenco1",FieldDef.CHAR,1);
+            m1asgacenme1 = new FieldDef("m1asgacenme1",FieldDef.INTEGER,0);
+            m1asgacenim2 = new FieldDef("m1asgacenim2",FieldDef.FLOAT,6,0);
+            m1asgacenco2 = new FieldDef("m1asgacenco2",FieldDef.CHAR,1);
+            m1asgacenme2 = new FieldDef("m1asgacenme2",FieldDef.INTEGER,0);
+            m1asgacenim3 = new FieldDef("m1asgacenim3",FieldDef.FLOAT,6,0);
+            m1asgacenco3 = new FieldDef("m1asgacenco3",FieldDef.CHAR,1);
+            m1asgacenme3 = new FieldDef("m1asgacenme3",FieldDef.INTEGER,0);
+            m1asgacenim4 = new FieldDef("m1asgacenim4",FieldDef.FLOAT,6,0);
+            m1asgacenco4 = new FieldDef("m1asgacenco4",FieldDef.CHAR,1);
+            m1asgacenme4 = new FieldDef("m1asgacenme4",FieldDef.INTEGER,0);
+            m1asadtexim1 = new FieldDef("m1asadtexim1",FieldDef.FLOAT,6,0);
+            m1asadtexco1 = new FieldDef("m1asadtexco1",FieldDef.CHAR,1);
+            m1asadtexbe1 = new FieldDef("m1asadtexbe1",FieldDef.FLOAT,6,0);
+            m1asadtexim2 = new FieldDef("m1asadtexim2",FieldDef.FLOAT,6,0);
+            m1asadtexco2 = new FieldDef("m1asadtexco2",FieldDef.CHAR,1);
+            m1asadtexbe2 = new FieldDef("m1asadtexbe2",FieldDef.FLOAT,6,0);
+            m1asadtexim3 = new FieldDef("m1asadtexim3",FieldDef.FLOAT,6,0);
+            m1asadtexco3 = new FieldDef("m1asadtexco3",FieldDef.CHAR,1);
+            m1asadtexbe3 = new FieldDef("m1asadtexbe3",FieldDef.FLOAT,6,0);
+            m1asadtexim4 = new FieldDef("m1asadtexim4",FieldDef.FLOAT,6,0);
+            m1asadtexco4 = new FieldDef("m1asadtexco4",FieldDef.CHAR,1);
+            m1asadtexbe4 = new FieldDef("m1asadtexbe4",FieldDef.FLOAT,6,0);
+            m1asadtexim5 = new FieldDef("m1asadtexim5",FieldDef.FLOAT,6,0);
+            m1asadtexco5 = new FieldDef("m1asadtexco5",FieldDef.CHAR,1);
+            m1asadtexbe5 = new FieldDef("m1asadtexbe5",FieldDef.FLOAT,6,0);
+            m1asadtexim6 = new FieldDef("m1asadtexim6",FieldDef.FLOAT,6,0);
+            m1asadtexco6 = new FieldDef("m1asadtexco6",FieldDef.CHAR,1);
+            m1asadtexbe6 = new FieldDef("m1asadtexbe6",FieldDef.FLOAT,6,0);
+            m1asadtexnum = new FieldDef("m1asadtexnum",FieldDef.INTEGER,0);
+            m1asnasshijc = new FieldDef("m1asnasshijc",FieldDef.FLOAT,6,0);
+            m1asnasshijt = new FieldDef("m1asnasshijt",FieldDef.FLOAT,6,0);
+            m1asnasshcon = new FieldDef("m1asnasshcon",FieldDef.CHAR,1);
+            m1asautonded = new FieldDef("m1asautonded",FieldDef.INTEGER,0);
+            m1asgastrans = new FieldDef("m1asgastrans",FieldDef.FLOAT,6,0);
+            m1asayucovid = new FieldDef("m1asayucovid",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m1asdominio,
+                m1asnif,
+                m1asdeclarac,
+                m1asejercicio,
+                m1asperiodo,
+                m1asnreg,
+                m1astitular,
+                m1asacremapc,
+                m1asacremapt,
+                m1asacrematt,
+                m1asvivhabdi,
+                m1asvivfamdi,
+                m1asvivfamdn,
+                m1asinvprode,
+                m1asinvpronp,
+                m1asalvivim1,
+                m1asalvivru1,
+                m1asalvivni1,
+                m1asalvivex1,
+                m1asalvivim2,
+                m1asalvivru2,
+                m1asalvivni2,
+                m1asalvivex2,
+                m1asdonfinca,
+                m1asaopinhic,
+                m1asaopinhit,
+                m1asaopinnpe,
+                m1asnamulhic,
+                m1asnamulhit,
+                m1asnamulnpe,
+                m1asfamnucgc,
+                m1asfamnucgt,
+                m1asfamnucec,
+                m1asfamnucet,
+                m1asfamnunpe,
+                m1asfmmonodd,
+                m1asfmmonoim,
+                m1asacfmenmc,
+                m1asacfmenmt,
+                m1asacfmennc,
+                m1asacfmennt,
+                m1asacfmenpe,
+                m1ascerfoim1,
+                m1ascerfope1,
+                m1ascerfoim2,
+                m1ascerfope2,
+                m1ascerfoim3,
+                m1ascerfope3,
+                m1asgacenim1,
+                m1asgacenco1,
+                m1asgacenme1,
+                m1asgacenim2,
+                m1asgacenco2,
+                m1asgacenme2,
+                m1asgacenim3,
+                m1asgacenco3,
+                m1asgacenme3,
+                m1asgacenim4,
+                m1asgacenco4,
+                m1asgacenme4,
+                m1asadtexim1,
+                m1asadtexco1,
+                m1asadtexbe1,
+                m1asadtexim2,
+                m1asadtexco2,
+                m1asadtexbe2,
+                m1asadtexim3,
+                m1asadtexco3,
+                m1asadtexbe3,
+                m1asadtexim4,
+                m1asadtexco4,
+                m1asadtexbe4,
+                m1asadtexim5,
+                m1asadtexco5,
+                m1asadtexbe5,
+                m1asadtexim6,
+                m1asadtexco6,
+                m1asadtexbe6,
+                m1asadtexnum,
+                m1asnasshijc,
+                m1asnasshijt,
+                m1asnasshcon,
+                m1asautonded,
+                m1asgastrans,
+                m1asayucovid                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m1asdominio,m1asnif,m1asdeclarac,m1asejercicio,m1asperiodo,m1asnreg };
+            setPrimaryKeys(arrayf);
+            m1asacremapc.setDescription("Acogimiento no remunerado de mayores de 65 años, nº de personas que dan derecho a la deducción común");
+            m1asacremapt.setDescription("Acogimiento no remunerado de mayores de 65 años, nº de personas que dan derecho a la deducción titular");
+            m1asacrematt.setDescription("Acogimiento no remunerado de mayores de 65 años, nº de titulares con los que vive el acogido");
+            m1asvivhabdi.setDescription("Inversión en vivienda habitual con discapacidad, importe");
+            m1asvivfamdi.setDescription("Inversión en vivienda habitual para contri. que conviven con familiares con discapacidad, importe");
+            m1asvivfamdn.setDescription("Inversión en vivienda habitual para contri. que conviven con familiares con discapacidad, nº de personas con derecho");
+            m1asinvprode.setDescription("Inversión en vivienda habitual protegida, derecho a la deducción");
+            m1asinvpronp.setDescription("Inversión en vivienda habitual protegida, nº de personas con derecho a la deducción");
+            m1asalvivim1.setDescription("Alquiler vivienda habitual, importe 1");
+            m1asalvivru1.setDescription("Alquiler vivienda habitual, es rural 1");
+            m1asalvivni1.setDescription("Alquiler vivienda habitual, nif arrendador 1");
+            m1asalvivex1.setDescription("Alquiler vivienda habitual, es arrendador extranjero 1");
+            m1asalvivim2.setDescription("Alquiler vivienda habitual, importe 2");
+            m1asalvivru2.setDescription("Alquiler vivienda habitual, es rural 2");
+            m1asalvivni2.setDescription("Alquiler vivienda habitual, nif arrendador 2");
+            m1asalvivex2.setDescription("Alquiler vivienda habitual, es arrendador extranjero 2");
+            m1asdonfinca.setDescription("Donación de fincas rústicas al Principado de Asturias, importe");
+            m1asaopinhic.setDescription("Adopción internacional de menores, hijos adoptados en 2020 común");
+            m1asaopinhit.setDescription("Adopción internacional de menores, hijos adoptados en 2020 titular");
+            m1asaopinnpe.setDescription("Adopción internacional de menores, nº de personas con derecho a deducción");
+            m1asnamulhic.setDescription("Nacimiento o adopciones múltiples, nº de hijos nacidos/adoptados múltiple 2020 común");
+            m1asnamulhit.setDescription("Nacimiento o adopciones múltiples, nº de hijos nacidos/adoptados múltiple 2020 titular");
+            m1asnamulnpe.setDescription("Nacimiento o adopciones múltiples, nº de personas con derecho a la deducción");
+            m1asfamnucgc.setDescription("Familia numerosa, categoría general común");
+            m1asfamnucgt.setDescription("Familia numerosa, categoría general titular");
+            m1asfamnucec.setDescription("Familia numerosa, categoría general común");
+            m1asfamnucet.setDescription("Familia numerosa, categoría general titular");
+            m1asfamnunpe.setDescription("Familia numerosa, nº de personas con derecho a la deducción");
+            m1asfmmonodd.setDescription("Familia monoparental, derecho a la deducción");
+            m1asfmmonoim.setDescription("Familia monoparental, anualidades por alimentos exentas percibidas por los hijos");
+            m1asacfmenmc.setDescription("Acogimiento familiar menores, nº de menores acogidos más de 183 días común");
+            m1asacfmenmt.setDescription("Acogimiento familiar menores, nº de menores acogidos más de 183 días titular");
+            m1asacfmennc.setDescription("Acogimiento familiar menores, nº de menores acogidos más de 90 días y menos de 183 común");
+            m1asacfmennt.setDescription("Acogimiento familiar menores, nº de menores acogidos más de 90 días y menos de 183 titular");
+            m1asacfmenpe.setDescription("Acogimiento familiar menores, nº de personas con derecho a deducción");
+            m1ascerfoim1.setDescription("Certificación de la gestión forestal sostenible, importe 1");
+            m1ascerfope1.setDescription("Certificación de la gestión forestal sostenible, nº de personas 1");
+            m1ascerfoim2.setDescription("Certificación de la gestión forestal sostenible, importe 2");
+            m1ascerfope2.setDescription("Certificación de la gestión forestal sostenible, nº de personas 2");
+            m1ascerfoim3.setDescription("Certificación de la gestión forestal sostenible, importe 3");
+            m1ascerfope3.setDescription("Certificación de la gestión forestal sostenible, nº de personas 3");
+            m1asgacenim1.setDescription("Gastos de descendientes en centros de 0 a 3 años, importe descendiente 1");
+            m1asgacenco1.setDescription("Gastos de descendientes en centros de 0 a 3 años, convive ambos padres descendiente 1");
+            m1asgacenme1.setDescription("Gastos de descendientes en centros de 0 a 3 años, meses descendiente 1");
+            m1asgacenim2.setDescription("Gastos de descendientes en centros de 0 a 3 años, importe descendiente 2");
+            m1asgacenco2.setDescription("Gastos de descendientes en centros de 0 a 3 años, convive ambos padres descendiente 2");
+            m1asgacenme2.setDescription("Gastos de descendientes en centros de 0 a 3 años, meses descendiente 2");
+            m1asgacenim3.setDescription("Gastos de descendientes en centros de 0 a 3 años, importe descendiente 3");
+            m1asgacenco3.setDescription("Gastos de descendientes en centros de 0 a 3 años, convive ambos padres descendiente 3");
+            m1asgacenme3.setDescription("Gastos de descendientes en centros de 0 a 3 años, meses descendiente 3");
+            m1asgacenim4.setDescription("Gastos de descendientes en centros de 0 a 3 años, importe descendiente 4");
+            m1asgacenco4.setDescription("Gastos de descendientes en centros de 0 a 3 años, convive ambos padres descendiente 4");
+            m1asgacenme4.setDescription("Gastos de descendientes en centros de 0 a 3 años, meses descendiente 4");
+            m1asadtexim1.setDescription("Adquisición de libros de texto y material escolar, importe descendiente 1");
+            m1asadtexco1.setDescription("Adquisición de libros de texto y material escolar, afecta conyuge descendiente 1");
+            m1asadtexbe1.setDescription("Adquisición de libros de texto y material escolar, becas y ayudas descendiente 1");
+            m1asadtexim2.setDescription("Adquisición de libros de texto y material escolar, importe descendiente 2");
+            m1asadtexco2.setDescription("Adquisición de libros de texto y material escolar, afecta conyuge descendiente 2");
+            m1asadtexbe2.setDescription("Adquisición de libros de texto y material escolar, becas y ayudas descendiente 2");
+            m1asadtexim3.setDescription("Adquisición de libros de texto y material escolar, importe descendiente 3");
+            m1asadtexco3.setDescription("Adquisición de libros de texto y material escolar, afecta conyuge descendiente 3");
+            m1asadtexbe3.setDescription("Adquisición de libros de texto y material escolar, becas y ayudas descendiente 3");
+            m1asadtexim4.setDescription("Adquisición de libros de texto y material escolar, importe descendiente 4");
+            m1asadtexco4.setDescription("Adquisición de libros de texto y material escolar, afecta conyuge descendiente 4");
+            m1asadtexbe4.setDescription("Adquisición de libros de texto y material escolar, becas y ayudas descendiente 4");
+            m1asadtexim5.setDescription("Adquisición de libros de texto y material escolar, importe descendiente 5");
+            m1asadtexco5.setDescription("Adquisición de libros de texto y material escolar, afecta conyuge descendiente 5");
+            m1asadtexbe5.setDescription("Adquisición de libros de texto y material escolar, becas y ayudas descendiente 5");
+            m1asadtexim6.setDescription("Adquisición de libros de texto y material escolar, importe descendiente 6");
+            m1asadtexco6.setDescription("Adquisición de libros de texto y material escolar, afecta conyuge descendiente 6");
+            m1asadtexbe6.setDescription("Adquisición de libros de texto y material escolar, becas y ayudas descendiente 6");
+            m1asadtexnum.setDescription("Adquisición de libros de texto y material escolar, forma parte de una familia numerosa");
+            m1asnasshijc.setDescription("Nac. o adp. de segundo y sucesivos hijos en zonas rurales, nº de hijos 2020 común");
+            m1asnasshijt.setDescription("Nac. o adp. de segundo y sucesivos hijos en zonas rurales, nº de hijos 2020 titular");
+            m1asnasshcon.setDescription("Nac. o adp. de segundo y sucesivos hijos en zonas rurales, hijos conviven con ambos padres");
+            m1asautonded.setDescription("Trabajadores por cuenta propia, o autónomos en zonas rurales en riesgo de despoblación, derecho a la deducc.");
+            m1asgastrans.setDescription("Gastos de transporte público para residentes en zonas rurales en riesgo de despoblación");
+            m1asayucovid.setDescription("Subvenciones y/o ayudas para paliar el impacto provocado por la COVID-19");
+            }
+        }
+        
+    public class TabMod100cantabria extends TableDef
+        {
+        // campos
+        public FieldDef m1ctdominio;
+        public FieldDef m1ctnif;
+        public FieldDef m1ctdeclarac;
+        public FieldDef m1ctejercicio;
+        public FieldDef m1ctperiodo;
+        public FieldDef m1ctnreg;
+        public FieldDef m1cttitular;
+        public FieldDef m1ctarrvimp1;
+        public FieldDef m1ctarrvimp2;
+        public FieldDef m1ctarrvcif1;
+        public FieldDef m1ctarrvcif2;
+        public FieldDef m1ctarrvnum1;
+        public FieldDef m1ctarrvnum2;
+        public FieldDef m1ctcuif3com;
+        public FieldDef m1ctcuif3tit;
+        public FieldDef m1ctcuifdcom;
+        public FieldDef m1ctcuifdtit;
+        public FieldDef m1ct1819pend;
+        public FieldDef m1ctobravimp;
+        public FieldDef m1ctobravcif;
+        public FieldDef m1ctdonafund;
+        public FieldDef m1ctdonafccp;
+        public FieldDef m1ctacogmsco;
+        public FieldDef m1ctacogmsti;
+        public FieldDef m1ctacogmmco;
+        public FieldDef m1ctacogmmti;
+        public FieldDef m1ctacogmpsn;
+        public FieldDef m1ctinvnimp1;
+        public FieldDef m1ctinvnimp2;
+        public FieldDef m1ctinvncif1;
+        public FieldDef m1ctinvncif2;
+        public FieldDef m1ctgenfimpo;
+        public FieldDef m1ctguardesp;
+        public FieldDef m1ctguarhij1;
+        public FieldDef m1ctguarhij2;
+        public FieldDef m1ctguarhij3;
+        public FieldDef m1ctguarhij4;
+        public FieldDef m1ctguarbij1;
+        public FieldDef m1ctguarbij2;
+        public FieldDef m1ctguarbij3;
+        public FieldDef m1ctguarbij4;
+        public FieldDef m1ctguarosn1;
+        public FieldDef m1ctguarosn2;
+        public FieldDef m1ctguarosn3;
+        public FieldDef m1ctguarosn4;
+        public FieldDef m1ctguarotr1;
+        public FieldDef m1ctguarotr2;
+        public FieldDef m1ctguarotr3;
+        public FieldDef m1ctguarotr4;
+        public FieldDef m1ctnacad20c;
+        public FieldDef m1ctnacad20t;
+        public FieldDef m1ctnacadcnv;
+        public FieldDef m1ctfamimono;
+        public FieldDef m1ctdespimp1;
+        public FieldDef m1ctdespimp2;
+        public FieldDef m1ctdespnif1;
+        public FieldDef m1ctdespnif2;
+        public FieldDef m1ctdespnum1;
+        public FieldDef m1ctdespnum2;
+        public FieldDef m1ctarrdpimp;
+        public FieldDef m1ctgdspdesp;
+        public FieldDef m1ctgdsphij1;
+        public FieldDef m1ctgdsphij2;
+        public FieldDef m1ctgdsphij3;
+        public FieldDef m1ctgdsphij4;
+        public FieldDef m1ctgdspbij1;
+        public FieldDef m1ctgdspbij2;
+        public FieldDef m1ctgdspbij3;
+        public FieldDef m1ctgdspbij4;
+        public FieldDef m1ctgdsposn1;
+        public FieldDef m1ctgdsposn2;
+        public FieldDef m1ctgdsposn3;
+        public FieldDef m1ctgdsposn4;
+        public FieldDef m1ctgdspotr1;
+        public FieldDef m1ctgdspotr2;
+        public FieldDef m1ctgdspotr3;
+        public FieldDef m1ctgdspotr4;
+        public FieldDef m1ctgresdesp;
+        public FieldDef m1ctinvsnif1;
+        public FieldDef m1ctinvsnif2;
+        public FieldDef m1ctinvsnif3;
+        public FieldDef m1ctinvssoc1;
+        public FieldDef m1ctinvssoc2;
+        public FieldDef m1ctinvssoc3;
+        public FieldDef m1ctinvsact1;
+        public FieldDef m1ctinvsact2;
+        public FieldDef m1ctinvsact3;
+        public FieldDef m1ctinvsdif1;
+        public FieldDef m1ctinvsdif2;
+        public FieldDef m1ctinvsdif3;
+        public TabMod100cantabria(String name)
+            {
+            super(name);
+            m1ctdominio = new FieldDef("m1ctdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m1ctnif = new FieldDef("m1ctnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m1ctdeclarac = new FieldDef("m1ctdeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+            m1ctejercicio = new FieldDef("m1ctejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1ctperiodo = new FieldDef("m1ctperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1ctnreg = new FieldDef("m1ctnreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1cttitular = new FieldDef("m1cttitular",FieldDef.INTEGER,0);
+            m1ctarrvimp1 = new FieldDef("m1ctarrvimp1",FieldDef.FLOAT,6,0);
+            m1ctarrvimp2 = new FieldDef("m1ctarrvimp2",FieldDef.FLOAT,6,0);
+            m1ctarrvcif1 = new FieldDef("m1ctarrvcif1",FieldDef.CHAR,10);
+            m1ctarrvcif2 = new FieldDef("m1ctarrvcif2",FieldDef.CHAR,10);
+            m1ctarrvnum1 = new FieldDef("m1ctarrvnum1",FieldDef.CHAR,20);
+            m1ctarrvnum2 = new FieldDef("m1ctarrvnum2",FieldDef.CHAR,20);
+            m1ctcuif3com = new FieldDef("m1ctcuif3com",FieldDef.FLOAT,6,0);
+            m1ctcuif3tit = new FieldDef("m1ctcuif3tit",FieldDef.FLOAT,6,0);
+            m1ctcuifdcom = new FieldDef("m1ctcuifdcom",FieldDef.FLOAT,6,0);
+            m1ctcuifdtit = new FieldDef("m1ctcuifdtit",FieldDef.FLOAT,6,0);
+            m1ct1819pend = new FieldDef("m1ct1819pend",FieldDef.FLOAT,6,0);
+            m1ctobravimp = new FieldDef("m1ctobravimp",FieldDef.FLOAT,6,0);
+            m1ctobravcif = new FieldDef("m1ctobravcif",FieldDef.CHAR,10);
+            m1ctdonafund = new FieldDef("m1ctdonafund",FieldDef.FLOAT,6,0);
+            m1ctdonafccp = new FieldDef("m1ctdonafccp",FieldDef.FLOAT,6,0);
+            m1ctacogmsco = new FieldDef("m1ctacogmsco",FieldDef.INTEGER,0);
+            m1ctacogmsti = new FieldDef("m1ctacogmsti",FieldDef.INTEGER,0);
+            m1ctacogmmco = new FieldDef("m1ctacogmmco",FieldDef.FLOAT,6,0);
+            m1ctacogmmti = new FieldDef("m1ctacogmmti",FieldDef.FLOAT,6,0);
+            m1ctacogmpsn = new FieldDef("m1ctacogmpsn",FieldDef.CHAR,2);
+            m1ctinvnimp1 = new FieldDef("m1ctinvnimp1",FieldDef.FLOAT,6,0);
+            m1ctinvnimp2 = new FieldDef("m1ctinvnimp2",FieldDef.FLOAT,6,0);
+            m1ctinvncif1 = new FieldDef("m1ctinvncif1",FieldDef.CHAR,10);
+            m1ctinvncif2 = new FieldDef("m1ctinvncif2",FieldDef.CHAR,10);
+            m1ctgenfimpo = new FieldDef("m1ctgenfimpo",FieldDef.FLOAT,6,0);
+            m1ctguardesp = new FieldDef("m1ctguardesp",FieldDef.INTEGER,0);
+            m1ctguarhij1 = new FieldDef("m1ctguarhij1",FieldDef.FLOAT,6,0);
+            m1ctguarhij2 = new FieldDef("m1ctguarhij2",FieldDef.FLOAT,6,0);
+            m1ctguarhij3 = new FieldDef("m1ctguarhij3",FieldDef.FLOAT,6,0);
+            m1ctguarhij4 = new FieldDef("m1ctguarhij4",FieldDef.FLOAT,6,0);
+            m1ctguarbij1 = new FieldDef("m1ctguarbij1",FieldDef.FLOAT,6,0);
+            m1ctguarbij2 = new FieldDef("m1ctguarbij2",FieldDef.FLOAT,6,0);
+            m1ctguarbij3 = new FieldDef("m1ctguarbij3",FieldDef.FLOAT,6,0);
+            m1ctguarbij4 = new FieldDef("m1ctguarbij4",FieldDef.FLOAT,6,0);
+            m1ctguarosn1 = new FieldDef("m1ctguarosn1",FieldDef.CHAR,2);
+            m1ctguarosn2 = new FieldDef("m1ctguarosn2",FieldDef.CHAR,2);
+            m1ctguarosn3 = new FieldDef("m1ctguarosn3",FieldDef.CHAR,2);
+            m1ctguarosn4 = new FieldDef("m1ctguarosn4",FieldDef.CHAR,2);
+            m1ctguarotr1 = new FieldDef("m1ctguarotr1",FieldDef.FLOAT,6,0);
+            m1ctguarotr2 = new FieldDef("m1ctguarotr2",FieldDef.FLOAT,6,0);
+            m1ctguarotr3 = new FieldDef("m1ctguarotr3",FieldDef.FLOAT,6,0);
+            m1ctguarotr4 = new FieldDef("m1ctguarotr4",FieldDef.FLOAT,6,0);
+            m1ctnacad20c = new FieldDef("m1ctnacad20c",FieldDef.FLOAT,6,0);
+            m1ctnacad20t = new FieldDef("m1ctnacad20t",FieldDef.FLOAT,6,0);
+            m1ctnacadcnv = new FieldDef("m1ctnacadcnv",FieldDef.CHAR,2);
+            m1ctfamimono = new FieldDef("m1ctfamimono",FieldDef.INTEGER,0);
+            m1ctdespimp1 = new FieldDef("m1ctdespimp1",FieldDef.FLOAT,6,0);
+            m1ctdespimp2 = new FieldDef("m1ctdespimp2",FieldDef.FLOAT,6,0);
+            m1ctdespnif1 = new FieldDef("m1ctdespnif1",FieldDef.CHAR,10);
+            m1ctdespnif2 = new FieldDef("m1ctdespnif2",FieldDef.CHAR,10);
+            m1ctdespnum1 = new FieldDef("m1ctdespnum1",FieldDef.CHAR,20);
+            m1ctdespnum2 = new FieldDef("m1ctdespnum2",FieldDef.CHAR,20);
+            m1ctarrdpimp = new FieldDef("m1ctarrdpimp",FieldDef.FLOAT,6,0);
+            m1ctgdspdesp = new FieldDef("m1ctgdspdesp",FieldDef.INTEGER,0);
+            m1ctgdsphij1 = new FieldDef("m1ctgdsphij1",FieldDef.FLOAT,6,0);
+            m1ctgdsphij2 = new FieldDef("m1ctgdsphij2",FieldDef.FLOAT,6,0);
+            m1ctgdsphij3 = new FieldDef("m1ctgdsphij3",FieldDef.FLOAT,6,0);
+            m1ctgdsphij4 = new FieldDef("m1ctgdsphij4",FieldDef.FLOAT,6,0);
+            m1ctgdspbij1 = new FieldDef("m1ctgdspbij1",FieldDef.FLOAT,6,0);
+            m1ctgdspbij2 = new FieldDef("m1ctgdspbij2",FieldDef.FLOAT,6,0);
+            m1ctgdspbij3 = new FieldDef("m1ctgdspbij3",FieldDef.FLOAT,6,0);
+            m1ctgdspbij4 = new FieldDef("m1ctgdspbij4",FieldDef.FLOAT,6,0);
+            m1ctgdsposn1 = new FieldDef("m1ctgdsposn1",FieldDef.CHAR,2);
+            m1ctgdsposn2 = new FieldDef("m1ctgdsposn2",FieldDef.CHAR,2);
+            m1ctgdsposn3 = new FieldDef("m1ctgdsposn3",FieldDef.CHAR,2);
+            m1ctgdsposn4 = new FieldDef("m1ctgdsposn4",FieldDef.CHAR,2);
+            m1ctgdspotr1 = new FieldDef("m1ctgdspotr1",FieldDef.FLOAT,6,0);
+            m1ctgdspotr2 = new FieldDef("m1ctgdspotr2",FieldDef.FLOAT,6,0);
+            m1ctgdspotr3 = new FieldDef("m1ctgdspotr3",FieldDef.FLOAT,6,0);
+            m1ctgdspotr4 = new FieldDef("m1ctgdspotr4",FieldDef.FLOAT,6,0);
+            m1ctgresdesp = new FieldDef("m1ctgresdesp",FieldDef.INTEGER,0);
+            m1ctinvsnif1 = new FieldDef("m1ctinvsnif1",FieldDef.CHAR,10);
+            m1ctinvsnif2 = new FieldDef("m1ctinvsnif2",FieldDef.CHAR,10);
+            m1ctinvsnif3 = new FieldDef("m1ctinvsnif3",FieldDef.CHAR,10);
+            m1ctinvssoc1 = new FieldDef("m1ctinvssoc1",FieldDef.FLOAT,6,0);
+            m1ctinvssoc2 = new FieldDef("m1ctinvssoc2",FieldDef.FLOAT,6,0);
+            m1ctinvssoc3 = new FieldDef("m1ctinvssoc3",FieldDef.FLOAT,6,0);
+            m1ctinvsact1 = new FieldDef("m1ctinvsact1",FieldDef.FLOAT,6,0);
+            m1ctinvsact2 = new FieldDef("m1ctinvsact2",FieldDef.FLOAT,6,0);
+            m1ctinvsact3 = new FieldDef("m1ctinvsact3",FieldDef.FLOAT,6,0);
+            m1ctinvsdif1 = new FieldDef("m1ctinvsdif1",FieldDef.FLOAT,6,0);
+            m1ctinvsdif2 = new FieldDef("m1ctinvsdif2",FieldDef.FLOAT,6,0);
+            m1ctinvsdif3 = new FieldDef("m1ctinvsdif3",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m1ctdominio,
+                m1ctnif,
+                m1ctdeclarac,
+                m1ctejercicio,
+                m1ctperiodo,
+                m1ctnreg,
+                m1cttitular,
+                m1ctarrvimp1,
+                m1ctarrvimp2,
+                m1ctarrvcif1,
+                m1ctarrvcif2,
+                m1ctarrvnum1,
+                m1ctarrvnum2,
+                m1ctcuif3com,
+                m1ctcuif3tit,
+                m1ctcuifdcom,
+                m1ctcuifdtit,
+                m1ct1819pend,
+                m1ctobravimp,
+                m1ctobravcif,
+                m1ctdonafund,
+                m1ctdonafccp,
+                m1ctacogmsco,
+                m1ctacogmsti,
+                m1ctacogmmco,
+                m1ctacogmmti,
+                m1ctacogmpsn,
+                m1ctinvnimp1,
+                m1ctinvnimp2,
+                m1ctinvncif1,
+                m1ctinvncif2,
+                m1ctgenfimpo,
+                m1ctguardesp,
+                m1ctguarhij1,
+                m1ctguarhij2,
+                m1ctguarhij3,
+                m1ctguarhij4,
+                m1ctguarbij1,
+                m1ctguarbij2,
+                m1ctguarbij3,
+                m1ctguarbij4,
+                m1ctguarosn1,
+                m1ctguarosn2,
+                m1ctguarosn3,
+                m1ctguarosn4,
+                m1ctguarotr1,
+                m1ctguarotr2,
+                m1ctguarotr3,
+                m1ctguarotr4,
+                m1ctnacad20c,
+                m1ctnacad20t,
+                m1ctnacadcnv,
+                m1ctfamimono,
+                m1ctdespimp1,
+                m1ctdespimp2,
+                m1ctdespnif1,
+                m1ctdespnif2,
+                m1ctdespnum1,
+                m1ctdespnum2,
+                m1ctarrdpimp,
+                m1ctgdspdesp,
+                m1ctgdsphij1,
+                m1ctgdsphij2,
+                m1ctgdsphij3,
+                m1ctgdsphij4,
+                m1ctgdspbij1,
+                m1ctgdspbij2,
+                m1ctgdspbij3,
+                m1ctgdspbij4,
+                m1ctgdsposn1,
+                m1ctgdsposn2,
+                m1ctgdsposn3,
+                m1ctgdsposn4,
+                m1ctgdspotr1,
+                m1ctgdspotr2,
+                m1ctgdspotr3,
+                m1ctgdspotr4,
+                m1ctgresdesp,
+                m1ctinvsnif1,
+                m1ctinvsnif2,
+                m1ctinvsnif3,
+                m1ctinvssoc1,
+                m1ctinvssoc2,
+                m1ctinvssoc3,
+                m1ctinvsact1,
+                m1ctinvsact2,
+                m1ctinvsact3,
+                m1ctinvsdif1,
+                m1ctinvsdif2,
+                m1ctinvsdif3                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m1ctdominio,m1ctnif,m1ctdeclarac,m1ctejercicio,m1ctperiodo,m1ctnreg };
+            setPrimaryKeys(arrayf);
+            m1ctdeclarac.setDescription("Tipo declaraciion [C]onjunta, [D]eclarante");
+            m1ctnreg.setDescription("Numero de Registro.");
+            m1cttitular.setDescription("Titular");
+            m1ctarrvimp1.setDescription("IMP1CANT1 Importe satisfecho por arrendamiento 1");
+            m1ctarrvimp2.setDescription("IMP2CANT1 Importe satisfecho por arrendamiento 2");
+            m1ctarrvcif1.setDescription("VNIF1CANT1 NIF Arrendador 1");
+            m1ctarrvcif2.setDescription("VNIF2CANT1 NIF Arrendador 2");
+            m1ctarrvnum1.setDescription("VNONIF1CANT1 Num Identificación del país de residencia 1");
+            m1ctarrvnum2.setDescription("VNONIF2CANT1 Num Identificadción del pais de residencia 2");
+            m1ctcuif3com.setDescription("D01SCANT2 Num descendientes menores de 3 años y de mas de 70 Comunes");
+            m1ctcuif3tit.setDescription("D02SCANT2 Num descendientes menores de 3 años y de mas de 70 Titular");
+            m1ctcuifdcom.setDescription("D01CCANT2 Num de personas al cuidado con discapacidad +65% Comunes");
+            m1ctcuifdtit.setDescription("D02CCANT2 Num de personas al cuidado con discapacidad +65% Titular");
+            m1ct1819pend.setDescription("IMPCANT3AA Importe de la deducción generada en 2019/19 pendiente de aplicar.");
+            m1ctobravimp.setDescription("IMPCANT3 Cantidades satisfechas con derecho a deducción Obras Mejora Vivienda");
+            m1ctobravcif.setDescription("VNIFCANT3 NIF de la persona o entidad que realiza las obras.");
+            m1ctdonafund.setDescription("IMP1CANT4 Importe de donaciones efectuadas a fundaciones");
+            m1ctdonafccp.setDescription("IMP2CANT4 Importe de donaciones al Fondo Cantabria Coopera");
+            m1ctacogmsco.setDescription("COMUNICANT5 Si tiene derecho a la deducción Comun");
+            m1ctacogmsti.setDescription("DECCANT5 Si tiene derecho a la deducción Titular");
+            m1ctacogmmco.setDescription("C01CANT5 Si en 2020 a acogido simultaniamente a varios menores Comun");
+            m1ctacogmmti.setDescription("CO2CANT5 Si en 2020 a acogido simultaniamente a varios menores Titular");
+            m1ctacogmpsn.setDescription("CONVCANT5 Indique si el acogimiento a sido realizado por un matrimonio, pareja o etc (SI/NO).");
+            m1ctinvnimp1.setDescription("IMP1CANT6 Importe de la inversión con derecho 1");
+            m1ctinvnimp2.setDescription("IMP2CANT6 Importe de la inversión con derecho 2");
+            m1ctinvncif1.setDescription("NIF1CANT6 NIF entidad 1");
+            m1ctinvncif2.setDescription("NIF2CANT6 NIF entidad 2");
+            m1ctgenfimpo.setDescription("IMPCANT7 Importe satisfecho para la prestación de servicios sanitarios.");
+            m1ctguardesp.setDescription("DECCANT8 Si su vivienda se encuentra en una poblacion rural con riesgo de despoblación.");
+            m1ctguarhij1.setDescription("IMP1ACANT8 Importe satisfecho por el contribuyente por hijos comunes 1");
+            m1ctguarhij2.setDescription("IMP2ACANT8 Importe satisfecho por el contribuyente por hijos comunes 2");
+            m1ctguarhij3.setDescription("IMP3ACANT8 Importe satisfecho por el contribuyente por hijos comunes 3");
+            m1ctguarhij4.setDescription("IMP4ACANT8 Importe satisfecho por el contribuyente por hijos comunes 4");
+            m1ctguarbij1.setDescription("IMP1BCANT8 Importe satisfecho que corresponde al contribuyente en supuestos distintos al A 1");
+            m1ctguarbij2.setDescription("IMP2BCANT8 Importe satisfecho que corresponde al contribuyente en supuestos distintos al A 2");
+            m1ctguarbij3.setDescription("IMP3BCANT8 Importe satisfecho que corresponde al contribuyente en supuestos distintos al A 3");
+            m1ctguarbij4.setDescription("IMP4BCANT8 Importe satisfecho que corresponde al contribuyente en supuestos distintos al A 4");
+            m1ctguarosn1.setDescription("NUM1CANT8 Si el otro progenitor tiene derecho a aplicar la reducción (SI/NO) 1");
+            m1ctguarosn2.setDescription("NUM2CANT8 Si el otro progenitor tiene derecho a aplicar la reducción (SI/NO) 2");
+            m1ctguarosn3.setDescription("NUM3CANT8 Si el otro progenitor tiene derecho a aplicar la reducción (SI/NO) 3");
+            m1ctguarosn4.setDescription("NUM4CANT8 Si el otro progenitor tiene derecho a aplicar la reducción (SI/NO) 4");
+            m1ctguarotr1.setDescription("OP1CANT8 Importe satisfecho que corresponda al otro progenitor 1");
+            m1ctguarotr2.setDescription("OP2CANT8 Importe satisfecho que corresponda al otro progenitor 2");
+            m1ctguarotr3.setDescription("OP3CANT8 Importe satisfecho que corresponda al otro progenitor 3");
+            m1ctguarotr4.setDescription("OP4CANT8 Importe satisfecho que corresponda al otro progenitor 4");
+            m1ctnacad20c.setDescription("C01CANT9 Numero de hijos adoptados en 2020 comunes");
+            m1ctnacad20t.setDescription("C02CANT9 Numero de hijos adoptados en 2020 del titular");
+            m1ctnacadcnv.setDescription("CONVCANT9 Si los hijos conviven con ambos padres (SI/NO)");
+            m1ctfamimono.setDescription("DECCANT10 Si tiene derecho a aplicar la deduccion.");
+            m1ctdespimp1.setDescription("IMP1CANT11 Importe satisfecho 1");
+            m1ctdespimp2.setDescription("IMP2CANT11 Importe satisfecho 2");
+            m1ctdespnif1.setDescription("VNIF1CANT11 Nif del arrendador 1");
+            m1ctdespnif2.setDescription("VNIF2CANT11 Nif del arrendador 2");
+            m1ctdespnum1.setDescription("VNONIF1CANT11 Num Identificación del país de residencia 1");
+            m1ctdespnum2.setDescription("VNONIF2CANT11 Num Identificadción del pais de residencia 2");
+            m1ctarrdpimp.setDescription("IMPCANT12 Importe de los rendimientos netos del capital inmobiliario reducidos.");
+            m1ctgdspdesp.setDescription("DECCANT8 Si su vivienda se encuentra en una poblacion rural con riesgo de despoblación.");
+            m1ctgdsphij1.setDescription("IMP1ACANT8 Importe satisfecho por el contribuyente por hijos comunes 1");
+            m1ctgdsphij2.setDescription("IMP2ACANT8 Importe satisfecho por el contribuyente por hijos comunes 2");
+            m1ctgdsphij3.setDescription("IMP3ACANT8 Importe satisfecho por el contribuyente por hijos comunes 3");
+            m1ctgdsphij4.setDescription("IMP4ACANT8 Importe satisfecho por el contribuyente por hijos comunes 4");
+            m1ctgdspbij1.setDescription("IMP1BCANT8 Importe satisfecho que corresponde al contribuyente en supuestos distintos al A 1");
+            m1ctgdspbij2.setDescription("IMP2BCANT8 Importe satisfecho que corresponde al contribuyente en supuestos distintos al A 2");
+            m1ctgdspbij3.setDescription("IMP3BCANT8 Importe satisfecho que corresponde al contribuyente en supuestos distintos al A 3");
+            m1ctgdspbij4.setDescription("IMP4BCANT8 Importe satisfecho que corresponde al contribuyente en supuestos distintos al A 4");
+            m1ctgdsposn1.setDescription("NUM1CANT8 Si el otro progenitor tiene derecho a aplicar la reducción (SI/NO) 1");
+            m1ctgdsposn2.setDescription("NUM2CANT8 Si el otro progenitor tiene derecho a aplicar la reducción (SI/NO) 2");
+            m1ctgdsposn3.setDescription("NUM3CANT8 Si el otro progenitor tiene derecho a aplicar la reducción (SI/NO) 3");
+            m1ctgdsposn4.setDescription("NUM4CANT8 Si el otro progenitor tiene derecho a aplicar la reducción (SI/NO) 4");
+            m1ctgdspotr1.setDescription("OP1CANT8 Importe satisfecho que corresponda al otro progenitor 1");
+            m1ctgdspotr2.setDescription("OP2CANT8 Importe satisfecho que corresponda al otro progenitor 2");
+            m1ctgdspotr3.setDescription("OP3CANT8 Importe satisfecho que corresponda al otro progenitor 3");
+            m1ctgdspotr4.setDescription("OP4CANT8 Importe satisfecho que corresponda al otro progenitor 4");
+            m1ctgresdesp.setDescription("DECCANT14 Si tiene derecho a la deducción, marque la casilla.");
+            m1ctinvsnif1.setDescription("NIF1CANT16 NIF Entidad 1");
+            m1ctinvsnif2.setDescription("NIF2CANT16 NIF Entidad 2");
+            m1ctinvsnif3.setDescription("NIF3CANT16 NIF Entidad 3");
+            m1ctinvssoc1.setDescription("IMP11CANT16 Aportaciones realizadas con la finalidad de ser socio 1");
+            m1ctinvssoc2.setDescription("IMP12CANT16 Aportaciones realizadas con la finalidad de ser socio 2");
+            m1ctinvssoc3.setDescription("IMP13CANT16 Aportaciones realizadas con la finalidad de ser socio 3");
+            m1ctinvsact1.setDescription("IMP21CANT16 Aportaciones realizadas para el desarrollo de actividades 1");
+            m1ctinvsact2.setDescription("IMP22CANT16 Aportaciones realizadas para el desarrollo de actividades 2");
+            m1ctinvsact3.setDescription("IMP23CANT16 Aportaciones realizadas para el desarrollo de actividades 3");
+            m1ctinvsdif1.setDescription("IMP31CANT16 Aportaciones realizadas para realización de difución Economia Social 1");
+            m1ctinvsdif2.setDescription("IMP32CANT16 Aportaciones realizadas para realización de difución Economia Social 2");
+            m1ctinvsdif3.setDescription("IMP33CANT16 Aportaciones realizadas para realización de difución Economia Social 3");
+            }
+        }
+        
+    public class TabMod100larioja extends TableDef
+        {
+        // campos
+        public FieldDef m1lrdominio;
+        public FieldDef m1lrnif;
+        public FieldDef m1lrdeclarac;
+        public FieldDef m1lrejercicio;
+        public FieldDef m1lrperiodo;
+        public FieldDef m1lrnreg;
+        public FieldDef m1lrtitular;
+        public FieldDef m1lrnahiaprc;
+        public FieldDef m1lrnahiaprt;
+        public FieldDef m1lrnahiasgc;
+        public FieldDef m1lrnahiasgt;
+        public FieldDef m1lrnahiatrc;
+        public FieldDef m1lrnahiatrt;
+        public FieldDef m1lrnahiacon;
+        public FieldDef m1lrnahiamuc;
+        public FieldDef m1lrnahiamut;
+        public FieldDef m1lrrehabimp;
+        public FieldDef m1lrinvjoimp;
+        public FieldDef m1lradviruim;
+        public FieldDef m1lradvirumu;
+        public FieldDef m1lrrehabdis;
+        public FieldDef m1lradvipeim;
+        public FieldDef m1lradvipemu;
+        public FieldDef m1lrcuihicmu;
+        public FieldDef m1lrcuihiim1;
+        public FieldDef m1lrcuihipa1;
+        public FieldDef m1lrcuihini1;
+        public FieldDef m1lrcuihifa1;
+        public FieldDef m1lrcuihifi1;
+        public FieldDef m1lrcuihiim2;
+        public FieldDef m1lrcuihipa2;
+        public FieldDef m1lrcuihini2;
+        public FieldDef m1lrcuihifa2;
+        public FieldDef m1lrcuihifi2;
+        public FieldDef m1lrcuihiim3;
+        public FieldDef m1lrcuihipa3;
+        public FieldDef m1lrcuihini3;
+        public FieldDef m1lrcuihifa3;
+        public FieldDef m1lrcuihifi3;
+        public FieldDef m1lrcuihiim4;
+        public FieldDef m1lrcuihipa4;
+        public FieldDef m1lrcuihini4;
+        public FieldDef m1lrcuihifa4;
+        public FieldDef m1lrcuihifi4;
+        public FieldDef m1lracmm183c;
+        public FieldDef m1lracmm183t;
+        public FieldDef m1lracmmn90c;
+        public FieldDef m1lracmmn90t;
+        public FieldDef m1lracmnumpe;
+        public FieldDef m1lracmn90sc;
+        public FieldDef m1lracmn90st;
+        public FieldDef m1lracmn90pe;
+        public FieldDef m1lrmhijcomu;
+        public FieldDef m1lrmhijmec1;
+        public FieldDef m1lrmhijmet1;
+        public FieldDef m1lrmhijmec2;
+        public FieldDef m1lrmhijmet2;
+        public FieldDef m1lrmhijmec3;
+        public FieldDef m1lrmhijmet3;
+        public FieldDef m1lrmhijmec4;
+        public FieldDef m1lrmhijmet4;
+        public FieldDef m1lrmhijmec5;
+        public FieldDef m1lrmhijmet5;
+        public FieldDef m1lrhiescim1;
+        public FieldDef m1lrhiescco1;
+        public FieldDef m1lrhiescni1;
+        public FieldDef m1lrhiescim2;
+        public FieldDef m1lrhiescco2;
+        public FieldDef m1lrhiescni2;
+        public FieldDef m1lrhiescim3;
+        public FieldDef m1lrhiescco3;
+        public FieldDef m1lrhiescni3;
+        public FieldDef m1lrhiescim4;
+        public FieldDef m1lrhiescco4;
+        public FieldDef m1lrhiescni4;
+        public FieldDef m1lrhiescim5;
+        public FieldDef m1lrhiescco5;
+        public FieldDef m1lrhiescni5;
+        public FieldDef m1lradvelimc;
+        public FieldDef m1lradvelimb;
+        public FieldDef m1lrintjovim;
+        public FieldDef m1lrintjovmm;
+        public FieldDef m1lrintjovcm;
+        public FieldDef m1lrluzgaimp;
+        public FieldDef m1lrluzgaimm;
+        public FieldDef m1lrluzgaimu;
+        public FieldDef m1lrluzgaico;
+        public FieldDef m1lrvivhabjo;
+        public FieldDef m1lrarjovim1;
+        public FieldDef m1lrarjovmu1;
+        public FieldDef m1lrarjovpe1;
+        public FieldDef m1lrarjovni1;
+        public FieldDef m1lrarjovex1;
+        public FieldDef m1lrarjovim2;
+        public FieldDef m1lrarjovmu2;
+        public FieldDef m1lrarjovpe2;
+        public FieldDef m1lrarjovni2;
+        public FieldDef m1lrarjovex2;
+        public FieldDef m1lrbicnaim1;
+        public FieldDef m1lrbicnape1;
+        public FieldDef m1lrbicnaim2;
+        public FieldDef m1lrbicnape2;
+        public FieldDef m1lrcovidimp;
+        public FieldDef m1lrcovidnif;
+        public FieldDef m1lrdoncovid;
+        public TabMod100larioja(String name)
+            {
+            super(name);
+            m1lrdominio = new FieldDef("m1lrdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m1lrnif = new FieldDef("m1lrnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m1lrdeclarac = new FieldDef("m1lrdeclarac",FieldDef.CHAR,1,FieldDef.NOTNULL);
+            m1lrejercicio = new FieldDef("m1lrejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1lrperiodo = new FieldDef("m1lrperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m1lrnreg = new FieldDef("m1lrnreg",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m1lrtitular = new FieldDef("m1lrtitular",FieldDef.INTEGER,0);
+            m1lrnahiaprc = new FieldDef("m1lrnahiaprc",FieldDef.FLOAT,6,0);
+            m1lrnahiaprt = new FieldDef("m1lrnahiaprt",FieldDef.FLOAT,6,0);
+            m1lrnahiasgc = new FieldDef("m1lrnahiasgc",FieldDef.FLOAT,6,0);
+            m1lrnahiasgt = new FieldDef("m1lrnahiasgt",FieldDef.FLOAT,6,0);
+            m1lrnahiatrc = new FieldDef("m1lrnahiatrc",FieldDef.FLOAT,6,0);
+            m1lrnahiatrt = new FieldDef("m1lrnahiatrt",FieldDef.FLOAT,6,0);
+            m1lrnahiacon = new FieldDef("m1lrnahiacon",FieldDef.CHAR,1);
+            m1lrnahiamuc = new FieldDef("m1lrnahiamuc",FieldDef.FLOAT,6,0);
+            m1lrnahiamut = new FieldDef("m1lrnahiamut",FieldDef.FLOAT,6,0);
+            m1lrrehabimp = new FieldDef("m1lrrehabimp",FieldDef.FLOAT,6,0);
+            m1lrinvjoimp = new FieldDef("m1lrinvjoimp",FieldDef.FLOAT,6,0);
+            m1lradviruim = new FieldDef("m1lradviruim",FieldDef.FLOAT,6,0);
+            m1lradvirumu = new FieldDef("m1lradvirumu",FieldDef.INTEGER,0);
+            m1lrrehabdis = new FieldDef("m1lrrehabdis",FieldDef.FLOAT,6,0);
+            m1lradvipeim = new FieldDef("m1lradvipeim",FieldDef.FLOAT,6,0);
+            m1lradvipemu = new FieldDef("m1lradvipemu",FieldDef.INTEGER,0);
+            m1lrcuihicmu = new FieldDef("m1lrcuihicmu",FieldDef.INTEGER,0);
+            m1lrcuihiim1 = new FieldDef("m1lrcuihiim1",FieldDef.FLOAT,6,0);
+            m1lrcuihipa1 = new FieldDef("m1lrcuihipa1",FieldDef.CHAR,1);
+            m1lrcuihini1 = new FieldDef("m1lrcuihini1",FieldDef.CHAR,20);
+            m1lrcuihifa1 = new FieldDef("m1lrcuihifa1",FieldDef.INTEGER,0);
+            m1lrcuihifi1 = new FieldDef("m1lrcuihifi1",FieldDef.FLOAT,6,0);
+            m1lrcuihiim2 = new FieldDef("m1lrcuihiim2",FieldDef.FLOAT,6,0);
+            m1lrcuihipa2 = new FieldDef("m1lrcuihipa2",FieldDef.CHAR,1);
+            m1lrcuihini2 = new FieldDef("m1lrcuihini2",FieldDef.CHAR,20);
+            m1lrcuihifa2 = new FieldDef("m1lrcuihifa2",FieldDef.INTEGER,0);
+            m1lrcuihifi2 = new FieldDef("m1lrcuihifi2",FieldDef.FLOAT,6,0);
+            m1lrcuihiim3 = new FieldDef("m1lrcuihiim3",FieldDef.FLOAT,6,0);
+            m1lrcuihipa3 = new FieldDef("m1lrcuihipa3",FieldDef.CHAR,1);
+            m1lrcuihini3 = new FieldDef("m1lrcuihini3",FieldDef.CHAR,20);
+            m1lrcuihifa3 = new FieldDef("m1lrcuihifa3",FieldDef.INTEGER,0);
+            m1lrcuihifi3 = new FieldDef("m1lrcuihifi3",FieldDef.FLOAT,6,0);
+            m1lrcuihiim4 = new FieldDef("m1lrcuihiim4",FieldDef.FLOAT,6,0);
+            m1lrcuihipa4 = new FieldDef("m1lrcuihipa4",FieldDef.CHAR,1);
+            m1lrcuihini4 = new FieldDef("m1lrcuihini4",FieldDef.CHAR,20);
+            m1lrcuihifa4 = new FieldDef("m1lrcuihifa4",FieldDef.INTEGER,0);
+            m1lrcuihifi4 = new FieldDef("m1lrcuihifi4",FieldDef.FLOAT,6,0);
+            m1lracmm183c = new FieldDef("m1lracmm183c",FieldDef.FLOAT,6,0);
+            m1lracmm183t = new FieldDef("m1lracmm183t",FieldDef.FLOAT,6,0);
+            m1lracmmn90c = new FieldDef("m1lracmmn90c",FieldDef.FLOAT,6,0);
+            m1lracmmn90t = new FieldDef("m1lracmmn90t",FieldDef.FLOAT,6,0);
+            m1lracmnumpe = new FieldDef("m1lracmnumpe",FieldDef.INTEGER,0);
+            m1lracmn90sc = new FieldDef("m1lracmn90sc",FieldDef.INTEGER,0);
+            m1lracmn90st = new FieldDef("m1lracmn90st",FieldDef.INTEGER,0);
+            m1lracmn90pe = new FieldDef("m1lracmn90pe",FieldDef.INTEGER,0);
+            m1lrmhijcomu = new FieldDef("m1lrmhijcomu",FieldDef.INTEGER,0);
+            m1lrmhijmec1 = new FieldDef("m1lrmhijmec1",FieldDef.INTEGER,0);
+            m1lrmhijmet1 = new FieldDef("m1lrmhijmet1",FieldDef.INTEGER,0);
+            m1lrmhijmec2 = new FieldDef("m1lrmhijmec2",FieldDef.INTEGER,0);
+            m1lrmhijmet2 = new FieldDef("m1lrmhijmet2",FieldDef.INTEGER,0);
+            m1lrmhijmec3 = new FieldDef("m1lrmhijmec3",FieldDef.INTEGER,0);
+            m1lrmhijmet3 = new FieldDef("m1lrmhijmet3",FieldDef.INTEGER,0);
+            m1lrmhijmec4 = new FieldDef("m1lrmhijmec4",FieldDef.INTEGER,0);
+            m1lrmhijmet4 = new FieldDef("m1lrmhijmet4",FieldDef.INTEGER,0);
+            m1lrmhijmec5 = new FieldDef("m1lrmhijmec5",FieldDef.INTEGER,0);
+            m1lrmhijmet5 = new FieldDef("m1lrmhijmet5",FieldDef.INTEGER,0);
+            m1lrhiescim1 = new FieldDef("m1lrhiescim1",FieldDef.FLOAT,6,0);
+            m1lrhiescco1 = new FieldDef("m1lrhiescco1",FieldDef.CHAR,1);
+            m1lrhiescni1 = new FieldDef("m1lrhiescni1",FieldDef.CHAR,20);
+            m1lrhiescim2 = new FieldDef("m1lrhiescim2",FieldDef.FLOAT,6,0);
+            m1lrhiescco2 = new FieldDef("m1lrhiescco2",FieldDef.CHAR,1);
+            m1lrhiescni2 = new FieldDef("m1lrhiescni2",FieldDef.CHAR,20);
+            m1lrhiescim3 = new FieldDef("m1lrhiescim3",FieldDef.FLOAT,6,0);
+            m1lrhiescco3 = new FieldDef("m1lrhiescco3",FieldDef.CHAR,1);
+            m1lrhiescni3 = new FieldDef("m1lrhiescni3",FieldDef.CHAR,20);
+            m1lrhiescim4 = new FieldDef("m1lrhiescim4",FieldDef.FLOAT,6,0);
+            m1lrhiescco4 = new FieldDef("m1lrhiescco4",FieldDef.CHAR,1);
+            m1lrhiescni4 = new FieldDef("m1lrhiescni4",FieldDef.CHAR,20);
+            m1lrhiescim5 = new FieldDef("m1lrhiescim5",FieldDef.FLOAT,6,0);
+            m1lrhiescco5 = new FieldDef("m1lrhiescco5",FieldDef.CHAR,1);
+            m1lrhiescni5 = new FieldDef("m1lrhiescni5",FieldDef.CHAR,20);
+            m1lradvelimc = new FieldDef("m1lradvelimc",FieldDef.FLOAT,6,0);
+            m1lradvelimb = new FieldDef("m1lradvelimb",FieldDef.FLOAT,6,0);
+            m1lrintjovim = new FieldDef("m1lrintjovim",FieldDef.FLOAT,6,0);
+            m1lrintjovmm = new FieldDef("m1lrintjovmm",FieldDef.FLOAT,6,0);
+            m1lrintjovcm = new FieldDef("m1lrintjovcm",FieldDef.INTEGER,0);
+            m1lrluzgaimp = new FieldDef("m1lrluzgaimp",FieldDef.FLOAT,6,0);
+            m1lrluzgaimm = new FieldDef("m1lrluzgaimm",FieldDef.FLOAT,6,0);
+            m1lrluzgaimu = new FieldDef("m1lrluzgaimu",FieldDef.FLOAT,6,0);
+            m1lrluzgaico = new FieldDef("m1lrluzgaico",FieldDef.INTEGER,0);
+            m1lrvivhabjo = new FieldDef("m1lrvivhabjo",FieldDef.FLOAT,6,0);
+            m1lrarjovim1 = new FieldDef("m1lrarjovim1",FieldDef.FLOAT,6,0);
+            m1lrarjovmu1 = new FieldDef("m1lrarjovmu1",FieldDef.INTEGER,0);
+            m1lrarjovpe1 = new FieldDef("m1lrarjovpe1",FieldDef.INTEGER,0);
+            m1lrarjovni1 = new FieldDef("m1lrarjovni1",FieldDef.CHAR,20);
+            m1lrarjovex1 = new FieldDef("m1lrarjovex1",FieldDef.INTEGER,0);
+            m1lrarjovim2 = new FieldDef("m1lrarjovim2",FieldDef.FLOAT,6,0);
+            m1lrarjovmu2 = new FieldDef("m1lrarjovmu2",FieldDef.INTEGER,0);
+            m1lrarjovpe2 = new FieldDef("m1lrarjovpe2",FieldDef.INTEGER,0);
+            m1lrarjovni2 = new FieldDef("m1lrarjovni2",FieldDef.CHAR,20);
+            m1lrarjovex2 = new FieldDef("m1lrarjovex2",FieldDef.INTEGER,0);
+            m1lrbicnaim1 = new FieldDef("m1lrbicnaim1",FieldDef.FLOAT,6,0);
+            m1lrbicnape1 = new FieldDef("m1lrbicnape1",FieldDef.INTEGER,0);
+            m1lrbicnaim2 = new FieldDef("m1lrbicnaim2",FieldDef.FLOAT,6,0);
+            m1lrbicnape2 = new FieldDef("m1lrbicnape2",FieldDef.INTEGER,0);
+            m1lrcovidimp = new FieldDef("m1lrcovidimp",FieldDef.FLOAT,6,0);
+            m1lrcovidnif = new FieldDef("m1lrcovidnif",FieldDef.CHAR,20);
+            m1lrdoncovid = new FieldDef("m1lrdoncovid",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m1lrdominio,
+                m1lrnif,
+                m1lrdeclarac,
+                m1lrejercicio,
+                m1lrperiodo,
+                m1lrnreg,
+                m1lrtitular,
+                m1lrnahiaprc,
+                m1lrnahiaprt,
+                m1lrnahiasgc,
+                m1lrnahiasgt,
+                m1lrnahiatrc,
+                m1lrnahiatrt,
+                m1lrnahiacon,
+                m1lrnahiamuc,
+                m1lrnahiamut,
+                m1lrrehabimp,
+                m1lrinvjoimp,
+                m1lradviruim,
+                m1lradvirumu,
+                m1lrrehabdis,
+                m1lradvipeim,
+                m1lradvipemu,
+                m1lrcuihicmu,
+                m1lrcuihiim1,
+                m1lrcuihipa1,
+                m1lrcuihini1,
+                m1lrcuihifa1,
+                m1lrcuihifi1,
+                m1lrcuihiim2,
+                m1lrcuihipa2,
+                m1lrcuihini2,
+                m1lrcuihifa2,
+                m1lrcuihifi2,
+                m1lrcuihiim3,
+                m1lrcuihipa3,
+                m1lrcuihini3,
+                m1lrcuihifa3,
+                m1lrcuihifi3,
+                m1lrcuihiim4,
+                m1lrcuihipa4,
+                m1lrcuihini4,
+                m1lrcuihifa4,
+                m1lrcuihifi4,
+                m1lracmm183c,
+                m1lracmm183t,
+                m1lracmmn90c,
+                m1lracmmn90t,
+                m1lracmnumpe,
+                m1lracmn90sc,
+                m1lracmn90st,
+                m1lracmn90pe,
+                m1lrmhijcomu,
+                m1lrmhijmec1,
+                m1lrmhijmet1,
+                m1lrmhijmec2,
+                m1lrmhijmet2,
+                m1lrmhijmec3,
+                m1lrmhijmet3,
+                m1lrmhijmec4,
+                m1lrmhijmet4,
+                m1lrmhijmec5,
+                m1lrmhijmet5,
+                m1lrhiescim1,
+                m1lrhiescco1,
+                m1lrhiescni1,
+                m1lrhiescim2,
+                m1lrhiescco2,
+                m1lrhiescni2,
+                m1lrhiescim3,
+                m1lrhiescco3,
+                m1lrhiescni3,
+                m1lrhiescim4,
+                m1lrhiescco4,
+                m1lrhiescni4,
+                m1lrhiescim5,
+                m1lrhiescco5,
+                m1lrhiescni5,
+                m1lradvelimc,
+                m1lradvelimb,
+                m1lrintjovim,
+                m1lrintjovmm,
+                m1lrintjovcm,
+                m1lrluzgaimp,
+                m1lrluzgaimm,
+                m1lrluzgaimu,
+                m1lrluzgaico,
+                m1lrvivhabjo,
+                m1lrarjovim1,
+                m1lrarjovmu1,
+                m1lrarjovpe1,
+                m1lrarjovni1,
+                m1lrarjovex1,
+                m1lrarjovim2,
+                m1lrarjovmu2,
+                m1lrarjovpe2,
+                m1lrarjovni2,
+                m1lrarjovex2,
+                m1lrbicnaim1,
+                m1lrbicnape1,
+                m1lrbicnaim2,
+                m1lrbicnape2,
+                m1lrcovidimp,
+                m1lrcovidnif,
+                m1lrdoncovid                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m1lrdominio,m1lrnif,m1lrdeclarac,m1lrejercicio,m1lrperiodo,m1lrnreg };
+            setPrimaryKeys(arrayf);
+            m1lrnahiaprc.setDescription("Por nacimiento y adopción de hijos, primero común");
+            m1lrnahiaprt.setDescription("Por nacimiento y adopción de hijos, primero titular");
+            m1lrnahiasgc.setDescription("Por nacimiento y adopción de hijos, segundo común");
+            m1lrnahiasgt.setDescription("Por nacimiento y adopción de hijos, segundo titular");
+            m1lrnahiatrc.setDescription("Por nacimiento y adopción de hijos, tercero y sucesivos común");
+            m1lrnahiatrt.setDescription("Por nacimiento y adopción de hijos, tercero y sucesivos titular");
+            m1lrnahiacon.setDescription("Por nacimiento y adopción de hijos, convive con ambos padres");
+            m1lrnahiamuc.setDescription("Por nacimiento y adopción de hijos, partos o adopciones múltiples común");
+            m1lrnahiamut.setDescription("Por nacimiento y adopción de hijos, partos o adopciones múltiples titular");
+            m1lrrehabimp.setDescription("Inversión rehabilitación vivienda hab., importe satisfecho");
+            m1lrinvjoimp.setDescription("Inversión vivienda hab. para jóvenes, importe satisfecho");
+            m1lradviruim.setDescription("Adquisición y rehab. segunda vivienda rutal, importe satisfecho");
+            m1lradvirumu.setDescription("Adquisición y rehab. segunda vivienda rutal, código municipio");
+            m1lrrehabdis.setDescription("Obras vivienda habitual personas con discapacidad, importe satisfecho");
+            m1lradvipeim.setDescription("Adquisición, construcción o rehab. viv. hab. en pequeños municipios, importe satisfecho");
+            m1lradvipemu.setDescription("Adquisición, construcción o rehab. viv. hab. en pequeños municipios, código municipio");
+            m1lrcuihicmu.setDescription("Cuidado de hijos 0 a 3 años, código municipio residencia");
+            m1lrcuihiim1.setDescription("Cuidado de hijos 0 a 3 años, importe satisfecho hijo 1");
+            m1lrcuihipa1.setDescription("Cuidado de hijos 0 a 3 años, ambos padres derecho hijo 1");
+            m1lrcuihini1.setDescription("Cuidado de hijos 0 a 3 años, NIF cuidador, centro hijo 1");
+            m1lrcuihifa1.setDescription("Cuidado de hijos 0 a 3 años, conyuge fallecido 2020 hijo 1");
+            m1lrcuihifi1.setDescription("Cuidado de hijos 0 a 3 años, importe satisfecho conyuge fallecido hijo 1");
+            m1lrcuihiim2.setDescription("Cuidado de hijos 0 a 3 años, importe satisfecho hijo 2");
+            m1lrcuihipa2.setDescription("Cuidado de hijos 0 a 3 años, ambos padres derecho hijo 2");
+            m1lrcuihini2.setDescription("Cuidado de hijos 0 a 3 años, NIF cuidador, centro hijo 2");
+            m1lrcuihifa2.setDescription("Cuidado de hijos 0 a 3 años, conyuge fallecido 2020 hijo 2");
+            m1lrcuihifi2.setDescription("Cuidado de hijos 0 a 3 años, importe satisfecho conyuge fallecido hijo 2");
+            m1lrcuihiim3.setDescription("Cuidado de hijos 0 a 3 años, importe satisfecho hijo 3");
+            m1lrcuihipa3.setDescription("Cuidado de hijos 0 a 3 años, ambos padres derecho hijo 3");
+            m1lrcuihini3.setDescription("Cuidado de hijos 0 a 3 años, NIF cuidador, centro hijo 3");
+            m1lrcuihifa3.setDescription("Cuidado de hijos 0 a 3 años, conyuge fallecido 2020 hijo 3");
+            m1lrcuihifi3.setDescription("Cuidado de hijos 0 a 3 años, importe satisfecho conyuge fallecido hijo 3");
+            m1lrcuihiim4.setDescription("Cuidado de hijos 0 a 3 años, importe satisfecho hijo 4");
+            m1lrcuihipa4.setDescription("Cuidado de hijos 0 a 3 años, ambos padres derecho hijo 4");
+            m1lrcuihini4.setDescription("Cuidado de hijos 0 a 3 años, NIF cuidador, centro hijo 4");
+            m1lrcuihifa4.setDescription("Cuidado de hijos 0 a 3 años, conyuge fallecido 2020 hijo 4");
+            m1lrcuihifi4.setDescription("Cuidado de hijos 0 a 3 años, importe satisfecho conyuge fallecido hijo 4");
+            m1lracmm183c.setDescription("Acogimiento de menores, más de 183 días común");
+            m1lracmm183t.setDescription("Acogimiento de menores, más de 183 días titular");
+            m1lracmmn90c.setDescription("Acogimiento de menores, más de 90 menos de 183 días común");
+            m1lracmmn90t.setDescription("Acogimiento de menores, más de 90 menos de 183 días titular");
+            m1lracmnumpe.setDescription("Acogimiento de menores, nº de personas que tienen derecho a aplicar la deducción");
+            m1lracmn90sc.setDescription("Acogimiento de menores, menos de 90 días suma de días común");
+            m1lracmn90st.setDescription("Acogimiento de menores, menos de 90 días suma de días titular");
+            m1lracmn90pe.setDescription("Acogimiento de menores, menos de 90 días nº personas que tienen derecho a la deducción");
+            m1lrmhijcomu.setDescription("Hijos de 0 a 3 años en pequeños municipios, código municipio");
+            m1lrmhijmec1.setDescription("Hijos de 0 a 3 años en pequeños municipios, nº de meses común hijo 1");
+            m1lrmhijmet1.setDescription("Hijos de 0 a 3 años en pequeños municipios, nº de meses titular hijo 1");
+            m1lrmhijmec2.setDescription("Hijos de 0 a 3 años en pequeños municipios, nº de meses común hijo 2");
+            m1lrmhijmet2.setDescription("Hijos de 0 a 3 años en pequeños municipios, nº de meses titular hijo 2");
+            m1lrmhijmec3.setDescription("Hijos de 0 a 3 años en pequeños municipios, nº de meses común hijo 3");
+            m1lrmhijmet3.setDescription("Hijos de 0 a 3 años en pequeños municipios, nº de meses titular hijo 3");
+            m1lrmhijmec4.setDescription("Hijos de 0 a 3 años en pequeños municipios, nº de meses común hijo 4");
+            m1lrmhijmet4.setDescription("Hijos de 0 a 3 años en pequeños municipios, nº de meses titular hijo 4");
+            m1lrmhijmec5.setDescription("Hijos de 0 a 3 años en pequeños municipios, nº de meses común hijo 5");
+            m1lrmhijmet5.setDescription("Hijos de 0 a 3 años en pequeños municipios, nº de meses titular hijo 5");
+            m1lrhiescim1.setDescription("Hijos de 0 a 3 años escolarizados, importe satisfecho hijo 1");
+            m1lrhiescco1.setDescription("Hijos de 0 a 3 años escolarizados, derecho ambos padres hijo 1");
+            m1lrhiescni1.setDescription("Hijos de 0 a 3 años escolarizados, NIF centro hijo 1");
+            m1lrhiescim2.setDescription("Hijos de 0 a 3 años escolarizados, importe satisfecho hijo 2");
+            m1lrhiescco2.setDescription("Hijos de 0 a 3 años escolarizados, derecho ambos padres hijo 2");
+            m1lrhiescni2.setDescription("Hijos de 0 a 3 años escolarizados, NIF centro hijo 2");
+            m1lrhiescim3.setDescription("Hijos de 0 a 3 años escolarizados, importe satisfecho hijo 3");
+            m1lrhiescco3.setDescription("Hijos de 0 a 3 años escolarizados, derecho ambos padres hijo 3");
+            m1lrhiescni3.setDescription("Hijos de 0 a 3 años escolarizados, NIF centro hijo 3");
+            m1lrhiescim4.setDescription("Hijos de 0 a 3 años escolarizados, importe satisfecho hijo 4");
+            m1lrhiescco4.setDescription("Hijos de 0 a 3 años escolarizados, derecho ambos padres hijo 4");
+            m1lrhiescni4.setDescription("Hijos de 0 a 3 años escolarizados, NIF centro hijo 4");
+            m1lrhiescim5.setDescription("Hijos de 0 a 3 años escolarizados, importe satisfecho hijo 5");
+            m1lrhiescco5.setDescription("Hijos de 0 a 3 años escolarizados, derecho ambos padres hijo 5");
+            m1lrhiescni5.setDescription("Hijos de 0 a 3 años escolarizados, NIF centro hijo 5");
+            m1lradvelimc.setDescription("Adquisición vehículos electricos, vehículos");
+            m1lradvelimb.setDescription("Adquisición vehículos electricos, bicicletas asistidas");
+            m1lrintjovim.setDescription("Gastos acceso internet jóvenes emancipados, importe satisfecho");
+            m1lrintjovmm.setDescription("Gastos acceso internet jóvenes emancipados, importe satisfecho por familias monoparentales o de municipio especial");
+            m1lrintjovcm.setDescription("Gastos acceso internet jóvenes emancipados, código municipio");
+            m1lrluzgaimp.setDescription("Gastos suministros jóvenes emancipados, importe satisfecho");
+            m1lrluzgaimm.setDescription("Gastos suministros jóvenes emancipados, importe satisfecho por familias monoparentales");
+            m1lrluzgaimu.setDescription("Gastos suministros jóvenes emancipados, importe satisfecho residiendo en municipios especiales");
+            m1lrluzgaico.setDescription("Gastos suministros jóvenes emancipados, código municipio");
+            m1lrvivhabjo.setDescription("Inversión vivienda habitual de jóvenes menores de 36 años, importe satisfecho");
+            m1lrarjovim1.setDescription("Arrendimiento viv. hab. para menores de 36 años, importe satisfecho contrato 1");
+            m1lrarjovmu1.setDescription("Arrendimiento viv. hab. para menores de 36 años, código municipio contrato 1");
+            m1lrarjovpe1.setDescription("Arrendimiento viv. hab. para menores de 36 años, nº de personas con derecho contrato 1");
+            m1lrarjovni1.setDescription("Arrendimiento viv. hab. para menores de 36 años, NIF arrendador contrato 1");
+            m1lrarjovex1.setDescription("Arrendimiento viv. hab. para menores de 36 años, es extranjero contrato 1");
+            m1lrarjovim2.setDescription("Arrendimiento viv. hab. para menores de 36 años, importe satisfecho contrato 2");
+            m1lrarjovmu2.setDescription("Arrendimiento viv. hab. para menores de 36 años, código municipio contrato 2");
+            m1lrarjovpe2.setDescription("Arrendimiento viv. hab. para menores de 36 años, nº de personas con derecho contrato 2");
+            m1lrarjovni2.setDescription("Arrendimiento viv. hab. para menores de 36 años, NIF arrendador contrato 2");
+            m1lrarjovex2.setDescription("Arrendimiento viv. hab. para menores de 36 años, es extranjero contrato 2");
+            m1lrbicnaim1.setDescription("Adquisición de bicicletas pedaleo no asistido, importe satisfecho vehiculo 1");
+            m1lrbicnape1.setDescription("Adquisición de bicicletas pedaleo no asistido, nº de personas con derecho vehiculo 1");
+            m1lrbicnaim2.setDescription("Adquisición de bicicletas pedaleo no asistido, importe satisfecho vehiculo 2");
+            m1lrbicnape2.setDescription("Adquisición de bicicletas pedaleo no asistido, nº de personas con derecho vehiculo 2");
+            m1lrcovidimp.setDescription("Gastos contratación personal covid-19 familiares afectados, importe satisfecho");
+            m1lrcovidnif.setDescription("Gastos contratación personal covid-19 familiares afectados, NIF persona empleada");
+            m1lrdoncovid.setDescription("Donaciones realizadas a la Comunidad Autónoma de La Rioja para paliar los efectos de la COVID-19");
             }
         }
         
@@ -21391,7 +26341,19 @@ public class CatModelo100 extends Catalog
         tabmod100ibalears = new TabMod100ibalears("mod100ibalears");
         tabmod100cmancha = new TabMod100cmancha("mod100cmancha");
         tabmod100h2guarde = new TabMod100h2guarde("mod100h2guarde");
-        tabmod100dedmatern = new TabMod100dedmatern("mod100dedmatern");
+        tabmod100cleon = new TabMod100cleon("mod100cleon");
+        tabmod100canarias = new TabMod100canarias("mod100canarias");
+        tabmod100murcia = new TabMod100murcia("mod100murcia");
+        tabmod100valencia = new TabMod100valencia("mod100valencia");
+        tabmod100valenciab = new TabMod100valenciab("mod100valenciab");
+        tabmod100galicia = new TabMod100galicia("mod100galicia");
+        tabmod100extremad = new TabMod100extremad("mod100extremad");
+        tabmod100cotizacss = new TabMod100cotizacss("mod100cotizacss");
+        tabmod100andaluci = new TabMod100andaluci("mod100andaluci");
+        tabmod100aragon = new TabMod100aragon("mod100aragon");
+        tabmod100asturias = new TabMod100asturias("mod100asturias");
+        tabmod100cantabria = new TabMod100cantabria("mod100cantabria");
+        tabmod100larioja = new TabMod100larioja("mod100larioja");
         TableDef array[] = {
             tabdeflis100,
             tabmod100h12,
@@ -21445,7 +26407,19 @@ public class CatModelo100 extends Catalog
             tabmod100ibalears,
             tabmod100cmancha,
             tabmod100h2guarde,
-            tabmod100dedmatern            
+            tabmod100cleon,
+            tabmod100canarias,
+            tabmod100murcia,
+            tabmod100valencia,
+            tabmod100valenciab,
+            tabmod100galicia,
+            tabmod100extremad,
+            tabmod100cotizacss,
+            tabmod100andaluci,
+            tabmod100aragon,
+            tabmod100asturias,
+            tabmod100cantabria,
+            tabmod100larioja            
             };
         setTables(array);
         }

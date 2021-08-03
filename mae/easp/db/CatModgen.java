@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Feb 03 13:34:24 CET 2020
+// Fecha y hora:     Thu Jul 22 10:04:41 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -949,6 +949,7 @@ public class CatModgen extends Catalog
         public FieldDef mictipomaximo;
         public FieldDef micmagmaximo;
         public FieldDef micrdtomax;
+        public FieldDef micredcuota;
         public TabModirpfc(String name)
             {
             super(name);
@@ -959,6 +960,7 @@ public class CatModgen extends Catalog
             mictipomaximo = new FieldDef("mictipomaximo",FieldDef.CHAR,3);
             micmagmaximo = new FieldDef("micmagmaximo",FieldDef.INTEGER,0);
             micrdtomax = new FieldDef("micrdtomax",FieldDef.FLOAT,6,0);
+            micredcuota = new FieldDef("micredcuota",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 micejercicio,
                 micepigrafe,
@@ -966,11 +968,13 @@ public class CatModgen extends Catalog
                 micdescripcion,
                 mictipomaximo,
                 micmagmaximo,
-                micrdtomax                
+                micrdtomax,
+                micredcuota                
                 };
             setColumns(array);
             FieldDef arrayf[] = {micejercicio,micepigrafe,micletra };
             setPrimaryKeys(arrayf);
+            micredcuota.setDescription("Reducción Real Decreto-ley 35/2020");
             }
         }
         
@@ -1021,6 +1025,7 @@ public class CatModgen extends Catalog
         public FieldDef mvcporcuota;
         public FieldDef mvcpordeven;
         public FieldDef mvcporcomis;
+        public FieldDef mvcredcuota;
         public TabModivac(String name)
             {
             super(name);
@@ -1033,6 +1038,7 @@ public class CatModgen extends Catalog
             mvcporcuota = new FieldDef("mvcporcuota",FieldDef.FLOAT,6,0);
             mvcpordeven = new FieldDef("mvcpordeven",FieldDef.FLOAT,6,0);
             mvcporcomis = new FieldDef("mvcporcomis",FieldDef.FLOAT,6,0);
+            mvcredcuota = new FieldDef("mvcredcuota",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 mvcejercicio,
                 mvcepigrafe,
@@ -1042,11 +1048,13 @@ public class CatModgen extends Catalog
                 mvcmagmaximo,
                 mvcporcuota,
                 mvcpordeven,
-                mvcporcomis                
+                mvcporcomis,
+                mvcredcuota                
                 };
             setColumns(array);
             FieldDef arrayf[] = {mvcejercicio,mvcepigrafe,mvcletra };
             setPrimaryKeys(arrayf);
+            mvcredcuota.setDescription("Reducción Real Decreto-ley 35/2020");
             }
         }
         
@@ -1098,6 +1106,7 @@ public class CatModgen extends Catalog
         public FieldDef mvcporcuota;
         public FieldDef mvcpordeven;
         public FieldDef mvcporcomis;
+        public FieldDef mvcredcuota;
         public TabModivac2(String name)
             {
             super(name);
@@ -1111,6 +1120,7 @@ public class CatModgen extends Catalog
             mvcporcuota = new FieldDef("mvcporcuota",FieldDef.FLOAT,6,0);
             mvcpordeven = new FieldDef("mvcpordeven",FieldDef.FLOAT,6,0);
             mvcporcomis = new FieldDef("mvcporcomis",FieldDef.FLOAT,6,0);
+            mvcredcuota = new FieldDef("mvcredcuota",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 mvcejercicio,
                 mvcperiodo,
@@ -1121,11 +1131,13 @@ public class CatModgen extends Catalog
                 mvcmagmaximo,
                 mvcporcuota,
                 mvcpordeven,
-                mvcporcomis                
+                mvcporcomis,
+                mvcredcuota                
                 };
             setColumns(array);
             FieldDef arrayf[] = {mvcejercicio,mvcperiodo,mvcepigrafe,mvcletra };
             setPrimaryKeys(arrayf);
+            mvcredcuota.setDescription("Reducción Real Decreto-ley 35/2020");
             }
         }
         
@@ -1382,6 +1394,7 @@ public class CatModgen extends Catalog
         public FieldDef mairedda2;
         public FieldDef mailorca;
         public FieldDef mailorcairpf;
+        public FieldDef mairedrd35;
         public TabModirpf(String name)
             {
             super(name);
@@ -1442,6 +1455,7 @@ public class CatModgen extends Catalog
             mairedda2 = new FieldDef("mairedda2",FieldDef.FLOAT,6,0);
             mailorca = new FieldDef("mailorca",FieldDef.FLOAT,6,0);
             mailorcairpf = new FieldDef("mailorcairpf",FieldDef.FLOAT,6,0);
+            mairedrd35 = new FieldDef("mairedrd35",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 maidominio,
                 mainif,
@@ -1499,11 +1513,13 @@ public class CatModgen extends Catalog
                 mailiqirpf,
                 mairedda2,
                 mailorca,
-                mailorcairpf                
+                mailorcairpf,
+                mairedrd35                
                 };
             setColumns(array);
             FieldDef arrayf[] = {maidominio,mainif,maicodigo,mai4t };
             setPrimaryKeys(arrayf);
+            mairedrd35.setDescription("Reducción Real Decreto-ley 35/2020");
             }
         }
         
@@ -1549,6 +1565,7 @@ public class CatModgen extends Catalog
         public FieldDef mavtipo8;
         public FieldDef mavlorca;
         public FieldDef mavlorca2011;
+        public FieldDef mavredrd35;
         public TabModiva(String name)
             {
             super(name);
@@ -1591,6 +1608,7 @@ public class CatModgen extends Catalog
             mavtipo8 = new FieldDef("mavtipo8",FieldDef.CHAR,3);
             mavlorca = new FieldDef("mavlorca",FieldDef.FLOAT,6,0);
             mavlorca2011 = new FieldDef("mavlorca2011",FieldDef.FLOAT,6,0);
+            mavredrd35 = new FieldDef("mavredrd35",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 mavdominio,
                 mavnif,
@@ -1630,11 +1648,13 @@ public class CatModgen extends Catalog
                 mavunidad8,
                 mavtipo8,
                 mavlorca,
-                mavlorca2011                
+                mavlorca2011,
+                mavredrd35                
                 };
             setColumns(array);
             FieldDef arrayf[] = {mavdominio,mavnif,mavcodigo,mav4t };
             setPrimaryKeys(arrayf);
+            mavredrd35.setDescription("Reducción Real Decreto-ley 35/2020");
             }
         }
         
@@ -1674,6 +1694,9 @@ public class CatModgen extends Catalog
         public FieldDef maudiasbaja;
         public FieldDef mauconhijo;
         public FieldDef mautotalini;
+        public FieldDef mauporrederte;
+        public FieldDef maudiaserte;
+        public FieldDef maudiasalarma;
         public TabModuni(String name)
             {
             super(name);
@@ -1710,6 +1733,9 @@ public class CatModgen extends Catalog
             maudiasbaja = new FieldDef("maudiasbaja",FieldDef.INTEGER,0);
             mauconhijo = new FieldDef("mauconhijo",FieldDef.CHAR,1);
             mautotalini = new FieldDef("mautotalini",FieldDef.FLOAT,6,0);
+            mauporrederte = new FieldDef("mauporrederte",FieldDef.FLOAT,12,0);
+            maudiaserte = new FieldDef("maudiaserte",FieldDef.INTEGER,12);
+            maudiasalarma = new FieldDef("maudiasalarma",FieldDef.INTEGER,12);
             FieldDef array[] = {
                 maudominio,
                 maunif,
@@ -1743,12 +1769,18 @@ public class CatModgen extends Catalog
                 maudiasvacas,
                 maudiasbaja,
                 mauconhijo,
-                mautotalini                
+                mautotalini,
+                mauporrederte,
+                maudiaserte,
+                maudiasalarma                
                 };
             setColumns(array);
             FieldDef arrayf[] = {maudominio,maunif,maucodigo,mau4t,mautipo,maulinea };
             setPrimaryKeys(arrayf);
             maulinea.setAutoIncrementable(true);
+            mauporrederte.setDescription("% Reducción ERTE");
+            maudiaserte.setDescription("Días reducción por ERTE");
+            maudiasalarma.setDescription("Días alarma");
             }
         }
         
@@ -5607,6 +5639,9 @@ public class CatModgen extends Catalog
         public FieldDef sirgtdoc;
         public FieldDef sirgnprot;
         public FieldDef sirgnotar;
+        public FieldDef siradedper;
+        public FieldDef sirperded;
+        public FieldDef sirejeded;
         public TabSiirecibidas(String name)
             {
             super(name);
@@ -5662,6 +5697,9 @@ public class CatModgen extends Catalog
             sirgtdoc = new FieldDef("sirgtdoc",FieldDef.CHAR,2);
             sirgnprot = new FieldDef("sirgnprot",FieldDef.CHAR,6);
             sirgnotar = new FieldDef("sirgnotar",FieldDef.CHAR,120);
+            siradedper = new FieldDef("siradedper",FieldDef.CHAR,1);
+            sirperded = new FieldDef("sirperded",FieldDef.CHAR,2);
+            sirejeded = new FieldDef("sirejeded",FieldDef.INTEGER,0);
             FieldDef array[] = {
                 sircodi,
                 sirorigen,
@@ -5714,7 +5752,10 @@ public class CatModgen extends Catalog
                 sirgtbien,
                 sirgtdoc,
                 sirgnprot,
-                sirgnotar                
+                sirgnotar,
+                siradedper,
+                sirperded,
+                sirejeded                
                 };
             setColumns(array);
             FieldDef arrayf[] = {sircodi };
@@ -5766,6 +5807,7 @@ public class CatModgen extends Catalog
         public FieldDef sirdcuorec;
         public FieldDef sirdporrag;
         public FieldDef sirdimprag;
+        public FieldDef sirdbieninv;
         public TabSiirecibidasdet(String name)
             {
             super(name);
@@ -5779,6 +5821,7 @@ public class CatModgen extends Catalog
             sirdcuorec = new FieldDef("sirdcuorec",FieldDef.FLOAT,6,0);
             sirdporrag = new FieldDef("sirdporrag",FieldDef.FLOAT,6,0);
             sirdimprag = new FieldDef("sirdimprag",FieldDef.FLOAT,6,0);
+            sirdbieninv = new FieldDef("sirdbieninv",FieldDef.CHAR,1);
             FieldDef array[] = {
                 sirdcodi,
                 sirdnumbase,
@@ -5789,7 +5832,8 @@ public class CatModgen extends Catalog
                 sirdporrec,
                 sirdcuorec,
                 sirdporrag,
-                sirdimprag                
+                sirdimprag,
+                sirdbieninv                
                 };
             setColumns(array);
             FieldDef arrayf[] = {sirdcodi,sirdnumbase };

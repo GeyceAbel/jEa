@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Feb 03 13:33:48 CET 2020
+// Fecha y hora:     Thu Jul 22 10:04:34 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -65,6 +65,8 @@ public class CatModelos1 extends Catalog
     public TabMod390act tabmod390act;
     public TabMod3904 tabmod3904;
     public TabMod3925 tabmod3925;
+    public TabModric tabmodric;
+    public TabDeflisric tabdeflisric;
     public class TabMod300 extends TableDef
         {
         // campos
@@ -245,6 +247,14 @@ public class CatModelos1 extends Catalog
         public FieldDef m300voluntario;
         public FieldDef m300exonvo;
         public FieldDef m300tercomu;
+        public FieldDef m300covidreg;
+        public FieldDef m300coviddia;
+        public FieldDef m300cuocomtot;
+        public FieldDef m300cuocomres;
+        public FieldDef m300nsujrloc;
+        public FieldDef m300sujisp;
+        public FieldDef m300nsujrlocvu;
+        public FieldDef m300sujvu;
         public TabMod300(String name)
             {
             super(name);
@@ -256,7 +266,7 @@ public class CatModelos1 extends Catalog
             m300deleg = new FieldDef("m300deleg",FieldDef.CHAR,30);
             m300admon = new FieldDef("m300admon",FieldDef.CHAR,30);
             m300codadmon = new FieldDef("m300codadmon",FieldDef.INTEGER,0);
-            m300apellidos = new FieldDef("m300apellidos",FieldDef.CHAR,60);
+            m300apellidos = new FieldDef("m300apellidos",FieldDef.CHAR,80);
             m300nombre = new FieldDef("m300nombre",FieldDef.CHAR,20);
             m300siglas = new FieldDef("m300siglas",FieldDef.CHAR,2);
             m300calle = new FieldDef("m300calle",FieldDef.CHAR,17);
@@ -326,7 +336,7 @@ public class CatModelos1 extends Catalog
             m300fecha = new FieldDef("m300fecha",FieldDef.DATE);
             m300percont = new FieldDef("m300percont",FieldDef.CHAR,100);
             m300telcont = new FieldDef("m300telcont",FieldDef.CHAR,9);
-            m300observa = new FieldDef("m300observa",FieldDef.CHAR,4000);
+            m300observa = new FieldDef("m300observa",FieldDef.CHAR,350);
             m300letetiq = new FieldDef("m300letetiq",FieldDef.CHAR,4);
             m300exporta = new FieldDef("m300exporta",FieldDef.FLOAT,6,0);
             m300otrasopex = new FieldDef("m300otrasopex",FieldDef.FLOAT,6,0);
@@ -424,7 +434,15 @@ public class CatModelos1 extends Catalog
             m300foralpdte = new FieldDef("m300foralpdte",FieldDef.INTEGER,0);
             m300voluntario = new FieldDef("m300voluntario",FieldDef.INTEGER,0);
             m300exonvo = new FieldDef("m300exonvo",FieldDef.INTEGER,0);
-            m300tercomu = new FieldDef("m300tercomu",FieldDef.FLOAT,0,2);
+            m300tercomu = new FieldDef("m300tercomu",FieldDef.FLOAT,6,0);
+            m300covidreg = new FieldDef("m300covidreg",FieldDef.CHAR,1);
+            m300coviddia = new FieldDef("m300coviddia",FieldDef.CHAR,1);
+            m300cuocomtot = new FieldDef("m300cuocomtot",FieldDef.FLOAT,6,0);
+            m300cuocomres = new FieldDef("m300cuocomres",FieldDef.FLOAT,6,0);
+            m300nsujrloc = new FieldDef("m300nsujrloc",FieldDef.FLOAT,0,2);
+            m300sujisp = new FieldDef("m300sujisp",FieldDef.FLOAT,0,2);
+            m300nsujrlocvu = new FieldDef("m300nsujrlocvu",FieldDef.FLOAT,0,2);
+            m300sujvu = new FieldDef("m300sujvu",FieldDef.FLOAT,0,2);
             FieldDef array[] = {
                 m300dominio,
                 m300nif,
@@ -602,11 +620,53 @@ public class CatModelos1 extends Catalog
                 m300foralpdte,
                 m300voluntario,
                 m300exonvo,
-                m300tercomu                
+                m300tercomu,
+                m300covidreg,
+                m300coviddia,
+                m300cuocomtot,
+                m300cuocomres,
+                m300nsujrloc,
+                m300sujisp,
+                m300nsujrlocvu,
+                m300sujvu                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m300dominio,m300nif,m300ejercicio,m300periodo };
             setPrimaryKeys(arrayf);
+            m300exoactpral.setDescription("Exonerados A) Actividad principal");
+            m300exoclapral.setDescription("Exonerados B) Clave     Act.principal");
+            m300exoepipral.setDescription("Exonerados C) Epigrafe  Act principal");
+            m300exoact1.setDescription("Exonerados A) Actividad Otras Act.1");
+            m300exocla1.setDescription("Exonerados B) Clave     Otras Act.1");
+            m300exoepi1.setDescription("Exonerados C) Epigrafe  Otras Act.1");
+            m300exoact2.setDescription("Exonerados A) Actividad Otras Act.2");
+            m300exocla2.setDescription("Exonerados B) Clave     Otras Act.2");
+            m300exoepi2.setDescription("Exonerados C) Epigrafe  Otras Act.2");
+            m300exoact3.setDescription("Exonerados A) Actividad Otras Act.3");
+            m300exocla3.setDescription("Exonerados B) Clave     Otras Act.3");
+            m300exoepi3.setDescription("Exonerados C) Epigrafe  Otras Act.3");
+            m300exoact4.setDescription("Exonerados A) Actividad Otras Act.4");
+            m300exocla4.setDescription("Exonerados B) Clave     Otras Act.4");
+            m300exoepi4.setDescription("Exonerados C) Epigrafe  Otras Act.4");
+            m300exoact5.setDescription("Exonerados A) Actividad Otras Act.5");
+            m300exocla5.setDescription("Exonerados B) Clave     Otras Act.5");
+            m300exoepi5.setDescription("Exonerados C) Epigrafe  Otras Act.5");
+            m300exotercera.setDescription("Exonerados Operac.con terceras personas");
+            m300exoreggral.setDescription("Exonerados Op.Regimen Gral");
+            m300exoregrecc.setDescription("Exonerados Op.Reg.Esp.Criterio Caja");
+            m300exoregsimp.setDescription("Exonerados Op.Regimen Simplificado");
+            m300exoexporta.setDescription("Exonerados Exportaciones");
+            m300exoexensin.setDescription("Exonerados Op.exentas sin derecho a deduc.");
+            m300exototal.setDescription("Exonerados Total volumen operac");
+            m300exoinvsuje.setDescription("Exonerados Op.no sujetas reglas localizac.o inver.sujeto pasivo.");
+            m300exoinstala.setDescription("Exonerados Entregas bienes obj.instalacion o montaje en otros estados");
+            m300exoinmob.setDescription("Exonerados Entregas bienes inmuebles");
+            m300regulaquo.setDescription("Resultado  Regularizacion cuotas art.80.Cinco.5 LIVA");
+            m300reguladua.setDescription("Resultado  Regularizacion aduanas");
+            m300swift.setDescription("Codigo BIC-SWIFT");
+            m300exon390.setDescription("Exclusivo último periodo [...] Exonerado a presentar el 390 y con volumen de operaciones cero");
+            m300foralpdte.setDescription("Sujeto pasivo que tributa exclusivamente a una Administración tributaria Foral con IVA a la importación liquidado por la Aduana pendiente de ingreso");
+            m300voluntario.setDescription("¿Ha llevado voluntariamente los Libros registro del IVA a través de la Sede electrónica de la AEAT durante el ejercicio?");
             }
         }
         
@@ -1408,6 +1468,14 @@ public class CatModelos1 extends Catalog
         public FieldDef m300bdevmdreqb6;
         public FieldDef m300bdevmdreqc6;
         public FieldDef m300bliqiva;
+        public FieldDef m300ddevmodadqb;
+        public FieldDef m300ddevmodadqc;
+        public FieldDef m300ddevmodadsb;
+        public FieldDef m300ddevmodadsc;
+        public FieldDef m300dnsulocbas;
+        public FieldDef m300dsujispbas;
+        public FieldDef m300dnsuossbas;
+        public FieldDef m300dsuossbas;
         public TabMod300desb(String name)
             {
             super(name);
@@ -1430,6 +1498,14 @@ public class CatModelos1 extends Catalog
             m300bdevmdreqb6 = new FieldDef("m300bdevmdreqb6",FieldDef.FLOAT,6,0);
             m300bdevmdreqc6 = new FieldDef("m300bdevmdreqc6",FieldDef.FLOAT,6,0);
             m300bliqiva = new FieldDef("m300bliqiva",FieldDef.CHAR,1);
+            m300ddevmodadqb = new FieldDef("m300ddevmodadqb",FieldDef.FLOAT,6,0);
+            m300ddevmodadqc = new FieldDef("m300ddevmodadqc",FieldDef.FLOAT,6,0);
+            m300ddevmodadsb = new FieldDef("m300ddevmodadsb",FieldDef.FLOAT,6,0);
+            m300ddevmodadsc = new FieldDef("m300ddevmodadsc",FieldDef.FLOAT,6,0);
+            m300dnsulocbas = new FieldDef("m300dnsulocbas",FieldDef.FLOAT,0,2);
+            m300dsujispbas = new FieldDef("m300dsujispbas",FieldDef.FLOAT,0,2);
+            m300dnsuossbas = new FieldDef("m300dnsuossbas",FieldDef.FLOAT,0,2);
+            m300dsuossbas = new FieldDef("m300dsuossbas",FieldDef.FLOAT,0,2);
             FieldDef array[] = {
                 m300bdominio,
                 m300bnif,
@@ -1449,11 +1525,23 @@ public class CatModelos1 extends Catalog
                 m300bdevmdreqc5,
                 m300bdevmdreqb6,
                 m300bdevmdreqc6,
-                m300bliqiva                
+                m300bliqiva,
+                m300ddevmodadqb,
+                m300ddevmodadqc,
+                m300ddevmodadsb,
+                m300ddevmodadsc,
+                m300dnsulocbas,
+                m300dsujispbas,
+                m300dnsuossbas,
+                m300dsuossbas                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m300bdominio,m300bnif,m300bejercicio,m300bperiodo,m300bgrupo,m300bactividad };
             setPrimaryKeys(arrayf);
+            m300ddevmodadqb.setDescription("Devengado modificacion adquisicion intracomunitario base");
+            m300ddevmodadqc.setDescription("Devengado modificacion adquisicion intracomunitario cuota");
+            m300ddevmodadsb.setDescription("Devengado modificacion adquisicion intracomunitario servicios base");
+            m300ddevmodadsc.setDescription("Devengado modificacion adquisicion intracomunitario servicios cuota");
             }
         }
         
@@ -2588,6 +2676,7 @@ public class CatModelos1 extends Catalog
         public FieldDef m131adqvivhab;
         public FieldDef m131paisiban;
         public FieldDef m131dciban;
+        public FieldDef m131covid;
         public TabMod131(String name)
             {
             super(name);
@@ -2686,6 +2775,7 @@ public class CatModelos1 extends Catalog
             m131adqvivhab = new FieldDef("m131adqvivhab",FieldDef.FLOAT,6,0);
             m131paisiban = new FieldDef("m131paisiban",FieldDef.CHAR,2);
             m131dciban = new FieldDef("m131dciban",FieldDef.CHAR,2);
+            m131covid = new FieldDef("m131covid",FieldDef.CHAR,1);
             FieldDef array[] = {
                 m131dominio,
                 m131nif,
@@ -2781,7 +2871,8 @@ public class CatModelos1 extends Catalog
                 m131sumrdtnet,
                 m131adqvivhab,
                 m131paisiban,
-                m131dciban                
+                m131dciban,
+                m131covid                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m131dominio,m131nif,m131ejercicio,m131periodo };
@@ -7481,6 +7572,10 @@ public class CatModelos1 extends Catalog
         public FieldDef m322foralpdte;
         public FieldDef m322exonvo;
         public FieldDef m322tercomu;
+        public FieldDef m322nsujrloc;
+        public FieldDef m322sujisp;
+        public FieldDef m322nsujrlocvu;
+        public FieldDef m322sujvu;
         public TabMod322(String name)
             {
             super(name);
@@ -7619,6 +7714,10 @@ public class CatModelos1 extends Catalog
             m322foralpdte = new FieldDef("m322foralpdte",FieldDef.CHAR,1);
             m322exonvo = new FieldDef("m322exonvo",FieldDef.INTEGER,0);
             m322tercomu = new FieldDef("m322tercomu",FieldDef.FLOAT,0,2);
+            m322nsujrloc = new FieldDef("m322nsujrloc",FieldDef.FLOAT,0,2);
+            m322sujisp = new FieldDef("m322sujisp",FieldDef.FLOAT,0,2);
+            m322nsujrlocvu = new FieldDef("m322nsujrlocvu",FieldDef.FLOAT,0,2);
+            m322sujvu = new FieldDef("m322sujvu",FieldDef.FLOAT,0,2);
             FieldDef array[] = {
                 m322dominio,
                 m322nif,
@@ -7754,7 +7853,11 @@ public class CatModelos1 extends Catalog
                 m322exototal,
                 m322foralpdte,
                 m322exonvo,
-                m322tercomu                
+                m322tercomu,
+                m322nsujrloc,
+                m322sujisp,
+                m322nsujrlocvu,
+                m322sujvu                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m322dominio,m322nif,m322ejercicio,m322periodo };
@@ -8149,6 +8252,7 @@ public class CatModelos1 extends Catalog
         public FieldDef m202repreodom;
         public FieldDef m202nifdom;
         public FieldDef m202razondom;
+        public FieldDef m202covid;
         public TabMod202(String name)
             {
             super(name);
@@ -8203,7 +8307,7 @@ public class CatModelos1 extends Catalog
             m202ctaingreso = new FieldDef("m202ctaingreso",FieldDef.CHAR,10);
             m202percont = new FieldDef("m202percont",FieldDef.CHAR,100);
             m202telcont = new FieldDef("m202telcont",FieldDef.CHAR,9);
-            m202observa = new FieldDef("m202observa",FieldDef.CHAR,4000);
+            m202observa = new FieldDef("m202observa",FieldDef.CHAR,350);
             m202diasperiodo = new FieldDef("m202diasperiodo",FieldDef.INTEGER,0);
             m202modelo = new FieldDef("m202modelo",FieldDef.CHAR,5);
             m202rtdoanta = new FieldDef("m202rtdoanta",FieldDef.FLOAT,6,0);
@@ -8317,6 +8421,7 @@ public class CatModelos1 extends Catalog
             m202repreodom = new FieldDef("m202repreodom",FieldDef.CHAR,1);
             m202nifdom = new FieldDef("m202nifdom",FieldDef.CHAR,15);
             m202razondom = new FieldDef("m202razondom",FieldDef.CHAR,60);
+            m202covid = new FieldDef("m202covid",FieldDef.CHAR,1);
             FieldDef array[] = {
                 m202dominio,
                 m202nif,
@@ -8482,11 +8587,76 @@ public class CatModelos1 extends Catalog
                 m202paisotforal,
                 m202repreodom,
                 m202nifdom,
-                m202razondom                
+                m202razondom,
+                m202covid                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m202dominio,m202nif,m202ejercicio,m202periodo };
             setPrimaryKeys(arrayf);
+            m202cnae.setDescription("C.N.A.E.");
+            m202tipoentidad.setDescription("Tipo importe neto cifra negocios");
+            m202coopuotras.setDescription("Cooperativa u otras entidades dos tipos");
+            m202graviss.setDescription("% Gravamen impuesto sobre sociedades");
+            m202ent85.setDescription("Entidad que al menos 85% ingresos");
+            m202aumiss.setDescription("Aumento impuesto iss");
+            m202dismiss.setDescription("Disminucion impuesto iss");
+            m202dismotras.setDescription("Disminucion otras correcciones");
+            m202impdividen.setDescription("Importe 25% dividendos y rentas fuente extranjera");
+            m202baseprevia.setDescription("Base imponible previa");
+            m202resultado.setDescription("Resultado");
+            m202minimoing.setDescription("Minimo a ingresar");
+            m202sumbasind.setDescription("Suma bases individuales antes compensacion");
+            m202discordif.setDescription("Disminuciones correcciones diferimiento rdtos.internos");
+            m202datadicion.setDescription("Comunicacion datos adicionales declaracion");
+            m202nrefiss.setDescription("Nro. referencia de sociedades (NRS)");
+            m202gasamoraum.setDescription("Gastos amortizacion aumentos");
+            m202gasamordis.setDescription("Gastos amortizacion disminuciones");
+            m202totalaum.setDescription("TOTAL aumentos");
+            m202totaldis.setDescription("TOTAL disminuciones");
+            m202copgencneg.setDescription("General. Compensacion cuotas negativos ejer. anteriores");
+            m202copespcneg.setDescription("Especificos. Compensacion cuotas negativos ejer. anteriores");
+            m202cogecnein.setDescription("General. Compensacion cuotas negativos ejer. anteriores individual");
+            m202coescnein.setDescription("Especificos. Compensacion cuotas negativos ejer. anteriores individual");
+            m202fundacion.setDescription("Entidad que aplica el regimen de la Ley 49/2002 de 23 de diciembre");
+            m202socimi.setDescription("Entidad que aplica el regimen de la Ley 11/2009 de 26 de octubre");
+            m202sup6millon.setDescription("Cifra de negocios ejer.anterior superior 6.000.000 euros");
+            m202impdivi100.setDescription("100% del importe de los dividendos y rentas devengadas de entidades residentes");
+            m202remrescapit.setDescription("Remanente reserva de capitalizacion no aplicada por insuficiencia de base");
+            m202elimdot1112.setDescription("B: Eliminacion individuales Dotaciones del art. 11.12 de la LIS");
+            m202dot1112.setDescription("B: Dotaciones del art. 11.12 de la LIS (del grupo)");
+            m202dotpr1112.setDescription("B: Dotaciones del art. 11.12 de la LIS (previa incorporacion grupo)");
+            m202b1resnivela.setDescription("B1: Reserva de nivelacion (art. 105 LIS) (Solo entidades del art. 101 LIS) - Aumentos");
+            m202b1resniveld.setDescription("B1: Reserva de nivelacion (art. 105 LIS) (Solo entidades del art. 101 LIS) - Disminucion");
+            m202b1dot1112.setDescription("B1: Dotaciones del art. 11.12 LIS (DF 4art. LIS)");
+            m202b1dotpr1112.setDescription("B1: Dotaciones del art. 11.12 de la LIS (previa incorporacion grupo)");
+            m202resnivcuaum.setDescription("B1: Reserva de nivelacion convertido en cuotas (art. 105 LIS) (Solo entidades del art. 101 LIS) - Aumentos");
+            m202resnivcudis.setDescription("B1: Reserva de nivelacion convertido en cuotas (art. 105 LIS) (Solo entidades del art. 101 LIS) - Disminucion");
+            m202b2dot1112.setDescription("B2: Dotaciones del art. 11.12 de la LIS (solo cooperativas o del grupo)");
+            m202b2dotpr1112.setDescription("B2: Dotaciones del art. 11.12 de la LIS (previa incorporacion grupo)");
+            m202b2resnivela.setDescription("B2: Reserva de nivelacion (art. 105 LIS) (Solo entidades del art. 101 LIS) - Aumentos");
+            m202b2resniveld.setDescription("B2: Reserva de nivelacion (art. 105 LIS) (Solo entidades del art. 101 LIS) - Disminucion");
+            m202impexcquita.setDescription("Importe excluido por operaciones de quita o espera");
+            m202impintquita.setDescription("Parte integrada en la base imponible por operaciones de quita o espera");
+            m202nifentrepre.setDescription("NIF entidad representante");
+            m202razonrepre.setDescription("Razon socieal entidad representante");
+            m202circun.setDescription("casilla si concurre ALGUNA de las siguientes circunstancias");
+            m202quitacoop.setDescription("Inf.adicional: parte integrada base imponible a nivel cuota operaciones quita o espera en cooperativas");
+            m202reverdeter.setDescription("Inf.adicional: rentas por reversion deterioros que se integran base imponible");
+            m202ric.setDescription("Inf.adicional: importe correspondiente a la reserva por inversion en Canarias");
+            m202bonifart26.setDescription("Inf.adicional: bonificacion prevista art.26 Ley 19/1994");
+            m202imporzec.setDescription("Inf.adicional: importe no computable por aplicacion regimen  fiscal ZEC");
+            m202bonifart33.setDescription("Inf.adicional: importe minoracion correspondiente a rentas que tengan derecho a la bonificacion art.33 LIS");
+            m202fondprop172.setDescription("Inf.adicional: importe excluido oper.aumento capital o fondos propios compensacion creditos no integrados base imponible art. 17.2");
+            m202renexcapxiv.setDescription("Inf.adicional: renta exenta entidades que aplican regimen fiscal especial capitulo XIV titulo VII LIS");
+            m202bonifart34.setDescription("Inf.adicional: bonificacion prevista art.34 LIS");
+            m202correc131a.setDescription("B: Correcciones art.13.1, 14.1, 14.2, 62.1 e), 74.3 d) LIS - Aumentos");
+            m202correc131b.setDescription("B: Correcciones art.13.1, 14.1, 14.2, 62.1 e), 74.3 d) LIS - Disminucion");
+            m202discneg.setDescription("Discriminación para declaraciones Negativas. Liquidación de modalidad A ó B");
+            m202terforal.setDescription("Identificación (1) - Contribuyente sometido a normativa de Territorio Foral de Navarra, Guipúzcoa, Vizcaya o Álava");
+            m202espart50.setDescription("Datos adicionales (3). Entidad de capital-riesgo que aplica el régimen fiscal especial del art. 50 LIS");
+            m202paisotforal.setDescription("Identificación (2). Pais / territorio foral de la Entidad Dominante códigos de paises ISO 3166-1 incrementada inicialmente con los códigos provinciales: 01-Álava / 20-Guipúzcoa / 31-Navarra / 48-Vizca");
+            m202repreodom.setDescription("Identificación (1). Representante (entidad no dominante) / Dominante (incluida en el grupo fiscal) 1 ó 2");
+            m202covid.setDescription("Se acoge a RDL 15/2020 (Covid19)");
             }
         }
         
@@ -11022,8 +11192,8 @@ public class CatModelos1 extends Catalog
             m9b2opgalmodqoi = new FieldDef("m9b2opgalmodqoi",FieldDef.FLOAT,6,0);
             m9b2a1lorca = new FieldDef("m9b2a1lorca",FieldDef.FLOAT,6,0);
             m9b2a2lorca = new FieldDef("m9b2a2lorca",FieldDef.FLOAT,6,0);
-            m9b2opgalded660 = new FieldDef("m9b2opgalded660",FieldDef.FLOAT,0,2);
-            m9b2opgalded661 = new FieldDef("m9b2opgalded661",FieldDef.FLOAT,0,2);
+            m9b2opgalded660 = new FieldDef("m9b2opgalded660",FieldDef.FLOAT,6,0);
+            m9b2opgalded661 = new FieldDef("m9b2opgalded661",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m9b2dominio,
                 m9b2nif,
@@ -11323,7 +11493,7 @@ public class CatModelos1 extends Catalog
             m903a7ivaadu = new FieldDef("m903a7ivaadu",FieldDef.FLOAT,6,0);
             m903a8regliva = new FieldDef("m903a8regliva",FieldDef.FLOAT,6,0);
             m903a8ivaadu = new FieldDef("m903a8ivaadu",FieldDef.FLOAT,6,0);
-            m903cpdte662 = new FieldDef("m903cpdte662",FieldDef.FLOAT,0,2);
+            m903cpdte662 = new FieldDef("m903cpdte662",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m903dominio,
                 m903nif,
@@ -11915,6 +12085,501 @@ public class CatModelos1 extends Catalog
             }
         }
         
+    public class TabModric extends TableDef
+        {
+        // campos
+        public FieldDef modricdominio;
+        public FieldDef modricnif;
+        public FieldDef modricejercicio;
+        public FieldDef modricperiodo;
+        public FieldDef modricpagina;
+        public FieldDef modricnifid;
+        public FieldDef modricrazon;
+        public FieldDef modricnombre;
+        public FieldDef modricejercid;
+        public FieldDef modricfechini;
+        public FieldDef modricfechfin;
+        public FieldDef modrictipejer;
+        public FieldDef modricnatin1;
+        public FieldDef modricfecin1;
+        public FieldDef modricvalin1;
+        public FieldDef modricfinin1;
+        public FieldDef modricobsin1;
+        public FieldDef modricnatin2;
+        public FieldDef modricfecin2;
+        public FieldDef modricvalin2;
+        public FieldDef modricfinin2;
+        public FieldDef modricobsin2;
+        public FieldDef modricnatin3;
+        public FieldDef modricfecin3;
+        public FieldDef modricvalin3;
+        public FieldDef modricfinin3;
+        public FieldDef modricobsin3;
+        public FieldDef modricnatin4;
+        public FieldDef modricfecin4;
+        public FieldDef modricvalin4;
+        public FieldDef modricfinin4;
+        public FieldDef modricobsin4;
+        public FieldDef modricnatin5;
+        public FieldDef modricfecin5;
+        public FieldDef modricvalin5;
+        public FieldDef modricfinin5;
+        public FieldDef modricobsin5;
+        public FieldDef modricnatin6;
+        public FieldDef modricfecin6;
+        public FieldDef modricvalin6;
+        public FieldDef modricfinin6;
+        public FieldDef modricobsin6;
+        public FieldDef modricnatin7;
+        public FieldDef modricfecin7;
+        public FieldDef modricvalin7;
+        public FieldDef modricfinin7;
+        public FieldDef modricobsin7;
+        public FieldDef modricnatin8;
+        public FieldDef modricfecin8;
+        public FieldDef modricvalin8;
+        public FieldDef modricfinin8;
+        public FieldDef modricobsin8;
+        public FieldDef modricnatin9;
+        public FieldDef modricfecin9;
+        public FieldDef modricvalin9;
+        public FieldDef modricfinin9;
+        public FieldDef modricobsin9;
+        public FieldDef modricnatin10;
+        public FieldDef modricfecin10;
+        public FieldDef modricvalin10;
+        public FieldDef modricfinin10;
+        public FieldDef modricobsin10;
+        public FieldDef modricnatin11;
+        public FieldDef modricfecin11;
+        public FieldDef modricvalin11;
+        public FieldDef modricfinin11;
+        public FieldDef modricobsin11;
+        public FieldDef modricnatin12;
+        public FieldDef modricfecin12;
+        public FieldDef modricvalin12;
+        public FieldDef modricfinin12;
+        public FieldDef modricobsin12;
+        public FieldDef modricnatin13;
+        public FieldDef modricfecin13;
+        public FieldDef modricvalin13;
+        public FieldDef modricfinin13;
+        public FieldDef modricobsin13;
+        public FieldDef modricnatin14;
+        public FieldDef modricfecin14;
+        public FieldDef modricvalin14;
+        public FieldDef modricfinin14;
+        public FieldDef modricobsin14;
+        public FieldDef modricnatin15;
+        public FieldDef modricfecin15;
+        public FieldDef modricvalin15;
+        public FieldDef modricfinin15;
+        public FieldDef modricobsin15;
+        public FieldDef modricnatin16;
+        public FieldDef modricfecin16;
+        public FieldDef modricvalin16;
+        public FieldDef modricfinin16;
+        public FieldDef modricobsin16;
+        public FieldDef modricnatin17;
+        public FieldDef modricfecin17;
+        public FieldDef modricvalin17;
+        public FieldDef modricfinin17;
+        public FieldDef modricobsin17;
+        public FieldDef modricnatin18;
+        public FieldDef modricfecin18;
+        public FieldDef modricvalin18;
+        public FieldDef modricfinin18;
+        public FieldDef modricobsin18;
+        public FieldDef modricnatin19;
+        public FieldDef modricfecin19;
+        public FieldDef modricvalin19;
+        public FieldDef modricfinin19;
+        public FieldDef modricobsin19;
+        public TabModric(String name)
+            {
+            super(name);
+            modricdominio = new FieldDef("modricdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            modricnif = new FieldDef("modricnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            modricejercicio = new FieldDef("modricejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            modricperiodo = new FieldDef("modricperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            modricpagina = new FieldDef("modricpagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            modricnifid = new FieldDef("modricnifid",FieldDef.CHAR,9);
+            modricrazon = new FieldDef("modricrazon",FieldDef.CHAR,60);
+            modricnombre = new FieldDef("modricnombre",FieldDef.CHAR,20);
+            modricejercid = new FieldDef("modricejercid",FieldDef.INTEGER,0);
+            modricfechini = new FieldDef("modricfechini",FieldDef.DATE);
+            modricfechfin = new FieldDef("modricfechfin",FieldDef.DATE);
+            modrictipejer = new FieldDef("modrictipejer",FieldDef.INTEGER,0);
+            modricnatin1 = new FieldDef("modricnatin1",FieldDef.CHAR,2);
+            modricfecin1 = new FieldDef("modricfecin1",FieldDef.DATE);
+            modricvalin1 = new FieldDef("modricvalin1",FieldDef.FLOAT,6,0);
+            modricfinin1 = new FieldDef("modricfinin1",FieldDef.CHAR,2);
+            modricobsin1 = new FieldDef("modricobsin1",FieldDef.CHAR,100);
+            modricnatin2 = new FieldDef("modricnatin2",FieldDef.CHAR,2);
+            modricfecin2 = new FieldDef("modricfecin2",FieldDef.DATE);
+            modricvalin2 = new FieldDef("modricvalin2",FieldDef.FLOAT,6,0);
+            modricfinin2 = new FieldDef("modricfinin2",FieldDef.CHAR,2);
+            modricobsin2 = new FieldDef("modricobsin2",FieldDef.CHAR,100);
+            modricnatin3 = new FieldDef("modricnatin3",FieldDef.CHAR,2);
+            modricfecin3 = new FieldDef("modricfecin3",FieldDef.DATE);
+            modricvalin3 = new FieldDef("modricvalin3",FieldDef.FLOAT,6,0);
+            modricfinin3 = new FieldDef("modricfinin3",FieldDef.CHAR,2);
+            modricobsin3 = new FieldDef("modricobsin3",FieldDef.CHAR,100);
+            modricnatin4 = new FieldDef("modricnatin4",FieldDef.CHAR,2);
+            modricfecin4 = new FieldDef("modricfecin4",FieldDef.DATE);
+            modricvalin4 = new FieldDef("modricvalin4",FieldDef.FLOAT,6,0);
+            modricfinin4 = new FieldDef("modricfinin4",FieldDef.CHAR,2);
+            modricobsin4 = new FieldDef("modricobsin4",FieldDef.CHAR,100);
+            modricnatin5 = new FieldDef("modricnatin5",FieldDef.CHAR,2);
+            modricfecin5 = new FieldDef("modricfecin5",FieldDef.DATE);
+            modricvalin5 = new FieldDef("modricvalin5",FieldDef.FLOAT,6,0);
+            modricfinin5 = new FieldDef("modricfinin5",FieldDef.CHAR,2);
+            modricobsin5 = new FieldDef("modricobsin5",FieldDef.CHAR,100);
+            modricnatin6 = new FieldDef("modricnatin6",FieldDef.CHAR,2);
+            modricfecin6 = new FieldDef("modricfecin6",FieldDef.DATE);
+            modricvalin6 = new FieldDef("modricvalin6",FieldDef.FLOAT,6,0);
+            modricfinin6 = new FieldDef("modricfinin6",FieldDef.CHAR,2);
+            modricobsin6 = new FieldDef("modricobsin6",FieldDef.CHAR,100);
+            modricnatin7 = new FieldDef("modricnatin7",FieldDef.CHAR,2);
+            modricfecin7 = new FieldDef("modricfecin7",FieldDef.DATE);
+            modricvalin7 = new FieldDef("modricvalin7",FieldDef.FLOAT,6,0);
+            modricfinin7 = new FieldDef("modricfinin7",FieldDef.CHAR,2);
+            modricobsin7 = new FieldDef("modricobsin7",FieldDef.CHAR,100);
+            modricnatin8 = new FieldDef("modricnatin8",FieldDef.CHAR,2);
+            modricfecin8 = new FieldDef("modricfecin8",FieldDef.DATE);
+            modricvalin8 = new FieldDef("modricvalin8",FieldDef.FLOAT,6,0);
+            modricfinin8 = new FieldDef("modricfinin8",FieldDef.CHAR,2);
+            modricobsin8 = new FieldDef("modricobsin8",FieldDef.CHAR,100);
+            modricnatin9 = new FieldDef("modricnatin9",FieldDef.CHAR,2);
+            modricfecin9 = new FieldDef("modricfecin9",FieldDef.DATE);
+            modricvalin9 = new FieldDef("modricvalin9",FieldDef.FLOAT,6,0);
+            modricfinin9 = new FieldDef("modricfinin9",FieldDef.CHAR,2);
+            modricobsin9 = new FieldDef("modricobsin9",FieldDef.CHAR,100);
+            modricnatin10 = new FieldDef("modricnatin10",FieldDef.CHAR,2);
+            modricfecin10 = new FieldDef("modricfecin10",FieldDef.DATE);
+            modricvalin10 = new FieldDef("modricvalin10",FieldDef.FLOAT,6,0);
+            modricfinin10 = new FieldDef("modricfinin10",FieldDef.CHAR,2);
+            modricobsin10 = new FieldDef("modricobsin10",FieldDef.CHAR,100);
+            modricnatin11 = new FieldDef("modricnatin11",FieldDef.CHAR,2);
+            modricfecin11 = new FieldDef("modricfecin11",FieldDef.DATE);
+            modricvalin11 = new FieldDef("modricvalin11",FieldDef.FLOAT,6,0);
+            modricfinin11 = new FieldDef("modricfinin11",FieldDef.CHAR,2);
+            modricobsin11 = new FieldDef("modricobsin11",FieldDef.CHAR,100);
+            modricnatin12 = new FieldDef("modricnatin12",FieldDef.CHAR,2);
+            modricfecin12 = new FieldDef("modricfecin12",FieldDef.DATE);
+            modricvalin12 = new FieldDef("modricvalin12",FieldDef.FLOAT,6,0);
+            modricfinin12 = new FieldDef("modricfinin12",FieldDef.CHAR,2);
+            modricobsin12 = new FieldDef("modricobsin12",FieldDef.CHAR,100);
+            modricnatin13 = new FieldDef("modricnatin13",FieldDef.CHAR,2);
+            modricfecin13 = new FieldDef("modricfecin13",FieldDef.DATE);
+            modricvalin13 = new FieldDef("modricvalin13",FieldDef.FLOAT,6,0);
+            modricfinin13 = new FieldDef("modricfinin13",FieldDef.CHAR,2);
+            modricobsin13 = new FieldDef("modricobsin13",FieldDef.CHAR,100);
+            modricnatin14 = new FieldDef("modricnatin14",FieldDef.CHAR,2);
+            modricfecin14 = new FieldDef("modricfecin14",FieldDef.DATE);
+            modricvalin14 = new FieldDef("modricvalin14",FieldDef.FLOAT,6,0);
+            modricfinin14 = new FieldDef("modricfinin14",FieldDef.CHAR,2);
+            modricobsin14 = new FieldDef("modricobsin14",FieldDef.CHAR,100);
+            modricnatin15 = new FieldDef("modricnatin15",FieldDef.CHAR,2);
+            modricfecin15 = new FieldDef("modricfecin15",FieldDef.DATE);
+            modricvalin15 = new FieldDef("modricvalin15",FieldDef.FLOAT,6,0);
+            modricfinin15 = new FieldDef("modricfinin15",FieldDef.CHAR,2);
+            modricobsin15 = new FieldDef("modricobsin15",FieldDef.CHAR,100);
+            modricnatin16 = new FieldDef("modricnatin16",FieldDef.CHAR,2);
+            modricfecin16 = new FieldDef("modricfecin16",FieldDef.DATE);
+            modricvalin16 = new FieldDef("modricvalin16",FieldDef.FLOAT,6,0);
+            modricfinin16 = new FieldDef("modricfinin16",FieldDef.CHAR,2);
+            modricobsin16 = new FieldDef("modricobsin16",FieldDef.CHAR,100);
+            modricnatin17 = new FieldDef("modricnatin17",FieldDef.CHAR,2);
+            modricfecin17 = new FieldDef("modricfecin17",FieldDef.DATE);
+            modricvalin17 = new FieldDef("modricvalin17",FieldDef.FLOAT,6,0);
+            modricfinin17 = new FieldDef("modricfinin17",FieldDef.CHAR,2);
+            modricobsin17 = new FieldDef("modricobsin17",FieldDef.CHAR,100);
+            modricnatin18 = new FieldDef("modricnatin18",FieldDef.CHAR,2);
+            modricfecin18 = new FieldDef("modricfecin18",FieldDef.DATE);
+            modricvalin18 = new FieldDef("modricvalin18",FieldDef.FLOAT,6,0);
+            modricfinin18 = new FieldDef("modricfinin18",FieldDef.CHAR,2);
+            modricobsin18 = new FieldDef("modricobsin18",FieldDef.CHAR,100);
+            modricnatin19 = new FieldDef("modricnatin19",FieldDef.CHAR,2);
+            modricfecin19 = new FieldDef("modricfecin19",FieldDef.DATE);
+            modricvalin19 = new FieldDef("modricvalin19",FieldDef.FLOAT,6,0);
+            modricfinin19 = new FieldDef("modricfinin19",FieldDef.CHAR,2);
+            modricobsin19 = new FieldDef("modricobsin19",FieldDef.CHAR,100);
+            FieldDef array[] = {
+                modricdominio,
+                modricnif,
+                modricejercicio,
+                modricperiodo,
+                modricpagina,
+                modricnifid,
+                modricrazon,
+                modricnombre,
+                modricejercid,
+                modricfechini,
+                modricfechfin,
+                modrictipejer,
+                modricnatin1,
+                modricfecin1,
+                modricvalin1,
+                modricfinin1,
+                modricobsin1,
+                modricnatin2,
+                modricfecin2,
+                modricvalin2,
+                modricfinin2,
+                modricobsin2,
+                modricnatin3,
+                modricfecin3,
+                modricvalin3,
+                modricfinin3,
+                modricobsin3,
+                modricnatin4,
+                modricfecin4,
+                modricvalin4,
+                modricfinin4,
+                modricobsin4,
+                modricnatin5,
+                modricfecin5,
+                modricvalin5,
+                modricfinin5,
+                modricobsin5,
+                modricnatin6,
+                modricfecin6,
+                modricvalin6,
+                modricfinin6,
+                modricobsin6,
+                modricnatin7,
+                modricfecin7,
+                modricvalin7,
+                modricfinin7,
+                modricobsin7,
+                modricnatin8,
+                modricfecin8,
+                modricvalin8,
+                modricfinin8,
+                modricobsin8,
+                modricnatin9,
+                modricfecin9,
+                modricvalin9,
+                modricfinin9,
+                modricobsin9,
+                modricnatin10,
+                modricfecin10,
+                modricvalin10,
+                modricfinin10,
+                modricobsin10,
+                modricnatin11,
+                modricfecin11,
+                modricvalin11,
+                modricfinin11,
+                modricobsin11,
+                modricnatin12,
+                modricfecin12,
+                modricvalin12,
+                modricfinin12,
+                modricobsin12,
+                modricnatin13,
+                modricfecin13,
+                modricvalin13,
+                modricfinin13,
+                modricobsin13,
+                modricnatin14,
+                modricfecin14,
+                modricvalin14,
+                modricfinin14,
+                modricobsin14,
+                modricnatin15,
+                modricfecin15,
+                modricvalin15,
+                modricfinin15,
+                modricobsin15,
+                modricnatin16,
+                modricfecin16,
+                modricvalin16,
+                modricfinin16,
+                modricobsin16,
+                modricnatin17,
+                modricfecin17,
+                modricvalin17,
+                modricfinin17,
+                modricobsin17,
+                modricnatin18,
+                modricfecin18,
+                modricvalin18,
+                modricfinin18,
+                modricobsin18,
+                modricnatin19,
+                modricfecin19,
+                modricvalin19,
+                modricfinin19,
+                modricobsin19                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {modricdominio,modricnif,modricejercicio,modricperiodo,modricpagina };
+            setPrimaryKeys(arrayf);
+            modricdominio.setDescription("Dominio");
+            modricnif.setDescription("NIF");
+            modricejercicio.setDescription("Ejercicio");
+            modricperiodo.setDescription("Periodo");
+            modricpagina.setDescription("Pagina");
+            modricnifid.setDescription("Identificación, NIF");
+            modricrazon.setDescription("Identificación, Razón o Apellidos");
+            modricnombre.setDescription("Identificación, Nombre");
+            modricejercid.setDescription("Identificación, Ejercicio");
+            modricfechini.setDescription("Identificación, Fecha inicio");
+            modricfechfin.setDescription("Identificación, Fecha fin");
+            modrictipejer.setDescription("Identificación, Tipo ejercicio (1/2/3)");
+            modricnatin1.setDescription("R. inversiones anticipadas, Naturaleza inversión 1 (A/B1/B2/C/D1-D6)");
+            modricfecin1.setDescription("R. inversiones anticipadas, Fecha inversión 1");
+            modricvalin1.setDescription("R. inversiones anticipadas, valor inversión 1");
+            modricfinin1.setDescription("R. inversiones anticipadas, financiación inversión 1 (FP/FA/FM)");
+            modricobsin1.setDescription("R. inversiones anticipadas, observaciones 1");
+            modricnatin2.setDescription("R. inversiones anticipadas, Naturaleza inversión 2 (A/B1/B2/C/D1-D6)");
+            modricfecin2.setDescription("R. inversiones anticipadas, Fecha inversión 2");
+            modricvalin2.setDescription("R. inversiones anticipadas, valor inversión 2");
+            modricfinin2.setDescription("R. inversiones anticipadas, financiación inversión 2 (FP/FA/FM)");
+            modricobsin2.setDescription("R. inversiones anticipadas, observaciones 2");
+            modricnatin3.setDescription("R. inversiones anticipadas, Naturaleza inversión 3 (A/B1/B2/C/D1-D6)");
+            modricfecin3.setDescription("R. inversiones anticipadas, Fecha inversión 3");
+            modricvalin3.setDescription("R. inversiones anticipadas, valor inversión 3");
+            modricfinin3.setDescription("R. inversiones anticipadas, financiación inversión 3 (FP/FA/FM)");
+            modricobsin3.setDescription("R. inversiones anticipadas, observaciones 3");
+            modricnatin4.setDescription("R. inversiones anticipadas, Naturaleza inversión 4 (A/B1/B2/C/D1-D6)");
+            modricfecin4.setDescription("R. inversiones anticipadas, Fecha inversión 4");
+            modricvalin4.setDescription("R. inversiones anticipadas, valor inversión 4");
+            modricfinin4.setDescription("R. inversiones anticipadas, financiación inversión 4 (FP/FA/FM)");
+            modricobsin4.setDescription("R. inversiones anticipadas, observaciones 4");
+            modricnatin5.setDescription("R. inversiones anticipadas, Naturaleza inversión 5 (A/B1/B2/C/D1-D6)");
+            modricfecin5.setDescription("R. inversiones anticipadas, Fecha inversión 5");
+            modricvalin5.setDescription("R. inversiones anticipadas, valor inversión 5");
+            modricfinin5.setDescription("R. inversiones anticipadas, financiación inversión 5 (FP/FA/FM)");
+            modricobsin5.setDescription("R. inversiones anticipadas, observaciones 5");
+            modricnatin6.setDescription("R. inversiones anticipadas, Naturaleza inversión 6 (A/B1/B2/C/D1-D6)");
+            modricfecin6.setDescription("R. inversiones anticipadas, Fecha inversión 6");
+            modricvalin6.setDescription("R. inversiones anticipadas, valor inversión 6");
+            modricfinin6.setDescription("R. inversiones anticipadas, financiación inversión 6 (FP/FA/FM)");
+            modricobsin6.setDescription("R. inversiones anticipadas, observaciones 6");
+            modricnatin7.setDescription("R. inversiones anticipadas, Naturaleza inversión 7 (A/B1/B2/C/D1-D6)");
+            modricfecin7.setDescription("R. inversiones anticipadas, Fecha inversión 7");
+            modricvalin7.setDescription("R. inversiones anticipadas, valor inversión 7");
+            modricfinin7.setDescription("R. inversiones anticipadas, financiación inversión 7 (FP/FA/FM)");
+            modricobsin7.setDescription("R. inversiones anticipadas, observaciones 7");
+            modricnatin8.setDescription("R. inversiones anticipadas, Naturaleza inversión 8 (A/B1/B2/C/D1-D6)");
+            modricfecin8.setDescription("R. inversiones anticipadas, Fecha inversión 8");
+            modricvalin8.setDescription("R. inversiones anticipadas, valor inversión 8");
+            modricfinin8.setDescription("R. inversiones anticipadas, financiación inversión 8 (FP/FA/FM)");
+            modricobsin8.setDescription("R. inversiones anticipadas, observaciones 8");
+            modricnatin9.setDescription("R. inversiones anticipadas, Naturaleza inversión 9 (A/B1/B2/C/D1-D6)");
+            modricfecin9.setDescription("R. inversiones anticipadas, Fecha inversión 9");
+            modricvalin9.setDescription("R. inversiones anticipadas, valor inversión 9");
+            modricfinin9.setDescription("R. inversiones anticipadas, financiación inversión 9 (FP/FA/FM)");
+            modricobsin9.setDescription("R. inversiones anticipadas, observaciones 9");
+            modricnatin10.setDescription("R. inversiones anticipadas, Naturaleza inversión 10 (A/B1/B2/C/D1-D6)");
+            modricfecin10.setDescription("R. inversiones anticipadas, Fecha inversión 10");
+            modricvalin10.setDescription("R. inversiones anticipadas, valor inversión 10");
+            modricfinin10.setDescription("R. inversiones anticipadas, financiación inversión 10 (FP/FA/FM)");
+            modricobsin10.setDescription("R. inversiones anticipadas, observaciones 10");
+            modricnatin11.setDescription("R. inversiones anticipadas, Naturaleza inversión 11 (A/B1/B2/C/D1-D6)");
+            modricfecin11.setDescription("R. inversiones anticipadas, Fecha inversión 11");
+            modricvalin11.setDescription("R. inversiones anticipadas, valor inversión 11");
+            modricfinin11.setDescription("R. inversiones anticipadas, financiación inversión 11 (FP/FA/FM)");
+            modricobsin11.setDescription("R. inversiones anticipadas, observaciones 11");
+            modricnatin12.setDescription("R. inversiones anticipadas, Naturaleza inversión 12 (A/B1/B2/C/D1-D6)");
+            modricfecin12.setDescription("R. inversiones anticipadas, Fecha inversión 12");
+            modricvalin12.setDescription("R. inversiones anticipadas, valor inversión 12");
+            modricfinin12.setDescription("R. inversiones anticipadas, financiación inversión 12 (FP/FA/FM)");
+            modricobsin12.setDescription("R. inversiones anticipadas, observaciones 12");
+            modricnatin13.setDescription("R. inversiones anticipadas, Naturaleza inversión 13 (A/B1/B2/C/D1-D6)");
+            modricfecin13.setDescription("R. inversiones anticipadas, Fecha inversión 13");
+            modricvalin13.setDescription("R. inversiones anticipadas, valor inversión 13");
+            modricfinin13.setDescription("R. inversiones anticipadas, financiación inversión 13 (FP/FA/FM)");
+            modricobsin13.setDescription("R. inversiones anticipadas, observaciones 13");
+            modricnatin14.setDescription("R. inversiones anticipadas, Naturaleza inversión 14 (A/B1/B2/C/D1-D6)");
+            modricfecin14.setDescription("R. inversiones anticipadas, Fecha inversión 14");
+            modricvalin14.setDescription("R. inversiones anticipadas, valor inversión 14");
+            modricfinin14.setDescription("R. inversiones anticipadas, financiación inversión 14 (FP/FA/FM)");
+            modricobsin14.setDescription("R. inversiones anticipadas, observaciones 14");
+            modricnatin15.setDescription("R. inversiones anticipadas, Naturaleza inversión 15 (A/B1/B2/C/D1-D6)");
+            modricfecin15.setDescription("R. inversiones anticipadas, Fecha inversión 15");
+            modricvalin15.setDescription("R. inversiones anticipadas, valor inversión 15");
+            modricfinin15.setDescription("R. inversiones anticipadas, financiación inversión 15 (FP/FA/FM)");
+            modricobsin15.setDescription("R. inversiones anticipadas, observaciones 15");
+            modricnatin16.setDescription("R. inversiones anticipadas, Naturaleza inversión 16 (A/B1/B2/C/D1-D6)");
+            modricfecin16.setDescription("R. inversiones anticipadas, Fecha inversión 16");
+            modricvalin16.setDescription("R. inversiones anticipadas, valor inversión 16");
+            modricfinin16.setDescription("R. inversiones anticipadas, financiación inversión 16 (FP/FA/FM)");
+            modricobsin16.setDescription("R. inversiones anticipadas, observaciones 16");
+            modricnatin17.setDescription("R. inversiones anticipadas, Naturaleza inversión 17 (A/B1/B2/C/D1-D6)");
+            modricfecin17.setDescription("R. inversiones anticipadas, Fecha inversión 17");
+            modricvalin17.setDescription("R. inversiones anticipadas, valor inversión 17");
+            modricfinin17.setDescription("R. inversiones anticipadas, financiación inversión 17 (FP/FA/FM)");
+            modricobsin17.setDescription("R. inversiones anticipadas, observaciones 17");
+            modricnatin18.setDescription("R. inversiones anticipadas, Naturaleza inversión 18 (A/B1/B2/C/D1-D6)");
+            modricfecin18.setDescription("R. inversiones anticipadas, Fecha inversión 18");
+            modricvalin18.setDescription("R. inversiones anticipadas, valor inversión 18");
+            modricfinin18.setDescription("R. inversiones anticipadas, financiación inversión 18 (FP/FA/FM)");
+            modricobsin18.setDescription("R. inversiones anticipadas, observaciones 18");
+            modricnatin19.setDescription("R. inversiones anticipadas, Naturaleza inversión 19 (A/B1/B2/C/D1-D6)");
+            modricfecin19.setDescription("R. inversiones anticipadas, Fecha inversión 19");
+            modricvalin19.setDescription("R. inversiones anticipadas, valor inversión 19");
+            modricfinin19.setDescription("R. inversiones anticipadas, financiación inversión 19 (FP/FA/FM)");
+            modricobsin19.setDescription("R. inversiones anticipadas, observaciones 19");
+            }
+        }
+        
+    public class TabDeflisric extends TableDef
+        {
+        // campos
+        public FieldDef dfrmodelo;
+        public FieldDef dfrejercicio;
+        public FieldDef dfrhoja;
+        public FieldDef dfrnumero;
+        public FieldDef dfrposicion;
+        public FieldDef dfrlongitud;
+        public FieldDef dfrtipo;
+        public FieldDef dfrformato;
+        public FieldDef dfrdesc;
+        public FieldDef dfrtabla;
+        public FieldDef dfrcampo;
+        public FieldDef dfrdecimal;
+        public FieldDef dfrpattern;
+        public TabDeflisric(String name)
+            {
+            super(name);
+            dfrmodelo = new FieldDef("dfrmodelo",FieldDef.CHAR,5,FieldDef.NOTNULL);
+            dfrejercicio = new FieldDef("dfrejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfrhoja = new FieldDef("dfrhoja",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfrnumero = new FieldDef("dfrnumero",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfrposicion = new FieldDef("dfrposicion",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfrlongitud = new FieldDef("dfrlongitud",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dfrtipo = new FieldDef("dfrtipo",FieldDef.CHAR,3);
+            dfrformato = new FieldDef("dfrformato",FieldDef.CHAR,20);
+            dfrdesc = new FieldDef("dfrdesc",FieldDef.CHAR,200);
+            dfrtabla = new FieldDef("dfrtabla",FieldDef.CHAR,15);
+            dfrcampo = new FieldDef("dfrcampo",FieldDef.CHAR,15);
+            dfrdecimal = new FieldDef("dfrdecimal",FieldDef.INTEGER,0);
+            dfrpattern = new FieldDef("dfrpattern",FieldDef.CHAR,50);
+            FieldDef array[] = {
+                dfrmodelo,
+                dfrejercicio,
+                dfrhoja,
+                dfrnumero,
+                dfrposicion,
+                dfrlongitud,
+                dfrtipo,
+                dfrformato,
+                dfrdesc,
+                dfrtabla,
+                dfrcampo,
+                dfrdecimal,
+                dfrpattern                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfrmodelo,dfrejercicio,dfrhoja,dfrnumero };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
     public CatModelos1()
         {
         tabmod300 = new TabMod300("mod300");
@@ -11970,6 +12635,8 @@ public class CatModelos1 extends Catalog
         tabmod390act = new TabMod390act("mod390act");
         tabmod3904 = new TabMod3904("mod3904");
         tabmod3925 = new TabMod3925("mod3925");
+        tabmodric = new TabModric("modric");
+        tabdeflisric = new TabDeflisric("deflisric");
         TableDef array[] = {
             tabmod300,
             tabmod300des,
@@ -12023,7 +12690,9 @@ public class CatModelos1 extends Catalog
             tabmod3903,
             tabmod390act,
             tabmod3904,
-            tabmod3925            
+            tabmod3925,
+            tabmodric,
+            tabdeflisric            
             };
         setTables(array);
         FieldDef tabmod300desArrayf1[] = { tabmod300des.m300ddominio,tabmod300des.m300dnif,tabmod300des.m300dejercicio,tabmod300des.m300dperiodo };

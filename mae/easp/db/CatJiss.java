@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Sun Jul 19 21:01:03 CEST 2020
+// Fecha y hora:     Thu Jul 22 10:04:14 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -387,6 +387,9 @@ public class CatJiss extends Catalog
     public TabGrupoimpprevio2 tabgrupoimpprevio2;
     public TabEntmenores tabentmenores;
     public TabGrupodedantlim tabgrupodedantlim;
+    public TabDedportuaria tabdedportuaria;
+    public TabRicdetmaterial tabricdetmaterial;
+    public TabCtacovid19 tabctacovid19;
     public class TabBds extends TableDef
         {
         // campos
@@ -668,6 +671,8 @@ public class CatJiss extends Catalog
         public FieldDef ccdtotal;
         public FieldDef ccatotal_pdte;
         public FieldDef ccdtotal_pdte;
+        public FieldDef ccata_saldoant;
+        public FieldDef ccdta_saldoant;
         public TabCorrecctapygan(String name)
             {
             super(name);
@@ -727,6 +732,8 @@ public class CatJiss extends Catalog
             ccdtotal = new FieldDef("ccdtotal",FieldDef.FLOAT,6,0);
             ccatotal_pdte = new FieldDef("ccatotal_pdte",FieldDef.FLOAT,6,0);
             ccdtotal_pdte = new FieldDef("ccdtotal_pdte",FieldDef.FLOAT,6,0);
+            ccata_saldoant = new FieldDef("ccata_saldoant",FieldDef.FLOAT,12,0);
+            ccdta_saldoant = new FieldDef("ccdta_saldoant",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 ccejeraplic,
                 ccsociedad,
@@ -783,7 +790,9 @@ public class CatJiss extends Catalog
                 ccatotal,
                 ccdtotal,
                 ccatotal_pdte,
-                ccdtotal_pdte                
+                ccdtotal_pdte,
+                ccata_saldoant,
+                ccdta_saldoant                
                 };
             setColumns(array);
             FieldDef arrayf[] = {ccejeraplic,ccsociedad };
@@ -845,6 +854,8 @@ public class CatJiss extends Catalog
             ccdtotal.setDescription("TOTAL CORRECCIONES (Disminuciones)");
             ccatotal_pdte.setDescription("TOTAL CORRECCIONES (Aumentos)");
             ccdtotal_pdte.setDescription("TOTAL CORRECCIONES (Disminuciones)");
+            ccata_saldoant.setDescription("Temp.ejer.ant: saldo inicio ejer - aumento");
+            ccdta_saldoant.setDescription("Temp.ejer.ant: saldo inicio ejer - disminucion");
             }
         }
         
@@ -1346,6 +1357,11 @@ public class CatJiss extends Catalog
         public FieldDef ricmater_ejant;
         public FieldDef ricmaterial2_ej;
         public FieldDef ricfechavcto;
+        public FieldDef ricanticinicio;
+        public FieldDef ricanticinver1;
+        public FieldDef ricanticinver2;
+        public FieldDef ricanticfinal;
+        public FieldDef ricantmatereje;
         public TabRic(String name)
             {
             super(name);
@@ -1359,6 +1375,11 @@ public class CatJiss extends Catalog
             ricmater_ejant = new FieldDef("ricmater_ejant",FieldDef.FLOAT,6,0);
             ricmaterial2_ej = new FieldDef("ricmaterial2_ej",FieldDef.FLOAT,6,0);
             ricfechavcto = new FieldDef("ricfechavcto",FieldDef.DATE);
+            ricanticinicio = new FieldDef("ricanticinicio",FieldDef.FLOAT,12,0);
+            ricanticinver1 = new FieldDef("ricanticinver1",FieldDef.FLOAT,12,0);
+            ricanticinver2 = new FieldDef("ricanticinver2",FieldDef.FLOAT,12,0);
+            ricanticfinal = new FieldDef("ricanticfinal",FieldDef.FLOAT,12,0);
+            ricantmatereje = new FieldDef("ricantmatereje",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 ricejeraplic,
                 ricsociedad,
@@ -1369,7 +1390,12 @@ public class CatJiss extends Catalog
                 ricpdte_materia,
                 ricmater_ejant,
                 ricmaterial2_ej,
-                ricfechavcto                
+                ricfechavcto,
+                ricanticinicio,
+                ricanticinver1,
+                ricanticinver2,
+                ricanticfinal,
+                ricantmatereje                
                 };
             setColumns(array);
             FieldDef arrayf[] = {ricejeraplic,ricsociedad,ricanyo };
@@ -1385,6 +1411,11 @@ public class CatJiss extends Catalog
             ricmater_ejant.setDescription("Importe materializado ej.ant.");
             ricmaterial2_ej.setDescription("Importe materializado ejer.");
             ricfechavcto.setDescription("Fecha vencimiento dotación");
+            ricanticinicio.setDescription("Inversiones anticipadas, saldo a inicio pdte dotar RIC");
+            ricanticinver1.setDescription("Inversiones anticipadas, inversiones previstas A y B");
+            ricanticinver2.setDescription("Inversiones anticipadas, inversiones previstas B bis, C y D");
+            ricanticfinal.setDescription("Inversiones anticipadas, saldo a final ejer. pdte dotar RIC");
+            ricantmatereje.setDescription("Inversiones anticipadas, Importe materializado ejer.");
             }
         }
         
@@ -9322,7 +9353,7 @@ public class CatJiss extends Catalog
             opvsociedad = new FieldDef("opvsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             opvnif = new FieldDef("opvnif",FieldDef.CHAR,15);
             opvfis_jur = new FieldDef("opvfis_jur",FieldDef.CHAR,1);
-            opvnombre = new FieldDef("opvnombre",FieldDef.CHAR,27);
+            opvnombre = new FieldDef("opvnombre",FieldDef.CHAR,60);
             opvnombre_pf = new FieldDef("opvnombre_pf",FieldDef.CHAR,20);
             opvprovincia = new FieldDef("opvprovincia",FieldDef.INTEGER,0);
             opvcod_pais = new FieldDef("opvcod_pais",FieldDef.CHAR,2);
@@ -21479,6 +21510,8 @@ public class CatJiss extends Catalog
         public FieldDef ctlsexo;
         public FieldDef ctlminusvalido;
         public FieldDef ctlnif;
+        public FieldDef ctlporrederte;
+        public FieldDef ctldiaserte;
         public TabCtavarempleado(String name)
             {
             super(name);
@@ -21494,6 +21527,8 @@ public class CatJiss extends Catalog
             ctlsexo = new FieldDef("ctlsexo",FieldDef.CHAR,1);
             ctlminusvalido = new FieldDef("ctlminusvalido",FieldDef.CHAR,1);
             ctlnif = new FieldDef("ctlnif",FieldDef.CHAR,15);
+            ctlporrederte = new FieldDef("ctlporrederte",FieldDef.FLOAT,6,0);
+            ctldiaserte = new FieldDef("ctldiaserte",FieldDef.INTEGER,0);
             FieldDef array[] = {
                 ctlident,
                 ctlejeraplic,
@@ -21506,7 +21541,9 @@ public class CatJiss extends Catalog
                 ctljornada,
                 ctlsexo,
                 ctlminusvalido,
-                ctlnif                
+                ctlnif,
+                ctlporrederte,
+                ctldiaserte                
                 };
             setColumns(array);
             FieldDef arrayf[] = {ctlident };
@@ -21524,6 +21561,8 @@ public class CatJiss extends Catalog
             ctlsexo.setDescription("Hombre/Mujer");
             ctlminusvalido.setDescription("Minusvalia");
             ctlnif.setDescription("NIF");
+            ctlporrederte.setDescription("% ERTE de reduccion");
+            ctldiaserte.setDescription("Dias ERTE de suspension");
             }
         }
         
@@ -23745,6 +23784,9 @@ public class CatJiss extends Catalog
         public FieldDef gccpgh_lim;
         public FieldDef gccpgh_saldo;
         public FieldDef gccpgh_aplic;
+        public FieldDef gccaf_go_lim;
+        public FieldDef gccaf_go_saldo;
+        public FieldDef gccaf_go_aplic;
         public TabGrupocanarias(String name)
             {
             super(name);
@@ -23816,6 +23858,9 @@ public class CatJiss extends Catalog
             gccpgh_lim = new FieldDef("gccpgh_lim",FieldDef.FLOAT,6,0);
             gccpgh_saldo = new FieldDef("gccpgh_saldo",FieldDef.FLOAT,6,0);
             gccpgh_aplic = new FieldDef("gccpgh_aplic",FieldDef.FLOAT,6,0);
+            gccaf_go_lim = new FieldDef("gccaf_go_lim",FieldDef.FLOAT,12,0);
+            gccaf_go_saldo = new FieldDef("gccaf_go_saldo",FieldDef.FLOAT,12,0);
+            gccaf_go_aplic = new FieldDef("gccaf_go_aplic",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 gccejeraplic,
                 gccsociedad,
@@ -23884,7 +23929,10 @@ public class CatJiss extends Catalog
                 gccgpp_aplic,
                 gccpgh_lim,
                 gccpgh_saldo,
-                gccpgh_aplic                
+                gccpgh_aplic,
+                gccaf_go_lim,
+                gccaf_go_saldo,
+                gccaf_go_aplic                
                 };
             setColumns(array);
             FieldDef arrayf[] = {gccejeraplic,gccsociedad,gcctipo,gcccif,gccanyo };
@@ -23958,6 +24006,9 @@ public class CatJiss extends Catalog
             gccpgh_lim.setDescription("La Palma, Gomera y Hierro limite");
             gccpgh_saldo.setDescription("La Palma, Gomera y Hierro saldo anterior");
             gccpgh_aplic.setDescription("La Palma, Gomera y Hierro aplicado");
+            gccaf_go_lim.setDescription("La Gomera o La Palma o el Hierro:Activos fijos limite");
+            gccaf_go_saldo.setDescription("La Gomera o La Palma o el Hierro:Activos fijos saldo anterior");
+            gccaf_go_aplic.setDescription("La Gomera o La Palma o el Hierro:Activos fijos aplicado");
             }
         }
         
@@ -25057,6 +25108,7 @@ public class CatJiss extends Catalog
         public FieldDef cranro;
         public FieldDef cradescripcion;
         public FieldDef craimporte;
+        public FieldDef craactual;
         public TabCtaremunadmin(String name)
             {
             super(name);
@@ -25065,12 +25117,14 @@ public class CatJiss extends Catalog
             cranro = new FieldDef("cranro",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             cradescripcion = new FieldDef("cradescripcion",FieldDef.CHAR,80);
             craimporte = new FieldDef("craimporte",FieldDef.FLOAT,6,0);
+            craactual = new FieldDef("craactual",FieldDef.CHAR,1);
             FieldDef array[] = {
                 craejeraplic,
                 crasociedad,
                 cranro,
                 cradescripcion,
-                craimporte                
+                craimporte,
+                craactual                
                 };
             setColumns(array);
             FieldDef arrayf[] = {craejeraplic,crasociedad,cranro };
@@ -25081,6 +25135,7 @@ public class CatJiss extends Catalog
             cranro.setDescription("Numero de registro");
             cradescripcion.setDescription("Concepto");
             craimporte.setDescription("Importe remuneracion");
+            craactual.setDescription("Ejercicio actual (A) o siguiente (S)");
             }
         }
         
@@ -27409,6 +27464,8 @@ public class CatJiss extends Catalog
         public FieldDef decmateexisten;
         public FieldDef deingrcarfinpub;
         public FieldDef decarg_socialgr;
+        public FieldDef deservprofin;
+        public FieldDef deserextrest;
         public TabCtaresultado(String name)
             {
             super(name);
@@ -27530,6 +27587,8 @@ public class CatJiss extends Catalog
             decmateexisten = new FieldDef("decmateexisten",FieldDef.FLOAT,6,0);
             deingrcarfinpub = new FieldDef("deingrcarfinpub",FieldDef.FLOAT,6,0);
             decarg_socialgr = new FieldDef("decarg_socialgr",FieldDef.FLOAT,6,0);
+            deservprofin = new FieldDef("deservprofin",FieldDef.FLOAT,6,0);
+            deserextrest = new FieldDef("deserextrest",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 deejeraplic,
                 desociedad,
@@ -27648,7 +27707,9 @@ public class CatJiss extends Catalog
                 decmatecompras,
                 decmateexisten,
                 deingrcarfinpub,
-                decarg_socialgr                
+                decarg_socialgr,
+                deservprofin,
+                deserextrest                
                 };
             setColumns(array);
             FieldDef arrayf[] = {deejeraplic,desociedad };
@@ -27772,6 +27833,8 @@ public class CatJiss extends Catalog
             decmateexisten.setDescription("Consumo de materias primas: existencias");
             deingrcarfinpub.setDescription("Ingresos financieros entidades concesionarias obras publicas");
             decarg_socialgr.setDescription("Cargas sociales en modelo 220 [272]");
+            deservprofin.setDescription("Servicios profesionales independientes");
+            deserextrest.setDescription("Resto servicios exteriores");
             }
         }
         
@@ -27790,7 +27853,7 @@ public class CatJiss extends Catalog
             ovmejeraplic = new FieldDef("ovmejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             ovmsociedad = new FieldDef("ovmsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             ovmnif = new FieldDef("ovmnif",FieldDef.CHAR,15);
-            ovmnombre = new FieldDef("ovmnombre",FieldDef.CHAR,40);
+            ovmnombre = new FieldDef("ovmnombre",FieldDef.CHAR,60);
             FieldDef array[] = {
                 ovmiden,
                 ovmejeraplic,
@@ -27834,7 +27897,7 @@ public class CatJiss extends Catalog
             ovpsociedad = new FieldDef("ovpsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             ovpnif = new FieldDef("ovpnif",FieldDef.CHAR,15);
             ovpfis_jur = new FieldDef("ovpfis_jur",FieldDef.CHAR,1);
-            ovpnombre = new FieldDef("ovpnombre",FieldDef.CHAR,27);
+            ovpnombre = new FieldDef("ovpnombre",FieldDef.CHAR,60);
             ovpnombre_pf = new FieldDef("ovpnombre_pf",FieldDef.CHAR,20);
             ovpprovincia = new FieldDef("ovpprovincia",FieldDef.INTEGER,0);
             ovpcod_pais = new FieldDef("ovpcod_pais",FieldDef.CHAR,2);
@@ -29592,6 +29655,14 @@ public class CatJiss extends Catalog
         public FieldDef dicpev_go_saldo;
         public FieldDef dicpev_go_aplic;
         public FieldDef dicpev_go_aplin;
+        public FieldDef dicidejer;
+        public FieldDef dicintecnoejer;
+        public FieldDef dicidejer_go;
+        public FieldDef dicintecnoej_go;
+        public FieldDef dicaf_go_lim;
+        public FieldDef dicaf_go_saldo;
+        public FieldDef dicaf_go_aplic;
+        public FieldDef dicaf_go_aplin;
         public TabDedinvcanarias(String name)
             {
             super(name);
@@ -29726,6 +29797,14 @@ public class CatJiss extends Catalog
             dicpev_go_saldo = new FieldDef("dicpev_go_saldo",FieldDef.FLOAT,6,0);
             dicpev_go_aplic = new FieldDef("dicpev_go_aplic",FieldDef.FLOAT,6,0);
             dicpev_go_aplin = new FieldDef("dicpev_go_aplin",FieldDef.FLOAT,6,0);
+            dicidejer = new FieldDef("dicidejer",FieldDef.FLOAT,6,0);
+            dicintecnoejer = new FieldDef("dicintecnoejer",FieldDef.FLOAT,6,0);
+            dicidejer_go = new FieldDef("dicidejer_go",FieldDef.FLOAT,6,0);
+            dicintecnoej_go = new FieldDef("dicintecnoej_go",FieldDef.FLOAT,6,0);
+            dicaf_go_lim = new FieldDef("dicaf_go_lim",FieldDef.FLOAT,12,0);
+            dicaf_go_saldo = new FieldDef("dicaf_go_saldo",FieldDef.FLOAT,12,0);
+            dicaf_go_aplic = new FieldDef("dicaf_go_aplic",FieldDef.FLOAT,12,0);
+            dicaf_go_aplin = new FieldDef("dicaf_go_aplin",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 dicejeraplic,
                 dicsociedad,
@@ -29857,7 +29936,15 @@ public class CatJiss extends Catalog
                 dicpev_go_lim,
                 dicpev_go_saldo,
                 dicpev_go_aplic,
-                dicpev_go_aplin                
+                dicpev_go_aplin,
+                dicidejer,
+                dicintecnoejer,
+                dicidejer_go,
+                dicintecnoej_go,
+                dicaf_go_lim,
+                dicaf_go_saldo,
+                dicaf_go_aplic,
+                dicaf_go_aplin                
                 };
             setColumns(array);
             FieldDef arrayf[] = {dicejeraplic,dicsociedad,dicanyo };
@@ -29994,6 +30081,14 @@ public class CatJiss extends Catalog
             dicpev_go_saldo.setDescription("La Gomera o La Palma o el Hierro: Producciones espectaculos en vivo: saldo anterior");
             dicpev_go_aplic.setDescription("La Gomera o La Palma o el Hierro: Producciones espectaculos en vivo: aplicado");
             dicpev_go_aplin.setDescription("La Gomera o La Palma o el Hierro: Producciones espectaculos en vivo: aplicado socios no resid");
+            dicidejer.setDescription("Deducción por investigación y desarrollo en Canarias generada en el período impositivo");
+            dicintecnoejer.setDescription("Deducción por innovación tecnológica en Canarias generada en el período impositivo");
+            dicidejer_go.setDescription("Deducción por investigación y desarrollo en Canarias generada en el período impositivo Gomera");
+            dicintecnoej_go.setDescription("Deducción por innovación tecnológica en Canarias generada en el período impositivo Gomera");
+            dicaf_go_lim.setDescription("La Gomera o La Palma o el Hierro:Activos fijos limite");
+            dicaf_go_saldo.setDescription("La Gomera o La Palma o el Hierro:Activos fijos saldo anterior");
+            dicaf_go_aplic.setDescription("La Gomera o La Palma o el Hierro:Activos fijos aplicado");
+            dicaf_go_aplin.setDescription("La Gomera o La Palma o el Hierro:Activos fijos aplicado no resi");
             }
         }
         
@@ -30756,6 +30851,8 @@ public class CatJiss extends Catalog
         public FieldDef calim_cana2_gom;
         public FieldDef cadesgldobleimp;
         public FieldDef cadesgcorreccio;
+        public FieldDef cadeduc_pc8;
+        public FieldDef cadeduc_pc8c;
         public TabCalculo(String name)
             {
             super(name);
@@ -30923,6 +31020,8 @@ public class CatJiss extends Catalog
             calim_cana2_gom = new FieldDef("calim_cana2_gom",FieldDef.FLOAT,6,0);
             cadesgldobleimp = new FieldDef("cadesgldobleimp",FieldDef.CHAR,1);
             cadesgcorreccio = new FieldDef("cadesgcorreccio",FieldDef.CHAR,1);
+            cadeduc_pc8 = new FieldDef("cadeduc_pc8",FieldDef.FLOAT,6,0);
+            cadeduc_pc8c = new FieldDef("cadeduc_pc8c",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 caejeraplic,
                 catipo_gravamen,
@@ -31087,7 +31186,9 @@ public class CatJiss extends Catalog
                 calim_canar_gom,
                 calim_cana2_gom,
                 cadesgldobleimp,
-                cadesgcorreccio                
+                cadesgcorreccio,
+                cadeduc_pc8,
+                cadeduc_pc8c                
                 };
             setColumns(array);
             FieldDef arrayf[] = {caejeraplic };
@@ -31257,6 +31358,8 @@ public class CatJiss extends Catalog
             calim_cana2_gom.setDescription("Segundo limite conjunto deducciones Canarias La Gomera, La Palma o Hierro");
             cadesgldobleimp.setDescription("Desglose doble imposicion para calcular");
             cadesgcorreccio.setDescription("Desglose correcciones");
+            cadeduc_pc8.setDescription("% Deduccion Producciones cinematograficas extranjeras exceso");
+            cadeduc_pc8c.setDescription("% Deduccion Producciones cinematograficas extranjeras Canarias exceso");
             }
         }
         
@@ -32830,6 +32933,9 @@ public class CatJiss extends Catalog
         public FieldDef socmatriznombre;
         public FieldDef socmatrizjuris;
         public FieldDef socuniones;
+        public FieldDef socportuaria;
+        public FieldDef socmicroempresa;
+        public FieldDef socunidadctas;
         public TabSociedades(String name)
             {
             super(name);
@@ -32979,6 +33085,9 @@ public class CatJiss extends Catalog
             socmatriznombre = new FieldDef("socmatriznombre",FieldDef.CHAR,40);
             socmatrizjuris = new FieldDef("socmatrizjuris",FieldDef.CHAR,2);
             socuniones = new FieldDef("socuniones",FieldDef.CHAR,1);
+            socportuaria = new FieldDef("socportuaria",FieldDef.CHAR,1);
+            socmicroempresa = new FieldDef("socmicroempresa",FieldDef.CHAR,1);
+            socunidadctas = new FieldDef("socunidadctas",FieldDef.CHAR,1);
             FieldDef array[] = {
                 socejeraplic,
                 soccodigo,
@@ -33125,7 +33234,10 @@ public class CatJiss extends Catalog
                 socmatrizpais,
                 socmatriznombre,
                 socmatrizjuris,
-                socuniones                
+                socuniones,
+                socportuaria,
+                socmicroempresa,
+                socunidadctas                
                 };
             setColumns(array);
             FieldDef arrayf[] = {socejeraplic,soccodigo };
@@ -33277,6 +33389,9 @@ public class CatJiss extends Catalog
             socmatriznombre.setDescription("Datos de la sociedad matriz última: Nombre o razón social");
             socmatrizjuris.setDescription("Datos de la sociedad matriz última: País o jurisdicción");
             socuniones.setDescription("Uniones, federaciones y confederaciones de cooperativas");
+            socportuaria.setDescription("Autoridades portuarias y Puertos del Estado");
+            socmicroempresa.setDescription("Se aplica criterios microempresa para cuentas anuales");
+            socunidadctas.setDescription("Unidad con la que se elaboran las cuentas anuales [E]uro, [M]iles de Euros, M[I]llones de euros");
             }
         }
         
@@ -33305,6 +33420,7 @@ public class CatJiss extends Catalog
         public FieldDef finregelectro5;
         public FieldDef finplazoordsin;
         public FieldDef finnuevardl19;
+        public FieldDef finregelectro6;
         public TabFinalizacion(String name)
             {
             super(name);
@@ -33330,6 +33446,7 @@ public class CatJiss extends Catalog
             finregelectro5 = new FieldDef("finregelectro5",FieldDef.CHAR,22);
             finplazoordsin = new FieldDef("finplazoordsin",FieldDef.CHAR,1);
             finnuevardl19 = new FieldDef("finnuevardl19",FieldDef.CHAR,1);
+            finregelectro6 = new FieldDef("finregelectro6",FieldDef.CHAR,22);
             FieldDef array[] = {
                 finejeraplic,
                 finsociedad,
@@ -33352,7 +33469,8 @@ public class CatJiss extends Catalog
                 finfeccoherenc,
                 finregelectro5,
                 finplazoordsin,
-                finnuevardl19                
+                finnuevardl19,
+                finregelectro6                
                 };
             setColumns(array);
             FieldDef arrayf[] = {finejeraplic,finsociedad };
@@ -33380,6 +33498,7 @@ public class CatJiss extends Catalog
             finregelectro5.setDescription("Nro. electronico documentacion presentada");
             finplazoordsin.setDescription("Plazo ordinario sin aprobar cuentas anuales");
             finnuevardl19.setDescription("Nueva declaración según RDLey 19/2020");
+            finregelectro6.setDescription("Nro. electronico documentacion presentada");
             }
         }
         
@@ -33574,6 +33693,10 @@ public class CatJiss extends Catalog
         public FieldDef liqret_otrosux;
         public FieldDef liqbasegralnav;
         public FieldDef liqbaseespenav;
+        public FieldDef liqdedportuaria;
+        public FieldDef liqdedportuarix;
+        public FieldDef liqdedpcecanar;
+        public FieldDef liqdedpcecanarx;
         public TabLiquidacion(String name)
             {
             super(name);
@@ -33765,6 +33888,10 @@ public class CatJiss extends Catalog
             liqret_otrosux = new FieldDef("liqret_otrosux",FieldDef.FLOAT,6,0);
             liqbasegralnav = new FieldDef("liqbasegralnav",FieldDef.FLOAT,6,0);
             liqbaseespenav = new FieldDef("liqbaseespenav",FieldDef.FLOAT,6,0);
+            liqdedportuaria = new FieldDef("liqdedportuaria",FieldDef.FLOAT,6,0);
+            liqdedportuarix = new FieldDef("liqdedportuarix",FieldDef.FLOAT,6,0);
+            liqdedpcecanar = new FieldDef("liqdedpcecanar",FieldDef.FLOAT,12,0);
+            liqdedpcecanarx = new FieldDef("liqdedpcecanarx",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 liqejeraplic,
                 liqsociedad,
@@ -33953,7 +34080,11 @@ public class CatJiss extends Catalog
                 liqret_otrosx,
                 liqret_otrosux,
                 liqbasegralnav,
-                liqbaseespenav                
+                liqbaseespenav,
+                liqdedportuaria,
+                liqdedportuarix,
+                liqdedpcecanar,
+                liqdedpcecanarx                
                 };
             setColumns(array);
             FieldDef arrayf[] = {liqejeraplic,liqsociedad };
@@ -34147,6 +34278,10 @@ public class CatJiss extends Catalog
             liqret_otrosux.setDescription("Retenciones otros conceptos imputados por UTE parte socios no residentes");
             liqbasegralnav.setDescription("Base imponible o rentas que tributen en regimen general entidad naviera");
             liqbaseespenav.setDescription("Base imponible o rentas que tributen en regimen especial entidad naviera");
+            liqdedportuaria.setDescription("Deduccion autoridades portuarias");
+            liqdedportuarix.setDescription("Deduccion autoridades portuarias");
+            liqdedpcecanar.setDescription("Deduccion producciones cinematograficas extranjero en Canarias");
+            liqdedpcecanarx.setDescription("Deduccion producciones cinematograficas extranjero en Canarias (no residentes)");
             }
         }
         
@@ -34265,6 +34400,8 @@ public class CatJiss extends Catalog
         public FieldDef glqdeintdt231a;
         public FieldDef glqdedintdt231;
         public FieldDef glqrentarevdetc;
+        public FieldDef glqdedportuaria;
+        public FieldDef glqdedpcecanar;
         public TabGrupoliquida(String name)
             {
             super(name);
@@ -34380,6 +34517,8 @@ public class CatJiss extends Catalog
             glqdeintdt231a = new FieldDef("glqdeintdt231a",FieldDef.FLOAT,6,0);
             glqdedintdt231 = new FieldDef("glqdedintdt231",FieldDef.FLOAT,6,0);
             glqrentarevdetc = new FieldDef("glqrentarevdetc",FieldDef.FLOAT,6,0);
+            glqdedportuaria = new FieldDef("glqdedportuaria",FieldDef.FLOAT,12,0);
+            glqdedpcecanar = new FieldDef("glqdedpcecanar",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 glqejeraplic,
                 glqsociedad,
@@ -34492,7 +34631,9 @@ public class CatJiss extends Catalog
                 glqrentarevdete,
                 glqdeintdt231a,
                 glqdedintdt231,
-                glqrentarevdetc                
+                glqrentarevdetc,
+                glqdedportuaria,
+                glqdedpcecanar                
                 };
             setColumns(array);
             FieldDef arrayf[] = {glqejeraplic,glqsociedad };
@@ -34610,6 +34751,8 @@ public class CatJiss extends Catalog
             glqdeintdt231a.setDescription("DI interna DT 23.1 LIS de ejercicios anteriores");
             glqdedintdt231.setDescription("DI interna DT 23.1 LIS de ejercicios actual");
             glqrentarevdetc.setDescription("Rentas correspondientes a la reversion de deterioros a nivel de cuota");
+            glqdedportuaria.setDescription("Deduccion autoridades portuarias");
+            glqdedpcecanar.setDescription("Deduccion producciones cinematograficas extranjero en Canarias");
             }
         }
         
@@ -37895,6 +38038,16 @@ public class CatJiss extends Catalog
         public FieldDef dc2dprimaplicba;
         public FieldDef dc2tdifapraplba;
         public FieldDef dc2tdifdpraplba;
+        public FieldDef dc2aasimhibri;
+        public FieldDef dc2dasimhibri;
+        public FieldDef dc2tdifaasimhib;
+        public FieldDef dc2tdifdasimhib;
+        public FieldDef dc2aautportua;
+        public FieldDef dc2tdifaportua;
+        public FieldDef dc2awchleague;
+        public FieldDef dc2dwchleague;
+        public FieldDef dc2tdifawchleag;
+        public FieldDef dc2tdifdwchleag;
         public TabDetallecorec2(String name)
             {
             super(name);
@@ -38034,6 +38187,16 @@ public class CatJiss extends Catalog
             dc2dprimaplicba = new FieldDef("dc2dprimaplicba",FieldDef.FLOAT,6,0);
             dc2tdifapraplba = new FieldDef("dc2tdifapraplba",FieldDef.CHAR,1);
             dc2tdifdpraplba = new FieldDef("dc2tdifdpraplba",FieldDef.CHAR,1);
+            dc2aasimhibri = new FieldDef("dc2aasimhibri",FieldDef.FLOAT,6,0);
+            dc2dasimhibri = new FieldDef("dc2dasimhibri",FieldDef.FLOAT,6,0);
+            dc2tdifaasimhib = new FieldDef("dc2tdifaasimhib",FieldDef.CHAR,1);
+            dc2tdifdasimhib = new FieldDef("dc2tdifdasimhib",FieldDef.CHAR,1);
+            dc2aautportua = new FieldDef("dc2aautportua",FieldDef.FLOAT,6,0);
+            dc2tdifaportua = new FieldDef("dc2tdifaportua",FieldDef.CHAR,1);
+            dc2awchleague = new FieldDef("dc2awchleague",FieldDef.FLOAT,6,0);
+            dc2dwchleague = new FieldDef("dc2dwchleague",FieldDef.FLOAT,6,0);
+            dc2tdifawchleag = new FieldDef("dc2tdifawchleag",FieldDef.CHAR,1);
+            dc2tdifdwchleag = new FieldDef("dc2tdifdwchleag",FieldDef.CHAR,1);
             FieldDef array[] = {
                 dc2ejeraplic,
                 dc2sociedad,
@@ -38170,7 +38333,17 @@ public class CatJiss extends Catalog
                 dc2aprimaplicba,
                 dc2dprimaplicba,
                 dc2tdifapraplba,
-                dc2tdifdpraplba                
+                dc2tdifdpraplba,
+                dc2aasimhibri,
+                dc2dasimhibri,
+                dc2tdifaasimhib,
+                dc2tdifdasimhib,
+                dc2aautportua,
+                dc2tdifaportua,
+                dc2awchleague,
+                dc2dwchleague,
+                dc2tdifawchleag,
+                dc2tdifdwchleag                
                 };
             setColumns(array);
             FieldDef arrayf[] = {dc2ejeraplic,dc2sociedad };
@@ -38312,6 +38485,16 @@ public class CatJiss extends Catalog
             dc2dprimaplicba.setDescription("Ajustes primera aplicación Circular 4/2017 Banco de España, a entidades de crédito (disminucion)");
             dc2tdifapraplba.setDescription("Tipo diferencia aumento.Ajustes primera aplicación Circular 4/2017 Banco de España, a entidades de crédito");
             dc2tdifdpraplba.setDescription("Tipo diferencia dismin. Ajustes primera aplicación Circular 4/2017 Banco de España, a entidades de crédito");
+            dc2aasimhibri.setDescription("Asimetrías híbridas (art. 15 bis LIS) - Aumentos");
+            dc2dasimhibri.setDescription("Asimetrías híbridas (art. 15 bis LIS) - Disminuciones");
+            dc2tdifaasimhib.setDescription("Tipo diferencia aumento.Asimetrías híbridas (art. 15 bis LIS)");
+            dc2tdifdasimhib.setDescription("Tipo diferencia dismin. Asimetrías híbridas (art. 15 bis LIS)");
+            dc2aautportua.setDescription("Gastos que sean objeto deducción por inversiones realizadas por autoridades portuarias (art.15 n) LIS) - Aumentos");
+            dc2tdifaportua.setDescription("Tipo diferencia aumento.Gastos que sean objeto deducción por inversiones realizadas por autoridades portuarias (art.15 n) LIS)");
+            dc2awchleague.setDescription("UEFA Women Champions League 2020 (DA 6ª RDL 28/2020) - Aumentos");
+            dc2dwchleague.setDescription("UEFA Women Champions League 2020 (DA 6ª RDL 28/2020) - Disminuciones");
+            dc2tdifawchleag.setDescription("Tipo diferencia aumento.UEFA Women Champions League 2020 (DA 6ª RDL 28/2020)");
+            dc2tdifdwchleag.setDescription("Tipo diferencia dismin. UEFA Women Champions League 2020 (DA 6ª RDL 28/2020)");
             }
         }
         
@@ -40137,6 +40320,9 @@ public class CatJiss extends Catalog
         public FieldDef fecctaservterce;
         public FieldDef fecentmenores;
         public FieldDef fecgrupolimded;
+        public FieldDef fecdedportuaria;
+        public FieldDef fecmodmodelo282;
+        public FieldDef fecctacovid19;
         public TabFechasacceso(String name)
             {
             super(name);
@@ -40320,6 +40506,9 @@ public class CatJiss extends Catalog
             fecctaservterce = new FieldDef("fecctaservterce",FieldDef.DATE);
             fecentmenores = new FieldDef("fecentmenores",FieldDef.DATE);
             fecgrupolimded = new FieldDef("fecgrupolimded",FieldDef.DATE);
+            fecdedportuaria = new FieldDef("fecdedportuaria",FieldDef.DATE);
+            fecmodmodelo282 = new FieldDef("fecmodmodelo282",FieldDef.DATE);
+            fecctacovid19 = new FieldDef("fecctacovid19",FieldDef.DATE);
             FieldDef array[] = {
                 fecejeraplic,
                 fecsociedad,
@@ -40500,7 +40689,10 @@ public class CatJiss extends Catalog
                 fecgrresinterno,
                 fecctaservterce,
                 fecentmenores,
-                fecgrupolimded                
+                fecgrupolimded,
+                fecdedportuaria,
+                fecmodmodelo282,
+                fecctacovid19                
                 };
             setColumns(array);
             FieldDef arrayf[] = {fecejeraplic,fecsociedad };
@@ -40686,6 +40878,9 @@ public class CatJiss extends Catalog
             fecctaservterce.setDescription("Ctas.anuales servicios a terceros");
             fecentmenores.setDescription("Entidades menores dependientes de diócesis, provincia religiosa");
             fecgrupolimded.setDescription("Limitacion deducciones antes incorporar al grupo");
+            fecdedportuaria.setDescription("Deduccion autoridades portuarias");
+            fecmodmodelo282.setDescription("Modelo 282");
+            fecctacovid19.setDescription("COVID-19");
             }
         }
         
@@ -40707,7 +40902,7 @@ public class CatJiss extends Catalog
             pfiejeraplic = new FieldDef("pfiejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             pfisociedad = new FieldDef("pfisociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             pfitipo = new FieldDef("pfitipo",FieldDef.CHAR,4);
-            pfientidad = new FieldDef("pfientidad",FieldDef.CHAR,30);
+            pfientidad = new FieldDef("pfientidad",FieldDef.CHAR,60);
             pficod_pais = new FieldDef("pficod_pais",FieldDef.CHAR,2);
             pfivalor_adquis = new FieldDef("pfivalor_adquis",FieldDef.FLOAT,6,0);
             pfiparticip = new FieldDef("pfiparticip",FieldDef.FLOAT,6,0);
@@ -40753,8 +40948,8 @@ public class CatJiss extends Catalog
             opfiden = new FieldDef("opfiden",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             opfejeraplic = new FieldDef("opfejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             opfsociedad = new FieldDef("opfsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
-            opfdescripcion = new FieldDef("opfdescripcion",FieldDef.CHAR,30);
-            opfpersona = new FieldDef("opfpersona",FieldDef.CHAR,30);
+            opfdescripcion = new FieldDef("opfdescripcion",FieldDef.CHAR,50);
+            opfpersona = new FieldDef("opfpersona",FieldDef.CHAR,60);
             opffisica_jurid = new FieldDef("opffisica_jurid",FieldDef.CHAR,1);
             opfclave_pais = new FieldDef("opfclave_pais",FieldDef.CHAR,2);
             opfimporte = new FieldDef("opfimporte",FieldDef.FLOAT,6,0);
@@ -41615,7 +41810,7 @@ public class CatJiss extends Catalog
             paecrcas2159.setDescription("Cambios del valor razonable de los instrumentos de deuda valorados a valor razonable con cambios en otro resultado global [02159]");
             paecrcas2160.setDescription("Instrumentos de cobertura [elementos no designados] [02160]");
             paecrcas2161.setDescription("Otros compromisos concedidos [02161]");
-            paecrcas660.setDescription("Participación en otros ingresos y gastos reconocidos de inversiones en negocios conjuntos y asociadas [00660] (**nou)");
+            paecrcas660.setDescription("Participación en otros ingresos y gastos reconocidos de inversiones en negocios conjuntos y asociadas [00660]");
             }
         }
         
@@ -46814,6 +47009,30 @@ public class CatJiss extends Catalog
         public FieldDef dig3_cop2saldo;
         public FieldDef dig3_cop2aplic;
         public FieldDef dig3_cop2aplicn;
+        public FieldDef dig3_gf1lim;
+        public FieldDef dig3_gf1saldo;
+        public FieldDef dig3_gf1aplic;
+        public FieldDef dig3_gf1aplicn;
+        public FieldDef dig3_pbelim;
+        public FieldDef dig3_pbesaldo;
+        public FieldDef dig3_pbeaplic;
+        public FieldDef dig3_pbeaplicn;
+        public FieldDef dig3_a21lim;
+        public FieldDef dig3_a21saldo;
+        public FieldDef dig3_a21aplic;
+        public FieldDef dig3_a21aplicn;
+        public FieldDef dig3_flflim;
+        public FieldDef dig3_flfsaldo;
+        public FieldDef dig3_flfaplic;
+        public FieldDef dig3_flfaplicn;
+        public FieldDef dig3_otrlim;
+        public FieldDef dig3_otrsaldo;
+        public FieldDef dig3_otraplic;
+        public FieldDef dig3_otraplicn;
+        public FieldDef dig3_ctllim;
+        public FieldDef dig3_ctlsaldo;
+        public FieldDef dig3_ctlaplic;
+        public FieldDef dig3_ctlaplicn;
         public TabDedintgral3(String name)
             {
             super(name);
@@ -46884,6 +47103,30 @@ public class CatJiss extends Catalog
             dig3_cop2saldo = new FieldDef("dig3_cop2saldo",FieldDef.FLOAT,6,0);
             dig3_cop2aplic = new FieldDef("dig3_cop2aplic",FieldDef.FLOAT,6,0);
             dig3_cop2aplicn = new FieldDef("dig3_cop2aplicn",FieldDef.FLOAT,6,0);
+            dig3_gf1lim = new FieldDef("dig3_gf1lim",FieldDef.FLOAT,6,0);
+            dig3_gf1saldo = new FieldDef("dig3_gf1saldo",FieldDef.FLOAT,6,0);
+            dig3_gf1aplic = new FieldDef("dig3_gf1aplic",FieldDef.FLOAT,6,0);
+            dig3_gf1aplicn = new FieldDef("dig3_gf1aplicn",FieldDef.FLOAT,6,0);
+            dig3_pbelim = new FieldDef("dig3_pbelim",FieldDef.FLOAT,6,0);
+            dig3_pbesaldo = new FieldDef("dig3_pbesaldo",FieldDef.FLOAT,6,0);
+            dig3_pbeaplic = new FieldDef("dig3_pbeaplic",FieldDef.FLOAT,6,0);
+            dig3_pbeaplicn = new FieldDef("dig3_pbeaplicn",FieldDef.FLOAT,6,0);
+            dig3_a21lim = new FieldDef("dig3_a21lim",FieldDef.FLOAT,6,0);
+            dig3_a21saldo = new FieldDef("dig3_a21saldo",FieldDef.FLOAT,6,0);
+            dig3_a21aplic = new FieldDef("dig3_a21aplic",FieldDef.FLOAT,6,0);
+            dig3_a21aplicn = new FieldDef("dig3_a21aplicn",FieldDef.FLOAT,6,0);
+            dig3_flflim = new FieldDef("dig3_flflim",FieldDef.FLOAT,6,0);
+            dig3_flfsaldo = new FieldDef("dig3_flfsaldo",FieldDef.FLOAT,6,0);
+            dig3_flfaplic = new FieldDef("dig3_flfaplic",FieldDef.FLOAT,6,0);
+            dig3_flfaplicn = new FieldDef("dig3_flfaplicn",FieldDef.FLOAT,6,0);
+            dig3_otrlim = new FieldDef("dig3_otrlim",FieldDef.FLOAT,6,0);
+            dig3_otrsaldo = new FieldDef("dig3_otrsaldo",FieldDef.FLOAT,6,0);
+            dig3_otraplic = new FieldDef("dig3_otraplic",FieldDef.FLOAT,6,0);
+            dig3_otraplicn = new FieldDef("dig3_otraplicn",FieldDef.FLOAT,6,0);
+            dig3_ctllim = new FieldDef("dig3_ctllim",FieldDef.FLOAT,6,0);
+            dig3_ctlsaldo = new FieldDef("dig3_ctlsaldo",FieldDef.FLOAT,6,0);
+            dig3_ctlaplic = new FieldDef("dig3_ctlaplic",FieldDef.FLOAT,6,0);
+            dig3_ctlaplicn = new FieldDef("dig3_ctlaplicn",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 dig3ejeraplic,
                 dig3sociedad,
@@ -46951,7 +47194,31 @@ public class CatJiss extends Catalog
                 dig3_cop2lim,
                 dig3_cop2saldo,
                 dig3_cop2aplic,
-                dig3_cop2aplicn                
+                dig3_cop2aplicn,
+                dig3_gf1lim,
+                dig3_gf1saldo,
+                dig3_gf1aplic,
+                dig3_gf1aplicn,
+                dig3_pbelim,
+                dig3_pbesaldo,
+                dig3_pbeaplic,
+                dig3_pbeaplicn,
+                dig3_a21lim,
+                dig3_a21saldo,
+                dig3_a21aplic,
+                dig3_a21aplicn,
+                dig3_flflim,
+                dig3_flfsaldo,
+                dig3_flfaplic,
+                dig3_flfaplicn,
+                dig3_otrlim,
+                dig3_otrsaldo,
+                dig3_otraplic,
+                dig3_otraplicn,
+                dig3_ctllim,
+                dig3_ctlsaldo,
+                dig3_ctlaplic,
+                dig3_ctlaplicn                
                 };
             setColumns(array);
             FieldDef arrayf[] = {dig3ejeraplic,dig3sociedad,dig3anyo };
@@ -47024,6 +47291,30 @@ public class CatJiss extends Catalog
             dig3_cop2saldo.setDescription("Conferencia cambio climatico 2019: saldo anterior");
             dig3_cop2aplic.setDescription("Conferencia cambio climatico 2019: aplicado");
             dig3_cop2aplicn.setDescription("Conferencia cambio climatico 2019: aplicado socios no residente");
+            dig3_gf1lim.setDescription("Gran Premio de España Fórmula 1: limite");
+            dig3_gf1saldo.setDescription("Gran Premio de España Fórmula 1: saldo anterior");
+            dig3_gf1aplic.setDescription("Gran Premio de España Fórmula 1: aplicado");
+            dig3_gf1aplicn.setDescription("Gran Premio de España Fórmula 1: aplicado socios no residente");
+            dig3_pbelim.setDescription("Plan Berlanga: limite");
+            dig3_pbesaldo.setDescription("Plan Berlanga: saldo anterior");
+            dig3_pbeaplic.setDescription("Plan Berlanga: aplicado");
+            dig3_pbeaplicn.setDescription("Plan Berlanga: aplicado socios no residente");
+            dig3_a21lim.setDescription("Programa Alicante 2021: limite");
+            dig3_a21saldo.setDescription("Programa Alicante 2021: saldo anterior");
+            dig3_a21aplic.setDescription("Programa Alicante 2021: aplicado");
+            dig3_a21aplicn.setDescription("Programa Alicante 2021: aplicado socios no residente");
+            dig3_flflim.setDescription("Feria libro Fráncfort en 2021: limite");
+            dig3_flfsaldo.setDescription("Feria libro Fráncfort en 2021: saldo anterior");
+            dig3_flfaplic.setDescription("Feria libro Fráncfort en 2021: aplicado");
+            dig3_flfaplicn.setDescription("Feria libro Fráncfort en 2021: aplicado socios no residente");
+            dig3_otrlim.setDescription("Plan de Fomento de la ópera en la Calle del Teatro Real: limite");
+            dig3_otrsaldo.setDescription("Plan de Fomento de la ópera en la Calle del Teatro Real: saldo anterior");
+            dig3_otraplic.setDescription("Plan de Fomento de la ópera en la Calle del Teatro Real: aplicado");
+            dig3_otraplicn.setDescription("Plan de Fomento de la ópera en la Calle del Teatro Real: aplicado socios no residente");
+            dig3_ctllim.setDescription("Aniversario de la construcción del Gran Teatre Liceu: limite");
+            dig3_ctlsaldo.setDescription("Aniversario de la construcción del Gran Teatre Liceu: saldo anterior");
+            dig3_ctlaplic.setDescription("Aniversario de la construcción del Gran Teatre Liceu: aplicado");
+            dig3_ctlaplicn.setDescription("Aniversario de la construcción del Gran Teatre Liceu: aplicado socios no residente");
             }
         }
         
@@ -47128,6 +47419,24 @@ public class CatJiss extends Catalog
         public FieldDef gi2_cop2lim;
         public FieldDef gi2_cop2saldo;
         public FieldDef gi2_cop2aplic;
+        public FieldDef gi2_gf1lim;
+        public FieldDef gi2_gf1saldo;
+        public FieldDef gi2_gf1aplic;
+        public FieldDef gi2_pbelim;
+        public FieldDef gi2_pbesaldo;
+        public FieldDef gi2_pbeaplic;
+        public FieldDef gi2_a21lim;
+        public FieldDef gi2_a21saldo;
+        public FieldDef gi2_a21aplic;
+        public FieldDef gi2_flflim;
+        public FieldDef gi2_flfsaldo;
+        public FieldDef gi2_flfaplic;
+        public FieldDef gi2_otrlim;
+        public FieldDef gi2_otrsaldo;
+        public FieldDef gi2_otraplic;
+        public FieldDef gi2_ctllim;
+        public FieldDef gi2_ctlsaldo;
+        public FieldDef gi2_ctlaplic;
         public TabGrupointgral2(String name)
             {
             super(name);
@@ -47229,6 +47538,24 @@ public class CatJiss extends Catalog
             gi2_cop2lim = new FieldDef("gi2_cop2lim",FieldDef.FLOAT,6,0);
             gi2_cop2saldo = new FieldDef("gi2_cop2saldo",FieldDef.FLOAT,6,0);
             gi2_cop2aplic = new FieldDef("gi2_cop2aplic",FieldDef.FLOAT,6,0);
+            gi2_gf1lim = new FieldDef("gi2_gf1lim",FieldDef.FLOAT,6,0);
+            gi2_gf1saldo = new FieldDef("gi2_gf1saldo",FieldDef.FLOAT,6,0);
+            gi2_gf1aplic = new FieldDef("gi2_gf1aplic",FieldDef.FLOAT,6,0);
+            gi2_pbelim = new FieldDef("gi2_pbelim",FieldDef.FLOAT,6,0);
+            gi2_pbesaldo = new FieldDef("gi2_pbesaldo",FieldDef.FLOAT,6,0);
+            gi2_pbeaplic = new FieldDef("gi2_pbeaplic",FieldDef.FLOAT,6,0);
+            gi2_a21lim = new FieldDef("gi2_a21lim",FieldDef.FLOAT,6,0);
+            gi2_a21saldo = new FieldDef("gi2_a21saldo",FieldDef.FLOAT,6,0);
+            gi2_a21aplic = new FieldDef("gi2_a21aplic",FieldDef.FLOAT,6,0);
+            gi2_flflim = new FieldDef("gi2_flflim",FieldDef.FLOAT,6,0);
+            gi2_flfsaldo = new FieldDef("gi2_flfsaldo",FieldDef.FLOAT,6,0);
+            gi2_flfaplic = new FieldDef("gi2_flfaplic",FieldDef.FLOAT,6,0);
+            gi2_otrlim = new FieldDef("gi2_otrlim",FieldDef.FLOAT,6,0);
+            gi2_otrsaldo = new FieldDef("gi2_otrsaldo",FieldDef.FLOAT,6,0);
+            gi2_otraplic = new FieldDef("gi2_otraplic",FieldDef.FLOAT,6,0);
+            gi2_ctllim = new FieldDef("gi2_ctllim",FieldDef.FLOAT,6,0);
+            gi2_ctlsaldo = new FieldDef("gi2_ctlsaldo",FieldDef.FLOAT,6,0);
+            gi2_ctlaplic = new FieldDef("gi2_ctlaplic",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 gi2ejeraplic,
                 gi2sociedad,
@@ -47327,7 +47654,25 @@ public class CatJiss extends Catalog
                 gi2_taoaplic,
                 gi2_cop2lim,
                 gi2_cop2saldo,
-                gi2_cop2aplic                
+                gi2_cop2aplic,
+                gi2_gf1lim,
+                gi2_gf1saldo,
+                gi2_gf1aplic,
+                gi2_pbelim,
+                gi2_pbesaldo,
+                gi2_pbeaplic,
+                gi2_a21lim,
+                gi2_a21saldo,
+                gi2_a21aplic,
+                gi2_flflim,
+                gi2_flfsaldo,
+                gi2_flfaplic,
+                gi2_otrlim,
+                gi2_otrsaldo,
+                gi2_otraplic,
+                gi2_ctllim,
+                gi2_ctlsaldo,
+                gi2_ctlaplic                
                 };
             setColumns(array);
             FieldDef arrayf[] = {gi2ejeraplic,gi2sociedad,gi2tipo,gi2cif,gi2anyo };
@@ -47431,6 +47776,24 @@ public class CatJiss extends Catalog
             gi2_cop2lim.setDescription("Conferencia cambio climatico 2019: limite");
             gi2_cop2saldo.setDescription("Conferencia cambio climatico 2019: saldo anterior");
             gi2_cop2aplic.setDescription("Conferencia cambio climatico 2019: aplicado");
+            gi2_gf1lim.setDescription("Gran Premio de España Fórmula 1: limite");
+            gi2_gf1saldo.setDescription("Gran Premio de España Fórmula 1: saldo anterior");
+            gi2_gf1aplic.setDescription("Gran Premio de España Fórmula 1: aplicado");
+            gi2_pbelim.setDescription("Plan Berlanga: limite");
+            gi2_pbesaldo.setDescription("Plan Berlanga: saldo anterior");
+            gi2_pbeaplic.setDescription("Plan Berlanga: aplicado");
+            gi2_a21lim.setDescription("Programa Alicante 2021: limite");
+            gi2_a21saldo.setDescription("Programa Alicante 2021: saldo anterior");
+            gi2_a21aplic.setDescription("Programa Alicante 2021: aplicado");
+            gi2_flflim.setDescription("Feria libro Fráncfort en 2021: limite");
+            gi2_flfsaldo.setDescription("Feria libro Fráncfort en 2021: saldo anterior");
+            gi2_flfaplic.setDescription("Feria libro Fráncfort en 2021: aplicado");
+            gi2_otrlim.setDescription("Plan de Fomento de la ópera en la Calle del Teatro Real: limite");
+            gi2_otrsaldo.setDescription("Plan de Fomento de la ópera en la Calle del Teatro Real: saldo anterior");
+            gi2_otraplic.setDescription("Plan de Fomento de la ópera en la Calle del Teatro Real: aplicado");
+            gi2_ctllim.setDescription("Aniversario de la construcción del Gran Teatre Liceu: limite");
+            gi2_ctlsaldo.setDescription("Aniversario de la construcción del Gran Teatre Liceu: saldo anterior");
+            gi2_ctlaplic.setDescription("Aniversario de la construcción del Gran Teatre Liceu: aplicado");
             }
         }
         
@@ -47503,6 +47866,7 @@ public class CatJiss extends Catalog
         public FieldDef ccesptoadisfut;
         public FieldDef ccesptotaum;
         public FieldDef ccesptotdism;
+        public FieldDef cceta_saldoant;
         public TabCorrctapygancas(String name)
             {
             super(name);
@@ -47529,6 +47893,7 @@ public class CatJiss extends Catalog
             ccesptoadisfut = new FieldDef("ccesptoadisfut",FieldDef.FLOAT,6,0);
             ccesptotaum = new FieldDef("ccesptotaum",FieldDef.FLOAT,6,0);
             ccesptotdism = new FieldDef("ccesptotdism",FieldDef.FLOAT,6,0);
+            cceta_saldoant = new FieldDef("cceta_saldoant",FieldDef.FLOAT,12,0);
             FieldDef array[] = {
                 cceejeraplic,
                 ccesociedad,
@@ -47552,7 +47917,8 @@ public class CatJiss extends Catalog
                 ccesptoaaumfut,
                 ccesptoadisfut,
                 ccesptotaum,
-                ccesptotdism                
+                ccesptotdism,
+                cceta_saldoant                
                 };
             setColumns(array);
             FieldDef arrayf[] = {cceejeraplic,ccesociedad,ccencasilla };
@@ -47581,6 +47947,7 @@ public class CatJiss extends Catalog
             ccesptoadisfut.setDescription("Saldo pendiente fin ejercicio: temporaria origen ejer.anterior disminucion futuro");
             ccesptotaum.setDescription("Saldo pendiente fin ejercicio: total aumento futuro");
             ccesptotdism.setDescription("Saldo pendiente fin ejercicio: total disminucion futuro");
+            cceta_saldoant.setDescription("Saldo inicio ejercicio temporaria ejer.anterior");
             }
         }
         
@@ -48095,6 +48462,214 @@ public class CatJiss extends Catalog
             }
         }
         
+    public class TabDedportuaria extends TableDef
+        {
+        // campos
+        public FieldDef dpoiden;
+        public FieldDef dpoejeraplic;
+        public FieldDef dposociedad;
+        public FieldDef dpoanyo;
+        public FieldDef dpodescripcion;
+        public FieldDef dpobasededuc;
+        public FieldDef dpoporcentaje;
+        public FieldDef dpodeduccion;
+        public FieldDef dposaldoini;
+        public FieldDef dpoaplicado;
+        public TabDedportuaria(String name)
+            {
+            super(name);
+            dpoiden = new FieldDef("dpoiden",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dpoejeraplic = new FieldDef("dpoejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dposociedad = new FieldDef("dposociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dpoanyo = new FieldDef("dpoanyo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            dpodescripcion = new FieldDef("dpodescripcion",FieldDef.CHAR,2000);
+            dpobasededuc = new FieldDef("dpobasededuc",FieldDef.FLOAT,6,0);
+            dpoporcentaje = new FieldDef("dpoporcentaje",FieldDef.FLOAT,6,0);
+            dpodeduccion = new FieldDef("dpodeduccion",FieldDef.FLOAT,6,0);
+            dposaldoini = new FieldDef("dposaldoini",FieldDef.FLOAT,6,0);
+            dpoaplicado = new FieldDef("dpoaplicado",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                dpoiden,
+                dpoejeraplic,
+                dposociedad,
+                dpoanyo,
+                dpodescripcion,
+                dpobasededuc,
+                dpoporcentaje,
+                dpodeduccion,
+                dposaldoini,
+                dpoaplicado                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dpoiden };
+            setDescription("Deduccion inversion actividades portuarias");
+            setPrimaryKeys(arrayf);
+            dpoiden.setAutoIncrementable(true);
+            dpoejeraplic.setDescription("Ejercicio fiscal aplicacion");
+            dposociedad.setDescription("Sociedad");
+            dpoanyo.setDescription("Ejercicio");
+            dpodescripcion.setDescription("Descripcion");
+            dpobasededuc.setDescription("Base reduccion");
+            dpoporcentaje.setDescription("% Reduccion");
+            dpodeduccion.setDescription("Importe reduccion");
+            dposaldoini.setDescription("Saldo inicio ejercicio");
+            dpoaplicado.setDescription("Importe aplicado");
+            }
+        }
+        
+    public class TabRicdetmaterial extends TableDef
+        {
+        // campos
+        public FieldDef rdmiden;
+        public FieldDef rdmsociedad;
+        public FieldDef rdmejeraplic;
+        public FieldDef rdmtipo;
+        public FieldDef rdmejerdotric;
+        public FieldDef rdmfecha;
+        public FieldDef rdmdescripcion;
+        public FieldDef rdmimporte;
+        public FieldDef rdmfeclimite;
+        public TabRicdetmaterial(String name)
+            {
+            super(name);
+            rdmiden = new FieldDef("rdmiden",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            rdmsociedad = new FieldDef("rdmsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            rdmejeraplic = new FieldDef("rdmejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            rdmtipo = new FieldDef("rdmtipo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            rdmejerdotric = new FieldDef("rdmejerdotric",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            rdmfecha = new FieldDef("rdmfecha",FieldDef.DATE);
+            rdmdescripcion = new FieldDef("rdmdescripcion",FieldDef.CHAR,100);
+            rdmimporte = new FieldDef("rdmimporte",FieldDef.FLOAT,6,0);
+            rdmfeclimite = new FieldDef("rdmfeclimite",FieldDef.DATE);
+            FieldDef array[] = {
+                rdmiden,
+                rdmsociedad,
+                rdmejeraplic,
+                rdmtipo,
+                rdmejerdotric,
+                rdmfecha,
+                rdmdescripcion,
+                rdmimporte,
+                rdmfeclimite                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {rdmiden };
+            setDescription("Detalle elementos materializacion RIC");
+            setPrimaryKeys(arrayf);
+            rdmiden.setAutoIncrementable(true);
+            rdmsociedad.setDescription("CODIGO DE SOCIEDAD");
+            rdmejeraplic.setDescription("EJERCICIO");
+            rdmtipo.setDescription("TIPO ELEMENTO (1: A,B,B bis, D 1er   2:Resto)");
+            rdmejerdotric.setDescription("Ejercicio dotacion de la RIC");
+            rdmfecha.setDescription("Fecha adquisicion");
+            rdmdescripcion.setDescription("Descripcion elemento");
+            rdmimporte.setDescription("Importe adquisicion");
+            rdmfeclimite.setDescription("Fecha limite en activo");
+            }
+        }
+        
+    public class TabCtacovid19 extends TableDef
+        {
+        // campos
+        public FieldDef ccvejeraplic;
+        public FieldDef ccvsociedad;
+        public FieldDef ccvsolicert;
+        public FieldDef ccvmotivert;
+        public FieldDef ccvdeterert;
+        public FieldDef ccvnutraert;
+        public FieldDef ccvduranert;
+        public FieldDef ccvdurfiert;
+        public FieldDef ccvnutrfert;
+        public FieldDef ccvporpepre;
+        public FieldDef ccvdurpepre;
+        public FieldDef ccvporperco;
+        public FieldDef ccvalqteral;
+        public FieldDef ccvmorvolal;
+        public FieldDef ccvayufinal;
+        public FieldDef ccvavimpico;
+        public FieldDef ccvavporico;
+        public FieldDef ccvplanayup;
+        public FieldDef ccvmorathip;
+        public FieldDef ccvmornohip;
+        public FieldDef ccvsusumins;
+        public FieldDef ccvturapoyo;
+        public TabCtacovid19(String name)
+            {
+            super(name);
+            ccvejeraplic = new FieldDef("ccvejeraplic",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            ccvsociedad = new FieldDef("ccvsociedad",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            ccvsolicert = new FieldDef("ccvsolicert",FieldDef.INTEGER,0);
+            ccvmotivert = new FieldDef("ccvmotivert",FieldDef.INTEGER,0);
+            ccvdeterert = new FieldDef("ccvdeterert",FieldDef.INTEGER,0);
+            ccvnutraert = new FieldDef("ccvnutraert",FieldDef.FLOAT,6,0);
+            ccvduranert = new FieldDef("ccvduranert",FieldDef.DATE);
+            ccvdurfiert = new FieldDef("ccvdurfiert",FieldDef.DATE);
+            ccvnutrfert = new FieldDef("ccvnutrfert",FieldDef.FLOAT,6,0);
+            ccvporpepre = new FieldDef("ccvporpepre",FieldDef.FLOAT,6,0);
+            ccvdurpepre = new FieldDef("ccvdurpepre",FieldDef.INTEGER,0);
+            ccvporperco = new FieldDef("ccvporperco",FieldDef.FLOAT,6,0);
+            ccvalqteral = new FieldDef("ccvalqteral",FieldDef.INTEGER,0);
+            ccvmorvolal = new FieldDef("ccvmorvolal",FieldDef.INTEGER,0);
+            ccvayufinal = new FieldDef("ccvayufinal",FieldDef.INTEGER,0);
+            ccvavimpico = new FieldDef("ccvavimpico",FieldDef.FLOAT,6,0);
+            ccvavporico = new FieldDef("ccvavporico",FieldDef.FLOAT,6,0);
+            ccvplanayup = new FieldDef("ccvplanayup",FieldDef.CHAR,500);
+            ccvmorathip = new FieldDef("ccvmorathip",FieldDef.INTEGER,0);
+            ccvmornohip = new FieldDef("ccvmornohip",FieldDef.INTEGER,0);
+            ccvsusumins = new FieldDef("ccvsusumins",FieldDef.INTEGER,0);
+            ccvturapoyo = new FieldDef("ccvturapoyo",FieldDef.INTEGER,0);
+            FieldDef array[] = {
+                ccvejeraplic,
+                ccvsociedad,
+                ccvsolicert,
+                ccvmotivert,
+                ccvdeterert,
+                ccvnutraert,
+                ccvduranert,
+                ccvdurfiert,
+                ccvnutrfert,
+                ccvporpepre,
+                ccvdurpepre,
+                ccvporperco,
+                ccvalqteral,
+                ccvmorvolal,
+                ccvayufinal,
+                ccvavimpico,
+                ccvavporico,
+                ccvplanayup,
+                ccvmorathip,
+                ccvmornohip,
+                ccvsusumins,
+                ccvturapoyo                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {ccvejeraplic,ccvsociedad };
+            setPrimaryKeys(arrayf);
+            ccvejeraplic.setDescription("Ejercicio fiscal aplicacion");
+            ccvsociedad.setDescription("SOCIEDAD");
+            ccvsolicert.setDescription("Medidas laborables Solicitud ERTE (1:SÍ/2:NO)");
+            ccvmotivert.setDescription("Medidas laborables Solicitud ERTE motivación (1/2/3)");
+            ccvdeterert.setDescription("Medidas laborables Solicitud ERTE determinado (1/2/3)");
+            ccvnutraert.setDescription("Medidas laborables Solicitud ERTE número de trabajadores en plantilla antes");
+            ccvduranert.setDescription("Medidas laborables Solicitud ERTE duración fecha inicio");
+            ccvdurfiert.setDescription("Medidas laborables Solicitud ERTE duración fecha fin");
+            ccvnutrfert.setDescription("Medidas laborables Solicitud ERTE número de trabajadores afectados");
+            ccvporpepre.setDescription("Medidas laborables Permiso Retribuido Recuperable porcentaje de personal");
+            ccvdurpepre.setDescription("Medidas laborables Permiso Retribuido Recuperable duración (días)");
+            ccvporperco.setDescription("Medidas laborables Baja laboral COVID porcentaje de personal fijo afectados");
+            ccvalqteral.setDescription("Alquileres Alquileres a Terceros (1/2/3/4)");
+            ccvmorvolal.setDescription("Alquileres Moratorias voluntarias (1:SÍ/2:NO)");
+            ccvayufinal.setDescription("Alquileres Ayudas financieras públicas (1:SÍ/2:NO)");
+            ccvavimpico.setDescription("Avales ICO Cantidad importe concedido");
+            ccvavporico.setDescription("Avales ICO Porcentaje cantidad importe concedido");
+            ccvplanayup.setDescription("Ayudas públicas Plan al que se acoge");
+            ccvmorathip.setDescription("Moratoria hipotecaria se ha acogido (1:SÍ/2:NO)");
+            ccvmornohip.setDescription("Moratoria no hipotecaria se ha acogido (1:SÍ/2:NO)");
+            ccvsusumins.setDescription("Suministros solicitud flexibilización y suspensión (1:SÍ/2:NO)");
+            ccvturapoyo.setDescription("Turismo acogido a medidas de apoyo del sector (1:SÍ/2:NO)");
+            }
+        }
+        
     public CatJiss()
         {
         tabbds = new TabBds("bds");
@@ -48472,6 +49047,9 @@ public class CatJiss extends Catalog
         tabgrupoimpprevio2 = new TabGrupoimpprevio2("grupoimpprevio2");
         tabentmenores = new TabEntmenores("entmenores");
         tabgrupodedantlim = new TabGrupodedantlim("grupodedantlim");
+        tabdedportuaria = new TabDedportuaria("dedportuaria");
+        tabricdetmaterial = new TabRicdetmaterial("ricdetmaterial");
+        tabctacovid19 = new TabCtacovid19("ctacovid19");
         TableDef array[] = {
             tabbds,
             tabgycauto,
@@ -48847,7 +49425,10 @@ public class CatJiss extends Catalog
             tabgrupoperdprelim,
             tabgrupoimpprevio2,
             tabentmenores,
-            tabgrupodedantlim            
+            tabgrupodedantlim,
+            tabdedportuaria,
+            tabricdetmaterial,
+            tabctacovid19            
             };
         setTables(array);
         FieldDef tabcuentasArrayf1[] = { tabcuentas.ctaejeraplic,tabcuentas.ctasector };
@@ -50510,6 +51091,11 @@ public class CatJiss extends Catalog
             new ForeignKey(tabsociedades,tabgrupodedantlimArrayf1)            
             };
         tabgrupodedantlim.setForeignKeys(tabgrupodedantlimArrayfk);
+        FieldDef tabdedportuariaArrayf1[] = { tabdedportuaria.dpoejeraplic,tabdedportuaria.dposociedad };
+        ForeignKey tabdedportuariaArrayfk[] = { 
+            new ForeignKey(tabsociedades,tabdedportuariaArrayf1)            
+            };
+        tabdedportuaria.setForeignKeys(tabdedportuariaArrayfk);
         }
     }
     

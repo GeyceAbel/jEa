@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Feb 03 13:34:33 CET 2020
+// Fecha y hora:     Thu Jul 22 10:04:27 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -76,6 +76,14 @@ public class CatModelo200 extends Catalog
     public TabMod200h13b tabmod200h13b;
     public TabMod200h17c tabmod200h17c;
     public TabMod200h18d tabmod200h18d;
+    public TabMod200h26b tabmod200h26b;
+    public TabMod200h26c tabmod200h26c;
+    public TabMod200h26d tabmod200h26d;
+    public TabMod200h26e tabmod200h26e;
+    public TabMod200h26f tabmod200h26f;
+    public TabMod200h15b tabmod200h15b;
+    public TabMod200h18e tabmod200h18e;
+    public TabMod200h20e tabmod200h20e;
     public class TabMod200h2 extends TableDef
         {
         // campos
@@ -252,6 +260,18 @@ public class CatModelo200 extends Catalog
         public FieldDef m2002b1fispartt;
         public FieldDef m2002b1perddett;
         public FieldDef m2002b1disminut;
+        public FieldDef m2002cnif1;
+        public FieldDef m2002cnombre1;
+        public FieldDef m2002cnif2;
+        public FieldDef m2002cnombre2;
+        public FieldDef m2002cnif3;
+        public FieldDef m2002cnombre3;
+        public FieldDef m2002cnif4;
+        public FieldDef m2002cnombre4;
+        public FieldDef m2002cnif5;
+        public FieldDef m2002cnombre5;
+        public FieldDef m2002cnif6;
+        public FieldDef m2002cnombre6;
         public TabMod200h2(String name)
             {
             super(name);
@@ -428,6 +448,18 @@ public class CatModelo200 extends Catalog
             m2002b1fispartt = new FieldDef("m2002b1fispartt",FieldDef.FLOAT,6,0);
             m2002b1perddett = new FieldDef("m2002b1perddett",FieldDef.FLOAT,6,0);
             m2002b1disminut = new FieldDef("m2002b1disminut",FieldDef.FLOAT,6,0);
+            m2002cnif1 = new FieldDef("m2002cnif1",FieldDef.CHAR,9);
+            m2002cnombre1 = new FieldDef("m2002cnombre1",FieldDef.CHAR,40);
+            m2002cnif2 = new FieldDef("m2002cnif2",FieldDef.CHAR,9);
+            m2002cnombre2 = new FieldDef("m2002cnombre2",FieldDef.CHAR,40);
+            m2002cnif3 = new FieldDef("m2002cnif3",FieldDef.CHAR,9);
+            m2002cnombre3 = new FieldDef("m2002cnombre3",FieldDef.CHAR,40);
+            m2002cnif4 = new FieldDef("m2002cnif4",FieldDef.CHAR,9);
+            m2002cnombre4 = new FieldDef("m2002cnombre4",FieldDef.CHAR,40);
+            m2002cnif5 = new FieldDef("m2002cnif5",FieldDef.CHAR,9);
+            m2002cnombre5 = new FieldDef("m2002cnombre5",FieldDef.CHAR,40);
+            m2002cnif6 = new FieldDef("m2002cnif6",FieldDef.CHAR,9);
+            m2002cnombre6 = new FieldDef("m2002cnombre6",FieldDef.CHAR,40);
             FieldDef array[] = {
                 m2002dominio,
                 m2002nif,
@@ -601,7 +633,19 @@ public class CatModelo200 extends Catalog
                 m2002b1disminu3,
                 m2002b1fispartt,
                 m2002b1perddett,
-                m2002b1disminut                
+                m2002b1disminut,
+                m2002cnif1,
+                m2002cnombre1,
+                m2002cnif2,
+                m2002cnombre2,
+                m2002cnif3,
+                m2002cnombre3,
+                m2002cnif4,
+                m2002cnombre4,
+                m2002cnif5,
+                m2002cnombre5,
+                m2002cnif6,
+                m2002cnombre6                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m2002dominio,m2002nif,m2002ejercicio,m2002periodo,m2002pagina };
@@ -774,6 +818,18 @@ public class CatModelo200 extends Catalog
             m2002b1fispartt.setDescription("B.1. Partic.declarte en otras Valor fiscal participacion sumatorio total");
             m2002b1perddett.setDescription("B.1. Partic.declarte en otras Perdida deterioro valor repr.participacion sumatorio total");
             m2002b1disminut.setDescription("B.1. Partic.declarte en otras Disminucion valor originada criterio sumatorio total");
+            m2002cnif1.setDescription("C Entidades menores dependientes diócesis - Entidad 1 - NIF");
+            m2002cnombre1.setDescription("C Entidades menores dependientes diócesis - Entidad 1 - NOMBRE O RAZON");
+            m2002cnif2.setDescription("C Entidades menores dependientes diócesis - Entidad 2 - NIF");
+            m2002cnombre2.setDescription("C Entidades menores dependientes diócesis - Entidad 2 - NOMBRE O RAZON");
+            m2002cnif3.setDescription("C Entidades menores dependientes diócesis - Entidad 3 - NIF");
+            m2002cnombre3.setDescription("C Entidades menores dependientes diócesis - Entidad 3 - NOMBRE O RAZON");
+            m2002cnif4.setDescription("C Entidades menores dependientes diócesis - Entidad 4 - NIF");
+            m2002cnombre4.setDescription("C Entidades menores dependientes diócesis - Entidad 4 - NOMBRE O RAZON");
+            m2002cnif5.setDescription("C Entidades menores dependientes diócesis - Entidad 5 - NIF");
+            m2002cnombre5.setDescription("C Entidades menores dependientes diócesis - Entidad 5 - NOMBRE O RAZON");
+            m2002cnif6.setDescription("C Entidades menores dependientes diócesis - Entidad 6 - NIF");
+            m2002cnombre6.setDescription("C Entidades menores dependientes diócesis - Entidad 6 - NOMBRE O RAZON");
             }
         }
         
@@ -1602,6 +1658,10 @@ public class CatModelo200 extends Catalog
         public FieldDef m2019regelec3;
         public FieldDef m2019regelec4;
         public FieldDef m2019regelec5;
+        public FieldDef m2019impnet1;
+        public FieldDef m2019impnet2;
+        public FieldDef m2019impnet3;
+        public FieldDef m2019regelec6;
         public TabMod200h19(String name)
             {
             super(name);
@@ -1713,6 +1773,10 @@ public class CatModelo200 extends Catalog
             m2019regelec3 = new FieldDef("m2019regelec3",FieldDef.CHAR,22);
             m2019regelec4 = new FieldDef("m2019regelec4",FieldDef.CHAR,13);
             m2019regelec5 = new FieldDef("m2019regelec5",FieldDef.CHAR,13);
+            m2019impnet1 = new FieldDef("m2019impnet1",FieldDef.INTEGER,0);
+            m2019impnet2 = new FieldDef("m2019impnet2",FieldDef.INTEGER,0);
+            m2019impnet3 = new FieldDef("m2019impnet3",FieldDef.INTEGER,0);
+            m2019regelec6 = new FieldDef("m2019regelec6",FieldDef.CHAR,22);
             FieldDef array[] = {
                 m2019dominio,
                 m2019nif,
@@ -1821,7 +1885,11 @@ public class CatModelo200 extends Catalog
                 m2019regelec2,
                 m2019regelec3,
                 m2019regelec4,
-                m2019regelec5                
+                m2019regelec5,
+                m2019impnet1,
+                m2019impnet2,
+                m2019impnet3,
+                m2019regelec6                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m2019dominio,m2019nif,m2019ejercicio,m2019periodo,m2019pagina };
@@ -1929,6 +1997,10 @@ public class CatModelo200 extends Catalog
             m2019regelec3.setDescription("Presentacion de documentacion previa por Registro electronico. Numero de registro 3");
             m2019regelec4.setDescription("Presentacion de documentacion previa por Registro electronico. Numero de registro 4");
             m2019regelec5.setDescription("Presentacion de documentacion previa por Registro electronico. Numero de registro 5");
+            m2019impnet1.setDescription("Importe neto cifra negocios ejer.anterior - inferior a 20 millones de euros");
+            m2019impnet2.setDescription("Importe neto cifra negocios ejer.anterior - de al menos 20 millones de euros pero inferior a 60 millones de euros");
+            m2019impnet3.setDescription("Importe neto cifra negocios ejer.anterior - de al menos 60 millones de euros");
+            m2019regelec6.setDescription("Presentacion de documentacion previa por Registro electronico. Numero de registro 6");
             }
         }
         
@@ -2038,6 +2110,11 @@ public class CatModelo200 extends Catalog
         public FieldDef m2021cuopdttot;
         public FieldDef m2021cuoini15;
         public FieldDef m2021cuopdt15;
+        public FieldDef m2021fechaco1;
+        public FieldDef m2021fechaco2;
+        public FieldDef m2021fechaco3;
+        public FieldDef m2021fechaco4;
+        public FieldDef m2021fechaco5;
         public TabMod200h21(String name)
             {
             super(name);
@@ -2144,6 +2221,11 @@ public class CatModelo200 extends Catalog
             m2021cuopdttot = new FieldDef("m2021cuopdttot",FieldDef.FLOAT,6,0);
             m2021cuoini15 = new FieldDef("m2021cuoini15",FieldDef.FLOAT,6,0);
             m2021cuopdt15 = new FieldDef("m2021cuopdt15",FieldDef.FLOAT,6,0);
+            m2021fechaco1 = new FieldDef("m2021fechaco1",FieldDef.DATE);
+            m2021fechaco2 = new FieldDef("m2021fechaco2",FieldDef.DATE);
+            m2021fechaco3 = new FieldDef("m2021fechaco3",FieldDef.DATE);
+            m2021fechaco4 = new FieldDef("m2021fechaco4",FieldDef.DATE);
+            m2021fechaco5 = new FieldDef("m2021fechaco5",FieldDef.DATE);
             FieldDef array[] = {
                 m2021dominio,
                 m2021nif,
@@ -2247,7 +2329,12 @@ public class CatModelo200 extends Catalog
                 m2021cuoapltot,
                 m2021cuopdttot,
                 m2021cuoini15,
-                m2021cuopdt15                
+                m2021cuopdt15,
+                m2021fechaco1,
+                m2021fechaco2,
+                m2021fechaco3,
+                m2021fechaco4,
+                m2021fechaco5                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m2021dominio,m2021nif,m2021ejercicio,m2021periodo,m2021pagina };
@@ -2350,6 +2437,11 @@ public class CatModelo200 extends Catalog
             m2021cuopdttot.setDescription("compensacion cuotas. Total. Pdte. aplicacion en ejercicios futuros [695]");
             m2021cuoini15.setDescription("compensacion cuotas. 2015 Pdte. aplicacion al principio del periodo [1225]");
             m2021cuopdt15.setDescription("compensacion cuotas. 2015 Pdte. aplicacion en ejercicios futuros [1226]");
+            m2021fechaco1.setDescription("Operaciones fusion 1. Fecha comunicacion operacion");
+            m2021fechaco2.setDescription("Operaciones fusion 2. Fecha comunicacion operacion");
+            m2021fechaco3.setDescription("Operaciones fusion 3. Fecha comunicacion operacion");
+            m2021fechaco4.setDescription("Operaciones fusion 4. Fecha comunicacion operacion");
+            m2021fechaco5.setDescription("Operaciones fusion 5. Fecha comunicacion operacion");
             }
         }
         
@@ -3632,6 +3724,11 @@ public class CatModelo200 extends Catalog
         public FieldDef m2024compacvi;
         public FieldDef m2024compacna;
         public FieldDef m2024compactot;
+        public FieldDef m2024decorrdal;
+        public FieldDef m2024decorrdgu;
+        public FieldDef m2024decorrdvi;
+        public FieldDef m2024decorrdna;
+        public FieldDef m2024decorrdtot;
         public TabMod200h24(String name)
             {
             super(name);
@@ -3721,6 +3818,11 @@ public class CatModelo200 extends Catalog
             m2024compacvi = new FieldDef("m2024compacvi",FieldDef.FLOAT,6,0);
             m2024compacna = new FieldDef("m2024compacna",FieldDef.FLOAT,6,0);
             m2024compactot = new FieldDef("m2024compactot",FieldDef.FLOAT,6,0);
+            m2024decorrdal = new FieldDef("m2024decorrdal",FieldDef.FLOAT,6,0);
+            m2024decorrdgu = new FieldDef("m2024decorrdgu",FieldDef.FLOAT,6,0);
+            m2024decorrdvi = new FieldDef("m2024decorrdvi",FieldDef.FLOAT,6,0);
+            m2024decorrdna = new FieldDef("m2024decorrdna",FieldDef.FLOAT,6,0);
+            m2024decorrdtot = new FieldDef("m2024decorrdtot",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m2024dominio,
                 m2024nif,
@@ -3807,7 +3909,12 @@ public class CatModelo200 extends Catalog
                 m2024compacgu,
                 m2024compacvi,
                 m2024compacna,
-                m2024compactot                
+                m2024compactot,
+                m2024decorrdal,
+                m2024decorrdgu,
+                m2024decorrdvi,
+                m2024decorrdna,
+                m2024decorrdtot                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m2024dominio,m2024nif,m2024ejercicio,m2024periodo };
@@ -3894,6 +4001,11 @@ public class CatModelo200 extends Catalog
             m2024compacvi.setDescription("Tributacion conjunta-Abono conversion activos impto.diferido. Vizcaya [1307]");
             m2024compacna.setDescription("Tributacion conjunta-Abono conversion activos impto.diferido. Navarra [1308]");
             m2024compactot.setDescription("Tributacion conjunta-Abono conversion activos impto.diferido. Total [1044]");
+            m2024decorrdal.setDescription("Tributacion conjunta-Nueva declaracion RDL 19/2020 Importe ingreso/devolucion declaracion originaria. Álava [2313]");
+            m2024decorrdgu.setDescription("Tributacion conjunta-Nueva declaracion RDL 19/2020 Importe ingreso/devolucion declaracion originaria. Guipuzcoa [2314]");
+            m2024decorrdvi.setDescription("Tributacion conjunta-Nueva declaracion RDL 19/2020 Importe ingreso/devolucion declaracion originaria. Vizcaya [2315]");
+            m2024decorrdna.setDescription("Tributacion conjunta-Nueva declaracion RDL 19/2020 Importe ingreso/devolucion declaracion originaria. Navarra [2316]");
+            m2024decorrdtot.setDescription("Tributacion conjunta-Nueva declaracion RDL 19/2020 Importe ingreso/devolucion declaracion originaria. Total [2312]");
             }
         }
         
@@ -3923,7 +4035,7 @@ public class CatModelo200 extends Catalog
             df2longitud = new FieldDef("df2longitud",FieldDef.INTEGER,0);
             df2tipo = new FieldDef("df2tipo",FieldDef.CHAR,3);
             df2formato = new FieldDef("df2formato",FieldDef.CHAR,20);
-            df2desc = new FieldDef("df2desc",FieldDef.CHAR,200);
+            df2desc = new FieldDef("df2desc",FieldDef.CHAR,300);
             df2tabla = new FieldDef("df2tabla",FieldDef.CHAR,15);
             df2campo = new FieldDef("df2campo",FieldDef.CHAR,15);
             df2decimal = new FieldDef("df2decimal",FieldDef.INTEGER,0);
@@ -4404,6 +4516,29 @@ public class CatModelo200 extends Catalog
         public FieldDef m2020cuoini13;
         public FieldDef m2020cuoapl13;
         public FieldDef m2020cuopdt13;
+        public FieldDef m2020eric;
+        public FieldDef m2020cuoini14;
+        public FieldDef m2020cuoapl14;
+        public FieldDef m2020cuopdt14;
+        public FieldDef m2020cuoini15;
+        public FieldDef m2020cuoapl15;
+        public FieldDef m2020cuopdt15;
+        public FieldDef m2020invptp08;
+        public FieldDef m2020invptp09;
+        public FieldDef m2020invptp10;
+        public FieldDef m2020inviab10;
+        public FieldDef m2020invicd10;
+        public FieldDef m2020invptf08;
+        public FieldDef m2020invptf09;
+        public FieldDef m2020invptf10;
+        public FieldDef m2020invmtf07;
+        public FieldDef m2020invmtf08;
+        public FieldDef m2020invmtf09;
+        public FieldDef m2020invmtf10;
+        public FieldDef m2020invmtf11;
+        public FieldDef m2020inviab11;
+        public FieldDef m2020invicd11;
+        public FieldDef m2020invptf11;
         public TabMod200h20(String name)
             {
             super(name);
@@ -4592,6 +4727,29 @@ public class CatModelo200 extends Catalog
             m2020cuoini13 = new FieldDef("m2020cuoini13",FieldDef.FLOAT,6,0);
             m2020cuoapl13 = new FieldDef("m2020cuoapl13",FieldDef.FLOAT,6,0);
             m2020cuopdt13 = new FieldDef("m2020cuopdt13",FieldDef.FLOAT,6,0);
+            m2020eric = new FieldDef("m2020eric",FieldDef.FLOAT,6,0);
+            m2020cuoini14 = new FieldDef("m2020cuoini14",FieldDef.FLOAT,6,0);
+            m2020cuoapl14 = new FieldDef("m2020cuoapl14",FieldDef.FLOAT,6,0);
+            m2020cuopdt14 = new FieldDef("m2020cuopdt14",FieldDef.FLOAT,6,0);
+            m2020cuoini15 = new FieldDef("m2020cuoini15",FieldDef.FLOAT,6,0);
+            m2020cuoapl15 = new FieldDef("m2020cuoapl15",FieldDef.FLOAT,6,0);
+            m2020cuopdt15 = new FieldDef("m2020cuopdt15",FieldDef.FLOAT,6,0);
+            m2020invptp08 = new FieldDef("m2020invptp08",FieldDef.FLOAT,6,0);
+            m2020invptp09 = new FieldDef("m2020invptp09",FieldDef.FLOAT,6,0);
+            m2020invptp10 = new FieldDef("m2020invptp10",FieldDef.FLOAT,6,0);
+            m2020inviab10 = new FieldDef("m2020inviab10",FieldDef.FLOAT,6,0);
+            m2020invicd10 = new FieldDef("m2020invicd10",FieldDef.FLOAT,6,0);
+            m2020invptf08 = new FieldDef("m2020invptf08",FieldDef.FLOAT,6,0);
+            m2020invptf09 = new FieldDef("m2020invptf09",FieldDef.FLOAT,6,0);
+            m2020invptf10 = new FieldDef("m2020invptf10",FieldDef.FLOAT,6,0);
+            m2020invmtf07 = new FieldDef("m2020invmtf07",FieldDef.FLOAT,6,0);
+            m2020invmtf08 = new FieldDef("m2020invmtf08",FieldDef.FLOAT,6,0);
+            m2020invmtf09 = new FieldDef("m2020invmtf09",FieldDef.FLOAT,6,0);
+            m2020invmtf10 = new FieldDef("m2020invmtf10",FieldDef.FLOAT,6,0);
+            m2020invmtf11 = new FieldDef("m2020invmtf11",FieldDef.FLOAT,6,0);
+            m2020inviab11 = new FieldDef("m2020inviab11",FieldDef.FLOAT,6,0);
+            m2020invicd11 = new FieldDef("m2020invicd11",FieldDef.FLOAT,6,0);
+            m2020invptf11 = new FieldDef("m2020invptf11",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m2020dominio,
                 m2020nif,
@@ -4777,7 +4935,30 @@ public class CatModelo200 extends Catalog
                 m2020cuopdt12,
                 m2020cuoini13,
                 m2020cuoapl13,
-                m2020cuopdt13                
+                m2020cuopdt13,
+                m2020eric,
+                m2020cuoini14,
+                m2020cuoapl14,
+                m2020cuopdt14,
+                m2020cuoini15,
+                m2020cuoapl15,
+                m2020cuopdt15,
+                m2020invptp08,
+                m2020invptp09,
+                m2020invptp10,
+                m2020inviab10,
+                m2020invicd10,
+                m2020invptf08,
+                m2020invptf09,
+                m2020invptf10,
+                m2020invmtf07,
+                m2020invmtf08,
+                m2020invmtf09,
+                m2020invmtf10,
+                m2020invmtf11,
+                m2020inviab11,
+                m2020invicd11,
+                m2020invptf11                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m2020dominio,m2020nif,m2020ejercicio,m2020periodo,m2020pagina };
@@ -4962,6 +5143,29 @@ public class CatModelo200 extends Catalog
             m2020cuoini13.setDescription("compensacion cuotas. 2018 Pdte. aplicacion al principio del periodo [2113]");
             m2020cuoapl13.setDescription("compensacion cuotas. 2018 Aplicado en esta liquidacion [2114]");
             m2020cuopdt13.setDescription("compensacion cuotas. 2018 Pdte. aplicacion en ejercicios futuros [2115]");
+            m2020eric.setDescription("Reserva inversiones Canarias. Resultados cooperativos [E10] (*nou)");
+            m2020cuoini14.setDescription("compensacion cuotas. 2019 Pdte. aplicacion al principio del periodo [2281]");
+            m2020cuoapl14.setDescription("compensacion cuotas. 2019 Aplicado en esta liquidacion [2282]");
+            m2020cuopdt14.setDescription("compensacion cuotas. 2019 Pdte. aplicacion en ejercicios futuros [2283]");
+            m2020cuoini15.setDescription("Compensacion cuotas. 2020 Pdte. aplicacion al principio del periodo [2452]");
+            m2020cuoapl15.setDescription("Compensacion cuotas. 2020 Aplicado en esta liquidacion [2453]");
+            m2020cuopdt15.setDescription("Compensacion cuotas. 2020 Pdte. aplicacion en ejercicios futuros [2454]");
+            m2020invptp08.setDescription("Inversión anticipada 2017 Importe de la dotación [2442]");
+            m2020invptp09.setDescription("Inversión anticipada 2018 Importe de la dotación [2444]");
+            m2020invptp10.setDescription("Inversión anticipada 2019 Importe de la dotación [2446]");
+            m2020inviab10.setDescription("Inversión anticipada 2020 Inversiones previstas A y B [2449]");
+            m2020invicd10.setDescription("Inversión anticipada 2020 Inversiones previstas C y D [2450]");
+            m2020invptf08.setDescription("Inversión anticipada 2017 Pdt. dotar RIC al final [2443]");
+            m2020invptf09.setDescription("Inversión anticipada 2018 Pdt. dotar RIC al final [2445]");
+            m2020invptf10.setDescription("Inversión anticipada 2019 Pdt. dotar RIC al final [2447]");
+            m2020invmtf07.setDescription("Inversión anticipada 2016 materializado en esta liquidacion [2437]");
+            m2020invmtf08.setDescription("Inversión anticipada 2017 materializado en esta liquidacion [2438]");
+            m2020invmtf09.setDescription("Inversión anticipada 2018 materializado en esta liquidacion [2439]");
+            m2020invmtf10.setDescription("Inversión anticipada 2019 materializado en esta liquidacion [2440]");
+            m2020invmtf11.setDescription("Inversión anticipada 2020 materializado en esta liquidacion [2441]");
+            m2020inviab11.setDescription("Inversión anticipada 2020 Inversiones previstas A y B [2449]");
+            m2020invicd11.setDescription("Inversión anticipada 2020 Inversiones previstas C y D [2450]");
+            m2020invptf11.setDescription("Inversión anticipada 2020 Pdt. dotar RIC al final [2451]");
             }
         }
         
@@ -5082,6 +5286,17 @@ public class CatModelo200 extends Catalog
         public FieldDef m2001tipozec;
         public FieldDef m2001modcon;
         public FieldDef m2001tiposocimi;
+        public FieldDef m2001car080;
+        public FieldDef m2001car078;
+        public FieldDef m2001car079;
+        public FieldDef m2001car081;
+        public FieldDef m2001car082;
+        public FieldDef m2001matrnif;
+        public FieldDef m2001matrcpais;
+        public FieldDef m2001matrnombre;
+        public FieldDef m2001matrcpjuri;
+        public FieldDef m2001decsctas;
+        public FieldDef m2001nuedecrdl;
         public TabMod200h1(String name)
             {
             super(name);
@@ -5199,6 +5414,17 @@ public class CatModelo200 extends Catalog
             m2001tipozec = new FieldDef("m2001tipozec",FieldDef.CHAR,1);
             m2001modcon = new FieldDef("m2001modcon",FieldDef.CHAR,1);
             m2001tiposocimi = new FieldDef("m2001tiposocimi",FieldDef.CHAR,1);
+            m2001car080 = new FieldDef("m2001car080",FieldDef.CHAR,1);
+            m2001car078 = new FieldDef("m2001car078",FieldDef.CHAR,1);
+            m2001car079 = new FieldDef("m2001car079",FieldDef.CHAR,1);
+            m2001car081 = new FieldDef("m2001car081",FieldDef.CHAR,1);
+            m2001car082 = new FieldDef("m2001car082",FieldDef.CHAR,1);
+            m2001matrnif = new FieldDef("m2001matrnif",FieldDef.CHAR,15);
+            m2001matrcpais = new FieldDef("m2001matrcpais",FieldDef.CHAR,2);
+            m2001matrnombre = new FieldDef("m2001matrnombre",FieldDef.CHAR,40);
+            m2001matrcpjuri = new FieldDef("m2001matrcpjuri",FieldDef.CHAR,2);
+            m2001decsctas = new FieldDef("m2001decsctas",FieldDef.CHAR,1);
+            m2001nuedecrdl = new FieldDef("m2001nuedecrdl",FieldDef.CHAR,1);
             FieldDef array[] = {
                 m2001dominio,
                 m2001nif,
@@ -5313,7 +5539,18 @@ public class CatModelo200 extends Catalog
                 m2001car061,
                 m2001tipozec,
                 m2001modcon,
-                m2001tiposocimi                
+                m2001tiposocimi,
+                m2001car080,
+                m2001car078,
+                m2001car079,
+                m2001car081,
+                m2001car082,
+                m2001matrnif,
+                m2001matrcpais,
+                m2001matrnombre,
+                m2001matrcpjuri,
+                m2001decsctas,
+                m2001nuedecrdl                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m2001dominio,m2001nif,m2001ejercicio,m2001periodo };
@@ -5426,6 +5663,17 @@ public class CatModelo200 extends Catalog
             m2001tipozec.setDescription("Entidad ZEC que pertenece a grupo fiscal");
             m2001modcon.setDescription("Modelo de estados contables que se va a cumplimentar");
             m2001tiposocimi.setDescription("SOCIMIS: Rég.fiscal entrada-salida.");
+            m2001car080.setDescription("Uniones, federaciones y confederaciones de cooperativas [00080]");
+            m2001car078.setDescription("Diócesis, provincia religiosa o entidad eclesiástica que integra entidades menores de ellas dependientes [00078]");
+            m2001car079.setDescription("Entidad ZEC en consolidación fiscal [00079]");
+            m2001car081.setDescription("Filial grupo multinacional [00081]");
+            m2001car082.setDescription("Sociedad matriz última grupo multinacional [00082]");
+            m2001matrnif.setDescription("Datos de la sociedad matriz ultima: NIF o equivalente.");
+            m2001matrcpais.setDescription("Datos de la sociedad matriz ultima: Código país");
+            m2001matrnombre.setDescription("Datos de la sociedad matriz ultima: Nombre o razón social");
+            m2001matrcpjuri.setDescription("Datos de la sociedad matriz ultima: País o jurisdicción");
+            m2001decsctas.setDescription("Declaración correspondiente al plazo ordinario (Art. 124.1 LIS) sin aprobar cuentas anuales");
+            m2001nuedecrdl.setDescription("Nueva declaración según RDLey 19/2020");
             }
         }
         
@@ -5482,6 +5730,7 @@ public class CatModelo200 extends Catalog
         public FieldDef m2005resrevalor;
         public FieldDef m2005rescapit;
         public FieldDef m2005resnivel;
+        public FieldDef m2005resvcooper;
         public TabMod200h5(String name)
             {
             super(name);
@@ -5535,6 +5784,7 @@ public class CatModelo200 extends Catalog
             m2005resrevalor = new FieldDef("m2005resrevalor",FieldDef.FLOAT,6,0);
             m2005rescapit = new FieldDef("m2005rescapit",FieldDef.FLOAT,6,0);
             m2005resnivel = new FieldDef("m2005resnivel",FieldDef.FLOAT,6,0);
+            m2005resvcooper = new FieldDef("m2005resvcooper",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m2005dominio,
                 m2005nif,
@@ -5585,7 +5835,8 @@ public class CatModelo200 extends Catalog
                 m2005deudaceslp,
                 m2005resrevalor,
                 m2005rescapit,
-                m2005resnivel                
+                m2005resnivel,
+                m2005resvcooper                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m2005dominio,m2005nif,m2005ejercicio,m2005periodo };
@@ -5636,6 +5887,7 @@ public class CatModelo200 extends Catalog
             m2005resrevalor.setDescription("Reserva de revalorizacion [702]");
             m2005rescapit.setDescription("Reserva de capitalización [1001]");
             m2005resnivel.setDescription("Reserva de nivelación [1002]");
+            m2005resvcooper.setDescription("Fondo reserva obligatorio cooperativas [712]");
             }
         }
         
@@ -5736,6 +5988,10 @@ public class CatModelo200 extends Catalog
         public FieldDef m2014revdeterb;
         public FieldDef m2014rentquitco;
         public FieldDef m2014revdeterc;
+        public FieldDef m2014dedpcecan;
+        public FieldDef m2014dedautport;
+        public FieldDef m2014dedpcemax;
+        public FieldDef m2014dedpcecmax;
         public TabMod200h14(String name)
             {
             super(name);
@@ -5833,6 +6089,10 @@ public class CatModelo200 extends Catalog
             m2014revdeterb = new FieldDef("m2014revdeterb",FieldDef.FLOAT,6,0);
             m2014rentquitco = new FieldDef("m2014rentquitco",FieldDef.FLOAT,6,0);
             m2014revdeterc = new FieldDef("m2014revdeterc",FieldDef.FLOAT,6,0);
+            m2014dedpcecan = new FieldDef("m2014dedpcecan",FieldDef.FLOAT,6,0);
+            m2014dedautport = new FieldDef("m2014dedautport",FieldDef.FLOAT,6,0);
+            m2014dedpcemax = new FieldDef("m2014dedpcemax",FieldDef.FLOAT,6,0);
+            m2014dedpcecmax = new FieldDef("m2014dedpcecmax",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m2014dominio,
                 m2014nif,
@@ -5927,7 +6187,11 @@ public class CatModelo200 extends Catalog
                 m2014rentaquite,
                 m2014revdeterb,
                 m2014rentquitco,
-                m2014revdeterc                
+                m2014revdeterc,
+                m2014dedpcecan,
+                m2014dedautport,
+                m2014dedpcemax,
+                m2014dedpcecmax                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m2014dominio,m2014nif,m2014ejercicio,m2014periodo };
@@ -6022,6 +6286,10 @@ public class CatModelo200 extends Catalog
             m2014revdeterb.setDescription("Rentas correspondientes reversion deterioros [1509");
             m2014rentquitco.setDescription("Rentas correspondientes reversion deterioros cooperativas a nivel cuota");
             m2014revdeterc.setDescription("Rentas correspondientes reversion deterioros cooperativas a nivel cuota");
+            m2014dedpcecan.setDescription("Deducciones por producciones cinematográficas extranjeras en Canarias (art. 36.2 LIS y DA 14ª Ley 19/1994) [02314]");
+            m2014dedautport.setDescription("Deducción por inversiones y gastos realizados por las autoridades portuarias (art. 38 bis LIS) [02315]");
+            m2014dedpcemax.setDescription("Deducciones por producciones cinematográficas extranjeras importe maximo a aplicar");
+            m2014dedpcecmax.setDescription("Deducciones por producciones cinematográficas extranjeras en Canarias importe maximo a aplicar");
             }
         }
         
@@ -6274,6 +6542,14 @@ public class CatModelo200 extends Catalog
         public FieldDef m2015dincini18;
         public FieldDef m2015dincapl18;
         public FieldDef m2015dincpdt18;
+        public FieldDef m2015bnegini16;
+        public FieldDef m2015bnegapl16;
+        public FieldDef m2015bnegpdt16;
+        public FieldDef m2015dincori19;
+        public FieldDef m2015dincgra19;
+        public FieldDef m2015dincini19;
+        public FieldDef m2015dincapl19;
+        public FieldDef m2015dincpdt19;
         public TabMod200h15(String name)
             {
             super(name);
@@ -6523,6 +6799,14 @@ public class CatModelo200 extends Catalog
             m2015dincini18 = new FieldDef("m2015dincini18",FieldDef.FLOAT,6,0);
             m2015dincapl18 = new FieldDef("m2015dincapl18",FieldDef.FLOAT,6,0);
             m2015dincpdt18 = new FieldDef("m2015dincpdt18",FieldDef.FLOAT,6,0);
+            m2015bnegini16 = new FieldDef("m2015bnegini16",FieldDef.FLOAT,6,0);
+            m2015bnegapl16 = new FieldDef("m2015bnegapl16",FieldDef.FLOAT,6,0);
+            m2015bnegpdt16 = new FieldDef("m2015bnegpdt16",FieldDef.FLOAT,6,0);
+            m2015dincori19 = new FieldDef("m2015dincori19",FieldDef.FLOAT,6,0);
+            m2015dincgra19 = new FieldDef("m2015dincgra19",FieldDef.FLOAT,6,0);
+            m2015dincini19 = new FieldDef("m2015dincini19",FieldDef.FLOAT,6,0);
+            m2015dincapl19 = new FieldDef("m2015dincapl19",FieldDef.FLOAT,6,0);
+            m2015dincpdt19 = new FieldDef("m2015dincpdt19",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m2015dominio,
                 m2015nif,
@@ -6769,7 +7053,15 @@ public class CatModelo200 extends Catalog
                 m2015dincgra18,
                 m2015dincini18,
                 m2015dincapl18,
-                m2015dincpdt18                
+                m2015dincpdt18,
+                m2015bnegini16,
+                m2015bnegapl16,
+                m2015bnegpdt16,
+                m2015dincori19,
+                m2015dincgra19,
+                m2015dincini19,
+                m2015dincapl19,
+                m2015dincpdt19                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m2015dominio,m2015nif,m2015ejercicio,m2015periodo };
@@ -7008,7 +7300,7 @@ public class CatModelo200 extends Catalog
             m2015dincini17.setDescription("Ded.doble impos. interna 2017 Deduccion pendiente");
             m2015dincapl17.setDescription("Ded.doble impos. interna 2017 Deduccion aplicada en esta liquidacion [128]");
             m2015dincpdt17.setDescription("Ded.doble impos. interna 2017 Deduccion pendiente ejercicios futuros [129]");
-            m2015bnegini15.setDescription("bases imp. negat. 2018 Pte. de aplicacion a principio del periodo [1825] (nou*)");
+            m2015bnegini15.setDescription("bases imp. negat. 2018 Pte. de aplicacion a principio del periodo [1825]");
             m2015bnegapl15.setDescription("bases imp. negat. 2018 Aplicado en esta liquidacion [1826]");
             m2015bnegpdt15.setDescription("bases imp. negat. 2018 Pte.aplicacion en periodos futuros [1827]");
             m2015dincori18.setDescription("Ded.doble impos. interna 2018 Deduccion pendiente/generada [127]");
@@ -7016,6 +7308,14 @@ public class CatModelo200 extends Catalog
             m2015dincini18.setDescription("Ded.doble impos. interna 2018 Deduccion pendiente");
             m2015dincapl18.setDescription("Ded.doble impos. interna 2018 Deduccion aplicada en esta liquidacion [128]");
             m2015dincpdt18.setDescription("Ded.doble impos. interna 2018 Deduccion pendiente ejercicios futuros [129]");
+            m2015bnegini16.setDescription("bases imp. negat. 2019 Pte. de aplicacion a principio del periodo [2193] (nou*)");
+            m2015bnegapl16.setDescription("bases imp. negat. 2019 Aplicado en esta liquidacion [2194]");
+            m2015bnegpdt16.setDescription("bases imp. negat. 2019 Pte.aplicacion en periodos futuros [2195]");
+            m2015dincori19.setDescription("Ded.doble impos. interna 2019 Deduccion pendiente/generada [127]");
+            m2015dincgra19.setDescription("Ded.doble impos. interna 2019 Tipo de gravamen periodo generacion");
+            m2015dincini19.setDescription("Ded.doble impos. interna 2019 Deduccion pendiente");
+            m2015dincapl19.setDescription("Ded.doble impos. interna 2019 Deduccion aplicada en esta liquidacion [128]");
+            m2015dincpdt19.setDescription("Ded.doble impos. interna 2019 Deduccion pendiente ejercicios futuros [129]");
             }
         }
         
@@ -10816,6 +11116,8 @@ public class CatModelo200 extends Catalog
         public FieldDef m2007compmatpri;
         public FieldDef m2007varimatpri;
         public FieldDef m2007ingfinpubl;
+        public FieldDef m2007servprofin;
+        public FieldDef m2007serextrest;
         public TabMod200h7(String name)
             {
             super(name);
@@ -10883,6 +11185,8 @@ public class CatModelo200 extends Catalog
             m2007compmatpri = new FieldDef("m2007compmatpri",FieldDef.FLOAT,6,0);
             m2007varimatpri = new FieldDef("m2007varimatpri",FieldDef.FLOAT,6,0);
             m2007ingfinpubl = new FieldDef("m2007ingfinpubl",FieldDef.FLOAT,6,0);
+            m2007servprofin = new FieldDef("m2007servprofin",FieldDef.FLOAT,6,0);
+            m2007serextrest = new FieldDef("m2007serextrest",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m2007dominio,
                 m2007nif,
@@ -10947,7 +11251,9 @@ public class CatModelo200 extends Catalog
                 m2007variexis,
                 m2007compmatpri,
                 m2007varimatpri,
-                m2007ingfinpubl                
+                m2007ingfinpubl,
+                m2007servprofin,
+                m2007serextrest                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m2007dominio,m2007nif,m2007ejercicio,m2007periodo };
@@ -11012,6 +11318,8 @@ public class CatModelo200 extends Catalog
             m2007compmatpri.setDescription("Compras de materias primas y otras materias consumibles (N, A, P) [762]");
             m2007varimatpri.setDescription("Variación de materias primas y otras materias consumibles (N, A, P) [763]");
             m2007ingfinpubl.setDescription("Ingresos caracter financiero entidades concesionarias infraestructuras publicas");
+            m2007servprofin.setDescription("Servicios profesionales independientes");
+            m2007serextrest.setDescription("Resto servicios exteriores");
             }
         }
         
@@ -14440,6 +14748,32 @@ public class CatModelo200 extends Catalog
         public FieldDef m216bdedini13g;
         public FieldDef m216bdedapl13g;
         public FieldDef m216bdedpdt13g;
+        public FieldDef m216bafini2013;
+        public FieldDef m216bafapl2013;
+        public FieldDef m216bafpdt2013;
+        public FieldDef m216bdedini14g;
+        public FieldDef m216bdedapl14g;
+        public FieldDef m216bdedpdt14g;
+        public FieldDef m216bdedidejer;
+        public FieldDef m216bdeditejer;
+        public FieldDef m216bdedini15g;
+        public FieldDef m216bdedapl15g;
+        public FieldDef m216bdedpdt15g;
+        public FieldDef m216bafini2014;
+        public FieldDef m216bafapl2014;
+        public FieldDef m216bafpdt2014;
+        public FieldDef m216bafica2018;
+        public FieldDef m216bafaca2018;
+        public FieldDef m216bafpca2018;
+        public FieldDef m216bafica2019;
+        public FieldDef m216bafaca2019;
+        public FieldDef m216bafpca2019;
+        public FieldDef m216bafica2020b;
+        public FieldDef m216bafaca2020b;
+        public FieldDef m216bafpca2020b;
+        public FieldDef m216bafica2020;
+        public FieldDef m216bafaca2020;
+        public FieldDef m216bafpca2020;
         public TabMod200h16b(String name)
             {
             super(name);
@@ -14569,6 +14903,32 @@ public class CatModelo200 extends Catalog
             m216bdedini13g = new FieldDef("m216bdedini13g",FieldDef.FLOAT,6,0);
             m216bdedapl13g = new FieldDef("m216bdedapl13g",FieldDef.FLOAT,6,0);
             m216bdedpdt13g = new FieldDef("m216bdedpdt13g",FieldDef.FLOAT,6,0);
+            m216bafini2013 = new FieldDef("m216bafini2013",FieldDef.FLOAT,6,0);
+            m216bafapl2013 = new FieldDef("m216bafapl2013",FieldDef.FLOAT,6,0);
+            m216bafpdt2013 = new FieldDef("m216bafpdt2013",FieldDef.FLOAT,6,0);
+            m216bdedini14g = new FieldDef("m216bdedini14g",FieldDef.FLOAT,6,0);
+            m216bdedapl14g = new FieldDef("m216bdedapl14g",FieldDef.FLOAT,6,0);
+            m216bdedpdt14g = new FieldDef("m216bdedpdt14g",FieldDef.FLOAT,6,0);
+            m216bdedidejer = new FieldDef("m216bdedidejer",FieldDef.FLOAT,6,0);
+            m216bdeditejer = new FieldDef("m216bdeditejer",FieldDef.FLOAT,6,0);
+            m216bdedini15g = new FieldDef("m216bdedini15g",FieldDef.FLOAT,6,0);
+            m216bdedapl15g = new FieldDef("m216bdedapl15g",FieldDef.FLOAT,6,0);
+            m216bdedpdt15g = new FieldDef("m216bdedpdt15g",FieldDef.FLOAT,6,0);
+            m216bafini2014 = new FieldDef("m216bafini2014",FieldDef.FLOAT,6,0);
+            m216bafapl2014 = new FieldDef("m216bafapl2014",FieldDef.FLOAT,6,0);
+            m216bafpdt2014 = new FieldDef("m216bafpdt2014",FieldDef.FLOAT,6,0);
+            m216bafica2018 = new FieldDef("m216bafica2018",FieldDef.FLOAT,6,0);
+            m216bafaca2018 = new FieldDef("m216bafaca2018",FieldDef.FLOAT,6,0);
+            m216bafpca2018 = new FieldDef("m216bafpca2018",FieldDef.FLOAT,6,0);
+            m216bafica2019 = new FieldDef("m216bafica2019",FieldDef.FLOAT,6,0);
+            m216bafaca2019 = new FieldDef("m216bafaca2019",FieldDef.FLOAT,6,0);
+            m216bafpca2019 = new FieldDef("m216bafpca2019",FieldDef.FLOAT,6,0);
+            m216bafica2020b = new FieldDef("m216bafica2020b",FieldDef.FLOAT,6,0);
+            m216bafaca2020b = new FieldDef("m216bafaca2020b",FieldDef.FLOAT,6,0);
+            m216bafpca2020b = new FieldDef("m216bafpca2020b",FieldDef.FLOAT,6,0);
+            m216bafica2020 = new FieldDef("m216bafica2020",FieldDef.FLOAT,6,0);
+            m216bafaca2020 = new FieldDef("m216bafaca2020",FieldDef.FLOAT,6,0);
+            m216bafpca2020 = new FieldDef("m216bafpca2020",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m216bdominio,
                 m216bnif,
@@ -14695,7 +15055,33 @@ public class CatModelo200 extends Catalog
                 m216bdedpdt12bg,
                 m216bdedini13g,
                 m216bdedapl13g,
-                m216bdedpdt13g                
+                m216bdedpdt13g,
+                m216bafini2013,
+                m216bafapl2013,
+                m216bafpdt2013,
+                m216bdedini14g,
+                m216bdedapl14g,
+                m216bdedpdt14g,
+                m216bdedidejer,
+                m216bdeditejer,
+                m216bdedini15g,
+                m216bdedapl15g,
+                m216bdedpdt15g,
+                m216bafini2014,
+                m216bafapl2014,
+                m216bafpdt2014,
+                m216bafica2018,
+                m216bafaca2018,
+                m216bafpca2018,
+                m216bafica2019,
+                m216bafaca2019,
+                m216bafpca2019,
+                m216bafica2020b,
+                m216bafaca2020b,
+                m216bafpca2020b,
+                m216bafica2020,
+                m216bafaca2020,
+                m216bafpca2020                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m216bdominio,m216bnif,m216bejercicio,m216bperiodo };
@@ -14813,7 +15199,7 @@ public class CatModelo200 extends Catalog
             m216bdt8ini09b.setDescription("Deducc DT octava 2009 Periodificacion. Deduccion pendiente/generada [744]");
             m216bdt8apl09b.setDescription("Deducc DT octava 2009 Periodificacion. Aplicado en esta liquidacion [745]");
             m216bdt8pdt09b.setDescription("Deducc DT octava 2009 Periodificacion. Pendiente de aplicacion [746]");
-            m216bafini2012.setDescription("Deduc inversion Canarias Activos fijos 2018. Deduccion pendiente/generada [2116](*nou)");
+            m216bafini2012.setDescription("Deduc inversion Canarias Activos fijos 2018. Deduccion pendiente/generada [2116]");
             m216bafapl2012.setDescription("Deduc inversion Canarias Activos fijos 2018. Aplicado en esta liquidacion [2117]");
             m216bafpdt2012.setDescription("Deduc inversion Canarias Activos fijos 2018. Pendiente de aplicacion [2118]");
             m216bdedini12bg.setDescription("Deduc inversion Canarias 2018b Gomera. Deduccion pendiente/generada [2119]");
@@ -14822,6 +15208,32 @@ public class CatModelo200 extends Catalog
             m216bdedini13g.setDescription("Deduc inversion Canarias 2018 Gomera. Deduccion pendiente/generada [2125]");
             m216bdedapl13g.setDescription("Deduc inversion Canarias 2018 Gomera. Aplicado en esta liquidacion [2126]");
             m216bdedpdt13g.setDescription("Deduc inversion Canarias 2018 Gomera. Pendiente de aplicacion [2127]");
+            m216bafini2013.setDescription("Deduc inversion Canarias Activos fijos 2019. Deduccion pendiente/generada [2209] (*nou)");
+            m216bafapl2013.setDescription("Deduc inversion Canarias Activos fijos 2019. Aplicado en esta liquidacion [2210]");
+            m216bafpdt2013.setDescription("Deduc inversion Canarias Activos fijos 2019. Pendiente de aplicacion [2211]");
+            m216bdedini14g.setDescription("Deduc inversion Canarias 2019 Gomera. Deduccion pendiente/generada [2215]");
+            m216bdedapl14g.setDescription("Deduc inversion Canarias 2019 Gomera. Aplicado en esta liquidacion [2216]");
+            m216bdedpdt14g.setDescription("Deduc inversion Canarias 2019 Gomera. Pendiente de aplicacion [2217]");
+            m216bdedidejer.setDescription("Deducción por investigación y desarrollo en Canarias generada en el período impositivo [02287]");
+            m216bdeditejer.setDescription("Deducción por innovación tecnológica en Canarias generada en el período impositivo [002288]");
+            m216bdedini15g.setDescription("Deduc inversion Canarias 2020 Gomera. Deduccion pendiente/generada [2350]");
+            m216bdedapl15g.setDescription("Deduc inversion Canarias 2020 Gomera. Aplicado en esta liquidacion [2351]");
+            m216bdedpdt15g.setDescription("Deduc inversion Canarias 2020 Gomera. Pendiente de aplicacion [2352]");
+            m216bafini2014.setDescription("Deduc inversion Canarias Activos fijos 2020. Deduccion pendiente/generada [2332]");
+            m216bafapl2014.setDescription("Deduc inversion Canarias Activos fijos 2020. Aplicado en esta liquidacion [2333]");
+            m216bafpdt2014.setDescription("Deduc inversion Canarias Activos fijos 2020. Pendiente de aplicacion [2334]");
+            m216bafica2018.setDescription("Deduc inversion Canarias Activos fijos 2018 Gomera. Deduccion pendiente/generada");
+            m216bafaca2018.setDescription("Deduc inversion Canarias Activos fijos 2018 Gomera. Aplicado en esta liquidacion");
+            m216bafpca2018.setDescription("Deduc inversion Canarias Activos fijos 2018 Gomera. Pendiente de aplicacion");
+            m216bafica2019.setDescription("Deduc inversion Canarias Activos fijos 2019 Gomera. Deduccion pendiente/generada");
+            m216bafaca2019.setDescription("Deduc inversion Canarias Activos fijos 2019 Gomera. Aplicado en esta liquidacion");
+            m216bafpca2019.setDescription("Deduc inversion Canarias Activos fijos 2019 Gomera. Pendiente de aplicacion");
+            m216bafica2020b.setDescription("Deduc inversion Canarias Activos fijos 2020(*) Gomera. Deduccion pendiente/generada");
+            m216bafaca2020b.setDescription("Deduc inversion Canarias Activos fijos 2020(*) Gomera. Aplicado en esta liquidacion");
+            m216bafpca2020b.setDescription("Deduc inversion Canarias Activos fijos 2020(*) Gomera. Pendiente de aplicacion");
+            m216bafica2020.setDescription("Deduc inversion Canarias Activos fijos 2020 Gomera. Deduccion pendiente/generada");
+            m216bafaca2020.setDescription("Deduc inversion Canarias Activos fijos 2020 Gomera. Aplicado en esta liquidacion");
+            m216bafpca2020.setDescription("Deduc inversion Canarias Activos fijos 2020 Gomera. Pendiente de aplicacion");
             }
         }
         
@@ -14988,6 +15400,22 @@ public class CatModelo200 extends Catalog
         public FieldDef m219btotreduc;
         public FieldDef m219btotdeduc;
         public FieldDef m219btotabono;
+        public FieldDef m219bctegener07;
+        public FieldDef m219bctereduc07;
+        public FieldDef m219bctededuc07;
+        public FieldDef m219bcteabono07;
+        public FieldDef m219bitegener07;
+        public FieldDef m219bitereduc07;
+        public FieldDef m219bitededuc07;
+        public FieldDef m219biteabono07;
+        public FieldDef m219bctegener08;
+        public FieldDef m219bctereduc08;
+        public FieldDef m219bctededuc08;
+        public FieldDef m219bcteabono08;
+        public FieldDef m219bitegener08;
+        public FieldDef m219bitereduc08;
+        public FieldDef m219bitededuc08;
+        public FieldDef m219biteabono08;
         public TabMod200h19b(String name)
             {
             super(name);
@@ -15151,6 +15579,22 @@ public class CatModelo200 extends Catalog
             m219btotreduc = new FieldDef("m219btotreduc",FieldDef.FLOAT,6,0);
             m219btotdeduc = new FieldDef("m219btotdeduc",FieldDef.FLOAT,6,0);
             m219btotabono = new FieldDef("m219btotabono",FieldDef.FLOAT,6,0);
+            m219bctegener07 = new FieldDef("m219bctegener07",FieldDef.FLOAT,6,0);
+            m219bctereduc07 = new FieldDef("m219bctereduc07",FieldDef.FLOAT,6,0);
+            m219bctededuc07 = new FieldDef("m219bctededuc07",FieldDef.FLOAT,6,0);
+            m219bcteabono07 = new FieldDef("m219bcteabono07",FieldDef.FLOAT,6,0);
+            m219bitegener07 = new FieldDef("m219bitegener07",FieldDef.FLOAT,6,0);
+            m219bitereduc07 = new FieldDef("m219bitereduc07",FieldDef.FLOAT,6,0);
+            m219bitededuc07 = new FieldDef("m219bitededuc07",FieldDef.FLOAT,6,0);
+            m219biteabono07 = new FieldDef("m219biteabono07",FieldDef.FLOAT,6,0);
+            m219bctegener08 = new FieldDef("m219bctegener08",FieldDef.FLOAT,6,0);
+            m219bctereduc08 = new FieldDef("m219bctereduc08",FieldDef.FLOAT,6,0);
+            m219bctededuc08 = new FieldDef("m219bctededuc08",FieldDef.FLOAT,6,0);
+            m219bcteabono08 = new FieldDef("m219bcteabono08",FieldDef.FLOAT,6,0);
+            m219bitegener08 = new FieldDef("m219bitegener08",FieldDef.FLOAT,6,0);
+            m219bitereduc08 = new FieldDef("m219bitereduc08",FieldDef.FLOAT,6,0);
+            m219bitededuc08 = new FieldDef("m219bitededuc08",FieldDef.FLOAT,6,0);
+            m219biteabono08 = new FieldDef("m219biteabono08",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m219bdominio,
                 m219bnif,
@@ -15311,7 +15755,23 @@ public class CatModelo200 extends Catalog
                 m219btotgener,
                 m219btotreduc,
                 m219btotdeduc,
-                m219btotabono                
+                m219btotabono,
+                m219bctegener07,
+                m219bctereduc07,
+                m219bctededuc07,
+                m219bcteabono07,
+                m219bitegener07,
+                m219bitereduc07,
+                m219bitededuc07,
+                m219biteabono07,
+                m219bctegener08,
+                m219bctereduc08,
+                m219bctededuc08,
+                m219bcteabono08,
+                m219bitegener08,
+                m219bitereduc08,
+                m219bitededuc08,
+                m219biteabono08                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m219bdominio,m219bnif,m219bejercicio,m219bperiodo };
@@ -15472,6 +15932,22 @@ public class CatModelo200 extends Catalog
             m219btotreduc.setDescription("Deduccion total sin limite: deduccion reducida [81]");
             m219btotdeduc.setDescription("Deduccion total sin limite: deduccion deducida [82]");
             m219btotabono.setDescription("Deduccion total sin limite: deduccion abonada [1234]");
+            m219bctegener07.setDescription("Deducción I+D sin límite (CTE). Ded. generada/aplicada 3 [1426] (*nou)");
+            m219bctereduc07.setDescription("Deducción I+D sin límite (CTE). Ded. reducida 3 [1427]");
+            m219bctededuc07.setDescription("Deducción I+D sin límite (CTE). Ded. aplicada 3 [1428]");
+            m219bcteabono07.setDescription("Deducción I+D sin límite (CTE). Ded. abonada 3 [1429]");
+            m219bitegener07.setDescription("Deducción innov. tecnol. sin límite (ITE). Ded. generada/aplicada 3 [1430]");
+            m219bitereduc07.setDescription("Deducción innov. tecnol. sin límite (ITE). Ded. reducida 3 [1431]");
+            m219bitededuc07.setDescription("Deducción innov. tecnol. sin límite (ITE). Ded. aplicada 3 [1432]");
+            m219biteabono07.setDescription("Deducción innov. tecnol. sin límite (ITE). Ded. abonada 3 [1433]");
+            m219bctegener08.setDescription("Investigación y desarrollo: Deducción generada 2020 [2391]");
+            m219bctereduc08.setDescription("Investigación y desarrollo: Deducción reducida 2020 [2392]");
+            m219bctededuc08.setDescription("Investigación y desarrollo: Aplicado 2020 [2393]");
+            m219bcteabono08.setDescription("Investigación y desarrollo: Abonado 2020 [2394]");
+            m219bitegener08.setDescription("Innovación tecnológica: Deducción generada 2020 [2395]");
+            m219bitereduc08.setDescription("Innovación tecnológica: Deducción reducida 2020 [2396]");
+            m219bitededuc08.setDescription("Innovación tecnológica: Aplicado 2020 [2397]");
+            m219biteabono08.setDescription("Innovación tecnológica: Abonado 2020 [2397]");
             }
         }
         
@@ -15603,6 +16079,16 @@ public class CatModelo200 extends Catalog
         public FieldDef m220bperapl07;
         public FieldDef m220bfutlim07;
         public FieldDef m220bfutres07;
+        public FieldDef m220bperlim08;
+        public FieldDef m220bperres08;
+        public FieldDef m220bperapl08;
+        public FieldDef m220bfutlim08;
+        public FieldDef m220bfutres08;
+        public FieldDef m220bperlim09;
+        public FieldDef m220bperres09;
+        public FieldDef m220bperapl09;
+        public FieldDef m220bfutlim09;
+        public FieldDef m220bfutres09;
         public TabMod200h20b(String name)
             {
             super(name);
@@ -15731,6 +16217,16 @@ public class CatModelo200 extends Catalog
             m220bperapl07 = new FieldDef("m220bperapl07",FieldDef.FLOAT,6,0);
             m220bfutlim07 = new FieldDef("m220bfutlim07",FieldDef.FLOAT,6,0);
             m220bfutres07 = new FieldDef("m220bfutres07",FieldDef.FLOAT,6,0);
+            m220bperlim08 = new FieldDef("m220bperlim08",FieldDef.FLOAT,6,0);
+            m220bperres08 = new FieldDef("m220bperres08",FieldDef.FLOAT,6,0);
+            m220bperapl08 = new FieldDef("m220bperapl08",FieldDef.FLOAT,6,0);
+            m220bfutlim08 = new FieldDef("m220bfutlim08",FieldDef.FLOAT,6,0);
+            m220bfutres08 = new FieldDef("m220bfutres08",FieldDef.FLOAT,6,0);
+            m220bperlim09 = new FieldDef("m220bperlim09",FieldDef.FLOAT,6,0);
+            m220bperres09 = new FieldDef("m220bperres09",FieldDef.FLOAT,6,0);
+            m220bperapl09 = new FieldDef("m220bperapl09",FieldDef.FLOAT,6,0);
+            m220bfutlim09 = new FieldDef("m220bfutlim09",FieldDef.FLOAT,6,0);
+            m220bfutres09 = new FieldDef("m220bfutres09",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m220bdominio,
                 m220bnif,
@@ -15856,7 +16352,17 @@ public class CatModelo200 extends Catalog
                 m220bperres07,
                 m220bperapl07,
                 m220bfutlim07,
-                m220bfutres07                
+                m220bfutres07,
+                m220bperlim08,
+                m220bperres08,
+                m220bperapl08,
+                m220bfutlim08,
+                m220bfutres08,
+                m220bperlim09,
+                m220bperres09,
+                m220bperapl09,
+                m220bfutlim09,
+                m220bfutres09                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m220bdominio,m220bnif,m220bejercicio,m220bperiodo };
@@ -15982,6 +16488,16 @@ public class CatModelo200 extends Catalog
             m220bperapl07.setDescription("Limitación en la deductib. de gastos finan. En periodo aplicado 4 [1209]");
             m220bfutlim07.setDescription("Limitación en la deductib. de gastos finan. Períodos futuros por límite 4 [1210]");
             m220bfutres07.setDescription("Limitación en la deductib. de gastos finan. Períodos futuros resto 4 [1211]");
+            m220bperlim08.setDescription("Limitación en la deductib. de gastos finan. En periodo por límite 4 [2253] (*nou)");
+            m220bperres08.setDescription("Limitación en la deductib. de gastos finan. En periodo resto 4 [2254]");
+            m220bperapl08.setDescription("Limitación en la deductib. de gastos finan. En periodo aplicado 4 [1979]");
+            m220bfutlim08.setDescription("Limitación en la deductib. de gastos finan. Períodos futuros por límite 4 [1980]");
+            m220bfutres08.setDescription("Limitación en la deductib. de gastos finan. Períodos futuros resto 4 [1981]");
+            m220bperlim09.setDescription("Limitación en la deductib. de gastos finan. En periodo por límite 5 [2399]");
+            m220bperres09.setDescription("Limitación en la deductib. de gastos finan. En periodo resto 5 [2400]");
+            m220bperapl09.setDescription("Limitación en la deductib. de gastos finan. En periodo aplicado 5 [2401]");
+            m220bfutlim09.setDescription("Limitación en la deductib. de gastos finan. Períodos futuros por límite 5 [2402]");
+            m220bfutres09.setDescription("Limitación en la deductib. de gastos finan. Períodos futuros resto 5 [2403]");
             }
         }
         
@@ -16052,6 +16568,68 @@ public class CatModelo200 extends Catalog
         public FieldDef m220cconv18;
         public FieldDef m220cdotpdt118;
         public FieldDef m220cdotpdt218;
+        public FieldDef m220cnvbini1;
+        public FieldDef m220cnvbapl1;
+        public FieldDef m220cnvbpdt1;
+        public FieldDef m220cnvbini2;
+        public FieldDef m220cnvbapl2;
+        public FieldDef m220cnvbpdt2;
+        public FieldDef m220cnvbini3;
+        public FieldDef m220cnvbapl3;
+        public FieldDef m220cnvbpdt3;
+        public FieldDef m220cnvbini4;
+        public FieldDef m220cnvbapl4;
+        public FieldDef m220cnvbpdt4;
+        public FieldDef m220cnvbtotini;
+        public FieldDef m220cnvbtotapl;
+        public FieldDef m220cnvbtotpdt;
+        public FieldDef m220cnvrini1;
+        public FieldDef m220cnvrapl1;
+        public FieldDef m220cnvrpdt1;
+        public FieldDef m220cnvrdis1;
+        public FieldDef m220cnvrini2;
+        public FieldDef m220cnvrapl2;
+        public FieldDef m220cnvrpdt2;
+        public FieldDef m220cnvrdis2;
+        public FieldDef m220cnvrini3;
+        public FieldDef m220cnvrapl3;
+        public FieldDef m220cnvrpdt3;
+        public FieldDef m220cnvrdis3;
+        public FieldDef m220cnvrini4;
+        public FieldDef m220cnvrapl4;
+        public FieldDef m220cnvrpdt4;
+        public FieldDef m220cnvrdis4;
+        public FieldDef m220cnvrtotini;
+        public FieldDef m220cnvrtotapl;
+        public FieldDef m220cnvrtotpdt;
+        public FieldDef m220cnvrtotdis;
+        public FieldDef m220cnvbini5;
+        public FieldDef m220cnvbapl5;
+        public FieldDef m220cnvbpdt5;
+        public FieldDef m220cnvrini5;
+        public FieldDef m220cnvrapl5;
+        public FieldDef m220cnvrpdt5;
+        public FieldDef m220cnvrdis5;
+        public FieldDef m220cnvbini6;
+        public FieldDef m220cnvbapl6;
+        public FieldDef m220cnvbpdt6;
+        public FieldDef m220cnvrini6;
+        public FieldDef m220cnvrapl6;
+        public FieldDef m220cnvrpdt6;
+        public FieldDef m220cnvrdis6;
+        public FieldDef m220cdotini119;
+        public FieldDef m220cdotini219;
+        public FieldDef m220cdotint19;
+        public FieldDef m220cconv19;
+        public FieldDef m220cdotpdt119;
+        public FieldDef m220cdotpdt219;
+        public FieldDef m220cnvbini7;
+        public FieldDef m220cnvbapl7;
+        public FieldDef m220cnvbpdt7;
+        public FieldDef m220cnvrini7;
+        public FieldDef m220cnvrapl7;
+        public FieldDef m220cnvrpdt7;
+        public FieldDef m220cnvrdis7;
         public TabMod200h20c(String name)
             {
             super(name);
@@ -16119,6 +16697,68 @@ public class CatModelo200 extends Catalog
             m220cconv18 = new FieldDef("m220cconv18",FieldDef.FLOAT,6,0);
             m220cdotpdt118 = new FieldDef("m220cdotpdt118",FieldDef.FLOAT,6,0);
             m220cdotpdt218 = new FieldDef("m220cdotpdt218",FieldDef.FLOAT,6,0);
+            m220cnvbini1 = new FieldDef("m220cnvbini1",FieldDef.FLOAT,6,0);
+            m220cnvbapl1 = new FieldDef("m220cnvbapl1",FieldDef.FLOAT,6,0);
+            m220cnvbpdt1 = new FieldDef("m220cnvbpdt1",FieldDef.FLOAT,6,0);
+            m220cnvbini2 = new FieldDef("m220cnvbini2",FieldDef.FLOAT,6,0);
+            m220cnvbapl2 = new FieldDef("m220cnvbapl2",FieldDef.FLOAT,6,0);
+            m220cnvbpdt2 = new FieldDef("m220cnvbpdt2",FieldDef.FLOAT,6,0);
+            m220cnvbini3 = new FieldDef("m220cnvbini3",FieldDef.FLOAT,6,0);
+            m220cnvbapl3 = new FieldDef("m220cnvbapl3",FieldDef.FLOAT,6,0);
+            m220cnvbpdt3 = new FieldDef("m220cnvbpdt3",FieldDef.FLOAT,6,0);
+            m220cnvbini4 = new FieldDef("m220cnvbini4",FieldDef.FLOAT,6,0);
+            m220cnvbapl4 = new FieldDef("m220cnvbapl4",FieldDef.FLOAT,6,0);
+            m220cnvbpdt4 = new FieldDef("m220cnvbpdt4",FieldDef.FLOAT,6,0);
+            m220cnvbtotini = new FieldDef("m220cnvbtotini",FieldDef.FLOAT,6,0);
+            m220cnvbtotapl = new FieldDef("m220cnvbtotapl",FieldDef.FLOAT,6,0);
+            m220cnvbtotpdt = new FieldDef("m220cnvbtotpdt",FieldDef.FLOAT,6,0);
+            m220cnvrini1 = new FieldDef("m220cnvrini1",FieldDef.FLOAT,6,0);
+            m220cnvrapl1 = new FieldDef("m220cnvrapl1",FieldDef.FLOAT,6,0);
+            m220cnvrpdt1 = new FieldDef("m220cnvrpdt1",FieldDef.FLOAT,6,0);
+            m220cnvrdis1 = new FieldDef("m220cnvrdis1",FieldDef.FLOAT,6,0);
+            m220cnvrini2 = new FieldDef("m220cnvrini2",FieldDef.FLOAT,6,0);
+            m220cnvrapl2 = new FieldDef("m220cnvrapl2",FieldDef.FLOAT,6,0);
+            m220cnvrpdt2 = new FieldDef("m220cnvrpdt2",FieldDef.FLOAT,6,0);
+            m220cnvrdis2 = new FieldDef("m220cnvrdis2",FieldDef.FLOAT,6,0);
+            m220cnvrini3 = new FieldDef("m220cnvrini3",FieldDef.FLOAT,6,0);
+            m220cnvrapl3 = new FieldDef("m220cnvrapl3",FieldDef.FLOAT,6,0);
+            m220cnvrpdt3 = new FieldDef("m220cnvrpdt3",FieldDef.FLOAT,6,0);
+            m220cnvrdis3 = new FieldDef("m220cnvrdis3",FieldDef.FLOAT,6,0);
+            m220cnvrini4 = new FieldDef("m220cnvrini4",FieldDef.FLOAT,6,0);
+            m220cnvrapl4 = new FieldDef("m220cnvrapl4",FieldDef.FLOAT,6,0);
+            m220cnvrpdt4 = new FieldDef("m220cnvrpdt4",FieldDef.FLOAT,6,0);
+            m220cnvrdis4 = new FieldDef("m220cnvrdis4",FieldDef.FLOAT,6,0);
+            m220cnvrtotini = new FieldDef("m220cnvrtotini",FieldDef.FLOAT,6,0);
+            m220cnvrtotapl = new FieldDef("m220cnvrtotapl",FieldDef.FLOAT,6,0);
+            m220cnvrtotpdt = new FieldDef("m220cnvrtotpdt",FieldDef.FLOAT,6,0);
+            m220cnvrtotdis = new FieldDef("m220cnvrtotdis",FieldDef.FLOAT,6,0);
+            m220cnvbini5 = new FieldDef("m220cnvbini5",FieldDef.FLOAT,6,0);
+            m220cnvbapl5 = new FieldDef("m220cnvbapl5",FieldDef.FLOAT,6,0);
+            m220cnvbpdt5 = new FieldDef("m220cnvbpdt5",FieldDef.FLOAT,6,0);
+            m220cnvrini5 = new FieldDef("m220cnvrini5",FieldDef.FLOAT,6,0);
+            m220cnvrapl5 = new FieldDef("m220cnvrapl5",FieldDef.FLOAT,6,0);
+            m220cnvrpdt5 = new FieldDef("m220cnvrpdt5",FieldDef.FLOAT,6,0);
+            m220cnvrdis5 = new FieldDef("m220cnvrdis5",FieldDef.FLOAT,6,0);
+            m220cnvbini6 = new FieldDef("m220cnvbini6",FieldDef.FLOAT,6,0);
+            m220cnvbapl6 = new FieldDef("m220cnvbapl6",FieldDef.FLOAT,6,0);
+            m220cnvbpdt6 = new FieldDef("m220cnvbpdt6",FieldDef.FLOAT,6,0);
+            m220cnvrini6 = new FieldDef("m220cnvrini6",FieldDef.FLOAT,6,0);
+            m220cnvrapl6 = new FieldDef("m220cnvrapl6",FieldDef.FLOAT,6,0);
+            m220cnvrpdt6 = new FieldDef("m220cnvrpdt6",FieldDef.FLOAT,6,0);
+            m220cnvrdis6 = new FieldDef("m220cnvrdis6",FieldDef.FLOAT,6,0);
+            m220cdotini119 = new FieldDef("m220cdotini119",FieldDef.FLOAT,6,0);
+            m220cdotini219 = new FieldDef("m220cdotini219",FieldDef.FLOAT,6,0);
+            m220cdotint19 = new FieldDef("m220cdotint19",FieldDef.FLOAT,6,0);
+            m220cconv19 = new FieldDef("m220cconv19",FieldDef.FLOAT,6,0);
+            m220cdotpdt119 = new FieldDef("m220cdotpdt119",FieldDef.FLOAT,6,0);
+            m220cdotpdt219 = new FieldDef("m220cdotpdt219",FieldDef.FLOAT,6,0);
+            m220cnvbini7 = new FieldDef("m220cnvbini7",FieldDef.FLOAT,6,0);
+            m220cnvbapl7 = new FieldDef("m220cnvbapl7",FieldDef.FLOAT,6,0);
+            m220cnvbpdt7 = new FieldDef("m220cnvbpdt7",FieldDef.FLOAT,6,0);
+            m220cnvrini7 = new FieldDef("m220cnvrini7",FieldDef.FLOAT,6,0);
+            m220cnvrapl7 = new FieldDef("m220cnvrapl7",FieldDef.FLOAT,6,0);
+            m220cnvrpdt7 = new FieldDef("m220cnvrpdt7",FieldDef.FLOAT,6,0);
+            m220cnvrdis7 = new FieldDef("m220cnvrdis7",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m220cdominio,
                 m220cnif,
@@ -16183,7 +16823,69 @@ public class CatModelo200 extends Catalog
                 m220cdotint18,
                 m220cconv18,
                 m220cdotpdt118,
-                m220cdotpdt218                
+                m220cdotpdt218,
+                m220cnvbini1,
+                m220cnvbapl1,
+                m220cnvbpdt1,
+                m220cnvbini2,
+                m220cnvbapl2,
+                m220cnvbpdt2,
+                m220cnvbini3,
+                m220cnvbapl3,
+                m220cnvbpdt3,
+                m220cnvbini4,
+                m220cnvbapl4,
+                m220cnvbpdt4,
+                m220cnvbtotini,
+                m220cnvbtotapl,
+                m220cnvbtotpdt,
+                m220cnvrini1,
+                m220cnvrapl1,
+                m220cnvrpdt1,
+                m220cnvrdis1,
+                m220cnvrini2,
+                m220cnvrapl2,
+                m220cnvrpdt2,
+                m220cnvrdis2,
+                m220cnvrini3,
+                m220cnvrapl3,
+                m220cnvrpdt3,
+                m220cnvrdis3,
+                m220cnvrini4,
+                m220cnvrapl4,
+                m220cnvrpdt4,
+                m220cnvrdis4,
+                m220cnvrtotini,
+                m220cnvrtotapl,
+                m220cnvrtotpdt,
+                m220cnvrtotdis,
+                m220cnvbini5,
+                m220cnvbapl5,
+                m220cnvbpdt5,
+                m220cnvrini5,
+                m220cnvrapl5,
+                m220cnvrpdt5,
+                m220cnvrdis5,
+                m220cnvbini6,
+                m220cnvbapl6,
+                m220cnvbpdt6,
+                m220cnvrini6,
+                m220cnvrapl6,
+                m220cnvrpdt6,
+                m220cnvrdis6,
+                m220cdotini119,
+                m220cdotini219,
+                m220cdotint19,
+                m220cconv19,
+                m220cdotpdt119,
+                m220cdotpdt219,
+                m220cnvbini7,
+                m220cnvbapl7,
+                m220cnvbpdt7,
+                m220cnvrini7,
+                m220cnvrapl7,
+                m220cnvrpdt7,
+                m220cnvrdis7                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m220cdominio,m220cnif,m220cejercicio,m220cperiodo };
@@ -16248,6 +16950,68 @@ public class CatModelo200 extends Catalog
             m220cconv18.setDescription("Dotacion por deterioro. Conversion 2018 [1488]");
             m220cdotpdt118.setDescription("Dotacion por deterioro. Pdte futuros ejercicios 2018 que no ha cumplido deduciblidad fiscal[1489]");
             m220cdotpdt218.setDescription("Dotacion por deterioro. Pdte futuros ejercicios 2018 que ha cumplido deduciblidad fiscal[1490]");
+            m220cnvbini1.setDescription("Reserva de nivelación. Reducc. base. Importe pendiente a inicio 1 [1141] (*nou)");
+            m220cnvbapl1.setDescription("Reserva de nivelación. Reducc. base. Importe adicionado 1 [1142]");
+            m220cnvbpdt1.setDescription("Reserva de nivelación. Reducc. base. Importe pendiente de adicionar 1 [1143]");
+            m220cnvbini2.setDescription("Reserva de nivelación. Reducc. base. Importe pendiente a inicio 2 [1144]");
+            m220cnvbapl2.setDescription("Reserva de nivelación. Reducc. base. Importe adicionado 2 [1145]");
+            m220cnvbpdt2.setDescription("Reserva de nivelación. Reducc. base. Importe pendiente de adicionar 2 [1146]");
+            m220cnvbini3.setDescription("Reserva de nivelación. Reducc. base. Importe pendiente a inicio 3 [1141]");
+            m220cnvbapl3.setDescription("Reserva de nivelación. Reducc. base. Importe adicionado 3 [1142]");
+            m220cnvbpdt3.setDescription("Reserva de nivelación. Reducc. base. Importe pendiente de adicionar 3 [1143]");
+            m220cnvbini4.setDescription("Reserva de nivelación. Reducc. base. Importe pendiente a inicio 4 [1144]");
+            m220cnvbapl4.setDescription("Reserva de nivelación. Reducc. base. Importe adicionado 4 [1145]");
+            m220cnvbpdt4.setDescription("Reserva de nivelación. Reducc. base. Importe pendiente de adicionar 4 [1146]");
+            m220cnvbtotini.setDescription("Reserva de nivelación. Reducc. base. Total pendiente a inicio [1147]");
+            m220cnvbtotapl.setDescription("Reserva de nivelación. Reducc. base. Total adicionado [1148]");
+            m220cnvbtotpdt.setDescription("Reserva de nivelación. Reducc. base. Total pendiente de adicionar [1149]");
+            m220cnvrini1.setDescription("Reserva de nivelación. Dotac. reserva. Importe pendiente a inicio 1 [1150]");
+            m220cnvrapl1.setDescription("Reserva de nivelación. Dotac. reserva. Importe dotado 1 [1151]");
+            m220cnvrpdt1.setDescription("Reserva de nivelación. Dotac. reserva. Importe pendiente de dotar 1 [1152]");
+            m220cnvrdis1.setDescription("Reserva de nivelación. Dotac. reserva. Reserva dispuesta 1 [1153]");
+            m220cnvrini2.setDescription("Reserva de nivelación. Dotac. reserva. Importe pendiente a inicio 2 [1154]");
+            m220cnvrapl2.setDescription("Reserva de nivelación. Dotac. reserva. Importe dotado 2 [1155]");
+            m220cnvrpdt2.setDescription("Reserva de nivelación. Dotac. reserva. Importe pendiente de dotar 2 [1156]");
+            m220cnvrdis2.setDescription("Reserva de nivelación. Dotac. reserva. Reserva dispuesta 2 [1157]");
+            m220cnvrini3.setDescription("Reserva de nivelación. Dotac. reserva. Importe pendiente a inicio 3 [1150]");
+            m220cnvrapl3.setDescription("Reserva de nivelación. Dotac. reserva. Importe dotado 3 [1151]");
+            m220cnvrpdt3.setDescription("Reserva de nivelación. Dotac. reserva. Importe pendiente de dotar 3 [1152]");
+            m220cnvrdis3.setDescription("Reserva de nivelación. Dotac. reserva. Reserva dispuesta 3 [1153]");
+            m220cnvrini4.setDescription("Reserva de nivelación. Dotac. reserva. Importe pendiente a inicio 4 [1154]");
+            m220cnvrapl4.setDescription("Reserva de nivelación. Dotac. reserva. Importe dotado 4 [1155]");
+            m220cnvrpdt4.setDescription("Reserva de nivelación. Dotac. reserva. Importe pendiente de dotar 4 [1156]");
+            m220cnvrdis4.setDescription("Reserva de nivelación. Dotac. reserva. Reserva dispuesta 4 [1157]");
+            m220cnvrtotini.setDescription("Reserva de nivelación. Dotac. reserva. Total pendiente a inicio[1158]");
+            m220cnvrtotapl.setDescription("Reserva de nivelación. Dotac. reserva. Total dotado[1159]");
+            m220cnvrtotpdt.setDescription("Reserva de nivelación. Dotac. reserva. Total pendiente de dotar [1160]");
+            m220cnvrtotdis.setDescription("Reserva de nivelación. Dotac. reserva. Total reserva dispuesta [1161]");
+            m220cnvbini5.setDescription("Reserva de nivelación. Reducc. base. Importe pendiente a inicio 5 [1961]");
+            m220cnvbapl5.setDescription("Reserva de nivelación. Reducc. base. Importe adicionado 5 [1962]");
+            m220cnvbpdt5.setDescription("Reserva de nivelación. Reducc. base. Importe pendiente de adicionar 5 [1963]");
+            m220cnvrini5.setDescription("Reserva de nivelación. Dotac. reserva. Importe pendiente a inicio 5 [1964]");
+            m220cnvrapl5.setDescription("Reserva de nivelación. Dotac. reserva. Importe dotado 5 [1965]");
+            m220cnvrpdt5.setDescription("Reserva de nivelación. Dotac. reserva. Importe pendiente de dotar 5 [1966]");
+            m220cnvrdis5.setDescription("Reserva de nivelación. Dotac. reserva. Reserva dispuesta 5 [1967]");
+            m220cnvbini6.setDescription("Reserva de nivelación. Reducc. base. Importe pendiente a inicio 6 [1961]");
+            m220cnvbapl6.setDescription("Reserva de nivelación. Reducc. base. Importe adicionado 6 [1962]");
+            m220cnvbpdt6.setDescription("Reserva de nivelación. Reducc. base. Importe pendiente de adicionar 6 [1963]");
+            m220cnvrini6.setDescription("Reserva de nivelación. Dotac. reserva. Importe pendiente a inicio 6 [1964]");
+            m220cnvrapl6.setDescription("Reserva de nivelación. Dotac. reserva. Importe dotado 6 [1966]");
+            m220cnvrpdt6.setDescription("Reserva de nivelación. Dotac. reserva. Importe pendiente de dotar 6 [1966]");
+            m220cnvrdis6.setDescription("Reserva de nivelación. Dotac. reserva. Reserva dispuesta 6 [1967]");
+            m220cdotini119.setDescription("Dotacion por deterioro. Pdte a inicio ejercicio 2019 que no ha cumplido deduciblidad fiscal [1485]");
+            m220cdotini219.setDescription("Dotacion por deterioro. Pdte a inicio ejercicio 2019 que ha cumplido deduciblidad fiscal [1486]");
+            m220cdotint19.setDescription("Dotacion por deterioro. Integrado ejercicio 2019 [1487]");
+            m220cconv19.setDescription("Dotacion por deterioro. Conversion 2019 [1488]");
+            m220cdotpdt119.setDescription("Dotacion por deterioro. Pdte futuros ejercicios 2019 que no ha cumplido deduciblidad fiscal[1489]");
+            m220cdotpdt219.setDescription("Dotacion por deterioro. Pdte futuros ejercicios 2019 que ha cumplido deduciblidad fiscal[1490]");
+            m220cnvbini7.setDescription("Reduccion base imponible Importe minoración [1034]");
+            m220cnvbapl7.setDescription("Reduccion base imponible Importe adicionado [1035]");
+            m220cnvbpdt7.setDescription("Reduccion base imponible Importe pendiente [1036]");
+            m220cnvrini7.setDescription("Dotación de la reserva Importe reserva a dotar [2213]");
+            m220cnvrapl7.setDescription("Dotación de la reserva Importe reserva dotada [2214]");
+            m220cnvrpdt7.setDescription("Dotación de la reserva Importe reserva pendiente [2215]");
+            m220cnvrdis7.setDescription("Dotación de la reserva Importe reserva dispuesta [2216]");
             }
         }
         
@@ -16350,6 +17114,30 @@ public class CatModelo200 extends Catalog
         public FieldDef m220dcas2110;
         public FieldDef m220dcas2111;
         public FieldDef m220dcas2112;
+        public FieldDef m220dcas2267;
+        public FieldDef m220dcas2268;
+        public FieldDef m220dcas2269;
+        public FieldDef m220dcas2270;
+        public FieldDef m220dcas2271;
+        public FieldDef m220dcas2272;
+        public FieldDef m220dcas2273;
+        public FieldDef m220dcas2274;
+        public FieldDef m220dcas2275;
+        public FieldDef m220dcas2276;
+        public FieldDef m220dcas2277;
+        public FieldDef m220dcas2278;
+        public FieldDef m220dcas2279;
+        public FieldDef m220dcas2280;
+        public FieldDef m220dcas2417;
+        public FieldDef m220dcas2418;
+        public FieldDef m220dcas2419;
+        public FieldDef m220dcas2420;
+        public FieldDef m220dcas2421;
+        public FieldDef m220dcas2422;
+        public FieldDef m220dcas2423;
+        public FieldDef m220dcas2424;
+        public FieldDef m220dcas2425;
+        public FieldDef m220dcas2426;
         public TabMod200h20d(String name)
             {
             super(name);
@@ -16449,6 +17237,30 @@ public class CatModelo200 extends Catalog
             m220dcas2110 = new FieldDef("m220dcas2110",FieldDef.FLOAT,6,0);
             m220dcas2111 = new FieldDef("m220dcas2111",FieldDef.FLOAT,6,0);
             m220dcas2112 = new FieldDef("m220dcas2112",FieldDef.FLOAT,6,0);
+            m220dcas2267 = new FieldDef("m220dcas2267",FieldDef.FLOAT,6,0);
+            m220dcas2268 = new FieldDef("m220dcas2268",FieldDef.FLOAT,6,0);
+            m220dcas2269 = new FieldDef("m220dcas2269",FieldDef.FLOAT,6,0);
+            m220dcas2270 = new FieldDef("m220dcas2270",FieldDef.FLOAT,6,0);
+            m220dcas2271 = new FieldDef("m220dcas2271",FieldDef.FLOAT,6,0);
+            m220dcas2272 = new FieldDef("m220dcas2272",FieldDef.FLOAT,6,0);
+            m220dcas2273 = new FieldDef("m220dcas2273",FieldDef.FLOAT,6,0);
+            m220dcas2274 = new FieldDef("m220dcas2274",FieldDef.FLOAT,6,0);
+            m220dcas2275 = new FieldDef("m220dcas2275",FieldDef.FLOAT,6,0);
+            m220dcas2276 = new FieldDef("m220dcas2276",FieldDef.FLOAT,6,0);
+            m220dcas2277 = new FieldDef("m220dcas2277",FieldDef.FLOAT,6,0);
+            m220dcas2278 = new FieldDef("m220dcas2278",FieldDef.FLOAT,6,0);
+            m220dcas2279 = new FieldDef("m220dcas2279",FieldDef.FLOAT,6,0);
+            m220dcas2280 = new FieldDef("m220dcas2280",FieldDef.FLOAT,6,0);
+            m220dcas2417 = new FieldDef("m220dcas2417",FieldDef.FLOAT,6,0);
+            m220dcas2418 = new FieldDef("m220dcas2418",FieldDef.FLOAT,6,0);
+            m220dcas2419 = new FieldDef("m220dcas2419",FieldDef.FLOAT,6,0);
+            m220dcas2420 = new FieldDef("m220dcas2420",FieldDef.FLOAT,6,0);
+            m220dcas2421 = new FieldDef("m220dcas2421",FieldDef.FLOAT,6,0);
+            m220dcas2422 = new FieldDef("m220dcas2422",FieldDef.FLOAT,6,0);
+            m220dcas2423 = new FieldDef("m220dcas2423",FieldDef.FLOAT,6,0);
+            m220dcas2424 = new FieldDef("m220dcas2424",FieldDef.FLOAT,6,0);
+            m220dcas2425 = new FieldDef("m220dcas2425",FieldDef.FLOAT,6,0);
+            m220dcas2426 = new FieldDef("m220dcas2426",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m220ddominio,
                 m220dnif,
@@ -16545,7 +17357,31 @@ public class CatModelo200 extends Catalog
                 m220dcas2109,
                 m220dcas2110,
                 m220dcas2111,
-                m220dcas2112                
+                m220dcas2112,
+                m220dcas2267,
+                m220dcas2268,
+                m220dcas2269,
+                m220dcas2270,
+                m220dcas2271,
+                m220dcas2272,
+                m220dcas2273,
+                m220dcas2274,
+                m220dcas2275,
+                m220dcas2276,
+                m220dcas2277,
+                m220dcas2278,
+                m220dcas2279,
+                m220dcas2280,
+                m220dcas2417,
+                m220dcas2418,
+                m220dcas2419,
+                m220dcas2420,
+                m220dcas2421,
+                m220dcas2422,
+                m220dcas2423,
+                m220dcas2424,
+                m220dcas2425,
+                m220dcas2426                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m220ddominio,m220dnif,m220dejercicio,m220dperiodo };
@@ -20607,6 +21443,8 @@ public class CatModelo200 extends Catalog
         public FieldDef m214bcompactdip;
         public FieldDef m214babonacttot;
         public FieldDef m214bcompacttot;
+        public FieldDef m214bdecori2est;
+        public FieldDef m214bdecori2dip;
         public TabMod200h14b(String name)
             {
             super(name);
@@ -20664,6 +21502,8 @@ public class CatModelo200 extends Catalog
             m214bcompactdip = new FieldDef("m214bcompactdip",FieldDef.FLOAT,6,0);
             m214babonacttot = new FieldDef("m214babonacttot",FieldDef.FLOAT,6,0);
             m214bcompacttot = new FieldDef("m214bcompacttot",FieldDef.FLOAT,6,0);
+            m214bdecori2est = new FieldDef("m214bdecori2est",FieldDef.FLOAT,6,0);
+            m214bdecori2dip = new FieldDef("m214bdecori2dip",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m214bdominio,
                 m214bnif,
@@ -20718,7 +21558,9 @@ public class CatModelo200 extends Catalog
                 m214bcompactest,
                 m214bcompactdip,
                 m214babonacttot,
-                m214bcompacttot                
+                m214bcompacttot,
+                m214bdecori2est,
+                m214bdecori2dip                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m214bdominio,m214bnif,m214bejercicio,m214bperiodo };
@@ -20773,6 +21615,8 @@ public class CatModelo200 extends Catalog
             m214bcompactdip.setDescription("Compensación por conver. de activos por impuesto diferido [...] exigible frente [...]. D.Forales/Navarra (totales) [1044]");
             m214babonacttot.setDescription("Abono por conver. de activos por impuesto diferido Total [150]");
             m214bcompacttot.setDescription("Compensación por conver. de activos por impuesto diferido Total [506]");
+            m214bdecori2est.setDescription("Importe ingreso/devolucion efectuada declaracion originaria Estado por RDL 19/2020[2311]");
+            m214bdecori2dip.setDescription("Importe ingreso/devolucion efectuada declaracion originaria D. Forales/Navarra por RDL 19/2020 (Totales) [2312]");
             }
         }
         
@@ -20926,6 +21770,16 @@ public class CatModelo200 extends Catalog
         public FieldDef m216cdincini18;
         public FieldDef m216cdincapl18;
         public FieldDef m216cdincpdt18;
+        public FieldDef m216cdincori19;
+        public FieldDef m216cdincgra19;
+        public FieldDef m216cdincini19;
+        public FieldDef m216cdincapl19;
+        public FieldDef m216cdincpdt19;
+        public FieldDef m216cdincori20;
+        public FieldDef m216cdincgra20;
+        public FieldDef m216cdincini20;
+        public FieldDef m216cdincapl20;
+        public FieldDef m216cdincpdt20;
         public TabMod200h16c(String name)
             {
             super(name);
@@ -21076,6 +21930,16 @@ public class CatModelo200 extends Catalog
             m216cdincini18 = new FieldDef("m216cdincini18",FieldDef.FLOAT,6,0);
             m216cdincapl18 = new FieldDef("m216cdincapl18",FieldDef.FLOAT,6,0);
             m216cdincpdt18 = new FieldDef("m216cdincpdt18",FieldDef.FLOAT,6,0);
+            m216cdincori19 = new FieldDef("m216cdincori19",FieldDef.FLOAT,6,0);
+            m216cdincgra19 = new FieldDef("m216cdincgra19",FieldDef.FLOAT,6,0);
+            m216cdincini19 = new FieldDef("m216cdincini19",FieldDef.FLOAT,6,0);
+            m216cdincapl19 = new FieldDef("m216cdincapl19",FieldDef.FLOAT,6,0);
+            m216cdincpdt19 = new FieldDef("m216cdincpdt19",FieldDef.FLOAT,6,0);
+            m216cdincori20 = new FieldDef("m216cdincori20",FieldDef.FLOAT,6,0);
+            m216cdincgra20 = new FieldDef("m216cdincgra20",FieldDef.FLOAT,6,0);
+            m216cdincini20 = new FieldDef("m216cdincini20",FieldDef.FLOAT,6,0);
+            m216cdincapl20 = new FieldDef("m216cdincapl20",FieldDef.FLOAT,6,0);
+            m216cdincpdt20 = new FieldDef("m216cdincpdt20",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m216cdominio,
                 m216cnif,
@@ -21223,7 +22087,17 @@ public class CatModelo200 extends Catalog
                 m216cdincgra18,
                 m216cdincini18,
                 m216cdincapl18,
-                m216cdincpdt18                
+                m216cdincpdt18,
+                m216cdincori19,
+                m216cdincgra19,
+                m216cdincini19,
+                m216cdincapl19,
+                m216cdincpdt19,
+                m216cdincori20,
+                m216cdincgra20,
+                m216cdincini20,
+                m216cdincapl20,
+                m216cdincpdt20                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m216cdominio,m216cnif,m216cejercicio,m216cperiodo };
@@ -21366,11 +22240,21 @@ public class CatModelo200 extends Catalog
             m216cart42intot.setDescription("Deducc. Art. 36 ter Total Deducc.Deduccion pendiente/generada [841]");
             m216cart42aptot.setDescription("Deducc. Art. 36 ter Total Deducc.Aplicado en esta liquidacion [585]");
             m216cart42pdtot.setDescription("Deducc. Art. 36 ter Total Deducc.Pendiente aplicacion [843]");
-            m216cdincori18.setDescription("Ded.doble impos. internacional 2018 Deduccion pendiente/generada [1833] (nou*)");
+            m216cdincori18.setDescription("Ded.doble impos. internacional 2018 Deduccion pendiente/generada [1833]");
             m216cdincgra18.setDescription("Ded.doble impos. internacional 2018 Tipo de gravamen periodo generacion [1834]");
             m216cdincini18.setDescription("Ded.doble impos. internacional 2018 Deduccion pendiente [1835]");
             m216cdincapl18.setDescription("Ded.doble impos. internacional 2018 Deduccion aplicada en esta liquidacion [1836]");
             m216cdincpdt18.setDescription("Ded.doble impos. internacional 2018 Deduccion pendiente ejercicios futuros [1837]");
+            m216cdincori19.setDescription("Ded.doble impos. internacional 2019 Deduccion pendiente/generada [2201] (*nou)");
+            m216cdincgra19.setDescription("Ded.doble impos. internacional 2019 Tipo de gravamen periodo generacion [2202]");
+            m216cdincini19.setDescription("Ded.doble impos. internacional 2019 Deduccion pendiente [2203]");
+            m216cdincapl19.setDescription("Ded.doble impos. internacional 2019 Deduccion aplicada en esta liquidacion [2204]");
+            m216cdincpdt19.setDescription("Ded.doble impos. internacional 2019 Deduccion pendiente ejercicios futuros [2205]");
+            m216cdincori20.setDescription("Ded.doble impos. internacional 2020 Deduccion pendiente/generada [2324] (*nou)");
+            m216cdincgra20.setDescription("Ded.doble impos. internacional 2020 Tipo de gravamen periodo generacion [2325]");
+            m216cdincini20.setDescription("Ded.doble impos. internacional 2020 Deduccion pendiente [2326]");
+            m216cdincapl20.setDescription("Ded.doble impos. internacional 2020 Deduccion aplicada en esta liquidacion [2327]");
+            m216cdincpdt20.setDescription("Ded.doble impos. internacional 2020 Deduccion pendiente ejercicios futuros [2328]");
             }
         }
         
@@ -21512,6 +22396,22 @@ public class CatModelo200 extends Catalog
         public FieldDef m218cnvrdis5;
         public FieldDef m218cmecenazgo;
         public FieldDef m218cdonasup;
+        public FieldDef m218ctmp371ded6;
+        public FieldDef m218ctmp371ini6;
+        public FieldDef m218ctmp371apl6;
+        public FieldDef m218ctmp371pdt6;
+        public FieldDef m218ctmp372ded6;
+        public FieldDef m218ctmp372ini6;
+        public FieldDef m218ctmp372apl6;
+        public FieldDef m218ctmp372pdt6;
+        public FieldDef m218ctmp371ded7;
+        public FieldDef m218ctmp371ini7;
+        public FieldDef m218ctmp371apl7;
+        public FieldDef m218ctmp371pdt7;
+        public FieldDef m218ctmp372ded7;
+        public FieldDef m218ctmp372ini7;
+        public FieldDef m218ctmp372apl7;
+        public FieldDef m218ctmp372pdt7;
         public TabMod200h18c(String name)
             {
             super(name);
@@ -21650,6 +22550,22 @@ public class CatModelo200 extends Catalog
             m218cnvrdis5 = new FieldDef("m218cnvrdis5",FieldDef.FLOAT,6,0);
             m218cmecenazgo = new FieldDef("m218cmecenazgo",FieldDef.CHAR,1);
             m218cdonasup = new FieldDef("m218cdonasup",FieldDef.CHAR,1);
+            m218ctmp371ded6 = new FieldDef("m218ctmp371ded6",FieldDef.FLOAT,6,0);
+            m218ctmp371ini6 = new FieldDef("m218ctmp371ini6",FieldDef.FLOAT,6,0);
+            m218ctmp371apl6 = new FieldDef("m218ctmp371apl6",FieldDef.FLOAT,6,0);
+            m218ctmp371pdt6 = new FieldDef("m218ctmp371pdt6",FieldDef.FLOAT,6,0);
+            m218ctmp372ded6 = new FieldDef("m218ctmp372ded6",FieldDef.FLOAT,6,0);
+            m218ctmp372ini6 = new FieldDef("m218ctmp372ini6",FieldDef.FLOAT,6,0);
+            m218ctmp372apl6 = new FieldDef("m218ctmp372apl6",FieldDef.FLOAT,6,0);
+            m218ctmp372pdt6 = new FieldDef("m218ctmp372pdt6",FieldDef.FLOAT,6,0);
+            m218ctmp371ded7 = new FieldDef("m218ctmp371ded7",FieldDef.FLOAT,6,0);
+            m218ctmp371ini7 = new FieldDef("m218ctmp371ini7",FieldDef.FLOAT,6,0);
+            m218ctmp371apl7 = new FieldDef("m218ctmp371apl7",FieldDef.FLOAT,6,0);
+            m218ctmp371pdt7 = new FieldDef("m218ctmp371pdt7",FieldDef.FLOAT,6,0);
+            m218ctmp372ded7 = new FieldDef("m218ctmp372ded7",FieldDef.FLOAT,6,0);
+            m218ctmp372ini7 = new FieldDef("m218ctmp372ini7",FieldDef.FLOAT,6,0);
+            m218ctmp372apl7 = new FieldDef("m218ctmp372apl7",FieldDef.FLOAT,6,0);
+            m218ctmp372pdt7 = new FieldDef("m218ctmp372pdt7",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m218cdominio,
                 m218cnif,
@@ -21785,7 +22701,23 @@ public class CatModelo200 extends Catalog
                 m218cnvrpdt5,
                 m218cnvrdis5,
                 m218cmecenazgo,
-                m218cdonasup                
+                m218cdonasup,
+                m218ctmp371ded6,
+                m218ctmp371ini6,
+                m218ctmp371apl6,
+                m218ctmp371pdt6,
+                m218ctmp372ded6,
+                m218ctmp372ini6,
+                m218ctmp372apl6,
+                m218ctmp372pdt6,
+                m218ctmp371ded7,
+                m218ctmp371ini7,
+                m218ctmp371apl7,
+                m218ctmp371pdt7,
+                m218ctmp372ded7,
+                m218ctmp372ini7,
+                m218ctmp372apl7,
+                m218ctmp372pdt7                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m218cdominio,m218cnif,m218cejercicio,m218cperiodo };
@@ -21904,7 +22836,7 @@ public class CatModelo200 extends Catalog
             m218cnvrtotapl.setDescription("Reserva de nivelación. Dotac. reserva. Total dotado[1159]");
             m218cnvrtotpdt.setDescription("Reserva de nivelación. Dotac. reserva. Total pendiente de dotar [1160]");
             m218cnvrtotdis.setDescription("Reserva de nivelación. Dotac. reserva. Total reserva dispuesta [1161]");
-            m218ctmp371ded5.setDescription("Ded. por reversión de medidas temporales (DT 37.1 LIS) Base de deducción 5 [1721] (*nou)");
+            m218ctmp371ded5.setDescription("Ded. por reversión de medidas temporales (DT 37.1 LIS) Base de deducción 5 [1721]");
             m218ctmp371ini5.setDescription("Ded. por reversión de medidas temporales (DT 37.1 LIS) Ded. pendiente/generada 5 [1722]");
             m218ctmp371apl5.setDescription("Ded. por reversión de medidas temporales (DT 37.1 LIS) Ded. aplicada 5 [1723]");
             m218ctmp371pdt5.setDescription("Ded. por reversión de medidas temporales (DT 37.1 LIS) Ded. pendiente de aplicación 5 [1724]");
@@ -21921,6 +22853,22 @@ public class CatModelo200 extends Catalog
             m218cnvrdis5.setDescription("Reserva de nivelación. Dotac. reserva. Reserva dispuesta 5 [1967]");
             m218cmecenazgo.setDescription("Hay donaciones prioritarias mecenazgo");
             m218cdonasup.setDescription("Donaciones repetitivas");
+            m218ctmp371ded6.setDescription("Ded. por reversión de medidas temporales (DT 37.1 LIS) Base de deducción 6 [1953] (*nou)");
+            m218ctmp371ini6.setDescription("Ded. por reversión de medidas temporales (DT 37.1 LIS) Ded. pendiente/generada 6 [1954]");
+            m218ctmp371apl6.setDescription("Ded. por reversión de medidas temporales (DT 37.1 LIS) Ded. aplicada 6 [1955]");
+            m218ctmp371pdt6.setDescription("Ded. por reversión de medidas temporales (DT 37.1 LIS) Ded. pendiente de aplicación 6 [1956]");
+            m218ctmp372ded6.setDescription("Ded. por reversión de medidas temporales (DT 37.2 LIS) Base de deducción 6 [2234]");
+            m218ctmp372ini6.setDescription("Ded. por reversión de medidas temporales (DT 37.2 LIS) Ded. pendiente/generada 6 [2235]");
+            m218ctmp372apl6.setDescription("Ded. por reversión de medidas temporales (DT 37.2 LIS) Ded. aplicada 6 [2236]");
+            m218ctmp372pdt6.setDescription("Ded. por reversión de medidas temporales (DT 37.2 LIS) Ded. pendiente de aplicación 6 [2237]");
+            m218ctmp371ded7.setDescription("Ded. por reversión de medidas temporales (DT 37.1 LIS) Base de deducción 7 [2383] (*nou)");
+            m218ctmp371ini7.setDescription("Ded. por reversión de medidas temporales (DT 37.1 LIS) Ded. pendiente/generada 7 [2384]");
+            m218ctmp371apl7.setDescription("Ded. por reversión de medidas temporales (DT 37.1 LIS) Ded. aplicada 7 [2385]");
+            m218ctmp371pdt7.setDescription("Ded. por reversión de medidas temporales (DT 37.1 LIS) Ded. pendiente de aplicación 7 [2386]");
+            m218ctmp372ded7.setDescription("Ded. por reversión de medidas temporales (DT 37.2 LIS) Base de deducción 7 [2287]");
+            m218ctmp372ini7.setDescription("Ded. por reversión de medidas temporales (DT 37.2 LIS) Ded. pendiente/generada 7 [2288]");
+            m218ctmp372apl7.setDescription("Ded. por reversión de medidas temporales (DT 37.2 LIS) Ded. aplicada 7 [2289]");
+            m218ctmp372pdt7.setDescription("Ded. por reversión de medidas temporales (DT 37.2 LIS) Ded. pendiente de aplicación 7 [2290]");
             }
         }
         
@@ -22130,6 +23078,9 @@ public class CatModelo200 extends Catalog
         public FieldDef m212bdtransvalr;
         public FieldDef m212batransvanr;
         public FieldDef m212bdtransvanr;
+        public FieldDef m212baasimhibri;
+        public FieldDef m212bdasimhibri;
+        public FieldDef m212baautportua;
         public TabMod200h12b(String name)
             {
             super(name);
@@ -22336,6 +23287,9 @@ public class CatModelo200 extends Catalog
             m212bdtransvalr = new FieldDef("m212bdtransvalr",FieldDef.FLOAT,6,0);
             m212batransvanr = new FieldDef("m212batransvanr",FieldDef.FLOAT,6,0);
             m212bdtransvanr = new FieldDef("m212bdtransvanr",FieldDef.FLOAT,6,0);
+            m212baasimhibri = new FieldDef("m212baasimhibri",FieldDef.FLOAT,6,0);
+            m212bdasimhibri = new FieldDef("m212bdasimhibri",FieldDef.FLOAT,6,0);
+            m212baautportua = new FieldDef("m212baautportua",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m212bdominio,
                 m212bnif,
@@ -22539,7 +23493,10 @@ public class CatModelo200 extends Catalog
                 m212batransvalr,
                 m212bdtransvalr,
                 m212batransvanr,
-                m212bdtransvanr                
+                m212bdtransvanr,
+                m212baasimhibri,
+                m212bdasimhibri,
+                m212baautportua                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m212bdominio,m212bnif,m212bejercicio,m212bperiodo };
@@ -22743,6 +23700,9 @@ public class CatModelo200 extends Catalog
             m212bdtransvalr.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades residentes (art. 21.3 LIS) - Disminuciones [02183]");
             m212batransvanr.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades no residentes (art. 21.3 LIS) - Aumentos [02184]");
             m212bdtransvanr.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades no residentes (art. 21.3 LIS) - Disminuciones [02185]");
+            m212baasimhibri.setDescription("Asimetrías híbridas (art. 15 bis LIS) - Aumentos [02469]");
+            m212bdasimhibri.setDescription("Asimetrías híbridas (art. 15 bis LIS) - Disminuciones [02470]");
+            m212baautportua.setDescription("Gastos que sean objeto deducción por inversiones realizadas por autoridades portuarias (art.15 n) LIS) - Aumentos [02311]");
             }
         }
         
@@ -23000,6 +23960,8 @@ public class CatModelo200 extends Catalog
         public FieldDef m213bbaseimponi;
         public FieldDef m213baresnivel;
         public FieldDef m213bdresnivel;
+        public FieldDef m213bawchleague;
+        public FieldDef m213bdwchleague;
         public TabMod200h13b(String name)
             {
             super(name);
@@ -23254,6 +24216,8 @@ public class CatModelo200 extends Catalog
             m213bbaseimponi = new FieldDef("m213bbaseimponi",FieldDef.FLOAT,6,0);
             m213baresnivel = new FieldDef("m213baresnivel",FieldDef.FLOAT,6,0);
             m213bdresnivel = new FieldDef("m213bdresnivel",FieldDef.FLOAT,6,0);
+            m213bawchleague = new FieldDef("m213bawchleague",FieldDef.FLOAT,6,0);
+            m213bdwchleague = new FieldDef("m213bdwchleague",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m213bdominio,
                 m213bnif,
@@ -23505,7 +24469,9 @@ public class CatModelo200 extends Catalog
                 m213bcompenbase,
                 m213bbaseimponi,
                 m213baresnivel,
-                m213bdresnivel                
+                m213bdresnivel,
+                m213bawchleague,
+                m213bdwchleague                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m213bdominio,m213bnif,m213bejercicio,m213bperiodo };
@@ -23757,6 +24723,8 @@ public class CatModelo200 extends Catalog
             m213bbaseimponi.setDescription("Base imponible - Base imponible  [00552]");
             m213baresnivel.setDescription("Base Imponible  - Entidades Reducida dimensión - Reserva de nivelación - Aumentos  [01033]");
             m213bdresnivel.setDescription("Base Imponible  - Entidades Reducida dimensión - Reserva de nivelación - Disminuciones  [01034]");
+            m213bawchleague.setDescription("UEFA Women Champions League 2020 (DA 6ª RDL 28/2020) - Aumentos [02312]");
+            m213bdwchleague.setDescription("UEFA Women Champions League 2020 (DA 6ª RDL 28/2020) - Disminuciones [02313]");
             }
         }
         
@@ -23950,6 +24918,27 @@ public class CatModelo200 extends Catalog
         public FieldDef m217ca17cini18;
         public FieldDef m217ca17capl18;
         public FieldDef m217ca17cpdt18;
+        public FieldDef m217cdedini19;
+        public FieldDef m217cdedapl19;
+        public FieldDef m217cdedpdt19;
+        public FieldDef m217cdedini19b;
+        public FieldDef m217cdedapl19b;
+        public FieldDef m217cdedpdt19b;
+        public FieldDef m217cdedini19c;
+        public FieldDef m217cdedapl19c;
+        public FieldDef m217cdedpdt19c;
+        public FieldDef m217cdiferini;
+        public FieldDef m217cdiferapl;
+        public FieldDef m217cdiferpdt;
+        public FieldDef m217cdedini20;
+        public FieldDef m217cdedapl20;
+        public FieldDef m217cdedpdt20;
+        public FieldDef m217cdedini20b;
+        public FieldDef m217cdedapl20b;
+        public FieldDef m217cdedpdt20b;
+        public FieldDef m217cdedini20c;
+        public FieldDef m217cdedapl20c;
+        public FieldDef m217cdedpdt20c;
         public TabMod200h17c(String name)
             {
             super(name);
@@ -24140,6 +25129,27 @@ public class CatModelo200 extends Catalog
             m217ca17cini18 = new FieldDef("m217ca17cini18",FieldDef.FLOAT,6,0);
             m217ca17capl18 = new FieldDef("m217ca17capl18",FieldDef.FLOAT,6,0);
             m217ca17cpdt18 = new FieldDef("m217ca17cpdt18",FieldDef.FLOAT,6,0);
+            m217cdedini19 = new FieldDef("m217cdedini19",FieldDef.FLOAT,6,0);
+            m217cdedapl19 = new FieldDef("m217cdedapl19",FieldDef.FLOAT,6,0);
+            m217cdedpdt19 = new FieldDef("m217cdedpdt19",FieldDef.FLOAT,6,0);
+            m217cdedini19b = new FieldDef("m217cdedini19b",FieldDef.FLOAT,6,0);
+            m217cdedapl19b = new FieldDef("m217cdedapl19b",FieldDef.FLOAT,6,0);
+            m217cdedpdt19b = new FieldDef("m217cdedpdt19b",FieldDef.FLOAT,6,0);
+            m217cdedini19c = new FieldDef("m217cdedini19c",FieldDef.FLOAT,6,0);
+            m217cdedapl19c = new FieldDef("m217cdedapl19c",FieldDef.FLOAT,6,0);
+            m217cdedpdt19c = new FieldDef("m217cdedpdt19c",FieldDef.FLOAT,6,0);
+            m217cdiferini = new FieldDef("m217cdiferini",FieldDef.FLOAT,6,0);
+            m217cdiferapl = new FieldDef("m217cdiferapl",FieldDef.FLOAT,6,0);
+            m217cdiferpdt = new FieldDef("m217cdiferpdt",FieldDef.FLOAT,6,0);
+            m217cdedini20 = new FieldDef("m217cdedini20",FieldDef.FLOAT,6,0);
+            m217cdedapl20 = new FieldDef("m217cdedapl20",FieldDef.FLOAT,6,0);
+            m217cdedpdt20 = new FieldDef("m217cdedpdt20",FieldDef.FLOAT,6,0);
+            m217cdedini20b = new FieldDef("m217cdedini20b",FieldDef.FLOAT,6,0);
+            m217cdedapl20b = new FieldDef("m217cdedapl20b",FieldDef.FLOAT,6,0);
+            m217cdedpdt20b = new FieldDef("m217cdedpdt20b",FieldDef.FLOAT,6,0);
+            m217cdedini20c = new FieldDef("m217cdedini20c",FieldDef.FLOAT,6,0);
+            m217cdedapl20c = new FieldDef("m217cdedapl20c",FieldDef.FLOAT,6,0);
+            m217cdedpdt20c = new FieldDef("m217cdedpdt20c",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m217cdominio,
                 m217cnif,
@@ -24327,7 +25337,28 @@ public class CatModelo200 extends Catalog
                 m217cwmcpdt18,
                 m217ca17cini18,
                 m217ca17capl18,
-                m217ca17cpdt18                
+                m217ca17cpdt18,
+                m217cdedini19,
+                m217cdedapl19,
+                m217cdedpdt19,
+                m217cdedini19b,
+                m217cdedapl19b,
+                m217cdedpdt19b,
+                m217cdedini19c,
+                m217cdedapl19c,
+                m217cdedpdt19c,
+                m217cdiferini,
+                m217cdiferapl,
+                m217cdiferpdt,
+                m217cdedini20,
+                m217cdedapl20,
+                m217cdedpdt20,
+                m217cdedini20b,
+                m217cdedapl20b,
+                m217cdedpdt20b,
+                m217cdedini20c,
+                m217cdedapl20c,
+                m217cdedpdt20c                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m217cdominio,m217cnif,m217cejercicio,m217cperiodo };
@@ -24515,6 +25546,27 @@ public class CatModelo200 extends Catalog
             m217ca17cini18.setDescription("Deducc.determ.actividades 2018 Alicante 2017. Deduccion pendiente/generada [1423]");
             m217ca17capl18.setDescription("Deducc.determ.actividades 2018 Alicante 2017. Aplicado en esta liquidacion [1424]");
             m217ca17cpdt18.setDescription("Deducc.determ.actividades 2018 Alicante 2017. Pendiente de aplicacion [1425]");
+            m217cdedini19.setDescription("Deducc.determ.actividades 2019 Suma deducciones. Deduccion pendiente/generada [1360]  (*nou)");
+            m217cdedapl19.setDescription("Deducc.determ.actividades 2019 Suma deducciones. Aplicado en esta liquidacion [1361]");
+            m217cdedpdt19.setDescription("Deducc.determ.actividades 2019 Suma deducciones. Pendiente de aplicacion [1362]");
+            m217cdedini19b.setDescription("Deducc.determ.actividades 2019 Suma deducciones. Deduccion pendiente/generada [1363]");
+            m217cdedapl19b.setDescription("Deducc.determ.actividades 2019 Suma deducciones. Aplicado en esta liquidacion [1364]");
+            m217cdedpdt19b.setDescription("Deducc.determ.actividades 2019 Suma deducciones. Pendiente de aplicacion [1365]");
+            m217cdedini19c.setDescription("Deducc.determ.actividades 2019 Suma deducciones. Deduccion pendiente/generada [1366]");
+            m217cdedapl19c.setDescription("Deducc.determ.actividades 2019 Suma deducciones. Aplicado en esta liquidacion [1367]");
+            m217cdedpdt19c.setDescription("Deducc.determ.actividades 2019 Suma deducciones. Pendiente de aplicacion [1368]");
+            m217cdiferini.setDescription("Diferimiento ded. Cap IV Tit. VI Ley 43/95... Ded. pendiente/aplicada [828]");
+            m217cdiferapl.setDescription("Diferimiento ded. Cap IV Tit. VI Ley 43/95... Ded. aplicada [829]");
+            m217cdiferpdt.setDescription("Diferimiento ded. Cap IV Tit. VI Ley 43/95... Ded. pendiente de aplicación [80]");
+            m217cdedini20.setDescription("Deducc.determ.actividades - 2020 Suma deducciones - Deducción pendiente/generada [01360]");
+            m217cdedapl20.setDescription("Deducc.determ.actividades - 2020 Suma deducciones - Aplicado en esta liquidación [01361]");
+            m217cdedpdt20.setDescription("Deducc.determ.actividades - 2020 Suma deducciones - Pendiente de aplicación en periodos futuros [01362]");
+            m217cdedini20b.setDescription("Deducc.determ.actividades - 2020 Investigación y desarrollo - Deducción pendiente/generada [01363]");
+            m217cdedapl20b.setDescription("Deducc.determ.actividades - 2020 Investigación y desarrollo - Aplicado en esta liquidación [01364]");
+            m217cdedpdt20b.setDescription("Deducc.determ.actividades - 2020 Investigación y desarrollo - Pendiente de aplicación en periodos futuros [01365]");
+            m217cdedini20c.setDescription("Deducc.determ.actividades - 2020 Innovación tecnológica - Deducción pendiente/generada [01366]");
+            m217cdedapl20c.setDescription("Deducc.determ.actividades - 2020 Innovación tecnológica - Aplicado en esta liquidación [01367]");
+            m217cdedpdt20c.setDescription("Deducc.determ.actividades - 2020 Innovación tecnológica - Pendiente de aplicación en periodos futuros [01368]");
             }
         }
         
@@ -24711,6 +25763,24 @@ public class CatModelo200 extends Catalog
         public FieldDef m218dtotdedini;
         public FieldDef m218dtotdedapl;
         public FieldDef m218dtotdedpdt;
+        public FieldDef m218dterini;
+        public FieldDef m218dterapl;
+        public FieldDef m218dterpdt;
+        public FieldDef m218dusini;
+        public FieldDef m218dusapl;
+        public FieldDef m218duspdt;
+        public FieldDef m218dmpini;
+        public FieldDef m218dmpapl;
+        public FieldDef m218dmppdt;
+        public FieldDef m218dlbini;
+        public FieldDef m218dlbapl;
+        public FieldDef m218dlbpdt;
+        public FieldDef m218dpocini;
+        public FieldDef m218dpocapl;
+        public FieldDef m218dpocpdt;
+        public FieldDef m218dcop25ini;
+        public FieldDef m218dcop25apl;
+        public FieldDef m218dcop25pdt;
         public TabMod200h18d(String name)
             {
             super(name);
@@ -24904,6 +25974,24 @@ public class CatModelo200 extends Catalog
             m218dtotdedini = new FieldDef("m218dtotdedini",FieldDef.FLOAT,6,0);
             m218dtotdedapl = new FieldDef("m218dtotdedapl",FieldDef.FLOAT,6,0);
             m218dtotdedpdt = new FieldDef("m218dtotdedpdt",FieldDef.FLOAT,6,0);
+            m218dterini = new FieldDef("m218dterini",FieldDef.FLOAT,6,0);
+            m218dterapl = new FieldDef("m218dterapl",FieldDef.FLOAT,6,0);
+            m218dterpdt = new FieldDef("m218dterpdt",FieldDef.FLOAT,6,0);
+            m218dusini = new FieldDef("m218dusini",FieldDef.FLOAT,6,0);
+            m218dusapl = new FieldDef("m218dusapl",FieldDef.FLOAT,6,0);
+            m218duspdt = new FieldDef("m218duspdt",FieldDef.FLOAT,6,0);
+            m218dmpini = new FieldDef("m218dmpini",FieldDef.FLOAT,6,0);
+            m218dmpapl = new FieldDef("m218dmpapl",FieldDef.FLOAT,6,0);
+            m218dmppdt = new FieldDef("m218dmppdt",FieldDef.FLOAT,6,0);
+            m218dlbini = new FieldDef("m218dlbini",FieldDef.FLOAT,6,0);
+            m218dlbapl = new FieldDef("m218dlbapl",FieldDef.FLOAT,6,0);
+            m218dlbpdt = new FieldDef("m218dlbpdt",FieldDef.FLOAT,6,0);
+            m218dpocini = new FieldDef("m218dpocini",FieldDef.FLOAT,6,0);
+            m218dpocapl = new FieldDef("m218dpocapl",FieldDef.FLOAT,6,0);
+            m218dpocpdt = new FieldDef("m218dpocpdt",FieldDef.FLOAT,6,0);
+            m218dcop25ini = new FieldDef("m218dcop25ini",FieldDef.FLOAT,6,0);
+            m218dcop25apl = new FieldDef("m218dcop25apl",FieldDef.FLOAT,6,0);
+            m218dcop25pdt = new FieldDef("m218dcop25pdt",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m218ddominio,
                 m218dnif,
@@ -25094,7 +26182,25 @@ public class CatModelo200 extends Catalog
                 m218ddiferpdt,
                 m218dtotdedini,
                 m218dtotdedapl,
-                m218dtotdedpdt                
+                m218dtotdedpdt,
+                m218dterini,
+                m218dterapl,
+                m218dterpdt,
+                m218dusini,
+                m218dusapl,
+                m218duspdt,
+                m218dmpini,
+                m218dmpapl,
+                m218dmppdt,
+                m218dlbini,
+                m218dlbapl,
+                m218dlbpdt,
+                m218dpocini,
+                m218dpocapl,
+                m218dpocpdt,
+                m218dcop25ini,
+                m218dcop25apl,
+                m218dcop25pdt                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m218ddominio,m218dnif,m218dejercicio,m218dperiodo };
@@ -25285,6 +26391,5012 @@ public class CatModelo200 extends Catalog
             m218dtotdedini.setDescription("Total - Deducción pendiente/generada [00831]");
             m218dtotdedapl.setDescription("Total - Aplicado en esta liquidación [00588]");
             m218dtotdedpdt.setDescription("Total - Pendiente de aplicación en periodos futuros [00832]");
+            m218dterini.setDescription("Deducc.determ.actividades 2019 Teatro Real. Deduccion pendiente/generada [1081] (*nou)");
+            m218dterapl.setDescription("Deducc.determ.actividades 2019 Teatro Real. Aplicado en esta liquidacion [1082]");
+            m218dterpdt.setDescription("Deducc.determ.actividades 2019 Teatro Real. Pendiente de aplicacion [1083]");
+            m218dusini.setDescription("Deducc.determ.actividades 2019 Universidad Salamanca. Deduccion pendiente/generada [1087]");
+            m218dusapl.setDescription("Deducc.determ.actividades 2019 Universidad Salamanca. Aplicado en esta liquidacion [1088]");
+            m218duspdt.setDescription("Deducc.determ.actividades 2019 Universidad Salamanca. Pendiente de aplicacion [1089]");
+            m218dmpini.setDescription("Deducc.determ.actividades 2019 Museo Nacional el Prado. Deduccion pendiente/generada [1117]");
+            m218dmpapl.setDescription("Deducc.determ.actividades 2019 Museo Nacional el Prado. Aplicado en esta liquidacion [1118]");
+            m218dmppdt.setDescription("Deducc.determ.actividades 2019 Museo Nacional el Prado. Pendiente de aplicacion [1119]");
+            m218dlbini.setDescription("Deducc.determ.actividades 2019 Reapertura Gran Teatro Liceo. Deduccion pendiente/generada [1375]");
+            m218dlbapl.setDescription("Deducc.determ.actividades 2019 Reapertura Gran Teatro Liceo. Aplicado en esta liquidacion [1376]");
+            m218dlbpdt.setDescription("Deducc.determ.actividades 2019 Reapertura Gran Teatro Liceo. Pendiente de aplicacion [1377]");
+            m218dpocini.setDescription("Deducc.determ.actividades 2019 Prevencion Obesidad. Deduccion pendiente/generada [1417]");
+            m218dpocapl.setDescription("Deducc.determ.actividades 2019 Prevencion Obesidad. Aplicado en esta liquidacion [1418]");
+            m218dpocpdt.setDescription("Deducc.determ.actividades 2019 Prevencion Obesidad. Pendiente de aplicacion [1419]");
+            m218dcop25ini.setDescription("Deducc.determ.actividades 2019 Cambio climatico. Deduccion pendiente/generada [2284]");
+            m218dcop25apl.setDescription("Deducc.determ.actividades 2019 Cambio climatico. Aplicado en esta liquidacion [2285]");
+            m218dcop25pdt.setDescription("Deducc.determ.actividades 2019 Cambio climatico. Pendiente de aplicacion [2286]");
+            }
+        }
+        
+    public class TabMod200h26b extends TableDef
+        {
+        // campos
+        public FieldDef m226bdominio;
+        public FieldDef m226bnif;
+        public FieldDef m226bejercicio;
+        public FieldDef m226bperiodo;
+        public FieldDef m226bcas2501;
+        public FieldDef m226bcas2502;
+        public FieldDef m226bcas2503;
+        public FieldDef m226bcas2504;
+        public FieldDef m226bcas2505;
+        public FieldDef m226bcas2506;
+        public FieldDef m226bcas2507;
+        public FieldDef m226bcas2508;
+        public FieldDef m226bcas2509;
+        public FieldDef m226bcas2510;
+        public FieldDef m226bcas2511;
+        public FieldDef m226bcas2512;
+        public FieldDef m226bcas2513;
+        public FieldDef m226bcas2514;
+        public FieldDef m226bcas2515;
+        public FieldDef m226bcas2516;
+        public FieldDef m226bcas2517;
+        public FieldDef m226bcas2518;
+        public FieldDef m226bcas2519;
+        public FieldDef m226bcas2520;
+        public FieldDef m226bcas2521;
+        public FieldDef m226bcas2522;
+        public FieldDef m226bcas2523;
+        public FieldDef m226bcas2524;
+        public FieldDef m226bcas2525;
+        public FieldDef m226bcas2526;
+        public FieldDef m226bcas2527;
+        public FieldDef m226bcas2528;
+        public FieldDef m226bcas2529;
+        public FieldDef m226bcas2530;
+        public FieldDef m226bcas2531;
+        public FieldDef m226bcas2532;
+        public FieldDef m226bcas2533;
+        public FieldDef m226bcas2534;
+        public FieldDef m226bcas2535;
+        public FieldDef m226bcas2536;
+        public FieldDef m226bcas2537;
+        public FieldDef m226bcas2538;
+        public FieldDef m226bcas2539;
+        public FieldDef m226bcas2540;
+        public FieldDef m226bcas2541;
+        public FieldDef m226bcas2542;
+        public FieldDef m226bcas2543;
+        public FieldDef m226bcas2544;
+        public FieldDef m226bcas2545;
+        public FieldDef m226bcas2546;
+        public FieldDef m226bcas2547;
+        public FieldDef m226bcas2548;
+        public FieldDef m226bcas2549;
+        public FieldDef m226bcas2550;
+        public FieldDef m226bcas2551;
+        public FieldDef m226bcas2552;
+        public FieldDef m226bcas2553;
+        public FieldDef m226bcas2554;
+        public FieldDef m226bcas2555;
+        public FieldDef m226bcas2556;
+        public FieldDef m226bcas2557;
+        public FieldDef m226bcas2558;
+        public FieldDef m226bcas2559;
+        public FieldDef m226bcas2560;
+        public FieldDef m226bcas2561;
+        public FieldDef m226bcas2562;
+        public FieldDef m226bcas2563;
+        public FieldDef m226bcas2564;
+        public FieldDef m226bcas2565;
+        public FieldDef m226bcas2566;
+        public FieldDef m226bcas2567;
+        public FieldDef m226bcas2568;
+        public FieldDef m226bcas2569;
+        public FieldDef m226bcas2570;
+        public FieldDef m226bcas2576;
+        public FieldDef m226bcas2577;
+        public FieldDef m226bcas2578;
+        public FieldDef m226bcas2579;
+        public FieldDef m226bcas2580;
+        public FieldDef m226bcas2581;
+        public FieldDef m226bcas2582;
+        public FieldDef m226bcas2583;
+        public FieldDef m226bcas2584;
+        public FieldDef m226bcas2585;
+        public FieldDef m226bcas2586;
+        public FieldDef m226bcas2587;
+        public FieldDef m226bcas2588;
+        public FieldDef m226bcas2589;
+        public FieldDef m226bcas2590;
+        public FieldDef m226bcas2591;
+        public FieldDef m226bcas2592;
+        public FieldDef m226bcas2593;
+        public FieldDef m226bcas2594;
+        public FieldDef m226bcas2595;
+        public FieldDef m226bcas2596;
+        public FieldDef m226bcas2597;
+        public FieldDef m226bcas2598;
+        public FieldDef m226bcas2599;
+        public FieldDef m226bcas2600;
+        public FieldDef m226bcas2601;
+        public FieldDef m226bcas2602;
+        public FieldDef m226bcas2603;
+        public FieldDef m226bcas2604;
+        public FieldDef m226bcas2605;
+        public FieldDef m226bcas2606;
+        public FieldDef m226bcas2607;
+        public FieldDef m226bcas2608;
+        public FieldDef m226bcas2609;
+        public FieldDef m226bcas2610;
+        public FieldDef m226bcas2611;
+        public FieldDef m226bcas2612;
+        public FieldDef m226bcas2613;
+        public FieldDef m226bcas2614;
+        public FieldDef m226bcas2615;
+        public FieldDef m226bcas2616;
+        public FieldDef m226bcas2617;
+        public FieldDef m226bcas2618;
+        public FieldDef m226bcas2619;
+        public FieldDef m226bcas2620;
+        public FieldDef m226bcas2621;
+        public FieldDef m226bcas2622;
+        public FieldDef m226bcas2623;
+        public FieldDef m226bcas2624;
+        public FieldDef m226bcas2625;
+        public FieldDef m226bcas2626;
+        public FieldDef m226bcas2627;
+        public FieldDef m226bcas2628;
+        public FieldDef m226bcas2629;
+        public FieldDef m226bcas2630;
+        public FieldDef m226bcas2631;
+        public FieldDef m226bcas2632;
+        public FieldDef m226bcas2633;
+        public FieldDef m226bcas2634;
+        public FieldDef m226bcas2635;
+        public FieldDef m226bcas2636;
+        public FieldDef m226bcas2637;
+        public FieldDef m226bcas2638;
+        public FieldDef m226bcas2639;
+        public FieldDef m226bcas2640;
+        public FieldDef m226bcas2641;
+        public FieldDef m226bcas2642;
+        public FieldDef m226bcas2643;
+        public FieldDef m226bcas2644;
+        public FieldDef m226bcas2645;
+        public FieldDef m226bcas2646;
+        public FieldDef m226bcas2647;
+        public FieldDef m226bcas2648;
+        public FieldDef m226bcas2649;
+        public FieldDef m226bcas2650;
+        public FieldDef m226bcas2651;
+        public FieldDef m226bcas2652;
+        public FieldDef m226bcas2653;
+        public FieldDef m226bcas2654;
+        public FieldDef m226bcas2655;
+        public FieldDef m226bcas2656;
+        public FieldDef m226bcas2657;
+        public FieldDef m226bcas2658;
+        public FieldDef m226bcas2659;
+        public FieldDef m226bcas2660;
+        public FieldDef m226bcas2661;
+        public FieldDef m226bcas2662;
+        public FieldDef m226bcas2663;
+        public FieldDef m226bcas2664;
+        public FieldDef m226bcas2665;
+        public FieldDef m226bcas2666;
+        public FieldDef m226bcas2667;
+        public FieldDef m226bcas2668;
+        public FieldDef m226bcas2669;
+        public FieldDef m226bcas2670;
+        public FieldDef m226bcas2671;
+        public FieldDef m226bcas2672;
+        public FieldDef m226bcas2673;
+        public FieldDef m226bcas2674;
+        public FieldDef m226bcas2675;
+        public FieldDef m226bcas2676;
+        public FieldDef m226bcas2677;
+        public FieldDef m226bcas2678;
+        public FieldDef m226bcas2679;
+        public FieldDef m226bcas2680;
+        public TabMod200h26b(String name)
+            {
+            super(name);
+            m226bdominio = new FieldDef("m226bdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m226bnif = new FieldDef("m226bnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m226bejercicio = new FieldDef("m226bejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m226bperiodo = new FieldDef("m226bperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m226bcas2501 = new FieldDef("m226bcas2501",FieldDef.FLOAT,6,0);
+            m226bcas2502 = new FieldDef("m226bcas2502",FieldDef.FLOAT,6,0);
+            m226bcas2503 = new FieldDef("m226bcas2503",FieldDef.FLOAT,6,0);
+            m226bcas2504 = new FieldDef("m226bcas2504",FieldDef.FLOAT,6,0);
+            m226bcas2505 = new FieldDef("m226bcas2505",FieldDef.FLOAT,6,0);
+            m226bcas2506 = new FieldDef("m226bcas2506",FieldDef.FLOAT,6,0);
+            m226bcas2507 = new FieldDef("m226bcas2507",FieldDef.FLOAT,6,0);
+            m226bcas2508 = new FieldDef("m226bcas2508",FieldDef.FLOAT,6,0);
+            m226bcas2509 = new FieldDef("m226bcas2509",FieldDef.FLOAT,6,0);
+            m226bcas2510 = new FieldDef("m226bcas2510",FieldDef.FLOAT,6,0);
+            m226bcas2511 = new FieldDef("m226bcas2511",FieldDef.FLOAT,6,0);
+            m226bcas2512 = new FieldDef("m226bcas2512",FieldDef.FLOAT,6,0);
+            m226bcas2513 = new FieldDef("m226bcas2513",FieldDef.FLOAT,6,0);
+            m226bcas2514 = new FieldDef("m226bcas2514",FieldDef.FLOAT,6,0);
+            m226bcas2515 = new FieldDef("m226bcas2515",FieldDef.FLOAT,6,0);
+            m226bcas2516 = new FieldDef("m226bcas2516",FieldDef.FLOAT,6,0);
+            m226bcas2517 = new FieldDef("m226bcas2517",FieldDef.FLOAT,6,0);
+            m226bcas2518 = new FieldDef("m226bcas2518",FieldDef.FLOAT,6,0);
+            m226bcas2519 = new FieldDef("m226bcas2519",FieldDef.FLOAT,6,0);
+            m226bcas2520 = new FieldDef("m226bcas2520",FieldDef.FLOAT,6,0);
+            m226bcas2521 = new FieldDef("m226bcas2521",FieldDef.FLOAT,6,0);
+            m226bcas2522 = new FieldDef("m226bcas2522",FieldDef.FLOAT,6,0);
+            m226bcas2523 = new FieldDef("m226bcas2523",FieldDef.FLOAT,6,0);
+            m226bcas2524 = new FieldDef("m226bcas2524",FieldDef.FLOAT,6,0);
+            m226bcas2525 = new FieldDef("m226bcas2525",FieldDef.FLOAT,6,0);
+            m226bcas2526 = new FieldDef("m226bcas2526",FieldDef.FLOAT,6,0);
+            m226bcas2527 = new FieldDef("m226bcas2527",FieldDef.FLOAT,6,0);
+            m226bcas2528 = new FieldDef("m226bcas2528",FieldDef.FLOAT,6,0);
+            m226bcas2529 = new FieldDef("m226bcas2529",FieldDef.FLOAT,6,0);
+            m226bcas2530 = new FieldDef("m226bcas2530",FieldDef.FLOAT,6,0);
+            m226bcas2531 = new FieldDef("m226bcas2531",FieldDef.FLOAT,6,0);
+            m226bcas2532 = new FieldDef("m226bcas2532",FieldDef.FLOAT,6,0);
+            m226bcas2533 = new FieldDef("m226bcas2533",FieldDef.FLOAT,6,0);
+            m226bcas2534 = new FieldDef("m226bcas2534",FieldDef.FLOAT,6,0);
+            m226bcas2535 = new FieldDef("m226bcas2535",FieldDef.FLOAT,6,0);
+            m226bcas2536 = new FieldDef("m226bcas2536",FieldDef.FLOAT,6,0);
+            m226bcas2537 = new FieldDef("m226bcas2537",FieldDef.FLOAT,6,0);
+            m226bcas2538 = new FieldDef("m226bcas2538",FieldDef.FLOAT,6,0);
+            m226bcas2539 = new FieldDef("m226bcas2539",FieldDef.FLOAT,6,0);
+            m226bcas2540 = new FieldDef("m226bcas2540",FieldDef.FLOAT,6,0);
+            m226bcas2541 = new FieldDef("m226bcas2541",FieldDef.FLOAT,6,0);
+            m226bcas2542 = new FieldDef("m226bcas2542",FieldDef.FLOAT,6,0);
+            m226bcas2543 = new FieldDef("m226bcas2543",FieldDef.FLOAT,6,0);
+            m226bcas2544 = new FieldDef("m226bcas2544",FieldDef.FLOAT,6,0);
+            m226bcas2545 = new FieldDef("m226bcas2545",FieldDef.FLOAT,6,0);
+            m226bcas2546 = new FieldDef("m226bcas2546",FieldDef.FLOAT,6,0);
+            m226bcas2547 = new FieldDef("m226bcas2547",FieldDef.FLOAT,6,0);
+            m226bcas2548 = new FieldDef("m226bcas2548",FieldDef.FLOAT,6,0);
+            m226bcas2549 = new FieldDef("m226bcas2549",FieldDef.FLOAT,6,0);
+            m226bcas2550 = new FieldDef("m226bcas2550",FieldDef.FLOAT,6,0);
+            m226bcas2551 = new FieldDef("m226bcas2551",FieldDef.FLOAT,6,0);
+            m226bcas2552 = new FieldDef("m226bcas2552",FieldDef.FLOAT,6,0);
+            m226bcas2553 = new FieldDef("m226bcas2553",FieldDef.FLOAT,6,0);
+            m226bcas2554 = new FieldDef("m226bcas2554",FieldDef.FLOAT,6,0);
+            m226bcas2555 = new FieldDef("m226bcas2555",FieldDef.FLOAT,6,0);
+            m226bcas2556 = new FieldDef("m226bcas2556",FieldDef.FLOAT,6,0);
+            m226bcas2557 = new FieldDef("m226bcas2557",FieldDef.FLOAT,6,0);
+            m226bcas2558 = new FieldDef("m226bcas2558",FieldDef.FLOAT,6,0);
+            m226bcas2559 = new FieldDef("m226bcas2559",FieldDef.FLOAT,6,0);
+            m226bcas2560 = new FieldDef("m226bcas2560",FieldDef.FLOAT,6,0);
+            m226bcas2561 = new FieldDef("m226bcas2561",FieldDef.FLOAT,6,0);
+            m226bcas2562 = new FieldDef("m226bcas2562",FieldDef.FLOAT,6,0);
+            m226bcas2563 = new FieldDef("m226bcas2563",FieldDef.FLOAT,6,0);
+            m226bcas2564 = new FieldDef("m226bcas2564",FieldDef.FLOAT,6,0);
+            m226bcas2565 = new FieldDef("m226bcas2565",FieldDef.FLOAT,6,0);
+            m226bcas2566 = new FieldDef("m226bcas2566",FieldDef.FLOAT,6,0);
+            m226bcas2567 = new FieldDef("m226bcas2567",FieldDef.FLOAT,6,0);
+            m226bcas2568 = new FieldDef("m226bcas2568",FieldDef.FLOAT,6,0);
+            m226bcas2569 = new FieldDef("m226bcas2569",FieldDef.FLOAT,6,0);
+            m226bcas2570 = new FieldDef("m226bcas2570",FieldDef.FLOAT,6,0);
+            m226bcas2576 = new FieldDef("m226bcas2576",FieldDef.FLOAT,6,0);
+            m226bcas2577 = new FieldDef("m226bcas2577",FieldDef.FLOAT,6,0);
+            m226bcas2578 = new FieldDef("m226bcas2578",FieldDef.FLOAT,6,0);
+            m226bcas2579 = new FieldDef("m226bcas2579",FieldDef.FLOAT,6,0);
+            m226bcas2580 = new FieldDef("m226bcas2580",FieldDef.FLOAT,6,0);
+            m226bcas2581 = new FieldDef("m226bcas2581",FieldDef.FLOAT,6,0);
+            m226bcas2582 = new FieldDef("m226bcas2582",FieldDef.FLOAT,6,0);
+            m226bcas2583 = new FieldDef("m226bcas2583",FieldDef.FLOAT,6,0);
+            m226bcas2584 = new FieldDef("m226bcas2584",FieldDef.FLOAT,6,0);
+            m226bcas2585 = new FieldDef("m226bcas2585",FieldDef.FLOAT,6,0);
+            m226bcas2586 = new FieldDef("m226bcas2586",FieldDef.FLOAT,6,0);
+            m226bcas2587 = new FieldDef("m226bcas2587",FieldDef.FLOAT,6,0);
+            m226bcas2588 = new FieldDef("m226bcas2588",FieldDef.FLOAT,6,0);
+            m226bcas2589 = new FieldDef("m226bcas2589",FieldDef.FLOAT,6,0);
+            m226bcas2590 = new FieldDef("m226bcas2590",FieldDef.FLOAT,6,0);
+            m226bcas2591 = new FieldDef("m226bcas2591",FieldDef.FLOAT,6,0);
+            m226bcas2592 = new FieldDef("m226bcas2592",FieldDef.FLOAT,6,0);
+            m226bcas2593 = new FieldDef("m226bcas2593",FieldDef.FLOAT,6,0);
+            m226bcas2594 = new FieldDef("m226bcas2594",FieldDef.FLOAT,6,0);
+            m226bcas2595 = new FieldDef("m226bcas2595",FieldDef.FLOAT,6,0);
+            m226bcas2596 = new FieldDef("m226bcas2596",FieldDef.FLOAT,6,0);
+            m226bcas2597 = new FieldDef("m226bcas2597",FieldDef.FLOAT,6,0);
+            m226bcas2598 = new FieldDef("m226bcas2598",FieldDef.FLOAT,6,0);
+            m226bcas2599 = new FieldDef("m226bcas2599",FieldDef.FLOAT,6,0);
+            m226bcas2600 = new FieldDef("m226bcas2600",FieldDef.FLOAT,6,0);
+            m226bcas2601 = new FieldDef("m226bcas2601",FieldDef.FLOAT,6,0);
+            m226bcas2602 = new FieldDef("m226bcas2602",FieldDef.FLOAT,6,0);
+            m226bcas2603 = new FieldDef("m226bcas2603",FieldDef.FLOAT,6,0);
+            m226bcas2604 = new FieldDef("m226bcas2604",FieldDef.FLOAT,6,0);
+            m226bcas2605 = new FieldDef("m226bcas2605",FieldDef.FLOAT,6,0);
+            m226bcas2606 = new FieldDef("m226bcas2606",FieldDef.FLOAT,6,0);
+            m226bcas2607 = new FieldDef("m226bcas2607",FieldDef.FLOAT,6,0);
+            m226bcas2608 = new FieldDef("m226bcas2608",FieldDef.FLOAT,6,0);
+            m226bcas2609 = new FieldDef("m226bcas2609",FieldDef.FLOAT,6,0);
+            m226bcas2610 = new FieldDef("m226bcas2610",FieldDef.FLOAT,6,0);
+            m226bcas2611 = new FieldDef("m226bcas2611",FieldDef.FLOAT,6,0);
+            m226bcas2612 = new FieldDef("m226bcas2612",FieldDef.FLOAT,6,0);
+            m226bcas2613 = new FieldDef("m226bcas2613",FieldDef.FLOAT,6,0);
+            m226bcas2614 = new FieldDef("m226bcas2614",FieldDef.FLOAT,6,0);
+            m226bcas2615 = new FieldDef("m226bcas2615",FieldDef.FLOAT,6,0);
+            m226bcas2616 = new FieldDef("m226bcas2616",FieldDef.FLOAT,6,0);
+            m226bcas2617 = new FieldDef("m226bcas2617",FieldDef.FLOAT,6,0);
+            m226bcas2618 = new FieldDef("m226bcas2618",FieldDef.FLOAT,6,0);
+            m226bcas2619 = new FieldDef("m226bcas2619",FieldDef.FLOAT,6,0);
+            m226bcas2620 = new FieldDef("m226bcas2620",FieldDef.FLOAT,6,0);
+            m226bcas2621 = new FieldDef("m226bcas2621",FieldDef.FLOAT,6,0);
+            m226bcas2622 = new FieldDef("m226bcas2622",FieldDef.FLOAT,6,0);
+            m226bcas2623 = new FieldDef("m226bcas2623",FieldDef.FLOAT,6,0);
+            m226bcas2624 = new FieldDef("m226bcas2624",FieldDef.FLOAT,6,0);
+            m226bcas2625 = new FieldDef("m226bcas2625",FieldDef.FLOAT,6,0);
+            m226bcas2626 = new FieldDef("m226bcas2626",FieldDef.FLOAT,6,0);
+            m226bcas2627 = new FieldDef("m226bcas2627",FieldDef.FLOAT,6,0);
+            m226bcas2628 = new FieldDef("m226bcas2628",FieldDef.FLOAT,6,0);
+            m226bcas2629 = new FieldDef("m226bcas2629",FieldDef.FLOAT,6,0);
+            m226bcas2630 = new FieldDef("m226bcas2630",FieldDef.FLOAT,6,0);
+            m226bcas2631 = new FieldDef("m226bcas2631",FieldDef.FLOAT,6,0);
+            m226bcas2632 = new FieldDef("m226bcas2632",FieldDef.FLOAT,6,0);
+            m226bcas2633 = new FieldDef("m226bcas2633",FieldDef.FLOAT,6,0);
+            m226bcas2634 = new FieldDef("m226bcas2634",FieldDef.FLOAT,6,0);
+            m226bcas2635 = new FieldDef("m226bcas2635",FieldDef.FLOAT,6,0);
+            m226bcas2636 = new FieldDef("m226bcas2636",FieldDef.FLOAT,6,0);
+            m226bcas2637 = new FieldDef("m226bcas2637",FieldDef.FLOAT,6,0);
+            m226bcas2638 = new FieldDef("m226bcas2638",FieldDef.FLOAT,6,0);
+            m226bcas2639 = new FieldDef("m226bcas2639",FieldDef.FLOAT,6,0);
+            m226bcas2640 = new FieldDef("m226bcas2640",FieldDef.FLOAT,6,0);
+            m226bcas2641 = new FieldDef("m226bcas2641",FieldDef.FLOAT,6,0);
+            m226bcas2642 = new FieldDef("m226bcas2642",FieldDef.FLOAT,6,0);
+            m226bcas2643 = new FieldDef("m226bcas2643",FieldDef.FLOAT,6,0);
+            m226bcas2644 = new FieldDef("m226bcas2644",FieldDef.FLOAT,6,0);
+            m226bcas2645 = new FieldDef("m226bcas2645",FieldDef.FLOAT,6,0);
+            m226bcas2646 = new FieldDef("m226bcas2646",FieldDef.FLOAT,6,0);
+            m226bcas2647 = new FieldDef("m226bcas2647",FieldDef.FLOAT,6,0);
+            m226bcas2648 = new FieldDef("m226bcas2648",FieldDef.FLOAT,6,0);
+            m226bcas2649 = new FieldDef("m226bcas2649",FieldDef.FLOAT,6,0);
+            m226bcas2650 = new FieldDef("m226bcas2650",FieldDef.FLOAT,6,0);
+            m226bcas2651 = new FieldDef("m226bcas2651",FieldDef.FLOAT,6,0);
+            m226bcas2652 = new FieldDef("m226bcas2652",FieldDef.FLOAT,6,0);
+            m226bcas2653 = new FieldDef("m226bcas2653",FieldDef.FLOAT,6,0);
+            m226bcas2654 = new FieldDef("m226bcas2654",FieldDef.FLOAT,6,0);
+            m226bcas2655 = new FieldDef("m226bcas2655",FieldDef.FLOAT,6,0);
+            m226bcas2656 = new FieldDef("m226bcas2656",FieldDef.FLOAT,6,0);
+            m226bcas2657 = new FieldDef("m226bcas2657",FieldDef.FLOAT,6,0);
+            m226bcas2658 = new FieldDef("m226bcas2658",FieldDef.FLOAT,6,0);
+            m226bcas2659 = new FieldDef("m226bcas2659",FieldDef.FLOAT,6,0);
+            m226bcas2660 = new FieldDef("m226bcas2660",FieldDef.FLOAT,6,0);
+            m226bcas2661 = new FieldDef("m226bcas2661",FieldDef.FLOAT,6,0);
+            m226bcas2662 = new FieldDef("m226bcas2662",FieldDef.FLOAT,6,0);
+            m226bcas2663 = new FieldDef("m226bcas2663",FieldDef.FLOAT,6,0);
+            m226bcas2664 = new FieldDef("m226bcas2664",FieldDef.FLOAT,6,0);
+            m226bcas2665 = new FieldDef("m226bcas2665",FieldDef.FLOAT,6,0);
+            m226bcas2666 = new FieldDef("m226bcas2666",FieldDef.FLOAT,6,0);
+            m226bcas2667 = new FieldDef("m226bcas2667",FieldDef.FLOAT,6,0);
+            m226bcas2668 = new FieldDef("m226bcas2668",FieldDef.FLOAT,6,0);
+            m226bcas2669 = new FieldDef("m226bcas2669",FieldDef.FLOAT,6,0);
+            m226bcas2670 = new FieldDef("m226bcas2670",FieldDef.FLOAT,6,0);
+            m226bcas2671 = new FieldDef("m226bcas2671",FieldDef.FLOAT,6,0);
+            m226bcas2672 = new FieldDef("m226bcas2672",FieldDef.FLOAT,6,0);
+            m226bcas2673 = new FieldDef("m226bcas2673",FieldDef.FLOAT,6,0);
+            m226bcas2674 = new FieldDef("m226bcas2674",FieldDef.FLOAT,6,0);
+            m226bcas2675 = new FieldDef("m226bcas2675",FieldDef.FLOAT,6,0);
+            m226bcas2676 = new FieldDef("m226bcas2676",FieldDef.FLOAT,6,0);
+            m226bcas2677 = new FieldDef("m226bcas2677",FieldDef.FLOAT,6,0);
+            m226bcas2678 = new FieldDef("m226bcas2678",FieldDef.FLOAT,6,0);
+            m226bcas2679 = new FieldDef("m226bcas2679",FieldDef.FLOAT,6,0);
+            m226bcas2680 = new FieldDef("m226bcas2680",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m226bdominio,
+                m226bnif,
+                m226bejercicio,
+                m226bperiodo,
+                m226bcas2501,
+                m226bcas2502,
+                m226bcas2503,
+                m226bcas2504,
+                m226bcas2505,
+                m226bcas2506,
+                m226bcas2507,
+                m226bcas2508,
+                m226bcas2509,
+                m226bcas2510,
+                m226bcas2511,
+                m226bcas2512,
+                m226bcas2513,
+                m226bcas2514,
+                m226bcas2515,
+                m226bcas2516,
+                m226bcas2517,
+                m226bcas2518,
+                m226bcas2519,
+                m226bcas2520,
+                m226bcas2521,
+                m226bcas2522,
+                m226bcas2523,
+                m226bcas2524,
+                m226bcas2525,
+                m226bcas2526,
+                m226bcas2527,
+                m226bcas2528,
+                m226bcas2529,
+                m226bcas2530,
+                m226bcas2531,
+                m226bcas2532,
+                m226bcas2533,
+                m226bcas2534,
+                m226bcas2535,
+                m226bcas2536,
+                m226bcas2537,
+                m226bcas2538,
+                m226bcas2539,
+                m226bcas2540,
+                m226bcas2541,
+                m226bcas2542,
+                m226bcas2543,
+                m226bcas2544,
+                m226bcas2545,
+                m226bcas2546,
+                m226bcas2547,
+                m226bcas2548,
+                m226bcas2549,
+                m226bcas2550,
+                m226bcas2551,
+                m226bcas2552,
+                m226bcas2553,
+                m226bcas2554,
+                m226bcas2555,
+                m226bcas2556,
+                m226bcas2557,
+                m226bcas2558,
+                m226bcas2559,
+                m226bcas2560,
+                m226bcas2561,
+                m226bcas2562,
+                m226bcas2563,
+                m226bcas2564,
+                m226bcas2565,
+                m226bcas2566,
+                m226bcas2567,
+                m226bcas2568,
+                m226bcas2569,
+                m226bcas2570,
+                m226bcas2576,
+                m226bcas2577,
+                m226bcas2578,
+                m226bcas2579,
+                m226bcas2580,
+                m226bcas2581,
+                m226bcas2582,
+                m226bcas2583,
+                m226bcas2584,
+                m226bcas2585,
+                m226bcas2586,
+                m226bcas2587,
+                m226bcas2588,
+                m226bcas2589,
+                m226bcas2590,
+                m226bcas2591,
+                m226bcas2592,
+                m226bcas2593,
+                m226bcas2594,
+                m226bcas2595,
+                m226bcas2596,
+                m226bcas2597,
+                m226bcas2598,
+                m226bcas2599,
+                m226bcas2600,
+                m226bcas2601,
+                m226bcas2602,
+                m226bcas2603,
+                m226bcas2604,
+                m226bcas2605,
+                m226bcas2606,
+                m226bcas2607,
+                m226bcas2608,
+                m226bcas2609,
+                m226bcas2610,
+                m226bcas2611,
+                m226bcas2612,
+                m226bcas2613,
+                m226bcas2614,
+                m226bcas2615,
+                m226bcas2616,
+                m226bcas2617,
+                m226bcas2618,
+                m226bcas2619,
+                m226bcas2620,
+                m226bcas2621,
+                m226bcas2622,
+                m226bcas2623,
+                m226bcas2624,
+                m226bcas2625,
+                m226bcas2626,
+                m226bcas2627,
+                m226bcas2628,
+                m226bcas2629,
+                m226bcas2630,
+                m226bcas2631,
+                m226bcas2632,
+                m226bcas2633,
+                m226bcas2634,
+                m226bcas2635,
+                m226bcas2636,
+                m226bcas2637,
+                m226bcas2638,
+                m226bcas2639,
+                m226bcas2640,
+                m226bcas2641,
+                m226bcas2642,
+                m226bcas2643,
+                m226bcas2644,
+                m226bcas2645,
+                m226bcas2646,
+                m226bcas2647,
+                m226bcas2648,
+                m226bcas2649,
+                m226bcas2650,
+                m226bcas2651,
+                m226bcas2652,
+                m226bcas2653,
+                m226bcas2654,
+                m226bcas2655,
+                m226bcas2656,
+                m226bcas2657,
+                m226bcas2658,
+                m226bcas2659,
+                m226bcas2660,
+                m226bcas2661,
+                m226bcas2662,
+                m226bcas2663,
+                m226bcas2664,
+                m226bcas2665,
+                m226bcas2666,
+                m226bcas2667,
+                m226bcas2668,
+                m226bcas2669,
+                m226bcas2670,
+                m226bcas2671,
+                m226bcas2672,
+                m226bcas2673,
+                m226bcas2674,
+                m226bcas2675,
+                m226bcas2676,
+                m226bcas2677,
+                m226bcas2678,
+                m226bcas2679,
+                m226bcas2680                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m226bdominio,m226bnif,m226bejercicio,m226bperiodo };
+            setPrimaryKeys(arrayf);
+            m226bcas2501.setDescription("Cambio criterios contables - Aumento - Correc.ejer. - Permanentes [02501]");
+            m226bcas2502.setDescription("Cambio criterios contables - Aumento - Correc.ejer. - Temporarias[02502]");
+            m226bcas2503.setDescription("Cambio criterios contables - Aumento - Correc.ejer. - Temporarias[02503]");
+            m226bcas2504.setDescription("Cambio criterios contables - Aumento - Saldo pdte.fin - Temporarias[02504]");
+            m226bcas2505.setDescription("Cambio criterios contables - Aumento - Saldo pdte.fin - Temporarias[02505]");
+            m226bcas2506.setDescription("Cambio criterios contables - Disminución - Correc.ejer. - Permanentes [02506]");
+            m226bcas2507.setDescription("Cambio criterios contables - Disminución - Correc.ejer. - Temporarias[02507]");
+            m226bcas2508.setDescription("Cambio criterios contables - Disminución - Correc.ejer. - Temporarias[02508]");
+            m226bcas2509.setDescription("Cambio criterios contables - Disminución - Saldo pdte.fin - Temporarias[02509]");
+            m226bcas2510.setDescription("Cambio criterios contables - Disminución - Saldo pdte.fin - Temporarias[02510]");
+            m226bcas2511.setDescription("Operaciones a plazos - Aumento - Correc.ejer. - Permanentes [02511]");
+            m226bcas2512.setDescription("Operaciones a plazos - Aumento - Correc.ejer. - Temporarias[02512]");
+            m226bcas2513.setDescription("Operaciones a plazos - Aumento - Correc.ejer. - Temporarias[02513]");
+            m226bcas2514.setDescription("Operaciones a plazos - Aumento - Saldo pdte.fin - Temporarias[02514]");
+            m226bcas2515.setDescription("Operaciones a plazos - Aumento - Saldo pdte.fin - Temporarias[02515]");
+            m226bcas2516.setDescription("Operaciones a plazos - Disminución - Correc.ejer. - Permanentes [02516]");
+            m226bcas2517.setDescription("Operaciones a plazos - Disminución - Correc.ejer. - Temporarias[02517]");
+            m226bcas2518.setDescription("Operaciones a plazos - Disminución - Correc.ejer. - Temporarias[02518]");
+            m226bcas2519.setDescription("Operaciones a plazos - Disminución - Saldo pdte.fin - Temporarias[02519]");
+            m226bcas2520.setDescription("Operaciones a plazos - Disminución - Saldo pdte.fin - Temporarias[02520]");
+            m226bcas2521.setDescription("Reversión deterioro valor elem.patrimoniales - Aumento - Correc.ejer. - Permanentes [02521]");
+            m226bcas2522.setDescription("Reversión deterioro valor elem.patrimoniales - Aumento - Correc.ejer. - Temporarias[02522]");
+            m226bcas2523.setDescription("Reversión deterioro valor elem.patrimoniales - Aumento - Correc.ejer. - Temporarias[02523]");
+            m226bcas2524.setDescription("Reversión deterioro valor elem.patrimoniales - Aumento - Saldo pdte.fin - Temporarias[02524]");
+            m226bcas2525.setDescription("Reversión deterioro valor elem.patrimoniales - Aumento - Saldo pdte.fin - Temporarias[02525]");
+            m226bcas2526.setDescription("Reversión deterioro valor elem.patrimoniales - Disminución - Correc.ejer. - Permanentes [02526]");
+            m226bcas2527.setDescription("Reversión deterioro valor elem.patrimoniales - Disminución - Correc.ejer. - Temporarias[02527]");
+            m226bcas2528.setDescription("Reversión deterioro valor elem.patrimoniales - Disminución - Correc.ejer. - Temporarias[02528]");
+            m226bcas2529.setDescription("Reversión deterioro valor elem.patrimoniales - Disminución - Saldo pdte.fin - Temporarias[02529]");
+            m226bcas2530.setDescription("Reversión deterioro valor elem.patrimoniales - Disminución - Saldo pdte.fin - Temporarias[02530]");
+            m226bcas2531.setDescription("Rentas negativas  - Aumento - Correc.ejer. - Permanentes [02531]");
+            m226bcas2532.setDescription("Rentas negativas  - Aumento - Correc.ejer. - Temporarias[02532]");
+            m226bcas2533.setDescription("Rentas negativas  - Aumento - Correc.ejer. - Temporarias[02533]");
+            m226bcas2534.setDescription("Rentas negativas  - Aumento - Saldo pdte.fin - Temporarias[02534]");
+            m226bcas2535.setDescription("Rentas negativas  - Aumento - Saldo pdte.fin - Temporarias[02535]");
+            m226bcas2536.setDescription("Rentas negativas  - Disminución - Correc.ejer. - Permanentes [02536]");
+            m226bcas2537.setDescription("Rentas negativas  - Disminución - Correc.ejer. - Temporarias[02537]");
+            m226bcas2538.setDescription("Rentas negativas  - Disminución - Correc.ejer. - Temporarias[02538]");
+            m226bcas2539.setDescription("Rentas negativas  - Disminución - Saldo pdte.fin - Temporarias[02539]");
+            m226bcas2540.setDescription("Rentas negativas  - Disminución - Saldo pdte.fin - Temporarias[02540]");
+            m226bcas2541.setDescription("Ajustes rentas derivadas operaciones con quita o espera - Aumento - Correc.ejer. - Permanentes [02541]");
+            m226bcas2542.setDescription("Ajustes rentas derivadas operaciones con quita o espera - Aumento - Correc.ejer. - Temporarias[02542]");
+            m226bcas2543.setDescription("Ajustes rentas derivadas operaciones con quita o espera - Aumento - Correc.ejer. - Temporarias[02543]");
+            m226bcas2544.setDescription("Ajustes rentas derivadas operaciones con quita o espera - Aumento - Saldo pdte.fin - Temporarias[02544]");
+            m226bcas2545.setDescription("Ajustes rentas derivadas operaciones con quita o espera - Aumento - Saldo pdte.fin - Temporarias[02545]");
+            m226bcas2546.setDescription("Ajustes rentas derivadas operaciones con quita o espera - Disminución - Correc.ejer. - Permanentes [02546]");
+            m226bcas2547.setDescription("Ajustes rentas derivadas operaciones con quita o espera - Disminución - Correc.ejer. - Temporarias[02547]");
+            m226bcas2548.setDescription("Ajustes rentas derivadas operaciones con quita o espera - Disminución - Correc.ejer. - Temporarias[02548]");
+            m226bcas2549.setDescription("Ajustes rentas derivadas operaciones con quita o espera - Disminución - Saldo pdte.fin - Temporarias[02549]");
+            m226bcas2550.setDescription("Ajustes rentas derivadas operaciones con quita o espera - Disminución - Saldo pdte.fin - Temporarias[02550]");
+            m226bcas2551.setDescription("Otras diferencias imputación temporalingresos y gastos - Aumento - Correc.ejer. - Permanentes [02551]");
+            m226bcas2552.setDescription("Otras diferencias imputación temporalingresos y gastos - Aumento - Correc.ejer. - Temporarias[02552]");
+            m226bcas2553.setDescription("Otras diferencias imputación temporalingresos y gastos - Aumento - Correc.ejer. - Temporarias[02553]");
+            m226bcas2554.setDescription("Otras diferencias imputación temporalingresos y gastos - Aumento - Saldo pdte.fin - Temporarias[02554]");
+            m226bcas2555.setDescription("Otras diferencias imputación temporalingresos y gastos - Aumento - Saldo pdte.fin - Temporarias[02555]");
+            m226bcas2556.setDescription("Otras diferencias imputación temporalingresos y gastos - Disminución - Correc.ejer. - Permanentes [02556]");
+            m226bcas2557.setDescription("Otras diferencias imputación temporalingresos y gastos - Disminución - Correc.ejer. - Temporarias[02557]");
+            m226bcas2558.setDescription("Otras diferencias imputación temporalingresos y gastos - Disminución - Correc.ejer. - Temporarias[02558]");
+            m226bcas2559.setDescription("Otras diferencias imputación temporalingresos y gastos - Disminución - Saldo pdte.fin - Temporarias[02559]");
+            m226bcas2560.setDescription("Otras diferencias imputación temporalingresos y gastos - Disminución - Saldo pdte.fin - Temporarias[02560]");
+            m226bcas2561.setDescription("Diferencias entre  amort. contable y fisc   - Aumento - Correc.ejer. - Permanentes [02561]");
+            m226bcas2562.setDescription("Diferencias entre  amort. contable y fisc   - Aumento - Correc.ejer. - Temporarias[02562]");
+            m226bcas2563.setDescription("Diferencias entre  amort. contable y fisc   - Aumento - Correc.ejer. - Temporarias[02563]");
+            m226bcas2564.setDescription("Diferencias entre  amort. contable y fisc   - Aumento - Saldo pdte.fin - Temporarias[02564]");
+            m226bcas2565.setDescription("Diferencias entre  amort. contable y fisc   - Aumento - Saldo pdte.fin - Temporarias[02565]");
+            m226bcas2566.setDescription("Diferencias entre  amort. contable y fisc   - Disminución - Correc.ejer. - Permanentes [02566]");
+            m226bcas2567.setDescription("Diferencias entre  amort. contable y fisc   - Disminución - Correc.ejer. - Temporarias[02567]");
+            m226bcas2568.setDescription("Diferencias entre  amort. contable y fisc   - Disminución - Correc.ejer. - Temporarias[02568]");
+            m226bcas2569.setDescription("Diferencias entre  amort. contable y fisc   - Disminución - Saldo pdte.fin - Temporarias[02569]");
+            m226bcas2570.setDescription("Diferencias entre  amort. contable y fisc   - Disminución - Saldo pdte.fin - Temporarias[02570]");
+            m226bcas2576.setDescription("Deducción 30% importe gastos amortiz. contable - Disminución - Correc.ejer. - Permanentes [02576]");
+            m226bcas2577.setDescription("Deducción 30% importe gastos amortiz. contable - Disminución - Correc.ejer. - Temporarias[02577]");
+            m226bcas2578.setDescription("Deducción 30% importe gastos amortiz. contable - Disminución - Correc.ejer. - Temporarias[02578]");
+            m226bcas2579.setDescription("Deducción 30% importe gastos amortiz. contable - Disminución - Saldo pdte.fin - Temporarias[02579]");
+            m226bcas2580.setDescription("Deducción 30% importe gastos amortiz. contable - Disminución - Saldo pdte.fin - Temporarias[02580]");
+            m226bcas2581.setDescription("Amort.  inm.intangible y fondo comercio   y  amort.la DT 13ª.1 LIS - Aumento - Correc.ejer. - Permanentes [02581]");
+            m226bcas2582.setDescription("Amort.  inm.intangible y fondo comercio   y  amort.la DT 13ª.1 LIS - Aumento - Correc.ejer. - Temporarias[02582]");
+            m226bcas2583.setDescription("Amort.  inm.intangible y fondo comercio   y  amort.la DT 13ª.1 LIS - Aumento - Correc.ejer. - Temporarias[02583]");
+            m226bcas2584.setDescription("Amort.  inm.intangible y fondo comercio   y  amort.la DT 13ª.1 LIS - Aumento - Saldo pdte.fin - Temporarias[02584]");
+            m226bcas2585.setDescription("Amort.  inm.intangible y fondo comercio   y  amort.la DT 13ª.1 LIS - Aumento - Saldo pdte.fin - Temporarias[02585]");
+            m226bcas2586.setDescription("Amort.  inm.intangible y fondo comercio   y  amort.la DT 13ª.1 LIS - Disminución - Correc.ejer. - Permanentes [02586]");
+            m226bcas2587.setDescription("Amort.  inm.intangible y fondo comercio   y  amort.la DT 13ª.1 LIS - Disminución - Correc.ejer. - Temporarias[02587]");
+            m226bcas2588.setDescription("Amort.  inm.intangible y fondo comercio   y  amort.la DT 13ª.1 LIS - Disminución - Correc.ejer. - Temporarias[02588]");
+            m226bcas2589.setDescription("Amort.  inm.intangible y fondo comercio   y  amort.la DT 13ª.1 LIS - Disminución - Saldo pdte.fin - Temporarias[02589]");
+            m226bcas2590.setDescription("Amort.  inm.intangible y fondo comercio   y  amort.la DT 13ª.1 LIS - Disminución - Saldo pdte.fin - Temporarias[02590]");
+            m226bcas2591.setDescription("Amort. inm.afecto a actividades I+D  - Aumento - Correc.ejer. - Permanentes [02591]");
+            m226bcas2592.setDescription("Amort. inm.afecto a actividades I+D  - Aumento - Correc.ejer. - Temporarias[02592]");
+            m226bcas2593.setDescription("Amort. inm.afecto a actividades I+D  - Aumento - Correc.ejer. - Temporarias[02593]");
+            m226bcas2594.setDescription("Amort. inm.afecto a actividades I+D  - Aumento - Saldo pdte.fin - Temporarias[02594]");
+            m226bcas2595.setDescription("Amort. inm.afecto a actividades I+D  - Aumento - Saldo pdte.fin - Temporarias[02595]");
+            m226bcas2596.setDescription("Amort. inm.afecto a actividades I+D  - Disminución - Correc.ejer. - Permanentes [02596]");
+            m226bcas2597.setDescription("Amort. inm.afecto a actividades I+D  - Disminución - Correc.ejer. - Temporarias[02597]");
+            m226bcas2598.setDescription("Amort. inm.afecto a actividades I+D  - Disminución - Correc.ejer. - Temporarias[02598]");
+            m226bcas2599.setDescription("Amort. inm.afecto a actividades I+D  - Disminución - Saldo pdte.fin - Temporarias[02599]");
+            m226bcas2600.setDescription("Amort. inm.afecto a actividades I+D  - Disminución - Saldo pdte.fin - Temporarias[02600]");
+            m226bcas2601.setDescription("Libertad amort.gastos I+D - Aumento - Correc.ejer. - Permanentes [02601]");
+            m226bcas2602.setDescription("Libertad amort.gastos I+D - Aumento - Correc.ejer. - Temporarias[02602]");
+            m226bcas2603.setDescription("Libertad amort.gastos I+D - Aumento - Correc.ejer. - Temporarias[02603]");
+            m226bcas2604.setDescription("Libertad amort.gastos I+D - Aumento - Saldo pdte.fin - Temporarias[02604]");
+            m226bcas2605.setDescription("Libertad amort.gastos I+D - Aumento - Saldo pdte.fin - Temporarias[02605]");
+            m226bcas2606.setDescription("Libertad amort.gastos I+D - Disminución - Correc.ejer. - Permanentes [02606]");
+            m226bcas2607.setDescription("Libertad amort.gastos I+D - Disminución - Correc.ejer. - Temporarias[02607]");
+            m226bcas2608.setDescription("Libertad amort.gastos I+D - Disminución - Correc.ejer. - Temporarias[02608]");
+            m226bcas2609.setDescription("Libertad amort.gastos I+D - Disminución - Saldo pdte.fin - Temporarias[02609]");
+            m226bcas2610.setDescription("Libertad amort.gastos I+D - Disminución - Saldo pdte.fin - Temporarias[02610]");
+            m226bcas2611.setDescription("Libertad amort.  inm.materi nuevo - Aumento - Correc.ejer. - Permanentes [02611]");
+            m226bcas2612.setDescription("Libertad amort.  inm.materi nuevo - Aumento - Correc.ejer. - Temporarias[02612]");
+            m226bcas2613.setDescription("Libertad amort.  inm.materi nuevo - Aumento - Correc.ejer. - Temporarias[02613]");
+            m226bcas2614.setDescription("Libertad amort.  inm.materi nuevo - Aumento - Saldo pdte.fin - Temporarias[02614]");
+            m226bcas2615.setDescription("Libertad amort.  inm.materi nuevo - Aumento - Saldo pdte.fin - Temporarias[02615]");
+            m226bcas2616.setDescription("Libertad amort.  inm.materi nuevo - Disminución - Correc.ejer. - Permanentes [02616]");
+            m226bcas2617.setDescription("Libertad amort.  inm.materi nuevo - Disminución - Correc.ejer. - Temporarias[02617]");
+            m226bcas2618.setDescription("Libertad amort.  inm.materi nuevo - Disminución - Correc.ejer. - Temporarias[02618]");
+            m226bcas2619.setDescription("Libertad amort.  inm.materi nuevo - Disminución - Saldo pdte.fin - Temporarias[02619]");
+            m226bcas2620.setDescription("Libertad amort.  inm.materi nuevo - Disminución - Saldo pdte.fin - Temporarias[02620]");
+            m226bcas2621.setDescription("Otros supuestos libertad amort. 3 - Aumento - Correc.ejer. - Permanentes [02621]");
+            m226bcas2622.setDescription("Otros supuestos libertad amort. 3 - Aumento - Correc.ejer. - Temporarias[02622]");
+            m226bcas2623.setDescription("Otros supuestos libertad amort. 3 - Aumento - Correc.ejer. - Temporarias[02623]");
+            m226bcas2624.setDescription("Otros supuestos libertad amort. 3 - Aumento - Saldo pdte.fin - Temporarias[02624]");
+            m226bcas2625.setDescription("Otros supuestos libertad amort. 3 - Aumento - Saldo pdte.fin - Temporarias[02625]");
+            m226bcas2626.setDescription("Otros supuestos libertad amort. 3 - Disminución - Correc.ejer. - Permanentes [02626]");
+            m226bcas2627.setDescription("Otros supuestos libertad amort. 3 - Disminución - Correc.ejer. - Temporarias[02627]");
+            m226bcas2628.setDescription("Otros supuestos libertad amort. 3 - Disminución - Correc.ejer. - Temporarias[02628]");
+            m226bcas2629.setDescription("Otros supuestos libertad amort. 3 - Disminución - Saldo pdte.fin - Temporarias[02629]");
+            m226bcas2630.setDescription("Otros supuestos libertad amort. 3 - Disminución - Saldo pdte.fin - Temporarias[02630]");
+            m226bcas2631.setDescription("Libertad amort. con manten.empleo (RDL 6/2010 y DT 13ª.2  - Aumento - Correc.ejer. - Permanentes [02631]");
+            m226bcas2632.setDescription("Libertad amort. con manten.empleo (RDL 6/2010 y DT 13ª.2  - Aumento - Correc.ejer. - Temporarias[02632]");
+            m226bcas2633.setDescription("Libertad amort. con manten.empleo (RDL 6/2010 y DT 13ª.2  - Aumento - Correc.ejer. - Temporarias[02633]");
+            m226bcas2634.setDescription("Libertad amort. con manten.empleo (RDL 6/2010 y DT 13ª.2  - Aumento - Saldo pdte.fin - Temporarias[02634]");
+            m226bcas2635.setDescription("Libertad amort. con manten.empleo (RDL 6/2010 y DT 13ª.2  - Aumento - Saldo pdte.fin - Temporarias[02635]");
+            m226bcas2636.setDescription("Libertad amort. con manten.empleo (RDL 6/2010 y DT 13ª.2  - Disminución - Correc.ejer. - Permanentes [02636]");
+            m226bcas2637.setDescription("Libertad amort. con manten.empleo (RDL 6/2010 y DT 13ª.2  - Disminución - Correc.ejer. - Temporarias[02637]");
+            m226bcas2638.setDescription("Libertad amort. con manten.empleo (RDL 6/2010 y DT 13ª.2  - Disminución - Correc.ejer. - Temporarias[02638]");
+            m226bcas2639.setDescription("Libertad amort. con manten.empleo (RDL 6/2010 y DT 13ª.2  - Disminución - Saldo pdte.fin - Temporarias[02639]");
+            m226bcas2640.setDescription("Libertad amort. con manten.empleo (RDL 6/2010 y DT 13ª.2  - Disminución - Saldo pdte.fin - Temporarias[02640]");
+            m226bcas2641.setDescription("Libertad amort. sin manten.empleo (RDL 13/2010 y DT 13ª.2  - Aumento - Correc.ejer. - Permanentes [02641]");
+            m226bcas2642.setDescription("Libertad amort. sin manten.empleo (RDL 13/2010 y DT 13ª.2  - Aumento - Correc.ejer. - Temporarias[02642]");
+            m226bcas2643.setDescription("Libertad amort. sin manten.empleo (RDL 13/2010 y DT 13ª.2  - Aumento - Correc.ejer. - Temporarias[02643]");
+            m226bcas2644.setDescription("Libertad amort. sin manten.empleo (RDL 13/2010 y DT 13ª.2  - Aumento - Saldo pdte.fin - Temporarias[02644]");
+            m226bcas2645.setDescription("Libertad amort. sin manten.empleo (RDL 13/2010 y DT 13ª.2  - Aumento - Saldo pdte.fin - Temporarias[02645]");
+            m226bcas2646.setDescription("Libertad amort. sin manten.empleo (RDL 13/2010 y DT 13ª.2  - Disminución - Correc.ejer. - Permanentes [02646]");
+            m226bcas2647.setDescription("Libertad amort. sin manten.empleo (RDL 13/2010 y DT 13ª.2  - Disminución - Correc.ejer. - Temporarias[02647]");
+            m226bcas2648.setDescription("Libertad amort. sin manten.empleo (RDL 13/2010 y DT 13ª.2  - Disminución - Correc.ejer. - Temporarias[02648]");
+            m226bcas2649.setDescription("Libertad amort. sin manten.empleo (RDL 13/2010 y DT 13ª.2  - Disminución - Saldo pdte.fin - Temporarias[02649]");
+            m226bcas2650.setDescription("Libertad amort. sin manten.empleo (RDL 13/2010 y DT 13ª.2  - Disminución - Saldo pdte.fin - Temporarias[02650]");
+            m226bcas2651.setDescription("Pérdidas deterioro art. 13.1 LIS no afectada art. 11.12 ni DT 33ª.1 LIS - Aumento - Correc.ejer. - Permanentes [02651]");
+            m226bcas2652.setDescription("Pérdidas deterioro art. 13.1 LIS no afectada art. 11.12 ni DT 33ª.1 LIS - Aumento - Correc.ejer. - Temporarias[02652]");
+            m226bcas2653.setDescription("Pérdidas deterioro art. 13.1 LIS no afectada art. 11.12 ni DT 33ª.1 LIS - Aumento - Correc.ejer. - Temporarias[02653]");
+            m226bcas2654.setDescription("Pérdidas deterioro art. 13.1 LIS no afectada art. 11.12 ni DT 33ª.1 LIS - Aumento - Saldo pdte.fin - Temporarias[02654]");
+            m226bcas2655.setDescription("Pérdidas deterioro art. 13.1 LIS no afectada art. 11.12 ni DT 33ª.1 LIS - Aumento - Saldo pdte.fin - Temporarias[02655]");
+            m226bcas2656.setDescription("Pérdidas deterioro art. 13.1 LIS no afectada art. 11.12 ni DT 33ª.1 LIS - Disminución - Correc.ejer. - Permanentes [02656]");
+            m226bcas2657.setDescription("Pérdidas deterioro art. 13.1 LIS no afectada art. 11.12 ni DT 33ª.1 LIS - Disminución - Correc.ejer. - Temporarias[02657]");
+            m226bcas2658.setDescription("Pérdidas deterioro art. 13.1 LIS no afectada art. 11.12 ni DT 33ª.1 LIS - Disminución - Correc.ejer. - Temporarias[02658]");
+            m226bcas2659.setDescription("Pérdidas deterioro art. 13.1 LIS no afectada art. 11.12 ni DT 33ª.1 LIS - Disminución - Saldo pdte.fin - Temporarias[02659]");
+            m226bcas2660.setDescription("Pérdidas deterioro art. 13.1 LIS no afectada art. 11.12 ni DT 33ª.1 LIS - Disminución - Saldo pdte.fin - Temporarias[02660]");
+            m226bcas2661.setDescription("Pérdidas deterioro art. 13.1 LIS y provisiones y gastos 14.1 y 14.2  a los que se refiere art. 11.12 y DT 33ª.1 LIS. - Aumento - Correc.ejer. - Permanentes [02661]");
+            m226bcas2662.setDescription("Pérdidas deterioro art. 13.1 LIS y provisiones y gastos 14.1 y 14.2  a los que se refiere art. 11.12 y DT 33ª.1 LIS. - Aumento - Correc.ejer. - Temporarias[02662]");
+            m226bcas2663.setDescription("Pérdidas deterioro art. 13.1 LIS y provisiones y gastos 14.1 y 14.2  a los que se refiere art. 11.12 y DT 33ª.1 LIS. - Aumento - Correc.ejer. - Temporarias[02663]");
+            m226bcas2664.setDescription("Pérdidas deterioro art. 13.1 LIS y provisiones y gastos 14.1 y 14.2  a los que se refiere art. 11.12 y DT 33ª.1 LIS. - Aumento - Saldo pdte.fin - Temporarias[02664]");
+            m226bcas2665.setDescription("Pérdidas deterioro art. 13.1 LIS y provisiones y gastos 14.1 y 14.2  a los que se refiere art. 11.12 y DT 33ª.1 LIS. - Aumento - Saldo pdte.fin - Temporarias[02665]");
+            m226bcas2666.setDescription("Pérdidas deterioro art. 13.1 LIS y provisiones y gastos 14.1 y 14.2  a los que se refiere art. 11.12 y DT 33ª.1 LIS. - Disminución - Correc.ejer. - Permanentes [02666]");
+            m226bcas2667.setDescription("Pérdidas deterioro art. 13.1 LIS y provisiones y gastos 14.1 y 14.2  a los que se refiere art. 11.12 y DT 33ª.1 LIS. - Disminución - Correc.ejer. - Temporarias[02667]");
+            m226bcas2668.setDescription("Pérdidas deterioro art. 13.1 LIS y provisiones y gastos 14.1 y 14.2  a los que se refiere art. 11.12 y DT 33ª.1 LIS. - Disminución - Correc.ejer. - Temporarias[02668]");
+            m226bcas2669.setDescription("Pérdidas deterioro art. 13.1 LIS y provisiones y gastos 14.1 y 14.2  a los que se refiere art. 11.12 y DT 33ª.1 LIS. - Disminución - Saldo pdte.fin - Temporarias[02669]");
+            m226bcas2670.setDescription("Pérdidas deterioro art. 13.1 LIS y provisiones y gastos 14.1 y 14.2  a los que se refiere art. 11.12 y DT 33ª.1 LIS. - Disminución - Saldo pdte.fin - Temporarias[02670]");
+            m226bcas2671.setDescription("Pérdidas deterioroIM, inver.inmob.e II, incluido fondo comercio - Aumento - Correc.ejer. - Permanentes [02671]");
+            m226bcas2672.setDescription("Pérdidas deterioroIM, inver.inmob.e II, incluido fondo comercio - Aumento - Correc.ejer. - Temporarias[02672]");
+            m226bcas2673.setDescription("Pérdidas deterioroIM, inver.inmob.e II, incluido fondo comercio - Aumento - Correc.ejer. - Temporarias[02673]");
+            m226bcas2674.setDescription("Pérdidas deterioroIM, inver.inmob.e II, incluido fondo comercio - Aumento - Saldo pdte.fin - Temporarias[02674]");
+            m226bcas2675.setDescription("Pérdidas deterioroIM, inver.inmob.e II, incluido fondo comercio - Aumento - Saldo pdte.fin - Temporarias[02675]");
+            m226bcas2676.setDescription("Pérdidas deterioroIM, inver.inmob.e II, incluido fondo comercio - Disminución - Correc.ejer. - Permanentes [02676]");
+            m226bcas2677.setDescription("Pérdidas deterioroIM, inver.inmob.e II, incluido fondo comercio - Disminución - Correc.ejer. - Temporarias[02677]");
+            m226bcas2678.setDescription("Pérdidas deterioroIM, inver.inmob.e II, incluido fondo comercio - Disminución - Correc.ejer. - Temporarias[02678]");
+            m226bcas2679.setDescription("Pérdidas deterioroIM, inver.inmob.e II, incluido fondo comercio - Disminución - Saldo pdte.fin - Temporarias[02679]");
+            m226bcas2680.setDescription("Pérdidas deterioroIM, inver.inmob.e II, incluido fondo comercio - Disminución - Saldo pdte.fin - Temporarias[02680]");
+            }
+        }
+        
+    public class TabMod200h26c extends TableDef
+        {
+        // campos
+        public FieldDef m226cdominio;
+        public FieldDef m226cnif;
+        public FieldDef m226cejercicio;
+        public FieldDef m226cperiodo;
+        public FieldDef m226ccas2681;
+        public FieldDef m226ccas2682;
+        public FieldDef m226ccas2683;
+        public FieldDef m226ccas2684;
+        public FieldDef m226ccas2685;
+        public FieldDef m226ccas2686;
+        public FieldDef m226ccas2687;
+        public FieldDef m226ccas2688;
+        public FieldDef m226ccas2689;
+        public FieldDef m226ccas2690;
+        public FieldDef m226ccas2691;
+        public FieldDef m226ccas2692;
+        public FieldDef m226ccas2693;
+        public FieldDef m226ccas2694;
+        public FieldDef m226ccas2695;
+        public FieldDef m226ccas2696;
+        public FieldDef m226ccas2697;
+        public FieldDef m226ccas2698;
+        public FieldDef m226ccas2699;
+        public FieldDef m226ccas2700;
+        public FieldDef m226ccas2701;
+        public FieldDef m226ccas2702;
+        public FieldDef m226ccas2703;
+        public FieldDef m226ccas2704;
+        public FieldDef m226ccas2705;
+        public FieldDef m226ccas2706;
+        public FieldDef m226ccas2707;
+        public FieldDef m226ccas2708;
+        public FieldDef m226ccas2709;
+        public FieldDef m226ccas2710;
+        public FieldDef m226ccas2711;
+        public FieldDef m226ccas2712;
+        public FieldDef m226ccas2713;
+        public FieldDef m226ccas2714;
+        public FieldDef m226ccas2715;
+        public FieldDef m226ccas2716;
+        public FieldDef m226ccas2717;
+        public FieldDef m226ccas2718;
+        public FieldDef m226ccas2719;
+        public FieldDef m226ccas2720;
+        public FieldDef m226ccas2721;
+        public FieldDef m226ccas2722;
+        public FieldDef m226ccas2723;
+        public FieldDef m226ccas2724;
+        public FieldDef m226ccas2725;
+        public FieldDef m226ccas2726;
+        public FieldDef m226ccas2727;
+        public FieldDef m226ccas2728;
+        public FieldDef m226ccas2729;
+        public FieldDef m226ccas2730;
+        public FieldDef m226ccas2731;
+        public FieldDef m226ccas2732;
+        public FieldDef m226ccas2733;
+        public FieldDef m226ccas2734;
+        public FieldDef m226ccas2735;
+        public FieldDef m226ccas2736;
+        public FieldDef m226ccas2737;
+        public FieldDef m226ccas2738;
+        public FieldDef m226ccas2739;
+        public FieldDef m226ccas2740;
+        public FieldDef m226ccas2741;
+        public FieldDef m226ccas2742;
+        public FieldDef m226ccas2743;
+        public FieldDef m226ccas2744;
+        public FieldDef m226ccas2745;
+        public FieldDef m226ccas2746;
+        public FieldDef m226ccas2747;
+        public FieldDef m226ccas2748;
+        public FieldDef m226ccas2749;
+        public FieldDef m226ccas2750;
+        public FieldDef m226ccas2756;
+        public FieldDef m226ccas2757;
+        public FieldDef m226ccas2758;
+        public FieldDef m226ccas2759;
+        public FieldDef m226ccas2760;
+        public FieldDef m226ccas2761;
+        public FieldDef m226ccas2762;
+        public FieldDef m226ccas2763;
+        public FieldDef m226ccas2764;
+        public FieldDef m226ccas2765;
+        public FieldDef m226ccas2771;
+        public FieldDef m226ccas2772;
+        public FieldDef m226ccas2773;
+        public FieldDef m226ccas2774;
+        public FieldDef m226ccas2775;
+        public FieldDef m226ccas2781;
+        public FieldDef m226ccas2782;
+        public FieldDef m226ccas2783;
+        public FieldDef m226ccas2784;
+        public FieldDef m226ccas2785;
+        public FieldDef m226ccas2791;
+        public FieldDef m226ccas2792;
+        public FieldDef m226ccas2793;
+        public FieldDef m226ccas2794;
+        public FieldDef m226ccas2795;
+        public FieldDef m226ccas2801;
+        public FieldDef m226ccas2802;
+        public FieldDef m226ccas2803;
+        public FieldDef m226ccas2804;
+        public FieldDef m226ccas2805;
+        public FieldDef m226ccas2811;
+        public FieldDef m226ccas2812;
+        public FieldDef m226ccas2813;
+        public FieldDef m226ccas2814;
+        public FieldDef m226ccas2815;
+        public FieldDef m226ccas2816;
+        public FieldDef m226ccas2817;
+        public FieldDef m226ccas2818;
+        public FieldDef m226ccas2819;
+        public FieldDef m226ccas2820;
+        public FieldDef m226ccas2821;
+        public FieldDef m226ccas2822;
+        public FieldDef m226ccas2823;
+        public FieldDef m226ccas2824;
+        public FieldDef m226ccas2825;
+        public FieldDef m226ccas2831;
+        public FieldDef m226ccas2832;
+        public FieldDef m226ccas2833;
+        public FieldDef m226ccas2834;
+        public FieldDef m226ccas2835;
+        public FieldDef m226ccas2841;
+        public FieldDef m226ccas2842;
+        public FieldDef m226ccas2843;
+        public FieldDef m226ccas2844;
+        public FieldDef m226ccas2845;
+        public FieldDef m226ccas2846;
+        public FieldDef m226ccas2847;
+        public FieldDef m226ccas2848;
+        public FieldDef m226ccas2849;
+        public FieldDef m226ccas2850;
+        public FieldDef m226ccas2851;
+        public FieldDef m226ccas2852;
+        public FieldDef m226ccas2853;
+        public FieldDef m226ccas2854;
+        public FieldDef m226ccas2855;
+        public FieldDef m226ccas2856;
+        public FieldDef m226ccas2857;
+        public FieldDef m226ccas2858;
+        public FieldDef m226ccas2859;
+        public FieldDef m226ccas2860;
+        public FieldDef m226ccas2574;
+        public FieldDef m226ccas2571;
+        public FieldDef m226ccas2572;
+        public FieldDef m226ccas2573;
+        public FieldDef m226ccas2575;
+        public FieldDef m226ccas2754;
+        public FieldDef m226ccas2751;
+        public FieldDef m226ccas2752;
+        public FieldDef m226ccas2753;
+        public FieldDef m226ccas2755;
+        public TabMod200h26c(String name)
+            {
+            super(name);
+            m226cdominio = new FieldDef("m226cdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m226cnif = new FieldDef("m226cnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m226cejercicio = new FieldDef("m226cejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m226cperiodo = new FieldDef("m226cperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m226ccas2681 = new FieldDef("m226ccas2681",FieldDef.FLOAT,6,0);
+            m226ccas2682 = new FieldDef("m226ccas2682",FieldDef.FLOAT,6,0);
+            m226ccas2683 = new FieldDef("m226ccas2683",FieldDef.FLOAT,6,0);
+            m226ccas2684 = new FieldDef("m226ccas2684",FieldDef.FLOAT,6,0);
+            m226ccas2685 = new FieldDef("m226ccas2685",FieldDef.FLOAT,6,0);
+            m226ccas2686 = new FieldDef("m226ccas2686",FieldDef.FLOAT,6,0);
+            m226ccas2687 = new FieldDef("m226ccas2687",FieldDef.FLOAT,6,0);
+            m226ccas2688 = new FieldDef("m226ccas2688",FieldDef.FLOAT,6,0);
+            m226ccas2689 = new FieldDef("m226ccas2689",FieldDef.FLOAT,6,0);
+            m226ccas2690 = new FieldDef("m226ccas2690",FieldDef.FLOAT,6,0);
+            m226ccas2691 = new FieldDef("m226ccas2691",FieldDef.FLOAT,6,0);
+            m226ccas2692 = new FieldDef("m226ccas2692",FieldDef.FLOAT,6,0);
+            m226ccas2693 = new FieldDef("m226ccas2693",FieldDef.FLOAT,6,0);
+            m226ccas2694 = new FieldDef("m226ccas2694",FieldDef.FLOAT,6,0);
+            m226ccas2695 = new FieldDef("m226ccas2695",FieldDef.FLOAT,6,0);
+            m226ccas2696 = new FieldDef("m226ccas2696",FieldDef.FLOAT,6,0);
+            m226ccas2697 = new FieldDef("m226ccas2697",FieldDef.FLOAT,6,0);
+            m226ccas2698 = new FieldDef("m226ccas2698",FieldDef.FLOAT,6,0);
+            m226ccas2699 = new FieldDef("m226ccas2699",FieldDef.FLOAT,6,0);
+            m226ccas2700 = new FieldDef("m226ccas2700",FieldDef.FLOAT,6,0);
+            m226ccas2701 = new FieldDef("m226ccas2701",FieldDef.FLOAT,6,0);
+            m226ccas2702 = new FieldDef("m226ccas2702",FieldDef.FLOAT,6,0);
+            m226ccas2703 = new FieldDef("m226ccas2703",FieldDef.FLOAT,6,0);
+            m226ccas2704 = new FieldDef("m226ccas2704",FieldDef.FLOAT,6,0);
+            m226ccas2705 = new FieldDef("m226ccas2705",FieldDef.FLOAT,6,0);
+            m226ccas2706 = new FieldDef("m226ccas2706",FieldDef.FLOAT,6,0);
+            m226ccas2707 = new FieldDef("m226ccas2707",FieldDef.FLOAT,6,0);
+            m226ccas2708 = new FieldDef("m226ccas2708",FieldDef.FLOAT,6,0);
+            m226ccas2709 = new FieldDef("m226ccas2709",FieldDef.FLOAT,6,0);
+            m226ccas2710 = new FieldDef("m226ccas2710",FieldDef.FLOAT,6,0);
+            m226ccas2711 = new FieldDef("m226ccas2711",FieldDef.FLOAT,6,0);
+            m226ccas2712 = new FieldDef("m226ccas2712",FieldDef.FLOAT,6,0);
+            m226ccas2713 = new FieldDef("m226ccas2713",FieldDef.FLOAT,6,0);
+            m226ccas2714 = new FieldDef("m226ccas2714",FieldDef.FLOAT,6,0);
+            m226ccas2715 = new FieldDef("m226ccas2715",FieldDef.FLOAT,6,0);
+            m226ccas2716 = new FieldDef("m226ccas2716",FieldDef.FLOAT,6,0);
+            m226ccas2717 = new FieldDef("m226ccas2717",FieldDef.FLOAT,6,0);
+            m226ccas2718 = new FieldDef("m226ccas2718",FieldDef.FLOAT,6,0);
+            m226ccas2719 = new FieldDef("m226ccas2719",FieldDef.FLOAT,6,0);
+            m226ccas2720 = new FieldDef("m226ccas2720",FieldDef.FLOAT,6,0);
+            m226ccas2721 = new FieldDef("m226ccas2721",FieldDef.FLOAT,6,0);
+            m226ccas2722 = new FieldDef("m226ccas2722",FieldDef.FLOAT,6,0);
+            m226ccas2723 = new FieldDef("m226ccas2723",FieldDef.FLOAT,6,0);
+            m226ccas2724 = new FieldDef("m226ccas2724",FieldDef.FLOAT,6,0);
+            m226ccas2725 = new FieldDef("m226ccas2725",FieldDef.FLOAT,6,0);
+            m226ccas2726 = new FieldDef("m226ccas2726",FieldDef.FLOAT,6,0);
+            m226ccas2727 = new FieldDef("m226ccas2727",FieldDef.FLOAT,6,0);
+            m226ccas2728 = new FieldDef("m226ccas2728",FieldDef.FLOAT,6,0);
+            m226ccas2729 = new FieldDef("m226ccas2729",FieldDef.FLOAT,6,0);
+            m226ccas2730 = new FieldDef("m226ccas2730",FieldDef.FLOAT,6,0);
+            m226ccas2731 = new FieldDef("m226ccas2731",FieldDef.FLOAT,6,0);
+            m226ccas2732 = new FieldDef("m226ccas2732",FieldDef.FLOAT,6,0);
+            m226ccas2733 = new FieldDef("m226ccas2733",FieldDef.FLOAT,6,0);
+            m226ccas2734 = new FieldDef("m226ccas2734",FieldDef.FLOAT,6,0);
+            m226ccas2735 = new FieldDef("m226ccas2735",FieldDef.FLOAT,6,0);
+            m226ccas2736 = new FieldDef("m226ccas2736",FieldDef.FLOAT,6,0);
+            m226ccas2737 = new FieldDef("m226ccas2737",FieldDef.FLOAT,6,0);
+            m226ccas2738 = new FieldDef("m226ccas2738",FieldDef.FLOAT,6,0);
+            m226ccas2739 = new FieldDef("m226ccas2739",FieldDef.FLOAT,6,0);
+            m226ccas2740 = new FieldDef("m226ccas2740",FieldDef.FLOAT,6,0);
+            m226ccas2741 = new FieldDef("m226ccas2741",FieldDef.FLOAT,6,0);
+            m226ccas2742 = new FieldDef("m226ccas2742",FieldDef.FLOAT,6,0);
+            m226ccas2743 = new FieldDef("m226ccas2743",FieldDef.FLOAT,6,0);
+            m226ccas2744 = new FieldDef("m226ccas2744",FieldDef.FLOAT,6,0);
+            m226ccas2745 = new FieldDef("m226ccas2745",FieldDef.FLOAT,6,0);
+            m226ccas2746 = new FieldDef("m226ccas2746",FieldDef.FLOAT,6,0);
+            m226ccas2747 = new FieldDef("m226ccas2747",FieldDef.FLOAT,6,0);
+            m226ccas2748 = new FieldDef("m226ccas2748",FieldDef.FLOAT,6,0);
+            m226ccas2749 = new FieldDef("m226ccas2749",FieldDef.FLOAT,6,0);
+            m226ccas2750 = new FieldDef("m226ccas2750",FieldDef.FLOAT,6,0);
+            m226ccas2756 = new FieldDef("m226ccas2756",FieldDef.FLOAT,6,0);
+            m226ccas2757 = new FieldDef("m226ccas2757",FieldDef.FLOAT,6,0);
+            m226ccas2758 = new FieldDef("m226ccas2758",FieldDef.FLOAT,6,0);
+            m226ccas2759 = new FieldDef("m226ccas2759",FieldDef.FLOAT,6,0);
+            m226ccas2760 = new FieldDef("m226ccas2760",FieldDef.FLOAT,6,0);
+            m226ccas2761 = new FieldDef("m226ccas2761",FieldDef.FLOAT,6,0);
+            m226ccas2762 = new FieldDef("m226ccas2762",FieldDef.FLOAT,6,0);
+            m226ccas2763 = new FieldDef("m226ccas2763",FieldDef.FLOAT,6,0);
+            m226ccas2764 = new FieldDef("m226ccas2764",FieldDef.FLOAT,6,0);
+            m226ccas2765 = new FieldDef("m226ccas2765",FieldDef.FLOAT,6,0);
+            m226ccas2771 = new FieldDef("m226ccas2771",FieldDef.FLOAT,6,0);
+            m226ccas2772 = new FieldDef("m226ccas2772",FieldDef.FLOAT,6,0);
+            m226ccas2773 = new FieldDef("m226ccas2773",FieldDef.FLOAT,6,0);
+            m226ccas2774 = new FieldDef("m226ccas2774",FieldDef.FLOAT,6,0);
+            m226ccas2775 = new FieldDef("m226ccas2775",FieldDef.FLOAT,6,0);
+            m226ccas2781 = new FieldDef("m226ccas2781",FieldDef.FLOAT,6,0);
+            m226ccas2782 = new FieldDef("m226ccas2782",FieldDef.FLOAT,6,0);
+            m226ccas2783 = new FieldDef("m226ccas2783",FieldDef.FLOAT,6,0);
+            m226ccas2784 = new FieldDef("m226ccas2784",FieldDef.FLOAT,6,0);
+            m226ccas2785 = new FieldDef("m226ccas2785",FieldDef.FLOAT,6,0);
+            m226ccas2791 = new FieldDef("m226ccas2791",FieldDef.FLOAT,6,0);
+            m226ccas2792 = new FieldDef("m226ccas2792",FieldDef.FLOAT,6,0);
+            m226ccas2793 = new FieldDef("m226ccas2793",FieldDef.FLOAT,6,0);
+            m226ccas2794 = new FieldDef("m226ccas2794",FieldDef.FLOAT,6,0);
+            m226ccas2795 = new FieldDef("m226ccas2795",FieldDef.FLOAT,6,0);
+            m226ccas2801 = new FieldDef("m226ccas2801",FieldDef.FLOAT,6,0);
+            m226ccas2802 = new FieldDef("m226ccas2802",FieldDef.FLOAT,6,0);
+            m226ccas2803 = new FieldDef("m226ccas2803",FieldDef.FLOAT,6,0);
+            m226ccas2804 = new FieldDef("m226ccas2804",FieldDef.FLOAT,6,0);
+            m226ccas2805 = new FieldDef("m226ccas2805",FieldDef.FLOAT,6,0);
+            m226ccas2811 = new FieldDef("m226ccas2811",FieldDef.FLOAT,6,0);
+            m226ccas2812 = new FieldDef("m226ccas2812",FieldDef.FLOAT,6,0);
+            m226ccas2813 = new FieldDef("m226ccas2813",FieldDef.FLOAT,6,0);
+            m226ccas2814 = new FieldDef("m226ccas2814",FieldDef.FLOAT,6,0);
+            m226ccas2815 = new FieldDef("m226ccas2815",FieldDef.FLOAT,6,0);
+            m226ccas2816 = new FieldDef("m226ccas2816",FieldDef.FLOAT,6,0);
+            m226ccas2817 = new FieldDef("m226ccas2817",FieldDef.FLOAT,6,0);
+            m226ccas2818 = new FieldDef("m226ccas2818",FieldDef.FLOAT,6,0);
+            m226ccas2819 = new FieldDef("m226ccas2819",FieldDef.FLOAT,6,0);
+            m226ccas2820 = new FieldDef("m226ccas2820",FieldDef.FLOAT,6,0);
+            m226ccas2821 = new FieldDef("m226ccas2821",FieldDef.FLOAT,6,0);
+            m226ccas2822 = new FieldDef("m226ccas2822",FieldDef.FLOAT,6,0);
+            m226ccas2823 = new FieldDef("m226ccas2823",FieldDef.FLOAT,6,0);
+            m226ccas2824 = new FieldDef("m226ccas2824",FieldDef.FLOAT,6,0);
+            m226ccas2825 = new FieldDef("m226ccas2825",FieldDef.FLOAT,6,0);
+            m226ccas2831 = new FieldDef("m226ccas2831",FieldDef.FLOAT,6,0);
+            m226ccas2832 = new FieldDef("m226ccas2832",FieldDef.FLOAT,6,0);
+            m226ccas2833 = new FieldDef("m226ccas2833",FieldDef.FLOAT,6,0);
+            m226ccas2834 = new FieldDef("m226ccas2834",FieldDef.FLOAT,6,0);
+            m226ccas2835 = new FieldDef("m226ccas2835",FieldDef.FLOAT,6,0);
+            m226ccas2841 = new FieldDef("m226ccas2841",FieldDef.FLOAT,6,0);
+            m226ccas2842 = new FieldDef("m226ccas2842",FieldDef.FLOAT,6,0);
+            m226ccas2843 = new FieldDef("m226ccas2843",FieldDef.FLOAT,6,0);
+            m226ccas2844 = new FieldDef("m226ccas2844",FieldDef.FLOAT,6,0);
+            m226ccas2845 = new FieldDef("m226ccas2845",FieldDef.FLOAT,6,0);
+            m226ccas2846 = new FieldDef("m226ccas2846",FieldDef.FLOAT,6,0);
+            m226ccas2847 = new FieldDef("m226ccas2847",FieldDef.FLOAT,6,0);
+            m226ccas2848 = new FieldDef("m226ccas2848",FieldDef.FLOAT,6,0);
+            m226ccas2849 = new FieldDef("m226ccas2849",FieldDef.FLOAT,6,0);
+            m226ccas2850 = new FieldDef("m226ccas2850",FieldDef.FLOAT,6,0);
+            m226ccas2851 = new FieldDef("m226ccas2851",FieldDef.FLOAT,6,0);
+            m226ccas2852 = new FieldDef("m226ccas2852",FieldDef.FLOAT,6,0);
+            m226ccas2853 = new FieldDef("m226ccas2853",FieldDef.FLOAT,6,0);
+            m226ccas2854 = new FieldDef("m226ccas2854",FieldDef.FLOAT,6,0);
+            m226ccas2855 = new FieldDef("m226ccas2855",FieldDef.FLOAT,6,0);
+            m226ccas2856 = new FieldDef("m226ccas2856",FieldDef.FLOAT,6,0);
+            m226ccas2857 = new FieldDef("m226ccas2857",FieldDef.FLOAT,6,0);
+            m226ccas2858 = new FieldDef("m226ccas2858",FieldDef.FLOAT,6,0);
+            m226ccas2859 = new FieldDef("m226ccas2859",FieldDef.FLOAT,6,0);
+            m226ccas2860 = new FieldDef("m226ccas2860",FieldDef.FLOAT,6,0);
+            m226ccas2574 = new FieldDef("m226ccas2574",FieldDef.FLOAT,6,0);
+            m226ccas2571 = new FieldDef("m226ccas2571",FieldDef.FLOAT,6,0);
+            m226ccas2572 = new FieldDef("m226ccas2572",FieldDef.FLOAT,6,0);
+            m226ccas2573 = new FieldDef("m226ccas2573",FieldDef.FLOAT,6,0);
+            m226ccas2575 = new FieldDef("m226ccas2575",FieldDef.FLOAT,6,0);
+            m226ccas2754 = new FieldDef("m226ccas2754",FieldDef.FLOAT,6,0);
+            m226ccas2751 = new FieldDef("m226ccas2751",FieldDef.FLOAT,6,0);
+            m226ccas2752 = new FieldDef("m226ccas2752",FieldDef.FLOAT,6,0);
+            m226ccas2753 = new FieldDef("m226ccas2753",FieldDef.FLOAT,6,0);
+            m226ccas2755 = new FieldDef("m226ccas2755",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m226cdominio,
+                m226cnif,
+                m226cejercicio,
+                m226cperiodo,
+                m226ccas2681,
+                m226ccas2682,
+                m226ccas2683,
+                m226ccas2684,
+                m226ccas2685,
+                m226ccas2686,
+                m226ccas2687,
+                m226ccas2688,
+                m226ccas2689,
+                m226ccas2690,
+                m226ccas2691,
+                m226ccas2692,
+                m226ccas2693,
+                m226ccas2694,
+                m226ccas2695,
+                m226ccas2696,
+                m226ccas2697,
+                m226ccas2698,
+                m226ccas2699,
+                m226ccas2700,
+                m226ccas2701,
+                m226ccas2702,
+                m226ccas2703,
+                m226ccas2704,
+                m226ccas2705,
+                m226ccas2706,
+                m226ccas2707,
+                m226ccas2708,
+                m226ccas2709,
+                m226ccas2710,
+                m226ccas2711,
+                m226ccas2712,
+                m226ccas2713,
+                m226ccas2714,
+                m226ccas2715,
+                m226ccas2716,
+                m226ccas2717,
+                m226ccas2718,
+                m226ccas2719,
+                m226ccas2720,
+                m226ccas2721,
+                m226ccas2722,
+                m226ccas2723,
+                m226ccas2724,
+                m226ccas2725,
+                m226ccas2726,
+                m226ccas2727,
+                m226ccas2728,
+                m226ccas2729,
+                m226ccas2730,
+                m226ccas2731,
+                m226ccas2732,
+                m226ccas2733,
+                m226ccas2734,
+                m226ccas2735,
+                m226ccas2736,
+                m226ccas2737,
+                m226ccas2738,
+                m226ccas2739,
+                m226ccas2740,
+                m226ccas2741,
+                m226ccas2742,
+                m226ccas2743,
+                m226ccas2744,
+                m226ccas2745,
+                m226ccas2746,
+                m226ccas2747,
+                m226ccas2748,
+                m226ccas2749,
+                m226ccas2750,
+                m226ccas2756,
+                m226ccas2757,
+                m226ccas2758,
+                m226ccas2759,
+                m226ccas2760,
+                m226ccas2761,
+                m226ccas2762,
+                m226ccas2763,
+                m226ccas2764,
+                m226ccas2765,
+                m226ccas2771,
+                m226ccas2772,
+                m226ccas2773,
+                m226ccas2774,
+                m226ccas2775,
+                m226ccas2781,
+                m226ccas2782,
+                m226ccas2783,
+                m226ccas2784,
+                m226ccas2785,
+                m226ccas2791,
+                m226ccas2792,
+                m226ccas2793,
+                m226ccas2794,
+                m226ccas2795,
+                m226ccas2801,
+                m226ccas2802,
+                m226ccas2803,
+                m226ccas2804,
+                m226ccas2805,
+                m226ccas2811,
+                m226ccas2812,
+                m226ccas2813,
+                m226ccas2814,
+                m226ccas2815,
+                m226ccas2816,
+                m226ccas2817,
+                m226ccas2818,
+                m226ccas2819,
+                m226ccas2820,
+                m226ccas2821,
+                m226ccas2822,
+                m226ccas2823,
+                m226ccas2824,
+                m226ccas2825,
+                m226ccas2831,
+                m226ccas2832,
+                m226ccas2833,
+                m226ccas2834,
+                m226ccas2835,
+                m226ccas2841,
+                m226ccas2842,
+                m226ccas2843,
+                m226ccas2844,
+                m226ccas2845,
+                m226ccas2846,
+                m226ccas2847,
+                m226ccas2848,
+                m226ccas2849,
+                m226ccas2850,
+                m226ccas2851,
+                m226ccas2852,
+                m226ccas2853,
+                m226ccas2854,
+                m226ccas2855,
+                m226ccas2856,
+                m226ccas2857,
+                m226ccas2858,
+                m226ccas2859,
+                m226ccas2860,
+                m226ccas2574,
+                m226ccas2571,
+                m226ccas2572,
+                m226ccas2573,
+                m226ccas2575,
+                m226ccas2754,
+                m226ccas2751,
+                m226ccas2752,
+                m226ccas2753,
+                m226ccas2755                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m226cdominio,m226cnif,m226cejercicio,m226cperiodo };
+            setPrimaryKeys(arrayf);
+            m226ccas2681.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (art. 13.2 b) LIS) - Aumento - Corr. ejer.- Permanentes [02681]");
+            m226ccas2682.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (art. 13.2 b) LIS) - Aumento - Corr. ejer.- Temporarias  [02682]");
+            m226ccas2683.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (art. 13.2 b) LIS) - Aumento - Corr. ejer.- Temporarias  [02683]");
+            m226ccas2684.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (art. 13.2 b) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02684]");
+            m226ccas2685.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (art. 13.2 b) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02685]");
+            m226ccas2686.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (art. 13.2 b) LIS) - Disminución - Corr. ejer.- Permanentes [02686]");
+            m226ccas2687.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (art. 13.2 b) LIS) - Disminución - Corr. ejer.- Temporarias  [02687]");
+            m226ccas2688.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (art. 13.2 b) LIS) - Disminución - Corr. ejer.- Temporarias  [02688]");
+            m226ccas2689.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (art. 13.2 b) LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02689]");
+            m226ccas2690.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (art. 13.2 b) LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02690]");
+            m226ccas2691.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.1 y 2 LIS) - Aumento - Corr. ejer.- Permanentes [02691]");
+            m226ccas2692.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.1 y 2 LIS) - Aumento - Corr. ejer.- Temporarias  [02692]");
+            m226ccas2693.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.1 y 2 LIS) - Aumento - Corr. ejer.- Temporarias  [02693]");
+            m226ccas2694.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.1 y 2 LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02694]");
+            m226ccas2695.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.1 y 2 LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02695]");
+            m226ccas2696.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.1 y 2 LIS) - Disminución - Corr. ejer.- Permanentes [02696]");
+            m226ccas2697.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.1 y 2 LIS) - Disminución - Corr. ejer.- Temporarias  [02697]");
+            m226ccas2698.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.1 y 2 LIS) - Disminución - Corr. ejer.- Temporarias  [02698]");
+            m226ccas2699.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.1 y 2 LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02699]");
+            m226ccas2700.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.1 y 2 LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02700]");
+            m226ccas2701.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.3 LIS) - Aumento - Corr. ejer.- Permanentes [02701]");
+            m226ccas2702.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.3 LIS) - Aumento - Corr. ejer.- Temporarias  [02702]");
+            m226ccas2703.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.3 LIS) - Aumento - Corr. ejer.- Temporarias  [02703]");
+            m226ccas2704.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.3 LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02704]");
+            m226ccas2705.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.3 LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02705]");
+            m226ccas2706.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.3 LIS) - Disminución - Corr. ejer.- Permanentes [02706]");
+            m226ccas2707.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.3 LIS) - Disminución - Corr. ejer.- Temporarias  [02707]");
+            m226ccas2708.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.3 LIS) - Disminución - Corr. ejer.- Temporarias  [02708]");
+            m226ccas2709.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.3 LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02709]");
+            m226ccas2710.setDescription("Ajustes perd.deterioro valores repr. partic. capital o fondos propios (DT 16ª.3 LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02710]");
+            m226ccas2711.setDescription("Pérdidas deterioro valores representativos deuda (art. 13.2 c) LIS y DT 15ª LIS) - Aumento - Corr. ejer.- Permanentes [02711]");
+            m226ccas2712.setDescription("Pérdidas deterioro valores representativos deuda (art. 13.2 c) LIS y DT 15ª LIS) - Aumento - Corr. ejer.- Temporarias  [02712]");
+            m226ccas2713.setDescription("Pérdidas deterioro valores representativos deuda (art. 13.2 c) LIS y DT 15ª LIS) - Aumento - Corr. ejer.- Temporarias  [02713]");
+            m226ccas2714.setDescription("Pérdidas deterioro valores representativos deuda (art. 13.2 c) LIS y DT 15ª LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02714]");
+            m226ccas2715.setDescription("Pérdidas deterioro valores representativos deuda (art. 13.2 c) LIS y DT 15ª LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02715]");
+            m226ccas2716.setDescription("Pérdidas deterioro valores representativos deuda (art. 13.2 c) LIS y DT 15ª LIS) - Disminución - Corr. ejer.- Permanentes [02716]");
+            m226ccas2717.setDescription("Pérdidas deterioro valores representativos deuda (art. 13.2 c) LIS y DT 15ª LIS) - Disminución - Corr. ejer.- Temporarias  [02717]");
+            m226ccas2718.setDescription("Pérdidas deterioro valores representativos deuda (art. 13.2 c) LIS y DT 15ª LIS) - Disminución - Corr. ejer.- Temporarias  [02718]");
+            m226ccas2719.setDescription("Pérdidas deterioro valores representativos deuda (art. 13.2 c) LIS y DT 15ª LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02719]");
+            m226ccas2720.setDescription("Pérdidas deterioro valores representativos deuda (art. 13.2 c) LIS y DT 15ª LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02720]");
+            m226ccas2721.setDescription("Aplicación límite art. 11.12 LIS a las perd.deterioro art. 13.1 LIS y provisiones y gastos (art. 14.1 y 14.2 LIS) - Aumento - Corr. ejer.- Permanentes [02721]");
+            m226ccas2722.setDescription("Aplicación límite art. 11.12 LIS a las perd.deterioro art. 13.1 LIS y provisiones y gastos (art. 14.1 y 14.2 LIS) - Aumento - Corr. ejer.- Temporarias  [02722]");
+            m226ccas2723.setDescription("Aplicación límite art. 11.12 LIS a las perd.deterioro art. 13.1 LIS y provisiones y gastos (art. 14.1 y 14.2 LIS) - Aumento - Corr. ejer.- Temporarias  [02723]");
+            m226ccas2724.setDescription("Aplicación límite art. 11.12 LIS a las perd.deterioro art. 13.1 LIS y provisiones y gastos (art. 14.1 y 14.2 LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02724]");
+            m226ccas2725.setDescription("Aplicación límite art. 11.12 LIS a las perd.deterioro art. 13.1 LIS y provisiones y gastos (art. 14.1 y 14.2 LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02725]");
+            m226ccas2726.setDescription("Aplicación límite art. 11.12 LIS a las perd.deterioro art. 13.1 LIS y provisiones y gastos (art. 14.1 y 14.2 LIS) - Disminución - Corr. ejer.- Permanentes [02726]");
+            m226ccas2727.setDescription("Aplicación límite art. 11.12 LIS a las perd.deterioro art. 13.1 LIS y provisiones y gastos (art. 14.1 y 14.2 LIS) - Disminución - Corr. ejer.- Temporarias  [02727]");
+            m226ccas2728.setDescription("Aplicación límite art. 11.12 LIS a las perd.deterioro art. 13.1 LIS y provisiones y gastos (art. 14.1 y 14.2 LIS) - Disminución - Corr. ejer.- Temporarias  [02728]");
+            m226ccas2729.setDescription("Aplicación límite art. 11.12 LIS a las perd.deterioro art. 13.1 LIS y provisiones y gastos (art. 14.1 y 14.2 LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02729]");
+            m226ccas2730.setDescription("Aplicación límite art. 11.12 LIS a las perd.deterioro art. 13.1 LIS y provisiones y gastos (art. 14.1 y 14.2 LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02730]");
+            m226ccas2731.setDescription("Gastos y provisiones pensiones no afectados art. 11.12 LIS (art. 14.1, 14.6 y 14.8 LIS) - Aumento - Corr. ejer.- Permanentes [02731]");
+            m226ccas2732.setDescription("Gastos y provisiones pensiones no afectados art. 11.12 LIS (art. 14.1, 14.6 y 14.8 LIS) - Aumento - Corr. ejer.- Temporarias  [02732]");
+            m226ccas2733.setDescription("Gastos y provisiones pensiones no afectados art. 11.12 LIS (art. 14.1, 14.6 y 14.8 LIS) - Aumento - Corr. ejer.- Temporarias  [02733]");
+            m226ccas2734.setDescription("Gastos y provisiones pensiones no afectados art. 11.12 LIS (art. 14.1, 14.6 y 14.8 LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02734]");
+            m226ccas2735.setDescription("Gastos y provisiones pensiones no afectados art. 11.12 LIS (art. 14.1, 14.6 y 14.8 LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02735]");
+            m226ccas2736.setDescription("Gastos y provisiones pensiones no afectados art. 11.12 LIS (art. 14.1, 14.6 y 14.8 LIS) - Disminución - Corr. ejer.- Permanentes [02736]");
+            m226ccas2737.setDescription("Gastos y provisiones pensiones no afectados art. 11.12 LIS (art. 14.1, 14.6 y 14.8 LIS) - Disminución - Corr. ejer.- Temporarias  [02737]");
+            m226ccas2738.setDescription("Gastos y provisiones pensiones no afectados art. 11.12 LIS (art. 14.1, 14.6 y 14.8 LIS) - Disminución - Corr. ejer.- Temporarias  [02738]");
+            m226ccas2739.setDescription("Gastos y provisiones pensiones no afectados art. 11.12 LIS (art. 14.1, 14.6 y 14.8 LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02739]");
+            m226ccas2740.setDescription("Gastos y provisiones pensiones no afectados art. 11.12 LIS (art. 14.1, 14.6 y 14.8 LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02740]");
+            m226ccas2741.setDescription("Otras provisiones no deduc.fiscalmente (art. 14 LIS) no afectadas art. 11.12 LIS - Aumento - Corr. ejer.- Permanentes [02741]");
+            m226ccas2742.setDescription("Otras provisiones no deduc.fiscalmente (art. 14 LIS) no afectadas art. 11.12 LIS - Aumento - Corr. ejer.- Temporarias  [02742]");
+            m226ccas2743.setDescription("Otras provisiones no deduc.fiscalmente (art. 14 LIS) no afectadas art. 11.12 LIS - Aumento - Corr. ejer.- Temporarias  [02743]");
+            m226ccas2744.setDescription("Otras provisiones no deduc.fiscalmente (art. 14 LIS) no afectadas art. 11.12 LIS - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02744]");
+            m226ccas2745.setDescription("Otras provisiones no deduc.fiscalmente (art. 14 LIS) no afectadas art. 11.12 LIS - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02745]");
+            m226ccas2746.setDescription("Otras provisiones no deduc.fiscalmente (art. 14 LIS) no afectadas art. 11.12 LIS - Disminución - Corr. ejer.- Permanentes [02746]");
+            m226ccas2747.setDescription("Otras provisiones no deduc.fiscalmente (art. 14 LIS) no afectadas art. 11.12 LIS - Disminución - Corr. ejer.- Temporarias  [02747]");
+            m226ccas2748.setDescription("Otras provisiones no deduc.fiscalmente (art. 14 LIS) no afectadas art. 11.12 LIS - Disminución - Corr. ejer.- Temporarias  [02748]");
+            m226ccas2749.setDescription("Otras provisiones no deduc.fiscalmente (art. 14 LIS) no afectadas art. 11.12 LIS - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02749]");
+            m226ccas2750.setDescription("Otras provisiones no deduc.fiscalmente (art. 14 LIS) no afectadas art. 11.12 LIS - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02750]");
+            m226ccas2756.setDescription("Subvenciones públicas incluidas resultado ejer., no integrables base imponible (art. 14.8 LIS) - Disminución - Corr. ejer.- Permanentes [02756]");
+            m226ccas2757.setDescription("Subvenciones públicas incluidas resultado ejer., no integrables base imponible (art. 14.8 LIS) - Disminución - Corr. ejer.- Temporarias  [02757]");
+            m226ccas2758.setDescription("Subvenciones públicas incluidas resultado ejer., no integrables base imponible (art. 14.8 LIS) - Disminución - Corr. ejer.- Temporarias  [02758]");
+            m226ccas2759.setDescription("Subvenciones públicas incluidas resultado ejer., no integrables base imponible (art. 14.8 LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02759]");
+            m226ccas2760.setDescription("Subvenciones públicas incluidas resultado ejer., no integrables base imponible (art. 14.8 LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02760]");
+            m226ccas2761.setDescription("Gastos no deduc.considerarse retribución fondos propios (art. 15 a) LIS) - Aumento - Corr. ejer.- Permanentes [02761]");
+            m226ccas2762.setDescription("Gastos no deduc.considerarse retribución fondos propios (art. 15 a) LIS) - Aumento - Corr. ejer.- Temporarias  [02762]");
+            m226ccas2763.setDescription("Gastos no deduc.considerarse retribución fondos propios (art. 15 a) LIS) - Aumento - Corr. ejer.- Permanentes [02763]");
+            m226ccas2764.setDescription("Gastos no deduc.considerarse retribución fondos propios (art. 15 a) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02764]");
+            m226ccas2765.setDescription("Gastos no deduc.considerarse retribución fondos propios (art. 15 a) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02765]");
+            m226ccas2771.setDescription("Multas, sanciones y otros (art. 15 c) LIS) - Aumento - Corr. ejer.- Permanentes [02771]");
+            m226ccas2772.setDescription("Multas, sanciones y otros (art. 15 c) LIS) - Aumento - Corr. ejer.- Temporarias  [02772]");
+            m226ccas2773.setDescription("Multas, sanciones y otros (art. 15 c) LIS) - Aumento - Corr. ejer.- Temporarias  [02773]");
+            m226ccas2774.setDescription("Multas, sanciones y otros (art. 15 c) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02774]");
+            m226ccas2775.setDescription("Multas, sanciones y otros (art. 15 c) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02775]");
+            m226ccas2781.setDescription("Pérdidas juego (art. 15 d) LIS) - Aumento - Corr. ejer.- Permanentes [02781]");
+            m226ccas2782.setDescription("Pérdidas juego (art. 15 d) LIS) - Aumento - Corr. ejer.- Temporarias  [02782]");
+            m226ccas2783.setDescription("Pérdidas juego (art. 15 d) LIS) - Aumento - Corr. ejer.- Temporarias  [02783]");
+            m226ccas2784.setDescription("Pérdidas juego (art. 15 d) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02784]");
+            m226ccas2785.setDescription("Pérdidas juego (art. 15 d) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02785]");
+            m226ccas2791.setDescription("Gastos donativos y liberalidades (art. 15 e) LIS) - Aumento - Corr. ejer.- Permanentes [02791]");
+            m226ccas2792.setDescription("Gastos donativos y liberalidades (art. 15 e) LIS) - Aumento - Corr. ejer.- Temporarias  [02792]");
+            m226ccas2793.setDescription("Gastos donativos y liberalidades (art. 15 e) LIS) - Aumento - Corr. ejer.- Temporarias  [02793]");
+            m226ccas2794.setDescription("Gastos donativos y liberalidades (art. 15 e) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02794]");
+            m226ccas2795.setDescription("Gastos donativos y liberalidades (art. 15 e) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02795]");
+            m226ccas2801.setDescription("Gastos actuaciones contrarias ordenamiento jurídico (art. 15 f) LIS) - Aumento - Corr. ejer.- Permanentes [02801]");
+            m226ccas2802.setDescription("Gastos actuaciones contrarias ordenamiento jurídico (art. 15 f) LIS) - Aumento - Corr. ejer.- Temporarias  [02802]");
+            m226ccas2803.setDescription("Gastos actuaciones contrarias ordenamiento jurídico (art. 15 f) LIS) - Aumento - Corr. ejer.- Temporarias  [02803]");
+            m226ccas2804.setDescription("Gastos actuaciones contrarias ordenamiento jurídico (art. 15 f) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02804]");
+            m226ccas2805.setDescription("Gastos actuaciones contrarias ordenamiento jurídico (art. 15 f) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02805]");
+            m226ccas2811.setDescription("Operaciones realizadas con paraísos fiscales (art. 15 g) LIS) - Aumento - Corr. ejer.- Permanentes [02811]");
+            m226ccas2812.setDescription("Operaciones realizadas con paraísos fiscales (art. 15 g) LIS) - Aumento - Corr. ejer.- Temporarias  [02812]");
+            m226ccas2813.setDescription("Operaciones realizadas con paraísos fiscales (art. 15 g) LIS) - Aumento - Corr. ejer.- Temporarias  [02813]");
+            m226ccas2814.setDescription("Operaciones realizadas con paraísos fiscales (art. 15 g) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02814]");
+            m226ccas2815.setDescription("Operaciones realizadas con paraísos fiscales (art. 15 g) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02815]");
+            m226ccas2816.setDescription("Operaciones realizadas con paraísos fiscales (art. 15 g) LIS) - Disminución - Corr. ejer.- Permanentes [02816]");
+            m226ccas2817.setDescription("Operaciones realizadas con paraísos fiscales (art. 15 g) LIS) - Disminución - Corr. ejer.- Temporarias  [02817]");
+            m226ccas2818.setDescription("Operaciones realizadas con paraísos fiscales (art. 15 g) LIS) - Disminución - Corr. ejer.- Temporarias  [02818]");
+            m226ccas2819.setDescription("Operaciones realizadas con paraísos fiscales (art. 15 g) LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02819]");
+            m226ccas2820.setDescription("Operaciones realizadas con paraísos fiscales (art. 15 g) LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02820]");
+            m226ccas2821.setDescription("Gastos financieros derivados deudas con entidades grupo (art. 15 h) LIS) - Aumento - Corr. ejer.- Permanentes [02821]");
+            m226ccas2822.setDescription("Gastos financieros derivados deudas con entidades grupo (art. 15 h) LIS) - Aumento - Corr. ejer.- Temporarias  [02822]");
+            m226ccas2823.setDescription("Gastos financieros derivados deudas con entidades grupo (art. 15 h) LIS) - Aumento - Corr. ejer.- Temporarias  [02823]");
+            m226ccas2824.setDescription("Gastos financieros derivados deudas con entidades grupo (art. 15 h) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02824]");
+            m226ccas2825.setDescription("Gastos financieros derivados deudas con entidades grupo (art. 15 h) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02825]");
+            m226ccas2831.setDescription("Gastos derivados la extinción la relación laboral o mercantil (art. 15 i) LIS) - Aumento - Corr. ejer.- Permanentes [02831]");
+            m226ccas2832.setDescription("Gastos derivados la extinción la relación laboral o mercantil (art. 15 i) LIS) - Aumento - Corr. ejer.- Temporarias  [02832]");
+            m226ccas2833.setDescription("Gastos derivados la extinción la relación laboral o mercantil (art. 15 i) LIS) - Aumento - Corr. ejer.- Temporarias  [02833]");
+            m226ccas2834.setDescription("Gastos derivados la extinción la relación laboral o mercantil (art. 15 i) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02834]");
+            m226ccas2835.setDescription("Gastos derivados la extinción la relación laboral o mercantil (art. 15 i) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02835]");
+            m226ccas2841.setDescription("Gastos correspondientes a oper.realizadas con personas o entidades vinculadas (art. 15 j) LIS) - Aumento - Corr. ejer.- Permanentes [02841]");
+            m226ccas2842.setDescription("Gastos correspondientes a oper.realizadas con personas o entidades vinculadas (art. 15 j) LIS) - Aumento - Corr. ejer.- Temporarias  [02842]");
+            m226ccas2843.setDescription("Gastos correspondientes a oper.realizadas con personas o entidades vinculadas (art. 15 j) LIS) - Aumento - Corr. ejer.- Temporarias  [02843]");
+            m226ccas2844.setDescription("Gastos correspondientes a oper.realizadas con personas o entidades vinculadas (art. 15 j) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02844]");
+            m226ccas2845.setDescription("Gastos correspondientes a oper.realizadas con personas o entidades vinculadas (art. 15 j) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02845]");
+            m226ccas2846.setDescription("Gastos correspondientes a oper.realizadas con personas o entidades vinculadas (art. 15 j) LIS) - Disminución - Corr. ejer.- Permanentes [02846]");
+            m226ccas2847.setDescription("Gastos correspondientes a oper.realizadas con personas o entidades vinculadas (art. 15 j) LIS) - Disminución - Corr. ejer.- Temporarias  [02847]");
+            m226ccas2848.setDescription("Gastos correspondientes a oper.realizadas con personas o entidades vinculadas (art. 15 j) LIS) - Disminución - Corr. ejer.- Temporarias  [02848]");
+            m226ccas2849.setDescription("Gastos correspondientes a oper.realizadas con personas o entidades vinculadas (art. 15 j) LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02849]");
+            m226ccas2850.setDescription("Gastos correspondientes a oper.realizadas con personas o entidades vinculadas (art. 15 j) LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02850]");
+            m226ccas2851.setDescription("Pérdidas deterioro valores repr. partic. capital o fondos propios (art. 15 k) LIS) - Aumento - Corr. ejer.- Permanentes [02851]");
+            m226ccas2852.setDescription("Pérdidas deterioro valores repr. partic. capital o fondos propios (art. 15 k) LIS) - Aumento - Corr. ejer.- Temporarias  [02852]");
+            m226ccas2853.setDescription("Pérdidas deterioro valores repr. partic. capital o fondos propios (art. 15 k) LIS) - Aumento - Corr. ejer.- Temporarias  [02853]");
+            m226ccas2854.setDescription("Pérdidas deterioro valores repr. partic. capital o fondos propios (art. 15 k) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02854]");
+            m226ccas2855.setDescription("Pérdidas deterioro valores repr. partic. capital o fondos propios (art. 15 k) LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias  [02855]");
+            m226ccas2856.setDescription("Pérdidas deterioro valores repr. partic. capital o fondos propios (art. 15 k) LIS) - Disminución - Corr. ejer.- Permanentes [02856]");
+            m226ccas2857.setDescription("Pérdidas deterioro valores repr. partic. capital o fondos propios (art. 15 k) LIS) - Disminución - Corr. ejer.- Temporarias  [02857]");
+            m226ccas2858.setDescription("Pérdidas deterioro valores repr. partic. capital o fondos propios (art. 15 k) LIS) - Disminución - Corr. ejer.- Temporarias  [02858]");
+            m226ccas2859.setDescription("Pérdidas deterioro valores repr. partic. capital o fondos propios (art. 15 k) LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02859]");
+            m226ccas2860.setDescription("Pérdidas deterioro valores repr. partic. capital o fondos propios (art. 15 k) LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias  [02860]");
+            m226ccas2574.setDescription("Asimetrías híbridas (art. 15 bis LIS) - Aumento - Saldo pendiente a principio de ejercicio [02574] (* nou)");
+            m226ccas2571.setDescription("Asimetrías híbridas (art. 15 bis LIS) - Aumento - Correcciones del ejercicio - Permanentes [02571]");
+            m226ccas2572.setDescription("Asimetrías híbridas (art. 15 bis LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02572]");
+            m226ccas2573.setDescription("Asimetrías híbridas (art. 15 bis LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02573]");
+            m226ccas2575.setDescription("Asimetrías híbridas (art. 15 bis LIS) - Aumento - Saldo pendiente a fin de ejercicio [02575]");
+            m226ccas2754.setDescription("Asimetrías híbridas (art. 15 bis LIS) - Disminución - Saldo pendiente a principio de ejercicio [02754]");
+            m226ccas2751.setDescription("Asimetrías híbridas (art. 15 bis LIS) - Disminución - Correcciones del ejercicio - Permanentes [02751]");
+            m226ccas2752.setDescription("Asimetrías híbridas (art. 15 bis LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02752]");
+            m226ccas2753.setDescription("Asimetrías híbridas (art. 15 bis LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02753]");
+            m226ccas2755.setDescription("Asimetrías híbridas (art. 15 bis LIS) - Disminución - Saldo pendiente a fin de ejercicio [02755]");
+            }
+        }
+        
+    public class TabMod200h26d extends TableDef
+        {
+        // campos
+        public FieldDef m226ddominio;
+        public FieldDef m226dnif;
+        public FieldDef m226dejercicio;
+        public FieldDef m226dperiodo;
+        public FieldDef m226dcas2861;
+        public FieldDef m226dcas2862;
+        public FieldDef m226dcas2863;
+        public FieldDef m226dcas2864;
+        public FieldDef m226dcas2865;
+        public FieldDef m226dcas2866;
+        public FieldDef m226dcas2867;
+        public FieldDef m226dcas2868;
+        public FieldDef m226dcas2869;
+        public FieldDef m226dcas2870;
+        public FieldDef m226dcas2871;
+        public FieldDef m226dcas2872;
+        public FieldDef m226dcas2873;
+        public FieldDef m226dcas2874;
+        public FieldDef m226dcas2875;
+        public FieldDef m226dcas2876;
+        public FieldDef m226dcas2877;
+        public FieldDef m226dcas2878;
+        public FieldDef m226dcas2879;
+        public FieldDef m226dcas2880;
+        public FieldDef m226dcas2881;
+        public FieldDef m226dcas2882;
+        public FieldDef m226dcas2883;
+        public FieldDef m226dcas2884;
+        public FieldDef m226dcas2885;
+        public FieldDef m226dcas2886;
+        public FieldDef m226dcas2887;
+        public FieldDef m226dcas2888;
+        public FieldDef m226dcas2889;
+        public FieldDef m226dcas2890;
+        public FieldDef m226dcas2891;
+        public FieldDef m226dcas2892;
+        public FieldDef m226dcas2893;
+        public FieldDef m226dcas2894;
+        public FieldDef m226dcas2895;
+        public FieldDef m226dcas2896;
+        public FieldDef m226dcas2897;
+        public FieldDef m226dcas2898;
+        public FieldDef m226dcas2899;
+        public FieldDef m226dcas2900;
+        public FieldDef m226dcas2901;
+        public FieldDef m226dcas2902;
+        public FieldDef m226dcas2903;
+        public FieldDef m226dcas2904;
+        public FieldDef m226dcas2905;
+        public FieldDef m226dcas2906;
+        public FieldDef m226dcas2907;
+        public FieldDef m226dcas2908;
+        public FieldDef m226dcas2909;
+        public FieldDef m226dcas2910;
+        public FieldDef m226dcas2911;
+        public FieldDef m226dcas2912;
+        public FieldDef m226dcas2913;
+        public FieldDef m226dcas2914;
+        public FieldDef m226dcas2915;
+        public FieldDef m226dcas2921;
+        public FieldDef m226dcas2922;
+        public FieldDef m226dcas2923;
+        public FieldDef m226dcas2924;
+        public FieldDef m226dcas2925;
+        public FieldDef m226dcas2926;
+        public FieldDef m226dcas2927;
+        public FieldDef m226dcas2928;
+        public FieldDef m226dcas2929;
+        public FieldDef m226dcas2930;
+        public FieldDef m226dcas2931;
+        public FieldDef m226dcas2932;
+        public FieldDef m226dcas2933;
+        public FieldDef m226dcas2934;
+        public FieldDef m226dcas2935;
+        public FieldDef m226dcas2936;
+        public FieldDef m226dcas2937;
+        public FieldDef m226dcas2938;
+        public FieldDef m226dcas2939;
+        public FieldDef m226dcas2940;
+        public FieldDef m226dcas2941;
+        public FieldDef m226dcas2942;
+        public FieldDef m226dcas2943;
+        public FieldDef m226dcas2944;
+        public FieldDef m226dcas2945;
+        public FieldDef m226dcas2946;
+        public FieldDef m226dcas2947;
+        public FieldDef m226dcas2948;
+        public FieldDef m226dcas2949;
+        public FieldDef m226dcas2950;
+        public FieldDef m226dcas2951;
+        public FieldDef m226dcas2952;
+        public FieldDef m226dcas2953;
+        public FieldDef m226dcas2954;
+        public FieldDef m226dcas2955;
+        public FieldDef m226dcas2956;
+        public FieldDef m226dcas2957;
+        public FieldDef m226dcas2958;
+        public FieldDef m226dcas2959;
+        public FieldDef m226dcas2960;
+        public FieldDef m226dcas2966;
+        public FieldDef m226dcas2967;
+        public FieldDef m226dcas2968;
+        public FieldDef m226dcas2969;
+        public FieldDef m226dcas2970;
+        public FieldDef m226dcas2976;
+        public FieldDef m226dcas2977;
+        public FieldDef m226dcas2978;
+        public FieldDef m226dcas2979;
+        public FieldDef m226dcas2980;
+        public FieldDef m226dcas2981;
+        public FieldDef m226dcas2982;
+        public FieldDef m226dcas2983;
+        public FieldDef m226dcas2984;
+        public FieldDef m226dcas2985;
+        public FieldDef m226dcas2986;
+        public FieldDef m226dcas2987;
+        public FieldDef m226dcas2988;
+        public FieldDef m226dcas2989;
+        public FieldDef m226dcas2990;
+        public FieldDef m226dcas2991;
+        public FieldDef m226dcas2992;
+        public FieldDef m226dcas2993;
+        public FieldDef m226dcas2994;
+        public FieldDef m226dcas2995;
+        public FieldDef m226dcas2996;
+        public FieldDef m226dcas2997;
+        public FieldDef m226dcas2998;
+        public FieldDef m226dcas2999;
+        public FieldDef m226dcas3000;
+        public FieldDef m226dcas3001;
+        public FieldDef m226dcas3002;
+        public FieldDef m226dcas3003;
+        public FieldDef m226dcas3004;
+        public FieldDef m226dcas3005;
+        public FieldDef m226dcas3006;
+        public FieldDef m226dcas3007;
+        public FieldDef m226dcas3008;
+        public FieldDef m226dcas3009;
+        public FieldDef m226dcas3010;
+        public FieldDef m226dcas3011;
+        public FieldDef m226dcas3012;
+        public FieldDef m226dcas3013;
+        public FieldDef m226dcas3014;
+        public FieldDef m226dcas3015;
+        public FieldDef m226dcas3016;
+        public FieldDef m226dcas3017;
+        public FieldDef m226dcas3018;
+        public FieldDef m226dcas3019;
+        public FieldDef m226dcas3020;
+        public FieldDef m226dcas3021;
+        public FieldDef m226dcas3022;
+        public FieldDef m226dcas3023;
+        public FieldDef m226dcas3024;
+        public FieldDef m226dcas3025;
+        public FieldDef m226dcas3026;
+        public FieldDef m226dcas3027;
+        public FieldDef m226dcas3028;
+        public FieldDef m226dcas3029;
+        public FieldDef m226dcas3030;
+        public FieldDef m226dcas3031;
+        public FieldDef m226dcas3032;
+        public FieldDef m226dcas3033;
+        public FieldDef m226dcas3034;
+        public FieldDef m226dcas3035;
+        public FieldDef m226dcas3036;
+        public FieldDef m226dcas3037;
+        public FieldDef m226dcas3038;
+        public FieldDef m226dcas3039;
+        public FieldDef m226dcas3040;
+        public FieldDef m226dcas3241;
+        public TabMod200h26d(String name)
+            {
+            super(name);
+            m226ddominio = new FieldDef("m226ddominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m226dnif = new FieldDef("m226dnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m226dejercicio = new FieldDef("m226dejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m226dperiodo = new FieldDef("m226dperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m226dcas2861 = new FieldDef("m226dcas2861",FieldDef.FLOAT,6,0);
+            m226dcas2862 = new FieldDef("m226dcas2862",FieldDef.FLOAT,6,0);
+            m226dcas2863 = new FieldDef("m226dcas2863",FieldDef.FLOAT,6,0);
+            m226dcas2864 = new FieldDef("m226dcas2864",FieldDef.FLOAT,6,0);
+            m226dcas2865 = new FieldDef("m226dcas2865",FieldDef.FLOAT,6,0);
+            m226dcas2866 = new FieldDef("m226dcas2866",FieldDef.FLOAT,6,0);
+            m226dcas2867 = new FieldDef("m226dcas2867",FieldDef.FLOAT,6,0);
+            m226dcas2868 = new FieldDef("m226dcas2868",FieldDef.FLOAT,6,0);
+            m226dcas2869 = new FieldDef("m226dcas2869",FieldDef.FLOAT,6,0);
+            m226dcas2870 = new FieldDef("m226dcas2870",FieldDef.FLOAT,6,0);
+            m226dcas2871 = new FieldDef("m226dcas2871",FieldDef.FLOAT,6,0);
+            m226dcas2872 = new FieldDef("m226dcas2872",FieldDef.FLOAT,6,0);
+            m226dcas2873 = new FieldDef("m226dcas2873",FieldDef.FLOAT,6,0);
+            m226dcas2874 = new FieldDef("m226dcas2874",FieldDef.FLOAT,6,0);
+            m226dcas2875 = new FieldDef("m226dcas2875",FieldDef.FLOAT,6,0);
+            m226dcas2876 = new FieldDef("m226dcas2876",FieldDef.FLOAT,6,0);
+            m226dcas2877 = new FieldDef("m226dcas2877",FieldDef.FLOAT,6,0);
+            m226dcas2878 = new FieldDef("m226dcas2878",FieldDef.FLOAT,6,0);
+            m226dcas2879 = new FieldDef("m226dcas2879",FieldDef.FLOAT,6,0);
+            m226dcas2880 = new FieldDef("m226dcas2880",FieldDef.FLOAT,6,0);
+            m226dcas2881 = new FieldDef("m226dcas2881",FieldDef.FLOAT,6,0);
+            m226dcas2882 = new FieldDef("m226dcas2882",FieldDef.FLOAT,6,0);
+            m226dcas2883 = new FieldDef("m226dcas2883",FieldDef.FLOAT,6,0);
+            m226dcas2884 = new FieldDef("m226dcas2884",FieldDef.FLOAT,6,0);
+            m226dcas2885 = new FieldDef("m226dcas2885",FieldDef.FLOAT,6,0);
+            m226dcas2886 = new FieldDef("m226dcas2886",FieldDef.FLOAT,6,0);
+            m226dcas2887 = new FieldDef("m226dcas2887",FieldDef.FLOAT,6,0);
+            m226dcas2888 = new FieldDef("m226dcas2888",FieldDef.FLOAT,6,0);
+            m226dcas2889 = new FieldDef("m226dcas2889",FieldDef.FLOAT,6,0);
+            m226dcas2890 = new FieldDef("m226dcas2890",FieldDef.FLOAT,6,0);
+            m226dcas2891 = new FieldDef("m226dcas2891",FieldDef.FLOAT,6,0);
+            m226dcas2892 = new FieldDef("m226dcas2892",FieldDef.FLOAT,6,0);
+            m226dcas2893 = new FieldDef("m226dcas2893",FieldDef.FLOAT,6,0);
+            m226dcas2894 = new FieldDef("m226dcas2894",FieldDef.FLOAT,6,0);
+            m226dcas2895 = new FieldDef("m226dcas2895",FieldDef.FLOAT,6,0);
+            m226dcas2896 = new FieldDef("m226dcas2896",FieldDef.FLOAT,6,0);
+            m226dcas2897 = new FieldDef("m226dcas2897",FieldDef.FLOAT,6,0);
+            m226dcas2898 = new FieldDef("m226dcas2898",FieldDef.FLOAT,6,0);
+            m226dcas2899 = new FieldDef("m226dcas2899",FieldDef.FLOAT,6,0);
+            m226dcas2900 = new FieldDef("m226dcas2900",FieldDef.FLOAT,6,0);
+            m226dcas2901 = new FieldDef("m226dcas2901",FieldDef.FLOAT,6,0);
+            m226dcas2902 = new FieldDef("m226dcas2902",FieldDef.FLOAT,6,0);
+            m226dcas2903 = new FieldDef("m226dcas2903",FieldDef.FLOAT,6,0);
+            m226dcas2904 = new FieldDef("m226dcas2904",FieldDef.FLOAT,6,0);
+            m226dcas2905 = new FieldDef("m226dcas2905",FieldDef.FLOAT,6,0);
+            m226dcas2906 = new FieldDef("m226dcas2906",FieldDef.FLOAT,6,0);
+            m226dcas2907 = new FieldDef("m226dcas2907",FieldDef.FLOAT,6,0);
+            m226dcas2908 = new FieldDef("m226dcas2908",FieldDef.FLOAT,6,0);
+            m226dcas2909 = new FieldDef("m226dcas2909",FieldDef.FLOAT,6,0);
+            m226dcas2910 = new FieldDef("m226dcas2910",FieldDef.FLOAT,6,0);
+            m226dcas2911 = new FieldDef("m226dcas2911",FieldDef.FLOAT,6,0);
+            m226dcas2912 = new FieldDef("m226dcas2912",FieldDef.FLOAT,6,0);
+            m226dcas2913 = new FieldDef("m226dcas2913",FieldDef.FLOAT,6,0);
+            m226dcas2914 = new FieldDef("m226dcas2914",FieldDef.FLOAT,6,0);
+            m226dcas2915 = new FieldDef("m226dcas2915",FieldDef.FLOAT,6,0);
+            m226dcas2921 = new FieldDef("m226dcas2921",FieldDef.FLOAT,6,0);
+            m226dcas2922 = new FieldDef("m226dcas2922",FieldDef.FLOAT,6,0);
+            m226dcas2923 = new FieldDef("m226dcas2923",FieldDef.FLOAT,6,0);
+            m226dcas2924 = new FieldDef("m226dcas2924",FieldDef.FLOAT,6,0);
+            m226dcas2925 = new FieldDef("m226dcas2925",FieldDef.FLOAT,6,0);
+            m226dcas2926 = new FieldDef("m226dcas2926",FieldDef.FLOAT,6,0);
+            m226dcas2927 = new FieldDef("m226dcas2927",FieldDef.FLOAT,6,0);
+            m226dcas2928 = new FieldDef("m226dcas2928",FieldDef.FLOAT,6,0);
+            m226dcas2929 = new FieldDef("m226dcas2929",FieldDef.FLOAT,6,0);
+            m226dcas2930 = new FieldDef("m226dcas2930",FieldDef.FLOAT,6,0);
+            m226dcas2931 = new FieldDef("m226dcas2931",FieldDef.FLOAT,6,0);
+            m226dcas2932 = new FieldDef("m226dcas2932",FieldDef.FLOAT,6,0);
+            m226dcas2933 = new FieldDef("m226dcas2933",FieldDef.FLOAT,6,0);
+            m226dcas2934 = new FieldDef("m226dcas2934",FieldDef.FLOAT,6,0);
+            m226dcas2935 = new FieldDef("m226dcas2935",FieldDef.FLOAT,6,0);
+            m226dcas2936 = new FieldDef("m226dcas2936",FieldDef.FLOAT,6,0);
+            m226dcas2937 = new FieldDef("m226dcas2937",FieldDef.FLOAT,6,0);
+            m226dcas2938 = new FieldDef("m226dcas2938",FieldDef.FLOAT,6,0);
+            m226dcas2939 = new FieldDef("m226dcas2939",FieldDef.FLOAT,6,0);
+            m226dcas2940 = new FieldDef("m226dcas2940",FieldDef.FLOAT,6,0);
+            m226dcas2941 = new FieldDef("m226dcas2941",FieldDef.FLOAT,6,0);
+            m226dcas2942 = new FieldDef("m226dcas2942",FieldDef.FLOAT,6,0);
+            m226dcas2943 = new FieldDef("m226dcas2943",FieldDef.FLOAT,6,0);
+            m226dcas2944 = new FieldDef("m226dcas2944",FieldDef.FLOAT,6,0);
+            m226dcas2945 = new FieldDef("m226dcas2945",FieldDef.FLOAT,6,0);
+            m226dcas2946 = new FieldDef("m226dcas2946",FieldDef.FLOAT,6,0);
+            m226dcas2947 = new FieldDef("m226dcas2947",FieldDef.FLOAT,6,0);
+            m226dcas2948 = new FieldDef("m226dcas2948",FieldDef.FLOAT,6,0);
+            m226dcas2949 = new FieldDef("m226dcas2949",FieldDef.FLOAT,6,0);
+            m226dcas2950 = new FieldDef("m226dcas2950",FieldDef.FLOAT,6,0);
+            m226dcas2951 = new FieldDef("m226dcas2951",FieldDef.FLOAT,6,0);
+            m226dcas2952 = new FieldDef("m226dcas2952",FieldDef.FLOAT,6,0);
+            m226dcas2953 = new FieldDef("m226dcas2953",FieldDef.FLOAT,6,0);
+            m226dcas2954 = new FieldDef("m226dcas2954",FieldDef.FLOAT,6,0);
+            m226dcas2955 = new FieldDef("m226dcas2955",FieldDef.FLOAT,6,0);
+            m226dcas2956 = new FieldDef("m226dcas2956",FieldDef.FLOAT,6,0);
+            m226dcas2957 = new FieldDef("m226dcas2957",FieldDef.FLOAT,6,0);
+            m226dcas2958 = new FieldDef("m226dcas2958",FieldDef.FLOAT,6,0);
+            m226dcas2959 = new FieldDef("m226dcas2959",FieldDef.FLOAT,6,0);
+            m226dcas2960 = new FieldDef("m226dcas2960",FieldDef.FLOAT,6,0);
+            m226dcas2966 = new FieldDef("m226dcas2966",FieldDef.FLOAT,6,0);
+            m226dcas2967 = new FieldDef("m226dcas2967",FieldDef.FLOAT,6,0);
+            m226dcas2968 = new FieldDef("m226dcas2968",FieldDef.FLOAT,6,0);
+            m226dcas2969 = new FieldDef("m226dcas2969",FieldDef.FLOAT,6,0);
+            m226dcas2970 = new FieldDef("m226dcas2970",FieldDef.FLOAT,6,0);
+            m226dcas2976 = new FieldDef("m226dcas2976",FieldDef.FLOAT,6,0);
+            m226dcas2977 = new FieldDef("m226dcas2977",FieldDef.FLOAT,6,0);
+            m226dcas2978 = new FieldDef("m226dcas2978",FieldDef.FLOAT,6,0);
+            m226dcas2979 = new FieldDef("m226dcas2979",FieldDef.FLOAT,6,0);
+            m226dcas2980 = new FieldDef("m226dcas2980",FieldDef.FLOAT,6,0);
+            m226dcas2981 = new FieldDef("m226dcas2981",FieldDef.FLOAT,6,0);
+            m226dcas2982 = new FieldDef("m226dcas2982",FieldDef.FLOAT,6,0);
+            m226dcas2983 = new FieldDef("m226dcas2983",FieldDef.FLOAT,6,0);
+            m226dcas2984 = new FieldDef("m226dcas2984",FieldDef.FLOAT,6,0);
+            m226dcas2985 = new FieldDef("m226dcas2985",FieldDef.FLOAT,6,0);
+            m226dcas2986 = new FieldDef("m226dcas2986",FieldDef.FLOAT,6,0);
+            m226dcas2987 = new FieldDef("m226dcas2987",FieldDef.FLOAT,6,0);
+            m226dcas2988 = new FieldDef("m226dcas2988",FieldDef.FLOAT,6,0);
+            m226dcas2989 = new FieldDef("m226dcas2989",FieldDef.FLOAT,6,0);
+            m226dcas2990 = new FieldDef("m226dcas2990",FieldDef.FLOAT,6,0);
+            m226dcas2991 = new FieldDef("m226dcas2991",FieldDef.FLOAT,6,0);
+            m226dcas2992 = new FieldDef("m226dcas2992",FieldDef.FLOAT,6,0);
+            m226dcas2993 = new FieldDef("m226dcas2993",FieldDef.FLOAT,6,0);
+            m226dcas2994 = new FieldDef("m226dcas2994",FieldDef.FLOAT,6,0);
+            m226dcas2995 = new FieldDef("m226dcas2995",FieldDef.FLOAT,6,0);
+            m226dcas2996 = new FieldDef("m226dcas2996",FieldDef.FLOAT,6,0);
+            m226dcas2997 = new FieldDef("m226dcas2997",FieldDef.FLOAT,6,0);
+            m226dcas2998 = new FieldDef("m226dcas2998",FieldDef.FLOAT,6,0);
+            m226dcas2999 = new FieldDef("m226dcas2999",FieldDef.FLOAT,6,0);
+            m226dcas3000 = new FieldDef("m226dcas3000",FieldDef.FLOAT,6,0);
+            m226dcas3001 = new FieldDef("m226dcas3001",FieldDef.FLOAT,6,0);
+            m226dcas3002 = new FieldDef("m226dcas3002",FieldDef.FLOAT,6,0);
+            m226dcas3003 = new FieldDef("m226dcas3003",FieldDef.FLOAT,6,0);
+            m226dcas3004 = new FieldDef("m226dcas3004",FieldDef.FLOAT,6,0);
+            m226dcas3005 = new FieldDef("m226dcas3005",FieldDef.FLOAT,6,0);
+            m226dcas3006 = new FieldDef("m226dcas3006",FieldDef.FLOAT,6,0);
+            m226dcas3007 = new FieldDef("m226dcas3007",FieldDef.FLOAT,6,0);
+            m226dcas3008 = new FieldDef("m226dcas3008",FieldDef.FLOAT,6,0);
+            m226dcas3009 = new FieldDef("m226dcas3009",FieldDef.FLOAT,6,0);
+            m226dcas3010 = new FieldDef("m226dcas3010",FieldDef.FLOAT,6,0);
+            m226dcas3011 = new FieldDef("m226dcas3011",FieldDef.FLOAT,6,0);
+            m226dcas3012 = new FieldDef("m226dcas3012",FieldDef.FLOAT,6,0);
+            m226dcas3013 = new FieldDef("m226dcas3013",FieldDef.FLOAT,6,0);
+            m226dcas3014 = new FieldDef("m226dcas3014",FieldDef.FLOAT,6,0);
+            m226dcas3015 = new FieldDef("m226dcas3015",FieldDef.FLOAT,6,0);
+            m226dcas3016 = new FieldDef("m226dcas3016",FieldDef.FLOAT,6,0);
+            m226dcas3017 = new FieldDef("m226dcas3017",FieldDef.FLOAT,6,0);
+            m226dcas3018 = new FieldDef("m226dcas3018",FieldDef.FLOAT,6,0);
+            m226dcas3019 = new FieldDef("m226dcas3019",FieldDef.FLOAT,6,0);
+            m226dcas3020 = new FieldDef("m226dcas3020",FieldDef.FLOAT,6,0);
+            m226dcas3021 = new FieldDef("m226dcas3021",FieldDef.FLOAT,6,0);
+            m226dcas3022 = new FieldDef("m226dcas3022",FieldDef.FLOAT,6,0);
+            m226dcas3023 = new FieldDef("m226dcas3023",FieldDef.FLOAT,6,0);
+            m226dcas3024 = new FieldDef("m226dcas3024",FieldDef.FLOAT,6,0);
+            m226dcas3025 = new FieldDef("m226dcas3025",FieldDef.FLOAT,6,0);
+            m226dcas3026 = new FieldDef("m226dcas3026",FieldDef.FLOAT,6,0);
+            m226dcas3027 = new FieldDef("m226dcas3027",FieldDef.FLOAT,6,0);
+            m226dcas3028 = new FieldDef("m226dcas3028",FieldDef.FLOAT,6,0);
+            m226dcas3029 = new FieldDef("m226dcas3029",FieldDef.FLOAT,6,0);
+            m226dcas3030 = new FieldDef("m226dcas3030",FieldDef.FLOAT,6,0);
+            m226dcas3031 = new FieldDef("m226dcas3031",FieldDef.FLOAT,6,0);
+            m226dcas3032 = new FieldDef("m226dcas3032",FieldDef.FLOAT,6,0);
+            m226dcas3033 = new FieldDef("m226dcas3033",FieldDef.FLOAT,6,0);
+            m226dcas3034 = new FieldDef("m226dcas3034",FieldDef.FLOAT,6,0);
+            m226dcas3035 = new FieldDef("m226dcas3035",FieldDef.FLOAT,6,0);
+            m226dcas3036 = new FieldDef("m226dcas3036",FieldDef.FLOAT,6,0);
+            m226dcas3037 = new FieldDef("m226dcas3037",FieldDef.FLOAT,6,0);
+            m226dcas3038 = new FieldDef("m226dcas3038",FieldDef.FLOAT,6,0);
+            m226dcas3039 = new FieldDef("m226dcas3039",FieldDef.FLOAT,6,0);
+            m226dcas3040 = new FieldDef("m226dcas3040",FieldDef.FLOAT,6,0);
+            m226dcas3241 = new FieldDef("m226dcas3241",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m226ddominio,
+                m226dnif,
+                m226dejercicio,
+                m226dperiodo,
+                m226dcas2861,
+                m226dcas2862,
+                m226dcas2863,
+                m226dcas2864,
+                m226dcas2865,
+                m226dcas2866,
+                m226dcas2867,
+                m226dcas2868,
+                m226dcas2869,
+                m226dcas2870,
+                m226dcas2871,
+                m226dcas2872,
+                m226dcas2873,
+                m226dcas2874,
+                m226dcas2875,
+                m226dcas2876,
+                m226dcas2877,
+                m226dcas2878,
+                m226dcas2879,
+                m226dcas2880,
+                m226dcas2881,
+                m226dcas2882,
+                m226dcas2883,
+                m226dcas2884,
+                m226dcas2885,
+                m226dcas2886,
+                m226dcas2887,
+                m226dcas2888,
+                m226dcas2889,
+                m226dcas2890,
+                m226dcas2891,
+                m226dcas2892,
+                m226dcas2893,
+                m226dcas2894,
+                m226dcas2895,
+                m226dcas2896,
+                m226dcas2897,
+                m226dcas2898,
+                m226dcas2899,
+                m226dcas2900,
+                m226dcas2901,
+                m226dcas2902,
+                m226dcas2903,
+                m226dcas2904,
+                m226dcas2905,
+                m226dcas2906,
+                m226dcas2907,
+                m226dcas2908,
+                m226dcas2909,
+                m226dcas2910,
+                m226dcas2911,
+                m226dcas2912,
+                m226dcas2913,
+                m226dcas2914,
+                m226dcas2915,
+                m226dcas2921,
+                m226dcas2922,
+                m226dcas2923,
+                m226dcas2924,
+                m226dcas2925,
+                m226dcas2926,
+                m226dcas2927,
+                m226dcas2928,
+                m226dcas2929,
+                m226dcas2930,
+                m226dcas2931,
+                m226dcas2932,
+                m226dcas2933,
+                m226dcas2934,
+                m226dcas2935,
+                m226dcas2936,
+                m226dcas2937,
+                m226dcas2938,
+                m226dcas2939,
+                m226dcas2940,
+                m226dcas2941,
+                m226dcas2942,
+                m226dcas2943,
+                m226dcas2944,
+                m226dcas2945,
+                m226dcas2946,
+                m226dcas2947,
+                m226dcas2948,
+                m226dcas2949,
+                m226dcas2950,
+                m226dcas2951,
+                m226dcas2952,
+                m226dcas2953,
+                m226dcas2954,
+                m226dcas2955,
+                m226dcas2956,
+                m226dcas2957,
+                m226dcas2958,
+                m226dcas2959,
+                m226dcas2960,
+                m226dcas2966,
+                m226dcas2967,
+                m226dcas2968,
+                m226dcas2969,
+                m226dcas2970,
+                m226dcas2976,
+                m226dcas2977,
+                m226dcas2978,
+                m226dcas2979,
+                m226dcas2980,
+                m226dcas2981,
+                m226dcas2982,
+                m226dcas2983,
+                m226dcas2984,
+                m226dcas2985,
+                m226dcas2986,
+                m226dcas2987,
+                m226dcas2988,
+                m226dcas2989,
+                m226dcas2990,
+                m226dcas2991,
+                m226dcas2992,
+                m226dcas2993,
+                m226dcas2994,
+                m226dcas2995,
+                m226dcas2996,
+                m226dcas2997,
+                m226dcas2998,
+                m226dcas2999,
+                m226dcas3000,
+                m226dcas3001,
+                m226dcas3002,
+                m226dcas3003,
+                m226dcas3004,
+                m226dcas3005,
+                m226dcas3006,
+                m226dcas3007,
+                m226dcas3008,
+                m226dcas3009,
+                m226dcas3010,
+                m226dcas3011,
+                m226dcas3012,
+                m226dcas3013,
+                m226dcas3014,
+                m226dcas3015,
+                m226dcas3016,
+                m226dcas3017,
+                m226dcas3018,
+                m226dcas3019,
+                m226dcas3020,
+                m226dcas3021,
+                m226dcas3022,
+                m226dcas3023,
+                m226dcas3024,
+                m226dcas3025,
+                m226dcas3026,
+                m226dcas3027,
+                m226dcas3028,
+                m226dcas3029,
+                m226dcas3030,
+                m226dcas3031,
+                m226dcas3032,
+                m226dcas3033,
+                m226dcas3034,
+                m226dcas3035,
+                m226dcas3036,
+                m226dcas3037,
+                m226dcas3038,
+                m226dcas3039,
+                m226dcas3040,
+                m226dcas3241                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m226ddominio,m226dnif,m226dejercicio,m226dperiodo };
+            setPrimaryKeys(arrayf);
+            m226dcas2861.setDescription("Disminución de valor originada por criterio de valor razonable (art. 15 l) LIS) - Aumento - Correcciones del ejercicio - Permanentes [02861]");
+            m226dcas2862.setDescription("Disminución de valor originada por criterio de valor razonable (art. 15 l) LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02862]");
+            m226dcas2863.setDescription("Disminución de valor originada por criterio de valor razonable (art. 15 l) LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02863]");
+            m226dcas2864.setDescription("Disminución de valor originada por criterio de valor razonable (art. 15 l) LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02864]");
+            m226dcas2865.setDescription("Disminución de valor originada por criterio de valor razonable (art. 15 l) LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02865]");
+            m226dcas2866.setDescription("Disminución de valor originada por criterio de valor razonable (art. 15 l) LIS) - Disminución - Correcciones del ejercicio - Permanentes [02866]");
+            m226dcas2867.setDescription("Disminución de valor originada por criterio de valor razonable (art. 15 l) LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02867]");
+            m226dcas2868.setDescription("Disminución de valor originada por criterio de valor razonable (art. 15 l) LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02868]");
+            m226dcas2869.setDescription("Disminución de valor originada por criterio de valor razonable (art. 15 l) LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02869]");
+            m226dcas2870.setDescription("Disminución de valor originada por criterio de valor razonable (art. 15 l) LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02870]");
+            m226dcas2871.setDescription("Deuda tributaria de actos jurídicos documentados (ITP y AJD) (art. 15 m) LIS) - Aumento - Correcciones del ejercicio - Permanentes [02871]");
+            m226dcas2872.setDescription("Deuda tributaria de actos jurídicos documentados (ITP y AJD) (art. 15 m) LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02872]");
+            m226dcas2873.setDescription("Deuda tributaria de actos jurídicos documentados (ITP y AJD) (art. 15 m) LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02873]");
+            m226dcas2874.setDescription("Deuda tributaria de actos jurídicos documentados (ITP y AJD) (art. 15 m) LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02874]");
+            m226dcas2875.setDescription("Deuda tributaria de actos jurídicos documentados (ITP y AJD) (art. 15 m) LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02875]");
+            m226dcas2876.setDescription("Deuda tributaria de actos jurídicos documentados (ITP y AJD) (art. 15 m) LIS) - Disminución - Correcciones del ejercicio - Permanentes [02876]");
+            m226dcas2877.setDescription("Deuda tributaria de actos jurídicos documentados (ITP y AJD) (art. 15 m) LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02877]");
+            m226dcas2878.setDescription("Deuda tributaria de actos jurídicos documentados (ITP y AJD) (art. 15 m) LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02878]");
+            m226dcas2879.setDescription("Deuda tributaria de actos jurídicos documentados (ITP y AJD) (art. 15 m) LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02879]");
+            m226dcas2880.setDescription("Deuda tributaria de actos jurídicos documentados (ITP y AJD) (art. 15 m) LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02880]");
+            m226dcas2881.setDescription("Ajustes por la limitación en la deducibilidad de gastos financieros (art. 16 LIS) - Aumento - Correcciones del ejercicio - Permanentes [02881]");
+            m226dcas2882.setDescription("Ajustes por la limitación en la deducibilidad de gastos financieros (art. 16 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02882]");
+            m226dcas2883.setDescription("Ajustes por la limitación en la deducibilidad de gastos financieros (art. 16 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02883]");
+            m226dcas2884.setDescription("Ajustes por la limitación en la deducibilidad de gastos financieros (art. 16 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02884]");
+            m226dcas2885.setDescription("Ajustes por la limitación en la deducibilidad de gastos financieros (art. 16 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02885]");
+            m226dcas2886.setDescription("Ajustes por la limitación en la deducibilidad de gastos financieros (art. 16 LIS) - Disminución - Correcciones del ejercicio - Permanentes [02886]");
+            m226dcas2887.setDescription("Ajustes por la limitación en la deducibilidad de gastos financieros (art. 16 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02887]");
+            m226dcas2888.setDescription("Ajustes por la limitación en la deducibilidad de gastos financieros (art. 16 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02888]");
+            m226dcas2889.setDescription("Ajustes por la limitación en la deducibilidad de gastos financieros (art. 16 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02889]");
+            m226dcas2890.setDescription("Ajustes por la limitación en la deducibilidad de gastos financieros (art. 16 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02890]");
+            m226dcas2891.setDescription("Revalorizaciones contables (art. 17.1 LIS) - Aumento - Correcciones del ejercicio - Permanentes [02891]");
+            m226dcas2892.setDescription("Revalorizaciones contables (art. 17.1 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02892]");
+            m226dcas2893.setDescription("Revalorizaciones contables (art. 17.1 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02893]");
+            m226dcas2894.setDescription("Revalorizaciones contables (art. 17.1 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02894]");
+            m226dcas2895.setDescription("Revalorizaciones contables (art. 17.1 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02895]");
+            m226dcas2896.setDescription("Revalorizaciones contables (art. 17.1 LIS) - Disminución - Correcciones del ejercicio - Permanentes [02896]");
+            m226dcas2897.setDescription("Revalorizaciones contables (art. 17.1 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02897]");
+            m226dcas2898.setDescription("Revalorizaciones contables (art. 17.1 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02898]");
+            m226dcas2899.setDescription("Revalorizaciones contables (art. 17.1 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02899]");
+            m226dcas2900.setDescription("Revalorizaciones contables (art. 17.1 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02900]");
+            m226dcas2901.setDescription("Operaciones de aumento de capital o fondos propios por compensación de créditos (art. 17.2 LIS) - Aumento - Correcciones del ejercicio - Permanentes [02901]");
+            m226dcas2902.setDescription("Operaciones de aumento de capital o fondos propios por compensación de créditos (art. 17.2 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02902]");
+            m226dcas2903.setDescription("Operaciones de aumento de capital o fondos propios por compensación de créditos (art. 17.2 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02903]");
+            m226dcas2904.setDescription("Operaciones de aumento de capital o fondos propios por compensación de créditos (art. 17.2 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02904]");
+            m226dcas2905.setDescription("Operaciones de aumento de capital o fondos propios por compensación de créditos (art. 17.2 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [0290");
+            m226dcas2906.setDescription("Operaciones de aumento de capital o fondos propios por compensación de créditos (art. 17.2 LIS) - Disminución - Correcciones del ejercicio - Permanentes [02906]");
+            m226dcas2907.setDescription("Operaciones de aumento de capital o fondos propios por compensación de créditos (art. 17.2 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02907]");
+            m226dcas2908.setDescription("Operaciones de aumento de capital o fondos propios por compensación de créditos (art. 17.2 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02908]");
+            m226dcas2909.setDescription("Operaciones de aumento de capital o fondos propios por compensación de créditos (art. 17.2 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02909]");
+            m226dcas2910.setDescription("Operaciones de aumento de capital o fondos propios por compensación de créditos (art. 17.2 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [");
+            m226dcas2911.setDescription("SICAV: Reducciones de capital y distribución de la prima de emisión (art. 17.6 LIS) - Aumento - Correcciones del ejercicio - Permanentes [02911]");
+            m226dcas2912.setDescription("SICAV: Reducciones de capital y distribución de la prima de emisión (art. 17.6 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02912]");
+            m226dcas2913.setDescription("SICAV: Reducciones de capital y distribución de la prima de emisión (art. 17.6 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02913]");
+            m226dcas2914.setDescription("SICAV: Reducciones de capital y distribución de la prima de emisión (art. 17.6 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02914]");
+            m226dcas2915.setDescription("SICAV: Reducciones de capital y distribución de la prima de emisión (art. 17.6 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02915]");
+            m226dcas2921.setDescription("Transmisiones lucrativas y societarias: aplicación del valor de mercado (art. 17.4 LIS) - Aumento - Correcciones del ejercicio - Permanentes [02921]");
+            m226dcas2922.setDescription("Transmisiones lucrativas y societarias: aplicación del valor de mercado (art. 17.4 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02922]");
+            m226dcas2923.setDescription("Transmisiones lucrativas y societarias: aplicación del valor de mercado (art. 17.4 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02923]");
+            m226dcas2924.setDescription("Transmisiones lucrativas y societarias: aplicación del valor de mercado (art. 17.4 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02924]");
+            m226dcas2925.setDescription("Transmisiones lucrativas y societarias: aplicación del valor de mercado (art. 17.4 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02925]");
+            m226dcas2926.setDescription("Transmisiones lucrativas y societarias: aplicación del valor de mercado (art. 17.4 LIS) - Disminución - Correcciones del ejercicio - Permanentes [02926]");
+            m226dcas2927.setDescription("Transmisiones lucrativas y societarias: aplicación del valor de mercado (art. 17.4 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02927]");
+            m226dcas2928.setDescription("Transmisiones lucrativas y societarias: aplicación del valor de mercado (art. 17.4 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02928]");
+            m226dcas2929.setDescription("Transmisiones lucrativas y societarias: aplicación del valor de mercado (art. 17.4 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02929]");
+            m226dcas2930.setDescription("Transmisiones lucrativas y societarias: aplicación del valor de mercado (art. 17.4 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02930]");
+            m226dcas2931.setDescription("Operaciones vinculadas: aplicación del valor de mercado (art. 18 LIS ) - Aumento - Correcciones del ejercicio - Permanentes [02931]");
+            m226dcas2932.setDescription("Operaciones vinculadas: aplicación del valor de mercado (art. 18 LIS ) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02932]");
+            m226dcas2933.setDescription("Operaciones vinculadas: aplicación del valor de mercado (art. 18 LIS ) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02933]");
+            m226dcas2934.setDescription("Operaciones vinculadas: aplicación del valor de mercado (art. 18 LIS ) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02934]");
+            m226dcas2935.setDescription("Operaciones vinculadas: aplicación del valor de mercado (art. 18 LIS ) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02935]");
+            m226dcas2936.setDescription("Operaciones vinculadas: aplicación del valor de mercado (art. 18 LIS ) - Disminución - Correcciones del ejercicio - Permanentes [02936]");
+            m226dcas2937.setDescription("Operaciones vinculadas: aplicación del valor de mercado (art. 18 LIS ) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02937]");
+            m226dcas2938.setDescription("Operaciones vinculadas: aplicación del valor de mercado (art. 18 LIS ) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02938]");
+            m226dcas2939.setDescription("Operaciones vinculadas: aplicación del valor de mercado (art. 18 LIS ) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02939]");
+            m226dcas2940.setDescription("Operaciones vinculadas: aplicación del valor de mercado (art. 18 LIS ) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02940]");
+            m226dcas2941.setDescription("Cambios de residencia y otras operaciones del art. 19 LIS - Aumento - Correcciones del ejercicio - Permanentes [02941]");
+            m226dcas2942.setDescription("Cambios de residencia y otras operaciones del art. 19 LIS - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02942]");
+            m226dcas2943.setDescription("Cambios de residencia y otras operaciones del art. 19 LIS - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02943]");
+            m226dcas2944.setDescription("Cambios de residencia y otras operaciones del art. 19 LIS - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02944]");
+            m226dcas2945.setDescription("Cambios de residencia y otras operaciones del art. 19 LIS - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02945]");
+            m226dcas2946.setDescription("Cambios de residencia y otras operaciones del art. 19 LIS - Disminución - Correcciones del ejercicio - Permanentes [02946]");
+            m226dcas2947.setDescription("Cambios de residencia y otras operaciones del art. 19 LIS - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02947]");
+            m226dcas2948.setDescription("Cambios de residencia y otras operaciones del art. 19 LIS - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02948]");
+            m226dcas2949.setDescription("Cambios de residencia y otras operaciones del art. 19 LIS - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02949]");
+            m226dcas2950.setDescription("Cambios de residencia y otras operaciones del art. 19 LIS - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02950]");
+            m226dcas2951.setDescription("Efectos de la valoración contable diferente a la fiscal (art. 20 LIS) - Aumento - Correcciones del ejercicio - Permanentes [02951]");
+            m226dcas2952.setDescription("Efectos de la valoración contable diferente a la fiscal (art. 20 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02952]");
+            m226dcas2953.setDescription("Efectos de la valoración contable diferente a la fiscal (art. 20 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02953]");
+            m226dcas2954.setDescription("Efectos de la valoración contable diferente a la fiscal (art. 20 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02954]");
+            m226dcas2955.setDescription("Efectos de la valoración contable diferente a la fiscal (art. 20 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02955]");
+            m226dcas2956.setDescription("Efectos de la valoración contable diferente a la fiscal (art. 20 LIS) - Disminución - Correcciones del ejercicio - Permanentes [02956]");
+            m226dcas2957.setDescription("Efectos de la valoración contable diferente a la fiscal (art. 20 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02957]");
+            m226dcas2958.setDescription("Efectos de la valoración contable diferente a la fiscal (art. 20 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02958]");
+            m226dcas2959.setDescription("Efectos de la valoración contable diferente a la fiscal (art. 20 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02959]");
+            m226dcas2960.setDescription("Efectos de la valoración contable diferente a la fiscal (art. 20 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [02960]");
+            m226dcas2966.setDescription("Exención sobre dividendos o participaciones en beneficios de entidades residentes (art. 21.1 LIS) - Disminución - Correcciones del ejercicio - Permanentes [02966]");
+            m226dcas2967.setDescription("Exención sobre dividendos o participaciones en beneficios de entidades residentes (art. 21.1 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02967]");
+            m226dcas2968.setDescription("Exención sobre dividendos o participaciones en beneficios de entidades residentes (art. 21.1 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02968]");
+            m226dcas2969.setDescription("Exención sobre dividendos o participaciones en beneficios de entidades residentes (art. 21.1 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02969]");
+            m226dcas2970.setDescription("Exención sobre dividendos o participaciones en beneficios de entidades residentes (art. 21.1 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores)");
+            m226dcas2976.setDescription("Exención sobre dividendos o participaciones en beneficios de entidades no residentes (art. 21.1 LIS) - Disminución - Correcciones del ejercicio - Permanentes [02976]");
+            m226dcas2977.setDescription("Exención sobre dividendos o participaciones en beneficios de entidades no residentes (art. 21.1 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02977]");
+            m226dcas2978.setDescription("Exención sobre dividendos o participaciones en beneficios de entidades no residentes (art. 21.1 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [029");
+            m226dcas2979.setDescription("Exención sobre dividendos o participaciones en beneficios de entidades no residentes (art. 21.1 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [0297");
+            m226dcas2980.setDescription("Exención sobre dividendos o participaciones en beneficios de entidades no residentes (art. 21.1 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anterior");
+            m226dcas2981.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades residentes (art. 21.3 LIS) - Aumento - Correcciones del ejercicio - Permanentes [02981]");
+            m226dcas2982.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades residentes (art. 21.3 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02982]");
+            m226dcas2983.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades residentes (art. 21.3 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02983]");
+            m226dcas2984.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades residentes (art. 21.3 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02984]");
+            m226dcas2985.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades residentes (art. 21.3 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [0");
+            m226dcas2986.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades residentes (art. 21.3 LIS) - Disminución - Correcciones del ejercicio - Permanentes [02986]");
+            m226dcas2987.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades residentes (art. 21.3 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02987]");
+            m226dcas2988.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades residentes (art. 21.3 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02988");
+            m226dcas2989.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades residentes (art. 21.3 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02989]");
+            m226dcas2990.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades residentes (art. 21.3 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores");
+            m226dcas2991.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades no residentes (art. 21.3 LIS) - Aumento - Correcciones del ejercicio - Permanentes [02991]");
+            m226dcas2992.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades no residentes (art. 21.3 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02992]");
+            m226dcas2993.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades no residentes (art. 21.3 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02993]");
+            m226dcas2994.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades no residentes (art. 21.3 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [02994]");
+            m226dcas2995.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades no residentes (art. 21.3 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores)");
+            m226dcas2996.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades no residentes (art. 21.3 LIS) - Disminución - Correcciones del ejercicio - Permanentes [02996]");
+            m226dcas2997.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades no residentes (art. 21.3 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [02997]");
+            m226dcas2998.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades no residentes (art. 21.3 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [02");
+            m226dcas2999.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades no residentes (art. 21.3 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [029");
+            m226dcas3000.setDescription("Exención sobre la renta obtenida en la transmisión de valores entidades no residentes (art. 21.3 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anterio");
+            m226dcas3001.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades residentes - Aumento - Correcciones del ejercicio - Permanentes [03001]");
+            m226dcas3002.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades residentes - Aumento - Correcciones del ejercicio - Temporarias (con origen en el eje");
+            m226dcas3003.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades residentes - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejerci");
+            m226dcas3004.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades residentes - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen e");
+            m226dcas3005.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades residentes - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen e");
+            m226dcas3006.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades residentes - Disminución - Correcciones del ejercicio - Permanentes [03006]");
+            m226dcas3007.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades residentes - Disminución - Correcciones del ejercicio - Temporarias (con origen en el");
+            m226dcas3008.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades residentes - Disminución - Correcciones del ejercicio - Temporarias (con origen en ej");
+            m226dcas3009.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades residentes - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con orig");
+            m226dcas3010.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades residentes - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con orig");
+            m226dcas3011.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades no residentes - Aumento - Correcciones del ejercicio - Permanentes [03011]");
+            m226dcas3012.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades no residentes - Aumento - Correcciones del ejercicio - Temporarias (con origen en el");
+            m226dcas3013.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades no residentes - Aumento - Correcciones del ejercicio - Temporarias (con origen en eje");
+            m226dcas3014.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades no residentes - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con orige");
+            m226dcas3015.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades no residentes - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con orige");
+            m226dcas3016.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades no residentes - Disminución - Correcciones del ejercicio - Permanentes [03016]");
+            m226dcas3017.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades no residentes - Disminución - Correcciones del ejercicio - Temporarias (con origen en");
+            m226dcas3018.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades no residentes - Disminución - Correcciones del ejercicio - Temporarias (con origen en");
+            m226dcas3019.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades no residentes - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con o");
+            m226dcas3020.setDescription("Exención sobre la renta obtenida en los supuestos del art. 21.3 LIS distintos a transmisiones de valores entidades no residentes - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con o");
+            m226dcas3021.setDescription("Exención de rentas en el extranjero (art. 22 LIS) - Aumento - Correcciones del ejercicio - Permanentes [03021]");
+            m226dcas3022.setDescription("Exención de rentas en el extranjero (art. 22 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [03022]");
+            m226dcas3023.setDescription("Exención de rentas en el extranjero (art. 22 LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [03023]");
+            m226dcas3024.setDescription("Exención de rentas en el extranjero (art. 22 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [03024]");
+            m226dcas3025.setDescription("Exención de rentas en el extranjero (art. 22 LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [03025]");
+            m226dcas3026.setDescription("Exención de rentas en el extranjero (art. 22 LIS) - Disminución - Correcciones del ejercicio - Permanentes [03026]");
+            m226dcas3027.setDescription("Exención de rentas en el extranjero (art. 22 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [03027]");
+            m226dcas3028.setDescription("Exención de rentas en el extranjero (art. 22 LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [03028]");
+            m226dcas3029.setDescription("Exención de rentas en el extranjero (art. 22 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [03029]");
+            m226dcas3030.setDescription("Exención de rentas en el extranjero (art. 22 LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [03030]");
+            m226dcas3031.setDescription("Reducción de rentas procedentes de determinados activos intangibles (art. 23 y DT 20ª LIS) - Aumento - Correcciones del ejercicio - Permanentes [03031]");
+            m226dcas3032.setDescription("Reducción de rentas procedentes de determinados activos intangibles (art. 23 y DT 20ª LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [03032]");
+            m226dcas3033.setDescription("Reducción de rentas procedentes de determinados activos intangibles (art. 23 y DT 20ª LIS) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [03033]");
+            m226dcas3034.setDescription("Reducción de rentas procedentes de determinados activos intangibles (art. 23 y DT 20ª LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [03034]");
+            m226dcas3035.setDescription("Reducción de rentas procedentes de determinados activos intangibles (art. 23 y DT 20ª LIS) - Aumento - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [03035]");
+            m226dcas3036.setDescription("Reducción de rentas procedentes de determinados activos intangibles (art. 23 y DT 20ª LIS) - Disminución - Correcciones del ejercicio - Permanentes [03036]");
+            m226dcas3037.setDescription("Reducción de rentas procedentes de determinados activos intangibles (art. 23 y DT 20ª LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [03037]");
+            m226dcas3038.setDescription("Reducción de rentas procedentes de determinados activos intangibles (art. 23 y DT 20ª LIS) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [03038]");
+            m226dcas3039.setDescription("Reducción de rentas procedentes de determinados activos intangibles (art. 23 y DT 20ª LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en el ejercicio) [03039]");
+            m226dcas3040.setDescription("Reducción de rentas procedentes de determinados activos intangibles (art. 23 y DT 20ª LIS) - Disminución - Saldo pendiente a fin de ejercicio - Temporarias (con origen en ejercicios anteriores) [03040");
+            m226dcas3241.setDescription("Gastos que sean objeto de la deducción por inversiones realizadas por las autoridades portuarias (art. 15 n) LIS) - Aumento - Correcciones del ejercicio - Permanentes [03241]");
+            }
+        }
+        
+    public class TabMod200h26e extends TableDef
+        {
+        // campos
+        public FieldDef m226edominio;
+        public FieldDef m226enif;
+        public FieldDef m226eejercicio;
+        public FieldDef m226eperiodo;
+        public FieldDef m226ecas3041;
+        public FieldDef m226ecas3042;
+        public FieldDef m226ecas3043;
+        public FieldDef m226ecas3044;
+        public FieldDef m226ecas3045;
+        public FieldDef m226ecas3046;
+        public FieldDef m226ecas3047;
+        public FieldDef m226ecas3048;
+        public FieldDef m226ecas3049;
+        public FieldDef m226ecas3050;
+        public FieldDef m226ecas3051;
+        public FieldDef m226ecas3052;
+        public FieldDef m226ecas3053;
+        public FieldDef m226ecas3054;
+        public FieldDef m226ecas3055;
+        public FieldDef m226ecas3056;
+        public FieldDef m226ecas3057;
+        public FieldDef m226ecas3058;
+        public FieldDef m226ecas3059;
+        public FieldDef m226ecas3060;
+        public FieldDef m226ecas3061;
+        public FieldDef m226ecas3062;
+        public FieldDef m226ecas3063;
+        public FieldDef m226ecas3064;
+        public FieldDef m226ecas3065;
+        public FieldDef m226ecas3071;
+        public FieldDef m226ecas3072;
+        public FieldDef m226ecas3073;
+        public FieldDef m226ecas3074;
+        public FieldDef m226ecas3075;
+        public FieldDef m226ecas3076;
+        public FieldDef m226ecas3077;
+        public FieldDef m226ecas3078;
+        public FieldDef m226ecas3079;
+        public FieldDef m226ecas3080;
+        public FieldDef m226ecas3081;
+        public FieldDef m226ecas3082;
+        public FieldDef m226ecas3083;
+        public FieldDef m226ecas3084;
+        public FieldDef m226ecas3085;
+        public FieldDef m226ecas3086;
+        public FieldDef m226ecas3087;
+        public FieldDef m226ecas3088;
+        public FieldDef m226ecas3089;
+        public FieldDef m226ecas3090;
+        public FieldDef m226ecas3091;
+        public FieldDef m226ecas3092;
+        public FieldDef m226ecas3093;
+        public FieldDef m226ecas3094;
+        public FieldDef m226ecas3095;
+        public FieldDef m226ecas3096;
+        public FieldDef m226ecas3097;
+        public FieldDef m226ecas3098;
+        public FieldDef m226ecas3099;
+        public FieldDef m226ecas3100;
+        public FieldDef m226ecas3101;
+        public FieldDef m226ecas3102;
+        public FieldDef m226ecas3103;
+        public FieldDef m226ecas3104;
+        public FieldDef m226ecas3105;
+        public FieldDef m226ecas3106;
+        public FieldDef m226ecas3107;
+        public FieldDef m226ecas3108;
+        public FieldDef m226ecas3109;
+        public FieldDef m226ecas3110;
+        public FieldDef m226ecas3111;
+        public FieldDef m226ecas3112;
+        public FieldDef m226ecas3113;
+        public FieldDef m226ecas3114;
+        public FieldDef m226ecas3115;
+        public FieldDef m226ecas3116;
+        public FieldDef m226ecas3117;
+        public FieldDef m226ecas3118;
+        public FieldDef m226ecas3119;
+        public FieldDef m226ecas3120;
+        public FieldDef m226ecas3121;
+        public FieldDef m226ecas3122;
+        public FieldDef m226ecas3123;
+        public FieldDef m226ecas3124;
+        public FieldDef m226ecas3125;
+        public FieldDef m226ecas3126;
+        public FieldDef m226ecas3127;
+        public FieldDef m226ecas3128;
+        public FieldDef m226ecas3129;
+        public FieldDef m226ecas3130;
+        public FieldDef m226ecas3131;
+        public FieldDef m226ecas3132;
+        public FieldDef m226ecas3133;
+        public FieldDef m226ecas3134;
+        public FieldDef m226ecas3135;
+        public FieldDef m226ecas3136;
+        public FieldDef m226ecas3137;
+        public FieldDef m226ecas3138;
+        public FieldDef m226ecas3139;
+        public FieldDef m226ecas3140;
+        public FieldDef m226ecas3141;
+        public FieldDef m226ecas3142;
+        public FieldDef m226ecas3143;
+        public FieldDef m226ecas3144;
+        public FieldDef m226ecas3145;
+        public FieldDef m226ecas3146;
+        public FieldDef m226ecas3147;
+        public FieldDef m226ecas3148;
+        public FieldDef m226ecas3149;
+        public FieldDef m226ecas3150;
+        public FieldDef m226ecas3151;
+        public FieldDef m226ecas3152;
+        public FieldDef m226ecas3153;
+        public FieldDef m226ecas3154;
+        public FieldDef m226ecas3155;
+        public FieldDef m226ecas3156;
+        public FieldDef m226ecas3157;
+        public FieldDef m226ecas3158;
+        public FieldDef m226ecas3159;
+        public FieldDef m226ecas3160;
+        public FieldDef m226ecas3161;
+        public FieldDef m226ecas3162;
+        public FieldDef m226ecas3163;
+        public FieldDef m226ecas3164;
+        public FieldDef m226ecas3165;
+        public FieldDef m226ecas3166;
+        public FieldDef m226ecas3167;
+        public FieldDef m226ecas3168;
+        public FieldDef m226ecas3169;
+        public FieldDef m226ecas3170;
+        public FieldDef m226ecas3171;
+        public FieldDef m226ecas3172;
+        public FieldDef m226ecas3173;
+        public FieldDef m226ecas3174;
+        public FieldDef m226ecas3175;
+        public FieldDef m226ecas3176;
+        public FieldDef m226ecas3177;
+        public FieldDef m226ecas3178;
+        public FieldDef m226ecas3179;
+        public FieldDef m226ecas3180;
+        public FieldDef m226ecas3181;
+        public FieldDef m226ecas3182;
+        public FieldDef m226ecas3183;
+        public FieldDef m226ecas3184;
+        public FieldDef m226ecas3185;
+        public FieldDef m226ecas3186;
+        public FieldDef m226ecas3187;
+        public FieldDef m226ecas3188;
+        public FieldDef m226ecas3189;
+        public FieldDef m226ecas3190;
+        public FieldDef m226ecas3191;
+        public FieldDef m226ecas3192;
+        public FieldDef m226ecas3193;
+        public FieldDef m226ecas3194;
+        public FieldDef m226ecas3195;
+        public FieldDef m226ecas3196;
+        public FieldDef m226ecas3197;
+        public FieldDef m226ecas3198;
+        public FieldDef m226ecas3199;
+        public FieldDef m226ecas3200;
+        public FieldDef m226ecas3201;
+        public FieldDef m226ecas3202;
+        public FieldDef m226ecas3203;
+        public FieldDef m226ecas3204;
+        public FieldDef m226ecas3205;
+        public FieldDef m226ecas3206;
+        public FieldDef m226ecas3207;
+        public FieldDef m226ecas3208;
+        public FieldDef m226ecas3209;
+        public FieldDef m226ecas3210;
+        public FieldDef m226ecas3211;
+        public FieldDef m226ecas3212;
+        public FieldDef m226ecas3213;
+        public FieldDef m226ecas3214;
+        public FieldDef m226ecas3215;
+        public FieldDef m226ecas3216;
+        public FieldDef m226ecas3217;
+        public FieldDef m226ecas3218;
+        public FieldDef m226ecas3219;
+        public FieldDef m226ecas3220;
+        public TabMod200h26e(String name)
+            {
+            super(name);
+            m226edominio = new FieldDef("m226edominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m226enif = new FieldDef("m226enif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m226eejercicio = new FieldDef("m226eejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m226eperiodo = new FieldDef("m226eperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m226ecas3041 = new FieldDef("m226ecas3041",FieldDef.FLOAT,6,0);
+            m226ecas3042 = new FieldDef("m226ecas3042",FieldDef.FLOAT,6,0);
+            m226ecas3043 = new FieldDef("m226ecas3043",FieldDef.FLOAT,6,0);
+            m226ecas3044 = new FieldDef("m226ecas3044",FieldDef.FLOAT,6,0);
+            m226ecas3045 = new FieldDef("m226ecas3045",FieldDef.FLOAT,6,0);
+            m226ecas3046 = new FieldDef("m226ecas3046",FieldDef.FLOAT,6,0);
+            m226ecas3047 = new FieldDef("m226ecas3047",FieldDef.FLOAT,6,0);
+            m226ecas3048 = new FieldDef("m226ecas3048",FieldDef.FLOAT,6,0);
+            m226ecas3049 = new FieldDef("m226ecas3049",FieldDef.FLOAT,6,0);
+            m226ecas3050 = new FieldDef("m226ecas3050",FieldDef.FLOAT,6,0);
+            m226ecas3051 = new FieldDef("m226ecas3051",FieldDef.FLOAT,6,0);
+            m226ecas3052 = new FieldDef("m226ecas3052",FieldDef.FLOAT,6,0);
+            m226ecas3053 = new FieldDef("m226ecas3053",FieldDef.FLOAT,6,0);
+            m226ecas3054 = new FieldDef("m226ecas3054",FieldDef.FLOAT,6,0);
+            m226ecas3055 = new FieldDef("m226ecas3055",FieldDef.FLOAT,6,0);
+            m226ecas3056 = new FieldDef("m226ecas3056",FieldDef.FLOAT,6,0);
+            m226ecas3057 = new FieldDef("m226ecas3057",FieldDef.FLOAT,6,0);
+            m226ecas3058 = new FieldDef("m226ecas3058",FieldDef.FLOAT,6,0);
+            m226ecas3059 = new FieldDef("m226ecas3059",FieldDef.FLOAT,6,0);
+            m226ecas3060 = new FieldDef("m226ecas3060",FieldDef.FLOAT,6,0);
+            m226ecas3061 = new FieldDef("m226ecas3061",FieldDef.FLOAT,6,0);
+            m226ecas3062 = new FieldDef("m226ecas3062",FieldDef.FLOAT,6,0);
+            m226ecas3063 = new FieldDef("m226ecas3063",FieldDef.FLOAT,6,0);
+            m226ecas3064 = new FieldDef("m226ecas3064",FieldDef.FLOAT,6,0);
+            m226ecas3065 = new FieldDef("m226ecas3065",FieldDef.FLOAT,6,0);
+            m226ecas3071 = new FieldDef("m226ecas3071",FieldDef.FLOAT,6,0);
+            m226ecas3072 = new FieldDef("m226ecas3072",FieldDef.FLOAT,6,0);
+            m226ecas3073 = new FieldDef("m226ecas3073",FieldDef.FLOAT,6,0);
+            m226ecas3074 = new FieldDef("m226ecas3074",FieldDef.FLOAT,6,0);
+            m226ecas3075 = new FieldDef("m226ecas3075",FieldDef.FLOAT,6,0);
+            m226ecas3076 = new FieldDef("m226ecas3076",FieldDef.FLOAT,6,0);
+            m226ecas3077 = new FieldDef("m226ecas3077",FieldDef.FLOAT,6,0);
+            m226ecas3078 = new FieldDef("m226ecas3078",FieldDef.FLOAT,6,0);
+            m226ecas3079 = new FieldDef("m226ecas3079",FieldDef.FLOAT,6,0);
+            m226ecas3080 = new FieldDef("m226ecas3080",FieldDef.FLOAT,6,0);
+            m226ecas3081 = new FieldDef("m226ecas3081",FieldDef.FLOAT,6,0);
+            m226ecas3082 = new FieldDef("m226ecas3082",FieldDef.FLOAT,6,0);
+            m226ecas3083 = new FieldDef("m226ecas3083",FieldDef.FLOAT,6,0);
+            m226ecas3084 = new FieldDef("m226ecas3084",FieldDef.FLOAT,6,0);
+            m226ecas3085 = new FieldDef("m226ecas3085",FieldDef.FLOAT,6,0);
+            m226ecas3086 = new FieldDef("m226ecas3086",FieldDef.FLOAT,6,0);
+            m226ecas3087 = new FieldDef("m226ecas3087",FieldDef.FLOAT,6,0);
+            m226ecas3088 = new FieldDef("m226ecas3088",FieldDef.FLOAT,6,0);
+            m226ecas3089 = new FieldDef("m226ecas3089",FieldDef.FLOAT,6,0);
+            m226ecas3090 = new FieldDef("m226ecas3090",FieldDef.FLOAT,6,0);
+            m226ecas3091 = new FieldDef("m226ecas3091",FieldDef.FLOAT,6,0);
+            m226ecas3092 = new FieldDef("m226ecas3092",FieldDef.FLOAT,6,0);
+            m226ecas3093 = new FieldDef("m226ecas3093",FieldDef.FLOAT,6,0);
+            m226ecas3094 = new FieldDef("m226ecas3094",FieldDef.FLOAT,6,0);
+            m226ecas3095 = new FieldDef("m226ecas3095",FieldDef.FLOAT,6,0);
+            m226ecas3096 = new FieldDef("m226ecas3096",FieldDef.FLOAT,6,0);
+            m226ecas3097 = new FieldDef("m226ecas3097",FieldDef.FLOAT,6,0);
+            m226ecas3098 = new FieldDef("m226ecas3098",FieldDef.FLOAT,6,0);
+            m226ecas3099 = new FieldDef("m226ecas3099",FieldDef.FLOAT,6,0);
+            m226ecas3100 = new FieldDef("m226ecas3100",FieldDef.FLOAT,6,0);
+            m226ecas3101 = new FieldDef("m226ecas3101",FieldDef.FLOAT,6,0);
+            m226ecas3102 = new FieldDef("m226ecas3102",FieldDef.FLOAT,6,0);
+            m226ecas3103 = new FieldDef("m226ecas3103",FieldDef.FLOAT,6,0);
+            m226ecas3104 = new FieldDef("m226ecas3104",FieldDef.FLOAT,6,0);
+            m226ecas3105 = new FieldDef("m226ecas3105",FieldDef.FLOAT,6,0);
+            m226ecas3106 = new FieldDef("m226ecas3106",FieldDef.FLOAT,6,0);
+            m226ecas3107 = new FieldDef("m226ecas3107",FieldDef.FLOAT,6,0);
+            m226ecas3108 = new FieldDef("m226ecas3108",FieldDef.FLOAT,6,0);
+            m226ecas3109 = new FieldDef("m226ecas3109",FieldDef.FLOAT,6,0);
+            m226ecas3110 = new FieldDef("m226ecas3110",FieldDef.FLOAT,6,0);
+            m226ecas3111 = new FieldDef("m226ecas3111",FieldDef.FLOAT,6,0);
+            m226ecas3112 = new FieldDef("m226ecas3112",FieldDef.FLOAT,6,0);
+            m226ecas3113 = new FieldDef("m226ecas3113",FieldDef.FLOAT,6,0);
+            m226ecas3114 = new FieldDef("m226ecas3114",FieldDef.FLOAT,6,0);
+            m226ecas3115 = new FieldDef("m226ecas3115",FieldDef.FLOAT,6,0);
+            m226ecas3116 = new FieldDef("m226ecas3116",FieldDef.FLOAT,6,0);
+            m226ecas3117 = new FieldDef("m226ecas3117",FieldDef.FLOAT,6,0);
+            m226ecas3118 = new FieldDef("m226ecas3118",FieldDef.FLOAT,6,0);
+            m226ecas3119 = new FieldDef("m226ecas3119",FieldDef.FLOAT,6,0);
+            m226ecas3120 = new FieldDef("m226ecas3120",FieldDef.FLOAT,6,0);
+            m226ecas3121 = new FieldDef("m226ecas3121",FieldDef.FLOAT,6,0);
+            m226ecas3122 = new FieldDef("m226ecas3122",FieldDef.FLOAT,6,0);
+            m226ecas3123 = new FieldDef("m226ecas3123",FieldDef.FLOAT,6,0);
+            m226ecas3124 = new FieldDef("m226ecas3124",FieldDef.FLOAT,6,0);
+            m226ecas3125 = new FieldDef("m226ecas3125",FieldDef.FLOAT,6,0);
+            m226ecas3126 = new FieldDef("m226ecas3126",FieldDef.FLOAT,6,0);
+            m226ecas3127 = new FieldDef("m226ecas3127",FieldDef.FLOAT,6,0);
+            m226ecas3128 = new FieldDef("m226ecas3128",FieldDef.FLOAT,6,0);
+            m226ecas3129 = new FieldDef("m226ecas3129",FieldDef.FLOAT,6,0);
+            m226ecas3130 = new FieldDef("m226ecas3130",FieldDef.FLOAT,6,0);
+            m226ecas3131 = new FieldDef("m226ecas3131",FieldDef.FLOAT,6,0);
+            m226ecas3132 = new FieldDef("m226ecas3132",FieldDef.FLOAT,6,0);
+            m226ecas3133 = new FieldDef("m226ecas3133",FieldDef.FLOAT,6,0);
+            m226ecas3134 = new FieldDef("m226ecas3134",FieldDef.FLOAT,6,0);
+            m226ecas3135 = new FieldDef("m226ecas3135",FieldDef.FLOAT,6,0);
+            m226ecas3136 = new FieldDef("m226ecas3136",FieldDef.FLOAT,6,0);
+            m226ecas3137 = new FieldDef("m226ecas3137",FieldDef.FLOAT,6,0);
+            m226ecas3138 = new FieldDef("m226ecas3138",FieldDef.FLOAT,6,0);
+            m226ecas3139 = new FieldDef("m226ecas3139",FieldDef.FLOAT,6,0);
+            m226ecas3140 = new FieldDef("m226ecas3140",FieldDef.FLOAT,6,0);
+            m226ecas3141 = new FieldDef("m226ecas3141",FieldDef.FLOAT,6,0);
+            m226ecas3142 = new FieldDef("m226ecas3142",FieldDef.FLOAT,6,0);
+            m226ecas3143 = new FieldDef("m226ecas3143",FieldDef.FLOAT,6,0);
+            m226ecas3144 = new FieldDef("m226ecas3144",FieldDef.FLOAT,6,0);
+            m226ecas3145 = new FieldDef("m226ecas3145",FieldDef.FLOAT,6,0);
+            m226ecas3146 = new FieldDef("m226ecas3146",FieldDef.FLOAT,6,0);
+            m226ecas3147 = new FieldDef("m226ecas3147",FieldDef.FLOAT,6,0);
+            m226ecas3148 = new FieldDef("m226ecas3148",FieldDef.FLOAT,6,0);
+            m226ecas3149 = new FieldDef("m226ecas3149",FieldDef.FLOAT,6,0);
+            m226ecas3150 = new FieldDef("m226ecas3150",FieldDef.FLOAT,6,0);
+            m226ecas3151 = new FieldDef("m226ecas3151",FieldDef.FLOAT,6,0);
+            m226ecas3152 = new FieldDef("m226ecas3152",FieldDef.FLOAT,6,0);
+            m226ecas3153 = new FieldDef("m226ecas3153",FieldDef.FLOAT,6,0);
+            m226ecas3154 = new FieldDef("m226ecas3154",FieldDef.FLOAT,6,0);
+            m226ecas3155 = new FieldDef("m226ecas3155",FieldDef.FLOAT,6,0);
+            m226ecas3156 = new FieldDef("m226ecas3156",FieldDef.FLOAT,6,0);
+            m226ecas3157 = new FieldDef("m226ecas3157",FieldDef.FLOAT,6,0);
+            m226ecas3158 = new FieldDef("m226ecas3158",FieldDef.FLOAT,6,0);
+            m226ecas3159 = new FieldDef("m226ecas3159",FieldDef.FLOAT,6,0);
+            m226ecas3160 = new FieldDef("m226ecas3160",FieldDef.FLOAT,6,0);
+            m226ecas3161 = new FieldDef("m226ecas3161",FieldDef.FLOAT,6,0);
+            m226ecas3162 = new FieldDef("m226ecas3162",FieldDef.FLOAT,6,0);
+            m226ecas3163 = new FieldDef("m226ecas3163",FieldDef.FLOAT,6,0);
+            m226ecas3164 = new FieldDef("m226ecas3164",FieldDef.FLOAT,6,0);
+            m226ecas3165 = new FieldDef("m226ecas3165",FieldDef.FLOAT,6,0);
+            m226ecas3166 = new FieldDef("m226ecas3166",FieldDef.FLOAT,6,0);
+            m226ecas3167 = new FieldDef("m226ecas3167",FieldDef.FLOAT,6,0);
+            m226ecas3168 = new FieldDef("m226ecas3168",FieldDef.FLOAT,6,0);
+            m226ecas3169 = new FieldDef("m226ecas3169",FieldDef.FLOAT,6,0);
+            m226ecas3170 = new FieldDef("m226ecas3170",FieldDef.FLOAT,6,0);
+            m226ecas3171 = new FieldDef("m226ecas3171",FieldDef.FLOAT,6,0);
+            m226ecas3172 = new FieldDef("m226ecas3172",FieldDef.FLOAT,6,0);
+            m226ecas3173 = new FieldDef("m226ecas3173",FieldDef.FLOAT,6,0);
+            m226ecas3174 = new FieldDef("m226ecas3174",FieldDef.FLOAT,6,0);
+            m226ecas3175 = new FieldDef("m226ecas3175",FieldDef.FLOAT,6,0);
+            m226ecas3176 = new FieldDef("m226ecas3176",FieldDef.FLOAT,6,0);
+            m226ecas3177 = new FieldDef("m226ecas3177",FieldDef.FLOAT,6,0);
+            m226ecas3178 = new FieldDef("m226ecas3178",FieldDef.FLOAT,6,0);
+            m226ecas3179 = new FieldDef("m226ecas3179",FieldDef.FLOAT,6,0);
+            m226ecas3180 = new FieldDef("m226ecas3180",FieldDef.FLOAT,6,0);
+            m226ecas3181 = new FieldDef("m226ecas3181",FieldDef.FLOAT,6,0);
+            m226ecas3182 = new FieldDef("m226ecas3182",FieldDef.FLOAT,6,0);
+            m226ecas3183 = new FieldDef("m226ecas3183",FieldDef.FLOAT,6,0);
+            m226ecas3184 = new FieldDef("m226ecas3184",FieldDef.FLOAT,6,0);
+            m226ecas3185 = new FieldDef("m226ecas3185",FieldDef.FLOAT,6,0);
+            m226ecas3186 = new FieldDef("m226ecas3186",FieldDef.FLOAT,6,0);
+            m226ecas3187 = new FieldDef("m226ecas3187",FieldDef.FLOAT,6,0);
+            m226ecas3188 = new FieldDef("m226ecas3188",FieldDef.FLOAT,6,0);
+            m226ecas3189 = new FieldDef("m226ecas3189",FieldDef.FLOAT,6,0);
+            m226ecas3190 = new FieldDef("m226ecas3190",FieldDef.FLOAT,6,0);
+            m226ecas3191 = new FieldDef("m226ecas3191",FieldDef.FLOAT,6,0);
+            m226ecas3192 = new FieldDef("m226ecas3192",FieldDef.FLOAT,6,0);
+            m226ecas3193 = new FieldDef("m226ecas3193",FieldDef.FLOAT,6,0);
+            m226ecas3194 = new FieldDef("m226ecas3194",FieldDef.FLOAT,6,0);
+            m226ecas3195 = new FieldDef("m226ecas3195",FieldDef.FLOAT,6,0);
+            m226ecas3196 = new FieldDef("m226ecas3196",FieldDef.FLOAT,6,0);
+            m226ecas3197 = new FieldDef("m226ecas3197",FieldDef.FLOAT,6,0);
+            m226ecas3198 = new FieldDef("m226ecas3198",FieldDef.FLOAT,6,0);
+            m226ecas3199 = new FieldDef("m226ecas3199",FieldDef.FLOAT,6,0);
+            m226ecas3200 = new FieldDef("m226ecas3200",FieldDef.FLOAT,6,0);
+            m226ecas3201 = new FieldDef("m226ecas3201",FieldDef.FLOAT,6,0);
+            m226ecas3202 = new FieldDef("m226ecas3202",FieldDef.FLOAT,6,0);
+            m226ecas3203 = new FieldDef("m226ecas3203",FieldDef.FLOAT,6,0);
+            m226ecas3204 = new FieldDef("m226ecas3204",FieldDef.FLOAT,6,0);
+            m226ecas3205 = new FieldDef("m226ecas3205",FieldDef.FLOAT,6,0);
+            m226ecas3206 = new FieldDef("m226ecas3206",FieldDef.FLOAT,6,0);
+            m226ecas3207 = new FieldDef("m226ecas3207",FieldDef.FLOAT,6,0);
+            m226ecas3208 = new FieldDef("m226ecas3208",FieldDef.FLOAT,6,0);
+            m226ecas3209 = new FieldDef("m226ecas3209",FieldDef.FLOAT,6,0);
+            m226ecas3210 = new FieldDef("m226ecas3210",FieldDef.FLOAT,6,0);
+            m226ecas3211 = new FieldDef("m226ecas3211",FieldDef.FLOAT,6,0);
+            m226ecas3212 = new FieldDef("m226ecas3212",FieldDef.FLOAT,6,0);
+            m226ecas3213 = new FieldDef("m226ecas3213",FieldDef.FLOAT,6,0);
+            m226ecas3214 = new FieldDef("m226ecas3214",FieldDef.FLOAT,6,0);
+            m226ecas3215 = new FieldDef("m226ecas3215",FieldDef.FLOAT,6,0);
+            m226ecas3216 = new FieldDef("m226ecas3216",FieldDef.FLOAT,6,0);
+            m226ecas3217 = new FieldDef("m226ecas3217",FieldDef.FLOAT,6,0);
+            m226ecas3218 = new FieldDef("m226ecas3218",FieldDef.FLOAT,6,0);
+            m226ecas3219 = new FieldDef("m226ecas3219",FieldDef.FLOAT,6,0);
+            m226ecas3220 = new FieldDef("m226ecas3220",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m226edominio,
+                m226enif,
+                m226eejercicio,
+                m226eperiodo,
+                m226ecas3041,
+                m226ecas3042,
+                m226ecas3043,
+                m226ecas3044,
+                m226ecas3045,
+                m226ecas3046,
+                m226ecas3047,
+                m226ecas3048,
+                m226ecas3049,
+                m226ecas3050,
+                m226ecas3051,
+                m226ecas3052,
+                m226ecas3053,
+                m226ecas3054,
+                m226ecas3055,
+                m226ecas3056,
+                m226ecas3057,
+                m226ecas3058,
+                m226ecas3059,
+                m226ecas3060,
+                m226ecas3061,
+                m226ecas3062,
+                m226ecas3063,
+                m226ecas3064,
+                m226ecas3065,
+                m226ecas3071,
+                m226ecas3072,
+                m226ecas3073,
+                m226ecas3074,
+                m226ecas3075,
+                m226ecas3076,
+                m226ecas3077,
+                m226ecas3078,
+                m226ecas3079,
+                m226ecas3080,
+                m226ecas3081,
+                m226ecas3082,
+                m226ecas3083,
+                m226ecas3084,
+                m226ecas3085,
+                m226ecas3086,
+                m226ecas3087,
+                m226ecas3088,
+                m226ecas3089,
+                m226ecas3090,
+                m226ecas3091,
+                m226ecas3092,
+                m226ecas3093,
+                m226ecas3094,
+                m226ecas3095,
+                m226ecas3096,
+                m226ecas3097,
+                m226ecas3098,
+                m226ecas3099,
+                m226ecas3100,
+                m226ecas3101,
+                m226ecas3102,
+                m226ecas3103,
+                m226ecas3104,
+                m226ecas3105,
+                m226ecas3106,
+                m226ecas3107,
+                m226ecas3108,
+                m226ecas3109,
+                m226ecas3110,
+                m226ecas3111,
+                m226ecas3112,
+                m226ecas3113,
+                m226ecas3114,
+                m226ecas3115,
+                m226ecas3116,
+                m226ecas3117,
+                m226ecas3118,
+                m226ecas3119,
+                m226ecas3120,
+                m226ecas3121,
+                m226ecas3122,
+                m226ecas3123,
+                m226ecas3124,
+                m226ecas3125,
+                m226ecas3126,
+                m226ecas3127,
+                m226ecas3128,
+                m226ecas3129,
+                m226ecas3130,
+                m226ecas3131,
+                m226ecas3132,
+                m226ecas3133,
+                m226ecas3134,
+                m226ecas3135,
+                m226ecas3136,
+                m226ecas3137,
+                m226ecas3138,
+                m226ecas3139,
+                m226ecas3140,
+                m226ecas3141,
+                m226ecas3142,
+                m226ecas3143,
+                m226ecas3144,
+                m226ecas3145,
+                m226ecas3146,
+                m226ecas3147,
+                m226ecas3148,
+                m226ecas3149,
+                m226ecas3150,
+                m226ecas3151,
+                m226ecas3152,
+                m226ecas3153,
+                m226ecas3154,
+                m226ecas3155,
+                m226ecas3156,
+                m226ecas3157,
+                m226ecas3158,
+                m226ecas3159,
+                m226ecas3160,
+                m226ecas3161,
+                m226ecas3162,
+                m226ecas3163,
+                m226ecas3164,
+                m226ecas3165,
+                m226ecas3166,
+                m226ecas3167,
+                m226ecas3168,
+                m226ecas3169,
+                m226ecas3170,
+                m226ecas3171,
+                m226ecas3172,
+                m226ecas3173,
+                m226ecas3174,
+                m226ecas3175,
+                m226ecas3176,
+                m226ecas3177,
+                m226ecas3178,
+                m226ecas3179,
+                m226ecas3180,
+                m226ecas3181,
+                m226ecas3182,
+                m226ecas3183,
+                m226ecas3184,
+                m226ecas3185,
+                m226ecas3186,
+                m226ecas3187,
+                m226ecas3188,
+                m226ecas3189,
+                m226ecas3190,
+                m226ecas3191,
+                m226ecas3192,
+                m226ecas3193,
+                m226ecas3194,
+                m226ecas3195,
+                m226ecas3196,
+                m226ecas3197,
+                m226ecas3198,
+                m226ecas3199,
+                m226ecas3200,
+                m226ecas3201,
+                m226ecas3202,
+                m226ecas3203,
+                m226ecas3204,
+                m226ecas3205,
+                m226ecas3206,
+                m226ecas3207,
+                m226ecas3208,
+                m226ecas3209,
+                m226ecas3210,
+                m226ecas3211,
+                m226ecas3212,
+                m226ecas3213,
+                m226ecas3214,
+                m226ecas3215,
+                m226ecas3216,
+                m226ecas3217,
+                m226ecas3218,
+                m226ecas3219,
+                m226ecas3220                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m226edominio,m226enif,m226eejercicio,m226eperiodo };
+            setPrimaryKeys(arrayf);
+            m226ecas3041.setDescription("Obra benéfico-social las cajas ahorro y fundaciones bancarias (art. 24 LIS) - Aumento - Correc.ejer.- Permanentes [03041]");
+            m226ecas3042.setDescription("Obra benéfico-social las cajas ahorro y fundaciones bancarias (art. 24 LIS) - Aumento - Correc.ejer.- Temporarias [03042]");
+            m226ecas3043.setDescription("Obra benéfico-social las cajas ahorro y fundaciones bancarias (art. 24 LIS) - Aumento - Correc.ejer.- Temporarias [03043]");
+            m226ecas3044.setDescription("Obra benéfico-social las cajas ahorro y fundaciones bancarias (art. 24 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03044]");
+            m226ecas3045.setDescription("Obra benéfico-social las cajas ahorro y fundaciones bancarias (art. 24 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03045]");
+            m226ecas3046.setDescription("Obra benéfico-social las cajas ahorro y fundaciones bancarias (art. 24 LIS) - Disminución - Correc.ejer.- Permanentes [03046]");
+            m226ecas3047.setDescription("Obra benéfico-social las cajas ahorro y fundaciones bancarias (art. 24 LIS) - Disminución - Correc.ejer.- Temporarias [03047]");
+            m226ecas3048.setDescription("Obra benéfico-social las cajas ahorro y fundaciones bancarias (art. 24 LIS) - Disminución - Correc.ejer.- Temporarias [03048]");
+            m226ecas3049.setDescription("Obra benéfico-social las cajas ahorro y fundaciones bancarias (art. 24 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03049]");
+            m226ecas3050.setDescription("Obra benéfico-social las cajas ahorro y fundaciones bancarias (art. 24 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03050]");
+            m226ecas3051.setDescription("Impuesto extranjero soportado contribuyente, no deducible afectar a rentas con deducción doble imposición (art. 31.2 LIS) - Aumento - Correc.ejer.- Permanentes [03051]");
+            m226ecas3052.setDescription("Impuesto extranjero soportado contribuyente, no deducible afectar a rentas con deducción doble imposición (art. 31.2 LIS) - Aumento - Correc.ejer.- Temporarias [03052]");
+            m226ecas3053.setDescription("Impuesto extranjero soportado contribuyente, no deducible afectar a rentas con deducción doble imposición (art. 31.2 LIS) - Aumento - Correc.ejer.- Temporarias [03053]");
+            m226ecas3054.setDescription("Impuesto extranjero soportado contribuyente, no deducible afectar a rentas con deducción doble imposición (art. 31.2 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03054]");
+            m226ecas3055.setDescription("Impuesto extranjero soportado contribuyente, no deducible afectar a rentas con deducción doble imposición (art. 31.2 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03055]");
+            m226ecas3056.setDescription("Impuesto extranjero soportado contribuyente, no deducible afectar a rentas con deducción doble imposición (art. 31.2 LIS) - Disminución - Correc.ejer.- Permanentes [03056]");
+            m226ecas3057.setDescription("Impuesto extranjero soportado contribuyente, no deducible afectar a rentas con deducción doble imposición (art. 31.2 LIS) - Disminución - Correc.ejer.- Temporarias [03057]");
+            m226ecas3058.setDescription("Impuesto extranjero soportado contribuyente, no deducible afectar a rentas con deducción doble imposición (art. 31.2 LIS) - Disminución - Correc.ejer.- Temporarias [03058]");
+            m226ecas3059.setDescription("Impuesto extranjero soportado contribuyente, no deducible afectar a rentas con deducción doble imposición (art. 31.2 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03059]");
+            m226ecas3060.setDescription("Impuesto extranjero soportado contribuyente, no deducible afectar a rentas con deducción doble imposición (art. 31.2 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03060]");
+            m226ecas3061.setDescription("Impuesto extranjero sobre los beneficios con cargo a los cuales se pagan los dividendos objeto deducción doble imposición internacional (art. 32.1 LIS) - Aumento - Correc.ejer.- Permanentes [03061]");
+            m226ecas3062.setDescription("Impuesto extranjero sobre los beneficios con cargo a los cuales se pagan los dividendos objeto deducción doble imposición internacional (art. 32.1 LIS) - Aumento - Correc.ejer.- Temporarias [03062]");
+            m226ecas3063.setDescription("Impuesto extranjero sobre los beneficios con cargo a los cuales se pagan los dividendos objeto deducción doble imposición internacional (art. 32.1 LIS) - Aumento - Correc.ejer.- Temporarias [03063]");
+            m226ecas3064.setDescription("Impuesto extranjero sobre los beneficios con cargo a los cuales se pagan los dividendos objeto deducción doble imposición internacional (art. 32.1 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias");
+            m226ecas3065.setDescription("Impuesto extranjero sobre los beneficios con cargo a los cuales se pagan los dividendos objeto deducción doble imposición internacional (art. 32.1 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias");
+            m226ecas3071.setDescription("Agrupación interés económico (Cap. II Tít. VII LIS) - Aumento - Correc.ejer.- Permanentes [03071]");
+            m226ecas3072.setDescription("Agrupación interés económico (Cap. II Tít. VII LIS) - Aumento - Correc.ejer.- Temporarias [03072]");
+            m226ecas3073.setDescription("Agrupación interés económico (Cap. II Tít. VII LIS) - Aumento - Correc.ejer.- Temporarias [03073]");
+            m226ecas3074.setDescription("Agrupación interés económico (Cap. II Tít. VII LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03074]");
+            m226ecas3075.setDescription("Agrupación interés económico (Cap. II Tít. VII LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03075]");
+            m226ecas3076.setDescription("Agrupación interés económico (Cap. II Tít. VII LIS) - Disminución - Correc.ejer.- Permanentes [03076]");
+            m226ecas3077.setDescription("Agrupación interés económico (Cap. II Tít. VII LIS) - Disminución - Correc.ejer.- Temporarias [03077]");
+            m226ecas3078.setDescription("Agrupación interés económico (Cap. II Tít. VII LIS) - Disminución - Correc.ejer.- Temporarias [03078]");
+            m226ecas3079.setDescription("Agrupación interés económico (Cap. II Tít. VII LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03079]");
+            m226ecas3080.setDescription("Agrupación interés económico (Cap. II Tít. VII LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03080]");
+            m226ecas3081.setDescription("Unión temporal empresas, ajustes art. 45.1 LIS - Aumento - Correc.ejer.- Permanentes [03081]");
+            m226ecas3082.setDescription("Unión temporal empresas, ajustes art. 45.1 LIS - Aumento - Correc.ejer.- Temporarias [03082]");
+            m226ecas3083.setDescription("Unión temporal empresas, ajustes art. 45.1 LIS - Aumento - Correc.ejer.- Temporarias [03083]");
+            m226ecas3084.setDescription("Unión temporal empresas, ajustes art. 45.1 LIS - Aumento - Saldo pdte.  fin ejer. - Temporarias [03084]");
+            m226ecas3085.setDescription("Unión temporal empresas, ajustes art. 45.1 LIS - Aumento - Saldo pdte.  fin ejer. - Temporarias [03085]");
+            m226ecas3086.setDescription("Unión temporal empresas, ajustes art. 45.1 LIS - Disminución - Correc.ejer.- Permanentes [03086]");
+            m226ecas3087.setDescription("Unión temporal empresas, ajustes art. 45.1 LIS - Disminución - Correc.ejer.- Temporarias [03087]");
+            m226ecas3088.setDescription("Unión temporal empresas, ajustes art. 45.1 LIS - Disminución - Correc.ejer.- Temporarias [03088]");
+            m226ecas3089.setDescription("Unión temporal empresas, ajustes art. 45.1 LIS - Disminución - Saldo pdte.  fin ejer. - Temporarias [03089]");
+            m226ecas3090.setDescription("Unión temporal empresas, ajustes art. 45.1 LIS - Disminución - Saldo pdte.  fin ejer. - Temporarias [03090]");
+            m226ecas3091.setDescription("Unión temporal empresas, ajustes rentas exentas UTE que opera extranjero (art. 45.2 LIS) - Aumento - Correc.ejer.- Permanentes [03091]");
+            m226ecas3092.setDescription("Unión temporal empresas, ajustes rentas exentas UTE que opera extranjero (art. 45.2 LIS) - Aumento - Correc.ejer.- Temporarias [03092]");
+            m226ecas3093.setDescription("Unión temporal empresas, ajustes rentas exentas UTE que opera extranjero (art. 45.2 LIS) - Aumento - Correc.ejer.- Temporarias [03093]");
+            m226ecas3094.setDescription("Unión temporal empresas, ajustes rentas exentas UTE que opera extranjero (art. 45.2 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03094]");
+            m226ecas3095.setDescription("Unión temporal empresas, ajustes rentas exentas UTE que opera extranjero (art. 45.2 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03095]");
+            m226ecas3096.setDescription("Unión temporal empresas, ajustes rentas exentas UTE que opera extranjero (art. 45.2 LIS) - Disminución - Correc.ejer.- Permanentes [03096]");
+            m226ecas3097.setDescription("Unión temporal empresas, ajustes rentas exentas UTE que opera extranjero (art. 45.2 LIS) - Disminución - Correc.ejer.- Temporarias [03097]");
+            m226ecas3098.setDescription("Unión temporal empresas, ajustes rentas exentas UTE que opera extranjero (art. 45.2 LIS) - Disminución - Correc.ejer.- Temporarias [03098]");
+            m226ecas3099.setDescription("Unión temporal empresas, ajustes rentas exentas UTE que opera extranjero (art. 45.2 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03099]");
+            m226ecas3100.setDescription("Unión temporal empresas, ajustes rentas exentas UTE que opera extranjero (art. 45.2 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03100]");
+            m226ecas3101.setDescription("Unión temporal empresas, ajustes rentas exentas participar extranjero fórmulas colaboración análogas a las UTE (art. 45.2 LIS) - Aumento - Correc.ejer.- Permanentes [03101]");
+            m226ecas3102.setDescription("Unión temporal empresas, ajustes rentas exentas participar extranjero fórmulas colaboración análogas a las UTE (art. 45.2 LIS) - Aumento - Correc.ejer.- Temporarias [03102]");
+            m226ecas3103.setDescription("Unión temporal empresas, ajustes rentas exentas participar extranjero fórmulas colaboración análogas a las UTE (art. 45.2 LIS) - Aumento - Correc.ejer.- Temporarias [03103]");
+            m226ecas3104.setDescription("Unión temporal empresas, ajustes rentas exentas participar extranjero fórmulas colaboración análogas a las UTE (art. 45.2 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03104]");
+            m226ecas3105.setDescription("Unión temporal empresas, ajustes rentas exentas participar extranjero fórmulas colaboración análogas a las UTE (art. 45.2 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03105]");
+            m226ecas3106.setDescription("Unión temporal empresas, ajustes rentas exentas participar extranjero fórmulas colaboración análogas a las UTE (art. 45.2 LIS) - Disminución - Correc.ejer.- Permanentes [03106]");
+            m226ecas3107.setDescription("Unión temporal empresas, ajustes rentas exentas participar extranjero fórmulas colaboración análogas a las UTE (art. 45.2 LIS) - Disminución - Correc.ejer.- Temporarias [03107]");
+            m226ecas3108.setDescription("Unión temporal empresas, ajustes rentas exentas participar extranjero fórmulas colaboración análogas a las UTE (art. 45.2 LIS) - Disminución - Correc.ejer.- Temporarias [03108]");
+            m226ecas3109.setDescription("Unión temporal empresas, ajustes rentas exentas participar extranjero fórmulas colaboración análogas a las UTE (art. 45.2 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03109]");
+            m226ecas3110.setDescription("Unión temporal empresas, ajustes rentas exentas participar extranjero fórmulas colaboración análogas a las UTE (art. 45.2 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03110]");
+            m226ecas3111.setDescription("Unión temporal empresas, ajustes criterios imput.temporal (art. 46.2 LIS) - Aumento - Correc.ejer.- Permanentes [03111]");
+            m226ecas3112.setDescription("Unión temporal empresas, ajustes criterios imput.temporal (art. 46.2 LIS) - Aumento - Correc.ejer.- Temporarias [03112]");
+            m226ecas3113.setDescription("Unión temporal empresas, ajustes criterios imput.temporal (art. 46.2 LIS) - Aumento - Correc.ejer.- Temporarias [03113]");
+            m226ecas3114.setDescription("Unión temporal empresas, ajustes criterios imput.temporal (art. 46.2 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03114]");
+            m226ecas3115.setDescription("Unión temporal empresas, ajustes criterios imput.temporal (art. 46.2 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03115]");
+            m226ecas3116.setDescription("Unión temporal empresas, ajustes criterios imput.temporal (art. 46.2 LIS) - Disminución - Correc.ejer.- Permanentes [03116]");
+            m226ecas3117.setDescription("Unión temporal empresas, ajustes criterios imput.temporal (art. 46.2 LIS) - Disminución - Correc.ejer.- Temporarias [03117]");
+            m226ecas3118.setDescription("Unión temporal empresas, ajustes criterios imput.temporal (art. 46.2 LIS) - Disminución - Correc.ejer.- Temporarias [03118]");
+            m226ecas3119.setDescription("Unión temporal empresas, ajustes criterios imput.temporal (art. 46.2 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03119]");
+            m226ecas3120.setDescription("Unión temporal empresas, ajustes criterios imput.temporal (art. 46.2 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03120]");
+            m226ecas3121.setDescription("Bases imp. negativas generadas dentro grupo fiscal la ent. transmitida y que hayan sido compensadas (art. 62.2 LIS) - Aumento - Correc.ejer.- Permanentes [03121]");
+            m226ecas3122.setDescription("Bases imp. negativas generadas dentro grupo fiscal la ent. transmitida y que hayan sido compensadas (art. 62.2 LIS) - Aumento - Correc.ejer.- Temporarias [03122]");
+            m226ecas3123.setDescription("Bases imp. negativas generadas dentro grupo fiscal la ent. transmitida y que hayan sido compensadas (art. 62.2 LIS) - Aumento - Correc.ejer.- Temporarias [03123]");
+            m226ecas3124.setDescription("Bases imp. negativas generadas dentro grupo fiscal la ent. transmitida y que hayan sido compensadas (art. 62.2 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03124]");
+            m226ecas3125.setDescription("Bases imp. negativas generadas dentro grupo fiscal la ent. transmitida y que hayan sido compensadas (art. 62.2 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03125]");
+            m226ecas3126.setDescription("Bases imp. negativas generadas dentro grupo fiscal la ent. transmitida y que hayan sido compensadas (art. 62.2 LIS) - Disminución - Correc.ejer.- Permanentes [03126]");
+            m226ecas3127.setDescription("Bases imp. negativas generadas dentro grupo fiscal la ent. transmitida y que hayan sido compensadas (art. 62.2 LIS) - Disminución - Correc.ejer.- Temporarias [03127]");
+            m226ecas3128.setDescription("Bases imp. negativas generadas dentro grupo fiscal la ent. transmitida y que hayan sido compensadas (art. 62.2 LIS) - Disminución - Correc.ejer.- Temporarias [03128]");
+            m226ecas3129.setDescription("Bases imp. negativas generadas dentro grupo fiscal la ent. transmitida y que hayan sido compensadas (art. 62.2 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03129]");
+            m226ecas3130.setDescription("Bases imp. negativas generadas dentro grupo fiscal la ent. transmitida y que hayan sido compensadas (art. 62.2 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03130]");
+            m226ecas3131.setDescription("Sociedades y fondos capital-riesgo y sociedades desarrollo industrial regional (capítulo IV título VII LIS) - Aumento - Correc.ejer.- Permanentes [03131]");
+            m226ecas3132.setDescription("Sociedades y fondos capital-riesgo y sociedades desarrollo industrial regional (capítulo IV título VII LIS) - Aumento - Correc.ejer.- Temporarias [03132]");
+            m226ecas3133.setDescription("Sociedades y fondos capital-riesgo y sociedades desarrollo industrial regional (capítulo IV título VII LIS) - Aumento - Correc.ejer.- Temporarias [03133]");
+            m226ecas3134.setDescription("Sociedades y fondos capital-riesgo y sociedades desarrollo industrial regional (capítulo IV título VII LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03134]");
+            m226ecas3135.setDescription("Sociedades y fondos capital-riesgo y sociedades desarrollo industrial regional (capítulo IV título VII LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03135]");
+            m226ecas3136.setDescription("Sociedades y fondos capital-riesgo y sociedades desarrollo industrial regional (capítulo IV título VII LIS) - Disminución - Correc.ejer.- Permanentes [03136]");
+            m226ecas3137.setDescription("Sociedades y fondos capital-riesgo y sociedades desarrollo industrial regional (capítulo IV título VII LIS) - Disminución - Correc.ejer.- Temporarias [03137]");
+            m226ecas3138.setDescription("Sociedades y fondos capital-riesgo y sociedades desarrollo industrial regional (capítulo IV título VII LIS) - Disminución - Correc.ejer.- Temporarias [03138]");
+            m226ecas3139.setDescription("Sociedades y fondos capital-riesgo y sociedades desarrollo industrial regional (capítulo IV título VII LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03139]");
+            m226ecas3140.setDescription("Sociedades y fondos capital-riesgo y sociedades desarrollo industrial regional (capítulo IV título VII LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03140]");
+            m226ecas3141.setDescription("Valoración bienes y derechos. Rég.especial oper. reestructuración (capítulo VII título VII LIS) - Aumento - Correc.ejer.- Permanentes [03141]");
+            m226ecas3142.setDescription("Valoración bienes y derechos. Rég.especial oper. reestructuración (capítulo VII título VII LIS) - Aumento - Correc.ejer.- Temporarias [03142]");
+            m226ecas3143.setDescription("Valoración bienes y derechos. Rég.especial oper. reestructuración (capítulo VII título VII LIS) - Aumento - Correc.ejer.- Temporarias [03143]");
+            m226ecas3144.setDescription("Valoración bienes y derechos. Rég.especial oper. reestructuración (capítulo VII título VII LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03144]");
+            m226ecas3145.setDescription("Valoración bienes y derechos. Rég.especial oper. reestructuración (capítulo VII título VII LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03145]");
+            m226ecas3146.setDescription("Valoración bienes y derechos. Rég.especial oper. reestructuración (capítulo VII título VII LIS) - Disminución - Correc.ejer.- Permanentes [03146]");
+            m226ecas3147.setDescription("Valoración bienes y derechos. Rég.especial oper. reestructuración (capítulo VII título VII LIS) - Disminución - Correc.ejer.- Temporarias [03147]");
+            m226ecas3148.setDescription("Valoración bienes y derechos. Rég.especial oper. reestructuración (capítulo VII título VII LIS) - Disminución - Correc.ejer.- Temporarias [03148]");
+            m226ecas3149.setDescription("Valoración bienes y derechos. Rég.especial oper. reestructuración (capítulo VII título VII LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03149]");
+            m226ecas3150.setDescription("Valoración bienes y derechos. Rég.especial oper. reestructuración (capítulo VII título VII LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03150]");
+            m226ecas3151.setDescription("Minería e hidrocarburos: factor agotamiento (arts. 91 y 95 LIS) - Aumento - Correc.ejer.- Permanentes [03151]");
+            m226ecas3152.setDescription("Minería e hidrocarburos: factor agotamiento (arts. 91 y 95 LIS) - Aumento - Correc.ejer.- Temporarias [03152]");
+            m226ecas3153.setDescription("Minería e hidrocarburos: factor agotamiento (arts. 91 y 95 LIS) - Aumento - Correc.ejer.- Temporarias [03153]");
+            m226ecas3154.setDescription("Minería e hidrocarburos: factor agotamiento (arts. 91 y 95 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03154]");
+            m226ecas3155.setDescription("Minería e hidrocarburos: factor agotamiento (arts. 91 y 95 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03155]");
+            m226ecas3156.setDescription("Minería e hidrocarburos: factor agotamiento (arts. 91 y 95 LIS) - Disminución - Correc.ejer.- Permanentes [03156]");
+            m226ecas3157.setDescription("Minería e hidrocarburos: factor agotamiento (arts. 91 y 95 LIS) - Disminución - Correc.ejer.- Temporarias [03157]");
+            m226ecas3158.setDescription("Minería e hidrocarburos: factor agotamiento (arts. 91 y 95 LIS) - Disminución - Correc.ejer.- Temporarias [03158]");
+            m226ecas3159.setDescription("Minería e hidrocarburos: factor agotamiento (arts. 91 y 95 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03159]");
+            m226ecas3160.setDescription("Minería e hidrocarburos: factor agotamiento (arts. 91 y 95 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03160]");
+            m226ecas3161.setDescription("Hidrocarburos: Amort.inversiones intangibles y gastos investigación (art. 99 LIS) - Aumento - Correc.ejer.- Permanentes [03161]");
+            m226ecas3162.setDescription("Hidrocarburos: Amort.inversiones intangibles y gastos investigación (art. 99 LIS) - Aumento - Correc.ejer.- Temporarias [03162]");
+            m226ecas3163.setDescription("Hidrocarburos: Amort.inversiones intangibles y gastos investigación (art. 99 LIS) - Aumento - Correc.ejer.- Temporarias [03163]");
+            m226ecas3164.setDescription("Hidrocarburos: Amort.inversiones intangibles y gastos investigación (art. 99 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03164]");
+            m226ecas3165.setDescription("Hidrocarburos: Amort.inversiones intangibles y gastos investigación (art. 99 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03165]");
+            m226ecas3166.setDescription("Hidrocarburos: Amort.inversiones intangibles y gastos investigación (art. 99 LIS) - Disminución - Correc.ejer.- Permanentes [03166]");
+            m226ecas3167.setDescription("Hidrocarburos: Amort.inversiones intangibles y gastos investigación (art. 99 LIS) - Disminución - Correc.ejer.- Temporarias [03167]");
+            m226ecas3168.setDescription("Hidrocarburos: Amort.inversiones intangibles y gastos investigación (art. 99 LIS) - Disminución - Correc.ejer.- Temporarias [03168]");
+            m226ecas3169.setDescription("Hidrocarburos: Amort.inversiones intangibles y gastos investigación (art. 99 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03169]");
+            m226ecas3170.setDescription("Hidrocarburos: Amort.inversiones intangibles y gastos investigación (art. 99 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03170]");
+            m226ecas3171.setDescription("Transparencia fiscal internacional (art. 100 LIS) - Aumento - Correc.ejer.- Permanentes [03171]");
+            m226ecas3172.setDescription("Transparencia fiscal internacional (art. 100 LIS) - Aumento - Correc.ejer.- Temporarias [03172]");
+            m226ecas3173.setDescription("Transparencia fiscal internacional (art. 100 LIS) - Aumento - Correc.ejer.- Temporarias [03173]");
+            m226ecas3174.setDescription("Transparencia fiscal internacional (art. 100 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03174]");
+            m226ecas3175.setDescription("Transparencia fiscal internacional (art. 100 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03175]");
+            m226ecas3176.setDescription("Transparencia fiscal internacional (art. 100 LIS) - Disminución - Correc.ejer.- Permanentes [03176]");
+            m226ecas3177.setDescription("Transparencia fiscal internacional (art. 100 LIS) - Disminución - Correc.ejer.- Temporarias [03177]");
+            m226ecas3178.setDescription("Transparencia fiscal internacional (art. 100 LIS) - Disminución - Correc.ejer.- Temporarias [03178]");
+            m226ecas3179.setDescription("Transparencia fiscal internacional (art. 100 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03179]");
+            m226ecas3180.setDescription("Transparencia fiscal internacional (art. 100 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03180]");
+            m226ecas3181.setDescription("Empresas reducida dimensión: libertad amortiz.(art. 102 LIS) - Aumento - Correc.ejer.- Permanentes [03181]");
+            m226ecas3182.setDescription("Empresas reducida dimensión: libertad amortiz.(art. 102 LIS) - Aumento - Correc.ejer.- Temporarias [03182]");
+            m226ecas3183.setDescription("Empresas reducida dimensión: libertad amortiz.(art. 102 LIS) - Aumento - Correc.ejer.- Temporarias [03183]");
+            m226ecas3184.setDescription("Empresas reducida dimensión: libertad amortiz.(art. 102 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03184]");
+            m226ecas3185.setDescription("Empresas reducida dimensión: libertad amortiz.(art. 102 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03185]");
+            m226ecas3186.setDescription("Empresas reducida dimensión: libertad amortiz.(art. 102 LIS) - Disminución - Correc.ejer.- Permanentes [03186]");
+            m226ecas3187.setDescription("Empresas reducida dimensión: libertad amortiz.(art. 102 LIS) - Disminución - Correc.ejer.- Temporarias [03187]");
+            m226ecas3188.setDescription("Empresas reducida dimensión: libertad amortiz.(art. 102 LIS) - Disminución - Correc.ejer.- Temporarias [03188]");
+            m226ecas3189.setDescription("Empresas reducida dimensión: libertad amortiz.(art. 102 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03189]");
+            m226ecas3190.setDescription("Empresas reducida dimensión: libertad amortiz.(art. 102 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03190]");
+            m226ecas3191.setDescription("Empresas reducida dimensión: amortiz.acelerada (art. 103 LIS y DT 28ª LIS) - Aumento - Correc.ejer.- Permanentes [03191]");
+            m226ecas3192.setDescription("Empresas reducida dimensión: amortiz.acelerada (art. 103 LIS y DT 28ª LIS) - Aumento - Correc.ejer.- Temporarias [03192]");
+            m226ecas3193.setDescription("Empresas reducida dimensión: amortiz.acelerada (art. 103 LIS y DT 28ª LIS) - Aumento - Correc.ejer.- Temporarias [03193]");
+            m226ecas3194.setDescription("Empresas reducida dimensión: amortiz.acelerada (art. 103 LIS y DT 28ª LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03194]");
+            m226ecas3195.setDescription("Empresas reducida dimensión: amortiz.acelerada (art. 103 LIS y DT 28ª LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03195]");
+            m226ecas3196.setDescription("Empresas reducida dimensión: amortiz.acelerada (art. 103 LIS y DT 28ª LIS) - Disminución - Correc.ejer.- Permanentes [03196]");
+            m226ecas3197.setDescription("Empresas reducida dimensión: amortiz.acelerada (art. 103 LIS y DT 28ª LIS) - Disminución - Correc.ejer.- Temporarias [03197]");
+            m226ecas3198.setDescription("Empresas reducida dimensión: amortiz.acelerada (art. 103 LIS y DT 28ª LIS) - Disminución - Correc.ejer.- Temporarias [03198]");
+            m226ecas3199.setDescription("Empresas reducida dimensión: amortiz.acelerada (art. 103 LIS y DT 28ª LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03199]");
+            m226ecas3200.setDescription("Empresas reducida dimensión: amortiz.acelerada (art. 103 LIS y DT 28ª LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03200]");
+            m226ecas3201.setDescription("Empresas reducida dimensión: pérdidas deterioro créditos insolvencias (art. 104 LIS) - Aumento - Correc.ejer.- Permanentes [03201]");
+            m226ecas3202.setDescription("Empresas reducida dimensión: pérdidas deterioro créditos insolvencias (art. 104 LIS) - Aumento - Correc.ejer.- Temporarias [03202]");
+            m226ecas3203.setDescription("Empresas reducida dimensión: pérdidas deterioro créditos insolvencias (art. 104 LIS) - Aumento - Correc.ejer.- Temporarias [03203]");
+            m226ecas3204.setDescription("Empresas reducida dimensión: pérdidas deterioro créditos insolvencias (art. 104 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03204]");
+            m226ecas3205.setDescription("Empresas reducida dimensión: pérdidas deterioro créditos insolvencias (art. 104 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03205]");
+            m226ecas3206.setDescription("Empresas reducida dimensión: pérdidas deterioro créditos insolvencias (art. 104 LIS) - Disminución - Correc.ejer.- Permanentes [03206]");
+            m226ecas3207.setDescription("Empresas reducida dimensión: pérdidas deterioro créditos insolvencias (art. 104 LIS) - Disminución - Correc.ejer.- Temporarias [03207]");
+            m226ecas3208.setDescription("Empresas reducida dimensión: pérdidas deterioro créditos insolvencias (art. 104 LIS) - Disminución - Correc.ejer.- Temporarias [03208]");
+            m226ecas3209.setDescription("Empresas reducida dimensión: pérdidas deterioro créditos insolvencias (art. 104 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03209]");
+            m226ecas3210.setDescription("Empresas reducida dimensión: pérdidas deterioro créditos insolvencias (art. 104 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03210]");
+            m226ecas3211.setDescription("Arrendamiento financiero: régimen especial (art. 106 LIS) - Aumento - Correc.ejer.- Permanentes [03211]");
+            m226ecas3212.setDescription("Arrendamiento financiero: régimen especial (art. 106 LIS) - Aumento - Correc.ejer.- Temporarias [03212]");
+            m226ecas3213.setDescription("Arrendamiento financiero: régimen especial (art. 106 LIS) - Aumento - Correc.ejer.- Temporarias [03213]");
+            m226ecas3214.setDescription("Arrendamiento financiero: régimen especial (art. 106 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03214]");
+            m226ecas3215.setDescription("Arrendamiento financiero: régimen especial (art. 106 LIS) - Aumento - Saldo pdte.  fin ejer. - Temporarias [03215]");
+            m226ecas3216.setDescription("Arrendamiento financiero: régimen especial (art. 106 LIS) - Disminución - Correc.ejer.- Permanentes [03216]");
+            m226ecas3217.setDescription("Arrendamiento financiero: régimen especial (art. 106 LIS) - Disminución - Correc.ejer.- Temporarias [03217]");
+            m226ecas3218.setDescription("Arrendamiento financiero: régimen especial (art. 106 LIS) - Disminución - Correc.ejer.- Temporarias [03218]");
+            m226ecas3219.setDescription("Arrendamiento financiero: régimen especial (art. 106 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03219]");
+            m226ecas3220.setDescription("Arrendamiento financiero: régimen especial (art. 106 LIS) - Disminución - Saldo pdte.  fin ejer. - Temporarias [03220]");
+            }
+        }
+        
+    public class TabMod200h26f extends TableDef
+        {
+        // campos
+        public FieldDef m226fdominio;
+        public FieldDef m226fnif;
+        public FieldDef m226fejercicio;
+        public FieldDef m226fperiodo;
+        public FieldDef m226fcas3221;
+        public FieldDef m226fcas3222;
+        public FieldDef m226fcas3223;
+        public FieldDef m226fcas3224;
+        public FieldDef m226fcas3225;
+        public FieldDef m226fcas3226;
+        public FieldDef m226fcas3227;
+        public FieldDef m226fcas3228;
+        public FieldDef m226fcas3229;
+        public FieldDef m226fcas3230;
+        public FieldDef m226fcas3231;
+        public FieldDef m226fcas3232;
+        public FieldDef m226fcas3233;
+        public FieldDef m226fcas3234;
+        public FieldDef m226fcas3235;
+        public FieldDef m226fcas3236;
+        public FieldDef m226fcas3237;
+        public FieldDef m226fcas3238;
+        public FieldDef m226fcas3239;
+        public FieldDef m226fcas3240;
+        public FieldDef m226fcas3246;
+        public FieldDef m226fcas3247;
+        public FieldDef m226fcas3248;
+        public FieldDef m226fcas3249;
+        public FieldDef m226fcas3250;
+        public FieldDef m226fcas3251;
+        public FieldDef m226fcas3252;
+        public FieldDef m226fcas3253;
+        public FieldDef m226fcas3254;
+        public FieldDef m226fcas3255;
+        public FieldDef m226fcas3256;
+        public FieldDef m226fcas3257;
+        public FieldDef m226fcas3258;
+        public FieldDef m226fcas3259;
+        public FieldDef m226fcas3260;
+        public FieldDef m226fcas3261;
+        public FieldDef m226fcas3262;
+        public FieldDef m226fcas3263;
+        public FieldDef m226fcas3264;
+        public FieldDef m226fcas3265;
+        public FieldDef m226fcas3266;
+        public FieldDef m226fcas3267;
+        public FieldDef m226fcas3268;
+        public FieldDef m226fcas3269;
+        public FieldDef m226fcas3270;
+        public FieldDef m226fcas3271;
+        public FieldDef m226fcas3272;
+        public FieldDef m226fcas3273;
+        public FieldDef m226fcas3274;
+        public FieldDef m226fcas3275;
+        public FieldDef m226fcas3276;
+        public FieldDef m226fcas3277;
+        public FieldDef m226fcas3278;
+        public FieldDef m226fcas3279;
+        public FieldDef m226fcas3280;
+        public FieldDef m226fcas3286;
+        public FieldDef m226fcas3287;
+        public FieldDef m226fcas3288;
+        public FieldDef m226fcas3289;
+        public FieldDef m226fcas3290;
+        public FieldDef m226fcas3291;
+        public FieldDef m226fcas3292;
+        public FieldDef m226fcas3293;
+        public FieldDef m226fcas3294;
+        public FieldDef m226fcas3295;
+        public FieldDef m226fcas3296;
+        public FieldDef m226fcas3297;
+        public FieldDef m226fcas3298;
+        public FieldDef m226fcas3299;
+        public FieldDef m226fcas3300;
+        public FieldDef m226fcas3301;
+        public FieldDef m226fcas3302;
+        public FieldDef m226fcas3303;
+        public FieldDef m226fcas3304;
+        public FieldDef m226fcas3305;
+        public FieldDef m226fcas3306;
+        public FieldDef m226fcas3307;
+        public FieldDef m226fcas3308;
+        public FieldDef m226fcas3309;
+        public FieldDef m226fcas3310;
+        public FieldDef m226fcas3316;
+        public FieldDef m226fcas3317;
+        public FieldDef m226fcas3318;
+        public FieldDef m226fcas3319;
+        public FieldDef m226fcas3320;
+        public FieldDef m226fcas3321;
+        public FieldDef m226fcas3322;
+        public FieldDef m226fcas3323;
+        public FieldDef m226fcas3324;
+        public FieldDef m226fcas3325;
+        public FieldDef m226fcas3326;
+        public FieldDef m226fcas3327;
+        public FieldDef m226fcas3328;
+        public FieldDef m226fcas3329;
+        public FieldDef m226fcas3330;
+        public FieldDef m226fcas3331;
+        public FieldDef m226fcas3332;
+        public FieldDef m226fcas3333;
+        public FieldDef m226fcas3334;
+        public FieldDef m226fcas3335;
+        public FieldDef m226fcas3336;
+        public FieldDef m226fcas3337;
+        public FieldDef m226fcas3338;
+        public FieldDef m226fcas3339;
+        public FieldDef m226fcas3340;
+        public FieldDef m226fcas3341;
+        public FieldDef m226fcas3342;
+        public FieldDef m226fcas3343;
+        public FieldDef m226fcas3344;
+        public FieldDef m226fcas3345;
+        public FieldDef m226fcas3346;
+        public FieldDef m226fcas3347;
+        public FieldDef m226fcas3348;
+        public FieldDef m226fcas3349;
+        public FieldDef m226fcas3350;
+        public FieldDef m226fcas3351;
+        public FieldDef m226fcas3352;
+        public FieldDef m226fcas3353;
+        public FieldDef m226fcas3354;
+        public FieldDef m226fcas3355;
+        public FieldDef m226fcas3356;
+        public FieldDef m226fcas3357;
+        public FieldDef m226fcas3358;
+        public FieldDef m226fcas3359;
+        public FieldDef m226fcas3360;
+        public FieldDef m226fcas3361;
+        public FieldDef m226fcas3362;
+        public FieldDef m226fcas3363;
+        public FieldDef m226fcas3364;
+        public FieldDef m226fcas3365;
+        public FieldDef m226fcas3366;
+        public FieldDef m226fcas3367;
+        public FieldDef m226fcas3368;
+        public FieldDef m226fcas3369;
+        public FieldDef m226fcas3370;
+        public FieldDef m226fcas3371;
+        public FieldDef m226fcas3372;
+        public FieldDef m226fcas3373;
+        public FieldDef m226fcas3374;
+        public FieldDef m226fcas3375;
+        public FieldDef m226fcas3376;
+        public FieldDef m226fcas3377;
+        public FieldDef m226fcas3378;
+        public FieldDef m226fcas3379;
+        public FieldDef m226fcas3380;
+        public FieldDef m226fcas3381;
+        public FieldDef m226fcas3382;
+        public FieldDef m226fcas3383;
+        public FieldDef m226fcas3384;
+        public FieldDef m226fcas3385;
+        public FieldDef m226fcas3386;
+        public FieldDef m226fcas3387;
+        public FieldDef m226fcas3388;
+        public FieldDef m226fcas3389;
+        public FieldDef m226fcas3390;
+        public FieldDef m226fcas3391;
+        public FieldDef m226fcas3392;
+        public FieldDef m226fcas3393;
+        public FieldDef m226fcas3394;
+        public FieldDef m226fcas3395;
+        public FieldDef m226fcas3396;
+        public FieldDef m226fcas3397;
+        public FieldDef m226fcas3398;
+        public FieldDef m226fcas3399;
+        public FieldDef m226fcas3400;
+        public FieldDef m226fcas3284;
+        public FieldDef m226fcas3281;
+        public FieldDef m226fcas3282;
+        public FieldDef m226fcas3283;
+        public FieldDef m226fcas3285;
+        public FieldDef m226fcas3314;
+        public FieldDef m226fcas3311;
+        public FieldDef m226fcas3312;
+        public FieldDef m226fcas3313;
+        public FieldDef m226fcas3315;
+        public TabMod200h26f(String name)
+            {
+            super(name);
+            m226fdominio = new FieldDef("m226fdominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m226fnif = new FieldDef("m226fnif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m226fejercicio = new FieldDef("m226fejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m226fperiodo = new FieldDef("m226fperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m226fcas3221 = new FieldDef("m226fcas3221",FieldDef.FLOAT,6,0);
+            m226fcas3222 = new FieldDef("m226fcas3222",FieldDef.FLOAT,6,0);
+            m226fcas3223 = new FieldDef("m226fcas3223",FieldDef.FLOAT,6,0);
+            m226fcas3224 = new FieldDef("m226fcas3224",FieldDef.FLOAT,6,0);
+            m226fcas3225 = new FieldDef("m226fcas3225",FieldDef.FLOAT,6,0);
+            m226fcas3226 = new FieldDef("m226fcas3226",FieldDef.FLOAT,6,0);
+            m226fcas3227 = new FieldDef("m226fcas3227",FieldDef.FLOAT,6,0);
+            m226fcas3228 = new FieldDef("m226fcas3228",FieldDef.FLOAT,6,0);
+            m226fcas3229 = new FieldDef("m226fcas3229",FieldDef.FLOAT,6,0);
+            m226fcas3230 = new FieldDef("m226fcas3230",FieldDef.FLOAT,6,0);
+            m226fcas3231 = new FieldDef("m226fcas3231",FieldDef.FLOAT,6,0);
+            m226fcas3232 = new FieldDef("m226fcas3232",FieldDef.FLOAT,6,0);
+            m226fcas3233 = new FieldDef("m226fcas3233",FieldDef.FLOAT,6,0);
+            m226fcas3234 = new FieldDef("m226fcas3234",FieldDef.FLOAT,6,0);
+            m226fcas3235 = new FieldDef("m226fcas3235",FieldDef.FLOAT,6,0);
+            m226fcas3236 = new FieldDef("m226fcas3236",FieldDef.FLOAT,6,0);
+            m226fcas3237 = new FieldDef("m226fcas3237",FieldDef.FLOAT,6,0);
+            m226fcas3238 = new FieldDef("m226fcas3238",FieldDef.FLOAT,6,0);
+            m226fcas3239 = new FieldDef("m226fcas3239",FieldDef.FLOAT,6,0);
+            m226fcas3240 = new FieldDef("m226fcas3240",FieldDef.FLOAT,6,0);
+            m226fcas3246 = new FieldDef("m226fcas3246",FieldDef.FLOAT,6,0);
+            m226fcas3247 = new FieldDef("m226fcas3247",FieldDef.FLOAT,6,0);
+            m226fcas3248 = new FieldDef("m226fcas3248",FieldDef.FLOAT,6,0);
+            m226fcas3249 = new FieldDef("m226fcas3249",FieldDef.FLOAT,6,0);
+            m226fcas3250 = new FieldDef("m226fcas3250",FieldDef.FLOAT,6,0);
+            m226fcas3251 = new FieldDef("m226fcas3251",FieldDef.FLOAT,6,0);
+            m226fcas3252 = new FieldDef("m226fcas3252",FieldDef.FLOAT,6,0);
+            m226fcas3253 = new FieldDef("m226fcas3253",FieldDef.FLOAT,6,0);
+            m226fcas3254 = new FieldDef("m226fcas3254",FieldDef.FLOAT,6,0);
+            m226fcas3255 = new FieldDef("m226fcas3255",FieldDef.FLOAT,6,0);
+            m226fcas3256 = new FieldDef("m226fcas3256",FieldDef.FLOAT,6,0);
+            m226fcas3257 = new FieldDef("m226fcas3257",FieldDef.FLOAT,6,0);
+            m226fcas3258 = new FieldDef("m226fcas3258",FieldDef.FLOAT,6,0);
+            m226fcas3259 = new FieldDef("m226fcas3259",FieldDef.FLOAT,6,0);
+            m226fcas3260 = new FieldDef("m226fcas3260",FieldDef.FLOAT,6,0);
+            m226fcas3261 = new FieldDef("m226fcas3261",FieldDef.FLOAT,6,0);
+            m226fcas3262 = new FieldDef("m226fcas3262",FieldDef.FLOAT,6,0);
+            m226fcas3263 = new FieldDef("m226fcas3263",FieldDef.FLOAT,6,0);
+            m226fcas3264 = new FieldDef("m226fcas3264",FieldDef.FLOAT,6,0);
+            m226fcas3265 = new FieldDef("m226fcas3265",FieldDef.FLOAT,6,0);
+            m226fcas3266 = new FieldDef("m226fcas3266",FieldDef.FLOAT,6,0);
+            m226fcas3267 = new FieldDef("m226fcas3267",FieldDef.FLOAT,6,0);
+            m226fcas3268 = new FieldDef("m226fcas3268",FieldDef.FLOAT,6,0);
+            m226fcas3269 = new FieldDef("m226fcas3269",FieldDef.FLOAT,6,0);
+            m226fcas3270 = new FieldDef("m226fcas3270",FieldDef.FLOAT,6,0);
+            m226fcas3271 = new FieldDef("m226fcas3271",FieldDef.FLOAT,6,0);
+            m226fcas3272 = new FieldDef("m226fcas3272",FieldDef.FLOAT,6,0);
+            m226fcas3273 = new FieldDef("m226fcas3273",FieldDef.FLOAT,6,0);
+            m226fcas3274 = new FieldDef("m226fcas3274",FieldDef.FLOAT,6,0);
+            m226fcas3275 = new FieldDef("m226fcas3275",FieldDef.FLOAT,6,0);
+            m226fcas3276 = new FieldDef("m226fcas3276",FieldDef.FLOAT,6,0);
+            m226fcas3277 = new FieldDef("m226fcas3277",FieldDef.FLOAT,6,0);
+            m226fcas3278 = new FieldDef("m226fcas3278",FieldDef.FLOAT,6,0);
+            m226fcas3279 = new FieldDef("m226fcas3279",FieldDef.FLOAT,6,0);
+            m226fcas3280 = new FieldDef("m226fcas3280",FieldDef.FLOAT,6,0);
+            m226fcas3286 = new FieldDef("m226fcas3286",FieldDef.FLOAT,6,0);
+            m226fcas3287 = new FieldDef("m226fcas3287",FieldDef.FLOAT,6,0);
+            m226fcas3288 = new FieldDef("m226fcas3288",FieldDef.FLOAT,6,0);
+            m226fcas3289 = new FieldDef("m226fcas3289",FieldDef.FLOAT,6,0);
+            m226fcas3290 = new FieldDef("m226fcas3290",FieldDef.FLOAT,6,0);
+            m226fcas3291 = new FieldDef("m226fcas3291",FieldDef.FLOAT,6,0);
+            m226fcas3292 = new FieldDef("m226fcas3292",FieldDef.FLOAT,6,0);
+            m226fcas3293 = new FieldDef("m226fcas3293",FieldDef.FLOAT,6,0);
+            m226fcas3294 = new FieldDef("m226fcas3294",FieldDef.FLOAT,6,0);
+            m226fcas3295 = new FieldDef("m226fcas3295",FieldDef.FLOAT,6,0);
+            m226fcas3296 = new FieldDef("m226fcas3296",FieldDef.FLOAT,6,0);
+            m226fcas3297 = new FieldDef("m226fcas3297",FieldDef.FLOAT,6,0);
+            m226fcas3298 = new FieldDef("m226fcas3298",FieldDef.FLOAT,6,0);
+            m226fcas3299 = new FieldDef("m226fcas3299",FieldDef.FLOAT,6,0);
+            m226fcas3300 = new FieldDef("m226fcas3300",FieldDef.FLOAT,6,0);
+            m226fcas3301 = new FieldDef("m226fcas3301",FieldDef.FLOAT,6,0);
+            m226fcas3302 = new FieldDef("m226fcas3302",FieldDef.FLOAT,6,0);
+            m226fcas3303 = new FieldDef("m226fcas3303",FieldDef.FLOAT,6,0);
+            m226fcas3304 = new FieldDef("m226fcas3304",FieldDef.FLOAT,6,0);
+            m226fcas3305 = new FieldDef("m226fcas3305",FieldDef.FLOAT,6,0);
+            m226fcas3306 = new FieldDef("m226fcas3306",FieldDef.FLOAT,6,0);
+            m226fcas3307 = new FieldDef("m226fcas3307",FieldDef.FLOAT,6,0);
+            m226fcas3308 = new FieldDef("m226fcas3308",FieldDef.FLOAT,6,0);
+            m226fcas3309 = new FieldDef("m226fcas3309",FieldDef.FLOAT,6,0);
+            m226fcas3310 = new FieldDef("m226fcas3310",FieldDef.FLOAT,6,0);
+            m226fcas3316 = new FieldDef("m226fcas3316",FieldDef.FLOAT,6,0);
+            m226fcas3317 = new FieldDef("m226fcas3317",FieldDef.FLOAT,6,0);
+            m226fcas3318 = new FieldDef("m226fcas3318",FieldDef.FLOAT,6,0);
+            m226fcas3319 = new FieldDef("m226fcas3319",FieldDef.FLOAT,6,0);
+            m226fcas3320 = new FieldDef("m226fcas3320",FieldDef.FLOAT,6,0);
+            m226fcas3321 = new FieldDef("m226fcas3321",FieldDef.FLOAT,6,0);
+            m226fcas3322 = new FieldDef("m226fcas3322",FieldDef.FLOAT,6,0);
+            m226fcas3323 = new FieldDef("m226fcas3323",FieldDef.FLOAT,6,0);
+            m226fcas3324 = new FieldDef("m226fcas3324",FieldDef.FLOAT,6,0);
+            m226fcas3325 = new FieldDef("m226fcas3325",FieldDef.FLOAT,6,0);
+            m226fcas3326 = new FieldDef("m226fcas3326",FieldDef.FLOAT,6,0);
+            m226fcas3327 = new FieldDef("m226fcas3327",FieldDef.FLOAT,6,0);
+            m226fcas3328 = new FieldDef("m226fcas3328",FieldDef.FLOAT,6,0);
+            m226fcas3329 = new FieldDef("m226fcas3329",FieldDef.FLOAT,6,0);
+            m226fcas3330 = new FieldDef("m226fcas3330",FieldDef.FLOAT,6,0);
+            m226fcas3331 = new FieldDef("m226fcas3331",FieldDef.FLOAT,6,0);
+            m226fcas3332 = new FieldDef("m226fcas3332",FieldDef.FLOAT,6,0);
+            m226fcas3333 = new FieldDef("m226fcas3333",FieldDef.FLOAT,6,0);
+            m226fcas3334 = new FieldDef("m226fcas3334",FieldDef.FLOAT,6,0);
+            m226fcas3335 = new FieldDef("m226fcas3335",FieldDef.FLOAT,6,0);
+            m226fcas3336 = new FieldDef("m226fcas3336",FieldDef.FLOAT,6,0);
+            m226fcas3337 = new FieldDef("m226fcas3337",FieldDef.FLOAT,6,0);
+            m226fcas3338 = new FieldDef("m226fcas3338",FieldDef.FLOAT,6,0);
+            m226fcas3339 = new FieldDef("m226fcas3339",FieldDef.FLOAT,6,0);
+            m226fcas3340 = new FieldDef("m226fcas3340",FieldDef.FLOAT,6,0);
+            m226fcas3341 = new FieldDef("m226fcas3341",FieldDef.FLOAT,6,0);
+            m226fcas3342 = new FieldDef("m226fcas3342",FieldDef.FLOAT,6,0);
+            m226fcas3343 = new FieldDef("m226fcas3343",FieldDef.FLOAT,6,0);
+            m226fcas3344 = new FieldDef("m226fcas3344",FieldDef.FLOAT,6,0);
+            m226fcas3345 = new FieldDef("m226fcas3345",FieldDef.FLOAT,6,0);
+            m226fcas3346 = new FieldDef("m226fcas3346",FieldDef.FLOAT,6,0);
+            m226fcas3347 = new FieldDef("m226fcas3347",FieldDef.FLOAT,6,0);
+            m226fcas3348 = new FieldDef("m226fcas3348",FieldDef.FLOAT,6,0);
+            m226fcas3349 = new FieldDef("m226fcas3349",FieldDef.FLOAT,6,0);
+            m226fcas3350 = new FieldDef("m226fcas3350",FieldDef.FLOAT,6,0);
+            m226fcas3351 = new FieldDef("m226fcas3351",FieldDef.FLOAT,6,0);
+            m226fcas3352 = new FieldDef("m226fcas3352",FieldDef.FLOAT,6,0);
+            m226fcas3353 = new FieldDef("m226fcas3353",FieldDef.FLOAT,6,0);
+            m226fcas3354 = new FieldDef("m226fcas3354",FieldDef.FLOAT,6,0);
+            m226fcas3355 = new FieldDef("m226fcas3355",FieldDef.FLOAT,6,0);
+            m226fcas3356 = new FieldDef("m226fcas3356",FieldDef.FLOAT,6,0);
+            m226fcas3357 = new FieldDef("m226fcas3357",FieldDef.FLOAT,6,0);
+            m226fcas3358 = new FieldDef("m226fcas3358",FieldDef.FLOAT,6,0);
+            m226fcas3359 = new FieldDef("m226fcas3359",FieldDef.FLOAT,6,0);
+            m226fcas3360 = new FieldDef("m226fcas3360",FieldDef.FLOAT,6,0);
+            m226fcas3361 = new FieldDef("m226fcas3361",FieldDef.FLOAT,6,0);
+            m226fcas3362 = new FieldDef("m226fcas3362",FieldDef.FLOAT,6,0);
+            m226fcas3363 = new FieldDef("m226fcas3363",FieldDef.FLOAT,6,0);
+            m226fcas3364 = new FieldDef("m226fcas3364",FieldDef.FLOAT,6,0);
+            m226fcas3365 = new FieldDef("m226fcas3365",FieldDef.FLOAT,6,0);
+            m226fcas3366 = new FieldDef("m226fcas3366",FieldDef.FLOAT,6,0);
+            m226fcas3367 = new FieldDef("m226fcas3367",FieldDef.FLOAT,6,0);
+            m226fcas3368 = new FieldDef("m226fcas3368",FieldDef.FLOAT,6,0);
+            m226fcas3369 = new FieldDef("m226fcas3369",FieldDef.FLOAT,6,0);
+            m226fcas3370 = new FieldDef("m226fcas3370",FieldDef.FLOAT,6,0);
+            m226fcas3371 = new FieldDef("m226fcas3371",FieldDef.FLOAT,6,0);
+            m226fcas3372 = new FieldDef("m226fcas3372",FieldDef.FLOAT,6,0);
+            m226fcas3373 = new FieldDef("m226fcas3373",FieldDef.FLOAT,6,0);
+            m226fcas3374 = new FieldDef("m226fcas3374",FieldDef.FLOAT,6,0);
+            m226fcas3375 = new FieldDef("m226fcas3375",FieldDef.FLOAT,6,0);
+            m226fcas3376 = new FieldDef("m226fcas3376",FieldDef.FLOAT,6,0);
+            m226fcas3377 = new FieldDef("m226fcas3377",FieldDef.FLOAT,6,0);
+            m226fcas3378 = new FieldDef("m226fcas3378",FieldDef.FLOAT,6,0);
+            m226fcas3379 = new FieldDef("m226fcas3379",FieldDef.FLOAT,6,0);
+            m226fcas3380 = new FieldDef("m226fcas3380",FieldDef.FLOAT,6,0);
+            m226fcas3381 = new FieldDef("m226fcas3381",FieldDef.FLOAT,6,0);
+            m226fcas3382 = new FieldDef("m226fcas3382",FieldDef.FLOAT,6,0);
+            m226fcas3383 = new FieldDef("m226fcas3383",FieldDef.FLOAT,6,0);
+            m226fcas3384 = new FieldDef("m226fcas3384",FieldDef.FLOAT,6,0);
+            m226fcas3385 = new FieldDef("m226fcas3385",FieldDef.FLOAT,6,0);
+            m226fcas3386 = new FieldDef("m226fcas3386",FieldDef.FLOAT,6,0);
+            m226fcas3387 = new FieldDef("m226fcas3387",FieldDef.FLOAT,6,0);
+            m226fcas3388 = new FieldDef("m226fcas3388",FieldDef.FLOAT,6,0);
+            m226fcas3389 = new FieldDef("m226fcas3389",FieldDef.FLOAT,6,0);
+            m226fcas3390 = new FieldDef("m226fcas3390",FieldDef.FLOAT,6,0);
+            m226fcas3391 = new FieldDef("m226fcas3391",FieldDef.FLOAT,6,0);
+            m226fcas3392 = new FieldDef("m226fcas3392",FieldDef.FLOAT,6,0);
+            m226fcas3393 = new FieldDef("m226fcas3393",FieldDef.FLOAT,6,0);
+            m226fcas3394 = new FieldDef("m226fcas3394",FieldDef.FLOAT,6,0);
+            m226fcas3395 = new FieldDef("m226fcas3395",FieldDef.FLOAT,6,0);
+            m226fcas3396 = new FieldDef("m226fcas3396",FieldDef.FLOAT,6,0);
+            m226fcas3397 = new FieldDef("m226fcas3397",FieldDef.FLOAT,6,0);
+            m226fcas3398 = new FieldDef("m226fcas3398",FieldDef.FLOAT,6,0);
+            m226fcas3399 = new FieldDef("m226fcas3399",FieldDef.FLOAT,6,0);
+            m226fcas3400 = new FieldDef("m226fcas3400",FieldDef.FLOAT,6,0);
+            m226fcas3284 = new FieldDef("m226fcas3284",FieldDef.FLOAT,6,0);
+            m226fcas3281 = new FieldDef("m226fcas3281",FieldDef.FLOAT,6,0);
+            m226fcas3282 = new FieldDef("m226fcas3282",FieldDef.FLOAT,6,0);
+            m226fcas3283 = new FieldDef("m226fcas3283",FieldDef.FLOAT,6,0);
+            m226fcas3285 = new FieldDef("m226fcas3285",FieldDef.FLOAT,6,0);
+            m226fcas3314 = new FieldDef("m226fcas3314",FieldDef.FLOAT,6,0);
+            m226fcas3311 = new FieldDef("m226fcas3311",FieldDef.FLOAT,6,0);
+            m226fcas3312 = new FieldDef("m226fcas3312",FieldDef.FLOAT,6,0);
+            m226fcas3313 = new FieldDef("m226fcas3313",FieldDef.FLOAT,6,0);
+            m226fcas3315 = new FieldDef("m226fcas3315",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m226fdominio,
+                m226fnif,
+                m226fejercicio,
+                m226fperiodo,
+                m226fcas3221,
+                m226fcas3222,
+                m226fcas3223,
+                m226fcas3224,
+                m226fcas3225,
+                m226fcas3226,
+                m226fcas3227,
+                m226fcas3228,
+                m226fcas3229,
+                m226fcas3230,
+                m226fcas3231,
+                m226fcas3232,
+                m226fcas3233,
+                m226fcas3234,
+                m226fcas3235,
+                m226fcas3236,
+                m226fcas3237,
+                m226fcas3238,
+                m226fcas3239,
+                m226fcas3240,
+                m226fcas3246,
+                m226fcas3247,
+                m226fcas3248,
+                m226fcas3249,
+                m226fcas3250,
+                m226fcas3251,
+                m226fcas3252,
+                m226fcas3253,
+                m226fcas3254,
+                m226fcas3255,
+                m226fcas3256,
+                m226fcas3257,
+                m226fcas3258,
+                m226fcas3259,
+                m226fcas3260,
+                m226fcas3261,
+                m226fcas3262,
+                m226fcas3263,
+                m226fcas3264,
+                m226fcas3265,
+                m226fcas3266,
+                m226fcas3267,
+                m226fcas3268,
+                m226fcas3269,
+                m226fcas3270,
+                m226fcas3271,
+                m226fcas3272,
+                m226fcas3273,
+                m226fcas3274,
+                m226fcas3275,
+                m226fcas3276,
+                m226fcas3277,
+                m226fcas3278,
+                m226fcas3279,
+                m226fcas3280,
+                m226fcas3286,
+                m226fcas3287,
+                m226fcas3288,
+                m226fcas3289,
+                m226fcas3290,
+                m226fcas3291,
+                m226fcas3292,
+                m226fcas3293,
+                m226fcas3294,
+                m226fcas3295,
+                m226fcas3296,
+                m226fcas3297,
+                m226fcas3298,
+                m226fcas3299,
+                m226fcas3300,
+                m226fcas3301,
+                m226fcas3302,
+                m226fcas3303,
+                m226fcas3304,
+                m226fcas3305,
+                m226fcas3306,
+                m226fcas3307,
+                m226fcas3308,
+                m226fcas3309,
+                m226fcas3310,
+                m226fcas3316,
+                m226fcas3317,
+                m226fcas3318,
+                m226fcas3319,
+                m226fcas3320,
+                m226fcas3321,
+                m226fcas3322,
+                m226fcas3323,
+                m226fcas3324,
+                m226fcas3325,
+                m226fcas3326,
+                m226fcas3327,
+                m226fcas3328,
+                m226fcas3329,
+                m226fcas3330,
+                m226fcas3331,
+                m226fcas3332,
+                m226fcas3333,
+                m226fcas3334,
+                m226fcas3335,
+                m226fcas3336,
+                m226fcas3337,
+                m226fcas3338,
+                m226fcas3339,
+                m226fcas3340,
+                m226fcas3341,
+                m226fcas3342,
+                m226fcas3343,
+                m226fcas3344,
+                m226fcas3345,
+                m226fcas3346,
+                m226fcas3347,
+                m226fcas3348,
+                m226fcas3349,
+                m226fcas3350,
+                m226fcas3351,
+                m226fcas3352,
+                m226fcas3353,
+                m226fcas3354,
+                m226fcas3355,
+                m226fcas3356,
+                m226fcas3357,
+                m226fcas3358,
+                m226fcas3359,
+                m226fcas3360,
+                m226fcas3361,
+                m226fcas3362,
+                m226fcas3363,
+                m226fcas3364,
+                m226fcas3365,
+                m226fcas3366,
+                m226fcas3367,
+                m226fcas3368,
+                m226fcas3369,
+                m226fcas3370,
+                m226fcas3371,
+                m226fcas3372,
+                m226fcas3373,
+                m226fcas3374,
+                m226fcas3375,
+                m226fcas3376,
+                m226fcas3377,
+                m226fcas3378,
+                m226fcas3379,
+                m226fcas3380,
+                m226fcas3381,
+                m226fcas3382,
+                m226fcas3383,
+                m226fcas3384,
+                m226fcas3385,
+                m226fcas3386,
+                m226fcas3387,
+                m226fcas3388,
+                m226fcas3389,
+                m226fcas3390,
+                m226fcas3391,
+                m226fcas3392,
+                m226fcas3393,
+                m226fcas3394,
+                m226fcas3395,
+                m226fcas3396,
+                m226fcas3397,
+                m226fcas3398,
+                m226fcas3399,
+                m226fcas3400,
+                m226fcas3284,
+                m226fcas3281,
+                m226fcas3282,
+                m226fcas3283,
+                m226fcas3285,
+                m226fcas3314,
+                m226fcas3311,
+                m226fcas3312,
+                m226fcas3313,
+                m226fcas3315                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m226fdominio,m226fnif,m226fejercicio,m226fperiodo };
+            setPrimaryKeys(arrayf);
+            m226fcas3221.setDescription("Régimen fiscal entidades tenencia valores extranjeros (capítulo XIII título VII LIS) - Aumento - Correc.ejer.- Permanentes [03221]");
+            m226fcas3222.setDescription("Régimen fiscal entidades tenencia valores extranjeros (capítulo XIII título VII LIS) - Aumento - Correc.ejer.- Temporarias [03222]");
+            m226fcas3223.setDescription("Régimen fiscal entidades tenencia valores extranjeros (capítulo XIII título VII LIS) - Aumento - Correc.ejer.- Temporarias [03223]");
+            m226fcas3224.setDescription("Régimen fiscal entidades tenencia valores extranjeros (capítulo XIII título VII LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03224]");
+            m226fcas3225.setDescription("Régimen fiscal entidades tenencia valores extranjeros (capítulo XIII título VII LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03225]");
+            m226fcas3226.setDescription("Régimen fiscal entidades tenencia valores extranjeros (capítulo XIII título VII LIS) - Disminución - Correc.ejer.- Permanentes [03226]");
+            m226fcas3227.setDescription("Régimen fiscal entidades tenencia valores extranjeros (capítulo XIII título VII LIS) - Disminución - Correc.ejer.- Temporarias [03227]");
+            m226fcas3228.setDescription("Régimen fiscal entidades tenencia valores extranjeros (capítulo XIII título VII LIS) - Disminución - Correc.ejer.- Temporarias [03228]");
+            m226fcas3229.setDescription("Régimen fiscal entidades tenencia valores extranjeros (capítulo XIII título VII LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03229]");
+            m226fcas3230.setDescription("Régimen fiscal entidades tenencia valores extranjeros (capítulo XIII título VII LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03230]");
+            m226fcas3231.setDescription("Régimen entidades parcialmente exentas (capítulo XIV título VII LIS) - Aumento - Correc.ejer.- Permanentes [03231]");
+            m226fcas3232.setDescription("Régimen entidades parcialmente exentas (capítulo XIV título VII LIS) - Aumento - Correc.ejer.- Temporarias [03232]");
+            m226fcas3233.setDescription("Régimen entidades parcialmente exentas (capítulo XIV título VII LIS) - Aumento - Correc.ejer.- Temporarias [03233]");
+            m226fcas3234.setDescription("Régimen entidades parcialmente exentas (capítulo XIV título VII LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03234]");
+            m226fcas3235.setDescription("Régimen entidades parcialmente exentas (capítulo XIV título VII LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03235]");
+            m226fcas3236.setDescription("Régimen entidades parcialmente exentas (capítulo XIV título VII LIS) - Disminución - Correc.ejer.- Permanentes [03236]");
+            m226fcas3237.setDescription("Régimen entidades parcialmente exentas (capítulo XIV título VII LIS) - Disminución - Correc.ejer.- Temporarias [03237]");
+            m226fcas3238.setDescription("Régimen entidades parcialmente exentas (capítulo XIV título VII LIS) - Disminución - Correc.ejer.- Temporarias [03238]");
+            m226fcas3239.setDescription("Régimen entidades parcialmente exentas (capítulo XIV título VII LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03239]");
+            m226fcas3240.setDescription("Régimen entidades parcialmente exentas (capítulo XIV título VII LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03240]");
+            m226fcas3246.setDescription("Montes vecinales mano común (capítulo XV título VII LIS) - Disminución - Correc.ejer.- Permanentes [03246]");
+            m226fcas3247.setDescription("Montes vecinales mano común (capítulo XV título VII LIS) - Disminución - Correc.ejer.- Temporarias [03247]");
+            m226fcas3248.setDescription("Montes vecinales mano común (capítulo XV título VII LIS) - Disminución - Correc.ejer.- Temporarias [03248]");
+            m226fcas3249.setDescription("Montes vecinales mano común (capítulo XV título VII LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03249]");
+            m226fcas3250.setDescription("Montes vecinales mano común (capítulo XV título VII LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03250]");
+            m226fcas3251.setDescription("Régimen entidades navieras función tonelaje (capítulo XVI título VII LIS) - Aumento - Correc.ejer.- Permanentes [03251]");
+            m226fcas3252.setDescription("Régimen entidades navieras función tonelaje (capítulo XVI título VII LIS) - Aumento - Correc.ejer.- Temporarias [03252]");
+            m226fcas3253.setDescription("Régimen entidades navieras función tonelaje (capítulo XVI título VII LIS) - Aumento - Correc.ejer.- Temporarias [03253]");
+            m226fcas3254.setDescription("Régimen entidades navieras función tonelaje (capítulo XVI título VII LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03254]");
+            m226fcas3255.setDescription("Régimen entidades navieras función tonelaje (capítulo XVI título VII LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03255]");
+            m226fcas3256.setDescription("Régimen entidades navieras función tonelaje (capítulo XVI título VII LIS) - Disminución - Correc.ejer.- Permanentes [03256]");
+            m226fcas3257.setDescription("Régimen entidades navieras función tonelaje (capítulo XVI título VII LIS) - Disminución - Correc.ejer.- Temporarias [03257]");
+            m226fcas3258.setDescription("Régimen entidades navieras función tonelaje (capítulo XVI título VII LIS) - Disminución - Correc.ejer.- Temporarias [03258]");
+            m226fcas3259.setDescription("Régimen entidades navieras función tonelaje (capítulo XVI título VII LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03259]");
+            m226fcas3260.setDescription("Régimen entidades navieras función tonelaje (capítulo XVI título VII LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03260]");
+            m226fcas3261.setDescription("Aportaciones y colaboración favor entidades sin fines lucrativos - Aumento - Correc.ejer.- Permanentes [03261]");
+            m226fcas3262.setDescription("Aportaciones y colaboración favor entidades sin fines lucrativos - Aumento - Correc.ejer.- Temporarias [03262]");
+            m226fcas3263.setDescription("Aportaciones y colaboración favor entidades sin fines lucrativos - Aumento - Correc.ejer.- Temporarias [03263]");
+            m226fcas3264.setDescription("Aportaciones y colaboración favor entidades sin fines lucrativos - Aumento - Saldo pdte.a fin ejer.- Temporarias [03264]");
+            m226fcas3265.setDescription("Aportaciones y colaboración favor entidades sin fines lucrativos - Aumento - Saldo pdte.a fin ejer.- Temporarias [03265]");
+            m226fcas3266.setDescription("Aportaciones y colaboración favor entidades sin fines lucrativos - Disminución - Correc.ejer.- Permanentes [03266]");
+            m226fcas3267.setDescription("Aportaciones y colaboración favor entidades sin fines lucrativos - Disminución - Correc.ejer.- Temporarias [03267]");
+            m226fcas3268.setDescription("Aportaciones y colaboración favor entidades sin fines lucrativos - Disminución - Correc.ejer.- Temporarias [03268]");
+            m226fcas3269.setDescription("Aportaciones y colaboración favor entidades sin fines lucrativos - Disminución - Saldo pdte.a fin ejer.- Temporarias [03269]");
+            m226fcas3270.setDescription("Aportaciones y colaboración favor entidades sin fines lucrativos - Disminución - Saldo pdte.a fin ejer.- Temporarias [03270]");
+            m226fcas3271.setDescription("Régimen fiscal entidades sin fines lucrativos (Ley 49/2002) - Aumento - Correc.ejer.- Permanentes [03271]");
+            m226fcas3272.setDescription("Régimen fiscal entidades sin fines lucrativos (Ley 49/2002) - Aumento - Correc.ejer.- Temporarias [03272]");
+            m226fcas3273.setDescription("Régimen fiscal entidades sin fines lucrativos (Ley 49/2002) - Aumento - Correc.ejer.- Temporarias [03273]");
+            m226fcas3274.setDescription("Régimen fiscal entidades sin fines lucrativos (Ley 49/2002) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03274]");
+            m226fcas3275.setDescription("Régimen fiscal entidades sin fines lucrativos (Ley 49/2002) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03275]");
+            m226fcas3276.setDescription("Régimen fiscal entidades sin fines lucrativos (Ley 49/2002) - Disminución - Correc.ejer.- Permanentes [03276]");
+            m226fcas3277.setDescription("Régimen fiscal entidades sin fines lucrativos (Ley 49/2002) - Disminución - Correc.ejer.- Temporarias [03277]");
+            m226fcas3278.setDescription("Régimen fiscal entidades sin fines lucrativos (Ley 49/2002) - Disminución - Correc.ejer.- Temporarias [03278]");
+            m226fcas3279.setDescription("Régimen fiscal entidades sin fines lucrativos (Ley 49/2002) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03279]");
+            m226fcas3280.setDescription("Régimen fiscal entidades sin fines lucrativos (Ley 49/2002) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03280]");
+            m226fcas3286.setDescription("Cooperativas: Fondo reserva obligatorio (Ley 20/1990) - Disminución - Correc.ejer.- Permanentes [03286]");
+            m226fcas3287.setDescription("Cooperativas: Fondo reserva obligatorio (Ley 20/1990) - Disminución - Correc.ejer.- Temporarias [03287]");
+            m226fcas3288.setDescription("Cooperativas: Fondo reserva obligatorio (Ley 20/1990) - Disminución - Correc.ejer.- Temporarias [03288]");
+            m226fcas3289.setDescription("Cooperativas: Fondo reserva obligatorio (Ley 20/1990) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03289]");
+            m226fcas3290.setDescription("Cooperativas: Fondo reserva obligatorio (Ley 20/1990) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03290]");
+            m226fcas3291.setDescription("Reserva para inversiones Canarias (Ley 19/1994) - Aumento - Correc.ejer.- Permanentes [03291]");
+            m226fcas3292.setDescription("Reserva para inversiones Canarias (Ley 19/1994) - Aumento - Correc.ejer.- Temporarias [03292]");
+            m226fcas3293.setDescription("Reserva para inversiones Canarias (Ley 19/1994) - Aumento - Correc.ejer.- Temporarias [03293]");
+            m226fcas3294.setDescription("Reserva para inversiones Canarias (Ley 19/1994) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03294]");
+            m226fcas3295.setDescription("Reserva para inversiones Canarias (Ley 19/1994) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03295]");
+            m226fcas3296.setDescription("Reserva para inversiones Canarias (Ley 19/1994) - Disminución - Correc.ejer.- Permanentes [03296]");
+            m226fcas3297.setDescription("Reserva para inversiones Canarias (Ley 19/1994) - Disminución - Correc.ejer.- Temporarias [03297]");
+            m226fcas3298.setDescription("Reserva para inversiones Canarias (Ley 19/1994) - Disminución - Correc.ejer.- Temporarias [03298]");
+            m226fcas3299.setDescription("Reserva para inversiones Canarias (Ley 19/1994) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03299]");
+            m226fcas3300.setDescription("Reserva para inversiones Canarias (Ley 19/1994) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03300]");
+            m226fcas3301.setDescription("Exención transmisión bienes inmuebles (DA 6ª LIS) - Aumento - Correc.ejer.- Permanentes [03301]");
+            m226fcas3302.setDescription("Exención transmisión bienes inmuebles (DA 6ª LIS) - Aumento - Correc.ejer.- Temporarias [03302]");
+            m226fcas3303.setDescription("Exención transmisión bienes inmuebles (DA 6ª LIS) - Aumento - Correc.ejer.- Temporarias [03303]");
+            m226fcas3304.setDescription("Exención transmisión bienes inmuebles (DA 6ª LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03304]");
+            m226fcas3305.setDescription("Exención transmisión bienes inmuebles (DA 6ª LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03305]");
+            m226fcas3306.setDescription("Exención transmisión bienes inmuebles (DA 6ª LIS) - Disminución - Correc.ejer.- Permanentes [03306]");
+            m226fcas3307.setDescription("Exención transmisión bienes inmuebles (DA 6ª LIS) - Disminución - Correc.ejer.- Temporarias [03307]");
+            m226fcas3308.setDescription("Exención transmisión bienes inmuebles (DA 6ª LIS) - Disminución - Correc.ejer.- Temporarias [03308]");
+            m226fcas3309.setDescription("Exención transmisión bienes inmuebles (DA 6ª LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03309]");
+            m226fcas3310.setDescription("Exención transmisión bienes inmuebles (DA 6ª LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03310]");
+            m226fcas3316.setDescription("Rentas procedentes transmisión inmovilizado obtenidas por las Autoridades Portuarias (DA 68ª Ley 6/2018) - Disminución - Correc.ejer.- Permanentes [03316]");
+            m226fcas3317.setDescription("Rentas procedentes transmisión inmovilizado obtenidas por las Autoridades Portuarias (DA 68ª Ley 6/2018) - Disminución - Correc.ejer.- Temporarias [03317]");
+            m226fcas3318.setDescription("Rentas procedentes transmisión inmovilizado obtenidas por las Autoridades Portuarias (DA 68ª Ley 6/2018) - Disminución - Correc.ejer.- Temporarias [03318]");
+            m226fcas3319.setDescription("Rentas procedentes transmisión inmovilizado obtenidas por las Autoridades Portuarias (DA 68ª Ley 6/2018) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03319]");
+            m226fcas3320.setDescription("Rentas procedentes transmisión inmovilizado obtenidas por las Autoridades Portuarias (DA 68ª Ley 6/2018) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03320]");
+            m226fcas3321.setDescription("Operaciones plazos (DT 1ª LIS) - Aumento - Correc.ejer.- Permanentes [03321]");
+            m226fcas3322.setDescription("Operaciones plazos (DT 1ª LIS) - Aumento - Correc.ejer.- Temporarias [03322]");
+            m226fcas3323.setDescription("Operaciones plazos (DT 1ª LIS) - Aumento - Correc.ejer.- Temporarias [03323]");
+            m226fcas3324.setDescription("Operaciones plazos (DT 1ª LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03324]");
+            m226fcas3325.setDescription("Operaciones plazos (DT 1ª LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03325]");
+            m226fcas3326.setDescription("Operaciones plazos (DT 1ª LIS) - Disminución - Correc.ejer.- Permanentes [03326]");
+            m226fcas3327.setDescription("Operaciones plazos (DT 1ª LIS) - Disminución - Correc.ejer.- Temporarias [03327]");
+            m226fcas3328.setDescription("Operaciones plazos (DT 1ª LIS) - Disminución - Correc.ejer.- Temporarias [03328]");
+            m226fcas3329.setDescription("Operaciones plazos (DT 1ª LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03329]");
+            m226fcas3330.setDescription("Operaciones plazos (DT 1ª LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03330]");
+            m226fcas3331.setDescription("Adquisición participaciones entidades no residentes (DT 14ª LIS) - Aumento - Correc.ejer.- Permanentes [03331]");
+            m226fcas3332.setDescription("Adquisición participaciones entidades no residentes (DT 14ª LIS) - Aumento - Correc.ejer.- Temporarias [03332]");
+            m226fcas3333.setDescription("Adquisición participaciones entidades no residentes (DT 14ª LIS) - Aumento - Correc.ejer.- Temporarias [03333]");
+            m226fcas3334.setDescription("Adquisición participaciones entidades no residentes (DT 14ª LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03334]");
+            m226fcas3335.setDescription("Adquisición participaciones entidades no residentes (DT 14ª LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03335]");
+            m226fcas3336.setDescription("Adquisición participaciones entidades no residentes (DT 14ª LIS) - Disminución - Correc.ejer.- Permanentes [03336]");
+            m226fcas3337.setDescription("Adquisición participaciones entidades no residentes (DT 14ª LIS) - Disminución - Correc.ejer.- Temporarias [03337]");
+            m226fcas3338.setDescription("Adquisición participaciones entidades no residentes (DT 14ª LIS) - Disminución - Correc.ejer.- Temporarias [03338]");
+            m226fcas3339.setDescription("Adquisición participaciones entidades no residentes (DT 14ª LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03339]");
+            m226fcas3340.setDescription("Adquisición participaciones entidades no residentes (DT 14ª LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03340]");
+            m226fcas3341.setDescription("Reinversión beneficios extraordinarios (DT 24ª LIS) - Aumento - Correc.ejer.- Permanentes [03341]");
+            m226fcas3342.setDescription("Reinversión beneficios extraordinarios (DT 24ª LIS) - Aumento - Correc.ejer.- Temporarias [03342]");
+            m226fcas3343.setDescription("Reinversión beneficios extraordinarios (DT 24ª LIS) - Aumento - Correc.ejer.- Temporarias [03343]");
+            m226fcas3344.setDescription("Reinversión beneficios extraordinarios (DT 24ª LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03344]");
+            m226fcas3345.setDescription("Reinversión beneficios extraordinarios (DT 24ª LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03345]");
+            m226fcas3346.setDescription("Reinversión beneficios extraordinarios (DT 24ª LIS) - Disminución - Correc.ejer.- Permanentes [03346]");
+            m226fcas3347.setDescription("Reinversión beneficios extraordinarios (DT 24ª LIS) - Disminución - Correc.ejer.- Temporarias [03347]");
+            m226fcas3348.setDescription("Reinversión beneficios extraordinarios (DT 24ª LIS) - Disminución - Correc.ejer.- Temporarias [03348]");
+            m226fcas3349.setDescription("Reinversión beneficios extraordinarios (DT 24ª LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03349]");
+            m226fcas3350.setDescription("Reinversión beneficios extraordinarios (DT 24ª LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03350]");
+            m226fcas3351.setDescription("Ajustes por primera aplicación Circular 4/2017 Banco España, entidades crédito (DT 39 LIS) - Aumento - Correc.ejer.- Permanentes [03351]");
+            m226fcas3352.setDescription("Ajustes por primera aplicación Circular 4/2017 Banco España, entidades crédito (DT 39 LIS) - Aumento - Correc.ejer.- Temporarias [03352]");
+            m226fcas3353.setDescription("Ajustes por primera aplicación Circular 4/2017 Banco España, entidades crédito (DT 39 LIS) - Aumento - Correc.ejer.- Temporarias [03353]");
+            m226fcas3354.setDescription("Ajustes por primera aplicación Circular 4/2017 Banco España, entidades crédito (DT 39 LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03354]");
+            m226fcas3355.setDescription("Ajustes por primera aplicación Circular 4/2017 Banco España, entidades crédito (DT 39 LIS) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03355]");
+            m226fcas3356.setDescription("Ajustes por primera aplicación Circular 4/2017 Banco España, entidades crédito (DT 39 LIS) - Disminución - Correc.ejer.- Permanentes [03356]");
+            m226fcas3357.setDescription("Ajustes por primera aplicación Circular 4/2017 Banco España, entidades crédito (DT 39 LIS) - Disminución - Correc.ejer.- Temporarias [03357]");
+            m226fcas3358.setDescription("Ajustes por primera aplicación Circular 4/2017 Banco España, entidades crédito (DT 39 LIS) - Disminución - Correc.ejer.- Temporarias [03358]");
+            m226fcas3359.setDescription("Ajustes por primera aplicación Circular 4/2017 Banco España, entidades crédito (DT 39 LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03359]");
+            m226fcas3360.setDescription("Ajustes por primera aplicación Circular 4/2017 Banco España, entidades crédito (DT 39 LIS) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03360]");
+            m226fcas3361.setDescription("Entidades rég. atribución rentas const. el extranj. con presencia territ. español (art. 38 TRLIRNR) - Aumento - Correc.ejer.- Permanentes [03361]");
+            m226fcas3362.setDescription("Entidades rég. atribución rentas const. el extranj. con presencia territ. español (art. 38 TRLIRNR) - Aumento - Correc.ejer.- Temporarias [03362]");
+            m226fcas3363.setDescription("Entidades rég. atribución rentas const. el extranj. con presencia territ. español (art. 38 TRLIRNR) - Aumento - Correc.ejer.- Temporarias [03363]");
+            m226fcas3364.setDescription("Entidades rég. atribución rentas const. el extranj. con presencia territ. español (art. 38 TRLIRNR) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03364]");
+            m226fcas3365.setDescription("Entidades rég. atribución rentas const. el extranj. con presencia territ. español (art. 38 TRLIRNR) - Aumento - Saldo pdte.a fin ejer.- Temporarias [03365]");
+            m226fcas3366.setDescription("Entidades rég. atribución rentas const. el extranj. con presencia territ. español (art. 38 TRLIRNR) - Disminución - Correc.ejer.- Permanentes [03366]");
+            m226fcas3367.setDescription("Entidades rég. atribución rentas const. el extranj. con presencia territ. español (art. 38 TRLIRNR) - Disminución - Correc.ejer.- Temporarias [03367]");
+            m226fcas3368.setDescription("Entidades rég. atribución rentas const. el extranj. con presencia territ. español (art. 38 TRLIRNR) - Disminución - Correc.ejer.- Temporarias [03368]");
+            m226fcas3369.setDescription("Entidades rég. atribución rentas const. el extranj. con presencia territ. español (art. 38 TRLIRNR) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03369]");
+            m226fcas3370.setDescription("Entidades rég. atribución rentas const. el extranj. con presencia territ. español (art. 38 TRLIRNR) - Disminución - Saldo pdte.a fin ejer.- Temporarias [03370]");
+            m226fcas3371.setDescription("Correc.específicas entidades sometidas normativa foral - Aumento - Correc.ejer.- Permanentes [03371]");
+            m226fcas3372.setDescription("Correc.específicas entidades sometidas normativa foral - Aumento - Correc.ejer.- Temporarias [03372]");
+            m226fcas3373.setDescription("Correc.específicas entidades sometidas normativa foral - Aumento - Correc.ejer.- Temporarias [03373]");
+            m226fcas3374.setDescription("Correc.específicas entidades sometidas normativa foral - Aumento - Saldo pdte.a fin ejer.- Temporarias [03374]");
+            m226fcas3375.setDescription("Correc.específicas entidades sometidas normativa foral - Aumento - Saldo pdte.a fin ejer.- Temporarias [03375]");
+            m226fcas3376.setDescription("Correc.específicas entidades sometidas normativa foral - Disminución - Correc.ejer.- Permanentes [03376]");
+            m226fcas3377.setDescription("Correc.específicas entidades sometidas normativa foral - Disminución - Correc.ejer.- Temporarias [03377]");
+            m226fcas3378.setDescription("Correc.específicas entidades sometidas normativa foral - Disminución - Correc.ejer.- Temporarias [03378]");
+            m226fcas3379.setDescription("Correc.específicas entidades sometidas normativa foral - Disminución - Saldo pdte.a fin ejer.- Temporarias [03379]");
+            m226fcas3380.setDescription("Correc.específicas entidades sometidas normativa foral - Disminución - Saldo pdte.a fin ejer.- Temporarias [03380]");
+            m226fcas3381.setDescription("Eliminaciones pendientes incorporar sociedades que dejen pertenecer un grupo - Aumento - Correc.ejer.- Permanentes [03381]");
+            m226fcas3382.setDescription("Eliminaciones pendientes incorporar sociedades que dejen pertenecer un grupo - Aumento - Correc.ejer.- Temporarias [03382]");
+            m226fcas3383.setDescription("Eliminaciones pendientes incorporar sociedades que dejen pertenecer un grupo - Aumento - Correc.ejer.- Temporarias [03383]");
+            m226fcas3384.setDescription("Eliminaciones pendientes incorporar sociedades que dejen pertenecer un grupo - Aumento - Saldo pdte.a fin ejer.- Temporarias [03384]");
+            m226fcas3385.setDescription("Eliminaciones pendientes incorporar sociedades que dejen pertenecer un grupo - Aumento - Saldo pdte.a fin ejer.- Temporarias [03385]");
+            m226fcas3386.setDescription("Eliminaciones pendientes incorporar sociedades que dejen pertenecer un grupo - Disminución - Correc.ejer.- Permanentes [03386]");
+            m226fcas3387.setDescription("Eliminaciones pendientes incorporar sociedades que dejen pertenecer un grupo - Disminución - Correc.ejer.- Temporarias [03387]");
+            m226fcas3388.setDescription("Eliminaciones pendientes incorporar sociedades que dejen pertenecer un grupo - Disminución - Correc.ejer.- Temporarias [03388]");
+            m226fcas3389.setDescription("Eliminaciones pendientes incorporar sociedades que dejen pertenecer un grupo - Disminución - Saldo pdte.a fin ejer.- Temporarias [03389]");
+            m226fcas3390.setDescription("Eliminaciones pendientes incorporar sociedades que dejen pertenecer un grupo - Disminución - Saldo pdte.a fin ejer.- Temporarias [03390]");
+            m226fcas3391.setDescription("Otras correcciones resultado cuenta pérdidas y ganancias - Aumento - Correc.ejer.- Permanentes [03391]");
+            m226fcas3392.setDescription("Otras correcciones resultado cuenta pérdidas y ganancias - Aumento - Correc.ejer.- Temporarias [03392]");
+            m226fcas3393.setDescription("Otras correcciones resultado cuenta pérdidas y ganancias - Aumento - Correc.ejer.- Temporarias [03393]");
+            m226fcas3394.setDescription("Otras correcciones resultado cuenta pérdidas y ganancias - Aumento - Saldo pdte.a fin ejer.- Temporarias [03394]");
+            m226fcas3395.setDescription("Otras correcciones resultado cuenta pérdidas y ganancias - Aumento - Saldo pdte.a fin ejer.- Temporarias [03395]");
+            m226fcas3396.setDescription("Otras correcciones resultado cuenta pérdidas y ganancias - Disminución - Correc.ejer.- Permanentes [03396]");
+            m226fcas3397.setDescription("Otras correcciones resultado cuenta pérdidas y ganancias - Disminución - Correc.ejer.- Temporarias [03397]");
+            m226fcas3398.setDescription("Otras correcciones resultado cuenta pérdidas y ganancias - Disminución - Correc.ejer.- Temporarias [03398]");
+            m226fcas3399.setDescription("Otras correcciones resultado cuenta pérdidas y ganancias - Disminución - Saldo pdte.a fin ejer.- Temporarias [03399]");
+            m226fcas3400.setDescription("Otras correcciones resultado cuenta pérdidas y ganancias - Disminución - Saldo pdte.a fin ejer.- Temporarias [03400]");
+            m226fcas3284.setDescription("UEFA Women Champions League 2020 (DA 6ª RDL 28/2020) - Aumento - Saldo pendiente a principio de ejercicio [03284]");
+            m226fcas3281.setDescription("UEFA Women Champions League 2020 (DA 6ª RDL 28/2020) - Aumento - Correcciones del ejercicio - Permanentes [03281]");
+            m226fcas3282.setDescription("UEFA Women Champions League 2020 (DA 6ª RDL 28/2020) - Aumento - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [03282]");
+            m226fcas3283.setDescription("UEFA Women Champions League 2020 (DA 6ª RDL 28/2020) - Aumento - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [03283]");
+            m226fcas3285.setDescription("UEFA Women Champions League 2020 (DA 6ª RDL 28/2020) - Aumento - Saldo pendiente a fin de ejercicio [03285]");
+            m226fcas3314.setDescription("UEFA Women Champions League 2020 (DA 6ª RDL 28/2020) - Disminución - Saldo pendiente a principio de ejercicio [03314]");
+            m226fcas3311.setDescription("UEFA Women Champions League 2020 (DA 6ª RDL 28/2020) - Disminución - Correcciones del ejercicio - Permanentes [03311]");
+            m226fcas3312.setDescription("UEFA Women Champions League 2020 (DA 6ª RDL 28/2020) - Disminución - Correcciones del ejercicio - Temporarias (con origen en el ejercicio) [03312]");
+            m226fcas3313.setDescription("UEFA Women Champions League 2020 (DA 6ª RDL 28/2020) - Disminución - Correcciones del ejercicio - Temporarias (con origen en ejercicios anteriores) [03313]");
+            m226fcas3315.setDescription("UEFA Women Champions League 2020 (DA 6ª RDL 28/2020) - Disminución - Saldo pendiente a fin de ejercicio [03315]");
+            }
+        }
+        
+    public class TabMod200h15b extends TableDef
+        {
+        // campos
+        public FieldDef m2015dominio;
+        public FieldDef m2015nif;
+        public FieldDef m2015ejercicio;
+        public FieldDef m2015periodo;
+        public FieldDef m2015bnegini94;
+        public FieldDef m2015bnegapl94;
+        public FieldDef m2015bnegini95;
+        public FieldDef m2015bnegapl95;
+        public FieldDef m2015bnegpdt95;
+        public FieldDef m2015bnegini96;
+        public FieldDef m2015bnegapl96;
+        public FieldDef m2015bnegpdt96;
+        public FieldDef m2015bnegini97;
+        public FieldDef m2015bnegapl97;
+        public FieldDef m2015bnegpdt97;
+        public FieldDef m2015bnegini98;
+        public FieldDef m2015bnegapl98;
+        public FieldDef m2015bnegpdt98;
+        public FieldDef m2015bnegini99;
+        public FieldDef m2015bnegapl99;
+        public FieldDef m2015bnegpdt99;
+        public FieldDef m2015bnegini00;
+        public FieldDef m2015bnegapl00;
+        public FieldDef m2015bnegpdt00;
+        public FieldDef m2015bnegini01;
+        public FieldDef m2015bnegapl01;
+        public FieldDef m2015bnegpdt01;
+        public FieldDef m2015bnegini02;
+        public FieldDef m2015bnegapl02;
+        public FieldDef m2015bnegpdt02;
+        public FieldDef m2015bnegini03;
+        public FieldDef m2015bnegapl03;
+        public FieldDef m2015bnegpdt03;
+        public FieldDef m2015bnegini04;
+        public FieldDef m2015bnegapl04;
+        public FieldDef m2015bnegpdt04;
+        public FieldDef m2015bnegini05;
+        public FieldDef m2015bnegapl05;
+        public FieldDef m2015bnegpdt05;
+        public FieldDef m2015bnegini06;
+        public FieldDef m2015bnegapl06;
+        public FieldDef m2015bnegpdt06;
+        public FieldDef m2015bnegini07;
+        public FieldDef m2015bnegapl07;
+        public FieldDef m2015bnegpdt07;
+        public FieldDef m2015bnegini08;
+        public FieldDef m2015bnegapl08;
+        public FieldDef m2015bnegpdt08;
+        public FieldDef m2015bnegini09;
+        public FieldDef m2015bnegapl09;
+        public FieldDef m2015bnegpdt09;
+        public FieldDef m2015bnegini10;
+        public FieldDef m2015bnegapl10;
+        public FieldDef m2015bnegpdt10;
+        public FieldDef m2015bnegini11;
+        public FieldDef m2015bnegapl11;
+        public FieldDef m2015bnegpdt11;
+        public FieldDef m2015bnegini12;
+        public FieldDef m2015bnegapl12;
+        public FieldDef m2015bnegpdt12;
+        public FieldDef m2015bnegini13;
+        public FieldDef m2015bnegapl13;
+        public FieldDef m2015bnegpdt13;
+        public FieldDef m2015bnegini14;
+        public FieldDef m2015bnegapl14;
+        public FieldDef m2015bnegpdt14;
+        public FieldDef m2015bnegini15;
+        public FieldDef m2015bnegapl15;
+        public FieldDef m2015bnegpdt15;
+        public FieldDef m2015bnegini16;
+        public FieldDef m2015bnegapl16;
+        public FieldDef m2015bnegpdt16;
+        public FieldDef m2015bnegini17;
+        public FieldDef m2015bnegapl17;
+        public FieldDef m2015bnegpdt17;
+        public FieldDef m2015bneginitot;
+        public FieldDef m2015bnegapltot;
+        public FieldDef m2015bnegpdttot;
+        public FieldDef m2015compbsini;
+        public FieldDef m2015compbspdt;
+        public FieldDef m2015dintori03;
+        public FieldDef m2015dintgra03;
+        public FieldDef m2015dintini03;
+        public FieldDef m2015dintapl03;
+        public FieldDef m2015dintpdt03;
+        public FieldDef m2015dintori04;
+        public FieldDef m2015dintgra04;
+        public FieldDef m2015dintini04;
+        public FieldDef m2015dintapl04;
+        public FieldDef m2015dintpdt04;
+        public FieldDef m2015dintori05;
+        public FieldDef m2015dintgra05;
+        public FieldDef m2015dintini05;
+        public FieldDef m2015dintapl05;
+        public FieldDef m2015dintpdt05;
+        public FieldDef m2015dintori06;
+        public FieldDef m2015dintgra06;
+        public FieldDef m2015dintini06;
+        public FieldDef m2015dintapl06;
+        public FieldDef m2015dintpdt06;
+        public FieldDef m2015dintori07;
+        public FieldDef m2015dintgra07;
+        public FieldDef m2015dintini07;
+        public FieldDef m2015dintapl07;
+        public FieldDef m2015dintpdt07;
+        public FieldDef m2015dintori08;
+        public FieldDef m2015dintgra08;
+        public FieldDef m2015dintini08;
+        public FieldDef m2015dintapl08;
+        public FieldDef m2015dintpdt08;
+        public FieldDef m2015dintori09;
+        public FieldDef m2015dintgra09;
+        public FieldDef m2015dintini09;
+        public FieldDef m2015dintapl09;
+        public FieldDef m2015dintpdt09;
+        public FieldDef m2015dintoritot;
+        public FieldDef m2015dintinitot;
+        public FieldDef m2015dintapltot;
+        public FieldDef m2015dintpdttot;
+        public FieldDef m2015dintgrav;
+        public FieldDef m2015dincori15;
+        public FieldDef m2015dincgra15;
+        public FieldDef m2015dincini15;
+        public FieldDef m2015dincapl15;
+        public FieldDef m2015dincpdt15;
+        public FieldDef m2015dincori16;
+        public FieldDef m2015dincgra16;
+        public FieldDef m2015dincini16;
+        public FieldDef m2015dincapl16;
+        public FieldDef m2015dincpdt16;
+        public FieldDef m2015dincori17;
+        public FieldDef m2015dincgra17;
+        public FieldDef m2015dincini17;
+        public FieldDef m2015dincapl17;
+        public FieldDef m2015dincpdt17;
+        public FieldDef m2015dincori18;
+        public FieldDef m2015dincgra18;
+        public FieldDef m2015dincini18;
+        public FieldDef m2015dincapl18;
+        public FieldDef m2015dincpdt18;
+        public FieldDef m2015dincori19;
+        public FieldDef m2015dincgra19;
+        public FieldDef m2015dincini19;
+        public FieldDef m2015dincapl19;
+        public FieldDef m2015dincpdt19;
+        public FieldDef m2015dincori16b;
+        public FieldDef m2015dincgra16b;
+        public FieldDef m2015dincini16b;
+        public FieldDef m2015dincapl16b;
+        public FieldDef m2015dincpdt16b;
+        public FieldDef m2015dintoridtt;
+        public FieldDef m2015dintinidtt;
+        public FieldDef m2015dintapldtt;
+        public FieldDef m2015dintpdtdtt;
+        public FieldDef m2015dintgravdt;
+        public FieldDef m2015dincori20;
+        public FieldDef m2015dincgra20;
+        public FieldDef m2015dincini20;
+        public FieldDef m2015dincapl20;
+        public FieldDef m2015dincpdt20;
+        public FieldDef m2015dintoridt2;
+        public FieldDef m2015dintapldt2;
+        public FieldDef m2015dintpdtdt2;
+        public FieldDef m2015bnegpdt94;
+        public TabMod200h15b(String name)
+            {
+            super(name);
+            m2015dominio = new FieldDef("m2015dominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m2015nif = new FieldDef("m2015nif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m2015ejercicio = new FieldDef("m2015ejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m2015periodo = new FieldDef("m2015periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m2015bnegini94 = new FieldDef("m2015bnegini94",FieldDef.FLOAT,6,0);
+            m2015bnegapl94 = new FieldDef("m2015bnegapl94",FieldDef.FLOAT,6,0);
+            m2015bnegini95 = new FieldDef("m2015bnegini95",FieldDef.FLOAT,6,0);
+            m2015bnegapl95 = new FieldDef("m2015bnegapl95",FieldDef.FLOAT,6,0);
+            m2015bnegpdt95 = new FieldDef("m2015bnegpdt95",FieldDef.FLOAT,6,0);
+            m2015bnegini96 = new FieldDef("m2015bnegini96",FieldDef.FLOAT,6,0);
+            m2015bnegapl96 = new FieldDef("m2015bnegapl96",FieldDef.FLOAT,6,0);
+            m2015bnegpdt96 = new FieldDef("m2015bnegpdt96",FieldDef.FLOAT,6,0);
+            m2015bnegini97 = new FieldDef("m2015bnegini97",FieldDef.FLOAT,6,0);
+            m2015bnegapl97 = new FieldDef("m2015bnegapl97",FieldDef.FLOAT,6,0);
+            m2015bnegpdt97 = new FieldDef("m2015bnegpdt97",FieldDef.FLOAT,6,0);
+            m2015bnegini98 = new FieldDef("m2015bnegini98",FieldDef.FLOAT,6,0);
+            m2015bnegapl98 = new FieldDef("m2015bnegapl98",FieldDef.FLOAT,6,0);
+            m2015bnegpdt98 = new FieldDef("m2015bnegpdt98",FieldDef.FLOAT,6,0);
+            m2015bnegini99 = new FieldDef("m2015bnegini99",FieldDef.FLOAT,6,0);
+            m2015bnegapl99 = new FieldDef("m2015bnegapl99",FieldDef.FLOAT,6,0);
+            m2015bnegpdt99 = new FieldDef("m2015bnegpdt99",FieldDef.FLOAT,6,0);
+            m2015bnegini00 = new FieldDef("m2015bnegini00",FieldDef.FLOAT,6,0);
+            m2015bnegapl00 = new FieldDef("m2015bnegapl00",FieldDef.FLOAT,6,0);
+            m2015bnegpdt00 = new FieldDef("m2015bnegpdt00",FieldDef.FLOAT,6,0);
+            m2015bnegini01 = new FieldDef("m2015bnegini01",FieldDef.FLOAT,6,0);
+            m2015bnegapl01 = new FieldDef("m2015bnegapl01",FieldDef.FLOAT,6,0);
+            m2015bnegpdt01 = new FieldDef("m2015bnegpdt01",FieldDef.FLOAT,6,0);
+            m2015bnegini02 = new FieldDef("m2015bnegini02",FieldDef.FLOAT,6,0);
+            m2015bnegapl02 = new FieldDef("m2015bnegapl02",FieldDef.FLOAT,6,0);
+            m2015bnegpdt02 = new FieldDef("m2015bnegpdt02",FieldDef.FLOAT,6,0);
+            m2015bnegini03 = new FieldDef("m2015bnegini03",FieldDef.FLOAT,6,0);
+            m2015bnegapl03 = new FieldDef("m2015bnegapl03",FieldDef.FLOAT,6,0);
+            m2015bnegpdt03 = new FieldDef("m2015bnegpdt03",FieldDef.FLOAT,6,0);
+            m2015bnegini04 = new FieldDef("m2015bnegini04",FieldDef.FLOAT,6,0);
+            m2015bnegapl04 = new FieldDef("m2015bnegapl04",FieldDef.FLOAT,6,0);
+            m2015bnegpdt04 = new FieldDef("m2015bnegpdt04",FieldDef.FLOAT,6,0);
+            m2015bnegini05 = new FieldDef("m2015bnegini05",FieldDef.FLOAT,6,0);
+            m2015bnegapl05 = new FieldDef("m2015bnegapl05",FieldDef.FLOAT,6,0);
+            m2015bnegpdt05 = new FieldDef("m2015bnegpdt05",FieldDef.FLOAT,6,0);
+            m2015bnegini06 = new FieldDef("m2015bnegini06",FieldDef.FLOAT,6,0);
+            m2015bnegapl06 = new FieldDef("m2015bnegapl06",FieldDef.FLOAT,6,0);
+            m2015bnegpdt06 = new FieldDef("m2015bnegpdt06",FieldDef.FLOAT,6,0);
+            m2015bnegini07 = new FieldDef("m2015bnegini07",FieldDef.FLOAT,6,0);
+            m2015bnegapl07 = new FieldDef("m2015bnegapl07",FieldDef.FLOAT,6,0);
+            m2015bnegpdt07 = new FieldDef("m2015bnegpdt07",FieldDef.FLOAT,6,0);
+            m2015bnegini08 = new FieldDef("m2015bnegini08",FieldDef.FLOAT,6,0);
+            m2015bnegapl08 = new FieldDef("m2015bnegapl08",FieldDef.FLOAT,6,0);
+            m2015bnegpdt08 = new FieldDef("m2015bnegpdt08",FieldDef.FLOAT,6,0);
+            m2015bnegini09 = new FieldDef("m2015bnegini09",FieldDef.FLOAT,6,0);
+            m2015bnegapl09 = new FieldDef("m2015bnegapl09",FieldDef.FLOAT,6,0);
+            m2015bnegpdt09 = new FieldDef("m2015bnegpdt09",FieldDef.FLOAT,6,0);
+            m2015bnegini10 = new FieldDef("m2015bnegini10",FieldDef.FLOAT,6,0);
+            m2015bnegapl10 = new FieldDef("m2015bnegapl10",FieldDef.FLOAT,6,0);
+            m2015bnegpdt10 = new FieldDef("m2015bnegpdt10",FieldDef.FLOAT,6,0);
+            m2015bnegini11 = new FieldDef("m2015bnegini11",FieldDef.FLOAT,6,0);
+            m2015bnegapl11 = new FieldDef("m2015bnegapl11",FieldDef.FLOAT,6,0);
+            m2015bnegpdt11 = new FieldDef("m2015bnegpdt11",FieldDef.FLOAT,6,0);
+            m2015bnegini12 = new FieldDef("m2015bnegini12",FieldDef.FLOAT,6,0);
+            m2015bnegapl12 = new FieldDef("m2015bnegapl12",FieldDef.FLOAT,6,0);
+            m2015bnegpdt12 = new FieldDef("m2015bnegpdt12",FieldDef.FLOAT,6,0);
+            m2015bnegini13 = new FieldDef("m2015bnegini13",FieldDef.FLOAT,6,0);
+            m2015bnegapl13 = new FieldDef("m2015bnegapl13",FieldDef.FLOAT,6,0);
+            m2015bnegpdt13 = new FieldDef("m2015bnegpdt13",FieldDef.FLOAT,6,0);
+            m2015bnegini14 = new FieldDef("m2015bnegini14",FieldDef.FLOAT,6,0);
+            m2015bnegapl14 = new FieldDef("m2015bnegapl14",FieldDef.FLOAT,6,0);
+            m2015bnegpdt14 = new FieldDef("m2015bnegpdt14",FieldDef.FLOAT,6,0);
+            m2015bnegini15 = new FieldDef("m2015bnegini15",FieldDef.FLOAT,6,0);
+            m2015bnegapl15 = new FieldDef("m2015bnegapl15",FieldDef.FLOAT,6,0);
+            m2015bnegpdt15 = new FieldDef("m2015bnegpdt15",FieldDef.FLOAT,6,0);
+            m2015bnegini16 = new FieldDef("m2015bnegini16",FieldDef.FLOAT,6,0);
+            m2015bnegapl16 = new FieldDef("m2015bnegapl16",FieldDef.FLOAT,6,0);
+            m2015bnegpdt16 = new FieldDef("m2015bnegpdt16",FieldDef.FLOAT,6,0);
+            m2015bnegini17 = new FieldDef("m2015bnegini17",FieldDef.FLOAT,6,0);
+            m2015bnegapl17 = new FieldDef("m2015bnegapl17",FieldDef.FLOAT,6,0);
+            m2015bnegpdt17 = new FieldDef("m2015bnegpdt17",FieldDef.FLOAT,6,0);
+            m2015bneginitot = new FieldDef("m2015bneginitot",FieldDef.FLOAT,6,0);
+            m2015bnegapltot = new FieldDef("m2015bnegapltot",FieldDef.FLOAT,6,0);
+            m2015bnegpdttot = new FieldDef("m2015bnegpdttot",FieldDef.FLOAT,6,0);
+            m2015compbsini = new FieldDef("m2015compbsini",FieldDef.FLOAT,6,0);
+            m2015compbspdt = new FieldDef("m2015compbspdt",FieldDef.FLOAT,6,0);
+            m2015dintori03 = new FieldDef("m2015dintori03",FieldDef.FLOAT,6,0);
+            m2015dintgra03 = new FieldDef("m2015dintgra03",FieldDef.FLOAT,6,0);
+            m2015dintini03 = new FieldDef("m2015dintini03",FieldDef.FLOAT,6,0);
+            m2015dintapl03 = new FieldDef("m2015dintapl03",FieldDef.FLOAT,6,0);
+            m2015dintpdt03 = new FieldDef("m2015dintpdt03",FieldDef.FLOAT,6,0);
+            m2015dintori04 = new FieldDef("m2015dintori04",FieldDef.FLOAT,6,0);
+            m2015dintgra04 = new FieldDef("m2015dintgra04",FieldDef.FLOAT,6,0);
+            m2015dintini04 = new FieldDef("m2015dintini04",FieldDef.FLOAT,6,0);
+            m2015dintapl04 = new FieldDef("m2015dintapl04",FieldDef.FLOAT,6,0);
+            m2015dintpdt04 = new FieldDef("m2015dintpdt04",FieldDef.FLOAT,6,0);
+            m2015dintori05 = new FieldDef("m2015dintori05",FieldDef.FLOAT,6,0);
+            m2015dintgra05 = new FieldDef("m2015dintgra05",FieldDef.FLOAT,6,0);
+            m2015dintini05 = new FieldDef("m2015dintini05",FieldDef.FLOAT,6,0);
+            m2015dintapl05 = new FieldDef("m2015dintapl05",FieldDef.FLOAT,6,0);
+            m2015dintpdt05 = new FieldDef("m2015dintpdt05",FieldDef.FLOAT,6,0);
+            m2015dintori06 = new FieldDef("m2015dintori06",FieldDef.FLOAT,6,0);
+            m2015dintgra06 = new FieldDef("m2015dintgra06",FieldDef.FLOAT,6,0);
+            m2015dintini06 = new FieldDef("m2015dintini06",FieldDef.FLOAT,6,0);
+            m2015dintapl06 = new FieldDef("m2015dintapl06",FieldDef.FLOAT,6,0);
+            m2015dintpdt06 = new FieldDef("m2015dintpdt06",FieldDef.FLOAT,6,0);
+            m2015dintori07 = new FieldDef("m2015dintori07",FieldDef.FLOAT,6,0);
+            m2015dintgra07 = new FieldDef("m2015dintgra07",FieldDef.FLOAT,6,0);
+            m2015dintini07 = new FieldDef("m2015dintini07",FieldDef.FLOAT,6,0);
+            m2015dintapl07 = new FieldDef("m2015dintapl07",FieldDef.FLOAT,6,0);
+            m2015dintpdt07 = new FieldDef("m2015dintpdt07",FieldDef.FLOAT,6,0);
+            m2015dintori08 = new FieldDef("m2015dintori08",FieldDef.FLOAT,6,0);
+            m2015dintgra08 = new FieldDef("m2015dintgra08",FieldDef.FLOAT,6,0);
+            m2015dintini08 = new FieldDef("m2015dintini08",FieldDef.FLOAT,6,0);
+            m2015dintapl08 = new FieldDef("m2015dintapl08",FieldDef.FLOAT,6,0);
+            m2015dintpdt08 = new FieldDef("m2015dintpdt08",FieldDef.FLOAT,6,0);
+            m2015dintori09 = new FieldDef("m2015dintori09",FieldDef.FLOAT,6,0);
+            m2015dintgra09 = new FieldDef("m2015dintgra09",FieldDef.FLOAT,6,0);
+            m2015dintini09 = new FieldDef("m2015dintini09",FieldDef.FLOAT,6,0);
+            m2015dintapl09 = new FieldDef("m2015dintapl09",FieldDef.FLOAT,6,0);
+            m2015dintpdt09 = new FieldDef("m2015dintpdt09",FieldDef.FLOAT,6,0);
+            m2015dintoritot = new FieldDef("m2015dintoritot",FieldDef.FLOAT,6,0);
+            m2015dintinitot = new FieldDef("m2015dintinitot",FieldDef.FLOAT,6,0);
+            m2015dintapltot = new FieldDef("m2015dintapltot",FieldDef.FLOAT,6,0);
+            m2015dintpdttot = new FieldDef("m2015dintpdttot",FieldDef.FLOAT,6,0);
+            m2015dintgrav = new FieldDef("m2015dintgrav",FieldDef.FLOAT,6,0);
+            m2015dincori15 = new FieldDef("m2015dincori15",FieldDef.FLOAT,6,0);
+            m2015dincgra15 = new FieldDef("m2015dincgra15",FieldDef.FLOAT,6,0);
+            m2015dincini15 = new FieldDef("m2015dincini15",FieldDef.FLOAT,6,0);
+            m2015dincapl15 = new FieldDef("m2015dincapl15",FieldDef.FLOAT,6,0);
+            m2015dincpdt15 = new FieldDef("m2015dincpdt15",FieldDef.FLOAT,6,0);
+            m2015dincori16 = new FieldDef("m2015dincori16",FieldDef.FLOAT,6,0);
+            m2015dincgra16 = new FieldDef("m2015dincgra16",FieldDef.FLOAT,6,0);
+            m2015dincini16 = new FieldDef("m2015dincini16",FieldDef.FLOAT,6,0);
+            m2015dincapl16 = new FieldDef("m2015dincapl16",FieldDef.FLOAT,6,0);
+            m2015dincpdt16 = new FieldDef("m2015dincpdt16",FieldDef.FLOAT,6,0);
+            m2015dincori17 = new FieldDef("m2015dincori17",FieldDef.FLOAT,6,0);
+            m2015dincgra17 = new FieldDef("m2015dincgra17",FieldDef.FLOAT,6,0);
+            m2015dincini17 = new FieldDef("m2015dincini17",FieldDef.FLOAT,6,0);
+            m2015dincapl17 = new FieldDef("m2015dincapl17",FieldDef.FLOAT,6,0);
+            m2015dincpdt17 = new FieldDef("m2015dincpdt17",FieldDef.FLOAT,6,0);
+            m2015dincori18 = new FieldDef("m2015dincori18",FieldDef.FLOAT,6,0);
+            m2015dincgra18 = new FieldDef("m2015dincgra18",FieldDef.FLOAT,6,0);
+            m2015dincini18 = new FieldDef("m2015dincini18",FieldDef.FLOAT,6,0);
+            m2015dincapl18 = new FieldDef("m2015dincapl18",FieldDef.FLOAT,6,0);
+            m2015dincpdt18 = new FieldDef("m2015dincpdt18",FieldDef.FLOAT,6,0);
+            m2015dincori19 = new FieldDef("m2015dincori19",FieldDef.FLOAT,6,0);
+            m2015dincgra19 = new FieldDef("m2015dincgra19",FieldDef.FLOAT,6,0);
+            m2015dincini19 = new FieldDef("m2015dincini19",FieldDef.FLOAT,6,0);
+            m2015dincapl19 = new FieldDef("m2015dincapl19",FieldDef.FLOAT,6,0);
+            m2015dincpdt19 = new FieldDef("m2015dincpdt19",FieldDef.FLOAT,6,0);
+            m2015dincori16b = new FieldDef("m2015dincori16b",FieldDef.FLOAT,6,0);
+            m2015dincgra16b = new FieldDef("m2015dincgra16b",FieldDef.FLOAT,6,0);
+            m2015dincini16b = new FieldDef("m2015dincini16b",FieldDef.FLOAT,6,0);
+            m2015dincapl16b = new FieldDef("m2015dincapl16b",FieldDef.FLOAT,6,0);
+            m2015dincpdt16b = new FieldDef("m2015dincpdt16b",FieldDef.FLOAT,6,0);
+            m2015dintoridtt = new FieldDef("m2015dintoridtt",FieldDef.FLOAT,6,0);
+            m2015dintinidtt = new FieldDef("m2015dintinidtt",FieldDef.FLOAT,6,0);
+            m2015dintapldtt = new FieldDef("m2015dintapldtt",FieldDef.FLOAT,6,0);
+            m2015dintpdtdtt = new FieldDef("m2015dintpdtdtt",FieldDef.FLOAT,6,0);
+            m2015dintgravdt = new FieldDef("m2015dintgravdt",FieldDef.FLOAT,6,0);
+            m2015dincori20 = new FieldDef("m2015dincori20",FieldDef.FLOAT,6,0);
+            m2015dincgra20 = new FieldDef("m2015dincgra20",FieldDef.FLOAT,6,0);
+            m2015dincini20 = new FieldDef("m2015dincini20",FieldDef.FLOAT,6,0);
+            m2015dincapl20 = new FieldDef("m2015dincapl20",FieldDef.FLOAT,6,0);
+            m2015dincpdt20 = new FieldDef("m2015dincpdt20",FieldDef.FLOAT,6,0);
+            m2015dintoridt2 = new FieldDef("m2015dintoridt2",FieldDef.FLOAT,6,0);
+            m2015dintapldt2 = new FieldDef("m2015dintapldt2",FieldDef.FLOAT,6,0);
+            m2015dintpdtdt2 = new FieldDef("m2015dintpdtdt2",FieldDef.FLOAT,6,0);
+            m2015bnegpdt94 = new FieldDef("m2015bnegpdt94",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m2015dominio,
+                m2015nif,
+                m2015ejercicio,
+                m2015periodo,
+                m2015bnegini94,
+                m2015bnegapl94,
+                m2015bnegini95,
+                m2015bnegapl95,
+                m2015bnegpdt95,
+                m2015bnegini96,
+                m2015bnegapl96,
+                m2015bnegpdt96,
+                m2015bnegini97,
+                m2015bnegapl97,
+                m2015bnegpdt97,
+                m2015bnegini98,
+                m2015bnegapl98,
+                m2015bnegpdt98,
+                m2015bnegini99,
+                m2015bnegapl99,
+                m2015bnegpdt99,
+                m2015bnegini00,
+                m2015bnegapl00,
+                m2015bnegpdt00,
+                m2015bnegini01,
+                m2015bnegapl01,
+                m2015bnegpdt01,
+                m2015bnegini02,
+                m2015bnegapl02,
+                m2015bnegpdt02,
+                m2015bnegini03,
+                m2015bnegapl03,
+                m2015bnegpdt03,
+                m2015bnegini04,
+                m2015bnegapl04,
+                m2015bnegpdt04,
+                m2015bnegini05,
+                m2015bnegapl05,
+                m2015bnegpdt05,
+                m2015bnegini06,
+                m2015bnegapl06,
+                m2015bnegpdt06,
+                m2015bnegini07,
+                m2015bnegapl07,
+                m2015bnegpdt07,
+                m2015bnegini08,
+                m2015bnegapl08,
+                m2015bnegpdt08,
+                m2015bnegini09,
+                m2015bnegapl09,
+                m2015bnegpdt09,
+                m2015bnegini10,
+                m2015bnegapl10,
+                m2015bnegpdt10,
+                m2015bnegini11,
+                m2015bnegapl11,
+                m2015bnegpdt11,
+                m2015bnegini12,
+                m2015bnegapl12,
+                m2015bnegpdt12,
+                m2015bnegini13,
+                m2015bnegapl13,
+                m2015bnegpdt13,
+                m2015bnegini14,
+                m2015bnegapl14,
+                m2015bnegpdt14,
+                m2015bnegini15,
+                m2015bnegapl15,
+                m2015bnegpdt15,
+                m2015bnegini16,
+                m2015bnegapl16,
+                m2015bnegpdt16,
+                m2015bnegini17,
+                m2015bnegapl17,
+                m2015bnegpdt17,
+                m2015bneginitot,
+                m2015bnegapltot,
+                m2015bnegpdttot,
+                m2015compbsini,
+                m2015compbspdt,
+                m2015dintori03,
+                m2015dintgra03,
+                m2015dintini03,
+                m2015dintapl03,
+                m2015dintpdt03,
+                m2015dintori04,
+                m2015dintgra04,
+                m2015dintini04,
+                m2015dintapl04,
+                m2015dintpdt04,
+                m2015dintori05,
+                m2015dintgra05,
+                m2015dintini05,
+                m2015dintapl05,
+                m2015dintpdt05,
+                m2015dintori06,
+                m2015dintgra06,
+                m2015dintini06,
+                m2015dintapl06,
+                m2015dintpdt06,
+                m2015dintori07,
+                m2015dintgra07,
+                m2015dintini07,
+                m2015dintapl07,
+                m2015dintpdt07,
+                m2015dintori08,
+                m2015dintgra08,
+                m2015dintini08,
+                m2015dintapl08,
+                m2015dintpdt08,
+                m2015dintori09,
+                m2015dintgra09,
+                m2015dintini09,
+                m2015dintapl09,
+                m2015dintpdt09,
+                m2015dintoritot,
+                m2015dintinitot,
+                m2015dintapltot,
+                m2015dintpdttot,
+                m2015dintgrav,
+                m2015dincori15,
+                m2015dincgra15,
+                m2015dincini15,
+                m2015dincapl15,
+                m2015dincpdt15,
+                m2015dincori16,
+                m2015dincgra16,
+                m2015dincini16,
+                m2015dincapl16,
+                m2015dincpdt16,
+                m2015dincori17,
+                m2015dincgra17,
+                m2015dincini17,
+                m2015dincapl17,
+                m2015dincpdt17,
+                m2015dincori18,
+                m2015dincgra18,
+                m2015dincini18,
+                m2015dincapl18,
+                m2015dincpdt18,
+                m2015dincori19,
+                m2015dincgra19,
+                m2015dincini19,
+                m2015dincapl19,
+                m2015dincpdt19,
+                m2015dincori16b,
+                m2015dincgra16b,
+                m2015dincini16b,
+                m2015dincapl16b,
+                m2015dincpdt16b,
+                m2015dintoridtt,
+                m2015dintinidtt,
+                m2015dintapldtt,
+                m2015dintpdtdtt,
+                m2015dintgravdt,
+                m2015dincori20,
+                m2015dincgra20,
+                m2015dincini20,
+                m2015dincapl20,
+                m2015dincpdt20,
+                m2015dintoridt2,
+                m2015dintapldt2,
+                m2015dintpdtdt2,
+                m2015bnegpdt94                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m2015dominio,m2015nif,m2015ejercicio,m2015periodo };
+            setPrimaryKeys(arrayf);
+            m2015bnegini94.setDescription("bases imp. negat. 1994 Pte. de aplicacion a principio del periodo [640]");
+            m2015bnegapl94.setDescription("bases imp. negat. 1994 Aplicado en esta liquidacion [641]");
+            m2015bnegini95.setDescription("bases imp. negat. 1995 Pte. de aplicacion a principio del periodo [643]");
+            m2015bnegapl95.setDescription("bases imp. negat. 1995 Aplicado en esta liquidacion [644]");
+            m2015bnegpdt95.setDescription("bases imp. negat. 1995 Pte.aplicacion en periodos futuros [645]");
+            m2015bnegini96.setDescription("bases imp. negat. 1996 Pte. de aplicacion a principio del periodo [646]");
+            m2015bnegapl96.setDescription("bases imp. negat. 1996 Aplicado en esta liquidacion [647]");
+            m2015bnegpdt96.setDescription("bases imp. negat. 1996 Pte.aplicacion en periodos futuros [648]");
+            m2015bnegini97.setDescription("bases imp. negat. 1997 Pte. de aplicacion a principio del periodo [649]");
+            m2015bnegapl97.setDescription("bases imp. negat. 1997 Aplicado en esta liquidacion [650]");
+            m2015bnegpdt97.setDescription("bases imp. negat. 1997 Pte.aplicacion en periodos futuros [651]");
+            m2015bnegini98.setDescription("bases imp. negat. 1998 Pte. de aplicacion a principio del periodo [652]");
+            m2015bnegapl98.setDescription("bases imp. negat. 1998 Aplicado en esta liquidacion [653]");
+            m2015bnegpdt98.setDescription("bases imp. negat. 1998 Pte.aplicacion en periodos futuros [654]");
+            m2015bnegini99.setDescription("bases imp. negat. 1999 Pte. de aplicacion a principio del periodo [655]");
+            m2015bnegapl99.setDescription("bases imp. negat. 1999 Aplicado en esta liquidacion [656]");
+            m2015bnegpdt99.setDescription("bases imp. negat. 1999 Pte.aplicacion en periodos futuros [657]");
+            m2015bnegini00.setDescription("bases imp. negat. 2000 Pte. de aplicacion a principio del periodo [658]");
+            m2015bnegapl00.setDescription("bases imp. negat. 2000 Aplicado en esta liquidacion [659]");
+            m2015bnegpdt00.setDescription("bases imp. negat. 2000 Pte.aplicacion en periodos futuros [660]");
+            m2015bnegini01.setDescription("bases imp. negat. 2001 Pte. de aplicacion a principio del periodo [661]");
+            m2015bnegapl01.setDescription("bases imp. negat. 2001 Aplicado en esta liquidacion [662]");
+            m2015bnegpdt01.setDescription("bases imp. negat. 2001 Pte.aplicacion en periodos futuros [663]");
+            m2015bnegini02.setDescription("bases imp. negat. 2002 Pte. de aplicacion a principio del periodo [664]");
+            m2015bnegapl02.setDescription("bases imp. negat. 2002 Aplicado en esta liquidacion [665]");
+            m2015bnegpdt02.setDescription("bases imp. negat. 2002 Pte.aplicacion en periodos futuros [666]");
+            m2015bnegini03.setDescription("bases imp. negat. 2003 Pte. de aplicacion a principio del periodo [667]");
+            m2015bnegapl03.setDescription("bases imp. negat. 2003 Aplicado en esta liquidacion [668]");
+            m2015bnegpdt03.setDescription("bases imp. negat. 2003 Pte.aplicacion en periodos futuros [669]");
+            m2015bnegini04.setDescription("bases imp. negat. 2004 Pte. de aplicacion a principio del periodo [743]");
+            m2015bnegapl04.setDescription("bases imp. negat. 2004 Aplicado en esta liquidacion [747]");
+            m2015bnegpdt04.setDescription("bases imp. negat. 2004 Pte.aplicacion en periodos futuros [748]");
+            m2015bnegini05.setDescription("bases imp. negat. 2005 Pte. de aplicacion a principio del periodo [275]");
+            m2015bnegapl05.setDescription("bases imp. negat. 2005 Aplicado en esta liquidacion [276]");
+            m2015bnegpdt05.setDescription("bases imp. negat. 2005 Pte.aplicacion en periodos futuros [277]");
+            m2015bnegini06.setDescription("bases imp. negat. 2006 Pte. de aplicacion a principio del periodo [608]");
+            m2015bnegapl06.setDescription("bases imp. negat. 2006 Aplicado en esta liquidacion [609]");
+            m2015bnegpdt06.setDescription("bases imp. negat. 2006 Pte.aplicacion en periodos futuros [610]");
+            m2015bnegini07.setDescription("bases imp. negat. 2007 Pte. de aplicacion a principio del periodo [704]");
+            m2015bnegapl07.setDescription("bases imp. negat. 2007 Aplicado en esta liquidacion [705]");
+            m2015bnegpdt07.setDescription("bases imp. negat. 2007 Pte.aplicacion en periodos futuros [706]");
+            m2015bnegini08.setDescription("bases imp. negat. 2008 Pte. de aplicacion a principio del periodo [013]");
+            m2015bnegapl08.setDescription("bases imp. negat. 2008 Aplicado en esta liquidacion [015]");
+            m2015bnegpdt08.setDescription("bases imp. negat. 2008 Pte.aplicacion en periodos futuros [015]");
+            m2015bnegini09.setDescription("bases imp. negat. 2009 Pte. de aplicacion a principio del periodo [725]");
+            m2015bnegapl09.setDescription("bases imp. negat. 2009 Aplicado en esta liquidacion [726]");
+            m2015bnegpdt09.setDescription("bases imp. negat. 2009 Pte.aplicacion en periodos futuros [727]");
+            m2015bnegini10.setDescription("bases imp. negat. 2010 Pte. de aplicacion a principio del periodo [534]");
+            m2015bnegapl10.setDescription("bases imp. negat. 2010 Aplicado en esta liquidacion [535]");
+            m2015bnegpdt10.setDescription("bases imp. negat. 2010 Pte.aplicacion en periodos futuros [536]");
+            m2015bnegini11.setDescription("bases imp. negat. 2011 Pte. de aplicacion a principio del periodo [607]");
+            m2015bnegapl11.setDescription("bases imp. negat. 2011 Aplicado en esta liquidacion [675]");
+            m2015bnegpdt11.setDescription("bases imp. negat. 2011 Pte.aplicacion en periodos futuros [699]");
+            m2015bnegini12.setDescription("bases imp. negat. 2015 Pte. de aplicacion a principio del periodo [1045]");
+            m2015bnegapl12.setDescription("bases imp. negat. 2015 Aplicado en esta liquidacion [1046]");
+            m2015bnegpdt12.setDescription("bases imp. negat. 2015 Pte.aplicacion en periodos futuros [1047]");
+            m2015bnegini13.setDescription("bases imp. negat. 2016 Pte. de aplicacion a principio del periodo [1519]");
+            m2015bnegapl13.setDescription("bases imp. negat. 2016 Aplicado en esta liquidacion [1520]");
+            m2015bnegpdt13.setDescription("bases imp. negat. 2016 Pte.aplicacion en periodos futuros [1521]");
+            m2015bnegini14.setDescription("bases imp. negat. 2017 Pte. de aplicacion a principio del periodo [1592]");
+            m2015bnegapl14.setDescription("bases imp. negat. 2017 Aplicado en esta liquidacion [1593]");
+            m2015bnegpdt14.setDescription("bases imp. negat. 2017 Pte.aplicacion en periodos futuros [1594]");
+            m2015bnegini15.setDescription("bases imp. negat. 2018 Pte. de aplicacion a principio del periodo [1825]");
+            m2015bnegapl15.setDescription("bases imp. negat. 2018 Aplicado en esta liquidacion [1826]");
+            m2015bnegpdt15.setDescription("bases imp. negat. 2018 Pte.aplicacion en periodos futuros [1827]");
+            m2015bnegini16.setDescription("bases imp. negat. 2019 Pte. de aplicacion a principio del periodo [2193] (nou*)");
+            m2015bnegapl16.setDescription("bases imp. negat. 2019 Aplicado en esta liquidacion [2194]");
+            m2015bnegpdt16.setDescription("bases imp. negat. 2019 Pte.aplicacion en periodos futuros [2195]");
+            m2015bnegini17.setDescription("bases imp. negat. 2020 Pte. de aplicacion a principio del periodo [2316] (nou*)");
+            m2015bnegapl17.setDescription("bases imp. negat. 2020 Aplicado en esta liquidacion [2317]");
+            m2015bnegpdt17.setDescription("bases imp. negat. 2020 Pte.aplicacion en periodos futuros [2318]");
+            m2015bneginitot.setDescription("bases imp. negat. TOTAL: Pte. de aplicacion a principio del periodo [670]");
+            m2015bnegapltot.setDescription("bases imp. negat. TOTAL: Aplicado en esta liquidacion [547]");
+            m2015bnegpdttot.setDescription("bases imp. negat. TOTAL: Pte. de aplicacion en periodos futuros [671]");
+            m2015compbsini.setDescription("Compensación de base año 2015 Pdte. de aplic. a inicio del período [1048]");
+            m2015compbspdt.setDescription("Compensación de base año 2015 Pdte. de aplic. en períodos futuros [1049]");
+            m2015dintori03.setDescription("Ded.doble impos. interna 2003 Deduccion pendiente/generada [104]");
+            m2015dintgra03.setDescription("Ded.doble impos. interna 2003 Tipo de gravamen periodo generacion [105]");
+            m2015dintini03.setDescription("Ded.doble impos. interna 2003 Deduccion pendiente [846]");
+            m2015dintapl03.setDescription("Ded.doble impos. interna 2003 Deduccion aplicada en esta liquidacion [847]");
+            m2015dintpdt03.setDescription("Ded.doble impos. interna 2003 Deduccion pendiente ejercicios futuros [848]");
+            m2015dintori04.setDescription("Ded.doble impos. interna 2004 Deduccion pendiente/generada [106]");
+            m2015dintgra04.setDescription("Ded.doble impos. interna 2004 Tipo de gravamen periodo generacion [107]");
+            m2015dintini04.setDescription("Ded.doble impos. interna 2004 Deduccion pendiente [282]");
+            m2015dintapl04.setDescription("Ded.doble impos. interna 2004 Deduccion aplicada en esta liquidacion [283]");
+            m2015dintpdt04.setDescription("Ded.doble impos. interna 2004 Deduccion pendiente ejercicios futuros [284]");
+            m2015dintori05.setDescription("Ded.doble impos. interna 2005 Deduccion pendiente/generada [108]");
+            m2015dintgra05.setDescription("Ded.doble impos. interna 2005 Tipo de gravamen periodo generacion [109]");
+            m2015dintini05.setDescription("Ded.doble impos. interna 2005 Deduccion pendiente [702]");
+            m2015dintapl05.setDescription("Ded.doble impos. interna 2005 Deduccion aplicada en esta liquidacion [703]");
+            m2015dintpdt05.setDescription("Ded.doble impos. interna 2005 Deduccion pendiente ejercicios futuros [707]");
+            m2015dintori06.setDescription("Ded.doble impos. interna 2006 Deduccion pendiente/generada [110]");
+            m2015dintgra06.setDescription("Ded.doble impos. interna 2006 Tipo de gravamen periodo generacion [111]");
+            m2015dintini06.setDescription("Ded.doble impos. interna 2006 Deduccion pendiente [071]");
+            m2015dintapl06.setDescription("Ded.doble impos. interna 2006 Deduccion aplicada en esta liquidacion [187]");
+            m2015dintpdt06.setDescription("Ded.doble impos. interna 2006 Deduccion pendiente ejercicios futuros [300]");
+            m2015dintori07.setDescription("Ded.doble impos. interna 2007 Deduccion pendiente/generada [112]");
+            m2015dintgra07.setDescription("Ded.doble impos. interna 2007 Tipo de gravamen periodo generacion [113]");
+            m2015dintini07.setDescription("Ded.doble impos. interna 2007 Deduccion pendiente [025]");
+            m2015dintapl07.setDescription("Ded.doble impos. interna 2007 Deduccion aplicada en esta liquidacion [026]");
+            m2015dintpdt07.setDescription("Ded.doble impos. interna 2007 Deduccion pendiente ejercicios futuros [027]");
+            m2015dintori08.setDescription("Ded.doble impos. interna 2008 Deduccion pendiente/generada [115]");
+            m2015dintgra08.setDescription("Ded.doble impos. interna 2008 Tipo de gravamen periodo generacion [115]");
+            m2015dintini08.setDescription("Ded.doble impos. interna 2008 Deduccion pendiente [715]");
+            m2015dintapl08.setDescription("Ded.doble impos. interna 2008 Deduccion aplicada en esta liquidacion [715]");
+            m2015dintpdt08.setDescription("Ded.doble impos. interna 2008 Deduccion pendiente ejercicios futuros [716]");
+            m2015dintori09.setDescription("Ded.doble impos. interna 2009 Deduccion pendiente/generada [735]");
+            m2015dintgra09.setDescription("Ded.doble impos. interna 2009 Tipo de gravamen periodo generacion [920]");
+            m2015dintini09.setDescription("Ded.doble impos. interna 2009 Deduccion pendiente [736]");
+            m2015dintapl09.setDescription("Ded.doble impos. interna 2009 Deduccion aplicada en esta liquidacion [737]");
+            m2015dintpdt09.setDescription("Ded.doble impos. interna 2009 Deduccion pendiente ejercicios futuros [738]");
+            m2015dintoritot.setDescription("Ded.doble impos. interna Total Deduccion pendiente/generada [116]");
+            m2015dintinitot.setDescription("Ded.doble impos. interna Total Deduccion pendiente [117]");
+            m2015dintapltot.setDescription("Ded.doble impos. interna Total Deduccion aplicada en esta liquidacion [570]");
+            m2015dintpdttot.setDescription("Ded.doble impos. interna Total Deduccion pendiente ejercicios futuros [118]");
+            m2015dintgrav.setDescription("Ded.doble impos. interna Tipo de gravamen 2009 [103]");
+            m2015dincori15.setDescription("Ded.doble impos. internacional 2015 Deduccion pendiente/generada [101]");
+            m2015dincgra15.setDescription("Ded.doble impos. internacional 2015 Tipo de gravamen periodo generacion [102]");
+            m2015dincini15.setDescription("Ded.doble impos. internacional 2015 Deduccion pendiente [119]");
+            m2015dincapl15.setDescription("Ded.doble impos. internacional 2015 Deduccion aplicada en esta liquidacion [120]");
+            m2015dincpdt15.setDescription("Ded.doble impos. internacional 2015 Deduccion pendiente ejercicios futuros [121]");
+            m2015dincori16.setDescription("Ded.doble impos. internacional 2016 Deduccion pendiente/generada [127]");
+            m2015dincgra16.setDescription("Ded.doble impos. internacional 2016 Tipo de gravamen periodo generacion [128]");
+            m2015dincini16.setDescription("Ded.doble impos. internacional 2016 Deduccion pendiente [124]");
+            m2015dincapl16.setDescription("Ded.doble impos. internacional 2016 Deduccion aplicada en esta liquidacion [125]");
+            m2015dincpdt16.setDescription("Ded.doble impos. internacional 2016 Deduccion pendiente ejercicios futuros [126]");
+            m2015dincori17.setDescription("Ded.doble impos. interna 2017 Deduccion pendiente/generada [127]");
+            m2015dincgra17.setDescription("Ded.doble impos. interna 2017 Tipo de gravamen periodo generacion");
+            m2015dincini17.setDescription("Ded.doble impos. interna 2017 Deduccion pendiente");
+            m2015dincapl17.setDescription("Ded.doble impos. interna 2017 Deduccion aplicada en esta liquidacion [128]");
+            m2015dincpdt17.setDescription("Ded.doble impos. interna 2017 Deduccion pendiente ejercicios futuros [129]");
+            m2015dincori18.setDescription("Ded.doble impos. interna 2018 Deduccion pendiente/generada [127]");
+            m2015dincgra18.setDescription("Ded.doble impos. interna 2018 Tipo de gravamen periodo generacion");
+            m2015dincini18.setDescription("Ded.doble impos. interna 2018 Deduccion pendiente");
+            m2015dincapl18.setDescription("Ded.doble impos. interna 2018 Deduccion aplicada en esta liquidacion [128]");
+            m2015dincpdt18.setDescription("Ded.doble impos. interna 2018 Deduccion pendiente ejercicios futuros [129]");
+            m2015dincori19.setDescription("Ded.doble impos. interna 2019 Deduccion pendiente/generada [127]");
+            m2015dincgra19.setDescription("Ded.doble impos. interna 2019 Tipo de gravamen periodo generacion");
+            m2015dincini19.setDescription("Ded.doble impos. interna 2019 Deduccion pendiente");
+            m2015dincapl19.setDescription("Ded.doble impos. interna 2019 Deduccion aplicada en esta liquidacion [128]");
+            m2015dincpdt19.setDescription("Ded.doble impos. interna 2019 Deduccion pendiente ejercicios futuros [129]");
+            m2015dincori16b.setDescription("Ded.doble impos. internacional 2016 bis Deduccion pendiente/generada [122]");
+            m2015dincgra16b.setDescription("Ded.doble impos. internacional 2016 bis Tipo de gravamen periodo generacion [123]");
+            m2015dincini16b.setDescription("Ded.doble impos. internacional 2016 bis Deduccion pendiente [124]");
+            m2015dincapl16b.setDescription("Ded.doble impos. internacional 2016 bis Deduccion aplicada en esta liquidacion [125]");
+            m2015dincpdt16b.setDescription("Ded.doble impos. internacional 2016 bis Deduccion pendiente ejercicios futuros [126]");
+            m2015dintoridtt.setDescription("Ded.doble impos. interna Total DT Deduccion pendiente/generada [1342]");
+            m2015dintinidtt.setDescription("Ded.doble impos. interna Total DT Deduccion pendiente [1343]");
+            m2015dintapldtt.setDescription("Ded.doble impos. interna Total DT Deduccion aplicada en esta liquidacion [1344]");
+            m2015dintpdtdtt.setDescription("Ded.doble impos. interna Total DT Deduccion pendiente ejercicios futuros [1345]");
+            m2015dintgravdt.setDescription("Ded.doble impos. interna DT Tipo de gravamen  [103]");
+            m2015dincori20.setDescription("Ded.doble impos. interna 2020 Deduccion pendiente/generada [319]");
+            m2015dincgra20.setDescription("Ded.doble impos. interna 2020 Tipo de gravamen periodo generacion");
+            m2015dincini20.setDescription("Ded.doble impos. interna 2020 Deduccion pendiente");
+            m2015dincapl20.setDescription("Ded.doble impos. interna 2020 Deduccion aplicada en esta liquidacion [322]");
+            m2015dincpdt20.setDescription("Ded.doble impos. interna 2020 Deduccion pendiente ejercicios futuros [323]");
+            m2015dintoridt2.setDescription("Ded.doble impos. interna Total DT Deduccion pendiente/generada [1346]");
+            m2015dintapldt2.setDescription("Ded.doble impos. interna Total DT Deduccion aplicada en esta liquidacion [1280]");
+            m2015dintpdtdt2.setDescription("Ded.doble impos. interna Total DT Deduccion pendiente ejercicios futuros [1347]");
+            m2015bnegpdt94.setDescription("bases imp. negat. 1997 Pte.aplicacion en periodos futuros [548]");
+            }
+        }
+        
+    public class TabMod200h18e extends TableDef
+        {
+        // campos
+        public FieldDef m218edominio;
+        public FieldDef m218enif;
+        public FieldDef m218eejercicio;
+        public FieldDef m218eperiodo;
+        public FieldDef m218eus20ini;
+        public FieldDef m218eus20apl;
+        public FieldDef m218eus20pdt;
+        public FieldDef m218elb20ini;
+        public FieldDef m218elb20apl;
+        public FieldDef m218elb20pdt;
+        public FieldDef m218e4bw20ini;
+        public FieldDef m218e4bw20apl;
+        public FieldDef m218e4bw20pdt;
+        public FieldDef m218eepv20ini;
+        public FieldDef m218eepv20apl;
+        public FieldDef m218eepv20pdt;
+        public FieldDef m218epfl20ini;
+        public FieldDef m218epfl20apl;
+        public FieldDef m218epfl20pdt;
+        public FieldDef m218epdm20ini;
+        public FieldDef m218epdm20apl;
+        public FieldDef m218epdm20pdt;
+        public FieldDef m218et2020ini;
+        public FieldDef m218et2020apl;
+        public FieldDef m218et2020pdt;
+        public FieldDef m218e50j20ini;
+        public FieldDef m218e50j20apl;
+        public FieldDef m218e50j20pdt;
+        public FieldDef m218ebm120ini;
+        public FieldDef m218ebm120apl;
+        public FieldDef m218ebm120pdt;
+        public FieldDef m218eavm20ini;
+        public FieldDef m218eavm20apl;
+        public FieldDef m218eavm20pdt;
+        public FieldDef m218etle20ini;
+        public FieldDef m218etle20apl;
+        public FieldDef m218etle20pdt;
+        public FieldDef m218ebm20ini;
+        public FieldDef m218ebm20apl;
+        public FieldDef m218ebm20pdt;
+        public FieldDef m218eclc20ini;
+        public FieldDef m218eclc20apl;
+        public FieldDef m218eclc20pdt;
+        public FieldDef m218ebw20ini;
+        public FieldDef m218ebw20apl;
+        public FieldDef m218ebw20pdt;
+        public FieldDef m218enm20ini;
+        public FieldDef m218enm20apl;
+        public FieldDef m218enm20pdt;
+        public FieldDef m218el220ini;
+        public FieldDef m218el220apl;
+        public FieldDef m218el220pdt;
+        public FieldDef m218ej220ini;
+        public FieldDef m218ej220apl;
+        public FieldDef m218ej220pdt;
+        public FieldDef m218ecb20ini;
+        public FieldDef m218ecb20apl;
+        public FieldDef m218ecb20pdt;
+        public FieldDef m218edi20ini;
+        public FieldDef m218edi20apl;
+        public FieldDef m218edi20pdt;
+        public FieldDef m218ee20ini;
+        public FieldDef m218ee20apl;
+        public FieldDef m218ee20pdt;
+        public FieldDef m218ecr20ini;
+        public FieldDef m218ecr20apl;
+        public FieldDef m218ecr20pdt;
+        public FieldDef m218etr20ini;
+        public FieldDef m218etr20apl;
+        public FieldDef m218etr20pdt;
+        public FieldDef m218een20ini;
+        public FieldDef m218een20apl;
+        public FieldDef m218een20pdt;
+        public FieldDef m218eune20ini;
+        public FieldDef m218eune20apl;
+        public FieldDef m218eune20pdt;
+        public FieldDef m218eab20ini;
+        public FieldDef m218eab20apl;
+        public FieldDef m218eab20pdt;
+        public FieldDef m218ebf20ini;
+        public FieldDef m218ebf20apl;
+        public FieldDef m218ebf20pdt;
+        public FieldDef m218ebe20ini;
+        public FieldDef m218ebe20apl;
+        public FieldDef m218ebe20pdt;
+        public FieldDef m218eum20ini;
+        public FieldDef m218eum20apl;
+        public FieldDef m218eum20pdt;
+        public FieldDef m218ecd20ini;
+        public FieldDef m218ecd20apl;
+        public FieldDef m218ecd20pdt;
+        public FieldDef m218ep2020ini;
+        public FieldDef m218ep2020apl;
+        public FieldDef m218ep2020pdt;
+        public FieldDef m218ecl20ini;
+        public FieldDef m218ecl20apl;
+        public FieldDef m218ecl20pdt;
+        public FieldDef m218ed2020ini;
+        public FieldDef m218ed2020apl;
+        public FieldDef m218ed2020pdt;
+        public FieldDef m218ecop20ini;
+        public FieldDef m218ecop20apl;
+        public FieldDef m218ecop20pdt;
+        public FieldDef m218epb20ini;
+        public FieldDef m218epb20apl;
+        public FieldDef m218epb20pdt;
+        public FieldDef m218ea2120ini;
+        public FieldDef m218ea2120apl;
+        public FieldDef m218ea2120pdt;
+        public FieldDef m218e2020ini;
+        public FieldDef m218e2020apl;
+        public FieldDef m218e2020pdt;
+        public FieldDef m218efo20ini;
+        public FieldDef m218efo20apl;
+        public FieldDef m218efo20pdt;
+        public FieldDef m218etl20ini;
+        public FieldDef m218etl20apl;
+        public FieldDef m218etl20pdt;
+        public FieldDef m218ef120ini;
+        public FieldDef m218ef120apl;
+        public FieldDef m218ef120pdt;
+        public FieldDef m218erestini;
+        public FieldDef m218erestapl;
+        public FieldDef m218erestpdt;
+        public FieldDef m218eipubini;
+        public FieldDef m218eipubapl;
+        public FieldDef m218eipubpdt;
+        public FieldDef m218etotdedini;
+        public FieldDef m218etotdedapl;
+        public FieldDef m218etotdedpdt;
+        public TabMod200h18e(String name)
+            {
+            super(name);
+            m218edominio = new FieldDef("m218edominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m218enif = new FieldDef("m218enif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m218eejercicio = new FieldDef("m218eejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m218eperiodo = new FieldDef("m218eperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m218eus20ini = new FieldDef("m218eus20ini",FieldDef.FLOAT,6,0);
+            m218eus20apl = new FieldDef("m218eus20apl",FieldDef.FLOAT,6,0);
+            m218eus20pdt = new FieldDef("m218eus20pdt",FieldDef.FLOAT,6,0);
+            m218elb20ini = new FieldDef("m218elb20ini",FieldDef.FLOAT,6,0);
+            m218elb20apl = new FieldDef("m218elb20apl",FieldDef.FLOAT,6,0);
+            m218elb20pdt = new FieldDef("m218elb20pdt",FieldDef.FLOAT,6,0);
+            m218e4bw20ini = new FieldDef("m218e4bw20ini",FieldDef.FLOAT,6,0);
+            m218e4bw20apl = new FieldDef("m218e4bw20apl",FieldDef.FLOAT,6,0);
+            m218e4bw20pdt = new FieldDef("m218e4bw20pdt",FieldDef.FLOAT,6,0);
+            m218eepv20ini = new FieldDef("m218eepv20ini",FieldDef.FLOAT,6,0);
+            m218eepv20apl = new FieldDef("m218eepv20apl",FieldDef.FLOAT,6,0);
+            m218eepv20pdt = new FieldDef("m218eepv20pdt",FieldDef.FLOAT,6,0);
+            m218epfl20ini = new FieldDef("m218epfl20ini",FieldDef.FLOAT,6,0);
+            m218epfl20apl = new FieldDef("m218epfl20apl",FieldDef.FLOAT,6,0);
+            m218epfl20pdt = new FieldDef("m218epfl20pdt",FieldDef.FLOAT,6,0);
+            m218epdm20ini = new FieldDef("m218epdm20ini",FieldDef.FLOAT,6,0);
+            m218epdm20apl = new FieldDef("m218epdm20apl",FieldDef.FLOAT,6,0);
+            m218epdm20pdt = new FieldDef("m218epdm20pdt",FieldDef.FLOAT,6,0);
+            m218et2020ini = new FieldDef("m218et2020ini",FieldDef.FLOAT,6,0);
+            m218et2020apl = new FieldDef("m218et2020apl",FieldDef.FLOAT,6,0);
+            m218et2020pdt = new FieldDef("m218et2020pdt",FieldDef.FLOAT,6,0);
+            m218e50j20ini = new FieldDef("m218e50j20ini",FieldDef.FLOAT,6,0);
+            m218e50j20apl = new FieldDef("m218e50j20apl",FieldDef.FLOAT,6,0);
+            m218e50j20pdt = new FieldDef("m218e50j20pdt",FieldDef.FLOAT,6,0);
+            m218ebm120ini = new FieldDef("m218ebm120ini",FieldDef.FLOAT,6,0);
+            m218ebm120apl = new FieldDef("m218ebm120apl",FieldDef.FLOAT,6,0);
+            m218ebm120pdt = new FieldDef("m218ebm120pdt",FieldDef.FLOAT,6,0);
+            m218eavm20ini = new FieldDef("m218eavm20ini",FieldDef.FLOAT,6,0);
+            m218eavm20apl = new FieldDef("m218eavm20apl",FieldDef.FLOAT,6,0);
+            m218eavm20pdt = new FieldDef("m218eavm20pdt",FieldDef.FLOAT,6,0);
+            m218etle20ini = new FieldDef("m218etle20ini",FieldDef.FLOAT,6,0);
+            m218etle20apl = new FieldDef("m218etle20apl",FieldDef.FLOAT,6,0);
+            m218etle20pdt = new FieldDef("m218etle20pdt",FieldDef.FLOAT,6,0);
+            m218ebm20ini = new FieldDef("m218ebm20ini",FieldDef.FLOAT,6,0);
+            m218ebm20apl = new FieldDef("m218ebm20apl",FieldDef.FLOAT,6,0);
+            m218ebm20pdt = new FieldDef("m218ebm20pdt",FieldDef.FLOAT,6,0);
+            m218eclc20ini = new FieldDef("m218eclc20ini",FieldDef.FLOAT,6,0);
+            m218eclc20apl = new FieldDef("m218eclc20apl",FieldDef.FLOAT,6,0);
+            m218eclc20pdt = new FieldDef("m218eclc20pdt",FieldDef.FLOAT,6,0);
+            m218ebw20ini = new FieldDef("m218ebw20ini",FieldDef.FLOAT,6,0);
+            m218ebw20apl = new FieldDef("m218ebw20apl",FieldDef.FLOAT,6,0);
+            m218ebw20pdt = new FieldDef("m218ebw20pdt",FieldDef.FLOAT,6,0);
+            m218enm20ini = new FieldDef("m218enm20ini",FieldDef.FLOAT,6,0);
+            m218enm20apl = new FieldDef("m218enm20apl",FieldDef.FLOAT,6,0);
+            m218enm20pdt = new FieldDef("m218enm20pdt",FieldDef.FLOAT,6,0);
+            m218el220ini = new FieldDef("m218el220ini",FieldDef.FLOAT,6,0);
+            m218el220apl = new FieldDef("m218el220apl",FieldDef.FLOAT,6,0);
+            m218el220pdt = new FieldDef("m218el220pdt",FieldDef.FLOAT,6,0);
+            m218ej220ini = new FieldDef("m218ej220ini",FieldDef.FLOAT,6,0);
+            m218ej220apl = new FieldDef("m218ej220apl",FieldDef.FLOAT,6,0);
+            m218ej220pdt = new FieldDef("m218ej220pdt",FieldDef.FLOAT,6,0);
+            m218ecb20ini = new FieldDef("m218ecb20ini",FieldDef.FLOAT,6,0);
+            m218ecb20apl = new FieldDef("m218ecb20apl",FieldDef.FLOAT,6,0);
+            m218ecb20pdt = new FieldDef("m218ecb20pdt",FieldDef.FLOAT,6,0);
+            m218edi20ini = new FieldDef("m218edi20ini",FieldDef.FLOAT,6,0);
+            m218edi20apl = new FieldDef("m218edi20apl",FieldDef.FLOAT,6,0);
+            m218edi20pdt = new FieldDef("m218edi20pdt",FieldDef.FLOAT,6,0);
+            m218ee20ini = new FieldDef("m218ee20ini",FieldDef.FLOAT,6,0);
+            m218ee20apl = new FieldDef("m218ee20apl",FieldDef.FLOAT,6,0);
+            m218ee20pdt = new FieldDef("m218ee20pdt",FieldDef.FLOAT,6,0);
+            m218ecr20ini = new FieldDef("m218ecr20ini",FieldDef.FLOAT,6,0);
+            m218ecr20apl = new FieldDef("m218ecr20apl",FieldDef.FLOAT,6,0);
+            m218ecr20pdt = new FieldDef("m218ecr20pdt",FieldDef.FLOAT,6,0);
+            m218etr20ini = new FieldDef("m218etr20ini",FieldDef.FLOAT,6,0);
+            m218etr20apl = new FieldDef("m218etr20apl",FieldDef.FLOAT,6,0);
+            m218etr20pdt = new FieldDef("m218etr20pdt",FieldDef.FLOAT,6,0);
+            m218een20ini = new FieldDef("m218een20ini",FieldDef.FLOAT,6,0);
+            m218een20apl = new FieldDef("m218een20apl",FieldDef.FLOAT,6,0);
+            m218een20pdt = new FieldDef("m218een20pdt",FieldDef.FLOAT,6,0);
+            m218eune20ini = new FieldDef("m218eune20ini",FieldDef.FLOAT,6,0);
+            m218eune20apl = new FieldDef("m218eune20apl",FieldDef.FLOAT,6,0);
+            m218eune20pdt = new FieldDef("m218eune20pdt",FieldDef.FLOAT,6,0);
+            m218eab20ini = new FieldDef("m218eab20ini",FieldDef.FLOAT,6,0);
+            m218eab20apl = new FieldDef("m218eab20apl",FieldDef.FLOAT,6,0);
+            m218eab20pdt = new FieldDef("m218eab20pdt",FieldDef.FLOAT,6,0);
+            m218ebf20ini = new FieldDef("m218ebf20ini",FieldDef.FLOAT,6,0);
+            m218ebf20apl = new FieldDef("m218ebf20apl",FieldDef.FLOAT,6,0);
+            m218ebf20pdt = new FieldDef("m218ebf20pdt",FieldDef.FLOAT,6,0);
+            m218ebe20ini = new FieldDef("m218ebe20ini",FieldDef.FLOAT,6,0);
+            m218ebe20apl = new FieldDef("m218ebe20apl",FieldDef.FLOAT,6,0);
+            m218ebe20pdt = new FieldDef("m218ebe20pdt",FieldDef.FLOAT,6,0);
+            m218eum20ini = new FieldDef("m218eum20ini",FieldDef.FLOAT,6,0);
+            m218eum20apl = new FieldDef("m218eum20apl",FieldDef.FLOAT,6,0);
+            m218eum20pdt = new FieldDef("m218eum20pdt",FieldDef.FLOAT,6,0);
+            m218ecd20ini = new FieldDef("m218ecd20ini",FieldDef.FLOAT,6,0);
+            m218ecd20apl = new FieldDef("m218ecd20apl",FieldDef.FLOAT,6,0);
+            m218ecd20pdt = new FieldDef("m218ecd20pdt",FieldDef.FLOAT,6,0);
+            m218ep2020ini = new FieldDef("m218ep2020ini",FieldDef.FLOAT,6,0);
+            m218ep2020apl = new FieldDef("m218ep2020apl",FieldDef.FLOAT,6,0);
+            m218ep2020pdt = new FieldDef("m218ep2020pdt",FieldDef.FLOAT,6,0);
+            m218ecl20ini = new FieldDef("m218ecl20ini",FieldDef.FLOAT,6,0);
+            m218ecl20apl = new FieldDef("m218ecl20apl",FieldDef.FLOAT,6,0);
+            m218ecl20pdt = new FieldDef("m218ecl20pdt",FieldDef.FLOAT,6,0);
+            m218ed2020ini = new FieldDef("m218ed2020ini",FieldDef.FLOAT,6,0);
+            m218ed2020apl = new FieldDef("m218ed2020apl",FieldDef.FLOAT,6,0);
+            m218ed2020pdt = new FieldDef("m218ed2020pdt",FieldDef.FLOAT,6,0);
+            m218ecop20ini = new FieldDef("m218ecop20ini",FieldDef.FLOAT,6,0);
+            m218ecop20apl = new FieldDef("m218ecop20apl",FieldDef.FLOAT,6,0);
+            m218ecop20pdt = new FieldDef("m218ecop20pdt",FieldDef.FLOAT,6,0);
+            m218epb20ini = new FieldDef("m218epb20ini",FieldDef.FLOAT,6,0);
+            m218epb20apl = new FieldDef("m218epb20apl",FieldDef.FLOAT,6,0);
+            m218epb20pdt = new FieldDef("m218epb20pdt",FieldDef.FLOAT,6,0);
+            m218ea2120ini = new FieldDef("m218ea2120ini",FieldDef.FLOAT,6,0);
+            m218ea2120apl = new FieldDef("m218ea2120apl",FieldDef.FLOAT,6,0);
+            m218ea2120pdt = new FieldDef("m218ea2120pdt",FieldDef.FLOAT,6,0);
+            m218e2020ini = new FieldDef("m218e2020ini",FieldDef.FLOAT,6,0);
+            m218e2020apl = new FieldDef("m218e2020apl",FieldDef.FLOAT,6,0);
+            m218e2020pdt = new FieldDef("m218e2020pdt",FieldDef.FLOAT,6,0);
+            m218efo20ini = new FieldDef("m218efo20ini",FieldDef.FLOAT,6,0);
+            m218efo20apl = new FieldDef("m218efo20apl",FieldDef.FLOAT,6,0);
+            m218efo20pdt = new FieldDef("m218efo20pdt",FieldDef.FLOAT,6,0);
+            m218etl20ini = new FieldDef("m218etl20ini",FieldDef.FLOAT,6,0);
+            m218etl20apl = new FieldDef("m218etl20apl",FieldDef.FLOAT,6,0);
+            m218etl20pdt = new FieldDef("m218etl20pdt",FieldDef.FLOAT,6,0);
+            m218ef120ini = new FieldDef("m218ef120ini",FieldDef.FLOAT,6,0);
+            m218ef120apl = new FieldDef("m218ef120apl",FieldDef.FLOAT,6,0);
+            m218ef120pdt = new FieldDef("m218ef120pdt",FieldDef.FLOAT,6,0);
+            m218erestini = new FieldDef("m218erestini",FieldDef.FLOAT,6,0);
+            m218erestapl = new FieldDef("m218erestapl",FieldDef.FLOAT,6,0);
+            m218erestpdt = new FieldDef("m218erestpdt",FieldDef.FLOAT,6,0);
+            m218eipubini = new FieldDef("m218eipubini",FieldDef.FLOAT,6,0);
+            m218eipubapl = new FieldDef("m218eipubapl",FieldDef.FLOAT,6,0);
+            m218eipubpdt = new FieldDef("m218eipubpdt",FieldDef.FLOAT,6,0);
+            m218etotdedini = new FieldDef("m218etotdedini",FieldDef.FLOAT,6,0);
+            m218etotdedapl = new FieldDef("m218etotdedapl",FieldDef.FLOAT,6,0);
+            m218etotdedpdt = new FieldDef("m218etotdedpdt",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m218edominio,
+                m218enif,
+                m218eejercicio,
+                m218eperiodo,
+                m218eus20ini,
+                m218eus20apl,
+                m218eus20pdt,
+                m218elb20ini,
+                m218elb20apl,
+                m218elb20pdt,
+                m218e4bw20ini,
+                m218e4bw20apl,
+                m218e4bw20pdt,
+                m218eepv20ini,
+                m218eepv20apl,
+                m218eepv20pdt,
+                m218epfl20ini,
+                m218epfl20apl,
+                m218epfl20pdt,
+                m218epdm20ini,
+                m218epdm20apl,
+                m218epdm20pdt,
+                m218et2020ini,
+                m218et2020apl,
+                m218et2020pdt,
+                m218e50j20ini,
+                m218e50j20apl,
+                m218e50j20pdt,
+                m218ebm120ini,
+                m218ebm120apl,
+                m218ebm120pdt,
+                m218eavm20ini,
+                m218eavm20apl,
+                m218eavm20pdt,
+                m218etle20ini,
+                m218etle20apl,
+                m218etle20pdt,
+                m218ebm20ini,
+                m218ebm20apl,
+                m218ebm20pdt,
+                m218eclc20ini,
+                m218eclc20apl,
+                m218eclc20pdt,
+                m218ebw20ini,
+                m218ebw20apl,
+                m218ebw20pdt,
+                m218enm20ini,
+                m218enm20apl,
+                m218enm20pdt,
+                m218el220ini,
+                m218el220apl,
+                m218el220pdt,
+                m218ej220ini,
+                m218ej220apl,
+                m218ej220pdt,
+                m218ecb20ini,
+                m218ecb20apl,
+                m218ecb20pdt,
+                m218edi20ini,
+                m218edi20apl,
+                m218edi20pdt,
+                m218ee20ini,
+                m218ee20apl,
+                m218ee20pdt,
+                m218ecr20ini,
+                m218ecr20apl,
+                m218ecr20pdt,
+                m218etr20ini,
+                m218etr20apl,
+                m218etr20pdt,
+                m218een20ini,
+                m218een20apl,
+                m218een20pdt,
+                m218eune20ini,
+                m218eune20apl,
+                m218eune20pdt,
+                m218eab20ini,
+                m218eab20apl,
+                m218eab20pdt,
+                m218ebf20ini,
+                m218ebf20apl,
+                m218ebf20pdt,
+                m218ebe20ini,
+                m218ebe20apl,
+                m218ebe20pdt,
+                m218eum20ini,
+                m218eum20apl,
+                m218eum20pdt,
+                m218ecd20ini,
+                m218ecd20apl,
+                m218ecd20pdt,
+                m218ep2020ini,
+                m218ep2020apl,
+                m218ep2020pdt,
+                m218ecl20ini,
+                m218ecl20apl,
+                m218ecl20pdt,
+                m218ed2020ini,
+                m218ed2020apl,
+                m218ed2020pdt,
+                m218ecop20ini,
+                m218ecop20apl,
+                m218ecop20pdt,
+                m218epb20ini,
+                m218epb20apl,
+                m218epb20pdt,
+                m218ea2120ini,
+                m218ea2120apl,
+                m218ea2120pdt,
+                m218e2020ini,
+                m218e2020apl,
+                m218e2020pdt,
+                m218efo20ini,
+                m218efo20apl,
+                m218efo20pdt,
+                m218etl20ini,
+                m218etl20apl,
+                m218etl20pdt,
+                m218ef120ini,
+                m218ef120apl,
+                m218ef120pdt,
+                m218erestini,
+                m218erestapl,
+                m218erestpdt,
+                m218eipubini,
+                m218eipubapl,
+                m218eipubpdt,
+                m218etotdedini,
+                m218etotdedapl,
+                m218etotdedpdt                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m218edominio,m218enif,m218eejercicio,m218eperiodo };
+            setPrimaryKeys(arrayf);
+            m218eus20ini.setDescription("VII Centenario US");
+            m218eus20apl.setDescription("VII Centenario US");
+            m218eus20pdt.setDescription("VII Centenario US");
+            m218elb20ini.setDescription("20 Aniversario Gran Teatro del Liceo");
+            m218elb20apl.setDescription("20 Aniversario Gran Teatro del Liceo");
+            m218elb20pdt.setDescription("20 Aniversario Gran Teatro del Liceo");
+            m218e4bw20ini.setDescription("4ª Edición de la Barcelona World Race");
+            m218e4bw20apl.setDescription("4ª Edición de la Barcelona World Race");
+            m218e4bw20pdt.setDescription("4ª Edición de la Barcelona World Race");
+            m218eepv20ini.setDescription("V Centenario de la expedición de la primera vuelta al mundo");
+            m218eepv20apl.setDescription("V Centenario de la expedición de la primera vuelta al mundo");
+            m218eepv20pdt.setDescription("V Centenario de la expedición de la primera vuelta al mundo");
+            m218epfl20ini.setDescription("Plan de Fomento de la lectura");
+            m218epfl20apl.setDescription("Plan de Fomento de la lectura");
+            m218epfl20pdt.setDescription("Plan de Fomento de la lectura");
+            m218epdm20ini.setDescription("Plan Decenio Milliarium Montserrat");
+            m218epdm20apl.setDescription("Plan Decenio Milliarium Montserrat");
+            m218epdm20pdt.setDescription("Plan Decenio Milliarium Montserrat");
+            m218et2020ini.setDescription("Programa de preparacion Juegos de Tokio 2020");
+            m218et2020apl.setDescription("Programa de preparacion Juegos de Tokio 2020");
+            m218et2020pdt.setDescription("Programa de preparacion Juegos de Tokio 2020");
+            m218e50j20ini.setDescription("50 Edición Festival Int. Jazz Barcelona");
+            m218e50j20apl.setDescription("50 Edición Festival Int. Jazz Barcelona");
+            m218e50j20pdt.setDescription("50 Edición Festival Int. Jazz Barcelona");
+            m218ebm120ini.setDescription("Campeonato Mundial Junior Balonmano Masculino 2019");
+            m218ebm120apl.setDescription("Campeonato Mundial Junior Balonmano Masculino 2019");
+            m218ebm120pdt.setDescription("Campeonato Mundial Junior Balonmano Masculino 2019");
+            m218eavm20ini.setDescription("Andalucía Valderrama Masters");
+            m218eavm20apl.setDescription("Andalucía Valderrama Masters");
+            m218eavm20pdt.setDescription("Andalucía Valderrama Masters");
+            m218etle20ini.setDescription("La Transición: 40 años Libertad de Expresión");
+            m218etle20apl.setDescription("La Transición: 40 años Libertad de Expresión");
+            m218etle20pdt.setDescription("La Transición: 40 años Libertad de Expresión");
+            m218ebm20ini.setDescription("Barcelona Mobile World Capital");
+            m218ebm20apl.setDescription("Barcelona Mobile World Capital");
+            m218ebm20pdt.setDescription("Barcelona Mobile World Capital");
+            m218eclc20ini.setDescription("Ceuta y la Legión");
+            m218eclc20apl.setDescription("Ceuta y la Legión");
+            m218eclc20pdt.setDescription("Ceuta y la Legión");
+            m218ebw20ini.setDescription("Bádminton World Tour");
+            m218ebw20apl.setDescription("Bádminton World Tour");
+            m218ebw20pdt.setDescription("Bádminton World Tour");
+            m218enm20ini.setDescription("Nuevas Metas");
+            m218enm20apl.setDescription("Nuevas Metas");
+            m218enm20pdt.setDescription("Nuevas Metas");
+            m218el220ini.setDescription("Logroño 2021");
+            m218el220apl.setDescription("Logroño 2021");
+            m218el220pdt.setDescription("Logroño 2021");
+            m218ej220ini.setDescription("Año Santo Jacobeo 2021");
+            m218ej220apl.setDescription("Año Santo Jacobeo 2021");
+            m218ej220pdt.setDescription("Año Santo Jacobeo 2021");
+            m218ecb20ini.setDescription("VIII Centenario de la Catedral de Burgos 2021");
+            m218ecb20apl.setDescription("VIII Centenario de la Catedral de Burgos 2021");
+            m218ecb20pdt.setDescription("VIII Centenario de la Catedral de Burgos 2021");
+            m218edi20ini.setDescription("Deporte inclusivo");
+            m218edi20apl.setDescription("Deporte inclusivo");
+            m218edi20pdt.setDescription("Deporte inclusivo");
+            m218ee20ini.setDescription("España, Capital del Talento Joven");
+            m218ee20apl.setDescription("España, Capital del Talento Joven");
+            m218ee20pdt.setDescription("España, Capital del Talento Joven");
+            m218ecr20ini.setDescription("Conmemoración del Centenario Coronación Sra. del Rocío");
+            m218ecr20apl.setDescription("Conmemoración del Centenario Coronación Sra. del Rocío");
+            m218ecr20pdt.setDescription("Conmemoración del Centenario Coronación Sra. del Rocío");
+            m218etr20ini.setDescription("Traslado de Sra. del Rocío al Pueblo de Almonte");
+            m218etr20apl.setDescription("Traslado de Sra. del Rocío al Pueblo de Almonte");
+            m218etr20pdt.setDescription("Traslado de Sra. del Rocío al Pueblo de Almonte");
+            m218een20ini.setDescription("Enfermedades Neurodegenerativas 2020");
+            m218een20apl.setDescription("Enfermedades Neurodegenerativas 2020");
+            m218een20pdt.setDescription("Enfermedades Neurodegenerativas 2020");
+            m218eune20ini.setDescription("XXV Anv. Declaración UNESCO");
+            m218eune20apl.setDescription("XXV Anv. Declaración UNESCO");
+            m218eune20pdt.setDescription("XXV Anv. Declaración UNESCO");
+            m218eab20ini.setDescription("Automobile Barcelona 2019");
+            m218eab20apl.setDescription("Automobile Barcelona 2019");
+            m218eab20pdt.setDescription("Automobile Barcelona 2019");
+            m218ebf20ini.setDescription("Campeonato Mundial Balonmano Femenino 2021");
+            m218ebf20apl.setDescription("Campeonato Mundial Balonmano Femenino 2021");
+            m218ebf20pdt.setDescription("Campeonato Mundial Balonmano Femenino 2021");
+            m218ebe20ini.setDescription("Barcelona Equestrian Challenge");
+            m218ebe20apl.setDescription("Barcelona Equestrian Challenge");
+            m218ebe20pdt.setDescription("Barcelona Equestrian Challenge");
+            m218eum20ini.setDescription("Universo Mujer II");
+            m218eum20apl.setDescription("Universo Mujer II");
+            m218eum20pdt.setDescription("Universo Mujer II");
+            m218ecd20ini.setDescription("Centenario Delibes");
+            m218ecd20apl.setDescription("Centenario Delibes");
+            m218ecd20pdt.setDescription("Centenario Delibes");
+            m218ep2020ini.setDescription("Plan 2020 de Apoyo al Deporte Base");
+            m218ep2020apl.setDescription("Plan 2020 de Apoyo al Deporte Base");
+            m218ep2020pdt.setDescription("Plan 2020 de Apoyo al Deporte Base");
+            m218ecl20ini.setDescription("Camino Lebaniego");
+            m218ecl20apl.setDescription("Camino Lebaniego");
+            m218ecl20pdt.setDescription("Camino Lebaniego");
+            m218ed2020ini.setDescription("Expo Dubai 2020");
+            m218ed2020apl.setDescription("Expo Dubai 2020");
+            m218ed2020pdt.setDescription("Expo Dubai 2020");
+            m218ecop20ini.setDescription("Vigésima quinta Conferencia Convención Marco U.N");
+            m218ecop20apl.setDescription("Vigésima quinta Conferencia Convención Marco U.N");
+            m218ecop20pdt.setDescription("Vigésima quinta Conferencia Convención Marco U.N");
+            m218epb20ini.setDescription("Plan Berlanga");
+            m218epb20apl.setDescription("Plan Berlanga");
+            m218epb20pdt.setDescription("Plan Berlanga");
+            m218ea2120ini.setDescription("Alicante 2021 Salida Vuelta al Mundo a Vela");
+            m218ea2120apl.setDescription("Alicante 2021 Salida Vuelta al Mundo a Vela");
+            m218ea2120pdt.setDescription("Alicante 2021 Salida Vuelta al Mundo a Vela");
+            m218e2020ini.setDescription("España País Invitado de Honor en la Feria del Libro");
+            m218e2020apl.setDescription("España País Invitado de Honor en la Feria del Libro");
+            m218e2020pdt.setDescription("España País Invitado de Honor en la Feria del Libro");
+            m218efo20ini.setDescription("Plan Fomento de la ópera en la Calle del Teatro Real");
+            m218efo20apl.setDescription("Plan Fomento de la ópera en la Calle del Teatro Real");
+            m218efo20pdt.setDescription("Plan Fomento de la ópera en la Calle del Teatro Real");
+            m218etl20ini.setDescription("175 Aniversario de la construcción del GTL");
+            m218etl20apl.setDescription("175 Aniversario de la construcción del GTL");
+            m218etl20pdt.setDescription("175 Aniversario de la construcción del GTL");
+            m218ef120ini.setDescription("Gran Premio de España de Fórmula 1");
+            m218ef120apl.setDescription("Gran Premio de España de Fórmula 1");
+            m218ef120pdt.setDescription("Gran Premio de España de Fórmula 1");
+            m218erestini.setDescription("Resto deduc. apoyo acontecimientos interés público");
+            m218erestapl.setDescription("Resto deduc. apoyo acontecimientos interés público");
+            m218erestpdt.setDescription("Resto deduc. apoyo acontecimientos interés público");
+            m218eipubini.setDescription("Total deducciones programas interés público");
+            m218eipubapl.setDescription("Total deducciones programas interés público");
+            m218eipubpdt.setDescription("Total deducciones programas interés público");
+            m218etotdedini.setDescription("Tot ded. Ded. pendiente");
+            m218etotdedapl.setDescription("Tot ded. Aplicado");
+            m218etotdedpdt.setDescription("Tot ded. Pdte. Aplic futuro");
+            }
+        }
+        
+    public class TabMod200h20e extends TableDef
+        {
+        // campos
+        public FieldDef m220edominio;
+        public FieldDef m220enif;
+        public FieldDef m220eejercicio;
+        public FieldDef m220eperiodo;
+        public FieldDef m220ebare650;
+        public FieldDef m220ebare651;
+        public FieldDef m220ebare652;
+        public FieldDef m220ebare653;
+        public FieldDef m220eapl654;
+        public FieldDef m220eapl1270;
+        public FieldDef m220eapl1271;
+        public FieldDef m220eapl1522;
+        public FieldDef m220eapl655;
+        public FieldDef m220eapl656;
+        public FieldDef m220eapl658;
+        public FieldDef m220eapl659;
+        public FieldDef m220eapl660;
+        public FieldDef m220eapl662;
+        public FieldDef m220eapl664;
+        public FieldDef m220eapl665;
+        public FieldDef m220eapl666;
+        public FieldDef m220edot1473;
+        public FieldDef m220edot1477;
+        public FieldDef m220edot1485;
+        public FieldDef m220edot1491;
+        public FieldDef m220edot1750;
+        public FieldDef m220edot1991;
+        public FieldDef m220edot2264;
+        public FieldDef m220edot2434;
+        public FieldDef m220edot1494;
+        public FieldDef m220edot1408;
+        public FieldDef m220edot1478;
+        public FieldDef m220edot1486;
+        public FieldDef m220edot1747;
+        public FieldDef m220edot1988;
+        public FieldDef m220edot2261;
+        public FieldDef m220edot2431;
+        public FieldDef m220edot1495;
+        public FieldDef m220edot1474;
+        public FieldDef m220edot1481;
+        public FieldDef m220edot1487;
+        public FieldDef m220edot1748;
+        public FieldDef m220edot1989;
+        public FieldDef m220edot2262;
+        public FieldDef m220edot2432;
+        public FieldDef m220edot1496;
+        public FieldDef m220edot1475;
+        public FieldDef m220edot1482;
+        public FieldDef m220edot1488;
+        public FieldDef m220edot1492;
+        public FieldDef m220edot1751;
+        public FieldDef m220edot1992;
+        public FieldDef m220edot2265;
+        public FieldDef m220edot2435;
+        public FieldDef m220edot1497;
+        public FieldDef m220edot1476;
+        public FieldDef m220edot1483;
+        public FieldDef m220edot1489;
+        public FieldDef m220edot1493;
+        public FieldDef m220edot1752;
+        public FieldDef m220edot1993;
+        public FieldDef m220edot2266;
+        public FieldDef m220edot2436;
+        public FieldDef m220edot1498;
+        public FieldDef m220edot1409;
+        public FieldDef m220edot1484;
+        public FieldDef m220edot1490;
+        public FieldDef m220edot1749;
+        public FieldDef m220edot1990;
+        public FieldDef m220edot2263;
+        public FieldDef m220edot2433;
+        public FieldDef m220edot1499;
+        public TabMod200h20e(String name)
+            {
+            super(name);
+            m220edominio = new FieldDef("m220edominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m220enif = new FieldDef("m220enif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m220eejercicio = new FieldDef("m220eejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m220eperiodo = new FieldDef("m220eperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m220ebare650 = new FieldDef("m220ebare650",FieldDef.FLOAT,6,0);
+            m220ebare651 = new FieldDef("m220ebare651",FieldDef.FLOAT,6,0);
+            m220ebare652 = new FieldDef("m220ebare652",FieldDef.FLOAT,6,0);
+            m220ebare653 = new FieldDef("m220ebare653",FieldDef.FLOAT,6,0);
+            m220eapl654 = new FieldDef("m220eapl654",FieldDef.FLOAT,6,0);
+            m220eapl1270 = new FieldDef("m220eapl1270",FieldDef.FLOAT,6,0);
+            m220eapl1271 = new FieldDef("m220eapl1271",FieldDef.FLOAT,6,0);
+            m220eapl1522 = new FieldDef("m220eapl1522",FieldDef.FLOAT,6,0);
+            m220eapl655 = new FieldDef("m220eapl655",FieldDef.FLOAT,6,0);
+            m220eapl656 = new FieldDef("m220eapl656",FieldDef.FLOAT,6,0);
+            m220eapl658 = new FieldDef("m220eapl658",FieldDef.FLOAT,6,0);
+            m220eapl659 = new FieldDef("m220eapl659",FieldDef.FLOAT,6,0);
+            m220eapl660 = new FieldDef("m220eapl660",FieldDef.FLOAT,6,0);
+            m220eapl662 = new FieldDef("m220eapl662",FieldDef.FLOAT,6,0);
+            m220eapl664 = new FieldDef("m220eapl664",FieldDef.FLOAT,6,0);
+            m220eapl665 = new FieldDef("m220eapl665",FieldDef.FLOAT,6,0);
+            m220eapl666 = new FieldDef("m220eapl666",FieldDef.FLOAT,6,0);
+            m220edot1473 = new FieldDef("m220edot1473",FieldDef.FLOAT,6,0);
+            m220edot1477 = new FieldDef("m220edot1477",FieldDef.FLOAT,6,0);
+            m220edot1485 = new FieldDef("m220edot1485",FieldDef.FLOAT,6,0);
+            m220edot1491 = new FieldDef("m220edot1491",FieldDef.FLOAT,6,0);
+            m220edot1750 = new FieldDef("m220edot1750",FieldDef.FLOAT,6,0);
+            m220edot1991 = new FieldDef("m220edot1991",FieldDef.FLOAT,6,0);
+            m220edot2264 = new FieldDef("m220edot2264",FieldDef.FLOAT,6,0);
+            m220edot2434 = new FieldDef("m220edot2434",FieldDef.FLOAT,6,0);
+            m220edot1494 = new FieldDef("m220edot1494",FieldDef.FLOAT,6,0);
+            m220edot1408 = new FieldDef("m220edot1408",FieldDef.FLOAT,6,0);
+            m220edot1478 = new FieldDef("m220edot1478",FieldDef.FLOAT,6,0);
+            m220edot1486 = new FieldDef("m220edot1486",FieldDef.FLOAT,6,0);
+            m220edot1747 = new FieldDef("m220edot1747",FieldDef.FLOAT,6,0);
+            m220edot1988 = new FieldDef("m220edot1988",FieldDef.FLOAT,6,0);
+            m220edot2261 = new FieldDef("m220edot2261",FieldDef.FLOAT,6,0);
+            m220edot2431 = new FieldDef("m220edot2431",FieldDef.FLOAT,6,0);
+            m220edot1495 = new FieldDef("m220edot1495",FieldDef.FLOAT,6,0);
+            m220edot1474 = new FieldDef("m220edot1474",FieldDef.FLOAT,6,0);
+            m220edot1481 = new FieldDef("m220edot1481",FieldDef.FLOAT,6,0);
+            m220edot1487 = new FieldDef("m220edot1487",FieldDef.FLOAT,6,0);
+            m220edot1748 = new FieldDef("m220edot1748",FieldDef.FLOAT,6,0);
+            m220edot1989 = new FieldDef("m220edot1989",FieldDef.FLOAT,6,0);
+            m220edot2262 = new FieldDef("m220edot2262",FieldDef.FLOAT,6,0);
+            m220edot2432 = new FieldDef("m220edot2432",FieldDef.FLOAT,6,0);
+            m220edot1496 = new FieldDef("m220edot1496",FieldDef.FLOAT,6,0);
+            m220edot1475 = new FieldDef("m220edot1475",FieldDef.FLOAT,6,0);
+            m220edot1482 = new FieldDef("m220edot1482",FieldDef.FLOAT,6,0);
+            m220edot1488 = new FieldDef("m220edot1488",FieldDef.FLOAT,6,0);
+            m220edot1492 = new FieldDef("m220edot1492",FieldDef.FLOAT,6,0);
+            m220edot1751 = new FieldDef("m220edot1751",FieldDef.FLOAT,6,0);
+            m220edot1992 = new FieldDef("m220edot1992",FieldDef.FLOAT,6,0);
+            m220edot2265 = new FieldDef("m220edot2265",FieldDef.FLOAT,6,0);
+            m220edot2435 = new FieldDef("m220edot2435",FieldDef.FLOAT,6,0);
+            m220edot1497 = new FieldDef("m220edot1497",FieldDef.FLOAT,6,0);
+            m220edot1476 = new FieldDef("m220edot1476",FieldDef.FLOAT,6,0);
+            m220edot1483 = new FieldDef("m220edot1483",FieldDef.FLOAT,6,0);
+            m220edot1489 = new FieldDef("m220edot1489",FieldDef.FLOAT,6,0);
+            m220edot1493 = new FieldDef("m220edot1493",FieldDef.FLOAT,6,0);
+            m220edot1752 = new FieldDef("m220edot1752",FieldDef.FLOAT,6,0);
+            m220edot1993 = new FieldDef("m220edot1993",FieldDef.FLOAT,6,0);
+            m220edot2266 = new FieldDef("m220edot2266",FieldDef.FLOAT,6,0);
+            m220edot2436 = new FieldDef("m220edot2436",FieldDef.FLOAT,6,0);
+            m220edot1498 = new FieldDef("m220edot1498",FieldDef.FLOAT,6,0);
+            m220edot1409 = new FieldDef("m220edot1409",FieldDef.FLOAT,6,0);
+            m220edot1484 = new FieldDef("m220edot1484",FieldDef.FLOAT,6,0);
+            m220edot1490 = new FieldDef("m220edot1490",FieldDef.FLOAT,6,0);
+            m220edot1749 = new FieldDef("m220edot1749",FieldDef.FLOAT,6,0);
+            m220edot1990 = new FieldDef("m220edot1990",FieldDef.FLOAT,6,0);
+            m220edot2263 = new FieldDef("m220edot2263",FieldDef.FLOAT,6,0);
+            m220edot2433 = new FieldDef("m220edot2433",FieldDef.FLOAT,6,0);
+            m220edot1499 = new FieldDef("m220edot1499",FieldDef.FLOAT,6,0);
+            FieldDef array[] = {
+                m220edominio,
+                m220enif,
+                m220eejercicio,
+                m220eperiodo,
+                m220ebare650,
+                m220ebare651,
+                m220ebare652,
+                m220ebare653,
+                m220eapl654,
+                m220eapl1270,
+                m220eapl1271,
+                m220eapl1522,
+                m220eapl655,
+                m220eapl656,
+                m220eapl658,
+                m220eapl659,
+                m220eapl660,
+                m220eapl662,
+                m220eapl664,
+                m220eapl665,
+                m220eapl666,
+                m220edot1473,
+                m220edot1477,
+                m220edot1485,
+                m220edot1491,
+                m220edot1750,
+                m220edot1991,
+                m220edot2264,
+                m220edot2434,
+                m220edot1494,
+                m220edot1408,
+                m220edot1478,
+                m220edot1486,
+                m220edot1747,
+                m220edot1988,
+                m220edot2261,
+                m220edot2431,
+                m220edot1495,
+                m220edot1474,
+                m220edot1481,
+                m220edot1487,
+                m220edot1748,
+                m220edot1989,
+                m220edot2262,
+                m220edot2432,
+                m220edot1496,
+                m220edot1475,
+                m220edot1482,
+                m220edot1488,
+                m220edot1492,
+                m220edot1751,
+                m220edot1992,
+                m220edot2265,
+                m220edot2435,
+                m220edot1497,
+                m220edot1476,
+                m220edot1483,
+                m220edot1489,
+                m220edot1493,
+                m220edot1752,
+                m220edot1993,
+                m220edot2266,
+                m220edot2436,
+                m220edot1498,
+                m220edot1409,
+                m220edot1484,
+                m220edot1490,
+                m220edot1749,
+                m220edot1990,
+                m220edot2263,
+                m220edot2433,
+                m220edot1499                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {m220edominio,m220enif,m220eejercicio,m220eperiodo };
+            setPrimaryKeys(arrayf);
+            m220ebare650.setDescription("Base reparto");
+            m220ebare651.setDescription("Base reparto");
+            m220ebare652.setDescription("Base reparto");
+            m220ebare653.setDescription("Base reparto");
+            m220eapl654.setDescription("Aplicación");
+            m220eapl1270.setDescription("Aplicación");
+            m220eapl1271.setDescription("Aplicación");
+            m220eapl1522.setDescription("Aplicación");
+            m220eapl655.setDescription("Aplicación");
+            m220eapl656.setDescription("Aplicación");
+            m220eapl658.setDescription("Aplicación");
+            m220eapl659.setDescription("Aplicación");
+            m220eapl660.setDescription("Aplicación");
+            m220eapl662.setDescription("Aplicación");
+            m220eapl664.setDescription("Aplicación");
+            m220eapl665.setDescription("Aplicación");
+            m220eapl666.setDescription("Aplicación");
+            m220edot1473.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1477.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1485.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1491.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1750.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1991.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot2264.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot2434.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1494.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1408.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1478.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1486.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1747.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1988.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot2261.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot2431.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1495.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1474.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1481.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1487.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1748.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1989.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot2262.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot2432.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1496.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1475.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1482.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1488.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1492.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1751.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1992.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot2265.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot2435.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1497.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1476.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1483.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1489.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1493.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1752.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1993.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot2266.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot2436.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1498.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1409.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1484.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1490.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1749.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1990.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot2263.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot2433.setDescription("Dotación por deterioro de créditos u otros activos");
+            m220edot1499.setDescription("Dotación por deterioro de créditos u otros activos");
             }
         }
         
@@ -25354,6 +31466,14 @@ public class CatModelo200 extends Catalog
         tabmod200h13b = new TabMod200h13b("mod200h13b");
         tabmod200h17c = new TabMod200h17c("mod200h17c");
         tabmod200h18d = new TabMod200h18d("mod200h18d");
+        tabmod200h26b = new TabMod200h26b("mod200h26b");
+        tabmod200h26c = new TabMod200h26c("mod200h26c");
+        tabmod200h26d = new TabMod200h26d("mod200h26d");
+        tabmod200h26e = new TabMod200h26e("mod200h26e");
+        tabmod200h26f = new TabMod200h26f("mod200h26f");
+        tabmod200h15b = new TabMod200h15b("mod200h15b");
+        tabmod200h18e = new TabMod200h18e("mod200h18e");
+        tabmod200h20e = new TabMod200h20e("mod200h20e");
         TableDef array[] = {
             tabmod200h2,
             tabmod200h4,
@@ -25418,7 +31538,15 @@ public class CatModelo200 extends Catalog
             tabmod200h12b,
             tabmod200h13b,
             tabmod200h17c,
-            tabmod200h18d            
+            tabmod200h18d,
+            tabmod200h26b,
+            tabmod200h26c,
+            tabmod200h26d,
+            tabmod200h26e,
+            tabmod200h26f,
+            tabmod200h15b,
+            tabmod200h18e,
+            tabmod200h20e            
             };
         setTables(array);
         FieldDef tabmod200adArrayf1[] = { tabmod200ad.m20addominio,tabmod200ad.m20adnif,tabmod200ad.m20adejercicio,tabmod200ad.m20adperiodo };

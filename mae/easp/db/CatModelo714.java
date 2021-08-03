@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Mar 09 09:17:33 CET 2020
+// Fecha y hora:     Thu Jul 22 10:04:30 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -503,7 +503,7 @@ public class CatModelo714 extends Catalog
             m721porcen1 = new FieldDef("m721porcen1",FieldDef.FLOAT,6,0);
             m721porcen2 = new FieldDef("m721porcen2",FieldDef.FLOAT,6,0);
             m721porcen3 = new FieldDef("m721porcen3",FieldDef.FLOAT,6,0);
-            m721porcen4 = new FieldDef("m721porcen4",FieldDef.FLOAT,12,0);
+            m721porcen4 = new FieldDef("m721porcen4",FieldDef.FLOAT,6,0);
             m722porcen1 = new FieldDef("m722porcen1",FieldDef.FLOAT,6,0);
             m722porcen2 = new FieldDef("m722porcen2",FieldDef.FLOAT,6,0);
             m722porcen3 = new FieldDef("m722porcen3",FieldDef.FLOAT,6,0);
@@ -994,7 +994,7 @@ public class CatModelo714 extends Catalog
             m7bvaluti10.setDescription("B  Inmuebles naturaleza rustica Valor utilizado 10 V,A,P,C,D o blanco");
             m721porcen1.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 1 Porcentaje titularidad      2019");
             m721porcen2.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 2 Porcentaje titularidad");
-            m721porcen3.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 4 Porcentaje titularidad");
+            m721porcen3.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 3 Porcentaje titularidad");
             m721porcen4.setDescription("A1 Inmuebles naturaleza urbana vda.Hab. 4 Porcentaje titularidad");
             m722porcen1.setDescription("A2 Inmuebles naturaleza urbana 1 Porcentaje titularidad");
             m722porcen2.setDescription("A2 Inmuebles naturaleza urbana 2 Porcentaje titularidad");
@@ -2180,6 +2180,32 @@ public class CatModelo714 extends Catalog
         public FieldDef m74f2tipoprop4;
         public FieldDef m74f2tipoprop5;
         public FieldDef m74f2tipoprop6;
+        public FieldDef m74f1nvalores1;
+        public FieldDef m74f1isin1;
+        public FieldDef m74f1nvalores2;
+        public FieldDef m74f1isin2;
+        public FieldDef m74f1nvalores3;
+        public FieldDef m74f1isin3;
+        public FieldDef m74f1nvalores4;
+        public FieldDef m74f1isin4;
+        public FieldDef m74f1nvalores5;
+        public FieldDef m74f1isin5;
+        public FieldDef m74f1nvalores6;
+        public FieldDef m74f1isin6;
+        public FieldDef m74f1nvalores7;
+        public FieldDef m74f1isin7;
+        public FieldDef m74f1nvalores8;
+        public FieldDef m74f1isin8;
+        public FieldDef m74f1nvalores9;
+        public FieldDef m74f1isin9;
+        public FieldDef m74f1nvalores10;
+        public FieldDef m74f1isin10;
+        public FieldDef m74f2nvalores1;
+        public FieldDef m74f2nvalores2;
+        public FieldDef m74f2nvalores3;
+        public FieldDef m74f2nvalores4;
+        public FieldDef m74f2nvalores5;
+        public FieldDef m74f2nvalores6;
         public TabMod714h4(String name)
             {
             super(name);
@@ -2189,49 +2215,49 @@ public class CatModelo714 extends Catalog
             m74periodo = new FieldDef("m74periodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
             m74pagina = new FieldDef("m74pagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             m74ebanco1 = new FieldDef("m74ebanco1",FieldDef.CHAR,41);
-            m74ecta1 = new FieldDef("m74ecta1",FieldDef.CHAR,20);
+            m74ecta1 = new FieldDef("m74ecta1",FieldDef.CHAR,24);
             m74evalor1 = new FieldDef("m74evalor1",FieldDef.FLOAT,6,0);
             m74ebanco2 = new FieldDef("m74ebanco2",FieldDef.CHAR,41);
-            m74ecta2 = new FieldDef("m74ecta2",FieldDef.CHAR,20);
+            m74ecta2 = new FieldDef("m74ecta2",FieldDef.CHAR,24);
             m74evalor2 = new FieldDef("m74evalor2",FieldDef.FLOAT,6,0);
             m74ebanco3 = new FieldDef("m74ebanco3",FieldDef.CHAR,41);
-            m74ecta3 = new FieldDef("m74ecta3",FieldDef.CHAR,20);
+            m74ecta3 = new FieldDef("m74ecta3",FieldDef.CHAR,24);
             m74evalor3 = new FieldDef("m74evalor3",FieldDef.FLOAT,6,0);
             m74ebanco4 = new FieldDef("m74ebanco4",FieldDef.CHAR,41);
-            m74ecta4 = new FieldDef("m74ecta4",FieldDef.CHAR,20);
+            m74ecta4 = new FieldDef("m74ecta4",FieldDef.CHAR,24);
             m74evalor4 = new FieldDef("m74evalor4",FieldDef.FLOAT,6,0);
             m74ebanco5 = new FieldDef("m74ebanco5",FieldDef.CHAR,41);
-            m74ecta5 = new FieldDef("m74ecta5",FieldDef.CHAR,20);
+            m74ecta5 = new FieldDef("m74ecta5",FieldDef.CHAR,24);
             m74evalor5 = new FieldDef("m74evalor5",FieldDef.FLOAT,6,0);
             m74ebanco6 = new FieldDef("m74ebanco6",FieldDef.CHAR,41);
-            m74ecta6 = new FieldDef("m74ecta6",FieldDef.CHAR,20);
+            m74ecta6 = new FieldDef("m74ecta6",FieldDef.CHAR,24);
             m74evalor6 = new FieldDef("m74evalor6",FieldDef.FLOAT,6,0);
             m74ebanco7 = new FieldDef("m74ebanco7",FieldDef.CHAR,41);
-            m74ecta7 = new FieldDef("m74ecta7",FieldDef.CHAR,20);
+            m74ecta7 = new FieldDef("m74ecta7",FieldDef.CHAR,24);
             m74evalor7 = new FieldDef("m74evalor7",FieldDef.FLOAT,6,0);
             m74ebanco8 = new FieldDef("m74ebanco8",FieldDef.CHAR,41);
-            m74ecta8 = new FieldDef("m74ecta8",FieldDef.CHAR,20);
+            m74ecta8 = new FieldDef("m74ecta8",FieldDef.CHAR,24);
             m74evalor8 = new FieldDef("m74evalor8",FieldDef.FLOAT,6,0);
             m74ebanco9 = new FieldDef("m74ebanco9",FieldDef.CHAR,41);
-            m74ecta9 = new FieldDef("m74ecta9",FieldDef.CHAR,20);
+            m74ecta9 = new FieldDef("m74ecta9",FieldDef.CHAR,24);
             m74evalor9 = new FieldDef("m74evalor9",FieldDef.FLOAT,6,0);
             m74ebanco10 = new FieldDef("m74ebanco10",FieldDef.CHAR,41);
-            m74ecta10 = new FieldDef("m74ecta10",FieldDef.CHAR,20);
+            m74ecta10 = new FieldDef("m74ecta10",FieldDef.CHAR,24);
             m74evalor10 = new FieldDef("m74evalor10",FieldDef.FLOAT,6,0);
             m74ebanco11 = new FieldDef("m74ebanco11",FieldDef.CHAR,41);
-            m74ecta11 = new FieldDef("m74ecta11",FieldDef.CHAR,20);
+            m74ecta11 = new FieldDef("m74ecta11",FieldDef.CHAR,24);
             m74evalor11 = new FieldDef("m74evalor11",FieldDef.FLOAT,6,0);
             m74ebanco12 = new FieldDef("m74ebanco12",FieldDef.CHAR,41);
-            m74ecta12 = new FieldDef("m74ecta12",FieldDef.CHAR,20);
+            m74ecta12 = new FieldDef("m74ecta12",FieldDef.CHAR,24);
             m74evalor12 = new FieldDef("m74evalor12",FieldDef.FLOAT,6,0);
             m74ebanco13 = new FieldDef("m74ebanco13",FieldDef.CHAR,41);
-            m74ecta13 = new FieldDef("m74ecta13",FieldDef.CHAR,20);
+            m74ecta13 = new FieldDef("m74ecta13",FieldDef.CHAR,24);
             m74evalor13 = new FieldDef("m74evalor13",FieldDef.FLOAT,6,0);
             m74ebanco14 = new FieldDef("m74ebanco14",FieldDef.CHAR,41);
-            m74ecta14 = new FieldDef("m74ecta14",FieldDef.CHAR,20);
+            m74ecta14 = new FieldDef("m74ecta14",FieldDef.CHAR,24);
             m74evalor14 = new FieldDef("m74evalor14",FieldDef.FLOAT,6,0);
             m74ebanco15 = new FieldDef("m74ebanco15",FieldDef.CHAR,41);
-            m74ecta15 = new FieldDef("m74ecta15",FieldDef.CHAR,20);
+            m74ecta15 = new FieldDef("m74ecta15",FieldDef.CHAR,24);
             m74evalor15 = new FieldDef("m74evalor15",FieldDef.FLOAT,6,0);
             m74totale = new FieldDef("m74totale",FieldDef.FLOAT,6,0);
             m74f1descrip1 = new FieldDef("m74f1descrip1",FieldDef.CHAR,62);
@@ -2350,6 +2376,32 @@ public class CatModelo714 extends Catalog
             m74f2tipoprop4 = new FieldDef("m74f2tipoprop4",FieldDef.CHAR,1);
             m74f2tipoprop5 = new FieldDef("m74f2tipoprop5",FieldDef.CHAR,1);
             m74f2tipoprop6 = new FieldDef("m74f2tipoprop6",FieldDef.CHAR,1);
+            m74f1nvalores1 = new FieldDef("m74f1nvalores1",FieldDef.FLOAT,6,0);
+            m74f1isin1 = new FieldDef("m74f1isin1",FieldDef.CHAR,20);
+            m74f1nvalores2 = new FieldDef("m74f1nvalores2",FieldDef.FLOAT,6,0);
+            m74f1isin2 = new FieldDef("m74f1isin2",FieldDef.CHAR,20);
+            m74f1nvalores3 = new FieldDef("m74f1nvalores3",FieldDef.FLOAT,6,0);
+            m74f1isin3 = new FieldDef("m74f1isin3",FieldDef.CHAR,20);
+            m74f1nvalores4 = new FieldDef("m74f1nvalores4",FieldDef.FLOAT,6,0);
+            m74f1isin4 = new FieldDef("m74f1isin4",FieldDef.CHAR,20);
+            m74f1nvalores5 = new FieldDef("m74f1nvalores5",FieldDef.FLOAT,6,0);
+            m74f1isin5 = new FieldDef("m74f1isin5",FieldDef.CHAR,20);
+            m74f1nvalores6 = new FieldDef("m74f1nvalores6",FieldDef.FLOAT,6,0);
+            m74f1isin6 = new FieldDef("m74f1isin6",FieldDef.CHAR,20);
+            m74f1nvalores7 = new FieldDef("m74f1nvalores7",FieldDef.FLOAT,6,0);
+            m74f1isin7 = new FieldDef("m74f1isin7",FieldDef.CHAR,20);
+            m74f1nvalores8 = new FieldDef("m74f1nvalores8",FieldDef.FLOAT,6,0);
+            m74f1isin8 = new FieldDef("m74f1isin8",FieldDef.CHAR,20);
+            m74f1nvalores9 = new FieldDef("m74f1nvalores9",FieldDef.FLOAT,6,0);
+            m74f1isin9 = new FieldDef("m74f1isin9",FieldDef.CHAR,20);
+            m74f1nvalores10 = new FieldDef("m74f1nvalores10",FieldDef.FLOAT,6,0);
+            m74f1isin10 = new FieldDef("m74f1isin10",FieldDef.CHAR,20);
+            m74f2nvalores1 = new FieldDef("m74f2nvalores1",FieldDef.FLOAT,6,0);
+            m74f2nvalores2 = new FieldDef("m74f2nvalores2",FieldDef.FLOAT,6,0);
+            m74f2nvalores3 = new FieldDef("m74f2nvalores3",FieldDef.FLOAT,6,0);
+            m74f2nvalores4 = new FieldDef("m74f2nvalores4",FieldDef.FLOAT,6,0);
+            m74f2nvalores5 = new FieldDef("m74f2nvalores5",FieldDef.FLOAT,6,0);
+            m74f2nvalores6 = new FieldDef("m74f2nvalores6",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m74dominio,
                 m74nif,
@@ -2517,7 +2569,33 @@ public class CatModelo714 extends Catalog
                 m74f2tipoprop3,
                 m74f2tipoprop4,
                 m74f2tipoprop5,
-                m74f2tipoprop6                
+                m74f2tipoprop6,
+                m74f1nvalores1,
+                m74f1isin1,
+                m74f1nvalores2,
+                m74f1isin2,
+                m74f1nvalores3,
+                m74f1isin3,
+                m74f1nvalores4,
+                m74f1isin4,
+                m74f1nvalores5,
+                m74f1isin5,
+                m74f1nvalores6,
+                m74f1isin6,
+                m74f1nvalores7,
+                m74f1isin7,
+                m74f1nvalores8,
+                m74f1isin8,
+                m74f1nvalores9,
+                m74f1isin9,
+                m74f1nvalores10,
+                m74f1isin10,
+                m74f2nvalores1,
+                m74f2nvalores2,
+                m74f2nvalores3,
+                m74f2nvalores4,
+                m74f2nvalores5,
+                m74f2nvalores6                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m74dominio,m74nif,m74ejercicio,m74periodo,m74pagina };
@@ -2684,6 +2762,32 @@ public class CatModelo714 extends Catalog
             m74f2tipoprop4.setDescription("F2 Obligaciones bonos certificados... 4 Clave o tipo de propiedad");
             m74f2tipoprop5.setDescription("F2 Obligaciones bonos certificados... 5 Clave o tipo de propiedad");
             m74f2tipoprop6.setDescription("F2 Obligaciones bonos certificados... 6 Clave o tipo de propiedad");
+            m74f1nvalores1.setDescription("F1 Deuda publica obligaciones... 1 nro valores    // nou ester i els camps m74ecta han passat a 24");
+            m74f1isin1.setDescription("F1 Deuda publica obligaciones... 1 ISIN");
+            m74f1nvalores2.setDescription("F1 Deuda publica obligaciones... 2 nro valores");
+            m74f1isin2.setDescription("F1 Deuda publica obligaciones... 2 ISIN");
+            m74f1nvalores3.setDescription("F1 Deuda publica obligaciones... 3 nro valores");
+            m74f1isin3.setDescription("F1 Deuda publica obligaciones... 3 ISIN");
+            m74f1nvalores4.setDescription("F1 Deuda publica obligaciones... 4 nro valores");
+            m74f1isin4.setDescription("F1 Deuda publica obligaciones... 4 ISIN");
+            m74f1nvalores5.setDescription("F1 Deuda publica obligaciones... 5 nro valores");
+            m74f1isin5.setDescription("F1 Deuda publica obligaciones... 5 ISIN");
+            m74f1nvalores6.setDescription("F1 Deuda publica obligaciones... 6 nro valores");
+            m74f1isin6.setDescription("F1 Deuda publica obligaciones... 6 ISIN");
+            m74f1nvalores7.setDescription("F1 Deuda publica obligaciones... 7 nro valores");
+            m74f1isin7.setDescription("F1 Deuda publica obligaciones... 7 ISIN");
+            m74f1nvalores8.setDescription("F1 Deuda publica obligaciones... 8 nro valores");
+            m74f1isin8.setDescription("F1 Deuda publica obligaciones... 8 ISIN");
+            m74f1nvalores9.setDescription("F1 Deuda publica obligaciones... 9 nro valores");
+            m74f1isin9.setDescription("F1 Deuda publica obligaciones... 9 ISIN");
+            m74f1nvalores10.setDescription("F1 Deuda publica obligaciones... 10 nro valores");
+            m74f1isin10.setDescription("F1 Deuda publica obligaciones... 10 ISIN");
+            m74f2nvalores1.setDescription("F2 Obligaciones bonos certificados... 1 nro valores");
+            m74f2nvalores2.setDescription("F2 Obligaciones bonos certificados... 2 nro valores");
+            m74f2nvalores3.setDescription("F2 Obligaciones bonos certificados... 3 nro valores");
+            m74f2nvalores4.setDescription("F2 Obligaciones bonos certificados... 4 nro valores");
+            m74f2nvalores5.setDescription("F2 Obligaciones bonos certificados... 5 nro valores");
+            m74f2nvalores6.setDescription("F2 Obligaciones bonos certificados... 6 nro valores");
             }
         }
         
@@ -2855,6 +2959,64 @@ public class CatModelo714 extends Catalog
         public FieldDef m75g4descrip4;
         public FieldDef m75g4valor4;
         public FieldDef m75totalg4;
+        public FieldDef m75g1nvalores1;
+        public FieldDef m75g1isin1;
+        public FieldDef m75g1nvalores2;
+        public FieldDef m75g1isin2;
+        public FieldDef m75g1nvalores3;
+        public FieldDef m75g1isin3;
+        public FieldDef m75g1nvalores4;
+        public FieldDef m75g1isin4;
+        public FieldDef m75g1nvalores5;
+        public FieldDef m75g1isin5;
+        public FieldDef m75g1nvalores6;
+        public FieldDef m75g1isin6;
+        public FieldDef m75g1nvalores7;
+        public FieldDef m75g1isin7;
+        public FieldDef m75g1nvalores8;
+        public FieldDef m75g1isin8;
+        public FieldDef m75g1nvalores9;
+        public FieldDef m75g1isin9;
+        public FieldDef m75g1nvalores10;
+        public FieldDef m75g1isin10;
+        public FieldDef m75g1nvalores11;
+        public FieldDef m75g1isin11;
+        public FieldDef m75g1nvalores12;
+        public FieldDef m75g1isin12;
+        public FieldDef m75g2nvalores1;
+        public FieldDef m75g2isin1;
+        public FieldDef m75g2nvalores2;
+        public FieldDef m75g2isin2;
+        public FieldDef m75g2nvalores3;
+        public FieldDef m75g2isin3;
+        public FieldDef m75g2nvalores4;
+        public FieldDef m75g2isin4;
+        public FieldDef m75g2nvalores5;
+        public FieldDef m75g2isin5;
+        public FieldDef m75g2nvalores6;
+        public FieldDef m75g2isin6;
+        public FieldDef m75g2nvalores7;
+        public FieldDef m75g2isin7;
+        public FieldDef m75g2nvalores8;
+        public FieldDef m75g2isin8;
+        public FieldDef m75g2nvalores9;
+        public FieldDef m75g2isin9;
+        public FieldDef m75g2nvalores10;
+        public FieldDef m75g2isin10;
+        public FieldDef m75g2nvalores11;
+        public FieldDef m75g2isin11;
+        public FieldDef m75g2nvalores12;
+        public FieldDef m75g2isin12;
+        public FieldDef m75g2nvalores13;
+        public FieldDef m75g2isin13;
+        public FieldDef m75g3nvalores1;
+        public FieldDef m75g3nvalores2;
+        public FieldDef m75g3nvalores3;
+        public FieldDef m75g3nvalores4;
+        public FieldDef m75g4nvalores1;
+        public FieldDef m75g4nvalores2;
+        public FieldDef m75g4nvalores3;
+        public FieldDef m75g4nvalores4;
         public TabMod714h5(String name)
             {
             super(name);
@@ -3022,7 +3184,65 @@ public class CatModelo714 extends Catalog
             m75g4tipoprop4 = new FieldDef("m75g4tipoprop4",FieldDef.CHAR,1);
             m75g4descrip4 = new FieldDef("m75g4descrip4",FieldDef.CHAR,62);
             m75g4valor4 = new FieldDef("m75g4valor4",FieldDef.FLOAT,6,0);
-            m75totalg4 = new FieldDef("m75totalg4",FieldDef.FLOAT,12,0);
+            m75totalg4 = new FieldDef("m75totalg4",FieldDef.FLOAT,6,0);
+            m75g1nvalores1 = new FieldDef("m75g1nvalores1",FieldDef.FLOAT,6,0);
+            m75g1isin1 = new FieldDef("m75g1isin1",FieldDef.CHAR,20);
+            m75g1nvalores2 = new FieldDef("m75g1nvalores2",FieldDef.FLOAT,6,0);
+            m75g1isin2 = new FieldDef("m75g1isin2",FieldDef.CHAR,20);
+            m75g1nvalores3 = new FieldDef("m75g1nvalores3",FieldDef.FLOAT,6,0);
+            m75g1isin3 = new FieldDef("m75g1isin3",FieldDef.CHAR,20);
+            m75g1nvalores4 = new FieldDef("m75g1nvalores4",FieldDef.FLOAT,6,0);
+            m75g1isin4 = new FieldDef("m75g1isin4",FieldDef.CHAR,20);
+            m75g1nvalores5 = new FieldDef("m75g1nvalores5",FieldDef.FLOAT,6,0);
+            m75g1isin5 = new FieldDef("m75g1isin5",FieldDef.CHAR,20);
+            m75g1nvalores6 = new FieldDef("m75g1nvalores6",FieldDef.FLOAT,6,0);
+            m75g1isin6 = new FieldDef("m75g1isin6",FieldDef.CHAR,20);
+            m75g1nvalores7 = new FieldDef("m75g1nvalores7",FieldDef.FLOAT,6,0);
+            m75g1isin7 = new FieldDef("m75g1isin7",FieldDef.CHAR,20);
+            m75g1nvalores8 = new FieldDef("m75g1nvalores8",FieldDef.FLOAT,6,0);
+            m75g1isin8 = new FieldDef("m75g1isin8",FieldDef.CHAR,20);
+            m75g1nvalores9 = new FieldDef("m75g1nvalores9",FieldDef.FLOAT,6,0);
+            m75g1isin9 = new FieldDef("m75g1isin9",FieldDef.CHAR,20);
+            m75g1nvalores10 = new FieldDef("m75g1nvalores10",FieldDef.FLOAT,6,0);
+            m75g1isin10 = new FieldDef("m75g1isin10",FieldDef.CHAR,20);
+            m75g1nvalores11 = new FieldDef("m75g1nvalores11",FieldDef.FLOAT,6,0);
+            m75g1isin11 = new FieldDef("m75g1isin11",FieldDef.CHAR,20);
+            m75g1nvalores12 = new FieldDef("m75g1nvalores12",FieldDef.FLOAT,6,0);
+            m75g1isin12 = new FieldDef("m75g1isin12",FieldDef.CHAR,20);
+            m75g2nvalores1 = new FieldDef("m75g2nvalores1",FieldDef.FLOAT,6,0);
+            m75g2isin1 = new FieldDef("m75g2isin1",FieldDef.CHAR,20);
+            m75g2nvalores2 = new FieldDef("m75g2nvalores2",FieldDef.FLOAT,6,0);
+            m75g2isin2 = new FieldDef("m75g2isin2",FieldDef.CHAR,20);
+            m75g2nvalores3 = new FieldDef("m75g2nvalores3",FieldDef.FLOAT,6,0);
+            m75g2isin3 = new FieldDef("m75g2isin3",FieldDef.CHAR,20);
+            m75g2nvalores4 = new FieldDef("m75g2nvalores4",FieldDef.FLOAT,6,0);
+            m75g2isin4 = new FieldDef("m75g2isin4",FieldDef.CHAR,20);
+            m75g2nvalores5 = new FieldDef("m75g2nvalores5",FieldDef.FLOAT,6,0);
+            m75g2isin5 = new FieldDef("m75g2isin5",FieldDef.CHAR,20);
+            m75g2nvalores6 = new FieldDef("m75g2nvalores6",FieldDef.FLOAT,6,0);
+            m75g2isin6 = new FieldDef("m75g2isin6",FieldDef.CHAR,20);
+            m75g2nvalores7 = new FieldDef("m75g2nvalores7",FieldDef.FLOAT,6,0);
+            m75g2isin7 = new FieldDef("m75g2isin7",FieldDef.CHAR,20);
+            m75g2nvalores8 = new FieldDef("m75g2nvalores8",FieldDef.FLOAT,6,0);
+            m75g2isin8 = new FieldDef("m75g2isin8",FieldDef.CHAR,20);
+            m75g2nvalores9 = new FieldDef("m75g2nvalores9",FieldDef.FLOAT,6,0);
+            m75g2isin9 = new FieldDef("m75g2isin9",FieldDef.CHAR,20);
+            m75g2nvalores10 = new FieldDef("m75g2nvalores10",FieldDef.FLOAT,6,0);
+            m75g2isin10 = new FieldDef("m75g2isin10",FieldDef.CHAR,20);
+            m75g2nvalores11 = new FieldDef("m75g2nvalores11",FieldDef.FLOAT,6,0);
+            m75g2isin11 = new FieldDef("m75g2isin11",FieldDef.CHAR,20);
+            m75g2nvalores12 = new FieldDef("m75g2nvalores12",FieldDef.FLOAT,6,0);
+            m75g2isin12 = new FieldDef("m75g2isin12",FieldDef.CHAR,20);
+            m75g2nvalores13 = new FieldDef("m75g2nvalores13",FieldDef.FLOAT,6,0);
+            m75g2isin13 = new FieldDef("m75g2isin13",FieldDef.CHAR,20);
+            m75g3nvalores1 = new FieldDef("m75g3nvalores1",FieldDef.FLOAT,6,0);
+            m75g3nvalores2 = new FieldDef("m75g3nvalores2",FieldDef.FLOAT,6,0);
+            m75g3nvalores3 = new FieldDef("m75g3nvalores3",FieldDef.FLOAT,6,0);
+            m75g3nvalores4 = new FieldDef("m75g3nvalores4",FieldDef.FLOAT,6,0);
+            m75g4nvalores1 = new FieldDef("m75g4nvalores1",FieldDef.FLOAT,6,0);
+            m75g4nvalores2 = new FieldDef("m75g4nvalores2",FieldDef.FLOAT,6,0);
+            m75g4nvalores3 = new FieldDef("m75g4nvalores3",FieldDef.FLOAT,6,0);
+            m75g4nvalores4 = new FieldDef("m75g4nvalores4",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m75dominio,
                 m75nif,
@@ -3188,7 +3408,65 @@ public class CatModelo714 extends Catalog
                 m75g4tipoprop4,
                 m75g4descrip4,
                 m75g4valor4,
-                m75totalg4                
+                m75totalg4,
+                m75g1nvalores1,
+                m75g1isin1,
+                m75g1nvalores2,
+                m75g1isin2,
+                m75g1nvalores3,
+                m75g1isin3,
+                m75g1nvalores4,
+                m75g1isin4,
+                m75g1nvalores5,
+                m75g1isin5,
+                m75g1nvalores6,
+                m75g1isin6,
+                m75g1nvalores7,
+                m75g1isin7,
+                m75g1nvalores8,
+                m75g1isin8,
+                m75g1nvalores9,
+                m75g1isin9,
+                m75g1nvalores10,
+                m75g1isin10,
+                m75g1nvalores11,
+                m75g1isin11,
+                m75g1nvalores12,
+                m75g1isin12,
+                m75g2nvalores1,
+                m75g2isin1,
+                m75g2nvalores2,
+                m75g2isin2,
+                m75g2nvalores3,
+                m75g2isin3,
+                m75g2nvalores4,
+                m75g2isin4,
+                m75g2nvalores5,
+                m75g2isin5,
+                m75g2nvalores6,
+                m75g2isin6,
+                m75g2nvalores7,
+                m75g2isin7,
+                m75g2nvalores8,
+                m75g2isin8,
+                m75g2nvalores9,
+                m75g2isin9,
+                m75g2nvalores10,
+                m75g2isin10,
+                m75g2nvalores11,
+                m75g2isin11,
+                m75g2nvalores12,
+                m75g2isin12,
+                m75g2nvalores13,
+                m75g2isin13,
+                m75g3nvalores1,
+                m75g3nvalores2,
+                m75g3nvalores3,
+                m75g3nvalores4,
+                m75g4nvalores1,
+                m75g4nvalores2,
+                m75g4nvalores3,
+                m75g4nvalores4                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m75dominio,m75nif,m75ejercicio,m75periodo,m75pagina };
@@ -3352,7 +3630,65 @@ public class CatModelo714 extends Catalog
             m75g4tipoprop4.setDescription("G4 4 Clave o tipo de propiedad: Pleno dominio/ Nuda");
             m75g4descrip4.setDescription("G4 4 descripcion");
             m75g4valor4.setDescription("G4 4 Valor");
-            m75totalg4.setDescription("Total apartado G4");
+            m75totalg4.setDescription("G4 Total [11]");
+            m75g1nvalores1.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 1 Nro.valores  // nou ester");
+            m75g1isin1.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 1 ISIN");
+            m75g1nvalores2.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 2 Nro.valores");
+            m75g1isin2.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 2 ISIN");
+            m75g1nvalores3.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 3 Nro.valores");
+            m75g1isin3.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 3 ISIN");
+            m75g1nvalores4.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 4 Nro.valores");
+            m75g1isin4.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 4 ISIN");
+            m75g1nvalores5.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 5 Nro.valores");
+            m75g1isin5.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 5 ISIN");
+            m75g1nvalores6.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 6 Nro.valores");
+            m75g1isin6.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 6 ISIN");
+            m75g1nvalores7.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 7 Nro.valores");
+            m75g1isin7.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 7 ISIN");
+            m75g1nvalores8.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 8 Nro.valores");
+            m75g1isin8.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 8 ISIN");
+            m75g1nvalores9.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 9 Nro.valores");
+            m75g1isin9.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 9 ISIN");
+            m75g1nvalores10.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 10 Nro.valores");
+            m75g1isin10.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 10 ISIN");
+            m75g1nvalores11.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 11 Nro.valores");
+            m75g1isin11.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 11 ISIN");
+            m75g1nvalores12.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 12 Nro.valores");
+            m75g1isin12.setDescription("G1 Acciones y partic. fondos Socied./Invers.negociadas 12 ISIN");
+            m75g2nvalores1.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 1 Nro.valores");
+            m75g2isin1.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 1 ISIN");
+            m75g2nvalores2.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 2 Nro.valores");
+            m75g2isin2.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 2 ISIN");
+            m75g2nvalores3.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 3 Nro.valores");
+            m75g2isin3.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 3 ISIN");
+            m75g2nvalores4.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 4 Nro.valores");
+            m75g2isin4.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 4 ISIN");
+            m75g2nvalores5.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 5 Nro.valores");
+            m75g2isin5.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 5 ISIN");
+            m75g2nvalores6.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 6 Nro.valores");
+            m75g2isin6.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 6 ISIN");
+            m75g2nvalores7.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 7 Nro.valores");
+            m75g2isin7.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 7 ISIN");
+            m75g2nvalores8.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 8 Nro.valores");
+            m75g2isin8.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 8 ISIN");
+            m75g2nvalores9.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 9 Nro.valores");
+            m75g2isin9.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 9 ISIN");
+            m75g2nvalores10.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 10 Nro.valores");
+            m75g2isin10.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 10 ISIN");
+            m75g2nvalores11.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 11 Nro.valores");
+            m75g2isin11.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 11 ISIN");
+            m75g2nvalores12.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 12 Nro.valores");
+            m75g2isin12.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 12 ISIN");
+            m75g2nvalores13.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 13 Nro.valores");
+            m75g2isin13.setDescription("G2 Acciones y partic. fondos Socied./Invers.negociadas 13 ISIN");
+            m75g3nvalores1.setDescription("G3 Acciones y partic. fondos Socied./Invers. no negociadas 1 Nro.valores");
+            m75g3nvalores2.setDescription("G3 Acciones y partic. fondos Socied./Invers. no negociadas 2 Nro.valores");
+            m75g3nvalores3.setDescription("G3 Acciones y partic. fondos Socied./Invers. no negociadas 3 Nro.valores");
+            m75g3nvalores4.setDescription("G3 Acciones y partic. fondos Socied./Invers. no negociadas 4 Nro.valores");
+            m75g4nvalores1.setDescription("G4 Valores no exentos 1 Nro.valores");
+            m75g4nvalores2.setDescription("G4 Valores no exentos 2 Nro.valores");
+            m75g4nvalores3.setDescription("G4 Valores no exentos 3 Nro.valores");
+            m75g4nvalores4.setDescription("G4 Valores no exentos 4 Nro.valores");
             }
         }
         
@@ -3457,6 +3793,15 @@ public class CatModelo714 extends Catalog
         public FieldDef m76h2tipoprop1;
         public FieldDef m76h2tipoprop2;
         public FieldDef m76h2tipoprop3;
+        public FieldDef m76h1nvalores1;
+        public FieldDef m76h1isin1;
+        public FieldDef m76h1nvalores2;
+        public FieldDef m76h1isin2;
+        public FieldDef m76h1nvalores3;
+        public FieldDef m76h1isin3;
+        public FieldDef m76h2nvalores1;
+        public FieldDef m76h2nvalores2;
+        public FieldDef m76h2nvalores3;
         public TabMod714h6(String name)
             {
             super(name);
@@ -3552,12 +3897,21 @@ public class CatModelo714 extends Catalog
             m76h2porfam2 = new FieldDef("m76h2porfam2",FieldDef.FLOAT,6,0);
             m76h2porind3 = new FieldDef("m76h2porind3",FieldDef.FLOAT,6,0);
             m76h2porfam3 = new FieldDef("m76h2porfam3",FieldDef.FLOAT,6,0);
-            m76h1tipoprop1 = new FieldDef("m76h1tipoprop1",FieldDef.CHAR,1);
-            m76h1tipoprop2 = new FieldDef("m76h1tipoprop2",FieldDef.CHAR,1);
-            m76h1tipoprop3 = new FieldDef("m76h1tipoprop3",FieldDef.CHAR,1);
-            m76h2tipoprop1 = new FieldDef("m76h2tipoprop1",FieldDef.CHAR,1);
-            m76h2tipoprop2 = new FieldDef("m76h2tipoprop2",FieldDef.CHAR,1);
-            m76h2tipoprop3 = new FieldDef("m76h2tipoprop3",FieldDef.CHAR,1);
+            m76h1tipoprop1 = new FieldDef("m76h1tipoprop1",FieldDef.VARCHAR,2);
+            m76h1tipoprop2 = new FieldDef("m76h1tipoprop2",FieldDef.VARCHAR,2);
+            m76h1tipoprop3 = new FieldDef("m76h1tipoprop3",FieldDef.VARCHAR,2);
+            m76h2tipoprop1 = new FieldDef("m76h2tipoprop1",FieldDef.VARCHAR,2);
+            m76h2tipoprop2 = new FieldDef("m76h2tipoprop2",FieldDef.VARCHAR,2);
+            m76h2tipoprop3 = new FieldDef("m76h2tipoprop3",FieldDef.VARCHAR,2);
+            m76h1nvalores1 = new FieldDef("m76h1nvalores1",FieldDef.FLOAT,6,0);
+            m76h1isin1 = new FieldDef("m76h1isin1",FieldDef.CHAR,20);
+            m76h1nvalores2 = new FieldDef("m76h1nvalores2",FieldDef.FLOAT,6,0);
+            m76h1isin2 = new FieldDef("m76h1isin2",FieldDef.CHAR,20);
+            m76h1nvalores3 = new FieldDef("m76h1nvalores3",FieldDef.FLOAT,6,0);
+            m76h1isin3 = new FieldDef("m76h1isin3",FieldDef.CHAR,20);
+            m76h2nvalores1 = new FieldDef("m76h2nvalores1",FieldDef.FLOAT,6,0);
+            m76h2nvalores2 = new FieldDef("m76h2nvalores2",FieldDef.FLOAT,6,0);
+            m76h2nvalores3 = new FieldDef("m76h2nvalores3",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m76dominio,
                 m76nif,
@@ -3656,7 +4010,16 @@ public class CatModelo714 extends Catalog
                 m76h1tipoprop3,
                 m76h2tipoprop1,
                 m76h2tipoprop2,
-                m76h2tipoprop3                
+                m76h2tipoprop3,
+                m76h1nvalores1,
+                m76h1isin1,
+                m76h1nvalores2,
+                m76h1isin2,
+                m76h1nvalores3,
+                m76h1isin3,
+                m76h2nvalores1,
+                m76h2nvalores2,
+                m76h2nvalores3                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m76dominio,m76nif,m76ejercicio,m76periodo,m76pagina };
@@ -3754,6 +4117,15 @@ public class CatModelo714 extends Catalog
             m76h2tipoprop1.setDescription("H2  Clave o tipo de propiedad 1");
             m76h2tipoprop2.setDescription("H2  Clave o tipo de propiedad 2");
             m76h2tipoprop3.setDescription("H2  Clave o tipo de propiedad 3");
+            m76h1nvalores1.setDescription("H1 Nro.valores 1    // nou ester");
+            m76h1isin1.setDescription("H1 ISIN        1");
+            m76h1nvalores2.setDescription("H1 Nro.valores 2");
+            m76h1isin2.setDescription("H1 ISIN        2");
+            m76h1nvalores3.setDescription("H1 Nro.valores 3");
+            m76h1isin3.setDescription("H1 ISIN        3");
+            m76h2nvalores1.setDescription("H2 Nro.valores 1");
+            m76h2nvalores2.setDescription("H2 Nro.valores 2");
+            m76h2nvalores3.setDescription("H2 Nro.valores 3");
             }
         }
         
@@ -3905,6 +4277,14 @@ public class CatModelo714 extends Catalog
         public FieldDef m77mporcen4;
         public FieldDef m77mporcen5;
         public FieldDef m77mporcen6;
+        public FieldDef m77kmatric1;
+        public FieldDef m77kmatric2;
+        public FieldDef m77kmatric3;
+        public FieldDef m77kmatric4;
+        public FieldDef m77kmatric5;
+        public FieldDef m77kmatric6;
+        public FieldDef m77kmatric7;
+        public FieldDef m77kmatric8;
         public TabMod714h7(String name)
             {
             super(name);
@@ -4053,6 +4433,14 @@ public class CatModelo714 extends Catalog
             m77mporcen4 = new FieldDef("m77mporcen4",FieldDef.FLOAT,6,0);
             m77mporcen5 = new FieldDef("m77mporcen5",FieldDef.FLOAT,6,0);
             m77mporcen6 = new FieldDef("m77mporcen6",FieldDef.FLOAT,6,0);
+            m77kmatric1 = new FieldDef("m77kmatric1",FieldDef.CHAR,20);
+            m77kmatric2 = new FieldDef("m77kmatric2",FieldDef.CHAR,20);
+            m77kmatric3 = new FieldDef("m77kmatric3",FieldDef.CHAR,20);
+            m77kmatric4 = new FieldDef("m77kmatric4",FieldDef.CHAR,20);
+            m77kmatric5 = new FieldDef("m77kmatric5",FieldDef.CHAR,20);
+            m77kmatric6 = new FieldDef("m77kmatric6",FieldDef.CHAR,20);
+            m77kmatric7 = new FieldDef("m77kmatric7",FieldDef.CHAR,20);
+            m77kmatric8 = new FieldDef("m77kmatric8",FieldDef.CHAR,20);
             FieldDef array[] = {
                 m77dominio,
                 m77nif,
@@ -4198,7 +4586,15 @@ public class CatModelo714 extends Catalog
                 m77mporcen3,
                 m77mporcen4,
                 m77mporcen5,
-                m77mporcen6                
+                m77mporcen6,
+                m77kmatric1,
+                m77kmatric2,
+                m77kmatric3,
+                m77kmatric4,
+                m77kmatric5,
+                m77kmatric6,
+                m77kmatric7,
+                m77kmatric8                
                 };
             setColumns(array);
             FieldDef arrayf[] = {m77dominio,m77nif,m77ejercicio,m77periodo,m77pagina };
@@ -4343,6 +4739,14 @@ public class CatModelo714 extends Catalog
             m77mporcen4.setDescription("M Porcentaje de titularidad 4");
             m77mporcen5.setDescription("M Porcentaje de titularidad 5");
             m77mporcen6.setDescription("M Porcentaje de titularidad 6");
+            m77kmatric1.setDescription("K matricula 1");
+            m77kmatric2.setDescription("K matricula 2");
+            m77kmatric3.setDescription("K matricula 3");
+            m77kmatric4.setDescription("K matricula 4");
+            m77kmatric5.setDescription("K matricula 5");
+            m77kmatric6.setDescription("K matricula 6");
+            m77kmatric7.setDescription("K matricula 7");
+            m77kmatric8.setDescription("K matricula 8");
             }
         }
         
@@ -4557,7 +4961,7 @@ public class CatModelo714 extends Catalog
             m782porcen9 = new FieldDef("m782porcen9",FieldDef.FLOAT,6,0);
             m782porcen10 = new FieldDef("m782porcen10",FieldDef.FLOAT,6,0);
             m782porcen11 = new FieldDef("m782porcen11",FieldDef.FLOAT,6,0);
-            m782porcen12 = new FieldDef("m782porcen12",FieldDef.FLOAT,12,0);
+            m782porcen12 = new FieldDef("m782porcen12",FieldDef.FLOAT,6,0);
             FieldDef array[] = {
                 m78dominio,
                 m78nif,
@@ -5415,8 +5819,8 @@ public class CatModelo714 extends Catalog
         public FieldDef m731anatur3;
         public FieldDef m731anatur4;
         public FieldDef m731anatur5;
-        public FieldDef m731anatur7;
         public FieldDef m731anatur6;
+        public FieldDef m731anatur7;
         public FieldDef m731avaluti1;
         public FieldDef m731avaluti2;
         public FieldDef m731avaluti3;
@@ -5427,25 +5831,25 @@ public class CatModelo714 extends Catalog
         public TabMod714h3a(String name)
             {
             super(name);
-            m73adominio = new FieldDef("m73adominio",FieldDef.CHAR,12);
-            m73anif = new FieldDef("m73anif",FieldDef.CHAR,15);
-            m73aejercicio = new FieldDef("m73aejercicio",FieldDef.INTEGER,12);
-            m73aperiodo = new FieldDef("m73aperiodo",FieldDef.CHAR,2);
-            m73apagina = new FieldDef("m73apagina",FieldDef.INTEGER,12);
-            m731aporcen1 = new FieldDef("m731aporcen1",FieldDef.FLOAT,12,0);
-            m731aporcen2 = new FieldDef("m731aporcen2",FieldDef.FLOAT,12,0);
-            m731aporcen3 = new FieldDef("m731aporcen3",FieldDef.FLOAT,12,0);
-            m731aporcen4 = new FieldDef("m731aporcen4",FieldDef.FLOAT,12,0);
-            m731aporcen5 = new FieldDef("m731aporcen5",FieldDef.FLOAT,12,0);
-            m731aporcen6 = new FieldDef("m731aporcen6",FieldDef.FLOAT,12,0);
-            m731aporcen7 = new FieldDef("m731aporcen7",FieldDef.FLOAT,12,0);
+            m73adominio = new FieldDef("m73adominio",FieldDef.CHAR,12,FieldDef.NOTNULL);
+            m73anif = new FieldDef("m73anif",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            m73aejercicio = new FieldDef("m73aejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m73aperiodo = new FieldDef("m73aperiodo",FieldDef.CHAR,2,FieldDef.NOTNULL);
+            m73apagina = new FieldDef("m73apagina",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            m731aporcen1 = new FieldDef("m731aporcen1",FieldDef.FLOAT,6,0);
+            m731aporcen2 = new FieldDef("m731aporcen2",FieldDef.FLOAT,6,0);
+            m731aporcen3 = new FieldDef("m731aporcen3",FieldDef.FLOAT,6,0);
+            m731aporcen4 = new FieldDef("m731aporcen4",FieldDef.FLOAT,6,0);
+            m731aporcen5 = new FieldDef("m731aporcen5",FieldDef.FLOAT,6,0);
+            m731aporcen6 = new FieldDef("m731aporcen6",FieldDef.FLOAT,6,0);
+            m731aporcen7 = new FieldDef("m731aporcen7",FieldDef.FLOAT,6,0);
             m731anatur1 = new FieldDef("m731anatur1",FieldDef.CHAR,1);
             m731anatur2 = new FieldDef("m731anatur2",FieldDef.CHAR,1);
             m731anatur3 = new FieldDef("m731anatur3",FieldDef.CHAR,1);
             m731anatur4 = new FieldDef("m731anatur4",FieldDef.CHAR,1);
             m731anatur5 = new FieldDef("m731anatur5",FieldDef.CHAR,1);
-            m731anatur7 = new FieldDef("m731anatur7",FieldDef.CHAR,1);
             m731anatur6 = new FieldDef("m731anatur6",FieldDef.CHAR,1);
+            m731anatur7 = new FieldDef("m731anatur7",FieldDef.CHAR,1);
             m731avaluti1 = new FieldDef("m731avaluti1",FieldDef.CHAR,1);
             m731avaluti2 = new FieldDef("m731avaluti2",FieldDef.CHAR,1);
             m731avaluti3 = new FieldDef("m731avaluti3",FieldDef.CHAR,1);
@@ -5471,8 +5875,8 @@ public class CatModelo714 extends Catalog
                 m731anatur3,
                 m731anatur4,
                 m731anatur5,
-                m731anatur7,
                 m731anatur6,
+                m731anatur7,
                 m731avaluti1,
                 m731avaluti2,
                 m731avaluti3,
@@ -5483,29 +5887,29 @@ public class CatModelo714 extends Catalog
                 };
             setColumns(array);
             FieldDef arrayf[] = {m73adominio,m73anif,m73aejercicio,m73aperiodo,m73apagina };
-            setDescription("continuacio pag 3 bienes afectos");
+            setDescription("Continuacio pag.3");
             setPrimaryKeys(arrayf);
             m731aporcen1.setDescription("C1 Bienes no exentos afectos 1 Porcentaje de titularidad");
             m731aporcen2.setDescription("C1 Bienes no exentos afectos 2 Porcentaje de titularidad");
             m731aporcen3.setDescription("C1 Bienes no exentos afectos 3 Porcentaje de titularidad");
-            m731aporcen4.setDescription("C1 Bienes no exentos afectos4 Porcentaje de titularidad");
-            m731aporcen5.setDescription("C1 Bienes no exentos afectos 5  Porcentaje de titularidad");
-            m731aporcen6.setDescription("C1 Bienes no exentos afectos 6  Porcentaje de titularidad");
-            m731aporcen7.setDescription("C1 Bienes no exentos afectos 7  Porcentaje de titularidad");
-            m731anatur1.setDescription("C1 Bienes no exentos afectos 1 Naturaleza urbana o rústica");
-            m731anatur2.setDescription("C1 Bienes no exentos afectos 2 Naturaleza urbana o rústica");
-            m731anatur3.setDescription("C1 Bienes no exentos afectos 3 Naturaleza urbana o rústica");
-            m731anatur4.setDescription("C1 Bienes no exentos afectos 4 Naturaleza urbana o rústica");
-            m731anatur5.setDescription("C1 Bienes no exentos afectos 5 Naturaleza urbana o rústica");
-            m731anatur7.setDescription("C1 Bienes no exentos afectos 7 Naturaleza urbana o rústica");
-            m731anatur6.setDescription("C1 Bienes no exentos afectos 6 Naturaleza urbana o rústica");
-            m731avaluti1.setDescription("C1 Bienes no exentos afectos 1 Valor utilizado (V-catas. P-compra C-constr....)");
-            m731avaluti2.setDescription("C1 Bienes no exentos afectos 2 Valor utilizado (V-catas. P-compra C-constr....)");
-            m731avaluti3.setDescription("C1 Bienes no exentos afectos 3 Valor utilizado (V-catas. P-compra C-constr....)");
-            m731avaluti4.setDescription("C1 Bienes no exentos afectos 4 Valor utilizado (V-catas. P-compra C-constr....)");
-            m731avaluti5.setDescription("C1 Bienes no exentos afectos 5 Valor utilizado (V-catas. P-compra C-constr....)");
-            m731avaluti6.setDescription("C1 Bienes no exentos afectos 6 Valor utilizado (V-catas. P-compra C-constr....)");
-            m731avaluti7.setDescription("C1 Bienes no exentos afectos 7 Valor utilizado (V-catas. P-compra C-constr....)");
+            m731aporcen4.setDescription("C1 Bienes no exentos afectos 4 Porcentaje de titularidad");
+            m731aporcen5.setDescription("C1 Bienes no exentos afectos 5 Porcentaje de titularidad");
+            m731aporcen6.setDescription("C1 Bienes no exentos afectos 6 Porcentaje de titularidad");
+            m731aporcen7.setDescription("C1 Bienes no exentos afectos 7 Porcentaje de titularidad");
+            m731anatur1.setDescription("C1 Bienes no exentos afectos 1 Naturaleza urbana/rustica");
+            m731anatur2.setDescription("C1 Bienes no exentos afectos 2 Naturaleza urbana/rustica");
+            m731anatur3.setDescription("C1 Bienes no exentos afectos 3 Naturaleza urbana/rustica");
+            m731anatur4.setDescription("C1 Bienes no exentos afectos 4 Naturaleza urbana/rustica");
+            m731anatur5.setDescription("C1 Bienes no exentos afectos 5 Naturaleza urbana/rustica");
+            m731anatur6.setDescription("C1 Bienes no exentos afectos 6 Naturaleza urbana/rustica");
+            m731anatur7.setDescription("C1 Bienes no exentos afectos 7 Naturaleza urbana/rustica");
+            m731avaluti1.setDescription("C1 Bienes no exentos afectos 1 Valor utilizado (V,A,P,C)");
+            m731avaluti2.setDescription("C1 Bienes no exentos afectos 2 Valor utilizado (V,A,P,C)");
+            m731avaluti3.setDescription("C1 Bienes no exentos afectos 3 Valor utilizado (V,A,P,C)");
+            m731avaluti4.setDescription("C1 Bienes no exentos afectos 4 Valor utilizado (V,A,P,C)");
+            m731avaluti5.setDescription("C1 Bienes no exentos afectos 5 Valor utilizado (V,A,P,C)");
+            m731avaluti6.setDescription("C1 Bienes no exentos afectos 6 Valor utilizado (V,A,P,C)");
+            m731avaluti7.setDescription("C1 Bienes no exentos afectos 7 Valor utilizado (V,A,P,C)");
             }
         }
         
