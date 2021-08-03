@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Feb 02 12:44:35 CET 2021
+// Fecha y hora:     Tue Aug 03 11:38:53 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -39,6 +39,15 @@ public class ProgInsindices extends Program
      Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()) , user , "M" , "INSINDICES" , "Reconstruccion de Indices BD JGESTION Ver1.0" , Easp.dominio , ""  );
     if ( Easp.connEA != null ) {
       if ( execSentencias(Easp.connEA,indicesReconstruirSQL_jGestion) ) {
+        Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
+        }
+      else Maefc.message("El proceso ha finalizado \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
+      }
+    }
+    else if ( vindices.vvaplicacion.getString().equals("JEA") ) {
+     Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()) , user , "M" , "INSINDICES" , "Reconstruccion de Indices BD JEA Ver1.0" , Easp.dominio , ""  );
+    if ( Easp.connEA != null ) {
+      if ( execSentencias(Easp.connEA,indicesReconstruirSQL_jEa) ) {
         Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
         }
       else Maefc.message("El proceso ha finalizado \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
@@ -107,6 +116,15 @@ public void crear () {
      Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()) , user , "A" , "INSINDICES" , "Creación de Indices  BD JGESTION Ver1.0 " , Easp.dominio , ""  );
     if ( Easp.connEA != null ) {
       if ( execSentencias(Easp.connEA,indicesSQL_jGestion) ) {
+        Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
+        }
+      else Maefc.message("El proceso ha finalizado \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
+      }
+    }
+    else if ( vindices.vvaplicacion.getString().equals("JEA") ) {
+     Easp.setAccionLOPD("JEA", Maefc.getYear(Maefc.getDate()) , user , "A" , "INSINDICES" , "Creación de Indices BD JEA Ver1.0" , Easp.dominio , ""  );
+    if ( Easp.connEA != null ) {
+      if ( execSentencias(Easp.connEA,indicesSQL_jEa) ) {
         Maefc.message("El proceso ha finalizado correctamente.","Atención",Maefc.INFORMATION_MESSAGE);
         }
       else Maefc.message("El proceso ha finalizado \n Se ha producido  alguna incidencia durante el  proceso .","Atención",Maefc.ERROR_MESSAGE);
@@ -991,7 +1009,9 @@ String indicesSQL_jRenta[] = {
 "CREATE INDEX ID_SELECCION    ON SELECCION   (selusuario,selprograma) INCLUDE (selcodigo,selempresa,selnombreempre);",
 //09-03-2020
 "CREATE INDEX ID_DECLARANTE2 ON DECLARANTE (decejeraplic,dectraspasado,decuser,decgrupo,decapell1dec,decapell2dec,decnombredec,deccodigo) INCLUDE (decnifdec,decnifcon,decapell1con,decapell2con,decnombrecon);",
-"CREATE INDEX ID_DECLARANTE3 ON DECLARANTE (decejeraplic,decobligadec,decfechamortde,deccodigo)INCLUDE (decapell1dec,decapell2dec,decnombredec,deccodigocdpdec,decnifcon,decapell1con,decapell2con,decnombrecon,decobligacon,deccodigocdpcon);"
+"CREATE INDEX ID_DECLARANTE3 ON DECLARANTE (decejeraplic,decobligadec,decfechamortde,deccodigo)INCLUDE (decapell1dec,decapell2dec,decnombredec,deccodigocdpdec,decnifcon,decapell1con,decapell2con,decnombrecon,decobligacon,deccodigocdpcon);",
+//18-02-2021
+"CREATE INDEX IX_LIQUIDAAPARTC_licdeclaran ON LIQUIDAAPARTC (licdeclaran);"
 };
 
 // Reconstruccion de Indices para optimización de las BD
@@ -1016,7 +1036,25 @@ String indicesReconstruirSQL_jRenta[] = {
 "ALTER INDEX ID_DECLARANTE     ON DECLARANTE     REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",   
 "ALTER INDEX ID_SELECCION      ON SELECCION      REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",
 "ALTER INDEX ID_DECLARANTE2    ON DECLARANTE     REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )", 
-"ALTER INDEX ID_DECLARANTE3    ON DECLARANTE     REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )"   
+"ALTER INDEX ID_DECLARANTE3    ON DECLARANTE     REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",
+//18-02-2021
+"ALTER INDEX IX_LIQUIDAAPARTC_licdeclaran ON LIQUIDAAPARTC REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )"   
+};
+
+String indicesSQL_jEa[] = {
+//18-02-2021
+"CREATE INDEX IX_NIFES_datgrupo ON NIFES (datgrupo) INCLUDE (danifcif)",
+"CREATE INDEX IX_CDP_cdpnifcif ON CDP (cdpnifcif)",
+"CREATE INDEX IX_EMPMODELOS_emodejercicio_emodmodelo_emodtipoper_emodactivo_emodfechaini_emodfechafin ON EMPMODELOS (emodejercicio, emodmodelo, emodtipoper, emodactivo, emodfechaini, emodfechafin) INCLUDE (emodnif)",
+"CREATE INDEX IX_EMPMODELOS_emodejercicio_emodmodelo_emodactivo ON EMPMODELOS (emodejercicio, emodmodelo, emodactivo) INCLUDE (emodnif)"
+};
+
+String indicesReconstruirSQL_jEa[] = {
+//18-02-2021
+"ALTER INDEX IX_NIFES_datgrupo ON NIFES REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",
+"ALTER INDEX IX_CDP_cdpnifcif ON CDP REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",
+"ALTER INDEX IX_EMPMODELOS_emodejercicio_emodmodelo_emodtipoper_emodactivo_emodfechaini_emodfechafin ON EMPMODELOS REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )",
+"ALTER INDEX IX_EMPMODELOS_emodejercicio_emodmodelo_emodactivo ON EMPMODELOS REBUILD WITH ( PAD_INDEX=OFF, STATISTICS_NORECOMPUTE=OFF, ALLOW_ROW_LOCKS=ON, ALLOW_PAGE_LOCKS=ON, SORT_IN_TEMPDB=OFF, ONLINE=OFF )"
 };
     // Metodos
     // Ventana
@@ -1089,6 +1127,7 @@ public void grabaLopdacc ( boolean isCrear ) {
                 setLength(12);
                 setPrintable(false);
                 setDescriptionShow(false);
+                addItem("JEA");
                 addItem("JEO");
                 addItem("JGESTION");
                 addItem("JMODELOS");
