@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Jul 30 10:31:09 CEST 2021
+// Fecha y hora:     Wed Aug 04 08:16:19 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -4593,21 +4593,21 @@ String sentencias17_4[] = {"DELETE FROM AMORTIZACION WHERE amocodigo>=2000"};
         vvveractual.setValue("17.9");
     }
 
-     if (versio < 18.0) {
-        for (i = 0; i < Sentencias.sentencias18_0.length; ++i) {
+     if (versio < 18.1) {
+        for (i = 0; i < Sentencias.sentencias18_1.length; ++i) {
             try {
-                Easp.chivato("18.0 Exec : ["+Sentencias.sentencias18_0[i]+"]",1);
-                Easp.connEA.executeUpdate(Sentencias.sentencias18_0[i]);
+                Easp.chivato("18.1 Exec : ["+Sentencias.sentencias18_1[i]+"]",1);
+                Easp.connEA.executeUpdate(Sentencias.sentencias18_1[i]);
             }
             catch(Exception e) {
-                sqlOperation=Sentencias.sentencias18_0[i];
-                Easp.chivato("18.0 *** Error : ["+Sentencias.sentencias18_0[i]+"]  Error: ["+e+"]",1);
+                sqlOperation=Sentencias.sentencias18_1[i];
+                Easp.chivato("18.1 *** Error : ["+Sentencias.sentencias18_1[i]+"]  Error: ["+e+"]",1);
                 errorMessage=e.getMessage();
             }
         }
-        Easp.setVersionBD("bdeasp","18.0");
+        Easp.setVersionBD("bdeasp","18.1");
         Easp.connEA.commit();
-        vvveractual.setValue("18.0");
+        vvveractual.setValue("18.1");
     } 
     
   }

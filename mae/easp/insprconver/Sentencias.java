@@ -4,13 +4,13 @@ import mae.easp.general.Easp;
 
 public class Sentencias {
 	
-	public static String sentencias18_0[]={
-			  "INSERT INTO TRANSACCIONES (tratipo,tradesc,traemre,traregimen,tratipoiva,travoloper,traoperespec) VALUES ('EOSN','OSS. Operaciones no sujetas por reglas de localización','E','IN','OSN','OSN','NO')",
-			  "INSERT INTO TRANSACCIONES (tratipo,tradesc,traemre,traregimen,tratipoiva,travoloper,traoperespec) VALUES ('EOSS','OSS. Operaciones sujetas','E','IN','OSS','OSS','NO')",
+	public static String sentencias18_1[]={
+			  "INSERT INTO TRANSACCIONES (tratipo,tradesc,traemre,traregimen,tratipoiva,travoloper,traoperespec) VALUES ('EOSN','Operaciones no sujetas por reglas de localización acogidas a los regímenes especiales de ventanilla única','E','IN','OSN','OSN','NO')",
+			  "INSERT INTO TRANSACCIONES (tratipo,tradesc,traemre,traregimen,tratipoiva,travoloper,traoperespec) VALUES ('EOSS','Operaciones sujetas y acogidas a los regímenes especiales de ventanilla única','E','IN','OSS','OSS','NO')",
 			  "INSERT INTO TRANSACCIONES (tratipo,tradesc,traemre,traregimen,tratipoiva,travoloper,traoperespec) VALUES ('EOE','Operaciones exentas sin derecho a deducción','E','IN','OE','ESD','NO')",
 			  "UPDATE TRANSACCIONES set travoloper='ISP' where traemre='E' and tratipoiva='ISP'",
-			  "UPDATE TRANSACCIONES set travoloper='OSS' where traemre='E' and tratipoiva='OSS'",
-			  "UPDATE TRANSACCIONES set travoloper='OSN' where traemre='E' and tratipoiva='OSN'"
+			  "UPDATE TRANSACCIONES set travoloper='OSS', tradesc='Operaciones sujetas y acogidas a los regímenes especiales de ventanilla única' where traemre='E' and tratipoiva='OSS'",
+			  "UPDATE TRANSACCIONES set travoloper='OSN', tradesc='Operaciones no sujetas por reglas de localización acogidas a los regímenes especiales de ventanilla única' where traemre='E' and tratipoiva='OSN'"
 			};
 	
 	  public static String sentencias17_9[] = {
