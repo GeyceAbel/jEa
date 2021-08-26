@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Jul 20 22:01:01 CEST 2021
+// Fecha y hora:     Thu Aug 26 18:21:56 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -1249,7 +1249,7 @@ public class CatEasp extends Catalog
         public FieldDef absucursal;
         public FieldDef abnumero;
         public FieldDef abadigito;
-        public FieldDef abdominio;
+        public FieldDef abadominio;
         public TabAsignaciones(String name)
             {
             super(name);
@@ -1259,7 +1259,7 @@ public class CatEasp extends Catalog
             absucursal = new FieldDef("absucursal",FieldDef.INTEGER,0);
             abnumero = new FieldDef("abnumero",FieldDef.CHAR,10);
             abadigito = new FieldDef("abadigito",FieldDef.INTEGER,0);
-            abdominio = new FieldDef("abdominio",FieldDef.CHAR,12);
+            abadominio = new FieldDef("abadominio",FieldDef.CHAR,12);
             FieldDef array[] = {
                 abacodigo,
                 abatipo,
@@ -1267,7 +1267,7 @@ public class CatEasp extends Catalog
                 absucursal,
                 abnumero,
                 abadigito,
-                abdominio                
+                abadominio                
                 };
             setColumns(array);
             FieldDef arrayf[] = {abacodigo,abatipo };
