@@ -4,6 +4,65 @@ import mae.easp.general.Easp;
 
 public class Sentencias {
 	
+	public static String sentencias18_2[]={//ampliació PK de PCMORANUALHIS i PCMORANUAL
+			"CREATE TABLE PCMORANUALHIS2                                          "+
+			"   (pcmhelemento INTEGER NOT NULL,                                   "+
+			"    pcmhamorejer INTEGER NOT NULL,                                   "+
+			"    pcmhtipo VARCHAR(1) NOT NULL,                                    "+
+			"    pcmhcoefamort FLOAT,                                             "+
+			"    pcmhamortanual FLOAT,                                            "+
+			"    pcmhamortacum FLOAT,                                             "+
+			"    pcmhamortpdte FLOAT,                                             "+
+			"    pcmhultfecha "+formatData()+
+			"    pcmhcuotaapli FLOAT,                                             "+
+			"    PRIMARY KEY (pcmhelemento,pcmhamorejer, pcmhtipo),               "+
+			"    FOREIGN KEY (pcmhelemento) REFERENCES PCINMOVHIS(pcihelemento)); ",
+			"CREATE TABLE PCMORANUAL2                                             "+
+			"   (pcmelemento INTEGER NOT NULL,                                    "+
+			"    pcmamorejer INTEGER NOT NULL,                                    "+
+			"    pcmtipo VARCHAR(1) NOT NULL,                                     "+
+			"    pcmcoefamort FLOAT,                                              "+
+			"    pcmamortanual FLOAT,                                             "+
+			"    pcmamortacum FLOAT,                                              "+
+			"    pcmamortpdte FLOAT,                                              "+
+			"    pcmultfecha "+formatData()+
+			"    pcmcuotaapli FLOAT,                                              "+
+			"    PRIMARY KEY (pcmelemento,pcmamorejer, pcmtipo),                  "+
+			"    FOREIGN KEY (pcmelemento) REFERENCES PCINMOV(pcielemento));      ",
+			"INSERT INTO PCMORANUALHIS2 SELECT * FROM PCMORANUALHIS;",
+			"INSERT INTO PCMORANUAL2 SELECT * FROM PCMORANUAL",
+			"DROP TABLE PCMORANUALHIS;",
+			"DROP TABLE PCMORANUAL;",
+			"CREATE TABLE PCMORANUALHIS                                           "+
+			"   (pcmhelemento INTEGER NOT NULL,                                   "+
+			"    pcmhamorejer INTEGER NOT NULL,                                   "+
+			"    pcmhtipo VARCHAR(1) NOT NULL,                                    "+
+			"    pcmhcoefamort FLOAT,                                             "+
+			"    pcmhamortanual FLOAT,                                            "+
+			"    pcmhamortacum FLOAT,                                             "+
+			"    pcmhamortpdte FLOAT,                                             "+
+			"    pcmhultfecha "+formatData()+
+			"    pcmhcuotaapli FLOAT,                                             "+
+			"    PRIMARY KEY (pcmhelemento,pcmhamorejer, pcmhtipo),               "+
+			"    FOREIGN KEY (pcmhelemento) REFERENCES PCINMOVHIS(pcihelemento)); ",
+			"CREATE TABLE PCMORANUAL                                              "+
+			"   (pcmelemento INTEGER NOT NULL,                                    "+
+			"    pcmamorejer INTEGER NOT NULL,                                    "+
+			"    pcmtipo VARCHAR(1) NOT NULL,                                     "+
+			"    pcmcoefamort FLOAT,                                              "+
+			"    pcmamortanual FLOAT,                                             "+
+			"    pcmamortacum FLOAT,                                              "+
+			"    pcmamortpdte FLOAT,                                              "+
+			"    pcmultfecha "+formatData()+
+			"    pcmcuotaapli FLOAT,                                              "+
+			"    PRIMARY KEY (pcmelemento,pcmamorejer, pcmtipo),                  "+
+			"    FOREIGN KEY (pcmelemento) REFERENCES PCINMOV(pcielemento));      ",
+			"INSERT INTO PCMORANUALHIS SELECT * FROM PCMORANUALHIS2;",
+			"INSERT INTO PCMORANUAL SELECT * FROM PCMORANUAL2;",
+			"DROP TABLE PCMORANUALHIS2;",
+			"DROP TABLE PCMORANUAL2;"			
+	};
+	
 	public static String sentencias18_1[]={
 			  "INSERT INTO TRANSACCIONES (tratipo,tradesc,traemre,traregimen,tratipoiva,travoloper,traoperespec) VALUES ('EOSN','Operaciones no sujetas por reglas de localización acogidas a los regímenes especiales de ventanilla única','E','IN','OSN','OSN','NO')",
 			  "INSERT INTO TRANSACCIONES (tratipo,tradesc,traemre,traregimen,tratipoiva,travoloper,traoperespec) VALUES ('EOSS','Operaciones sujetas y acogidas a los regímenes especiales de ventanilla única','E','IN','OSS','OSS','NO')",

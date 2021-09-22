@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Aug 26 18:21:56 CEST 2021
+// Fecha y hora:     Wed Sep 22 11:40:51 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -4604,7 +4604,7 @@ public class CatEasp extends Catalog
                 pcmhcuotaapli                
                 };
             setColumns(array);
-            FieldDef arrayf[] = {pcmhelemento,pcmhamorejer };
+            FieldDef arrayf[] = {pcmhelemento,pcmhamorejer,pcmhtipo };
             setPrimaryKeys(arrayf);
             }
         }
@@ -4786,7 +4786,7 @@ public class CatEasp extends Catalog
                 pcmcuotaapli                
                 };
             setColumns(array);
-            FieldDef arrayf[] = {pcmelemento,pcmamorejer };
+            FieldDef arrayf[] = {pcmelemento,pcmamorejer,pcmtipo };
             setPrimaryKeys(arrayf);
             }
         }

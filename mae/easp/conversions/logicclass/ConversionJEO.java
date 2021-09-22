@@ -99,7 +99,7 @@ public class ConversionJEO extends ConversionLC {
 
 	protected void initPrograma() {
       prJeo.vejecutar.connLogic = connLC;
-      prJeo.vejecutar.assignaEquivCtas();
+      mae.jeo.general.Jeo.assignaEquivCtas();
       prJeo.vejecutar.borraTablaConver();
       prJeo.vejecutar.vvempresa .setValue(desdeEmp);
       prJeo.vejecutar.vvhastaempre .setValue(hastaEmp);
