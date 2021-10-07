@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Aug 03 11:04:39 CEST 2021
+// Fecha y hora:     Thu Oct 07 10:54:17 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -1887,7 +1887,6 @@ vlogantant.doShow();
         }
     public void onExit ()
         {
-        if (connAudition != null) connAudition.disconnect();
         if (connAnt != null) connAnt.disconnect();
         if (connAntAnt != null) connAntAnt.disconnect();
         super.onExit ();
