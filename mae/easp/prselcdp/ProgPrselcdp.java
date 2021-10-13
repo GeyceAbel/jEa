@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jan 20 16:25:31 CET 2021
+// Fecha y hora:     Wed Oct 13 13:40:00 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -516,7 +516,10 @@ public class ProgPrselcdp extends Program
             
             if (sMsg.length()==0) {
               try {
-                getDataBase().executeUpdate("Delete from CDP where cdpcodi="+sempresa.cdpcodi.getSQLFormat());
+                getDataBase().executeUpdate("delete from BANCOCLI where bcccodigo ="+sempresa.cdpcodi.getSQLFormat());
+    getDataBase().executeUpdate("delete from ASIGNACIONES where abacodigo ="+sempresa.cdpcodi.getSQLFormat());
+    getDataBase().executeUpdate("delete from REPRESENTANTES where repcodigo ="+sempresa.cdpcodi.getSQLFormat());
+    getDataBase().executeUpdate("Delete from CDP where cdpcodi="+sempresa.cdpcodi.getSQLFormat());
                 getDataBase().commit();
               }
               catch (Exception e) {
