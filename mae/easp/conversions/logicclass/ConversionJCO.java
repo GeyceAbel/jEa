@@ -1276,7 +1276,8 @@ public class ConversionJCO extends ConversionLC {
 					u.valor("pcu349",dc.a349);
 					u.valor("pcuttrans",dc.transaccion);
 					
-					int CriterioIva = sclipro.getint("CriterioIva");
+					//int CriterioIva = sclipro.getint("CriterioIva");
+					int CriterioIva = sclipro.getint("CodigoIva");
 					if (CriterioIva == 2) u.valor("pcurecc","S");
 					else u.valor("pcurecc","N");
 					
