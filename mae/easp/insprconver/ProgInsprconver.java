@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Sep 22 11:39:31 CEST 2021
+// Fecha y hora:     Wed Oct 13 14:13:43 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -4625,7 +4625,30 @@ String sentencias17_4[] = {"DELETE FROM AMORTIZACION WHERE amocodigo>=2000"};
         Easp.setVersionBD("bdeasp","18.2");
         Easp.connEA.commit();
         vvveractual.setValue("18.2");
-    } 
+    }
+    if (versio < 18.3) {
+        validaBanco ();
+        Easp.setVersionBD("bdeasp","18.3");
+        Easp.connEA.commit();
+        vvveractual.setValue("18.3");
+    }
+    /*
+    if (versio < 18.3) {
+    	for (i = 0; i < Sentencias.sentencias18_3.length; ++i) {
+    		try {
+    			Easp.chivato("18.3 Exec : ["+Sentencias.sentencias18_3[i]+"]",1);
+    			Easp.connEA.executeUpdate(Sentencias.sentencias18_3[i]);
+    		}
+    		catch(Exception e) {
+    			sqlOperation=Sentencias.sentencias18_3[i];
+    			Easp.chivato("18.3 *** Error : ["+Sentencias.sentencias18_3[i]+"]  Error: ["+e+"]",1);
+    			errorMessage=e.getMessage();
+    		}
+    	}
+    	Easp.setVersionBD("bdeasp","18.3");
+    	Easp.connEA.commit();
+    	vvveractual.setValue("18.3");
+    } */
     
   }
   catch(Exception e) {
@@ -4672,26 +4695,23 @@ public void grabaPerfilConta () {
 
 // 15-07-2020
 public void validaBanco(){
-	String codiCdp="";	
-	boolean bExiste=true;
-	
 	Selector sb = new Selector (Easp.connEA);
 	sb.execute ("Select * from BANCOCLI where bcccodigo is not null");
 	while (sb.next()){
-		   codiCdp=sb.getString("bcccodigo");		   
+		   String codiCdp=sb.getString("bcccodigo");		   
 		   int banco=sb.getint("bccbanco");
              int ofici=sb.getint("bccsucursal");
              int dc   =sb.getint("bccdigitos");
              String cc=sb.getString("bccnumero");            
 		   //
+		   boolean bExiste=false;
 		   Selector s = new Selector (Easp.connEA);
-		   s.execute("Select * from CDP where cdpcodi='"+codiCdp+"'");
-		   if (s.next()) bExiste=true;	
-		   else bExiste=false;
+		   s.execute("Select cdpcodi from CDP where cdpcodi='"+codiCdp+"'");
+		   if  (s.next()) bExiste=true;	
 		   s.close();
 		   //
 		   if (!bExiste){
-		   	   System.out.println("jEA 17.1 ("+codiCdp+") "+banco+"-"+ofici+"-"+dc+"-"+cc);
+		   	   System.out.println("jEA eliminando registro bancos del CDP ("+codiCdp+") "+banco+"-"+ofici+"-"+dc+"-"+cc);
 			   borraBancocli(codiCdp);			  			   
 		   }
 	}

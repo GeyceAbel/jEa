@@ -38,8 +38,8 @@ public class Easp {
 
   //variables de versiones
   public static String versionAplicacion="9.8";
-  public static String versionFecha="Agosto/2021";
-  public static String versionBDEA="18.2";
+  public static String versionFecha="Octubre/2021";
+  public static String versionBDEA="18.3";
 
   public static enum TIPO_HOST { LOCALHOST, AZURE, AZUREPRE, AZUREDEV};
   public static TIPO_HOST HOST = TIPO_HOST.AZURE;
@@ -324,7 +324,9 @@ public class Easp {
           CatModelo100 catmodelo100 = new CatModelo100();
           CatModelo200 catmodelo200 = new CatModelo200();
           CatModelo714 catmodelo714 = new CatModelo714();
-          Catalog array[] = {catmodelos1,catmodelos2,catmodgen,catmodelo100,catmodelo200,catmodelo714};
+          CatModigic catmodigic = new CatModigic();
+          CatModelo220 catmodelo220 = new CatModelo220();
+          Catalog array[] = {catmodelos1,catmodelos2,catmodgen,catmodelo100,catmodelo200,catmodelo714,catmodigic,catmodelo220};
           db.setCatalogs(array);
       }
     else if (bdnom.equals("laboral"))
