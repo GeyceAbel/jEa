@@ -1275,9 +1275,18 @@ public class ConversionJCO extends ConversionLC {
 					u.valor("pcu347",dc.a347);
 					u.valor("pcu349",dc.a349);
 					u.valor("pcuttrans",dc.transaccion);
+					boolean versionAntigua = false;
+					int CriterioIva = 0;
+					try {
+						connLC.executeQuery("Select CriterioIva from ClientesConta");
+					}
+					catch(java.sql.SQLException e){
+						versionAntigua = true;
+					}
+					if(versionAntigua) CriterioIva = 1;
+					else CriterioIva = sclipro.getint("CriterioIva");
+					//int CriterioIva = sclipro.getint("CodigoIva");
 					
-					//int CriterioIva = sclipro.getint("CriterioIva");
-					int CriterioIva = sclipro.getint("CodigoIva");
 					if (CriterioIva == 2) u.valor("pcurecc","S");
 					else u.valor("pcurecc","N");
 					
@@ -2130,8 +2139,23 @@ public class ConversionJCO extends ConversionLC {
 			String codigoCta = getSelString(sf,"CodigoCuentaFactura");
 			String[] infoctaCliPro = getFormatoCuenta(codigoCta);
 			String emirec = getSelString(sf,"TipoFactura");
-			int CriterioIva = sf.getint("CriterioIva");
-			int TipoCriterioCaja = sf.getint("TipoCriterioCaja");
+			boolean versionAntigua = false;
+			int CriterioIva = 0;
+			int TipoCriterioCaja = 0;
+			try {
+				connLC.executeQuery("Select CriterioIva, TipoCriterioCaja from MovimientosFacturas");
+			}
+			catch(java.sql.SQLException e) {
+				versionAntigua = true;
+			}
+			if(versionAntigua) {
+				CriterioIva = 1;
+				TipoCriterioCaja = 3;
+			}
+			else {
+				CriterioIva = sf.getint("CriterioIva");
+				TipoCriterioCaja = sf.getint("TipoCriterioCaja");
+			}
 			boolean esRecc = (CriterioIva == 2);
 			int abono = sf.getint("AbonoIva");
 			double multiplicador = 1.0;
