@@ -5,6 +5,8 @@ import mae.easp.general.Easp;
 public class Sentencias {
 	
 	public static String sentencias18_2[]={//ampliació PK de PCMORANUALHIS i PCMORANUAL
+			"DROP TABLE PCMORANUALHIS2;",
+			"DROP TABLE PCMORANUAL2;",
 			"CREATE TABLE PCMORANUALHIS2                                          "+
 			"   (pcmhelemento INTEGER NOT NULL,                                   "+
 			"    pcmhamorejer INTEGER NOT NULL,                                   "+
@@ -58,9 +60,7 @@ public class Sentencias {
 			"    PRIMARY KEY (pcmelemento,pcmamorejer, pcmtipo),                  "+
 			"    FOREIGN KEY (pcmelemento) REFERENCES PCINMOV(pcielemento));      ",
 			"INSERT INTO PCMORANUALHIS SELECT * FROM PCMORANUALHIS2;",
-			"INSERT INTO PCMORANUAL SELECT * FROM PCMORANUAL2;",
-			"DROP TABLE PCMORANUALHIS2;",
-			"DROP TABLE PCMORANUAL2;"			
+			"INSERT INTO PCMORANUAL SELECT * FROM PCMORANUAL2;"
 	};
 	
 	public static String sentencias18_1[]={
