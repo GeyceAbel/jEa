@@ -6,7 +6,7 @@
 
 	<property name="vjava" value="7" />
 	<property name="vejer" value="21" />
-	<property name="vmes" value="10" />
+	<property name="vmes" value="11" />
 	<property name="vauto" value="02" />
 
 	<property name="dist" location="buildtmp" />

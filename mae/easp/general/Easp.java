@@ -152,10 +152,52 @@ public class Easp {
       setFileFromjar(destinoPlantillas,"query.xls",destinoPlantillas+"query.xls");
       }
     HOST = TIPO_HOST.AZURE;
-    System.out.println("**************** HOST JEA = "+Easp.HOST);
-
+    System.out.println("**************** HOST JEA = "+Easp.HOST);    
+    checkSQLVersion();
     return true;
     }
+	private static void checkSQLVersion() {
+		String usrtmp = "ADMIN";
+		String ambito = "SQLSERVER";
+		String variable = "VERSQL";
+		if (connEA.getDB().getType().toUpperCase().equals("SQLSERVER") && getValorParam(usrtmp,ambito,variable) == null) {
+			DBConnection conn = null;
+			DataBase db=new DataBase();
+			db.setName("master");
+			db.setMyServer(Easp.connEA.getDB().getServer());
+			db.setUser(Easp.connEA.getDB().getUser());
+			db.setMyPassword(Easp.connEA.getDB().getPassword());
+			db.setType("sqlserver");
+			db.setDsn(Easp.connEA.getDB().getDsn());
+			conn=new DBConnection(db);
+
+			try {
+				if (!conn.connectEx()) {
+					conn = null;
+				}
+				else {
+					Selector s = new Selector(conn);
+					//s.execute("SELECT SERVERPROPERTY('productversion') as col1, SERVERPROPERTY ('productlevel') as col2, SERVERPROPERTY ('edition') as col3");
+					s.execute("Select @@version as col1");
+					if (s.next()) {
+						String val1 = s.getString("col1");
+						if (val1 != null && val1.contains("\n")) val1 = val1.split("\n")[0];
+						//String val2 = s.getString("col2");
+						//String val3 = s.getString("col3");
+						mae.easp.general.Easp.grabaUsoAfinity(dominio,"JEA","VER.BBDD.SQL",0,0,usuario,0,0,0, 0.0, 0.0, 0.0, val1, null,null, null, null, null);
+						setParam(usrtmp, ambito, variable, "S", "Version sql server", null, null);
+					}
+					s.close();
+					conn.disconnect();
+				}
+			}
+			catch (Exception e) {
+				conn = null;
+			}
+		}		
+	}
+
+
 
   public static DBConnection getConnEA() {
     CatEasp cateasp;
@@ -1645,6 +1687,28 @@ public static Date esFecha (String s){
    * @param   dominio dominio con el que se ha entrado en la aplicación
    * @return  true       Si consigue efectuar la actualización
    */
+  
+  public static String getValorParam(String usuario, String ambito, String variable) {
+	  Select sparam=new Select(connEA);
+	  Table  tbparam = new Table(sparam,"parametros");
+	  Field  fdvalor = new Field(sparam,tbparam,"parvalor");
+	  Field  fddominio = new Field(sparam,tbparam,"pardominio");
+	  Field  fdusuario = new Field(sparam,tbparam,"parusuario");
+	  Field  fdambito = new Field(sparam,tbparam,"parambito");
+	  Field  fdvariable = new Field(sparam,tbparam,"parvariable");
+	  Field  fddesc = new Field(sparam,tbparam,"pardesc");
+	  Field  fdagrup = new Field(sparam,tbparam,"paragrup");
+	  Field  fdespecific = new Field(sparam,tbparam,"parespecific");
+
+	  String strWhere = " pardominio = '"+dominio+"' And parusuario = '"+usuario+"' And parvariable = '"+variable+"' And parambito='"+ambito+"'";
+	  sparam.setWhere(strWhere);
+	  sparam.execute();
+	  String valor = null;
+	  if (!sparam.isEof()) valor = fdvalor.getString();
+	  return valor;
+  }
+
+  
   public static boolean setParam(String usuario, String ambito, String variable, String valor, String desc, String agrup, String especific) {
 		Select sparam=new Select(connEA);
     Table  tbparam = new Table(sparam,"parametros");
