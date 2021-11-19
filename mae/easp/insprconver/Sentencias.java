@@ -4,6 +4,19 @@ import mae.easp.general.Easp;
 
 public class Sentencias {
 	
+	public static String sentencias18_4[]= {
+		"ALTER TABLE PCINMOV ADD pcilimiteinver FLOAT;",
+		"ALTER TABLE PCINMOV ADD pciincrplantil FLOAT;",
+		"ALTER TABLE PCINMOV ADD pcicoeffiscal FLOAT;",
+		"ALTER TABLE PCINMOV ADD pcitipofiscal VARCHAR(5);", 	
+		"ALTER TABLE PCINMOV ALTER COLUMN pcitipofiscal VARCHAR(5);", 	
+		"ALTER TABLE PCINMOVHIS ADD pcihlimiteinver FLOAT;",
+		"ALTER TABLE PCINMOVHIS ADD pcihincrplantil FLOAT;",
+		"ALTER TABLE PCINMOVHIS ADD pcihcoeffiscal FLOAT;",
+		"ALTER TABLE PCINMOVHIS ADD pcihtipofiscal VARCHAR(5);", 	
+		"ALTER TABLE PCINMOVHIS ALTER COLUMN pcihtipofiscal VARCHAR(5);" 	
+	};
+	
 	public static String sentencias18_2[]={//ampliació PK de PCMORANUALHIS i PCMORANUAL
 			"DROP TABLE PCMORANUALHIS2;",
 			"DROP TABLE PCMORANUAL2;",

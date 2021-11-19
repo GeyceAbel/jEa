@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Sep 22 11:40:51 CEST 2021
+// Fecha y hora:     Mon Oct 18 15:39:09 CEST 2021
 // 
 // Aplicación: easp
 // 
@@ -4470,6 +4470,10 @@ public class CatEasp extends Catalog
         public FieldDef pcihanyosreg;
         public FieldDef pcihdivisor;
         public FieldDef pcihcoefdefi;
+        public FieldDef pcihlimiteinver;
+        public FieldDef pcihincrplantil;
+        public FieldDef pcihcoeffiscal;
+        public FieldDef pcihtipofiscal;
         public TabPcinmovhis(String name)
             {
             super(name);
@@ -4516,6 +4520,10 @@ public class CatEasp extends Catalog
             pcihanyosreg = new FieldDef("pcihanyosreg",FieldDef.INTEGER,0);
             pcihdivisor = new FieldDef("pcihdivisor",FieldDef.INTEGER,0);
             pcihcoefdefi = new FieldDef("pcihcoefdefi",FieldDef.FLOAT,6,0);
+            pcihlimiteinver = new FieldDef("pcihlimiteinver",FieldDef.FLOAT,0,2);
+            pcihincrplantil = new FieldDef("pcihincrplantil",FieldDef.FLOAT,0,2);
+            pcihcoeffiscal = new FieldDef("pcihcoeffiscal",FieldDef.FLOAT,0,2);
+            pcihtipofiscal = new FieldDef("pcihtipofiscal",FieldDef.CHAR,5);
             FieldDef array[] = {
                 pcihelemento,
                 pcihempresa,
@@ -4559,7 +4567,11 @@ public class CatEasp extends Catalog
                 pcihdeparta,
                 pcihanyosreg,
                 pcihdivisor,
-                pcihcoefdefi                
+                pcihcoefdefi,
+                pcihlimiteinver,
+                pcihincrplantil,
+                pcihcoeffiscal,
+                pcihtipofiscal                
                 };
             setColumns(array);
             FieldDef arrayf[] = {pcihelemento };
@@ -4654,6 +4666,10 @@ public class CatEasp extends Catalog
         public FieldDef pcianyosreg;
         public FieldDef pcidivisor;
         public FieldDef pcicoefdefi;
+        public FieldDef pcilimiteinver;
+        public FieldDef pciincrplantil;
+        public FieldDef pcicoeffiscal;
+        public FieldDef pcitipofiscal;
         public TabPcinmov(String name)
             {
             super(name);
@@ -4699,6 +4715,10 @@ public class CatEasp extends Catalog
             pcianyosreg = new FieldDef("pcianyosreg",FieldDef.INTEGER,0);
             pcidivisor = new FieldDef("pcidivisor",FieldDef.INTEGER,0);
             pcicoefdefi = new FieldDef("pcicoefdefi",FieldDef.FLOAT,6,0);
+            pcilimiteinver = new FieldDef("pcilimiteinver",FieldDef.FLOAT,0,2);
+            pciincrplantil = new FieldDef("pciincrplantil",FieldDef.FLOAT,0,2);
+            pcicoeffiscal = new FieldDef("pcicoeffiscal",FieldDef.FLOAT,0,2);
+            pcitipofiscal = new FieldDef("pcitipofiscal",FieldDef.CHAR,5);
             FieldDef array[] = {
                 pcielemento,
                 pciempresa,
@@ -4741,7 +4761,11 @@ public class CatEasp extends Catalog
                 pcideparta,
                 pcianyosreg,
                 pcidivisor,
-                pcicoefdefi                
+                pcicoefdefi,
+                pcilimiteinver,
+                pciincrplantil,
+                pcicoeffiscal,
+                pcitipofiscal                
                 };
             setColumns(array);
             FieldDef arrayf[] = {pcielemento };
