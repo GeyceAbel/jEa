@@ -4,6 +4,10 @@ import mae.easp.general.Easp;
 
 public class Sentencias {
 	
+	public static String sentencias18_5[]= {
+		"UPDATE PCMORANUAL SET pcmtipo='C' where pcmtipo='L'"
+	};
+	
 	public static String sentencias18_4[]= {
 		"ALTER TABLE PCINMOV ADD pcilimiteinver FLOAT;",
 		"ALTER TABLE PCINMOV ADD pciincrplantil FLOAT;",
