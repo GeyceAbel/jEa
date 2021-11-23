@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jun 16 15:24:43 CEST 2021
+// Fecha y hora:     Tue Nov 23 12:59:58 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -121,7 +121,9 @@ private java.util.HashMap<String, Client> getClients(String xml) {
 					client = new Client();
 				}
 				else if (isValidTextNode("nif", reader) && client != null) {
-					client.nif = reader.getText().toString();
+					String nif = reader.getText().toString();
+					if (nif!=null) nif = nif.toUpperCase();
+					client.nif = nif;
 				}
 				else if (isValidTextNode("dominio", reader) && client != null) {
 					client.dominio = reader.getText().toString();
@@ -836,8 +838,8 @@ else {
             
 datnombre.setValue(scdp.datapell1.getString() + " " + scdp.datapell2.getString() + " " + datnombre.getString());
 
-if ((clients != null && clients.size() > 0) && clients.containsKey(cdpnifcif.getString())) {
-	Client client = clients.get(cdpnifcif.getString());
+if ((clients != null && clients.size() > 0) && cdpnifcif.getString()!=null && clients.containsKey(cdpnifcif.getString().toUpperCase())) {
+	Client client = clients.get(cdpnifcif.getString().toUpperCase());
 	vvaltafinity.setValue(1);
 	vvcodafinity.setValue(client.dominio);
 	vvmail.setValue(client.mail);
