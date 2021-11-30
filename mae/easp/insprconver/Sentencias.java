@@ -4,6 +4,10 @@ import mae.easp.general.Easp;
 
 public class Sentencias {
 	
+	public static String sentencias18_6[]= {
+			"DELETE FROM AMORTIZACION where amocodigo>=3000"
+		};
+
 	public static String sentencias18_5[]= {
 		"UPDATE PCMORANUAL SET pcmtipo='C' where pcmtipo='L'"
 	};
