@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Nov 30 16:40:39 CET 2021
+// Fecha y hora:     Thu Dec 30 15:53:03 CET 2021
 // 
 // Aplicación: easp
 // 
@@ -1947,7 +1947,6 @@ String sentencias16_9[]={"DELETE FROM INDEMORA WHERE indejercicio=2020;",
 String sentencias17_0[] = {"INSERT INTO BANCO (bncodigo, bndesc) VALUES (239, 'EVO BANCO');"};
 
 String sentencias17_4[] = {"DELETE FROM AMORTIZACION WHERE amocodigo>=2000"};
-
 
 
 // a partir d'ara utilitzem el sentencies de la classe externa que hi ha a insprconver
@@ -4684,7 +4683,22 @@ String sentencias17_4[] = {"DELETE FROM AMORTIZACION WHERE amocodigo>=2000"};
     	Easp.connEA.commit();
     	vvveractual.setValue("18.6");
     }
-    
+    if (versio < 18.7) {
+    	 for (i = 0; i < Sentencias.sentencias18_7.length; ++i) {
+    		try {
+    			Easp.chivato("18.7 Exec : ["+Sentencias.sentencias18_7[i]+"]",1);
+    			Easp.connEA.executeUpdate(Sentencias.sentencias18_7[i]);
+    		}
+    		catch(Exception e) {
+    			sqlOperation=Sentencias.sentencias18_7[i];
+    			Easp.chivato("18.7 *** Error : ["+Sentencias.sentencias18_7[i]+"]  Error: ["+e+"]",1);
+    			errorMessage=e.getMessage();
+    		}
+    	}
+    	Easp.setVersionBD("bdeasp","18.7");
+    	Easp.connEA.commit();
+    	vvveractual.setValue("18.7");
+    }
   }
   catch(Exception e) {
     System.out.println("Error en conversión: ["+e+"]");

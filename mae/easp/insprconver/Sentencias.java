@@ -3,7 +3,10 @@ package mae.easp.insprconver;
 import mae.easp.general.Easp;
 
 public class Sentencias {
-	
+
+	public static String sentencias18_7[]={"DELETE FROM INDEMORA WHERE indejercicio=2022;",
+    "INSERT INTO INDEMORA (indejercicio,inddesdefecha,indhastafecha,indtipo_vigente) VALUES (2022,'01/01/2022','31/12/2022',3.75);"};
+
 	public static String sentencias18_6[]= {
 			"DELETE FROM AMORTIZACION where amocodigo>=3000"
 		};

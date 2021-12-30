@@ -39,7 +39,7 @@ public class Easp {
   //variables de versiones
   public static String versionAplicacion="9.8";
   public static String versionFecha="Noviembre/2021";
-  public static String versionBDEA="18.6";
+  public static String versionBDEA="18.7";
 
   public static enum TIPO_HOST { LOCALHOST, AZURE, AZUREPRE, AZUREDEV};
   public static TIPO_HOST HOST = TIPO_HOST.AZURE;
@@ -152,7 +152,7 @@ public class Easp {
       setFileFromjar(destinoPlantillas,"query.xls",destinoPlantillas+"query.xls");
       }
     HOST = TIPO_HOST.AZURE;
-    System.out.println("**************** HOST JEA = "+Easp.HOST);    
+    System.out.println("**************** HOST JEA = "+Easp.HOST);
     checkSQLVersion();
     return true;
     }
@@ -194,7 +194,7 @@ public class Easp {
 			catch (Exception e) {
 				conn = null;
 			}
-		}		
+		}
 	}
 
 
