@@ -5,9 +5,9 @@
 	<!-- set global properties for this build -->
 
 	<property name="vjava" value="7" />
-	<property name="vejer" value="21" />
-	<property name="vmes" value="11" />
-	<property name="vauto" value="06" />
+	<property name="vejer" value="22" />
+	<property name="vmes" value="01" />
+	<property name="vauto" value="01" />
 
 	<property name="dist" location="buildtmp" />
 	<property name="zipsversio" location="ZIP" />
