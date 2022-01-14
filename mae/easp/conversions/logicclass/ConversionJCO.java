@@ -19,6 +19,7 @@ import mae.general.Fecha;
 import mae.general.Numero;
 import mae.general.ProgressBarForm;
 import mae.general.Util;
+import mae.jeo.general.Jeo;
 import geyce.maefc.Aplication;
 import geyce.maefc.DBConnection;
 import geyce.maefc.Delete;
@@ -89,7 +90,11 @@ public class ConversionJCO extends ConversionLC {
 	@Override
 	public Vector<DadesEmpresa> initEmpreses () {
 		SelectorLogic sEmp = new SelectorLogic (connLC);
-		String sql = "Select * from EMPRESAS where EmpresaEstimaciones=0 ";
+		String sql = ""; //Provisional Escoal quitar 06/2022
+		if("777777000000".equals(dominio) || "101552000000".equals(dominio))
+			sql="Select * from EMPRESAS where EmpresaEstimaciones=0 OR CodigoEmpresa=208";
+		else
+			sql="Select * from EMPRESAS where EmpresaEstimaciones=0 ";
 		if (desdeEmp>0) sql += " and CodigoEmpresa>="+desdeEmp; 
 		if (hastaEmp>0) sql += " and CodigoEmpresa<="+hastaEmp; 		
 		sEmp.execute(sql);
@@ -350,7 +355,11 @@ public class ConversionJCO extends ConversionLC {
 			int IdTipoPersona = 0;
 
 			SelectorLogic sEmp = new SelectorLogic (connLC);
-			String sql = "Select * from EMPRESAS where EmpresaEstimaciones=0 and CodigoEmpresa="+iEmp;
+			String sql = ""; //Provisional Escoal quitar 06/2022
+			if("777777000000".equals(dominio) || "101552000000".equals(dominio))
+				sql = "Select * from EMPRESAS where  CodigoEmpresa="+iEmp;
+			else
+				sql = "Select * from EMPRESAS where EmpresaEstimaciones=0 and CodigoEmpresa="+iEmp;
 			sEmp.execute(sql);
 			if (sEmp.next()) {
 				razon = (String)sEmp.getObject("Empresa");
