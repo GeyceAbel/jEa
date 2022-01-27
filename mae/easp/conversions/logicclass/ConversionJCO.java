@@ -91,7 +91,7 @@ public class ConversionJCO extends ConversionLC {
 	public Vector<DadesEmpresa> initEmpreses () {
 		SelectorLogic sEmp = new SelectorLogic (connLC);
 		String sql = ""; //Provisional Escoal quitar 06/2022
-		if("777777000000".equals(dominio) || "101552000000".equals(dominio))
+		if("101552000000".equals(dominio))
 			sql="Select * from EMPRESAS where EmpresaEstimaciones=0 OR CodigoEmpresa=208";
 		else
 			sql="Select * from EMPRESAS where EmpresaEstimaciones=0 ";
@@ -356,7 +356,7 @@ public class ConversionJCO extends ConversionLC {
 
 			SelectorLogic sEmp = new SelectorLogic (connLC);
 			String sql = ""; //Provisional Escoal quitar 06/2022
-			if("777777000000".equals(dominio) || "101552000000".equals(dominio))
+			if("101552000000".equals(dominio))
 				sql = "Select * from EMPRESAS where  CodigoEmpresa="+iEmp;
 			else
 				sql = "Select * from EMPRESAS where EmpresaEstimaciones=0 and CodigoEmpresa="+iEmp;
