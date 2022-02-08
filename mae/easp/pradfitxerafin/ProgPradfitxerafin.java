@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jun 16 17:20:23 CEST 2021
+// Fecha y hora:     Tue Feb 08 09:11:48 CET 2022
 // 
 // Aplicación: easp
 // 
@@ -627,7 +627,7 @@ private void refreshEtiqueta(String familia) {
         public CtrlVvetiqueta vvetiqueta;
         public CtrlVvvalor vvvalor;
         // Acciones
-        public LinkAañade aañade;
+        public LinkAanadir aanadir;
         // Fieldsets
         public FSetFs1 fs1;
         class Location extends LocationWindow
@@ -738,12 +738,12 @@ private void refreshEtiqueta(String familia) {
             // EVENT: CONTROLEDIT
             }
             
-        public class LinkAañade extends Action
+        public class LinkAanadir extends Action
             {
-            public LinkAañade(Form form)
+            public LinkAanadir(Form form)
                 {
                 super(form);
-                setName("aañade");
+                setName("aanadir");
                 setTitle("&1. Añadir");
                 // SET: ACCION
                 setOptions(SHOW);
@@ -753,18 +753,17 @@ private void refreshEtiqueta(String familia) {
                 {
                 super.onAction ();
                 
-if ("".equals(vvvalor.getString())) {
-	Maefc.message("No se puede añadir un valor vacio", "¡Atención!", Maefc.WARNING_MESSAGE);
-}
-else {
-	EtiquetaElement element = buscaEtiqueta(vvetiqueta.getString());
-	if (element != null) {
-		novaetiqueta.put(Integer.toString(element.getId()), vvvalor.getString());
-		vadfitxerafin.vvetiquetas.setValue(vadfitxerafin.vvetiquetas.getString() + vvfamilia.getString() + " - " + vvetiqueta.getString() + " - " + vvvalor.getString() + "\n");
-		vetiquetas.exit();
-	}
-}
-
+                if ("".equals(vvvalor.getString())) {
+                	Maefc.message("No se puede añadir un valor vacio", "¡Atención!", Maefc.WARNING_MESSAGE);
+                }
+                else {
+                	EtiquetaElement element = buscaEtiqueta(vvetiqueta.getString());
+                	if (element != null) {
+                		novaetiqueta.put(Integer.toString(element.getId()), vvvalor.getString());
+                		vadfitxerafin.vvetiquetas.setValue(vadfitxerafin.vvetiquetas.getString() + vvfamilia.getString() + " - " + vvetiqueta.getString() + " - " + vvvalor.getString() + "\n");
+                		vetiquetas.exit();
+                	}
+                }
                 }
             }
             
@@ -795,7 +794,7 @@ else {
             addControl(vvfamilia=new CtrlVvfamilia(this));
             addControl(vvetiqueta=new CtrlVvetiqueta(this));
             addControl(vvvalor=new CtrlVvvalor(this));
-            addAction(aañade=new LinkAañade(this));
+            addAction(aanadir=new LinkAanadir(this));
             addFieldset(fs1=new FSetFs1(this));
             }
         // GET: VENTANA

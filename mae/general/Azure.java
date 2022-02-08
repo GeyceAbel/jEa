@@ -44,7 +44,8 @@ public class Azure {
 	private List<NameValuePair> lparametros;
 	private String funcion;
 	private JsonObject json;
-	
+	private String filename;
+
 	public Azure (String function) {
 		this(function,null);
 	}
@@ -72,15 +73,15 @@ public class Azure {
 	public void addParametroURL (String nombre, String valor) {
 		addParametroURL(new AzureParameter(nombre,valor));
 	}
-	
+
 	public void addParametroURL (String nombre, int valor) {
 		addParametroURL(new AzureParameter(nombre,String.valueOf(valor)));
 	}	
-	
+
 	public void addParametroURL (String nombre, double valor) {
 		addParametroURL(new AzureParameter(nombre,String.valueOf(valor)));
 	}
-	
+
 	public void addParametroURL (NameValuePair nvp) {
 		if (lparametros == null) lparametros = new ArrayList<NameValuePair> ();
 		lparametros.add(nvp);		
@@ -140,7 +141,7 @@ public class Azure {
 	public CloseableHttpClient createHttpClient () {
 		return createHttpClient (0);
 	}
-	
+
 	public CloseableHttpClient createHttpClient (final int numreintentos) {
 		String b64Encoded = "";
 		try {
@@ -149,13 +150,13 @@ public class Azure {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		CloseableHttpClient client =  HttpClientBuilder.create()
 				.setDefaultRequestConfig(RequestConfig.custom().setConnectTimeout(TIMEOUT * 1000).build())
 				.setRetryHandler(new DefaultHttpRequestRetryHandler(numreintentos, false))
 				.setDefaultHeaders(Arrays.asList(new BasicHeader("Authentication", "Basic " + b64Encoded)))
 				.build();
-				
+
 		return client;
 	}
 
@@ -190,7 +191,7 @@ public class Azure {
 		}
 		return bOk;
 	}
-	
+
 	public static byte[] parseHttpResponse(HttpResponse response) throws UnsupportedOperationException, IOException {
 		ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 		int nRead;
@@ -206,6 +207,7 @@ public class Azure {
 
 	private boolean executeConnection ( CloseableHttpClient client, HttpPost post) throws HttpException, IOException {
 		boolean bOk = true;
+		filename = null;
 		HttpResponse response = client.execute( post );
 		statusCode = response.getStatusLine().getStatusCode();
 		if( statusCode == HttpStatus.SC_OK ) {
@@ -217,6 +219,14 @@ public class Azure {
 				}
 				catch (Exception e) {}
 			}
+			if (response.getFirstHeader("Content-Disposition") != null) {
+				String dispositionValue = response.getFirstHeader("Content-Disposition").getValue();
+				int index = dispositionValue.indexOf("filename=");
+				if (index > 0) {
+					filename = dispositionValue.substring(index + 10, dispositionValue.length() - 1);
+				}
+				System.out.println("Downloading file: " + filename);
+			}
 		}
 		else {
 			contenido = null;
@@ -224,6 +234,10 @@ public class Azure {
 		}			
 		bOk = contenido != null;			
 		return bOk;
+	}
+
+	public String getFilename() {
+		return filename;
 	}
 
 	public static String getRealHost() {
@@ -242,7 +256,7 @@ public class Azure {
 	public byte[] getContenidoBinario() {
 		return contenidoBinario;
 	}
-	
+
 	public long getTamanyoBinario () {
 		return contenidoBinario != null ? contenidoBinario.length : 0;
 	}
@@ -262,7 +276,7 @@ public class Azure {
 	public void setNumeroReintentos (int _numeroReintentos) {
 		numeroReintentos = _numeroReintentos;
 	}
-	
+
 	public static String getUsuario() {
 		return Aplication.getAplication().getParameter("User");
 	}
@@ -270,7 +284,7 @@ public class Azure {
 	public static String getPassword() {
 		return Aplication.getAplication().getConfig("MD5");
 	}
-	
+
 	public static String getProtocol() {
 		return PROTOCOL;
 	}
@@ -282,8 +296,8 @@ public class Azure {
 	public void setEncoding(String enconding) {
 		this.encoding = enconding;
 	}
-	
-	
+
+
 	public int getTIMEOUT() {
 		return TIMEOUT;
 	}
