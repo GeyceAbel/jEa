@@ -27,7 +27,7 @@ public abstract class GesDoc implements IGesDoc {
 	public List<IEtiquetaGD> getEtiquetas() {
 		List<IEtiquetaGD> lEtiquetas = new ArrayList<IEtiquetaGD>();
 		lEtiquetas.add(getEtiqueta(ETIQUETAS.CDP,getCDPAfinity()));
-		lEtiquetas.add(getEtiqueta(ETIQUETAS.EJERCICIO, getEjercicio()));
+		if(getEjercicio() != 0) lEtiquetas.add(getEtiqueta(ETIQUETAS.EJERCICIO, getEjercicio()));
 		lEtiquetas.add(getEtiqueta(ETIQUETAS.APLICACION, getAplicacion().toString()));
 		lEtiquetas.add(getEtiqueta(ETIQUETAS.NIF, getNif()));
 		lEtiquetas.add(getEtiqueta(ETIQUETAS.EMPRESA, getEmpresa()));
@@ -59,7 +59,7 @@ public abstract class GesDoc implements IGesDoc {
 		String ap = "Fiscal";
 		if (getAplicacion() == APLETI.JNOMINA) ap = "Laboral";
 		else if (getAplicacion() == APLETI.JMODELOS) ap = "ModelosAEAT";
-		ap += "\\"+getNif()+"\\"+getEjercicio();
+		ap += "\\"+getNif()+((getEjercicio() != 0)?"\\"+getEjercicio():"");
 		
 		return ap;
 	};
@@ -68,7 +68,7 @@ public abstract class GesDoc implements IGesDoc {
 		return Easp.nombreEmpresa(getNif());
 	}
 
-	private String getNifRelacionado () {
+	public String getNifRelacionado () {
 		String sNif = null;
 		String sCodiCDP = Easp.dominio.substring(0,6)+Numero.format(getEmpresa(),"000000");
 		String sCDPtmp;
