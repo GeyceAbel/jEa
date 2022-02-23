@@ -32,14 +32,14 @@ public class Login implements LoginListener{
 	private boolean esRemot;
 
 	Login(Aplication apl, String rutaLogo){
-		this (apl, rutaLogo, false, false);
+		this (apl, rutaLogo, false);
 	}
 
 	Login(Aplication apl, String rutaLogo, boolean security){
-		this (apl, rutaLogo, false, false);
+		this (apl, rutaLogo, security, false);
 	}
 	Login(Aplication apl, String rutaLogo, boolean security, boolean fromReconnect){
-		this (apl, rutaLogo, false, false, false);
+		this (apl, rutaLogo, security, fromReconnect, false);
 	}
 
 	Login(Aplication apl, String rutaLogo, boolean security, boolean fromReconnect, boolean esRemoto){
