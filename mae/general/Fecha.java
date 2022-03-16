@@ -451,10 +451,16 @@ public class Fecha {
 // Metodes afegits per incorporacions de Laboral
 // ==========================================================================================
   private static String mesos[] = new String[] { "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre" };
+  private static String mesosC[] = new String[] { "gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "decembre" };
 
   public static String enTexto(Date date) {
     return dia(date)+" de "+mesos[mes(date)] + " de " + anyo(date);
     }
+
+  public static String enTextCatala(Date date) {
+	    return dia(date)+" de "+mesosC[mes(date)] + " de " + anyo(date);
+	    }
+
 
   public static int anysDiferencia(Date inici, Date fi) {
     int anyInici=anyo(inici);
