@@ -37,9 +37,9 @@ public class Easp {
   public static String nifCDP=null;
 
   //variables de versiones
-  public static String versionAplicacion="9.8";
+  public static String versionAplicacion="9.9";
   public static String versionFecha="Noviembre/2021";
-  public static String versionBDEA="18.7";
+  public static String versionBDEA="18.8";
 
   public static enum TIPO_HOST { LOCALHOST, AZURE, AZUREPRE, AZUREDEV};
   public static TIPO_HOST HOST = TIPO_HOST.AZURE;
