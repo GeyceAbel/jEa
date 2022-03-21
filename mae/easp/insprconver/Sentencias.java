@@ -12,7 +12,7 @@ public class Sentencias {
 			"ALTER TABLE BANCOCLI add bccbancadress VARCHAR(35);",
 			"ALTER TABLE BANCOCLI add bccbanccity VARCHAR(30);",
 			"ALTER TABLE BANCOCLI add bcccodpais VARCHAR(2);",
-			"ALTER TABLE BANCOCLI add bccbancpais VARCHAR(40);",
+			"ALTER TABLE BANCOCLI add bccbancpais VARCHAR(40);"
 	};
 	public static String sentencias18_8[]={"DELETE FROM EPIGRAFES WHERE epitipoact='2' AND epiepigrafe='863';",
        "INSERT INTO EPIGRAFES (epitipoact,epiepigrafe,epidescripcion,epiepisinpunto) VALUES ('2','863','Periodistas y otros prof.información-comunicación','863');"
