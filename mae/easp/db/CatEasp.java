@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Oct 18 15:39:09 CEST 2021
+// Fecha y hora:     Mon Mar 21 17:36:09 CET 2022
 // 
 // Aplicación: easp
 // 
@@ -1197,6 +1197,14 @@ public class CatEasp extends Catalog
         public FieldDef bcccodpostal;
         public FieldDef bccprovincia;
         public FieldDef bccdominio;
+        public FieldDef bccsepa;
+        public FieldDef bcciban;
+        public FieldDef bcccodswift;
+        public FieldDef bccbanconame;
+        public FieldDef bccbancadress;
+        public FieldDef bccbanccity;
+        public FieldDef bcccodpais;
+        public FieldDef bccbancpais;
         public TabBancocli(String name)
             {
             super(name);
@@ -1216,6 +1224,14 @@ public class CatEasp extends Catalog
             bcccodpostal = new FieldDef("bcccodpostal",FieldDef.CHAR,5);
             bccprovincia = new FieldDef("bccprovincia",FieldDef.INTEGER,0);
             bccdominio = new FieldDef("bccdominio",FieldDef.CHAR,12);
+            bccsepa = new FieldDef("bccsepa",FieldDef.INTEGER,12);
+            bcciban = new FieldDef("bcciban",FieldDef.CHAR,34);
+            bcccodswift = new FieldDef("bcccodswift",FieldDef.CHAR,11);
+            bccbanconame = new FieldDef("bccbanconame",FieldDef.CHAR,70);
+            bccbancadress = new FieldDef("bccbancadress",FieldDef.CHAR,35);
+            bccbanccity = new FieldDef("bccbanccity",FieldDef.CHAR,30);
+            bcccodpais = new FieldDef("bcccodpais",FieldDef.CHAR,2);
+            bccbancpais = new FieldDef("bccbancpais",FieldDef.CHAR,40);
             FieldDef array[] = {
                 bcccodigo,
                 bccbanco,
@@ -1232,11 +1248,26 @@ public class CatEasp extends Catalog
                 bcccodmuni,
                 bcccodpostal,
                 bccprovincia,
-                bccdominio                
+                bccdominio,
+                bccsepa,
+                bcciban,
+                bcccodswift,
+                bccbanconame,
+                bccbancadress,
+                bccbanccity,
+                bcccodpais,
+                bccbancpais                
                 };
             setColumns(array);
             FieldDef arrayf[] = {bcccodigo,bccbanco,bccsucursal,bccnumero,bccdigitos };
             setPrimaryKeys(arrayf);
+            bccsepa.setDescription("Marca SEPA (1 – Cuenta España, 2 – Unión Europea SEPA, 3 – Resto países)");
+            bcccodswift.setDescription("Codigo SWIFT-BIC");
+            bccbanconame.setDescription("Banco/Bank name");
+            bccbancadress.setDescription("Dirección del Banco/ Bank adress");
+            bccbanccity.setDescription("Ciudad/City");
+            bcccodpais.setDescription("Código País/Country code");
+            bccbancpais.setDescription("País/Country");
             }
         }
         

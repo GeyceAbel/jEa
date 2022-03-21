@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 16 13:26:55 CET 2022
+// Fecha y hora:     Mon Mar 21 17:44:36 CET 2022
 // 
 // Aplicación: easp
 // 
@@ -4714,6 +4714,22 @@ String sentencias17_4[] = {"DELETE FROM AMORTIZACION WHERE amocodigo>=2000"};
         Easp.setVersionBD("bdeasp","18.8");
         Easp.connEA.commit();
         vvveractual.setValue("18.8");
+    }
+    if (versio < 18.9) {
+         for (i = 0; i < Sentencias.sentencias18_9.length; ++i) {
+                try {
+                        Easp.chivato("18.9 Exec : ["+Sentencias.sentencias18_9[i]+"]",1);
+                        Easp.connEA.executeUpdate(Sentencias.sentencias18_9[i]);
+                }
+                catch(Exception e) {
+                        sqlOperation=Sentencias.sentencias18_9[i];
+                        Easp.chivato("18.9 *** Error : ["+Sentencias.sentencias18_9[i]+"]  Error: ["+e+"]",1);
+                        errorMessage=e.getMessage();
+                }
+        }
+        Easp.setVersionBD("bdeasp","18.9");
+        Easp.connEA.commit();
+        vvveractual.setValue("18.9");
     }
 
   }
