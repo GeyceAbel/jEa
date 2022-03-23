@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 23 17:04:47 CET 2022
+// Fecha y hora:     Wed Mar 23 17:46:10 CET 2022
 // 
 // Aplicación: easp
 // 
@@ -1637,15 +1637,16 @@ public void onShow(){
         {
         // GLOBALES: VENTANA
         /*
-
 protected Form createEditForm(boolean insert) {
   Form form=super.createEditForm(insert);
-  form.setLayout(new LayoutHtml("mae/easp/html/datosbancarios.html"));
+  form.setLayout(new LayoutFieldset(form));
+  //form.setLayout(new LayoutHtml("mae/easp/html/datosbancarios.html"));
   LocationWindow loc=(LocationWindow)form.getLocation();
   loc.setWidth(525);
   loc.setHeight(185);
   return form;
  }
+
 
 
 public void onEdit(){
@@ -1654,8 +1655,8 @@ public void onEdit(){
   valtadatosbanc.modoinsert=false;
   valtadatosbanc.open();
   }
-*/
 
+*/
 public void onInsert(){
 //  valtadatosbanc.setStates(DataForm.INSERT);
 //  valtadatosbanc.setInitState(DataForm.INSERT); 
