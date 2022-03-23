@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 23 17:46:10 CET 2022
+// Fecha y hora:     Wed Mar 23 18:03:04 CET 2022
 // 
 // Aplicación: easp
 // 
@@ -2368,7 +2368,8 @@ boolean deleteAsignaciones() {
                 {
                 sbancocli.bcccodigo.setValue(codiCDP);
                 Maefc.message("En esta cuenta deberá informar si debe utilizarse para 'IVA' o para 'IRPF'\n o para 'Pagos a Cuenta' o para 'Liquidaciones Anuales'." ,"Atención",Maefc.INFORMATION_MESSAGE);
-                return super.onInsert();
+                valtadatosbanc.primeraVez = true;
+return super.onInsert();
                 }
             }
             
