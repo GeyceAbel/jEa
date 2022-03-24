@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 23 18:03:04 CET 2022
+// Fecha y hora:     Thu Mar 24 09:16:23 CET 2022
 // 
 // Aplicación: easp
 // 
@@ -1660,10 +1660,11 @@ public void onEdit(){
 public void onInsert(){
 //  valtadatosbanc.setStates(DataForm.INSERT);
 //  valtadatosbanc.setInitState(DataForm.INSERT); 
-  valtadatosbanc.setTitle("Alta de datos bancarios");
   valtadatosbanc.modoinsert=true;
+  valtadatosbanc.setTitle("Alta de datos bancarios");
   valtadatosbanc.open();
   vdatosbancarios.doShow();
+  valtadatosbanc.primeraVez = true;
   }
 
 public void onSelection() {
@@ -2725,7 +2726,9 @@ public void onOpened(){
     bccsg.activate();
     doEdit();
     }
-  else bcccodmuni.setEnabled(false);
+  else {
+  	bcccodmuni.setEnabled(false);
+  }
   }
         // Metodos
         // Controles
@@ -3472,9 +3475,26 @@ else
             bcccodpais.setPickUp(pickup=new mae.modasp.general.pkpaiscodigo.PickPkpaiscodigo(bcccodpais));
             super.onInit();
             }
+        public void onExit ()
+            {
+            super.onExit ();
+            primeraVez = true;
+            }
         public boolean onOkInsert ()
             {
-            if (bccsepa.getInteger() != 1) {
+            if(bcciban.isNull()) {
+            	Maefc.message("Faltan datos", "Atención", Maefc.INFORMATION_MESSAGE);
+            	return false;
+            }
+            else if(bccsepa.getInteger()==2 && bcccodswift.isNull()) {
+            	Maefc.message("Faltan datos", "Atención", Maefc.INFORMATION_MESSAGE);
+            	return false;
+            }
+            else if(bccsepa.getInteger()==2 && (bcccodswift.isNull()||bccbanconame.isNull()||bccbancadress.isNull()||bccbanccity.isNull()||bcccodpais.isNull()||bccbancpais.isNull())) {
+            	Maefc.message("Faltan datos", "Atención", Maefc.INFORMATION_MESSAGE);
+            	return false;
+            }
+            if (bccsepa.getInteger() != 1) {
             	Selector sl = new Selector(sbancoclicanvi.getDataBase());
             	sl.execute("select * from BANCO where bncodigo = " + bccbanco.getValue().getInteger());
             	if (!sl.next()) {
@@ -3486,7 +3506,6 @@ else
             	sl.close();
             }
             valtadatosbanc.exit();
-            
             return super.onOkInsert ();
             }
         public void onInitFieldset ()
