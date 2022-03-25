@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Mar 24 09:16:23 CET 2022
+// Fecha y hora:     Fri Mar 25 14:02:14 CET 2022
 // 
 // Aplicación: easp
 // 
@@ -2728,6 +2728,7 @@ public void onOpened(){
     }
   else {
   	bcccodmuni.setEnabled(false);
+  	doInsert();
   }
   }
         // Metodos
@@ -3505,7 +3506,6 @@ else
             	}
             	sl.close();
             }
-            valtadatosbanc.exit();
             return super.onOkInsert ();
             }
         public void onInitFieldset ()
@@ -8735,7 +8735,8 @@ public void onOpened() {
         
         
         //APPAU 13-12-2012 Nuevo , para controlar los bancos en jNomina & jGestion
-        vcambiobanco.setLayout(new LayoutHtml("mae/easp/html/cambiobanco.html"));
+        valtadatosbanc.setExitOnSave(true);
+vcambiobanco.setLayout(new LayoutHtml("mae/easp/html/cambiobanco.html"));
         ErrorManager defaultErrorManager=Aplication.getAplication().getErrorManager();
         try {
           Aplication.getAplication().setErrorManager(null);
