@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 23 17:08:45 CET 2022
+// Fecha y hora:     Tue Mar 29 12:21:05 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -65,7 +65,8 @@ boolean tieneJGestion = false ;
     public class FormVdatosbancarios extends MultiDataForm
         {
         // GLOBALES: VENTANA
-        protected Form createEditForm(boolean insert) {
+        /*
+ protected Form createEditForm(boolean insert) {
   Form form=super.createEditForm(insert);
   form.setLayout(new LayoutHtml("mae/easp/html/datosbancarios.html"));
   LocationWindow loc=(LocationWindow)form.getLocation();
@@ -73,7 +74,7 @@ boolean tieneJGestion = false ;
   loc.setHeight(200);
   return form;
  }
-
+*/
 
 public void onSelection() {
   super.onSelection();
@@ -100,15 +101,15 @@ public void onSelection() {
     }
   */
   }
-  /*
-public void onInsert(){
-	valtadatosbanc.setTitle("Alta de datos bancarios");
-valtadatosbanc.modoinsert=true;
-valtadatosbanc.primeraVez = true;
-valtadatosbanc.open();
-vdatosbancarios.doShow();
+ 
+public void onEdit(){
+	valtadatosbanc.modoinsert=false;
+  valtadatosbanc.setTitle("Cambio de datos bancarios");
+  valtadatosbanc.open();
+  vdatosbancarios.doShow();
+  valtadatosbanc.primeraVez = true;
 }
-*/
+
 void accionTipo(ControlCheck ck, String tipo){
   boolean result=true;
   if (ck.getBoolean())
@@ -221,7 +222,6 @@ boolean deleteAsignaciones() {
                 setPickUp(pickup=new mae.easp.general.pkcdp.PickPkcdp(this));
                 setLength(12);
                 setSearchable(true);
-                setEnabled(false);
                 setRestricted(false);
                 setField(sbancocli.bcccodigo);
                 // SET: CONTROLEDIT
@@ -1041,7 +1041,7 @@ boolean deleteAsignaciones() {
 public boolean dc = true;
 public int n0=0, n1=0, n2=0, n3=0;
 public boolean primeraVez = true;
-public mae.modasp.general.pkpaiscodigo.PickPkpaiscodigo pickup;
+//public mae.modasp.general.pkpaiscodigo.PickPkpaiscodigo pickup;
 public String banco = "";
 public void onOpened(){
   super.onOpened();
@@ -1053,7 +1053,10 @@ public void onOpened(){
     bccsg.activate();
     doEdit();
     }
-  else bcccodmuni.setEnabled(false);
+  else {
+  	bcccodmuni.setEnabled(false);
+  	doInsert();
+  }
   }
         // Metodos
         // Controles
@@ -1092,7 +1095,7 @@ public void onOpened(){
                 super();
                 setWidth(700);
                 setHeight(255);
-                setTitle("Alta de Datos Bancarios");
+                setTitle("Cambio de Datos Bancarios");
                 setModal(true);
                 setLocation(CENTER);
                 }
@@ -1110,7 +1113,6 @@ public void onOpened(){
                 setTitle("Banco");
                 setType(INTEGER);
                 setMaskInput("9999");
-                setProtect(true);
                 setPickUp(pickup=new mae.easp.general.pkbancos.PickPkbancos(this));
                 setLength(4);
                 setPrintable(false);
@@ -1119,6 +1121,15 @@ public void onOpened(){
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public void onChange ()
+                {
+                super.onChange ();
+                banco = bccbanco.getValue().toString();
+while(banco.length()<4) {
+	banco = "0" + banco;
+}
+bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue().toString() + bccdigitos.getValue().toString());
+                }
             public void userChange (Value v)
                 {
                 super.userChange (v);
@@ -1141,7 +1152,6 @@ bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue(
                 setTitle("Sucursal");
                 setType(INTEGER);
                 setMaskInput("9999");
-                setProtect(true);
                 setLength(4);
                 setPrintable(false);
                 setField(sbancoclicanvi.bccsucursal);
@@ -1166,7 +1176,6 @@ bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue(
                 setName("bccnumero");
                 setTitle("Num.");
                 setType(STRING);
-                setProtect(true);
                 setLength(10);
                 setPrintable(false);
                 setField(sbancoclicanvi.bccnumero);
@@ -1176,7 +1185,12 @@ bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue(
             // EVENT: CONTROLEDIT
             public boolean valid ()
                 {
-                return true;
+                if(bccsepa.getInteger()!=1)
+                	return super.valid();
+                else if (Util.isNumero(this.getString()) && this.getString().length() == 10)
+                	return super.valid();
+                else
+                	return false;
                 }
             public void userChange (Value v)
                 {
@@ -1196,7 +1210,6 @@ bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue(
                 setTitle("D.C.");
                 setType(INTEGER);
                 setMaskInput("99");
-                setProtect(true);
                 setLength(2);
                 setPrintable(false);
                 setField(sbancoclicanvi.bccdigitos);
@@ -1204,6 +1217,21 @@ bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue(
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public boolean valid ()
+                {
+                if (bccsepa.getInteger()==1){
+                	if (Easp.digitoIncorrecto(bccbanco.getString()
+                	             ,bccsucursal.getString()
+                	             ,bccnumero.getString()
+                	            ,bccdigitos.getString(),"corriente")) {
+                		return false;
+                	}
+                	else {
+                		return super.valid(); 
+                	}
+                }
+                else return true;
+                }
             public void userChange (Value v)
                 {
                 super.userChange (v);
@@ -1502,6 +1530,10 @@ if (bccsepa.getInteger() == 1){
 	bcccodpais.setNull();
 	bccbancpais.setNull();
 	bcciban.setEnabled(false);
+	bccbanco.setEnabled(true);
+	bccsucursal.setEnabled(true);
+	bccnumero.setEnabled(true);
+	bccdigitos.setEnabled(true);
 }
 else if (bccsepa.getInteger() == 2){
 	n1=0;
@@ -1552,6 +1584,7 @@ if (!primeraVez) {
 	lf.refresh();
 }
 primeraVez = false;
+
                 }
             }
             
@@ -1589,6 +1622,10 @@ primeraVez = false;
 else 
 	bccbanco.setRestricted(true);
                 }
+            public boolean obligate ()
+                {
+                return super.obligate ();
+                }
             }
             
         public class CtrlBcccodswift extends ControlEdit
@@ -1600,7 +1637,7 @@ else
                 super(form);
                 setName("bcccodswift");
                 setMessageHelp("Codigo SWIFT-BIC");
-                setTitle("Codigo SWIFT-BIC");
+                setTitle("Código SWIFT-BIC");
                 setType(STRING);
                 setLength(11);
                 setSearchable(true);
@@ -1611,6 +1648,12 @@ else
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public boolean obligate ()
+                {
+                if(bccsepa.getInteger()==3 || bccsepa.getInteger()==2) 
+                	return true;
+                return false;
+                }
             }
             
         public class CtrlBccbanconame extends ControlEdit
@@ -1631,6 +1674,12 @@ else
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public boolean obligate ()
+                {
+                if(bccsepa.getInteger()==3) 
+                	return true;
+                return false;
+                }
             }
             
         public class CtrlBccbancadress extends ControlEdit
@@ -1651,6 +1700,12 @@ else
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public boolean obligate ()
+                {
+                if(bccsepa.getInteger()==3) 
+                	return true;
+                return false;
+                }
             }
             
         public class CtrlBccbanccity extends ControlEdit
@@ -1671,10 +1726,17 @@ else
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public boolean obligate ()
+                {
+                if(bccsepa.getInteger()==3) 
+                	return true;
+                return false;
+                }
             }
             
         public class CtrlBcccodpais extends ControlComboBox
             {
+            public mae.easp.general.pkcodpais.PickPkcodpais pickup;
             // GLOBALES: CONTROLEDIT
             // Metodos
             public CtrlBcccodpais(Form form)
@@ -1685,16 +1747,21 @@ else
                 setTitle("CP");
                 setType(STRING);
                 setMaskInput("U");
+                setPickUp(pickup=new mae.easp.general.pkcodpais.PickPkcodpais(this));
                 setLength(2);
                 setSearchable(true);
                 setDescriptionShow(false);
-                addItem("12/");
-                addItem("12/");
                 setField(sbancoclicanvi.bcccodpais);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public boolean obligate ()
+                {
+                if(bccsepa.getInteger()==3) 
+                	return true;
+                return false;
+                }
             }
             
         public class CtrlBccbancpais extends ControlEdit
@@ -1715,6 +1782,12 @@ else
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public boolean obligate ()
+                {
+                if(bccsepa.getInteger()==3) 
+                	return true;
+                return false;
+                }
             }
             
         public class FSetF0 extends Fieldset
@@ -1753,10 +1826,9 @@ else
             {
             super(prbancocli);
             setName("valtadatosbanc");
-            setTitle("Alta de Datos Bancarios");
-            setLayout(new LayoutAligned());
+            setTitle("Cambio de Datos Bancarios");
             setLocation(new Location());
-            setStates(SHOW | INSERT);
+            setStates(SHOW | UPDATE);
             setPrintable(false);
             setModal(true);
             setUnique(true);
@@ -1797,12 +1869,17 @@ else
             //valtadatosbanc.setLayout(new LayoutHtml("mae/jrenta/html/prdatosbanc_detall.html"));
             valtadatosbanc.setLayout(new LayoutFieldset(valtadatosbanc));
             bccsepa.setValue(1);
-            bcccodpais.setPickUp(pickup=new mae.modasp.general.pkpaiscodigo.PickPkpaiscodigo(bcccodpais));
+            //bcccodpais.setPickUp(pickup=new mae.modasp.general.pkpaiscodigo.PickPkpaiscodigo(bcccodpais));	
             super.onInit();
+            }
+        public void onExit ()
+            {
+            super.onExit ();
+            primeraVez = true;
             }
         public boolean onOkInsert ()
             {
-            if (bccsepa.getInteger() != 1) {
+            if (bccsepa.getInteger() != 1) {
             	Selector sl = new Selector(sbancoclicanvi.getDataBase());
             	sl.execute("select * from BANCO where bncodigo = " + bccbanco.getValue().getInteger());
             	if (!sl.next()) {
@@ -1813,9 +1890,44 @@ else
             	}
             	sl.close();
             }
+            mae.modasp.general.Modasp.validaIBAN(bcciban.getString(), true);
+            
+            valtadatosbanc.exit();
+            return super.onOkInsert ();
+            }
+        public boolean onOkUpdate ()
+            {
+            if (bccsepa.getInteger() != 1) {
+            	Selector sl = new Selector(sbancoclicanvi.getDataBase());
+            	sl.execute("select * from BANCO where bncodigo = " + bccbanco.getValue().getInteger());
+            	if (!sl.next()) {
+            		Insert i = new Insert(sbancoclicanvi.getDataBase(), "BANCO");
+            		i.valor("bncodigo", bccbanco.getValue().getInteger());
+            		i.execute();
+            		sbancoclicanvi.getDataBase().commit();
+            	}
+            	sl.close();
+            }
+            mae.modasp.general.Modasp.validaIBAN(bcciban.getString(), true);
+            
+            sbancoclicanvi.commit();
             valtadatosbanc.exit();
             
-            return super.onOkInsert ();
+            Update u = new Update(getDataBase(), "BANCOCLI");
+            u.valor("bccsepa", bccsepa.getInteger());
+            u.valor("bcciban", bcciban.getString());
+            u.valor("bccbanco", bccbanco.getInteger());
+            u.valor("bccsucursal", bccsucursal.getInteger());
+            u.valor("bccdigitos", bccdigitos.getInteger());
+            u.valor("bcccodswift", bcccodswift.getString());
+            u.valor("bccbanconame", bccbanconame.getString());
+            u.valor("bccbanccity", bccbanccity.getString());
+            u.valor("bccbancadress", bccbancadress.getString());
+            u.valor("bcccodpais", bcccodpais.getString());
+            u.valor("bccbancpais", bccbancpais.getString());
+            u.execute("bcccodigo = '"+vdatosbancarios.bcccodigo.getString()+"'");
+            
+            	return true;
             }
         public void onInitFieldset ()
             {
@@ -1903,9 +2015,14 @@ f0.addControlAt(n0++, bccsepa);
             // EVENT: TABLA
             public boolean onInsert ()
                 {
-                bcccodigo.setValue(codiCDP);
+                bcccodigo.setValue(vdatosbancarios.bcccodigo.getString());
                 	
                 return super.onInsert ();
+                }
+            public boolean onUpdate ()
+                {
+                bcccodigo.setValue(vdatosbancarios.bcccodigo.getString());
+                return super.onUpdate ();
                 }
             }
             

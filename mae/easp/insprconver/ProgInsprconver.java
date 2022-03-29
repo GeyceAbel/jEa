@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Mar 22 10:28:20 CET 2022
+// Fecha y hora:     Tue Mar 29 10:17:38 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -11,6 +11,7 @@ import mae.easp.db.*;
 import mae.general.*;
 // 
 // IMPORTS: PROGRAMA
+import org.apache.commons.lang.StringUtils;
 import mae.easp.*;
 // 
 // Programa: insprconver
@@ -4727,6 +4728,7 @@ String sentencias17_4[] = {"DELETE FROM AMORTIZACION WHERE amocodigo>=2000"};
                         errorMessage=e.getMessage();
                 }
         }
+        actualizaBancocli();
         Easp.setVersionBD("bdeasp","18.9");
         Easp.connEA.commit();
         vvveractual.setValue("18.9");
@@ -4880,6 +4882,28 @@ boolean grabaBDSCargadas (DBConnection db) {
     }
   return result;
   }
+
+public void actualizaBancocli() {
+	Selector sl = new Selector(Easp.connEA);
+	sl.execute ("Select * from BANCOCLI where bcccodigo is not null");
+	while (sl.next()){
+		String cod = sl.getString("bcccodigo");
+		 String banco="0000"+String.valueOf(sl.getint("bccbanco"));
+		 banco = banco.substring(banco.length()-4,banco.length());
+        String ofici="0000"+String.valueOf(sl.getint("bccsucursal"));
+        ofici = ofici.substring(ofici.length()-4,ofici.length());
+        String dc   ="00"+String.valueOf(sl.getint("bccdigitos"));
+        dc = dc.substring(dc.length()-2,dc.length());
+        String cc="0000000000"+sl.getString("bccnumero");
+        cc = cc.substring(cc.length()-10,cc.length());
+        String iban = "ES"+mae.modasp.general.Modasp.getDCIBAN(banco+ofici+dc+cc)+banco+ofici+dc+cc;
+         Update up = new Update(Easp.connEA, "BANCOCLI");
+         up.valor("bccsepa",1);
+         up.valor("bcciban", iban);
+         up.execute("bcccodigo='"+cod+"'");
+	} 
+	sl.close();
+}
         // Metodos
         // Controles
         public CtrlVvveractual vvveractual;

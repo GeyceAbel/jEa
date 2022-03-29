@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Mar 25 14:02:14 CET 2022
+// Fecha y hora:     Tue Mar 29 10:51:16 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -2714,7 +2714,7 @@ return super.onInsert();
 public boolean dc = true;
 public int n0=0, n1=0, n2=0, n3=0;
 public boolean primeraVez = true;
-public mae.modasp.general.pkpaiscodigo.PickPkpaiscodigo pickup;
+//public mae.modasp.general.pkpaiscodigo.PickPkpaiscodigo pickup;
 public String banco = "";
 public void onOpened(){
   super.onOpened();
@@ -2852,7 +2852,12 @@ bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue(
             // EVENT: CONTROLEDIT
             public boolean valid ()
                 {
-                return true;
+                if(bccsepa.getInteger()!=1)
+                	return super.valid();
+                else if (Util.isNumero(this.getString()) && this.getString().length() == 10)
+                	return super.valid();
+                else
+                	return false;
                 }
             public void userChange (Value v)
                 {
@@ -2880,6 +2885,21 @@ bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue(
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public boolean valid ()
+                {
+                if (bccsepa.getInteger()==1){
+                	if (Easp.digitoIncorrecto(bccbanco.getString()
+                	             ,bccsucursal.getString()
+                	             ,bccnumero.getString()
+                	            ,bccdigitos.getString(),"corriente")) {
+                		return false;
+                	}
+                	else {
+                		return super.valid(); 
+                	}
+                }
+                else return true;
+                }
             public void userChange (Value v)
                 {
                 super.userChange (v);
@@ -3228,6 +3248,7 @@ if (!primeraVez) {
 	lf.refresh();
 }
 primeraVez = false;
+
                 }
             }
             
@@ -3265,6 +3286,10 @@ primeraVez = false;
 else 
 	bccbanco.setRestricted(true);
                 }
+            public boolean obligate ()
+                {
+                return super.obligate ();
+                }
             }
             
         public class CtrlBcccodswift extends ControlEdit
@@ -3276,7 +3301,7 @@ else
                 super(form);
                 setName("bcccodswift");
                 setMessageHelp("Codigo SWIFT-BIC");
-                setTitle("Codigo SWIFT-BIC");
+                setTitle("Código SWIFT-BIC");
                 setType(STRING);
                 setLength(11);
                 setSearchable(true);
@@ -3287,6 +3312,12 @@ else
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public boolean obligate ()
+                {
+                if(bccsepa.getInteger()==3 || bccsepa.getInteger()==2) 
+                	return true;
+                return false;
+                }
             }
             
         public class CtrlBccbanconame extends ControlEdit
@@ -3307,6 +3338,12 @@ else
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public boolean obligate ()
+                {
+                if(bccsepa.getInteger()==3) 
+                	return true;
+                return false;
+                }
             }
             
         public class CtrlBccbancadress extends ControlEdit
@@ -3327,6 +3364,12 @@ else
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public boolean obligate ()
+                {
+                if(bccsepa.getInteger()==3) 
+                	return true;
+                return false;
+                }
             }
             
         public class CtrlBccbanccity extends ControlEdit
@@ -3347,10 +3390,17 @@ else
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public boolean obligate ()
+                {
+                if(bccsepa.getInteger()==3) 
+                	return true;
+                return false;
+                }
             }
             
         public class CtrlBcccodpais extends ControlComboBox
             {
+            public mae.easp.general.pkcodpais.PickPkcodpais pickup;
             // GLOBALES: CONTROLEDIT
             // Metodos
             public CtrlBcccodpais(Form form)
@@ -3361,16 +3411,21 @@ else
                 setTitle("CP");
                 setType(STRING);
                 setMaskInput("U");
+                setPickUp(pickup=new mae.easp.general.pkcodpais.PickPkcodpais(this));
                 setLength(2);
                 setSearchable(true);
                 setDescriptionShow(false);
-                addItem("12/");
-                addItem("12/");
                 setField(sbancoclicanvi.bcccodpais);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public boolean obligate ()
+                {
+                if(bccsepa.getInteger()==3) 
+                	return true;
+                return false;
+                }
             }
             
         public class CtrlBccbancpais extends ControlEdit
@@ -3391,6 +3446,12 @@ else
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public boolean obligate ()
+                {
+                if(bccsepa.getInteger()==3) 
+                	return true;
+                return false;
+                }
             }
             
         public class FSetF0 extends Fieldset
@@ -3473,7 +3534,7 @@ else
             //valtadatosbanc.setLayout(new LayoutHtml("mae/jrenta/html/prdatosbanc_detall.html"));
             valtadatosbanc.setLayout(new LayoutFieldset(valtadatosbanc));
             bccsepa.setValue(1);
-            bcccodpais.setPickUp(pickup=new mae.modasp.general.pkpaiscodigo.PickPkpaiscodigo(bcccodpais));
+            //bcccodpais.setPickUp(pickup=new mae.modasp.general.pkpaiscodigo.PickPkpaiscodigo(bcccodpais));	
             super.onInit();
             }
         public void onExit ()
@@ -3483,18 +3544,6 @@ else
             }
         public boolean onOkInsert ()
             {
-            if(bcciban.isNull()) {
-            	Maefc.message("Faltan datos", "Atención", Maefc.INFORMATION_MESSAGE);
-            	return false;
-            }
-            else if(bccsepa.getInteger()==2 && bcccodswift.isNull()) {
-            	Maefc.message("Faltan datos", "Atención", Maefc.INFORMATION_MESSAGE);
-            	return false;
-            }
-            else if(bccsepa.getInteger()==2 && (bcccodswift.isNull()||bccbanconame.isNull()||bccbancadress.isNull()||bccbanccity.isNull()||bcccodpais.isNull()||bccbancpais.isNull())) {
-            	Maefc.message("Faltan datos", "Atención", Maefc.INFORMATION_MESSAGE);
-            	return false;
-            }
             if (bccsepa.getInteger() != 1) {
             	Selector sl = new Selector(sbancoclicanvi.getDataBase());
             	sl.execute("select * from BANCO where bncodigo = " + bccbanco.getValue().getInteger());
@@ -3506,6 +3555,7 @@ else
             	}
             	sl.close();
             }
+            mae.modasp.general.Modasp.validaIBAN(bcciban.getString(), true);
             return super.onOkInsert ();
             }
         public void onInitFieldset ()
