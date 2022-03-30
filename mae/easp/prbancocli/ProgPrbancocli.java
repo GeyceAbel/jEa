@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Tue Mar 29 12:21:05 CEST 2022
+// Fecha y hora:     Wed Mar 30 10:33:34 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -1042,7 +1042,10 @@ public boolean dc = true;
 public int n0=0, n1=0, n2=0, n3=0;
 public boolean primeraVez = true;
 //public mae.modasp.general.pkpaiscodigo.PickPkpaiscodigo pickup;
-public String banco = "";
+public String banco;
+public String sucursal;
+public String numero;
+public String digitos;
 public void onOpened(){
   super.onOpened();
   if (!modoinsert) {
@@ -1121,23 +1124,11 @@ public void onOpened(){
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
-            public void onChange ()
-                {
-                super.onChange ();
-                banco = bccbanco.getValue().toString();
-while(banco.length()<4) {
-	banco = "0" + banco;
-}
-bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue().toString() + bccdigitos.getValue().toString());
-                }
             public void userChange (Value v)
                 {
                 super.userChange (v);
-                banco = bccbanco.getValue().toString();
-while(banco.length()<4) {
-	banco = "0" + banco;
-}
-bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue().toString() + bccdigitos.getValue().toString());
+                banco=Numero.format(bccbanco.getInteger(), "0000");
+bcciban.setValue("ES" + mae.modasp.general.Modasp.getDCIBAN(banco + sucursal + digitos + numero) + banco + sucursal + digitos + numero);
                 }
             }
             
@@ -1162,7 +1153,8 @@ bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue(
             public void userChange (Value v)
                 {
                 super.userChange (v);
-                bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue().toString() + bccdigitos.getValue().toString());
+                sucursal=Numero.format(bccsucursal.getInteger(), "0000");
+bcciban.setValue("ES" + mae.modasp.general.Modasp.getDCIBAN(banco + sucursal + digitos + numero) + banco + sucursal + digitos + numero);
                 }
             }
             
@@ -1195,7 +1187,8 @@ bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue(
             public void userChange (Value v)
                 {
                 super.userChange (v);
-                bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue().toString() + bccdigitos.getValue().toString());
+                numero=Numero.format(bccnumero.getInteger(), "0000000000");
+bcciban.setValue("ES" + mae.modasp.general.Modasp.getDCIBAN(banco + sucursal + digitos + numero) + banco + sucursal + digitos + numero);
                 }
             }
             
@@ -1235,7 +1228,8 @@ bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue(
             public void userChange (Value v)
                 {
                 super.userChange (v);
-                bcciban.setValue(banco + bccsucursal.getValue().toString() + bccnumero.getValue().toString() + bccdigitos.getValue().toString());
+                digitos=Numero.format(bccdigitos.getInteger(), "00");
+bcciban.setValue("ES" + mae.modasp.general.Modasp.getDCIBAN(banco + sucursal + digitos + numero) + banco + sucursal + digitos + numero);
                 }
             public boolean obligate ()
                 {
@@ -1893,7 +1887,13 @@ else
             mae.modasp.general.Modasp.validaIBAN(bcciban.getString(), true);
             
             valtadatosbanc.exit();
-            return super.onOkInsert ();
+            if (super.onOkInsert ()) {
+            	valtadatosbanc.exit();
+            	return true;
+            
+            }
+            else 
+            	return false;
             }
         public boolean onOkUpdate ()
             {
