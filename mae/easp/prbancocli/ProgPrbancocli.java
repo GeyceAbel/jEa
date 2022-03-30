@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 30 10:33:34 CEST 2022
+// Fecha y hora:     Wed Mar 30 15:18:42 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -1061,6 +1061,93 @@ public void onOpened(){
   	doInsert();
   }
   }
+
+public void activaCampos(int codsepa) {
+	while (f1.getControls().length>0) {
+	f1.remControl((Control) f1.getControls()[0]);
+}
+while (f2.getControls().length>0) {
+	f2.remControl((Control) f2.getControls()[0]);
+}
+while (f3.getControls().length>0) {
+	f3.remControl((Control) f3.getControls()[0]);
+}
+
+if (codsepa == 1){
+	n1=0;
+	n2=0;
+	// F1
+	f1.getWebProperties().setXPad(50);
+	f1.addControlAt(n1++, bccbanco);
+	f1.addControlAt(n1++, bccsucursal);
+	f1.addControlAt(n1++, bccnumero);
+	f1.addControlAt(n1++, bccdigitos);
+	// F2
+	f2.addControlAt(n2++, bcciban);
+	bcciban.setNull();
+	bccbanco.setNull();
+	bccsucursal.setNull();
+	bccnumero.setNull();
+	bccdigitos.setNull();
+	bcccodswift.setNull();
+	bccbanconame.setNull();
+	bccbancadress.setNull();
+	bccbanccity.setNull();
+	bcccodpais.setNull();
+	bccbancpais.setNull();
+	bcciban.setEnabled(false);
+}
+else if (codsepa == 2){
+	n1=0;
+	// F1
+	f1.getWebProperties().setXPad(40);
+	f1.addControlAt(n1++, bcciban);
+	f1.addControlAt(n1++, bcccodswift);
+	bcciban.setNull();
+	bcccodswift.setNull();
+	bccbanconame.setNull();
+	bccbancadress.setNull();
+	bccbanccity.setNull();
+	bcccodpais.setNull();
+	bccbancpais.setNull();
+	bcciban.setEnabled(true);
+}
+else if (codsepa == 3){
+	n1=0;
+	n2=0;
+	n3=0;
+	// F1
+	f1.getWebProperties().setXPad(40);
+	f1.addControlAt(n1++, bcciban);
+	f1.addControlAt(n1++, bcccodswift);
+	// F2
+	f2.getWebProperties().setNumCols(2);
+	f2.addControlAt(n2++, bccbanconame);
+	f2.addControlAt(n2++, bccbanccity);
+	// F3
+	f3.addControlAt(n3++, bccbancadress);
+	f3.addControlAt(n3++, bcccodpais);
+	f3.addControlAt(n3++, bccbancpais);
+	bcciban.setNull();
+	bccbanco.setNull();
+	bccsucursal.setNull();
+	bccnumero.setNull();
+	bccdigitos.setNull();
+	bcccodswift.setNull();
+	bccbanconame.setNull();
+	bccbancadress.setNull();
+	bccbanccity.setNull();
+	bcccodpais.setNull();
+	bccbancpais.setNull();
+	bcciban.setEnabled(true);
+}
+if (!primeraVez) {
+	LayoutFieldset lf = (LayoutFieldset) valtadatosbanc.getLayout();
+	lf.refresh();
+}
+primeraVez = false;
+
+}
         // Metodos
         // Controles
         public CtrlBccbanco bccbanco;
@@ -1488,97 +1575,14 @@ bcciban.setValue("ES" + mae.modasp.general.Modasp.getDCIBAN(banco + sucursal + d
                 }
             // GET: CONTROLEDIT
             // EVENT: CONTROLEDIT
+            public Object getDefault ()
+                {
+                return 1;
+                }
             public void onChange ()
                 {
                 super.onChange ();
-                while (f1.getControls().length>0) {
-	f1.remControl((Control) f1.getControls()[0]);
-}
-while (f2.getControls().length>0) {
-	f2.remControl((Control) f2.getControls()[0]);
-}
-while (f3.getControls().length>0) {
-	f3.remControl((Control) f3.getControls()[0]);
-}
-
-if (bccsepa.getInteger() == 1){
-	n1=0;
-	n2=0;
-	// F1
-	f1.getWebProperties().setXPad(50);
-	f1.addControlAt(n1++, bccbanco);
-	f1.addControlAt(n1++, bccsucursal);
-	f1.addControlAt(n1++, bccnumero);
-	f1.addControlAt(n1++, bccdigitos);
-	// F2
-	f2.addControlAt(n2++, bcciban);
-	bcciban.setNull();
-	bccbanco.setNull();
-	bccsucursal.setNull();
-	bccnumero.setNull();
-	bccdigitos.setNull();
-	bcccodswift.setNull();
-	bccbanconame.setNull();
-	bccbancadress.setNull();
-	bccbanccity.setNull();
-	bcccodpais.setNull();
-	bccbancpais.setNull();
-	bcciban.setEnabled(false);
-	bccbanco.setEnabled(true);
-	bccsucursal.setEnabled(true);
-	bccnumero.setEnabled(true);
-	bccdigitos.setEnabled(true);
-}
-else if (bccsepa.getInteger() == 2){
-	n1=0;
-	// F1
-	f1.getWebProperties().setXPad(40);
-	f1.addControlAt(n1++, bcciban);
-	f1.addControlAt(n1++, bcccodswift);
-	bcciban.setNull();
-	bcccodswift.setNull();
-	bccbanconame.setNull();
-	bccbancadress.setNull();
-	bccbanccity.setNull();
-	bcccodpais.setNull();
-	bccbancpais.setNull();
-	bcciban.setEnabled(true);
-}
-else if (bccsepa.getInteger() == 3){
-	n1=0;
-	n2=0;
-	n3=0;
-	// F1
-	f1.getWebProperties().setXPad(40);
-	f1.addControlAt(n1++, bcciban);
-	f1.addControlAt(n1++, bcccodswift);
-	// F2
-	f2.getWebProperties().setNumCols(2);
-	f2.addControlAt(n2++, bccbanconame);
-	f2.addControlAt(n2++, bccbanccity);
-	// F3
-	f3.addControlAt(n3++, bccbancadress);
-	f3.addControlAt(n3++, bcccodpais);
-	f3.addControlAt(n3++, bccbancpais);
-	bcciban.setNull();
-	bccbanco.setNull();
-	bccsucursal.setNull();
-	bccnumero.setNull();
-	bccdigitos.setNull();
-	bcccodswift.setNull();
-	bccbanconame.setNull();
-	bccbancadress.setNull();
-	bccbanccity.setNull();
-	bcccodpais.setNull();
-	bccbancpais.setNull();
-	bcciban.setEnabled(true);
-}
-if (!primeraVez) {
-	LayoutFieldset lf = (LayoutFieldset) valtadatosbanc.getLayout();
-	lf.refresh();
-}
-primeraVez = false;
-
+                activaCampos(getInteger());
                 }
             }
             
