@@ -6,11 +6,16 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.security.KeyManagementException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.json.JsonObject;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.X509TrustManager;
 
 import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
@@ -19,6 +24,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URLEncodedUtils;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
@@ -26,6 +32,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpRequestRetryHandler;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicHeader;
+import org.apache.http.ssl.SSLContexts;
+
 import mae.easp.general.Easp;
 import mae.easp.general.Easp.TIPO_HOST;
 
@@ -92,7 +100,7 @@ public class Azure {
 		if (dominiotmp == null) dominiotmp = Aplication.getAplication().getParameter("Dominio");
 		String urlaz = PROTOCOL + getRealHost() + SITE + funcion +".cshtml?dominiojToken="+dominiotmp;
 		if (lparametros != null && lparametros.size()>0) urlaz +="&"+URLEncodedUtils.format(lparametros, "utf-8");
-		// System.out.println("URLAZURE ["+urlaz+"]");
+//		 System.out.println("URLAZURE ["+urlaz+"]");
 		return urlaz;
 	}
 
@@ -151,15 +159,48 @@ public class Azure {
 			e.printStackTrace();
 		}
 
-		CloseableHttpClient client =  HttpClientBuilder.create()
-				.setDefaultRequestConfig(RequestConfig.custom().setConnectTimeout(TIMEOUT * 1000).build())
-				.setRetryHandler(new DefaultHttpRequestRetryHandler(numreintentos, false))
-				.setDefaultHeaders(Arrays.asList(new BasicHeader("Authentication", "Basic " + b64Encoded)))
-				.build();
+		CloseableHttpClient client = null;
+		try {
+			client = HttpClientBuilder.create()
+					.setDefaultRequestConfig(RequestConfig.custom().setConnectTimeout(TIMEOUT * 1000).build())
+					.setRetryHandler(new DefaultHttpRequestRetryHandler(numreintentos, false))
+					.setDefaultHeaders(Arrays.asList(new BasicHeader("Authentication", "Basic " + b64Encoded)))
+					.setSSLSocketFactory(getSocketFactory())
+					.build();
+		} catch (KeyManagementException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		return client;
 	}
 
+	private SSLConnectionSocketFactory getSocketFactory() throws KeyManagementException  {
+        SSLContext sslcontext = SSLContexts.createDefault();
+        sslcontext.init(null, new X509TrustManager[]{
+        		new X509TrustManager() {
+					@Override
+					public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {}
+		
+					@Override
+					public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {}
+		
+					@Override
+					public X509Certificate[] getAcceptedIssuers() {
+						return null;
+					}} }
+        , null);
+        
+        SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(
+                sslcontext,
+                null,
+                null,
+                SSLConnectionSocketFactory.getDefaultHostnameVerifier()
+                );
+        return sslsf;
+	}
+
+	
 	public boolean procesarFile (File f) {
 		return procesarFile(f, null);
 	}
