@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 30 15:16:31 CEST 2022
+// Fecha y hora:     Fri Apr 01 08:45:13 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -2950,8 +2950,10 @@ bcciban.setValue("ES" + mae.modasp.general.Modasp.getDCIBAN(banco + sucursal + d
             public void userChange (Value v)
                 {
                 super.userChange (v);
-                numero=Numero.format(bccnumero.getInteger(), "0000000000");
-bcciban.setValue("ES" + mae.modasp.general.Modasp.getDCIBAN(banco + sucursal + digitos + numero) + banco + sucursal + digitos + numero);
+                 if(!bccnumero.isNull()) 
+    numero=Util.rpt("0", 10-bccnumero.getString().length())+bccnumero.getString();
+ else numero = Util.rpt("0", 10);
+    bcciban.setValue("ES" + mae.modasp.general.Modasp.getDCIBAN(banco + sucursal + digitos + numero) + banco + sucursal + digitos + numero);
                 }
             }
             
