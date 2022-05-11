@@ -31,6 +31,7 @@ import geyce.maefc.Select;
 import geyce.maefc.Selector;
 import geyce.maefc.Table;
 import geyce.maefc.Update;
+import geyce.maefc.Value;
 
 public class ConversionJCO extends ConversionLC {
 	private String tipoCta;
@@ -72,6 +73,9 @@ public class ConversionJCO extends ConversionLC {
 	private Vector<String> vDepartamentos;
 	private boolean forzarCliPro;
 	private boolean soloAmort;
+	private int registros180 = 0;
+	private double importe180 = 0.0;
+	private double retencion180 = 0.0;
 	private final List<String> dominiosGIE = Arrays.asList(new String[]{"101139000000", "888888000000"});
 	private List<Integer> lEmpAmortProcesadas;
 
@@ -4883,6 +4887,187 @@ public class ConversionJCO extends ConversionLC {
 		if (!bOk) sError = "Error al grabar modelo 115";
 		return bOk;
 	}
+	
+	private boolean altaModelo180(String nif,int codEmp,int codGYC, int ejer)  {
+		boolean bOk = true;
+		pbf.setSecondaryPercent(0);
+		pbf.setState("Convirtiendo LC: "+codEmp+"  JC:"+codGYC+" ("+ejer+")  -  Modelo 180");
+		registros180=0;
+		importe180=0;
+		retencion180=0;
+		
+		SelectorLogic s180e = new SelectorLogic(connLC);
+		String sql = "where IOF_PortadaRetArrendamientos.CodigoEmpresa = "+codEmp+" and Personas.Dni='"+nif+"'";
+		sql += " and IOF_PortadaRetArrendamientos.CodigoModeloImp = '180' and IOF_PortadaRetArrendamientos.Ejercicio="+ejer+" order by IOF_PortadaRetArrendamientos.Periodo";
+		s180e.execute("SELECT * FROM IOF_PortadaRetArrendamientos INNER JOIN Personas ON IOF_PortadaRetArrendamientos.GuidPersona=Personas.GuidPersona "+sql);
+		if(s180e.next() && bOk && cargarDatosNif(nif,dominio.substring(0,6)+Numero.format(codGYC,"000000"))) {
+			mae.modasp.general.Modasp.borrarRegModelo("180", nif, ejer, "0A", true);
+			mae.modasp.general.Modasp.borrarRegModnifcdp("180", nif, ejer, "0A");
+			mae.modasp.general.Modasp.borrarRegModestado("180", nif, ejer, "0A");
+			Value fechaPres = new Value(Value.DATE);
+			fechaPres.setValue(s180e.getDate("FechaListado"));
+			Insert iM180e  = new Insert(connModasp,"MOD180E");
+			iM180e.valor("m180edominio", dominio);
+			iM180e.valor("m180enif", nif);
+			iM180e.valor("m180eejercicio", ejer);
+			iM180e.valor("m180eperiodo", "0A");
+			iM180e.valor("m180edeleg", ccfddelegacio.getString());
+			iM180e.valor("m180eadmon", retallaString(ccfdadministra.getString(),30));
+			iM180e.valor("m180ecodadmon", Util.formateoNumero("00",ccfdcdpaeatdele.getInteger())+
+					Util.formateoNumero("000",ccfdcdpaeatadm.getInteger()));
+			iM180e.valor("m180etelefono", retallaString(ccfddattel.getString(),9));
+			iM180e.valor("m180eapellidos", getApellidos()); //Mirar si también pone el nombre
+			if (ccfddatsiglas.getString().length()>0) 
+				iM180e.valor("m180esigla",ccfddatsiglas.getString());
+			iM180e.valor("m180ecalle", retallaString(ccfddatvia.getString(),17));
+			iM180e.valor("m180enumero",ccfddatnum.getString());
+			iM180e.valor("m180epuerta",ccfddatpuerta.getString());
+			iM180e.valor("m180eescalera",ccfddatesc.getString());
+			iM180e.valor("m180episo",ccfddatpiso.getString());
+			iM180e.valor("m180ecpostal",ccfddatcpos.getString());
+			iM180e.valor("m180eprovincia",ccfddatcodprov.getInteger());
+			iM180e.valor("m180emunicipio",retallaString(ccfddatpobla.getString(),20)); 
+			iM180e.valor("m180enrototper",0.0);
+			iM180e.valor("m180eimporte",0.0);
+			iM180e.valor("m180ereting",0.0);
+			bOk = iM180e.execute();
+			bOk = altaDesgloseModelo180(nif,codEmp,codGYC,ejer,bOk);
+			
+			Update uM180e = new Update(connModasp, "MOD180e");
+			uM180e.valor("m180enrototper",registros180);
+			uM180e.valor("m180eimporte",importe180);
+			uM180e.valor("m180ereting",retencion180);
+			bOk = uM180e.execute("m180enif ='"+nif+"' and m180eejercicio="+ejer);
+			if (bOk) bOk = actualitzaModEstado(dominio.substring(0,6)+Numero.format(codGYC,"000000"),null,null,null,null,"180",nif,ejer,"0A",fechaPres.getDate(),"I",0);
+		}
+		s180e.close();
+		return bOk;
+	}
+
+	private boolean altaDesgloseModelo180(String nif,int codEmp,int codGYC, int ejer, boolean bOk) {
+		SelectorLogic s180r = new SelectorLogic(connLC);
+		s180r.execute("SELECT * FROM IOF_PortadaRetArrendamientos INNER JOIN IOF_RetArrdtoDesglose ON IOF_PortadaRetArrendamientos.LiqPosicionContador=IOF_RetArrdtoDesglose.LiqPosicion WHERE IOF_PortadaRetArrendamientos.CodigoEmpresa="+codEmp+" AND Ejercicio = "+ejer+" AND IOF_PortadaRetArrendamientos.CodigoModeloImp = '180' ORDER BY Ejercicio DESC;");
+		while(s180r.next() && bOk) { //Alta Desgloses!
+			if(!"".equals(s180r.getString("ViaPublica")) && s180r.getString("ViaPublica") != null) {
+				registros180++;
+				String nifDec = s180r.getString("NifDeclarado");
+				Insert iM180r  = new Insert(connModasp,"MOD180r");
+				String[] datosVia = new String[17];
+				iM180r.valor("m180rident", 1);
+				iM180r.valor("m180rdominio", dominio);
+				iM180r.valor("m180rnif", nif);
+				iM180r.valor("m180rejercicio", ejercicioEnProceso);
+				iM180r.valor("m180rperiodo", "0A");
+				iM180r.valor("m180rnifper", nifDec);
+				if(!"".equals(s180r.getString("NifRepresentante")) && s180r.getString("NifRepresentante")!=null)
+					iM180r.valor("m180rnifrepres", s180r.getString("NifRepresentante"));
+				iM180r.valor("m180rrazon", s180r.getString("NombreRelacionado"));
+				iM180r.valor("m180rcodprov", s180r.getString("CodProvinciaPerceptor"));
+				iM180r.valor("m180rmodal", 1);
+				Double base = s180r.getdouble("BaseRetencionLiq");
+				Double importReten = s180r.getdouble("ImporteRetencionLiq");
+				Double porcentaje = (importReten/base)*100;
+				iM180r.valor("m180rimport", base);
+				iM180r.valor("m180rporreten", porcentaje);
+				iM180r.valor("m180rretening", importReten);
+				importe180+=base;
+				retencion180+=importReten;
+				iM180r.valor("m180rejerdev", ejer);
+				int clauSit = s180r.getint("ClaveSituacion");
+				datosVia[0]=s180r.getString("ReferenciaCatastral");
+				datosVia[1]=s180r.getString("TipoVia");
+				datosVia[2]=s180r.getString("ViaPublica");
+				datosVia[3]=s180r.getString("TipoNum");
+				datosVia[4]=s180r.getString("Numero1");
+				datosVia[5]=s180r.getString("CalificacionNumero");
+				datosVia[6]=s180r.getString("Bloque");
+				datosVia[7]=s180r.getString("Portal");
+				datosVia[8]=s180r.getString("Escalera");
+				datosVia[9]=s180r.getString("Piso");
+				datosVia[10]=s180r.getString("Puerta");
+				datosVia[11]=s180r.getString("ComplementoDomicilio");
+				datosVia[12]=s180r.getString("Localidad");
+				datosVia[13]=s180r.getString("CodigoMunicipio");
+				datosVia[14]=s180r.getString("CodigoProvincia");
+				datosVia[15]=s180r.getString("CodigoPostal");
+				//-----------------------------------------
+				iM180r.valor("m180rsitua", clauSit);
+				iM180r.valor("m180refcatas", datosVia[0]);
+				iM180r.valor("m180rtipovia", datosVia[1]);
+				iM180r.valor("m180rvia", datosVia[2]);
+				iM180r.valor("m180rtiponum", datosVia[3]);
+				iM180r.valor("m180rnumcasa", datosVia[4]);
+				iM180r.valor("m180rcalifnum", datosVia[5]);
+				iM180r.valor("m180rbloque", datosVia[6]);
+				iM180r.valor("m180rportal", datosVia[7]);
+				iM180r.valor("m180rescalera", datosVia[8]);
+				iM180r.valor("m180rplanta", datosVia[9]);
+				iM180r.valor("m180rpuerta", datosVia[10]);
+				iM180r.valor("m180rdatcomp", datosVia[11]);
+				iM180r.valor("m180rpoblacion", datosVia[12]);
+				iM180r.valor("m180rmunicipio", datosVia[12]);
+				iM180r.valor("m180rcodine", datosVia[13]);
+				iM180r.valor("m180rprovincia", datosVia[14]);
+				iM180r.valor("m180rcpostal", datosVia[15]);
+				bOk = iM180r.execute();
+				if (bOk) bOk = altaLocalesModelo180(nifDec, codGYC, ejer, bOk, clauSit,datosVia);
+			}
+		}
+		s180r.close();
+		return bOk;
+	}
+	
+	private boolean altaLocalesModelo180(String nifDec, int codGYC, int ejer, boolean bOk, int clauSit, String[] datosVia) {
+		Selector pcuentas = new Selector(dbJCta);
+		pcuentas.execute("Select pcucuenta,pcusubcuenta from pcuentas where pcuempresa="+codGYC+" and pcuejercicio="+ejer+" and (pcucuenta LIKE '40%' OR pcucuenta LIKE '41%') and pcunif='"+nifDec+"'");
+		if(pcuentas.next()) { 
+			//Comprueba si existe ya el local y si existe lo petas.
+			String cuentaDec = pcuentas.getString("pcucuenta");
+			String subCuentaDec = pcuentas.getString("pcusubcuenta");
+			Selector slocal = new Selector(dbJCta);
+			boolean borra = false;
+			//Borra previamente el mismo local antes de insertar.
+			String whereLocal = "pclempresa="+codGYC+" and pclejercicio="+ejer+" and pclcuenta='"+cuentaDec+"' and pclsubcuenta='"+subCuentaDec+"' and pclreferencia='"+datosVia[0]+"' and pclcalle='"+datosVia[2]+"' and pclnumero='"+datosVia[4]+"'";
+			slocal.execute("Select pclempresa from pclocales where "+whereLocal);
+			if(slocal.next())
+				borra = true;
+			slocal.close();
+			
+			if(borra) {
+				Delete delLocal = new Delete(dbJCta,"PCLOCALES");
+				delLocal.execute(whereLocal);
+			}
+			
+			Insert plocales = new Insert(dbJCta, "PCLOCALES");
+			plocales.valor("pclempresa", codGYC);
+			plocales.valor("pclejercicio", ejer);
+			plocales.valor("pclcuenta", cuentaDec);
+			plocales.valor("pclsubcuenta", subCuentaDec);
+			plocales.valor("pclreferencia", datosVia[0]);
+			plocales.valor("pclsiglas", datosVia[1]);
+			plocales.valor("pclcalle", datosVia[2]);
+			plocales.valor("pclnumero", datosVia[4]);
+			plocales.valor("pclescalera", datosVia[8]);
+			plocales.valor("pclpiso", datosVia[9]);
+			plocales.valor("pclpuerta", datosVia[10]);
+			plocales.valor("pclcodimuni", datosVia[13]);
+			plocales.valor("pclmunicipio", datosVia[12]);
+			plocales.valor("pclprovincia", datosVia[14]);
+			plocales.valor("pclpais", 108);
+			plocales.valor("pclsituacion", clauSit);
+			plocales.valor("pcltipovia", datosVia[1]);
+			plocales.valor("pcltiponum", datosVia[3]);
+			plocales.valor("pclcalifnum", datosVia[5]);
+			plocales.valor("pclbloque", datosVia[6]);
+			plocales.valor("pclcomplem", datosVia[11]);
+			//plocales.valor("pcllocal", null);
+			plocales.valor("pclcodpostal", datosVia[15]);
+			//plocales.valor("pclportal2", null);
+			bOk= plocales.execute();
+		}
+		pcuentas.close();
+		return bOk;
+	}
 
 	private String retallaString(String camp, int longitud) {
 		if (camp.length() > longitud) camp = camp.substring(0,longitud);
@@ -4970,6 +5155,7 @@ public class ConversionJCO extends ConversionLC {
 				}
 				if (bOk) bOk = altaModelo349 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
 				if (bOk) bOk = altaModelo115 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
+				if (bOk) bOk = altaModelo180 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
 				if (bOk) {
 					pbf.setSecondaryPercent(0);
 					pbf.setState("Convirtiendo LC: "+empLC+"  JC:"+empJC+" ("+ejerJconta+")  -  Finalizando");
