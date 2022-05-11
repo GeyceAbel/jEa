@@ -28,7 +28,12 @@ public interface IGesDoc {
 		RESPAEAT,
 		BORRADOR, 
 		INFORME, BIENINV, COM347, BIEUSADOS,
-		LISTADODIARIO
+		LISTADODIARIO,
+		BALANCE,
+		CTA415,
+		NIF415,
+		CTA347,
+		NIF347,
 	}
 	public static enum ETIQUETAS {
 		CDP,

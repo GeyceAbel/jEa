@@ -66,6 +66,7 @@ public abstract class GesDoc implements IGesDoc {
 		String ap = "Fiscal";
 		if (getAplicacion() == APLETI.JNOMINA) ap = "Laboral";
 		else if (getAplicacion() == APLETI.JMODELOS) ap = "ModelosAEAT";
+		else if (getAplicacion() == APLETI.JEO) ap = "Estimacion";
 		ap += "\\"+getNif()+((getEjercicio() != 0)?"\\"+getEjercicio():"");
 
 		return ap;
