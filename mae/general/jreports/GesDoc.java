@@ -1,8 +1,15 @@
 package mae.general.jreports;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import javax.json.Json;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
+
 import geyce.maefc.DBConnection;
 import geyce.maefc.Maefc;
 import geyce.maefc.Selector;
@@ -60,7 +67,7 @@ public abstract class GesDoc implements IGesDoc {
 		if (getAplicacion() == APLETI.JNOMINA) ap = "Laboral";
 		else if (getAplicacion() == APLETI.JMODELOS) ap = "ModelosAEAT";
 		ap += "\\"+getNif()+((getEjercicio() != 0)?"\\"+getEjercicio():"");
-		
+
 		return ap;
 	};
 
@@ -132,16 +139,16 @@ public abstract class GesDoc implements IGesDoc {
 		else if (tp == TIPOPERIODO.FINAL) return "FIN";
 		return "--";
 	}
-	
+
 	public static TIPOPERIODO getPeridodo(Date d) {	
 		if (d != null) return getPeridodo (String.valueOf((1+Maefc.getMonth(d))));
 		else return TIPOPERIODO.ANUAL;
 	}
-	
+
 	public static TIPOPERIODO getPeridodo(int i) {	
 		return getPeridodo (String.valueOf(i));
 	}
-	
+
 	public static TIPOPERIODO getPeridodo(String val) {	
 		TIPOPERIODO tp = null;
 		if ("00".equals(val) || "0".equals(val)) tp= TIPOPERIODO.INICIAL;
@@ -169,5 +176,50 @@ public abstract class GesDoc implements IGesDoc {
 		else if ("0A".equals(val)) tp= TIPOPERIODO.ANUAL;
 
 		return tp;
+	}
+
+	public static void send (String cdp, String nombrefit, String descfit, String tipofit, boolean enviarMail, String mail, String ubicaciongd, int ubicaciongd_user, List<IEtiquetaGD> leti, File f) throws Exception {
+		JsonObject jo = creaJson(cdp, nombrefit, descfit, tipofit, enviarMail, mail, ubicaciongd, ubicaciongd_user, leti);
+		
+		Azure az = new Azure ("gesdoc.uploadfile", null, f, jo);
+
+		if (!az.procesar()) throw new Exception ("No se ha podido subier el fichero a la GesDoc: "+az.getError());
+	}
+
+	public static void sendPDF (String cdp, String nombrefit, String descfit, String ubicaciongd, List<IEtiquetaGD> leti, File f) throws Exception {
+		send (cdp, nombrefit, descfit, "pdf", false, null, ubicaciongd, 0, leti, f);
+	}
+
+	public static void sendXLSX (String cdp, String nombrefit, String descfit, String ubicaciongd, List<IEtiquetaGD> leti, File f) throws Exception {
+		send (cdp, nombrefit, descfit, "xlsx", false, null, ubicaciongd, 0, leti, f);
+	}
+
+	public static void sendXLS (String cdp, String nombrefit, String descfit, String ubicaciongd, List<IEtiquetaGD> leti, File f) throws Exception {
+		send (cdp, nombrefit, descfit, "xls", false, null, ubicaciongd, 0, leti, f);
+	}
+
+	private static JsonObject creaJson (String cdp, String nombrefit, String descfit, String tipofit, boolean enviarMail, String mail, String ubicaciongd, int ubicaciongd_user, List<IEtiquetaGD> leti) {
+		JsonObjectBuilder builder = Json.createObjectBuilder();
+		JsonArrayBuilder arrdetBuilder = Json.createArrayBuilder();
+
+		for (IEtiquetaGD e : leti) {
+			JsonObjectBuilder detBuilder = Json.createObjectBuilder();
+			detBuilder.add("clave", e.getIdentificador().toString());
+			detBuilder.add("valor", e.getValor());
+			arrdetBuilder.add(detBuilder);
+		}
+		builder.add("etiquetas", arrdetBuilder);
+		builder.add("cdp", cdp);
+		builder.add("nombrefit", nombrefit);
+		builder.add("descfit", descfit);
+		builder.add("tipofit", tipofit);
+		builder.add("sendmail", enviarMail);
+		builder.add("mail", mail);
+		if (ubicaciongd_user > 0) builder.add("iddir",ubicaciongd_user);
+		else builder.add("iddir", 0);
+		builder.add("ubic", ubicaciongd);
+		builder.add("usr", Easp.usuario);
+
+		return builder.build();
 	}
 }

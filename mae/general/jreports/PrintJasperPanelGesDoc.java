@@ -362,44 +362,13 @@ public class PrintJasperPanelGesDoc extends PrintJasperPanel
 			
 			if (crb_excel.getBoolean()) crearFicheroXLSX(f, jprintlist);
 			else crearFicheroPDF (f, jprintlist);
-			JsonObject jo = creaJson ();
 			
-			System.out.println(jo);
-			Azure az = new Azure ("gesdoc.uploadfile", null, f, jo);
-			
-			if (!az.procesar()) throw new Exception ("No se ha podido subier el fichero a la GesDoc: "+az.getError());
-			else {
-				Maefc.message ("Proceso realizado correctamente.","¡Atención!",Maefc.INFORMATION_MESSAGE);
-				job.dialog.exit();
-			}
+			GesDoc.send(ce_cdpafinity.getString(), ce_nombrefichero.getString(), ce_desc.getString(), crb_excel.getBoolean()?"xlsx":"pdf", cc_sendmail.getBoolean(), 
+						ce_mail.getString(), ce_ubicaciongd.getString(), ubicacionUsuario != null ? ubicacionUsuario.getId() : 0, oGD.getEtiquetas(), f);
+			Maefc.message ("Proceso realizado correctamente.","¡Atención!",Maefc.INFORMATION_MESSAGE);
+			job.dialog.exit();
 		}
 	}
-	
-	private JsonObject creaJson () {
-		JsonObjectBuilder builder = Json.createObjectBuilder();
-		JsonArrayBuilder arrdetBuilder = Json.createArrayBuilder();
-
-		for (IEtiquetaGD e : oGD.getEtiquetas()) {
-			JsonObjectBuilder detBuilder = Json.createObjectBuilder();
-			detBuilder.add("clave", e.getIdentificador().toString());
-			detBuilder.add("valor", e.getValor());
-			arrdetBuilder.add(detBuilder);
-		}
-		builder.add("etiquetas", arrdetBuilder);
-		builder.add("cdp", ce_cdpafinity.getString());
-		builder.add("nombrefit", ce_nombrefichero.getString());
-		builder.add("descfit", ce_desc.getString());
-		builder.add("tipofit", crb_excel.getBoolean()?"xlsx":"pdf");
-		builder.add("sendmail", cc_sendmail.getBoolean());
-		builder.add("mail", ce_mail.getString());
-		if (ubicacionUsuario != null) builder.add("iddir",ubicacionUsuario.getId());
-		else builder.add("iddir", 0);
-		builder.add("ubic", ce_ubicaciongd.getString());
-		builder.add("usr", Easp.usuario);
-		
-		return builder.build();
-	}
-
 	private void crearFicheroPDF (File f, List<ExporterInputItem> jprintlist) throws Exception {
 
 		JRPdfExporter pdfexporter  = new JRPdfExporter();
