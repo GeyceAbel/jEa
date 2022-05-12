@@ -34,6 +34,14 @@ public interface IGesDoc {
 		NIF415,
 		CTA347,
 		NIF347,
+		ACUMULADOS, ACUM,
+		BIENES, 
+		BIENESUS,
+		COMPGAST,
+		EXTRAC,
+		LIBROS,
+		PROVISIONES,
+		VENTAS
 	}
 	public static enum ETIQUETAS {
 		CDP,
