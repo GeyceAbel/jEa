@@ -44,11 +44,11 @@ public abstract class GesDoc implements IGesDoc {
 		return lEtiquetas;
 	}
 
-	public IEtiquetaGD getEtiqueta (ETIQUETAS eti, int valor) {
+	public static IEtiquetaGD getEtiqueta (ETIQUETAS eti, int valor) {
 		return getEtiqueta(eti, String.valueOf(valor));
 	}
 
-	public IEtiquetaGD getEtiqueta (final ETIQUETAS eti, final String valor) {
+	public static IEtiquetaGD getEtiqueta (final ETIQUETAS eti, final String valor) {
 		return new IEtiquetaGD() {
 			@Override
 			public String getValor() {

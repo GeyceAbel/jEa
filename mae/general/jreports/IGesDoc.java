@@ -55,6 +55,8 @@ public interface IGesDoc {
 		MODELO,
 		PERIODO,
 		PERIODOFINAL,
+		NOMPROVINCIA,
+		NOMEMPRESA
 	}
 	
 	public static enum TIPOPERIODO {
