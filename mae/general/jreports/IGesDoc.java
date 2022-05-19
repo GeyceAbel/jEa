@@ -55,7 +55,7 @@ public interface IGesDoc {
 		MODELO,
 		PERIODO,
 		PERIODOFINAL,
-		NOMPROVINCIA,
+		PROVINCIA,
 		NOMEMPRESA
 	}
 	
