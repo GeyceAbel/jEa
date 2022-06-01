@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jun 01 10:57:12 CEST 2022
+// Fecha y hora:     Wed Jun 01 11:02:25 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -32,6 +32,7 @@ private DBConnection connAnt = null;
 private DBConnection connAntAnt = null;
 private boolean esSQL = "SQLSERVER".equals(Aplication.getDB().getType().toUpperCase());
 
+private String where = "";
 /*
  * Parametres del procés
  */
@@ -512,6 +513,10 @@ public void onOpened() {
             addField(aprventana=new Field(this,auditionpr,"aprventana"));
             }
         // GET: SELECT
+        public String getWhere ()
+            {
+            return where;
+            }
         public String getOrder ()
             {
             if (ordenacion>0) return vlog.getControlTable().getColumn(ordenacion).getControlValue().getName()+",aprcodi desc";
@@ -1071,6 +1076,10 @@ public void onOpened() {
             addField(aprventana=new Field(this,auditionpr,"aprventana"));
             }
         // GET: SELECT
+        public String getWhere ()
+            {
+            return where;
+            }
         public String getOrder ()
             {
             if (ordenacionant>0) return vlogant.getControlTable().getColumn(ordenacionant).getControlValue().getName()+",aprcodi desc";
@@ -1532,6 +1541,10 @@ public void onOpened() {
             addField(aprventana=new Field(this,auditionpr,"aprventana"));
             }
         // GET: SELECT
+        public String getWhere ()
+            {
+            return where;
+            }
         public String getOrder ()
             {
             if (ordenacionantant>0) return vlogantant.getControlTable().getColumn(ordenacionantant).getControlValue().getName()+",aprcodi desc";
@@ -1787,7 +1800,7 @@ public void onOpened() {
         saudition.setModifier("TOP 5000");
         sauditionant.setModifier("TOP 5000");
         sauditionantant.setModifier("TOP 5000");
-        String where = "";
+        where = "";
         if (filtroUsuario) {
         	where +=" aprusuario='"+Aplication.getAplication().getUser()+"' and aprnombrepc='"+nomPC+"' ";
         }
@@ -1852,11 +1865,7 @@ public void onOpened() {
         	exit();
         }	
         
-        if (!"".equals(where)) {
-        	saudition.setWhere(where);
-        	sauditionant.setWhere(where);
-        	sauditionantant.setWhere(where);
-        }
+        
         
         setConnection(connAudition);
         super.onInit();
