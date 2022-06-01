@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Oct 07 10:54:17 CEST 2021
+// Fecha y hora:     Wed Jun 01 10:57:12 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -59,6 +59,7 @@ private boolean initConnection() {
 	else 
 		dap = new DefaultAuditionProgram(getApp(), Maefc.getYear(Maefc.getDate()));
 	connAudition = dap.getConexion();
+	saudition.setDb(connAudition);
 	return connAudition != null;
 }
 
@@ -66,6 +67,7 @@ private boolean initConnectionAnt() {
 	DefaultAuditionProgram dap = new DefaultAuditionProgram(getApp(), Maefc.getYear(Maefc.getDate()) - 1);
 	dap.initAudition();
 	connAnt = dap.getConexion();
+	sauditionant.setDb(connAnt);
 	return connAnt != null;
 }
 
@@ -73,6 +75,7 @@ private boolean initConnectionAntAnt() {
 	DefaultAuditionProgram dap = new DefaultAuditionProgram(getApp(), Maefc.getYear(Maefc.getDate()) - 2);
 	dap.initAudition();
 	connAntAnt = dap.getConexion();
+	sauditionantant.setDb(connAntAnt);
 	return connAntAnt != null;
 }
 
@@ -115,15 +118,6 @@ public void onOpened() {
     public class FormVlog extends MultiDataForm
         {
         // GLOBALES: VENTANA
-        public void onColumnClick( int row) {
-  Maefc.waitCursor();
-  super.onColumnClick(row);
-  ordenacion = row;
-  setConnection(connAudition);
-  doShow();
-  Maefc.restoreCursor();
-
-}
         // Metodos
         // Controles
         public CtrlAprfecha aprfecha;
@@ -454,9 +448,13 @@ public void onOpened() {
             }
         // GET: VENTANA
         // EVENT: VENTANA
-        public void onInit ()
+        public void onColumnClick (int ncol)
             {
-            super.onInit();
+            Maefc.waitCursor();
+            super.onColumnClick(ncol);
+            ordenacion = ncol;
+            doShow();
+            Maefc.restoreCursor();
             }
         }
         
@@ -623,15 +621,6 @@ public void onOpened() {
     public class FormVlogant extends MultiDataForm
         {
         // GLOBALES: VENTANA
-        public void onColumnClick( int row) {
-  Maefc.waitCursor();
-  super.onColumnClick(row);
-  ordenacionant = row;
-  setConnection(connAnt);
-  doShow();
-  Maefc.restoreCursor();
-
-}
         // Metodos
         // Controles
         public CtrlAprfecha aprfecha;
@@ -1018,15 +1007,13 @@ public void onOpened() {
             }
         // GET: VENTANA
         // EVENT: VENTANA
-        public void onOpened ()
+        public void onColumnClick (int ncol)
             {
-            super.onOpened ();
-            setConnection(connAnt);
-vlogant.doShow();
-            }
-        public void onInit ()
-            {
-            super.onInit();
+            Maefc.waitCursor();
+            super.onColumnClick(ncol);
+            ordenacionant = ncol;
+            doShow();
+            Maefc.restoreCursor();
             }
         }
         
@@ -1095,15 +1082,6 @@ vlogant.doShow();
     public class FormVlogantant extends MultiDataForm
         {
         // GLOBALES: VENTANA
-        public void onColumnClick( int row) {
-  Maefc.waitCursor();
-  super.onColumnClick(row);
-  ordenacionantant = row;
-  setConnection(connAntAnt);
-  doShow();
-  Maefc.restoreCursor();
-
-}
         // Metodos
         // Controles
         public CtrlAprfecha aprfecha;
@@ -1490,15 +1468,13 @@ vlogant.doShow();
             }
         // GET: VENTANA
         // EVENT: VENTANA
-        public void onOpened ()
+        public void onColumnClick (int ncol)
             {
-            super.onOpened ();
-            setConnection(connAntAnt);
-vlogantant.doShow();
-            }
-        public void onInit ()
-            {
-            super.onInit();
+            Maefc.waitCursor();
+            super.onColumnClick(ncol);
+            ordenacionantant = ncol;
+            doShow();
+            Maefc.restoreCursor();
             }
         }
         
