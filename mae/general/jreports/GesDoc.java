@@ -215,7 +215,8 @@ public abstract class GesDoc implements IGesDoc {
 		builder.add("descfit", descfit);
 		builder.add("tipofit", tipofit);
 		builder.add("sendmail", enviarMail);
-		builder.add("mail", mail);
+		if(mail != null)
+		  builder.add("mail", mail);
 		if (ubicaciongd_user > 0) builder.add("iddir",ubicaciongd_user);
 		else builder.add("iddir", 0);
 		builder.add("ubic", ubicaciongd);
