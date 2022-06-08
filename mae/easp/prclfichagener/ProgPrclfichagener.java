@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Apr 11 11:47:14 CEST 2022
+// Fecha y hora:     Wed Jun 08 09:47:17 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -143,6 +143,9 @@ public void abrirVCDP(int modo) {
     public Snifrepresentan snifrepresentan;
     // Ventana
     public FormVcambiobanco vcambiobanco;
+    // Selects
+    // Ventana
+    public FormVrestodatos vrestodatos;
     // Selects
     // Ventana
     public FormVcendbancos vcendbancos;
@@ -2175,7 +2178,7 @@ boolean deleteAsignaciones() {
             public void onAction ()
                 {
                 super.onAction();
-                valtadatosbanc.open();
+                vrestodatos.open();
                 }
             }
             
@@ -2772,7 +2775,7 @@ public String banco;
 public String sucursal;
 public String numero;
 public String digitos;
-//public mae.modasp.general.pkpaiscodigo.PickPkpaiscodigo pickup;
+public mae.modasp.general.pkpaiscodigo.PickPkpaiscodigo pickup;
 public void onOpened(){
   super.onOpened();
   if (!modoinsert) {
@@ -2807,8 +2810,8 @@ if (codsepa == 1){
 	f1.getWebProperties().setXPad(50);
 	f1.addControlAt(n1++, bccbanco);
 	f1.addControlAt(n1++, bccsucursal);
-	f1.addControlAt(n1++, bccnumero);
 	f1.addControlAt(n1++, bccdigitos);
+	f1.addControlAt(n1++, bccnumero);
 	// F2
 	f2.addControlAt(n2++, bcciban);
 	bcciban.setNull();
@@ -2879,8 +2882,8 @@ primeraVez = false;
         // Controles
         public CtrlBccbanco bccbanco;
         public CtrlBccsucursal bccsucursal;
-        public CtrlBccnumero bccnumero;
         public CtrlBccdigitos bccdigitos;
+        public CtrlBccnumero bccnumero;
         public CtrlBccsg bccsg;
         public CtrlBccvia bccvia;
         public CtrlBccnum bccnum;
@@ -2974,43 +2977,6 @@ bcciban.setValue("ES" + mae.modasp.general.Modasp.getDCIBAN(banco + sucursal + d
                 }
             }
             
-        public class CtrlBccnumero extends ControlEdit
-            {
-            // GLOBALES: CONTROLEDIT
-            // Metodos
-            public CtrlBccnumero(Form form)
-                {
-                super(form);
-                setName("bccnumero");
-                setTitle("Num.");
-                setType(STRING);
-                setProtect(true);
-                setLength(10);
-                setPrintable(false);
-                setField(sbancoclicanvi.bccnumero);
-                // SET: CONTROLEDIT
-                }
-            // GET: CONTROLEDIT
-            // EVENT: CONTROLEDIT
-            public boolean valid ()
-                {
-                if(bccsepa.getInteger()!=1)
-                	return super.valid();
-                else if (Util.isNumero(this.getString()) && this.getString().length() == 10)
-                	return super.valid();
-                else
-                	return false;
-                }
-            public void userChange (Value v)
-                {
-                super.userChange (v);
-                 if(!bccnumero.isNull()) 
-    numero=Util.rpt("0", 10-bccnumero.getString().length())+bccnumero.getString();
- else numero = Util.rpt("0", 10);
-    bcciban.setValue("ES" + mae.modasp.general.Modasp.getDCIBAN(banco + sucursal + digitos + numero) + banco + sucursal + digitos + numero);
-                }
-            }
-            
         public class CtrlBccdigitos extends ControlEdit
             {
             // GLOBALES: CONTROLEDIT
@@ -3057,6 +3023,43 @@ bcciban.setValue("ES" + mae.modasp.general.Modasp.getDCIBAN(banco + sucursal + d
                 	return true;
                 else
                 	return false;
+                }
+            }
+            
+        public class CtrlBccnumero extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccnumero(Form form)
+                {
+                super(form);
+                setName("bccnumero");
+                setTitle("Num.");
+                setType(STRING);
+                setProtect(true);
+                setLength(10);
+                setPrintable(false);
+                setField(sbancoclicanvi.bccnumero);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public boolean valid ()
+                {
+                if(bccsepa.getInteger()!=1)
+                	return super.valid();
+                else if (Util.isNumero(this.getString()) && this.getString().length() == 10)
+                	return super.valid();
+                else
+                	return false;
+                }
+            public void userChange (Value v)
+                {
+                super.userChange (v);
+                 if(!bccnumero.isNull()) 
+    numero=Util.rpt("0", 10-bccnumero.getString().length())+bccnumero.getString();
+ else numero = Util.rpt("0", 10);
+    bcciban.setValue("ES" + mae.modasp.general.Modasp.getDCIBAN(banco + sucursal + digitos + numero) + banco + sucursal + digitos + numero);
                 }
             }
             
@@ -3569,8 +3572,8 @@ else
             addSelect(sbancoclicanvi=new Sbancoclicanvi());
             addControl(bccbanco=new CtrlBccbanco(this));
             addControl(bccsucursal=new CtrlBccsucursal(this));
-            addControl(bccnumero=new CtrlBccnumero(this));
             addControl(bccdigitos=new CtrlBccdigitos(this));
+            addControl(bccnumero=new CtrlBccnumero(this));
             addControl(bccsg=new CtrlBccsg(this));
             addControl(bccvia=new CtrlBccvia(this));
             addControl(bccnum=new CtrlBccnum(this));
@@ -7967,6 +7970,855 @@ f1.addControlAt(n1++, vvbccsepa);
             }
         }
         
+    public class FormVrestodatos extends MonoDataForm
+        {
+        // GLOBALES: VENTANA
+        public boolean primeravez = true;
+public void activaCampos(int codsepa) {
+		while (f1.getControls().length>0) {
+	f1.remControl((Control) f1.getControls()[0]);
+}
+while (f1_2.getControls().length>0) {
+	f1_2.remControl((Control) f1_2.getControls()[0]);
+}
+while (f1_3.getControls().length>0) {
+	f1_3.remControl((Control) f1_3.getControls()[0]);
+}
+ int n1 = 0, n1_2 = 0, n1_3 = 0;
+ if (codsepa == 1) {
+    f1.getWebProperties().setNumCols(4);
+    f1.getWebProperties().setPosTitulo("T");
+    f1.addControlAt(n1++, bccbanco);
+    f1.addControlAt(n1++, bccsucursal);
+    f1.addControlAt(n1++, bccdigitos);
+    f1.addControlAt(n1++, bccnumero);
+  }
+  else if (codsepa == 2) {
+    // F1
+  	f1.getWebProperties().setXPad(40);
+  	f1.addControlAt(n1++, bcciban);
+  	f1.addControlAt(n1++, bcccodswift);
+  }
+  else if (codsepa == 3) {
+  	//F1
+    f1.getWebProperties().setXPad(40);
+    f1.addControlAt(n1++, bcciban);
+    f1.addControlAt(n1++, bcccodswift);
+  	// F1_2
+    f1_2.getWebProperties().setNumCols(2);
+    f1_2.addControlAt(n1_2++, bccbanconame);
+    f1_2.addControlAt(n1_2++, bccbanccity);
+  	// F1_3
+    f1_3.addControlAt(n1_3++, bccbancadress);
+    f1_3.addControlAt(n1_3++, bcccodpais);
+    f1_3.addControlAt(n1_3++, bccbancpais);
+  }
+  if(!primeravez) {
+  LayoutFieldset lf = (LayoutFieldset) vrestodatos.getLayout();
+  lf.refresh();
+  }
+  primeravez=false;
+}
+        // Metodos
+        // Controles
+        public CtrlBccbanco bccbanco;
+        public CtrlBccsucursal bccsucursal;
+        public CtrlBccdigitos bccdigitos;
+        public CtrlBccnumero bccnumero;
+        public CtrlBcccodigo bcccodigo;
+        public CtrlBcccodpostal bcccodpostal;
+        public CtrlBccdominio bccdominio;
+        public CtrlBccescalera bccescalera;
+        public CtrlBccletra bccletra;
+        public CtrlBccnum bccnum;
+        public CtrlBccprovincia bccprovincia;
+        public CtrlBcccodmuni bcccodmuni;
+        public CtrlBccpiso bccpiso;
+        public CtrlBccpoblacion bccpoblacion;
+        public CtrlBccsg bccsg;
+        public CtrlBccvia bccvia;
+        public CtrlBccsepa bccsepa;
+        public CtrlBcciban bcciban;
+        public CtrlBcccodpais bcccodpais;
+        public CtrlBcccodswift bcccodswift;
+        public CtrlBccbanconame bccbanconame;
+        public CtrlBccbancadress bccbancadress;
+        public CtrlBccbanccity bccbanccity;
+        public CtrlBccbancpais bccbancpais;
+        // Acciones
+        // Fieldsets
+        public FSetF1 f1;
+        public FSetF1_2 f1_2;
+        public FSetF1_3 f1_3;
+        public FSetF2 f2;
+        public FSetF3 f3;
+        public FSetF4 f4;
+        public FSetF5 f5;
+        public FSetF6 f6;
+        class Location extends LocationWindow
+            {
+            public Location( )
+                {
+                super();
+                }
+            }
+            
+        public class CtrlBccbanco extends ControlComboBox
+            {
+            public mae.easp.general.pkbancos.PickPkbancos pickup;
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccbanco(Form form)
+                {
+                super(form);
+                setName("bccbanco");
+                setTitle("Banco");
+                setType(INTEGER);
+                setMaskInput("9999");
+                setProtect(true);
+                setPickUp(pickup=new mae.easp.general.pkbancos.PickPkbancos(this));
+                setLength(4);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccsucursal extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccsucursal(Form form)
+                {
+                super(form);
+                setName("bccsucursal");
+                setTitle("Sucursal");
+                setType(INTEGER);
+                setMaskInput("9999");
+                setProtect(true);
+                setLength(4);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccdigitos extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccdigitos(Form form)
+                {
+                super(form);
+                setName("bccdigitos");
+                setTitle("D.C.");
+                setType(INTEGER);
+                setMaskInput("99");
+                setProtect(true);
+                setLength(2);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccnumero extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccnumero(Form form)
+                {
+                super(form);
+                setName("bccnumero");
+                setTitle("Número");
+                setType(STRING);
+                setMaskInput("9999999999");
+                setProtect(true);
+                setLength(10);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBcccodigo extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBcccodigo(Form form)
+                {
+                super(form);
+                setName("bcccodigo");
+                setTitle("");
+                setType(STRING);
+                setLength(12);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBcccodpostal extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBcccodpostal(Form form)
+                {
+                super(form);
+                setName("bcccodpostal");
+                setTitle("");
+                setType(STRING);
+                setLength(5);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccdominio extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccdominio(Form form)
+                {
+                super(form);
+                setName("bccdominio");
+                setTitle("");
+                setType(STRING);
+                setLength(12);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccescalera extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccescalera(Form form)
+                {
+                super(form);
+                setName("bccescalera");
+                setTitle("");
+                setType(STRING);
+                setLength(2);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccletra extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccletra(Form form)
+                {
+                super(form);
+                setName("bccletra");
+                setTitle("");
+                setType(STRING);
+                setLength(2);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccnum extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccnum(Form form)
+                {
+                super(form);
+                setName("bccnum");
+                setTitle("");
+                setType(STRING);
+                setLength(6);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccprovincia extends ControlComboBox
+            {
+            public mae.easp.general.pkprovincias.PickPkprovincias pickup;
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccprovincia(Form form)
+                {
+                super(form);
+                setName("bccprovincia");
+                setTitle("Provincia");
+                setType(INTEGER);
+                setPickUp(pickup=new mae.easp.general.pkprovincias.PickPkprovincias(this));
+                setLength(2);
+                setPrintable(false);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public void onChange ()
+                {
+                super.onChange();
+                if (this.isNull()) {
+                  bcccodmuni.setNull();
+                  bcccodmuni.setEnabled(false);
+                  }
+                else {
+                  bcccodmuni.setEnabled(true);
+                  bcccodmuni.pickup.smunicipios.setWhere(null);
+                  bcccodmuni.pickup.provincia=getInteger();
+                  bcccodmuni.pickup.smunicipios.execute();
+                  }
+                }
+            }
+            
+        public class CtrlBcccodmuni extends ControlComboBox
+            {
+            public mae.easp.general.pkmunicipios.PickPkmunicipios pickup;
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBcccodmuni(Form form)
+                {
+                super(form);
+                setName("bcccodmuni");
+                setTitle("Municipio");
+                setType(INTEGER);
+                setPickUp(pickup=new mae.easp.general.pkmunicipios.PickPkmunicipios(this));
+                setLength(5);
+                setPrintable(false);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public void onChange ()
+                {
+                super.onChange();
+                if (!isNull())
+                  bccpoblacion.setValue(bcccodmuni.pickup.smunicipios.mudesc.getString());
+                }
+            }
+            
+        public class CtrlBccpiso extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccpiso(Form form)
+                {
+                super(form);
+                setName("bccpiso");
+                setTitle("");
+                setType(STRING);
+                setLength(6);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccpoblacion extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccpoblacion(Form form)
+                {
+                super(form);
+                setName("bccpoblacion");
+                setTitle("");
+                setType(STRING);
+                setLength(30);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccsg extends ControlComboBox
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccsg(Form form)
+                {
+                super(form);
+                setName("bccsg");
+                setTitle("");
+                setType(STRING);
+                setLength(2);
+                setSearchable(true);
+                setDescriptionShow(false);
+                addItem("Av/Avenida");
+                addItem("C /Calle");
+                addItem("Ct/Carretera");
+                addItem("Ps/Paseo");
+                addItem("Pz/Plaza");
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccvia extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccvia(Form form)
+                {
+                super(form);
+                setName("bccvia");
+                setTitle("");
+                setType(STRING);
+                setLength(45);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccsepa extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccsepa(Form form)
+                {
+                super(form);
+                setName("bccsepa");
+                setMessageHelp("Marca SEPA (1 – Cuenta España, 2 – Unión Europea SEPA, 3 – Resto países)");
+                setTitle("Marca SEPA (1 – Cuenta España, 2 – Unión Europea SEPA, 3 – Resto países)");
+                setType(INTEGER);
+                setLength(10);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBcciban extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBcciban(Form form)
+                {
+                super(form);
+                setName("bcciban");
+                setTitle("IBAN");
+                setType(STRING);
+                setProtect(true);
+                setLength(34);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBcccodpais extends ControlComboBox
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBcccodpais(Form form)
+                {
+                super(form);
+                setName("bcccodpais");
+                setMessageHelp("Código País/Country code");
+                setTitle("CP");
+                setType(STRING);
+                setMaskInput("U");
+                setProtect(true);
+                setLength(2);
+                setSearchable(true);
+                setDescriptionShow(false);
+                addItem("12/");
+                addItem("12/");
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            public boolean obligate ()
+                {
+                if(bccsepa.getInteger()==3) 
+                	return true;
+                return false;
+                }
+            }
+            
+        public class CtrlBcccodswift extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBcccodswift(Form form)
+                {
+                super(form);
+                setName("bcccodswift");
+                setMessageHelp("Codigo SWIFT-BIC");
+                setTitle("Codigo SWIFT-BIC");
+                setType(STRING);
+                setProtect(true);
+                setLength(11);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccbanconame extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccbanconame(Form form)
+                {
+                super(form);
+                setName("bccbanconame");
+                setMessageHelp("Banco/Bank name");
+                setTitle("Banco/Bank name");
+                setType(STRING);
+                setProtect(true);
+                setLength(70);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccbancadress extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccbancadress(Form form)
+                {
+                super(form);
+                setName("bccbancadress");
+                setMessageHelp("Dirección del Banco/ Bank adress");
+                setTitle("Dirección del Banco/ Bank adress");
+                setType(STRING);
+                setProtect(true);
+                setLength(35);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccbanccity extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccbanccity(Form form)
+                {
+                super(form);
+                setName("bccbanccity");
+                setMessageHelp("Ciudad/City");
+                setTitle("Ciudad/City");
+                setType(STRING);
+                setProtect(true);
+                setLength(30);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlBccbancpais extends ControlEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlBccbancpais(Form form)
+                {
+                super(form);
+                setName("bccbancpais");
+                setMessageHelp("País/Country");
+                setTitle("País/Country");
+                setType(STRING);
+                setProtect(true);
+                setLength(40);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class FSetF1 extends Fieldset
+            {
+            public FSetF1(Form form)
+                {
+                super(form);
+                getWebProperties().setSizeSeparacionL (1);
+                getWebProperties().setAnchoColumnas (12);
+                getWebProperties().setNumCols (2);
+                getWebProperties().setSizeSeparacionT (0);
+                getWebProperties().setSizeSeparacionR (1);
+                getWebProperties().setSizeSeparacionB (0);
+                getWebProperties().setPosTitulo ("L");
+                }
+            }
+            
+        public class FSetF1_2 extends Fieldset
+            {
+            public FSetF1_2(Form form)
+                {
+                super(form);
+                getWebProperties().setSizeSeparacionL (1);
+                getWebProperties().setNumCols (2);
+                getWebProperties().setSizeSeparacionT (0);
+                getWebProperties().setSizeSeparacionR (1);
+                getWebProperties().setSizeSeparacionB (0);
+                getWebProperties().setPosTitulo ("L");
+                }
+            }
+            
+        public class FSetF1_3 extends Fieldset
+            {
+            public FSetF1_3(Form form)
+                {
+                super(form);
+                getWebProperties().setSizeSeparacionL (1);
+                getWebProperties().setAnchoColumnas (12);
+                getWebProperties().setNumCols (3);
+                getWebProperties().setSizeSeparacionT (0);
+                getWebProperties().setSizeSeparacionR (1);
+                getWebProperties().setSizeSeparacionB (0);
+                getWebProperties().setPosTitulo ("L");
+                }
+            }
+            
+        public class FSetF2 extends Fieldset
+            {
+            public FSetF2(Form form)
+                {
+                super(form);
+                getWebProperties().setSizeSeparacionL (1);
+                getWebProperties().setSizeSeparacionT (2);
+                getWebProperties().setSizeSeparacionR (1);
+                getWebProperties().setSizeSeparacionB (0);
+                }
+            }
+            
+        public class FSetF3 extends Fieldset
+            {
+            public FSetF3(Form form)
+                {
+                super(form);
+                getWebProperties().setSizeSeparacionL (1);
+                getWebProperties().setSizeSeparacionT (0);
+                getWebProperties().setSizeSeparacionR (1);
+                getWebProperties().setSizeSeparacionB (0);
+                }
+            }
+            
+        public class FSetF4 extends Fieldset
+            {
+            public FSetF4(Form form)
+                {
+                super(form);
+                getWebProperties().setSizeSeparacionL (1);
+                getWebProperties().setSizeSeparacionT (0);
+                getWebProperties().setSizeSeparacionR (1);
+                getWebProperties().setSizeSeparacionB (0);
+                }
+            }
+            
+        public class FSetF5 extends Fieldset
+            {
+            public FSetF5(Form form)
+                {
+                super(form);
+                getWebProperties().setSizeSeparacionL (1);
+                getWebProperties().setSizeSeparacionT (0);
+                getWebProperties().setSizeSeparacionR (1);
+                getWebProperties().setSizeSeparacionB (0);
+                }
+            }
+            
+        public class FSetF6 extends Fieldset
+            {
+            public FSetF6(Form form)
+                {
+                super(form);
+                getWebProperties().setSizeSeparacionL (1);
+                getWebProperties().setSizeSeparacionT (0);
+                getWebProperties().setSizeSeparacionR (1);
+                getWebProperties().setSizeSeparacionB (0);
+                }
+            }
+            
+        public FormVrestodatos(ProgPrclfichagener prclfichagener)
+            {
+            super(prclfichagener);
+            setName("vrestodatos");
+            setTitle("Resto de datos");
+            setLocation(new Location());
+            setStates(SHOW | UPDATE);
+            setPrintable(false);
+            setModal(true);
+            // SET: VENTANA
+            addControl(bccbanco=new CtrlBccbanco(this));
+            addControl(bccsucursal=new CtrlBccsucursal(this));
+            addControl(bccdigitos=new CtrlBccdigitos(this));
+            addControl(bccnumero=new CtrlBccnumero(this));
+            addControl(bcccodigo=new CtrlBcccodigo(this));
+            addControl(bcccodpostal=new CtrlBcccodpostal(this));
+            addControl(bccdominio=new CtrlBccdominio(this));
+            addControl(bccescalera=new CtrlBccescalera(this));
+            addControl(bccletra=new CtrlBccletra(this));
+            addControl(bccnum=new CtrlBccnum(this));
+            addControl(bccprovincia=new CtrlBccprovincia(this));
+            addControl(bcccodmuni=new CtrlBcccodmuni(this));
+            addControl(bccpiso=new CtrlBccpiso(this));
+            addControl(bccpoblacion=new CtrlBccpoblacion(this));
+            addControl(bccsg=new CtrlBccsg(this));
+            addControl(bccvia=new CtrlBccvia(this));
+            addControl(bccsepa=new CtrlBccsepa(this));
+            addControl(bcciban=new CtrlBcciban(this));
+            addControl(bcccodpais=new CtrlBcccodpais(this));
+            addControl(bcccodswift=new CtrlBcccodswift(this));
+            addControl(bccbanconame=new CtrlBccbanconame(this));
+            addControl(bccbancadress=new CtrlBccbancadress(this));
+            addControl(bccbanccity=new CtrlBccbanccity(this));
+            addControl(bccbancpais=new CtrlBccbancpais(this));
+            addFieldset(f1=new FSetF1(this));
+            addFieldset(f1_2=new FSetF1_2(this));
+            addFieldset(f1_3=new FSetF1_3(this));
+            addFieldset(f2=new FSetF2(this));
+            addFieldset(f3=new FSetF3(this));
+            addFieldset(f4=new FSetF4(this));
+            addFieldset(f5=new FSetF5(this));
+            addFieldset(f6=new FSetF6(this));
+            }
+        // GET: VENTANA
+        // EVENT: VENTANA
+        public void onInit ()
+            {
+            vrestodatos.setLayout(new LayoutFieldset(vrestodatos));
+            bcccodpais.setPickUp(valtadatosbanc.pickup=new mae.modasp.general.pkpaiscodigo.PickPkpaiscodigo(bcccodpais));
+            activaCampos(sbancocli.bccsepa.getInteger());
+            bccbanco.setValue(sbancocli.bccbanco.getInteger());
+            bccsucursal.setValue(sbancocli.bccsucursal.getInteger());
+            bccnumero.setValue(sbancocli.bccnumero.getString());
+            bccdigitos.setValue(sbancocli.bccdigitos.getInteger());
+            bcciban.setValue(sbancocli.bcciban.getString());
+            bcccodpais.setValue(sbancocli.bcccodpais.getString());
+            bcccodswift.setValue(sbancocli.bcccodswift.getString());
+            bccbanconame.setValue(sbancocli.bccbanconame.getString());
+            bccbancadress.setValue(sbancocli.bccbancadress.getString());
+            bccbanccity.setValue(sbancocli.bccbanccity.getString());
+            bccbancpais.setValue(sbancocli.bccbancpais.getString());
+            bcccodmuni.setValue(sbancocli.bcccodmuni.getInteger());
+            bccprovincia.setValue(sbancocli.bccprovincia.getInteger());
+            //doShow();
+            primeravez = true;
+            super.onInit ();
+            }
+        public boolean onOkUpdate ()
+            {
+            Update up = new Update(getDataBase(), "BANCOCLI");
+            up.valor("bccsg", bccsg.getString());
+            up.valor("bccvia", bccvia.getString());
+            up.valor("bccnum", bccnum.getString());
+            up.valor("bccescalera", bccescalera.getString());
+            up.valor("bccpiso", bccpiso.getString());
+            up.valor("bccletra", bccletra.getString());
+            if(!bccprovincia.isNull())
+            up.valor("bccprovincia", bccprovincia.getInteger());
+            if(!bcccodmuni.isNull())
+            up.valor("bcccodmuni", bcccodmuni.getInteger());
+            up.valor("bccpoblacion", bccpoblacion.getString());
+            up.valor("bcccodpostal", bcccodpostal.getString());
+                        boolean bOk = up.execute("bccbanco="+bccbanco.getInteger()+" and bccsucursal="+bccsucursal.getInteger()+" and bccnumero='"+bccnumero.getString() + "' and bccdigitos="+bccdigitos.getInteger()+"");
+            if(bOk){
+            	vrestodatos.exit();
+            	return true;
+            }
+            return false;
+            }
+        public void onInitFieldset ()
+            {
+            super.onInitFieldset ();
+            int n2=0, n3=0, n4=0, n5=0, n6=0;
+            ControlLabel label1 = new ControlLabel(vrestodatos);
+            label1.setHeight(1);
+            
+            //
+            f2.getWebProperties().setAnchoColumnas (12);
+            f2.getWebProperties().setPosTitulo("L");
+            f2.getWebProperties().setNumCols(2);
+            f2.getWebProperties().setXPad(20);
+            f2.getWebProperties().setSizeSeparacionB(0);
+            // F3
+            f3.getWebProperties().setAnchoColumnas (12);
+            f3.getWebProperties().setPosTitulo("L");
+            f3.getWebProperties().setNumCols(4);
+            f3.getWebProperties().setXPad(20);
+            f3.getWebProperties().setSizeSeparacionB(0);
+            f3.getWebProperties().setSizeSeparacionT(0);
+            // F4
+            f4.getWebProperties().setAnchoColumnas (12);
+            f4.getWebProperties().setPosTitulo("L");
+            f4.getWebProperties().setXPad(20);
+            f4.getWebProperties().setSizeSeparacionB(0);
+            f4.getWebProperties().setSizeSeparacionT(0);
+            // F5
+            f5.getWebProperties().setAnchoColumnas (12);
+            f5.getWebProperties().setPosTitulo("L");
+            f5.getWebProperties().setXPad(20);
+            f5.getWebProperties().setSizeSeparacionB(0);
+            f5.getWebProperties().setSizeSeparacionT(0);
+            // F6
+            f6.getWebProperties().setAnchoColumnas (12);
+            f6.getWebProperties().setPosTitulo("L");
+            f6.getWebProperties().setNumCols(2);
+            f6.getWebProperties().setXPad(20);
+            f6.getWebProperties().setSizeSeparacionB(0);
+            f6.getWebProperties().setSizeSeparacionT(0);
+            
+            // F2
+            bccsg.setTitle("Dirección    ");
+            f2.addControlAt(n2++, bccsg);
+            f2.addControlAt(n2++, bccvia);
+            // F3
+            bccnum.setTitle("Número      ");
+            f3.addControlAt(n3++, bccnum);
+            bccescalera.setTitle("Escalera");
+            f3.addControlAt(n3++, bccescalera);
+            bccpiso.setTitle("Piso");
+            f3.addControlAt(n3++, bccpiso);
+            bccletra.setTitle("Letra");
+            f3.addControlAt(n3++, bccletra);
+            // F4
+            bccprovincia.setTitle("Provincia    ");
+            f4.addControlAt(n4++, bccprovincia);
+            // F5
+            bcccodmuni.setTitle("Municipio    ");
+            f5.addControlAt(n5++, bcccodmuni);
+            // F6
+            bccpoblacion.setTitle("Población    ");
+            f6.addControlAt(n6++, bccpoblacion);
+            bcccodpostal.setTitle("C.P.");
+            f6.addControlAt(n6++, bcccodpostal);
+            }
+        }
+        
     public class FormVcendbancos extends MultiDataForm
         {
         // GLOBALES: VENTANA
@@ -9237,6 +10089,7 @@ public void onOpened() {
         addForm(vserviciosdet=new FormVserviciosdet(this));
         addForm(vnifrepresentan=new FormVnifrepresentan(this));
         addForm(vcambiobanco=new FormVcambiobanco(this));
+        addForm(vrestodatos=new FormVrestodatos(this));
         addForm(vcendbancos=new FormVcendbancos(this));
         addForm(vdomi=new FormVdomi(this));
         addForm(valtasfitgen=new FormValtasfitgen(this));
