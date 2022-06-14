@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jun 01 11:02:25 CEST 2022
+// Fecha y hora:     Tue Jun 14 19:23:17 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -1775,7 +1775,7 @@ public void onOpened() {
     // EVENT: PROGRAMA
     public void onInit ()
         {
-        if (aplicatiu==null && "easp".equals(Aplication.getAplication().getName()) )
+        if (aplicatiu==null && "easp".equals(Aplication.getAplication().getName()) && esSQL )
            totesAplicacions = true;
         if (totesAplicacions && aplicatiu != null) {
         	//Es dona prioritat al filtre
@@ -1804,19 +1804,19 @@ public void onOpened() {
         if (filtroUsuario) {
         	where +=" aprusuario='"+Aplication.getAplication().getUser()+"' and aprnombrepc='"+nomPC+"' ";
         }
-        if (esSQL) {
-        	if (aplicatiu != null) {
-        		where += ((!"".equals(where)) ? "and" : "") + " apraplication= '" + aplicatiu + "'";	
-        	}
-        	else if (!totesAplicacions) {
-        		where += ((!"".equals(where)) ? "and" : "") + " apraplication= '" + Aplication.getAplication().getName() + "'";
-        	}
+        
+        if (aplicatiu != null) {
+        	where += ((!"".equals(where)) ? "and" : "") + " apraplication= '" + aplicatiu + "'";	
         }
+        else if (!totesAplicacions) {
+        	where += ((!"".equals(where)) ? "and" : "") + " apraplication= '" + Aplication.getAplication().getName() + "'";
+        }
+        else where = "1=1";
         
         setLayout(new LayoutTabbed());
         LocationTabbed loc;
         
-        String query = "SELECT aprcodi FROM AUDITIONPR " + (!"".equals(where) ? "WHERE " + where : "");
+        String query = "SELECT aprcodi FROM AUDITIONPR WHERE " + where;
         
         if (initConnection()) {
         	Selector sl = new Selector(connAudition);
