@@ -5028,6 +5028,8 @@ public class ConversionJCO extends ConversionLC {
 			boolean borra = false;
 			//Borra previamente el mismo local antes de insertar.
 			String whereLocal = "pclempresa="+codGYC+" and pclejercicio="+ejer+" and pclcuenta='"+cuentaDec+"' and pclsubcuenta='"+subCuentaDec+"' and pclreferencia='"+datosVia[0]+"' and pclcalle='"+datosVia[2]+"' and pclnumero='"+datosVia[4]+"'";
+			if (datosVia[0]==null)
+				whereLocal = "pclempresa="+codGYC+" and pclejercicio="+ejer+" and pclcuenta='"+cuentaDec+"' and pclsubcuenta='"+subCuentaDec+"' and pclcalle='"+datosVia[2]+"' and pclnumero='"+datosVia[4]+"'";
 			slocal.execute("Select pclempresa from pclocales where "+whereLocal);
 			if(slocal.next())
 				borra = true;
@@ -5145,7 +5147,7 @@ public class ConversionJCO extends ConversionLC {
 			else {
 				if (bOk) bOk = initConver(empLC,ejerLogic,empJC,ejerJconta,mesInicio,sNifEmpresa) && emc.getDescripcionError()==null;			
 				if (bOk) bOk = initDatos(empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
-				if (bOk) bOk = importarPC (empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
+				/*if (bOk) bOk = importarPC (empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
 				if (bOk) bOk = importarInmov (empLC,ejerLogic,empJC,ejerJconta, false) && emc.getDescripcionError()==null;
 				if (bOk) bOk = importarFP () && emc.getDescripcionError()==null;
 				if (bOk) bOk = importarAsientos (empLC,ejerLogic,empJC,ejerJconta,fechaCierre,mesInicio) && emc.getDescripcionError()==null;
@@ -5154,7 +5156,7 @@ public class ConversionJCO extends ConversionLC {
 					else  bOk = altaModelo303_14 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
 				}
 				if (bOk) bOk = altaModelo349 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
-				if (bOk) bOk = altaModelo115 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
+				if (bOk) bOk = altaModelo115 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;*/
 				if (bOk) bOk = altaModelo180 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
 				if (bOk) {
 					pbf.setSecondaryPercent(0);
