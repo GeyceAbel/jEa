@@ -1,7 +1,7 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Oct 01 12:44:09 CEST 2020
+// Fecha y hora:     Tue May 24 17:35:09 CEST 2022
 // 
-// Aplicación: easp
+// Aplicación: jeo
 // 
 package mae.easp.db;
 // 
@@ -80,6 +80,8 @@ public class CatJeo extends Catalog
     public TabApuntesdesglose tabapuntesdesglose;
     public TabDefperiodicos tabdefperiodicos;
     public TabApunteperiodico tabapunteperiodico;
+    public TabBajaempresa tabbajaempresa;
+    public TabListemp tablistemp;
     public class TabEmpresa extends TableDef
         {
         // campos
@@ -419,6 +421,7 @@ public class CatJeo extends Catalog
         public FieldDef linpagoactiv;
         public FieldDef linirpfactiv;
         public FieldDef linsubnrotipo;
+        public FieldDef liniygcodaeat;
         public TabLinacumulados(String name)
             {
             super(name);
@@ -435,7 +438,8 @@ public class CatJeo extends Catalog
             lintipoestima = new FieldDef("lintipoestima",FieldDef.CHAR,3);
             linpagoactiv = new FieldDef("linpagoactiv",FieldDef.CHAR,1);
             linirpfactiv = new FieldDef("linirpfactiv",FieldDef.CHAR,1);
-            linsubnrotipo = new FieldDef("linsubnrotipo",FieldDef.INTEGER,12);
+            linsubnrotipo = new FieldDef("linsubnrotipo",FieldDef.INTEGER,0);
+            liniygcodaeat = new FieldDef("liniygcodaeat",FieldDef.CHAR,5);
             FieldDef array[] = {
                 linejercicio,
                 lincodigo,
@@ -450,7 +454,8 @@ public class CatJeo extends Catalog
                 lintipoestima,
                 linpagoactiv,
                 linirpfactiv,
-                linsubnrotipo                
+                linsubnrotipo,
+                liniygcodaeat                
                 };
             setColumns(array);
             FieldDef arrayf[] = {linejercicio,lincodigo };
@@ -470,6 +475,7 @@ public class CatJeo extends Catalog
             linpagoactiv.setDescription("No debe tenerse en cuenta para pagos fraccionados del tipo actividad");
             linirpfactiv.setDescription("No debe tenerse en cuenta para dec.anaul irpf del tipo actividad");
             linsubnrotipo.setDescription("Numero de subacumulado dentro del tipo");
+            liniygcodaeat.setDescription("Código libro IRPF AEAT");
             }
         }
         
@@ -1929,6 +1935,8 @@ public class CatJeo extends Catalog
         public FieldDef impalfachar;
         public FieldDef implinini;
         public FieldDef imphoja;
+        public FieldDef implinfin;
+        public FieldDef impdefcol;
         public TabImportdef(String name)
             {
             super(name);
@@ -1941,6 +1949,8 @@ public class CatJeo extends Catalog
             impalfachar = new FieldDef("impalfachar",FieldDef.CHAR,1);
             implinini = new FieldDef("implinini",FieldDef.INTEGER,0);
             imphoja = new FieldDef("imphoja",FieldDef.CHAR,20);
+            implinfin = new FieldDef("implinfin",FieldDef.INTEGER,0);
+            impdefcol = new FieldDef("impdefcol",FieldDef.CHAR,4000);
             FieldDef array[] = {
                 impident,
                 impdesc,
@@ -1950,7 +1960,9 @@ public class CatJeo extends Catalog
                 impseparador,
                 impalfachar,
                 implinini,
-                imphoja                
+                imphoja,
+                implinfin,
+                impdefcol                
                 };
             setColumns(array);
             FieldDef arrayf[] = {impident };
@@ -1965,6 +1977,7 @@ public class CatJeo extends Catalog
             impalfachar.setDescription("Delimitador cadenas alfabéticas");
             implinini.setDescription("1º Registro a importar.");
             imphoja.setDescription("Nombre hoja excel");
+            implinfin.setDescription("Ultima linea a importar");
             }
         }
         
@@ -2594,7 +2607,7 @@ public class CatJeo extends Catalog
             lrsdiciembre = new FieldDef("lrsdiciembre",FieldDef.FLOAT,6,0);
             lrsacumul = new FieldDef("lrsacumul",FieldDef.FLOAT,6,0);
             lrsivarecargo = new FieldDef("lrsivarecargo",FieldDef.CHAR,1);
-            lrsdesctrans = new FieldDef("lrsdesctrans",FieldDef.CHAR,40);
+            lrsdesctrans = new FieldDef("lrsdesctrans",FieldDef.CHAR,60);
             lrsnomempresa = new FieldDef("lrsnomempresa",FieldDef.CHAR,70);
             lrsnomactiv = new FieldDef("lrsnomactiv",FieldDef.CHAR,40);
             lrsnifempre = new FieldDef("lrsnifempre",FieldDef.CHAR,15);
@@ -3335,6 +3348,7 @@ public class CatJeo extends Catalog
         public FieldDef traemitrecib;
         public FieldDef travoloper;
         public FieldDef traoperespec;
+        public FieldDef traoper349;
         public TabTransaccion(String name)
             {
             super(name);
@@ -3342,10 +3356,11 @@ public class CatJeo extends Catalog
             tramodelo = new FieldDef("tramodelo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
             tracodigo = new FieldDef("tracodigo",FieldDef.CHAR,5,FieldDef.NOTNULL);
             tratipomodiva = new FieldDef("tratipomodiva",FieldDef.CHAR,4);
-            tradescripcion = new FieldDef("tradescripcion",FieldDef.CHAR,40);
+            tradescripcion = new FieldDef("tradescripcion",FieldDef.CHAR,70);
             traemitrecib = new FieldDef("traemitrecib",FieldDef.CHAR,1);
             travoloper = new FieldDef("travoloper",FieldDef.CHAR,3);
             traoperespec = new FieldDef("traoperespec",FieldDef.CHAR,3);
+            traoper349 = new FieldDef("traoper349",FieldDef.CHAR,3);
             FieldDef array[] = {
                 traejercicio,
                 tramodelo,
@@ -3354,7 +3369,8 @@ public class CatJeo extends Catalog
                 tradescripcion,
                 traemitrecib,
                 travoloper,
-                traoperespec                
+                traoperespec,
+                traoper349                
                 };
             setColumns(array);
             FieldDef arrayf[] = {traejercicio,tramodelo,tracodigo };
@@ -3368,6 +3384,7 @@ public class CatJeo extends Catalog
             traemitrecib.setDescription("Emitida o recibida");
             travoloper.setDescription("Volumen operaciones 390/392");
             traoperespec.setDescription("Operación específica 390/392");
+            traoper349.setDescription("Tipo operación en 349");
             }
         }
         
@@ -3834,6 +3851,7 @@ public class CatJeo extends Catalog
         public FieldDef sernroemitida;
         public FieldDef sernrorecibida;
         public FieldDef sernrosuplido;
+        public FieldDef serdescripcion;
         public TabSeries(String name)
             {
             super(name);
@@ -3843,13 +3861,15 @@ public class CatJeo extends Catalog
             sernroemitida = new FieldDef("sernroemitida",FieldDef.INTEGER,0);
             sernrorecibida = new FieldDef("sernrorecibida",FieldDef.INTEGER,0);
             sernrosuplido = new FieldDef("sernrosuplido",FieldDef.INTEGER,0);
+            serdescripcion = new FieldDef("serdescripcion",FieldDef.CHAR,4);
             FieldDef array[] = {
                 serejercicio,
                 serempresa,
                 serserie,
                 sernroemitida,
                 sernrorecibida,
-                sernrosuplido                
+                sernrosuplido,
+                serdescripcion                
                 };
             setColumns(array);
             FieldDef arrayf[] = {serejercicio,serempresa,serserie };
@@ -3861,6 +3881,7 @@ public class CatJeo extends Catalog
             sernroemitida.setDescription("Último número de factura emitida");
             sernrorecibida.setDescription("Último número de factura recibida");
             sernrosuplido.setDescription("Último número de factura de suplidos");
+            serdescripcion.setDescription("Serie de facturación 2 digitos");
             }
         }
         
@@ -3941,7 +3962,7 @@ public class CatJeo extends Catalog
             llbactividad = new FieldDef("llbactividad",FieldDef.INTEGER,0);
             llbactdescrip = new FieldDef("llbactdescrip",FieldDef.CHAR,40);
             llbasiento = new FieldDef("llbasiento",FieldDef.INTEGER,0);
-            llbserie = new FieldDef("llbserie",FieldDef.CHAR,1);
+            llbserie = new FieldDef("llbserie",FieldDef.CHAR,4);
             llbnumero = new FieldDef("llbnumero",FieldDef.INTEGER,0);
             llbfechafactura = new FieldDef("llbfechafactura",FieldDef.DATE);
             llbfechaiva = new FieldDef("llbfechaiva",FieldDef.DATE);
@@ -4172,7 +4193,7 @@ public class CatJeo extends Catalog
             pcmpiva3 = new FieldDef("pcmpiva3",FieldDef.INTEGER,0);
             pcmprecargo3 = new FieldDef("pcmprecargo3",FieldDef.INTEGER,0);
             pcm347aduana = new FieldDef("pcm347aduana",FieldDef.CHAR,1);
-            pcmsublineairpf = new FieldDef("pcmsublineairpf",FieldDef.INTEGER,12);
+            pcmsublineairpf = new FieldDef("pcmsublineairpf",FieldDef.INTEGER,0);
             FieldDef array[] = {
                 pcmempresa,
                 pcmcuenta,
@@ -4222,7 +4243,7 @@ public class CatJeo extends Catalog
             pcmpiva3.setDescription("Tipo impositivo de IVA, IGIC o Reg.especial agricultura y pesca");
             pcmprecargo3.setDescription("% de recargo de equivalencia");
             pcm347aduana.setDescription("347 regimen de deposito distinto aduanero");
-            pcmsublineairpf.setDescription("Equivalencia con sublinea ingresos/gastos declaracion IRPF");
+            pcmsublineairpf.setDescription("Equivalencia con sublinea ingresos/gastos declaración IRPF");
             }
         }
         
@@ -4681,6 +4702,22 @@ public class CatJeo extends Catalog
         public FieldDef apusiitlib;
         public FieldDef apufechareg;
         public FieldDef apuivaxfreg;
+        public FieldDef apuorigen;
+        public FieldDef apubaseiva4;
+        public FieldDef apuporciva4;
+        public FieldDef apuporcreceq4;
+        public FieldDef apuimporteiva4;
+        public FieldDef apucobpagtrasp;
+        public FieldDef apuimporterec4;
+        public FieldDef apu347base4;
+        public FieldDef apu349base4;
+        public FieldDef apubaseiva5;
+        public FieldDef apuporciva5;
+        public FieldDef apuporcreceq5;
+        public FieldDef apuimporteiva5;
+        public FieldDef apuimporterec5;
+        public FieldDef apu347base5;
+        public FieldDef apu349base5;
         public TabApuntes(String name)
             {
             super(name);
@@ -4778,6 +4815,22 @@ public class CatJeo extends Catalog
             apusiitlib = new FieldDef("apusiitlib",FieldDef.CHAR,2);
             apufechareg = new FieldDef("apufechareg",FieldDef.DATE);
             apuivaxfreg = new FieldDef("apuivaxfreg",FieldDef.CHAR,1);
+            apuorigen = new FieldDef("apuorigen",FieldDef.CHAR,20);
+            apubaseiva4 = new FieldDef("apubaseiva4",FieldDef.FLOAT,6,0);
+            apuporciva4 = new FieldDef("apuporciva4",FieldDef.FLOAT,6,0);
+            apuporcreceq4 = new FieldDef("apuporcreceq4",FieldDef.FLOAT,6,0);
+            apuimporteiva4 = new FieldDef("apuimporteiva4",FieldDef.FLOAT,6,0);
+            apucobpagtrasp = new FieldDef("apucobpagtrasp",FieldDef.CHAR,2);
+            apuimporterec4 = new FieldDef("apuimporterec4",FieldDef.FLOAT,6,0);
+            apu347base4 = new FieldDef("apu347base4",FieldDef.CHAR,1);
+            apu349base4 = new FieldDef("apu349base4",FieldDef.CHAR,1);
+            apubaseiva5 = new FieldDef("apubaseiva5",FieldDef.FLOAT,6,0);
+            apuporciva5 = new FieldDef("apuporciva5",FieldDef.FLOAT,6,0);
+            apuporcreceq5 = new FieldDef("apuporcreceq5",FieldDef.FLOAT,6,0);
+            apuimporteiva5 = new FieldDef("apuimporteiva5",FieldDef.FLOAT,6,0);
+            apuimporterec5 = new FieldDef("apuimporterec5",FieldDef.FLOAT,6,0);
+            apu347base5 = new FieldDef("apu347base5",FieldDef.CHAR,1);
+            apu349base5 = new FieldDef("apu349base5",FieldDef.CHAR,1);
             FieldDef array[] = {
                 apuiden,
                 apuejercicio,
@@ -4872,7 +4925,23 @@ public class CatJeo extends Catalog
                 apusiinumac,
                 apusiitlib,
                 apufechareg,
-                apuivaxfreg                
+                apuivaxfreg,
+                apuorigen,
+                apubaseiva4,
+                apuporciva4,
+                apuporcreceq4,
+                apuimporteiva4,
+                apucobpagtrasp,
+                apuimporterec4,
+                apu347base4,
+                apu349base4,
+                apubaseiva5,
+                apuporciva5,
+                apuporcreceq5,
+                apuimporteiva5,
+                apuimporterec5,
+                apu347base5,
+                apu349base5                
                 };
             setColumns(array);
             FieldDef arrayf[] = {apuiden };
@@ -4972,6 +5041,21 @@ public class CatJeo extends Catalog
             apusiitlib.setDescription("SII");
             apufechareg.setDescription("SII");
             apuivaxfreg.setDescription("SII");
+            apuorigen.setDescription("Aplicacion origen");
+            apubaseiva4.setDescription("Base iva 4");
+            apuporciva4.setDescription("% de iva 4");
+            apuporcreceq4.setDescription("% de rec.equivalencia 4");
+            apuimporteiva4.setDescription("Importe iva 4");
+            apuimporterec4.setDescription("Importe rec.equivalencia 4");
+            apu347base4.setDescription("Incluir en 347 base 4");
+            apu349base4.setDescription("Incluir en 349 base 4");
+            apubaseiva5.setDescription("Base iva 5");
+            apuporciva5.setDescription("% de iva 5");
+            apuporcreceq5.setDescription("% de rec.equivalencia 5");
+            apuimporteiva5.setDescription("Importe iva 5");
+            apuimporterec5.setDescription("Importe rec.equivalencia 5");
+            apu347base5.setDescription("Incluir en 347 base 5");
+            apu349base5.setDescription("Incluir en 349 base 5");
             }
         }
         
@@ -5094,6 +5178,22 @@ public class CatJeo extends Catalog
         public FieldDef impsiitlib;
         public FieldDef impfechareg;
         public FieldDef impivaxfreg;
+        public FieldDef imporigen;
+        public FieldDef impregimencaja;
+        public FieldDef impbaseiva4;
+        public FieldDef impporciva4;
+        public FieldDef impporcreceq4;
+        public FieldDef impimporteiva4;
+        public FieldDef impimporterec4;
+        public FieldDef imp347base4;
+        public FieldDef imp349base4;
+        public FieldDef impbaseiva5;
+        public FieldDef impporciva5;
+        public FieldDef impporcreceq5;
+        public FieldDef impimporteiva5;
+        public FieldDef impimporterec5;
+        public FieldDef imp347base5;
+        public FieldDef imp349base5;
         public TabImportaapuntes(String name)
             {
             super(name);
@@ -5213,6 +5313,22 @@ public class CatJeo extends Catalog
             impsiitlib = new FieldDef("impsiitlib",FieldDef.CHAR,2);
             impfechareg = new FieldDef("impfechareg",FieldDef.DATE);
             impivaxfreg = new FieldDef("impivaxfreg",FieldDef.CHAR,1);
+            imporigen = new FieldDef("imporigen",FieldDef.CHAR,20);
+            impregimencaja = new FieldDef("impregimencaja",FieldDef.CHAR,1);
+            impbaseiva4 = new FieldDef("impbaseiva4",FieldDef.FLOAT,6,0);
+            impporciva4 = new FieldDef("impporciva4",FieldDef.FLOAT,6,0);
+            impporcreceq4 = new FieldDef("impporcreceq4",FieldDef.FLOAT,6,0);
+            impimporteiva4 = new FieldDef("impimporteiva4",FieldDef.FLOAT,6,0);
+            impimporterec4 = new FieldDef("impimporterec4",FieldDef.FLOAT,6,0);
+            imp347base4 = new FieldDef("imp347base4",FieldDef.CHAR,1);
+            imp349base4 = new FieldDef("imp349base4",FieldDef.CHAR,1);
+            impbaseiva5 = new FieldDef("impbaseiva5",FieldDef.FLOAT,6,0);
+            impporciva5 = new FieldDef("impporciva5",FieldDef.FLOAT,6,0);
+            impporcreceq5 = new FieldDef("impporcreceq5",FieldDef.FLOAT,6,0);
+            impimporteiva5 = new FieldDef("impimporteiva5",FieldDef.FLOAT,6,0);
+            impimporterec5 = new FieldDef("impimporterec5",FieldDef.FLOAT,6,0);
+            imp347base5 = new FieldDef("imp347base5",FieldDef.CHAR,1);
+            imp349base5 = new FieldDef("imp349base5",FieldDef.CHAR,1);
             FieldDef array[] = {
                 impiden,
                 impejercicio,
@@ -5329,7 +5445,23 @@ public class CatJeo extends Catalog
                 impsiinumac,
                 impsiitlib,
                 impfechareg,
-                impivaxfreg                
+                impivaxfreg,
+                imporigen,
+                impregimencaja,
+                impbaseiva4,
+                impporciva4,
+                impporcreceq4,
+                impimporteiva4,
+                impimporterec4,
+                imp347base4,
+                imp349base4,
+                impbaseiva5,
+                impporciva5,
+                impporcreceq5,
+                impimporteiva5,
+                impimporterec5,
+                imp347base5,
+                imp349base5                
                 };
             setColumns(array);
             FieldDef arrayf[] = {impiden };
@@ -5451,6 +5583,22 @@ public class CatJeo extends Catalog
             impsiitlib.setDescription("SII");
             impfechareg.setDescription("SII");
             impivaxfreg.setDescription("SII");
+            imporigen.setDescription("Aplicacion origen");
+            impregimencaja.setDescription("Esta acogido al RECC");
+            impbaseiva4.setDescription("Base iva 4");
+            impporciva4.setDescription("% de iva 4");
+            impporcreceq4.setDescription("% de rec.equivalencia 4");
+            impimporteiva4.setDescription("Importe iva 4");
+            impimporterec4.setDescription("Importe rec.equivalencia 4");
+            imp347base4.setDescription("Incluir en 347 base 4");
+            imp349base4.setDescription("Incluir en 349 base 4");
+            impbaseiva5.setDescription("Base iva 5");
+            impporciva5.setDescription("% de iva 5");
+            impporcreceq5.setDescription("% de rec.equivalencia 5");
+            impimporteiva5.setDescription("Importe iva 5");
+            impimporterec5.setDescription("Importe rec.equivalencia 5");
+            imp347base5.setDescription("Incluir en 347 base 5");
+            imp349base5.setDescription("Incluir en 349 base 5");
             }
         }
         
@@ -5807,6 +5955,549 @@ public class CatJeo extends Catalog
             }
         }
         
+    public class TabBajaempresa extends TableDef
+        {
+        // campos
+        public FieldDef bjsident;
+        public FieldDef bjstabla;
+        public FieldDef bjsempresa;
+        public FieldDef bjsorden;
+        public TabBajaempresa(String name)
+            {
+            super(name);
+            bjsident = new FieldDef("bjsident",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            bjstabla = new FieldDef("bjstabla",FieldDef.CHAR,15);
+            bjsempresa = new FieldDef("bjsempresa",FieldDef.CHAR,15);
+            bjsorden = new FieldDef("bjsorden",FieldDef.INTEGER,0);
+            FieldDef array[] = {
+                bjsident,
+                bjstabla,
+                bjsempresa,
+                bjsorden                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {bjsident };
+            setDescription("Baja empresa");
+            setPrimaryKeys(arrayf);
+            bjsident.setAutoIncrementable(true);
+            bjsident.setDescription("Identificador");
+            bjstabla.setDescription("tabla");
+            bjsempresa.setDescription("empresa");
+            bjsorden.setDescription("orden borrado");
+            }
+        }
+        
+    public class TabListemp extends TableDef
+        {
+        // campos
+        public FieldDef lstcodigo;
+        public FieldDef lstusuario;
+        public FieldDef lstlistado;
+        public FieldDef lstempresa;
+        public FieldDef lstejercicio;
+        public FieldDef lstcampoa1;
+        public FieldDef lstcampoa2;
+        public FieldDef lstcampoa3;
+        public FieldDef lstcampoa4;
+        public FieldDef lstcampoa5;
+        public FieldDef lstcampoa6;
+        public FieldDef lstcampoa7;
+        public FieldDef lstcampoa8;
+        public FieldDef lstcampoa9;
+        public FieldDef lstcampoa10;
+        public FieldDef lstcampoa11;
+        public FieldDef lstcampoa12;
+        public FieldDef lstcampoa13;
+        public FieldDef lstcampoa14;
+        public FieldDef lstcampoa15;
+        public FieldDef lstcampoa16;
+        public FieldDef lstcampoa17;
+        public FieldDef lstcampoa18;
+        public FieldDef lstcampoa19;
+        public FieldDef lstcampoa20;
+        public FieldDef lstcampoa21;
+        public FieldDef lstcampoa22;
+        public FieldDef lstcampoa23;
+        public FieldDef lstcampoa24;
+        public FieldDef lstcampoa25;
+        public FieldDef lstcampoa26;
+        public FieldDef lstcampoa27;
+        public FieldDef lstcampoa28;
+        public FieldDef lstcampoa29;
+        public FieldDef lstcampoa30;
+        public FieldDef lstcampoa31;
+        public FieldDef lstcampoa32;
+        public FieldDef lstcampoa33;
+        public FieldDef lstcampoa34;
+        public FieldDef lstcampoa35;
+        public FieldDef lstcampoa36;
+        public FieldDef lstcampoa37;
+        public FieldDef lstcampoa38;
+        public FieldDef lstcampoa39;
+        public FieldDef lstcampoa40;
+        public FieldDef lstcampoi1;
+        public FieldDef lstcampoi2;
+        public FieldDef lstcampoi3;
+        public FieldDef lstcampoi4;
+        public FieldDef lstcampoi5;
+        public FieldDef lstcampoi6;
+        public FieldDef lstcampoi7;
+        public FieldDef lstcampoi8;
+        public FieldDef lstcampoi9;
+        public FieldDef lstcampoi10;
+        public FieldDef lstcampoi11;
+        public FieldDef lstcampoi12;
+        public FieldDef lstcampoi13;
+        public FieldDef lstcampoi14;
+        public FieldDef lstcampoi15;
+        public FieldDef lstcampoi16;
+        public FieldDef lstcampoi17;
+        public FieldDef lstcampoi18;
+        public FieldDef lstcampoi19;
+        public FieldDef lstcampoi20;
+        public FieldDef lstcampoi21;
+        public FieldDef lstcampoi22;
+        public FieldDef lstcampoi23;
+        public FieldDef lstcampoi24;
+        public FieldDef lstcampoi25;
+        public FieldDef lstcampoi26;
+        public FieldDef lstcampoi27;
+        public FieldDef lstcampoi28;
+        public FieldDef lstcampoi29;
+        public FieldDef lstcampoi30;
+        public FieldDef lstcampoi31;
+        public FieldDef lstcampoi32;
+        public FieldDef lstcampoi33;
+        public FieldDef lstcampoi34;
+        public FieldDef lstcampoi35;
+        public FieldDef lstcampoi36;
+        public FieldDef lstcampoi37;
+        public FieldDef lstcampoi38;
+        public FieldDef lstcampoi39;
+        public FieldDef lstcampoi40;
+        public FieldDef lstcampof1;
+        public FieldDef lstcampof2;
+        public FieldDef lstcampof3;
+        public FieldDef lstcampof4;
+        public FieldDef lstcampof5;
+        public FieldDef lstcampof6;
+        public FieldDef lstcampof7;
+        public FieldDef lstcampof8;
+        public FieldDef lstcampof9;
+        public FieldDef lstcampof10;
+        public FieldDef lstcampof11;
+        public FieldDef lstcampof12;
+        public FieldDef lstcampof13;
+        public FieldDef lstcampof14;
+        public FieldDef lstcampof15;
+        public FieldDef lstcampof16;
+        public FieldDef lstcampof17;
+        public FieldDef lstcampof18;
+        public FieldDef lstcampof19;
+        public FieldDef lstcampof20;
+        public FieldDef lstcampof21;
+        public FieldDef lstcampof22;
+        public FieldDef lstcampof23;
+        public FieldDef lstcampof24;
+        public FieldDef lstcampof25;
+        public FieldDef lstcampof26;
+        public FieldDef lstcampof27;
+        public FieldDef lstcampof28;
+        public FieldDef lstcampof29;
+        public FieldDef lstcampof30;
+        public FieldDef lstcampof31;
+        public FieldDef lstcampof32;
+        public FieldDef lstcampof33;
+        public FieldDef lstcampof34;
+        public FieldDef lstcampof35;
+        public FieldDef lstcampof36;
+        public FieldDef lstcampof37;
+        public FieldDef lstcampof38;
+        public FieldDef lstcampof39;
+        public FieldDef lstcampof40;
+        public FieldDef lstcampod1;
+        public FieldDef lstcampod2;
+        public FieldDef lstcampod3;
+        public FieldDef lstcampod4;
+        public FieldDef lstcampod5;
+        public FieldDef lstcampod6;
+        public FieldDef lstcampod7;
+        public FieldDef lstcampod8;
+        public FieldDef lstcampod9;
+        public FieldDef lstcampod10;
+        public FieldDef lstcampod11;
+        public FieldDef lstcampod12;
+        public FieldDef lstcampod13;
+        public FieldDef lstcampod14;
+        public FieldDef lstcampod15;
+        public FieldDef lstcampod16;
+        public FieldDef lstcampod17;
+        public FieldDef lstcampod18;
+        public FieldDef lstcampod19;
+        public FieldDef lstcampod20;
+        public FieldDef lstcampod21;
+        public FieldDef lstcampod22;
+        public FieldDef lstcampod23;
+        public FieldDef lstcampod24;
+        public FieldDef lstcampod25;
+        public FieldDef lstcampod26;
+        public FieldDef lstcampod27;
+        public FieldDef lstcampod28;
+        public FieldDef lstcampod29;
+        public FieldDef lstcampod30;
+        public FieldDef lstcampod31;
+        public FieldDef lstcampod32;
+        public FieldDef lstcampod33;
+        public FieldDef lstcampod34;
+        public FieldDef lstcampod35;
+        public FieldDef lstcampod36;
+        public FieldDef lstcampod37;
+        public FieldDef lstcampod38;
+        public FieldDef lstcampod39;
+        public FieldDef lstcampod40;
+        public TabListemp(String name)
+            {
+            super(name);
+            lstcodigo = new FieldDef("lstcodigo",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            lstusuario = new FieldDef("lstusuario",FieldDef.CHAR,25,FieldDef.NOTNULL);
+            lstlistado = new FieldDef("lstlistado",FieldDef.CHAR,15,FieldDef.NOTNULL);
+            lstempresa = new FieldDef("lstempresa",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            lstejercicio = new FieldDef("lstejercicio",FieldDef.INTEGER,0,FieldDef.NOTNULL);
+            lstcampoa1 = new FieldDef("lstcampoa1",FieldDef.CHAR,100);
+            lstcampoa2 = new FieldDef("lstcampoa2",FieldDef.CHAR,100);
+            lstcampoa3 = new FieldDef("lstcampoa3",FieldDef.CHAR,100);
+            lstcampoa4 = new FieldDef("lstcampoa4",FieldDef.CHAR,100);
+            lstcampoa5 = new FieldDef("lstcampoa5",FieldDef.CHAR,100);
+            lstcampoa6 = new FieldDef("lstcampoa6",FieldDef.CHAR,100);
+            lstcampoa7 = new FieldDef("lstcampoa7",FieldDef.CHAR,100);
+            lstcampoa8 = new FieldDef("lstcampoa8",FieldDef.CHAR,100);
+            lstcampoa9 = new FieldDef("lstcampoa9",FieldDef.CHAR,100);
+            lstcampoa10 = new FieldDef("lstcampoa10",FieldDef.CHAR,100);
+            lstcampoa11 = new FieldDef("lstcampoa11",FieldDef.CHAR,100);
+            lstcampoa12 = new FieldDef("lstcampoa12",FieldDef.CHAR,100);
+            lstcampoa13 = new FieldDef("lstcampoa13",FieldDef.CHAR,100);
+            lstcampoa14 = new FieldDef("lstcampoa14",FieldDef.CHAR,100);
+            lstcampoa15 = new FieldDef("lstcampoa15",FieldDef.CHAR,100);
+            lstcampoa16 = new FieldDef("lstcampoa16",FieldDef.CHAR,100);
+            lstcampoa17 = new FieldDef("lstcampoa17",FieldDef.CHAR,100);
+            lstcampoa18 = new FieldDef("lstcampoa18",FieldDef.CHAR,100);
+            lstcampoa19 = new FieldDef("lstcampoa19",FieldDef.CHAR,100);
+            lstcampoa20 = new FieldDef("lstcampoa20",FieldDef.CHAR,100);
+            lstcampoa21 = new FieldDef("lstcampoa21",FieldDef.CHAR,100);
+            lstcampoa22 = new FieldDef("lstcampoa22",FieldDef.CHAR,100);
+            lstcampoa23 = new FieldDef("lstcampoa23",FieldDef.CHAR,100);
+            lstcampoa24 = new FieldDef("lstcampoa24",FieldDef.CHAR,100);
+            lstcampoa25 = new FieldDef("lstcampoa25",FieldDef.CHAR,100);
+            lstcampoa26 = new FieldDef("lstcampoa26",FieldDef.CHAR,100);
+            lstcampoa27 = new FieldDef("lstcampoa27",FieldDef.CHAR,100);
+            lstcampoa28 = new FieldDef("lstcampoa28",FieldDef.CHAR,100);
+            lstcampoa29 = new FieldDef("lstcampoa29",FieldDef.CHAR,100);
+            lstcampoa30 = new FieldDef("lstcampoa30",FieldDef.CHAR,100);
+            lstcampoa31 = new FieldDef("lstcampoa31",FieldDef.CHAR,100);
+            lstcampoa32 = new FieldDef("lstcampoa32",FieldDef.CHAR,100);
+            lstcampoa33 = new FieldDef("lstcampoa33",FieldDef.CHAR,100);
+            lstcampoa34 = new FieldDef("lstcampoa34",FieldDef.CHAR,100);
+            lstcampoa35 = new FieldDef("lstcampoa35",FieldDef.CHAR,100);
+            lstcampoa36 = new FieldDef("lstcampoa36",FieldDef.CHAR,100);
+            lstcampoa37 = new FieldDef("lstcampoa37",FieldDef.CHAR,100);
+            lstcampoa38 = new FieldDef("lstcampoa38",FieldDef.CHAR,100);
+            lstcampoa39 = new FieldDef("lstcampoa39",FieldDef.CHAR,100);
+            lstcampoa40 = new FieldDef("lstcampoa40",FieldDef.CHAR,100);
+            lstcampoi1 = new FieldDef("lstcampoi1",FieldDef.INTEGER,0);
+            lstcampoi2 = new FieldDef("lstcampoi2",FieldDef.INTEGER,0);
+            lstcampoi3 = new FieldDef("lstcampoi3",FieldDef.INTEGER,0);
+            lstcampoi4 = new FieldDef("lstcampoi4",FieldDef.INTEGER,0);
+            lstcampoi5 = new FieldDef("lstcampoi5",FieldDef.INTEGER,0);
+            lstcampoi6 = new FieldDef("lstcampoi6",FieldDef.INTEGER,0);
+            lstcampoi7 = new FieldDef("lstcampoi7",FieldDef.INTEGER,0);
+            lstcampoi8 = new FieldDef("lstcampoi8",FieldDef.INTEGER,0);
+            lstcampoi9 = new FieldDef("lstcampoi9",FieldDef.INTEGER,0);
+            lstcampoi10 = new FieldDef("lstcampoi10",FieldDef.INTEGER,0);
+            lstcampoi11 = new FieldDef("lstcampoi11",FieldDef.INTEGER,0);
+            lstcampoi12 = new FieldDef("lstcampoi12",FieldDef.INTEGER,0);
+            lstcampoi13 = new FieldDef("lstcampoi13",FieldDef.INTEGER,0);
+            lstcampoi14 = new FieldDef("lstcampoi14",FieldDef.INTEGER,0);
+            lstcampoi15 = new FieldDef("lstcampoi15",FieldDef.INTEGER,0);
+            lstcampoi16 = new FieldDef("lstcampoi16",FieldDef.INTEGER,0);
+            lstcampoi17 = new FieldDef("lstcampoi17",FieldDef.INTEGER,0);
+            lstcampoi18 = new FieldDef("lstcampoi18",FieldDef.INTEGER,0);
+            lstcampoi19 = new FieldDef("lstcampoi19",FieldDef.INTEGER,0);
+            lstcampoi20 = new FieldDef("lstcampoi20",FieldDef.INTEGER,0);
+            lstcampoi21 = new FieldDef("lstcampoi21",FieldDef.INTEGER,0);
+            lstcampoi22 = new FieldDef("lstcampoi22",FieldDef.INTEGER,0);
+            lstcampoi23 = new FieldDef("lstcampoi23",FieldDef.INTEGER,0);
+            lstcampoi24 = new FieldDef("lstcampoi24",FieldDef.INTEGER,0);
+            lstcampoi25 = new FieldDef("lstcampoi25",FieldDef.INTEGER,0);
+            lstcampoi26 = new FieldDef("lstcampoi26",FieldDef.INTEGER,0);
+            lstcampoi27 = new FieldDef("lstcampoi27",FieldDef.INTEGER,0);
+            lstcampoi28 = new FieldDef("lstcampoi28",FieldDef.INTEGER,0);
+            lstcampoi29 = new FieldDef("lstcampoi29",FieldDef.INTEGER,0);
+            lstcampoi30 = new FieldDef("lstcampoi30",FieldDef.INTEGER,0);
+            lstcampoi31 = new FieldDef("lstcampoi31",FieldDef.INTEGER,0);
+            lstcampoi32 = new FieldDef("lstcampoi32",FieldDef.INTEGER,0);
+            lstcampoi33 = new FieldDef("lstcampoi33",FieldDef.INTEGER,0);
+            lstcampoi34 = new FieldDef("lstcampoi34",FieldDef.INTEGER,0);
+            lstcampoi35 = new FieldDef("lstcampoi35",FieldDef.INTEGER,0);
+            lstcampoi36 = new FieldDef("lstcampoi36",FieldDef.INTEGER,0);
+            lstcampoi37 = new FieldDef("lstcampoi37",FieldDef.INTEGER,0);
+            lstcampoi38 = new FieldDef("lstcampoi38",FieldDef.INTEGER,0);
+            lstcampoi39 = new FieldDef("lstcampoi39",FieldDef.INTEGER,0);
+            lstcampoi40 = new FieldDef("lstcampoi40",FieldDef.INTEGER,0);
+            lstcampof1 = new FieldDef("lstcampof1",FieldDef.FLOAT,0,2);
+            lstcampof2 = new FieldDef("lstcampof2",FieldDef.FLOAT,0,2);
+            lstcampof3 = new FieldDef("lstcampof3",FieldDef.FLOAT,0,2);
+            lstcampof4 = new FieldDef("lstcampof4",FieldDef.FLOAT,0,2);
+            lstcampof5 = new FieldDef("lstcampof5",FieldDef.FLOAT,0,2);
+            lstcampof6 = new FieldDef("lstcampof6",FieldDef.FLOAT,0,2);
+            lstcampof7 = new FieldDef("lstcampof7",FieldDef.FLOAT,0,2);
+            lstcampof8 = new FieldDef("lstcampof8",FieldDef.FLOAT,0,2);
+            lstcampof9 = new FieldDef("lstcampof9",FieldDef.FLOAT,0,2);
+            lstcampof10 = new FieldDef("lstcampof10",FieldDef.FLOAT,0,2);
+            lstcampof11 = new FieldDef("lstcampof11",FieldDef.FLOAT,0,2);
+            lstcampof12 = new FieldDef("lstcampof12",FieldDef.FLOAT,0,2);
+            lstcampof13 = new FieldDef("lstcampof13",FieldDef.FLOAT,0,2);
+            lstcampof14 = new FieldDef("lstcampof14",FieldDef.FLOAT,0,2);
+            lstcampof15 = new FieldDef("lstcampof15",FieldDef.FLOAT,0,2);
+            lstcampof16 = new FieldDef("lstcampof16",FieldDef.FLOAT,0,2);
+            lstcampof17 = new FieldDef("lstcampof17",FieldDef.FLOAT,0,2);
+            lstcampof18 = new FieldDef("lstcampof18",FieldDef.FLOAT,0,2);
+            lstcampof19 = new FieldDef("lstcampof19",FieldDef.FLOAT,0,2);
+            lstcampof20 = new FieldDef("lstcampof20",FieldDef.FLOAT,0,2);
+            lstcampof21 = new FieldDef("lstcampof21",FieldDef.FLOAT,0,2);
+            lstcampof22 = new FieldDef("lstcampof22",FieldDef.FLOAT,0,2);
+            lstcampof23 = new FieldDef("lstcampof23",FieldDef.FLOAT,0,2);
+            lstcampof24 = new FieldDef("lstcampof24",FieldDef.FLOAT,0,2);
+            lstcampof25 = new FieldDef("lstcampof25",FieldDef.FLOAT,0,2);
+            lstcampof26 = new FieldDef("lstcampof26",FieldDef.FLOAT,0,2);
+            lstcampof27 = new FieldDef("lstcampof27",FieldDef.FLOAT,0,2);
+            lstcampof28 = new FieldDef("lstcampof28",FieldDef.FLOAT,0,2);
+            lstcampof29 = new FieldDef("lstcampof29",FieldDef.FLOAT,0,2);
+            lstcampof30 = new FieldDef("lstcampof30",FieldDef.FLOAT,0,2);
+            lstcampof31 = new FieldDef("lstcampof31",FieldDef.FLOAT,0,2);
+            lstcampof32 = new FieldDef("lstcampof32",FieldDef.FLOAT,0,2);
+            lstcampof33 = new FieldDef("lstcampof33",FieldDef.FLOAT,0,2);
+            lstcampof34 = new FieldDef("lstcampof34",FieldDef.FLOAT,0,2);
+            lstcampof35 = new FieldDef("lstcampof35",FieldDef.FLOAT,0,2);
+            lstcampof36 = new FieldDef("lstcampof36",FieldDef.FLOAT,0,2);
+            lstcampof37 = new FieldDef("lstcampof37",FieldDef.FLOAT,0,2);
+            lstcampof38 = new FieldDef("lstcampof38",FieldDef.FLOAT,0,2);
+            lstcampof39 = new FieldDef("lstcampof39",FieldDef.FLOAT,0,2);
+            lstcampof40 = new FieldDef("lstcampof40",FieldDef.FLOAT,0,2);
+            lstcampod1 = new FieldDef("lstcampod1",FieldDef.DATE);
+            lstcampod2 = new FieldDef("lstcampod2",FieldDef.DATE);
+            lstcampod3 = new FieldDef("lstcampod3",FieldDef.DATE);
+            lstcampod4 = new FieldDef("lstcampod4",FieldDef.DATE);
+            lstcampod5 = new FieldDef("lstcampod5",FieldDef.DATE);
+            lstcampod6 = new FieldDef("lstcampod6",FieldDef.DATE);
+            lstcampod7 = new FieldDef("lstcampod7",FieldDef.DATE);
+            lstcampod8 = new FieldDef("lstcampod8",FieldDef.DATE);
+            lstcampod9 = new FieldDef("lstcampod9",FieldDef.DATE);
+            lstcampod10 = new FieldDef("lstcampod10",FieldDef.DATE);
+            lstcampod11 = new FieldDef("lstcampod11",FieldDef.DATE);
+            lstcampod12 = new FieldDef("lstcampod12",FieldDef.DATE);
+            lstcampod13 = new FieldDef("lstcampod13",FieldDef.DATE);
+            lstcampod14 = new FieldDef("lstcampod14",FieldDef.DATE);
+            lstcampod15 = new FieldDef("lstcampod15",FieldDef.DATE);
+            lstcampod16 = new FieldDef("lstcampod16",FieldDef.DATE);
+            lstcampod17 = new FieldDef("lstcampod17",FieldDef.DATE);
+            lstcampod18 = new FieldDef("lstcampod18",FieldDef.DATE);
+            lstcampod19 = new FieldDef("lstcampod19",FieldDef.DATE);
+            lstcampod20 = new FieldDef("lstcampod20",FieldDef.DATE);
+            lstcampod21 = new FieldDef("lstcampod21",FieldDef.DATE);
+            lstcampod22 = new FieldDef("lstcampod22",FieldDef.DATE);
+            lstcampod23 = new FieldDef("lstcampod23",FieldDef.DATE);
+            lstcampod24 = new FieldDef("lstcampod24",FieldDef.DATE);
+            lstcampod25 = new FieldDef("lstcampod25",FieldDef.DATE);
+            lstcampod26 = new FieldDef("lstcampod26",FieldDef.DATE);
+            lstcampod27 = new FieldDef("lstcampod27",FieldDef.DATE);
+            lstcampod28 = new FieldDef("lstcampod28",FieldDef.DATE);
+            lstcampod29 = new FieldDef("lstcampod29",FieldDef.DATE);
+            lstcampod30 = new FieldDef("lstcampod30",FieldDef.DATE);
+            lstcampod31 = new FieldDef("lstcampod31",FieldDef.DATE);
+            lstcampod32 = new FieldDef("lstcampod32",FieldDef.DATE);
+            lstcampod33 = new FieldDef("lstcampod33",FieldDef.DATE);
+            lstcampod34 = new FieldDef("lstcampod34",FieldDef.DATE);
+            lstcampod35 = new FieldDef("lstcampod35",FieldDef.DATE);
+            lstcampod36 = new FieldDef("lstcampod36",FieldDef.DATE);
+            lstcampod37 = new FieldDef("lstcampod37",FieldDef.DATE);
+            lstcampod38 = new FieldDef("lstcampod38",FieldDef.DATE);
+            lstcampod39 = new FieldDef("lstcampod39",FieldDef.DATE);
+            lstcampod40 = new FieldDef("lstcampod40",FieldDef.DATE);
+            FieldDef array[] = {
+                lstcodigo,
+                lstusuario,
+                lstlistado,
+                lstempresa,
+                lstejercicio,
+                lstcampoa1,
+                lstcampoa2,
+                lstcampoa3,
+                lstcampoa4,
+                lstcampoa5,
+                lstcampoa6,
+                lstcampoa7,
+                lstcampoa8,
+                lstcampoa9,
+                lstcampoa10,
+                lstcampoa11,
+                lstcampoa12,
+                lstcampoa13,
+                lstcampoa14,
+                lstcampoa15,
+                lstcampoa16,
+                lstcampoa17,
+                lstcampoa18,
+                lstcampoa19,
+                lstcampoa20,
+                lstcampoa21,
+                lstcampoa22,
+                lstcampoa23,
+                lstcampoa24,
+                lstcampoa25,
+                lstcampoa26,
+                lstcampoa27,
+                lstcampoa28,
+                lstcampoa29,
+                lstcampoa30,
+                lstcampoa31,
+                lstcampoa32,
+                lstcampoa33,
+                lstcampoa34,
+                lstcampoa35,
+                lstcampoa36,
+                lstcampoa37,
+                lstcampoa38,
+                lstcampoa39,
+                lstcampoa40,
+                lstcampoi1,
+                lstcampoi2,
+                lstcampoi3,
+                lstcampoi4,
+                lstcampoi5,
+                lstcampoi6,
+                lstcampoi7,
+                lstcampoi8,
+                lstcampoi9,
+                lstcampoi10,
+                lstcampoi11,
+                lstcampoi12,
+                lstcampoi13,
+                lstcampoi14,
+                lstcampoi15,
+                lstcampoi16,
+                lstcampoi17,
+                lstcampoi18,
+                lstcampoi19,
+                lstcampoi20,
+                lstcampoi21,
+                lstcampoi22,
+                lstcampoi23,
+                lstcampoi24,
+                lstcampoi25,
+                lstcampoi26,
+                lstcampoi27,
+                lstcampoi28,
+                lstcampoi29,
+                lstcampoi30,
+                lstcampoi31,
+                lstcampoi32,
+                lstcampoi33,
+                lstcampoi34,
+                lstcampoi35,
+                lstcampoi36,
+                lstcampoi37,
+                lstcampoi38,
+                lstcampoi39,
+                lstcampoi40,
+                lstcampof1,
+                lstcampof2,
+                lstcampof3,
+                lstcampof4,
+                lstcampof5,
+                lstcampof6,
+                lstcampof7,
+                lstcampof8,
+                lstcampof9,
+                lstcampof10,
+                lstcampof11,
+                lstcampof12,
+                lstcampof13,
+                lstcampof14,
+                lstcampof15,
+                lstcampof16,
+                lstcampof17,
+                lstcampof18,
+                lstcampof19,
+                lstcampof20,
+                lstcampof21,
+                lstcampof22,
+                lstcampof23,
+                lstcampof24,
+                lstcampof25,
+                lstcampof26,
+                lstcampof27,
+                lstcampof28,
+                lstcampof29,
+                lstcampof30,
+                lstcampof31,
+                lstcampof32,
+                lstcampof33,
+                lstcampof34,
+                lstcampof35,
+                lstcampof36,
+                lstcampof37,
+                lstcampof38,
+                lstcampof39,
+                lstcampof40,
+                lstcampod1,
+                lstcampod2,
+                lstcampod3,
+                lstcampod4,
+                lstcampod5,
+                lstcampod6,
+                lstcampod7,
+                lstcampod8,
+                lstcampod9,
+                lstcampod10,
+                lstcampod11,
+                lstcampod12,
+                lstcampod13,
+                lstcampod14,
+                lstcampod15,
+                lstcampod16,
+                lstcampod17,
+                lstcampod18,
+                lstcampod19,
+                lstcampod20,
+                lstcampod21,
+                lstcampod22,
+                lstcampod23,
+                lstcampod24,
+                lstcampod25,
+                lstcampod26,
+                lstcampod27,
+                lstcampod28,
+                lstcampod29,
+                lstcampod30,
+                lstcampod31,
+                lstcampod32,
+                lstcampod33,
+                lstcampod34,
+                lstcampod35,
+                lstcampod36,
+                lstcampod37,
+                lstcampod38,
+                lstcampod39,
+                lstcampod40                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {lstcodigo };
+            setDescription("Tabla temporal para listados");
+            setPrimaryKeys(arrayf);
+            lstcodigo.setAutoIncrementable(true);
+            }
+        }
+        
     public CatJeo()
         {
         tabempresa = new TabEmpresa("empresa");
@@ -5877,6 +6568,8 @@ public class CatJeo extends Catalog
         tabapuntesdesglose = new TabApuntesdesglose("apuntesdesglose");
         tabdefperiodicos = new TabDefperiodicos("defperiodicos");
         tabapunteperiodico = new TabApunteperiodico("apunteperiodico");
+        tabbajaempresa = new TabBajaempresa("bajaempresa");
+        tablistemp = new TabListemp("listemp");
         TableDef array[] = {
             tabempresa,
             tabgycauto,
@@ -5945,7 +6638,9 @@ public class CatJeo extends Catalog
             tabimportaapuntes,
             tabapuntesdesglose,
             tabdefperiodicos,
-            tabapunteperiodico            
+            tabapunteperiodico,
+            tabbajaempresa,
+            tablistemp            
             };
         setTables(array);
         FieldDef tabcalendariodetArrayf1[] = { tabcalendariodet.caldcodigo };
