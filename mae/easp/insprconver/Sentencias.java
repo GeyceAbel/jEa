@@ -3,7 +3,18 @@ package mae.easp.insprconver;
 import mae.easp.general.Easp;
 
 public class Sentencias {
-	
+	public static String sentencias19_2[] = {
+			"CREATE TABLE DFSINTERESES("+
+			"    dfiejer INTEGER NOT NULL,"+
+			"    dfinif VARCHAR(15) NOT NULL,"+
+			"    dficodigo VARCHAR(7) NOT NULL,"+
+			"    dfinifpagador VARCHAR(9),"+
+			"    dfinompagador VARCHAR(40),"+
+			"    dficuenta VARCHAR(10),"+
+			"    dfiimporte FLOAT,"+
+			"    PRIMARY KEY(dfiejer, dfinif, dficodigo));"};
+
+
 	public static String sentencias18_9[]= {
 			"ALTER TABLE BANCOCLI add bccsepa INTEGER;",
 			"ALTER TABLE BANCOCLI add bcciban VARCHAR(34);",

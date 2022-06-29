@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Mon Mar 21 17:36:09 CET 2022
+// Fecha y hora:     Wed Jun 29 19:54:57 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -141,6 +141,7 @@ public class CatEasp extends Catalog
     public TabDfsrdtimpinfo tabdfsrdtimpinfo;
     public TabDfsarrlocalimp tabdfsarrlocalimp;
     public TabWnifes tabwnifes;
+    public TabDfsintereses tabdfsintereses;
     public class TabGycauto extends TableDef
         {
         // campos
@@ -4505,6 +4506,9 @@ public class CatEasp extends Catalog
         public FieldDef pcihincrplantil;
         public FieldDef pcihcoeffiscal;
         public FieldDef pcihtipofiscal;
+        public FieldDef pcihleavresid;
+        public FieldDef pcihleaporcint;
+        public FieldDef pcihleaespyme;
         public TabPcinmovhis(String name)
             {
             super(name);
@@ -4555,6 +4559,9 @@ public class CatEasp extends Catalog
             pcihincrplantil = new FieldDef("pcihincrplantil",FieldDef.FLOAT,0,2);
             pcihcoeffiscal = new FieldDef("pcihcoeffiscal",FieldDef.FLOAT,0,2);
             pcihtipofiscal = new FieldDef("pcihtipofiscal",FieldDef.CHAR,5);
+            pcihleavresid = new FieldDef("pcihleavresid",FieldDef.FLOAT,0,2);
+            pcihleaporcint = new FieldDef("pcihleaporcint",FieldDef.FLOAT,0,2);
+            pcihleaespyme = new FieldDef("pcihleaespyme",FieldDef.CHAR,1);
             FieldDef array[] = {
                 pcihelemento,
                 pcihempresa,
@@ -4602,7 +4609,10 @@ public class CatEasp extends Catalog
                 pcihlimiteinver,
                 pcihincrplantil,
                 pcihcoeffiscal,
-                pcihtipofiscal                
+                pcihtipofiscal,
+                pcihleavresid,
+                pcihleaporcint,
+                pcihleaespyme                
                 };
             setColumns(array);
             FieldDef arrayf[] = {pcihelemento };
@@ -4623,6 +4633,8 @@ public class CatEasp extends Catalog
         public FieldDef pcmhamortpdte;
         public FieldDef pcmhultfecha;
         public FieldDef pcmhcuotaapli;
+        public FieldDef pcmhporcint;
+        public FieldDef pcmhintereses;
         public TabPcmoranualhis(String name)
             {
             super(name);
@@ -4635,6 +4647,8 @@ public class CatEasp extends Catalog
             pcmhamortpdte = new FieldDef("pcmhamortpdte",FieldDef.FLOAT,6,0);
             pcmhultfecha = new FieldDef("pcmhultfecha",FieldDef.DATE);
             pcmhcuotaapli = new FieldDef("pcmhcuotaapli",FieldDef.FLOAT,6,0);
+            pcmhporcint = new FieldDef("pcmhporcint",FieldDef.FLOAT,0,2);
+            pcmhintereses = new FieldDef("pcmhintereses",FieldDef.FLOAT,0,2);
             FieldDef array[] = {
                 pcmhelemento,
                 pcmhamorejer,
@@ -4644,7 +4658,9 @@ public class CatEasp extends Catalog
                 pcmhamortacum,
                 pcmhamortpdte,
                 pcmhultfecha,
-                pcmhcuotaapli                
+                pcmhcuotaapli,
+                pcmhporcint,
+                pcmhintereses                
                 };
             setColumns(array);
             FieldDef arrayf[] = {pcmhelemento,pcmhamorejer,pcmhtipo };
@@ -4701,6 +4717,9 @@ public class CatEasp extends Catalog
         public FieldDef pciincrplantil;
         public FieldDef pcicoeffiscal;
         public FieldDef pcitipofiscal;
+        public FieldDef pcileavresid;
+        public FieldDef pcileaporcint;
+        public FieldDef pcileaespyme;
         public TabPcinmov(String name)
             {
             super(name);
@@ -4750,6 +4769,9 @@ public class CatEasp extends Catalog
             pciincrplantil = new FieldDef("pciincrplantil",FieldDef.FLOAT,0,2);
             pcicoeffiscal = new FieldDef("pcicoeffiscal",FieldDef.FLOAT,0,2);
             pcitipofiscal = new FieldDef("pcitipofiscal",FieldDef.CHAR,5);
+            pcileavresid = new FieldDef("pcileavresid",FieldDef.FLOAT,0,2);
+            pcileaporcint = new FieldDef("pcileaporcint",FieldDef.FLOAT,0,2);
+            pcileaespyme = new FieldDef("pcileaespyme",FieldDef.CHAR,1);
             FieldDef array[] = {
                 pcielemento,
                 pciempresa,
@@ -4796,7 +4818,10 @@ public class CatEasp extends Catalog
                 pcilimiteinver,
                 pciincrplantil,
                 pcicoeffiscal,
-                pcitipofiscal                
+                pcitipofiscal,
+                pcileavresid,
+                pcileaporcint,
+                pcileaespyme                
                 };
             setColumns(array);
             FieldDef arrayf[] = {pcielemento };
@@ -4817,6 +4842,8 @@ public class CatEasp extends Catalog
         public FieldDef pcmamortpdte;
         public FieldDef pcmultfecha;
         public FieldDef pcmcuotaapli;
+        public FieldDef pcmporcint;
+        public FieldDef pcmintereses;
         public TabPcmoranual(String name)
             {
             super(name);
@@ -4829,6 +4856,8 @@ public class CatEasp extends Catalog
             pcmamortpdte = new FieldDef("pcmamortpdte",FieldDef.FLOAT,6,0);
             pcmultfecha = new FieldDef("pcmultfecha",FieldDef.DATE);
             pcmcuotaapli = new FieldDef("pcmcuotaapli",FieldDef.FLOAT,6,0);
+            pcmporcint = new FieldDef("pcmporcint",FieldDef.FLOAT,0,2);
+            pcmintereses = new FieldDef("pcmintereses",FieldDef.FLOAT,0,2);
             FieldDef array[] = {
                 pcmelemento,
                 pcmamorejer,
@@ -4838,7 +4867,9 @@ public class CatEasp extends Catalog
                 pcmamortacum,
                 pcmamortpdte,
                 pcmultfecha,
-                pcmcuotaapli                
+                pcmcuotaapli,
+                pcmporcint,
+                pcmintereses                
                 };
             setColumns(array);
             FieldDef arrayf[] = {pcmelemento,pcmamorejer,pcmtipo };
@@ -6410,6 +6441,42 @@ public class CatEasp extends Catalog
             }
         }
         
+    public class TabDfsintereses extends TableDef
+        {
+        // campos
+        public FieldDef dfiejer;
+        public FieldDef dfinif;
+        public FieldDef dficodigo;
+        public FieldDef dfinifpagador;
+        public FieldDef dfinompagador;
+        public FieldDef dficuenta;
+        public FieldDef dfiimporte;
+        public TabDfsintereses(String name)
+            {
+            super(name);
+            dfiejer = new FieldDef("dfiejer",FieldDef.INTEGER,12);
+            dfinif = new FieldDef("dfinif",FieldDef.CHAR,15);
+            dficodigo = new FieldDef("dficodigo",FieldDef.CHAR,7);
+            dfinifpagador = new FieldDef("dfinifpagador",FieldDef.CHAR,9);
+            dfinompagador = new FieldDef("dfinompagador",FieldDef.CHAR,40);
+            dficuenta = new FieldDef("dficuenta",FieldDef.CHAR,10);
+            dfiimporte = new FieldDef("dfiimporte",FieldDef.FLOAT,12,0);
+            FieldDef array[] = {
+                dfiejer,
+                dfinif,
+                dficodigo,
+                dfinifpagador,
+                dfinompagador,
+                dficuenta,
+                dfiimporte                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfiejer,dfinif,dficodigo };
+            setDescription("Datos fiscales sociedad");
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
     public CatEasp()
         {
         tabgycauto = new TabGycauto("gycauto");
@@ -6541,6 +6608,7 @@ public class CatEasp extends Catalog
         tabdfsrdtimpinfo = new TabDfsrdtimpinfo("dfsrdtimpinfo");
         tabdfsarrlocalimp = new TabDfsarrlocalimp("dfsarrlocalimp");
         tabwnifes = new TabWnifes("wnifes");
+        tabdfsintereses = new TabDfsintereses("dfsintereses");
         TableDef array[] = {
             tabgycauto,
             tabsetupapl,
@@ -6670,7 +6738,8 @@ public class CatEasp extends Catalog
             tabdfsregdeclarado,
             tabdfsrdtimpinfo,
             tabdfsarrlocalimp,
-            tabwnifes            
+            tabwnifes,
+            tabdfsintereses            
             };
         setTables(array);
         FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };
