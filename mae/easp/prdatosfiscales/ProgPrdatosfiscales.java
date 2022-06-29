@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Jul 01 13:54:37 CEST 2021
+// Fecha y hora:     Wed Jun 29 17:58:01 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -10049,7 +10049,7 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
                 super.onClick();
                 String diropen = vvruta.getString();
                 if (diropen!=null && diropen.trim().length()==0){
-                	diropen = "C:\\GEYCE\\AEAT\\ "+progEjer+"\\DFS";
+                	diropen = "C:\\GEYCE\\AEAT\\ "+progEjer+"\\DFP";
                 }
                 java.io.File fi = new java.io.File (diropen);
                 if (!fi.exists() || fi.isFile()) diropen = fi.getParent();
