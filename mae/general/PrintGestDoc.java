@@ -79,6 +79,7 @@ public class PrintGestDoc extends PrintOutput {
 						pmirpdf.work.setShowFinalMessage(false);				
 						pmirpdf.abrir = false;
 						pmirpdf.destino = fileUrl;
+						pmirpdf.horizontal = ppgd.crb_apaisado.getBoolean();
 						gf.setUrlFile(fileUrl);
 						pmirpdf.work.add(gf.getInforme());
 						pmirpdf.print();

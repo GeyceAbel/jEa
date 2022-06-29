@@ -13,6 +13,7 @@ import geyce.maefc.PrintOutput;
 import geyce.maefc.PrintPanel;
 import geyce.maefc.Value;
 import geyce.maefc.VisualComponent;
+import geyce.maefc.WebProperties.ALIGN;
 import mae.easp.general.Easp;
 import mae.easp.prgdubicacion.ProgPrgdubicacion;
 import mae.general.jreports.UbicacionGD;
@@ -24,6 +25,7 @@ public class PrintPanelGestDoc extends PrintPanel {
 
 	public ControlRadioButton crb_pdf;
 	public ControlRadioButton crb_excel;
+	public ControlRadioButton crb_apaisado;
 	public ControlButton   cb_enviar;
 	public ControlCheck    cc_sendmail;
 	//public ControlEdit     ce_mail;	
@@ -181,11 +183,25 @@ public class PrintPanelGestDoc extends PrintPanel {
 		crb_pdf.setTitle("PDF");
 		crb_pdf.setValue(false);
 		addControl(crb_pdf);
+		
+		crb_apaisado = new ControlRadioButton(this) {
+			public void userChange (Value v) {
+				super.userChange(v);
+				crb_excel.setValue(!getBoolean());
+				crb_pdf.setValue(getBoolean());
+				//asignarNombreFichero();
+			}
+		};
+		crb_apaisado.setName("crb_apaisado");
+		crb_apaisado.setTitle("Apaisado");
+		crb_apaisado.setValue(false);
+		addControl(crb_apaisado);
 
 		crb_excel = new ControlRadioButton(this) {
 			public void userChange (Value v) {
 				super.userChange(v);
 				crb_pdf.setValue(!getBoolean());
+				crb_apaisado.setValue(!getBoolean());
 				//asignarNombreFichero();
 			}
 		};
@@ -197,7 +213,9 @@ public class PrintPanelGestDoc extends PrintPanel {
 
 		Fieldset fs = new Fieldset(this, "Formato");
 		fs.getWebProperties().setAnchoColumnas(6);
+		fs.getWebProperties().setNumCols(2);		
 		fs.addControl(crb_pdf);
+		fs.addControl(crb_apaisado);
 		fs.addControl(crb_excel);
 
 		addFieldset(fs);
@@ -226,8 +244,11 @@ public class PrintPanelGestDoc extends PrintPanel {
 		addPredeterminar();
 
 		Fieldset fs = new Fieldset(this);
-		fs.getWebProperties().setAnchoColumnas(6);
-		fs.getWebProperties().setSizeLineaSup(15);
+		fs.getWebProperties().setAlineacion(ALIGN.RIGHT);
+		fs.getWebProperties().setAnchoColumnas(12);
+		fs.getWebProperties().setSizeLineaSup(10);
+		fs.getWebProperties().setNumCols(2);
+		
 		//fs.getWebProperties().setAlineacion(ALIGN.RIGHT);
 		fs.addControl(cb_enviar);
 		fs.addControl(predeterminar);
