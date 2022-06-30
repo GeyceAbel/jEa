@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jun 29 19:54:57 CEST 2022
+// Fecha y hora:     Thu Jun 30 10:01:11 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -142,6 +142,7 @@ public class CatEasp extends Catalog
     public TabDfsarrlocalimp tabdfsarrlocalimp;
     public TabWnifes tabwnifes;
     public TabDfsintereses tabdfsintereses;
+    public TabDfscorreccion tabdfscorreccion;
     public class TabGycauto extends TableDef
         {
         // campos
@@ -6477,6 +6478,50 @@ public class CatEasp extends Catalog
             }
         }
         
+    public class TabDfscorreccion extends TableDef
+        {
+        // campos
+        public FieldDef dfcoejer;
+        public FieldDef dfconif;
+        public FieldDef dfcocodigo;
+        public FieldDef dfcocoddesc;
+        public FieldDef dfcoimporteaum;
+        public FieldDef dfcocasactaun;
+        public FieldDef dfcocasantaum;
+        public FieldDef dfcoimportedis;
+        public FieldDef dfcocasactdism;
+        public FieldDef dfcocasantdism;
+        public TabDfscorreccion(String name)
+            {
+            super(name);
+            dfcoejer = new FieldDef("dfcoejer",FieldDef.INTEGER,12);
+            dfconif = new FieldDef("dfconif",FieldDef.CHAR,15);
+            dfcocodigo = new FieldDef("dfcocodigo",FieldDef.CHAR,7);
+            dfcocoddesc = new FieldDef("dfcocoddesc",FieldDef.INTEGER,12);
+            dfcoimporteaum = new FieldDef("dfcoimporteaum",FieldDef.FLOAT,12,0);
+            dfcocasactaun = new FieldDef("dfcocasactaun",FieldDef.CHAR,6);
+            dfcocasantaum = new FieldDef("dfcocasantaum",FieldDef.CHAR,6);
+            dfcoimportedis = new FieldDef("dfcoimportedis",FieldDef.FLOAT,12,0);
+            dfcocasactdism = new FieldDef("dfcocasactdism",FieldDef.CHAR,6);
+            dfcocasantdism = new FieldDef("dfcocasantdism",FieldDef.CHAR,6);
+            FieldDef array[] = {
+                dfcoejer,
+                dfconif,
+                dfcocodigo,
+                dfcocoddesc,
+                dfcoimporteaum,
+                dfcocasactaun,
+                dfcocasantaum,
+                dfcoimportedis,
+                dfcocasactdism,
+                dfcocasantdism                
+                };
+            setColumns(array);
+            FieldDef arrayf[] = {dfcoejer,dfconif,dfcocodigo };
+            setPrimaryKeys(arrayf);
+            }
+        }
+        
     public CatEasp()
         {
         tabgycauto = new TabGycauto("gycauto");
@@ -6609,6 +6654,7 @@ public class CatEasp extends Catalog
         tabdfsarrlocalimp = new TabDfsarrlocalimp("dfsarrlocalimp");
         tabwnifes = new TabWnifes("wnifes");
         tabdfsintereses = new TabDfsintereses("dfsintereses");
+        tabdfscorreccion = new TabDfscorreccion("dfscorreccion");
         TableDef array[] = {
             tabgycauto,
             tabsetupapl,
@@ -6739,7 +6785,8 @@ public class CatEasp extends Catalog
             tabdfsrdtimpinfo,
             tabdfsarrlocalimp,
             tabwnifes,
-            tabdfsintereses            
+            tabdfsintereses,
+            tabdfscorreccion            
             };
         setTables(array);
         FieldDef tabadmhaciendaArrayf1[] = { tabadmhacienda.ahdele };

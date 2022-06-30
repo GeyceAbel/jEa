@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jun 29 17:58:01 CEST 2022
+// Fecha y hora:     Thu Jun 30 12:54:24 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -34,22 +34,23 @@ public boolean[] visibles;
 
 
 private String getRuta(){
-	//TODO APJORDIG: consultar ruta a guardar a Ester (paràmetre ?), aquesta ruta es fa servir també a altres llocs
-	if (Easp.isErnestYoung()) return System.getProperty("user.dir")+"\\AEAT\\"+progEjer+"\\DFS";
-	return "C:\\GEYCE\\AEAT\\"+progEjer+"\\DFS";
+	String directori = "DFS";
+	if (progEjer>2020) directori = "DFP";
+	if (Easp.isErnestYoung()) return System.getProperty("user.dir")+"\\AEAT\\"+progEjer+"\\"+directori;
+	return "C:\\GEYCE\\AEAT\\"+progEjer+"\\"+directori;
 }
 
 private String getProvinciaPais(String codigo){
 	String provPais = null;
 	if (codigo!=null && Util.isNumero(codigo)){
 		Selector sl = new Selector(Easp.connEA);
-		sl.execute("SELECT * FROM PROVINCIA WHERE pvcodigo = "+ Integer.parseInt(codigo));
+		sl.execute("SELECT pvdesc FROM PROVINCIA WHERE pvcodigo = "+ Integer.parseInt(codigo));
 		if (sl.next()) provPais = sl.getString("pvdesc");
 		sl.close();		
 	}
 	else if (codigo!=null){
 		Selector sl = new Selector(Easp.connEA);
-		sl.execute("SELECT * FROM PAIS WHERE picodigo347='"+codigo+"'");
+		sl.execute("SELECT pidesc FROM PAIS WHERE picodigo347='"+codigo+"'");
 		if (sl.next()) provPais = sl.getString("pidesc");
 		sl.close();
 	}
@@ -188,6 +189,10 @@ private String getProvinciaPais(String codigo){
     // Selects
     public Smultasdgt smultasdgt;
     // Ventana
+    public FormVintereses vintereses;
+    // Selects
+    public Sdfsintereses sdfsintereses;
+    // Ventana
     public FormVrdtoctasbanc vrdtoctasbanc;
     // Selects
     public Srdtoctasbanc srdtoctasbanc;
@@ -215,6 +220,10 @@ private String getProvinciaPais(String codigo){
     public FormVarrndlocimp varrndlocimp;
     // Selects
     public Sarrndlocimp sarrndlocimp;
+    // Ventana
+    public FormVcorrecciones vcorrecciones;
+    // Selects
+    public Scorreccion scorreccion;
     // Ventana
     public FormVimportar vimportar;
     // Selects
@@ -8120,6 +8129,194 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
         // EVENT: SELECT
         }
         
+    public class FormVintereses extends MultiDataForm
+        {
+        // GLOBALES: VENTANA
+        // Metodos
+        // Controles
+        public CtrlDficodigo dficodigo;
+        public CtrlDfinifpagador dfinifpagador;
+        public CtrlDfinompagador dfinompagador;
+        public CtrlDficuenta dficuenta;
+        public CtrlDfiimporte dfiimporte;
+        // Acciones
+        // Fieldsets
+        class Location extends LocationWindow
+            {
+            public Location( )
+                {
+                super();
+                }
+            }
+            
+        public class CtrlDficodigo extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDficodigo(Form form)
+                {
+                super(form);
+                setName("dficodigo");
+                setTitle("Código AEAT");
+                setType(STRING);
+                setLength(7);
+                setSearchable(true);
+                setField(sdfsintereses.dficodigo);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfinifpagador extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfinifpagador(Form form)
+                {
+                super(form);
+                setName("dfinifpagador");
+                setTitle("NIF Pagador");
+                setType(STRING);
+                setLength(9);
+                setSearchable(true);
+                setField(sdfsintereses.dfinifpagador);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfinompagador extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfinompagador(Form form)
+                {
+                super(form);
+                setName("dfinompagador");
+                setTitle("Nombre pagador");
+                setType(STRING);
+                setLength(40);
+                setSearchable(true);
+                setField(sdfsintereses.dfinompagador);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDficuenta extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDficuenta(Form form)
+                {
+                super(form);
+                setName("dficuenta");
+                setTitle("Cuenta");
+                setType(STRING);
+                setLength(10);
+                setSearchable(true);
+                setField(sdfsintereses.dficuenta);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfiimporte extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfiimporte(Form form)
+                {
+                super(form);
+                setName("dfiimporte");
+                setTitle("Importe");
+                setType(DOUBLE);
+                setMaskInput("###,###,###,###.99");
+                setLength(15);
+                setSearchable(true);
+                setField(sdfsintereses.dfiimporte);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public FormVintereses(ProgPrdatosfiscales prdatosfiscales)
+            {
+            super(prdatosfiscales);
+            setName("vintereses");
+            setTitle("Intereses abonados por AEAT");
+            setLocation(new Location());
+            setStates(SHOW | SEARCH);
+            setModal(true);
+            // SET: VENTANA
+            addSelect(sdfsintereses=new Sdfsintereses());
+            addControl(dficodigo=new CtrlDficodigo(this));
+            addControl(dfinifpagador=new CtrlDfinifpagador(this));
+            addControl(dfinompagador=new CtrlDfinompagador(this));
+            addControl(dficuenta=new CtrlDficuenta(this));
+            addControl(dfiimporte=new CtrlDfiimporte(this));
+            setSelect(sdfsintereses);
+            }
+        // GET: VENTANA
+        // EVENT: VENTANA
+        }
+        
+    // Select DFSINTERESES
+    public class Sdfsintereses extends Select
+        {
+        // Tablas
+        // GLOBALES: SELECT
+        // Metodos
+        public Dfsintereses dfsintereses;
+        // Campos
+        public Field dfiejer;
+        public Field dfinif;
+        public Field dficodigo;
+        public Field dfinifpagador;
+        public Field dfinompagador;
+        public Field dficuenta;
+        public Field dfiimporte;
+        class Dfsintereses extends Table
+            {
+            // GLOBALES: TABLA
+            // Metodos
+            public Dfsintereses(Select select)
+                {
+                super(select);
+                setName("dfsintereses");
+                setOptions(READ | INSERT | DELETE | UPDATE);
+                // SET: TABLA
+                }
+            // GET: TABLA
+            // EVENT: TABLA
+            }
+            
+        public Sdfsintereses()
+            {
+            setName("sdfsintereses");
+            // SET: SELECT
+            addTable(dfsintereses=new Dfsintereses(this));
+            addField(dfiejer=new Field(this,dfsintereses,"dfiejer"));
+            addField(dfinif=new Field(this,dfsintereses,"dfinif"));
+            addField(dficodigo=new Field(this,dfsintereses,"dficodigo"));
+            addField(dfinifpagador=new Field(this,dfsintereses,"dfinifpagador"));
+            addField(dfinompagador=new Field(this,dfsintereses,"dfinompagador"));
+            addField(dficuenta=new Field(this,dfsintereses,"dficuenta"));
+            addField(dfiimporte=new Field(this,dfsintereses,"dfiimporte"));
+            }
+        // GET: SELECT
+        public String getWhere ()
+            {
+            return "dfiejer="+progEjer+" AND dfinif='"+paramNif+"'";
+            }
+        // EVENT: SELECT
+        }
+        
     public class FormVrdtoctasbanc extends MultiDataForm
         {
         // GLOBALES: VENTANA
@@ -9914,6 +10111,338 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
         // EVENT: SELECT
         }
         
+    public class FormVcorrecciones extends MultiDataForm
+        {
+        // GLOBALES: VENTANA
+        // Metodos
+        // Controles
+        public CtrlDfcocodigo dfcocodigo;
+        public CtrlDfcocoddesc dfcocoddesc;
+        public CtrlVvdescripcion vvdescripcion;
+        public CtrlDfcoimporteaum dfcoimporteaum;
+        public CtrlVvaumentogyc vvaumentogyc;
+        public CtrlDfcocasantaum dfcocasantaum;
+        public CtrlDfcocasactaun dfcocasactaun;
+        public CtrlDfcoimportedis dfcoimportedis;
+        public CtrlVvdisminucgyc vvdisminucgyc;
+        public CtrlDfcocasantdism dfcocasantdism;
+        public CtrlDfcocasactdism dfcocasactdism;
+        // Acciones
+        // Fieldsets
+        class Location extends LocationWindow
+            {
+            public Location( )
+                {
+                super();
+                }
+            }
+            
+        public class CtrlDfcocodigo extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfcocodigo(Form form)
+                {
+                super(form);
+                setName("dfcocodigo");
+                setTitle("Código AEAT");
+                setType(STRING);
+                setLength(7);
+                setSearchable(true);
+                setField(scorreccion.dfcocodigo);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfcocoddesc extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfcocoddesc(Form form)
+                {
+                super(form);
+                setName("dfcocoddesc");
+                setTitle("Descripción");
+                setType(INTEGER);
+                setLength(10);
+                setSearchable(true);
+                setField(scorreccion.dfcocoddesc);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlVvdescripcion extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvdescripcion(Form form)
+                {
+                super(form);
+                setName("vvdescripcion");
+                setTitle("");
+                setType(STRING);
+                setLength(60);
+                setEnabled(false);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfcoimporteaum extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfcoimporteaum(Form form)
+                {
+                super(form);
+                setName("dfcoimporteaum");
+                setTitle("Aumento");
+                setType(DOUBLE);
+                setMaskInput("##,###,###,###.99");
+                setLength(17);
+                setSearchable(true);
+                setField(scorreccion.dfcoimporteaum);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlVvaumentogyc extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvaumentogyc(Form form)
+                {
+                super(form);
+                setName("vvaumentogyc");
+                setTitle("Importe en GEyCE");
+                setType(DOUBLE);
+                setMaskInput("##,###,###,###.99");
+                setLength(17);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfcocasantaum extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfcocasantaum(Form form)
+                {
+                super(form);
+                setName("dfcocasantaum");
+                setTitle("Casilla 2018");
+                setType(STRING);
+                setLength(6);
+                setSearchable(true);
+                setField(scorreccion.dfcocasantaum);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfcocasactaun extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfcocasactaun(Form form)
+                {
+                super(form);
+                setName("dfcocasactaun");
+                setTitle("Casilla 2019");
+                setType(STRING);
+                setLength(6);
+                setSearchable(true);
+                setField(scorreccion.dfcocasactaun);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfcoimportedis extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfcoimportedis(Form form)
+                {
+                super(form);
+                setName("dfcoimportedis");
+                setTitle("Disminución");
+                setType(DOUBLE);
+                setMaskInput("##,###,###,###.99");
+                setLength(17);
+                setSearchable(true);
+                setField(scorreccion.dfcoimportedis);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlVvdisminucgyc extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlVvdisminucgyc(Form form)
+                {
+                super(form);
+                setName("vvdisminucgyc");
+                setTitle("Importe en GEyCE");
+                setType(DOUBLE);
+                setMaskInput("##,###,###,###.99");
+                setLength(17);
+                setSearchable(true);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfcocasantdism extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfcocasantdism(Form form)
+                {
+                super(form);
+                setName("dfcocasantdism");
+                setTitle("Casilla 2018");
+                setType(STRING);
+                setLength(6);
+                setSearchable(true);
+                setField(scorreccion.dfcocasantdism);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public class CtrlDfcocasactdism extends ColumnEdit
+            {
+            // GLOBALES: CONTROLEDIT
+            // Metodos
+            public CtrlDfcocasactdism(Form form)
+                {
+                super(form);
+                setName("dfcocasactdism");
+                setTitle("Casilla 2019");
+                setType(STRING);
+                setLength(6);
+                setSearchable(true);
+                setField(scorreccion.dfcocasactdism);
+                // SET: CONTROLEDIT
+                }
+            // GET: CONTROLEDIT
+            // EVENT: CONTROLEDIT
+            }
+            
+        public FormVcorrecciones(ProgPrdatosfiscales prdatosfiscales)
+            {
+            super(prdatosfiscales);
+            setName("vcorrecciones");
+            setTitle("Correcciones al resultado Cuenta Pérdidas y Ganancias");
+            setLocation(new Location());
+            setStates(SHOW | SEARCH);
+            setModal(true);
+            // SET: VENTANA
+            addSelect(scorreccion=new Scorreccion());
+            addControl(dfcocodigo=new CtrlDfcocodigo(this));
+            addControl(dfcocoddesc=new CtrlDfcocoddesc(this));
+            addControl(vvdescripcion=new CtrlVvdescripcion(this));
+            addControl(dfcoimporteaum=new CtrlDfcoimporteaum(this));
+            addControl(vvaumentogyc=new CtrlVvaumentogyc(this));
+            addControl(dfcocasantaum=new CtrlDfcocasantaum(this));
+            addControl(dfcocasactaun=new CtrlDfcocasactaun(this));
+            addControl(dfcoimportedis=new CtrlDfcoimportedis(this));
+            addControl(vvdisminucgyc=new CtrlVvdisminucgyc(this));
+            addControl(dfcocasantdism=new CtrlDfcocasantdism(this));
+            addControl(dfcocasactdism=new CtrlDfcocasactdism(this));
+            setSelect(scorreccion);
+            }
+        // GET: VENTANA
+        // EVENT: VENTANA
+        public void onBeginRecord ()
+            {
+            super.onBeginRecord ();
+            vvdescripcion.setValue(DatosFiscalesSociedad.getDescCorreccion(scorreccion.dfcocoddesc.getInteger()));
+if (vieneDeJiss) {
+	if (dfcocasactaun.getString()!=null && !"".equals(dfcocasactaun.getString().trim())) 
+	    vvaumentogyc.setValue(DatosFiscalesSociedad.getImporteCorreccion(connAplic,progEjer,gSociedad,dfcocasactaun.getString()));
+	if (dfcocasactdism.getString()!=null && !"".equals(dfcocasactdism.getString().trim())) 
+	    vvdisminucgyc.setValue(DatosFiscalesSociedad.getImporteCorreccion(connAplic,progEjer,gSociedad,dfcocasactdism.getString()));        
+}
+
+            }
+        }
+        
+    // 
+    public class Scorreccion extends Select
+        {
+        // Tablas
+        // GLOBALES: SELECT
+        // Metodos
+        public Dfscorreccion dfscorreccion;
+        // Campos
+        public Field dfcoejer;
+        public Field dfconif;
+        public Field dfcocodigo;
+        public Field dfcocoddesc;
+        public Field dfcoimporteaum;
+        public Field dfcocasactaun;
+        public Field dfcocasantaum;
+        public Field dfcoimportedis;
+        public Field dfcocasactdism;
+        public Field dfcocasantdism;
+        class Dfscorreccion extends Table
+            {
+            // GLOBALES: TABLA
+            // Metodos
+            public Dfscorreccion(Select select)
+                {
+                super(select);
+                setName("dfscorreccion");
+                setOptions(READ | INSERT | DELETE | UPDATE);
+                // SET: TABLA
+                }
+            // GET: TABLA
+            // EVENT: TABLA
+            }
+            
+        public Scorreccion()
+            {
+            setName("scorreccion");
+            // SET: SELECT
+            addTable(dfscorreccion=new Dfscorreccion(this));
+            addField(dfcoejer=new Field(this,dfscorreccion,"dfcoejer"));
+            addField(dfconif=new Field(this,dfscorreccion,"dfconif"));
+            addField(dfcocodigo=new Field(this,dfscorreccion,"dfcocodigo"));
+            addField(dfcocoddesc=new Field(this,dfscorreccion,"dfcocoddesc"));
+            addField(dfcoimporteaum=new Field(this,dfscorreccion,"dfcoimporteaum"));
+            addField(dfcocasactaun=new Field(this,dfscorreccion,"dfcocasactaun"));
+            addField(dfcocasantaum=new Field(this,dfscorreccion,"dfcocasantaum"));
+            addField(dfcoimportedis=new Field(this,dfscorreccion,"dfcoimportedis"));
+            addField(dfcocasactdism=new Field(this,dfscorreccion,"dfcocasactdism"));
+            addField(dfcocasantdism=new Field(this,dfscorreccion,"dfcocasantdism"));
+            }
+        // GET: SELECT
+        public String getWhere ()
+            {
+            return "dfcoejer="+progEjer+" AND dfconif='"+paramNif+"'";
+            }
+        // EVENT: SELECT
+        }
+        
     public class FormVimportar extends ProcessForm
         {
         // GLOBALES: VENTANA
@@ -10556,6 +11085,7 @@ public double totalRetencion = 0;
         addForm(vregespcan=new FormVregespcan(this));
         addForm(vdonaciones=new FormVdonaciones(this));
         addForm(vmultasdgt=new FormVmultasdgt(this));
+        addForm(vintereses=new FormVintereses(this));
         addForm(vrdtoctasbanc=new FormVrdtoctasbanc(this));
         addForm(vsanciones=new FormVsanciones(this));
         addForm(vadminnoinf=new FormVadminnoinf(this));
@@ -10563,6 +11093,7 @@ public double totalRetencion = 0;
         addForm(vregdeclara=new FormVregdeclara(this));
         addForm(vrendiimpinfo=new FormVrendiimpinfo(this));
         addForm(varrndlocimp=new FormVarrndlocimp(this));
+        addForm(vcorrecciones=new FormVcorrecciones(this));
         addForm(vimportar=new FormVimportar(this));
         addForm(vtotalesre=new FormVtotalesre(this));
         addForm(vtotalesrdi=new FormVtotalesrdi(this));
@@ -10587,12 +11118,51 @@ public double totalRetencion = 0;
         vdomicilio.vvcomplemen.setViewLength(20);
         vdomicilio.dfd21pais.setViewLength(15);
         
+        vbasesneg.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vbasesneg.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vdeducdi1.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vdeducdi1.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vdeducdi2.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vdeducdi2.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vdeducdi3.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vdeducdi3.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vdeducdi4.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vdeducdi4.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vdeducdt247.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vdeducdt247.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vdeducdt241.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vdeducdt241.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vdeducact.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vdeducact.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vdeducdona.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vdeducdona.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vdeducreinv371.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vdeducreinv371.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vdeducreinv372.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vdeducreinv372.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vreservanibi.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vreservanibi.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vreservanidr.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vreservanidr.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vreservacap.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vreservacap.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vlimitagastosf.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vlimitagastosf.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vpdteadicion.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vpdteadicion.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vregespcan.dfdcasejerant.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vregespcan.dfdcasejer.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vcorrecciones.dfcocasactaun.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vcorrecciones.dfcocasantaum.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        vcorrecciones.dfcocasactdism.setTitle("Casilla M200 "+String.valueOf(progEjer));
+        vcorrecciones.dfcocasantdism.setTitle("Casilla M200 "+String.valueOf(progEjer-1));
+        
         // afegir vadminnoinf, vsocinoinf
         MultiDataForm[] ventanas = new MultiDataForm[]{vdomicilio, vdatcens, vperycnae, vcaracteres, vadmins, vparticipa, vparticipan,
               	    vsecrerepre, vpagosfrac, vvoloper, vrdtotrabajo, vbasesneg, vcuotasneg, vdeducdi1, vdeducdi2, vdeducdi3, vdeducdi4,
                       vdeducdt247, vdeducdt241, vdeduccan, vdeducact, vdeducdona, vdeducreinv371, vdeducreinv372, vreservanibi, vreservanidr,
-                      vreservacap, vlimitagastosf, vpdteadicion, vregespcan, vdonaciones, vmultasdgt, vrdtoctasbanc, vsanciones, vregdeclara,
-                      vrendiimpinfo, varrndlocimp};
+                      vreservacap, vlimitagastosf, vpdteadicion, vregespcan, vdonaciones, vmultasdgt,vintereses, vrdtoctasbanc, vsanciones, vregdeclara,
+                      vrendiimpinfo, varrndlocimp, vcorrecciones};
         
         java.util.HashMap<MultiDataForm, Select> hmSelectVentana = new java.util.HashMap<MultiDataForm, Select>();
         hmSelectVentana.put(vdomicilio, sdfsdomicilio);
@@ -10634,9 +11204,8 @@ public double totalRetencion = 0;
         
         java.util.HashMap<MultiDataForm, Form> hmVentanaTotal = new java.util.HashMap<MultiDataForm, Form>();
         if (progEjer >= 2020) {
-        //	Comentat fins propera actualització de AEAT
-        //	hmSelectVentana.put(vadminnoinf, sadminnoinf);
-        //	hmSelectVentana.put(vsocinoinf, ssocionoinf);
+        	hmSelectVentana.put(vadminnoinf, sadminnoinf);
+        	hmSelectVentana.put(vsocinoinf, ssocionoinf);
         	hmSelectVentana.put(vregdeclara, sregdeclara);
         	hmSelectVentana.put(vrendiimpinfo, srendiimpinfo);
         	hmSelectVentana.put(varrndlocimp, sarrndlocimp);
@@ -10645,7 +11214,10 @@ public double totalRetencion = 0;
         	hmVentanaTotal.put(vrendiimpinfo, vtotalesrdi);
         	hmVentanaTotal.put(varrndlocimp, vtotalesarr);
         }
-        
+        if (progEjer>=2021) {
+        	hmSelectVentana.put(vintereses,sdfsintereses);
+        	hmSelectVentana.put(vcorrecciones,scorreccion);
+        }
         
         
         if (visibles==null){

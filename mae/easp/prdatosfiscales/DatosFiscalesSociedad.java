@@ -72,6 +72,7 @@ public class DatosFiscalesSociedad {
 	private List<RendimientosCtasBancarias> lRendimientosCtasBancarias;
 	private List<Sancion> lSanciones;
 	private List<Intereses> lIntereses;
+	private List<Correcciones> lCorreciones;
 
 
 	public DatosFiscalesSociedad(File f, int paramEjer, String paramNif, DBConnection connEA, ProgressBarForm pbf){
@@ -109,6 +110,7 @@ public class DatosFiscalesSociedad {
 		lRendimientoImputadoInformado = new ArrayList<RendimientoImputadoInformado>();
 		lArrendamientosLocalesImp = new ArrayList<ArrendamientosLocalesImp>();
 		lIntereses = new ArrayList<Intereses>();
+		lCorreciones = new ArrayList<Correcciones>();
 	}
 
 	private void initActividades(){
@@ -160,7 +162,7 @@ public class DatosFiscalesSociedad {
 			hmBIN.put(281,new String[]{"2018", "00552","01825"});
 			hmBIN.put(294,new String[]{"2018", "01330","01825"});
 		}
-		
+
 	}
 
 	private void initCN(){
@@ -193,7 +195,7 @@ public class DatosFiscalesSociedad {
 		else {
 			hmCN.put(242, new String[]{"2018","00560","02113"});
 			hmCN.put(255, new String[]{"2018","01331","02113"});
-		}	
+		}
 	}
 
 	private void initDI1(){
@@ -258,7 +260,7 @@ public class DatosFiscalesSociedad {
 		if (paramEjer<2021) {
 			hmBEN.put(8,   new String[]{"2004","00934","00932"});
 			hmBEN.put(21,  new String[]{"2005","00299","00297"});
-		}	
+		}
 		else resta = 26;
 		hmBEN.put(34-resta,  new String[]{"2006","00092","00090"});
 		hmBEN.put(47-resta,  new String[]{"2007","00006","00004"});
@@ -288,7 +290,7 @@ public class DatosFiscalesSociedad {
 		hmPER.put(21,  new String[]{String.valueOf(paramEjer-4),"00757","00752"});
 		hmPER.put(34,  new String[]{String.valueOf(paramEjer-3),"00760","00755"});
 		hmPER.put(47,  new String[]{String.valueOf(paramEjer-2),"00763","00758"});
-		hmPER.put(60,  new String[]{String.valueOf(paramEjer-1),"00784","00761 "});		
+		hmPER.put(60,  new String[]{String.valueOf(paramEjer-1),"00784","00761 "});
 	}
 
 	private void initCAN(){
@@ -309,7 +311,7 @@ public class DatosFiscalesSociedad {
 			hmCAN.put(151,new String[]{"2019", "02340","02338"});
 			hmCAN.put(164,new String[]{"2020", "02334","02209"});
 			hmCAN.put(177,new String[]{"2020", "02346","02341"});
-			
+
 			hmCAN.put(190,new String[]{"2003", "00879","00877"});
 			hmCAN.put(203,new String[]{"2004", "00882","00880"});
 			hmCAN.put(216,new String[]{"2005", "00870","00866"});
@@ -355,7 +357,7 @@ public class DatosFiscalesSociedad {
 			hmCAN.put(359,new String[]{"2018", "02127","02119"});
 
 		}
-		
+
 	}
 
 	private void initACT(){
@@ -405,10 +407,10 @@ public class DatosFiscalesSociedad {
 			hmACT.put(372,new String[]{"2019", "02355","02353"});
 			hmACT.put(385,new String[]{"2019", "02358","02356"});
 			hmACT.put(398,new String[]{"2019", "02361","02359"});
-			
+
 			hmACT.put(411,new String[]{"2020", "00809 + 01077 + 00965 + 00751 + 00797 + 00889 + 01371 + 02192 + 00636","00223"});
 			hmACT.put(424,new String[]{"2020", "00800","00228"});
-			hmACT.put(437,new String[]{"2020", "00713","00234"});			
+			hmACT.put(437,new String[]{"2020", "00713","00234"});
 		}
 
 	}
@@ -420,7 +422,7 @@ public class DatosFiscalesSociedad {
 		if (paramEjer<2021) {
 			hmDON.put(8,  new String[]{"2009", "00010","00008"});
 			hmDON.put(21, new String[]{"2010", "00036","00034"});
-		}	
+		}
 		else resta = 26;
 		hmDON.put(34-resta, new String[]{"2011", "00203","00201"});
 		hmDON.put(47-resta, new String[]{"2012", "00906","00904"});
@@ -500,7 +502,7 @@ public class DatosFiscalesSociedad {
 			hmDNI.put(47, new String[]{"2019", "01964","01964"});
 			hmDNI.put(60, new String[]{"2020", "02413","02241"});
 		}
-		
+
 
 	}
 
@@ -513,7 +515,7 @@ public class DatosFiscalesSociedad {
 		}
 		else {
 			hmCAP.put(8,  new String[]{"2019", "01746","01744"});
-			hmCAP.put(21, new String[]{"2020", "02409","01985"});	
+			hmCAP.put(21, new String[]{"2020", "02409","01985"});
 		}
 
 	}
@@ -628,6 +630,7 @@ public class DatosFiscalesSociedad {
 					else if (bOk && linea.startsWith("2RE") && paramEjer >= 2020) bOk = leerRendimientosImputados();
 					else if (bOk && linea.startsWith("2AR") && paramEjer >= 2020) bOk = leerArrendamientosLocalesImp();
 					else if (bOk && linea.startsWith("2IAP") && paramEjer>=2021) bOk = leerIntereses();
+					else if (bOk && linea.startsWith("2AJ") && paramEjer>=2021) bOk = leerCorrecciones();
 					else if (bOk)                             bOk = leerDeduccionesBasesNegReservas();
 				}
 				pbf.setSecondaryPercent(100);
@@ -674,6 +677,8 @@ public class DatosFiscalesSociedad {
 		if (bOk) bOk = grabarRendimientosImputados();
 		if (bOk) bOk = grabarArrendamientosLocalesImp();
 		if (bOk) bOk = grabarIntereses();
+		if (bOk) bOk = grabarCorrecciones();		
+		
 		pbf.setSecondaryPercent(100);
 		pbf.setPercent(100);
 		if (bOk){
@@ -686,21 +691,21 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerAdminsNoInformados() {
 		if (linea.startsWith("2ADB")) {
 			AdministradorNoInformado ani = new AdministradorNoInformado();
 			ani.nif = paramNif;
 			ani.ejercicio = paramEjer;
 			ani.codigo = parserString(1,8);
-			
+
 			lAdministradorNoInformado.add(ani);
-			
+
 			return sError == null;
 		}
-		return true;		
+		return true;
 	}
-	
+
 	private boolean grabarAdminsNoInformados() {
 		boolean bOk = true;
 		for (AdministradorNoInformado ani : lAdministradorNoInformado) {
@@ -716,21 +721,21 @@ public class DatosFiscalesSociedad {
 		}
 		return bOk;
 	}
-	
+
 	private boolean leerSociosNoInformados() {
 		if (linea.startsWith("2SOC")) {
 			SocioNoInformado sni = new SocioNoInformado();
 			sni.nif = paramNif;
 			sni.ejercicio = paramEjer;
 			sni.codigo = parserString(1,8);
-			
+
 			lSocioNoInformado.add(sni);
-			
+
 			return sError == null;
 		}
 		return true;
 	}
-	
+
 	private boolean grabarSociosNoInformados() {
 		boolean bOk = true;
 		for (SocioNoInformado sni : lSocioNoInformado) {
@@ -770,7 +775,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarRegistrosDeclarados() {
 		boolean bOk = true;
 		for (RegistroDeclarado rd : lRegistroDeclarado) {
@@ -803,7 +808,7 @@ public class DatosFiscalesSociedad {
 		if (linea.startsWith("2RE")) {
 			RendimientoImputadoInformado rii = new RendimientoImputadoInformado();
 			rii.ejercicio = paramEjer;
-			rii.nif = paramNif; 
+			rii.nif = paramNif;
 			rii.codigo = parserString(1,8);
 			rii.nifemisor = parserString(8, 17);
 			rii.nomemisor = parserString(17, 57);
@@ -820,7 +825,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarRendimientosImputados() {
 		boolean bOk = true;
 		for (RendimientoImputadoInformado rii : lRendimientoImputadoInformado) {
@@ -851,7 +856,7 @@ public class DatosFiscalesSociedad {
 		if (linea.startsWith("2AR")) {
 			ArrendamientosLocalesImp ali = new ArrendamientosLocalesImp();
 			ali.ejercicio = paramEjer;
-			ali.nif = paramNif; 
+			ali.nif = paramNif;
 			ali.codigo = parserString(1,8);
 			ali.nifpagador = parserString(8, 17);
 			ali.nompagador = parserString(17, 57);
@@ -864,7 +869,7 @@ public class DatosFiscalesSociedad {
 		}
 		return true;
 	}
-	
+
 	private boolean grabarArrendamientosLocalesImp() {
 		boolean bOk = true;
 		for (ArrendamientosLocalesImp ali : lArrendamientosLocalesImp) {
@@ -976,6 +981,9 @@ public class DatosFiscalesSociedad {
 		if (bOk) bOk = del.execute("dfriejer="+paramEjer+" AND dfrinif='"+paramNif+"'");
 		del = new Delete(connEA, "DFSARRLOCALIMP");
 		if (bOk) bOk = del.execute("dfarejer="+paramEjer+" AND dfarnif='"+paramNif+"'");
+    del = new Delete(connEA, "DFSINTERESES");
+    if (bOk) bOk = del.execute("dfiejer="+paramEjer+" AND dfinif='"+paramNif+"'");
+
 		return bOk;
 	}
 
@@ -1482,9 +1490,7 @@ public class DatosFiscalesSociedad {
 
 	private boolean leerDeduccionesBasesNegReservas(){
 		HashMap<Integer,String[]> hmTmp = new HashMap<Integer,String[]>();
-		HashMap<Integer,String[]> hmTmpG = new HashMap<Integer,String[]>();
 		DeduccionesBasesNegReservas ded = new DeduccionesBasesNegReservas();
-		DeduccionesBasesNegReservas dedG = new DeduccionesBasesNegReservas();
 		ded.codigo = parserString(1,8);
 		if (linea.startsWith("2BIN")){
 			ded.tipoDed = "BIN";
@@ -1529,7 +1535,7 @@ public class DatosFiscalesSociedad {
 		else if (linea.startsWith("2CAN")){
 			ded.tipoDed = "CAN";
 			if (hmCAN==null) initCAN();
-			if (hmCAN!=null) hmTmp = hmCAN;	
+			hmTmp = hmCAN;
 		}
 		else if (linea.startsWith("2ACT")){
 			ded.tipoDed = "ACT";
@@ -1595,7 +1601,7 @@ public class DatosFiscalesSociedad {
 			dedTmp.importe    = parserDouble(posIni,posIni+13);
 			lDeduccionesBasesNegReservas.add(dedTmp);
 		}
-		
+
 		return sError == null;
 	}
 
@@ -1688,6 +1694,77 @@ public class DatosFiscalesSociedad {
 			in.valor("dfinifpagador", sa.nifpagador);
 			in.valor("dficuenta", sa.cuenta);
 			in.valor("dfiimporte", sa.importe);
+			bOk = in.execute();
+			if (!bOk){
+				hayIncidencias = true;
+				sError = sa.codigo;
+			}
+		}
+		return bOk;
+	}
+
+	private boolean leerCorrecciones(){
+		if (linea.startsWith("2AJ")){
+			Correcciones in = new Correcciones();
+			in.ejercicio = paramEjer;
+			in.nif = paramNif;
+			in.codigo = parserString(1,8);
+			in.coddesc = parserInteger(8,10);
+			in.importeaum = parserDouble(11,23);
+			in.importedis = parserDouble(24,37);
+			in.casactaun = getCasillaCorrec(in.coddesc,"A",true) ;
+			in.casantaum = getCasillaCorrec(in.coddesc,"A",false) ;
+			in.casactdism = getCasillaCorrec(in.coddesc,"D",true);
+			in.casantdism = getCasillaCorrec(in.coddesc,"D",false);
+			lCorreciones.add(in);
+			return sError == null;
+		}
+		return true;
+	}
+    private String getCasillaCorrec(int codiDesc, String aumDis, boolean ejerActual) {
+    	String cas200 = "";
+    	int [] DismAnt=  {2510,2520,2530,2540,2550,2560,2570,2580,2590,2600,2610,2620,2630,2640,2650,2660,2670,2680,2690,2720,2730,
+    	2740,2750,2820,2755,2860,2870,2880,2890,2900,2910,2930,2940,2950,2960,2990,3000,3010,3020,3030,3040,3050,
+    	3060,3080,3090,3100,3110,3120,3130,3140,3150,3160,3170,3180,3190,3200,3210,3220,3230,3240,3260,3270,3280,
+    	3300,3310,3315,3330,3340,3350,3370,3380,3390,3400,2310};
+    	
+    	int [] DismAct = {2509,2519,2529,2539,2549,2559,2569,2579,2589,2599,2609,2619,2629,2639,2649,2659,2669,2679,2689,2719,2729,2739,2749,2819,2754,2859,2869,
+    			2879,2889,2899,2909,2929,2939,1681,2959,2989,2999,3009,3019,3029,3039,3049,3059,3079,3089,3099,3109,3119,3129,3139,3149,3159,3169,3179,
+    			3189,3199,3209,3219,3229,3239,3259,3269,3279,3299,3309,3314,3329,3339,3349,3369,3379,3389,3399,2306};
+    	
+    	int [] AumAnt = {2505,2515,2525,2535,2545,2555,2565,0,2585,2595,2605,2615,2625,2635,2645,2655,2665,2675,2685,2715,2725,2735,2745,2815,2575,
+    			2855,2865,2875,2885,2895,2905,2925,2935,2945,2955,2985,2995,3005,3015,3025,3035,3045,3055,3075,3085,3095,3105,3115,3125,
+    			3135,3145,3155,3165,3175,3185,3195,3205,3215,3225,3235,3255,3265,3275,3295,3305,3285,3325,3335,3345,3365,3375,3385,3395,2309};
+    	
+    	int [] AumAct = {2504,2514,2524,2534,2544,2554,2564,0   ,2584,2594,2604,2614,2624,2634,2644,2654,2664,2674,2684,2714,2724,2734,2744,2814,
+    			2574,2854,2864,2874,2884,2894,2904,2924,2934,1676,2954,2984,2994,3004,3014,3024,3034,3044,3054,3074,3084,3094,3104,3114,
+    			3124,3134,3144,3154,3164,3174,3184,3194,3204,3214,3224,3234,3254,3264,3274,3294,3304,3284,3324,3334,3344,3364,3374,3384,3394,2305};
+    	if (codiDesc>0) {
+    	   if ("A".equals(aumDis)) {
+    		   if (ejerActual && codiDesc<=AumAct.length) return String.valueOf(AumAct[codiDesc-1]);
+    		   if (!ejerActual && codiDesc<=AumAnt.length) return String.valueOf(AumAnt[codiDesc-1]);
+    	   }
+    	   else if ("D".equals(aumDis)) {
+    		   if (ejerActual && codiDesc<=DismAct.length) return String.valueOf(DismAct[codiDesc-1]);
+    		   if (!ejerActual && codiDesc<=DismAnt.length) return String.valueOf(DismAnt[codiDesc-1]);
+    	   }    	     
+    	}
+    	return cas200;
+    }
+	private boolean grabarCorrecciones(){
+		boolean bOk = true;
+		for (Correcciones sa: lCorreciones){
+			Insert in = new Insert(connEA, "DFSCORRECCION");
+						in.valor("dfcoejer", paramEjer);
+			in.valor("dfconif", paramNif);
+			in.valor("dfcocodigo", sa.codigo);
+			in.valor("dfcocoddesc",sa.coddesc);
+			in.valor("dfcoimporteaum",sa.importeaum);
+			in.valor("dfcocasactaun",sa.casactaun);
+			in.valor("dfcocasantaum",sa.casantaum);
+			in.valor("dfcoimportedis",sa.importedis);
+			in.valor("dfcocasactdism",sa.casactdism);
+			in.valor("dfcocasantdism",sa.casantdism);
 			bOk = in.execute();
 			if (!bOk){
 				hayIncidencias = true;
@@ -1968,7 +2045,7 @@ public class DatosFiscalesSociedad {
 	}
 
 	class Administradores{
-		
+
 		int ejercicio;
 		String nif;
 		String codigo;
@@ -2122,19 +2199,32 @@ public class DatosFiscalesSociedad {
 		String cuenta;
 		double importe;
 	}
-	
+
+	class Correcciones{
+		int ejercicio;
+		String nif;
+		String codigo;
+		int coddesc;
+	    double importeaum;
+	    String casactaun;
+	    String casantaum;
+	    double importedis;
+	    String casactdism;
+	    String casantdism;
+    }
+
 	class AdministradorNoInformado {
 		int ejercicio;
 		String nif;
 		String codigo;
 	}
-	
+
 	class SocioNoInformado {
 		int ejercicio;
 		String nif;
 		String codigo;
 	}
-	
+
 	class RegistroDeclarado {
 		int ejercicio;
 		String nif;
@@ -2152,7 +2242,7 @@ public class DatosFiscalesSociedad {
 		double ingctarepercutidosIlt;
 		double importeCalculado;
 	}
-	
+
 	class RendimientoImputadoInformado {
 		int ejercicio;
 		String nif;
@@ -2168,7 +2258,7 @@ public class DatosFiscalesSociedad {
 		double gastosDeducibles;
 		double penalizacion;
 	}
-	
+
 	class ArrendamientosLocalesImp {
 		int ejercicio;
 		String nif;
@@ -2283,12 +2373,12 @@ public class DatosFiscalesSociedad {
 		if ("G".equals(codigo)) return "Ingreso CCT";
 		if ("V".equals(codigo)) return "Devoluc. CCT";
 		return null;
-	}	
-	
+	}
+
 	public static String getClaveArrendamientoLocalesImputados(String clave) {
 		return ("1".equals(clave) ? "Dineraria" : "Especie");
 	}
-	
+
 	public static String getTipoRendimientoImputado(String tipo) {
 		return ("1".equals(tipo) ? "Dineraria" : "Especie");
 	}
@@ -2337,6 +2427,25 @@ public class DatosFiscalesSociedad {
 		if ("6".equals(tipo)) return "Contr. Financ. atip.";
 		return null;
 	}
+  public static String getDescCorreccion(int codi) {
+      String [] desc = {"Cambio de criterios contables (art. 11.3.2º LIS)","Operaciones a plazos (art. 11.4 LIS)","Reversión del deterioro del valor de los elementos","Rentas negativas (art. 11.9 y 11.10 LIS)","Ajustes por quita o espera","Otras diferencias de imputación temporal de ingres",
+      "Diferencias entre amortización contable y fiscal","Deducción del 30% importe gastos de amortización c","Amortización del inmovilizado intangible (art. 12.","Amortización de inmovilizado afecto a I+D","Libertad de amortización de gastos de I+D",
+      "Libertad de amortización inmovilizado material nue","Otros supuestos de libertad de amortización","Libertad de amortización con mantenimiento de empl","Libertad de amortización sin mantenimiento de empl","Pérdidas por deterioro del art. 13.1 LIS no afecta",
+      "Pérdidas por deterioro del art. 13.1 LIS y provisi","Pérdidas por deterioro de IM, inversiones inmobili","Ajustes pérdidas por deterioro (art. 13.2.b LIS)","Pérdidas por deterioro (art. 13.2.c LIS)","Aplicación del límite del art. 11.12 LIS a las pér",
+      "Gastos y provisiones por pensiones no afectados po","Otras provisiones no deducibles fiscalmente","Operaciones realizadas con jurisdicciones no coope","Asimetrías híbridas (art. 15 bis LIS)","Pérdidas por deterioro (art. 15.k LIS)",
+      "Disminución de valor por art. 15.l LIS","Deuda tributaria de actos jurídicos documentados","Ajustes por art. 16 LIS","Revalorizaciones contables (art. 17.1 LIS)","Operaciones de aumento de capital art. 17.2 LIS",
+      "Transmisiones lucrativas y societarias: art. 17.4","Operaciones vinculadas: aplicación del valor de me","Operaciones del art. 19 LIS distintas del cambio d","Efectos de la valoración contable diferente fiscal","Exención sobre renta valores ent. residentes",
+      "Exención sobre renta valores ent. no residentes","Exención art. 21.3 distinta trans. val. resid","Exención art. 21.3 distinta trans. val. no resid","Exención de rentas en el extranjero (art. 22 LIS)","Reducción de rentas (art. 23 t DT 20ª LIS)",
+      "Obra benéfico-social de las cajas de ahorro y fund","Impuesto extranjero soportado por el contribuyente","Agrupación de interés económico (Cap. II del Tít.","Unión temporal de empresas, ajustes del art. 45.1","UTE, ajustes rentas exentas UTE opera extranj",
+      "UTE, ajustes rentas exentas colaboración análoga","UTE, ajustes por criterios imputación temporal","Bases imponibles negativas generadas dentro grupo","Sociedades y fondos de capital-riesgo y sociedades","Valoración de bienes y derechos. Régimen reestr",
+      "Minería e hidrocarburos: factor agotamiento","Hidrocarburos: Amortización de inversiones intangi","Transparencia fiscal internacional (art. 100 LIS)","ERD: libertad de amortización (art. 102 LIS)","ERD: amortización acelerada (art. 103 LIS y DT 28ª",
+      "ERD: pérdidas por deterioro créditos insolvencias","Arrendamiento financiero: régimen especial","Régimen fiscal entidades de tenencia de valores ex","Régimen de entidades parcialmente exentas (capítul","Régimen de entidades navieras en función del tonel",
+      "Aportaciones y colaboración a favor de entidades s","Régimen fiscal entidades sin fines lucrativos (Ley","Reserva para inversiones en Canarias (Ley 19/1994)","Exención transmisión bienes inmuebles (DA 6ª LIS)","UEFA Women Champions League 2020 (Ley 10/2021)",
+      "Operaciones a plazos (DT 1ª LIS)","Adquisición de participaciones en entidades no res","Reinversión de beneficios extraordinarios (DT 24ª","Entidades en régimen de atribución de rentas const","Correcciones específicas de entidades sometidas a",
+      "Eliminaciones pendientes de incorporar de sociedad","Otras correcciones al resultado de la cuenta de pé","TOTAL"};
+      if (codi<=desc.length) return desc[codi-1];
+      else return "";
+  }
 
   public static double getImportePagoFracc(DBConnection connModelos,int ejer,String nif,String modelo,String periodo) {
      double pago = 0;
@@ -2603,11 +2712,32 @@ public class DatosFiscalesSociedad {
     return impDed;
   }
   public static double getMultasSancion(DBConnection connJISS, int ejer, int codSoc) {
-    double impDed = 0;
-    Selector s = new Selector(connJISS);
-    s.execute("Select dc2amultas from DETALLECOREC2 where dc2ejeraplic="+ejer+" and dc2sociedad="+codSoc);
-    if (s.next()) impDed = s.getdouble("dc2amultas");
-    s.close();
-    return impDed;
+	    double impDed = 0;
+	    Selector s = new Selector(connJISS);
+	    s.execute("Select dc2amultas from DETALLECOREC2 where dc2ejeraplic="+ejer+" and dc2sociedad="+codSoc);
+	    if (s.next()) impDed = s.getdouble("dc2amultas");
+	    s.close();
+	    return impDed;
+  }	    
+  public static double getImporteCorreccion(DBConnection connJISS, int ejer, int codSoc, String casella) {
+    double impCorrec = 0;
+    int casillaAEAT = 0;
+    if (Util.isNumero(casella)) casillaAEAT = Integer.valueOf(casella);
+    if (casillaAEAT!=0) {
+    	java.util.Hashtable<Integer,Integer >  htCas200 = mae.jiss.general.CorrecFiscal.assignaEqDiferCasModel();
+    	boolean trobat = false;
+        for (java.util.Enumeration<Integer> e = htCas200.keys() ; (e.hasMoreElements() && !trobat) ;) {
+            int clau = e.nextElement();
+            int cas = htCas200.get(clau);
+            if (cas==casillaAEAT || (cas==(casillaAEAT-3))) {
+            	Selector s = new Selector(connJISS);
+            	s.execute("Select cceta_saldoant from CORRCTAPYGANCAS where cceejeraplic="+ejer+" and ccesociedad="+codSoc+" and ccencasilla="+cas);
+            	if (s.next()) impCorrec = s.getdouble("cceta_saldoant");
+            	s.close();
+            }
+        }
+    }     
+    return impCorrec;
   }
+  
 }

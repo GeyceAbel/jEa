@@ -3,6 +3,20 @@ package mae.easp.insprconver;
 import mae.easp.general.Easp;
 
 public class Sentencias {
+	public static String sentencias19_3[] = {
+			"CREATE TABLE DFSCORRECCION("+
+			"	    dfcoejer       INTEGER NOT NULL,"+
+			"	    dfconif        VARCHAR(15) NOT NULL,"+
+			"	    dfcocodigo     VARCHAR(7) NOT NULL,"+
+			"	    dfcocoddesc    INTEGER,"+
+			"	    dfcoimporteaum FLOAT,"+
+			"	    dfcocasactaun  VARCHAR(6),"+
+			"	    dfcocasantaum  VARCHAR(6),"+
+			"	    dfcoimportedis FLOAT,"+
+			"	    dfcocasactdism VARCHAR(6),"+
+			"	    dfcocasantdism VARCHAR(6),"+
+			"	    PRIMARY KEY(dfcoejer, dfconif, dfcocodigo));"};
+	
 	public static String sentencias19_2[] = {
 			"CREATE TABLE DFSINTERESES("+
 			"    dfiejer INTEGER NOT NULL,"+
