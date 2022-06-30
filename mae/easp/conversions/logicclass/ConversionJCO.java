@@ -5026,46 +5026,75 @@ public class ConversionJCO extends ConversionLC {
 			String subCuentaDec = pcuentas.getString("pcusubcuenta");
 			Selector slocal = new Selector(dbJCta);
 			boolean borra = false;
+			boolean existeLocal347 = false;
 			//Borra previamente el mismo local antes de insertar.
-			String whereLocal = "pclempresa="+codGYC+" and pclejercicio="+ejer+" and pclcuenta='"+cuentaDec+"' and pclsubcuenta='"+subCuentaDec+"' and pclreferencia='"+datosVia[0]+"' and pclcalle='"+datosVia[2]+"' and pclnumero='"+datosVia[4]+"'";
+			String whereLocal = "pclempresa="+codGYC+" and pclcuenta='"+cuentaDec+"' and pclsubcuenta='"+subCuentaDec+"' and pclreferencia='"+datosVia[0]+"' and pclcalle='"+datosVia[2]+"' and pclnumero='"+datosVia[4]+"'";
+			String whereLocal347 = "pclempresa="+codGYC+" and pclejercicio="+ejer+" and pclcuenta='"+cuentaDec+"' and pclsubcuenta='"+subCuentaDec+"'";
 			if (datosVia[0]==null)
 				whereLocal = "pclempresa="+codGYC+" and pclejercicio="+ejer+" and pclcuenta='"+cuentaDec+"' and pclsubcuenta='"+subCuentaDec+"' and pclcalle='"+datosVia[2]+"' and pclnumero='"+datosVia[4]+"'";
 			slocal.execute("Select pclempresa from pclocales where "+whereLocal);
 			if(slocal.next())
 				borra = true;
+			slocal.execute("Select pclempresa from pclocales where "+whereLocal347);
+			if(slocal.next())
+				existeLocal347=true;
 			slocal.close();
 			
 			if(borra) {
 				Delete delLocal = new Delete(dbJCta,"PCLOCALES");
 				delLocal.execute(whereLocal);
 			}
-			
-			Insert plocales = new Insert(dbJCta, "PCLOCALES");
-			plocales.valor("pclempresa", codGYC);
-			plocales.valor("pclejercicio", ejer);
-			plocales.valor("pclcuenta", cuentaDec);
-			plocales.valor("pclsubcuenta", subCuentaDec);
-			plocales.valor("pclreferencia", datosVia[0]);
-			plocales.valor("pclsiglas", datosVia[1]);
-			plocales.valor("pclcalle", datosVia[2]);
-			plocales.valor("pclnumero", datosVia[4]);
-			plocales.valor("pclescalera", datosVia[8]);
-			plocales.valor("pclpiso", datosVia[9]);
-			plocales.valor("pclpuerta", datosVia[10]);
-			plocales.valor("pclcodimuni", datosVia[13]);
-			plocales.valor("pclmunicipio", datosVia[12]);
-			plocales.valor("pclprovincia", datosVia[14]);
-			plocales.valor("pclpais", 108);
-			plocales.valor("pclsituacion", clauSit);
-			plocales.valor("pcltipovia", datosVia[1]);
-			plocales.valor("pcltiponum", datosVia[3]);
-			plocales.valor("pclcalifnum", datosVia[5]);
-			plocales.valor("pclbloque", datosVia[6]);
-			plocales.valor("pclcomplem", datosVia[11]);
-			//plocales.valor("pcllocal", null);
-			plocales.valor("pclcodpostal", datosVia[15]);
-			//plocales.valor("pclportal2", null);
-			bOk= plocales.execute();
+			if(existeLocal347) {
+				Update ulocales = new Update(dbJCta, "PCLOCALES");
+				ulocales.valor("pclejercicio", ejer);
+				ulocales.valor("pclreferencia", datosVia[0]);
+				ulocales.valor("pclsiglas", datosVia[1]);
+				ulocales.valor("pclcalle", datosVia[2]);
+				ulocales.valor("pclnumero", datosVia[4]);
+				ulocales.valor("pclescalera", datosVia[8]);
+				ulocales.valor("pclpiso", datosVia[9]);
+				ulocales.valor("pclpuerta", datosVia[10]);
+				ulocales.valor("pclcodmuni", datosVia[13]);
+				ulocales.valor("pclmunicipio", datosVia[12]);
+				ulocales.valor("pclprovincia", datosVia[14]);
+				ulocales.valor("pclpais", 108);
+				ulocales.valor("pclsituacion", clauSit);
+				ulocales.valor("pcltipovia", datosVia[1]);
+				ulocales.valor("pcltiponum", datosVia[3]);
+				ulocales.valor("pclcalifnum", datosVia[5]);
+				ulocales.valor("pclbloque", datosVia[6]);
+				ulocales.valor("pclcomplem", datosVia[11]);
+				ulocales.valor("pclcodpostal", datosVia[15]);
+				bOk=ulocales.execute(whereLocal347);
+			}
+			else {
+				Insert plocales = new Insert(dbJCta, "PCLOCALES");
+				plocales.valor("pclempresa", codGYC);
+				plocales.valor("pclejercicio", ejer);
+				plocales.valor("pclcuenta", cuentaDec);
+				plocales.valor("pclsubcuenta", subCuentaDec);
+				plocales.valor("pclreferencia", datosVia[0]);
+				plocales.valor("pclsiglas", datosVia[1]);
+				plocales.valor("pclcalle", datosVia[2]);
+				plocales.valor("pclnumero", datosVia[4]);
+				plocales.valor("pclescalera", datosVia[8]);
+				plocales.valor("pclpiso", datosVia[9]);
+				plocales.valor("pclpuerta", datosVia[10]);
+				plocales.valor("pclcodimuni", datosVia[13]);
+				plocales.valor("pclmunicipio", datosVia[12]);
+				plocales.valor("pclprovincia", datosVia[14]);
+				plocales.valor("pclpais", 108);
+				plocales.valor("pclsituacion", clauSit);
+				plocales.valor("pcltipovia", datosVia[1]);
+				plocales.valor("pcltiponum", datosVia[3]);
+				plocales.valor("pclcalifnum", datosVia[5]);
+				plocales.valor("pclbloque", datosVia[6]);
+				plocales.valor("pclcomplem", datosVia[11]);
+				//plocales.valor("pcllocal", null);
+				plocales.valor("pclcodpostal", datosVia[15]);
+				//plocales.valor("pclportal2", null);
+				bOk= plocales.execute();
+			}
 		}
 		pcuentas.close();
 		return bOk;
