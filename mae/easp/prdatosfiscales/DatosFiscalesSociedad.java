@@ -981,9 +981,10 @@ public class DatosFiscalesSociedad {
 		if (bOk) bOk = del.execute("dfriejer="+paramEjer+" AND dfrinif='"+paramNif+"'");
 		del = new Delete(connEA, "DFSARRLOCALIMP");
 		if (bOk) bOk = del.execute("dfarejer="+paramEjer+" AND dfarnif='"+paramNif+"'");
-    del = new Delete(connEA, "DFSINTERESES");
-    if (bOk) bOk = del.execute("dfiejer="+paramEjer+" AND dfinif='"+paramNif+"'");
-
+		del = new Delete(connEA, "DFSINTERESES");
+		if (bOk) bOk = del.execute("dfiejer="+paramEjer+" AND dfinif='"+paramNif+"'");
+		del = new Delete(connEA, "DFSCORRECCION");
+		if (bOk) bOk = del.execute("dfcoejer="+paramEjer+" AND dfconif='"+paramNif+"'");
 		return bOk;
 	}
 
@@ -2719,22 +2720,23 @@ public class DatosFiscalesSociedad {
 	    s.close();
 	    return impDed;
   }	    
-  public static double getImporteCorreccion(DBConnection connJISS, int ejer, int codSoc, String casella) {
+  public static double getImporteCorreccion(DBConnection connJISS, int ejer, int codSoc,String aumDism, int linea) {
+     int [] casPralAum = {355,357,359,225,1514,361,303,0,1005,305,307,1003,309,514,516,321,415,331,325,327,416,335,337,341,2469,1807,1808, 
+	  1813,363,345,1818,347,1011,1574,1015,2182,2184,2186,2188,256,1822,373,340,375,1320,184,1022,1018,1275,377,379,381,383, 
+	  387,311,313,323,317,385,389,397,250,391,403,518,2312,510,329,365,409,411,1027,413,0};
+     int [] casPralDism = {356,358,360,226,272,362,304,505,1006,306,308,1004,310,509,551,322,211,332,326,328,543,336,338,342,2470,1811,1812,1814,364,346,1819,348,1012,1575,1016,2183,
+    		 2185,2187,2189,278,372,374,1589,376,1321,544,1023,1019,1276,378,380,382,384,388,312,314,324,318,386,390,398,251,392,404,519,2313,512,330,1026,410,412,1028,414,0};
+
     double impCorrec = 0;
-    int casillaAEAT = 0;
-    if (Util.isNumero(casella)) casillaAEAT = Integer.valueOf(casella);
-    if (casillaAEAT!=0) {
-    	java.util.Hashtable<Integer,Integer >  htCas200 = mae.jiss.general.CorrecFiscal.assignaEqDiferCasModel();
-    	boolean trobat = false;
-        for (java.util.Enumeration<Integer> e = htCas200.keys() ; (e.hasMoreElements() && !trobat) ;) {
-            int clau = e.nextElement();
-            int cas = htCas200.get(clau);
-            if (cas==casillaAEAT || (cas==(casillaAEAT-3))) {
-            	Selector s = new Selector(connJISS);
-            	s.execute("Select cceta_saldoant from CORRCTAPYGANCAS where cceejeraplic="+ejer+" and ccesociedad="+codSoc+" and ccencasilla="+cas);
-            	if (s.next()) impCorrec = s.getdouble("cceta_saldoant");
-            	s.close();
-            }
+    int cas = 0;
+    if (linea>0) {
+    	if ("A".equals(aumDism) && linea<=casPralAum.length) cas = casPralAum[linea-1];
+    	else if ("D".equals(aumDism) && linea<=casPralDism.length) cas = casPralDism[linea-1];
+    	if (cas>0) {
+         	Selector s = new Selector(connJISS);
+            s.execute("Select cceta_saldoant from CORRCTAPYGANCAS where cceejeraplic="+ejer+" and ccesociedad="+codSoc+" and ccencasilla="+cas);
+            if (s.next()) impCorrec = s.getdouble("cceta_saldoant");
+            s.close();
         }
     }     
     return impCorrec;

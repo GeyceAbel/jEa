@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Jul 01 11:22:52 CEST 2022
+// Fecha y hora:     Fri Jul 01 18:03:49 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -259,6 +259,18 @@ private String getProvinciaPais(String codigo){
 		ventana.getControlTable().removeRow(i);
 	}
 }
+
+public void eliminaFilasConMismoImporte(MultiDataForm ventana, ColumnEdit ctrolImporteGYC1, ColumnEdit ctrolImporteDF1, ColumnEdit ctrolImporteGYC2, ColumnEdit ctrolImporteDF2){
+	java.util.ArrayList<Integer> lRows = new java.util.ArrayList<Integer>();
+	for (int i = ventana.getRowCount(); i>0; i--) {
+		if (ctrolImporteGYC1.getValue(i-1).getDouble() == ctrolImporteDF1.getValue(i-1).getDouble() && ctrolImporteGYC2.getValue(i-1).getDouble() == ctrolImporteDF2.getValue(i-1).getDouble()) {
+			lRows.add(i-1);
+		}
+	}
+	for (Integer i : lRows){
+		ventana.getControlTable().removeRow(i);
+	}
+}
         // Metodos
         // Controles
         public CtrlVvnif vvnif;
@@ -399,6 +411,7 @@ private String getProvinciaPais(String codigo){
                 	eliminaFilasConMismoImporte(vdonaciones,vdonaciones.vvimptegyc,vdonaciones.dfdimporte);
                 	eliminaFilasConMismoImporte(vmultasdgt,vmultasdgt.vvimptegyc,vmultasdgt.dfmtejecut);
                 	eliminaFilasConMismoImporte(vsanciones,vsanciones.vvimptegyc,vsanciones.dfscalculado);
+                	eliminaFilasConMismoImporte(vcorrecciones,vcorrecciones.vvaumentogyc,vcorrecciones.dfcoimporteaum,vcorrecciones.vvdisminucgyc,vcorrecciones.dfcoimportedis);
                 	setTitle("&2. Quitar filtro importes");
                 }
                 else {
@@ -427,6 +440,7 @@ private String getProvinciaPais(String codigo){
                 	sdonaciones.execute();
                 	smultasdgt.execute();
                 	ssanciones.execute();
+                	scorreccion.execute();	
                 }
                 prdatosfiscales.show();
                 				
@@ -10351,7 +10365,7 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
             {
             super(prdatosfiscales);
             setName("vcorrecciones");
-            setTitle("Correcciones al resultado Cuenta Pérdidas y Ganancias");
+            setTitle("Correcciones Pérdidas y Ganancias");
             setLocation(new Location());
             setStates(SHOW | SEARCH);
             setModal(true);
@@ -10377,12 +10391,11 @@ if (vieneDeJiss) vvimptegyc.setValue(DatosFiscalesSociedad.getGastoDonativo(conn
             super.onBeginRecord ();
             vvdescripcion.setValue(DatosFiscalesSociedad.getDescCorreccion(scorreccion.dfcocoddesc.getInteger()));
 if (vieneDeJiss) {
-	if (dfcocasactaun.getString()!=null && !"".equals(dfcocasactaun.getString().trim())) 
-	    vvaumentogyc.setValue(DatosFiscalesSociedad.getImporteCorreccion(connAplic,progEjer,gSociedad,dfcocasactaun.getString()));
-	if (dfcocasactdism.getString()!=null && !"".equals(dfcocasactdism.getString().trim())) 
-	    vvdisminucgyc.setValue(DatosFiscalesSociedad.getImporteCorreccion(connAplic,progEjer,gSociedad,dfcocasactdism.getString()));        
-}
-
+	if (scorreccion.dfcocasactaun.getString()!=null && !"".equals(scorreccion.dfcocasactaun.getString().trim())) 
+	    vvaumentogyc.setValue(DatosFiscalesSociedad.getImporteCorreccion(connAplic,progEjer,gSociedad,"A",scorreccion.dfcocoddesc.getInteger()));
+	if (scorreccion.dfcocasactdism.getString()!=null && !"".equals(scorreccion.dfcocasactdism.getString().trim())) 
+	    vvdisminucgyc.setValue(DatosFiscalesSociedad.getImporteCorreccion(connAplic,progEjer,gSociedad,"D",scorreccion.dfcocoddesc.getInteger()));
+}	
             }
         }
         
@@ -10690,6 +10703,7 @@ public double totalImpCalculado = 0;
                 setMaskOutput("###,###,###,###.99");
                 setLength(15);
                 setSearchable(true);
+                setEnabled(false);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
@@ -10714,6 +10728,7 @@ public double totalImpCalculado = 0;
                 setMaskOutput("###,###,###,###.99");
                 setLength(15);
                 setSearchable(true);
+                setEnabled(false);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
@@ -10738,6 +10753,7 @@ public double totalImpCalculado = 0;
                 setMaskOutput("###,###,###,###.99");
                 setLength(15);
                 setSearchable(true);
+                setEnabled(false);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
@@ -10762,6 +10778,7 @@ public double totalImpCalculado = 0;
                 setMaskOutput("###,###,###,###.99");
                 setLength(15);
                 setSearchable(true);
+                setEnabled(false);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
@@ -10786,6 +10803,7 @@ public double totalImpCalculado = 0;
                 setMaskOutput("###,###,###,###.99");
                 setLength(15);
                 setSearchable(true);
+                setEnabled(false);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
@@ -10864,6 +10882,7 @@ public double totalGasto = 0;
                 setMaskOutput("###,###,###,###.99");
                 setLength(15);
                 setSearchable(true);
+                setEnabled(false);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
@@ -10888,6 +10907,7 @@ public double totalGasto = 0;
                 setMaskOutput("###,###,###,###.99");
                 setLength(15);
                 setSearchable(true);
+                setEnabled(false);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
@@ -10912,6 +10932,7 @@ public double totalGasto = 0;
                 setMaskOutput("###,###,###,###.99");
                 setLength(15);
                 setSearchable(true);
+                setEnabled(false);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
@@ -10984,6 +11005,7 @@ public double totalRetencion = 0;
                 setMaskOutput("###,###,###,###.99");
                 setLength(15);
                 setSearchable(true);
+                setEnabled(false);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
@@ -11008,6 +11030,7 @@ public double totalRetencion = 0;
                 setMaskOutput("###,###,###,###.99");
                 setLength(15);
                 setSearchable(true);
+                setEnabled(false);
                 // SET: CONTROLEDIT
                 }
             // GET: CONTROLEDIT
