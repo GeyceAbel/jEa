@@ -677,7 +677,7 @@ public class DatosFiscalesSociedad {
 		if (bOk) bOk = grabarRendimientosImputados();
 		if (bOk) bOk = grabarArrendamientosLocalesImp();
 		if (bOk) bOk = grabarIntereses();
-		if (bOk) bOk = grabarCorrecciones();		
+		if (bOk) bOk = grabarCorrecciones();	
 		
 		pbf.setSecondaryPercent(100);
 		pbf.setPercent(100);

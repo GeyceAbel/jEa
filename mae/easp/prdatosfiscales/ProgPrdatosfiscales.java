@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Jun 30 12:54:24 CEST 2022
+// Fecha y hora:     Fri Jul 01 11:22:52 CEST 2022
 // 
 // Aplicación: easp
 // 
