@@ -5025,7 +5025,6 @@ public class ConversionJCO extends ConversionLC {
 			String cuentaDec = pcuentas.getString("pcucuenta");
 			String subCuentaDec = pcuentas.getString("pcusubcuenta");
 			Selector slocal = new Selector(dbJCta);
-			dbJCta.commit();
 			boolean borra = false;
 			boolean existeLocal347 = false;
 			//Borra previamente el mismo local antes de insertar.
