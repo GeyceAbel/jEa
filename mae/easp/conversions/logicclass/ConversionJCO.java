@@ -5025,6 +5025,7 @@ public class ConversionJCO extends ConversionLC {
 			String cuentaDec = pcuentas.getString("pcucuenta");
 			String subCuentaDec = pcuentas.getString("pcusubcuenta");
 			Selector slocal = new Selector(dbJCta);
+			dbJCta.commit();
 			boolean borra = false;
 			boolean existeLocal347 = false;
 			//Borra previamente el mismo local antes de insertar.
@@ -5035,7 +5036,7 @@ public class ConversionJCO extends ConversionLC {
 			slocal.execute("Select pclempresa from pclocales where "+whereLocal);
 			if(slocal.next())
 				borra = true;
-			slocal.execute("Select pclempresa from pclocales where "+whereLocal347);
+			slocal.execute("Select pclempresa from pclocales where "+whereLocal347); //Mira si existe el local ya por el mod 347 o de facturas i lo actualizas.
 			if(slocal.next())
 				existeLocal347=true;
 			slocal.close();
@@ -5054,7 +5055,7 @@ public class ConversionJCO extends ConversionLC {
 				ulocales.valor("pclescalera", datosVia[8]);
 				ulocales.valor("pclpiso", datosVia[9]);
 				ulocales.valor("pclpuerta", datosVia[10]);
-				ulocales.valor("pclcodmuni", datosVia[13]);
+				ulocales.valor("pclcodimuni", datosVia[13]);
 				ulocales.valor("pclmunicipio", datosVia[12]);
 				ulocales.valor("pclprovincia", datosVia[14]);
 				ulocales.valor("pclpais", 108);
