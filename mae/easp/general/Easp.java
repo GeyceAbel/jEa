@@ -2677,7 +2677,181 @@ public static boolean isSecurityMD5 () {
 	return securityMD5;
 }
 
+//Ctrol si codi empresa (cdpcodi) tambe asignat en un altre NIF 
+public static Hashtable <String, List<String> > existeCodiEmpresa(String nif, int ejercicio, int codcdp, boolean tejLab, boolean tejCon, boolean tejEo, boolean tejIss, boolean tejRen) {
+	  Hashtable<String,List<String>> ht = new Hashtable<String, List<String>>();	//ht de nif com a clau i llista aplicatius com a valor 
+	  
+	  ErrorManager actual = Aplication.getAplication().getErrorManager();
+	  mae.easp.general.JEaError errorManager = new mae.easp.general.JEaError();
+	  Aplication.getAplication().setErrorManager(errorManager);	 
 
+      //System.out.println(" ["+(Easp.dominio.substring(0,6)+asigCeros(Integer.toString(codcdp)))+"] ["+nif+"] "+codcdp+" ");	       
+	  int ejerant1=(ejercicio-1);
+	  	
+	  if (tejCon) {
+		  String codi=asigCeros(Integer.toString(codcdp));
+		  codi = Easp.dominio.substring(0,6)+codi;
+		  Selector s = new Selector (connEA);		
+		  s.execute("Select * from BDSCARGADAS where bddominio like '"+Easp.dominio.substring(0,6)+"%' AND bdejer="+ejercicio);
+          while (s.next()) {
+        	  int any=s.getint("bdejer");
+        	  String bdtipo  = s.getString("bdtipo");
+        	  String bdbdnom = s.getString("bdbdnom");
+        	  String bddomicta=s.getString(("bddominio"));
+        	  //System.out.println(" "+codi+" bdbdnom="+bdbdnom+" bdtipo="+bdtipo+" bddominio="+bddomicta+" ("+any+")");
+        	  DBConnection connCta =  Easp.conectaBD (s.getString("bdbdnom"), s.getString("bdbdserv"), s.getString("bdbduser"), s.getString("bdbdpass"), s.getString("bdtipo"));
+        	  //        	   
+    		  if (connCta!=null) {
+    			  Selector sCo = new Selector (connCta);
+    			  sCo.execute("Select empnif FROM EMPRESA where  empcodigo="+codcdp+" AND empnif<>'"+nif+"' order by empcodigo");
+    			  while (sCo.next()){
+    				  String NIF = sCo.getString("empnif");			  
+    				  System.out.println("JCON "+NIF+" ");				  
+    				  if (ht.containsKey(NIF)) {
+    					  ht.get(NIF).add("JCON");
+    				  }
+    				  else {
+    					  List<String> lista = new ArrayList<String>();
+    					  lista.add("JCON");
+    					  ht.put(NIF, lista);
+    				  }
+    			  }
+    			  sCo.close(); 
+    		  }
+        	  //
+          }
+     	  s.close();
+	  }	  
+	  
+	  if (tejLab) {			  
+		  DBConnection connJNomina = Easp.getConnexio("laboral", Easp.connEA);
+		  if (connJNomina!=null) {
+			  Selector sN = new Selector (connJNomina);
+			  sN.execute("Select empnif,empnombre FROM EMPRESA where  empcodigo="+codcdp+" AND empnif<>'"+nif+"' order by empcodigo");
+			  while (sN.next()){
+				  String NIF = sN.getString("empnif");
+				  String NOM = sN.getString("empnombre");
+				  System.out.println("JNOM "+NIF+" "+NOM);
+				  if (ht.containsKey(NIF)) {
+					  ht.get(NIF).add("JNOM");
+				  }
+				  else {
+					  List<String> lista = new ArrayList<String>();
+					  lista.add("JNOM");
+					  ht.put(NIF, lista);
+				  }
+			  }
+			  sN.close();
+		  }
+	  }	
+	  	   
+	  if (tejEo) {	
+		  DBConnection connJEO = Easp.getConnexio("jeo", Easp.connEA);
+		  if (connJEO!=null) {
+			  Selector sE = new Selector (connJEO);
+			  sE.execute("Select empnif,empnombre FROM EMPRESA where  empcodigo="+codcdp+" AND empnif<>'"+nif+"' order by empcodigo");
+			  while (sE.next()){
+				  String NIF = sE.getString("empnif");
+				  String NOM = sE.getString("empnombre");
+				  System.out.println("JEO  "+NIF+" "+NOM);
+				  if (ht.containsKey(NIF)) {
+					  ht.get(NIF).add("JEO");
+				  }
+				  else {
+					  List<String> lista = new ArrayList<String>();
+					  lista.add("JEO");
+					  ht.put(NIF, lista);
+				  }
+			  }
+			  sE.close();
+		  }
+	  }
+	  
+	  if (tejIss) {	
+		  DBConnection connJIss = Easp.getConnexio("jiss", Easp.connEA);
+		  if (connJIss!=null) {
+			  Selector sI = new Selector (connJIss); 
+			  sI.execute("Select soccif,socnombre,socejeraplic FROM SOCIEDADES where socejeraplic="+ejerant1+" AND soccodigo="+codcdp+" AND soccif<>'"+nif+"' order by soccodigo");
+			  while (sI.next()){				  
+				  String NIF = sI.getString("soccif");
+				  String NOM = sI.getString("socnombre");
+				  System.out.println("JISS "+NIF+" "+NOM+" "+sI.getint("socejeraplic"));
+				  if (ht.containsKey(NIF)) {
+					  ht.get(NIF).add("JISS");
+				  }
+				  else {
+					  List<String> lista = new ArrayList<String>();
+					  lista.add("JISS");
+					  ht.put(NIF, lista);
+				  }
+			  }
+			  sI.close();
+		  }
+	  }
+	  
+	  if (tejRen) {
+		  DBConnection connJRenta = Easp.getConnexio("jrenta", Easp.connEA);
+		  if (connJRenta!=null) {
+			  String codicdp=asigCeros(Integer.toString(codcdp));
+			  codicdp =Easp.dominio.substring(0,6)+codicdp;
+			  String sql= " decejeraplic="+ejerant1+" AND (deccodigocdpdec='"+codicdp+"' OR deccodigocdpcon='"+codicdp+"' )";
+
+			  Selector sD = new Selector (connJRenta);
+			  sD.execute("Select decnifdec,decnifcon,deccodigocdpdec,deccodigocdpcon,decapell1dec,decapell2dec,decnombredec,decapell1con,decapell2con,decnombrecon,deccodigo,decejeraplic from DECLARANTE where "+sql+"  order by decejeraplic,deccodigocdpdec");
+			  while (sD.next()){				  
+				  String codDEC=sD.getString("deccodigo");
+				  String NIFD = sD.getString("decnifdec");
+				  String CDPD = sD.getString("deccodigocdpdec");
+				  String NIFC = sD.getString("decnifcon");
+				  String CDPC = sD.getString("deccodigocdpcon");
+				  if (CDPD.equals(codicdp) && !NIFD.equals(nif)) {
+					  System.out.println("JREN "+NIFD+" (D) ["+codDEC+"]"+sD.getString("decnombredec")+" "+sD.getString("decapell1dec")+" "+sD.getint("decejeraplic"));
+					  if (ht.containsKey(NIFD)) {
+						  ht.get(NIFD).add("JREN");
+					  }
+					  else {
+						  List<String> lista = new ArrayList<String>();
+						  lista.add("JREN");
+						  ht.put(NIFD, lista);
+					  }					  
+				  }
+				  if  (NIFC!=null && !"".equals(NIFC) && !"".equals(CDPC) && CDPC!=null) {
+					  if (CDPC.equals(codicdp) && !NIFC.equals(nif)) {
+						  System.out.println("JREN "+NIFC+" (C) ["+codDEC+"]"+sD.getString("decnombrecon")+" "+sD.getString("decapell1con")+" "+sD.getint("decejeraplic"));			    
+						  if (ht.containsKey(NIFC)) {
+							  ht.get(NIFC).add("JREN");
+						  }
+						  else {
+							  List<String> lista = new ArrayList<String>();
+							  lista.add("JREN");
+							  ht.put(NIFC, lista);
+						  }			    	 
+					  }
+				  }
+			  }
+			  sD.close();
+		  }
+	  }
+	  
+	  Aplication.getAplication().setErrorManager(actual);
+ return ht;
+}
+
+public static String asigCeros(String codigo){
+		int n=6 - codigo.length();
+		if (n>0){
+		   	String tmp="";
+		    for (int y=1; y<=n; y++){
+		          String cero="0";
+		          tmp+=cero;
+		    }
+		    codigo=tmp+codigo;	    
+		}	    
+	  return codigo;   
+}
+//
+
+// ++++++++++++++
  } //fin classe EASP
 
  //classe per insertar registres (degudament formatats)
@@ -3050,9 +3224,6 @@ System.out.println("leerFicheroSecuencial : fichero ["+tabla+"]");
   public static boolean isJavaMicrosoft(){
     return Aplication.getAplication().getConfig("MICROSOFT").equals("SI");
     }
-
-
-
 
 
   abstract public String getLinia(String linia);

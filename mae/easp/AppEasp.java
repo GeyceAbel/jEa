@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Mar 10 13:53:14 CET 2021
+// Fecha y hora:     Tue Jul 19 11:13:27 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -467,6 +467,7 @@ class Barramenu extends MenuBar
         public M1gestmir m1gestmir;
         public M1gestionnif m1gestionnif;
         public M1auditoria m1auditoria;
+        public M1ctrolcdp m1ctrolcdp;
         class M1inciden extends MenuItemProgram
             {
             public M1inciden()
@@ -513,6 +514,17 @@ class Barramenu extends MenuBar
                 }
             }
             
+        class M1ctrolcdp extends MenuItemProgram
+            {
+            public M1ctrolcdp()
+                {
+                super("&Control códigos empresa");
+                setName("m1ctrolcdp");
+                setProgram("mae.easp.prsctrolcdp.ProgPrsctrolcdp");
+                // SET: MENU
+                }
+            }
+            
         public Mtablascomunes()
             {
             super("U&tilidades");
@@ -523,6 +535,7 @@ class Barramenu extends MenuBar
             add(m1gestmir=new M1gestmir());
             add(m1gestionnif=new M1gestionnif());
             add(m1auditoria=new M1auditoria());
+            add(m1ctrolcdp=new M1ctrolcdp());
             }
         }
         
@@ -636,6 +649,8 @@ class Bdeasp extends DataBase
     public CatModelos2 catmodelos2;
     public CatModgen catmodgen;
     public CatXagpi catxagpi;
+    public CatModigic catmodigic;
+    public CatModelo220 catmodelo220;
     public Bdeasp(AppEasp easp)
         {
         super(easp);
@@ -657,6 +672,8 @@ class Bdeasp extends DataBase
         catmodelos2 = new CatModelos2();
         catmodgen = new CatModgen();
         catxagpi = new CatXagpi();
+        catmodigic = new CatModigic();
+        catmodelo220 = new CatModelo220();
         Catalog array[] = {
             cateasp,
             catautition,
@@ -672,7 +689,9 @@ class Bdeasp extends DataBase
             catmodelos1,
             catmodelos2,
             catmodgen,
-            catxagpi
+            catxagpi,
+            catmodigic,
+            catmodelo220
             };
         setCatalogs(array);
         }
