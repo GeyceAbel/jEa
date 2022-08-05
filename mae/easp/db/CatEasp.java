@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Jun 30 10:01:11 CEST 2022
+// Fecha y hora:     Thu Aug 04 19:53:55 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -4510,6 +4510,16 @@ public class CatEasp extends Catalog
         public FieldDef pcihleavresid;
         public FieldDef pcihleaporcint;
         public FieldDef pcihleaespyme;
+        public FieldDef pcihctal524;
+        public FieldDef pcihsubctal524;
+        public FieldDef pcihctal662;
+        public FieldDef pcihsubctal662;
+        public FieldDef pcihctal626;
+        public FieldDef pcihsubctal626;
+        public FieldDef pcihctal472;
+        public FieldDef pcihsubctal472;
+        public FieldDef pcihctal572;
+        public FieldDef pcihsubctal572;
         public TabPcinmovhis(String name)
             {
             super(name);
@@ -4563,6 +4573,16 @@ public class CatEasp extends Catalog
             pcihleavresid = new FieldDef("pcihleavresid",FieldDef.FLOAT,0,2);
             pcihleaporcint = new FieldDef("pcihleaporcint",FieldDef.FLOAT,0,2);
             pcihleaespyme = new FieldDef("pcihleaespyme",FieldDef.CHAR,1);
+            pcihctal524 = new FieldDef("pcihctal524",FieldDef.CHAR,4);
+            pcihsubctal524 = new FieldDef("pcihsubctal524",FieldDef.CHAR,12);
+            pcihctal662 = new FieldDef("pcihctal662",FieldDef.CHAR,4);
+            pcihsubctal662 = new FieldDef("pcihsubctal662",FieldDef.CHAR,12);
+            pcihctal626 = new FieldDef("pcihctal626",FieldDef.CHAR,4);
+            pcihsubctal626 = new FieldDef("pcihsubctal626",FieldDef.CHAR,12);
+            pcihctal472 = new FieldDef("pcihctal472",FieldDef.CHAR,4);
+            pcihsubctal472 = new FieldDef("pcihsubctal472",FieldDef.CHAR,12);
+            pcihctal572 = new FieldDef("pcihctal572",FieldDef.CHAR,4);
+            pcihsubctal572 = new FieldDef("pcihsubctal572",FieldDef.CHAR,12);
             FieldDef array[] = {
                 pcihelemento,
                 pcihempresa,
@@ -4613,7 +4633,17 @@ public class CatEasp extends Catalog
                 pcihtipofiscal,
                 pcihleavresid,
                 pcihleaporcint,
-                pcihleaespyme                
+                pcihleaespyme,
+                pcihctal524,
+                pcihsubctal524,
+                pcihctal662,
+                pcihsubctal662,
+                pcihctal626,
+                pcihsubctal626,
+                pcihctal472,
+                pcihsubctal472,
+                pcihctal572,
+                pcihsubctal572                
                 };
             setColumns(array);
             FieldDef arrayf[] = {pcihelemento };
@@ -4721,6 +4751,16 @@ public class CatEasp extends Catalog
         public FieldDef pcileavresid;
         public FieldDef pcileaporcint;
         public FieldDef pcileaespyme;
+        public FieldDef pcictal524;
+        public FieldDef pcisubctal524;
+        public FieldDef pcictal662;
+        public FieldDef pcisubctal662;
+        public FieldDef pcictal626;
+        public FieldDef pcisubctal626;
+        public FieldDef pcictal472;
+        public FieldDef pcisubctal472;
+        public FieldDef pcictal572;
+        public FieldDef pcisubctal572;
         public TabPcinmov(String name)
             {
             super(name);
@@ -4773,6 +4813,16 @@ public class CatEasp extends Catalog
             pcileavresid = new FieldDef("pcileavresid",FieldDef.FLOAT,0,2);
             pcileaporcint = new FieldDef("pcileaporcint",FieldDef.FLOAT,0,2);
             pcileaespyme = new FieldDef("pcileaespyme",FieldDef.CHAR,1);
+            pcictal524 = new FieldDef("pcictal524",FieldDef.CHAR,4);
+            pcisubctal524 = new FieldDef("pcisubctal524",FieldDef.CHAR,12);
+            pcictal662 = new FieldDef("pcictal662",FieldDef.CHAR,4);
+            pcisubctal662 = new FieldDef("pcisubctal662",FieldDef.CHAR,12);
+            pcictal626 = new FieldDef("pcictal626",FieldDef.CHAR,4);
+            pcisubctal626 = new FieldDef("pcisubctal626",FieldDef.CHAR,12);
+            pcictal472 = new FieldDef("pcictal472",FieldDef.CHAR,4);
+            pcisubctal472 = new FieldDef("pcisubctal472",FieldDef.CHAR,12);
+            pcictal572 = new FieldDef("pcictal572",FieldDef.CHAR,4);
+            pcisubctal572 = new FieldDef("pcisubctal572",FieldDef.CHAR,12);
             FieldDef array[] = {
                 pcielemento,
                 pciempresa,
@@ -4822,7 +4872,17 @@ public class CatEasp extends Catalog
                 pcitipofiscal,
                 pcileavresid,
                 pcileaporcint,
-                pcileaespyme                
+                pcileaespyme,
+                pcictal524,
+                pcisubctal524,
+                pcictal662,
+                pcisubctal662,
+                pcictal626,
+                pcisubctal626,
+                pcictal472,
+                pcisubctal472,
+                pcictal572,
+                pcisubctal572                
                 };
             setColumns(array);
             FieldDef arrayf[] = {pcielemento };

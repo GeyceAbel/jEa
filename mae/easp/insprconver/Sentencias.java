@@ -3,6 +3,43 @@ package mae.easp.insprconver;
 import mae.easp.general.Easp;
 
 public class Sentencias {
+	public static String sentencias19_5[]= {
+		"ALTER TABLE PCINMOV ADD pcictal524 VARCHAR(4);",
+		"ALTER TABLE PCINMOV ADD pcisubctal524 VARCHAR(12);",
+		"ALTER TABLE PCINMOV ADD pcictal662 VARCHAR(4);",
+		"ALTER TABLE PCINMOV ADD pcisubctal662 VARCHAR(12);",
+		"ALTER TABLE PCINMOV ADD pcictal626 VARCHAR(4);",
+		"ALTER TABLE PCINMOV ADD pcisubctal626 VARCHAR(12);",
+		"ALTER TABLE PCINMOV ADD pcictal472 VARCHAR(4);",
+		"ALTER TABLE PCINMOV ADD pcisubctal472 VARCHAR(12);",
+		"ALTER TABLE PCINMOV ADD pcictal572 VARCHAR(4);",
+		"ALTER TABLE PCINMOV ADD pcisubctal572 VARCHAR(12);",
+		"ALTER TABLE PCINMOVHIS ADD pcihctal524 VARCHAR(4);",
+		"ALTER TABLE PCINMOVHIS ADD pcihsubctal524 VARCHAR(12);",
+		"ALTER TABLE PCINMOVHIS ADD pcihctal662 VARCHAR(4);",
+		"ALTER TABLE PCINMOVHIS ADD pcihsubctal662 VARCHAR(12);",
+		"ALTER TABLE PCINMOVHIS ADD pcihctal626 VARCHAR(4);",
+		"ALTER TABLE PCINMOVHIS ADD pcihsubctal626 VARCHAR(12);",
+		"ALTER TABLE PCINMOVHIS ADD pcihctal472 VARCHAR(4);",
+		"ALTER TABLE PCINMOVHIS ADD pcihsubctal472 VARCHAR(12);",
+		"ALTER TABLE PCINMOVHIS ADD pcihctal572 VARCHAR(4);",
+		"ALTER TABLE PCINMOVHIS ADD pcihsubctal572 VARCHAR(12);"
+	};
+	public static String sentencias19_4[]= {
+			"ALTER TABLE PCINMOV ADD pcileavresid FLOAT;",
+			"ALTER TABLE PCINMOV ADD pcileaporcint FLOAT;",
+			"ALTER TABLE PCINMOV ADD pcileaespyme VARCHAR(1);",
+			
+			"ALTER TABLE PCINMOVHIS ADD pcihleavresid FLOAT;",
+			"ALTER TABLE PCINMOVHIS ADD pcihleaporcint FLOAT;",
+			"ALTER TABLE PCINMOVHIS ADD pcihleaespyme VARCHAR(1);",
+			
+			"ALTER TABLE PCMORANUAL ADD pcmporcint FLOAT;",
+			"ALTER TABLE PCMORANUAL ADD pcmintereses FLOAT;",
+			"ALTER TABLE PCMORANUALHIS ADD pcmhporcint FLOAT;",
+			"ALTER TABLE PCMORANUALHIS ADD pcmhintereses FLOAT;"
+			
+	};
 	public static String sentencias19_3[] = {
 			"CREATE TABLE DFSCORRECCION("+
 			"	    dfcoejer       INTEGER NOT NULL,"+

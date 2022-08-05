@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Jun 30 10:02:13 CEST 2022
+// Fecha y hora:     Thu Aug 04 19:27:36 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -4772,6 +4772,38 @@ String sentencias17_4[] = {"DELETE FROM AMORTIZACION WHERE amocodigo>=2000"};
         Easp.connEA.commit();
         vvveractual.setValue("19.3");
     }
+    if (versio < 19.4) {
+        for (i = 0; i < Sentencias.sentencias19_4.length; ++i) {
+               try {
+                       Easp.chivato("19.4 Exec : ["+Sentencias.sentencias19_4[i]+"]",1);
+                       Easp.connEA.executeUpdate(Sentencias.sentencias19_4[i]);
+               }
+               catch(Exception e) {
+                       sqlOperation=Sentencias.sentencias19_4[i];
+                       Easp.chivato("19.4 *** Error : ["+Sentencias.sentencias19_4[i]+"]  Error: ["+e+"]",1);
+                       errorMessage=e.getMessage();
+               }
+       }
+       Easp.setVersionBD("bdeasp","19.4");
+       Easp.connEA.commit();
+       vvveractual.setValue("19.4");
+   }
+   if (versio < 19.5) {
+        for (i = 0; i < Sentencias.sentencias19_5.length; ++i) {
+               try {
+                       Easp.chivato("19.5 Exec : ["+Sentencias.sentencias19_5[i]+"]",1);
+                       Easp.connEA.executeUpdate(Sentencias.sentencias19_5[i]);
+               }
+               catch(Exception e) {
+                       sqlOperation=Sentencias.sentencias19_5[i];
+                       Easp.chivato("19.5 *** Error : ["+Sentencias.sentencias19_5[i]+"]  Error: ["+e+"]",1);
+                       errorMessage=e.getMessage();
+               }
+       }
+       Easp.setVersionBD("bdeasp","19.5");
+       Easp.connEA.commit();
+       vvveractual.setValue("19.5");
+   }
   }
   catch(Exception e) {
     System.out.println("Error en conversión: ["+e+"]");
