@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jun 09 09:03:27 CEST 2021
+// Fecha y hora:     Tue Sep 06 12:53:30 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -838,6 +838,11 @@ class Seleccio {
        quorelacioPrincipal.sentencia = sentencia.toString();
 
        quorelacioPrincipal.selector.execute(sentencia.toString());
+       while(seleccio.quorelacioPrincipal.selector.next()) {
+   	     seleccio.quorelacioPrincipal.numReg++;
+        }      
+        seleccio.quorelacioPrincipal.selector.execute(sentencia.toString());
+	
     }
   }
 
@@ -942,7 +947,7 @@ class Seleccio {
       for(java.util.Enumeration e=frase.nomsColumnes.keys();e.hasMoreElements();) {
           String key=(String)e.nextElement();
           Columna col=(Columna)frase.nomsColumnes.get(key);
-          System.out.println(col.camp.field.getName());
+          System.out.println(col.camp.field.getName());
           if (col.quorelacio.eof)
             col.valor.setNull();
           else
@@ -968,7 +973,7 @@ class Seleccio {
                     else
                         col.valor.setValue(vali);
                     break;
-                case Value.STRING:                	
+                case Value.STRING:
                     String vals=(String)col.quorelacio.selector.getObject(col.camp.field.getName());
                     //String vals=col.quorelacio.selector.getString(col.camp.field.getName());
                     if (col.quorelacio.selector.wasNull())
@@ -2556,19 +2561,48 @@ public void calculaAmpladaColumnesJasper(Frase frase, double llargadaTotal) {
                     splantillas.setWhere("plaplicacion = '" + aplicacion + "' and plcodigo = '" + squery.qefplantilla.getString() + "' and plventana = '" + squery.qeffrase.getString() + "'");
                     splantillas.execute();    
                     if(!splantillas.isEof()) {  
-                      plantilla = new mae.general.PlantillaJacob (splantillas.plurlplantilla.getString().trim());
+                      int tipoPlantilla = splantillas.pltipoplan.isNull()?0:splantillas.pltipoplan.getInteger();
+      plantilla = new mae.general.PlantillaJacob (splantillas.plurlplantilla.getString().trim(),tipoPlantilla);
                       if(plantilla.existePlantilla()) {
                         frase=llegeixFrase(squery.qeffrase.getString());    
                         if (!demanarParametres(true)) 
                         return;    
                         seleccio=new Seleccio();    
                         seleccio.inicia();
-                        if (seleccio.quorelacioPrincipal.eof) {
+                           /*   
+        while(seleccio.quorelacioPrincipal.selector.next()) {
+   	     seleccio.quorelacioPrincipal.numReg++;
+        }      
+        seleccio.quorelacioPrincipal.selector.execute(seleccio.quorelacioPrincipal.sentencia);
+        */
+        if (seleccio.quorelacioPrincipal.eof) {
                           Maefc.message("No se ha encontrado información que cumple con la selección efectuada");
                           return;
                         }
-                        String sentencia = seleccio.quorelacioPrincipal.sentencia;
-                        Inflistado listado=new Inflistado(querylis);
+
+        //String sentencia = seleccio.quorelacioPrincipal.sentencia;
+                	   int numReg = seleccio.quorelacioPrincipal.numReg;
+        Columna col1=new Columna();
+        col1.titol="TOTALREC";
+        col1.tipus=2;
+        col1.llarg=0;
+        col1.format=null;
+        col1.acumula=false;
+        col1.visible=true;
+        col1.orderby=null;
+        col1.saltapag=false;
+        col1.inipag=false;
+        col1.sumatorio=false;
+        col1.agrupar=false;
+        col1.media = false;
+        col1.contador =false;
+        col1.rotura = false;
+        col1.titRotura = null;
+        col1.valor=new Value(col1.tipus);
+        col1.valor.setValue(numReg);
+        frase.columnes.add(col1);
+        
+        Inflistado listado=new Inflistado(querylis);
                         listado.setNewPrintingSystem(true);
                         String xml=creaXML();
                         
@@ -3141,6 +3175,7 @@ public void calculaAmpladaColumnesJasper(Frase frase, double llargadaTotal) {
         public Field plurlplantilla;
         public Field plusuario;
         public Field plventana;
+        public Field pltipoplan;
         class Plantillas extends Table
             {
             // GLOBALES: TABLA
@@ -3168,6 +3203,7 @@ public void calculaAmpladaColumnesJasper(Frase frase, double llargadaTotal) {
             addField(plurlplantilla=new Field(this,plantillas,"plurlplantilla"));
             addField(plusuario=new Field(this,plantillas,"plusuario"));
             addField(plventana=new Field(this,plantillas,"plventana"));
+            addField(pltipoplan=new Field(this,plantillas,"pltipoplan"));
             }
         // GET: SELECT
         // EVENT: SELECT

@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Jun 09 09:31:22 CEST 2021
+// Fecha y hora:     Mon Sep 05 13:53:33 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -3177,12 +3177,16 @@ public void ompleOrigenDades (java.io.File fitxer) throws Exception {
       puntocoma = ";";      
     }
   }
+  cadena += ";\"TOTALREC\""; 
+
+  
   fileout.println(cadena);
   //espais en blanc
   cadena="";	
   for(int z=0;z<columnasVisibles;z++) {		      
     cadena +="\""+"\"" + (z+1==columnasVisibles?"":";");    
   }	
+    cadena +=";\""+"\"";
   fileout.println(cadena);       
   fileout.flush();
   fileout.close();

@@ -15,5 +15,6 @@ public class Quorelacio
   
   public Selector selector;
   public String sentencia;
+  public int numReg = 0;
   public boolean eof;
 }
