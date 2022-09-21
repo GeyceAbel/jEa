@@ -838,10 +838,10 @@ class Seleccio {
        quorelacioPrincipal.sentencia = sentencia.toString();
 
        quorelacioPrincipal.selector.execute(sentencia.toString());
-       while(seleccio.quorelacioPrincipal.selector.next()) {
-   	     seleccio.quorelacioPrincipal.numReg++;
+       while(quorelacioPrincipal.selector.next()) {
+   	     quorelacioPrincipal.numReg++;
         }      
-        seleccio.quorelacioPrincipal.selector.execute(sentencia.toString());
+        quorelacioPrincipal.selector.execute(sentencia.toString());
 	
     }
   }
