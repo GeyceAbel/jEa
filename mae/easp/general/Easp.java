@@ -2845,21 +2845,21 @@ public static boolean eliminaCdpEmpresa(int codcdp) {
 		// BANCOCLI
 	Selector s = new Selector (connEA);
 	s.execute("Select * from BANCOCLI where bcccodigo = '" + codi + "'");
-	if(s.next()) {
+	while(s.next()) {
 		Delete d = new Delete(connEA, "BANCOCLI");
 		bOk = d.execute("bcccodigo = '" + codi + "'");
 	}
 	s.close();
 		// ASIGNACIONES
 	s.execute("Select * from ASIGNACIONES where abacodigo = '" + codi + "'");
-	if(s.next()) {
+	while(s.next()) {
 		Delete d = new Delete(connEA, "ASIGNACIONES");
 		bOk = d.execute("abacodigo = '" + codi + "'");
 	}
 	s.close();
 		// REPRESENTANTES
 	s.execute("Select * from REPRESENTANTES where repcodigo = '" + codi + "'");
-	if(s.next()) {
+	while(s.next()) {
 		Delete d = new Delete(connEA, "REPRESENTANTES");
 		bOk = d.execute("repcodigo = '" + codi + "'");
 	}
