@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Fri Aug 02 10:46:46 CEST 2019
+// Fecha y hora:     Thu Sep 29 10:30:37 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -1087,12 +1087,22 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 }
             public Object getDefault ()
                 {
-                  snumeraciones.execute();
-                  if (!snumeraciones.isEof()) 
-                     nuevoCodiCDP=snumeraciones.numcodigo.getInteger()+1;
-                  else
-                     nuevoCodiCDP=1;
-                  return new Integer(nuevoCodiCDP);
+                  Hashtable<String,List<String>> ht = new Hashtable<String, List<String>>();
+                   int i = 0;
+                   while(i!=0) {
+                 	  snumeraciones.execute();
+                 	  if (!snumeraciones.isEof()) 
+                 		  nuevoCodiCDP=snumeraciones.numcodigo.getInteger()+1;
+                 	  else
+                 		  nuevoCodiCDP=1;
+                 	  nuevoCodiCDP += i;
+                	  ht = mae.easp.general.Easp.existeCodiEmpresa(cdpnifcif,ejercicio,nuevoCodiCDP, true, true, true, true, true);
+                 	  if (ht.size()>0) 
+                 		  i++;
+                 	  else
+                 		  i=0;
+                   }
+                   return new Integer(nuevoCodiCDP);
                 }
             public boolean obligate ()
                 {
