@@ -2837,6 +2837,37 @@ public static Hashtable <String, List<String> > existeCodiEmpresa(String nif, in
  return ht;
 }
 
+public static boolean eliminaCdpEmpresa(int codcdp) {
+	boolean bOk = true;
+	
+	String codi=asigCeros(Integer.toString(codcdp));
+	codi = Easp.dominio.substring(0,6)+codi;
+		// BANCOCLI
+	Selector s = new Selector (connEA);
+	s.execute("Select * from BANCOCLI where bcccodigo = '" + codi + "'");
+	if(s.next()) {
+		Delete d = new Delete(connEA, "BANCOCLI");
+		bOk = d.execute("bcccodigo = '" + codi + "'");
+	}
+	s.close();
+		// ASIGNACIONES
+	s.execute("Select * from ASIGNACIONES where abacodigo = '" + codi + "'");
+	if(s.next()) {
+		Delete d = new Delete(connEA, "ASIGNACIONES");
+		bOk = d.execute("abacodigo = '" + codi + "'");
+	}
+	s.close();
+		// REPRESENTANTES
+	s.execute("Select * from REPRESENTANTES where repcodigo = '" + codi + "'");
+	if(s.next()) {
+		Delete d = new Delete(connEA, "REPRESENTANTES");
+		bOk = d.execute("repcodigo = '" + codi + "'");
+	}
+	s.close();	
+	
+	return bOk;
+}
+
 public static String asigCeros(String codigo){
 		int n=6 - codigo.length();
 		if (n>0){
