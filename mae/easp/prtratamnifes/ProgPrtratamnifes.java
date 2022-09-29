@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Sep 29 12:17:39 CEST 2022
+// Fecha y hora:     Thu Sep 29 13:51:23 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -11,6 +11,8 @@ import mae.easp.db.*;
 import mae.general.*;
 // 
 // IMPORTS: PROGRAMA
+import java.util.Hashtable;
+import java.util.List;
 import mae.easp.*;
 // 
 // Programa: prtratamnifes
@@ -34,6 +36,8 @@ public boolean noCargues = false ;
 
 public boolean gAltaEfectuada = false ;
 public boolean esAndorra = false;
+
+public int ejercicio = Fecha.anyo( Maefc.getDate());
     // Metodos
     // Ventana
     public FormVnifes vnifes;
@@ -1096,7 +1100,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                  	  else
                  		  nuevoCodiCDP=1;
                  	  nuevoCodiCDP += i;
-                	  ht = mae.easp.general.Easp.existeCodiEmpresa(cdpnifcif,ejercicio,nuevoCodiCDP, true, true, true, true, true);
+                	  ht = mae.easp.general.Easp.existeCodiEmpresa(vnifcif,ejercicio,nuevoCodiCDP, true, true, true, true, true);
                  	  if (ht.size()>0) 
                  		  i++;
                  	  else {
