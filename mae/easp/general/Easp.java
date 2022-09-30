@@ -2840,7 +2840,7 @@ public static Hashtable <String, List<String> > existeCodiEmpresa(String nif, in
 public static boolean eliminaCdpEmpresa(int codcdp) {
 	boolean bOk = true;
 	
-	String codi=Numero.format(Integer.toString(codcdp), "000000");
+	String codi=Numero.format(codcdp, "000000");
 	codi = Easp.dominio.substring(0,6)+codi;
 		// BANCOCLI
 	Selector s = new Selector (connEA);
