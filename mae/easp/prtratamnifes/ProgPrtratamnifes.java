@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Wed Oct 05 15:56:24 CEST 2022
+// Fecha y hora:     Wed Oct 05 16:15:15 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -1088,7 +1088,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 if (Easp.codiDP!=null) {
                   String noucdp=Easp.codiDP.substring(0,6)+Numero.format((double)getInteger(),"000000");
                   Hashtable<String,List<String>> ht = new Hashtable<String, List<String>>();
-  ht = mae.easp.general.Easp.existeCodiEmpresa(vnifcif,ejercicio,nuevoCodiCDP, true, true, true, true, true);
+  ht = mae.easp.general.Easp.existeCodiEmpresa(danifcif.getString(),ejercicio,nuevoCodiCDP, true, true, true, true, true);
   if (ht.size()>0) {
     setMessageWarning("El cliente ["+getInteger()+"] ya existe. \nEscriba otro código diferente");
     return false;
