@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Sep 29 13:51:23 CEST 2022
+// Fecha y hora:     Wed Oct 05 15:56:24 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -88,6 +88,7 @@ public void onInsert(){
   if (vnifcif!=null){
     nifValido=vnifcif;
     nifYaExiste(nifValido);
+    
     }
   }
 /*
@@ -107,7 +108,7 @@ public boolean nifYaExiste(String nif){
   snifrep.execute();
   if (!snifrep.isEof()) {
     if (nifCdpYaExiste(nif)) {
-      String codCDP = scdprep.cdpcodi.getString();
+      String codCDP = vcdpcodi.getInteger();
       if (  codCDP.length() > 6 ) codCDP = codCDP.substring(6);
       if  ( Maefc.message("Ya existe una ficha con este nif y código "+codCDP+"\n\n¿Desea crear otra ficha con otro código?","Atención ",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION ) != Maefc.YES_OPTION ) {
         vnifcif = nif ;
@@ -333,6 +334,10 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                       datipf.setValue("1");
                     }
                   }
+                }
+            public void userChange (Value v)
+                {
+                vcdpcodi.valid();
                 }
             public boolean obligate ()
                 {
@@ -1082,12 +1087,17 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 {
                 if (Easp.codiDP!=null) {
                   String noucdp=Easp.codiDP.substring(0,6)+Numero.format((double)getInteger(),"000000");
-                  if (cdpYaExiste(noucdp) && getNumState()==DataForm.INSERT) {
-                    setMessageWarning("El cliente ["+getInteger()+"] ya existe. \nEscriba otro código diferente");
-                    return false;
-                    }
-                  }
+                  Hashtable<String,List<String>> ht = new Hashtable<String, List<String>>();
+  ht = mae.easp.general.Easp.existeCodiEmpresa(vnifcif,ejercicio,nuevoCodiCDP, true, true, true, true, true);
+  if (ht.size()>0) {
+    setMessageWarning("El cliente ["+getInteger()+"] ya existe. \nEscriba otro código diferente");
+    return false;
+  }
+  else 
+    mae.easp.general.Easp.eliminaCdpEmpresa(nuevoCodiCDP);
+}
                 return super.valid();
+
                 }
             public Object getDefault ()
                 {
@@ -1109,6 +1119,11 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                  	  }
                    }
                    return new Integer(nuevoCodiCDP);
+                }
+            public void userChange (Value v)
+                {
+                super.userChange (v);
+                vcdpcodi.valid();
                 }
             public boolean obligate ()
                 {
