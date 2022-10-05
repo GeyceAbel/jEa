@@ -2680,7 +2680,7 @@ public static boolean isSecurityMD5 () {
 //Ctrol si codi empresa (cdpcodi) tambe asignat en un altre NIF 
 public static Hashtable <String, List<String> > existeCodiEmpresa(String nif, int ejercicio, int codcdp, boolean tejLab, boolean tejCon, boolean tejEo, boolean tejIss, boolean tejRen) {
 	  Hashtable<String,List<String>> ht = new Hashtable<String, List<String>>();	//ht de nif com a clau i llista aplicatius com a valor 
-	  if (nif!=null && "".equals(nif.trim())) {
+	  if (nif!=null && "".equals(nif.trim()) && codcdp>0) {
 		  ErrorManager actual = Aplication.getAplication().getErrorManager();
 		  mae.easp.general.JEaError errorManager = new mae.easp.general.JEaError();
 		  Aplication.getAplication().setErrorManager(errorManager);	 
