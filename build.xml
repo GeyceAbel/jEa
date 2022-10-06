@@ -6,8 +6,8 @@
 
 	<property name="vjava" value="7" />
 	<property name="vejer" value="22" />
-	<property name="vmes" value="09" />
-	<property name="vauto" value="03" />
+	<property name="vmes" value="10" />
+	<property name="vauto" value="01" />
 
 	<property name="dist" location="buildtmp" />
 	<property name="zipsversio" location="ZIP" />
