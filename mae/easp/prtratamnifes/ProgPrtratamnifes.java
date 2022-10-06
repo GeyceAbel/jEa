@@ -1,5 +1,5 @@
 // Codigo Generado por AppJEDICASE V-15.01.00.01 NO MODIFICAR!
-// Fecha y hora:     Thu Oct 06 17:17:39 CEST 2022
+// Fecha y hora:     Thu Oct 06 17:46:51 CEST 2022
 // 
 // Aplicación: easp
 // 
@@ -108,7 +108,7 @@ public boolean nifYaExiste(String nif){
   snifrep.execute();
   if (!snifrep.isEof()) {
     if (nifCdpYaExiste(nif)) {
-      String codCDP = scdprep.cdpcodi.getString()
+      String codCDP = scdprep.cdpcodi.getString();
       if (  codCDP.length() > 6 ) codCDP = codCDP.substring(6);
       if  ( Maefc.message("Ya existe una ficha con este nif y código "+codCDP+"\n\n¿Desea crear otra ficha con otro código?","Atención ",Maefc.QUESTION_MESSAGE,Maefc.YES_NO_OPTION ) != Maefc.YES_OPTION ) {
         vnifcif = nif ;
