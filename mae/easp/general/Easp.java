@@ -2680,7 +2680,7 @@ public static boolean isSecurityMD5 () {
 //Ctrol si codi empresa (cdpcodi) tambe asignat en un altre NIF 
 public static Hashtable <String, List<String> > existeCodiEmpresa(String nif, int ejercicio, int codcdp, boolean tejLab, boolean tejCon, boolean tejEo, boolean tejIss, boolean tejRen) {
 	  Hashtable<String,List<String>> ht = new Hashtable<String, List<String>>();	//ht de nif com a clau i llista aplicatius com a valor 
-	  if (nif!=null && "".equals(nif.trim()) && codcdp>0) {
+	  if (nif!=null && !"".equals(nif.trim()) && codcdp>0) {
 		  ErrorManager actual = Aplication.getAplication().getErrorManager();
 		  mae.easp.general.JEaError errorManager = new mae.easp.general.JEaError();
 		  Aplication.getAplication().setErrorManager(errorManager);	 
@@ -2694,10 +2694,6 @@ public static Hashtable <String, List<String> > existeCodiEmpresa(String nif, in
 			  Selector s = new Selector (connEA);		
 			  s.execute("Select * from BDSCARGADAS where bddominio like '"+Easp.dominio.substring(0,6)+"%' AND bdejer="+ejercicio);
 	          while (s.next()) {
-	        	  int any=s.getint("bdejer");
-	        	  String bdtipo  = s.getString("bdtipo");
-	        	  String bdbdnom = s.getString("bdbdnom");
-	        	  String bddomicta=s.getString(("bddominio"));
 	        	  //System.out.println(" "+codi+" bdbdnom="+bdbdnom+" bdtipo="+bdtipo+" bddominio="+bddomicta+" ("+any+")");
 	        	  DBConnection connCta =  Easp.conectaBD (s.getString("bdbdnom"), s.getString("bdbdserv"), s.getString("bdbduser"), s.getString("bdbdpass"), s.getString("bdtipo"));
 	        	  //        	   
@@ -2717,6 +2713,7 @@ public static Hashtable <String, List<String> > existeCodiEmpresa(String nif, in
 	    				  }
 	    			  }
 	    			  sCo.close(); 
+	    			  connCta.disconnect();
 	    		  }
 	        	  //
 	          }
@@ -2742,6 +2739,7 @@ public static Hashtable <String, List<String> > existeCodiEmpresa(String nif, in
 					  }
 				  }
 				  sN.close();
+				  connJNomina.disconnect();
 			  }
 		  }	
 		  	   
@@ -2764,6 +2762,7 @@ public static Hashtable <String, List<String> > existeCodiEmpresa(String nif, in
 					  }
 				  }
 				  sE.close();
+				  connJEO.disconnect();
 			  }
 		  }
 		  
@@ -2771,7 +2770,7 @@ public static Hashtable <String, List<String> > existeCodiEmpresa(String nif, in
 			  DBConnection connJIss = Easp.getConnexio("jiss", Easp.connEA);
 			  if (connJIss!=null) {
 				  Selector sI = new Selector (connJIss); 
-				  sI.execute("Select soccif,socnombre,socejeraplic FROM SOCIEDADES where socejeraplic="+ejerant1+" AND soccodigo="+codcdp+" AND soccif<>'"+nif+"' order by soccodigo");
+				  sI.execute("Select soccif,socnombre,socejeraplic FROM SOCIEDADES where socejeraplic>="+ejerant1+" AND soccodigo="+codcdp+" AND soccif<>'"+nif+"' order by soccodigo");
 				  while (sI.next()){				  
 					  String NIF = sI.getString("soccif");
 					  String NOM = sI.getString("socnombre");
@@ -2786,6 +2785,7 @@ public static Hashtable <String, List<String> > existeCodiEmpresa(String nif, in
 					  }
 				  }
 				  sI.close();
+				  connJIss.disconnect();
 			  }
 		  }
 		  
@@ -2794,7 +2794,7 @@ public static Hashtable <String, List<String> > existeCodiEmpresa(String nif, in
 			  if (connJRenta!=null) {
 				  String codicdp=asigCeros(Integer.toString(codcdp));
 				  codicdp =Easp.dominio.substring(0,6)+codicdp;
-				  String sql= " decejeraplic="+ejerant1+" AND (deccodigocdpdec='"+codicdp+"' OR deccodigocdpcon='"+codicdp+"' )";
+				  String sql= " decejeraplic>="+ejerant1+" AND (deccodigocdpdec='"+codicdp+"' OR deccodigocdpcon='"+codicdp+"' )";
 	
 				  Selector sD = new Selector (connJRenta);
 				  sD.execute("Select decnifdec,decnifcon,deccodigocdpdec,deccodigocdpcon,decapell1dec,decapell2dec,decnombredec,decapell1con,decapell2con,decnombrecon,deccodigo,decejeraplic from DECLARANTE where "+sql+"  order by decejeraplic,deccodigocdpdec");
@@ -2830,6 +2830,7 @@ public static Hashtable <String, List<String> > existeCodiEmpresa(String nif, in
 					  }
 				  }
 				  sD.close();
+				  connJRenta.disconnect();
 			  }
 		  }
 		  Aplication.getAplication().setErrorManager(actual);
