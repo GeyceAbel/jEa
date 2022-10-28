@@ -271,7 +271,14 @@ public class Azure {
 		}
 		else {
 			contenido = null;
-			error = "Error al procesar ("+funcion+"): \n("+statusCode+") "+response.getStatusLine().getReasonPhrase();
+			error = "Error al procesar ("+funcion+"): \n("+statusCode+") ";
+			String text = response.getStatusLine().getReasonPhrase();
+			try {
+				String text2 = new String (parseHttpResponse (response));
+				if (text2 != null && text2.trim().length()>0) text = text2;
+			}
+			catch (Exception e) {}
+			error += text;
 		}			
 		bOk = contenido != null;			
 		return bOk;
