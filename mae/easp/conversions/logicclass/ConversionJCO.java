@@ -759,6 +759,8 @@ public class ConversionJCO extends ConversionLC {
 			int contNombreAuto = 0;
 			while (bOk && snif.next()) {
 				if (!addNewDone) {
+					Delete dnifM = new Delete (connEA,"NIFESMUF");
+					dnifM.execute("mufnif='"+nif+"'");
 					Delete dnifes = new Delete (connEA,"NIFES");
 					bOk = dnifes.execute("danifcif='"+nif+"'");
 					addNewDone = true;
