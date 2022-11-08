@@ -450,6 +450,8 @@ public class ConversionJCO extends ConversionLC {
 			}
 			sbdscargadas.close();
 			if (bOk) {
+				Delete dnifM = new Delete (connEA,"NIFESMUF");
+				dnifM.execute("mufnif='"+sNif+"'");
 				Delete dnif = new Delete (connEA,"NIFES");
 				dnif.execute("danifcif='"+sNif+"'");
 				Selector sdan = new Selector (connEA);
@@ -468,6 +470,9 @@ public class ConversionJCO extends ConversionLC {
 					}
 					bOk = altaNIF(iEmp, empJconta,sNif, nombre, apellido1, apellido2,sNombreE, fisica, LetrasEtiqueta,String.valueOf(IdTipoPersona));
 					if (!bOk) sError = "Error en altaNIF";
+				}
+				else {
+					
 				}
 				sdan.close();
 			}
@@ -1855,6 +1860,7 @@ public class ConversionJCO extends ConversionLC {
 		pbf.setState("Convirtiendo LC: "+iEmp+"  JC:"+empJconta+" ("+iEjerJ+")  -  Asientos (Grabando ...)");
 		while (bOk && smov.next()) {
 			pbf.setSecondaryPercent((++numActual)*100/numTotal);
+			System.out.println("Asiento: "+smov.getint("Asiento")+" Cuenta: "+smov.getString("CodigoCuenta"));
 			String sCta = smov.getString("CodigoCuenta");
 			String sc = "";
 			String ss = "";
