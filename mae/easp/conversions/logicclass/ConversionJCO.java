@@ -4974,7 +4974,9 @@ public class ConversionJCO extends ConversionLC {
 				iM180r.valor("m180rmodal", 1);
 				Double base = s180r.getdouble("BaseRetencionLiq");
 				Double importReten = s180r.getdouble("ImporteRetencionLiq");
-				Double porcentaje = (importReten/base)*100;
+				Double porcentaje = 0.0;
+				if(importReten!=0.0 && base!=0.0) //Evita el NaN
+					porcentaje=(importReten/base)*100;
 				iM180r.valor("m180rimport", base);
 				iM180r.valor("m180rporreten", porcentaje);
 				iM180r.valor("m180rretening", importReten);
