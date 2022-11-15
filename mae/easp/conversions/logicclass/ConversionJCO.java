@@ -5038,10 +5038,10 @@ public class ConversionJCO extends ConversionLC {
 			boolean borra = false;
 			boolean existeLocal347 = false;
 			//Borra previamente el mismo local antes de insertar.
-			String whereLocal = "pclempresa="+codGYC+" and pclcuenta='"+cuentaDec+"' and pclsubcuenta='"+subCuentaDec+"' and pclreferencia='"+datosVia[0]+"' and pclcalle='"+datosVia[2]+"' and pclnumero='"+datosVia[4]+"'";
+			String whereLocal = "pclempresa="+codGYC+" and pclcuenta='"+cuentaDec+"' and pclsubcuenta='"+subCuentaDec+"' and pclreferencia='"+datosVia[0]+"' and pclcalle='"+datosVia[2].replace("'"," ")+"' and pclnumero='"+datosVia[4]+"'";
 			String whereLocal347 = "pclempresa="+codGYC+" and pclejercicio="+ejer+" and pclcuenta='"+cuentaDec+"' and pclsubcuenta='"+subCuentaDec+"'";
 			if (datosVia[0]==null)
-				whereLocal = "pclempresa="+codGYC+" and pclejercicio="+ejer+" and pclcuenta='"+cuentaDec+"' and pclsubcuenta='"+subCuentaDec+"' and pclcalle='"+datosVia[2]+"' and pclnumero='"+datosVia[4]+"'";
+				whereLocal = "pclempresa="+codGYC+" and pclejercicio="+ejer+" and pclcuenta='"+cuentaDec+"' and pclsubcuenta='"+subCuentaDec+"' and pclcalle='"+datosVia[2].replace("'"," ")+"' and pclnumero='"+datosVia[4]+"'";
 			slocal.execute("Select pclempresa from pclocales where "+whereLocal);
 			if(slocal.next())
 				borra = true;
@@ -5189,7 +5189,7 @@ public class ConversionJCO extends ConversionLC {
 				if (bOk) bOk = importarPC (empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
 				if (bOk) bOk = importarInmov (empLC,ejerLogic,empJC,ejerJconta, false) && emc.getDescripcionError()==null;
 				if (bOk) bOk = importarFP () && emc.getDescripcionError()==null;
-				if (bOk) bOk = importarAsientos (empLC,ejerLogic,empJC,ejerJconta,fechaCierre,mesInicio) && emc.getDescripcionError()==null;
+				//if (bOk) bOk = importarAsientos (empLC,ejerLogic,empJC,ejerJconta,fechaCierre,mesInicio) && emc.getDescripcionError()==null;
 				if (bOk) {
 					if (ejerLogic<2014) bOk = altaModelo303 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
 					else  bOk = altaModelo303_14 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
