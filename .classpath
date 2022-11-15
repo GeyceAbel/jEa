@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_71"/>
 	<classpathentry kind="lib" path="zipc1.7/audt180101.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/httpclient171202.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jacob0101.zip"/>
@@ -14,7 +15,6 @@
 	<classpathentry kind="lib" path="zipc1.7/sqljdbc0401.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/exptraspasos_7_030279.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jconta7_190612.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/jiss_7_160416.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jissotr_7_160415.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jrenta_7_160702.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jrentaaux_7_160702.zip"/>
@@ -22,16 +22,16 @@
 	<classpathentry kind="lib" path="zipc1.7/labdat_7_191485.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/laboral_7_191485.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/labtraspasos_7_191393.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/modcontrol7_190320.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/modelos_7_160901.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/modivaanu_7_160901.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jeoaux_7_191008.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jeoimp_7_191008.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jeootr_7_191008.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jeosii_7_191008.zip"/>
-	<classpathentry kind="lib" path="zipc1.7/modaeat7_200707.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/microfcagp7210701.zip"/>
 	<classpathentry kind="lib" path="zipc1.7/jeo_7_210909.zip"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_71"/>
+	<classpathentry kind="lib" path="zipc1.7/jiss7_220602.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/modaeat7_220616.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/modcontrol7_220616.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/modelos7_220616.zip"/>
+	<classpathentry kind="lib" path="zipc1.7/modivaanu7_220607.zip"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
