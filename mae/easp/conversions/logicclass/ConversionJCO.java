@@ -5189,7 +5189,7 @@ public class ConversionJCO extends ConversionLC {
 				if (bOk) bOk = importarPC (empLC,ejerLogic,empJC,ejerJconta) && emc.getDescripcionError()==null;
 				if (bOk) bOk = importarInmov (empLC,ejerLogic,empJC,ejerJconta, false) && emc.getDescripcionError()==null;
 				if (bOk) bOk = importarFP () && emc.getDescripcionError()==null;
-				//if (bOk) bOk = importarAsientos (empLC,ejerLogic,empJC,ejerJconta,fechaCierre,mesInicio) && emc.getDescripcionError()==null;
+				if (bOk) bOk = importarAsientos (empLC,ejerLogic,empJC,ejerJconta,fechaCierre,mesInicio) && emc.getDescripcionError()==null;
 				if (bOk) {
 					if (ejerLogic<2014) bOk = altaModelo303 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
 					else  bOk = altaModelo303_14 (sNifEmpresa,empLC,empJC,ejerLogic) && emc.getDescripcionError()==null;
