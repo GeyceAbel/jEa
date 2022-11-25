@@ -1289,7 +1289,7 @@ void omplirDatContacto(boolean esFisica, String ape1, String ape2, String nom){
                 }
             public boolean obligate ()
                 {
-                return true;
+                return true;
                 }
             }
             
