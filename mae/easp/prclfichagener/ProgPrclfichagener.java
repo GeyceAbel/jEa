@@ -1931,7 +1931,7 @@ boolean deleteAsignaciones() {
                 }
             public boolean obligate ()
                 {
-                return true;
+                return true;
                 }
             }
             
@@ -3359,7 +3359,7 @@ else
                 }
             public boolean obligate ()
                 {
-                return super.obligate ();
+                return super.obligate ();
                 }
             }
             
@@ -4662,8 +4662,8 @@ public boolean nifYaExiste(String nif){
                 }
             public Object getDefault ()
                 {
-                return vnifcif;
-                
+                return vnifcif;
+                
                 }
             public boolean obligate ()
                 {
@@ -5317,7 +5317,7 @@ public boolean nifYaExiste(String nif){
         // GET: SELECT
         public String getWhere ()
             {
-            return "numaplic like 'GENERAL%'";
+            return "numaplic like 'GENERAL%'";
             }
         // EVENT: SELECT
         }
@@ -7248,7 +7248,7 @@ primeraVez = false;
             // EVENT: CONTROLEDIT
             public boolean obligate ()
                 {
-                return true ;
+                return true ;
                 }
             }
             
@@ -7339,7 +7339,7 @@ vviban.setValue("ES" + mae.modasp.general.Modasp.getDCIBAN(banco + sucursal + di
                 }
             public boolean obligate ()
                 {
-                return true ;
+                return true ;
                 }
             }
             
@@ -7923,7 +7923,7 @@ sbancocliutil.setWhere("bcccodigo = '"+sbancocli.bcccodigo.getString()+"' and bc
             sucursal = "";
             numero = "";
             digitos = "";
-            super.onInit ();
+            super.onInit ();
             }
         public void onInitFieldset ()
             {
@@ -8728,7 +8728,7 @@ while (f1_3.getControls().length>0) {
             bccprovincia.setValue(sbancocli.bccprovincia.getInteger());
             //doShow();
             primeravez = true;
-            super.onInit ();
+            super.onInit ();
             }
         public boolean onOkUpdate ()
             {
@@ -9319,7 +9319,7 @@ while (f1_3.getControls().length>0) {
                 }
             public boolean obligate ()
                 {
-                return true ;
+                return true ;
                 }
             }
             
@@ -9778,7 +9778,7 @@ public void onOpened() {
             // EVENT: CONTROLEDIT
             public boolean obligate ()
                 {
-                return isEnabled();
+                return isEnabled();
                 }
             }
             
