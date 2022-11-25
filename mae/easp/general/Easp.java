@@ -115,7 +115,7 @@ public class Easp {
 		  else {
     		codiDP=getDPCodi();
 				if (codiDP==null) {
-    			Maefc.message("Hola, No se encuentra grabada la ficha general del Despacho.\n\nCumplimente los datos mínimos requeridos antes de continuar.","Aviso",Maefc.WARNING_MESSAGE);
+    			Maefc.message("hola, No se encuentra grabada la ficha general del Despacho.\n\nCumplimente los datos mínimos requeridos antes de continuar.","Aviso",Maefc.WARNING_MESSAGE);
     			runFichaDP();
     			codiDP=getDPCodi();
     			}
